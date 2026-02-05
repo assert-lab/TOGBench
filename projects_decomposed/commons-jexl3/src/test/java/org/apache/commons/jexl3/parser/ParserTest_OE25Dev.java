@@ -53,7 +53,7 @@ public class ParserTest_OE25Dev {
      * Test the escaped control characters.
      */
 
-    @Test
+@Test
     public void testParse_1_oe() throws Exception {
         final Parser parser = new Parser(";");
         JexlNode sn;
@@ -61,7 +61,7 @@ public class ParserTest_OE25Dev {
         Assert.assertNotNull("parsed node is null", sn);
     }
 
-    @Test
+@Test
     public void testParse_2_oe() throws Exception {
         final Parser parser = new Parser(";");
         JexlNode sn;
@@ -72,7 +72,7 @@ public class ParserTest_OE25Dev {
         Assert.assertNotNull("parsed node is null", sn);
     }
 
-    @Test
+@Test
     public void testParse_3_oe() throws Exception {
         final Parser parser = new Parser(";");
         JexlNode sn;
@@ -86,7 +86,7 @@ public class ParserTest_OE25Dev {
         Assert.assertNotNull("parsed node is null", sn);
     }
 
-    @Test
+@Test
     public void testErrorAmbiguous_2_oe() throws Exception {
         final Parser parser = new Parser(";");
         try {
@@ -99,7 +99,7 @@ public class ParserTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIdentifierEscape_1_oe() {
         final String[] ids = new String[]{"a\\ b", "a\\ b\\ c", "a\\'b\\\"c", "a\\ \\ c"};
         for(final String id : ids) {
@@ -108,7 +108,7 @@ public class ParserTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIdentifierEscape_2_oe() {
         final String[] ids = new String[]{"a\\ b", "a\\ b\\ c", "a\\'b\\\"c", "a\\ \\ c"};
         for(final String id : ids) {
@@ -119,7 +119,7 @@ public class ParserTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testControlCharacters_1_oe() {
         // Both '' and "" are valid JEXL string
         // The array of tuples where the first element is an expected result and the second element is a test string.

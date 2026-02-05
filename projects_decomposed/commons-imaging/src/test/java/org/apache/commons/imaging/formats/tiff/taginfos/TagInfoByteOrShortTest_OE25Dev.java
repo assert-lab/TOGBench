@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Test;
 
 public class TagInfoByteOrShortTest_OE25Dev {
 
-    @Test
+@Test
     public void testEncodeValueTakingByteOrderAndByteArrayOne_1_oe() {
         final TiffDirectoryType tiffDirectoryType = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
         final TagInfoByteOrShort tagInfoByteOrShort = new TagInfoByteOrShort("r", 500, 500, tiffDirectoryType);
@@ -37,7 +37,7 @@ public class TagInfoByteOrShortTest_OE25Dev {
         assertArrayEquals(new byte[]{(byte) 0, (byte) 0, (byte) 0, (byte) 0}, byteArray);
     }
 
-    @Test
+@Test
     public void testEncodeValueTakingByteOrderAndByteArrayTwo_1_oe() {
         final TiffDirectoryType tiffDirectoryType = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
         final TagInfoByteOrShort tagInfoByteOrShort = new TagInfoByteOrShort("r", 500, 500, tiffDirectoryType);

@@ -209,43 +209,43 @@ public class TestAbstractConfigurationSynchronization_OE25Dev {
         sync.verify(Methods.END_WRITE);
     }
 
-    @Test
+@Test
     public void testContainsKeySychronized_1_oe() {
         assertTrue("Wrong result", config.containsKey(PROP));
     }
 
-    @Test
+@Test
     public void testDefaultSynchronizer_1_oe() {
         assertSame("Wrong default synchronizer", NoOpSynchronizer.INSTANCE, new PropertiesConfiguration().getSynchronizer());
     }
 
-    @Test
+@Test
     public void testGetKeysSynchronized_1_oe() {
         assertTrue("No keys", config.getKeys().hasNext());
     }
 
-    @Test
+@Test
     public void testGetPropertySynchronized_1_oe() {
         assertEquals("Wrong raw value", "true", config.getProperty(PROP));
     }
 
-    @Test
+@Test
     public void testGetPropertySynchronized_2_oe() {
         // removed other assertion
         assertTrue("Wrong boolean value", config.getBoolean(PROP));
     }
 
-    @Test
+@Test
     public void testIsEmptySynchronized_1_oe() {
         assertFalse("Configuration is empty", config.isEmpty());
     }
 
-    @Test
+@Test
     public void testSizeSynchronized_1_oe() {
         assertFalse("Wrong size", config.isEmpty());
     }
 
-    @Test
+@Test
     public void testSubsetSynchronized_1_oe() {
         final AbstractConfiguration subset = (AbstractConfiguration) config.subset("configuration");
         sync.verify();

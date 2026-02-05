@@ -33,7 +33,7 @@ import org.junit.jupiter.api.Test;
 
 public class TiffReadTest_OE25Dev extends TiffBaseTest {
 
-    @Test
+@Test
     public void test_1_oe() throws Exception {
         final List<File> images = getTiffImages();
         for (final File imageFile : images) {
@@ -45,7 +45,7 @@ public class TiffReadTest_OE25Dev extends TiffBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_2_oe() throws Exception {
         final List<File> images = getTiffImages();
         for (final File imageFile : images) {
@@ -62,7 +62,7 @@ public class TiffReadTest_OE25Dev extends TiffBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_3_oe() throws Exception {
         final List<File> images = getTiffImages();
         for (final File imageFile : images) {
@@ -82,7 +82,7 @@ public class TiffReadTest_OE25Dev extends TiffBaseTest {
     }
     }
 
-    @Test
+@Test
     public void testReadDirectories_1_oe() throws Exception {
         // same as above, but test reading the TIFF directories
         final List<File> images = getTiffImages();

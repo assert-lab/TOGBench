@@ -72,20 +72,20 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         }
     }
 
-    public void testAddresses_1_oe() {
+public void testAddresses_1_oe() {
         final SubnetUtils utils = new SubnetUtils("192.168.0.1/29");
         final SubnetInfo info = utils.getInfo();
         assertTrue(info.isInRange("192.168.0.1"));
     }
 
-    public void testAddresses_2_oe() {
+public void testAddresses_2_oe() {
         final SubnetUtils utils = new SubnetUtils("192.168.0.1/29");
         final SubnetInfo info = utils.getInfo();
         // removed other assertion
         assertTrue(info.isInRange("192.168.0.2"));
     }
 
-    public void testAddresses_3_oe() {
+public void testAddresses_3_oe() {
         final SubnetUtils utils = new SubnetUtils("192.168.0.1/29");
         final SubnetInfo info = utils.getInfo();
         // removed other assertion
@@ -93,7 +93,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertTrue(info.isInRange("192.168.0.3"));
     }
 
-    public void testAddresses_4_oe() {
+public void testAddresses_4_oe() {
         final SubnetUtils utils = new SubnetUtils("192.168.0.1/29");
         final SubnetInfo info = utils.getInfo();
         // removed other assertion
@@ -102,7 +102,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertTrue(info.isInRange("192.168.0.4"));
     }
 
-    public void testAddresses_5_oe() {
+public void testAddresses_5_oe() {
         final SubnetUtils utils = new SubnetUtils("192.168.0.1/29");
         final SubnetInfo info = utils.getInfo();
         // removed other assertion
@@ -112,7 +112,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertTrue(info.isInRange("192.168.0.5"));
     }
 
-    public void testAddresses_6_oe() {
+public void testAddresses_6_oe() {
         final SubnetUtils utils = new SubnetUtils("192.168.0.1/29");
         final SubnetInfo info = utils.getInfo();
         // removed other assertion
@@ -123,7 +123,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertTrue(info.isInRange("192.168.0.6"));
     }
 
-    public void testAddresses_7_oe() {
+public void testAddresses_7_oe() {
         final SubnetUtils utils = new SubnetUtils("192.168.0.1/29");
         final SubnetInfo info = utils.getInfo();
         // removed other assertion
@@ -136,7 +136,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertFalse(info.isInRange("192.168.0.7"));
     }
 
-    public void testAddresses_8_oe() {
+public void testAddresses_8_oe() {
         final SubnetUtils utils = new SubnetUtils("192.168.0.1/29");
         final SubnetInfo info = utils.getInfo();
         // removed other assertion
@@ -150,7 +150,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertFalse(info.isInRange("192.168.0.8"));
     }
 
-    public void testAddresses_9_oe() {
+public void testAddresses_9_oe() {
         final SubnetUtils utils = new SubnetUtils("192.168.0.1/29");
         final SubnetInfo info = utils.getInfo();
         // removed other assertion
@@ -165,7 +165,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertFalse(info.isInRange("10.10.2.1"));
     }
 
-    public void testAddresses_10_oe() {
+public void testAddresses_10_oe() {
         final SubnetUtils utils = new SubnetUtils("192.168.0.1/29");
         final SubnetInfo info = utils.getInfo();
         // removed other assertion
@@ -181,7 +181,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertFalse(info.isInRange("192.168.1.1"));
     }
 
-    public void testAddresses_11_oe() {
+public void testAddresses_11_oe() {
         final SubnetUtils utils = new SubnetUtils("192.168.0.1/29");
         final SubnetInfo info = utils.getInfo();
         // removed other assertion
@@ -198,14 +198,14 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertFalse(info.isInRange("192.168.0.255"));
     }
 
-    public void testCidrAddresses_1_oe() {
+public void testCidrAddresses_1_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
         assertEquals("255.0.0.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_2_oe() {
+public void testCidrAddresses_2_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -213,7 +213,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(16777216, info.getAddressCount());
     }
 
-    public void testCidrAddresses_3_oe() {
+public void testCidrAddresses_3_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -226,7 +226,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("0.0.0.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_4_oe() {
+public void testCidrAddresses_4_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -240,7 +240,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(4294967296L, info.getAddressCountLong());
     }
 
-    public void testCidrAddresses_5_oe() {
+public void testCidrAddresses_5_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -259,7 +259,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("128.0.0.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_6_oe() {
+public void testCidrAddresses_6_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -279,7 +279,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(2147483648L, info.getAddressCountLong());
     }
 
-    public void testCidrAddresses_7_oe() {
+public void testCidrAddresses_7_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -304,7 +304,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.128.0.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_8_oe() {
+public void testCidrAddresses_8_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -330,7 +330,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(8388608, info.getAddressCount());
     }
 
-    public void testCidrAddresses_9_oe() {
+public void testCidrAddresses_9_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -361,7 +361,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.192.0.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_10_oe() {
+public void testCidrAddresses_10_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -393,7 +393,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(4194304, info.getAddressCount());
     }
 
-    public void testCidrAddresses_11_oe() {
+public void testCidrAddresses_11_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -430,7 +430,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.224.0.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_12_oe() {
+public void testCidrAddresses_12_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -468,7 +468,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(2097152, info.getAddressCount());
     }
 
-    public void testCidrAddresses_13_oe() {
+public void testCidrAddresses_13_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -511,7 +511,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.240.0.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_14_oe() {
+public void testCidrAddresses_14_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -555,7 +555,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(1048576, info.getAddressCount());
     }
 
-    public void testCidrAddresses_15_oe() {
+public void testCidrAddresses_15_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -604,7 +604,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.248.0.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_16_oe() {
+public void testCidrAddresses_16_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -654,7 +654,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(524288, info.getAddressCount());
     }
 
-    public void testCidrAddresses_17_oe() {
+public void testCidrAddresses_17_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -709,7 +709,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.252.0.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_18_oe() {
+public void testCidrAddresses_18_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -765,7 +765,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(262144, info.getAddressCount());
     }
 
-    public void testCidrAddresses_19_oe() {
+public void testCidrAddresses_19_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -826,7 +826,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.254.0.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_20_oe() {
+public void testCidrAddresses_20_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -888,7 +888,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(131072, info.getAddressCount());
     }
 
-    public void testCidrAddresses_21_oe() {
+public void testCidrAddresses_21_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -955,7 +955,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.0.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_22_oe() {
+public void testCidrAddresses_22_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -1023,7 +1023,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(65536, info.getAddressCount());
     }
 
-    public void testCidrAddresses_23_oe() {
+public void testCidrAddresses_23_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -1096,7 +1096,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.128.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_24_oe() {
+public void testCidrAddresses_24_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -1170,7 +1170,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(32768, info.getAddressCount());
     }
 
-    public void testCidrAddresses_25_oe() {
+public void testCidrAddresses_25_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -1249,7 +1249,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.192.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_26_oe() {
+public void testCidrAddresses_26_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -1329,7 +1329,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(16384, info.getAddressCount());
     }
 
-    public void testCidrAddresses_27_oe() {
+public void testCidrAddresses_27_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -1414,7 +1414,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.224.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_28_oe() {
+public void testCidrAddresses_28_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -1500,7 +1500,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(8192, info.getAddressCount());
     }
 
-    public void testCidrAddresses_29_oe() {
+public void testCidrAddresses_29_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -1591,7 +1591,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.240.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_30_oe() {
+public void testCidrAddresses_30_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -1683,7 +1683,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(4096, info.getAddressCount());
     }
 
-    public void testCidrAddresses_31_oe() {
+public void testCidrAddresses_31_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -1780,7 +1780,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.248.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_32_oe() {
+public void testCidrAddresses_32_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -1878,7 +1878,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(2048, info.getAddressCount());
     }
 
-    public void testCidrAddresses_33_oe() {
+public void testCidrAddresses_33_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -1981,7 +1981,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.252.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_34_oe() {
+public void testCidrAddresses_34_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -2085,7 +2085,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(1024, info.getAddressCount());
     }
 
-    public void testCidrAddresses_35_oe() {
+public void testCidrAddresses_35_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -2194,7 +2194,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.254.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_36_oe() {
+public void testCidrAddresses_36_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -2304,7 +2304,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(512, info.getAddressCount());
     }
 
-    public void testCidrAddresses_37_oe() {
+public void testCidrAddresses_37_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -2419,7 +2419,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.255.0", info.getNetmask());
     }
 
-    public void testCidrAddresses_38_oe() {
+public void testCidrAddresses_38_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -2535,7 +2535,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(256, info.getAddressCount());
     }
 
-    public void testCidrAddresses_39_oe() {
+public void testCidrAddresses_39_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -2656,7 +2656,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.255.128", info.getNetmask());
     }
 
-    public void testCidrAddresses_40_oe() {
+public void testCidrAddresses_40_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -2778,7 +2778,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(128, info.getAddressCount());
     }
 
-    public void testCidrAddresses_41_oe() {
+public void testCidrAddresses_41_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -2905,7 +2905,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.255.192", info.getNetmask());
     }
 
-    public void testCidrAddresses_42_oe() {
+public void testCidrAddresses_42_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -3033,7 +3033,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(64, info.getAddressCount());
     }
 
-    public void testCidrAddresses_43_oe() {
+public void testCidrAddresses_43_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -3166,7 +3166,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.255.224", info.getNetmask());
     }
 
-    public void testCidrAddresses_44_oe() {
+public void testCidrAddresses_44_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -3300,7 +3300,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(32, info.getAddressCount());
     }
 
-    public void testCidrAddresses_45_oe() {
+public void testCidrAddresses_45_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -3439,7 +3439,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.255.240", info.getNetmask());
     }
 
-    public void testCidrAddresses_46_oe() {
+public void testCidrAddresses_46_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -3579,7 +3579,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(16, info.getAddressCount());
     }
 
-    public void testCidrAddresses_47_oe() {
+public void testCidrAddresses_47_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -3724,7 +3724,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.255.248", info.getNetmask());
     }
 
-    public void testCidrAddresses_48_oe() {
+public void testCidrAddresses_48_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -3870,7 +3870,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(8, info.getAddressCount());
     }
 
-    public void testCidrAddresses_49_oe() {
+public void testCidrAddresses_49_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -4021,7 +4021,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.255.252", info.getNetmask());
     }
 
-    public void testCidrAddresses_50_oe() {
+public void testCidrAddresses_50_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -4173,7 +4173,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(4, info.getAddressCount());
     }
 
-    public void testCidrAddresses_51_oe() {
+public void testCidrAddresses_51_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -4330,7 +4330,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.255.254", info.getNetmask());
     }
 
-    public void testCidrAddresses_52_oe() {
+public void testCidrAddresses_52_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -4488,7 +4488,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(2, info.getAddressCount());
     }
 
-    public void testCidrAddresses_53_oe() {
+public void testCidrAddresses_53_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -4651,7 +4651,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.255.255", info.getNetmask());
     }
 
-    public void testCidrAddresses_54_oe() {
+public void testCidrAddresses_54_oe() {
         SubnetUtils utils = new SubnetUtils("192.168.0.1/8");
         utils.setInclusiveHostCount(true);
         SubnetInfo info = utils.getInfo();
@@ -4815,21 +4815,21 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(1, info.getAddressCount());
     }
 
-    public void testNET675_1_oe() {
+public void testNET675_1_oe() {
         final SubnetUtils utils = new SubnetUtils("192.168.0.15/32");
         utils.setInclusiveHostCount(true);
         final SubnetInfo info = utils.getInfo();
         assertTrue(info.isInRange("192.168.0.15"));
     }
 
-    public void testNET679_1_oe() {
+public void testNET679_1_oe() {
         final SubnetUtils utils = new SubnetUtils("10.213.160.0/16");
         utils.setInclusiveHostCount(true);
         final SubnetInfo info = utils.getInfo();
         assertTrue(info.isInRange("10.213.0.0"));
     }
 
-    public void testNET679_2_oe() {
+public void testNET679_2_oe() {
         final SubnetUtils utils = new SubnetUtils("10.213.160.0/16");
         utils.setInclusiveHostCount(true);
         final SubnetInfo info = utils.getInfo();
@@ -4837,19 +4837,19 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertTrue(info.isInRange("10.213.255.255"));
     }
 
-    public void testNET428_31_1_oe() {
+public void testNET428_31_1_oe() {
         final SubnetUtils subnetUtils = new SubnetUtils("1.2.3.4/31");
         assertEquals(0, subnetUtils.getInfo().getAddressCount());
     }
 
-    public void testNET428_31_2_oe() {
+public void testNET428_31_2_oe() {
         final SubnetUtils subnetUtils = new SubnetUtils("1.2.3.4/31");
         // removed other assertion
         final String[] address = subnetUtils.getInfo().getAllAddresses();
         assertNotNull(address);
     }
 
-    public void testNET428_31_3_oe() {
+public void testNET428_31_3_oe() {
         final SubnetUtils subnetUtils = new SubnetUtils("1.2.3.4/31");
         // removed other assertion
         final String[] address = subnetUtils.getInfo().getAllAddresses();
@@ -4857,19 +4857,19 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(0, address.length);
     }
 
-    public void testNET428_32_1_oe() {
+public void testNET428_32_1_oe() {
         final SubnetUtils subnetUtils = new SubnetUtils("1.2.3.4/32");
         assertEquals(0, subnetUtils.getInfo().getAddressCount());
     }
 
-    public void testNET428_32_2_oe() {
+public void testNET428_32_2_oe() {
         final SubnetUtils subnetUtils = new SubnetUtils("1.2.3.4/32");
         // removed other assertion
         final String[] address = subnetUtils.getInfo().getAllAddresses();
         assertNotNull(address);
     }
 
-    public void testNET428_32_3_oe() {
+public void testNET428_32_3_oe() {
         final SubnetUtils subnetUtils = new SubnetUtils("1.2.3.4/32");
         // removed other assertion
         final String[] address = subnetUtils.getInfo().getAllAddresses();
@@ -4877,7 +4877,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(0, address.length);
     }
 
-    public void testParseSimpleNetmask_1_oe() {
+public void testParseSimpleNetmask_1_oe() {
         final String address = "192.168.0.1";
         final String masks[] = new String[] { "255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.248" };
         final String bcastAddresses[] = new String[] { "192.255.255.255", "192.168.255.255", "192.168.0.255",
@@ -4901,7 +4901,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmask_2_oe() {
+public void testParseSimpleNetmask_2_oe() {
         final String address = "192.168.0.1";
         final String masks[] = new String[] { "255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.248" };
         final String bcastAddresses[] = new String[] { "192.255.255.255", "192.168.255.255", "192.168.0.255",
@@ -4926,7 +4926,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmask_3_oe() {
+public void testParseSimpleNetmask_3_oe() {
         final String address = "192.168.0.1";
         final String masks[] = new String[] { "255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.248" };
         final String bcastAddresses[] = new String[] { "192.255.255.255", "192.168.255.255", "192.168.0.255",
@@ -4952,7 +4952,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmask_4_oe() {
+public void testParseSimpleNetmask_4_oe() {
         final String address = "192.168.0.1";
         final String masks[] = new String[] { "255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.248" };
         final String bcastAddresses[] = new String[] { "192.255.255.255", "192.168.255.255", "192.168.0.255",
@@ -4979,7 +4979,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmask_5_oe() {
+public void testParseSimpleNetmask_5_oe() {
         final String address = "192.168.0.1";
         final String masks[] = new String[] { "255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.248" };
         final String bcastAddresses[] = new String[] { "192.255.255.255", "192.168.255.255", "192.168.0.255",
@@ -5007,7 +5007,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmask_6_oe() {
+public void testParseSimpleNetmask_6_oe() {
         final String address = "192.168.0.1";
         final String masks[] = new String[] { "255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.248" };
         final String bcastAddresses[] = new String[] { "192.255.255.255", "192.168.255.255", "192.168.0.255",
@@ -5036,7 +5036,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmask_7_oe() {
+public void testParseSimpleNetmask_7_oe() {
         final String address = "192.168.0.1";
         final String masks[] = new String[] { "255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.248" };
         final String bcastAddresses[] = new String[] { "192.255.255.255", "192.168.255.255", "192.168.0.255",
@@ -5066,7 +5066,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmask_8_oe() {
+public void testParseSimpleNetmask_8_oe() {
         final String address = "192.168.0.1";
         final String masks[] = new String[] { "255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.248" };
         final String bcastAddresses[] = new String[] { "192.255.255.255", "192.168.255.255", "192.168.0.255",
@@ -5097,7 +5097,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmaskExclusive_1_oe() {
+public void testParseSimpleNetmaskExclusive_1_oe() {
         final String address = "192.168.15.7";
         final String masks[] = new String[] { "255.255.255.252", "255.255.255.254", "255.255.255.255" };
         final String bcast[] = new String[] { "192.168.15.7", "192.168.15.7", "192.168.15.7" };
@@ -5116,7 +5116,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmaskExclusive_2_oe() {
+public void testParseSimpleNetmaskExclusive_2_oe() {
         final String address = "192.168.15.7";
         final String masks[] = new String[] { "255.255.255.252", "255.255.255.254", "255.255.255.255" };
         final String bcast[] = new String[] { "192.168.15.7", "192.168.15.7", "192.168.15.7" };
@@ -5136,7 +5136,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmaskExclusive_3_oe() {
+public void testParseSimpleNetmaskExclusive_3_oe() {
         final String address = "192.168.15.7";
         final String masks[] = new String[] { "255.255.255.252", "255.255.255.254", "255.255.255.255" };
         final String bcast[] = new String[] { "192.168.15.7", "192.168.15.7", "192.168.15.7" };
@@ -5157,7 +5157,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmaskExclusive_4_oe() {
+public void testParseSimpleNetmaskExclusive_4_oe() {
         final String address = "192.168.15.7";
         final String masks[] = new String[] { "255.255.255.252", "255.255.255.254", "255.255.255.255" };
         final String bcast[] = new String[] { "192.168.15.7", "192.168.15.7", "192.168.15.7" };
@@ -5179,7 +5179,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmaskExclusive_5_oe() {
+public void testParseSimpleNetmaskExclusive_5_oe() {
         final String address = "192.168.15.7";
         final String masks[] = new String[] { "255.255.255.252", "255.255.255.254", "255.255.255.255" };
         final String bcast[] = new String[] { "192.168.15.7", "192.168.15.7", "192.168.15.7" };
@@ -5202,7 +5202,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmaskExclusive_6_oe() {
+public void testParseSimpleNetmaskExclusive_6_oe() {
         final String address = "192.168.15.7";
         final String masks[] = new String[] { "255.255.255.252", "255.255.255.254", "255.255.255.255" };
         final String bcast[] = new String[] { "192.168.15.7", "192.168.15.7", "192.168.15.7" };
@@ -5226,7 +5226,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmaskInclusive_1_oe() {
+public void testParseSimpleNetmaskInclusive_1_oe() {
         final String address = "192.168.15.7";
         final String masks[] = new String[] { "255.255.255.252", "255.255.255.254", "255.255.255.255" };
         final String bcast[] = new String[] { "192.168.15.7", "192.168.15.7", "192.168.15.7" };
@@ -5244,7 +5244,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmaskInclusive_2_oe() {
+public void testParseSimpleNetmaskInclusive_2_oe() {
         final String address = "192.168.15.7";
         final String masks[] = new String[] { "255.255.255.252", "255.255.255.254", "255.255.255.255" };
         final String bcast[] = new String[] { "192.168.15.7", "192.168.15.7", "192.168.15.7" };
@@ -5263,7 +5263,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmaskInclusive_3_oe() {
+public void testParseSimpleNetmaskInclusive_3_oe() {
         final String address = "192.168.15.7";
         final String masks[] = new String[] { "255.255.255.252", "255.255.255.254", "255.255.255.255" };
         final String bcast[] = new String[] { "192.168.15.7", "192.168.15.7", "192.168.15.7" };
@@ -5283,7 +5283,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmaskInclusive_4_oe() {
+public void testParseSimpleNetmaskInclusive_4_oe() {
         final String address = "192.168.15.7";
         final String masks[] = new String[] { "255.255.255.252", "255.255.255.254", "255.255.255.255" };
         final String bcast[] = new String[] { "192.168.15.7", "192.168.15.7", "192.168.15.7" };
@@ -5304,7 +5304,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmaskInclusive_5_oe() {
+public void testParseSimpleNetmaskInclusive_5_oe() {
         final String address = "192.168.15.7";
         final String masks[] = new String[] { "255.255.255.252", "255.255.255.254", "255.255.255.255" };
         final String bcast[] = new String[] { "192.168.15.7", "192.168.15.7", "192.168.15.7" };
@@ -5326,7 +5326,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testParseSimpleNetmaskInclusive_6_oe() {
+public void testParseSimpleNetmaskInclusive_6_oe() {
         final String address = "192.168.15.7";
         final String masks[] = new String[] { "255.255.255.252", "255.255.255.254", "255.255.255.255" };
         final String bcast[] = new String[] { "192.168.15.7", "192.168.15.7", "192.168.15.7" };
@@ -5349,12 +5349,12 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testZeroAddressAndCidr_1_oe() {
+public void testZeroAddressAndCidr_1_oe() {
         final SubnetUtils snu = new SubnetUtils("0.0.0.0/0");
         assertNotNull(snu);
     }
 
-    public void testNET521_1_oe() {
+public void testNET521_1_oe() {
         SubnetUtils utils;
         SubnetInfo info;
 
@@ -5364,7 +5364,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("0.0.0.0", info.getNetmask());
     }
 
-    public void testNET521_2_oe() {
+public void testNET521_2_oe() {
         SubnetUtils utils;
         SubnetInfo info;
 
@@ -5375,7 +5375,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(4294967296L, info.getAddressCountLong());
     }
 
-    public void testNET521_4_oe() {
+public void testNET521_4_oe() {
         SubnetUtils utils;
         SubnetInfo info;
 
@@ -5396,7 +5396,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("128.0.0.0", info.getNetmask());
     }
 
-    public void testNET521_5_oe() {
+public void testNET521_5_oe() {
         SubnetUtils utils;
         SubnetInfo info;
 
@@ -5418,7 +5418,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(2147483648L, info.getAddressCountLong());
     }
 
-    public void testNET521_7_oe() {
+public void testNET521_7_oe() {
         SubnetUtils utils;
         SubnetInfo info;
 
@@ -5450,14 +5450,14 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals(2147483646, info.getAddressCount());
     }
 
-    public void testNET520_1_oe() {
+public void testNET520_1_oe() {
         final SubnetUtils utils = new SubnetUtils("0.0.0.0/0");
         utils.setInclusiveHostCount(true);
         final SubnetInfo info = utils.getInfo();
         assertEquals("0.0.0.0",info.getNetworkAddress());
     }
 
-    public void testNET520_2_oe() {
+public void testNET520_2_oe() {
         final SubnetUtils utils = new SubnetUtils("0.0.0.0/0");
         utils.setInclusiveHostCount(true);
         final SubnetInfo info = utils.getInfo();
@@ -5465,7 +5465,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertEquals("255.255.255.255",info.getBroadcastAddress());
     }
 
-    public void testNET520_3_oe() {
+public void testNET520_3_oe() {
         final SubnetUtils utils = new SubnetUtils("0.0.0.0/0");
         utils.setInclusiveHostCount(true);
         final SubnetInfo info = utils.getInfo();
@@ -5474,7 +5474,7 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertTrue(info.isInRange("127.0.0.0"));
     }
 
-    public void testNET520_4_oe() {
+public void testNET520_4_oe() {
         final SubnetUtils utils = new SubnetUtils("0.0.0.0/0");
         utils.setInclusiveHostCount(true);
         final SubnetInfo info = utils.getInfo();
@@ -5485,22 +5485,22 @@ public class SubnetUtilsTest_OE25Dev extends TestCase {
         assertTrue(info.isInRange("127.0.0.0"));
     }
 
-    public void testNET641_1_oe() {
+public void testNET641_1_oe() {
         assertFalse(new SubnetUtils("192.168.1.0/00").getInfo().isInRange("0.0.0.0"));
     }
 
-    public void testNET641_2_oe() {
+public void testNET641_2_oe() {
         // removed other assertion
         assertFalse(new SubnetUtils("192.168.1.0/30").getInfo().isInRange("0.0.0.0"));
     }
 
-    public void testNET641_3_oe() {
+public void testNET641_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(new SubnetUtils("192.168.1.0/31").getInfo().isInRange("0.0.0.0"));
     }
 
-    public void testNET641_4_oe() {
+public void testNET641_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion

@@ -75,7 +75,7 @@ public class ObjectArrayIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         }
     }
 
-    public void testIterator_1_oe() {
+public void testIterator_1_oe() {
         final Iterator<E> iter = makeObject();
         for (final String testValue : testArray) {
             final E iterValue = iter.next();
@@ -84,7 +84,7 @@ public class ObjectArrayIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> 
     }
     }
 
-    public void testIterator_2_oe() {
+public void testIterator_2_oe() {
         final Iterator<E> iter = makeObject();
         for (final String testValue : testArray) {
             final E iterValue = iter.next();
@@ -95,7 +95,7 @@ public class ObjectArrayIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertTrue("Iterator should now be empty", !iter.hasNext());
     }
 
-    public void testIterator_3_oe() {
+public void testIterator_3_oe() {
         final Iterator<E> iter = makeObject();
         for (final String testValue : testArray) {
             final E iterValue = iter.next();
@@ -112,7 +112,7 @@ public class ObjectArrayIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> 
     }
     }
 
-    public void testReset_1_oe() {
+public void testReset_1_oe() {
         final ObjectArrayIterator<E> it = makeArrayIterator((E[]) testArray);
         it.next();
         it.reset();

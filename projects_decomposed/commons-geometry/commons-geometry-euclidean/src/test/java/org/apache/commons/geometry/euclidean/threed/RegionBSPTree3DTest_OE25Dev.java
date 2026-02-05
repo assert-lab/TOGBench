@@ -519,7 +519,7 @@ class RegionBSPTree3DTest_OE25Dev {
         return Math.PI * radius * radius;
     }
 
-    @Test
+@Test
     void testCtor_default_1_oe() {
         // act
         final RegionBSPTree3D tree = new RegionBSPTree3D();
@@ -528,7 +528,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testCtor_default_2_oe() {
         // act
         final RegionBSPTree3D tree = new RegionBSPTree3D();
@@ -538,7 +538,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testCtor_boolean_1_oe() {
         // act
         final RegionBSPTree3D a = new RegionBSPTree3D(true);
@@ -548,7 +548,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertTrue(a.isFull());
     }
 
-    @Test
+@Test
     void testCtor_boolean_2_oe() {
         // act
         final RegionBSPTree3D a = new RegionBSPTree3D(true);
@@ -559,7 +559,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(a.isEmpty());
     }
 
-    @Test
+@Test
     void testCtor_boolean_3_oe() {
         // act
         final RegionBSPTree3D a = new RegionBSPTree3D(true);
@@ -572,7 +572,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(b.isFull());
     }
 
-    @Test
+@Test
     void testCtor_boolean_4_oe() {
         // act
         final RegionBSPTree3D a = new RegionBSPTree3D(true);
@@ -586,7 +586,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertTrue(b.isEmpty());
     }
 
-    @Test
+@Test
     void testEmpty_1_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -595,7 +595,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testEmpty_2_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -605,7 +605,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testEmpty_3_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -617,7 +617,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(tree.getCentroid());
     }
 
-    @Test
+@Test
     void testEmpty_4_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -630,7 +630,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0.0, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testEmpty_5_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -644,7 +644,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFull_1_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.full();
@@ -653,7 +653,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testFull_2_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.full();
@@ -663,7 +663,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testFull_3_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.full();
@@ -675,7 +675,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(tree.getCentroid());
     }
 
-    @Test
+@Test
     void testFull_5_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.full();
@@ -689,7 +689,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testPartitionedRegionBuilder_halfSpace_1_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.partitionedRegionBuilder()
@@ -703,7 +703,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testPartitionedRegionBuilder_halfSpace_2_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.partitionedRegionBuilder()
@@ -718,7 +718,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertTrue(tree.isInfinite());
     }
 
-    @Test
+@Test
     void testCopy_1_oe() {
         // arrange
         final RegionBSPTree3D tree = new RegionBSPTree3D(true);
@@ -731,7 +731,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNotSame(tree, copy);
     }
 
-    @Test
+@Test
     void testCopy_2_oe() {
         // arrange
         final RegionBSPTree3D tree = new RegionBSPTree3D(true);
@@ -745,7 +745,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(3, copy.count());
     }
 
-    @Test
+@Test
     void testBoundaries_1_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.ZERO, Vector3D.of(1, 1, 1));
@@ -758,7 +758,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(6, facets.size());
     }
 
-    @Test
+@Test
     void testGetBoundaries_1_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.ZERO, Vector3D.of(1, 1, 1));
@@ -770,7 +770,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(6, facets.size());
     }
 
-    @Test
+@Test
     void testBoundaryStream_1_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.ZERO, Vector3D.of(1, 1, 1));
@@ -782,7 +782,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(6, facets.size());
     }
 
-    @Test
+@Test
     void testBoundaryStream_noBoundaries_1_oe() {
         // arrange
         final RegionBSPTree3D tree = RegionBSPTree3D.full();
@@ -794,7 +794,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0, facets.size());
     }
 
-    @Test
+@Test
     void testTriangleStream_noBoundaries_1_oe() {
         // arrange
         final RegionBSPTree3D full = RegionBSPTree3D.full();
@@ -804,7 +804,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0, full.triangleStream().count());
     }
 
-    @Test
+@Test
     void testTriangleStream_noBoundaries_2_oe() {
         // arrange
         final RegionBSPTree3D full = RegionBSPTree3D.full();
@@ -815,7 +815,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0, empty.triangleStream().count());
     }
 
-    @Test
+@Test
     void testTriangleStream_1_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.ZERO, Vector3D.of(1, 1, 1));
@@ -827,7 +827,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(12, tris.size());
     }
 
-    @Test
+@Test
     void testTriangleStream_roundTrip_1_oe() {
         // arrange
         final RegionBSPTree3D a = createRect(Vector3D.ZERO, Vector3D.of(1, 1, 1));
@@ -845,7 +845,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(15.0 / 8.0, result.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToTriangleMesh_1_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.ZERO, Vector3D.of(1, 1, 1));
@@ -857,7 +857,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(8, mesh.getVertexCount());
     }
 
-    @Test
+@Test
     void testToTriangleMesh_2_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.ZERO, Vector3D.of(1, 1, 1));
@@ -870,7 +870,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(12, mesh.getFaceCount());
     }
 
-    @Test
+@Test
     void testToTriangleMesh_5_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.ZERO, Vector3D.of(1, 1, 1));
@@ -890,7 +890,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(1, otherTree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToTriangleMesh_6_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.ZERO, Vector3D.of(1, 1, 1));
@@ -911,7 +911,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(6, otherTree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToTriangleMesh_empty_1_oe() {
         // arrange
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -924,7 +924,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0, mesh.getVertexCount());
     }
 
-    @Test
+@Test
     void testToTriangleMesh_empty_2_oe() {
         // arrange
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -938,7 +938,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0, mesh.getFaceCount());
     }
 
-    @Test
+@Test
     void testToTriangleMesh_full_1_oe() {
         // arrange
         final RegionBSPTree3D tree = RegionBSPTree3D.full();
@@ -951,7 +951,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0, mesh.getVertexCount());
     }
 
-    @Test
+@Test
     void testToTriangleMesh_full_2_oe() {
         // arrange
         final RegionBSPTree3D tree = RegionBSPTree3D.full();
@@ -965,7 +965,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0, mesh.getFaceCount());
     }
 
-    @Test
+@Test
     void testToTriangleMesh_infiniteBoundary_1_oe() {
         // arrange
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -975,20 +975,20 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertThrows(IllegalStateException.class, () -> tree.toTriangleMesh(TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testGetBounds_noBounds_1_oe() {
         // act/assert
         Assertions.assertNull(RegionBSPTree3D.empty().getBounds());
     }
 
-    @Test
+@Test
     void testGetBounds_noBounds_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertNull(RegionBSPTree3D.full().getBounds());
     }
 
-    @Test
+@Test
     void testGetBounds_noBounds_3_oe() {
         // act/assert
         // removed other assertion
@@ -999,7 +999,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(halfFull.getBounds());
     }
 
-    @Test
+@Test
     void testToList_1_oe() {
         // arrange
         final RegionBSPTree3D tree = Parallelepiped.axisAligned(
@@ -1012,7 +1012,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(6, list.count());
     }
 
-    @Test
+@Test
     void testToList_2_oe() {
         // arrange
         final RegionBSPTree3D tree = Parallelepiped.axisAligned(
@@ -1026,20 +1026,20 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(9, list.toTree().getSize());
     }
 
-    @Test
+@Test
     void testToList_fullAndEmpty_1_oe() {
         // act/assert
         Assertions.assertEquals(0, RegionBSPTree3D.full().toList().count());
     }
 
-    @Test
+@Test
     void testToList_fullAndEmpty_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals(0, RegionBSPTree3D.empty().toList().count());
     }
 
-    @Test
+@Test
     void testToTree_returnsSameInstance_1_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.ZERO, Vector3D.of(1, 2, 1));
@@ -1048,7 +1048,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertSame(tree, tree.toTree());
     }
 
-    @Test
+@Test
     void testHalfSpace_1_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -1058,7 +1058,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testHalfSpace_2_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -1069,7 +1069,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testHalfSpace_5_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -1084,7 +1084,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(tree.getCentroid());
     }
 
-    @Test
+@Test
     void testGeometricProperties_mixedCutRules_1_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -1123,7 +1123,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testGeometricProperties_mixedCutRules_2_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -1163,7 +1163,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testGeometricProperties_mixedCutRules_3_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -1205,7 +1205,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(1, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_mixedCutRules_4_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -1248,7 +1248,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(6, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFrom_boundaries_1_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.from(Arrays.asList(
@@ -1262,7 +1262,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_2_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.from(Arrays.asList(
@@ -1277,7 +1277,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_3_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.from(Arrays.asList(
@@ -1294,7 +1294,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.getRoot().getLocation());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_fullIsTrue_1_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.from(Arrays.asList(
@@ -1308,7 +1308,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_fullIsTrue_2_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.from(Arrays.asList(
@@ -1323,7 +1323,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_fullIsTrue_3_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.from(Arrays.asList(
@@ -1340,20 +1340,20 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.getRoot().getLocation());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_noBoundaries_1_oe() {
         // act/assert
         Assertions.assertTrue(RegionBSPTree3D.from(Collections.emptyList()).isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_noBoundaries_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertTrue(RegionBSPTree3D.from(Collections.emptyList(), true).isFull());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_noBoundaries_3_oe() {
         // act/assert
         // removed other assertion
@@ -1361,7 +1361,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertTrue(RegionBSPTree3D.from(Collections.emptyList(), false).isEmpty());
     }
 
-    @Test
+@Test
     void testFromConvexVolume_full_1_oe() {
         // arrange
         final ConvexVolume volume = ConvexVolume.full();
@@ -1371,7 +1371,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(tree.getCentroid());
     }
 
-    @Test
+@Test
     void testFromConvexVolume_full_2_oe() {
         // arrange
         final ConvexVolume volume = ConvexVolume.full();
@@ -1384,7 +1384,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testFromConvexVolume_infinite_3_oe() {
         // arrange
         final ConvexVolume volume = ConvexVolume.fromBounds(Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION));
@@ -1398,7 +1398,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(tree.getCentroid());
     }
 
-    @Test
+@Test
     void testFromConvexVolume_finite_1_oe() {
         // arrange
         final ConvexVolume volume = ConvexVolume.fromBounds(
@@ -1418,7 +1418,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(1, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromConvexVolume_finite_2_oe() {
         // arrange
         final ConvexVolume volume = ConvexVolume.fromBounds(
@@ -1439,7 +1439,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(6, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testLinecastFirst_multipleDirections_4_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(-1, -1, -1), Vector3D.of(1, 1, 1));
@@ -1460,7 +1460,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(tree.linecastFirst(xPlus.rayFrom(Vector3D.of(1.1, 0, 0))));
     }
 
-    @Test
+@Test
     void testLinecastFirst_multipleDirections_8_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(-1, -1, -1), Vector3D.of(1, 1, 1));
@@ -1486,7 +1486,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(tree.linecastFirst(xMinus.rayFrom(Vector3D.of(-1.1, 0, 0))));
     }
 
-    @Test
+@Test
     void testLinecastFirst_multipleDirections_12_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(-1, -1, -1), Vector3D.of(1, 1, 1));
@@ -1517,7 +1517,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(tree.linecastFirst(yPlus.rayFrom(Vector3D.of(0, 1.1, 0))));
     }
 
-    @Test
+@Test
     void testLinecastFirst_multipleDirections_16_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(-1, -1, -1), Vector3D.of(1, 1, 1));
@@ -1553,7 +1553,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(tree.linecastFirst(yMinus.rayFrom(Vector3D.of(0, -1.1, 0))));
     }
 
-    @Test
+@Test
     void testLinecastFirst_multipleDirections_20_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(-1, -1, -1), Vector3D.of(1, 1, 1));
@@ -1594,7 +1594,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(tree.linecastFirst(zPlus.rayFrom(Vector3D.of(0, 0, 1.1))));
     }
 
-    @Test
+@Test
     void testLinecastFirst_multipleDirections_24_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(-1, -1, -1), Vector3D.of(1, 1, 1));
@@ -1640,7 +1640,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(tree.linecastFirst(zMinus.rayFrom(Vector3D.of(0, 0, -1.1))));
     }
 
-    @Test
+@Test
     void testLinecastFirst_linePassesThroughVertex_1_oe() {
         // arrange
         final Vector3D lowerCorner = Vector3D.ZERO;
@@ -1657,7 +1657,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNotNull(upFromOutsideResult);
     }
 
-    @Test
+@Test
     void testLinecastFirst_linePassesThroughVertex_3_oe() {
         // arrange
         final Vector3D lowerCorner = Vector3D.ZERO;
@@ -1678,7 +1678,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNotNull(upFromCenterResult);
     }
 
-    @Test
+@Test
     void testLinecastFirst_linePassesThroughVertex_5_oe() {
         // arrange
         final Vector3D lowerCorner = Vector3D.ZERO;
@@ -1703,7 +1703,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNotNull(downFromOutsideResult);
     }
 
-    @Test
+@Test
     void testLinecastFirst_linePassesThroughVertex_7_oe() {
         // arrange
         final Vector3D lowerCorner = Vector3D.ZERO;
@@ -1732,7 +1732,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNotNull(downFromCenterResult);
     }
 
-    @Test
+@Test
     void testLinecastFirst_lineParallelToFace_1_oe() {
         // arrange - setup box
         final Vector3D lowerCorner = Vector3D.ZERO;
@@ -1752,7 +1752,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNotNull(bottom);
     }
 
-    @Test
+@Test
     void testLinecastFirst_lineParallelToFace_3_oe() {
         // arrange - setup box
         final Vector3D lowerCorner = Vector3D.ZERO;
@@ -1776,7 +1776,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNotNull(bottom);
     }
 
-    @Test
+@Test
     void testLinecastFirst_lineParallelToFace_4_oe() {
         // arrange - setup box
         final Vector3D lowerCorner = Vector3D.ZERO;
@@ -1802,7 +1802,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNotNull(intersection);
     }
 
-    @Test
+@Test
     void testLinecastFirst_onlyReturnsPointsWithinSegment_7_oe() {
         // arrange
         final Vector3D lowerCorner = Vector3D.ZERO;
@@ -1825,7 +1825,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(tree.linecastFirst(line.segment(Vector3D.of(-2, 0.5, 0.5), Vector3D.of(-1, 0.5, 0.5))));
     }
 
-    @Test
+@Test
     void testLinecastFirst_onlyReturnsPointsWithinSegment_8_oe() {
         // arrange
         final Vector3D lowerCorner = Vector3D.ZERO;
@@ -1849,7 +1849,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(tree.linecastFirst(line.segment(Vector3D.of(-2, 0.5, 0.5), Vector3D.of(-1, 0.5, 0.5))));
     }
 
-    @Test
+@Test
     void testLinecastFirst_onlyReturnsPointsWithinSegment_9_oe() {
         // arrange
         final Vector3D lowerCorner = Vector3D.ZERO;
@@ -1874,7 +1874,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(tree.linecastFirst(line.segment(Vector3D.of(0.25, 0.5, 0.5), Vector3D.of(0.75, 0.5, 0.5))));
     }
 
-    @Test
+@Test
     void testInvertedRegion_1_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5));
@@ -1886,7 +1886,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testInvertedRegion_2_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5));
@@ -1899,7 +1899,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testInvertedRegion_4_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5));
@@ -1915,7 +1915,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(6, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testInvertedRegion_5_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5));
@@ -1932,7 +1932,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(tree.getCentroid());
     }
 
-    @Test
+@Test
     void testUnitBox_1_oe() {
         // act
         final RegionBSPTree3D tree = createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5));
@@ -1941,7 +1941,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testUnitBox_2_oe() {
         // act
         final RegionBSPTree3D tree = createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5));
@@ -1951,7 +1951,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testUnitBox_3_oe() {
         // act
         final RegionBSPTree3D tree = createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5));
@@ -1963,7 +1963,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(1.0, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testUnitBox_4_oe() {
         // act
         final RegionBSPTree3D tree = createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5));
@@ -1976,7 +1976,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(6.0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTwoBoxes_disjoint_1_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -1987,7 +1987,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testTwoBoxes_disjoint_2_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -1999,7 +1999,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testTwoBoxes_disjoint_3_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -2013,7 +2013,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(2.0, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTwoBoxes_disjoint_4_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -2028,7 +2028,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(12.0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTwoBoxes_sharedSide_1_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -2039,7 +2039,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testTwoBoxes_sharedSide_2_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -2051,7 +2051,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testTwoBoxes_sharedSide_3_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -2065,7 +2065,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(2.0, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTwoBoxes_sharedSide_4_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -2080,7 +2080,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(10.0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTwoBoxes_separationLessThanTolerance_1_oe() {
         // arrange
         final double eps = 1e-6;
@@ -2095,7 +2095,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testTwoBoxes_separationLessThanTolerance_2_oe() {
         // arrange
         final double eps = 1e-6;
@@ -2111,7 +2111,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testTwoBoxes_separationLessThanTolerance_3_oe() {
         // arrange
         final double eps = 1e-6;
@@ -2129,7 +2129,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(2.0, tree.getSize(), eps);
     }
 
-    @Test
+@Test
     void testTwoBoxes_separationLessThanTolerance_4_oe() {
         // arrange
         final double eps = 1e-6;
@@ -2148,7 +2148,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(10.0, tree.getBoundarySize(), eps);
     }
 
-    @Test
+@Test
     void testTwoBoxes_sharedEdge_1_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -2159,7 +2159,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testTwoBoxes_sharedEdge_2_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -2171,7 +2171,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testTwoBoxes_sharedEdge_3_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -2185,7 +2185,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(2.0, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTwoBoxes_sharedEdge_4_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -2200,7 +2200,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(12.0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTwoBoxes_sharedPoint_1_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -2211,7 +2211,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testTwoBoxes_sharedPoint_2_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -2223,7 +2223,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testTwoBoxes_sharedPoint_3_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -2237,7 +2237,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(2.0, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTwoBoxes_sharedPoint_4_oe() {
         // act
         final RegionBSPTree3D tree = RegionBSPTree3D.empty();
@@ -2252,7 +2252,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(12.0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTetrahedron_1_oe() {
         // arrange
         final Vector3D vertex1 = Vector3D.of(1, 2, 3);
@@ -2275,7 +2275,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(1.0 / 3.0, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTetrahedron_2_oe() {
         // arrange
         final Vector3D vertex1 = Vector3D.of(1, 2, 3);
@@ -2299,7 +2299,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(2.0 * Math.sqrt(3.0), tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSphere_1_oe() {
         // arrange
         // (use a high tolerance value here since the sphere is only an approximation)
@@ -2313,7 +2313,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testSphere_2_oe() {
         // arrange
         // (use a high tolerance value here since the sphere is only an approximation)
@@ -2328,7 +2328,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testSphere_3_oe() {
         // arrange
         // (use a high tolerance value here since the sphere is only an approximation)
@@ -2345,7 +2345,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(sphereVolume(radius), tree.getSize(), approximationTolerance);
     }
 
-    @Test
+@Test
     void testSphere_4_oe() {
         // arrange
         // (use a high tolerance value here since the sphere is only an approximation)
@@ -2363,7 +2363,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(sphereSurface(radius), tree.getBoundarySize(), approximationTolerance);
     }
 
-    @Test
+@Test
     void testBoolean_union_1_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -2380,7 +2380,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isEmpty());
     }
 
-    @Test
+@Test
     void testBoolean_union_2_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -2398,7 +2398,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isFull());
     }
 
-    @Test
+@Test
     void testBoolean_union_3_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -2418,7 +2418,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(cubeVolume(size)+(sphereVolume(radius)* 0.5),result.getSize(),tolerance);
     }
 
-    @Test
+@Test
     void testBoolean_union_4_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -2439,7 +2439,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(cubeSurface(size)- circleSurface(radius)+(0.5 * sphereSurface(radius)),result.getBoundarySize(),tolerance);
     }
 
-    @Test
+@Test
     void testUnion_self_1_oe() {
         // arrange
         final double tolerance = 0.2;
@@ -2458,7 +2458,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isEmpty());
     }
 
-    @Test
+@Test
     void testUnion_self_2_oe() {
         // arrange
         final double tolerance = 0.2;
@@ -2478,7 +2478,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isFull());
     }
 
-    @Test
+@Test
     void testUnion_self_3_oe() {
         // arrange
         final double tolerance = 0.2;
@@ -2500,7 +2500,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(sphereVolume(radius), result.getSize(), tolerance);
     }
 
-    @Test
+@Test
     void testUnion_self_4_oe() {
         // arrange
         final double tolerance = 0.2;
@@ -2523,7 +2523,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(sphereSurface(radius), result.getBoundarySize(), tolerance);
     }
 
-    @Test
+@Test
     void testBoolean_intersection_1_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -2540,7 +2540,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isEmpty());
     }
 
-    @Test
+@Test
     void testBoolean_intersection_2_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -2558,7 +2558,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isFull());
     }
 
-    @Test
+@Test
     void testBoolean_intersection_3_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -2578,7 +2578,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(sphereVolume(radius) * 0.5, result.getSize(), tolerance);
     }
 
-    @Test
+@Test
     void testBoolean_intersection_4_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -2599,7 +2599,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(circleSurface(radius)+(0.5 * sphereSurface(radius)),result.getBoundarySize(),tolerance);
     }
 
-    @Test
+@Test
     void testIntersection_self_1_oe() {
         // arrange
         final double tolerance = 0.2;
@@ -2617,7 +2617,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isEmpty());
     }
 
-    @Test
+@Test
     void testIntersection_self_2_oe() {
         // arrange
         final double tolerance = 0.2;
@@ -2636,7 +2636,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isFull());
     }
 
-    @Test
+@Test
     void testIntersection_self_3_oe() {
         // arrange
         final double tolerance = 0.2;
@@ -2657,7 +2657,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(sphereVolume(radius), result.getSize(), tolerance);
     }
 
-    @Test
+@Test
     void testIntersection_self_4_oe() {
         // arrange
         final double tolerance = 0.2;
@@ -2679,7 +2679,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(sphereSurface(radius), result.getBoundarySize(), tolerance);
     }
 
-    @Test
+@Test
     void testBoolean_xor_twoCubes_1_oe() throws IOException {
         // arrange
         final double size = 1.0;
@@ -2694,7 +2694,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isEmpty());
     }
 
-    @Test
+@Test
     void testBoolean_xor_twoCubes_2_oe() throws IOException {
         // arrange
         final double size = 1.0;
@@ -2710,7 +2710,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isFull());
     }
 
-    @Test
+@Test
     void testBoolean_xor_twoCubes_3_oe() throws IOException {
         // arrange
         final double size = 1.0;
@@ -2728,7 +2728,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals((2 * cubeVolume(size)) - (2 * cubeVolume(size * 0.5)), result.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBoolean_xor_twoCubes_4_oe() throws IOException {
         // arrange
         final double size = 1.0;
@@ -2747,7 +2747,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(2 * cubeSurface(size), result.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBoolean_xor_cubeAndSphere_1_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -2764,7 +2764,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isEmpty());
     }
 
-    @Test
+@Test
     void testBoolean_xor_cubeAndSphere_2_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -2782,7 +2782,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isFull());
     }
 
-    @Test
+@Test
     void testBoolean_xor_cubeAndSphere_3_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -2802,7 +2802,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(cubeVolume(size), result.getSize(), tolerance);
     }
 
-    @Test
+@Test
     void testBoolean_xor_cubeAndSphere_4_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -2823,7 +2823,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(cubeSurface(size)+(sphereSurface(radius)),result.getBoundarySize(),tolerance);
     }
 
-    @Test
+@Test
     void testXor_self_1_oe() {
         // arrange
         final double radius = 1.0;
@@ -2840,7 +2840,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertTrue(result.isEmpty());
     }
 
-    @Test
+@Test
     void testXor_self_2_oe() {
         // arrange
         final double radius = 1.0;
@@ -2858,7 +2858,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isFull());
     }
 
-    @Test
+@Test
     void testXor_self_3_oe() {
         // arrange
         final double radius = 1.0;
@@ -2878,7 +2878,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0.0, result.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testXor_self_4_oe() {
         // arrange
         final double radius = 1.0;
@@ -2899,7 +2899,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0.0, result.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testXor_self_5_oe() {
         // arrange
         final double radius = 1.0;
@@ -2921,7 +2921,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(result.getCentroid());
     }
 
-    @Test
+@Test
     void testBoolean_difference_1_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -2938,7 +2938,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isEmpty());
     }
 
-    @Test
+@Test
     void testBoolean_difference_2_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -2956,7 +2956,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isFull());
     }
 
-    @Test
+@Test
     void testBoolean_difference_3_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -2976,7 +2976,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(cubeVolume(size) - (sphereVolume(radius) * 0.5), result.getSize(), tolerance);
     }
 
-    @Test
+@Test
     void testBoolean_difference_4_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -2997,7 +2997,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(cubeSurface(size)- circleSurface(radius)+(0.5 * sphereSurface(radius)),result.getBoundarySize(),tolerance);
     }
 
-    @Test
+@Test
     void testDifference_self_1_oe() {
         // arrange
         final double radius = 1.0;
@@ -3013,7 +3013,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertTrue(result.isEmpty());
     }
 
-    @Test
+@Test
     void testDifference_self_2_oe() {
         // arrange
         final double radius = 1.0;
@@ -3030,7 +3030,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isFull());
     }
 
-    @Test
+@Test
     void testDifference_self_3_oe() {
         // arrange
         final double radius = 1.0;
@@ -3049,7 +3049,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0.0, result.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDifference_self_4_oe() {
         // arrange
         final double radius = 1.0;
@@ -3069,7 +3069,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0.0, result.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDifference_self_5_oe() {
         // arrange
         final double radius = 1.0;
@@ -3090,7 +3090,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(result.getCentroid());
     }
 
-    @Test
+@Test
     void testBoolean_multiple_1_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -3111,7 +3111,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isEmpty());
     }
 
-    @Test
+@Test
     void testBoolean_multiple_2_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -3133,7 +3133,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(result.isFull());
     }
 
-    @Test
+@Test
     void testBoolean_multiple_3_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -3157,7 +3157,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(cubeVolume(size)-(sphereVolume(radius)* 0.5),result.getSize(),tolerance);
     }
 
-    @Test
+@Test
     void testBoolean_multiple_4_oe() throws IOException {
         // arrange
         final double tolerance = 0.05;
@@ -3182,7 +3182,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(cubeSurface(size)-(3.0 * circleSurface(radius))+(1.5 * sphereSurface(radius)),result.getBoundarySize(),tolerance);
     }
 
-    @Test
+@Test
     void testToConvex_empty_1_oe() {
         // act
         final List<ConvexVolume> result = RegionBSPTree3D.empty().toConvex();
@@ -3191,7 +3191,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0, result.size());
     }
 
-    @Test
+@Test
     void testToConvex_singleBox_1_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(1, 2, 3), Vector3D.of(2, 3, 4));
@@ -3203,7 +3203,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(1, result.size());
     }
 
-    @Test
+@Test
     void testToConvex_singleBox_2_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(1, 2, 3), Vector3D.of(2, 3, 4));
@@ -3218,7 +3218,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(1, vol.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToConvex_multipleBoxes_1_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(4, 5, 6), Vector3D.of(5, 6, 7));
@@ -3231,7 +3231,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(2, result.size());
     }
 
-    @Test
+@Test
     void testToConvex_multipleBoxes_2_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(4, 5, 6), Vector3D.of(5, 6, 7));
@@ -3251,7 +3251,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(1, small.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToConvex_multipleBoxes_4_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(4, 5, 6), Vector3D.of(5, 6, 7));
@@ -3274,7 +3274,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(2, large.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSplit_1_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5));
@@ -3288,7 +3288,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_2_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5));
@@ -3305,7 +3305,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0.5, minus.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSplit_4_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5));
@@ -3326,7 +3326,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(0.5, plus.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetNodeRegion_2_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.ZERO, Vector3D.of(1, 1, 1));
@@ -3337,7 +3337,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(rootVol.getCentroid());
     }
 
-    @Test
+@Test
     void testGetNodeRegion_4_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.ZERO, Vector3D.of(1, 1, 1));
@@ -3352,7 +3352,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertNull(plusVol.getCentroid());
     }
 
-    @Test
+@Test
     void testGetNodeRegion_5_oe() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.ZERO, Vector3D.of(1, 1, 1));
@@ -3370,7 +3370,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertEquals(1, centerVol.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSlightlyConcavePrism_1_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -3403,7 +3403,7 @@ class RegionBSPTree3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testSlightlyConcavePrism_2_oe() {
         // arrange
         final Vector3D[] vertices = {

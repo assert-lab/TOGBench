@@ -92,7 +92,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
      * Test Long Range/Min/Max
      */
 
-    public void testLongValidatorMethods_1_oe() {
+public void testLongValidatorMethods_1_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -104,7 +104,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertEquals("validate(A) default", expected, LongValidator.getInstance().validate(defaultVal));
     }
 
-    public void testLongValidatorMethods_2_oe() {
+public void testLongValidatorMethods_2_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -117,7 +117,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertEquals("validate(A) locale ", expected, LongValidator.getInstance().validate(localeVal, locale));
     }
 
-    public void testLongValidatorMethods_3_oe() {
+public void testLongValidatorMethods_3_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -131,7 +131,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertEquals("validate(A) pattern", expected, LongValidator.getInstance().validate(patternVal, pattern));
     }
 
-    public void testLongValidatorMethods_4_oe() {
+public void testLongValidatorMethods_4_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -146,7 +146,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertEquals("validate(A) both",    expected, LongValidator.getInstance().validate(germanPatternVal, pattern, Locale.GERMAN));
     }
 
-    public void testLongValidatorMethods_5_oe() {
+public void testLongValidatorMethods_5_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -163,7 +163,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isValid(A) default", LongValidator.getInstance().isValid(defaultVal));
     }
 
-    public void testLongValidatorMethods_6_oe() {
+public void testLongValidatorMethods_6_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -181,7 +181,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isValid(A) locale ", LongValidator.getInstance().isValid(localeVal, locale));
     }
 
-    public void testLongValidatorMethods_7_oe() {
+public void testLongValidatorMethods_7_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -200,7 +200,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isValid(A) pattern", LongValidator.getInstance().isValid(patternVal, pattern));
     }
 
-    public void testLongValidatorMethods_8_oe() {
+public void testLongValidatorMethods_8_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -220,7 +220,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isValid(A) both",    LongValidator.getInstance().isValid(germanPatternVal, pattern, Locale.GERMAN));
     }
 
-    public void testLongValidatorMethods_9_oe() {
+public void testLongValidatorMethods_9_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -242,7 +242,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertNull("validate(B) default", LongValidator.getInstance().validate(XXXX));
     }
 
-    public void testLongValidatorMethods_10_oe() {
+public void testLongValidatorMethods_10_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -265,7 +265,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertNull("validate(B) locale ", LongValidator.getInstance().validate(XXXX, locale));
     }
 
-    public void testLongValidatorMethods_11_oe() {
+public void testLongValidatorMethods_11_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -289,7 +289,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertNull("validate(B) pattern", LongValidator.getInstance().validate(XXXX, pattern));
     }
 
-    public void testLongValidatorMethods_12_oe() {
+public void testLongValidatorMethods_12_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -314,7 +314,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertNull("validate(B) both",    LongValidator.getInstance().validate(patternVal, pattern, Locale.GERMAN));
     }
 
-    public void testLongValidatorMethods_13_oe() {
+public void testLongValidatorMethods_13_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -341,7 +341,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isValid(B) default", LongValidator.getInstance().isValid(XXXX));
     }
 
-    public void testLongValidatorMethods_14_oe() {
+public void testLongValidatorMethods_14_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -369,7 +369,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isValid(B) locale ", LongValidator.getInstance().isValid(XXXX, locale));
     }
 
-    public void testLongValidatorMethods_15_oe() {
+public void testLongValidatorMethods_15_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -398,7 +398,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isValid(B) pattern", LongValidator.getInstance().isValid(XXXX, pattern));
     }
 
-    public void testLongValidatorMethods_16_oe() {
+public void testLongValidatorMethods_16_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -428,7 +428,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isValid(B) both",    LongValidator.getInstance().isValid(patternVal, pattern, Locale.GERMAN));
     }
 
-    public void testLongRangeMinMax_1_oe() {
+public void testLongRangeMinMax_1_oe() {
         LongValidator validator = (LongValidator)strictValidator;
         Long number9  = validator.validate("9", "#");
         Long number10 = validator.validate("10", "#");
@@ -441,7 +441,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isInRange() < min",   validator.isInRange(number9,  10, 20));
     }
 
-    public void testLongRangeMinMax_2_oe() {
+public void testLongRangeMinMax_2_oe() {
         LongValidator validator = (LongValidator)strictValidator;
         Long number9  = validator.validate("9", "#");
         Long number10 = validator.validate("10", "#");
@@ -455,7 +455,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isInRange() = min",    validator.isInRange(number10, 10, 20));
     }
 
-    public void testLongRangeMinMax_3_oe() {
+public void testLongRangeMinMax_3_oe() {
         LongValidator validator = (LongValidator)strictValidator;
         Long number9  = validator.validate("9", "#");
         Long number10 = validator.validate("10", "#");
@@ -470,7 +470,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isInRange() in range", validator.isInRange(number11, 10, 20));
     }
 
-    public void testLongRangeMinMax_4_oe() {
+public void testLongRangeMinMax_4_oe() {
         LongValidator validator = (LongValidator)strictValidator;
         Long number9  = validator.validate("9", "#");
         Long number10 = validator.validate("10", "#");
@@ -486,7 +486,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isInRange() = max",    validator.isInRange(number20, 10, 20));
     }
 
-    public void testLongRangeMinMax_5_oe() {
+public void testLongRangeMinMax_5_oe() {
         LongValidator validator = (LongValidator)strictValidator;
         Long number9  = validator.validate("9", "#");
         Long number10 = validator.validate("10", "#");
@@ -503,7 +503,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isInRange() > max",   validator.isInRange(number21, 10, 20));
     }
 
-    public void testLongRangeMinMax_6_oe() {
+public void testLongRangeMinMax_6_oe() {
         LongValidator validator = (LongValidator)strictValidator;
         Long number9  = validator.validate("9", "#");
         Long number10 = validator.validate("10", "#");
@@ -523,7 +523,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("minValue() < min",    validator.minValue(number9,  10));
     }
 
-    public void testLongRangeMinMax_7_oe() {
+public void testLongRangeMinMax_7_oe() {
         LongValidator validator = (LongValidator)strictValidator;
         Long number9  = validator.validate("9", "#");
         Long number10 = validator.validate("10", "#");
@@ -544,7 +544,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("minValue() = min",     validator.minValue(number10, 10));
     }
 
-    public void testLongRangeMinMax_8_oe() {
+public void testLongRangeMinMax_8_oe() {
         LongValidator validator = (LongValidator)strictValidator;
         Long number9  = validator.validate("9", "#");
         Long number10 = validator.validate("10", "#");
@@ -566,7 +566,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("minValue() > min",     validator.minValue(number11, 10));
     }
 
-    public void testLongRangeMinMax_9_oe() {
+public void testLongRangeMinMax_9_oe() {
         LongValidator validator = (LongValidator)strictValidator;
         Long number9  = validator.validate("9", "#");
         Long number10 = validator.validate("10", "#");
@@ -591,7 +591,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("maxValue() < max",     validator.maxValue(number19, 20));
     }
 
-    public void testLongRangeMinMax_10_oe() {
+public void testLongRangeMinMax_10_oe() {
         LongValidator validator = (LongValidator)strictValidator;
         Long number9  = validator.validate("9", "#");
         Long number10 = validator.validate("10", "#");
@@ -617,7 +617,7 @@ public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("maxValue() = max",     validator.maxValue(number20, 20));
     }
 
-    public void testLongRangeMinMax_11_oe() {
+public void testLongRangeMinMax_11_oe() {
         LongValidator validator = (LongValidator)strictValidator;
         Long number9  = validator.validate("9", "#");
         Long number10 = validator.validate("10", "#");

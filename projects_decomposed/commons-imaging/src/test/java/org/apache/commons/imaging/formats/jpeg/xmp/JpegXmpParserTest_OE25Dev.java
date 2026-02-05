@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 
 public class JpegXmpParserTest_OE25Dev{
 
-    @Test
+@Test
     public void testCreatesJpegXmpParserAndCallsParseXmpJpegSegment_2_oe() {
         final JpegXmpParser jpegXmpParser = new JpegXmpParser();
         final byte[] byteArray = new byte[1];
@@ -36,7 +36,7 @@ public class JpegXmpParserTest_OE25Dev{
     }
     }
 
-    @Test
+@Test
     public void testCreatesJpegXmpParserAndCallsParseXmpJpegSegment_3_oe() {
         final JpegXmpParser jpegXmpParser = new JpegXmpParser();
         final byte[] byteArray = new byte[1];

@@ -88,7 +88,7 @@ public class TestSystemConfiguration_OE25Dev {
      * Tests whether system properties can be set from a configuration file.
      */
 
-    @Test
+@Test
     public void testChangeSystemProperties_1_oe() {
         final String testProperty = "someTest";
         final SystemConfiguration config = new SystemConfiguration();
@@ -96,7 +96,7 @@ public class TestSystemConfiguration_OE25Dev {
         assertEquals("System property not changed", "true", System.getProperty(testProperty));
     }
 
-    @Test
+@Test
     public void testSetSystemProperties_1_oe() {
         final PropertiesConfiguration props = new PropertiesConfiguration();
         props.addProperty("test.name", "Apache");
@@ -104,7 +104,7 @@ public class TestSystemConfiguration_OE25Dev {
         assertEquals("System Properties", "Apache", System.getProperty("test.name"));
     }
 
-    @Test
+@Test
     public void testSetSystemPropertiesFromPropertiesFile_1_oe() throws ConfigurationException, IOException {
         final File file = folder.newFile("sys.properties");
         final PropertiesConfiguration pconfig = new PropertiesConfiguration();
@@ -117,7 +117,7 @@ public class TestSystemConfiguration_OE25Dev {
         assertTrue("Property from file not found", sconf.getBoolean("fromFile"));
     }
 
-    @Test
+@Test
     public void testSystemConfiguration_1_oe() {
         final Properties props = System.getProperties();
         props.put("test.number", "123");

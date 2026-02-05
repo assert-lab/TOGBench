@@ -61,19 +61,19 @@ public class WordUtilsTest_OE25Dev {
             + "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", Integer.MAX_VALUE);
     }
 
-    @Test
+@Test
     public void testConstructor_1_oe() {
         assertNotNull(new WordUtils());
     }
 
-    @Test
+@Test
     public void testConstructor_2_oe() {
         // removed other assertion
         final Constructor<?>[] cons = WordUtils.class.getDeclaredConstructors();
         assertEquals(1, cons.length);
     }
 
-    @Test
+@Test
     public void testConstructor_3_oe() {
         // removed other assertion
         final Constructor<?>[] cons = WordUtils.class.getDeclaredConstructors();
@@ -81,7 +81,7 @@ public class WordUtilsTest_OE25Dev {
         assertTrue(Modifier.isPublic(cons[0].getModifiers()));
     }
 
-    @Test
+@Test
     public void testConstructor_4_oe() {
         // removed other assertion
         final Constructor<?>[] cons = WordUtils.class.getDeclaredConstructors();
@@ -90,7 +90,7 @@ public class WordUtilsTest_OE25Dev {
         assertTrue(Modifier.isPublic(WordUtils.class.getModifiers()));
     }
 
-    @Test
+@Test
     public void testConstructor_5_oe() {
         // removed other assertion
         final Constructor<?>[] cons = WordUtils.class.getDeclaredConstructors();
@@ -100,18 +100,18 @@ public class WordUtilsTest_OE25Dev {
         assertFalse(Modifier.isFinal(WordUtils.class.getModifiers()));
     }
 
-    @Test
+@Test
     public void testWrap_StringInt_1_oe() {
         assertNull(WordUtils.wrap(null, 20));
     }
 
-    @Test
+@Test
     public void testWrap_StringInt_2_oe() {
         // removed other assertion
         assertNull(WordUtils.wrap(null, -1));
     }
 
-    @Test
+@Test
     public void testWrap_StringInt_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -119,7 +119,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.wrap("", 20));
     }
 
-    @Test
+@Test
     public void testWrap_StringInt_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -128,7 +128,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.wrap("", -1));
     }
 
-    @Test
+@Test
     public void testWrap_StringInt_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -144,7 +144,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20));
     }
 
-    @Test
+@Test
     public void testWrap_StringInt_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -166,7 +166,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20));
     }
 
-    @Test
+@Test
     public void testWrap_StringInt_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -194,7 +194,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20));
     }
 
-    @Test
+@Test
     public void testWrap_StringInt_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -228,25 +228,25 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 7));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_1_oe() {
         assertNull(WordUtils.wrap(null, 20, "\n", false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_2_oe() {
         // removed other assertion
         assertNull(WordUtils.wrap(null, 20, "\n", true));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_3_oe() {
         // removed other assertion
         // removed other assertion
         assertNull(WordUtils.wrap(null, 20, null, true));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -254,7 +254,7 @@ public class WordUtilsTest_OE25Dev {
         assertNull(WordUtils.wrap(null, 20, null, false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -263,7 +263,7 @@ public class WordUtilsTest_OE25Dev {
         assertNull(WordUtils.wrap(null, -1, null, true));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -273,7 +273,7 @@ public class WordUtilsTest_OE25Dev {
         assertNull(WordUtils.wrap(null, -1, null, false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -285,7 +285,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.wrap("", 20, "\n", false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -298,7 +298,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.wrap("", 20, "\n", true));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -312,7 +312,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.wrap("", 20, null, false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -327,7 +327,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.wrap("", 20, null, true));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -343,7 +343,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.wrap("", -1, null, false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -360,7 +360,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.wrap("", -1, null, true));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -382,7 +382,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20, "\n", false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -405,7 +405,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20, "\n", true));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_15_oe() {
         // removed other assertion
         // removed other assertion
@@ -433,7 +433,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20, "<br />", false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_16_oe() {
         // removed other assertion
         // removed other assertion
@@ -462,7 +462,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20, "<br />", true));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_17_oe() {
         // removed other assertion
         // removed other assertion
@@ -496,7 +496,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 6, "\n", false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_18_oe() {
         // removed other assertion
         // removed other assertion
@@ -532,7 +532,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 2, "\n", false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_19_oe() {
         // removed other assertion
         // removed other assertion
@@ -569,7 +569,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, -1, "\n", false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_20_oe() {
         // removed other assertion
         // removed other assertion
@@ -613,7 +613,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20, null, false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_21_oe() {
         // removed other assertion
         // removed other assertion
@@ -658,7 +658,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20, null, true));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_22_oe() {
         // removed other assertion
         // removed other assertion
@@ -708,7 +708,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20, "\n", false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_23_oe() {
         // removed other assertion
         // removed other assertion
@@ -759,7 +759,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20, "\n", true));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_24_oe() {
         // removed other assertion
         // removed other assertion
@@ -815,7 +815,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20, "\n", false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_25_oe() {
         // removed other assertion
         // removed other assertion
@@ -872,7 +872,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20, "\n", true));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_26_oe() {
         // removed other assertion
         // removed other assertion
@@ -934,7 +934,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20, "\n", false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_27_oe() {
         // removed other assertion
         // removed other assertion
@@ -997,7 +997,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20, "\n", true));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_28_oe() {
         // removed other assertion
         // removed other assertion
@@ -1065,7 +1065,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20, "\n", false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_29_oe() {
         // removed other assertion
         // removed other assertion
@@ -1135,7 +1135,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20, "\n", true));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_30_oe() {
         // removed other assertion
         // removed other assertion
@@ -1210,7 +1210,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20, "\n", false));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBoolean_31_oe() {
         // removed other assertion
         // removed other assertion
@@ -1287,7 +1287,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 20, "\n", true));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBooleanString_1_oe() {
 
         //no changes test
@@ -1296,7 +1296,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 30, "\n", false, "/"));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBooleanString_2_oe() {
 
         //no changes test
@@ -1309,7 +1309,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 2, "\n", false, "/"));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBooleanString_3_oe() {
 
         //no changes test
@@ -1326,7 +1326,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 9, "\n", true, "/"));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBooleanString_4_oe() {
 
         //no changes test
@@ -1347,7 +1347,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 15, "\n", true, "/"));
     }
 
-    @Test
+@Test
     public void testWrap_StringIntStringBooleanString_5_oe() {
 
         //no changes test
@@ -1373,25 +1373,25 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(expected, WordUtils.wrap(input, 15, "\n", true, "/"));
     }
 
-    @Test
+@Test
     public void testCapitalize_String_1_oe() {
         assertNull(WordUtils.capitalize(null));
     }
 
-    @Test
+@Test
     public void testCapitalize_String_2_oe() {
         // removed other assertion
         assertEquals("", WordUtils.capitalize(""));
     }
 
-    @Test
+@Test
     public void testCapitalize_String_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("  ", WordUtils.capitalize("  "));
     }
 
-    @Test
+@Test
     public void testCapitalize_String_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1400,7 +1400,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I", WordUtils.capitalize("I") );
     }
 
-    @Test
+@Test
     public void testCapitalize_String_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1410,7 +1410,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I", WordUtils.capitalize("i") );
     }
 
-    @Test
+@Test
     public void testCapitalize_String_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1421,7 +1421,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I Am Here 123", WordUtils.capitalize("i am here 123") );
     }
 
-    @Test
+@Test
     public void testCapitalize_String_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -1433,7 +1433,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I Am Here 123", WordUtils.capitalize("I Am Here 123") );
     }
 
-    @Test
+@Test
     public void testCapitalize_String_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -1446,7 +1446,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I Am HERE 123", WordUtils.capitalize("i am HERE 123") );
     }
 
-    @Test
+@Test
     public void testCapitalize_String_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -1460,25 +1460,25 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I AM HERE 123", WordUtils.capitalize("I AM HERE 123") );
     }
 
-    @Test
+@Test
     public void testCapitalizeWithDelimiters_String_1_oe() {
         assertNull(WordUtils.capitalize(null, null));
     }
 
-    @Test
+@Test
     public void testCapitalizeWithDelimiters_String_2_oe() {
         // removed other assertion
         assertEquals("", WordUtils.capitalize(""));
     }
 
-    @Test
+@Test
     public void testCapitalizeWithDelimiters_String_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("  ", WordUtils.capitalize("  "));
     }
 
-    @Test
+@Test
     public void testCapitalizeWithDelimiters_String_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1488,7 +1488,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I", WordUtils.capitalize("I", chars) );
     }
 
-    @Test
+@Test
     public void testCapitalizeWithDelimiters_String_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1499,7 +1499,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I", WordUtils.capitalize("i", chars) );
     }
 
-    @Test
+@Test
     public void testCapitalizeWithDelimiters_String_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1511,7 +1511,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I-Am Here+123", WordUtils.capitalize("i-am here+123", chars) );
     }
 
-    @Test
+@Test
     public void testCapitalizeWithDelimiters_String_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -1524,7 +1524,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I Am+Here-123", WordUtils.capitalize("I Am+Here-123", chars) );
     }
 
-    @Test
+@Test
     public void testCapitalizeWithDelimiters_String_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -1538,7 +1538,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I+Am-HERE 123", WordUtils.capitalize("i+am-HERE 123", chars) );
     }
 
-    @Test
+@Test
     public void testCapitalizeWithDelimiters_String_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -1553,7 +1553,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I-AM HERE+123", WordUtils.capitalize("I-AM HERE+123", chars) );
     }
 
-    @Test
+@Test
     public void testCapitalizeWithDelimiters_String_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -1570,7 +1570,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I aM.Fine", WordUtils.capitalize("i aM.fine", chars) );
     }
 
-    @Test
+@Test
     public void testCapitalizeWithDelimiters_String_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -1588,25 +1588,25 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I Am.fine", WordUtils.capitalize("i am.fine", null) );
     }
 
-    @Test
+@Test
     public void testCapitalizeFully_String_1_oe() {
         assertNull(WordUtils.capitalizeFully(null));
     }
 
-    @Test
+@Test
     public void testCapitalizeFully_String_2_oe() {
         // removed other assertion
         assertEquals("", WordUtils.capitalizeFully(""));
     }
 
-    @Test
+@Test
     public void testCapitalizeFully_String_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("  ", WordUtils.capitalizeFully("  "));
     }
 
-    @Test
+@Test
     public void testCapitalizeFully_String_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1615,7 +1615,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I", WordUtils.capitalizeFully("I") );
     }
 
-    @Test
+@Test
     public void testCapitalizeFully_String_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1625,7 +1625,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I", WordUtils.capitalizeFully("i") );
     }
 
-    @Test
+@Test
     public void testCapitalizeFully_String_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1636,7 +1636,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I Am Here 123", WordUtils.capitalizeFully("i am here 123") );
     }
 
-    @Test
+@Test
     public void testCapitalizeFully_String_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -1648,7 +1648,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I Am Here 123", WordUtils.capitalizeFully("I Am Here 123") );
     }
 
-    @Test
+@Test
     public void testCapitalizeFully_String_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -1661,7 +1661,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I Am Here 123", WordUtils.capitalizeFully("i am HERE 123") );
     }
 
-    @Test
+@Test
     public void testCapitalizeFully_String_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -1675,25 +1675,25 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I Am Here 123", WordUtils.capitalizeFully("I AM HERE 123") );
     }
 
-    @Test
+@Test
     public void testCapitalizeFullyWithDelimiters_String_1_oe() {
         assertNull(WordUtils.capitalizeFully(null, null));
     }
 
-    @Test
+@Test
     public void testCapitalizeFullyWithDelimiters_String_2_oe() {
         // removed other assertion
         assertEquals("", WordUtils.capitalizeFully(""));
     }
 
-    @Test
+@Test
     public void testCapitalizeFullyWithDelimiters_String_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("  ", WordUtils.capitalizeFully("  "));
     }
 
-    @Test
+@Test
     public void testCapitalizeFullyWithDelimiters_String_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1703,7 +1703,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I", WordUtils.capitalizeFully("I", chars) );
     }
 
-    @Test
+@Test
     public void testCapitalizeFullyWithDelimiters_String_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1714,7 +1714,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I", WordUtils.capitalizeFully("i", chars) );
     }
 
-    @Test
+@Test
     public void testCapitalizeFullyWithDelimiters_String_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1726,7 +1726,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I-Am Here+123", WordUtils.capitalizeFully("i-am here+123", chars) );
     }
 
-    @Test
+@Test
     public void testCapitalizeFullyWithDelimiters_String_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -1739,7 +1739,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I Am+Here-123", WordUtils.capitalizeFully("I Am+Here-123", chars) );
     }
 
-    @Test
+@Test
     public void testCapitalizeFullyWithDelimiters_String_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -1753,7 +1753,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I+Am-Here 123", WordUtils.capitalizeFully("i+am-HERE 123", chars) );
     }
 
-    @Test
+@Test
     public void testCapitalizeFullyWithDelimiters_String_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -1768,7 +1768,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I-Am Here+123", WordUtils.capitalizeFully("I-AM HERE+123", chars) );
     }
 
-    @Test
+@Test
     public void testCapitalizeFullyWithDelimiters_String_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -1785,7 +1785,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I am.Fine", WordUtils.capitalizeFully("i aM.fine", chars) );
     }
 
-    @Test
+@Test
     public void testCapitalizeFullyWithDelimiters_String_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -1803,25 +1803,25 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I Am.fine", WordUtils.capitalizeFully("i am.fine", null) );
     }
 
-    @Test
+@Test
     public void testContainsAllWords_StringString_1_oe() {
         assertFalse(WordUtils.containsAllWords(null, (String) null));
     }
 
-    @Test
+@Test
     public void testContainsAllWords_StringString_2_oe() {
         // removed other assertion
         assertFalse(WordUtils.containsAllWords(null, ""));
     }
 
-    @Test
+@Test
     public void testContainsAllWords_StringString_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(WordUtils.containsAllWords(null, "ab"));
     }
 
-    @Test
+@Test
     public void testContainsAllWords_StringString_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1830,7 +1830,7 @@ public class WordUtilsTest_OE25Dev {
         assertFalse(WordUtils.containsAllWords("", (String) null));
     }
 
-    @Test
+@Test
     public void testContainsAllWords_StringString_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1840,7 +1840,7 @@ public class WordUtilsTest_OE25Dev {
         assertFalse(WordUtils.containsAllWords("", ""));
     }
 
-    @Test
+@Test
     public void testContainsAllWords_StringString_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1851,7 +1851,7 @@ public class WordUtilsTest_OE25Dev {
         assertFalse(WordUtils.containsAllWords("", "ab"));
     }
 
-    @Test
+@Test
     public void testContainsAllWords_StringString_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -1864,7 +1864,7 @@ public class WordUtilsTest_OE25Dev {
         assertFalse(WordUtils.containsAllWords("foo", (String) null));
     }
 
-    @Test
+@Test
     public void testContainsAllWords_StringString_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -1878,7 +1878,7 @@ public class WordUtilsTest_OE25Dev {
         assertFalse(WordUtils.containsAllWords("bar", ""));
     }
 
-    @Test
+@Test
     public void testContainsAllWords_StringString_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -1893,7 +1893,7 @@ public class WordUtilsTest_OE25Dev {
         assertFalse(WordUtils.containsAllWords("zzabyycdxx", "by"));
     }
 
-    @Test
+@Test
     public void testContainsAllWords_StringString_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -1909,7 +1909,7 @@ public class WordUtilsTest_OE25Dev {
         assertTrue(WordUtils.containsAllWords("lorem ipsum dolor sit amet", "ipsum", "lorem", "dolor"));
     }
 
-    @Test
+@Test
     public void testContainsAllWords_StringString_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -1926,7 +1926,7 @@ public class WordUtilsTest_OE25Dev {
         assertFalse(WordUtils.containsAllWords("lorem ipsum dolor sit amet", "ipsum", null, "lorem", "dolor"));
     }
 
-    @Test
+@Test
     public void testContainsAllWords_StringString_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -1944,7 +1944,7 @@ public class WordUtilsTest_OE25Dev {
         assertFalse(WordUtils.containsAllWords("lorem ipsum null dolor sit amet", "ipsum", null, "lorem", "dolor"));
     }
 
-    @Test
+@Test
     public void testContainsAllWords_StringString_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -1963,7 +1963,7 @@ public class WordUtilsTest_OE25Dev {
         assertFalse(WordUtils.containsAllWords("ab", "b"));
     }
 
-    @Test
+@Test
     public void testContainsAllWords_StringString_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -1983,25 +1983,25 @@ public class WordUtilsTest_OE25Dev {
         assertFalse(WordUtils.containsAllWords("ab", "z"));
     }
 
-    @Test
+@Test
     public void testUncapitalize_String_1_oe() {
         assertNull(WordUtils.uncapitalize(null));
     }
 
-    @Test
+@Test
     public void testUncapitalize_String_2_oe() {
         // removed other assertion
         assertEquals("", WordUtils.uncapitalize(""));
     }
 
-    @Test
+@Test
     public void testUncapitalize_String_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("  ", WordUtils.uncapitalize("  "));
     }
 
-    @Test
+@Test
     public void testUncapitalize_String_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -2010,7 +2010,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i", WordUtils.uncapitalize("I") );
     }
 
-    @Test
+@Test
     public void testUncapitalize_String_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -2020,7 +2020,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i", WordUtils.uncapitalize("i") );
     }
 
-    @Test
+@Test
     public void testUncapitalize_String_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -2031,7 +2031,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i am here 123", WordUtils.uncapitalize("i am here 123") );
     }
 
-    @Test
+@Test
     public void testUncapitalize_String_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -2043,7 +2043,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i am here 123", WordUtils.uncapitalize("I Am Here 123") );
     }
 
-    @Test
+@Test
     public void testUncapitalize_String_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -2056,7 +2056,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i am hERE 123", WordUtils.uncapitalize("i am HERE 123") );
     }
 
-    @Test
+@Test
     public void testUncapitalize_String_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -2070,25 +2070,25 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i aM hERE 123", WordUtils.uncapitalize("I AM HERE 123") );
     }
 
-    @Test
+@Test
     public void testUncapitalizeWithDelimiters_String_1_oe() {
         assertNull(WordUtils.uncapitalize(null, null));
     }
 
-    @Test
+@Test
     public void testUncapitalizeWithDelimiters_String_2_oe() {
         // removed other assertion
         assertEquals("", WordUtils.uncapitalize(""));
     }
 
-    @Test
+@Test
     public void testUncapitalizeWithDelimiters_String_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("  ", WordUtils.uncapitalize("  "));
     }
 
-    @Test
+@Test
     public void testUncapitalizeWithDelimiters_String_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -2098,7 +2098,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i", WordUtils.uncapitalize("I", chars) );
     }
 
-    @Test
+@Test
     public void testUncapitalizeWithDelimiters_String_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -2109,7 +2109,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i", WordUtils.uncapitalize("i", chars) );
     }
 
-    @Test
+@Test
     public void testUncapitalizeWithDelimiters_String_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -2121,7 +2121,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i am-here+123", WordUtils.uncapitalize("i am-here+123", chars) );
     }
 
-    @Test
+@Test
     public void testUncapitalizeWithDelimiters_String_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -2134,7 +2134,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i+am here-123", WordUtils.uncapitalize("I+Am Here-123", chars) );
     }
 
-    @Test
+@Test
     public void testUncapitalizeWithDelimiters_String_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -2148,7 +2148,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i-am+hERE 123", WordUtils.uncapitalize("i-am+HERE 123", chars) );
     }
 
-    @Test
+@Test
     public void testUncapitalizeWithDelimiters_String_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -2163,7 +2163,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i aM-hERE+123", WordUtils.uncapitalize("I AM-HERE+123", chars) );
     }
 
-    @Test
+@Test
     public void testUncapitalizeWithDelimiters_String_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -2180,7 +2180,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i AM.fINE", WordUtils.uncapitalize("I AM.FINE", chars) );
     }
 
-    @Test
+@Test
     public void testUncapitalizeWithDelimiters_String_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -2198,25 +2198,25 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i aM.FINE", WordUtils.uncapitalize("I AM.FINE", null) );
     }
 
-    @Test
+@Test
     public void testInitials_String_1_oe() {
         assertNull(WordUtils.initials(null));
     }
 
-    @Test
+@Test
     public void testInitials_String_2_oe() {
         // removed other assertion
         assertEquals("", WordUtils.initials(""));
     }
 
-    @Test
+@Test
     public void testInitials_String_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("", WordUtils.initials("  "));
     }
 
-    @Test
+@Test
     public void testInitials_String_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -2225,7 +2225,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I", WordUtils.initials("I"));
     }
 
-    @Test
+@Test
     public void testInitials_String_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -2235,7 +2235,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i", WordUtils.initials("i"));
     }
 
-    @Test
+@Test
     public void testInitials_String_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -2246,7 +2246,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJL", WordUtils.initials("Ben John Lee"));
     }
 
-    @Test
+@Test
     public void testInitials_String_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -2258,7 +2258,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJL", WordUtils.initials("   Ben \n   John\tLee\t"));
     }
 
-    @Test
+@Test
     public void testInitials_String_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -2271,7 +2271,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJ", WordUtils.initials("Ben J.Lee"));
     }
 
-    @Test
+@Test
     public void testInitials_String_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -2285,7 +2285,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJ.L", WordUtils.initials(" Ben   John  . Lee"));
     }
 
-    @Test
+@Test
     public void testInitials_String_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -2300,20 +2300,20 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("iah1", WordUtils.initials("i am here 123"));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_1_oe() {
         char[] array = null;
         assertNull(WordUtils.initials(null, array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_2_oe() {
         char[] array = null;
         // removed other assertion
         assertEquals("", WordUtils.initials("", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_3_oe() {
         char[] array = null;
         // removed other assertion
@@ -2321,7 +2321,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("  ", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_4_oe() {
         char[] array = null;
         // removed other assertion
@@ -2330,7 +2330,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I", WordUtils.initials("I", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_5_oe() {
         char[] array = null;
         // removed other assertion
@@ -2340,7 +2340,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i", WordUtils.initials("i", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_6_oe() {
         char[] array = null;
         // removed other assertion
@@ -2351,7 +2351,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("S", WordUtils.initials("SJC", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_7_oe() {
         char[] array = null;
         // removed other assertion
@@ -2363,7 +2363,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJL", WordUtils.initials("Ben John Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_8_oe() {
         char[] array = null;
         // removed other assertion
@@ -2376,7 +2376,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJL", WordUtils.initials("   Ben \n   John\tLee\t", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_9_oe() {
         char[] array = null;
         // removed other assertion
@@ -2390,7 +2390,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJ", WordUtils.initials("Ben J.Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_10_oe() {
         char[] array = null;
         // removed other assertion
@@ -2405,7 +2405,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJ.L", WordUtils.initials(" Ben   John  . Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_11_oe() {
         char[] array = null;
         // removed other assertion
@@ -2421,7 +2421,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("KO", WordUtils.initials("Kay O'Murphy", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_12_oe() {
         char[] array = null;
         // removed other assertion
@@ -2438,7 +2438,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("iah1", WordUtils.initials("i am here 123", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_13_oe() {
         char[] array = null;
         // removed other assertion
@@ -2458,7 +2458,7 @@ public class WordUtilsTest_OE25Dev {
         assertNull(WordUtils.initials(null, array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_14_oe() {
         char[] array = null;
         // removed other assertion
@@ -2479,7 +2479,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_15_oe() {
         char[] array = null;
         // removed other assertion
@@ -2501,7 +2501,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("  ", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_16_oe() {
         char[] array = null;
         // removed other assertion
@@ -2524,7 +2524,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("I", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_17_oe() {
         char[] array = null;
         // removed other assertion
@@ -2548,7 +2548,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("i", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_18_oe() {
         char[] array = null;
         // removed other assertion
@@ -2573,7 +2573,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("SJC", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_19_oe() {
         char[] array = null;
         // removed other assertion
@@ -2599,7 +2599,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("Ben John Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_20_oe() {
         char[] array = null;
         // removed other assertion
@@ -2626,7 +2626,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("   Ben \n   John\tLee\t", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_21_oe() {
         char[] array = null;
         // removed other assertion
@@ -2654,7 +2654,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("Ben J.Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_22_oe() {
         char[] array = null;
         // removed other assertion
@@ -2683,7 +2683,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials(" Ben   John  . Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_23_oe() {
         char[] array = null;
         // removed other assertion
@@ -2713,7 +2713,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("Kay O'Murphy", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_24_oe() {
         char[] array = null;
         // removed other assertion
@@ -2744,7 +2744,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("i am here 123", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_25_oe() {
         char[] array = null;
         // removed other assertion
@@ -2778,7 +2778,7 @@ public class WordUtilsTest_OE25Dev {
         assertNull(WordUtils.initials(null, array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_26_oe() {
         char[] array = null;
         // removed other assertion
@@ -2813,7 +2813,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_27_oe() {
         char[] array = null;
         // removed other assertion
@@ -2849,7 +2849,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("  ", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_28_oe() {
         char[] array = null;
         // removed other assertion
@@ -2886,7 +2886,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I", WordUtils.initials("I", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_29_oe() {
         char[] array = null;
         // removed other assertion
@@ -2924,7 +2924,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i", WordUtils.initials("i", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_30_oe() {
         char[] array = null;
         // removed other assertion
@@ -2963,7 +2963,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("S", WordUtils.initials("SJC", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_31_oe() {
         char[] array = null;
         // removed other assertion
@@ -3003,7 +3003,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJL", WordUtils.initials("Ben John Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_32_oe() {
         char[] array = null;
         // removed other assertion
@@ -3044,7 +3044,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJ", WordUtils.initials("Ben J.Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_33_oe() {
         char[] array = null;
         // removed other assertion
@@ -3086,7 +3086,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("B\nJ", WordUtils.initials("   Ben \n   John\tLee\t", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_34_oe() {
         char[] array = null;
         // removed other assertion
@@ -3129,7 +3129,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJ.L", WordUtils.initials(" Ben   John  . Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_35_oe() {
         char[] array = null;
         // removed other assertion
@@ -3173,7 +3173,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("KO", WordUtils.initials("Kay O'Murphy", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_36_oe() {
         char[] array = null;
         // removed other assertion
@@ -3218,7 +3218,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("iah1", WordUtils.initials("i am here 123", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_37_oe() {
         char[] array = null;
         // removed other assertion
@@ -3266,7 +3266,7 @@ public class WordUtilsTest_OE25Dev {
         assertNull(WordUtils.initials(null, array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_38_oe() {
         char[] array = null;
         // removed other assertion
@@ -3315,7 +3315,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_39_oe() {
         char[] array = null;
         // removed other assertion
@@ -3365,7 +3365,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("  ", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_40_oe() {
         char[] array = null;
         // removed other assertion
@@ -3416,7 +3416,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I", WordUtils.initials("I", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_41_oe() {
         char[] array = null;
         // removed other assertion
@@ -3468,7 +3468,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i", WordUtils.initials("i", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_42_oe() {
         char[] array = null;
         // removed other assertion
@@ -3521,7 +3521,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("S", WordUtils.initials("SJC", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_43_oe() {
         char[] array = null;
         // removed other assertion
@@ -3575,7 +3575,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJL", WordUtils.initials("Ben John Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_44_oe() {
         char[] array = null;
         // removed other assertion
@@ -3630,7 +3630,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJL", WordUtils.initials("Ben J.Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_45_oe() {
         char[] array = null;
         // removed other assertion
@@ -3686,7 +3686,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJL", WordUtils.initials(" Ben   John  . Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_46_oe() {
         char[] array = null;
         // removed other assertion
@@ -3743,7 +3743,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("KO", WordUtils.initials("Kay O'Murphy", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_47_oe() {
         char[] array = null;
         // removed other assertion
@@ -3801,7 +3801,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("iah1", WordUtils.initials("i am here 123", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_48_oe() {
         char[] array = null;
         // removed other assertion
@@ -3862,7 +3862,7 @@ public class WordUtilsTest_OE25Dev {
         assertNull(WordUtils.initials(null, array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_49_oe() {
         char[] array = null;
         // removed other assertion
@@ -3924,7 +3924,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_50_oe() {
         char[] array = null;
         // removed other assertion
@@ -3987,7 +3987,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("  ", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_51_oe() {
         char[] array = null;
         // removed other assertion
@@ -4051,7 +4051,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I", WordUtils.initials("I", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_52_oe() {
         char[] array = null;
         // removed other assertion
@@ -4116,7 +4116,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i", WordUtils.initials("i", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_53_oe() {
         char[] array = null;
         // removed other assertion
@@ -4182,7 +4182,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("S", WordUtils.initials("SJC", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_54_oe() {
         char[] array = null;
         // removed other assertion
@@ -4249,7 +4249,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJL", WordUtils.initials("Ben John Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_55_oe() {
         char[] array = null;
         // removed other assertion
@@ -4317,7 +4317,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJL", WordUtils.initials("Ben J.Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_56_oe() {
         char[] array = null;
         // removed other assertion
@@ -4386,7 +4386,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("BJL", WordUtils.initials(" Ben   John  . Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_57_oe() {
         char[] array = null;
         // removed other assertion
@@ -4456,7 +4456,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("KOM", WordUtils.initials("Kay O'Murphy", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_58_oe() {
         char[] array = null;
         // removed other assertion
@@ -4527,7 +4527,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("iah1", WordUtils.initials("i am here 123", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_59_oe() {
         char[] array = null;
         // removed other assertion
@@ -4601,7 +4601,7 @@ public class WordUtilsTest_OE25Dev {
         assertNull(WordUtils.initials(null, array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_60_oe() {
         char[] array = null;
         // removed other assertion
@@ -4676,7 +4676,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_61_oe() {
         char[] array = null;
         // removed other assertion
@@ -4752,7 +4752,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(" ", WordUtils.initials("  ", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_62_oe() {
         char[] array = null;
         // removed other assertion
@@ -4829,7 +4829,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("", WordUtils.initials("I", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_63_oe() {
         char[] array = null;
         // removed other assertion
@@ -4907,7 +4907,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i", WordUtils.initials("i", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_64_oe() {
         char[] array = null;
         // removed other assertion
@@ -4986,7 +4986,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("C", WordUtils.initials("SJC", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_65_oe() {
         char[] array = null;
         // removed other assertion
@@ -5066,7 +5066,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("Bh", WordUtils.initials("Ben John Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_66_oe() {
         char[] array = null;
         // removed other assertion
@@ -5147,7 +5147,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("B.", WordUtils.initials("Ben J.Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_67_oe() {
         char[] array = null;
         // removed other assertion
@@ -5229,7 +5229,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals(" h", WordUtils.initials(" Ben   John  . Lee", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_68_oe() {
         char[] array = null;
         // removed other assertion
@@ -5312,7 +5312,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("K", WordUtils.initials("Kay O'Murphy", array));
     }
 
-    @Test
+@Test
     public void testInitials_String_charArray_69_oe() {
         char[] array = null;
         // removed other assertion
@@ -5396,25 +5396,25 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i2", WordUtils.initials("i am here 123", array));
     }
 
-    @Test
+@Test
     public void testSwapCase_String_1_oe() {
         assertNull(WordUtils.swapCase(null));
     }
 
-    @Test
+@Test
     public void testSwapCase_String_2_oe() {
         // removed other assertion
         assertEquals("", WordUtils.swapCase(""));
     }
 
-    @Test
+@Test
     public void testSwapCase_String_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("  ", WordUtils.swapCase("  "));
     }
 
-    @Test
+@Test
     public void testSwapCase_String_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -5423,7 +5423,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i", WordUtils.swapCase("I") );
     }
 
-    @Test
+@Test
     public void testSwapCase_String_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -5433,7 +5433,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I", WordUtils.swapCase("i") );
     }
 
-    @Test
+@Test
     public void testSwapCase_String_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -5444,7 +5444,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I AM HERE 123", WordUtils.swapCase("i am here 123") );
     }
 
-    @Test
+@Test
     public void testSwapCase_String_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -5456,7 +5456,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i aM hERE 123", WordUtils.swapCase("I Am Here 123") );
     }
 
-    @Test
+@Test
     public void testSwapCase_String_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -5469,7 +5469,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("I AM here 123", WordUtils.swapCase("i am HERE 123") );
     }
 
-    @Test
+@Test
     public void testSwapCase_String_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -5483,7 +5483,7 @@ public class WordUtilsTest_OE25Dev {
         assertEquals("i am here 123", WordUtils.swapCase("I AM HERE 123") );
     }
 
-    @Test
+@Test
     public void testSwapCase_String_10_oe() {
         // removed other assertion
         // removed other assertion

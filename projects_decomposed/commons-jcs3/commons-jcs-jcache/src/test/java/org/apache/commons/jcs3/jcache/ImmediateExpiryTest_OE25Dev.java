@@ -36,7 +36,7 @@ import static org.junit.Assert.assertFalse;
 public class ImmediateExpiryTest_OE25Dev
 {
 
-    @Test
+@Test
     public void immediate_1_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -49,7 +49,7 @@ public class ImmediateExpiryTest_OE25Dev
         assertFalse(cache.containsKey("foo"));
     }
 
-    @Test
+@Test
     public void immediate_2_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();

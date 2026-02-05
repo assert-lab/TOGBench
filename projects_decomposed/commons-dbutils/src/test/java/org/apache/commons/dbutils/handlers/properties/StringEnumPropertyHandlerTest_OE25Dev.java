@@ -30,17 +30,17 @@ public class StringEnumPropertyHandlerTest_OE25Dev {
         this.handler = new StringEnumPropertyHandler();
     }
 
-    @Test
+@Test
     public void testMatch_1_oe() {
         assertTrue(handler.match(TestEnum.class, "test"));
     }
 
-    @Test
+@Test
     public void testMatchNegative_1_oe() {
         assertFalse(handler.match(TestEnum.class, Double.valueOf(1)));
     }
 
-    @Test
+@Test
     public void testMatchNegative_2_oe() {
         // removed other assertion
 

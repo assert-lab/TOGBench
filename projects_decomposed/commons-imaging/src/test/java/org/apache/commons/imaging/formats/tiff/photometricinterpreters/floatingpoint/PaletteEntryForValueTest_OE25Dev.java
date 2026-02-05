@@ -64,14 +64,14 @@ public class PaletteEntryForValueTest_OE25Dev {
 
     }
 
-    @Test
+@Test
     public void testIsCovered_1_oe() {
         final Color c0 = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, c0);
         assertTrue(instance.isCovered(0.0f), "Zero value must be covered");
     }
 
-    @Test
+@Test
     public void testIsCovered_2_oe() {
         final Color c0 = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, c0);
@@ -79,7 +79,7 @@ public class PaletteEntryForValueTest_OE25Dev {
         assertFalse(instance.isCovered(1.0f), "Value 1.0 must not be covered");
     }
 
-    @Test
+@Test
     public void testIsCovered_3_oe() {
         final Color c0 = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, c0);
@@ -89,7 +89,7 @@ public class PaletteEntryForValueTest_OE25Dev {
         assertTrue(instance.isCovered(Float.NaN), "NaN value must be covered");
     }
 
-    @Test
+@Test
     public void testIsCovered_4_oe() {
         final Color c0 = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, c0);
@@ -100,7 +100,7 @@ public class PaletteEntryForValueTest_OE25Dev {
         assertFalse(instance.isCovered(1.0f), "Value 1.0 must not be covered");
     }
 
-    @Test
+@Test
     public void testGetARGB_1_oe() {
         final Color c0 = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, c0);
@@ -110,7 +110,7 @@ public class PaletteEntryForValueTest_OE25Dev {
         assertEquals(0xff0000ff, a0, "Invalid value for target 0.0f");
     }
 
-    @Test
+@Test
     public void testGetARGB_2_oe() {
         final Color c0 = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, c0);
@@ -121,7 +121,7 @@ public class PaletteEntryForValueTest_OE25Dev {
         assertEquals(0, a1, "Invalid value for target 0.5f");
     }
 
-    @Test
+@Test
     public void testGetARGB_3_oe() {
         final Color c0 = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, c0);
@@ -133,7 +133,7 @@ public class PaletteEntryForValueTest_OE25Dev {
         assertEquals(0, a2, "Invalid value for target NaN");
     }
 
-    @Test
+@Test
     public void testGetARGB_4_oe() {
         final Color c0 = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, c0);
@@ -149,7 +149,7 @@ public class PaletteEntryForValueTest_OE25Dev {
         assertEquals(0, a0, "Invalid value for target 0.0f");
     }
 
-    @Test
+@Test
     public void testGetARGB_5_oe() {
         final Color c0 = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, c0);
@@ -166,7 +166,7 @@ public class PaletteEntryForValueTest_OE25Dev {
         assertEquals(0xff0000ff, a1, "Invalid value for target NaN");
     }
 
-    @Test
+@Test
     public void testGetColor_1_oe() {
         final Color cTest = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, cTest);
@@ -175,7 +175,7 @@ public class PaletteEntryForValueTest_OE25Dev {
         assertEquals(0xff0000ff, a0, "Invalid value for 0.0f");
     }
 
-    @Test
+@Test
     public void testGetColor_2_oe() {
         final Color cTest = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, cTest);
@@ -186,7 +186,7 @@ public class PaletteEntryForValueTest_OE25Dev {
         assertNull(c0, "Non-null return for invalid target 1.0f");
     }
 
-    @Test
+@Test
     public void testGetColor_3_oe() {
         final Color cTest = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, cTest);
@@ -199,7 +199,7 @@ public class PaletteEntryForValueTest_OE25Dev {
         assertNull(c0, "Non-null return for invalid target 1.0f");
     }
 
-    @Test
+@Test
     public void testGetColor_4_oe() {
         final Color cTest = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, cTest);
@@ -215,7 +215,7 @@ public class PaletteEntryForValueTest_OE25Dev {
         assertNotNull(c0, "Invalid return for valid target Float.NaN");
     }
 
-    @Test
+@Test
     public void testGetColor_5_oe() {
         final Color cTest = new Color(0xff0000ff);
         PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, cTest);

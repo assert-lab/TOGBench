@@ -98,7 +98,7 @@ public class POP3ClientTest_OE25Dev extends TestCase
      * disconnected, transaction and update states
      */
 
-    public void testInvalidLoginWithBadName_1_oe() throws Exception
+public void testInvalidLoginWithBadName_1_oe() throws Exception
     {
         reset();
         connect();
@@ -107,7 +107,7 @@ public class POP3ClientTest_OE25Dev extends TestCase
         assertFalse(p.login("badusername", password));
     }
 
-    public void testInvalidLoginWithBadPassword_1_oe() throws Exception
+public void testInvalidLoginWithBadPassword_1_oe() throws Exception
     {
         reset();
         connect();
@@ -116,7 +116,7 @@ public class POP3ClientTest_OE25Dev extends TestCase
         assertFalse(p.login(user, "badpassword"));
     }
 
-    public void testLoginFromWrongState_1_oe() throws Exception
+public void testLoginFromWrongState_1_oe() throws Exception
     {
         reset();
 
@@ -125,7 +125,7 @@ public class POP3ClientTest_OE25Dev extends TestCase
         assertFalse(p.login(user, password));
     }
 
-    public void testLoginFromWrongState_2_oe() throws Exception
+public void testLoginFromWrongState_2_oe() throws Exception
     {
         reset();
 
@@ -139,7 +139,7 @@ public class POP3ClientTest_OE25Dev extends TestCase
         assertFalse(p.login(user, password));
     }
 
-    public void testLoginFromWrongState_3_oe() throws Exception
+public void testLoginFromWrongState_3_oe() throws Exception
     {
         reset();
 
@@ -159,7 +159,7 @@ public class POP3ClientTest_OE25Dev extends TestCase
         assertFalse(p.login(user, password));
     }
 
-    public void testLogoutFromAllStates_1_oe() throws Exception
+public void testLogoutFromAllStates_1_oe() throws Exception
     {
         //From 'transaction' state
         reset();
@@ -168,7 +168,7 @@ public class POP3ClientTest_OE25Dev extends TestCase
         assertTrue(p.logout());
     }
 
-    public void testLogoutFromAllStates_2_oe() throws Exception
+public void testLogoutFromAllStates_2_oe() throws Exception
     {
         //From 'transaction' state
         reset();
@@ -178,7 +178,7 @@ public class POP3ClientTest_OE25Dev extends TestCase
         assertEquals(POP3.UPDATE_STATE, p.getState());
     }
 
-    public void testLogoutFromAllStates_3_oe() throws Exception
+public void testLogoutFromAllStates_3_oe() throws Exception
     {
         //From 'transaction' state
         reset();

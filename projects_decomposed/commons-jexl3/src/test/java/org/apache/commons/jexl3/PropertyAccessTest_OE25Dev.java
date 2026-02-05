@@ -228,7 +228,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         }
     }
 
-    @Test
+@Test
     public void testInnerViaArithmetic_1_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -240,7 +240,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("bar", result);
     }
 
-    @Test
+@Test
     public void testInnerViaArithmetic_2_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -257,7 +257,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("123", result);
     }
 
-    @Test
+@Test
     public void testInnerViaArithmetic_3_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -277,7 +277,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("456", result);
     }
 
-    @Test
+@Test
     public void testInnerViaArithmetic_4_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -298,7 +298,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(calls + 2, pa.getCalls());
     }
 
-    @Test
+@Test
     public void testInnerViaArithmetic_5_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -322,7 +322,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("QUUX", result);
     }
 
-    @Test
+@Test
     public void testInnerViaArithmetic_6_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -347,7 +347,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(calls + 2, pa.getCalls());
     }
 
-    @Test
+@Test
     public void testInnerViaArithmetic_7_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -376,7 +376,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(169, result);
     }
 
-    @Test
+@Test
     public void testInnerViaArithmetic_8_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -409,7 +409,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1042, result);
     }
 
-    @Test
+@Test
     public void testInnerViaArithmetic_9_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -445,7 +445,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1024, result);
     }
 
-    @Test
+@Test
     public void testInnerViaArithmetic_10_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -482,7 +482,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(calls + 4, pa.getCalls());
     }
 
-    @Test
+@Test
     public void testInnerViaArithmetic_11_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -522,7 +522,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1042, result);
     }
 
-    @Test
+@Test
     public void testInnerViaArithmetic_12_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -563,7 +563,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(calls + 4, pa.getCalls());
     }
 
-    @Test
+@Test
     public void testInnerProperty_1_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -577,7 +577,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("quux", result);
     }
 
-    @Test
+@Test
     public void testInnerProperty_2_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -595,7 +595,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("quux", result);
     }
 
-    @Test
+@Test
     public void testInnerProperty_3_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -617,7 +617,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testInnerProperty_4_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -643,7 +643,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testInnerProperty_5_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -674,7 +674,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("QUUX", result);
     }
 
-    @Test
+@Test
     public void testInnerProperty_6_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -707,7 +707,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("QUUX", result);
     }
 
-    @Test
+@Test
     public void testInnerProperty_7_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -745,7 +745,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("BAR", result);
     }
 
-    @Test
+@Test
     public void testInnerProperty_8_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -785,7 +785,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("BAR", result);
     }
 
-    @Test
+@Test
     public void testInnerProperty_9_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -830,7 +830,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(-42, result);
     }
 
-    @Test
+@Test
     public void testInnerProperty_10_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -877,7 +877,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(-42, result);
     }
 
-    @Test
+@Test
     public void testInnerProperty_11_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -929,7 +929,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(24, result);
     }
 
-    @Test
+@Test
     public void testInnerProperty_12_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -983,7 +983,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(24, result);
     }
 
-    @Test
+@Test
     public void testInnerProperty_13_oe() throws Exception {
         final PropertyArithmetic pa = new PropertyArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
@@ -1039,7 +1039,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(calls, pa.getCalls());
     }
 
-    @Test
+@Test
     public void testStringIdentifier_1_oe() throws Exception {
         final Map<String, String> foo = new HashMap<String, String>();
 
@@ -1051,7 +1051,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("456", result);
     }
 
-    @Test
+@Test
     public void testStringIdentifier_2_oe() throws Exception {
         final Map<String, String> foo = new HashMap<String, String>();
 
@@ -1066,7 +1066,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("456", result);
     }
 
-    @Test
+@Test
     public void testStringIdentifier_3_oe() throws Exception {
         final Map<String, String> foo = new HashMap<String, String>();
 
@@ -1084,7 +1084,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("456", result);
     }
 
-    @Test
+@Test
     public void testStringIdentifier_4_oe() throws Exception {
         final Map<String, String> foo = new HashMap<String, String>();
 
@@ -1105,7 +1105,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("456", result);
     }
 
-    @Test
+@Test
     public void testStringIdentifier_5_oe() throws Exception {
         final Map<String, String> foo = new HashMap<String, String>();
 
@@ -1131,7 +1131,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("foo.'q u u x'", dbgdata);
     }
 
-    @Test
+@Test
     public void testErroneousIdentifier_1_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
@@ -1143,7 +1143,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("querty".getClass(), result);
     }
 
-    @Test
+@Test
     public void testErroneousIdentifier_2_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
@@ -1161,7 +1161,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("oops", result);
     }
 
-    @Test
+@Test
     public void testErroneousIdentifier_3_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
@@ -1186,7 +1186,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("querty".getClass(), result);
     }
 
-    @Test
+@Test
     public void testErroneousIdentifier_4_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
@@ -1217,7 +1217,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("querty".getClass(), result);
     }
 
-    @Test
+@Test
     public void testErroneousIdentifier_5_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
@@ -1254,7 +1254,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("oops", result);
     }
 
-    @Test
+@Test
     public void testErroneousIdentifier_6_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
@@ -1297,7 +1297,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("oops", result);
     }
 
-    @Test
+@Test
     public void test250_1_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final HashMap<Object, Object> x = new HashMap<Object, Object>();
@@ -1310,7 +1310,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("java.lang.String", result);
     }
 
-    @Test
+@Test
     public void test250_3_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final HashMap<Object, Object> x = new HashMap<Object, Object>();
@@ -1332,7 +1332,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test250_6_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final HashMap<Object, Object> x = new HashMap<Object, Object>();
@@ -1363,7 +1363,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test250_8_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final HashMap<Object, Object> x = new HashMap<Object, Object>();
@@ -1402,7 +1402,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test250_10_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final HashMap<Object, Object> x = new HashMap<Object, Object>();
@@ -1449,7 +1449,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test250_12_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final HashMap<Object, Object> x = new HashMap<Object, Object>();
@@ -1504,7 +1504,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test250_14_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final HashMap<Object, Object> x = new HashMap<Object, Object>();
@@ -1567,7 +1567,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test275a_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final JexlContext ctxt = new MapContext();
@@ -1587,7 +1587,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test275a_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final JexlContext ctxt = new MapContext();
@@ -1608,7 +1608,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertNull(result);
     }
 
-    @Test
+@Test
     public void test275a_4_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final JexlContext ctxt = new MapContext();
@@ -1631,7 +1631,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test275a_5_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final JexlContext ctxt = new MapContext();
@@ -1659,7 +1659,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertNull(result);
     }
 
-    @Test
+@Test
     public void test275a_6_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final JexlContext ctxt = new MapContext();
@@ -1689,7 +1689,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test275a_8_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final JexlContext ctxt = new MapContext();
@@ -1728,7 +1728,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test275a_9_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final JexlContext ctxt = new MapContext();
@@ -1769,7 +1769,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test275a_10_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final JexlContext ctxt = new MapContext();
@@ -1815,7 +1815,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertNull(result);
     }
 
-    @Test
+@Test
     public void test275a_11_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final JexlContext ctxt = new MapContext();
@@ -1863,7 +1863,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-     @Test
+@Test
     public void test275b_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
         final JexlContext ctxt = new MapContext();
@@ -1878,7 +1878,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertNull(result);
     }
 
-     @Test
+@Test
     public void test275b_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
         final JexlContext ctxt = new MapContext();
@@ -1896,7 +1896,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-     @Test
+@Test
     public void test275b_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
         final JexlContext ctxt = new MapContext();
@@ -1920,7 +1920,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertNull(result);
     }
 
-     @Test
+@Test
     public void test275b_4_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
         final JexlContext ctxt = new MapContext();
@@ -1946,7 +1946,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-     @Test
+@Test
     public void test275b_5_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
         final JexlContext ctxt = new MapContext();
@@ -1977,7 +1977,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         Assert.assertNull(result);
     }
 
-     @Test
+@Test
     public void test275b_6_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
         final JexlContext ctxt = new MapContext();

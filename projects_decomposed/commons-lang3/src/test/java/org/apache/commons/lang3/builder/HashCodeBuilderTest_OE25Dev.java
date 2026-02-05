@@ -186,56 +186,56 @@ public class HashCodeBuilderTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testConstructorExZero_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> new HashCodeBuilder(0, 0));
     }
 
-    @Test
+@Test
     public void testConstructorExEvenFirst_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> new HashCodeBuilder(2, 3));
     }
 
-    @Test
+@Test
     public void testConstructorExEvenSecond_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> new HashCodeBuilder(3, 2));
     }
 
-    @Test
+@Test
     public void testConstructorExEvenNegative_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> new HashCodeBuilder(-2, -2));
     }
 
-    @Test
+@Test
     public void testReflectionHashCode_1_oe() {
         assertEquals(17 * 37, HashCodeBuilder.reflectionHashCode(new TestObject(0)));
     }
 
-    @Test
+@Test
     public void testReflectionHashCode_2_oe() {
         // removed other assertion
         assertEquals(17 * 37 + 123456, HashCodeBuilder.reflectionHashCode(new TestObject(123456)));
     }
 
-    @Test
+@Test
     public void testReflectionHierarchyHashCode_1_oe() {
         assertEquals(17 * 37 * 37, HashCodeBuilder.reflectionHashCode(new TestSubObject(0, 0, 0)));
     }
 
-    @Test
+@Test
     public void testReflectionHierarchyHashCode_2_oe() {
         // removed other assertion
         assertEquals(17 * 37 * 37 * 37, HashCodeBuilder.reflectionHashCode(new TestSubObject(0, 0, 0), true));
     }
 
-    @Test
+@Test
     public void testReflectionHierarchyHashCode_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals((17 * 37 + 7890)* 37 + 123456,HashCodeBuilder.reflectionHashCode(new TestSubObject(123456,7890,0)));
     }
 
-    @Test
+@Test
     public void testReflectionHierarchyHashCode_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -243,44 +243,44 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals(((17 * 37 + 7890)* 37 + 0)* 37 + 123456,HashCodeBuilder.reflectionHashCode(new TestSubObject(123456,7890,0),true));
     }
 
-    @Test
+@Test
     public void testReflectionHierarchyHashCodeEx1_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> HashCodeBuilder.reflectionHashCode(0, 0, new TestSubObject(0, 0, 0), true));
     }
 
-    @Test
+@Test
     public void testReflectionHierarchyHashCodeEx2_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> HashCodeBuilder.reflectionHashCode(2, 2, new TestSubObject(0, 0, 0), true));
     }
 
-    @Test
+@Test
     public void testReflectionHashCodeEx1_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> HashCodeBuilder.reflectionHashCode(0, 0, new TestObject(0), true));
     }
 
-    @Test
+@Test
     public void testReflectionHashCodeEx2_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> HashCodeBuilder.reflectionHashCode(2, 2, new TestObject(0), true));
     }
 
-    @Test
+@Test
     public void testReflectionHashCodeEx3_1_oe() {
         assertThrows(NullPointerException.class, () -> HashCodeBuilder.reflectionHashCode(13, 19, null, true));
     }
 
-    @Test
+@Test
     public void testSuper_1_oe() {
         final Object obj = new Object();
         assertEquals(17 * 37 + 19 * 41 + obj.hashCode(),new HashCodeBuilder(17,37).appendSuper(new HashCodeBuilder(19,41).append(obj).toHashCode()).toHashCode());
     }
 
-    @Test
+@Test
     public void testObject_1_oe() {
         Object obj = null;
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testObject_2_oe() {
         Object obj = null;
         // removed other assertion
@@ -288,13 +288,13 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals(17 * 37 + obj.hashCode(), new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testObjectBuild_1_oe() {
         Object obj = null;
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append(obj).build().intValue());
     }
 
-    @Test
+@Test
     public void testObjectBuild_2_oe() {
         Object obj = null;
         // removed other assertion
@@ -302,72 +302,72 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals(17 * 37 + obj.hashCode(), new HashCodeBuilder(17, 37).append(obj).build().intValue());
     }
 
-    @Test
+@Test
     @SuppressWarnings("cast") // cast is not really needed, keep for consistency
     public void testLong_1_oe() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append(0L).toHashCode());
     }
 
-    @Test
+@Test
     @SuppressWarnings("cast") // cast is not really needed, keep for consistency
     public void testLong_2_oe() {
         // removed other assertion
         assertEquals(17 * 37 +(int)(123456789L ^ 123456789L >> 32),new HashCodeBuilder(17,37).append(123456789L).toHashCode());
     }
 
-    @Test
+@Test
     @SuppressWarnings("cast") // cast is not really needed, keep for consistency
     public void testInt_1_oe() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append(0).toHashCode());
     }
 
-    @Test
+@Test
     @SuppressWarnings("cast") // cast is not really needed, keep for consistency
     public void testInt_2_oe() {
         // removed other assertion
         assertEquals(17 * 37 + 123456, new HashCodeBuilder(17, 37).append(123456).toHashCode());
     }
 
-    @Test
+@Test
     public void testShort_1_oe() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append((short) 0).toHashCode());
     }
 
-    @Test
+@Test
     public void testShort_2_oe() {
         // removed other assertion
         assertEquals(17 * 37 + 12345, new HashCodeBuilder(17, 37).append((short) 12345).toHashCode());
     }
 
-    @Test
+@Test
     public void testChar_1_oe() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append((char) 0).toHashCode());
     }
 
-    @Test
+@Test
     public void testChar_2_oe() {
         // removed other assertion
         assertEquals(17 * 37 + 1234, new HashCodeBuilder(17, 37).append((char) 1234).toHashCode());
     }
 
-    @Test
+@Test
     public void testByte_1_oe() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append((byte) 0).toHashCode());
     }
 
-    @Test
+@Test
     public void testByte_2_oe() {
         // removed other assertion
         assertEquals(17 * 37 + 123, new HashCodeBuilder(17, 37).append((byte) 123).toHashCode());
     }
 
-    @Test
+@Test
     @SuppressWarnings("cast") // cast is not really needed, keep for consistency
     public void testDouble_1_oe() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append(0d).toHashCode());
     }
 
-    @Test
+@Test
     @SuppressWarnings("cast") // cast is not really needed, keep for consistency
     public void testDouble_2_oe() {
         // removed other assertion
@@ -376,13 +376,13 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals(17 * 37 + (int) (l ^ l >> 32), new HashCodeBuilder(17, 37).append(d).toHashCode());
     }
 
-    @Test
+@Test
     @SuppressWarnings("cast") // cast is not really needed, keep for consistency
     public void testFloat_1_oe() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append(0f).toHashCode());
     }
 
-    @Test
+@Test
     @SuppressWarnings("cast") // cast is not really needed, keep for consistency
     public void testFloat_2_oe() {
         // removed other assertion
@@ -391,30 +391,30 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals(17 * 37 + i, new HashCodeBuilder(17, 37).append(f).toHashCode());
     }
 
-    @Test
+@Test
     public void testBoolean_1_oe() {
         assertEquals(17 * 37 + 0, new HashCodeBuilder(17, 37).append(true).toHashCode());
     }
 
-    @Test
+@Test
     public void testBoolean_2_oe() {
         // removed other assertion
         assertEquals(17 * 37 + 1, new HashCodeBuilder(17, 37).append(false).toHashCode());
     }
 
-    @Test
+@Test
     public void testObjectArray_1_oe() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append((Object[]) null).toHashCode());
     }
 
-    @Test
+@Test
     public void testObjectArray_2_oe() {
         // removed other assertion
         final Object[] obj = new Object[2];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testObjectArray_3_oe() {
         // removed other assertion
         final Object[] obj = new Object[2];
@@ -423,7 +423,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + obj[0].hashCode()) * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testObjectArray_4_oe() {
         // removed other assertion
         final Object[] obj = new Object[2];
@@ -434,13 +434,13 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + obj[0].hashCode())* 37 + obj[1].hashCode(),new HashCodeBuilder(17,37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testObjectArrayAsObject_1_oe() {
         final Object[] obj = new Object[2];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testObjectArrayAsObject_2_oe() {
         final Object[] obj = new Object[2];
         // removed other assertion
@@ -448,7 +448,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + obj[0].hashCode()) * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testObjectArrayAsObject_3_oe() {
         final Object[] obj = new Object[2];
         // removed other assertion
@@ -458,19 +458,19 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + obj[0].hashCode())* 37 + obj[1].hashCode(),new HashCodeBuilder(17,37).append((Object)obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testLongArray_1_oe() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append((long[]) null).toHashCode());
     }
 
-    @Test
+@Test
     public void testLongArray_2_oe() {
         // removed other assertion
         final long[] obj = new long[2];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testLongArray_3_oe() {
         // removed other assertion
         final long[] obj = new long[2];
@@ -480,7 +480,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + h1) * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testLongArray_4_oe() {
         // removed other assertion
         final long[] obj = new long[2];
@@ -493,13 +493,13 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + h1) * 37 + h2, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testLongArrayAsObject_1_oe() {
         final long[] obj = new long[2];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testLongArrayAsObject_2_oe() {
         final long[] obj = new long[2];
         // removed other assertion
@@ -508,7 +508,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + h1) * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testLongArrayAsObject_3_oe() {
         final long[] obj = new long[2];
         // removed other assertion
@@ -520,19 +520,19 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + h1) * 37 + h2, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testIntArray_1_oe() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append((int[]) null).toHashCode());
     }
 
-    @Test
+@Test
     public void testIntArray_2_oe() {
         // removed other assertion
         final int[] obj = new int[2];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testIntArray_3_oe() {
         // removed other assertion
         final int[] obj = new int[2];
@@ -541,7 +541,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 5) * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testIntArray_4_oe() {
         // removed other assertion
         final int[] obj = new int[2];
@@ -552,13 +552,13 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 5) * 37 + 6, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testIntArrayAsObject_1_oe() {
         final int[] obj = new int[2];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testIntArrayAsObject_2_oe() {
         final int[] obj = new int[2];
         // removed other assertion
@@ -566,7 +566,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 5) * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testIntArrayAsObject_3_oe() {
         final int[] obj = new int[2];
         // removed other assertion
@@ -576,19 +576,19 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 5) * 37 + 6, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testShortArray_1_oe() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append((short[]) null).toHashCode());
     }
 
-    @Test
+@Test
     public void testShortArray_2_oe() {
         // removed other assertion
         final short[] obj = new short[2];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testShortArray_3_oe() {
         // removed other assertion
         final short[] obj = new short[2];
@@ -597,7 +597,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 5) * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testShortArray_4_oe() {
         // removed other assertion
         final short[] obj = new short[2];
@@ -608,13 +608,13 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 5) * 37 + 6, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testShortArrayAsObject_1_oe() {
         final short[] obj = new short[2];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testShortArrayAsObject_2_oe() {
         final short[] obj = new short[2];
         // removed other assertion
@@ -622,7 +622,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 5) * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testShortArrayAsObject_3_oe() {
         final short[] obj = new short[2];
         // removed other assertion
@@ -632,19 +632,19 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 5) * 37 + 6, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testCharArray_1_oe() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append((char[]) null).toHashCode());
     }
 
-    @Test
+@Test
     public void testCharArray_2_oe() {
         // removed other assertion
         final char[] obj = new char[2];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testCharArray_3_oe() {
         // removed other assertion
         final char[] obj = new char[2];
@@ -653,7 +653,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 5) * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testCharArray_4_oe() {
         // removed other assertion
         final char[] obj = new char[2];
@@ -664,13 +664,13 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 5) * 37 + 6, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testCharArrayAsObject_1_oe() {
         final char[] obj = new char[2];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testCharArrayAsObject_2_oe() {
         final char[] obj = new char[2];
         // removed other assertion
@@ -678,7 +678,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 5) * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testCharArrayAsObject_3_oe() {
         final char[] obj = new char[2];
         // removed other assertion
@@ -688,19 +688,19 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 5) * 37 + 6, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testByteArray_1_oe() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append((byte[]) null).toHashCode());
     }
 
-    @Test
+@Test
     public void testByteArray_2_oe() {
         // removed other assertion
         final byte[] obj = new byte[2];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testByteArray_3_oe() {
         // removed other assertion
         final byte[] obj = new byte[2];
@@ -709,7 +709,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 5) * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testByteArray_4_oe() {
         // removed other assertion
         final byte[] obj = new byte[2];
@@ -720,13 +720,13 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 5) * 37 + 6, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testByteArrayAsObject_1_oe() {
         final byte[] obj = new byte[2];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testByteArrayAsObject_2_oe() {
         final byte[] obj = new byte[2];
         // removed other assertion
@@ -734,7 +734,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 5) * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testByteArrayAsObject_3_oe() {
         final byte[] obj = new byte[2];
         // removed other assertion
@@ -744,19 +744,19 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 5) * 37 + 6, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testDoubleArray_1_oe() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append((double[]) null).toHashCode());
     }
 
-    @Test
+@Test
     public void testDoubleArray_2_oe() {
         // removed other assertion
         final double[] obj = new double[2];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testDoubleArray_3_oe() {
         // removed other assertion
         final double[] obj = new double[2];
@@ -767,7 +767,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + h1) * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testDoubleArray_4_oe() {
         // removed other assertion
         final double[] obj = new double[2];
@@ -782,13 +782,13 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + h1) * 37 + h2, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testDoubleArrayAsObject_1_oe() {
         final double[] obj = new double[2];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testDoubleArrayAsObject_2_oe() {
         final double[] obj = new double[2];
         // removed other assertion
@@ -798,7 +798,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + h1) * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testDoubleArrayAsObject_3_oe() {
         final double[] obj = new double[2];
         // removed other assertion
@@ -812,19 +812,19 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + h1) * 37 + h2, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testFloatArray_1_oe() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append((float[]) null).toHashCode());
     }
 
-    @Test
+@Test
     public void testFloatArray_2_oe() {
         // removed other assertion
         final float[] obj = new float[2];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testFloatArray_3_oe() {
         // removed other assertion
         final float[] obj = new float[2];
@@ -834,7 +834,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + h1) * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testFloatArray_4_oe() {
         // removed other assertion
         final float[] obj = new float[2];
@@ -847,13 +847,13 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + h1) * 37 + h2, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testFloatArrayAsObject_1_oe() {
         final float[] obj = new float[2];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testFloatArrayAsObject_2_oe() {
         final float[] obj = new float[2];
         // removed other assertion
@@ -862,7 +862,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + h1) * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testFloatArrayAsObject_3_oe() {
         final float[] obj = new float[2];
         // removed other assertion
@@ -874,19 +874,19 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + h1) * 37 + h2, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testBooleanArray_1_oe() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append((boolean[]) null).toHashCode());
     }
 
-    @Test
+@Test
     public void testBooleanArray_2_oe() {
         // removed other assertion
         final boolean[] obj = new boolean[2];
         assertEquals((17 * 37 + 1) * 37 + 1, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testBooleanArray_3_oe() {
         // removed other assertion
         final boolean[] obj = new boolean[2];
@@ -895,7 +895,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 0) * 37 + 1, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testBooleanArray_4_oe() {
         // removed other assertion
         final boolean[] obj = new boolean[2];
@@ -906,13 +906,13 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 0) * 37 + 1, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testBooleanArrayAsObject_1_oe() {
         final boolean[] obj = new boolean[2];
         assertEquals((17 * 37 + 1) * 37 + 1, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testBooleanArrayAsObject_2_oe() {
         final boolean[] obj = new boolean[2];
         // removed other assertion
@@ -920,7 +920,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 0) * 37 + 1, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testBooleanArrayAsObject_3_oe() {
         final boolean[] obj = new boolean[2];
         // removed other assertion
@@ -930,13 +930,13 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 0) * 37 + 1, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testBooleanMultiArray_1_oe() {
         final boolean[][] obj = new boolean[2][];
         assertEquals(17 * 37 * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testBooleanMultiArray_2_oe() {
         final boolean[][] obj = new boolean[2][];
         // removed other assertion
@@ -944,7 +944,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testBooleanMultiArray_3_oe() {
         final boolean[][] obj = new boolean[2][];
         // removed other assertion
@@ -954,7 +954,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 1) * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testBooleanMultiArray_4_oe() {
         final boolean[][] obj = new boolean[2][];
         // removed other assertion
@@ -966,7 +966,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals(((17 * 37 + 1) * 37 + 1) * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testBooleanMultiArray_5_oe() {
         final boolean[][] obj = new boolean[2][];
         // removed other assertion
@@ -980,7 +980,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals(((17 * 37 + 0) * 37 + 1) * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testBooleanMultiArray_6_oe() {
         final boolean[][] obj = new boolean[2][];
         // removed other assertion
@@ -996,14 +996,14 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals(((17 * 37 + 0) * 37 + 1) * 37 + 1, new HashCodeBuilder(17, 37).append(obj).toHashCode());
     }
 
-    @Test
+@Test
     public void testReflectionHashCodeExcludeFields_1_oe() {
         final TestObjectWithMultipleFields x = new TestObjectWithMultipleFields(1, 2, 3);
 
         assertEquals(((17 * 37 + 1) * 37 + 3) * 37 + 2, HashCodeBuilder.reflectionHashCode(x));
     }
 
-    @Test
+@Test
     public void testReflectionHashCodeExcludeFields_2_oe() {
         final TestObjectWithMultipleFields x = new TestObjectWithMultipleFields(1, 2, 3);
 
@@ -1012,7 +1012,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals(((17 * 37 + 1) * 37 + 3) * 37 + 2, HashCodeBuilder.reflectionHashCode(x, (String[]) null));
     }
 
-    @Test
+@Test
     public void testReflectionHashCodeExcludeFields_3_oe() {
         final TestObjectWithMultipleFields x = new TestObjectWithMultipleFields(1, 2, 3);
 
@@ -1022,7 +1022,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals(((17 * 37 + 1) * 37 + 3) * 37 + 2, HashCodeBuilder.reflectionHashCode(x));
     }
 
-    @Test
+@Test
     public void testReflectionHashCodeExcludeFields_4_oe() {
         final TestObjectWithMultipleFields x = new TestObjectWithMultipleFields(1, 2, 3);
 
@@ -1033,7 +1033,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals(((17 * 37 + 1) * 37 + 3) * 37 + 2, HashCodeBuilder.reflectionHashCode(x, "xxx"));
     }
 
-    @Test
+@Test
     public void testReflectionHashCodeExcludeFields_5_oe() {
         final TestObjectWithMultipleFields x = new TestObjectWithMultipleFields(1, 2, 3);
 
@@ -1046,7 +1046,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 1) * 37 + 3, HashCodeBuilder.reflectionHashCode(x, "two"));
     }
 
-    @Test
+@Test
     public void testReflectionHashCodeExcludeFields_6_oe() {
         final TestObjectWithMultipleFields x = new TestObjectWithMultipleFields(1, 2, 3);
 
@@ -1060,7 +1060,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals((17 * 37 + 1) * 37 + 2, HashCodeBuilder.reflectionHashCode(x, "three"));
     }
 
-    @Test
+@Test
     public void testReflectionHashCodeExcludeFields_7_oe() {
         final TestObjectWithMultipleFields x = new TestObjectWithMultipleFields(1, 2, 3);
 
@@ -1076,7 +1076,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals(17 * 37 + 1, HashCodeBuilder.reflectionHashCode(x, "two", "three"));
     }
 
-    @Test
+@Test
     public void testReflectionHashCodeExcludeFields_8_oe() {
         final TestObjectWithMultipleFields x = new TestObjectWithMultipleFields(1, 2, 3);
 
@@ -1094,7 +1094,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals(17, HashCodeBuilder.reflectionHashCode(x, "one", "two", "three"));
     }
 
-    @Test
+@Test
     public void testReflectionHashCodeExcludeFields_9_oe() {
         final TestObjectWithMultipleFields x = new TestObjectWithMultipleFields(1, 2, 3);
 
@@ -1113,7 +1113,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertEquals(17, HashCodeBuilder.reflectionHashCode(x, "one", "two", "three", "xxx"));
     }
 
-    @Test
+@Test
     public void testReflectionObjectCycle_1_oe() {
         final ReflectionTestCycleA a = new ReflectionTestCycleA();
         final ReflectionTestCycleB b = new ReflectionTestCycleB();
@@ -1141,7 +1141,7 @@ public class HashCodeBuilderTest_OE25Dev {
         assertNull(HashCodeBuilder.getRegistry());
     }
 
-    @Test
+@Test
     public void testReflectionObjectCycle_2_oe() {
         final ReflectionTestCycleA a = new ReflectionTestCycleA();
         final ReflectionTestCycleB b = new ReflectionTestCycleB();
@@ -1171,20 +1171,20 @@ public class HashCodeBuilderTest_OE25Dev {
         assertNull(HashCodeBuilder.getRegistry());
     }
 
-    @Test
+@Test
     public void testToHashCodeEqualsHashCode_1_oe() {
         final HashCodeBuilder hcb = new HashCodeBuilder(17, 37).append(new Object()).append('a');
         assertEquals(hcb.toHashCode(),hcb.hashCode(),"hashCode()is no longer returning the same value as toHashCode()- see LANG-520");
     }
 
-    @Test
+@Test
     public void testToHashCodeExclude_1_oe() {
         final TestObjectHashCodeExclude one = new TestObjectHashCodeExclude(1, 2);
         final TestObjectHashCodeExclude2 two = new TestObjectHashCodeExclude2(1, 2);
         assertEquals(17 * 37 + 2, HashCodeBuilder.reflectionHashCode(one));
     }
 
-    @Test
+@Test
     public void testToHashCodeExclude_2_oe() {
         final TestObjectHashCodeExclude one = new TestObjectHashCodeExclude(1, 2);
         final TestObjectHashCodeExclude2 two = new TestObjectHashCodeExclude2(1, 2);

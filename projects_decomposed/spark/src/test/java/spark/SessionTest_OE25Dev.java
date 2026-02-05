@@ -60,7 +60,7 @@ public class SessionTest_OE25Dev {
         verify(httpSession).removeAttribute("name");
     }
 
-    @Test
+@Test
     public void testSession_whenHttpSessionIsNull_thenThrowException_2_oe() {
 
         try {
@@ -74,7 +74,7 @@ public class SessionTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSession_whenRequestIsNull_thenThrowException_2_oe() {
 
         try {
@@ -88,20 +88,20 @@ public class SessionTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSession_1_oe() {
 
         HttpSession internalSession = Whitebox.getInternalState(session, "session");
         assertEquals("Internal session should be set to the http session provided during instantiation",httpSession,internalSession);
     }
 
-    @Test
+@Test
     public void testRaw_1_oe() {
 
         assertEquals("Should return the HttpSession provided during instantiation",httpSession,session.raw());
     }
 
-    @Test
+@Test
     public void testAttribute_whenAttributeIsRetrieved_1_oe() {
 
         when(httpSession.getAttribute("name")).thenReturn("Jett");
@@ -109,7 +109,7 @@ public class SessionTest_OE25Dev {
         assertEquals("Should return attribute from HttpSession", "Jett", session.attribute("name"));
     }
 
-    @Test
+@Test
     public void testAttributes_1_oe() {
 
         Set<String> attributes = new HashSet<>(Arrays.asList("name", "location"));
@@ -119,7 +119,7 @@ public class SessionTest_OE25Dev {
         assertEquals("Should return attributes from the HttpSession", attributes, session.attributes());
     }
 
-    @Test
+@Test
     public void testCreationTime_1_oe() {
 
         when(httpSession.getCreationTime()).thenReturn(10000000l);
@@ -127,7 +127,7 @@ public class SessionTest_OE25Dev {
         assertEquals("Should return creationTime from HttpSession", 10000000l, session.creationTime());
     }
 
-    @Test
+@Test
     public void testId_1_oe() {
 
         when(httpSession.getId()).thenReturn("id");
@@ -135,7 +135,7 @@ public class SessionTest_OE25Dev {
         assertEquals("Should return session id from HttpSession", "id", session.id());
     }
 
-    @Test
+@Test
     public void testLastAccessedTime_1_oe() {
 
         when(httpSession.getLastAccessedTime()).thenReturn(20000000l);
@@ -143,7 +143,7 @@ public class SessionTest_OE25Dev {
         assertEquals("Should return lastAccessedTime from HttpSession", 20000000l, session.lastAccessedTime());
     }
 
-    @Test
+@Test
     public void testMaxInactiveInterval_whenRetrieved_1_oe() {
 
         when(httpSession.getMaxInactiveInterval()).thenReturn(100);
@@ -151,7 +151,7 @@ public class SessionTest_OE25Dev {
         assertEquals("Should return maxInactiveInterval from HttpSession", 100, session.maxInactiveInterval());
     }
 
-    @Test
+@Test
     public void testIsNew_1_oe() {
 
         when(httpSession.isNew()).thenReturn(true);

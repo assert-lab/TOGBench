@@ -388,25 +388,25 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(sec,test.getDayOfMonth());
     }
 
-    public void testGet_DateTimeFieldType_1_oe() {
+public void testGet_DateTimeFieldType_1_oe() {
         LocalDate test = new LocalDate();
         assertEquals(1970,test.get(DateTimeFieldType.year()));
     }
 
-    public void testGet_DateTimeFieldType_2_oe() {
+public void testGet_DateTimeFieldType_2_oe() {
         LocalDate test = new LocalDate();
         // removed other assertion
         assertEquals(6,test.get(DateTimeFieldType.monthOfYear()));
     }
 
-    public void testGet_DateTimeFieldType_3_oe() {
+public void testGet_DateTimeFieldType_3_oe() {
         LocalDate test = new LocalDate();
         // removed other assertion
         // removed other assertion
         assertEquals(9,test.get(DateTimeFieldType.dayOfMonth()));
     }
 
-    public void testGet_DateTimeFieldType_4_oe() {
+public void testGet_DateTimeFieldType_4_oe() {
         LocalDate test = new LocalDate();
         // removed other assertion
         // removed other assertion
@@ -414,7 +414,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(2,test.get(DateTimeFieldType.dayOfWeek()));
     }
 
-    public void testGet_DateTimeFieldType_5_oe() {
+public void testGet_DateTimeFieldType_5_oe() {
         LocalDate test = new LocalDate();
         // removed other assertion
         // removed other assertion
@@ -423,7 +423,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(160,test.get(DateTimeFieldType.dayOfYear()));
     }
 
-    public void testGet_DateTimeFieldType_6_oe() {
+public void testGet_DateTimeFieldType_6_oe() {
         LocalDate test = new LocalDate();
         // removed other assertion
         // removed other assertion
@@ -433,7 +433,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(24,test.get(DateTimeFieldType.weekOfWeekyear()));
     }
 
-    public void testGet_DateTimeFieldType_7_oe() {
+public void testGet_DateTimeFieldType_7_oe() {
         LocalDate test = new LocalDate();
         // removed other assertion
         // removed other assertion
@@ -444,43 +444,43 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(1970,test.get(DateTimeFieldType.weekyear()));
     }
 
-    public void testSize_1_oe() {
+public void testSize_1_oe() {
         LocalDate test = new LocalDate();
         assertEquals(3,test.size());
     }
 
-    public void testGetFieldType_int_1_oe() {
+public void testGetFieldType_int_1_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         assertSame(DateTimeFieldType.year(),test.getFieldType(0));
     }
 
-    public void testGetFieldType_int_2_oe() {
+public void testGetFieldType_int_2_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         assertSame(DateTimeFieldType.monthOfYear(),test.getFieldType(1));
     }
 
-    public void testGetFieldType_int_3_oe() {
+public void testGetFieldType_int_3_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
         assertSame(DateTimeFieldType.dayOfMonth(),test.getFieldType(2));
     }
 
-    public void testGetFieldTypes_1_oe() {
+public void testGetFieldTypes_1_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         DateTimeFieldType[] fields = test.getFieldTypes();
         assertSame(DateTimeFieldType.year(),fields[0]);
     }
 
-    public void testGetFieldTypes_2_oe() {
+public void testGetFieldTypes_2_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         DateTimeFieldType[] fields = test.getFieldTypes();
         // removed other assertion
         assertSame(DateTimeFieldType.monthOfYear(),fields[1]);
     }
 
-    public void testGetFieldTypes_3_oe() {
+public void testGetFieldTypes_3_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         DateTimeFieldType[] fields = test.getFieldTypes();
         // removed other assertion
@@ -488,7 +488,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertSame(DateTimeFieldType.dayOfMonth(),fields[2]);
     }
 
-    public void testGetFieldTypes_4_oe() {
+public void testGetFieldTypes_4_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         DateTimeFieldType[] fields = test.getFieldTypes();
         // removed other assertion
@@ -497,38 +497,38 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertNotSame(test.getFieldTypes(),test.getFieldTypes());
     }
 
-    public void testGetField_int_1_oe() {
+public void testGetField_int_1_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         assertSame(COPTIC_UTC.year(),test.getField(0));
     }
 
-    public void testGetField_int_2_oe() {
+public void testGetField_int_2_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         assertSame(COPTIC_UTC.monthOfYear(),test.getField(1));
     }
 
-    public void testGetField_int_3_oe() {
+public void testGetField_int_3_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
         assertSame(COPTIC_UTC.dayOfMonth(),test.getField(2));
     }
 
-    public void testGetFields_1_oe() {
+public void testGetFields_1_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         DateTimeField[] fields = test.getFields();
         assertSame(COPTIC_UTC.year(),fields[0]);
     }
 
-    public void testGetFields_2_oe() {
+public void testGetFields_2_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         DateTimeField[] fields = test.getFields();
         // removed other assertion
         assertSame(COPTIC_UTC.monthOfYear(),fields[1]);
     }
 
-    public void testGetFields_3_oe() {
+public void testGetFields_3_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         DateTimeField[] fields = test.getFields();
         // removed other assertion
@@ -536,7 +536,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertSame(COPTIC_UTC.dayOfMonth(),fields[2]);
     }
 
-    public void testGetFields_4_oe() {
+public void testGetFields_4_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         DateTimeField[] fields = test.getFields();
         // removed other assertion
@@ -545,38 +545,38 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertNotSame(test.getFields(),test.getFields());
     }
 
-    public void testGetValue_int_1_oe() {
+public void testGetValue_int_1_oe() {
         LocalDate test = new LocalDate();
         assertEquals(1970,test.getValue(0));
     }
 
-    public void testGetValue_int_2_oe() {
+public void testGetValue_int_2_oe() {
         LocalDate test = new LocalDate();
         // removed other assertion
         assertEquals(6,test.getValue(1));
     }
 
-    public void testGetValue_int_3_oe() {
+public void testGetValue_int_3_oe() {
         LocalDate test = new LocalDate();
         // removed other assertion
         // removed other assertion
         assertEquals(9,test.getValue(2));
     }
 
-    public void testGetValues_1_oe() {
+public void testGetValues_1_oe() {
         LocalDate test = new LocalDate();
         int[] values = test.getValues();
         assertEquals(1970,values[0]);
     }
 
-    public void testGetValues_2_oe() {
+public void testGetValues_2_oe() {
         LocalDate test = new LocalDate();
         int[] values = test.getValues();
         // removed other assertion
         assertEquals(6,values[1]);
     }
 
-    public void testGetValues_3_oe() {
+public void testGetValues_3_oe() {
         LocalDate test = new LocalDate();
         int[] values = test.getValues();
         // removed other assertion
@@ -584,7 +584,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(9,values[2]);
     }
 
-    public void testGetValues_4_oe() {
+public void testGetValues_4_oe() {
         LocalDate test = new LocalDate();
         int[] values = test.getValues();
         // removed other assertion
@@ -593,25 +593,25 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertNotSame(test.getValues(),test.getValues());
     }
 
-    public void testIsSupported_DateTimeFieldType_1_oe() {
+public void testIsSupported_DateTimeFieldType_1_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         assertEquals(true,test.isSupported(DateTimeFieldType.year()));
     }
 
-    public void testIsSupported_DateTimeFieldType_2_oe() {
+public void testIsSupported_DateTimeFieldType_2_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         assertEquals(true,test.isSupported(DateTimeFieldType.monthOfYear()));
     }
 
-    public void testIsSupported_DateTimeFieldType_3_oe() {
+public void testIsSupported_DateTimeFieldType_3_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
         assertEquals(true,test.isSupported(DateTimeFieldType.dayOfMonth()));
     }
 
-    public void testIsSupported_DateTimeFieldType_4_oe() {
+public void testIsSupported_DateTimeFieldType_4_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
@@ -619,7 +619,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DateTimeFieldType.dayOfWeek()));
     }
 
-    public void testIsSupported_DateTimeFieldType_5_oe() {
+public void testIsSupported_DateTimeFieldType_5_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
@@ -628,7 +628,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DateTimeFieldType.dayOfYear()));
     }
 
-    public void testIsSupported_DateTimeFieldType_6_oe() {
+public void testIsSupported_DateTimeFieldType_6_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
@@ -638,7 +638,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DateTimeFieldType.weekOfWeekyear()));
     }
 
-    public void testIsSupported_DateTimeFieldType_7_oe() {
+public void testIsSupported_DateTimeFieldType_7_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
@@ -649,7 +649,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DateTimeFieldType.weekyear()));
     }
 
-    public void testIsSupported_DateTimeFieldType_8_oe() {
+public void testIsSupported_DateTimeFieldType_8_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
@@ -661,7 +661,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DateTimeFieldType.yearOfCentury()));
     }
 
-    public void testIsSupported_DateTimeFieldType_9_oe() {
+public void testIsSupported_DateTimeFieldType_9_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
@@ -674,7 +674,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DateTimeFieldType.yearOfEra()));
     }
 
-    public void testIsSupported_DateTimeFieldType_10_oe() {
+public void testIsSupported_DateTimeFieldType_10_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
@@ -688,7 +688,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DateTimeFieldType.centuryOfEra()));
     }
 
-    public void testIsSupported_DateTimeFieldType_11_oe() {
+public void testIsSupported_DateTimeFieldType_11_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
@@ -703,7 +703,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DateTimeFieldType.weekyearOfCentury()));
     }
 
-    public void testIsSupported_DateTimeFieldType_12_oe() {
+public void testIsSupported_DateTimeFieldType_12_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
@@ -719,7 +719,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DateTimeFieldType.era()));
     }
 
-    public void testIsSupported_DateTimeFieldType_13_oe() {
+public void testIsSupported_DateTimeFieldType_13_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
@@ -736,7 +736,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isSupported(DateTimeFieldType.hourOfDay()));
     }
 
-    public void testIsSupported_DateTimeFieldType_14_oe() {
+public void testIsSupported_DateTimeFieldType_14_oe() {
         LocalDate test = new LocalDate(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
@@ -754,25 +754,25 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isSupported((DateTimeFieldType)null));
     }
 
-    public void testIsSupported_DurationFieldType_1_oe() {
+public void testIsSupported_DurationFieldType_1_oe() {
         LocalDate test = new LocalDate(1970, 6, 9);
         assertEquals(false,test.isSupported(DurationFieldType.eras()));
     }
 
-    public void testIsSupported_DurationFieldType_2_oe() {
+public void testIsSupported_DurationFieldType_2_oe() {
         LocalDate test = new LocalDate(1970, 6, 9);
         // removed other assertion
         assertEquals(true,test.isSupported(DurationFieldType.centuries()));
     }
 
-    public void testIsSupported_DurationFieldType_3_oe() {
+public void testIsSupported_DurationFieldType_3_oe() {
         LocalDate test = new LocalDate(1970, 6, 9);
         // removed other assertion
         // removed other assertion
         assertEquals(true,test.isSupported(DurationFieldType.years()));
     }
 
-    public void testIsSupported_DurationFieldType_4_oe() {
+public void testIsSupported_DurationFieldType_4_oe() {
         LocalDate test = new LocalDate(1970, 6, 9);
         // removed other assertion
         // removed other assertion
@@ -780,7 +780,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DurationFieldType.months()));
     }
 
-    public void testIsSupported_DurationFieldType_5_oe() {
+public void testIsSupported_DurationFieldType_5_oe() {
         LocalDate test = new LocalDate(1970, 6, 9);
         // removed other assertion
         // removed other assertion
@@ -789,7 +789,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DurationFieldType.weekyears()));
     }
 
-    public void testIsSupported_DurationFieldType_6_oe() {
+public void testIsSupported_DurationFieldType_6_oe() {
         LocalDate test = new LocalDate(1970, 6, 9);
         // removed other assertion
         // removed other assertion
@@ -799,7 +799,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DurationFieldType.weeks()));
     }
 
-    public void testIsSupported_DurationFieldType_7_oe() {
+public void testIsSupported_DurationFieldType_7_oe() {
         LocalDate test = new LocalDate(1970, 6, 9);
         // removed other assertion
         // removed other assertion
@@ -810,7 +810,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DurationFieldType.days()));
     }
 
-    public void testIsSupported_DurationFieldType_8_oe() {
+public void testIsSupported_DurationFieldType_8_oe() {
         LocalDate test = new LocalDate(1970, 6, 9);
         // removed other assertion
         // removed other assertion
@@ -823,7 +823,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isSupported(DurationFieldType.hours()));
     }
 
-    public void testIsSupported_DurationFieldType_9_oe() {
+public void testIsSupported_DurationFieldType_9_oe() {
         LocalDate test = new LocalDate(1970, 6, 9);
         // removed other assertion
         // removed other assertion
@@ -837,20 +837,20 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isSupported((DurationFieldType)null));
     }
 
-    public void testEqualsHashCode_1_oe() {
+public void testEqualsHashCode_1_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         assertEquals(true,test1.equals(test2));
     }
 
-    public void testEqualsHashCode_2_oe() {
+public void testEqualsHashCode_2_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
         assertEquals(true,test2.equals(test1));
     }
 
-    public void testEqualsHashCode_3_oe() {
+public void testEqualsHashCode_3_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
@@ -858,7 +858,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.equals(test1));
     }
 
-    public void testEqualsHashCode_4_oe() {
+public void testEqualsHashCode_4_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
@@ -867,7 +867,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.equals(test2));
     }
 
-    public void testEqualsHashCode_5_oe() {
+public void testEqualsHashCode_5_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
@@ -877,7 +877,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test2.hashCode());
     }
 
-    public void testEqualsHashCode_6_oe() {
+public void testEqualsHashCode_6_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
@@ -888,7 +888,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test1.hashCode());
     }
 
-    public void testEqualsHashCode_7_oe() {
+public void testEqualsHashCode_7_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
@@ -900,7 +900,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.hashCode()== test2.hashCode());
     }
 
-    public void testEqualsHashCode_8_oe() {
+public void testEqualsHashCode_8_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
@@ -915,7 +915,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals(test3));
     }
 
-    public void testEqualsHashCode_9_oe() {
+public void testEqualsHashCode_9_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
@@ -931,7 +931,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.equals(test3));
     }
 
-    public void testEqualsHashCode_10_oe() {
+public void testEqualsHashCode_10_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
@@ -948,7 +948,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.equals(test1));
     }
 
-    public void testEqualsHashCode_11_oe() {
+public void testEqualsHashCode_11_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
@@ -966,7 +966,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.equals(test2));
     }
 
-    public void testEqualsHashCode_12_oe() {
+public void testEqualsHashCode_12_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
@@ -985,7 +985,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.hashCode()== test3.hashCode());
     }
 
-    public void testEqualsHashCode_13_oe() {
+public void testEqualsHashCode_13_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
@@ -1005,7 +1005,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.hashCode()== test3.hashCode());
     }
 
-    public void testEqualsHashCode_14_oe() {
+public void testEqualsHashCode_14_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
@@ -1027,7 +1027,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals("Hello"));
     }
 
-    public void testEqualsHashCode_15_oe() {
+public void testEqualsHashCode_15_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
@@ -1050,7 +1050,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.equals(new MockInstant()));
     }
 
-    public void testEqualsHashCode_16_oe() {
+public void testEqualsHashCode_16_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
@@ -1074,7 +1074,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.equals(new YearMonthDay(1970,6,9,COPTIC_PARIS)));
     }
 
-    public void testEqualsHashCode_17_oe() {
+public void testEqualsHashCode_17_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
@@ -1099,7 +1099,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== new YearMonthDay(1970,6,9,COPTIC_PARIS).hashCode());
     }
 
-    public void testEqualsHashCode_18_oe() {
+public void testEqualsHashCode_18_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         LocalDate test2 = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         // removed other assertion
@@ -1125,20 +1125,20 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals(MockPartial.EMPTY_INSTANCE));
     }
 
-    public void testEqualsHashCodeLenient_1_oe() {
+public void testEqualsHashCodeLenient_1_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, LenientChronology.getInstance(COPTIC_PARIS));
         LocalDate test2 = new LocalDate(1970, 6, 9, LenientChronology.getInstance(COPTIC_PARIS));
         assertEquals(true,test1.equals(test2));
     }
 
-    public void testEqualsHashCodeLenient_2_oe() {
+public void testEqualsHashCodeLenient_2_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, LenientChronology.getInstance(COPTIC_PARIS));
         LocalDate test2 = new LocalDate(1970, 6, 9, LenientChronology.getInstance(COPTIC_PARIS));
         // removed other assertion
         assertEquals(true,test2.equals(test1));
     }
 
-    public void testEqualsHashCodeLenient_3_oe() {
+public void testEqualsHashCodeLenient_3_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, LenientChronology.getInstance(COPTIC_PARIS));
         LocalDate test2 = new LocalDate(1970, 6, 9, LenientChronology.getInstance(COPTIC_PARIS));
         // removed other assertion
@@ -1146,7 +1146,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.equals(test1));
     }
 
-    public void testEqualsHashCodeLenient_4_oe() {
+public void testEqualsHashCodeLenient_4_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, LenientChronology.getInstance(COPTIC_PARIS));
         LocalDate test2 = new LocalDate(1970, 6, 9, LenientChronology.getInstance(COPTIC_PARIS));
         // removed other assertion
@@ -1155,7 +1155,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.equals(test2));
     }
 
-    public void testEqualsHashCodeLenient_5_oe() {
+public void testEqualsHashCodeLenient_5_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, LenientChronology.getInstance(COPTIC_PARIS));
         LocalDate test2 = new LocalDate(1970, 6, 9, LenientChronology.getInstance(COPTIC_PARIS));
         // removed other assertion
@@ -1165,7 +1165,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test2.hashCode());
     }
 
-    public void testEqualsHashCodeLenient_6_oe() {
+public void testEqualsHashCodeLenient_6_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, LenientChronology.getInstance(COPTIC_PARIS));
         LocalDate test2 = new LocalDate(1970, 6, 9, LenientChronology.getInstance(COPTIC_PARIS));
         // removed other assertion
@@ -1176,7 +1176,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test1.hashCode());
     }
 
-    public void testEqualsHashCodeLenient_7_oe() {
+public void testEqualsHashCodeLenient_7_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, LenientChronology.getInstance(COPTIC_PARIS));
         LocalDate test2 = new LocalDate(1970, 6, 9, LenientChronology.getInstance(COPTIC_PARIS));
         // removed other assertion
@@ -1188,20 +1188,20 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.hashCode()== test2.hashCode());
     }
 
-    public void testEqualsHashCodeStrict_1_oe() {
+public void testEqualsHashCodeStrict_1_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, StrictChronology.getInstance(COPTIC_PARIS));
         LocalDate test2 = new LocalDate(1970, 6, 9, StrictChronology.getInstance(COPTIC_PARIS));
         assertEquals(true,test1.equals(test2));
     }
 
-    public void testEqualsHashCodeStrict_2_oe() {
+public void testEqualsHashCodeStrict_2_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, StrictChronology.getInstance(COPTIC_PARIS));
         LocalDate test2 = new LocalDate(1970, 6, 9, StrictChronology.getInstance(COPTIC_PARIS));
         // removed other assertion
         assertEquals(true,test2.equals(test1));
     }
 
-    public void testEqualsHashCodeStrict_3_oe() {
+public void testEqualsHashCodeStrict_3_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, StrictChronology.getInstance(COPTIC_PARIS));
         LocalDate test2 = new LocalDate(1970, 6, 9, StrictChronology.getInstance(COPTIC_PARIS));
         // removed other assertion
@@ -1209,7 +1209,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.equals(test1));
     }
 
-    public void testEqualsHashCodeStrict_4_oe() {
+public void testEqualsHashCodeStrict_4_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, StrictChronology.getInstance(COPTIC_PARIS));
         LocalDate test2 = new LocalDate(1970, 6, 9, StrictChronology.getInstance(COPTIC_PARIS));
         // removed other assertion
@@ -1218,7 +1218,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.equals(test2));
     }
 
-    public void testEqualsHashCodeStrict_5_oe() {
+public void testEqualsHashCodeStrict_5_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, StrictChronology.getInstance(COPTIC_PARIS));
         LocalDate test2 = new LocalDate(1970, 6, 9, StrictChronology.getInstance(COPTIC_PARIS));
         // removed other assertion
@@ -1228,7 +1228,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test2.hashCode());
     }
 
-    public void testEqualsHashCodeStrict_6_oe() {
+public void testEqualsHashCodeStrict_6_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, StrictChronology.getInstance(COPTIC_PARIS));
         LocalDate test2 = new LocalDate(1970, 6, 9, StrictChronology.getInstance(COPTIC_PARIS));
         // removed other assertion
@@ -1239,7 +1239,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test1.hashCode());
     }
 
-    public void testEqualsHashCodeStrict_7_oe() {
+public void testEqualsHashCodeStrict_7_oe() {
         LocalDate test1 = new LocalDate(1970, 6, 9, StrictChronology.getInstance(COPTIC_PARIS));
         LocalDate test2 = new LocalDate(1970, 6, 9, StrictChronology.getInstance(COPTIC_PARIS));
         // removed other assertion
@@ -1251,7 +1251,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.hashCode()== test2.hashCode());
     }
 
-    public void testEqualsHashCodeAPI_1_oe() {
+public void testEqualsHashCodeAPI_1_oe() {
         LocalDate test = new LocalDate(1970, 6, 9, COPTIC_PARIS);
         int expected = 157;
         expected = 23 * expected + 1970;
@@ -1264,20 +1264,20 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test.hashCode());
     }
 
-    public void testCompareTo_1_oe() {
+public void testCompareTo_1_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         assertEquals(0,test1.compareTo(test1a));
     }
 
-    public void testCompareTo_2_oe() {
+public void testCompareTo_2_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
         assertEquals(0,test1a.compareTo(test1));
     }
 
-    public void testCompareTo_3_oe() {
+public void testCompareTo_3_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1285,7 +1285,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(0,test1.compareTo(test1));
     }
 
-    public void testCompareTo_4_oe() {
+public void testCompareTo_4_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1294,7 +1294,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(0,test1a.compareTo(test1a));
     }
 
-    public void testCompareTo_5_oe() {
+public void testCompareTo_5_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1306,7 +1306,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(-1,test1.compareTo(test2));
     }
 
-    public void testCompareTo_6_oe() {
+public void testCompareTo_6_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1319,7 +1319,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(+1,test2.compareTo(test1));
     }
 
-    public void testCompareTo_7_oe() {
+public void testCompareTo_7_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1335,7 +1335,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(-1,test1.compareTo(test3));
     }
 
-    public void testCompareTo_8_oe() {
+public void testCompareTo_8_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1352,7 +1352,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(+1,test3.compareTo(test1));
     }
 
-    public void testCompareTo_9_oe() {
+public void testCompareTo_9_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1370,7 +1370,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(0,test3.compareTo(test2));
     }
 
-    public void testCompareTo_10_oe() {
+public void testCompareTo_10_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1397,7 +1397,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(0,test1.compareTo(p));
     }
 
-    public void testCompareTo_11_oe() {
+public void testCompareTo_11_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1425,20 +1425,20 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(0,test1.compareTo(new YearMonthDay(2005,6,2)));
     }
 
-    public void testIsEqual_LocalDate_1_oe() {
+public void testIsEqual_LocalDate_1_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         assertEquals(true,test1.isEqual(test1a));
     }
 
-    public void testIsEqual_LocalDate_2_oe() {
+public void testIsEqual_LocalDate_2_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
         assertEquals(true,test1a.isEqual(test1));
     }
 
-    public void testIsEqual_LocalDate_3_oe() {
+public void testIsEqual_LocalDate_3_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1446,7 +1446,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.isEqual(test1));
     }
 
-    public void testIsEqual_LocalDate_4_oe() {
+public void testIsEqual_LocalDate_4_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1455,7 +1455,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1a.isEqual(test1a));
     }
 
-    public void testIsEqual_LocalDate_5_oe() {
+public void testIsEqual_LocalDate_5_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1467,7 +1467,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isEqual(test2));
     }
 
-    public void testIsEqual_LocalDate_6_oe() {
+public void testIsEqual_LocalDate_6_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1480,7 +1480,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.isEqual(test1));
     }
 
-    public void testIsEqual_LocalDate_7_oe() {
+public void testIsEqual_LocalDate_7_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1496,7 +1496,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isEqual(test3));
     }
 
-    public void testIsEqual_LocalDate_8_oe() {
+public void testIsEqual_LocalDate_8_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1513,7 +1513,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.isEqual(test1));
     }
 
-    public void testIsEqual_LocalDate_9_oe() {
+public void testIsEqual_LocalDate_9_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1531,20 +1531,20 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test3.isEqual(test2));
     }
 
-    public void testIsBefore_LocalDate_1_oe() {
+public void testIsBefore_LocalDate_1_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         assertEquals(false,test1.isBefore(test1a));
     }
 
-    public void testIsBefore_LocalDate_2_oe() {
+public void testIsBefore_LocalDate_2_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
         assertEquals(false,test1a.isBefore(test1));
     }
 
-    public void testIsBefore_LocalDate_3_oe() {
+public void testIsBefore_LocalDate_3_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1552,7 +1552,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isBefore(test1));
     }
 
-    public void testIsBefore_LocalDate_4_oe() {
+public void testIsBefore_LocalDate_4_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1561,7 +1561,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1a.isBefore(test1a));
     }
 
-    public void testIsBefore_LocalDate_5_oe() {
+public void testIsBefore_LocalDate_5_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1573,7 +1573,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.isBefore(test2));
     }
 
-    public void testIsBefore_LocalDate_6_oe() {
+public void testIsBefore_LocalDate_6_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1586,7 +1586,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.isBefore(test1));
     }
 
-    public void testIsBefore_LocalDate_7_oe() {
+public void testIsBefore_LocalDate_7_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1602,7 +1602,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.isBefore(test3));
     }
 
-    public void testIsBefore_LocalDate_8_oe() {
+public void testIsBefore_LocalDate_8_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1619,7 +1619,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.isBefore(test1));
     }
 
-    public void testIsBefore_LocalDate_9_oe() {
+public void testIsBefore_LocalDate_9_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1637,20 +1637,20 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.isBefore(test2));
     }
 
-    public void testIsAfter_LocalDate_1_oe() {
+public void testIsAfter_LocalDate_1_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         assertEquals(false,test1.isAfter(test1a));
     }
 
-    public void testIsAfter_LocalDate_2_oe() {
+public void testIsAfter_LocalDate_2_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
         assertEquals(false,test1a.isAfter(test1));
     }
 
-    public void testIsAfter_LocalDate_3_oe() {
+public void testIsAfter_LocalDate_3_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1658,7 +1658,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isAfter(test1));
     }
 
-    public void testIsAfter_LocalDate_4_oe() {
+public void testIsAfter_LocalDate_4_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1667,7 +1667,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1a.isAfter(test1a));
     }
 
-    public void testIsAfter_LocalDate_5_oe() {
+public void testIsAfter_LocalDate_5_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1679,7 +1679,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isAfter(test2));
     }
 
-    public void testIsAfter_LocalDate_6_oe() {
+public void testIsAfter_LocalDate_6_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1692,7 +1692,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.isAfter(test1));
     }
 
-    public void testIsAfter_LocalDate_7_oe() {
+public void testIsAfter_LocalDate_7_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1708,7 +1708,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isAfter(test3));
     }
 
-    public void testIsAfter_LocalDate_8_oe() {
+public void testIsAfter_LocalDate_8_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1725,7 +1725,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(true,test3.isAfter(test1));
     }
 
-    public void testIsAfter_LocalDate_9_oe() {
+public void testIsAfter_LocalDate_9_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
         // removed other assertion
@@ -1743,14 +1743,14 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.isAfter(test2));
     }
 
-    public void testWithField_DateTimeFieldType_int_1_1_oe() {
+public void testWithField_DateTimeFieldType_int_1_1_oe() {
         LocalDate test = new LocalDate(2004, 6, 9);
         LocalDate result = test.withField(DateTimeFieldType.year(), 2006);
         
         assertEquals(new LocalDate(2004,6,9),test);
     }
 
-    public void testWithField_DateTimeFieldType_int_1_2_oe() {
+public void testWithField_DateTimeFieldType_int_1_2_oe() {
         LocalDate test = new LocalDate(2004, 6, 9);
         LocalDate result = test.withField(DateTimeFieldType.year(), 2006);
         
@@ -1758,27 +1758,27 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(new LocalDate(2006,6,9),result);
     }
 
-    public void testWithField_DateTimeFieldType_int_4_1_oe() {
+public void testWithField_DateTimeFieldType_int_4_1_oe() {
         LocalDate test = new LocalDate(2004, 6, 9);
         LocalDate result = test.withField(DateTimeFieldType.year(), 2004);
         assertEquals(new LocalDate(2004,6,9),test);
     }
 
-    public void testWithField_DateTimeFieldType_int_4_2_oe() {
+public void testWithField_DateTimeFieldType_int_4_2_oe() {
         LocalDate test = new LocalDate(2004, 6, 9);
         LocalDate result = test.withField(DateTimeFieldType.year(), 2004);
         // removed other assertion
         assertSame(test,result);
     }
 
-    public void testWithFieldAdded_DurationFieldType_int_1_1_oe() {
+public void testWithFieldAdded_DurationFieldType_int_1_1_oe() {
         LocalDate test = new LocalDate(2004, 6, 9);
         LocalDate result = test.withFieldAdded(DurationFieldType.years(), 6);
         
         assertEquals(new LocalDate(2004,6,9),test);
     }
 
-    public void testWithFieldAdded_DurationFieldType_int_1_2_oe() {
+public void testWithFieldAdded_DurationFieldType_int_1_2_oe() {
         LocalDate test = new LocalDate(2004, 6, 9);
         LocalDate result = test.withFieldAdded(DurationFieldType.years(), 6);
         
@@ -1786,20 +1786,20 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(new LocalDate(2010,6,9),result);
     }
 
-    public void testWithFieldAdded_DurationFieldType_int_4_1_oe() {
+public void testWithFieldAdded_DurationFieldType_int_4_1_oe() {
         LocalDate test = new LocalDate(2004, 6, 9);
         LocalDate result = test.withFieldAdded(DurationFieldType.years(), 0);
         assertSame(test,result);
     }
 
-    public void testPlus_RP_1_oe() {
+public void testPlus_RP_1_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.plus(new Period(1, 2, 3, 4, 29, 6, 7, 8));
         LocalDate expected = new LocalDate(2003, 7, 28, BUDDHIST_LONDON);
         assertEquals(expected,result);
     }
 
-    public void testPlus_RP_2_oe() {
+public void testPlus_RP_2_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.plus(new Period(1, 2, 3, 4, 29, 6, 7, 8));
         LocalDate expected = new LocalDate(2003, 7, 28, BUDDHIST_LONDON);
@@ -1809,14 +1809,14 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testPlusYears_int_1_oe() {
+public void testPlusYears_int_1_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.plusYears(1);
         LocalDate expected = new LocalDate(2003, 5, 3, BUDDHIST_LONDON);
         assertEquals(expected,result);
     }
 
-    public void testPlusYears_int_2_oe() {
+public void testPlusYears_int_2_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.plusYears(1);
         LocalDate expected = new LocalDate(2003, 5, 3, BUDDHIST_LONDON);
@@ -1826,14 +1826,14 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testPlusMonths_int_1_oe() {
+public void testPlusMonths_int_1_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.plusMonths(1);
         LocalDate expected = new LocalDate(2002, 6, 3, BUDDHIST_LONDON);
         assertEquals(expected,result);
     }
 
-    public void testPlusMonths_int_2_oe() {
+public void testPlusMonths_int_2_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.plusMonths(1);
         LocalDate expected = new LocalDate(2002, 6, 3, BUDDHIST_LONDON);
@@ -1843,14 +1843,14 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testPlusWeeks_int_1_oe() {
+public void testPlusWeeks_int_1_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.plusWeeks(1);
         LocalDate expected = new LocalDate(2002, 5, 10, BUDDHIST_LONDON);
         assertEquals(expected,result);
     }
 
-    public void testPlusWeeks_int_2_oe() {
+public void testPlusWeeks_int_2_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.plusWeeks(1);
         LocalDate expected = new LocalDate(2002, 5, 10, BUDDHIST_LONDON);
@@ -1860,14 +1860,14 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testPlusDays_int_1_oe() {
+public void testPlusDays_int_1_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.plusDays(1);
         LocalDate expected = new LocalDate(2002, 5, 4, BUDDHIST_LONDON);
         assertEquals(expected,result);
     }
 
-    public void testPlusDays_int_2_oe() {
+public void testPlusDays_int_2_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.plusDays(1);
         LocalDate expected = new LocalDate(2002, 5, 4, BUDDHIST_LONDON);
@@ -1877,7 +1877,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testMinus_RP_1_oe() {
+public void testMinus_RP_1_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.minus(new Period(1, 1, 1, 1, 1, 1, 1, 1));
         
@@ -1888,7 +1888,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,result);
     }
 
-    public void testMinus_RP_2_oe() {
+public void testMinus_RP_2_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.minus(new Period(1, 1, 1, 1, 1, 1, 1, 1));
         
@@ -1902,14 +1902,14 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testMinusYears_int_1_oe() {
+public void testMinusYears_int_1_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.minusYears(1);
         LocalDate expected = new LocalDate(2001, 5, 3, BUDDHIST_LONDON);
         assertEquals(expected,result);
     }
 
-    public void testMinusYears_int_2_oe() {
+public void testMinusYears_int_2_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.minusYears(1);
         LocalDate expected = new LocalDate(2001, 5, 3, BUDDHIST_LONDON);
@@ -1919,14 +1919,14 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testMinusMonths_int_1_oe() {
+public void testMinusMonths_int_1_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.minusMonths(1);
         LocalDate expected = new LocalDate(2002, 4, 3, BUDDHIST_LONDON);
         assertEquals(expected,result);
     }
 
-    public void testMinusMonths_int_2_oe() {
+public void testMinusMonths_int_2_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.minusMonths(1);
         LocalDate expected = new LocalDate(2002, 4, 3, BUDDHIST_LONDON);
@@ -1936,14 +1936,14 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testMinusWeeks_int_1_oe() {
+public void testMinusWeeks_int_1_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.minusWeeks(1);
         LocalDate expected = new LocalDate(2002, 4, 26, BUDDHIST_LONDON);
         assertEquals(expected,result);
     }
 
-    public void testMinusWeeks_int_2_oe() {
+public void testMinusWeeks_int_2_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.minusWeeks(1);
         LocalDate expected = new LocalDate(2002, 4, 26, BUDDHIST_LONDON);
@@ -1953,14 +1953,14 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testMinusDays_int_1_oe() {
+public void testMinusDays_int_1_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.minusDays(1);
         LocalDate expected = new LocalDate(2002, 5, 2, BUDDHIST_LONDON);
         assertEquals(expected,result);
     }
 
-    public void testMinusDays_int_2_oe() {
+public void testMinusDays_int_2_oe() {
         LocalDate test = new LocalDate(2002, 5, 3, BUDDHIST_LONDON);
         LocalDate result = test.minusDays(1);
         LocalDate expected = new LocalDate(2002, 5, 2, BUDDHIST_LONDON);
@@ -1970,25 +1970,25 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testGetters_1_oe() {
+public void testGetters_1_oe() {
         LocalDate test = new LocalDate(1970, 6, 9, GJ_UTC);
         assertEquals(1970,test.getYear());
     }
 
-    public void testGetters_2_oe() {
+public void testGetters_2_oe() {
         LocalDate test = new LocalDate(1970, 6, 9, GJ_UTC);
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testGetters_3_oe() {
+public void testGetters_3_oe() {
         LocalDate test = new LocalDate(1970, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testGetters_4_oe() {
+public void testGetters_4_oe() {
         LocalDate test = new LocalDate(1970, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
@@ -1996,7 +1996,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(160,test.getDayOfYear());
     }
 
-    public void testGetters_5_oe() {
+public void testGetters_5_oe() {
         LocalDate test = new LocalDate(1970, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
@@ -2005,7 +2005,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(2,test.getDayOfWeek());
     }
 
-    public void testGetters_6_oe() {
+public void testGetters_6_oe() {
         LocalDate test = new LocalDate(1970, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
@@ -2015,7 +2015,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(24,test.getWeekOfWeekyear());
     }
 
-    public void testGetters_7_oe() {
+public void testGetters_7_oe() {
         LocalDate test = new LocalDate(1970, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
@@ -2026,7 +2026,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(1970,test.getWeekyear());
     }
 
-    public void testGetters_8_oe() {
+public void testGetters_8_oe() {
         LocalDate test = new LocalDate(1970, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
@@ -2038,7 +2038,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(70,test.getYearOfCentury());
     }
 
-    public void testGetters_9_oe() {
+public void testGetters_9_oe() {
         LocalDate test = new LocalDate(1970, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
@@ -2051,7 +2051,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(20,test.getCenturyOfEra());
     }
 
-    public void testGetters_10_oe() {
+public void testGetters_10_oe() {
         LocalDate test = new LocalDate(1970, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
@@ -2065,7 +2065,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(1970,test.getYearOfEra());
     }
 
-    public void testGetters_11_oe() {
+public void testGetters_11_oe() {
         LocalDate test = new LocalDate(1970, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
@@ -2080,7 +2080,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(DateTimeConstants.AD,test.getEra());
     }
 
-    public void testToDateTimeAtStartOfDay_1_oe() {
+public void testToDateTimeAtStartOfDay_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS);
         
         DateTime test = base.toDateTimeAtStartOfDay();
@@ -2088,7 +2088,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(new DateTime(2005,6,9,0,0,0,0,COPTIC_LONDON),test);
     }
 
-    public void testToDateTimeAtStartOfDay_avoidDST_1_oe() {
+public void testToDateTimeAtStartOfDay_avoidDST_1_oe() {
         LocalDate base = new LocalDate(2007, 4, 1);
         
         DateTimeZone.setDefault(MOCK_GAZA);
@@ -2097,14 +2097,14 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(new DateTime(2007,4,1,1,0,0,0,MOCK_GAZA),test);
     }
 
-    public void testToDateTimeAtStartOfDay_handleMidnightDST_1_oe() {
+public void testToDateTimeAtStartOfDay_handleMidnightDST_1_oe() {
         LocalDate test = new LocalDate(2018, 10, 28);
         DateTime result = test.toDateTimeAtStartOfDay(DateTimeZone.forID("Atlantic/Azores"));
         DateTime expected = new DateTime(2018, 10, 28, 0, 0, DateTimeZone.forID("Atlantic/Azores"));
         assertEquals(expected,result);
     }
 
-    public void testToDateTimeAtStartOfDay_Zone_1_oe() {
+public void testToDateTimeAtStartOfDay_Zone_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS);
         
         DateTime test = base.toDateTimeAtStartOfDay(TOKYO);
@@ -2112,7 +2112,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(new DateTime(2005,6,9,0,0,0,0,COPTIC_TOKYO),test);
     }
 
-    public void testToDateTimeAtStartOfDay_Zone_avoidDST_1_oe() {
+public void testToDateTimeAtStartOfDay_Zone_avoidDST_1_oe() {
         LocalDate base = new LocalDate(2007, 4, 1);
         
         DateTime test = base.toDateTimeAtStartOfDay(MOCK_GAZA);
@@ -2120,7 +2120,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(new DateTime(2007,4,1,1,0,0,0,MOCK_GAZA),test);
     }
 
-    public void testToDateTimeAtStartOfDay_nullZone_1_oe() {
+public void testToDateTimeAtStartOfDay_nullZone_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS);
         
         DateTime test = base.toDateTimeAtStartOfDay((DateTimeZone) null);
@@ -2128,7 +2128,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(new DateTime(2005,6,9,0,0,0,0,COPTIC_LONDON),test);
     }
 
-    public void testToDateTimeAtMidnight_1_oe() {
+public void testToDateTimeAtMidnight_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS);
         
         DateTime test = base.toDateTimeAtMidnight();
@@ -2136,7 +2136,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(new DateTime(2005,6,9,0,0,0,0,COPTIC_LONDON),test);
     }
 
-    public void testToDateTimeAtMidnight_Zone_1_oe() {
+public void testToDateTimeAtMidnight_Zone_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS);
         
         DateTime test = base.toDateTimeAtMidnight(TOKYO);
@@ -2144,7 +2144,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(new DateTime(2005,6,9,0,0,0,0,COPTIC_TOKYO),test);
     }
 
-    public void testToDateTimeAtMidnight_nullZone_1_oe() {
+public void testToDateTimeAtMidnight_nullZone_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS);
         
         DateTime test = base.toDateTimeAtMidnight((DateTimeZone) null);
@@ -2152,7 +2152,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(new DateTime(2005,6,9,0,0,0,0,COPTIC_LONDON),test);
     }
 
-    public void testToDateTimeAtCurrentTime_1_oe() {
+public void testToDateTimeAtCurrentTime_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS); // PARIS irrelevant
         DateTime dt = new DateTime(2004, 6, 9, 6, 7, 8, 9);
         DateTimeUtils.setCurrentMillisFixed(dt.getMillis());
@@ -2166,7 +2166,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToDateTimeAtCurrentTime_Zone_1_oe() {
+public void testToDateTimeAtCurrentTime_Zone_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS); // PARIS irrelevant
         DateTime dt = new DateTime(2004, 6, 9, 6, 7, 8, 9);
         DateTimeUtils.setCurrentMillisFixed(dt.getMillis());
@@ -2180,7 +2180,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToDateTimeAtCurrentTime_nullZone_1_oe() {
+public void testToDateTimeAtCurrentTime_nullZone_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS); // PARIS irrelevant
         DateTime dt = new DateTime(2004, 6, 9, 6, 7, 8, 9);
         DateTimeUtils.setCurrentMillisFixed(dt.getMillis());
@@ -2194,7 +2194,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToLocalDateTime_LocalTime_1_oe() {
+public void testToLocalDateTime_LocalTime_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS); // PARIS irrelevant
         LocalTime tod = new LocalTime(12, 13, 14, 15, COPTIC_TOKYO);
         
@@ -2204,7 +2204,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToDateTime_LocalTime_1_oe() {
+public void testToDateTime_LocalTime_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS); // PARIS irrelevant
         LocalTime tod = new LocalTime(12, 13, 14, 15, COPTIC_TOKYO);
         
@@ -2214,7 +2214,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToDateTime_nullLocalTime_1_oe() {
+public void testToDateTime_nullLocalTime_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS); // PARIS irrelevant
         long now = new DateTime(2004, 5, 8, 12, 13, 14, 15, COPTIC_LONDON).getMillis();
         DateTimeUtils.setCurrentMillisFixed(now);
@@ -2225,7 +2225,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToDateTime_LocalTime_Zone_1_oe() {
+public void testToDateTime_LocalTime_Zone_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS); // PARIS irrelevant
         LocalTime tod = new LocalTime(12, 13, 14, 15, COPTIC_TOKYO);
         
@@ -2235,7 +2235,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToDateTime_LocalTime_nullZone_1_oe() {
+public void testToDateTime_LocalTime_nullZone_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS); // PARIS irrelevant
         LocalTime tod = new LocalTime(12, 13, 14, 15, COPTIC_TOKYO);
         
@@ -2245,7 +2245,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToDateTime_nullLocalTime_Zone_1_oe() {
+public void testToDateTime_nullLocalTime_Zone_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS); // PARIS irrelevant
         long now = new DateTime(2004, 5, 8, 12, 13, 14, 15, COPTIC_TOKYO).getMillis();
         DateTimeUtils.setCurrentMillisFixed(now);
@@ -2256,7 +2256,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToDateTime_LocalTime_Zone_dstOverlap_1_oe() {
+public void testToDateTime_LocalTime_Zone_dstOverlap_1_oe() {
         LocalDate base = new LocalDate(2014, 10, 26, ISO_LONDON);
         LocalTime tod = new LocalTime(1, 30, 0, 0, ISO_LONDON);
         DateTime test = base.toDateTime(tod, LONDON);
@@ -2264,7 +2264,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToDateTime_LocalTime_Zone_dstOverlap_NewYork_1_oe() {
+public void testToDateTime_LocalTime_Zone_dstOverlap_NewYork_1_oe() {
         LocalDate base = new LocalDate(2007, 11, 4, ISO_NEW_YORK);
         LocalTime tod = new LocalTime(1, 30, 0, 0, ISO_NEW_YORK);
         DateTime test = base.toDateTime(tod, NEW_YORK);
@@ -2272,7 +2272,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToDateMidnight_1_oe() {
+public void testToDateMidnight_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS);
         
         DateMidnight test = base.toDateMidnight();
@@ -2280,7 +2280,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(new DateMidnight(2005,6,9,COPTIC_LONDON),test);
     }
 
-    public void testToDateMidnight_Zone_1_oe() {
+public void testToDateMidnight_Zone_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS);
         
         DateMidnight test = base.toDateMidnight(TOKYO);
@@ -2288,7 +2288,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(new DateMidnight(2005,6,9,COPTIC_TOKYO),test);
     }
 
-    public void testToDateMidnight_nullZone_1_oe() {
+public void testToDateMidnight_nullZone_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS);
         
         DateMidnight test = base.toDateMidnight((DateTimeZone) null);
@@ -2296,7 +2296,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(new DateMidnight(2005,6,9,COPTIC_LONDON),test);
     }
 
-    public void testToDateTime_RI_1_oe() {
+public void testToDateTime_RI_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS);
         DateTime dt = new DateTime(2002, 1, 3, 4, 5, 6, 7);
         
@@ -2309,7 +2309,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToDateTime_nullRI_1_oe() {
+public void testToDateTime_nullRI_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9);
         DateTime dt = new DateTime(2002, 1, 3, 4, 5, 6, 7);
         DateTimeUtils.setCurrentMillisFixed(dt.getMillis());
@@ -2323,7 +2323,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToInterval_1_oe() {
+public void testToInterval_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS); // PARIS irrelevant
         Interval test = base.toInterval();
         check(base, 2005, 6, 9);
@@ -2333,7 +2333,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToInterval_Zone_1_oe() {
+public void testToInterval_Zone_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS); // PARIS irrelevant
         Interval test = base.toInterval(TOKYO);
         check(base, 2005, 6, 9);
@@ -2343,7 +2343,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToInterval_Zone_noMidnight_1_oe() {
+public void testToInterval_Zone_noMidnight_1_oe() {
         LocalDate base = new LocalDate(2006, 4, 1, ISO_LONDON);  // LONDON irrelevant
         DateTimeZone gaza = DateTimeZone.forID("Asia/Gaza");
         Interval test = base.toInterval(gaza);
@@ -2354,7 +2354,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToInterval_nullZone_1_oe() {
+public void testToInterval_nullZone_1_oe() {
         LocalDate base = new LocalDate(2005, 6, 9, COPTIC_PARIS); // PARIS irrelevant
         Interval test = base.toInterval(null);
         check(base, 2005, 6, 9);
@@ -2364,7 +2364,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToDate_summer_1_oe() {
+public void testToDate_summer_1_oe() {
         LocalDate base = new LocalDate(2005, 7, 9, COPTIC_PARIS);
         
         Date test = base.toDate();
@@ -2378,7 +2378,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(gcal.getTime(),test);
     }
 
-    public void testToDate_winter_1_oe() {
+public void testToDate_winter_1_oe() {
         LocalDate base = new LocalDate(2005, 1, 9, COPTIC_PARIS);
         
         Date test = base.toDate();
@@ -2392,25 +2392,25 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(gcal.getTime(),test);
     }
 
-    public void testProperty_1_oe() {
+public void testProperty_1_oe() {
         LocalDate test = new LocalDate(2005, 6, 9, GJ_UTC);
         assertEquals(test.year(),test.property(DateTimeFieldType.year()));
     }
 
-    public void testProperty_2_oe() {
+public void testProperty_2_oe() {
         LocalDate test = new LocalDate(2005, 6, 9, GJ_UTC);
         // removed other assertion
         assertEquals(test.monthOfYear(),test.property(DateTimeFieldType.monthOfYear()));
     }
 
-    public void testProperty_3_oe() {
+public void testProperty_3_oe() {
         LocalDate test = new LocalDate(2005, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
         assertEquals(test.dayOfMonth(),test.property(DateTimeFieldType.dayOfMonth()));
     }
 
-    public void testProperty_4_oe() {
+public void testProperty_4_oe() {
         LocalDate test = new LocalDate(2005, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
@@ -2418,7 +2418,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(test.dayOfWeek(),test.property(DateTimeFieldType.dayOfWeek()));
     }
 
-    public void testProperty_5_oe() {
+public void testProperty_5_oe() {
         LocalDate test = new LocalDate(2005, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
@@ -2427,7 +2427,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(test.dayOfYear(),test.property(DateTimeFieldType.dayOfYear()));
     }
 
-    public void testProperty_6_oe() {
+public void testProperty_6_oe() {
         LocalDate test = new LocalDate(2005, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
@@ -2437,7 +2437,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(test.weekOfWeekyear(),test.property(DateTimeFieldType.weekOfWeekyear()));
     }
 
-    public void testProperty_7_oe() {
+public void testProperty_7_oe() {
         LocalDate test = new LocalDate(2005, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
@@ -2448,7 +2448,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(test.weekyear(),test.property(DateTimeFieldType.weekyear()));
     }
 
-    public void testProperty_8_oe() {
+public void testProperty_8_oe() {
         LocalDate test = new LocalDate(2005, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
@@ -2460,7 +2460,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(test.yearOfCentury(),test.property(DateTimeFieldType.yearOfCentury()));
     }
 
-    public void testProperty_9_oe() {
+public void testProperty_9_oe() {
         LocalDate test = new LocalDate(2005, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
@@ -2473,7 +2473,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(test.yearOfEra(),test.property(DateTimeFieldType.yearOfEra()));
     }
 
-    public void testProperty_10_oe() {
+public void testProperty_10_oe() {
         LocalDate test = new LocalDate(2005, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
@@ -2487,7 +2487,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(test.centuryOfEra(),test.property(DateTimeFieldType.centuryOfEra()));
     }
 
-    public void testProperty_11_oe() {
+public void testProperty_11_oe() {
         LocalDate test = new LocalDate(2005, 6, 9, GJ_UTC);
         // removed other assertion
         // removed other assertion
@@ -2502,7 +2502,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(test.era(),test.property(DateTimeFieldType.era()));
     }
 
-    public void testSerialization_1_oe() throws Exception {
+public void testSerialization_1_oe() throws Exception {
         LocalDate test = new LocalDate(1972, 6, 9, COPTIC_PARIS);
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -2519,7 +2519,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(test,result);
     }
 
-    public void testSerialization_2_oe() throws Exception {
+public void testSerialization_2_oe() throws Exception {
         LocalDate test = new LocalDate(1972, 6, 9, COPTIC_PARIS);
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -2537,7 +2537,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertTrue(Arrays.equals(test.getValues(),result.getValues()));
     }
 
-    public void testSerialization_3_oe() throws Exception {
+public void testSerialization_3_oe() throws Exception {
         LocalDate test = new LocalDate(1972, 6, 9, COPTIC_PARIS);
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -2556,7 +2556,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertTrue(Arrays.equals(test.getFields(),result.getFields()));
     }
 
-    public void testSerialization_4_oe() throws Exception {
+public void testSerialization_4_oe() throws Exception {
         LocalDate test = new LocalDate(1972, 6, 9, COPTIC_PARIS);
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -2576,41 +2576,41 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals(test.getChronology(),result.getChronology());
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         LocalDate test = new LocalDate(2002, 6, 9);
         assertEquals("2002-06-09",test.toString());
     }
 
-    public void testToString_String_1_oe() {
+public void testToString_String_1_oe() {
         LocalDate test = new LocalDate(2002, 6, 9);
         assertEquals("2002 \ufffd\ufffd",test.toString("yyyy HH"));
     }
 
-    public void testToString_String_2_oe() {
+public void testToString_String_2_oe() {
         LocalDate test = new LocalDate(2002, 6, 9);
         // removed other assertion
         assertEquals("2002-06-09",test.toString((String)null));
     }
 
-    public void testToString_String_Locale_1_oe() {
+public void testToString_String_Locale_1_oe() {
         LocalDate test = new LocalDate(1970, 6, 9);
         assertEquals("Tue 9/6",test.toString("EEE d/M",Locale.ENGLISH));
     }
 
-    public void testToString_String_Locale_2_oe() {
+public void testToString_String_Locale_2_oe() {
         LocalDate test = new LocalDate(1970, 6, 9);
         // removed other assertion
         assertEquals("mar. 9/6",test.toString("EEE d/M",Locale.FRENCH));
     }
 
-    public void testToString_String_Locale_3_oe() {
+public void testToString_String_Locale_3_oe() {
         LocalDate test = new LocalDate(1970, 6, 9);
         // removed other assertion
         // removed other assertion
         assertEquals("1970-06-09",test.toString(null,Locale.ENGLISH));
     }
 
-    public void testToString_String_Locale_4_oe() {
+public void testToString_String_Locale_4_oe() {
         LocalDate test = new LocalDate(1970, 6, 9);
         // removed other assertion
         // removed other assertion
@@ -2618,7 +2618,7 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals("Tue 9/6",test.toString("EEE d/M",null));
     }
 
-    public void testToString_String_Locale_5_oe() {
+public void testToString_String_Locale_5_oe() {
         LocalDate test = new LocalDate(1970, 6, 9);
         // removed other assertion
         // removed other assertion
@@ -2627,12 +2627,12 @@ public class TestLocalDate_Basics_OE25Dev extends TestCase {
         assertEquals("1970-06-09",test.toString(null,null));
     }
 
-    public void testToString_DTFormatter_1_oe() {
+public void testToString_DTFormatter_1_oe() {
         LocalDate test = new LocalDate(2002, 6, 9);
         assertEquals("2002 \ufffd\ufffd",test.toString(DateTimeFormat.forPattern("yyyy HH")));
     }
 
-    public void testToString_DTFormatter_2_oe() {
+public void testToString_DTFormatter_2_oe() {
         LocalDate test = new LocalDate(2002, 6, 9);
         // removed other assertion
         assertEquals("2002-06-09",test.toString((DateTimeFormatter)null));

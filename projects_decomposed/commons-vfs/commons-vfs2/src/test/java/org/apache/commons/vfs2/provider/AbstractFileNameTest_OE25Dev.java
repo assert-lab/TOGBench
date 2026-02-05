@@ -23,7 +23,7 @@ import org.junit.Test;
 
 public class AbstractFileNameTest_OE25Dev {
 
-    @Test
+@Test
     public void testHashSignEncoded_1_oe() {
         final AbstractFileName fileName = new AbstractFileName("file", "/foo/bar/file#name.txt", FileType.FILE) {
             @Override
@@ -42,7 +42,7 @@ public class AbstractFileNameTest_OE25Dev {
         Assert.assertEquals("pass/foo/bar/file%23name.txt", fileName.getURI());
     }
 
-    @Test
+@Test
     public void testHashSignEncoded_2_oe() {
         final AbstractFileName fileName = new AbstractFileName("file", "/foo/bar/file#name.txt", FileType.FILE) {
             @Override

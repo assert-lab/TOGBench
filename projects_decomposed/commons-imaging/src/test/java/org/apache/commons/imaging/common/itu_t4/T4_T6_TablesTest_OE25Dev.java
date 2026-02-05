@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
 
 public class T4_T6_TablesTest_OE25Dev{
 
-  @Test
+@Test
   public void testCreatesT4_T6_TablesTakingNoArgumentsAndCallsWriteBits_1_oe() {
       final BitArrayOutputStream bitArrayOutputStream = new BitArrayOutputStream(2309);
       T4_T6_Tables.EOL16.writeBits(bitArrayOutputStream);
@@ -32,7 +32,7 @@ public class T4_T6_TablesTest_OE25Dev{
       assertEquals(2, bitArrayOutputStream.size());
   }
 
-  @Test
+@Test
   public void testCreatesT4_T6_TablesTakingNoArgumentsAndCallsWriteBits_2_oe() {
       final BitArrayOutputStream bitArrayOutputStream = new BitArrayOutputStream(2309);
       T4_T6_Tables.EOL16.writeBits(bitArrayOutputStream);

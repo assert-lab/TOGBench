@@ -94,7 +94,7 @@ public class FieldAnnotationsTestCase_OE25Dev extends AbstractTestCase
         fail("Didnt find named element " + name);
     }
 
-    public void testFieldAnnotationEntrysReadWrite_1_oe() throws ClassNotFoundException,
+public void testFieldAnnotationEntrysReadWrite_1_oe() throws ClassNotFoundException,
             IOException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedFields");
@@ -110,7 +110,7 @@ public class FieldAnnotationsTestCase_OE25Dev extends AbstractTestCase
         assertTrue(tfile.delete());
     }
 
-    public void testFieldAnnotationModification_1_oe()
+public void testFieldAnnotationModification_1_oe()
             throws ClassNotFoundException
     {
         final boolean dbg = false;

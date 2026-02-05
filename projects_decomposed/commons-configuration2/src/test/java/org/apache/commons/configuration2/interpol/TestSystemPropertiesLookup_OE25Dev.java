@@ -45,14 +45,14 @@ public class TestSystemPropertiesLookup_OE25Dev {
      * Tests whether an unknown property is handled correctly.
      */
 
-    @Test
+@Test
     public void testLookupProperties_1_oe() {
         for (final Map.Entry<Object, Object> e : System.getProperties().entrySet()) {
             assertEquals("Wrong property value for " + e.getKey(), e.getValue(), lookup.lookup(String.valueOf(e.getKey())));
     }
     }
 
-    @Test
+@Test
     public void testLookupUnknownProperty_1_oe() {
         assertNull("Got a value", lookup.lookup("a non existing system property!"));
     }

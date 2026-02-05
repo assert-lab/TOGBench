@@ -50,7 +50,7 @@ public class FileSystemOptionsTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testEqualsHashCodeAndCompareTo_1_oe() {
         final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
         final FileSystemOptions expected = new FileSystemOptions();
@@ -62,7 +62,7 @@ public class FileSystemOptionsTest_OE25Dev {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test
+@Test
     public void testEqualsHashCodeAndCompareTo_2_oe() {
         final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
         final FileSystemOptions expected = new FileSystemOptions();
@@ -75,7 +75,7 @@ public class FileSystemOptionsTest_OE25Dev {
         Assert.assertEquals(0, actual.compareTo(expected));
     }
 
-    @Test
+@Test
     public void testEqualsHashCodeAndCompareTo_3_oe() {
         final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
         final FileSystemOptions expected = new FileSystemOptions();
@@ -89,7 +89,7 @@ public class FileSystemOptionsTest_OE25Dev {
         Assert.assertEquals(expected.hashCode(), actual.hashCode());
     }
 
-    @Test
+@Test
     public void testEqualsHashCodeAndCompareTo_4_oe() {
         final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
         final FileSystemOptions expected = new FileSystemOptions();
@@ -107,7 +107,7 @@ public class FileSystemOptionsTest_OE25Dev {
         Assert.assertNotEquals(expected, actual);
     }
 
-    @Test
+@Test
     public void testEqualsHashCodeAndCompareTo_5_oe() {
         final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
         final FileSystemOptions expected = new FileSystemOptions();
@@ -126,7 +126,7 @@ public class FileSystemOptionsTest_OE25Dev {
         Assert.assertEquals(-1, actual.compareTo(expected));
     }
 
-    @Test
+@Test
     public void testEqualsHashCodeAndCompareTo_6_oe() {
         final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
         final FileSystemOptions expected = new FileSystemOptions();
@@ -146,7 +146,7 @@ public class FileSystemOptionsTest_OE25Dev {
         Assert.assertNotEquals(expected.hashCode(), actual.hashCode());
     }
 
-    @Test
+@Test
     public void testEqualsHashCodeAndCompareTo_7_oe() {
         final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
         final FileSystemOptions expected = new FileSystemOptions();
@@ -170,7 +170,7 @@ public class FileSystemOptionsTest_OE25Dev {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test
+@Test
     public void testEqualsHashCodeAndCompareTo_8_oe() {
         final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
         final FileSystemOptions expected = new FileSystemOptions();
@@ -195,7 +195,7 @@ public class FileSystemOptionsTest_OE25Dev {
         Assert.assertEquals(0, actual.compareTo(expected));
     }
 
-    @Test
+@Test
     public void testEqualsHashCodeAndCompareTo_9_oe() {
         final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
         final FileSystemOptions expected = new FileSystemOptions();

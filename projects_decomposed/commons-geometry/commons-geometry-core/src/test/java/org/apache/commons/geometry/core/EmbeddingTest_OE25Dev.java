@@ -29,7 +29,7 @@ import org.junit.jupiter.api.Test;
 
 class EmbeddingTest_OE25Dev {
 
-    @Test
+@Test
     void testToSubspace_collection_emptyInput_1_oe() {
         // arrange
         final TestLine line = TestLine.Y_AXIS;
@@ -41,7 +41,7 @@ class EmbeddingTest_OE25Dev {
         Assertions.assertEquals(0, result.size());
     }
 
-    @Test
+@Test
     void testToSubspace_collection_1_oe() {
         // arrange
         final List<TestPoint2D> pts = Arrays.asList(
@@ -59,7 +59,7 @@ class EmbeddingTest_OE25Dev {
         Assertions.assertEquals(3, result.size());
     }
 
-    @Test
+@Test
     void testToSubspace_collection_2_oe() {
         // arrange
         final List<TestPoint2D> pts = Arrays.asList(
@@ -78,7 +78,7 @@ class EmbeddingTest_OE25Dev {
         Assertions.assertEquals(0, result.get(0).getX(), PartitionTestUtils.EPS);
     }
 
-    @Test
+@Test
     void testToSubspace_collection_3_oe() {
         // arrange
         final List<TestPoint2D> pts = Arrays.asList(
@@ -98,7 +98,7 @@ class EmbeddingTest_OE25Dev {
         Assertions.assertEquals(0.25, result.get(1).getX(), PartitionTestUtils.EPS);
     }
 
-    @Test
+@Test
     void testToSubspace_collection_4_oe() {
         // arrange
         final List<TestPoint2D> pts = Arrays.asList(
@@ -119,7 +119,7 @@ class EmbeddingTest_OE25Dev {
         Assertions.assertEquals(1, result.get(2).getX(), PartitionTestUtils.EPS);
     }
 
-    @Test
+@Test
     void testToSpace_collection_emptyInput_1_oe() {
         // arrange
         final TestLine line = TestLine.Y_AXIS;
@@ -131,7 +131,7 @@ class EmbeddingTest_OE25Dev {
         Assertions.assertEquals(0, result.size());
     }
 
-    @Test
+@Test
     void testToSpace_collection_1_oe() {
         // arrange
         final List<TestPoint1D> pts = Arrays.asList(

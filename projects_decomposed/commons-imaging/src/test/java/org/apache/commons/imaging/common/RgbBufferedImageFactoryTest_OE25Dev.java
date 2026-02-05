@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 
 public class RgbBufferedImageFactoryTest_OE25Dev{
 
-    @Test
+@Test
     public void testGetColorBufferedImageThrowsIllegalArgumentException_2_oe() {
         final RgbBufferedImageFactory rgbBufferedImageFactory = new RgbBufferedImageFactory();
 
@@ -37,7 +37,7 @@ public class RgbBufferedImageFactoryTest_OE25Dev{
     }
     }
 
-    @Test
+@Test
     public void testGetColorBufferedImageThrowsIllegalArgumentException_3_oe() {
         final RgbBufferedImageFactory rgbBufferedImageFactory = new RgbBufferedImageFactory();
 

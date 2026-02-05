@@ -33,7 +33,7 @@ public class JpegDecoderTest_OE25Dev {
      * Test that a bad file does not hang or take too long to be processed.
      */
 
-    @Test
+@Test
     public void testDecodeBadFile_1_oe() {
         // From IMAGING-220
         final File inputFile = new File(

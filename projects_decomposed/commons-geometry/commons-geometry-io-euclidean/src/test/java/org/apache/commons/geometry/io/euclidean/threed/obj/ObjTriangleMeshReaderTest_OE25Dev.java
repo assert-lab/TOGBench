@@ -74,7 +74,7 @@ class ObjTriangleMeshReaderTest_OE25Dev {
         return new ObjTriangleMeshReader(new StringReader(str), TEST_PRECISION);
     }
 
-    @Test
+@Test
     void testDefaults_1_oe() {
         // arrange
         final ObjTriangleMeshReader reader = reader("");
@@ -83,7 +83,7 @@ class ObjTriangleMeshReaderTest_OE25Dev {
         Assertions.assertFalse(reader.isFailOnNonPolygonKeywords());
     }
 
-    @Test
+@Test
     void testReadTriangleMesh_withNormal_1_oe() {
         // arrange
         final ObjTriangleMeshReader reader = reader(
@@ -103,7 +103,7 @@ class ObjTriangleMeshReaderTest_OE25Dev {
         Assertions.assertEquals(4, mesh.getVertexCount());
     }
 
-    @Test
+@Test
     void testReadTriangleMesh_withNormal_2_oe() {
         // arrange
         final ObjTriangleMeshReader reader = reader(
@@ -124,7 +124,7 @@ class ObjTriangleMeshReaderTest_OE25Dev {
         Assertions.assertEquals(2, mesh.getFaceCount());
     }
 
-    @Test
+@Test
     void testReadTriangleMesh_withoutNormal_1_oe() {
         // arrange
         final ObjTriangleMeshReader reader = reader(
@@ -143,7 +143,7 @@ class ObjTriangleMeshReaderTest_OE25Dev {
         Assertions.assertEquals(5, mesh.getVertexCount());
     }
 
-    @Test
+@Test
     void testReadTriangleMesh_withoutNormal_2_oe() {
         // arrange
         final ObjTriangleMeshReader reader = reader(

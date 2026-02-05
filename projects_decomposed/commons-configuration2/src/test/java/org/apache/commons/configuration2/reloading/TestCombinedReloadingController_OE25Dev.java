@@ -146,7 +146,7 @@ public class TestCombinedReloadingController_OE25Dev {
         EasyMock.verify((Object[]) subControllers);
     }
 
-    @Test
+@Test
     public void testCheckForReloadingFalse_1_oe() {
         final CombinedReloadingController ctrl = setUpController();
         for (final ReloadingController rc : subControllers) {
@@ -156,7 +156,7 @@ public class TestCombinedReloadingController_OE25Dev {
         assertFalse("Wrong result", ctrl.checkForReloading("someParam"));
     }
 
-    @Test
+@Test
     public void testCheckForReloadingTrue_1_oe() {
         final CombinedReloadingController ctrl = setUpController();
         EasyMock.expect(subControllers[0].checkForReloading(null)).andReturn(Boolean.FALSE);
@@ -166,7 +166,7 @@ public class TestCombinedReloadingController_OE25Dev {
         assertTrue("Wrong result", ctrl.checkForReloading("someData"));
     }
 
-    @Test
+@Test
     public void testGetSubControllers_1_oe() {
         final CombinedReloadingController ctrl = setUpController();
         replaySubControllers();
@@ -174,7 +174,7 @@ public class TestCombinedReloadingController_OE25Dev {
         assertEquals("Wrong number of sub controllers", subControllers.length, subs.size());
     }
 
-    @Test
+@Test
     public void testGetSubControllers_2_oe() {
         final CombinedReloadingController ctrl = setUpController();
         replaySubControllers();

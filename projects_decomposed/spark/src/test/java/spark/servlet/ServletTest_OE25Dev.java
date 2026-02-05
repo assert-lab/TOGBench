@@ -76,135 +76,135 @@ public class ServletTest_OE25Dev {
         latch.await();
     }
 
-    @Test
+@Test
     public void testGetHi_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", SOMEPATH + "/hi", null);
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testGetHi_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", SOMEPATH + "/hi", null);
         // removed other assertion
         Assert.assertEquals("Hello World!", response.body);
     }
 
-    @Test
+@Test
     public void testHiHead_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("HEAD", SOMEPATH + "/hi", null);
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testHiHead_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("HEAD", SOMEPATH + "/hi", null);
         // removed other assertion
         Assert.assertEquals("", response.body);
     }
 
-    @Test
+@Test
     public void testGetHiAfterFilter_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", SOMEPATH + "/hi", null);
         Assert.assertTrue(response.headers.get("after").contains("foobar"));
     }
 
-    @Test
+@Test
     public void testGetRoot_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", SOMEPATH + "/", null);
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testGetRoot_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", SOMEPATH + "/", null);
         // removed other assertion
         Assert.assertEquals("Hello Root!", response.body);
     }
 
-    @Test
+@Test
     public void testEchoParam1_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", SOMEPATH + "/shizzy", null);
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testEchoParam1_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", SOMEPATH + "/shizzy", null);
         // removed other assertion
         Assert.assertEquals("echo: shizzy", response.body);
     }
 
-    @Test
+@Test
     public void testEchoParam2_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", SOMEPATH + "/gunit", null);
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testEchoParam2_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", SOMEPATH + "/gunit", null);
         // removed other assertion
         Assert.assertEquals("echo: gunit", response.body);
     }
 
-    @Test
+@Test
     public void testUnauthorized_1_oe() throws Exception {
         UrlResponse urlResponse = testUtil.doMethod("GET", SOMEPATH + "/protected/resource", null);
         Assert.assertTrue(urlResponse.status == 401);
     }
 
-    @Test
+@Test
     public void testNotFound_1_oe() throws Exception {
         UrlResponse urlResponse = testUtil.doMethod("GET", SOMEPATH + "/no/resource", null);
         Assert.assertTrue(urlResponse.status == 404);
     }
 
-    @Test
+@Test
     public void testPost_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("POST", SOMEPATH + "/poster", "Fo shizzy");
         Assert.assertEquals(201, response.status);
     }
 
-    @Test
+@Test
     public void testPost_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("POST", SOMEPATH + "/poster", "Fo shizzy");
         // removed other assertion
         Assert.assertTrue(response.body.contains("Fo shizzy"));
     }
 
-    @Test
+@Test
     public void testStaticResource_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", SOMEPATH + "/css/style.css", null);
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testStaticResource_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", SOMEPATH + "/css/style.css", null);
         // removed other assertion
         Assert.assertTrue(response.body.contains("Content of css file"));
     }
 
-    @Test
+@Test
     public void testStaticWelcomeResource_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", SOMEPATH + "/pages/", null);
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testStaticWelcomeResource_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", SOMEPATH + "/pages/", null);
         // removed other assertion
         Assert.assertTrue(response.body.contains("<html><body>Hello Static World!</body></html>"));
     }
 
-    @Test
+@Test
     public void testExternalStaticFile_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", SOMEPATH + "/" + MyApp.EXTERNAL_FILE, null);
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testExternalStaticFile_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", SOMEPATH + "/" + MyApp.EXTERNAL_FILE, null);
         // removed other assertion

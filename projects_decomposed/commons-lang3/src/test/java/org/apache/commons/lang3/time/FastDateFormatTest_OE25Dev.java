@@ -155,7 +155,7 @@ public class FastDateFormatTest_OE25Dev {
         //System.out.println(">>FastDateFormatTest_OE25Dev: FastDateParser:"+fdfTime.get(1)+"  SimpleDateFormat:"+sdfTime.get(1));
     }
 
-    @Test
+@Test
     public void test_changeDefault_Locale_DateInstance_1_oe() {
         final FastDateFormat format1 = FastDateFormat.getDateInstance(FastDateFormat.FULL, Locale.GERMANY);
         final FastDateFormat format2 = FastDateFormat.getDateInstance(FastDateFormat.FULL);
@@ -165,7 +165,7 @@ public class FastDateFormatTest_OE25Dev {
         assertSame(Locale.GERMANY, format1.getLocale());
     }
 
-    @Test
+@Test
     public void test_changeDefault_Locale_DateInstance_2_oe() {
         final FastDateFormat format1 = FastDateFormat.getDateInstance(FastDateFormat.FULL, Locale.GERMANY);
         final FastDateFormat format2 = FastDateFormat.getDateInstance(FastDateFormat.FULL);
@@ -176,7 +176,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(Locale.US, format2.getLocale());
     }
 
-    @Test
+@Test
     public void test_changeDefault_Locale_DateInstance_3_oe() {
         final FastDateFormat format1 = FastDateFormat.getDateInstance(FastDateFormat.FULL, Locale.GERMANY);
         final FastDateFormat format2 = FastDateFormat.getDateInstance(FastDateFormat.FULL);
@@ -188,7 +188,7 @@ public class FastDateFormatTest_OE25Dev {
         assertSame(Locale.GERMANY, format3.getLocale());
     }
 
-    @Test
+@Test
     public void test_changeDefault_Locale_DateInstance_4_oe() {
         final FastDateFormat format1 = FastDateFormat.getDateInstance(FastDateFormat.FULL, Locale.GERMANY);
         final FastDateFormat format2 = FastDateFormat.getDateInstance(FastDateFormat.FULL);
@@ -201,7 +201,7 @@ public class FastDateFormatTest_OE25Dev {
         assertNotSame(format1, format2);
     }
 
-    @Test
+@Test
     public void test_changeDefault_Locale_DateInstance_5_oe() {
         final FastDateFormat format1 = FastDateFormat.getDateInstance(FastDateFormat.FULL, Locale.GERMANY);
         final FastDateFormat format2 = FastDateFormat.getDateInstance(FastDateFormat.FULL);
@@ -215,7 +215,7 @@ public class FastDateFormatTest_OE25Dev {
         assertNotSame(format2, format3);
     }
 
-    @Test
+@Test
     public void test_changeDefault_Locale_DateTimeInstance_1_oe() {
         final FastDateFormat format1 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL, Locale.GERMANY);
         final FastDateFormat format2 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL);
@@ -225,7 +225,7 @@ public class FastDateFormatTest_OE25Dev {
         assertSame(Locale.GERMANY, format1.getLocale());
     }
 
-    @Test
+@Test
     public void test_changeDefault_Locale_DateTimeInstance_2_oe() {
         final FastDateFormat format1 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL, Locale.GERMANY);
         final FastDateFormat format2 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL);
@@ -236,7 +236,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(Locale.US, format2.getLocale());
     }
 
-    @Test
+@Test
     public void test_changeDefault_Locale_DateTimeInstance_3_oe() {
         final FastDateFormat format1 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL, Locale.GERMANY);
         final FastDateFormat format2 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL);
@@ -248,7 +248,7 @@ public class FastDateFormatTest_OE25Dev {
         assertSame(Locale.GERMANY, format3.getLocale());
     }
 
-    @Test
+@Test
     public void test_changeDefault_Locale_DateTimeInstance_4_oe() {
         final FastDateFormat format1 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL, Locale.GERMANY);
         final FastDateFormat format2 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL);
@@ -261,7 +261,7 @@ public class FastDateFormatTest_OE25Dev {
         assertNotSame(format1, format2);
     }
 
-    @Test
+@Test
     public void test_changeDefault_Locale_DateTimeInstance_5_oe() {
         final FastDateFormat format1 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL, Locale.GERMANY);
         final FastDateFormat format2 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL);
@@ -275,14 +275,14 @@ public class FastDateFormatTest_OE25Dev {
         assertNotSame(format2, format3);
     }
 
-    @Test
+@Test
     public void test_getInstance_1_oe() {
         final FastDateFormat format1 = FastDateFormat.getInstance();
         final FastDateFormat format2 = FastDateFormat.getInstance();
         assertSame(format1, format2);
     }
 
-    @Test
+@Test
     public void test_getInstance_String_1_oe() {
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy");
         final FastDateFormat format2 = FastDateFormat.getInstance("MM-DD-yyyy");
@@ -291,7 +291,7 @@ public class FastDateFormatTest_OE25Dev {
         assertNotSame(format1, format2);
     }
 
-    @Test
+@Test
     public void test_getInstance_String_2_oe() {
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy");
         final FastDateFormat format2 = FastDateFormat.getInstance("MM-DD-yyyy");
@@ -301,7 +301,7 @@ public class FastDateFormatTest_OE25Dev {
         assertSame(format2, format3);
     }
 
-    @Test
+@Test
     public void test_getInstance_String_3_oe() {
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy");
         final FastDateFormat format2 = FastDateFormat.getInstance("MM-DD-yyyy");
@@ -312,7 +312,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals("MM/DD/yyyy", format1.getPattern());
     }
 
-    @Test
+@Test
     public void test_getInstance_String_4_oe() {
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy");
         final FastDateFormat format2 = FastDateFormat.getInstance("MM-DD-yyyy");
@@ -324,7 +324,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(TimeZone.getDefault(), format1.getTimeZone());
     }
 
-    @Test
+@Test
     public void test_getInstance_String_5_oe() {
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy");
         final FastDateFormat format2 = FastDateFormat.getInstance("MM-DD-yyyy");
@@ -337,7 +337,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(TimeZone.getDefault(), format2.getTimeZone());
     }
 
-    @Test
+@Test
     public void test_getInstance_String_Locale_1_oe() {
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy", Locale.GERMANY);
         final FastDateFormat format2 = FastDateFormat.getInstance("MM/DD/yyyy");
@@ -346,7 +346,7 @@ public class FastDateFormatTest_OE25Dev {
         assertNotSame(format1, format2);
     }
 
-    @Test
+@Test
     public void test_getInstance_String_Locale_2_oe() {
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy", Locale.GERMANY);
         final FastDateFormat format2 = FastDateFormat.getInstance("MM/DD/yyyy");
@@ -356,7 +356,7 @@ public class FastDateFormatTest_OE25Dev {
         assertSame(format1, format3);
     }
 
-    @Test
+@Test
     public void test_getInstance_String_Locale_3_oe() {
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy", Locale.GERMANY);
         final FastDateFormat format2 = FastDateFormat.getInstance("MM/DD/yyyy");
@@ -367,7 +367,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(Locale.GERMANY, format1.getLocale());
     }
 
-    @Test
+@Test
     public void test_getInstance_String_TimeZone_1_oe() {
 
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy",
@@ -381,7 +381,7 @@ public class FastDateFormatTest_OE25Dev {
         assertNotSame(format1, format2);
     }
 
-    @Test
+@Test
     public void test_getInstance_String_TimeZone_2_oe() {
 
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy",
@@ -396,7 +396,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(TimeZone.getTimeZone("Atlantic/Reykjavik"), format1.getTimeZone());
     }
 
-    @Test
+@Test
     public void test_getInstance_String_TimeZone_3_oe() {
 
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy",
@@ -412,7 +412,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(TimeZone.getDefault(), format2.getTimeZone());
     }
 
-    @Test
+@Test
     public void test_getInstance_String_TimeZone_4_oe() {
 
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy",
@@ -429,7 +429,7 @@ public class FastDateFormatTest_OE25Dev {
         assertSame(format3, format4);
     }
 
-    @Test
+@Test
     public void test_getInstance_String_TimeZone_5_oe() {
 
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy",
@@ -447,7 +447,7 @@ public class FastDateFormatTest_OE25Dev {
         assertNotSame(format3, format5);
     }
 
-    @Test
+@Test
     public void test_getInstance_String_TimeZone_6_oe() {
 
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy",
@@ -466,7 +466,7 @@ public class FastDateFormatTest_OE25Dev {
         assertNotSame(format4, format6);
     }
 
-    @Test
+@Test
     public void test_getInstance_String_TimeZone_Locale_1_oe() {
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy",
                 TimeZone.getTimeZone("Atlantic/Reykjavik"), Locale.GERMANY);
@@ -477,7 +477,7 @@ public class FastDateFormatTest_OE25Dev {
         assertNotSame(format1, format2);
     }
 
-    @Test
+@Test
     public void test_getInstance_String_TimeZone_Locale_2_oe() {
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy",
                 TimeZone.getTimeZone("Atlantic/Reykjavik"), Locale.GERMANY);
@@ -489,7 +489,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(TimeZone.getTimeZone("Atlantic/Reykjavik"), format1.getTimeZone());
     }
 
-    @Test
+@Test
     public void test_getInstance_String_TimeZone_Locale_3_oe() {
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy",
                 TimeZone.getTimeZone("Atlantic/Reykjavik"), Locale.GERMANY);
@@ -502,7 +502,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(TimeZone.getDefault(), format2.getTimeZone());
     }
 
-    @Test
+@Test
     public void test_getInstance_String_TimeZone_Locale_4_oe() {
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy",
                 TimeZone.getTimeZone("Atlantic/Reykjavik"), Locale.GERMANY);
@@ -516,7 +516,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(TimeZone.getDefault(), format3.getTimeZone());
     }
 
-    @Test
+@Test
     public void test_getInstance_String_TimeZone_Locale_5_oe() {
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy",
                 TimeZone.getTimeZone("Atlantic/Reykjavik"), Locale.GERMANY);
@@ -531,7 +531,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(Locale.GERMANY, format1.getLocale());
     }
 
-    @Test
+@Test
     public void test_getInstance_String_TimeZone_Locale_6_oe() {
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy",
                 TimeZone.getTimeZone("Atlantic/Reykjavik"), Locale.GERMANY);
@@ -547,7 +547,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(Locale.GERMANY, format2.getLocale());
     }
 
-    @Test
+@Test
     public void test_getInstance_String_TimeZone_Locale_7_oe() {
         final FastDateFormat format1 = FastDateFormat.getInstance("MM/DD/yyyy",
                 TimeZone.getTimeZone("Atlantic/Reykjavik"), Locale.GERMANY);
@@ -564,14 +564,14 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(Locale.GERMANY, format3.getLocale());
     }
 
-    @Test
+@Test
     public void testCheckDefaults_1_oe() {
         final FastDateFormat format = FastDateFormat.getInstance();
         final FastDateFormat medium = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.SHORT);
         assertEquals(medium, format);
     }
 
-    @Test
+@Test
     public void testCheckDefaults_2_oe() {
         final FastDateFormat format = FastDateFormat.getInstance();
         final FastDateFormat medium = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.SHORT);
@@ -581,7 +581,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(sdf.toPattern(), format.getPattern());
     }
 
-    @Test
+@Test
     public void testCheckDefaults_3_oe() {
         final FastDateFormat format = FastDateFormat.getInstance();
         final FastDateFormat medium = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.SHORT);
@@ -593,7 +593,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(Locale.getDefault(), format.getLocale());
     }
 
-    @Test
+@Test
     public void testCheckDefaults_4_oe() {
         final FastDateFormat format = FastDateFormat.getInstance();
         final FastDateFormat medium = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.SHORT);
@@ -606,7 +606,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(TimeZone.getDefault(), format.getTimeZone());
     }
 
-    @Test
+@Test
     public void testCheckDifferingStyles_1_oe() {
         final FastDateFormat shortShort = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.SHORT, Locale.US);
         final FastDateFormat shortLong = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.LONG, Locale.US);
@@ -616,7 +616,7 @@ public class FastDateFormatTest_OE25Dev {
         assertNotEquals(shortShort, shortLong);
     }
 
-    @Test
+@Test
     public void testCheckDifferingStyles_2_oe() {
         final FastDateFormat shortShort = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.SHORT, Locale.US);
         final FastDateFormat shortLong = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.LONG, Locale.US);
@@ -627,7 +627,7 @@ public class FastDateFormatTest_OE25Dev {
         assertNotEquals(shortShort, longShort);
     }
 
-    @Test
+@Test
     public void testCheckDifferingStyles_3_oe() {
         final FastDateFormat shortShort = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.SHORT, Locale.US);
         final FastDateFormat shortLong = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.LONG, Locale.US);
@@ -639,7 +639,7 @@ public class FastDateFormatTest_OE25Dev {
         assertNotEquals(shortShort, longLong);
     }
 
-    @Test
+@Test
     public void testCheckDifferingStyles_4_oe() {
         final FastDateFormat shortShort = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.SHORT, Locale.US);
         final FastDateFormat shortLong = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.LONG, Locale.US);
@@ -652,7 +652,7 @@ public class FastDateFormatTest_OE25Dev {
         assertNotEquals(shortLong, longShort);
     }
 
-    @Test
+@Test
     public void testCheckDifferingStyles_5_oe() {
         final FastDateFormat shortShort = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.SHORT, Locale.US);
         final FastDateFormat shortLong = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.LONG, Locale.US);
@@ -666,7 +666,7 @@ public class FastDateFormatTest_OE25Dev {
         assertNotEquals(shortLong, longLong);
     }
 
-    @Test
+@Test
     public void testCheckDifferingStyles_6_oe() {
         final FastDateFormat shortShort = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.SHORT, Locale.US);
         final FastDateFormat shortLong = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.LONG, Locale.US);
@@ -681,19 +681,19 @@ public class FastDateFormatTest_OE25Dev {
         assertNotEquals(longShort, longLong);
     }
 
-    @Test
+@Test
     public void testDateDefaults_1_oe() {
         assertEquals(FastDateFormat.getDateInstance(FastDateFormat.LONG,Locale.CANADA),FastDateFormat.getDateInstance(FastDateFormat.LONG,TimeZone.getDefault(),Locale.CANADA));
     }
 
-    @Test
+@Test
     public void testDateDefaults_2_oe() {
         // removed other assertion
 
         assertEquals(FastDateFormat.getDateInstance(FastDateFormat.LONG,TimeZone.getTimeZone("America/New_York")),FastDateFormat.getDateInstance(FastDateFormat.LONG,TimeZone.getTimeZone("America/New_York"),Locale.getDefault()));
     }
 
-    @Test
+@Test
     public void testDateDefaults_3_oe() {
         // removed other assertion
 
@@ -702,7 +702,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(FastDateFormat.getDateInstance(FastDateFormat.LONG),FastDateFormat.getDateInstance(FastDateFormat.LONG,TimeZone.getDefault(),Locale.getDefault()));
     }
 
-    @Test
+@Test
     public void testLANG_1152_1_oe() {
         final TimeZone utc = FastTimeZone.getGmtTimeZone();
         final Date date = new Date(Long.MAX_VALUE);
@@ -711,7 +711,7 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals("292278994-08-17", dateAsString);
     }
 
-    @Test
+@Test
     public void testLANG_1152_2_oe() {
         final TimeZone utc = FastTimeZone.getGmtTimeZone();
         final Date date = new Date(Long.MAX_VALUE);
@@ -723,19 +723,19 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals("17/08/292278994", dateAsString);
     }
 
-    @Test
+@Test
     public void testTimeDateDefaults_1_oe() {
         assertEquals(FastDateFormat.getDateTimeInstance(FastDateFormat.LONG,FastDateFormat.MEDIUM,Locale.CANADA),FastDateFormat.getDateTimeInstance(FastDateFormat.LONG,FastDateFormat.MEDIUM,TimeZone.getDefault(),Locale.CANADA));
     }
 
-    @Test
+@Test
     public void testTimeDateDefaults_2_oe() {
         // removed other assertion
 
         assertEquals(FastDateFormat.getDateTimeInstance(FastDateFormat.LONG,FastDateFormat.MEDIUM,TimeZone.getTimeZone("America/New_York")),FastDateFormat.getDateTimeInstance(FastDateFormat.LONG,FastDateFormat.MEDIUM,TimeZone.getTimeZone("America/New_York"),Locale.getDefault()));
     }
 
-    @Test
+@Test
     public void testTimeDateDefaults_3_oe() {
         // removed other assertion
 
@@ -744,19 +744,19 @@ public class FastDateFormatTest_OE25Dev {
         assertEquals(FastDateFormat.getDateTimeInstance(FastDateFormat.LONG,FastDateFormat.MEDIUM),FastDateFormat.getDateTimeInstance(FastDateFormat.LONG,FastDateFormat.MEDIUM,TimeZone.getDefault(),Locale.getDefault()));
     }
 
-    @Test
+@Test
     public void testTimeDefaults_1_oe() {
         assertEquals(FastDateFormat.getTimeInstance(FastDateFormat.LONG,Locale.CANADA),FastDateFormat.getTimeInstance(FastDateFormat.LONG,TimeZone.getDefault(),Locale.CANADA));
     }
 
-    @Test
+@Test
     public void testTimeDefaults_2_oe() {
         // removed other assertion
 
         assertEquals(FastDateFormat.getTimeInstance(FastDateFormat.LONG,TimeZone.getTimeZone("America/New_York")),FastDateFormat.getTimeInstance(FastDateFormat.LONG,TimeZone.getTimeZone("America/New_York"),Locale.getDefault()));
     }
 
-    @Test
+@Test
     public void testTimeDefaults_3_oe() {
         // removed other assertion
 

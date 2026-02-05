@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 
 public class TagInfoSByteTest_OE25Dev{
 
-  @Test
+@Test
   public void testCreatesTagInfoSByteAndCallsEncodeValue_1_oe() {
       final TiffDirectoryType tiffDirectoryType = TiffDirectoryType.EXIF_DIRECTORY_GPS;
       final TagInfoSByte tagInfoSByte = new TagInfoSByte("", 0, tiffDirectoryType);

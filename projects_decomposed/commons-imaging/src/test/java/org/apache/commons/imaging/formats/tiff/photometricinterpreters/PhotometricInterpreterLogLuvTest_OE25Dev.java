@@ -43,12 +43,12 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
                 width, height);
     }
 
-    @Test
+@Test
     public void testConstructor_1_oe() {
         assertEquals(samplesPerPixel, p.samplesPerPixel);
     }
 
-    @Test
+@Test
     public void testConstructor_2_oe() {
         // removed other assertion
         for (int i = 0; i < bitsPerSample.length; i++) {
@@ -56,7 +56,7 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testConstructor_3_oe() {
         // removed other assertion
         for (int i = 0; i < bitsPerSample.length; i++) {
@@ -65,7 +65,7 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
         assertEquals(predictor, p.predictor);
     }
 
-    @Test
+@Test
     public void testConstructor_4_oe() {
         // removed other assertion
         for (int i = 0; i < bitsPerSample.length; i++) {
@@ -75,7 +75,7 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
         assertEquals(width, p.width);
     }
 
-    @Test
+@Test
     public void testConstructor_5_oe() {
         // removed other assertion
         for (int i = 0; i < bitsPerSample.length; i++) {
@@ -86,20 +86,20 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
         assertEquals(height, p.height);
     }
 
-    @Test
+@Test
     public void testGetTristimulusValues_1_oe() {
         // any value equals 0 will have its pow(N, 3) equal to 0
         assertEquals(0.0d, p.getTristimulusValues(0, 0, 0).x, 0.001d);
     }
 
-    @Test
+@Test
     public void testGetTristimulusValues_2_oe() {
         // any value equals 0 will have its pow(N, 3) equal to 0
         // removed other assertion
         assertEquals(0.0d, p.getTristimulusValues(0, 0, 0).y, 0.001d);
     }
 
-    @Test
+@Test
     public void testGetTristimulusValues_3_oe() {
         // any value equals 0 will have its pow(N, 3) equal to 0
         // removed other assertion
@@ -107,7 +107,7 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
         assertEquals(0.0d, p.getTristimulusValues(0, 0, 0).z, 0.001d);
     }
 
-    @Test
+@Test
     public void testGetTristimulusValues_4_oe() {
         // any value equals 0 will have its pow(N, 3) equal to 0
         // removed other assertion
@@ -117,7 +117,7 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
         assertEquals(0.04126d, p.getTristimulusValues(1, 0, 0).x, 0.001d);
     }
 
-    @Test
+@Test
     public void testGetTristimulusValues_5_oe() {
         // any value equals 0 will have its pow(N, 3) equal to 0
         // removed other assertion
@@ -128,7 +128,7 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
         assertEquals(0.04341d, p.getTristimulusValues(1, 0, 0).y, 0.001d);
     }
 
-    @Test
+@Test
     public void testGetTristimulusValues_6_oe() {
         // any value equals 0 will have its pow(N, 3) equal to 0
         // removed other assertion
@@ -140,7 +140,7 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
         assertEquals(0.04727d, p.getTristimulusValues(1, 0, 0).z, 0.001d);
     }
 
-    @Test
+@Test
     public void testGetTristimulusValues_7_oe() {
         // any value equals 0 will have its pow(N, 3) equal to 0
         // removed other assertion
@@ -154,7 +154,7 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
         assertEquals(29.36116d, p.getTristimulusValues(100, 100, 50).x, 0.001d);
     }
 
-    @Test
+@Test
     public void testGetTristimulusValues_8_oe() {
         // any value equals 0 will have its pow(N, 3) equal to 0
         // removed other assertion
@@ -169,7 +169,7 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
         assertEquals(10.78483d, p.getTristimulusValues(100, 100, 50).y, 0.001d);
     }
 
-    @Test
+@Test
     public void testGetTristimulusValues_9_oe() {
         // any value equals 0 will have its pow(N, 3) equal to 0
         // removed other assertion
@@ -185,7 +185,7 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
         assertEquals(1.25681d, p.getTristimulusValues(100, 100, 50).z, 0.001d);
     }
 
-    @Test
+@Test
     public void testGetRgbValues_1_oe() {
         // any value equals 0 will have its pow(N, 3) equal to 0
         final TristimulusValues triValues = new TristimulusValues();
@@ -195,7 +195,7 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
         assertEquals(0, p.getRgbValues(triValues).r);
     }
 
-    @Test
+@Test
     public void testGetRgbValues_2_oe() {
         // any value equals 0 will have its pow(N, 3) equal to 0
         final TristimulusValues triValues = new TristimulusValues();
@@ -206,7 +206,7 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
         assertEquals(0, p.getRgbValues(triValues).g);
     }
 
-    @Test
+@Test
     public void testGetRgbValues_3_oe() {
         // any value equals 0 will have its pow(N, 3) equal to 0
         final TristimulusValues triValues = new TristimulusValues();
@@ -218,7 +218,7 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
         assertEquals(0, p.getRgbValues(triValues).b);
     }
 
-    @Test
+@Test
     public void testGetRgbValues_4_oe() {
         // any value equals 0 will have its pow(N, 3) equal to 0
         final TristimulusValues triValues = new TristimulusValues();
@@ -234,7 +234,7 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
         assertEquals(28, p.getRgbValues(triValues).r);
     }
 
-    @Test
+@Test
     public void testGetRgbValues_5_oe() {
         // any value equals 0 will have its pow(N, 3) equal to 0
         final TristimulusValues triValues = new TristimulusValues();
@@ -251,7 +251,7 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
         assertEquals(24, p.getRgbValues(triValues).g);
     }
 
-    @Test
+@Test
     public void testGetRgbValues_6_oe() {
         // any value equals 0 will have its pow(N, 3) equal to 0
         final TristimulusValues triValues = new TristimulusValues();
@@ -269,17 +269,17 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
         assertEquals(23, p.getRgbValues(triValues).b);
     }
 
-    @Test
+@Test
     public void testInterpretPixelNullSamples_1_oe() {
         Assertions.assertThrows(ImageReadException.class, () -> p.interpretPixel(null, null, 0, 0));
     }
 
-    @Test
+@Test
     public void testInterpretPixelEmptySamples_1_oe() {
         Assertions.assertThrows(ImageReadException.class, () -> p.interpretPixel(null, new int[] {}, 0, 0));
     }
 
-    @Test
+@Test
     public void testInterpretPixel_1_oe() throws ImageReadException, IOException {
         final ImageBuilder imgBuilder = new ImageBuilder(600, 400, /*alpha*/ true);
         final int x = 10;

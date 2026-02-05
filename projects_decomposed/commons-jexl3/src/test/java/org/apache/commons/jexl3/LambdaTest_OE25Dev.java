@@ -90,7 +90,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
 //        Assert.assertEquals(-880, result);
 //    }
 
-    @Test
+@Test
     public void testScriptArguments_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlScript s = jexl.createScript(" x + x ", "x");
@@ -99,7 +99,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testScriptContext_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlScript s = jexl.createScript("function(x) { x + x }");
@@ -107,7 +107,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("(x)->{ x + x; }", fsstr);
     }
 
-    @Test
+@Test
     public void testScriptContext_2_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlScript s = jexl.createScript("function(x) { x + x }");
@@ -116,7 +116,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, s.execute(null, 21));
     }
 
-    @Test
+@Test
     public void testScriptContext_3_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlScript s = jexl.createScript("function(x) { x + x }");
@@ -130,7 +130,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testScriptContext_4_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlScript s = jexl.createScript("function(x) { x + x }");
@@ -146,7 +146,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testScriptContext_5_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlScript s = jexl.createScript("function(x) { x + x }");
@@ -165,7 +165,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testLambda_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         String strs = "var s = function(x) { x + x }; s(21)";
@@ -174,7 +174,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testLambda_2_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         String strs = "var s = function(x) { x + x }; s(21)";
@@ -187,7 +187,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testLambdaClosure_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         String strs = "var t = 20; var s = function(x, y) { x + y + t}; s(15, 7)";
@@ -196,7 +196,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testLambdaClosure_2_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         String strs = "var t = 20; var s = function(x, y) { x + y + t}; s(15, 7)";
@@ -209,7 +209,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testLambdaClosure_3_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         String strs = "var t = 20; var s = function(x, y) { x + y + t}; s(15, 7)";
@@ -226,7 +226,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testLambdaClosure_4_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         String strs = "var t = 20; var s = function(x, y) { x + y + t}; s(15, 7)";
@@ -247,7 +247,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testLambdaLambda_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         String strs = "var t = 19; ( (x, y)->{ var t = 20; x + y + t} )(15, 7);";
@@ -256,7 +256,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testLambdaLambda_2_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         String strs = "var t = 19; ( (x, y)->{ var t = 20; x + y + t} )(15, 7);";
@@ -270,7 +270,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testLambdaLambda_3_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         String strs = "var t = 19; ( (x, y)->{ var t = 20; x + y + t} )(15, 7);";
@@ -289,7 +289,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testNestLambda_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final String strs = "( (x)->{ (y)->{ x + y } })(15)(27)";
@@ -298,7 +298,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testNestLambada_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlContext ctx = null;
@@ -308,7 +308,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(s42.hashCode(), s42b.hashCode());
     }
 
-    @Test
+@Test
     public void testNestLambada_2_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlContext ctx = null;
@@ -319,7 +319,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(s42, s42b);
     }
 
-    @Test
+@Test
     public void testNestLambada_3_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlContext ctx = null;
@@ -332,7 +332,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(result instanceof JexlScript);
     }
 
-    @Test
+@Test
     public void testNestLambada_4_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlContext ctx = null;
@@ -347,7 +347,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(result.hashCode(), resultb.hashCode());
     }
 
-    @Test
+@Test
     public void testNestLambada_5_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlContext ctx = null;
@@ -363,7 +363,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(result, resultb);
     }
 
-    @Test
+@Test
     public void testNestLambada_6_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlContext ctx = null;
@@ -380,7 +380,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(result, jexl.createScript(resultb.toString(), "x").execute(ctx, 15));
     }
 
-    @Test
+@Test
     public void testNestLambada_7_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlContext ctx = null;
@@ -401,7 +401,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testNestLambada_8_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlContext ctx = null;
@@ -424,7 +424,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testHoistLambda_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlEvalContext ctx = new JexlEvalContext();
@@ -443,7 +443,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(result instanceof JexlScript);
     }
 
-    @Test
+@Test
     public void testHoistLambda_2_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlEvalContext ctx = new JexlEvalContext();
@@ -465,7 +465,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0, localv.length);
     }
 
-    @Test
+@Test
     public void testHoistLambda_3_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlEvalContext ctx = new JexlEvalContext();
@@ -489,7 +489,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, hvars.size());
     }
 
-    @Test
+@Test
     public void testHoistLambda_4_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlEvalContext ctx = new JexlEvalContext();
@@ -521,7 +521,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(result instanceof JexlScript);
     }
 
-    @Test
+@Test
     public void testHoistLambda_5_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlEvalContext ctx = new JexlEvalContext();
@@ -556,7 +556,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(localv);
     }
 
-    @Test
+@Test
     public void testHoistLambda_6_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlEvalContext ctx = new JexlEvalContext();
@@ -592,7 +592,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, localv.length);
     }
 
-    @Test
+@Test
     public void testHoistLambda_7_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlEvalContext ctx = new JexlEvalContext();
@@ -630,7 +630,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, hvars.size());
     }
 
-    @Test
+@Test
     public void testHoistLambda_8_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlEvalContext ctx = new JexlEvalContext();
@@ -671,7 +671,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testIdentity_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         JexlScript script;
@@ -681,7 +681,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertArrayEquals(new String[]{"x"}, script.getParameters());
     }
 
-    @Test
+@Test
     public void testIdentity_2_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         JexlScript script;
@@ -693,7 +693,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testCurry1_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         JexlScript script;
@@ -705,7 +705,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(3, parms.length);
     }
 
-    @Test
+@Test
     public void testCurry1_2_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         JexlScript script;
@@ -720,7 +720,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(2, parms.length);
     }
 
-    @Test
+@Test
     public void testCurry1_3_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         JexlScript script;
@@ -738,7 +738,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, parms.length);
     }
 
-    @Test
+@Test
     public void testCurry1_4_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         JexlScript script;
@@ -759,7 +759,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0, parms.length);
     }
 
-    @Test
+@Test
     public void testCurry1_5_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         JexlScript script;
@@ -782,7 +782,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testCurry2_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         JexlScript script;
@@ -795,7 +795,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, parms.length);
     }
 
-    @Test
+@Test
     public void testCurry2_2_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         JexlScript script;
@@ -811,7 +811,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testCurry3_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         JexlScript script;
@@ -823,7 +823,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test270_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlScript base = jexl.createScript("(x, y, z)->{ x + y + z }");
@@ -832,7 +832,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(text, script.toString());
     }
 
-    @Test
+@Test
     public void test270_2_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlScript base = jexl.createScript("(x, y, z)->{ x + y + z }");
@@ -847,7 +847,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(text, result.toString());
     }
 
-    @Test
+@Test
     public void test270_3_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlScript base = jexl.createScript("(x, y, z)->{ x + y + z }");
@@ -866,7 +866,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(text, result.toString());
     }
 
-    @Test
+@Test
     public void test271a_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlScript base = jexl.createScript("var base = 1; var x = (a)->{ var y = (b) -> {base + b}; return base + y(a)}; x(40)");
@@ -874,7 +874,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test271b_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlScript base = jexl.createScript("var base = 2; var sum = (x, y, z)->{ base + x + y + z }; var y = sum.curry(1); y(2,3)");
@@ -882,7 +882,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(8, result);
     }
 
-    @Test
+@Test
     public void test271c_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlScript base = jexl.createScript("(x, y, z)->{ 2 + x + y + z };");
@@ -891,7 +891,7 @@ public class LambdaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(8, result);
     }
 
-    @Test
+@Test
     public void test271d_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlScript base = jexl.createScript("var base = 2; return (x, y, z)->{ base + x + y + z };");

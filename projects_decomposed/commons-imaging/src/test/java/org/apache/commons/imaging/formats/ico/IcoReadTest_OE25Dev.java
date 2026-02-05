@@ -35,19 +35,19 @@ public class IcoReadTest_OE25Dev extends IcoBaseTest {
         return getIcoImages().stream();
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testMetadata_1_oe(final File imageFile) {
         Assertions.assertThrows(UnsupportedOperationException.class, () -> Imaging.getMetadata(imageFile));
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testImageInfo_1_oe(final File imageFile) {
         Assertions.assertThrows(UnsupportedOperationException.class, () -> Imaging.getImageInfo(imageFile));
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testBufferedImage_1_oe(final File imageFile) throws Exception {
         final BufferedImage image = Imaging.getBufferedImage(imageFile);

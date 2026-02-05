@@ -70,13 +70,13 @@ public class TestClasspathLocationStrategy_OE25Dev {
         ConfigurationAssert.assertConfigurationEquals(config1, config2);
     }
 
-    @Test
+@Test
     public void testLocateFailed_1_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().fileName("non existing resource name!").create();
         assertNull("Got a URL", strategy.locate(fileSystem, locator));
     }
 
-    @Test
+@Test
     public void testLocateNoFileName_1_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().fileName("").create();
         assertNull("Got a URL", strategy.locate(fileSystem, locator));

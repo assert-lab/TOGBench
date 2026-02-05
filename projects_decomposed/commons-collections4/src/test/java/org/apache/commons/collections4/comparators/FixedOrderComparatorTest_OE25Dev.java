@@ -173,14 +173,14 @@ public class FixedOrderComparatorTest_OE25Dev extends AbstractComparatorTest<Str
         }
     }
 
-    @Test
+@Test
     public void testAddAsEqual_1_oe() {
         final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
         comparator.addAsEqual("New York", "Minneapolis");
         assertEquals(0, comparator.compare("New York", "Minneapolis"));
     }
 
-    @Test
+@Test
     public void testAddAsEqual_2_oe() {
         final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
         comparator.addAsEqual("New York", "Minneapolis");
@@ -188,7 +188,7 @@ public class FixedOrderComparatorTest_OE25Dev extends AbstractComparatorTest<Str
         assertEquals(-1, comparator.compare("Tokyo", "Minneapolis"));
     }
 
-    @Test
+@Test
     public void testAddAsEqual_3_oe() {
         final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
         comparator.addAsEqual("New York", "Minneapolis");
@@ -197,13 +197,13 @@ public class FixedOrderComparatorTest_OE25Dev extends AbstractComparatorTest<Str
         assertEquals(1, comparator.compare("Shanghai", "Minneapolis"));
     }
 
-    @Test
+@Test
     public void testLock_1_oe() {
         final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
         assertEquals(false, comparator.isLocked());
     }
 
-    @Test
+@Test
     public void testLock_2_oe() {
         final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
         // removed other assertion
@@ -211,7 +211,7 @@ public class FixedOrderComparatorTest_OE25Dev extends AbstractComparatorTest<Str
         assertEquals(true, comparator.isLocked());
     }
 
-    @Test
+@Test
     public void testUnknownObjectBehavior_3_oe() {
         FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
         try {
@@ -229,7 +229,7 @@ public class FixedOrderComparatorTest_OE25Dev extends AbstractComparatorTest<Str
         assertEquals(FixedOrderComparator.UnknownObjectBehavior.EXCEPTION, comparator.getUnknownObjectBehavior());
     }
 
-    @Test
+@Test
     public void testUnknownObjectBehavior_4_oe() {
         FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
         try {
@@ -251,7 +251,7 @@ public class FixedOrderComparatorTest_OE25Dev extends AbstractComparatorTest<Str
         assertEquals(FixedOrderComparator.UnknownObjectBehavior.BEFORE, comparator.getUnknownObjectBehavior());
     }
 
-    @Test
+@Test
     public void testUnknownObjectBehavior_6_oe() {
         FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
         try {
@@ -278,7 +278,7 @@ public class FixedOrderComparatorTest_OE25Dev extends AbstractComparatorTest<Str
         assertEquals(-1, comparator.compare("Minneapolis", "New York"));
     }
 
-    @Test
+@Test
     public void testUnknownObjectBehavior_7_oe() {
         FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
         try {
@@ -306,7 +306,7 @@ public class FixedOrderComparatorTest_OE25Dev extends AbstractComparatorTest<Str
         assertEquals( 1, comparator.compare("New York", "Minneapolis"));
     }
 
-    @Test
+@Test
     public void testUnknownObjectBehavior_8_oe() {
         FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
         try {
@@ -335,7 +335,7 @@ public class FixedOrderComparatorTest_OE25Dev extends AbstractComparatorTest<Str
         assertEquals( 0, comparator.compare("Minneapolis", "St Paul"));
     }
 
-    @Test
+@Test
     public void testUnknownObjectBehavior_10_oe() {
         FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
         try {
@@ -372,7 +372,7 @@ public class FixedOrderComparatorTest_OE25Dev extends AbstractComparatorTest<Str
         assertEquals( 1, comparator.compare("Minneapolis", "New York"));
     }
 
-    @Test
+@Test
     public void testUnknownObjectBehavior_11_oe() {
         FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
         try {
@@ -410,7 +410,7 @@ public class FixedOrderComparatorTest_OE25Dev extends AbstractComparatorTest<Str
         assertEquals(-1, comparator.compare("New York", "Minneapolis"));
     }
 
-    @Test
+@Test
     public void testUnknownObjectBehavior_12_oe() {
         FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
         try {

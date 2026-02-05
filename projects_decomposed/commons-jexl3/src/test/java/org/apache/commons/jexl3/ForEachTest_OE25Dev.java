@@ -36,7 +36,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
         super("ForEachTest_OE25Dev");
     }
 
-    @Test
+@Test
     public void testForEachWithEmptyStatement_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("for(item : list) ;");
         final JexlContext jc = new MapContext();
@@ -46,7 +46,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
         Assert.assertNull("Result is not null", o);
     }
 
-    @Test
+@Test
     public void testForEachWithEmptyList_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("for(item : list) 1+1");
         final JexlContext jc = new MapContext();
@@ -56,7 +56,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
         Assert.assertNull("Result is not null", o);
     }
 
-    @Test
+@Test
     public void testForEachWithArray_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("for(item : list) item");
         final JexlContext jc = new MapContext();
@@ -65,7 +65,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not last evaluated expression", "World", o);
     }
 
-    @Test
+@Test
     public void testForEachWithCollection_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("for(var item : list) item");
         final JexlContext jc = new MapContext();
@@ -74,7 +74,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not last evaluated expression", "World", o);
     }
 
-    @Test
+@Test
     public void testForEachWithEnumeration_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("for(var item : list) item");
         final JexlContext jc = new MapContext();
@@ -83,7 +83,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not last evaluated expression", "World", o);
     }
 
-    @Test
+@Test
     public void testForEachWithIterator_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("for(var item : list) item");
         final JexlContext jc = new MapContext();
@@ -92,7 +92,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not last evaluated expression", "World", o);
     }
 
-    @Test
+@Test
     public void testForEachWithMap_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("for(item : list) item");
         final JexlContext jc = new MapContext();
@@ -103,7 +103,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not last evaluated expression", lastProperty, o);
     }
 
-    @Test
+@Test
     public void testForEachWithBlock_1_oe() throws Exception {
         final JexlScript exs0 = JEXL.createScript("for(var in : list) { x = x + in; }");
         final JexlContext jc = new MapContext();
@@ -113,7 +113,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
             Assert.assertEquals("Result is wrong", new Integer(6), o);
     }
 
-    @Test
+@Test
     public void testForEachWithBlock_2_oe() throws Exception {
         final JexlScript exs0 = JEXL.createScript("for(var in : list) { x = x + in; }");
         final JexlContext jc = new MapContext();
@@ -124,7 +124,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
             Assert.assertEquals("x is wrong", new Integer(6), jc.get("x"));
     }
 
-    @Test
+@Test
     public void testForEachWithListExpression_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("for(var item : list.keySet()) item");
         final JexlContext jc = new MapContext();
@@ -135,7 +135,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not last evaluated expression", lastKey, o);
     }
 
-    @Test
+@Test
     public void testForEachWithProperty_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("for(var item : list.cheeseList) item");
         final JexlContext jc = new MapContext();
@@ -144,7 +144,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not last evaluated expression", "brie", o);
     }
 
-    @Test
+@Test
     public void testForEachWithIteratorMethod_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("for(var item : list.cheezy) item");
         final JexlContext jc = new MapContext();
@@ -153,7 +153,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not last evaluated expression", "brie", o);
     }
 
-    @Test
+@Test
     public void testForEachBreakMethod_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript(
                 "var rr = -1; for(var item : [1, 2, 3 ,4 ,5, 6]) { if (item == 3) { rr = item; break; }} rr"
@@ -164,7 +164,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not last evaluated expression", 3, o);
     }
 
-    @Test
+@Test
     public void testForEachContinueMethod_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript(
                 "var rr = 0; for(var item : [1, 2, 3 ,4 ,5, 6]) { if (item <= 3) continue; rr = rr + item;}"
@@ -175,7 +175,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not last evaluated expression", 15, o);
     }
 
-    @Test
+@Test
     public void testForEachContinueBroken_2_oe() throws Exception {
         try {
             final JexlScript e = JEXL.createScript("var rr = 0; continue;");
@@ -186,7 +186,7 @@ public class ForEachTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testForEachBreakBroken_2_oe() throws Exception {
         try {
             final JexlScript e = JEXL.createScript("if (true) { break; }");

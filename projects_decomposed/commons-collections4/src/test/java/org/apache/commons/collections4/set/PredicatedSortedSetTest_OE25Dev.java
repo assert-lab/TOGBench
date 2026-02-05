@@ -85,12 +85,12 @@ public class PredicatedSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<E>
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/PredicatedSortedSet.fullCollection.version4.obj");
 //    }
 
-    public void testGetSet_1_oe() {
+public void testGetSet_1_oe() {
         final PredicatedSortedSet<E> set = makeTestSet();
         assertTrue("returned set should not be null", set.decorated() != null);
     }
 
-    public void testIllegalAdd_2_oe() {
+public void testIllegalAdd_2_oe() {
         final SortedSet<E> set = makeTestSet();
         final String testString = "B";
         try {
@@ -102,7 +102,7 @@ public class PredicatedSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<E>
         assertTrue("Collection shouldn't contain illegal element",!set.contains(testString));
     }
 
-    public void testIllegalAddAll_2_oe() {
+public void testIllegalAddAll_2_oe() {
         final SortedSet<E> set = makeTestSet();
         final Set<E> elements = new TreeSet<>();
         elements.add((E) "Aone");
@@ -118,7 +118,7 @@ public class PredicatedSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<E>
         assertTrue("Set shouldn't contain illegal element", !set.contains("Aone"));
     }
 
-    public void testIllegalAddAll_3_oe() {
+public void testIllegalAddAll_3_oe() {
         final SortedSet<E> set = makeTestSet();
         final Set<E> elements = new TreeSet<>();
         elements.add((E) "Aone");
@@ -135,7 +135,7 @@ public class PredicatedSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<E>
         assertTrue("Set shouldn't contain illegal element", !set.contains("Atwo"));
     }
 
-    public void testIllegalAddAll_4_oe() {
+public void testIllegalAddAll_4_oe() {
         final SortedSet<E> set = makeTestSet();
         final Set<E> elements = new TreeSet<>();
         elements.add((E) "Aone");
@@ -153,7 +153,7 @@ public class PredicatedSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<E>
         assertTrue("Set shouldn't contain illegal element", !set.contains("Bthree"));
     }
 
-    public void testIllegalAddAll_5_oe() {
+public void testIllegalAddAll_5_oe() {
         final SortedSet<E> set = makeTestSet();
         final Set<E> elements = new TreeSet<>();
         elements.add((E) "Aone");
@@ -172,7 +172,7 @@ public class PredicatedSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<E>
         assertTrue("Set shouldn't contain illegal element", !set.contains("Afour"));
     }
 
-    public void testComparator_1_oe() {
+public void testComparator_1_oe() {
         final SortedSet<E> set = makeTestSet();
         final Comparator<? super E> c = set.comparator();
         assertTrue("natural order, so comparator should be null", c == null);

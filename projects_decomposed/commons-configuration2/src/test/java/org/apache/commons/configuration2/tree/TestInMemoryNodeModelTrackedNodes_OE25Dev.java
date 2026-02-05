@@ -547,7 +547,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         model.untrackNode(selector);
     }
 
-    @Test
+@Test
     public void testAddNodesOnDetachedNode_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         NodeStructureHelper.expectResolveAddKeys(resolver);
@@ -559,7 +559,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertSame("Root node was changed", rootNode, model.getRootNode());
     }
 
-    @Test
+@Test
     public void testAddPropertyOnDetachedNode_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         NodeStructureHelper.expectResolveAddKeys(resolver);
@@ -571,7 +571,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertSame("Root node was changed", rootNode, model.getRootNode());
     }
 
-    @Test
+@Test
     public void testClearPropertyOnDetachedNode_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         initDetachedNode(resolver);
@@ -580,7 +580,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertSame("Model root was changed", rootNode, model.getRootNode());
     }
 
-    @Test
+@Test
     public void testClearTreeOnDetachedNode_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         initDetachedNode(resolver);
@@ -589,7 +589,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertSame("Model root was changed", rootNode, model.getRootNode());
     }
 
-    @Test
+@Test
     public void testGetTrackedNodeAfterClear_1_oe() {
         final ImmutableNode node = NodeStructureHelper.nodeForKey(model, "tables/table(1)");
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
@@ -598,7 +598,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertSame("Wrong node", node, model.getTrackedNode(selector));
     }
 
-    @Test
+@Test
     public void testGetTrackedNodeAfterSetRootNode_1_oe() {
         final ImmutableNode node = NodeStructureHelper.nodeForKey(model, "tables/table(1)");
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
@@ -607,7 +607,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertSame("Wrong node", node, model.getTrackedNode(selector));
     }
 
-    @Test
+@Test
     public void testGetTrackedNodeAfterUpdate_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
@@ -616,7 +616,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertEquals("Wrong node", NodeStructureHelper.table(1), node.getChildren().get(0).getValue());
     }
 
-    @Test
+@Test
     public void testGetTrackedNodeAfterUpdateNoLongerExisting_1_oe() {
         final ImmutableNode node = NodeStructureHelper.nodeForKey(model, "tables/table(1)");
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
@@ -624,14 +624,14 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertSame("Wrong node", node, model.getTrackedNode(selector));
     }
 
-    @Test
+@Test
     public void testGetTrackedNodeExisting_1_oe() {
         final ImmutableNode node = NodeStructureHelper.nodeForKey(model, "tables/table(1)");
         model.trackNode(selector, createResolver());
         assertSame("Wrong node", node, model.getTrackedNode(selector));
     }
 
-    @Test
+@Test
     public void testGetTrackedNodeHandlerActive_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
@@ -639,7 +639,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertTrue("Wrong node handler: " + handler, handler instanceof TrackedNodeHandler);
     }
 
-    @Test
+@Test
     public void testGetTrackedNodeHandlerActive_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
@@ -648,7 +648,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertSame("Wrong root node", model.getTrackedNode(selector), handler.getRootNode());
     }
 
-    @Test
+@Test
     public void testGetTrackedNodeHandlerActive_3_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
@@ -659,7 +659,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertSame("Wrong parent handler", model.getTreeData(), tnh.getParentHandler());
     }
 
-    @Test
+@Test
     public void testGetTrackedNodeHandlerDetached_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
@@ -668,7 +668,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertSame("Wrong root node", model.getTrackedNode(selector), handler.getRootNode());
     }
 
-    @Test
+@Test
     public void testGetTrackedNodeHandlerDetached_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
@@ -678,7 +678,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertTrue("Wrong handler: " + handler, handler instanceof TreeData);
     }
 
-    @Test
+@Test
     public void testGetTrackedNodeHandlerDetached_3_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
@@ -689,7 +689,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertNotSame("Shared handler", model.getNodeHandler(), handler);
     }
 
-    @Test
+@Test
     public void testIsDetachedAfterClear_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
@@ -697,7 +697,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertTrue("Node is not detached", model.isTrackedNodeDetached(selector));
     }
 
-    @Test
+@Test
     public void testIsDetachedAfterSetRoot_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
@@ -706,7 +706,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertTrue("Node is not detached", model.isTrackedNodeDetached(selector));
     }
 
-    @Test
+@Test
     public void testIsDetachedFalseAfterUpdate_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
@@ -714,21 +714,21 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertFalse("Node is detached", model.isTrackedNodeDetached(selector));
     }
 
-    @Test
+@Test
     public void testIsDetachedFalseNoUpdates_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
         assertFalse("Node is detached", model.isTrackedNodeDetached(selector));
     }
 
-    @Test
+@Test
     public void testIsDetachedTrue_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         initDetachedNode(resolver);
         assertTrue("Node is not detached", model.isTrackedNodeDetached(selector));
     }
 
-    @Test
+@Test
     public void testSelectAndTrackNodes_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         final String nodeKey1 = "tables/table(0)";
@@ -746,7 +746,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertEquals("Wrong selector 1", new NodeSelector(nodeKey1), sel);
     }
 
-    @Test
+@Test
     public void testSelectAndTrackNodes_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         final String nodeKey1 = "tables/table(0)";
@@ -765,7 +765,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertSame("Wrong tracked node 1", node1, model.getTrackedNode(sel));
     }
 
-    @Test
+@Test
     public void testSelectAndTrackNodes_3_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         final String nodeKey1 = "tables/table(0)";
@@ -786,7 +786,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertEquals("Wrong selector 2", new NodeSelector(nodeKey2), sel);
     }
 
-    @Test
+@Test
     public void testSelectAndTrackNodes_4_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         final String nodeKey1 = "tables/table(0)";
@@ -808,7 +808,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertSame("Wrong tracked node 2", node2, model.getTrackedNode(sel));
     }
 
-    @Test
+@Test
     public void testSelectAndTrackNodes_5_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         final String nodeKey1 = "tables/table(0)";
@@ -831,7 +831,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertFalse("Too many selectors", it.hasNext());
     }
 
-    @Test
+@Test
     public void testSelectAndTrackNodesNodeAlreadyTracked_1_oe() {
         NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
@@ -845,7 +845,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertEquals("Wrong number of selectors", 1, selectors.size());
     }
 
-    @Test
+@Test
     public void testSelectAndTrackNodesNodeAlreadyTracked_2_oe() {
         NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
@@ -860,7 +860,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertEquals("Wrong selector", selector, selectors.iterator().next());
     }
 
-    @Test
+@Test
     public void testSelectAndTrackNodesNodeAlreadyTracked_3_oe() {
         NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
@@ -877,7 +877,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertSame("Node not tracked", node, model.getTrackedNode(selector));
     }
 
-    @Test
+@Test
     public void testSelectAndTrackNodesNoSelection_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         EasyMock.expect(resolver.resolveNodeKey(root, TEST_KEY, model.getNodeHandler())).andReturn(Collections.<ImmutableNode>emptyList());
@@ -886,7 +886,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertTrue("Got selectors", model.selectAndTrackNodes(TEST_KEY, resolver).isEmpty());
     }
 
-    @Test
+@Test
     public void testSetPropertyOnDetachedNode_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         prepareResolverForUpdateKeys(resolver);
@@ -898,7 +898,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertSame("Root node of model was changed", rootNode, model.getRootNode());
     }
 
-    @Test
+@Test
     public void testTrackChildNodes_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         final ImmutableNode node = NodeStructureHelper.nodeForKey(root, "tables");
@@ -915,7 +915,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertEquals("Wrong number of selectors", node.getChildren().size(), selectors.size());
     }
 
-    @Test
+@Test
     public void testTrackChildNodeWithCreationExisting_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         final String childName = "name";
@@ -931,7 +931,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertEquals("Wrong selector", new NodeSelector(childKey), childSelector);
     }
 
-    @Test
+@Test
     public void testTrackChildNodeWithCreationExisting_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         final String childName = "name";
@@ -948,7 +948,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertSame("Wrong tracked node", child, model.getTrackedNode(childSelector));
     }
 
-    @Test
+@Test
     public void testTrackChildNodeWithCreationNonExisting_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         final String childName = "space";
@@ -964,7 +964,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertEquals("Wrong selector", new NodeSelector(childKey), childSelector);
     }
 
-    @Test
+@Test
     public void testTrackChildNodeWithCreationNonExisting_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         final String childName = "space";
@@ -982,7 +982,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertEquals("Wrong child name", childName, child.getNodeName());
     }
 
-    @Test
+@Test
     public void testTrackChildNodeWithCreationNonExisting_3_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         final String childName = "space";
@@ -1001,7 +1001,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertNull("Got a value", child.getValue());
     }
 
-    @Test
+@Test
     public void testTrackChildNodeWithCreationNonExisting_4_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         final String childName = "space";
@@ -1022,7 +1022,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertEquals("Wrong parent node", "table", parent.getNodeName());
     }
 
-    @Test
+@Test
     public void testTrackChildNodeWithCreationNonExisting_5_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         final String childName = "space";
@@ -1044,7 +1044,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertEquals("Wrong node path", child, NodeStructureHelper.nodeForKey(model, childKey));
     }
 
-    @Test
+@Test
     public void testTrackedNodeClearedInOperation_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
@@ -1052,7 +1052,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertTrue("Node not detached", model.isTrackedNodeDetached(selector));
     }
 
-    @Test
+@Test
     public void testTrackedNodeClearedInOperation_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
@@ -1062,7 +1062,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertEquals("Name was changed", "table", node.getNodeName());
     }
 
-    @Test
+@Test
     public void testTrackedNodeClearedInOperation_3_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);
@@ -1073,7 +1073,7 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
         assertFalse("Node is defined", model.getNodeHandler().isDefined(node));
     }
 
-    @Test
+@Test
     public void testTrackNodeMultipleTimes_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         model.trackNode(selector, resolver);

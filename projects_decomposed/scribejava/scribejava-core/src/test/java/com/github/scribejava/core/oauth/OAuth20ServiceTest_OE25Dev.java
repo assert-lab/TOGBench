@@ -19,7 +19,7 @@ public class OAuth20ServiceTest_OE25Dev {
 
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
-    @Test
+@Test
     public void shouldProduceCorrectRequestSync_1_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -29,7 +29,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertNotNull(token);
     }
 
-    @Test
+@Test
     public void shouldProduceCorrectRequestSync_2_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -43,7 +43,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals(OAuth20ServiceUnit.TOKEN, response.get(OAuthConstants.ACCESS_TOKEN).asText());
     }
 
-    @Test
+@Test
     public void shouldProduceCorrectRequestSync_3_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -58,7 +58,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals(OAuth20ServiceUnit.EXPIRES, response.get("expires_in").asInt());
     }
 
-    @Test
+@Test
     public void shouldProduceCorrectRequestSync_4_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -78,7 +78,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals(OAuthConstants.BASIC + ' ' + authorize, response.get(OAuthConstants.HEADER).asText());
     }
 
-    @Test
+@Test
     public void shouldProduceCorrectRequestSync_5_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -100,7 +100,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals("user1", response.get("query-username").asText());
     }
 
-    @Test
+@Test
     public void shouldProduceCorrectRequestSync_6_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -123,7 +123,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals("password1", response.get("query-password").asText());
     }
 
-    @Test
+@Test
     public void shouldProduceCorrectRequestSync_7_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -147,7 +147,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals("password", response.get("query-grant_type").asText());
     }
 
-    @Test
+@Test
     public void shouldProduceCorrectRequestAsync_1_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -158,7 +158,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertNotNull(token);
     }
 
-    @Test
+@Test
     public void shouldProduceCorrectRequestAsync_2_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -173,7 +173,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals(OAuth20ServiceUnit.TOKEN, response.get(OAuthConstants.ACCESS_TOKEN).asText());
     }
 
-    @Test
+@Test
     public void shouldProduceCorrectRequestAsync_3_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -189,7 +189,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals(OAuth20ServiceUnit.EXPIRES, response.get("expires_in").asInt());
     }
 
-    @Test
+@Test
     public void shouldProduceCorrectRequestAsync_4_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -210,7 +210,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals(OAuthConstants.BASIC + ' ' + authorize, response.get(OAuthConstants.HEADER).asText());
     }
 
-    @Test
+@Test
     public void shouldProduceCorrectRequestAsync_5_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -233,7 +233,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals("user1", response.get("query-username").asText());
     }
 
-    @Test
+@Test
     public void shouldProduceCorrectRequestAsync_6_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -257,7 +257,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals("password1", response.get("query-password").asText());
     }
 
-    @Test
+@Test
     public void shouldProduceCorrectRequestAsync_7_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -282,7 +282,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals("password", response.get("query-grant_type").asText());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_1_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -292,7 +292,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals("SplxlOB", authorization.getCode());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_2_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -303,7 +303,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals("xyz", authorization.getState());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_3_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -317,7 +317,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals("SplxlOB", authorization.getCode());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_4_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -332,7 +332,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals("xyz", authorization.getState());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_5_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -350,7 +350,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals("SplxlOB", authorization.getCode());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_6_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -369,7 +369,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals("xyz", authorization.getState());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_7_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -391,7 +391,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals("SplxlOB", authorization.getCode());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_8_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -414,7 +414,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals("xyz", authorization.getState());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_9_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -440,7 +440,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals("SplxlOB", authorization.getCode());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_10_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -467,7 +467,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals(null, authorization.getState());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_11_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -497,7 +497,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals("SplxlOB", authorization.getCode());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_12_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -528,7 +528,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals(null, authorization.getState());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_13_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -562,7 +562,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals(null, authorization.getCode());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_14_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -597,7 +597,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals(null, authorization.getState());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_15_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -635,7 +635,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals(null, authorization.getCode());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_16_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -674,7 +674,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals(null, authorization.getState());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_17_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -716,7 +716,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals(null, authorization.getCode());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_18_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -759,7 +759,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals(null, authorization.getState());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_19_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")
@@ -805,7 +805,7 @@ public class OAuth20ServiceTest_OE25Dev {
         assertEquals(null, authorization.getCode());
     }
 
-    @Test
+@Test
     public void testOAuthExtractAuthorization_20_oe() {
         final OAuth20Service service = new ServiceBuilder("your_api_key")
                 .apiSecret("your_api_secret")

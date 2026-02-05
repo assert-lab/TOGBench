@@ -17311,3 +17311,317 @@ json_289_1,"    @Test
     }
     }
 ",HTTPTest::notEnoughHTTPException_1_oe
+json_13_2,"@Test
+    public void emptyXMLException_2_oe() {
+        String xmlStr = """";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            // removed other assertion
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Bad XML at 0 [character 1 line 1]"",e.getMessage());
+    }
+    }",JSONMLTest::emptyXMLException_2_oe
+json_14_2,"@Test
+    public void emptyJSONXMLException_2_oe() {
+        /**
+         * Tries to convert an empty JSONArray to XML.
+         */
+        JSONArray jsonArray = new JSONArray();
+        try {
+            JSONML.toString(jsonArray);
+            // removed other assertion
+        } catch (JSONException e) {
+            assertTrue(""Expecting an exception message"",""JSONArray[0] not found."". equals(e.getMessage()));
+    }
+    }",JSONMLTest::emptyJSONXMLException_2_oe
+json_15_2,"@Test
+    public void nonXMLException_2_oe() {
+        /**
+         * Attempts to transform a nonXML string to JSON
+         */
+        String xmlStr = ""{ \""this is\"": \""not xml\""}"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            // removed other assertion
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Bad XML at 23 [character 24 line 1]"",e.getMessage());
+    }
+    }",JSONMLTest::nonXMLException_2_oe
+json_16_2,"@Test
+    public void emptyTagException_2_oe() {
+        /**
+         * jsonArrayStr is used to build a JSONArray which is then
+         * turned into XML. For this transformation, all arrays represent
+         * elements and the first array entry is the name of the element.
+         * In this case, one of the arrays does not have a name
+         */
+        String jsonArrayStr =
+            ""[\""addresses\"",""+
+                ""{\""xsi:noNamespaceSchemaLocation\"":\""test.xsd\"",""+
+                    ""\""xmlns:xsi\"":\""http://www.w3.org/2001/XMLSchema-instance\""},""+
+                // this array has no name 
+                ""[""+
+                    ""[\""name\""],""+
+                    ""[\""nocontent\""],""+
+                    ""\"">\""""+
+                ""]""+
+            ""]"";
+        JSONArray jsonArray = new JSONArray(jsonArrayStr);
+        try {
+            JSONML.toString(jsonArray);
+            // removed other assertion
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""JSONArray[0] is not a String(class org.json.JSONArray)."",e.getMessage());
+    }
+    }",JSONMLTest::emptyTagException_2_oe
+json_17_2,"@Test
+    public void spaceInTagException_2_oe() {
+        /**
+         * jsonArrayStr is used to build a JSONArray which is then
+         * turned into XML. For this transformation, all arrays represent
+         * elements and the first array entry is the name of the element.
+         * In this case, one of the element names has an embedded space,
+         * which is not allowed.
+         */
+        String jsonArrayStr =
+            ""[\""addresses\"",""+
+                ""{\""xsi:noNamespaceSchemaLocation\"":\""test.xsd\"",""+
+                    ""\""xmlns:xsi\"":\""http://www.w3.org/2001/XMLSchema-instance\""},""+
+                // this array has an invalid name
+                ""[\""addr esses\"",""+
+                    ""[\""name\""],""+
+                    ""[\""nocontent\""],""+
+                    ""\"">\""""+
+                ""]""+
+            ""]"";
+        JSONArray jsonArray = new JSONArray(jsonArrayStr);
+        try {
+            JSONML.toString(jsonArray);
+            // removed other assertion
+        } catch (JSONException e) {
+            assertTrue(""Expecting an exception message"",""'addr esses' contains a space character."". equals(e.getMessage()));
+    }
+    }",JSONMLTest::spaceInTagException_2_oe
+json_18_2,"@Test
+    public void invalidSlashInTagException_2_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because the 'name' element
+         * contains an invalid frontslash.
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/x>\n""+
+            ""       <street>abc street</street>\n""+
+            ""    </address>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            // removed other assertion
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped tag at 176 [character 14 line 4]"",e.getMessage());
+    }
+    }",JSONMLTest::invalidSlashInTagException_2_oe
+json_19_2,"@Test
+    public void invalidBangInTagException_2_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <!>\n""+
+            ""    </address>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            // removed other assertion
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped meta tag at 215 [character 12 line 7]"",e.getMessage());
+    }
+    }",JSONMLTest::invalidBangInTagException_2_oe
+json_20_2,"@Test
+    public void invalidBangNoCloseInTagException_2_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because an element
+         * starts with '!' and has no closing tag
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <!\n""+
+            ""    </address>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            // removed other assertion
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped meta tag at 214 [character 12 line 7]"",e.getMessage());
+    }
+    }",JSONMLTest::invalidBangNoCloseInTagException_2_oe
+json_21_2,"@Test
+    public void noCloseStartTagException_2_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because an element
+         * has no closing '>'.
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <abc\n""+
+            ""    </address>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            // removed other assertion
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misplaced '<' at 194 [character 5 line 6]"",e.getMessage());
+    }
+    }",JSONMLTest::noCloseStartTagException_2_oe
+json_22_2,"@Test
+    public void noCloseEndTagException_2_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because an element
+         * has no name after the closing tag '</'.
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <abc/>\n""+
+            ""   </>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            // removed other assertion
+        } catch (JSONException e) {
+            assertTrue(""Expecting an exception message"",""Expected a closing name instead of '>'."". equals(e.getMessage()));
+    }
+    }",JSONMLTest::noCloseEndTagException_2_oe
+json_23_2,"@Test
+    public void noCloseEndBraceException_2_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because an element
+         * has '>' after the closing tag '</' and name.
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation=\""test.xsd\"">\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <abc/>\n""+
+            ""    </address\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            // removed other assertion
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misplaced '<' at 206 [character 1 line 7]"",e.getMessage());
+    }
+    }",JSONMLTest::noCloseEndBraceException_2_oe
+json_24_2,"@Test
+    public void invalidCDATABangInTagException_2_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because an element
+         * does not have a complete CDATA string. 
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name>Joe Tester</name>\n""+
+            ""       <![[]>\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            // removed other assertion
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Expected 'CDATA[' at 204 [character 11 line 5]"",e.getMessage());
+    }
+    }",JSONMLTest::invalidCDATABangInTagException_2_oe
+json_25_1,"@Test
+    public void testToJSONArray_jsonOutput_1_oe() {
+        final String originalXml = ""<root><id>01</id><id>1</id><id>00</id><id>0</id><item id=\""01\""/><title>True</title></root>"";
+        final String expectedJsonString = ""[\""root\"",[\""id\"",\""01\""],[\""id\"",1],[\""id\"",\""00\""],[\""id\"",0],[\""item\"",{\""id\"":\""01\""}],[\""title\"",true]]"";
+        final JSONArray actualJsonOutput = JSONML.toJSONArray(originalXml, false);
+        assertEquals(expectedJsonString, actualJsonOutput.toString());
+    }",JSONMLTest::testToJSONArray_jsonOutput_1_oe
+json_26_1,"@Test
+    public void testToJSONArray_reversibility_1_oe() {
+        final String originalXml = ""<root><id>01</id><id>1</id><id>00</id><id>0</id><item id=\""01\""/><title>True</title></root>"";
+        final String revertedXml = JSONML.toString(JSONML.toJSONArray(originalXml, false));
+        assertNotEquals(revertedXml, originalXml);
+    }",JSONMLTest::testToJSONArray_reversibility_1_oe
+json_27_1,"@Test
+    public void testToJSONArray_reversibility2_1_oe() {
+        final String originalXml = ""<root><id>01</id><id>1</id><id>00</id><id>0</id><item id=\""01\""/><title>True</title></root>"";
+        final String expectedJsonString = ""[\""root\"",[\""id\"",\""01\""],[\""id\"",\""1\""],[\""id\"",\""00\""],[\""id\"",\""0\""],[\""item\"",{\""id\"":\""01\""}],[\""title\"",\""True\""]]"";
+        final JSONArray json = JSONML.toJSONArray(originalXml,true);
+        assertEquals(expectedJsonString, json.toString());
+    }",JSONMLTest::testToJSONArray_reversibility2_1_oe
+json_27_2,"@Test
+    public void testToJSONArray_reversibility2_2_oe() {
+        final String originalXml = ""<root><id>01</id><id>1</id><id>00</id><id>0</id><item id=\""01\""/><title>True</title></root>"";
+        final String expectedJsonString = ""[\""root\"",[\""id\"",\""01\""],[\""id\"",\""1\""],[\""id\"",\""00\""],[\""id\"",\""0\""],[\""item\"",{\""id\"":\""01\""}],[\""title\"",\""True\""]]"";
+        final JSONArray json = JSONML.toJSONArray(originalXml,true);
+        // removed other assertion
+        
+        final String reverseXml = JSONML.toString(json);
+        assertEquals(originalXml, reverseXml);
+    }",JSONMLTest::testToJSONArray_reversibility2_2_oe
+json_28_1,"@Test
+    public void testToJSONArray_reversibility3_1_oe() {
+        final String originalXml = ""<readResult><errors someAttr=\""arrtValue\""><code>400</code></errors><errors><code>402</code></errors></readResult>"";
+        final JSONArray jsonArray = JSONML.toJSONArray(originalXml, false);
+        final String revertedXml = JSONML.toString(jsonArray);
+        assertEquals(revertedXml, originalXml);
+    }",JSONMLTest::testToJSONArray_reversibility3_1_oe
+json_29_1,"@Test
+    public void testToJSONObject_reversibility_1_oe() {
+        final String originalXml = ""<readResult><errors someAttr=\""arrtValue\""><code>400</code></errors><errors><code>402</code></errors></readResult>"";
+        final JSONObject originalObject=JSONML.toJSONObject(originalXml,false);
+        final String originalJson = originalObject.toString();
+        final String xml = JSONML.toString(originalObject);
+        final JSONObject revertedObject = JSONML.toJSONObject(xml, false);
+        final String newJson = revertedObject.toString();
+        assertTrue(""JSON Objects are not similar"",originalObject.similar(revertedObject));
+    }",JSONMLTest::testToJSONObject_reversibility_1_oe
+json_29_2,"@Test
+    public void testToJSONObject_reversibility_2_oe() {
+        final String originalXml = ""<readResult><errors someAttr=\""arrtValue\""><code>400</code></errors><errors><code>402</code></errors></readResult>"";
+        final JSONObject originalObject=JSONML.toJSONObject(originalXml,false);
+        final String originalJson = originalObject.toString();
+        final String xml = JSONML.toString(originalObject);
+        final JSONObject revertedObject = JSONML.toJSONObject(xml, false);
+        final String newJson = revertedObject.toString();
+        // removed other assertion
+        assertEquals(""original JSON does not equal the new JSON"",originalJson, newJson);
+    }",JSONMLTest::testToJSONObject_reversibility_2_oe
+json_30_2,"@Test (timeout = 6000)
+    public void testIssue484InfinteLoop1_2_oe() {
+        try {
+            JSONML.toJSONObject(""??*^M??|?CglR^F??`??>?w??PIlr^E??D^X^]?$?-^R?o??O?*??{OD?^FY??`2a????NM?b^Tq?:O?>S$^K?J?^FB.gUK?m^H??zE??^??!v]?^A???^[^A??^U?c??????h???s???g^Z???`?q^Dbi??:^QZl?)?}1^??k?0??:$V?$?Ovs(}J??^V????2;^QgQ?^_^A?^D?^U?Tg?K?`?h%c?hmGA?<!C*^P^Y?^X9?~?t?)??,z^XA???S}?Q??.q?j????]"");
+            // removed other assertion
+        } catch (JSONException ex) {
+            assertEquals(""Exception string did not match: "",""Unterminated string at 271 [character 272 line 1]"",ex.getMessage());
+    }
+    }",JSONMLTest::testIssue484InfinteLoop1_2_oe

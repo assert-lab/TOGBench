@@ -2,6 +2,7 @@
 import re
 import csv
 from pathlib import Path
+from typing import Optional, Dict, Tuple, List
 
 ROOT = Path(__file__).resolve().parents[1]
 LOGS_DIR = ROOT / "logs"
@@ -19,16 +20,49 @@ FAILURES_HEADER_RE = re.compile(r"^\[ERROR\]\s+Failures:")
 ERRORS_HEADER_RE = re.compile(r"^\[ERROR\]\s+Errors:")
 SECTION_END_RE = re.compile(r"^\[INFO\]\s+-{20,}")
 
-counts_rows = []
-classes_rows = []
-fail_lines_rows = []
+NUMERIC_LOG_RE = re.compile(r"^(\d+)\.log$")
 
-for log_path in LOGS_DIR.rglob("1.log"):
-    rel_folder = log_path.parent.relative_to(LOGS_DIR).as_posix()
+
+def pick_latest_log(log_dir: Path) -> Optional[Path]:
+    """
+    Pick the latest numeric log in a directory: 1.log, 2.log, ..., 12.log
+    Returns None if no numeric *.log exists in that directory.
+    """
+    best_n = None
+    best_path = None
+    for p in log_dir.glob("*.log"):
+        m = NUMERIC_LOG_RE.match(p.name)
+        if not m:
+            continue
+        n = int(m.group(1))
+        if best_n is None or n > best_n:
+            best_n = n
+            best_path = p
+    return best_path
+
+
+counts_rows: List[Dict[str, object]] = []
+classes_rows: List[Dict[str, object]] = []
+fail_lines_rows: List[Dict[str, object]] = []
+
+
+# Iterate each directory under logs/ and parse ONLY its latest numeric log.
+# This supports logs/<proj>/1.log,2.log,... and logs/<module>/<n>.log, etc.
+if not LOGS_DIR.exists():
+    raise SystemExit(f"logs dir not found: {LOGS_DIR}")
+
+log_dirs = sorted([p for p in LOGS_DIR.rglob("*") if p.is_dir()])
+
+for log_dir in log_dirs:
+    log_path = pick_latest_log(log_dir)
+    if log_path is None:
+        continue
+
+    rel_folder = log_dir.relative_to(LOGS_DIR).as_posix()
 
     tests_run = failures = errors = skipped = None
-    class_stats = {}
-    results_errors = []
+    class_stats: Dict[str, Tuple[int, int, int, int]] = {}
+    results_errors: List[str] = []
     in_results_block = False
     results_section = None
 
@@ -119,15 +153,16 @@ for log_path in LOGS_DIR.rglob("1.log"):
             "line": msg,
         })
 
-counts_rows.sort(key=lambda r: r["folder"])
-classes_rows.sort(key=lambda r: (r["folder"], r["test_class"]))
-fail_lines_rows.sort(key=lambda r: (r["folder"], r["line"]))
+# Sort + totals
+counts_rows.sort(key=lambda r: str(r["folder"]))
+classes_rows.sort(key=lambda r: (str(r["folder"]), str(r["test_class"])))
+fail_lines_rows.sort(key=lambda r: (str(r["folder"]), str(r["line"])))
 
-total_tests_run = sum(r["tests_run"] for r in counts_rows)
-total_success = sum(r["success"] for r in counts_rows)
-total_failures = sum(r["failures"] for r in counts_rows)
-total_errors = sum(r["errors"] for r in counts_rows)
-total_skipped = sum(r["skipped"] for r in counts_rows)
+total_tests_run = sum(int(r["tests_run"]) for r in counts_rows)
+total_success = sum(int(r["success"]) for r in counts_rows)
+total_failures = sum(int(r["failures"]) for r in counts_rows)
+total_errors = sum(int(r["errors"]) for r in counts_rows)
+total_skipped = sum(int(r["skipped"]) for r in counts_rows)
 
 counts_rows.append({
     "folder": "TOTAL",

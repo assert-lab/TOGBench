@@ -62,7 +62,7 @@ class AbstractHyperplaneTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testGetPrecision_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -72,7 +72,7 @@ class AbstractHyperplaneTest_OE25Dev {
         Assertions.assertSame(precision, hyper.getPrecision());
     }
 
-    @Test
+@Test
     void testClassify_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -82,7 +82,7 @@ class AbstractHyperplaneTest_OE25Dev {
         Assertions.assertEquals(HyperplaneLocation.MINUS, hyper.classify(new TestPoint2D(1, 1)));
     }
 
-    @Test
+@Test
     void testClassify_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -94,7 +94,7 @@ class AbstractHyperplaneTest_OE25Dev {
         Assertions.assertEquals(HyperplaneLocation.ON, hyper.classify(new TestPoint2D(1, 0.09)));
     }
 
-    @Test
+@Test
     void testClassify_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -107,7 +107,7 @@ class AbstractHyperplaneTest_OE25Dev {
         Assertions.assertEquals(HyperplaneLocation.ON, hyper.classify(new TestPoint2D(1, 0)));
     }
 
-    @Test
+@Test
     void testClassify_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -121,7 +121,7 @@ class AbstractHyperplaneTest_OE25Dev {
         Assertions.assertEquals(HyperplaneLocation.ON, hyper.classify(new TestPoint2D(1, -0.09)));
     }
 
-    @Test
+@Test
     void testClassify_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -137,7 +137,7 @@ class AbstractHyperplaneTest_OE25Dev {
         Assertions.assertEquals(HyperplaneLocation.PLUS, hyper.classify(new TestPoint2D(1, -1)));
     }
 
-    @Test
+@Test
     void testContains_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -147,7 +147,7 @@ class AbstractHyperplaneTest_OE25Dev {
         Assertions.assertFalse(hyper.contains(new TestPoint2D(1, 1)));
     }
 
-    @Test
+@Test
     void testContains_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -159,7 +159,7 @@ class AbstractHyperplaneTest_OE25Dev {
         Assertions.assertTrue(hyper.contains(new TestPoint2D(1, 0.09)));
     }
 
-    @Test
+@Test
     void testContains_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -172,7 +172,7 @@ class AbstractHyperplaneTest_OE25Dev {
         Assertions.assertTrue(hyper.contains(new TestPoint2D(1, 0)));
     }
 
-    @Test
+@Test
     void testContains_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -186,7 +186,7 @@ class AbstractHyperplaneTest_OE25Dev {
         Assertions.assertTrue(hyper.contains(new TestPoint2D(1, -0.09)));
     }
 
-    @Test
+@Test
     void testContains_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);

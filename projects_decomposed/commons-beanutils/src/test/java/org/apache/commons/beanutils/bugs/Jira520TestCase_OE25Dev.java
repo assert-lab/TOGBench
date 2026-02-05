@@ -46,7 +46,7 @@ public class Jira520TestCase_OE25Dev extends TestCase {
      * Allow opt-out to make your app less secure but allow access to "class".
      */
 
-    public void testAllowAccessToClassProperty_1_oe() throws Exception {
+public void testAllowAccessToClassProperty_1_oe() throws Exception {
         final BeanUtilsBean bub = new BeanUtilsBean();
         bub.getPropertyUtils().removeBeanIntrospector(SuppressPropertiesBeanIntrospector.SUPPRESS_CLASS);
         final AlphaBean bean = new AlphaBean();

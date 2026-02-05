@@ -28,7 +28,7 @@ import org.apache.bcel.util.InstructionFinder;
 public class InstructionFinderTestCase_OE25Dev extends AbstractTestCase
 {
 
-    public void testSearchAll_1_oe() throws Exception
+public void testSearchAll_1_oe() throws Exception
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".util.InstructionFinder");
         final Method[] methods = clazz.getMethods();

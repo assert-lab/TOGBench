@@ -97,7 +97,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
      * Tests for the writable permission
      */
 
-    @Test
+@Test
     public void testExecutable_1_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -107,7 +107,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testExecutable_2_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -121,7 +121,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testExecutable_3_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -136,7 +136,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testExecutable_4_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -154,7 +154,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testExecutable_5_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -173,7 +173,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testExecutable_6_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -195,7 +195,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testExecutable_7_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -218,7 +218,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testReadable_1_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -228,7 +228,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testReadable_2_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -241,7 +241,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testReadable_3_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -255,7 +255,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testReadable_4_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -272,7 +272,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testReadable_5_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -290,7 +290,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testReadable_6_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -311,7 +311,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testReadable_7_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -333,7 +333,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWriteable_1_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -341,7 +341,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
         Assert.assertTrue("Setting write permission failed: " + file, file.setWritable(true, true));
     }
 
-    @Test
+@Test
     public void testWriteable_2_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -350,7 +350,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
         Assert.assertTrue("File expected to be writable: " + file, file.isWriteable());
     }
 
-    @Test
+@Test
     public void testWriteable_3_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -362,7 +362,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
         Assert.assertTrue("Setting write permission failed: " + file, file.setWritable(true, false));
     }
 
-    @Test
+@Test
     public void testWriteable_4_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -375,7 +375,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
         Assert.assertTrue("File expected to be writable: " + file, file.isWriteable());
     }
 
-    @Test
+@Test
     public void testWriteable_5_oe() throws Exception {
         final FileObject file = createTestFile();
 
@@ -391,7 +391,7 @@ public class PermissionsTests_OE25Dev extends AbstractProviderTestCase {
         Assert.assertTrue("Setting write permission failed: " + file, file.setWritable(false, true));
     }
 
-    @Test
+@Test
     public void testWriteable_6_oe() throws Exception {
         final FileObject file = createTestFile();
 

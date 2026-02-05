@@ -489,57 +489,57 @@ public class TestDefaultExpressionEngine_OE25Dev {
         checkQueryRootNode(null);
     }
 
-    @Test
+@Test
     public void testAttributeKey_1_oe() {
         assertEquals("Wrong attribute key", "tables.table[@type]", engine.attributeKey("tables.table", "type"));
     }
 
-    @Test
+@Test
     public void testAttributeKeyNoParent_1_oe() {
         assertEquals("Wrong key for null parent", "[@test]", engine.attributeKey(null, "test"));
     }
 
-    @Test
+@Test
     public void testAttributeKeyRoot_1_oe() {
         assertEquals("Wrong key for root attribute", "[@test]", engine.attributeKey("", "test"));
     }
 
-    @Test
+@Test
     public void testAttributeKeyWithAlternativeSyntax_1_oe() {
         setUpAlternativeSyntax();
         assertEquals("Wrong attribute key", "@test", engine.attributeKey("", "test"));
     }
 
-    @Test
+@Test
     public void testCanonicalKeyNoDuplicates_1_oe() {
         final ImmutableNode node = fetchNode("tables.table(0).name");
         assertEquals("Wrong canonical key", "table.name(0)", engine.canonicalKey(node, "table", handler));
     }
 
-    @Test
+@Test
     public void testCanonicalKeyNoParentKey_1_oe() {
         final ImmutableNode node = fetchNode("tables.table(0).fields.field(1).name");
         assertEquals("Wrong key", "name(0)", engine.canonicalKey(node, null, handler));
     }
 
-    @Test
+@Test
     public void testCanonicalKeyRootNoParentKey_1_oe() {
         assertEquals("Wrong key", "", engine.canonicalKey(root, null, handler));
     }
 
-    @Test
+@Test
     public void testCanonicalKeyRootWithParentKey_1_oe() {
         assertEquals("Wrong key", "parent", engine.canonicalKey(root, "parent", handler));
     }
 
-    @Test
+@Test
     public void testCanonicalKeyWithDuplicates_1_oe() {
         final ImmutableNode tab1 = fetchNode("tables.table(0)");
         final ImmutableNode tab2 = fetchNode("tables.table(1)");
         assertEquals("Wrong key 1", "tables.table(0)", engine.canonicalKey(tab1, "tables", handler));
     }
 
-    @Test
+@Test
     public void testCanonicalKeyWithDuplicates_2_oe() {
         final ImmutableNode tab1 = fetchNode("tables.table(0)");
         final ImmutableNode tab2 = fetchNode("tables.table(1)");
@@ -547,25 +547,25 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong key 2", "tables.table(1)", engine.canonicalKey(tab2, "tables", handler));
     }
 
-    @Test
+@Test
     public void testDefaultSymbols_1_oe() {
         assertSame("Wrong default symbols", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS, engine.getSymbols());
     }
 
-    @Test
+@Test
     public void testNodeKey_1_oe() {
         final ImmutableNode node = root.getChildren().get(0);
         assertEquals("Invalid name for descendant of root", "tables", engine.nodeKey(node, "", handler));
     }
 
-    @Test
+@Test
     public void testNodeKey_2_oe() {
         final ImmutableNode node = root.getChildren().get(0);
         // removed other assertion
         assertEquals("Parent key not respected", "test.tables", engine.nodeKey(node, "test", handler));
     }
 
-    @Test
+@Test
     public void testNodeKey_3_oe() {
         final ImmutableNode node = root.getChildren().get(0);
         // removed other assertion
@@ -573,13 +573,13 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Full parent key not taken into account", "a.full.parent.key.tables", engine.nodeKey(node, "a.full.parent.key", handler));
     }
 
-    @Test
+@Test
     public void testNodeKeyWithAlternativeSyntax_1_oe() {
         setUpAlternativeSyntax();
         assertEquals("Wrong child key", "tables/table", engine.nodeKey(root.getChildren().get(0).getChildren().get(0), "tables", handler));
     }
 
-    @Test
+@Test
     public void testNodeKeyWithAlternativeSyntaxAttributePropertyDelimiter_1_oe() {
         setUpAlternativeSyntax();
         final DefaultExpressionEngineSymbols symbols = new DefaultExpressionEngineSymbols.Builder(engine.getSymbols())
@@ -588,44 +588,44 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong attribute key", "/test", engine.attributeKey("", "test"));
     }
 
-    @Test
+@Test
     public void testNodeKeyWithEscapedDelimiters_1_oe() {
         final ImmutableNode node = root.getChildren().get(1);
         assertEquals("Wrong escaped key", "connection..settings", engine.nodeKey(node, "", handler));
     }
 
-    @Test
+@Test
     public void testNodeKeyWithEscapedDelimiters_2_oe() {
         final ImmutableNode node = root.getChildren().get(1);
         // removed other assertion
         assertEquals("Wrong complex escaped key","connection..settings.usr..name",engine.nodeKey(node.getChildren().get(0),engine.nodeKey(node,"",handler),handler));
     }
 
-    @Test
+@Test
     public void testNodeKeyWithRoot_1_oe() {
         assertEquals("Wrong name for root node", "", engine.nodeKey(root, null, handler));
     }
 
-    @Test
+@Test
     public void testNodeKeyWithRoot_2_oe() {
         // removed other assertion
         assertEquals("Null name not detected", "test", engine.nodeKey(root, "test", handler));
     }
 
-    @Test
+@Test
     public void testPrepareAddAttribute_1_oe() {
         final NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0)[@tableSpace]", handler);
         assertEquals("Wrong table node", tables[0], data.getParent().getChildren().get(0).getValue());
     }
 
-    @Test
+@Test
     public void testPrepareAddAttribute_2_oe() {
         final NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0)[@tableSpace]", handler);
         // removed other assertion
         assertEquals("Wrong name of new node", "tableSpace", data.getNewNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddAttribute_3_oe() {
         final NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0)[@tableSpace]", handler);
         // removed other assertion
@@ -633,7 +633,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertTrue("Attribute not detected", data.isAttribute());
     }
 
-    @Test
+@Test
     public void testPrepareAddAttribute_4_oe() {
         final NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0)[@tableSpace]", handler);
         // removed other assertion
@@ -642,20 +642,20 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertTrue("Path nodes available", data.getPathNodes().isEmpty());
     }
 
-    @Test
+@Test
     public void testPrepareAddAttributeRoot_1_oe() {
         final NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "[@newAttr]", handler);
         assertSame("Root node is not parent", root, data.getParent());
     }
 
-    @Test
+@Test
     public void testPrepareAddAttributeRoot_2_oe() {
         final NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "[@newAttr]", handler);
         // removed other assertion
         assertEquals("Wrong name of new node", "newAttr", data.getNewNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddAttributeRoot_3_oe() {
         final NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "[@newAttr]", handler);
         // removed other assertion
@@ -663,20 +663,20 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertTrue("Attribute not detected", data.isAttribute());
     }
 
-    @Test
+@Test
     public void testPrepareAddDirectly_1_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
         assertSame("Wrong parent node", root, data.getParent());
     }
 
-    @Test
+@Test
     public void testPrepareAddDirectly_2_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
         // removed other assertion
         assertTrue("Path nodes available", data.getPathNodes().isEmpty());
     }
 
-    @Test
+@Test
     public void testPrepareAddDirectly_3_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
         // removed other assertion
@@ -684,7 +684,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong name of new node", "newNode", data.getNewNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddDirectly_4_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
         // removed other assertion
@@ -693,7 +693,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertFalse("New node is an attribute", data.isAttribute());
     }
 
-    @Test
+@Test
     public void testPrepareAddDirectly_5_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
         // removed other assertion
@@ -705,7 +705,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong name of new node", "name", data.getNewNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddDirectly_6_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
         // removed other assertion
@@ -718,7 +718,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertTrue("Path nodes available", data.getPathNodes().isEmpty());
     }
 
-    @Test
+@Test
     public void testPrepareAddDirectly_7_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
         // removed other assertion
@@ -732,7 +732,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong parent node", "field", data.getParent().getNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddDirectly_8_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
         // removed other assertion
@@ -748,7 +748,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Field has no name node", "name", nd.getNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddDirectly_9_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "newNode", handler);
         // removed other assertion
@@ -765,14 +765,14 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Incorrect name", "version", nd.getValue());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithAlternativeMatcher_1_oe() {
         setUpAlternativeMatcher();
         final NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables_.table._fields__._field.name", handler);
         assertEquals("Wrong name of new node", "name", data.getNewNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithAlternativeMatcher_2_oe() {
         setUpAlternativeMatcher();
         final NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables_.table._fields__._field.name", handler);
@@ -780,14 +780,14 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertTrue("Path nodes available", data.getPathNodes().isEmpty());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithAlternativeSyntax_1_oe() {
         setUpAlternativeSyntax();
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables/table[0]/test", handler);
         assertEquals("Wrong name of new node", "test", data.getNewNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithAlternativeSyntax_2_oe() {
         setUpAlternativeSyntax();
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables/table[0]/test", handler);
@@ -795,7 +795,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertFalse("New node is attribute", data.isAttribute());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithAlternativeSyntax_3_oe() {
         setUpAlternativeSyntax();
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables/table[0]/test", handler);
@@ -804,7 +804,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong parent node", tables[0], data.getParent().getChildren().get(0).getValue());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithAlternativeSyntax_4_oe() {
         setUpAlternativeSyntax();
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables/table[0]/test", handler);
@@ -816,7 +816,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong name of new attribute", "attr", data.getNewNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithAlternativeSyntax_5_oe() {
         setUpAlternativeSyntax();
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables/table[0]/test", handler);
@@ -830,20 +830,20 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertSame("Root is not parent", root, data.getParent());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithIndex_1_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0).tableSpace", handler);
         assertEquals("Wrong name of new node", "tableSpace", data.getNewNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithIndex_2_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0).tableSpace", handler);
         // removed other assertion
         assertTrue("Path nodes available", data.getPathNodes().isEmpty());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithIndex_3_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0).tableSpace", handler);
         // removed other assertion
@@ -851,7 +851,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong type of parent node", "table", data.getParent().getNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithIndex_4_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0).tableSpace", handler);
         // removed other assertion
@@ -861,7 +861,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong table", tables[0], node.getValue());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithIndex_5_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0).tableSpace", handler);
         // removed other assertion
@@ -874,7 +874,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong name of new node", "alias", data.getNewNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithIndex_6_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0).tableSpace", handler);
         // removed other assertion
@@ -888,7 +888,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong type of parent node", "field", data.getParent().getNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithIndex_7_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(0).tableSpace", handler);
         // removed other assertion
@@ -903,13 +903,13 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong field node", "creationDate", data.getParent().getChildren().get(0).getValue());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithPath_1_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(1).fields.field(-1).name", handler);
         assertEquals("Wrong name of new node", "name", data.getNewNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithPath_2_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(1).fields.field(-1).name", handler);
         // removed other assertion
@@ -917,7 +917,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong type of parent node", "fields", data.getParent().getNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithPath_3_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(1).fields.field(-1).name", handler);
         // removed other assertion
@@ -928,7 +928,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong name of new node", "name", data.getNewNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithPath_4_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(1).fields.field(-1).name", handler);
         // removed other assertion
@@ -941,7 +941,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong type of parent node", "tables", data.getParent().getNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithPath_5_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(1).fields.field(-1).name", handler);
         // removed other assertion
@@ -957,7 +957,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong name of new node", "path", data.getNewNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithPath_6_oe() {
         NodeAddData<ImmutableNode> data = engine.prepareAdd(root, "tables.table(1).fields.field(-1).name", handler);
         // removed other assertion
@@ -975,7 +975,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertSame("Root is not parent", root, data.getParent());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithSameAttributeDelimiter_1_oe() {
         final DefaultExpressionEngineSymbols symbols = new DefaultExpressionEngineSymbols.Builder(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS)
             .setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getPropertyDelimiter()).create();
@@ -985,7 +985,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong name of new node", "test", data.getNewNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithSameAttributeDelimiter_2_oe() {
         final DefaultExpressionEngineSymbols symbols = new DefaultExpressionEngineSymbols.Builder(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS)
             .setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getPropertyDelimiter()).create();
@@ -996,7 +996,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertFalse("New node is an attribute", data.isAttribute());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithSameAttributeDelimiter_3_oe() {
         final DefaultExpressionEngineSymbols symbols = new DefaultExpressionEngineSymbols.Builder(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS)
             .setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getPropertyDelimiter()).create();
@@ -1008,7 +1008,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
         assertEquals("Wrong type of parent node", "table", data.getParent().getNodeName());
     }
 
-    @Test
+@Test
     public void testPrepareAddWithSameAttributeDelimiter_4_oe() {
         final DefaultExpressionEngineSymbols symbols = new DefaultExpressionEngineSymbols.Builder(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS)
             .setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getPropertyDelimiter()).create();

@@ -109,7 +109,7 @@ public class TestServletRequestConfiguration_OE25Dev extends TestAbstractConfigu
      * Tests a list with elements that contain an escaped list delimiter.
      */
 
-    @Test
+@Test
     public void testListWithEscapedElements_1_oe() {
         final String[] values = {"test1", "test2\\,test3", "test4\\,test5"};
         final String listKey = "test.list";
@@ -120,7 +120,7 @@ public class TestServletRequestConfiguration_OE25Dev extends TestAbstractConfigu
         assertEquals("Wrong number of list elements", values.length, config.getList(listKey).size());
     }
 
-    @Test
+@Test
     public void testListWithEscapedElements_2_oe() {
         final String[] values = {"test1", "test2\\,test3", "test4\\,test5"};
         final String listKey = "test.list";
@@ -136,7 +136,7 @@ public class TestServletRequestConfiguration_OE25Dev extends TestAbstractConfigu
         assertEquals("Wrong number of elements in list", values.length, v.size());
     }
 
-    @Test
+@Test
     public void testListWithEscapedElements_3_oe() {
         final String[] values = {"test1", "test2\\,test3", "test4\\,test5"};
         final String listKey = "test.list";

@@ -140,7 +140,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         }
     }
 
-    @Test
+@Test
     public void testBeanIntrospection_1_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Bean bean = new Bean("JEXL", "LXEJ");
@@ -150,7 +150,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("bean property getter", get instanceof PropertyGetExecutor);
     }
 
-    @Test
+@Test
     public void testBeanIntrospection_2_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Bean bean = new Bean("JEXL", "LXEJ");
@@ -161,7 +161,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("bean property setter", set instanceof PropertySetExecutor);
     }
 
-    @Test
+@Test
     public void testBeanIntrospection_3_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Bean bean = new Bean("JEXL", "LXEJ");
@@ -174,7 +174,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(get, uber.getPropertyGet(bean, "value"));
     }
 
-    @Test
+@Test
     public void testBeanIntrospection_4_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Bean bean = new Bean("JEXL", "LXEJ");
@@ -188,7 +188,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(set, uber.getPropertySet(bean, "value", "foo"));
     }
 
-    @Test
+@Test
     public void testBeanIntrospection_5_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Bean bean = new Bean("JEXL", "LXEJ");
@@ -204,7 +204,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertNotEquals(get, uber.getPropertyGet(bean, "eulav"));
     }
 
-    @Test
+@Test
     public void testBeanIntrospection_6_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Bean bean = new Bean("JEXL", "LXEJ");
@@ -221,7 +221,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertNotEquals(set, uber.getPropertySet(bean, "eulav", "foo"));
     }
 
-    @Test
+@Test
     public void testBeanIntrospection_7_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Bean bean = new Bean("JEXL", "LXEJ");
@@ -241,7 +241,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("bar", bar);
     }
 
-    @Test
+@Test
     public void testBeanIntrospection_8_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Bean bean = new Bean("JEXL", "LXEJ");
@@ -263,7 +263,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("bar", get.invoke(bean));
     }
 
-    @Test
+@Test
     public void testBeanIntrospection_9_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Bean bean = new Bean("JEXL", "LXEJ");
@@ -288,7 +288,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("quux", quux);
     }
 
-    @Test
+@Test
     public void testBeanIntrospection_10_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Bean bean = new Bean("JEXL", "LXEJ");
@@ -314,7 +314,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("quux", get.invoke(bean));
     }
 
-    @Test
+@Test
     public void testBeanIntrospection_11_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Bean bean = new Bean("JEXL", "LXEJ");
@@ -342,7 +342,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(AbstractExecutor.TRY_FAILED, set.tryInvoke(bean, "eulav", "nope"));
     }
 
-    @Test
+@Test
     public void testDuckIntrospection_1_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Duck duck = new Duck("JEXL", "LXEJ");
@@ -352,7 +352,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("duck property getter", get instanceof DuckGetExecutor);
     }
 
-    @Test
+@Test
     public void testDuckIntrospection_2_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Duck duck = new Duck("JEXL", "LXEJ");
@@ -363,7 +363,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("duck property setter", set instanceof DuckSetExecutor);
     }
 
-    @Test
+@Test
     public void testDuckIntrospection_3_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Duck duck = new Duck("JEXL", "LXEJ");
@@ -376,7 +376,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(get, uber.getPropertyGet(duck, "value"));
     }
 
-    @Test
+@Test
     public void testDuckIntrospection_4_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Duck duck = new Duck("JEXL", "LXEJ");
@@ -390,7 +390,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(set, uber.getPropertySet(duck, "value", "foo"));
     }
 
-    @Test
+@Test
     public void testDuckIntrospection_5_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Duck duck = new Duck("JEXL", "LXEJ");
@@ -406,7 +406,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertNotEquals(get, uber.getPropertyGet(duck, "eulav"));
     }
 
-    @Test
+@Test
     public void testDuckIntrospection_6_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Duck duck = new Duck("JEXL", "LXEJ");
@@ -423,7 +423,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertNotEquals(set, uber.getPropertySet(duck, "eulav", "foo"));
     }
 
-    @Test
+@Test
     public void testDuckIntrospection_7_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Duck duck = new Duck("JEXL", "LXEJ");
@@ -443,7 +443,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("bar", bar);
     }
 
-    @Test
+@Test
     public void testDuckIntrospection_8_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Duck duck = new Duck("JEXL", "LXEJ");
@@ -465,7 +465,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("bar", get.invoke(duck));
     }
 
-    @Test
+@Test
     public void testDuckIntrospection_9_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Duck duck = new Duck("JEXL", "LXEJ");
@@ -490,7 +490,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("quux", quux);
     }
 
-    @Test
+@Test
     public void testDuckIntrospection_10_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Duck duck = new Duck("JEXL", "LXEJ");
@@ -516,7 +516,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("quux", get.invoke(duck));
     }
 
-    @Test
+@Test
     public void testDuckIntrospection_11_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Duck duck = new Duck("JEXL", "LXEJ");
@@ -544,7 +544,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(AbstractExecutor.TRY_FAILED, set.tryInvoke(duck, "eulav", "nope"));
     }
 
-    @Test
+@Test
     public void testListIntrospection_1_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final List<Object> list = new ArrayList<Object>();
@@ -556,7 +556,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("list property getter", get instanceof ListGetExecutor);
     }
 
-    @Test
+@Test
     public void testListIntrospection_2_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final List<Object> list = new ArrayList<Object>();
@@ -569,7 +569,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("list property setter", set instanceof ListSetExecutor);
     }
 
-    @Test
+@Test
     public void testListIntrospection_3_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final List<Object> list = new ArrayList<Object>();
@@ -584,7 +584,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(get, uber.getPropertyGet(list, 1));
     }
 
-    @Test
+@Test
     public void testListIntrospection_4_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final List<Object> list = new ArrayList<Object>();
@@ -600,7 +600,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(set, uber.getPropertySet(list, 1, "foo"));
     }
 
-    @Test
+@Test
     public void testListIntrospection_5_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final List<Object> list = new ArrayList<Object>();
@@ -618,7 +618,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertNotEquals(get, uber.getPropertyGet(list, 0));
     }
 
-    @Test
+@Test
     public void testListIntrospection_6_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final List<Object> list = new ArrayList<Object>();
@@ -637,7 +637,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertNotEquals(get, uber.getPropertySet(list, 0, "foo"));
     }
 
-    @Test
+@Test
     public void testListIntrospection_7_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final List<Object> list = new ArrayList<Object>();
@@ -659,7 +659,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("bar", bar);
     }
 
-    @Test
+@Test
     public void testListIntrospection_8_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final List<Object> list = new ArrayList<Object>();
@@ -683,7 +683,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("bar", get.invoke(list));
     }
 
-    @Test
+@Test
     public void testListIntrospection_9_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final List<Object> list = new ArrayList<Object>();
@@ -710,7 +710,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("quux", quux);
     }
 
-    @Test
+@Test
     public void testListIntrospection_10_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final List<Object> list = new ArrayList<Object>();
@@ -739,7 +739,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("quux", get.invoke(list));
     }
 
-    @Test
+@Test
     public void testListIntrospection_11_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final List<Object> list = new ArrayList<Object>();
@@ -770,7 +770,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(AbstractExecutor.TRY_FAILED, set.tryInvoke(list, "eulav", "nope"));
     }
 
-    @Test
+@Test
     public void testMapIntrospection_1_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Map<String, Object> map = new HashMap<String, Object>();
@@ -782,7 +782,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("map property getter", get instanceof MapGetExecutor);
     }
 
-    @Test
+@Test
     public void testMapIntrospection_2_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Map<String, Object> map = new HashMap<String, Object>();
@@ -795,7 +795,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("map property setter", set instanceof MapSetExecutor);
     }
 
-    @Test
+@Test
     public void testMapIntrospection_3_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Map<String, Object> map = new HashMap<String, Object>();
@@ -810,7 +810,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(get, uber.getPropertyGet(map, "value"));
     }
 
-    @Test
+@Test
     public void testMapIntrospection_4_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Map<String, Object> map = new HashMap<String, Object>();
@@ -826,7 +826,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(set, uber.getPropertySet(map, "value", "foo"));
     }
 
-    @Test
+@Test
     public void testMapIntrospection_5_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Map<String, Object> map = new HashMap<String, Object>();
@@ -844,7 +844,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertNotEquals(get, uber.getPropertyGet(map, "eulav"));
     }
 
-    @Test
+@Test
     public void testMapIntrospection_6_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Map<String, Object> map = new HashMap<String, Object>();
@@ -863,7 +863,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertNotEquals(get, uber.getPropertySet(map, "eulav", "foo"));
     }
 
-    @Test
+@Test
     public void testMapIntrospection_7_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Map<String, Object> map = new HashMap<String, Object>();
@@ -885,7 +885,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("bar", bar);
     }
 
-    @Test
+@Test
     public void testMapIntrospection_8_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Map<String, Object> map = new HashMap<String, Object>();
@@ -909,7 +909,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("bar", get.invoke(map));
     }
 
-    @Test
+@Test
     public void testMapIntrospection_9_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Map<String, Object> map = new HashMap<String, Object>();
@@ -936,7 +936,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("quux", quux);
     }
 
-    @Test
+@Test
     public void testMapIntrospection_10_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Map<String, Object> map = new HashMap<String, Object>();
@@ -965,7 +965,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("quux", get.invoke(map));
     }
 
-    @Test
+@Test
     public void testMapIntrospection_11_oe() throws Exception {
         final Uberspect uber = Engine.getUberspect(null, null);
         final Map<String, Object> map = new HashMap<String, Object>();
@@ -996,7 +996,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(AbstractExecutor.TRY_FAILED, set.tryInvoke(map, 1, "nope"));
     }
 
-    @Test
+@Test
     public void testMethodIntrospection_1_oe() throws Exception {
         final Uberspect uber = new Uberspect(null, null);
         final Bulgroz bulgroz = new Bulgroz();
@@ -1007,7 +1007,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0, result);
     }
 
-    @Test
+@Test
     public void testMethodIntrospection_2_oe() throws Exception {
         final Uberspect uber = new Uberspect(null, null);
         final Bulgroz bulgroz = new Bulgroz();
@@ -1021,7 +1021,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, result);
     }
 
-    @Test
+@Test
     public void testMethodIntrospection_3_oe() throws Exception {
         final Uberspect uber = new Uberspect(null, null);
         final Bulgroz bulgroz = new Bulgroz();
@@ -1038,7 +1038,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(2, result);
     }
 
-    @Test
+@Test
     public void testMethodIntrospection_4_oe() throws Exception {
         final Uberspect uber = new Uberspect(null, null);
         final Bulgroz bulgroz = new Bulgroz();
@@ -1058,7 +1058,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(3, result);
     }
 
-    @Test
+@Test
     public void testMethodIntrospection_5_oe() throws Exception {
         final Uberspect uber = new Uberspect(null, null);
         final Bulgroz bulgroz = new Bulgroz();
@@ -1081,7 +1081,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(3, result);
     }
 
-    @Test
+@Test
     public void testMethodIntrospection_6_oe() throws Exception {
         final Uberspect uber = new Uberspect(null, null);
         final Bulgroz bulgroz = new Bulgroz();
@@ -1107,7 +1107,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(4, result);
     }
 
-    @Test
+@Test
     public void testMethodIntrospection_7_oe() throws Exception {
         final Uberspect uber = new Uberspect(null, null);
         final Bulgroz bulgroz = new Bulgroz();
@@ -1136,7 +1136,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(5, result);
     }
 
-    @Test
+@Test
     public void testMethodIntrospection_8_oe() throws Exception {
         final Uberspect uber = new Uberspect(null, null);
         final Bulgroz bulgroz = new Bulgroz();
@@ -1168,7 +1168,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(6, result);
     }
 
-    @Test
+@Test
     public void testMethodIntrospection_9_oe() throws Exception {
         final Uberspect uber = new Uberspect(null, null);
         final Bulgroz bulgroz = new Bulgroz();
@@ -1203,7 +1203,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(8, result);
     }
 
-    @Test
+@Test
     public void testMethodIntrospection_10_oe() throws Exception {
         final Uberspect uber = new Uberspect(null, null);
         final Bulgroz bulgroz = new Bulgroz();
@@ -1241,7 +1241,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(7, result);
     }
 
-    @Test
+@Test
     public void testMethodIntrospection_11_oe() throws Exception {
         final Uberspect uber = new Uberspect(null, null);
         final Bulgroz bulgroz = new Bulgroz();
@@ -1282,7 +1282,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(7, result);
     }
 
-    @Test
+@Test
     public void testMethodIntrospection_12_oe() throws Exception {
         final Uberspect uber = new Uberspect(null, null);
         final Bulgroz bulgroz = new Bulgroz();
@@ -1326,7 +1326,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(2, result);
     }
 
-    @Test
+@Test
     public void testMethodIntrospection_13_oe() throws Exception {
         final Uberspect uber = new Uberspect(null, null);
         final Bulgroz bulgroz = new Bulgroz();
@@ -1373,7 +1373,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(8, result);
     }
 
-    @Test
+@Test
     public void testMethodIntrospection_14_oe() throws Exception {
         final Uberspect uber = new Uberspect(null, null);
         final Bulgroz bulgroz = new Bulgroz();
@@ -1423,7 +1423,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(8, result);
     }
 
-    @Test
+@Test
     public void testMethodIntrospection_15_oe() throws Exception {
         final Uberspect uber = new Uberspect(null, null);
         final Bulgroz bulgroz = new Bulgroz();
@@ -1476,7 +1476,7 @@ public class DiscoveryTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(7, result);
     }
 
-    @Test
+@Test
     public void testMethodIntrospection_16_oe() throws Exception {
         final Uberspect uber = new Uberspect(null, null);
         final Bulgroz bulgroz = new Bulgroz();

@@ -32,17 +32,17 @@ public class DocumentTypeTest_OE25Dev {
         return Jsoup.parse(in, "", Parser.xmlParser()).childNode(0).outerHtml();
     }
 
-    @Test
+@Test
     public void constructorValidationThrowsExceptionOnNulls_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> new DocumentType("html", null, null));
     }
 
-    @Test public void outerHtmlGeneration_1_oe() {
+@Test public void outerHtmlGeneration_1_oe() {
         DocumentType html5 = new DocumentType("html", "", "");
         assertEquals("<!doctype html>", html5.outerHtml());
         }
 
-    @Test public void outerHtmlGeneration_2_oe() {
+@Test public void outerHtmlGeneration_2_oe() {
         DocumentType html5 = new DocumentType("html", "", "");
         // removed other assertion
 
@@ -50,7 +50,7 @@ public class DocumentTypeTest_OE25Dev {
         assertEquals("<!DOCTYPE html PUBLIC \"-//IETF//DTD HTML//\">", publicDocType.outerHtml());
         }
 
-    @Test public void outerHtmlGeneration_3_oe() {
+@Test public void outerHtmlGeneration_3_oe() {
         DocumentType html5 = new DocumentType("html", "", "");
         // removed other assertion
 
@@ -61,7 +61,7 @@ public class DocumentTypeTest_OE25Dev {
         assertEquals("<!DOCTYPE html SYSTEM \"http://www.ibm.com/data/dtd/v11/ibmxhtml1-transitional.dtd\">", systemDocType.outerHtml());
         }
 
-    @Test public void outerHtmlGeneration_4_oe() {
+@Test public void outerHtmlGeneration_4_oe() {
         DocumentType html5 = new DocumentType("html", "", "");
         // removed other assertion
 
@@ -75,7 +75,7 @@ public class DocumentTypeTest_OE25Dev {
         assertEquals("<!DOCTYPE notHtml PUBLIC \"--public\" \"--system\">", combo.outerHtml());
         }
 
-    @Test public void outerHtmlGeneration_5_oe() {
+@Test public void outerHtmlGeneration_5_oe() {
         DocumentType html5 = new DocumentType("html", "", "");
         // removed other assertion
 
@@ -90,7 +90,7 @@ public class DocumentTypeTest_OE25Dev {
         assertEquals("notHtml", combo.name());
         }
 
-    @Test public void outerHtmlGeneration_6_oe() {
+@Test public void outerHtmlGeneration_6_oe() {
         DocumentType html5 = new DocumentType("html", "", "");
         // removed other assertion
 
@@ -106,7 +106,7 @@ public class DocumentTypeTest_OE25Dev {
         assertEquals("--public", combo.publicId());
         }
 
-    @Test public void outerHtmlGeneration_7_oe() {
+@Test public void outerHtmlGeneration_7_oe() {
         DocumentType html5 = new DocumentType("html", "", "");
         // removed other assertion
 
@@ -123,18 +123,18 @@ public class DocumentTypeTest_OE25Dev {
         assertEquals("--system", combo.systemId());
         }
 
-    @Test public void testRoundTrip_1_oe() {
+@Test public void testRoundTrip_1_oe() {
         String base = "<!DOCTYPE html>";
         assertEquals("<!doctype html>", htmlOutput(base));
         }
 
-    @Test public void testRoundTrip_2_oe() {
+@Test public void testRoundTrip_2_oe() {
         String base = "<!DOCTYPE html>";
         // removed other assertion
         assertEquals(base, xmlOutput(base));
         }
 
-    @Test public void testRoundTrip_3_oe() {
+@Test public void testRoundTrip_3_oe() {
         String base = "<!DOCTYPE html>";
         // removed other assertion
         // removed other assertion
@@ -143,7 +143,7 @@ public class DocumentTypeTest_OE25Dev {
         assertEquals(publicDoc, htmlOutput(publicDoc));
         }
 
-    @Test public void testRoundTrip_4_oe() {
+@Test public void testRoundTrip_4_oe() {
         String base = "<!DOCTYPE html>";
         // removed other assertion
         // removed other assertion
@@ -153,7 +153,7 @@ public class DocumentTypeTest_OE25Dev {
         assertEquals(publicDoc, xmlOutput(publicDoc));
         }
 
-    @Test public void testRoundTrip_5_oe() {
+@Test public void testRoundTrip_5_oe() {
         String base = "<!DOCTYPE html>";
         // removed other assertion
         // removed other assertion
@@ -166,7 +166,7 @@ public class DocumentTypeTest_OE25Dev {
         assertEquals(systemDoc, htmlOutput(systemDoc));
         }
 
-    @Test public void testRoundTrip_6_oe() {
+@Test public void testRoundTrip_6_oe() {
         String base = "<!DOCTYPE html>";
         // removed other assertion
         // removed other assertion
@@ -180,7 +180,7 @@ public class DocumentTypeTest_OE25Dev {
         assertEquals(systemDoc, xmlOutput(systemDoc));
         }
 
-    @Test public void testRoundTrip_7_oe() {
+@Test public void testRoundTrip_7_oe() {
         String base = "<!DOCTYPE html>";
         // removed other assertion
         // removed other assertion
@@ -197,7 +197,7 @@ public class DocumentTypeTest_OE25Dev {
         assertEquals(legacyDoc, htmlOutput(legacyDoc));
         }
 
-    @Test public void testRoundTrip_8_oe() {
+@Test public void testRoundTrip_8_oe() {
         String base = "<!DOCTYPE html>";
         // removed other assertion
         // removed other assertion

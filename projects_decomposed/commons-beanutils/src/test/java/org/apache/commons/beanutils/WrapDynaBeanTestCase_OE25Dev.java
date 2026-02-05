@@ -218,7 +218,7 @@ public class WrapDynaBeanTestCase_OE25Dev extends BasicDynaBeanTestCase {
      * bean properties.
      */
 
-    public void testIndexedProperties_3_oe() {
+public void testIndexedProperties_3_oe() {
 
         // Invalid getter
         try {
@@ -244,7 +244,7 @@ public class WrapDynaBeanTestCase_OE25Dev extends BasicDynaBeanTestCase {
         assertEquals("Check String property", testValue, instance.getStringIndexed(0));
     }
 
-    public void testIndexedProperties_6_oe() {
+public void testIndexedProperties_6_oe() {
 
         // Invalid getter
         try {
@@ -280,7 +280,7 @@ public class WrapDynaBeanTestCase_OE25Dev extends BasicDynaBeanTestCase {
     }
     }
 
-    public void testMappedContains_3_oe() {
+public void testMappedContains_3_oe() {
 
         try {
             // removed other assertion
@@ -292,7 +292,7 @@ public class WrapDynaBeanTestCase_OE25Dev extends BasicDynaBeanTestCase {
     }
     }
 
-    public void testMappedContains_6_oe() {
+public void testMappedContains_6_oe() {
 
         try {
             // removed other assertion
@@ -314,7 +314,7 @@ public class WrapDynaBeanTestCase_OE25Dev extends BasicDynaBeanTestCase {
     }
     }
 
-    public void testMappedRemove_3_oe() {
+public void testMappedRemove_3_oe() {
 
         try {
             // removed other assertion
@@ -329,7 +329,7 @@ public class WrapDynaBeanTestCase_OE25Dev extends BasicDynaBeanTestCase {
     }
     }
 
-    public void testMappedRemove_6_oe() {
+public void testMappedRemove_6_oe() {
 
         try {
             // removed other assertion
@@ -356,14 +356,14 @@ public class WrapDynaBeanTestCase_OE25Dev extends BasicDynaBeanTestCase {
     }
     }
 
-    public void testGetInstance_1_oe() {
+public void testGetInstance_1_oe() {
         final AlphaBean alphaBean = new AlphaBean("Now On Air... John Peel");
         final WrapDynaBean dynaBean = new WrapDynaBean(alphaBean);
         final Object wrappedInstance = dynaBean.getInstance();
         assertTrue("Object type is AlphaBean", wrappedInstance instanceof AlphaBean);
     }
 
-    public void testGetInstance_2_oe() {
+public void testGetInstance_2_oe() {
         final AlphaBean alphaBean = new AlphaBean("Now On Air... John Peel");
         final WrapDynaBean dynaBean = new WrapDynaBean(alphaBean);
         final Object wrappedInstance = dynaBean.getInstance();
@@ -372,13 +372,13 @@ public class WrapDynaBeanTestCase_OE25Dev extends BasicDynaBeanTestCase {
         assertTrue("Same Object", wrappedAlphaBean == alphaBean);
     }
 
-    public void testNewInstance_1_oe() throws Exception {
+public void testNewInstance_1_oe() throws Exception {
         final WrapDynaClass dynaClass = WrapDynaClass.createDynaClass(AlphaBean.class);
         final Object createdInstance = dynaClass.newInstance();
         assertTrue("Object type is WrapDynaBean", createdInstance instanceof WrapDynaBean);
     }
 
-    public void testNewInstance_2_oe() throws Exception {
+public void testNewInstance_2_oe() throws Exception {
         final WrapDynaClass dynaClass = WrapDynaClass.createDynaClass(AlphaBean.class);
         final Object createdInstance = dynaClass.newInstance();
         // removed other assertion
@@ -386,7 +386,7 @@ public class WrapDynaBeanTestCase_OE25Dev extends BasicDynaBeanTestCase {
         assertTrue("Object type is AlphaBean", dynaBean.getInstance() instanceof AlphaBean);
     }
 
-    public void testSerialization_1_oe() {
+public void testSerialization_1_oe() {
 
         // Create a bean and set a value
         final WrapDynaBean origBean = new WrapDynaBean(new TestBean());
@@ -394,7 +394,7 @@ public class WrapDynaBeanTestCase_OE25Dev extends BasicDynaBeanTestCase {
         assertEquals("origBean default", new Integer(123), origBean.get("intProperty"));
     }
 
-    public void testSerialization_2_oe() {
+public void testSerialization_2_oe() {
 
         // Create a bean and set a value
         final WrapDynaBean origBean = new WrapDynaBean(new TestBean());
@@ -404,7 +404,7 @@ public class WrapDynaBeanTestCase_OE25Dev extends BasicDynaBeanTestCase {
         assertEquals("origBean new value", newValue, origBean.get("intProperty"));
     }
 
-    public void testSerialization_3_oe() {
+public void testSerialization_3_oe() {
 
         // Create a bean and set a value
         final WrapDynaBean origBean = new WrapDynaBean(new TestBean());
@@ -418,25 +418,25 @@ public class WrapDynaBeanTestCase_OE25Dev extends BasicDynaBeanTestCase {
         assertEquals("bean value", newValue, bean.get("intProperty"));
     }
 
-    public void testInitWithDynaClass_1_oe() {
+public void testInitWithDynaClass_1_oe() {
         final WrapDynaClass clazz = WrapDynaClass.createDynaClass(TestBean.class);
         bean = new WrapDynaBean(new TestBean(), clazz);
         assertSame("Wrong DynaClass", clazz, bean.getDynaClass());
     }
 
-    public void testGetWrapDynaClassFromCache_1_oe() {
+public void testGetWrapDynaClassFromCache_1_oe() {
         final WrapDynaClass clazz = WrapDynaClass.createDynaClass(TestBean.class);
         assertSame("Instance not cached",clazz,WrapDynaClass.createDynaClass(TestBean.class));
     }
 
-    public void testGetWrapDynaClassFromCacheWithPropUtils_1_oe() {
+public void testGetWrapDynaClassFromCacheWithPropUtils_1_oe() {
         final WrapDynaClass clazz = WrapDynaClass.createDynaClass(TestBean.class);
         final PropertyUtilsBean pu = new PropertyUtilsBean();
         final WrapDynaClass clazz2 = WrapDynaClass.createDynaClass(TestBean.class, pu);
         assertNotSame("Got same instance from cache", clazz, clazz2);
     }
 
-    public void testIntrospectionWithCustomPropUtils_1_oe() {
+public void testIntrospectionWithCustomPropUtils_1_oe() {
         final PropertyUtilsBean pu = new PropertyUtilsBean();
         pu.addBeanIntrospector(new FluentPropertyBeanIntrospector());
         final WrapDynaClass dynaClass = WrapDynaClass.createDynaClass(

@@ -137,7 +137,6 @@ imag_80_1,commons-imaging,HuffmanTreeExceptionTest,testCreatesHuffmanTreeExcepti
 imag_81_1,commons-imaging,ByteSourceImageTest,test_1_oe,src/test/java/org/apache/commons/imaging/common/bytesource/ByteSourceImageTest.java,,,,assert,unknown,standard,assertNotNull
 imag_81_2,commons-imaging,ByteSourceImageTest,test_2_oe,src/test/java/org/apache/commons/imaging/common/bytesource/ByteSourceImageTest.java,,,,assert,unknown,standard,assertNotNull
 imag_81_3,commons-imaging,ByteSourceImageTest,test_3_oe,src/test/java/org/apache/commons/imaging/common/bytesource/ByteSourceImageTest.java,,,,assert,unknown,standard,assertEquals
-imag_82_1,commons-imaging,ByteSourceTest,testGetInputStreamThrowsNullPointerException_1_oe,src/test/java/org/apache/commons/imaging/common/bytesource/ByteSourceTest.java,,,,assert,unknown,standard,assertThrows
 imag_84_1,commons-imaging,XbmReadTest,test_1_oe,src/test/java/org/apache/commons/imaging/formats/xbm/XbmReadTest.java,,,,assert,unknown,standard,assertFalse
 imag_84_2,commons-imaging,XbmReadTest,test_2_oe,src/test/java/org/apache/commons/imaging/formats/xbm/XbmReadTest.java,,,,assert,unknown,standard,assertNotNull
 imag_84_3,commons-imaging,XbmReadTest,test_3_oe,src/test/java/org/apache/commons/imaging/formats/xbm/XbmReadTest.java,,,,assert,unknown,standard,assertNotNull
@@ -348,18 +347,6 @@ imag_189_2,commons-imaging,TiffSubImageTest,testBadSubImage_2_oe,src/test/java/o
 imag_190_1,commons-imaging,TiffSubImageTest,testSubImageCorrectness_1_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffSubImageTest.java,,,,assert,unknown,standard,assertEquals
 imag_190_2,commons-imaging,TiffSubImageTest,testSubImageCorrectness_2_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffSubImageTest.java,,,,assert,unknown,standard,assertEquals
 imag_190_3,commons-imaging,TiffSubImageTest,testSubImageCorrectness_3_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffSubImageTest.java,,,,assert,unknown,standard,assertEquals
-imag_191_3,commons-imaging,TiffCcittTest,testAll5x2Compressions_3_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
-imag_191_6,commons-imaging,TiffCcittTest,testAll5x2Compressions_6_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
-imag_191_9,commons-imaging,TiffCcittTest,testAll5x2Compressions_9_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
-imag_191_12,commons-imaging,TiffCcittTest,testAll5x2Compressions_12_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
-imag_191_15,commons-imaging,TiffCcittTest,testAll5x2Compressions_15_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
-imag_191_18,commons-imaging,TiffCcittTest,testAll5x2Compressions_18_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
-imag_192_1,commons-imaging,TiffCcittTest,testAll5x2Images_1_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
-imag_192_2,commons-imaging,TiffCcittTest,testAll5x2Images_2_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
-imag_192_3,commons-imaging,TiffCcittTest,testAll5x2Images_3_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
-imag_192_4,commons-imaging,TiffCcittTest,testAll5x2Images_4_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
-imag_192_5,commons-imaging,TiffCcittTest,testAll5x2Images_5_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
-imag_192_6,commons-imaging,TiffCcittTest,testAll5x2Images_6_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
 imag_193_1,commons-imaging,TiffShortIntRoundTripTest,test_1_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffShortIntRoundTripTest.java,,,,assert,unknown,standard,assertEquals
 imag_193_2,commons-imaging,TiffShortIntRoundTripTest,test_2_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffShortIntRoundTripTest.java,,,,assert,unknown,standard,assertEquals
 imag_193_3,commons-imaging,TiffShortIntRoundTripTest,test_3_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffShortIntRoundTripTest.java,,,,assert,unknown,standard,assertEquals

@@ -82,7 +82,7 @@ public class FloatConverterTestCase_OE25Dev extends NumberConverterTestBase {
      * Test Invalid Amounts (too big/small)
      */
 
-    public void testSimpleConversion_1_oe() throws Exception {
+public void testSimpleConversion_1_oe() throws Exception {
         final String[] message= {
             "from String",
             "from String",
@@ -136,7 +136,7 @@ public class FloatConverterTestCase_OE25Dev extends NumberConverterTestBase {
     }
     }
 
-    public void testSimpleConversion_2_oe() throws Exception {
+public void testSimpleConversion_2_oe() throws Exception {
         final String[] message= {
             "from String",
             "from String",
@@ -191,7 +191,7 @@ public class FloatConverterTestCase_OE25Dev extends NumberConverterTestBase {
     }
     }
 
-    public void testSimpleConversion_3_oe() throws Exception {
+public void testSimpleConversion_3_oe() throws Exception {
         final String[] message= {
             "from String",
             "from String",
@@ -247,7 +247,7 @@ public class FloatConverterTestCase_OE25Dev extends NumberConverterTestBase {
     }
     }
 
-    public void testInvalidAmount_1_oe() {
+public void testInvalidAmount_1_oe() {
         final Converter converter = makeConverter();
         final Class<?> clazz = Float.class;
 

@@ -48,7 +48,7 @@ public class SessionTest_OE25Dev {
         assertEquals("Root", echoEls.get(1).text()); // ordered by most specific path - /
     }
 
-    @Test
+@Test
     public void testPathScopedCookies_1_oe() throws IOException {
         final Connection session = Jsoup.newSession();
         final String userAgent = "Jsoup Testalot v0.1";
@@ -62,7 +62,7 @@ public class SessionTest_OE25Dev {
         assertEquals(0,doc1.select("table tr").size());// none sent to servlet;
     }
 
-    @Test
+@Test
     public void testPathScopedCookies_2_oe() throws IOException {
         final Connection session = Jsoup.newSession();
         final String userAgent = "Jsoup Testalot v0.1";
@@ -79,7 +79,7 @@ public class SessionTest_OE25Dev {
         assertEquals(0,doc2.select("table tr").size());// none sent to servlet - we just got them!;
     }
 
-    @Test
+@Test
     public void testPathScopedCookies_3_oe() throws IOException {
         final Connection session = Jsoup.newSession();
         final String userAgent = "Jsoup Testalot v0.1";
@@ -98,7 +98,7 @@ public class SessionTest_OE25Dev {
         assertEquals(1,cookies.size());
     }
 
-    @Test
+@Test
     public void testPathScopedCookies_4_oe() throws IOException {
         final Connection session = Jsoup.newSession();
         final String userAgent = "Jsoup Testalot v0.1";
@@ -118,7 +118,7 @@ public class SessionTest_OE25Dev {
         assertEquals("Root", cookies.get("One"));
     }
 
-    @Test
+@Test
     public void testPathScopedCookies_7_oe() throws IOException {
         final Connection session = Jsoup.newSession();
         final String userAgent = "Jsoup Testalot v0.1";
@@ -149,7 +149,7 @@ public class SessionTest_OE25Dev {
         assertEquals(userAgent,keyText("User-Agent",echo));// check that customer user agent sent on session arrived;
     }
 
-    @Test
+@Test
     public void testPathScopedCookies_8_oe() throws IOException {
         final Connection session = Jsoup.newSession();
         final String userAgent = "Jsoup Testalot v0.1";
@@ -182,7 +182,7 @@ public class SessionTest_OE25Dev {
         assertEquals(0,doc4.select("table tr").size());// none sent to servlet;
     }
 
-    @Test
+@Test
     public void testPathScopedCookies_9_oe() throws IOException {
         final Connection session = Jsoup.newSession();
         final String userAgent = "Jsoup Testalot v0.1";
@@ -218,7 +218,7 @@ public class SessionTest_OE25Dev {
         assertEquals("Qux", doc5Bar.first().text());
     }
 
-    @Test
+@Test
     public void testPathScopedCookiesOnRedirect_1_oe() throws IOException {
         Connection session = Jsoup.newSession();
 
@@ -232,7 +232,7 @@ public class SessionTest_OE25Dev {
         assertEquals(EchoServlet.Url, doc1.location());
     }
 
-    @Test
+@Test
     public void testCanChangeParsers_1_oe() throws IOException {
         Connection session = Jsoup.newSession().parser(Parser.xmlParser());
 
@@ -243,7 +243,7 @@ public class SessionTest_OE25Dev {
         assertEquals(xmlVal,doc1.html());// not HTML normed,used XML parser;
     }
 
-    @Test
+@Test
     public void testCanChangeParsers_2_oe() throws IOException {
         Connection session = Jsoup.newSession().parser(Parser.xmlParser());
 
@@ -256,7 +256,7 @@ public class SessionTest_OE25Dev {
         assertTrue(doc2.html().startsWith("<html>"));
     }
 
-    @Test
+@Test
     public void testCanChangeParsers_3_oe() throws IOException {
         Connection session = Jsoup.newSession().parser(Parser.xmlParser());
 

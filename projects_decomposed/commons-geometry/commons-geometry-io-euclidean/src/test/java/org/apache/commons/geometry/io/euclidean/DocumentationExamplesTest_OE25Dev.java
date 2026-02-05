@@ -70,7 +70,7 @@ class DocumentationExamplesTest_OE25Dev {
 
     }
 
-    @Test
+@Test
     void testIndexPageExample_1_oe() {
         // construct a precision instance to handle floating-point comparisons
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);

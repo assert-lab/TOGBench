@@ -164,121 +164,121 @@ public class TestInstant_Constructors_OE25Dev extends TestCase {
         }
     }
 
-    public void test_epoch_1_oe() throws Throwable {
+public void test_epoch_1_oe() throws Throwable {
         Instant test = Instant.EPOCH;
         assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
     }
 
-    public void test_epoch_2_oe() throws Throwable {
+public void test_epoch_2_oe() throws Throwable {
         Instant test = Instant.EPOCH;
         // removed other assertion
         assertEquals(0L,test.getMillis());
     }
 
-    public void test_now_1_oe() throws Throwable {
+public void test_now_1_oe() throws Throwable {
         Instant test = Instant.now();
         assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
     }
 
-    public void test_now_2_oe() throws Throwable {
+public void test_now_2_oe() throws Throwable {
         Instant test = Instant.now();
         // removed other assertion
         assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
-    public void test_ofEpochMilli_1_oe() throws Throwable {
+public void test_ofEpochMilli_1_oe() throws Throwable {
         Instant test = Instant.ofEpochMilli(TEST_TIME1);
         assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
     }
 
-    public void test_ofEpochMilli_2_oe() throws Throwable {
+public void test_ofEpochMilli_2_oe() throws Throwable {
         Instant test = Instant.ofEpochMilli(TEST_TIME1);
         // removed other assertion
         assertEquals(TEST_TIME1,test.getMillis());
     }
 
-    public void test_ofEpochSecond_1_oe() throws Throwable {
+public void test_ofEpochSecond_1_oe() throws Throwable {
         Instant test = Instant.ofEpochSecond(TEST_TIME1 / 1000);
         assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
     }
 
-    public void test_ofEpochSecond_2_oe() throws Throwable {
+public void test_ofEpochSecond_2_oe() throws Throwable {
         Instant test = Instant.ofEpochSecond(TEST_TIME1 / 1000);
         // removed other assertion
         assertEquals(TEST_TIME1,test.getMillis());
     }
 
-    public void test_ofEpochSecond_zero_1_oe() throws Throwable {
+public void test_ofEpochSecond_zero_1_oe() throws Throwable {
         Instant test = Instant.ofEpochSecond(0);
         assertEquals(0,test.getMillis());
     }
 
-    public void testParse_noFormatter_1_oe() throws Throwable {
+public void testParse_noFormatter_1_oe() throws Throwable {
         assertEquals(new DateTime(2010,6,30,0,20,ISOChronology.getInstance(LONDON)).toInstant(),Instant.parse("2010-06-30T01:20+02:00"));
     }
 
-    public void testParse_noFormatter_2_oe() throws Throwable {
+public void testParse_noFormatter_2_oe() throws Throwable {
         // removed other assertion
         assertEquals(new DateTime(2010,1,2,14,50,ISOChronology.getInstance(LONDON)).toInstant(),Instant.parse("2010-002T14:50"));
     }
 
-    public void testParse_formatter_1_oe() throws Throwable {
+public void testParse_formatter_1_oe() throws Throwable {
         DateTimeFormatter f = DateTimeFormat.forPattern("yyyy--dd MM HH").withChronology(ISOChronology.getInstance(PARIS));
         assertEquals(new DateTime(2010,6,30,13,0,ISOChronology.getInstance(PARIS)).toInstant(),Instant.parse("2010--30 06 13",f));
     }
 
-    public void testConstructor_1_oe() throws Throwable {
+public void testConstructor_1_oe() throws Throwable {
         Instant test = new Instant();
         assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
     }
 
-    public void testConstructor_2_oe() throws Throwable {
+public void testConstructor_2_oe() throws Throwable {
         Instant test = new Instant();
         // removed other assertion
         assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
-    public void testConstructor_long1_1_oe() throws Throwable {
+public void testConstructor_long1_1_oe() throws Throwable {
         Instant test = new Instant(TEST_TIME1);
         assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
     }
 
-    public void testConstructor_long1_2_oe() throws Throwable {
+public void testConstructor_long1_2_oe() throws Throwable {
         Instant test = new Instant(TEST_TIME1);
         // removed other assertion
         assertEquals(TEST_TIME1,test.getMillis());
     }
 
-    public void testConstructor_long2_1_oe() throws Throwable {
+public void testConstructor_long2_1_oe() throws Throwable {
         Instant test = new Instant(TEST_TIME2);
         assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
     }
 
-    public void testConstructor_long2_2_oe() throws Throwable {
+public void testConstructor_long2_2_oe() throws Throwable {
         Instant test = new Instant(TEST_TIME2);
         // removed other assertion
         assertEquals(TEST_TIME2,test.getMillis());
     }
 
-    public void testConstructor_Object_1_oe() throws Throwable {
+public void testConstructor_Object_1_oe() throws Throwable {
         Date date = new Date(TEST_TIME1);
         Instant test = new Instant(date);
         assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
     }
 
-    public void testConstructor_Object_2_oe() throws Throwable {
+public void testConstructor_Object_2_oe() throws Throwable {
         Date date = new Date(TEST_TIME1);
         Instant test = new Instant(date);
         // removed other assertion
         assertEquals(TEST_TIME1,test.getMillis());
     }
 
-    public void testConstructor_nullObject_1_oe() throws Throwable {
+public void testConstructor_nullObject_1_oe() throws Throwable {
         Instant test = new Instant((Object) null);
         assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
     }
 
-    public void testConstructor_nullObject_2_oe() throws Throwable {
+public void testConstructor_nullObject_2_oe() throws Throwable {
         Instant test = new Instant((Object) null);
         // removed other assertion
         assertEquals(TEST_TIME_NOW,test.getMillis());

@@ -153,7 +153,7 @@ public class ParseXmlInZipTestCase_OE25Dev {
         testResolveAndParseXmlInZip("read-xml-tests/person.xml", "/read-xml-tests/person.xsd");
     }
 
-    @Test
+@Test
     public void testResolveAndParseInvalidXml_1_oe() throws IOException, SAXException {
         try {
             testResolveAndParseXmlInZip("read-xml-tests/name-invalid.xml", "/read-xml-tests/name.xsd");
@@ -163,7 +163,7 @@ public class ParseXmlInZipTestCase_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testResolveAndParseNotWellFormedXml_1_oe() throws IOException {
         try {
             testResolveAndParseXmlInZip("read-xml-tests/name-not-well-formed.xml", "/read-xml-tests/name.xsd");

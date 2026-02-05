@@ -103,7 +103,7 @@ public class TiffRasterDataTest_OE25Dev {
      * Test of access with bad coordinates, of class TiffRasterData.
      */
 
-    @Test
+@Test
     public void testSetValue_1_oe() {
         final TiffRasterData instance = new TiffRasterDataFloat(width, height);
         for (int y = 0; y < height; y++) {
@@ -116,7 +116,7 @@ public class TiffRasterDataTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSetValue_2_oe() {
         final TiffRasterData instance = new TiffRasterDataFloat(width, height);
         for (int y = 0; y < height; y++) {
@@ -132,7 +132,7 @@ public class TiffRasterDataTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetValue_1_oe() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -143,7 +143,7 @@ public class TiffRasterDataTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetValue_2_oe() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -156,7 +156,7 @@ public class TiffRasterDataTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSetValue2_1_oe() {
         final TiffRasterData instance = new TiffRasterDataFloat(width, height, 2);
         for (int y = 0; y < height; y++) {
@@ -169,7 +169,7 @@ public class TiffRasterDataTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSetValue2_2_oe() {
         final TiffRasterData instance = new TiffRasterDataFloat(width, height, 2);
         for (int y = 0; y < height; y++) {
@@ -185,7 +185,7 @@ public class TiffRasterDataTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetValue2_1_oe() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -196,7 +196,7 @@ public class TiffRasterDataTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetValue2_2_oe() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -209,14 +209,14 @@ public class TiffRasterDataTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetSimpleStatistics_0args_1_oe() {
 
         final TiffRasterStatistics result = raster.getSimpleStatistics();
         assertEquals(0, result.getMinValue(), "Min value failure");
     }
 
-    @Test
+@Test
     public void testGetSimpleStatistics_0args_2_oe() {
 
         final TiffRasterStatistics result = raster.getSimpleStatistics();
@@ -224,7 +224,7 @@ public class TiffRasterDataTest_OE25Dev {
         assertEquals(width * height - 1, result.getMaxValue(), "Max value failure");
     }
 
-    @Test
+@Test
     public void testGetSimpleStatistics_0args_3_oe() {
 
         final TiffRasterStatistics result = raster.getSimpleStatistics();
@@ -233,7 +233,7 @@ public class TiffRasterDataTest_OE25Dev {
         assertEquals(meanValue, result.getMeanValue(), "Mean value failure");
     }
 
-    @Test
+@Test
     public void testGetSimpleStatistics_float_1_oe() {
         // exclude the maximum value (width*height-1).  This will result
         // in a max value of width*height-2
@@ -241,23 +241,23 @@ public class TiffRasterDataTest_OE25Dev {
         assertEquals(width * height - 2, result.getMaxValue(), "Max value failure");
     }
 
-    @Test
+@Test
     public void testGetWidth_1_oe() {
         assertEquals(width, raster.getWidth(), "Improper width stored");
     }
 
-    @Test
+@Test
     public void testGetHeight_1_oe() {
         assertEquals(width, raster.getWidth(), "Improper height stored");
     }
 
-    @Test
+@Test
     public void testGetData_1_oe() {
         final float[] result = raster.getData();
         assertArrayEquals(data, result);
     }
 
-    @Test
+@Test
     public void testGetData_2_oe() {
         final float[] result = raster.getData();
         // removed other assertion
@@ -265,7 +265,7 @@ public class TiffRasterDataTest_OE25Dev {
         assertEquals(1, samplesPerPixel, "Incorrect number of samples per pixel");
     }
 
-    @Test
+@Test
     public void testGetIntData_1_oe() {
         final int[] result = raster.getIntData();
         for (int y = 0; y < height; y++) {
@@ -277,31 +277,31 @@ public class TiffRasterDataTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetDataType_1_oe() {
         TiffRasterDataType dataType = raster.getDataType();
         assertTrue(dataType == TiffRasterDataType.FLOAT, "Unexpected data type "+dataType.name());
     }
 
-    @Test
+@Test
     public void testBadConstructor_1_oe() {
         assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataFloat(-1, 10), "Constructor did not detect bad width");
     }
 
-    @Test
+@Test
     public void testBadConstructor_2_oe() {
         // removed other assertion
         assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataFloat(10, -1), "Constructor did not detect bad height");
     }
 
-    @Test
+@Test
     public void testBadConstructor_3_oe() {
         // removed other assertion
         // removed other assertion
         assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataFloat(1, 1, 0), "Constructor did not detect bad samplesPerPixel");
     }
 
-    @Test
+@Test
     public void testBadConstructor_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -311,7 +311,7 @@ public class TiffRasterDataTest_OE25Dev {
         assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataFloat(2, 10, f), "Constructor did not detect insufficient input array size");
     }
 
-    @Test
+@Test
     public void testBadConstructor_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -322,14 +322,14 @@ public class TiffRasterDataTest_OE25Dev {
         assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataFloat(2, 3, 2, f), "Constructor did not detect insufficient input array size");
     }
 
-    @Test
+@Test
     public void testBadCoordinates_1_oe() {
         final float []f = new float[100];
         final TiffRasterData instance = new TiffRasterDataFloat(10, 10, 1, f);
         assertThrows(IllegalArgumentException.class, ()->instance.getValue(11, 11),       "Access method getValue() did not detect bad coordinates");
     }
 
-    @Test
+@Test
     public void testBadCoordinates_2_oe() {
         final float []f = new float[100];
         final TiffRasterData instance = new TiffRasterDataFloat(10, 10, 1, f);
@@ -337,7 +337,7 @@ public class TiffRasterDataTest_OE25Dev {
         assertThrows(IllegalArgumentException.class, ()->instance.setValue(11, 11, 5.0f), "Access method setValue() did not detect bad coordinates");
     }
 
-    @Test
+@Test
     public void testBadCoordinates_3_oe() {
         final float []f = new float[100];
         final TiffRasterData instance = new TiffRasterDataFloat(10, 10, 1, f);

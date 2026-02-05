@@ -35,24 +35,24 @@ class FactorialTest_OE25Dev {
         return result;
     }
 
-    @Test
+@Test
     void testFactorialZero_1_oe() {
         Assertions.assertEquals(1, Factorial.value(0), "0!");
     }
 
-    @Test
+@Test
     void testFactorial_1_oe() {
         for (int i = 1; i < 21; i++) {
             Assertions.assertEquals(factorial(i), Factorial.value(i), i + "!");
     }
     }
 
-    @Test
+@Test
     void testPrecondition1_1_oe() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Factorial.value(-1) );
     }
 
-    @Test
+@Test
     void testPrecondition2_1_oe() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Factorial.value(21) );
     }

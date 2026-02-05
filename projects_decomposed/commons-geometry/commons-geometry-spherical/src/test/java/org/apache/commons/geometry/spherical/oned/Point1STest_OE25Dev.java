@@ -126,20 +126,20 @@ class Point1STest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testConstants_1_oe() {
         // act/assert
         Assertions.assertEquals(0.0, Point1S.ZERO.getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testConstants_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals(Math.PI, Point1S.PI.getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testNormalizedAzimuthComparator_1_oe() {
         // arrange
         final Comparator<Point1S> comp = Point1S.NORMALIZED_AZIMUTH_ASCENDING_ORDER;
@@ -148,7 +148,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(0, comp.compare(Point1S.of(1), Point1S.of(1)));
     }
 
-    @Test
+@Test
     void testNormalizedAzimuthComparator_2_oe() {
         // arrange
         final Comparator<Point1S> comp = Point1S.NORMALIZED_AZIMUTH_ASCENDING_ORDER;
@@ -158,7 +158,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(-1, comp.compare(Point1S.of(0), Point1S.of(1)));
     }
 
-    @Test
+@Test
     void testNormalizedAzimuthComparator_3_oe() {
         // arrange
         final Comparator<Point1S> comp = Point1S.NORMALIZED_AZIMUTH_ASCENDING_ORDER;
@@ -169,7 +169,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(1, comp.compare(Point1S.of(1), Point1S.of(0)));
     }
 
-    @Test
+@Test
     void testNormalizedAzimuthComparator_4_oe() {
         // arrange
         final Comparator<Point1S> comp = Point1S.NORMALIZED_AZIMUTH_ASCENDING_ORDER;
@@ -181,7 +181,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(1, comp.compare(Point1S.of(1), Point1S.of(0.1 + Angle.TWO_PI)));
     }
 
-    @Test
+@Test
     void testNormalizedAzimuthComparator_5_oe() {
         // arrange
         final Comparator<Point1S> comp = Point1S.NORMALIZED_AZIMUTH_ASCENDING_ORDER;
@@ -195,7 +195,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(1, comp.compare(null, Point1S.of(0)));
     }
 
-    @Test
+@Test
     void testNormalizedAzimuthComparator_6_oe() {
         // arrange
         final Comparator<Point1S> comp = Point1S.NORMALIZED_AZIMUTH_ASCENDING_ORDER;
@@ -210,7 +210,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(-1, comp.compare(Point1S.of(0), null));
     }
 
-    @Test
+@Test
     void testNormalizedAzimuthComparator_7_oe() {
         // arrange
         final Comparator<Point1S> comp = Point1S.NORMALIZED_AZIMUTH_ASCENDING_ORDER;
@@ -226,7 +226,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(0, comp.compare(null, null));
     }
 
-    @Test
+@Test
     void testNaN_1_oe() {
         // act
         final Point1S pt = Point1S.of(Double.NaN);
@@ -235,7 +235,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(pt.isNaN());
     }
 
-    @Test
+@Test
     void testNaN_2_oe() {
         // act
         final Point1S pt = Point1S.of(Double.NaN);
@@ -245,7 +245,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(Point1S.NaN.isNaN());
     }
 
-    @Test
+@Test
     void testNaN_3_oe() {
         // act
         final Point1S pt = Point1S.of(Double.NaN);
@@ -257,7 +257,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(Double.isNaN(pt.getAzimuth()));
     }
 
-    @Test
+@Test
     void testNaN_4_oe() {
         // act
         final Point1S pt = Point1S.of(Double.NaN);
@@ -270,7 +270,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(Double.isNaN(pt.getNormalizedAzimuth()));
     }
 
-    @Test
+@Test
     void testNaN_5_oe() {
         // act
         final Point1S pt = Point1S.of(Double.NaN);
@@ -284,7 +284,7 @@ class Point1STest_OE25Dev {
         Assertions.assertNull(pt.getVector());
     }
 
-    @Test
+@Test
     void testNaN_6_oe() {
         // act
         final Point1S pt = Point1S.of(Double.NaN);
@@ -300,7 +300,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(Point1S.NaN, pt);
     }
 
-    @Test
+@Test
     void testNaN_7_oe() {
         // act
         final Point1S pt = Point1S.of(Double.NaN);
@@ -317,7 +317,7 @@ class Point1STest_OE25Dev {
         Assertions.assertNotEquals(Point1S.of(1.0), Point1S.NaN);
     }
 
-    @Test
+@Test
     void testGetDimension_1_oe() {
         // arrange
         final Point1S p = Point1S.of(0.0);
@@ -326,20 +326,20 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(1, p.getDimension());
     }
 
-    @Test
+@Test
     void testInfinite_1_oe() {
         // act/assert
         Assertions.assertTrue(Point1S.of(Double.POSITIVE_INFINITY).isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertTrue(Point1S.of(Double.NEGATIVE_INFINITY).isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_3_oe() {
         // act/assert
         // removed other assertion
@@ -348,7 +348,7 @@ class Point1STest_OE25Dev {
         Assertions.assertFalse(Point1S.NaN.isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_4_oe() {
         // act/assert
         // removed other assertion
@@ -358,20 +358,20 @@ class Point1STest_OE25Dev {
         Assertions.assertFalse(Point1S.of(1).isInfinite());
     }
 
-    @Test
+@Test
     void testFinite_1_oe() {
         // act/assert
         Assertions.assertTrue(Point1S.of(0).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertTrue(Point1S.of(1).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_3_oe() {
         // act/assert
         // removed other assertion
@@ -380,7 +380,7 @@ class Point1STest_OE25Dev {
         Assertions.assertFalse(Point1S.of(Double.POSITIVE_INFINITY).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_4_oe() {
         // act/assert
         // removed other assertion
@@ -390,7 +390,7 @@ class Point1STest_OE25Dev {
         Assertions.assertFalse(Point1S.of(Double.NEGATIVE_INFINITY).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_5_oe() {
         // act/assert
         // removed other assertion
@@ -401,7 +401,7 @@ class Point1STest_OE25Dev {
         Assertions.assertFalse(Point1S.NaN.isFinite());
     }
 
-    @Test
+@Test
     void testAntipodal_1_oe() {
         for (double az = -6 * Math.PI; az <= 6 * Math.PI; az += 0.1) {
             // arrange
@@ -415,7 +415,7 @@ class Point1STest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testAntipodal_2_oe() {
         for (double az = -6 * Math.PI; az <= 6 * Math.PI; az += 0.1) {
             // arrange
@@ -430,7 +430,7 @@ class Point1STest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testHashCode_1_oe() {
         // act
         final Point1S a = Point1S.of(1.0);
@@ -444,7 +444,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(hash, a.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_2_oe() {
         // act
         final Point1S a = Point1S.of(1.0);
@@ -459,7 +459,7 @@ class Point1STest_OE25Dev {
         Assertions.assertNotEquals(hash, b.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_3_oe() {
         // act
         final Point1S a = Point1S.of(1.0);
@@ -475,7 +475,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(hash, c.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_4_oe() {
         // act
         final Point1S a = Point1S.of(1.0);
@@ -492,7 +492,7 @@ class Point1STest_OE25Dev {
         Assertions.assertNotEquals(hash, d.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_5_oe() {
         // act
         final Point1S a = Point1S.of(1.0);
@@ -511,7 +511,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(Point1S.NaN.hashCode(), Point1S.of(Double.NaN).hashCode());
     }
 
-    @Test
+@Test
     void testEquals_2_oe() {
         // act
         final Point1S a = Point1S.of(1.0);
@@ -526,7 +526,7 @@ class Point1STest_OE25Dev {
         Assertions.assertNotEquals(a, b);
     }
 
-    @Test
+@Test
     void testEquals_3_oe() {
         // act
         final Point1S a = Point1S.of(1.0);
@@ -542,7 +542,7 @@ class Point1STest_OE25Dev {
         Assertions.assertNotEquals(b, a);
     }
 
-    @Test
+@Test
     void testEquals_4_oe() {
         // act
         final Point1S a = Point1S.of(1.0);
@@ -560,7 +560,7 @@ class Point1STest_OE25Dev {
         Assertions.assertNotEquals(a, c);
     }
 
-    @Test
+@Test
     void testEquals_5_oe() {
         // act
         final Point1S a = Point1S.of(1.0);
@@ -579,7 +579,7 @@ class Point1STest_OE25Dev {
         Assertions.assertNotEquals(c, a);
     }
 
-    @Test
+@Test
     void testEquals_6_oe() {
         // act
         final Point1S a = Point1S.of(1.0);
@@ -600,7 +600,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(a, d);
     }
 
-    @Test
+@Test
     void testEquals_7_oe() {
         // act
         final Point1S a = Point1S.of(1.0);
@@ -622,7 +622,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(d, a);
     }
 
-    @Test
+@Test
     void testEquals_8_oe() {
         // act
         final Point1S a = Point1S.of(1.0);
@@ -646,7 +646,7 @@ class Point1STest_OE25Dev {
         Assertions.assertNotEquals(a, e);
     }
 
-    @Test
+@Test
     void testEquals_9_oe() {
         // act
         final Point1S a = Point1S.of(1.0);
@@ -671,7 +671,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(Point1S.NaN, e);
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_1_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -683,7 +683,7 @@ class Point1STest_OE25Dev {
         Assertions.assertFalse(a.equals(b));
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_2_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -696,7 +696,7 @@ class Point1STest_OE25Dev {
         Assertions.assertNotEquals(a.hashCode(), b.hashCode());
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_3_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -711,7 +711,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(a.equals(c));
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_4_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -727,7 +727,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(a.hashCode(), c.hashCode());
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_5_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -745,7 +745,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(b.equals(d));
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_6_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -764,7 +764,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(b.hashCode(), d.hashCode());
     }
 
-    @Test
+@Test
     void testEq_1_oe() {
         // arrange
         final Precision.DoubleEquivalence highPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -779,7 +779,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(a.eq(a, highPrecision));
     }
 
-    @Test
+@Test
     void testEq_2_oe() {
         // arrange
         final Precision.DoubleEquivalence highPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -795,7 +795,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(a.eq(a, lowPrecision));
     }
 
-    @Test
+@Test
     void testEq_3_oe() {
         // arrange
         final Precision.DoubleEquivalence highPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -813,7 +813,7 @@ class Point1STest_OE25Dev {
         Assertions.assertFalse(a.eq(b, highPrecision));
     }
 
-    @Test
+@Test
     void testEq_4_oe() {
         // arrange
         final Precision.DoubleEquivalence highPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -832,7 +832,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(a.eq(b, lowPrecision));
     }
 
-    @Test
+@Test
     void testEq_5_oe() {
         // arrange
         final Precision.DoubleEquivalence highPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -853,7 +853,7 @@ class Point1STest_OE25Dev {
         Assertions.assertFalse(a.eq(c, highPrecision));
     }
 
-    @Test
+@Test
     void testEq_6_oe() {
         // arrange
         final Precision.DoubleEquivalence highPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -875,7 +875,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(a.eq(c, lowPrecision));
     }
 
-    @Test
+@Test
     void testEq_7_oe() {
         // arrange
         final Precision.DoubleEquivalence highPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -899,7 +899,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(a.eq(d, highPrecision));
     }
 
-    @Test
+@Test
     void testEq_8_oe() {
         // arrange
         final Precision.DoubleEquivalence highPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -924,7 +924,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(a.eq(d, lowPrecision));
     }
 
-    @Test
+@Test
     void testEq_wrapAround_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -937,7 +937,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(a.eq(a, precision));
     }
 
-    @Test
+@Test
     void testEq_wrapAround_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -952,7 +952,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(a.eq(b, precision));
     }
 
-    @Test
+@Test
     void testEq_wrapAround_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -968,7 +968,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(b.eq(a, precision));
     }
 
-    @Test
+@Test
     void testEq_wrapAround_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -986,7 +986,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(a.eq(c, precision));
     }
 
-    @Test
+@Test
     void testEq_wrapAround_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -1005,7 +1005,7 @@ class Point1STest_OE25Dev {
         Assertions.assertTrue(c.eq(a, precision));
     }
 
-    @Test
+@Test
     void testDistance_1_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1018,7 +1018,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(0.0, a.distance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_2_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1032,7 +1032,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(Math.PI - 0.5, a.distance(b), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_3_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1047,7 +1047,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(Math.PI - 0.5, b.distance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_4_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1064,7 +1064,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(Math.PI, a.distance(c), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_5_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1082,7 +1082,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(Math.PI, c.distance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_6_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1102,7 +1102,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(Math.PI - 0.5, a.distance(d), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_7_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1123,7 +1123,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(Math.PI - 0.5, d.distance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_8_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1146,7 +1146,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(Angle.TWO_PI - 4, a.distance(e), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_9_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1170,7 +1170,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(Angle.TWO_PI - 4, e.distance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSignedDistance_1_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1183,7 +1183,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(0.0, a.signedDistance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSignedDistance_2_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1197,7 +1197,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(Math.PI - 0.5, a.signedDistance(b), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSignedDistance_3_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1212,7 +1212,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(-Math.PI + 0.5, b.signedDistance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSignedDistance_4_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1229,7 +1229,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(-Math.PI, a.signedDistance(c), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSignedDistance_5_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1247,7 +1247,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(-Math.PI, c.signedDistance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSignedDistance_6_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1267,7 +1267,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(-Math.PI + 0.5, a.signedDistance(d), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSignedDistance_7_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1288,7 +1288,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(Math.PI - 0.5, d.signedDistance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSignedDistance_8_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1311,7 +1311,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(-Angle.TWO_PI + 4, a.signedDistance(e), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSignedDistance_9_oe() {
         // arrange
         final Point1S a = Point1S.of(0.0);
@@ -1335,7 +1335,7 @@ class Point1STest_OE25Dev {
         Assertions.assertEquals(Angle.TWO_PI - 4, e.signedDistance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_inRangeZeroToPi_1_oe() {
         for (double a = -4 * Math.PI; a < 4 * Math.PI; a += 0.1) {
             for (double b = -4 * Math.PI; b < 4 * Math.PI; b += 0.1) {
@@ -1350,7 +1350,7 @@ class Point1STest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testDistance_inRangeZeroToPi_2_oe() {
         for (double a = -4 * Math.PI; a < 4 * Math.PI; a += 0.1) {
             for (double b = -4 * Math.PI; b < 4 * Math.PI; b += 0.1) {
@@ -1368,20 +1368,20 @@ class Point1STest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testAbove_nonFinite_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> Point1S.of(Double.POSITIVE_INFINITY).above(Point1S.ZERO));
     }
 
-    @Test
+@Test
     void testAbove_nonFinite_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> Point1S.of(Double.NEGATIVE_INFINITY).above(Point1S.ZERO));
     }
 
-    @Test
+@Test
     void testAbove_nonFinite_3_oe() {
         // act/assert
         // removed other assertion
@@ -1389,20 +1389,20 @@ class Point1STest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Point1S.of(Double.NaN).above(Point1S.ZERO));
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // act/assert
         Assertions.assertEquals("(0.0)", Point1S.of(0.0).toString());
     }
 
-    @Test
+@Test
     void testToString_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals("(1.0)", Point1S.of(1.0).toString());
     }
 
-    @Test
+@Test
     void testParse_failure_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Point1S.parse("abc"));

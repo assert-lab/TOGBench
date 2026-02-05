@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 
 public class ImageDumpTest_OE25Dev {
 
-    @Test
+@Test
     public void testDumpColorSpace_1_oe() {
         final ImageDump imageDump = new ImageDump();
         final ColorSpace colorSpace = ColorSpace.getInstance(1004);
@@ -34,7 +34,7 @@ public class ImageDumpTest_OE25Dev {
         assertEquals(3, colorSpace.getNumComponents());
     }
 
-    @Test
+@Test
     public void testDump_1_oe() {
         final ImageDump imageDump = new ImageDump();
         final BufferedImage bufferedImage = new BufferedImage(10, 10, 10);

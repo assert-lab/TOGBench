@@ -829,7 +829,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expect, empty);
     }
 
-    @Test
+@Test
     public void testLongLiterals_1_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -840,7 +840,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(10L, ctxt.get("a"));
     }
 
-    @Test
+@Test
     public void testLongLiterals_2_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -852,7 +852,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(10L, ctxt.get("b"));
     }
 
-    @Test
+@Test
     public void testLongLiterals_3_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -865,7 +865,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42.0D, ctxt.get("c"));
     }
 
-    @Test
+@Test
     public void testLongLiterals_4_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -879,7 +879,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42.0d, ctxt.get("d"));
     }
 
-    @Test
+@Test
     public void testLongLiterals_5_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -894,7 +894,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(56.3f, ctxt.get("e"));
     }
 
-    @Test
+@Test
     public void testLongLiterals_6_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -910,7 +910,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(56.3f, ctxt.get("f"));
     }
 
-    @Test
+@Test
     public void testLongLiterals_7_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -927,7 +927,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(63.5d, ctxt.get("g"));
     }
 
-    @Test
+@Test
     public void testLongLiterals_8_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -945,7 +945,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0x10, ctxt.get("h"));
     }
 
-    @Test
+@Test
     public void testLongLiterals_9_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -964,7 +964,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(010, ctxt.get("i"));
     }
 
-    @Test
+@Test
     public void testLongLiterals_10_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -984,7 +984,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0x10L, ctxt.get("j"));
     }
 
-    @Test
+@Test
     public void testLongLiterals_11_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1005,7 +1005,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(010L, ctxt.get("k"));
     }
 
-    @Test
+@Test
     public void testBigLiteralValue_1_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1015,7 +1015,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("9223372036854775806.5", res);
     }
 
-    @Test
+@Test
     public void testBigdOp_1_oe() throws Exception {
         final BigDecimal sevendot475 = new BigDecimal("7.475");
         final BigDecimal SO = new BigDecimal("325");
@@ -1028,7 +1028,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(sevendot475, evaluate);
     }
 
-    @Test
+@Test
     public void testBigLiterals_1_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1039,7 +1039,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(new BigInteger("10"), ctxt.get("a"));
     }
 
-    @Test
+@Test
     public void testBigLiterals_2_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1051,7 +1051,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(new BigInteger("10"), ctxt.get("b"));
     }
 
-    @Test
+@Test
     public void testBigLiterals_3_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1064,7 +1064,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(new BigDecimal("42.0"), ctxt.get("c"));
     }
 
-    @Test
+@Test
     public void testBigLiterals_4_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1078,7 +1078,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(new BigDecimal("42.0"), ctxt.get("d"));
     }
 
-    @Test
+@Test
     public void testBigExponentLiterals_1_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1089,7 +1089,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(new BigDecimal("42.0e+1"), ctxt.get("a"));
     }
 
-    @Test
+@Test
     public void testBigExponentLiterals_2_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1101,7 +1101,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(new BigDecimal("42.0e+2"), ctxt.get("b"));
     }
 
-    @Test
+@Test
     public void testBigExponentLiterals_3_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1114,7 +1114,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(new BigDecimal("42.0e-1"), ctxt.get("c"));
     }
 
-    @Test
+@Test
     public void testBigExponentLiterals_4_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1128,7 +1128,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(new BigDecimal("42.0e-2"), ctxt.get("d"));
     }
 
-    @Test
+@Test
     public void testBigExponentLiterals_5_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1143,7 +1143,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(new BigDecimal("4242.4242e1"), ctxt.get("e"));
     }
 
-    @Test
+@Test
     public void test2DoubleLiterals_1_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1154,7 +1154,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Double.valueOf("42.0e+1"), ctxt.get("a"));
     }
 
-    @Test
+@Test
     public void test2DoubleLiterals_2_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1166,7 +1166,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Double.valueOf("42.0e+2"), ctxt.get("b"));
     }
 
-    @Test
+@Test
     public void test2DoubleLiterals_3_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1179,7 +1179,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Double.valueOf("42.0e-1"), ctxt.get("c"));
     }
 
-    @Test
+@Test
     public void test2DoubleLiterals_4_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1193,7 +1193,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Double.valueOf("42.0e-2"), ctxt.get("d"));
     }
 
-    @Test
+@Test
     public void test2DoubleLiterals_5_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1208,7 +1208,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Double.valueOf("10e10"), ctxt.get("e"));
     }
 
-    @Test
+@Test
     public void test2DoubleLiterals_6_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1224,7 +1224,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Double.valueOf("10"), ctxt.get("f"));
     }
 
-    @Test
+@Test
     public void test2DoubleLiterals_7_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1241,7 +1241,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Double.valueOf("10"), ctxt.get("g"));
     }
 
-    @Test
+@Test
     public void testDivideByZero_1_oe() throws Exception {
         final Map<String, Object> vars = new HashMap<String, Object>();
         final JexlEvalContext context = new JexlEvalContext(vars);
@@ -1309,7 +1309,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testDivideByZero_2_oe() throws Exception {
         final Map<String, Object> vars = new HashMap<String, Object>();
         final JexlEvalContext context = new JexlEvalContext(vars);
@@ -1379,7 +1379,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testNaN_1_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
         ns.put("double", Double.class);
@@ -1391,7 +1391,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(Double.isNaN((Double) result));
     }
 
-    @Test
+@Test
     public void testNaN_2_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
         ns.put("double", Double.class);
@@ -1406,7 +1406,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(Double.isNaN((Double) result));
     }
 
-    @Test
+@Test
     public void testNaN_3_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
         ns.put("double", Double.class);
@@ -1424,7 +1424,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue((Boolean) result);
     }
 
-    @Test
+@Test
     public void testNaN_4_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
         ns.put("double", Double.class);
@@ -1445,7 +1445,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue((Boolean) result);
     }
 
-    @Test
+@Test
     public void testMultClass_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
@@ -1453,7 +1453,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Double.class, ra.getClass());
     }
 
-    @Test
+@Test
     public void testMultClass_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
@@ -1463,7 +1463,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(java.math.BigDecimal.class, r0.getClass());
     }
 
-    @Test
+@Test
     public void testMultClass_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
@@ -1475,7 +1475,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(java.math.BigDecimal.class, r1.getClass());
     }
 
-    @Test
+@Test
     public void testDivClass_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
@@ -1483,7 +1483,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Double.class, ra.getClass());
     }
 
-    @Test
+@Test
     public void testDivClass_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
@@ -1493,7 +1493,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(java.math.BigDecimal.class, r0.getClass());
     }
 
-    @Test
+@Test
     public void testDivClass_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
@@ -1505,7 +1505,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(java.math.BigDecimal.class, r1.getClass());
     }
 
-    @Test
+@Test
     public void testPlusClass_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
@@ -1513,7 +1513,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Double.class, ra.getClass());
     }
 
-    @Test
+@Test
     public void testPlusClass_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
@@ -1523,7 +1523,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(java.math.BigDecimal.class, r0.getClass());
     }
 
-    @Test
+@Test
     public void testPlusClass_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
@@ -1535,7 +1535,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(java.math.BigDecimal.class, r1.getClass());
     }
 
-    @Test
+@Test
     public void testMinusClass_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
@@ -1543,7 +1543,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Double.class, ra.getClass());
     }
 
-    @Test
+@Test
     public void testMinusClass_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
@@ -1553,7 +1553,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(java.math.BigDecimal.class, r0.getClass());
     }
 
-    @Test
+@Test
     public void testMinusClass_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
@@ -1565,7 +1565,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(java.math.BigDecimal.class, r1.getClass());
     }
 
-    @Test
+@Test
     public void testAddWithStringsLenient_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(false)).create();
         JexlScript script;
@@ -1575,7 +1575,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("a0", result);
     }
 
-    @Test
+@Test
     public void testAddWithStringsLenient_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(false)).create();
         JexlScript script;
@@ -1589,7 +1589,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("0a", result);
     }
 
-    @Test
+@Test
     public void testAddWithStringsLenient_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(false)).create();
         JexlScript script;
@@ -1607,7 +1607,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1.2d, (Double) result, EPSILON);
     }
 
-    @Test
+@Test
     public void testAddWithStringsLenient_4_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(false)).create();
         JexlScript script;
@@ -1629,7 +1629,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(2.4d, (Double) result, EPSILON);
     }
 
-    @Test
+@Test
     public void testAddWithStringsLenient_5_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(false)).create();
         JexlScript script;
@@ -1655,7 +1655,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(2.4d, (Double) result, EPSILON);
     }
 
-    @Test
+@Test
     public void testAddWithStringsLenient_6_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(false)).create();
         JexlScript script;
@@ -1685,7 +1685,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(2.4d, (Double) result, EPSILON);
     }
 
-    @Test
+@Test
     public void testAddWithStringsLenient_7_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(false)).create();
         JexlScript script;
@@ -1719,7 +1719,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1.2d, (Double) result, EPSILON);
     }
 
-    @Test
+@Test
     public void testAddWithStringsLenient_8_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(false)).create();
         JexlScript script;
@@ -1757,7 +1757,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("1.21.2", result);
     }
 
-    @Test
+@Test
     public void testAddWithStringsStrict_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(true)).create();
         JexlScript script;
@@ -1767,7 +1767,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("a0", result);
     }
 
-    @Test
+@Test
     public void testAddWithStringsStrict_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(true)).create();
         JexlScript script;
@@ -1781,7 +1781,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("0a", result);
     }
 
-    @Test
+@Test
     public void testAddWithStringsStrict_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(true)).create();
         JexlScript script;
@@ -1799,7 +1799,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("01.2", result);
     }
 
-    @Test
+@Test
     public void testAddWithStringsStrict_4_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(true)).create();
         JexlScript script;
@@ -1821,7 +1821,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("1.21.2", result);
     }
 
-    @Test
+@Test
     public void testAddWithStringsStrict_5_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(true)).create();
         JexlScript script;
@@ -1847,7 +1847,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(2.4d, (Double) result, EPSILON);
     }
 
-    @Test
+@Test
     public void testAddWithStringsStrict_6_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(true)).create();
         JexlScript script;
@@ -1877,7 +1877,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("1.21.2", result);
     }
 
-    @Test
+@Test
     public void testAddWithStringsStrict_7_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(true)).create();
         JexlScript script;
@@ -1911,7 +1911,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("1.20", result);
     }
 
-    @Test
+@Test
     public void testAddWithStringsStrict_8_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(true)).create();
         JexlScript script;
@@ -1949,7 +1949,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("1.21.2", result);
     }
 
-    @Test
+@Test
     public void testOption_1_oe() throws Exception {
         final Map<String, Object> vars = new HashMap<String, Object>();
         final JexlEvalContext context = new JexlEvalContext(vars);
@@ -1963,7 +1963,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("01.2", result);
     }
 
-    @Test
+@Test
     public void testOption_2_oe() throws Exception {
         final Map<String, Object> vars = new HashMap<String, Object>();
         final JexlEvalContext context = new JexlEvalContext(vars);
@@ -1981,14 +1981,14 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1.2d, (Double) result, EPSILON);
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_1_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
         Assert.assertFalse(ja.isFloatingPointNumber("floating point"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_2_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -1996,7 +1996,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ja.isFloatingPointNumber("a1."));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_3_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2005,7 +2005,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ja.isFloatingPointNumber("b1.2"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_4_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2015,7 +2015,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ja.isFloatingPointNumber("-10.2a-34"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_5_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2026,7 +2026,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ja.isFloatingPointNumber("+10.2a+34"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_6_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2038,7 +2038,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ja.isFloatingPointNumber("0"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_7_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2051,7 +2051,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ja.isFloatingPointNumber("1"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_8_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2065,7 +2065,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ja.isFloatingPointNumber("12A"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_9_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2080,7 +2080,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ja.isFloatingPointNumber("2F3"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_10_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2096,7 +2096,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ja.isFloatingPointNumber("23"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_11_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2113,7 +2113,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ja.isFloatingPointNumber("+3"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_12_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2131,7 +2131,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ja.isFloatingPointNumber("+34"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_13_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2150,7 +2150,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ja.isFloatingPointNumber("+3-4"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_14_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2170,7 +2170,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ja.isFloatingPointNumber("+3.-4"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_15_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2191,7 +2191,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ja.isFloatingPointNumber("3ee4"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_16_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2214,7 +2214,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("0."));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_17_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2238,7 +2238,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("1."));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_18_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2263,7 +2263,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("1.2"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_19_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2289,7 +2289,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("1.2e3"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_20_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2316,7 +2316,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("2e3"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_21_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2344,7 +2344,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("+2e-3"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_22_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2373,7 +2373,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("+23E-34"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_23_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2403,7 +2403,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("+23.E-34"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_24_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2434,7 +2434,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("-23.4E+45"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_25_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2466,7 +2466,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("1.2e34"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_26_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2499,7 +2499,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("10.2e34"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_27_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2533,7 +2533,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("+10.2e34"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_28_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2568,7 +2568,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("-10.2e34"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_29_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2604,7 +2604,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("10.2e-34"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_30_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2641,7 +2641,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("10.2e+34"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_31_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2679,7 +2679,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("-10.2e-34"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_32_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2718,7 +2718,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("+10.2e+34"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_33_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2758,7 +2758,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("-10.2E-34"));
     }
 
-    @Test
+@Test
     public void testIsFloatingPointPattern_34_oe() throws Exception {
         final JexlArithmetic ja = new JexlArithmetic(true);
 
@@ -2799,7 +2799,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ja.isFloatingPointNumber("+10.2E+34"));
     }
 
-    @Test
+@Test
     public void testEmpty_1_oe() throws Exception {
         final Object[] SCRIPTS = {
             "var x = null; log('x = %s', x);", 0,
@@ -2836,7 +2836,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testJexl173_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
@@ -2846,7 +2846,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(54, result);
     }
 
-    @Test
+@Test
     public void testJexl173_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext jc = new MapContext();
@@ -2859,7 +2859,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testInfiniteArithmetic_1_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
         ns.put("math", Math.class);
@@ -2869,7 +2869,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(Double.isInfinite((Double) evaluate));
     }
 
-    @Test
+@Test
     public void testInfiniteArithmetic_2_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
         ns.put("math", Math.class);
@@ -2882,7 +2882,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(Double.isInfinite((Double) evaluate));
     }
 
-    @Test
+@Test
     public void testInfiniteArithmetic_3_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
         ns.put("math", Math.class);
@@ -2898,7 +2898,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(Double.isInfinite((Double) evaluate));
     }
 
-    @Test
+@Test
     public void testInfiniteArithmetic_4_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
         ns.put("math", Math.class);
@@ -2917,7 +2917,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(Double.isInfinite((Double) evaluate));
     }
 
-    @Test
+@Test
     public void testInfiniteArithmetic_5_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
         ns.put("math", Math.class);
@@ -2939,7 +2939,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, evaluate);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_1_oe() throws Exception {
         Document xml;
         Node x;
@@ -2956,7 +2956,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(empty);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_2_oe() throws Exception {
         Document xml;
         Node x;
@@ -2975,7 +2975,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0, size);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_4_oe() throws Exception {
         Document xml;
         Node x;
@@ -3001,7 +3001,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_6_oe() throws Exception {
         Document xml;
         Node x;
@@ -3033,7 +3033,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_7_oe() throws Exception {
         Document xml;
         Node x;
@@ -3069,7 +3069,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertNull(x0);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_8_oe() throws Exception {
         Document xml;
         Node x;
@@ -3107,7 +3107,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertNull(x1);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_9_oe() throws Exception {
         Document xml;
         Node x;
@@ -3150,7 +3150,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(empty);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_10_oe() throws Exception {
         Document xml;
         Node x;
@@ -3195,7 +3195,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(empty);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_11_oe() throws Exception {
         Document xml;
         Node x;
@@ -3242,7 +3242,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0, size);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_12_oe() throws Exception {
         Document xml;
         Node x;
@@ -3291,7 +3291,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0, size);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_13_oe() throws Exception {
         Document xml;
         Node x;
@@ -3344,7 +3344,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(empty);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_14_oe() throws Exception {
         Document xml;
         Node x;
@@ -3399,7 +3399,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(empty);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_15_oe() throws Exception {
         Document xml;
         Node x;
@@ -3456,7 +3456,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(2, size);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_16_oe() throws Exception {
         Document xml;
         Node x;
@@ -3515,7 +3515,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(2, size);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_17_oe() throws Exception {
         Document xml;
         Node x;
@@ -3578,7 +3578,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(empty);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_18_oe() throws Exception {
         Document xml;
         Node x;
@@ -3643,7 +3643,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(empty);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_19_oe() throws Exception {
         Document xml;
         Node x;
@@ -3710,7 +3710,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0, size);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_20_oe() throws Exception {
         Document xml;
         Node x;
@@ -3779,7 +3779,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0, size);
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_21_oe() throws Exception {
         Document xml;
         Node x;
@@ -3852,7 +3852,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("123", info.getValue());
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_24_oe() throws Exception {
         Document xml;
         Node x;
@@ -3943,7 +3943,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testXmlArithmetic_25_oe() throws Exception {
         Document xml;
         Node x;
@@ -4035,14 +4035,14 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testEmptyLong_1_oe() throws Exception {
         Object x;
         x = JEXL.createScript("new('java.lang.Long', 4294967296)").execute(null);
         Assert.assertEquals(4294967296L, ((Long) x).longValue());
     }
 
-    @Test
+@Test
     public void testEmptyLong_2_oe() throws Exception {
         Object x;
         x = JEXL.createScript("new('java.lang.Long', 4294967296)").execute(null);
@@ -4051,7 +4051,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(4294967296L, ((Long) x).longValue());
     }
 
-    @Test
+@Test
     public void testEmptyLong_3_oe() throws Exception {
         Object x;
         x = JEXL.createScript("new('java.lang.Long', 4294967296)").execute(null);
@@ -4062,7 +4062,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(4294967296L, ((Long) x).longValue());
     }
 
-    @Test
+@Test
     public void testEmptyLong_4_oe() throws Exception {
         Object x;
         x = JEXL.createScript("new('java.lang.Long', 4294967296)").execute(null);
@@ -4075,7 +4075,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(4294967296L, ((Long) x).longValue());
     }
 
-    @Test
+@Test
     public void testEmptyLong_5_oe() throws Exception {
         Object x;
         x = JEXL.createScript("new('java.lang.Long', 4294967296)").execute(null);
@@ -4091,14 +4091,14 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0, ((Long) x).longValue());
     }
 
-    @Test
+@Test
     public void testEmptyFloat_1_oe() throws Exception {
         Object x;
         x = JEXL.createScript("4294967296.f").execute(null);
         Assert.assertEquals(4294967296.0f, (Float) x, EPSILON);
     }
 
-    @Test
+@Test
     public void testEmptyFloat_2_oe() throws Exception {
         Object x;
         x = JEXL.createScript("4294967296.f").execute(null);
@@ -4108,7 +4108,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(4294967296.0f, (Float) x, EPSILON);
     }
 
-    @Test
+@Test
     public void testEmptyFloat_3_oe() throws Exception {
         Object x;
         x = JEXL.createScript("4294967296.f").execute(null);
@@ -4121,14 +4121,14 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0.0f, (Float) x, EPSILON);
     }
 
-    @Test
+@Test
     public void testEmptyDouble_1_oe() throws Exception {
         Object x;
         x = JEXL.createScript("4294967296.d").execute(null);
         Assert.assertEquals(4294967296.0d, (Double) x, EPSILON);
     }
 
-    @Test
+@Test
     public void testEmptyDouble_2_oe() throws Exception {
         Object x;
         x = JEXL.createScript("4294967296.d").execute(null);
@@ -4138,7 +4138,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(4294967296.0d, (Double) x, EPSILON);
     }
 
-    @Test
+@Test
     public void testEmptyDouble_3_oe() throws Exception {
         Object x;
         x = JEXL.createScript("4294967296.d").execute(null);
@@ -4151,7 +4151,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0.0d, (Double) x, EPSILON);
     }
 
-    @Test
+@Test
     public void testCoerceInteger_1_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4163,7 +4163,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(34, ja.toInteger(ctxt.get("a")));
     }
 
-    @Test
+@Test
     public void testCoerceInteger_2_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4176,7 +4176,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(45, ja.toInteger(ctxt.get("b")));
     }
 
-    @Test
+@Test
     public void testCoerceInteger_3_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4190,7 +4190,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(56, ja.toInteger(ctxt.get("c")));
     }
 
-    @Test
+@Test
     public void testCoerceInteger_4_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4205,7 +4205,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(67, ja.toInteger(ctxt.get("d")));
     }
 
-    @Test
+@Test
     public void testCoerceInteger_5_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4221,7 +4221,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(78, ja.toInteger(ctxt.get("e")));
     }
 
-    @Test
+@Test
     public void testCoerceInteger_6_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4238,7 +4238,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(10, ja.toInteger("10"));
     }
 
-    @Test
+@Test
     public void testCoerceInteger_7_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4256,7 +4256,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, ja.toInteger(true));
     }
 
-    @Test
+@Test
     public void testCoerceInteger_8_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4275,7 +4275,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0, ja.toInteger(false));
     }
 
-    @Test
+@Test
     public void testCoerceLong_1_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4287,7 +4287,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(34L, ja.toLong(ctxt.get("a")));
     }
 
-    @Test
+@Test
     public void testCoerceLong_2_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4300,7 +4300,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(45L, ja.toLong(ctxt.get("b")));
     }
 
-    @Test
+@Test
     public void testCoerceLong_3_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4314,7 +4314,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(56L, ja.toLong(ctxt.get("c")));
     }
 
-    @Test
+@Test
     public void testCoerceLong_4_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4329,7 +4329,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(67L, ja.toLong(ctxt.get("d")));
     }
 
-    @Test
+@Test
     public void testCoerceLong_5_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4345,7 +4345,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(78L, ja.toLong(ctxt.get("e")));
     }
 
-    @Test
+@Test
     public void testCoerceLong_6_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4362,7 +4362,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(10L, ja.toLong("10"));
     }
 
-    @Test
+@Test
     public void testCoerceLong_7_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4380,7 +4380,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1L, ja.toLong(true));
     }
 
-    @Test
+@Test
     public void testCoerceLong_8_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4399,7 +4399,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0L, ja.toLong(false));
     }
 
-    @Test
+@Test
     public void testCoerceDouble_1_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4411,7 +4411,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(34, ja.toDouble(ctxt.get("a")), EPSILON);
     }
 
-    @Test
+@Test
     public void testCoerceDouble_2_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4424,7 +4424,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(45, ja.toDouble(ctxt.get("b")), EPSILON);
     }
 
-    @Test
+@Test
     public void testCoerceDouble_3_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4438,7 +4438,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(56, ja.toDouble(ctxt.get("c")), EPSILON);
     }
 
-    @Test
+@Test
     public void testCoerceDouble_4_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4453,7 +4453,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(67, ja.toDouble(ctxt.get("d")), EPSILON);
     }
 
-    @Test
+@Test
     public void testCoerceDouble_5_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4469,7 +4469,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(78, ja.toDouble(ctxt.get("e")), EPSILON);
     }
 
-    @Test
+@Test
     public void testCoerceDouble_6_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4486,7 +4486,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(10d, ja.toDouble("10"), EPSILON);
     }
 
-    @Test
+@Test
     public void testCoerceDouble_7_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4504,7 +4504,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1.D, ja.toDouble(true), EPSILON);
     }
 
-    @Test
+@Test
     public void testCoerceDouble_8_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4523,7 +4523,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0.D, ja.toDouble(false), EPSILON);
     }
 
-    @Test
+@Test
     public void testCoerceBigInteger_1_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4535,7 +4535,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(BigInteger.valueOf(34), ja.toBigInteger(ctxt.get("a")));
     }
 
-    @Test
+@Test
     public void testCoerceBigInteger_2_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4548,7 +4548,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(BigInteger.valueOf(45), ja.toBigInteger(ctxt.get("b")));
     }
 
-    @Test
+@Test
     public void testCoerceBigInteger_3_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4562,7 +4562,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(BigInteger.valueOf(56), ja.toBigInteger(ctxt.get("c")));
     }
 
-    @Test
+@Test
     public void testCoerceBigInteger_4_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4577,7 +4577,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(BigInteger.valueOf(67), ja.toBigInteger(ctxt.get("d")));
     }
 
-    @Test
+@Test
     public void testCoerceBigInteger_5_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4593,7 +4593,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(BigInteger.valueOf(78), ja.toBigInteger(ctxt.get("e")));
     }
 
-    @Test
+@Test
     public void testCoerceBigInteger_6_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4610,7 +4610,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(BigInteger.valueOf(10), ja.toBigInteger("10"));
     }
 
-    @Test
+@Test
     public void testCoerceBigInteger_7_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4628,7 +4628,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(BigInteger.valueOf(1), ja.toBigInteger(true));
     }
 
-    @Test
+@Test
     public void testCoerceBigInteger_8_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4647,7 +4647,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(BigInteger.valueOf(0), ja.toBigInteger(false));
     }
 
-    @Test
+@Test
     public void testCoerceBigDecimal_1_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4659,7 +4659,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(BigDecimal.valueOf(34), ja.toBigDecimal(ctxt.get("a")));
     }
 
-    @Test
+@Test
     public void testCoerceBigDecimal_2_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4672,7 +4672,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(BigDecimal.valueOf(45.), ja.toBigDecimal(ctxt.get("b")));
     }
 
-    @Test
+@Test
     public void testCoerceBigDecimal_3_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4686,7 +4686,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(BigDecimal.valueOf(56.), ja.toBigDecimal(ctxt.get("c")));
     }
 
-    @Test
+@Test
     public void testCoerceBigDecimal_4_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4701,7 +4701,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(BigDecimal.valueOf(67), ja.toBigDecimal(ctxt.get("d")));
     }
 
-    @Test
+@Test
     public void testCoerceBigDecimal_5_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4717,7 +4717,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(BigDecimal.valueOf(78), ja.toBigDecimal(ctxt.get("e")));
     }
 
-    @Test
+@Test
     public void testCoerceBigDecimal_6_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4734,7 +4734,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(BigDecimal.valueOf(10), ja.toBigDecimal("10"));
     }
 
-    @Test
+@Test
     public void testCoerceBigDecimal_7_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4752,7 +4752,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(BigDecimal.valueOf(1.), ja.toBigDecimal(true));
     }
 
-    @Test
+@Test
     public void testCoerceBigDecimal_8_oe() throws Exception {
         final JexlArithmetic ja = JEXL.getArithmetic();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4771,7 +4771,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(BigDecimal.valueOf(0.), ja.toBigDecimal(false));
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_1_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -4782,7 +4782,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 2", new Integer(2), o);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_2_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -4796,7 +4796,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 1", new Integer(1), o);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_3_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -4815,7 +4815,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse((Boolean) o);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_4_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -4837,7 +4837,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue((Boolean) o);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_5_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -4862,7 +4862,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse((Boolean) o);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_6_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -4890,7 +4890,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse((Boolean) o);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_7_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -4923,7 +4923,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(11, o);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_8_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -4958,7 +4958,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(11, o);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_9_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -4995,7 +4995,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(11.d, (Double) o, EPSILON);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_10_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -5034,7 +5034,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(11.d, (Double) o, EPSILON);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_11_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -5078,7 +5078,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(bi10, o);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_12_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -5124,7 +5124,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(bi10, o);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_13_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -5175,7 +5175,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(bd10, o);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_14_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -5228,7 +5228,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(bd10, o);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_15_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -5287,7 +5287,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse((Boolean) o);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_16_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -5349,7 +5349,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue((Boolean) o);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_17_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");
@@ -5417,7 +5417,7 @@ public class ArithmeticTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse((Boolean) o);
     }
 
-    @Test
+@Test
     public void testAtomicBoolean_18_oe() throws Exception {
         // in a condition
         JexlScript e = JEXL.createScript("if (x) 1 else 2;", "x");

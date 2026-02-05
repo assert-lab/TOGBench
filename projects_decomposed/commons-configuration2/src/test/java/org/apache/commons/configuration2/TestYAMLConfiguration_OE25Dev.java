@@ -58,7 +58,7 @@ public class TestYAMLConfiguration_OE25Dev {
         yamlConfiguration.read(new FileReader(testYaml));
     }
 
-    @Test
+@Test
     public void testCopyConstructor_1_oe() {
         final BaseHierarchicalConfiguration c = new BaseHierarchicalConfiguration();
         c.addProperty("foo", "bar");
@@ -67,65 +67,65 @@ public class TestYAMLConfiguration_OE25Dev {
         assertEquals("bar", yamlConfiguration.getString("foo"));
     }
 
-    @Test
+@Test
     public void testGetProperty_dictionary_1_oe() {
         assertEquals("Martin D'vloper", yamlConfiguration.getProperty("martin.name"));
     }
 
-    @Test
+@Test
     public void testGetProperty_dictionary_2_oe() {
         // removed other assertion
         assertEquals("Developer", yamlConfiguration.getProperty("martin.job"));
     }
 
-    @Test
+@Test
     public void testGetProperty_dictionary_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("Elite", yamlConfiguration.getProperty("martin.skill"));
     }
 
-    @Test
+@Test
     public void testGetProperty_integer_1_oe() {
         final Object property = yamlConfiguration.getProperty("int1");
         assertTrue("property should be an Integer", property instanceof Integer);
     }
 
-    @Test
+@Test
     public void testGetProperty_integer_2_oe() {
         final Object property = yamlConfiguration.getProperty("int1");
         // removed other assertion
         assertEquals(37, property);
     }
 
-    @Test
+@Test
     public void testGetProperty_nested_1_oe() {
         assertEquals("value23", yamlConfiguration.getProperty("key2.key3"));
     }
 
-    @Test
+@Test
     public void testGetProperty_nested_with_list_1_oe() {
         assertEquals(Arrays.asList("col1", "col2"), yamlConfiguration.getProperty("key4.key5"));
     }
 
-    @Test
+@Test
     public void testGetProperty_simple_1_oe() {
         assertEquals("value1", yamlConfiguration.getProperty("key1"));
     }
 
-    @Test
+@Test
     public void testGetProperty_subset_1_oe() {
         final Configuration subset = yamlConfiguration.subset("key4");
         assertEquals(Arrays.asList("col1", "col2"), subset.getProperty("key5"));
     }
 
-    @Test
+@Test
     public void testGetProperty_very_nested_properties_1_oe() {
         final Object property = yamlConfiguration.getProperty("very.nested.properties");
         assertEquals(Arrays.asList("nested1", "nested2", "nested3"), property);
     }
 
-    @Test
+@Test
     public void testObjectCreationFromReader_2_oe() {
         final File createdFile = new File(temporaryFolder.getRoot(), "data.txt");
         final String yaml = "!!java.io.FileOutputStream [" + createdFile.getAbsolutePath() + "]";
@@ -139,7 +139,7 @@ public class TestYAMLConfiguration_OE25Dev {
         assertFalse("Java object was created", createdFile.exists());
     }
 
-    @Test
+@Test
     public void testObjectCreationFromStream_2_oe() {
         final File createdFile = new File(temporaryFolder.getRoot(), "data.txt");
         final String yaml = "!!java.io.FileOutputStream [" + createdFile.getAbsolutePath() + "]";
@@ -153,7 +153,7 @@ public class TestYAMLConfiguration_OE25Dev {
         assertFalse("Java object was created", createdFile.exists());
     }
 
-    @Test
+@Test
     public void testSave_1_oe() throws IOException, ConfigurationException {
         // save the YAMLConfiguration as a String...
         final StringWriter sw = new StringWriter();
@@ -165,7 +165,7 @@ public class TestYAMLConfiguration_OE25Dev {
         assertEquals(6, parsed.entrySet().size());
     }
 
-    @Test
+@Test
     public void testSave_2_oe() throws IOException, ConfigurationException {
         // save the YAMLConfiguration as a String...
         final StringWriter sw = new StringWriter();
@@ -178,7 +178,7 @@ public class TestYAMLConfiguration_OE25Dev {
         assertEquals("value1", parsed.get("key1"));
     }
 
-    @Test
+@Test
     public void testSave_3_oe() throws IOException, ConfigurationException {
         // save the YAMLConfiguration as a String...
         final StringWriter sw = new StringWriter();
@@ -194,7 +194,7 @@ public class TestYAMLConfiguration_OE25Dev {
         assertEquals("value23", key2.get("key3"));
     }
 
-    @Test
+@Test
     public void testSave_4_oe() throws IOException, ConfigurationException {
         // save the YAMLConfiguration as a String...
         final StringWriter sw = new StringWriter();
@@ -213,7 +213,7 @@ public class TestYAMLConfiguration_OE25Dev {
         assertEquals(2, key5.size());
     }
 
-    @Test
+@Test
     public void testSave_5_oe() throws IOException, ConfigurationException {
         // save the YAMLConfiguration as a String...
         final StringWriter sw = new StringWriter();
@@ -233,7 +233,7 @@ public class TestYAMLConfiguration_OE25Dev {
         assertEquals("col1", key5.get(0));
     }
 
-    @Test
+@Test
     public void testSave_6_oe() throws IOException, ConfigurationException {
         // save the YAMLConfiguration as a String...
         final StringWriter sw = new StringWriter();

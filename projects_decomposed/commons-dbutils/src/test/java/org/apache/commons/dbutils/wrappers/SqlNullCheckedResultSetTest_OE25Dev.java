@@ -243,25 +243,25 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
      * Tests the setNullTimestamp implementation.
      */
 
-    public void testGetAsciiStream_1_oe() throws SQLException {
+public void testGetAsciiStream_1_oe() throws SQLException {
 
         assertNull(rs.getAsciiStream(1));
     }
 
-    public void testGetAsciiStream_2_oe() throws SQLException {
+public void testGetAsciiStream_2_oe() throws SQLException {
 
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetAsciiStream_3_oe() throws SQLException {
+public void testGetAsciiStream_3_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
         assertNull(rs.getAsciiStream("column"));
     }
 
-    public void testGetAsciiStream_4_oe() throws SQLException {
+public void testGetAsciiStream_4_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -269,7 +269,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetAsciiStream_5_oe() throws SQLException {
+public void testGetAsciiStream_5_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -281,7 +281,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getAsciiStream(1));
     }
 
-    public void testGetAsciiStream_6_oe() throws SQLException {
+public void testGetAsciiStream_6_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -294,7 +294,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(stream, rs.getAsciiStream(1));
     }
 
-    public void testGetAsciiStream_7_oe() throws SQLException {
+public void testGetAsciiStream_7_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -308,7 +308,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getAsciiStream("column"));
     }
 
-    public void testGetAsciiStream_8_oe() throws SQLException {
+public void testGetAsciiStream_8_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -323,25 +323,25 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(stream, rs.getAsciiStream("column"));
     }
 
-    public void testGetBigDecimal_1_oe() throws SQLException {
+public void testGetBigDecimal_1_oe() throws SQLException {
 
         assertNull(rs.getBigDecimal(1));
     }
 
-    public void testGetBigDecimal_2_oe() throws SQLException {
+public void testGetBigDecimal_2_oe() throws SQLException {
 
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetBigDecimal_3_oe() throws SQLException {
+public void testGetBigDecimal_3_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
         assertNull(rs.getBigDecimal("column"));
     }
 
-    public void testGetBigDecimal_4_oe() throws SQLException {
+public void testGetBigDecimal_4_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -349,7 +349,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetBigDecimal_5_oe() throws SQLException {
+public void testGetBigDecimal_5_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -361,7 +361,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getBigDecimal(1));
     }
 
-    public void testGetBigDecimal_6_oe() throws SQLException {
+public void testGetBigDecimal_6_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -374,7 +374,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(bd, rs.getBigDecimal(1));
     }
 
-    public void testGetBigDecimal_7_oe() throws SQLException {
+public void testGetBigDecimal_7_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -388,7 +388,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getBigDecimal("column"));
     }
 
-    public void testGetBigDecimal_8_oe() throws SQLException {
+public void testGetBigDecimal_8_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -403,25 +403,25 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(bd, rs.getBigDecimal("column"));
     }
 
-    public void testGetBinaryStream_1_oe() throws SQLException {
+public void testGetBinaryStream_1_oe() throws SQLException {
 
         assertNull(rs.getBinaryStream(1));
     }
 
-    public void testGetBinaryStream_2_oe() throws SQLException {
+public void testGetBinaryStream_2_oe() throws SQLException {
 
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetBinaryStream_3_oe() throws SQLException {
+public void testGetBinaryStream_3_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
         assertNull(rs.getBinaryStream("column"));
     }
 
-    public void testGetBinaryStream_4_oe() throws SQLException {
+public void testGetBinaryStream_4_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -429,7 +429,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetBinaryStream_5_oe() throws SQLException {
+public void testGetBinaryStream_5_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -441,7 +441,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getBinaryStream(1));
     }
 
-    public void testGetBinaryStream_6_oe() throws SQLException {
+public void testGetBinaryStream_6_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -454,7 +454,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(stream, rs.getBinaryStream(1));
     }
 
-    public void testGetBinaryStream_7_oe() throws SQLException {
+public void testGetBinaryStream_7_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -468,7 +468,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getBinaryStream("column"));
     }
 
-    public void testGetBinaryStream_8_oe() throws SQLException {
+public void testGetBinaryStream_8_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -483,25 +483,25 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(stream, rs.getBinaryStream("column"));
     }
 
-    public void testGetBlob_1_oe() throws SQLException {
+public void testGetBlob_1_oe() throws SQLException {
 
         assertNull(rs.getBlob(1));
     }
 
-    public void testGetBlob_2_oe() throws SQLException {
+public void testGetBlob_2_oe() throws SQLException {
 
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetBlob_3_oe() throws SQLException {
+public void testGetBlob_3_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
         assertNull(rs.getBlob("column"));
     }
 
-    public void testGetBlob_4_oe() throws SQLException {
+public void testGetBlob_4_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -509,7 +509,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetBlob_5_oe() throws SQLException {
+public void testGetBlob_5_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -521,7 +521,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getBlob(1));
     }
 
-    public void testGetBlob_6_oe() throws SQLException {
+public void testGetBlob_6_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -534,7 +534,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(blob, rs.getBlob(1));
     }
 
-    public void testGetBlob_7_oe() throws SQLException {
+public void testGetBlob_7_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -548,7 +548,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getBlob("column"));
     }
 
-    public void testGetBlob_8_oe() throws SQLException {
+public void testGetBlob_8_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -563,25 +563,25 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(blob, rs.getBlob("column"));
     }
 
-    public void testGetBoolean_1_oe() throws SQLException {
+public void testGetBoolean_1_oe() throws SQLException {
 
         assertEquals(false, rs.getBoolean(1));
     }
 
-    public void testGetBoolean_2_oe() throws SQLException {
+public void testGetBoolean_2_oe() throws SQLException {
 
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetBoolean_3_oe() throws SQLException {
+public void testGetBoolean_3_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
         assertEquals(false, rs.getBoolean("column"));
     }
 
-    public void testGetBoolean_4_oe() throws SQLException {
+public void testGetBoolean_4_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -589,7 +589,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetBoolean_5_oe() throws SQLException {
+public void testGetBoolean_5_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -600,7 +600,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(true, rs.getBoolean(1));
     }
 
-    public void testGetBoolean_6_oe() throws SQLException {
+public void testGetBoolean_6_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -612,25 +612,25 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(true, rs.getBoolean("column"));
     }
 
-    public void testGetByte_1_oe() throws SQLException {
+public void testGetByte_1_oe() throws SQLException {
 
         assertEquals((byte) 0, rs.getByte(1));
     }
 
-    public void testGetByte_2_oe() throws SQLException {
+public void testGetByte_2_oe() throws SQLException {
 
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetByte_3_oe() throws SQLException {
+public void testGetByte_3_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
         assertEquals((byte) 0, rs.getByte("column"));
     }
 
-    public void testGetByte_4_oe() throws SQLException {
+public void testGetByte_4_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -638,7 +638,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetByte_5_oe() throws SQLException {
+public void testGetByte_5_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -650,7 +650,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(b, rs.getByte(1));
     }
 
-    public void testGetByte_6_oe() throws SQLException {
+public void testGetByte_6_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -663,25 +663,25 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(b, rs.getByte("column"));
     }
 
-    public void testGetBytes_1_oe() throws SQLException {
+public void testGetBytes_1_oe() throws SQLException {
 
         assertNull(rs.getBytes(1));
     }
 
-    public void testGetBytes_2_oe() throws SQLException {
+public void testGetBytes_2_oe() throws SQLException {
 
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetBytes_3_oe() throws SQLException {
+public void testGetBytes_3_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
         assertNull(rs.getBytes("column"));
     }
 
-    public void testGetBytes_4_oe() throws SQLException {
+public void testGetBytes_4_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -689,7 +689,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetBytes_5_oe() throws SQLException {
+public void testGetBytes_5_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -704,7 +704,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getBytes(1));
     }
 
-    public void testGetBytes_6_oe() throws SQLException {
+public void testGetBytes_6_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -720,7 +720,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertArrayEquals(b, rs.getBytes(1));
     }
 
-    public void testGetBytes_7_oe() throws SQLException {
+public void testGetBytes_7_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -737,7 +737,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getBytes("column"));
     }
 
-    public void testGetBytes_8_oe() throws SQLException {
+public void testGetBytes_8_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -755,25 +755,25 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertArrayEquals(b, rs.getBytes("column"));
     }
 
-    public void testGetCharacterStream_1_oe() throws SQLException {
+public void testGetCharacterStream_1_oe() throws SQLException {
 
         assertNull(rs.getCharacterStream(1));
     }
 
-    public void testGetCharacterStream_2_oe() throws SQLException {
+public void testGetCharacterStream_2_oe() throws SQLException {
 
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetCharacterStream_3_oe() throws SQLException {
+public void testGetCharacterStream_3_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
         assertNull(rs.getCharacterStream("column"));
     }
 
-    public void testGetCharacterStream_4_oe() throws SQLException {
+public void testGetCharacterStream_4_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -781,7 +781,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetCharacterStream_5_oe() throws SQLException {
+public void testGetCharacterStream_5_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -793,7 +793,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getCharacterStream(1));
     }
 
-    public void testGetCharacterStream_6_oe() throws SQLException {
+public void testGetCharacterStream_6_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -806,7 +806,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(reader, rs.getCharacterStream(1));
     }
 
-    public void testGetCharacterStream_7_oe() throws SQLException {
+public void testGetCharacterStream_7_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -820,7 +820,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getCharacterStream("column"));
     }
 
-    public void testGetCharacterStream_8_oe() throws SQLException {
+public void testGetCharacterStream_8_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -835,25 +835,25 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(reader, rs.getCharacterStream("column"));
     }
 
-    public void testGetClob_1_oe() throws SQLException {
+public void testGetClob_1_oe() throws SQLException {
 
         assertNull(rs.getClob(1));
     }
 
-    public void testGetClob_2_oe() throws SQLException {
+public void testGetClob_2_oe() throws SQLException {
 
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetClob_3_oe() throws SQLException {
+public void testGetClob_3_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
         assertNull(rs.getClob("column"));
     }
 
-    public void testGetClob_4_oe() throws SQLException {
+public void testGetClob_4_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -861,7 +861,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetClob_5_oe() throws SQLException {
+public void testGetClob_5_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -873,7 +873,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getClob(1));
     }
 
-    public void testGetClob_6_oe() throws SQLException {
+public void testGetClob_6_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -886,7 +886,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(clob, rs.getClob(1));
     }
 
-    public void testGetClob_7_oe() throws SQLException {
+public void testGetClob_7_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -900,7 +900,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getClob("column"));
     }
 
-    public void testGetClob_8_oe() throws SQLException {
+public void testGetClob_8_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -915,25 +915,25 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(clob, rs.getClob("column"));
     }
 
-    public void testGetDate_1_oe() throws SQLException {
+public void testGetDate_1_oe() throws SQLException {
 
         assertNull(rs.getDate(1));
     }
 
-    public void testGetDate_2_oe() throws SQLException {
+public void testGetDate_2_oe() throws SQLException {
 
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetDate_3_oe() throws SQLException {
+public void testGetDate_3_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
         assertNull(rs.getDate("column"));
     }
 
-    public void testGetDate_4_oe() throws SQLException {
+public void testGetDate_4_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -941,7 +941,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetDate_5_oe() throws SQLException {
+public void testGetDate_5_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -950,7 +950,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNull(rs.getDate(1, Calendar.getInstance()));
     }
 
-    public void testGetDate_6_oe() throws SQLException {
+public void testGetDate_6_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -960,7 +960,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetDate_7_oe() throws SQLException {
+public void testGetDate_7_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -971,7 +971,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNull(rs.getDate("column", Calendar.getInstance()));
     }
 
-    public void testGetDate_8_oe() throws SQLException {
+public void testGetDate_8_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -983,7 +983,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetDate_9_oe() throws SQLException {
+public void testGetDate_9_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -999,7 +999,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getDate(1));
     }
 
-    public void testGetDate_10_oe() throws SQLException {
+public void testGetDate_10_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1016,7 +1016,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(date, rs.getDate(1));
     }
 
-    public void testGetDate_11_oe() throws SQLException {
+public void testGetDate_11_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1034,7 +1034,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getDate("column"));
     }
 
-    public void testGetDate_12_oe() throws SQLException {
+public void testGetDate_12_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1053,7 +1053,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(date, rs.getDate("column"));
     }
 
-    public void testGetDate_13_oe() throws SQLException {
+public void testGetDate_13_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1073,7 +1073,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getDate(1, Calendar.getInstance()));
     }
 
-    public void testGetDate_14_oe() throws SQLException {
+public void testGetDate_14_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1094,7 +1094,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(date, rs.getDate(1, Calendar.getInstance()));
     }
 
-    public void testGetDate_15_oe() throws SQLException {
+public void testGetDate_15_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1116,7 +1116,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getDate("column", Calendar.getInstance()));
     }
 
-    public void testGetDate_16_oe() throws SQLException {
+public void testGetDate_16_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1139,25 +1139,25 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(date, rs.getDate("column", Calendar.getInstance()));
     }
 
-    public void testGetDouble_1_oe() throws SQLException {
+public void testGetDouble_1_oe() throws SQLException {
 
         assertEquals(0.0, rs.getDouble(1), 0.0);
     }
 
-    public void testGetDouble_2_oe() throws SQLException {
+public void testGetDouble_2_oe() throws SQLException {
 
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetDouble_3_oe() throws SQLException {
+public void testGetDouble_3_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
         assertEquals(0.0, rs.getDouble("column"), 0.0);
     }
 
-    public void testGetDouble_4_oe() throws SQLException {
+public void testGetDouble_4_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1165,7 +1165,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetDouble_5_oe() throws SQLException {
+public void testGetDouble_5_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1177,7 +1177,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(d, rs.getDouble(1), 0.0);
     }
 
-    public void testGetDouble_6_oe() throws SQLException {
+public void testGetDouble_6_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1190,29 +1190,29 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(d, rs.getDouble("column"), 0.0);
     }
 
-    public void testGetFloat_1_oe() throws SQLException {
+public void testGetFloat_1_oe() throws SQLException {
         assertEquals(0, rs.getFloat(1), 0.0);
     }
 
-    public void testGetFloat_2_oe() throws SQLException {
+public void testGetFloat_2_oe() throws SQLException {
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetFloat_3_oe() throws SQLException {
+public void testGetFloat_3_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         assertEquals(0, rs.getFloat("column"), 0.0);
     }
 
-    public void testGetFloat_4_oe() throws SQLException {
+public void testGetFloat_4_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetFloat_5_oe() throws SQLException {
+public void testGetFloat_5_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1223,7 +1223,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(f, rs.getFloat(1), 0.0);
     }
 
-    public void testGetFloat_6_oe() throws SQLException {
+public void testGetFloat_6_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1235,29 +1235,29 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(f, rs.getFloat("column"), 0.0);
     }
 
-    public void testGetInt_1_oe() throws SQLException {
+public void testGetInt_1_oe() throws SQLException {
         assertEquals(0, rs.getInt(1));
     }
 
-    public void testGetInt_2_oe() throws SQLException {
+public void testGetInt_2_oe() throws SQLException {
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetInt_3_oe() throws SQLException {
+public void testGetInt_3_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         assertEquals(0, rs.getInt("column"));
     }
 
-    public void testGetInt_4_oe() throws SQLException {
+public void testGetInt_4_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetInt_5_oe() throws SQLException {
+public void testGetInt_5_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1268,7 +1268,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(i, rs.getInt(1));
     }
 
-    public void testGetInt_6_oe() throws SQLException {
+public void testGetInt_6_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1280,29 +1280,29 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(i, rs.getInt("column"));
     }
 
-    public void testGetLong_1_oe() throws SQLException {
+public void testGetLong_1_oe() throws SQLException {
         assertEquals(0, rs.getLong(1));
     }
 
-    public void testGetLong_2_oe() throws SQLException {
+public void testGetLong_2_oe() throws SQLException {
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetLong_3_oe() throws SQLException {
+public void testGetLong_3_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         assertEquals(0, rs.getLong("column"));
     }
 
-    public void testGetLong_4_oe() throws SQLException {
+public void testGetLong_4_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetLong_5_oe() throws SQLException {
+public void testGetLong_5_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1313,7 +1313,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(l, rs.getLong(1));
     }
 
-    public void testGetLong_6_oe() throws SQLException {
+public void testGetLong_6_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1325,25 +1325,25 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(l, rs.getLong("column"));
     }
 
-    public void testGetObject_1_oe() throws SQLException {
+public void testGetObject_1_oe() throws SQLException {
 
         assertNull(rs.getObject(1));
     }
 
-    public void testGetObject_2_oe() throws SQLException {
+public void testGetObject_2_oe() throws SQLException {
 
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetObject_3_oe() throws SQLException {
+public void testGetObject_3_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
         assertNull(rs.getObject("column"));
     }
 
-    public void testGetObject_4_oe() throws SQLException {
+public void testGetObject_4_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1351,7 +1351,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetObject_5_oe() throws SQLException {
+public void testGetObject_5_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1360,7 +1360,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNull(rs.getObject(1, (Map<String, Class<?>>) null));
     }
 
-    public void testGetObject_6_oe() throws SQLException {
+public void testGetObject_6_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1370,7 +1370,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetObject_7_oe() throws SQLException {
+public void testGetObject_7_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1381,7 +1381,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNull(rs.getObject("column", (Map<String, Class<?>>) null));
     }
 
-    public void testGetObject_8_oe() throws SQLException {
+public void testGetObject_8_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1393,7 +1393,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetObject_9_oe() throws SQLException {
+public void testGetObject_9_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1409,7 +1409,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getObject(1));
     }
 
-    public void testGetObject_10_oe() throws SQLException {
+public void testGetObject_10_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1426,7 +1426,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(o, rs.getObject(1));
     }
 
-    public void testGetObject_11_oe() throws SQLException {
+public void testGetObject_11_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1444,7 +1444,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getObject("column"));
     }
 
-    public void testGetObject_12_oe() throws SQLException {
+public void testGetObject_12_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1463,7 +1463,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(o, rs.getObject("column"));
     }
 
-    public void testGetObject_13_oe() throws SQLException {
+public void testGetObject_13_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1483,7 +1483,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getObject(1, (Map<String, Class<?>>) null));
     }
 
-    public void testGetObject_14_oe() throws SQLException {
+public void testGetObject_14_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1504,7 +1504,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(o, rs.getObject(1, (Map<String, Class<?>>) null));
     }
 
-    public void testGetObject_15_oe() throws SQLException {
+public void testGetObject_15_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1526,7 +1526,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getObject("column", (Map<String, Class<?>>) null));
     }
 
-    public void testGetObject_16_oe() throws SQLException {
+public void testGetObject_16_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1549,25 +1549,25 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(o, rs.getObject("column", (Map<String, Class<?>>) null));
     }
 
-    public void testGetRef_1_oe() throws SQLException {
+public void testGetRef_1_oe() throws SQLException {
 
         assertNull(rs.getRef(1));
     }
 
-    public void testGetRef_2_oe() throws SQLException {
+public void testGetRef_2_oe() throws SQLException {
 
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetRef_3_oe() throws SQLException {
+public void testGetRef_3_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
         assertNull(rs.getRef("column"));
     }
 
-    public void testGetRef_4_oe() throws SQLException {
+public void testGetRef_4_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1575,7 +1575,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetRef_5_oe() throws SQLException {
+public void testGetRef_5_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1587,7 +1587,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getRef(1));
     }
 
-    public void testGetRef_6_oe() throws SQLException {
+public void testGetRef_6_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1600,7 +1600,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(ref, rs.getRef(1));
     }
 
-    public void testGetRef_7_oe() throws SQLException {
+public void testGetRef_7_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1614,7 +1614,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getRef("column"));
     }
 
-    public void testGetRef_8_oe() throws SQLException {
+public void testGetRef_8_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1629,25 +1629,25 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(ref, rs.getRef("column"));
     }
 
-    public void testGetShort_1_oe() throws SQLException {
+public void testGetShort_1_oe() throws SQLException {
 
         assertEquals((short) 0, rs.getShort(1));
     }
 
-    public void testGetShort_2_oe() throws SQLException {
+public void testGetShort_2_oe() throws SQLException {
 
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetShort_3_oe() throws SQLException {
+public void testGetShort_3_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
         assertEquals((short) 0, rs.getShort("column"));
     }
 
-    public void testGetShort_4_oe() throws SQLException {
+public void testGetShort_4_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1655,7 +1655,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetShort_5_oe() throws SQLException {
+public void testGetShort_5_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1667,7 +1667,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(s, rs.getShort(1));
     }
 
-    public void testGetShort_6_oe() throws SQLException {
+public void testGetShort_6_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1680,29 +1680,29 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(s, rs.getShort("column"));
     }
 
-    public void testGetString_1_oe() throws SQLException {
+public void testGetString_1_oe() throws SQLException {
         assertEquals(null, rs.getString(1));
     }
 
-    public void testGetString_2_oe() throws SQLException {
+public void testGetString_2_oe() throws SQLException {
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetString_3_oe() throws SQLException {
+public void testGetString_3_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         assertEquals(null, rs.getString("column"));
     }
 
-    public void testGetString_4_oe() throws SQLException {
+public void testGetString_4_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetString_5_oe() throws SQLException {
+public void testGetString_5_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1713,7 +1713,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(s, rs.getString(1));
     }
 
-    public void testGetString_6_oe() throws SQLException {
+public void testGetString_6_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1725,25 +1725,25 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(s, rs.getString("column"));
     }
 
-    public void testGetTime_1_oe() throws SQLException {
+public void testGetTime_1_oe() throws SQLException {
 
         assertNull(rs.getTime(1));
     }
 
-    public void testGetTime_2_oe() throws SQLException {
+public void testGetTime_2_oe() throws SQLException {
 
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetTime_3_oe() throws SQLException {
+public void testGetTime_3_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
         assertNull(rs.getTime("column"));
     }
 
-    public void testGetTime_4_oe() throws SQLException {
+public void testGetTime_4_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1751,7 +1751,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetTime_5_oe() throws SQLException {
+public void testGetTime_5_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1760,7 +1760,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNull(rs.getTime(1, Calendar.getInstance()));
     }
 
-    public void testGetTime_6_oe() throws SQLException {
+public void testGetTime_6_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1770,7 +1770,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetTime_7_oe() throws SQLException {
+public void testGetTime_7_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1781,7 +1781,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNull(rs.getTime("column", Calendar.getInstance()));
     }
 
-    public void testGetTime_8_oe() throws SQLException {
+public void testGetTime_8_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1793,7 +1793,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetTime_9_oe() throws SQLException {
+public void testGetTime_9_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1809,7 +1809,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getTime(1));
     }
 
-    public void testGetTime_10_oe() throws SQLException {
+public void testGetTime_10_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1826,7 +1826,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(time, rs.getTime(1));
     }
 
-    public void testGetTime_11_oe() throws SQLException {
+public void testGetTime_11_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1844,7 +1844,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getTime("column"));
     }
 
-    public void testGetTime_12_oe() throws SQLException {
+public void testGetTime_12_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1863,7 +1863,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(time, rs.getTime("column"));
     }
 
-    public void testGetTime_13_oe() throws SQLException {
+public void testGetTime_13_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1883,7 +1883,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getTime(1, Calendar.getInstance()));
     }
 
-    public void testGetTime_14_oe() throws SQLException {
+public void testGetTime_14_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1904,7 +1904,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(time, rs.getTime(1, Calendar.getInstance()));
     }
 
-    public void testGetTime_15_oe() throws SQLException {
+public void testGetTime_15_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1926,7 +1926,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getTime("column", Calendar.getInstance()));
     }
 
-    public void testGetTime_16_oe() throws SQLException {
+public void testGetTime_16_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1949,25 +1949,25 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(time, rs.getTime("column", Calendar.getInstance()));
     }
 
-    public void testGetTimestamp_1_oe() throws SQLException {
+public void testGetTimestamp_1_oe() throws SQLException {
 
         assertNull(rs.getTimestamp(1));
     }
 
-    public void testGetTimestamp_2_oe() throws SQLException {
+public void testGetTimestamp_2_oe() throws SQLException {
 
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testGetTimestamp_3_oe() throws SQLException {
+public void testGetTimestamp_3_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
         assertNull(rs.getTimestamp("column"));
     }
 
-    public void testGetTimestamp_4_oe() throws SQLException {
+public void testGetTimestamp_4_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1975,7 +1975,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetTimestamp_5_oe() throws SQLException {
+public void testGetTimestamp_5_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1984,7 +1984,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNull(rs.getTimestamp(1, Calendar.getInstance()));
     }
 
-    public void testGetTimestamp_6_oe() throws SQLException {
+public void testGetTimestamp_6_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -1994,7 +1994,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetTimestamp_7_oe() throws SQLException {
+public void testGetTimestamp_7_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -2005,7 +2005,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNull(rs.getTimestamp("column", Calendar.getInstance()));
     }
 
-    public void testGetTimestamp_8_oe() throws SQLException {
+public void testGetTimestamp_8_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -2017,7 +2017,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testGetTimestamp_9_oe() throws SQLException {
+public void testGetTimestamp_9_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -2033,7 +2033,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getTimestamp(1));
     }
 
-    public void testGetTimestamp_10_oe() throws SQLException {
+public void testGetTimestamp_10_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -2050,7 +2050,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(ts, rs.getTimestamp(1));
     }
 
-    public void testGetTimestamp_11_oe() throws SQLException {
+public void testGetTimestamp_11_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -2068,7 +2068,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getTimestamp("column"));
     }
 
-    public void testGetTimestamp_12_oe() throws SQLException {
+public void testGetTimestamp_12_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -2087,7 +2087,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(ts, rs.getTimestamp("column"));
     }
 
-    public void testGetTimestamp_13_oe() throws SQLException {
+public void testGetTimestamp_13_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -2107,7 +2107,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getTimestamp(1, Calendar.getInstance()));
     }
 
-    public void testGetTimestamp_14_oe() throws SQLException {
+public void testGetTimestamp_14_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -2128,7 +2128,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(ts, rs.getTimestamp(1, Calendar.getInstance()));
     }
 
-    public void testGetTimestamp_15_oe() throws SQLException {
+public void testGetTimestamp_15_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -2150,7 +2150,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getTimestamp("column", Calendar.getInstance()));
     }
 
-    public void testGetTimestamp_16_oe() throws SQLException {
+public void testGetTimestamp_16_oe() throws SQLException {
 
         // removed other assertion
         // removed other assertion
@@ -2173,7 +2173,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(ts, rs.getTimestamp("column", Calendar.getInstance()));
     }
 
-    public void testURL_1_oe() throws SQLException, MalformedURLException,
+public void testURL_1_oe() throws SQLException, MalformedURLException,
             IllegalAccessException, IllegalArgumentException,
             java.lang.reflect.InvocationTargetException
     {
@@ -2194,7 +2194,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testURL_2_oe() throws SQLException, MalformedURLException,
+public void testURL_2_oe() throws SQLException, MalformedURLException,
             IllegalAccessException, IllegalArgumentException,
             java.lang.reflect.InvocationTargetException
     {
@@ -2216,7 +2216,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testURL_3_oe() throws SQLException, MalformedURLException,
+public void testURL_3_oe() throws SQLException, MalformedURLException,
             IllegalAccessException, IllegalArgumentException,
             java.lang.reflect.InvocationTargetException
     {
@@ -2239,7 +2239,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testURL_4_oe() throws SQLException, MalformedURLException,
+public void testURL_4_oe() throws SQLException, MalformedURLException,
             IllegalAccessException, IllegalArgumentException,
             java.lang.reflect.InvocationTargetException
     {
@@ -2263,7 +2263,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testURL_5_oe() throws SQLException, MalformedURLException,
+public void testURL_5_oe() throws SQLException, MalformedURLException,
             IllegalAccessException, IllegalArgumentException,
             java.lang.reflect.InvocationTargetException
     {
@@ -2291,7 +2291,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testURL_6_oe() throws SQLException, MalformedURLException,
+public void testURL_6_oe() throws SQLException, MalformedURLException,
             IllegalAccessException, IllegalArgumentException,
             java.lang.reflect.InvocationTargetException
     {
@@ -2320,12 +2320,12 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testSetNullAsciiStream_1_oe() throws SQLException {
+public void testSetNullAsciiStream_1_oe() throws SQLException {
 
         assertNull(rs2.getNullAsciiStream());
     }
 
-    public void testSetNullAsciiStream_2_oe() throws SQLException {
+public void testSetNullAsciiStream_2_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2334,7 +2334,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getAsciiStream(1));
     }
 
-    public void testSetNullAsciiStream_3_oe() throws SQLException {
+public void testSetNullAsciiStream_3_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2344,7 +2344,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(stream, rs.getAsciiStream(1));
     }
 
-    public void testSetNullAsciiStream_4_oe() throws SQLException {
+public void testSetNullAsciiStream_4_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2355,7 +2355,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getAsciiStream("column"));
     }
 
-    public void testSetNullAsciiStream_5_oe() throws SQLException {
+public void testSetNullAsciiStream_5_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2367,12 +2367,12 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(stream, rs.getAsciiStream("column"));
     }
 
-    public void testSetNullBigDecimal_1_oe() throws SQLException {
+public void testSetNullBigDecimal_1_oe() throws SQLException {
 
         assertNull(rs2.getNullBigDecimal());
     }
 
-    public void testSetNullBigDecimal_2_oe() throws SQLException {
+public void testSetNullBigDecimal_2_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2381,7 +2381,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getBigDecimal(1));
     }
 
-    public void testSetNullBigDecimal_3_oe() throws SQLException {
+public void testSetNullBigDecimal_3_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2391,7 +2391,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(bd, rs.getBigDecimal(1));
     }
 
-    public void testSetNullBigDecimal_4_oe() throws SQLException {
+public void testSetNullBigDecimal_4_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2402,7 +2402,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getBigDecimal("column"));
     }
 
-    public void testSetNullBigDecimal_5_oe() throws SQLException {
+public void testSetNullBigDecimal_5_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2414,12 +2414,12 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(bd, rs.getBigDecimal("column"));
     }
 
-    public void testSetNullBinaryStream_1_oe() throws SQLException {
+public void testSetNullBinaryStream_1_oe() throws SQLException {
 
         assertNull(rs2.getNullBinaryStream());
     }
 
-    public void testSetNullBinaryStream_2_oe() throws SQLException {
+public void testSetNullBinaryStream_2_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2428,7 +2428,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getBinaryStream(1));
     }
 
-    public void testSetNullBinaryStream_3_oe() throws SQLException {
+public void testSetNullBinaryStream_3_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2438,7 +2438,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(stream, rs.getBinaryStream(1));
     }
 
-    public void testSetNullBinaryStream_4_oe() throws SQLException {
+public void testSetNullBinaryStream_4_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2449,7 +2449,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getBinaryStream("column"));
     }
 
-    public void testSetNullBinaryStream_5_oe() throws SQLException {
+public void testSetNullBinaryStream_5_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2461,12 +2461,12 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(stream, rs.getBinaryStream("column"));
     }
 
-    public void testSetNullBlob_1_oe() throws SQLException {
+public void testSetNullBlob_1_oe() throws SQLException {
 
         assertNull(rs2.getNullBlob());
     }
 
-    public void testSetNullBlob_2_oe() throws SQLException {
+public void testSetNullBlob_2_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2475,7 +2475,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getBlob(1));
     }
 
-    public void testSetNullBlob_3_oe() throws SQLException {
+public void testSetNullBlob_3_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2485,7 +2485,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(blob, rs.getBlob(1));
     }
 
-    public void testSetNullBlob_4_oe() throws SQLException {
+public void testSetNullBlob_4_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2496,7 +2496,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getBlob("column"));
     }
 
-    public void testSetNullBlob_5_oe() throws SQLException {
+public void testSetNullBlob_5_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2508,12 +2508,12 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(blob, rs.getBlob("column"));
     }
 
-    public void testSetNullBoolean_1_oe() throws SQLException {
+public void testSetNullBoolean_1_oe() throws SQLException {
 
         assertEquals(false, rs2.getNullBoolean());
     }
 
-    public void testSetNullBoolean_2_oe() throws SQLException {
+public void testSetNullBoolean_2_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2521,7 +2521,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(true, rs.getBoolean(1));
     }
 
-    public void testSetNullBoolean_3_oe() throws SQLException {
+public void testSetNullBoolean_3_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2530,12 +2530,12 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(true, rs.getBoolean("column"));
     }
 
-    public void testSetNullByte_1_oe() throws SQLException {
+public void testSetNullByte_1_oe() throws SQLException {
 
         assertEquals((byte) 0, rs2.getNullByte());
     }
 
-    public void testSetNullByte_2_oe() throws SQLException {
+public void testSetNullByte_2_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2544,7 +2544,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(b, rs.getByte(1));
     }
 
-    public void testSetNullByte_3_oe() throws SQLException {
+public void testSetNullByte_3_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2554,12 +2554,12 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(b, rs.getByte("column"));
     }
 
-    public void testSetNullBytes_1_oe() throws SQLException {
+public void testSetNullBytes_1_oe() throws SQLException {
 
         assertNull(rs2.getNullBytes());
     }
 
-    public void testSetNullBytes_2_oe() throws SQLException {
+public void testSetNullBytes_2_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2571,7 +2571,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getBytes(1));
     }
 
-    public void testSetNullBytes_3_oe() throws SQLException {
+public void testSetNullBytes_3_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2584,7 +2584,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertArrayEquals(b, rs.getBytes(1));
     }
 
-    public void testSetNullBytes_4_oe() throws SQLException {
+public void testSetNullBytes_4_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2598,7 +2598,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getBytes("column"));
     }
 
-    public void testSetNullBytes_5_oe() throws SQLException {
+public void testSetNullBytes_5_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2613,12 +2613,12 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertArrayEquals(b, rs.getBytes("column"));
     }
 
-    public void testSetNullCharacterStream_1_oe() throws SQLException {
+public void testSetNullCharacterStream_1_oe() throws SQLException {
 
         assertNull(rs2.getNullCharacterStream());
     }
 
-    public void testSetNullCharacterStream_2_oe() throws SQLException {
+public void testSetNullCharacterStream_2_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2627,7 +2627,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getCharacterStream(1));
     }
 
-    public void testSetNullCharacterStream_3_oe() throws SQLException {
+public void testSetNullCharacterStream_3_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2637,7 +2637,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(reader, rs.getCharacterStream(1));
     }
 
-    public void testSetNullCharacterStream_4_oe() throws SQLException {
+public void testSetNullCharacterStream_4_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2648,7 +2648,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getCharacterStream("column"));
     }
 
-    public void testSetNullCharacterStream_5_oe() throws SQLException {
+public void testSetNullCharacterStream_5_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2660,12 +2660,12 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(reader, rs.getCharacterStream("column"));
     }
 
-    public void testSetNullClob_1_oe() throws SQLException {
+public void testSetNullClob_1_oe() throws SQLException {
 
         assertNull(rs2.getNullClob());
     }
 
-    public void testSetNullClob_2_oe() throws SQLException {
+public void testSetNullClob_2_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2674,7 +2674,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getClob(1));
     }
 
-    public void testSetNullClob_3_oe() throws SQLException {
+public void testSetNullClob_3_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2684,7 +2684,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(clob, rs.getClob(1));
     }
 
-    public void testSetNullClob_4_oe() throws SQLException {
+public void testSetNullClob_4_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2695,7 +2695,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getClob("column"));
     }
 
-    public void testSetNullClob_5_oe() throws SQLException {
+public void testSetNullClob_5_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2707,12 +2707,12 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(clob, rs.getClob("column"));
     }
 
-    public void testSetNullDate_1_oe() throws SQLException {
+public void testSetNullDate_1_oe() throws SQLException {
 
         assertNull(rs2.getNullDate());
     }
 
-    public void testSetNullDate_2_oe() throws SQLException {
+public void testSetNullDate_2_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2721,7 +2721,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getDate(1));
     }
 
-    public void testSetNullDate_3_oe() throws SQLException {
+public void testSetNullDate_3_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2731,7 +2731,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(date, rs.getDate(1));
     }
 
-    public void testSetNullDate_4_oe() throws SQLException {
+public void testSetNullDate_4_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2742,7 +2742,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getDate("column"));
     }
 
-    public void testSetNullDate_5_oe() throws SQLException {
+public void testSetNullDate_5_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2754,7 +2754,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(date, rs.getDate("column"));
     }
 
-    public void testSetNullDate_6_oe() throws SQLException {
+public void testSetNullDate_6_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2767,7 +2767,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getDate(1, Calendar.getInstance()));
     }
 
-    public void testSetNullDate_7_oe() throws SQLException {
+public void testSetNullDate_7_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2781,7 +2781,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(date, rs.getDate(1, Calendar.getInstance()));
     }
 
-    public void testSetNullDate_8_oe() throws SQLException {
+public void testSetNullDate_8_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2796,7 +2796,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getDate("column", Calendar.getInstance()));
     }
 
-    public void testSetNullDate_9_oe() throws SQLException {
+public void testSetNullDate_9_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -2812,11 +2812,11 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(date, rs.getDate("column", Calendar.getInstance()));
     }
 
-    public void testSetNullDouble_1_oe() throws SQLException {
+public void testSetNullDouble_1_oe() throws SQLException {
         assertEquals(0.0, rs2.getNullDouble(), 0.0);
     }
 
-    public void testSetNullDouble_2_oe() throws SQLException {
+public void testSetNullDouble_2_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         double d = 10.0;
@@ -2824,7 +2824,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(d, rs.getDouble(1), 0.0);
     }
 
-    public void testSetNullDouble_3_oe() throws SQLException {
+public void testSetNullDouble_3_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         double d = 10.0;
@@ -2833,11 +2833,11 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(d, rs.getDouble("column"), 0.0);
     }
 
-    public void testSetNullFloat_1_oe() throws SQLException {
+public void testSetNullFloat_1_oe() throws SQLException {
         assertEquals((float) 0.0, rs2.getNullFloat(), 0.0);
     }
 
-    public void testSetNullFloat_2_oe() throws SQLException {
+public void testSetNullFloat_2_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         float f = (float) 10.0;
@@ -2845,7 +2845,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(f, rs.getFloat(1), 0.0);
     }
 
-    public void testSetNullFloat_3_oe() throws SQLException {
+public void testSetNullFloat_3_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         float f = (float) 10.0;
@@ -2854,29 +2854,29 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(f, rs.getFloat("column"), 0.0);
     }
 
-    public void testSetNullInt_1_oe() throws SQLException {
+public void testSetNullInt_1_oe() throws SQLException {
         assertEquals(0, rs2.getNullInt());
     }
 
-    public void testSetNullInt_2_oe() throws SQLException {
+public void testSetNullInt_2_oe() throws SQLException {
         // removed other assertion
         assertEquals(0, rs.getInt(1));
     }
 
-    public void testSetNullInt_3_oe() throws SQLException {
+public void testSetNullInt_3_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         assertTrue(rs.wasNull());
     }
 
-    public void testSetNullInt_4_oe() throws SQLException {
+public void testSetNullInt_4_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(0, rs.getInt("column"));
     }
 
-    public void testSetNullInt_5_oe() throws SQLException {
+public void testSetNullInt_5_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2884,7 +2884,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertTrue(rs.wasNull());
     }
 
-    public void testSetNullInt_6_oe() throws SQLException {
+public void testSetNullInt_6_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2896,7 +2896,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(i, rs.getInt(1));
     }
 
-    public void testSetNullInt_7_oe() throws SQLException {
+public void testSetNullInt_7_oe() throws SQLException {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2909,11 +2909,11 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(i, rs.getInt("column"));
     }
 
-    public void testSetNullLong_1_oe() throws SQLException {
+public void testSetNullLong_1_oe() throws SQLException {
         assertEquals(0, rs2.getNullLong());
     }
 
-    public void testSetNullLong_2_oe() throws SQLException {
+public void testSetNullLong_2_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         long l = 10;
@@ -2921,7 +2921,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(l, rs.getLong(1));
     }
 
-    public void testSetNullLong_3_oe() throws SQLException {
+public void testSetNullLong_3_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         long l = 10;
@@ -2930,11 +2930,11 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(l, rs.getLong("column"));
     }
 
-    public void testSetNullObject_1_oe() throws SQLException {
+public void testSetNullObject_1_oe() throws SQLException {
         assertNull(rs2.getNullObject());
     }
 
-    public void testSetNullObject_2_oe() throws SQLException {
+public void testSetNullObject_2_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Object o = new Object();
@@ -2942,7 +2942,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getObject(1));
     }
 
-    public void testSetNullObject_3_oe() throws SQLException {
+public void testSetNullObject_3_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Object o = new Object();
@@ -2951,7 +2951,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(o, rs.getObject(1));
     }
 
-    public void testSetNullObject_4_oe() throws SQLException {
+public void testSetNullObject_4_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Object o = new Object();
@@ -2961,7 +2961,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getObject("column"));
     }
 
-    public void testSetNullObject_5_oe() throws SQLException {
+public void testSetNullObject_5_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Object o = new Object();
@@ -2972,7 +2972,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(o, rs.getObject("column"));
     }
 
-    public void testSetNullObject_6_oe() throws SQLException {
+public void testSetNullObject_6_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Object o = new Object();
@@ -2984,7 +2984,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getObject(1, (Map<String, Class<?>>) null));
     }
 
-    public void testSetNullObject_7_oe() throws SQLException {
+public void testSetNullObject_7_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Object o = new Object();
@@ -2997,7 +2997,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(o, rs.getObject(1, (Map<String, Class<?>>) null));
     }
 
-    public void testSetNullObject_8_oe() throws SQLException {
+public void testSetNullObject_8_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Object o = new Object();
@@ -3011,7 +3011,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getObject("column", (Map<String, Class<?>>) null));
     }
 
-    public void testSetNullObject_9_oe() throws SQLException {
+public void testSetNullObject_9_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Object o = new Object();
@@ -3026,12 +3026,12 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(o, rs.getObject("column", (Map<String, Class<?>>) null));
     }
 
-    public void testSetNullShort_1_oe() throws SQLException {
+public void testSetNullShort_1_oe() throws SQLException {
 
         assertEquals((short) 0, rs2.getNullShort());
     }
 
-    public void testSetNullShort_2_oe() throws SQLException {
+public void testSetNullShort_2_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -3040,7 +3040,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(s, rs.getShort(1));
     }
 
-    public void testSetNullShort_3_oe() throws SQLException {
+public void testSetNullShort_3_oe() throws SQLException {
 
         // removed other assertion
         // Set what gets returned to something other than the default
@@ -3050,11 +3050,11 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(s, rs.getShort("column"));
     }
 
-    public void testSetNullString_1_oe() throws SQLException {
+public void testSetNullString_1_oe() throws SQLException {
         assertEquals(null, rs2.getNullString());
     }
 
-    public void testSetNullString_2_oe() throws SQLException {
+public void testSetNullString_2_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         String s = "hello, world";
@@ -3062,7 +3062,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(s, rs.getString(1));
     }
 
-    public void testSetNullString_3_oe() throws SQLException {
+public void testSetNullString_3_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         String s = "hello, world";
@@ -3071,11 +3071,11 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(s, rs.getString("column"));
     }
 
-    public void testSetNullRef_1_oe() throws SQLException {
+public void testSetNullRef_1_oe() throws SQLException {
         assertNull(rs2.getNullRef());
     }
 
-    public void testSetNullRef_2_oe() throws SQLException {
+public void testSetNullRef_2_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Ref ref = new SqlNullCheckedResultSetMockRef();
@@ -3083,7 +3083,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getRef(1));
     }
 
-    public void testSetNullRef_3_oe() throws SQLException {
+public void testSetNullRef_3_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Ref ref = new SqlNullCheckedResultSetMockRef();
@@ -3092,7 +3092,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(ref, rs.getRef(1));
     }
 
-    public void testSetNullRef_4_oe() throws SQLException {
+public void testSetNullRef_4_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Ref ref = new SqlNullCheckedResultSetMockRef();
@@ -3102,7 +3102,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getRef("column"));
     }
 
-    public void testSetNullRef_5_oe() throws SQLException {
+public void testSetNullRef_5_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Ref ref = new SqlNullCheckedResultSetMockRef();
@@ -3113,11 +3113,11 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(ref, rs.getRef("column"));
     }
 
-    public void testSetNullTime_1_oe() throws SQLException {
+public void testSetNullTime_1_oe() throws SQLException {
         assertEquals(null, rs2.getNullTime());
     }
 
-    public void testSetNullTime_2_oe() throws SQLException {
+public void testSetNullTime_2_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Time time = new Time(new java.util.Date().getTime());
@@ -3125,7 +3125,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getTime(1));
     }
 
-    public void testSetNullTime_3_oe() throws SQLException {
+public void testSetNullTime_3_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Time time = new Time(new java.util.Date().getTime());
@@ -3134,7 +3134,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(time, rs.getTime(1));
     }
 
-    public void testSetNullTime_4_oe() throws SQLException {
+public void testSetNullTime_4_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Time time = new Time(new java.util.Date().getTime());
@@ -3144,7 +3144,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getTime("column"));
     }
 
-    public void testSetNullTime_5_oe() throws SQLException {
+public void testSetNullTime_5_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Time time = new Time(new java.util.Date().getTime());
@@ -3155,7 +3155,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(time, rs.getTime("column"));
     }
 
-    public void testSetNullTime_6_oe() throws SQLException {
+public void testSetNullTime_6_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Time time = new Time(new java.util.Date().getTime());
@@ -3167,7 +3167,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getTime(1, Calendar.getInstance()));
     }
 
-    public void testSetNullTime_7_oe() throws SQLException {
+public void testSetNullTime_7_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Time time = new Time(new java.util.Date().getTime());
@@ -3180,7 +3180,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(time, rs.getTime(1, Calendar.getInstance()));
     }
 
-    public void testSetNullTime_8_oe() throws SQLException {
+public void testSetNullTime_8_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Time time = new Time(new java.util.Date().getTime());
@@ -3194,7 +3194,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getTime("column", Calendar.getInstance()));
     }
 
-    public void testSetNullTime_9_oe() throws SQLException {
+public void testSetNullTime_9_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Time time = new Time(new java.util.Date().getTime());
@@ -3209,11 +3209,11 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(time, rs.getTime("column", Calendar.getInstance()));
     }
 
-    public void testSetNullTimestamp_1_oe() throws SQLException {
+public void testSetNullTimestamp_1_oe() throws SQLException {
         assertEquals(null, rs2.getNullTimestamp());
     }
 
-    public void testSetNullTimestamp_2_oe() throws SQLException {
+public void testSetNullTimestamp_2_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Timestamp ts = new Timestamp(new java.util.Date().getTime());
@@ -3221,7 +3221,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getTimestamp(1));
     }
 
-    public void testSetNullTimestamp_3_oe() throws SQLException {
+public void testSetNullTimestamp_3_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Timestamp ts = new Timestamp(new java.util.Date().getTime());
@@ -3230,7 +3230,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(ts, rs.getTimestamp(1));
     }
 
-    public void testSetNullTimestamp_4_oe() throws SQLException {
+public void testSetNullTimestamp_4_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Timestamp ts = new Timestamp(new java.util.Date().getTime());
@@ -3240,7 +3240,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getTimestamp("column"));
     }
 
-    public void testSetNullTimestamp_5_oe() throws SQLException {
+public void testSetNullTimestamp_5_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Timestamp ts = new Timestamp(new java.util.Date().getTime());
@@ -3251,7 +3251,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(ts, rs.getTimestamp("column"));
     }
 
-    public void testSetNullTimestamp_6_oe() throws SQLException {
+public void testSetNullTimestamp_6_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Timestamp ts = new Timestamp(new java.util.Date().getTime());
@@ -3263,7 +3263,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getTimestamp(1, Calendar.getInstance()));
     }
 
-    public void testSetNullTimestamp_7_oe() throws SQLException {
+public void testSetNullTimestamp_7_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Timestamp ts = new Timestamp(new java.util.Date().getTime());
@@ -3276,7 +3276,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertEquals(ts, rs.getTimestamp(1, Calendar.getInstance()));
     }
 
-    public void testSetNullTimestamp_8_oe() throws SQLException {
+public void testSetNullTimestamp_8_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Timestamp ts = new Timestamp(new java.util.Date().getTime());
@@ -3290,7 +3290,7 @@ public class SqlNullCheckedResultSetTest_OE25Dev extends BaseTestCase {
         assertNotNull(rs.getTimestamp("column", Calendar.getInstance()));
     }
 
-    public void testSetNullTimestamp_9_oe() throws SQLException {
+public void testSetNullTimestamp_9_oe() throws SQLException {
         // removed other assertion
         // Set what gets returned to something other than the default
         Timestamp ts = new Timestamp(new java.util.Date().getTime());

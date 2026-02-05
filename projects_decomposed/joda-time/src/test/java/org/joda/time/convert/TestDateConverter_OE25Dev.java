@@ -75,25 +75,25 @@ public class TestDateConverter_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testSingleton_1_oe() throws Exception {
+public void testSingleton_1_oe() throws Exception {
         Class cls = DateConverter.class;
         assertEquals(false,Modifier.isPublic(cls.getModifiers()));
     }
 
-    public void testSingleton_2_oe() throws Exception {
+public void testSingleton_2_oe() throws Exception {
         Class cls = DateConverter.class;
         // removed other assertion
         assertEquals(false,Modifier.isProtected(cls.getModifiers()));
     }
 
-    public void testSingleton_3_oe() throws Exception {
+public void testSingleton_3_oe() throws Exception {
         Class cls = DateConverter.class;
         // removed other assertion
         // removed other assertion
         assertEquals(false,Modifier.isPrivate(cls.getModifiers()));
     }
 
-    public void testSingleton_4_oe() throws Exception {
+public void testSingleton_4_oe() throws Exception {
         Class cls = DateConverter.class;
         // removed other assertion
         // removed other assertion
@@ -103,7 +103,7 @@ public class TestDateConverter_OE25Dev extends TestCase {
         assertEquals(1,cls.getDeclaredConstructors().length);
     }
 
-    public void testSingleton_5_oe() throws Exception {
+public void testSingleton_5_oe() throws Exception {
         Class cls = DateConverter.class;
         // removed other assertion
         // removed other assertion
@@ -114,7 +114,7 @@ public class TestDateConverter_OE25Dev extends TestCase {
         assertEquals(true,Modifier.isProtected(con.getModifiers()));
     }
 
-    public void testSingleton_6_oe() throws Exception {
+public void testSingleton_6_oe() throws Exception {
         Class cls = DateConverter.class;
         // removed other assertion
         // removed other assertion
@@ -128,7 +128,7 @@ public class TestDateConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPublic(fld.getModifiers()));
     }
 
-    public void testSingleton_7_oe() throws Exception {
+public void testSingleton_7_oe() throws Exception {
         Class cls = DateConverter.class;
         // removed other assertion
         // removed other assertion
@@ -143,7 +143,7 @@ public class TestDateConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isProtected(fld.getModifiers()));
     }
 
-    public void testSingleton_8_oe() throws Exception {
+public void testSingleton_8_oe() throws Exception {
         Class cls = DateConverter.class;
         // removed other assertion
         // removed other assertion
@@ -159,49 +159,49 @@ public class TestDateConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPrivate(fld.getModifiers()));
     }
 
-    public void testSupportedType_1_oe() throws Exception {
+public void testSupportedType_1_oe() throws Exception {
         assertEquals(Date.class,DateConverter.INSTANCE.getSupportedType());
     }
 
-    public void testGetInstantMillis_Object_Chronology_1_oe() throws Exception {
+public void testGetInstantMillis_Object_Chronology_1_oe() throws Exception {
         Date date = new Date(123L);
         long millis = DateConverter.INSTANCE.getInstantMillis(date, JULIAN);
         assertEquals(123L,millis);
     }
 
-    public void testGetInstantMillis_Object_Chronology_2_oe() throws Exception {
+public void testGetInstantMillis_Object_Chronology_2_oe() throws Exception {
         Date date = new Date(123L);
         long millis = DateConverter.INSTANCE.getInstantMillis(date, JULIAN);
         // removed other assertion
         assertEquals(123L,DateConverter.INSTANCE.getInstantMillis(date,(Chronology)null));
     }
 
-    public void testGetChronology_Object_Zone_1_oe() throws Exception {
+public void testGetChronology_Object_Zone_1_oe() throws Exception {
         assertEquals(ISO_PARIS,DateConverter.INSTANCE.getChronology(new Date(123L),PARIS));
     }
 
-    public void testGetChronology_Object_Zone_2_oe() throws Exception {
+public void testGetChronology_Object_Zone_2_oe() throws Exception {
         // removed other assertion
         assertEquals(ISO,DateConverter.INSTANCE.getChronology(new Date(123L),(DateTimeZone)null));
     }
 
-    public void testGetChronology_Object_Chronology_1_oe() throws Exception {
+public void testGetChronology_Object_Chronology_1_oe() throws Exception {
         assertEquals(JULIAN,DateConverter.INSTANCE.getChronology(new Date(123L),JULIAN));
     }
 
-    public void testGetChronology_Object_Chronology_2_oe() throws Exception {
+public void testGetChronology_Object_Chronology_2_oe() throws Exception {
         // removed other assertion
         assertEquals(ISO,DateConverter.INSTANCE.getChronology(new Date(123L),(Chronology)null));
     }
 
-    public void testGetPartialValues_1_oe() throws Exception {
+public void testGetPartialValues_1_oe() throws Exception {
         TimeOfDay tod = new TimeOfDay();
         int[] expected = COPTIC.get(tod, 12345678L);
         int[] actual = DateConverter.INSTANCE.getPartialValues(tod, new Date(12345678L), COPTIC);
         assertEquals(true,Arrays.equals(expected,actual));
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         assertEquals("Converter[java.util.Date]",DateConverter.INSTANCE.toString());
     }
 

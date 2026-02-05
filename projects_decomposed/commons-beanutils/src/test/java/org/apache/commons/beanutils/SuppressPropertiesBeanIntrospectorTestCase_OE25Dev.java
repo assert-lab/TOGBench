@@ -113,7 +113,7 @@ public class SuppressPropertiesBeanIntrospectorTestCase_OE25Dev extends TestCase
         }
     }
 
-    public void testRemovePropertiesDuringIntrospection_1_oe() throws IntrospectionException {
+public void testRemovePropertiesDuringIntrospection_1_oe() throws IntrospectionException {
         final String[] properties = { "test", "other", "oneMore" };
         final SuppressPropertiesBeanIntrospector introspector = new SuppressPropertiesBeanIntrospector(
                 Arrays.asList(properties));
@@ -123,7 +123,7 @@ public class SuppressPropertiesBeanIntrospectorTestCase_OE25Dev extends TestCase
         assertEquals("Wrong number of removed properties",properties.length,context .getRemovedProperties().size());
     }
 
-    public void testRemovePropertiesDuringIntrospection_2_oe() throws IntrospectionException {
+public void testRemovePropertiesDuringIntrospection_2_oe() throws IntrospectionException {
         final String[] properties = { "test", "other", "oneMore" };
         final SuppressPropertiesBeanIntrospector introspector = new SuppressPropertiesBeanIntrospector(
                 Arrays.asList(properties));
@@ -136,7 +136,7 @@ public class SuppressPropertiesBeanIntrospectorTestCase_OE25Dev extends TestCase
     }
     }
 
-    public void testPropertyNamesDefensiveCopy_1_oe() throws IntrospectionException {
+public void testPropertyNamesDefensiveCopy_1_oe() throws IntrospectionException {
         final Collection<String> properties = new HashSet<String>();
         properties.add("prop1");
         final SuppressPropertiesBeanIntrospector introspector = new SuppressPropertiesBeanIntrospector(
@@ -148,7 +148,7 @@ public class SuppressPropertiesBeanIntrospectorTestCase_OE25Dev extends TestCase
         assertEquals("Wrong number of removed properties",1,context .getRemovedProperties().size());
     }
 
-    public void testPropertyNamesDefensiveCopy_2_oe() throws IntrospectionException {
+public void testPropertyNamesDefensiveCopy_2_oe() throws IntrospectionException {
         final Collection<String> properties = new HashSet<String>();
         properties.add("prop1");
         final SuppressPropertiesBeanIntrospector introspector = new SuppressPropertiesBeanIntrospector(

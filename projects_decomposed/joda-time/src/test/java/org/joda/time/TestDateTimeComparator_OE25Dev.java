@@ -382,65 +382,65 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         return true;
     }
 
-    public void testClass_1_oe() {
+public void testClass_1_oe() {
         assertEquals(true,Modifier.isPublic(DateTimeComparator.class.getModifiers()));
     }
 
-    public void testClass_2_oe() {
+public void testClass_2_oe() {
         // removed other assertion
         assertEquals(false,Modifier.isFinal(DateTimeComparator.class.getModifiers()));
     }
 
-    public void testClass_3_oe() {
+public void testClass_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(1,DateTimeComparator.class.getDeclaredConstructors().length);
     }
 
-    public void testClass_4_oe() {
+public void testClass_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(true,Modifier.isProtected(DateTimeComparator.class.getDeclaredConstructors()[0].getModifiers()));
     }
 
-    public void testStaticGetInstance_1_oe() {
+public void testStaticGetInstance_1_oe() {
         DateTimeComparator c = DateTimeComparator.getInstance();
         assertEquals(null,c.getLowerLimit());
     }
 
-    public void testStaticGetInstance_2_oe() {
+public void testStaticGetInstance_2_oe() {
         DateTimeComparator c = DateTimeComparator.getInstance();
         // removed other assertion
         assertEquals(null,c.getUpperLimit());
     }
 
-    public void testStaticGetInstance_3_oe() {
+public void testStaticGetInstance_3_oe() {
         DateTimeComparator c = DateTimeComparator.getInstance();
         // removed other assertion
         // removed other assertion
         assertEquals("DateTimeComparator[]",c.toString());
     }
 
-    public void testStaticGetDateOnlyInstance_1_oe() {
+public void testStaticGetDateOnlyInstance_1_oe() {
         DateTimeComparator c = DateTimeComparator.getDateOnlyInstance();
         assertEquals(DateTimeFieldType.dayOfYear(),c.getLowerLimit());
     }
 
-    public void testStaticGetDateOnlyInstance_2_oe() {
+public void testStaticGetDateOnlyInstance_2_oe() {
         DateTimeComparator c = DateTimeComparator.getDateOnlyInstance();
         // removed other assertion
         assertEquals(null,c.getUpperLimit());
     }
 
-    public void testStaticGetDateOnlyInstance_3_oe() {
+public void testStaticGetDateOnlyInstance_3_oe() {
         DateTimeComparator c = DateTimeComparator.getDateOnlyInstance();
         // removed other assertion
         // removed other assertion
         assertEquals("DateTimeComparator[dayOfYear-]",c.toString());
     }
 
-    public void testStaticGetDateOnlyInstance_4_oe() {
+public void testStaticGetDateOnlyInstance_4_oe() {
         DateTimeComparator c = DateTimeComparator.getDateOnlyInstance();
         // removed other assertion
         // removed other assertion
@@ -449,25 +449,25 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertSame(DateTimeComparator.getDateOnlyInstance(),DateTimeComparator.getDateOnlyInstance());
     }
 
-    public void testStaticGetTimeOnlyInstance_1_oe() {
+public void testStaticGetTimeOnlyInstance_1_oe() {
         DateTimeComparator c = DateTimeComparator.getTimeOnlyInstance();
         assertEquals(null,c.getLowerLimit());
     }
 
-    public void testStaticGetTimeOnlyInstance_2_oe() {
+public void testStaticGetTimeOnlyInstance_2_oe() {
         DateTimeComparator c = DateTimeComparator.getTimeOnlyInstance();
         // removed other assertion
         assertEquals(DateTimeFieldType.dayOfYear(),c.getUpperLimit());
     }
 
-    public void testStaticGetTimeOnlyInstance_3_oe() {
+public void testStaticGetTimeOnlyInstance_3_oe() {
         DateTimeComparator c = DateTimeComparator.getTimeOnlyInstance();
         // removed other assertion
         // removed other assertion
         assertEquals("DateTimeComparator[-dayOfYear]",c.toString());
     }
 
-    public void testStaticGetTimeOnlyInstance_4_oe() {
+public void testStaticGetTimeOnlyInstance_4_oe() {
         DateTimeComparator c = DateTimeComparator.getTimeOnlyInstance();
         // removed other assertion
         // removed other assertion
@@ -476,25 +476,25 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertSame(DateTimeComparator.getTimeOnlyInstance(),DateTimeComparator.getTimeOnlyInstance());
     }
 
-    public void testStaticGetInstanceLower_1_oe() {
+public void testStaticGetInstanceLower_1_oe() {
         DateTimeComparator c = DateTimeComparator.getInstance(DateTimeFieldType.hourOfDay());
         assertEquals(DateTimeFieldType.hourOfDay(),c.getLowerLimit());
     }
 
-    public void testStaticGetInstanceLower_2_oe() {
+public void testStaticGetInstanceLower_2_oe() {
         DateTimeComparator c = DateTimeComparator.getInstance(DateTimeFieldType.hourOfDay());
         // removed other assertion
         assertEquals(null,c.getUpperLimit());
     }
 
-    public void testStaticGetInstanceLower_3_oe() {
+public void testStaticGetInstanceLower_3_oe() {
         DateTimeComparator c = DateTimeComparator.getInstance(DateTimeFieldType.hourOfDay());
         // removed other assertion
         // removed other assertion
         assertEquals("DateTimeComparator[hourOfDay-]",c.toString());
     }
 
-    public void testStaticGetInstanceLower_4_oe() {
+public void testStaticGetInstanceLower_4_oe() {
         DateTimeComparator c = DateTimeComparator.getInstance(DateTimeFieldType.hourOfDay());
         // removed other assertion
         // removed other assertion
@@ -504,25 +504,25 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertSame(DateTimeComparator.getInstance(),c);
     }
 
-    public void testStaticGetInstanceLowerUpper_1_oe() {
+public void testStaticGetInstanceLowerUpper_1_oe() {
         DateTimeComparator c = DateTimeComparator.getInstance(DateTimeFieldType.hourOfDay(), DateTimeFieldType.dayOfYear());
         assertEquals(DateTimeFieldType.hourOfDay(),c.getLowerLimit());
     }
 
-    public void testStaticGetInstanceLowerUpper_2_oe() {
+public void testStaticGetInstanceLowerUpper_2_oe() {
         DateTimeComparator c = DateTimeComparator.getInstance(DateTimeFieldType.hourOfDay(), DateTimeFieldType.dayOfYear());
         // removed other assertion
         assertEquals(DateTimeFieldType.dayOfYear(),c.getUpperLimit());
     }
 
-    public void testStaticGetInstanceLowerUpper_3_oe() {
+public void testStaticGetInstanceLowerUpper_3_oe() {
         DateTimeComparator c = DateTimeComparator.getInstance(DateTimeFieldType.hourOfDay(), DateTimeFieldType.dayOfYear());
         // removed other assertion
         // removed other assertion
         assertEquals("DateTimeComparator[hourOfDay-dayOfYear]",c.toString());
     }
 
-    public void testStaticGetInstanceLowerUpper_4_oe() {
+public void testStaticGetInstanceLowerUpper_4_oe() {
         DateTimeComparator c = DateTimeComparator.getInstance(DateTimeFieldType.hourOfDay(), DateTimeFieldType.dayOfYear());
         // removed other assertion
         // removed other assertion
@@ -532,7 +532,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals(DateTimeFieldType.hourOfDay(),c.getLowerLimit());
     }
 
-    public void testStaticGetInstanceLowerUpper_5_oe() {
+public void testStaticGetInstanceLowerUpper_5_oe() {
         DateTimeComparator c = DateTimeComparator.getInstance(DateTimeFieldType.hourOfDay(), DateTimeFieldType.dayOfYear());
         // removed other assertion
         // removed other assertion
@@ -543,7 +543,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals(DateTimeFieldType.hourOfDay(),c.getUpperLimit());
     }
 
-    public void testStaticGetInstanceLowerUpper_6_oe() {
+public void testStaticGetInstanceLowerUpper_6_oe() {
         DateTimeComparator c = DateTimeComparator.getInstance(DateTimeFieldType.hourOfDay(), DateTimeFieldType.dayOfYear());
         // removed other assertion
         // removed other assertion
@@ -555,7 +555,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DateTimeComparator[hourOfDay]",c.toString());
     }
 
-    public void testStaticGetInstanceLowerUpper_7_oe() {
+public void testStaticGetInstanceLowerUpper_7_oe() {
         DateTimeComparator c = DateTimeComparator.getInstance(DateTimeFieldType.hourOfDay(), DateTimeFieldType.dayOfYear());
         // removed other assertion
         // removed other assertion
@@ -570,7 +570,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertSame(DateTimeComparator.getInstance(),c);
     }
 
-    public void testStaticGetInstanceLowerUpper_8_oe() {
+public void testStaticGetInstanceLowerUpper_8_oe() {
         DateTimeComparator c = DateTimeComparator.getInstance(DateTimeFieldType.hourOfDay(), DateTimeFieldType.dayOfYear());
         // removed other assertion
         // removed other assertion
@@ -588,7 +588,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertSame(DateTimeComparator.getDateOnlyInstance(),c);
     }
 
-    public void testStaticGetInstanceLowerUpper_9_oe() {
+public void testStaticGetInstanceLowerUpper_9_oe() {
         DateTimeComparator c = DateTimeComparator.getInstance(DateTimeFieldType.hourOfDay(), DateTimeFieldType.dayOfYear());
         // removed other assertion
         // removed other assertion
@@ -609,7 +609,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertSame(DateTimeComparator.getTimeOnlyInstance(),c);
     }
 
-    public void testNullNowCheckedOnce_1_oe() {
+public void testNullNowCheckedOnce_1_oe() {
         // checks a race condition against the system clock, issue #404
         for (int i = 0; i < 10000; i++) {
             if (DateTimeComparator.getInstance().compare(null, null) != 0) {
@@ -618,25 +618,25 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
     }
     }
 
-    public void testEqualsHashCode_1_oe() {
+public void testEqualsHashCode_1_oe() {
         DateTimeComparator c1 = DateTimeComparator.getInstance();
         assertEquals(true,c1.equals(c1));
     }
 
-    public void testEqualsHashCode_2_oe() {
+public void testEqualsHashCode_2_oe() {
         DateTimeComparator c1 = DateTimeComparator.getInstance();
         // removed other assertion
         assertEquals(false,c1.equals(null));
     }
 
-    public void testEqualsHashCode_3_oe() {
+public void testEqualsHashCode_3_oe() {
         DateTimeComparator c1 = DateTimeComparator.getInstance();
         // removed other assertion
         // removed other assertion
         assertEquals(true,c1.hashCode()== c1.hashCode());
     }
 
-    public void testEqualsHashCode_4_oe() {
+public void testEqualsHashCode_4_oe() {
         DateTimeComparator c1 = DateTimeComparator.getInstance();
         // removed other assertion
         // removed other assertion
@@ -646,7 +646,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals(true,c2.equals(c2));
     }
 
-    public void testEqualsHashCode_5_oe() {
+public void testEqualsHashCode_5_oe() {
         DateTimeComparator c1 = DateTimeComparator.getInstance();
         // removed other assertion
         // removed other assertion
@@ -657,7 +657,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals(false,c2.equals(c1));
     }
 
-    public void testEqualsHashCode_6_oe() {
+public void testEqualsHashCode_6_oe() {
         DateTimeComparator c1 = DateTimeComparator.getInstance();
         // removed other assertion
         // removed other assertion
@@ -669,7 +669,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals(false,c1.equals(c2));
     }
 
-    public void testEqualsHashCode_7_oe() {
+public void testEqualsHashCode_7_oe() {
         DateTimeComparator c1 = DateTimeComparator.getInstance();
         // removed other assertion
         // removed other assertion
@@ -682,7 +682,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals(false,c2.equals(null));
     }
 
-    public void testEqualsHashCode_8_oe() {
+public void testEqualsHashCode_8_oe() {
         DateTimeComparator c1 = DateTimeComparator.getInstance();
         // removed other assertion
         // removed other assertion
@@ -696,7 +696,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals(false,c1.hashCode()== c2.hashCode());
     }
 
-    public void testEqualsHashCode_9_oe() {
+public void testEqualsHashCode_9_oe() {
         DateTimeComparator c1 = DateTimeComparator.getInstance();
         // removed other assertion
         // removed other assertion
@@ -713,7 +713,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals(true,c3.equals(c3));
     }
 
-    public void testEqualsHashCode_10_oe() {
+public void testEqualsHashCode_10_oe() {
         DateTimeComparator c1 = DateTimeComparator.getInstance();
         // removed other assertion
         // removed other assertion
@@ -731,7 +731,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals(false,c3.equals(c1));
     }
 
-    public void testEqualsHashCode_11_oe() {
+public void testEqualsHashCode_11_oe() {
         DateTimeComparator c1 = DateTimeComparator.getInstance();
         // removed other assertion
         // removed other assertion
@@ -750,7 +750,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals(true,c3.equals(c2));
     }
 
-    public void testEqualsHashCode_12_oe() {
+public void testEqualsHashCode_12_oe() {
         DateTimeComparator c1 = DateTimeComparator.getInstance();
         // removed other assertion
         // removed other assertion
@@ -770,7 +770,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals(false,c1.equals(c3));
     }
 
-    public void testEqualsHashCode_13_oe() {
+public void testEqualsHashCode_13_oe() {
         DateTimeComparator c1 = DateTimeComparator.getInstance();
         // removed other assertion
         // removed other assertion
@@ -791,7 +791,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals(true,c2.equals(c3));
     }
 
-    public void testEqualsHashCode_14_oe() {
+public void testEqualsHashCode_14_oe() {
         DateTimeComparator c1 = DateTimeComparator.getInstance();
         // removed other assertion
         // removed other assertion
@@ -813,7 +813,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals(false,c1.hashCode()== c3.hashCode());
     }
 
-    public void testEqualsHashCode_15_oe() {
+public void testEqualsHashCode_15_oe() {
         DateTimeComparator c1 = DateTimeComparator.getInstance();
         // removed other assertion
         // removed other assertion
@@ -836,7 +836,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals(true,c2.hashCode()== c3.hashCode());
     }
 
-    public void testEqualsHashCode_16_oe() {
+public void testEqualsHashCode_16_oe() {
         DateTimeComparator c1 = DateTimeComparator.getInstance();
         // removed other assertion
         // removed other assertion
@@ -862,7 +862,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals(false,c4.hashCode()== c3.hashCode());
     }
 
-    public void testSerialization1_1_oe() throws Exception {
+public void testSerialization1_1_oe() throws Exception {
         DateTimeField f = ISO.dayOfYear();
         f.toString();
         DateTimeComparator c = DateTimeComparator.getInstance(DateTimeFieldType.hourOfDay(), DateTimeFieldType.dayOfYear());
@@ -881,7 +881,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals(c,result);
     }
 
-    public void testSerialization2_1_oe() throws Exception {
+public void testSerialization2_1_oe() throws Exception {
         DateTimeComparator c = DateTimeComparator.getInstance();
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -898,20 +898,20 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertSame(c,result);
     }
 
-    public void testBasicComps1_1_oe() {
+public void testBasicComps1_1_oe() {
         aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         assertEquals("getMillis",aDateTime.getMillis(),bDateTime.getMillis());
     }
 
-    public void testBasicComps1_2_oe() {
+public void testBasicComps1_2_oe() {
         aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
         assertEquals("MILLIS",0,cMillis.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps1_3_oe() {
+public void testBasicComps1_3_oe() {
         aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -919,7 +919,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("SECOND",0,cSecond.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps1_4_oe() {
+public void testBasicComps1_4_oe() {
         aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -928,7 +928,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("MINUTE",0,cMinute.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps1_5_oe() {
+public void testBasicComps1_5_oe() {
         aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -938,7 +938,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("HOUR",0,cHour.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps1_6_oe() {
+public void testBasicComps1_6_oe() {
         aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -949,7 +949,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOW",0,cDayOfWeek.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps1_7_oe() {
+public void testBasicComps1_7_oe() {
         aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -961,7 +961,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOM",0,cDayOfMonth.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps1_8_oe() {
+public void testBasicComps1_8_oe() {
         aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -974,7 +974,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOY",0,cDayOfYear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps1_9_oe() {
+public void testBasicComps1_9_oe() {
         aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -988,7 +988,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("WOW",0,cWeekOfWeekyear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps1_10_oe() {
+public void testBasicComps1_10_oe() {
         aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1003,7 +1003,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("WY",0,cWeekyear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps1_11_oe() {
+public void testBasicComps1_11_oe() {
         aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1019,7 +1019,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("MONTH",0,cMonth.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps1_12_oe() {
+public void testBasicComps1_12_oe() {
         aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1036,7 +1036,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("YEAR",0,cYear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps1_13_oe() {
+public void testBasicComps1_13_oe() {
         aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1054,7 +1054,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DATE",0,cDate.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps1_14_oe() {
+public void testBasicComps1_14_oe() {
         aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1073,20 +1073,20 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("TIME",0,cTime.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps2_1_oe() {
+public void testBasicComps2_1_oe() {
         ReadableInstant aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         ReadableInstant bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         assertEquals("getMillis",aDateTime.getMillis(),bDateTime.getMillis());
     }
 
-    public void testBasicComps2_2_oe() {
+public void testBasicComps2_2_oe() {
         ReadableInstant aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         ReadableInstant bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
         assertEquals("MILLIS",0,cMillis.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps2_3_oe() {
+public void testBasicComps2_3_oe() {
         ReadableInstant aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         ReadableInstant bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1094,7 +1094,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("SECOND",0,cSecond.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps2_4_oe() {
+public void testBasicComps2_4_oe() {
         ReadableInstant aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         ReadableInstant bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1103,7 +1103,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("MINUTE",0,cMinute.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps2_5_oe() {
+public void testBasicComps2_5_oe() {
         ReadableInstant aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         ReadableInstant bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1113,7 +1113,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("HOUR",0,cHour.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps2_6_oe() {
+public void testBasicComps2_6_oe() {
         ReadableInstant aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         ReadableInstant bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1124,7 +1124,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOW",0,cDayOfWeek.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps2_7_oe() {
+public void testBasicComps2_7_oe() {
         ReadableInstant aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         ReadableInstant bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1136,7 +1136,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOM",0,cDayOfMonth.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps2_8_oe() {
+public void testBasicComps2_8_oe() {
         ReadableInstant aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         ReadableInstant bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1149,7 +1149,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOY",0,cDayOfYear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps2_9_oe() {
+public void testBasicComps2_9_oe() {
         ReadableInstant aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         ReadableInstant bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1163,7 +1163,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("WOW",0,cWeekOfWeekyear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps2_10_oe() {
+public void testBasicComps2_10_oe() {
         ReadableInstant aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         ReadableInstant bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1178,7 +1178,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("WY",0,cWeekyear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps2_11_oe() {
+public void testBasicComps2_11_oe() {
         ReadableInstant aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         ReadableInstant bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1194,7 +1194,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("MONTH",0,cMonth.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps2_12_oe() {
+public void testBasicComps2_12_oe() {
         ReadableInstant aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         ReadableInstant bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1211,7 +1211,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("YEAR",0,cYear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps2_13_oe() {
+public void testBasicComps2_13_oe() {
         ReadableInstant aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         ReadableInstant bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1229,7 +1229,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DATE",0,cDate.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps2_14_oe() {
+public void testBasicComps2_14_oe() {
         ReadableInstant aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         ReadableInstant bDateTime = new DateTime( aDateTime.getMillis(), DateTimeZone.UTC );
         // removed other assertion
@@ -1248,7 +1248,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("TIME",0,cTime.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps3_1_oe() {
+public void testBasicComps3_1_oe() {
         Date aDateTime
             = new Date( System.currentTimeMillis() );
         Date bDateTime
@@ -1256,7 +1256,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("MILLIS",0,cMillis.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps3_2_oe() {
+public void testBasicComps3_2_oe() {
         Date aDateTime
             = new Date( System.currentTimeMillis() );
         Date bDateTime
@@ -1265,7 +1265,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("SECOND",0,cSecond.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps3_3_oe() {
+public void testBasicComps3_3_oe() {
         Date aDateTime
             = new Date( System.currentTimeMillis() );
         Date bDateTime
@@ -1275,7 +1275,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("MINUTE",0,cMinute.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps3_4_oe() {
+public void testBasicComps3_4_oe() {
         Date aDateTime
             = new Date( System.currentTimeMillis() );
         Date bDateTime
@@ -1286,7 +1286,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("HOUR",0,cHour.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps3_5_oe() {
+public void testBasicComps3_5_oe() {
         Date aDateTime
             = new Date( System.currentTimeMillis() );
         Date bDateTime
@@ -1298,7 +1298,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOW",0,cDayOfWeek.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps3_6_oe() {
+public void testBasicComps3_6_oe() {
         Date aDateTime
             = new Date( System.currentTimeMillis() );
         Date bDateTime
@@ -1311,7 +1311,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOM",0,cDayOfMonth.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps3_7_oe() {
+public void testBasicComps3_7_oe() {
         Date aDateTime
             = new Date( System.currentTimeMillis() );
         Date bDateTime
@@ -1325,7 +1325,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOY",0,cDayOfYear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps3_8_oe() {
+public void testBasicComps3_8_oe() {
         Date aDateTime
             = new Date( System.currentTimeMillis() );
         Date bDateTime
@@ -1340,7 +1340,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("WOW",0,cWeekOfWeekyear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps3_9_oe() {
+public void testBasicComps3_9_oe() {
         Date aDateTime
             = new Date( System.currentTimeMillis() );
         Date bDateTime
@@ -1356,7 +1356,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("WY",0,cWeekyear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps3_10_oe() {
+public void testBasicComps3_10_oe() {
         Date aDateTime
             = new Date( System.currentTimeMillis() );
         Date bDateTime
@@ -1373,7 +1373,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("MONTH",0,cMonth.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps3_11_oe() {
+public void testBasicComps3_11_oe() {
         Date aDateTime
             = new Date( System.currentTimeMillis() );
         Date bDateTime
@@ -1391,7 +1391,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("YEAR",0,cYear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps3_12_oe() {
+public void testBasicComps3_12_oe() {
         Date aDateTime
             = new Date( System.currentTimeMillis() );
         Date bDateTime
@@ -1410,7 +1410,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DATE",0,cDate.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps3_13_oe() {
+public void testBasicComps3_13_oe() {
         Date aDateTime
             = new Date( System.currentTimeMillis() );
         Date bDateTime
@@ -1430,7 +1430,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("TIME",0,cTime.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps4_1_oe() {
+public void testBasicComps4_1_oe() {
         Long aDateTime
             = new Long( System.currentTimeMillis() );
         Long bDateTime
@@ -1438,7 +1438,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("MILLIS",0,cMillis.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps4_2_oe() {
+public void testBasicComps4_2_oe() {
         Long aDateTime
             = new Long( System.currentTimeMillis() );
         Long bDateTime
@@ -1447,7 +1447,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("SECOND",0,cSecond.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps4_3_oe() {
+public void testBasicComps4_3_oe() {
         Long aDateTime
             = new Long( System.currentTimeMillis() );
         Long bDateTime
@@ -1457,7 +1457,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("MINUTE",0,cMinute.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps4_4_oe() {
+public void testBasicComps4_4_oe() {
         Long aDateTime
             = new Long( System.currentTimeMillis() );
         Long bDateTime
@@ -1468,7 +1468,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("HOUR",0,cHour.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps4_5_oe() {
+public void testBasicComps4_5_oe() {
         Long aDateTime
             = new Long( System.currentTimeMillis() );
         Long bDateTime
@@ -1480,7 +1480,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOW",0,cDayOfWeek.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps4_6_oe() {
+public void testBasicComps4_6_oe() {
         Long aDateTime
             = new Long( System.currentTimeMillis() );
         Long bDateTime
@@ -1493,7 +1493,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOM",0,cDayOfMonth.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps4_7_oe() {
+public void testBasicComps4_7_oe() {
         Long aDateTime
             = new Long( System.currentTimeMillis() );
         Long bDateTime
@@ -1507,7 +1507,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOY",0,cDayOfYear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps4_8_oe() {
+public void testBasicComps4_8_oe() {
         Long aDateTime
             = new Long( System.currentTimeMillis() );
         Long bDateTime
@@ -1522,7 +1522,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("WOW",0,cWeekOfWeekyear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps4_9_oe() {
+public void testBasicComps4_9_oe() {
         Long aDateTime
             = new Long( System.currentTimeMillis() );
         Long bDateTime
@@ -1538,7 +1538,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("WY",0,cWeekyear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps4_10_oe() {
+public void testBasicComps4_10_oe() {
         Long aDateTime
             = new Long( System.currentTimeMillis() );
         Long bDateTime
@@ -1555,7 +1555,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("MONTH",0,cMonth.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps4_11_oe() {
+public void testBasicComps4_11_oe() {
         Long aDateTime
             = new Long( System.currentTimeMillis() );
         Long bDateTime
@@ -1573,7 +1573,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("YEAR",0,cYear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps4_12_oe() {
+public void testBasicComps4_12_oe() {
         Long aDateTime
             = new Long( System.currentTimeMillis() );
         Long bDateTime
@@ -1592,7 +1592,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DATE",0,cDate.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps4_13_oe() {
+public void testBasicComps4_13_oe() {
         Long aDateTime
             = new Long( System.currentTimeMillis() );
         Long bDateTime
@@ -1612,14 +1612,14 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("TIME",0,cTime.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps5_1_oe() {
+public void testBasicComps5_1_oe() {
         Calendar aDateTime
             = Calendar.getInstance();   // right now
         Calendar bDateTime = aDateTime;
         assertEquals("MILLIS",0,cMillis.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps5_2_oe() {
+public void testBasicComps5_2_oe() {
         Calendar aDateTime
             = Calendar.getInstance();   // right now
         Calendar bDateTime = aDateTime;
@@ -1627,7 +1627,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("SECOND",0,cSecond.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps5_3_oe() {
+public void testBasicComps5_3_oe() {
         Calendar aDateTime
             = Calendar.getInstance();   // right now
         Calendar bDateTime = aDateTime;
@@ -1636,7 +1636,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("MINUTE",0,cMinute.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps5_4_oe() {
+public void testBasicComps5_4_oe() {
         Calendar aDateTime
             = Calendar.getInstance();   // right now
         Calendar bDateTime = aDateTime;
@@ -1646,7 +1646,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("HOUR",0,cHour.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps5_5_oe() {
+public void testBasicComps5_5_oe() {
         Calendar aDateTime
             = Calendar.getInstance();   // right now
         Calendar bDateTime = aDateTime;
@@ -1657,7 +1657,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOW",0,cDayOfWeek.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps5_6_oe() {
+public void testBasicComps5_6_oe() {
         Calendar aDateTime
             = Calendar.getInstance();   // right now
         Calendar bDateTime = aDateTime;
@@ -1669,7 +1669,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOM",0,cDayOfMonth.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps5_7_oe() {
+public void testBasicComps5_7_oe() {
         Calendar aDateTime
             = Calendar.getInstance();   // right now
         Calendar bDateTime = aDateTime;
@@ -1682,7 +1682,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOY",0,cDayOfYear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps5_8_oe() {
+public void testBasicComps5_8_oe() {
         Calendar aDateTime
             = Calendar.getInstance();   // right now
         Calendar bDateTime = aDateTime;
@@ -1696,7 +1696,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("WOW",0,cWeekOfWeekyear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps5_9_oe() {
+public void testBasicComps5_9_oe() {
         Calendar aDateTime
             = Calendar.getInstance();   // right now
         Calendar bDateTime = aDateTime;
@@ -1711,7 +1711,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("WY",0,cWeekyear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps5_10_oe() {
+public void testBasicComps5_10_oe() {
         Calendar aDateTime
             = Calendar.getInstance();   // right now
         Calendar bDateTime = aDateTime;
@@ -1727,7 +1727,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("MONTH",0,cMonth.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps5_11_oe() {
+public void testBasicComps5_11_oe() {
         Calendar aDateTime
             = Calendar.getInstance();   // right now
         Calendar bDateTime = aDateTime;
@@ -1744,7 +1744,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("YEAR",0,cYear.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps5_12_oe() {
+public void testBasicComps5_12_oe() {
         Calendar aDateTime
             = Calendar.getInstance();   // right now
         Calendar bDateTime = aDateTime;
@@ -1762,7 +1762,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DATE",0,cDate.compare(aDateTime,bDateTime));
     }
 
-    public void testBasicComps5_13_oe() {
+public void testBasicComps5_13_oe() {
         Calendar aDateTime
             = Calendar.getInstance();   // right now
         Calendar bDateTime = aDateTime;
@@ -1781,33 +1781,33 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("TIME",0,cTime.compare(aDateTime,bDateTime));
     }
 
-    public void testMillis_1_oe() {
+public void testMillis_1_oe() {
         aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         bDateTime = new DateTime( aDateTime.getMillis() + 1, DateTimeZone.UTC );
         assertEquals("MillisM1",-1,cMillis.compare(aDateTime,bDateTime));
     }
 
-    public void testMillis_2_oe() {
+public void testMillis_2_oe() {
         aDateTime = new DateTime( System.currentTimeMillis(), DateTimeZone.UTC );
         bDateTime = new DateTime( aDateTime.getMillis() + 1, DateTimeZone.UTC );
         // removed other assertion
         assertEquals("MillisP1",1,cMillis.compare(bDateTime,aDateTime));
     }
 
-    public void testSecond_1_oe() {
+public void testSecond_1_oe() {
         aDateTime = getADate( "1969-12-31T23:59:58" );
         bDateTime = getADate( "1969-12-31T23:50:59" );
         assertEquals("SecondM1a",-1,cSecond.compare(aDateTime,bDateTime));
     }
 
-    public void testSecond_2_oe() {
+public void testSecond_2_oe() {
         aDateTime = getADate( "1969-12-31T23:59:58" );
         bDateTime = getADate( "1969-12-31T23:50:59" );
         // removed other assertion
         assertEquals("SecondP1a",1,cSecond.compare(bDateTime,aDateTime));
     }
 
-    public void testSecond_3_oe() {
+public void testSecond_3_oe() {
         aDateTime = getADate( "1969-12-31T23:59:58" );
         bDateTime = getADate( "1969-12-31T23:50:59" );
         // removed other assertion
@@ -1817,7 +1817,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("SecondM1b",-1,cSecond.compare(aDateTime,bDateTime));
     }
 
-    public void testSecond_4_oe() {
+public void testSecond_4_oe() {
         aDateTime = getADate( "1969-12-31T23:59:58" );
         bDateTime = getADate( "1969-12-31T23:50:59" );
         // removed other assertion
@@ -1828,20 +1828,20 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("SecondP1b",1,cSecond.compare(bDateTime,aDateTime));
     }
 
-    public void testMinute_1_oe() {
+public void testMinute_1_oe() {
         aDateTime = getADate( "1969-12-31T23:58:00" );
         bDateTime = getADate( "1969-12-31T23:59:00" );
         assertEquals("MinuteM1a",-1,cMinute.compare(aDateTime,bDateTime));
     }
 
-    public void testMinute_2_oe() {
+public void testMinute_2_oe() {
         aDateTime = getADate( "1969-12-31T23:58:00" );
         bDateTime = getADate( "1969-12-31T23:59:00" );
         // removed other assertion
         assertEquals("MinuteP1a",1,cMinute.compare(bDateTime,aDateTime));
     }
 
-    public void testMinute_3_oe() {
+public void testMinute_3_oe() {
         aDateTime = getADate( "1969-12-31T23:58:00" );
         bDateTime = getADate( "1969-12-31T23:59:00" );
         // removed other assertion
@@ -1851,7 +1851,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("MinuteM1b",-1,cMinute.compare(aDateTime,bDateTime));
     }
 
-    public void testMinute_4_oe() {
+public void testMinute_4_oe() {
         aDateTime = getADate( "1969-12-31T23:58:00" );
         bDateTime = getADate( "1969-12-31T23:59:00" );
         // removed other assertion
@@ -1862,20 +1862,20 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("MinuteP1b",1,cMinute.compare(bDateTime,aDateTime));
     }
 
-    public void testHour_1_oe() {
+public void testHour_1_oe() {
         aDateTime = getADate( "1969-12-31T22:00:00" );
         bDateTime = getADate( "1969-12-31T23:00:00" );
         assertEquals("HourM1a",-1,cHour.compare(aDateTime,bDateTime));
     }
 
-    public void testHour_2_oe() {
+public void testHour_2_oe() {
         aDateTime = getADate( "1969-12-31T22:00:00" );
         bDateTime = getADate( "1969-12-31T23:00:00" );
         // removed other assertion
         assertEquals("HourP1a",1,cHour.compare(bDateTime,aDateTime));
     }
 
-    public void testHour_3_oe() {
+public void testHour_3_oe() {
         aDateTime = getADate( "1969-12-31T22:00:00" );
         bDateTime = getADate( "1969-12-31T23:00:00" );
         // removed other assertion
@@ -1885,7 +1885,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("HourM1b",-1,cHour.compare(aDateTime,bDateTime));
     }
 
-    public void testHour_4_oe() {
+public void testHour_4_oe() {
         aDateTime = getADate( "1969-12-31T22:00:00" );
         bDateTime = getADate( "1969-12-31T23:00:00" );
         // removed other assertion
@@ -1896,7 +1896,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("HourP1b",1,cHour.compare(bDateTime,aDateTime));
     }
 
-    public void testHour_5_oe() {
+public void testHour_5_oe() {
         aDateTime = getADate( "1969-12-31T22:00:00" );
         bDateTime = getADate( "1969-12-31T23:00:00" );
         // removed other assertion
@@ -1910,7 +1910,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("HourP1c",1,cHour.compare(aDateTime,bDateTime));
     }
 
-    public void testHour_6_oe() {
+public void testHour_6_oe() {
         aDateTime = getADate( "1969-12-31T22:00:00" );
         bDateTime = getADate( "1969-12-31T23:00:00" );
         // removed other assertion
@@ -1925,7 +1925,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("HourM1c",-1,cHour.compare(bDateTime,aDateTime));
     }
 
-    public void testDOW_1_oe() {
+public void testDOW_1_oe() {
         /*
          * Dates chosen when I wrote the code, so I know what day of
          * the week it is.
@@ -1935,7 +1935,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOWM1a",-1,cDayOfWeek.compare(aDateTime,bDateTime));
     }
 
-    public void testDOW_2_oe() {
+public void testDOW_2_oe() {
         /*
          * Dates chosen when I wrote the code, so I know what day of
          * the week it is.
@@ -1946,20 +1946,20 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOWP1a",1,cDayOfWeek.compare(bDateTime,aDateTime));
     }
 
-    public void testDOM_1_oe() {
+public void testDOM_1_oe() {
         aDateTime = getADate( "2002-04-12T00:00:00" );
         bDateTime = getADate( "2002-04-13T00:00:00" );
         assertEquals("DOMM1a",-1,cDayOfMonth.compare(aDateTime,bDateTime));
     }
 
-    public void testDOM_2_oe() {
+public void testDOM_2_oe() {
         aDateTime = getADate( "2002-04-12T00:00:00" );
         bDateTime = getADate( "2002-04-13T00:00:00" );
         // removed other assertion
         assertEquals("DOMP1a",1,cDayOfMonth.compare(bDateTime,aDateTime));
     }
 
-    public void testDOM_3_oe() {
+public void testDOM_3_oe() {
         aDateTime = getADate( "2002-04-12T00:00:00" );
         bDateTime = getADate( "2002-04-13T00:00:00" );
         // removed other assertion
@@ -1969,7 +1969,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOMM1b",-1,cDayOfMonth.compare(aDateTime,bDateTime));
     }
 
-    public void testDOM_4_oe() {
+public void testDOM_4_oe() {
         aDateTime = getADate( "2002-04-12T00:00:00" );
         bDateTime = getADate( "2002-04-13T00:00:00" );
         // removed other assertion
@@ -1980,20 +1980,20 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOMP1b",1,cDayOfMonth.compare(bDateTime,aDateTime));
     }
 
-    public void testDOY_1_oe() {
+public void testDOY_1_oe() {
         aDateTime = getADate( "2002-04-12T00:00:00" );
         bDateTime = getADate( "2002-04-13T00:00:00" );
         assertEquals("DOYM1a",-1,cDayOfYear.compare(aDateTime,bDateTime));
     }
 
-    public void testDOY_2_oe() {
+public void testDOY_2_oe() {
         aDateTime = getADate( "2002-04-12T00:00:00" );
         bDateTime = getADate( "2002-04-13T00:00:00" );
         // removed other assertion
         assertEquals("DOYP1a",1,cDayOfYear.compare(bDateTime,aDateTime));
     }
 
-    public void testDOY_3_oe() {
+public void testDOY_3_oe() {
         aDateTime = getADate( "2002-04-12T00:00:00" );
         bDateTime = getADate( "2002-04-13T00:00:00" );
         // removed other assertion
@@ -2003,7 +2003,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOYM1b",-1,cDayOfYear.compare(aDateTime,bDateTime));
     }
 
-    public void testDOY_4_oe() {
+public void testDOY_4_oe() {
         aDateTime = getADate( "2002-04-12T00:00:00" );
         bDateTime = getADate( "2002-04-13T00:00:00" );
         // removed other assertion
@@ -2014,14 +2014,14 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("DOYP1b",1,cDayOfYear.compare(bDateTime,aDateTime));
     }
 
-    public void testWOW_1_oe() {
+public void testWOW_1_oe() {
         // 1st week of year contains Jan 04.
         aDateTime = getADate( "2000-01-04T00:00:00" );
         bDateTime = getADate( "2000-01-11T00:00:00" );
         assertEquals("WOWM1a",-1,cWeekOfWeekyear.compare(aDateTime,bDateTime));
     }
 
-    public void testWOW_2_oe() {
+public void testWOW_2_oe() {
         // 1st week of year contains Jan 04.
         aDateTime = getADate( "2000-01-04T00:00:00" );
         bDateTime = getADate( "2000-01-11T00:00:00" );
@@ -2029,7 +2029,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("WOWP1a",1,cWeekOfWeekyear.compare(bDateTime,aDateTime));
     }
 
-    public void testWOW_3_oe() {
+public void testWOW_3_oe() {
         // 1st week of year contains Jan 04.
         aDateTime = getADate( "2000-01-04T00:00:00" );
         bDateTime = getADate( "2000-01-11T00:00:00" );
@@ -2040,7 +2040,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("WOWM1b",-1,cWeekOfWeekyear.compare(aDateTime,bDateTime));
     }
 
-    public void testWOW_4_oe() {
+public void testWOW_4_oe() {
         // 1st week of year contains Jan 04.
         aDateTime = getADate( "2000-01-04T00:00:00" );
         bDateTime = getADate( "2000-01-11T00:00:00" );
@@ -2052,7 +2052,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("WOWP1b",1,cWeekOfWeekyear.compare(bDateTime,aDateTime));
     }
 
-    public void testWOYY_1_oe() {
+public void testWOYY_1_oe() {
         // How do I test the end conditions of this?
         // Don't understand ......
         aDateTime = getADate( "1998-12-31T23:59:59" );
@@ -2060,7 +2060,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("YOYYZ",0,cWeekyear.compare(aDateTime,bDateTime));
     }
 
-    public void testWOYY_2_oe() {
+public void testWOYY_2_oe() {
         // How do I test the end conditions of this?
         // Don't understand ......
         aDateTime = getADate( "1998-12-31T23:59:59" );
@@ -2070,7 +2070,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("YOYYM1",-1,cWeekyear.compare(aDateTime,bDateTime));
     }
 
-    public void testWOYY_3_oe() {
+public void testWOYY_3_oe() {
         // How do I test the end conditions of this?
         // Don't understand ......
         aDateTime = getADate( "1998-12-31T23:59:59" );
@@ -2081,20 +2081,20 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("YOYYP1",1,cWeekyear.compare(bDateTime,aDateTime));
     }
 
-    public void testMonth_1_oe() {
+public void testMonth_1_oe() {
         aDateTime = getADate( "2002-04-30T00:00:00" );
         bDateTime = getADate( "2002-05-01T00:00:00" );
         assertEquals("MONTHM1a",-1,cMonth.compare(aDateTime,bDateTime));
     }
 
-    public void testMonth_2_oe() {
+public void testMonth_2_oe() {
         aDateTime = getADate( "2002-04-30T00:00:00" );
         bDateTime = getADate( "2002-05-01T00:00:00" );
         // removed other assertion
         assertEquals("MONTHP1a",1,cMonth.compare(bDateTime,aDateTime));
     }
 
-    public void testMonth_3_oe() {
+public void testMonth_3_oe() {
         aDateTime = getADate( "2002-04-30T00:00:00" );
         bDateTime = getADate( "2002-05-01T00:00:00" );
         // removed other assertion
@@ -2104,7 +2104,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("MONTHM1b",-1,cMonth.compare(aDateTime,bDateTime));
     }
 
-    public void testMonth_4_oe() {
+public void testMonth_4_oe() {
         aDateTime = getADate( "2002-04-30T00:00:00" );
         bDateTime = getADate( "2002-05-01T00:00:00" );
         // removed other assertion
@@ -2115,20 +2115,20 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("MONTHP1b",1,cMonth.compare(bDateTime,aDateTime));
     }
 
-    public void testYear_1_oe() {
+public void testYear_1_oe() {
         aDateTime = getADate( "2000-01-01T00:00:00" );
         bDateTime = getADate( "2001-01-01T00:00:00" );
         assertEquals("YEARM1a",-1,cYear.compare(aDateTime,bDateTime));
     }
 
-    public void testYear_2_oe() {
+public void testYear_2_oe() {
         aDateTime = getADate( "2000-01-01T00:00:00" );
         bDateTime = getADate( "2001-01-01T00:00:00" );
         // removed other assertion
         assertEquals("YEARP1a",1,cYear.compare(bDateTime,aDateTime));
     }
 
-    public void testYear_3_oe() {
+public void testYear_3_oe() {
         aDateTime = getADate( "2000-01-01T00:00:00" );
         bDateTime = getADate( "2001-01-01T00:00:00" );
         // removed other assertion
@@ -2138,7 +2138,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("YEARM1b",-1,cYear.compare(aDateTime,bDateTime));
     }
 
-    public void testYear_4_oe() {
+public void testYear_4_oe() {
         aDateTime = getADate( "2000-01-01T00:00:00" );
         bDateTime = getADate( "2001-01-01T00:00:00" );
         // removed other assertion
@@ -2149,7 +2149,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("YEARP1b",1,cYear.compare(bDateTime,aDateTime));
     }
 
-    public void testYear_5_oe() {
+public void testYear_5_oe() {
         aDateTime = getADate( "2000-01-01T00:00:00" );
         bDateTime = getADate( "2001-01-01T00:00:00" );
         // removed other assertion
@@ -2163,7 +2163,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("YEARM1c",-1,cYear.compare(aDateTime,bDateTime));
     }
 
-    public void testYear_6_oe() {
+public void testYear_6_oe() {
         aDateTime = getADate( "2000-01-01T00:00:00" );
         bDateTime = getADate( "2001-01-01T00:00:00" );
         // removed other assertion
@@ -2178,7 +2178,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("YEARP1c",1,cYear.compare(bDateTime,aDateTime));
     }
 
-     public void testListBasic_1_oe() {
+public void testListBasic_1_oe() {
         String[] dtStrs = {
             "1999-02-01T00:00:00",
             "1998-01-20T00:00:00"
@@ -2191,7 +2191,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("ListBasic",!isSorted1,isSorted2);
      }
 
-    public void testListMillis_1_oe() {
+public void testListMillis_1_oe() {
         //
         List sl = new ArrayList();
         long base = 12345L * 1000L;
@@ -2208,7 +2208,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("ListLillis",!isSorted1,isSorted2);
     }
 
-    public void testListSecond_1_oe() {
+public void testListSecond_1_oe() {
         String[] dtStrs = {
             "1999-02-01T00:00:10",
             "1999-02-01T00:00:30",
@@ -2226,7 +2226,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("ListSecond",!isSorted1,isSorted2);
     }
 
-    public void testListMinute_1_oe() {
+public void testListMinute_1_oe() {
         String[] dtStrs = {
             "1999-02-01T00:10:00",
             "1999-02-01T00:30:00",
@@ -2244,7 +2244,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("ListMinute",!isSorted1,isSorted2);
     }
 
-    public void testListHour_1_oe() {
+public void testListHour_1_oe() {
         String[] dtStrs = {
             "1999-02-01T10:00:00",
             "1999-02-01T23:00:00",
@@ -2262,7 +2262,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("ListHour",!isSorted1,isSorted2);
     }
 
-    public void testListDOW_1_oe() {
+public void testListDOW_1_oe() {
         String[] dtStrs = {
             /* 2002-04-15 = Monday */
             "2002-04-21T10:00:00",
@@ -2281,7 +2281,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("ListDOW",!isSorted1,isSorted2);
     }
 
-    public void testListDOM_1_oe() {
+public void testListDOM_1_oe() {
         String[] dtStrs = {
             /* 2002-04-14 = Sunday */
             "2002-04-20T10:00:00",
@@ -2300,7 +2300,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("ListDOM",!isSorted1,isSorted2);
     }
 
-    public void testListDOY_1_oe() {
+public void testListDOY_1_oe() {
         String[] dtStrs = {
             "2002-04-20T10:00:00",
             "2002-01-16T10:00:00",
@@ -2318,7 +2318,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("ListDOY",!isSorted1,isSorted2);
     }
 
-    public void testListWOW_1_oe() {
+public void testListWOW_1_oe() {
         String[] dtStrs = {
             "2002-04-01T10:00:00",
             "2002-01-01T10:00:00",
@@ -2336,7 +2336,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("ListWOW",!isSorted1,isSorted2);
     }
 
-    public void testListYOYY_1_oe() {
+public void testListYOYY_1_oe() {
         // ?? How to catch end conditions ??
         String[] dtStrs = {
             "2010-04-01T10:00:00",
@@ -2350,7 +2350,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("ListYOYY",!isSorted1,isSorted2);
     }
 
-    public void testListMonth_1_oe() {
+public void testListMonth_1_oe() {
         String[] dtStrs = {
             "2002-04-01T10:00:00",
             "2002-01-01T10:00:00",
@@ -2368,7 +2368,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("ListMonth",!isSorted1,isSorted2);
     }
 
-     public void testListYear_1_oe() {
+public void testListYear_1_oe() {
         String[] dtStrs = {
             "1999-02-01T00:00:00",
             "1998-02-01T00:00:00",
@@ -2386,7 +2386,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("ListYear",!isSorted1,isSorted2);
      }
 
-    public void testListDate_1_oe() {
+public void testListDate_1_oe() {
         String[] dtStrs = {
             "1999-02-01T00:00:00",
             "1998-10-03T00:00:00",
@@ -2404,7 +2404,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("ListDate",!isSorted1,isSorted2);
     }
 
-    public void testListTime_1_oe() {
+public void testListTime_1_oe() {
         String[] dtStrs = {
             "1999-02-01T01:02:05",
             "1999-02-01T22:22:22",
@@ -2422,13 +2422,13 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         assertEquals("ListTime",!isSorted1,isSorted2);
     }
 
-    public void testNullDT_1_oe() {
+public void testNullDT_1_oe() {
         // null means now
         aDateTime = getADate("2000-01-01T00:00:00");
         assertTrue(cYear.compare(null,aDateTime)> 0);
     }
 
-    public void testNullDT_2_oe() {
+public void testNullDT_2_oe() {
         // null means now
         aDateTime = getADate("2000-01-01T00:00:00");
         // removed other assertion

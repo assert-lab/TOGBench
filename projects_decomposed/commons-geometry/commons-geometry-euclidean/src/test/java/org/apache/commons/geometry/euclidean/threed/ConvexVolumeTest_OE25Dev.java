@@ -134,7 +134,7 @@ class ConvexVolumeTest_OE25Dev {
         return ConvexVolume.fromBounds(planes);
     }
 
-    @Test
+@Test
     void testFull_1_oe() {
         // act
         final ConvexVolume vol = ConvexVolume.full();
@@ -143,7 +143,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertTrue(vol.isFull());
     }
 
-    @Test
+@Test
     void testFull_2_oe() {
         // act
         final ConvexVolume vol = ConvexVolume.full();
@@ -153,7 +153,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertFalse(vol.isEmpty());
     }
 
-    @Test
+@Test
     void testFull_4_oe() {
         // act
         final ConvexVolume vol = ConvexVolume.full();
@@ -166,7 +166,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertNull(vol.getCentroid());
     }
 
-    @Test
+@Test
     void testFull_5_oe() {
         // act
         final ConvexVolume vol = ConvexVolume.full();
@@ -181,7 +181,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(0, vol.getBoundaries().size());
     }
 
-    @Test
+@Test
     void testFull_6_oe() {
         // act
         final ConvexVolume vol = ConvexVolume.full();
@@ -197,7 +197,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(0, vol.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBoundaryStream_1_oe() {
         // arrange
         final Plane plane = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -210,7 +210,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(1, boundaries.size());
     }
 
-    @Test
+@Test
     void testBoundaryStream_2_oe() {
         // arrange
         final Plane plane = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -226,7 +226,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(0, sp.getEmbedded().getSubspaceRegion().getBoundaries().size());
     }
 
-    @Test
+@Test
     void testBoundaryStream_noBoundaries_1_oe() {
         // arrange
         final ConvexVolume volume = ConvexVolume.full();
@@ -238,7 +238,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(0, boundaries.size());
     }
 
-    @Test
+@Test
     void testTriangleStream_noBoundaries_1_oe() {
         // arrange
         final ConvexVolume full = ConvexVolume.full();
@@ -250,7 +250,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(0, tris.size());
     }
 
-    @Test
+@Test
     void testTriangleStream_finite_1_oe() {
         // arrange
         final Vector3D min = Vector3D.ZERO;
@@ -273,7 +273,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(12, tris.size());
     }
 
-    @Test
+@Test
     void testGetBounds_noBounds_1_oe() {
         // arrange
         final ConvexVolume full = ConvexVolume.full();
@@ -283,7 +283,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertNull(full.getBounds());
     }
 
-    @Test
+@Test
     void testGetBounds_noBounds_2_oe() {
         // arrange
         final ConvexVolume full = ConvexVolume.full();
@@ -294,7 +294,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertNull(halfFull.getBounds());
     }
 
-    @Test
+@Test
     void testToList_full_1_oe() {
         // arrange
         final ConvexVolume volume = ConvexVolume.full();
@@ -306,7 +306,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(0, list.count());
     }
 
-    @Test
+@Test
     void testToList_1_oe() {
         // arrange
         final ConvexVolume volume = ConvexVolume.fromBounds(
@@ -326,7 +326,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(6, list.count());
     }
 
-    @Test
+@Test
     void testToList_2_oe() {
         // arrange
         final ConvexVolume volume = ConvexVolume.fromBounds(
@@ -347,7 +347,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(1, list.toTree().getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToTree_full_1_oe() {
         // arrange
         final ConvexVolume volume = ConvexVolume.full();
@@ -359,7 +359,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_full_2_oe() {
         // arrange
         final ConvexVolume volume = ConvexVolume.full();
@@ -372,7 +372,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testToTree_1_oe() {
         // arrange
         final ConvexVolume volume = ConvexVolume.fromBounds(
@@ -392,7 +392,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(1, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToTree_2_oe() {
         // arrange
         final ConvexVolume volume = ConvexVolume.fromBounds(
@@ -413,7 +413,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(6, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromBounds_noPlanes_1_oe() {
         // act
         final ConvexVolume vol = ConvexVolume.fromBounds();
@@ -422,7 +422,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertSame(ConvexVolume.full(), vol);
     }
 
-    @Test
+@Test
     void testFromBounds_halfspace_1_oe() {
         // act
         final ConvexVolume vol = ConvexVolume.fromBounds(Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION));
@@ -431,7 +431,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertFalse(vol.isFull());
     }
 
-    @Test
+@Test
     void testFromBounds_halfspace_2_oe() {
         // act
         final ConvexVolume vol = ConvexVolume.fromBounds(Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION));
@@ -441,7 +441,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertFalse(vol.isEmpty());
     }
 
-    @Test
+@Test
     void testFromBounds_halfspace_4_oe() {
         // act
         final ConvexVolume vol = ConvexVolume.fromBounds(Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION));
@@ -454,7 +454,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertNull(vol.getCentroid());
     }
 
-    @Test
+@Test
     void testFromBounds_halfspace_5_oe() {
         // act
         final ConvexVolume vol = ConvexVolume.fromBounds(Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION));
@@ -469,7 +469,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(1, vol.getBoundaries().size());
     }
 
-    @Test
+@Test
     void testFromBounds_cube_1_oe() {
         // act
         final ConvexVolume vol = rect(Vector3D.of(1, 1, 1), 0.5, 1, 2);
@@ -478,7 +478,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertFalse(vol.isFull());
     }
 
-    @Test
+@Test
     void testFromBounds_cube_2_oe() {
         // act
         final ConvexVolume vol = rect(Vector3D.of(1, 1, 1), 0.5, 1, 2);
@@ -488,7 +488,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertFalse(vol.isEmpty());
     }
 
-    @Test
+@Test
     void testFromBounds_cube_3_oe() {
         // act
         final ConvexVolume vol = rect(Vector3D.of(1, 1, 1), 0.5, 1, 2);
@@ -500,7 +500,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(8, vol.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromBounds_cube_5_oe() {
         // act
         final ConvexVolume vol = rect(Vector3D.of(1, 1, 1), 0.5, 1, 2);
@@ -515,7 +515,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(6, vol.getBoundaries().size());
     }
 
-    @Test
+@Test
     void testFromBounds_cube_6_oe() {
         // act
         final ConvexVolume vol = rect(Vector3D.of(1, 1, 1), 0.5, 1, 2);
@@ -531,7 +531,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(28, vol.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTrim_1_oe() {
         // arrange
         final ConvexVolume vol = rect(Vector3D.ZERO, 0.5, 0.5, 0.5);
@@ -546,7 +546,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(1, trimmed.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTrim_2_oe() {
         // arrange
         final ConvexVolume vol = rect(Vector3D.ZERO, 0.5, 0.5, 0.5);
@@ -565,7 +565,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(4, vertices.size());
     }
 
-    @Test
+@Test
     void testSplit_1_oe() {
         // arrange
         final ConvexVolume vol = rect(Vector3D.ZERO, 0.5, 0.5, 0.5);
@@ -579,7 +579,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_2_oe() {
         // arrange
         final ConvexVolume vol = rect(Vector3D.ZERO, 0.5, 0.5, 0.5);
@@ -596,7 +596,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(0.5, minus.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSplit_4_oe() {
         // arrange
         final ConvexVolume vol = rect(Vector3D.ZERO, 0.5, 0.5, 0.5);
@@ -617,7 +617,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(0.5, plus.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTransform_1_oe() {
         // arrange
         final ConvexVolume vol = rect(Vector3D.ZERO, 0.5, 0.5, 0.5);
@@ -633,7 +633,7 @@ class ConvexVolumeTest_OE25Dev {
         Assertions.assertEquals(2, transformed.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTransform_2_oe() {
         // arrange
         final ConvexVolume vol = rect(Vector3D.ZERO, 0.5, 0.5, 0.5);

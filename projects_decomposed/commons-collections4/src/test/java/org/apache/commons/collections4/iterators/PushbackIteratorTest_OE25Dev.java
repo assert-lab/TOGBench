@@ -74,20 +74,20 @@ public class PushbackIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertFalse(iter.hasNext());
     }
 
-    @Test
+@Test
     public void testNormalIteration_1_oe() {
         final PushbackIterator<E> iter = makeObject();
         assertEquals("a", iter.next());
     }
 
-    @Test
+@Test
     public void testNormalIteration_2_oe() {
         final PushbackIterator<E> iter = makeObject();
         // removed other assertion
         assertEquals("b", iter.next());
     }
 
-    @Test
+@Test
     public void testNormalIteration_3_oe() {
         final PushbackIterator<E> iter = makeObject();
         // removed other assertion
@@ -95,7 +95,7 @@ public class PushbackIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("c", iter.next());
     }
 
-    @Test
+@Test
     public void testNormalIteration_4_oe() {
         final PushbackIterator<E> iter = makeObject();
         // removed other assertion
@@ -104,7 +104,7 @@ public class PushbackIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertFalse(iter.hasNext());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testImmediatePushback_1_oe() {
         final PushbackIterator<E> iter = makeObject();
@@ -112,7 +112,7 @@ public class PushbackIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("x", iter.next());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testImmediatePushback_2_oe() {
         final PushbackIterator<E> iter = makeObject();
@@ -121,14 +121,14 @@ public class PushbackIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("a", iter.next());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testDelayedPushback_1_oe() {
         final PushbackIterator<E> iter = makeObject();
         assertEquals("a", iter.next());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testDelayedPushback_2_oe() {
         final PushbackIterator<E> iter = makeObject();
@@ -137,7 +137,7 @@ public class PushbackIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("x", iter.next());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testDelayedPushback_3_oe() {
         final PushbackIterator<E> iter = makeObject();
@@ -147,14 +147,14 @@ public class PushbackIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("b", iter.next());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testMultiplePushback_1_oe() {
         final PushbackIterator<E> iter = makeObject();
         assertEquals("a", iter.next());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testMultiplePushback_2_oe() {
         final PushbackIterator<E> iter = makeObject();
@@ -164,7 +164,7 @@ public class PushbackIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("y", iter.next());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testMultiplePushback_3_oe() {
         final PushbackIterator<E> iter = makeObject();
@@ -175,7 +175,7 @@ public class PushbackIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("x", iter.next());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testMultiplePushback_4_oe() {
         final PushbackIterator<E> iter = makeObject();

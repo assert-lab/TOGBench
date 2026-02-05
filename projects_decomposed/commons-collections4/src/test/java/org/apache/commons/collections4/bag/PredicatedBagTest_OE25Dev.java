@@ -102,12 +102,12 @@ public class PredicatedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
 //        writeExternalFormToDisk((java.io.Serializable) bag, "src/test/resources/data/test/PredicatedBag.fullCollection.version4.obj");
 //    }
 
-    public void testlegalAddRemove_1_oe() {
+public void testlegalAddRemove_1_oe() {
         final Bag<T> bag = makeTestBag();
         assertEquals(0, bag.size());
     }
 
-    public void testlegalAddRemove_2_oe() {
+public void testlegalAddRemove_2_oe() {
         final Bag<T> bag = makeTestBag();
         // removed other assertion
         final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
@@ -117,7 +117,7 @@ public class PredicatedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
     }
     }
 
-    public void testlegalAddRemove_3_oe() {
+public void testlegalAddRemove_3_oe() {
         final Bag<T> bag = makeTestBag();
         // removed other assertion
         final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
@@ -128,7 +128,7 @@ public class PredicatedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
     }
     }
 
-    public void testlegalAddRemove_4_oe() {
+public void testlegalAddRemove_4_oe() {
         final Bag<T> bag = makeTestBag();
         // removed other assertion
         final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
@@ -141,7 +141,7 @@ public class PredicatedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
         assertTrue("Unique set contains the first element",set.contains(els[0]));
     }
 
-    public void testlegalAddRemove_5_oe() {
+public void testlegalAddRemove_5_oe() {
         final Bag<T> bag = makeTestBag();
         // removed other assertion
         final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
@@ -155,7 +155,7 @@ public class PredicatedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
         assertEquals(true, bag.remove(els[0]));
     }
 
-    public void testlegalAddRemove_6_oe() {
+public void testlegalAddRemove_6_oe() {
         final Bag<T> bag = makeTestBag();
         // removed other assertion
         final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
@@ -171,7 +171,7 @@ public class PredicatedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
         assertTrue("Unique set now does not contain the first element",!set.contains(els[0]));
     }
 
-    public void testIllegalAdd_2_oe() {
+public void testIllegalAdd_2_oe() {
         final Bag<T> bag = makeTestBag();
         final Integer i = Integer.valueOf(3);
         try {

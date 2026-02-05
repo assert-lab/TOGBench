@@ -85,13 +85,13 @@ public class TestBasePathLocationStrategy_OE25Dev {
      * Tests a locate() operation if no file name is provided.
      */
 
-    @Test
+@Test
     public void testNullBasePath_1_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().fileName(TEST_FILE).create();
         assertNull("Got a URL", strategy.locate(fileSystem, locator));
     }
 
-    @Test
+@Test
     public void testNullFileName_1_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().basePath(ConfigurationAssert.getTestFile(TEST_FILE).getAbsolutePath()).create();
         assertNull("Got a URL", strategy.locate(fileSystem, locator));

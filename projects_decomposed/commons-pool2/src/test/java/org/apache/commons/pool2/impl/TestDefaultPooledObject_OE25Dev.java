@@ -43,7 +43,7 @@ public class TestDefaultPooledObject_OE25Dev {
      * @throws Exception May occur in some failure modes
      */
 
-    @Test
+@Test
     public void testInitialStateActiveDuration_1_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
         // Sleep MUST be "long enough" to test that we are not returning a negative time.
@@ -55,7 +55,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertFalse(dpo.getActiveDuration().isNegative());
     }
 
-    @Test
+@Test
     public void testInitialStateActiveDuration_2_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
         // Sleep MUST be "long enough" to test that we are not returning a negative time.
@@ -68,7 +68,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertFalse(dpo.getActiveDuration().isZero());
     }
 
-    @Test
+@Test
     public void testInitialStateActiveDuration_3_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
         // Sleep MUST be "long enough" to test that we are not returning a negative time.
@@ -83,7 +83,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertThat(1L,lessThanOrEqualTo(2L));// sanity check assertThat(Duration.ZERO,lessThanOrEqualTo(Duration.ZERO.plusNanos(1)));// sanity check assertThat(dpo.getActiveDuration(),lessThanOrEqualTo(dpo.getIdleDuration()));
     }
 
-    @Test
+@Test
     public void testInitialStateActiveDuration_4_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
         // Sleep MUST be "long enough" to test that we are not returning a negative time.
@@ -100,7 +100,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertThat(dpo.getActiveDuration().toMillis(), lessThanOrEqualTo(dpo.getActiveTimeMillis()));
     }
 
-    @Test
+@Test
     public void testInitialStateActiveDuration_5_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
         // Sleep MUST be "long enough" to test that we are not returning a negative time.
@@ -118,7 +118,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertThat(dpo.getActiveDuration(), lessThanOrEqualTo(dpo.getActiveTime()));
     }
 
-    @Test
+@Test
     public void testInitialStateActiveDuration_6_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
         // Sleep MUST be "long enough" to test that we are not returning a negative time.
@@ -137,7 +137,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertThat(dpo.getActiveDuration(), lessThanOrEqualTo(dpo.getIdleTime()));
     }
 
-    @Test
+@Test
     public void testInitialStateActiveDuration_7_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
         // Sleep MUST be "long enough" to test that we are not returning a negative time.
@@ -157,7 +157,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertThat(dpo.getActiveDuration().toMillis(), lessThanOrEqualTo(dpo.getIdleTimeMillis()));
     }
 
-    @Test
+@Test
     public void testInitialStateIdleDuration_1_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
         // Sleep MUST be "long enough" to test that we are not returning a negative time.
@@ -168,7 +168,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertFalse(dpo.getIdleDuration().isNegative());
     }
 
-    @Test
+@Test
     public void testInitialStateIdleDuration_2_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
         // Sleep MUST be "long enough" to test that we are not returning a negative time.
@@ -180,7 +180,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertFalse(dpo.getIdleDuration().isZero());
     }
 
-    @Test
+@Test
     public void testInitialStateIdleDuration_3_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
         // Sleep MUST be "long enough" to test that we are not returning a negative time.
@@ -194,7 +194,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertThat(dpo.getIdleDuration(), lessThanOrEqualTo(dpo.getActiveDuration()));
     }
 
-    @Test
+@Test
     public void testInitialStateIdleDuration_4_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
         // Sleep MUST be "long enough" to test that we are not returning a negative time.
@@ -212,7 +212,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertThat(dpo.getIdleDuration(), lessThanOrEqualTo(dpo.getActiveTime()));
     }
 
-    @Test
+@Test
     public void testInitialStateIdleDuration_5_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
         // Sleep MUST be "long enough" to test that we are not returning a negative time.
@@ -231,7 +231,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertThat(dpo.getIdleDuration().toMillis(), lessThanOrEqualTo(dpo.getActiveTimeMillis()));
     }
 
-    @Test
+@Test
     public void testInitialStateCreateInstant_1_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
 
@@ -241,7 +241,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertEquals(dpo.getCreateInstant(), dpo.getLastBorrowInstant());
     }
 
-    @Test
+@Test
     public void testInitialStateCreateInstant_2_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
 
@@ -252,7 +252,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertEquals(dpo.getCreateInstant(), dpo.getLastReturnInstant());
     }
 
-    @Test
+@Test
     public void testInitialStateCreateInstant_3_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
 
@@ -264,7 +264,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertEquals(dpo.getCreateInstant(), dpo.getLastUsedInstant());
     }
 
-    @Test
+@Test
     public void testInitialStateCreateInstant_4_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
 
@@ -279,7 +279,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertEquals(dpo.getCreateInstant().toEpochMilli(), dpo.getCreateTime());
     }
 
-    @Test
+@Test
     public void testInitialStateCreateInstant_5_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
 
@@ -297,7 +297,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertEquals(dpo.getCreateTime(), dpo.getLastBorrowTime());
     }
 
-    @Test
+@Test
     public void testInitialStateCreateInstant_6_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
 
@@ -316,7 +316,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertEquals(dpo.getCreateTime(), dpo.getLastReturnTime());
     }
 
-    @Test
+@Test
     public void testInitialStateCreateInstant_7_oe() throws InterruptedException {
         final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
 
@@ -336,7 +336,7 @@ public class TestDefaultPooledObject_OE25Dev {
         assertEquals(dpo.getCreateTime(), dpo.getLastUsedTime());
     }
 
-    @Test
+@Test
     public void testGetIdleTimeMillis_1_oe() throws Exception {
         final DefaultPooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
         final AtomicBoolean negativeIdleTimeReturned = new AtomicBoolean(false);

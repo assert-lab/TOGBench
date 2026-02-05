@@ -72,7 +72,7 @@ public class JunctionTests_OE25Dev extends AbstractProviderTestCase {
     // Events
     // Remove junctions
 
-    @Test
+@Test
     public void testAncestors_1_oe() throws Exception {
         final FileSystem fs = getManager().createVirtualFileSystem("vfs://").getFileSystem();
         final FileObject baseDir = getBaseDir();
@@ -82,7 +82,7 @@ public class JunctionTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testAncestors_2_oe() throws Exception {
         final FileSystem fs = getManager().createVirtualFileSystem("vfs://").getFileSystem();
         final FileObject baseDir = getBaseDir();
@@ -94,7 +94,7 @@ public class JunctionTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testAncestors_3_oe() throws Exception {
         final FileSystem fs = getManager().createVirtualFileSystem("vfs://").getFileSystem();
         final FileObject baseDir = getBaseDir();
@@ -108,7 +108,7 @@ public class JunctionTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testAncestors_4_oe() throws Exception {
         final FileSystem fs = getManager().createVirtualFileSystem("vfs://").getFileSystem();
         final FileObject baseDir = getBaseDir();
@@ -129,7 +129,7 @@ public class JunctionTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue("Does not exist", file.exists());
     }
 
-    @Test
+@Test
     public void testAncestors_5_oe() throws Exception {
         final FileSystem fs = getManager().createVirtualFileSystem("vfs://").getFileSystem();
         final FileObject baseDir = getBaseDir();
@@ -152,7 +152,7 @@ public class JunctionTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue("Does not exist", file.exists());
     }
 
-    @Test
+@Test
     public void testAncestors_6_oe() throws Exception {
         final FileSystem fs = getManager().createVirtualFileSystem("vfs://").getFileSystem();
         final FileObject baseDir = getBaseDir();

@@ -50,36 +50,36 @@ public class CharSetTest_OE25Dev  {
 
     //-----------------------------------------------------------------------
 
-    @Test
+@Test
     public void testClass_1_oe() {
         assertTrue(Modifier.isPublic(CharSet.class.getModifiers()));
     }
 
-    @Test
+@Test
     public void testClass_2_oe() {
         // removed other assertion
         assertFalse(Modifier.isFinal(CharSet.class.getModifiers()));
     }
 
-    @Test
+@Test
     public void testGetInstance_1_oe() {
         assertSame(CharSet.EMPTY, CharSet.getInstance( (String) null));
     }
 
-    @Test
+@Test
     public void testGetInstance_2_oe() {
         // removed other assertion
         assertSame(CharSet.EMPTY, CharSet.getInstance(""));
     }
 
-    @Test
+@Test
     public void testGetInstance_3_oe() {
         // removed other assertion
         // removed other assertion
         assertSame(CharSet.ASCII_ALPHA, CharSet.getInstance("a-zA-Z"));
     }
 
-    @Test
+@Test
     public void testGetInstance_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -87,7 +87,7 @@ public class CharSetTest_OE25Dev  {
         assertSame(CharSet.ASCII_ALPHA, CharSet.getInstance("A-Za-z"));
     }
 
-    @Test
+@Test
     public void testGetInstance_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -96,7 +96,7 @@ public class CharSetTest_OE25Dev  {
         assertSame(CharSet.ASCII_ALPHA_LOWER, CharSet.getInstance("a-z"));
     }
 
-    @Test
+@Test
     public void testGetInstance_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -106,7 +106,7 @@ public class CharSetTest_OE25Dev  {
         assertSame(CharSet.ASCII_ALPHA_UPPER, CharSet.getInstance("A-Z"));
     }
 
-    @Test
+@Test
     public void testGetInstance_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -117,25 +117,25 @@ public class CharSetTest_OE25Dev  {
         assertSame(CharSet.ASCII_NUMERIC, CharSet.getInstance("0-9"));
     }
 
-    @Test
+@Test
     public void testGetInstance_Stringarray_1_oe() {
         assertNull(CharSet.getInstance((String[]) null));
     }
 
-    @Test
+@Test
     public void testGetInstance_Stringarray_2_oe() {
         // removed other assertion
         assertEquals("[]", CharSet.getInstance(new String[0]).toString());
     }
 
-    @Test
+@Test
     public void testGetInstance_Stringarray_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("[]", CharSet.getInstance(new String[] {null}).toString());
     }
 
-    @Test
+@Test
     public void testGetInstance_Stringarray_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -143,7 +143,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals("[a-e]", CharSet.getInstance(new String[] {"a-e"}).toString());
     }
 
-    @Test
+@Test
     public void testConstructor_String_simple_1_oe() {
         CharSet set;
         CharRange[] array;
@@ -153,7 +153,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals("[]", set.toString());
     }
 
-    @Test
+@Test
     public void testConstructor_String_simple_2_oe() {
         CharSet set;
         CharRange[] array;
@@ -164,7 +164,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(0, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_simple_3_oe() {
         CharSet set;
         CharRange[] array;
@@ -179,7 +179,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals("[]", set.toString());
     }
 
-    @Test
+@Test
     public void testConstructor_String_simple_4_oe() {
         CharSet set;
         CharRange[] array;
@@ -195,7 +195,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(0, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_simple_5_oe() {
         CharSet set;
         CharRange[] array;
@@ -215,7 +215,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals("[a]", set.toString());
     }
 
-    @Test
+@Test
     public void testConstructor_String_simple_6_oe() {
         CharSet set;
         CharRange[] array;
@@ -236,7 +236,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_simple_7_oe() {
         CharSet set;
         CharRange[] array;
@@ -258,7 +258,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals("a", array[0].toString());
     }
 
-    @Test
+@Test
     public void testConstructor_String_simple_8_oe() {
         CharSet set;
         CharRange[] array;
@@ -284,7 +284,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals("[^a]", set.toString());
     }
 
-    @Test
+@Test
     public void testConstructor_String_simple_9_oe() {
         CharSet set;
         CharRange[] array;
@@ -311,7 +311,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_simple_10_oe() {
         CharSet set;
         CharRange[] array;
@@ -339,7 +339,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals("^a", array[0].toString());
     }
 
-    @Test
+@Test
     public void testConstructor_String_simple_11_oe() {
         CharSet set;
         CharRange[] array;
@@ -371,7 +371,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals("[a-e]", set.toString());
     }
 
-    @Test
+@Test
     public void testConstructor_String_simple_12_oe() {
         CharSet set;
         CharRange[] array;
@@ -404,7 +404,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_simple_13_oe() {
         CharSet set;
         CharRange[] array;
@@ -438,7 +438,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals("a-e", array[0].toString());
     }
 
-    @Test
+@Test
     public void testConstructor_String_simple_14_oe() {
         CharSet set;
         CharRange[] array;
@@ -476,7 +476,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals("[^a-e]", set.toString());
     }
 
-    @Test
+@Test
     public void testConstructor_String_simple_15_oe() {
         CharSet set;
         CharRange[] array;
@@ -515,7 +515,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_simple_16_oe() {
         CharSet set;
         CharRange[] array;
@@ -555,7 +555,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals("^a-e", array[0].toString());
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_1_oe() {
         CharSet set;
         CharRange[] array;
@@ -565,7 +565,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(3, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_2_oe() {
         CharSet set;
         CharRange[] array;
@@ -576,7 +576,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('a')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_3_oe() {
         CharSet set;
         CharRange[] array;
@@ -588,7 +588,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('b')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_4_oe() {
         CharSet set;
         CharRange[] array;
@@ -601,7 +601,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('c')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_5_oe() {
         CharSet set;
         CharRange[] array;
@@ -618,7 +618,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(2, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_6_oe() {
         CharSet set;
         CharRange[] array;
@@ -636,7 +636,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isIn('a', 'c')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_7_oe() {
         CharSet set;
         CharRange[] array;
@@ -655,7 +655,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isIn('e', 'f')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_8_oe() {
         CharSet set;
         CharRange[] array;
@@ -678,7 +678,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(2, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_9_oe() {
         CharSet set;
         CharRange[] array;
@@ -702,7 +702,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('a')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_10_oe() {
         CharSet set;
         CharRange[] array;
@@ -727,7 +727,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isIn('e', 'f')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_11_oe() {
         CharSet set;
         CharRange[] array;
@@ -756,7 +756,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(2, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_12_oe() {
         CharSet set;
         CharRange[] array;
@@ -786,7 +786,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('a')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_13_oe() {
         CharSet set;
         CharRange[] array;
@@ -817,7 +817,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isIn('e', 'f')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_14_oe() {
         CharSet set;
         CharRange[] array;
@@ -852,7 +852,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(4, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_15_oe() {
         CharSet set;
         CharRange[] array;
@@ -888,7 +888,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('a')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_16_oe() {
         CharSet set;
         CharRange[] array;
@@ -925,7 +925,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isIn('e', 'f')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_17_oe() {
         CharSet set;
         CharRange[] array;
@@ -963,7 +963,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isIn('m', 'p')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_combo_18_oe() {
         CharSet set;
         CharRange[] array;
@@ -1002,7 +1002,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('z')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_1_oe() {
         CharSet set;
         CharRange[] array;
@@ -1012,7 +1012,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(3, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_2_oe() {
         CharSet set;
         CharRange[] array;
@@ -1023,7 +1023,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isNot('a')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_3_oe() {
         CharSet set;
         CharRange[] array;
@@ -1035,7 +1035,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('b')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_4_oe() {
         CharSet set;
         CharRange[] array;
@@ -1048,7 +1048,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('c')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_5_oe() {
         CharSet set;
         CharRange[] array;
@@ -1065,7 +1065,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(3, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_6_oe() {
         CharSet set;
         CharRange[] array;
@@ -1083,7 +1083,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('b')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_7_oe() {
         CharSet set;
         CharRange[] array;
@@ -1102,7 +1102,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isNot('a')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_8_oe() {
         CharSet set;
         CharRange[] array;
@@ -1122,7 +1122,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('c')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_9_oe() {
         CharSet set;
         CharRange[] array;
@@ -1146,7 +1146,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(4, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_10_oe() {
         CharSet set;
         CharRange[] array;
@@ -1171,7 +1171,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('d')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_11_oe() {
         CharSet set;
         CharRange[] array;
@@ -1197,7 +1197,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('b')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_12_oe() {
         CharSet set;
         CharRange[] array;
@@ -1224,7 +1224,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isNot('a')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_13_oe() {
         CharSet set;
         CharRange[] array;
@@ -1252,7 +1252,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('c')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_14_oe() {
         CharSet set;
         CharRange[] array;
@@ -1284,7 +1284,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(2, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_15_oe() {
         CharSet set;
         CharRange[] array;
@@ -1317,7 +1317,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isNot('b')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_16_oe() {
         CharSet set;
         CharRange[] array;
@@ -1351,7 +1351,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isNot('a')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_17_oe() {
         CharSet set;
         CharRange[] array;
@@ -1389,7 +1389,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(3, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_18_oe() {
         CharSet set;
         CharRange[] array;
@@ -1428,7 +1428,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isNotIn('a', 'c')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_19_oe() {
         CharSet set;
         CharRange[] array;
@@ -1468,7 +1468,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isNot('z')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_comboNegated_20_oe() {
         CharSet set;
         CharRange[] array;
@@ -1509,7 +1509,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('b')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_1_oe() {
         CharSet set;
         CharRange[] array;
@@ -1519,7 +1519,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_2_oe() {
         CharSet set;
         CharRange[] array;
@@ -1530,7 +1530,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('-')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_3_oe() {
         CharSet set;
         CharRange[] array;
@@ -1545,7 +1545,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_4_oe() {
         CharSet set;
         CharRange[] array;
@@ -1561,7 +1561,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('-')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_5_oe() {
         CharSet set;
         CharRange[] array;
@@ -1581,7 +1581,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_6_oe() {
         CharSet set;
         CharRange[] array;
@@ -1602,7 +1602,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('-')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_7_oe() {
         CharSet set;
         CharRange[] array;
@@ -1627,7 +1627,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_8_oe() {
         CharSet set;
         CharRange[] array;
@@ -1653,7 +1653,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('-')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_9_oe() {
         CharSet set;
         CharRange[] array;
@@ -1683,7 +1683,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(2, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_10_oe() {
         CharSet set;
         CharRange[] array;
@@ -1714,7 +1714,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('-')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_11_oe() {
         CharSet set;
         CharRange[] array;
@@ -1746,7 +1746,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('a')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_12_oe() {
         CharSet set;
         CharRange[] array;
@@ -1782,7 +1782,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(2, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_13_oe() {
         CharSet set;
         CharRange[] array;
@@ -1819,7 +1819,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('a')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_14_oe() {
         CharSet set;
         CharRange[] array;
@@ -1857,7 +1857,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('-')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_15_oe() {
         CharSet set;
         CharRange[] array;
@@ -1899,7 +1899,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_16_oe() {
         CharSet set;
         CharRange[] array;
@@ -1942,7 +1942,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isIn('a', '-')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_17_oe() {
         CharSet set;
         CharRange[] array;
@@ -1989,7 +1989,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddDash_18_oe() {
         CharSet set;
         CharRange[] array;
@@ -2037,7 +2037,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isIn('-', 'a')));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_1_oe() {
         CharSet set;
         CharRange[] array;
@@ -2046,7 +2046,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_2_oe() {
         CharSet set;
         CharRange[] array;
@@ -2056,7 +2056,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array,CharRange.is('^')));// "^" set = CharSet.getInstance("^^");
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_3_oe() {
         CharSet set;
         CharRange[] array;
@@ -2068,7 +2068,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_4_oe() {
         CharSet set;
         CharRange[] array;
@@ -2081,7 +2081,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array,CharRange.isNot('^')));// "^^" set = CharSet.getInstance("^^^");
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_5_oe() {
         CharSet set;
         CharRange[] array;
@@ -2096,7 +2096,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(2, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_6_oe() {
         CharSet set;
         CharRange[] array;
@@ -2112,7 +2112,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array,CharRange.isNot('^')));// "^^" assertTrue(ArrayUtils.contains(array,CharRange.is('^')));// "^" set = CharSet.getInstance("^^^^");
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_7_oe() {
         CharSet set;
         CharRange[] array;
@@ -2130,7 +2130,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_8_oe() {
         CharSet set;
         CharRange[] array;
@@ -2149,7 +2149,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array,CharRange.isNot('^')));// "^^" x2 set = CharSet.getInstance("a^");
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_9_oe() {
         CharSet set;
         CharRange[] array;
@@ -2170,7 +2170,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(2, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_10_oe() {
         CharSet set;
         CharRange[] array;
@@ -2192,7 +2192,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array,CharRange.is('a')));// "a" assertTrue(ArrayUtils.contains(array,CharRange.is('^')));// "^" set = CharSet.getInstance("^a-");
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_11_oe() {
         CharSet set;
         CharRange[] array;
@@ -2216,7 +2216,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(2, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_12_oe() {
         CharSet set;
         CharRange[] array;
@@ -2241,7 +2241,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array,CharRange.isNot('a')));// "^a" assertTrue(ArrayUtils.contains(array,CharRange.is('-')));// "-" set = CharSet.getInstance("^^-c");
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_13_oe() {
         CharSet set;
         CharRange[] array;
@@ -2268,7 +2268,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_14_oe() {
         CharSet set;
         CharRange[] array;
@@ -2296,7 +2296,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array,CharRange.isNotIn('^','c')));// "^^-c" set = CharSet.getInstance("^c-^");
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_15_oe() {
         CharSet set;
         CharRange[] array;
@@ -2326,7 +2326,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_16_oe() {
         CharSet set;
         CharRange[] array;
@@ -2357,7 +2357,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array,CharRange.isNotIn('c','^')));// "^c-^" set = CharSet.getInstance("^c-^d");
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_17_oe() {
         CharSet set;
         CharRange[] array;
@@ -2390,7 +2390,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(2, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_18_oe() {
         CharSet set;
         CharRange[] array;
@@ -2424,7 +2424,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array,CharRange.isNotIn('c','^')));// "^c-^" assertTrue(ArrayUtils.contains(array,CharRange.is('d')));// "d" set = CharSet.getInstance("^^-");
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_19_oe() {
         CharSet set;
         CharRange[] array;
@@ -2460,7 +2460,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(2, array.length);
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_20_oe() {
         CharSet set;
         CharRange[] array;
@@ -2497,7 +2497,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isNot('^'))); // "^^";
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddNegate_21_oe() {
         CharSet set;
         CharRange[] array;
@@ -2535,7 +2535,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.is('-'))); // "-";
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_1_oe() {
         CharSet set;
         CharRange[] array;
@@ -2545,7 +2545,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array,CharRange.isIn('a','^')));// "a-^" assertTrue(ArrayUtils.contains(array,CharRange.is('c')));// "c" assertFalse(set.contains('b'));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_2_oe() {
         CharSet set;
         CharRange[] array;
@@ -2556,7 +2556,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(set.contains('^'));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_3_oe() {
         CharSet set;
         CharRange[] array;
@@ -2568,7 +2568,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(set.contains('_'));// between ^ and a assertTrue(set.contains('c'));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_4_oe() {
         CharSet set;
         CharRange[] array;
@@ -2584,7 +2584,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array,CharRange.isNotIn('a','^')));// "^a-^" assertTrue(ArrayUtils.contains(array,CharRange.is('c')));// "c" assertTrue(set.contains('b'));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_5_oe() {
         CharSet set;
         CharRange[] array;
@@ -2601,7 +2601,7 @@ public class CharSetTest_OE25Dev  {
         assertFalse(set.contains('^'));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_6_oe() {
         CharSet set;
         CharRange[] array;
@@ -2619,7 +2619,7 @@ public class CharSetTest_OE25Dev  {
         assertFalse(set.contains('_'));// between ^ and a set = CharSet.getInstance("a- ^-- ");//contains everything array = set.getCharRanges();
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_7_oe() {
         CharSet set;
         CharRange[] array;
@@ -2638,7 +2638,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array,CharRange.isIn('a',' ')));// "a- " assertTrue(ArrayUtils.contains(array,CharRange.isNotIn('-',' ')));// "^-- " assertTrue(set.contains('#'));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_8_oe() {
         CharSet set;
         CharRange[] array;
@@ -2658,7 +2658,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(set.contains('^'));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_9_oe() {
         CharSet set;
         CharRange[] array;
@@ -2679,7 +2679,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(set.contains('a'));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_10_oe() {
         CharSet set;
         CharRange[] array;
@@ -2701,7 +2701,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(set.contains('*'));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_11_oe() {
         CharSet set;
         CharRange[] array;
@@ -2724,7 +2724,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(set.contains('A'));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_12_oe() {
         CharSet set;
         CharRange[] array;
@@ -2751,7 +2751,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array,CharRange.isIn('^','b')));// "^-b" assertTrue(set.contains('b'));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_13_oe() {
         CharSet set;
         CharRange[] array;
@@ -2779,7 +2779,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(set.contains('_'));// between ^ and a assertFalse(set.contains('A'));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_14_oe() {
         CharSet set;
         CharRange[] array;
@@ -2808,7 +2808,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(set.contains('^'));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_15_oe() {
         CharSet set;
         CharRange[] array;
@@ -2841,7 +2841,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array,CharRange.isIn('^','b')));// "b-^" assertTrue(set.contains('b'));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_16_oe() {
         CharSet set;
         CharRange[] array;
@@ -2875,7 +2875,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(set.contains('^'));
     }
 
-    @Test
+@Test
     public void testConstructor_String_oddCombinations_17_oe() {
         CharSet set;
         CharRange[] array;
@@ -2910,7 +2910,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(set.contains('a'));// between ^ and b assertFalse(set.contains('c'));
     }
 
-    @Test
+@Test
     public void testEquals_Object_1_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -2922,7 +2922,7 @@ public class CharSetTest_OE25Dev  {
         assertNotEquals(null, abc);
     }
 
-    @Test
+@Test
     public void testEquals_Object_2_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -2936,7 +2936,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(abc, abc);
     }
 
-    @Test
+@Test
     public void testEquals_Object_3_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -2951,7 +2951,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(abc, abc2);
     }
 
-    @Test
+@Test
     public void testEquals_Object_4_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -2967,7 +2967,7 @@ public class CharSetTest_OE25Dev  {
         assertNotEquals(abc, atoc);
     }
 
-    @Test
+@Test
     public void testEquals_Object_5_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -2984,7 +2984,7 @@ public class CharSetTest_OE25Dev  {
         assertNotEquals(abc, notatoc);
     }
 
-    @Test
+@Test
     public void testEquals_Object_6_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -3003,7 +3003,7 @@ public class CharSetTest_OE25Dev  {
         assertNotEquals(atoc, abc);
     }
 
-    @Test
+@Test
     public void testEquals_Object_7_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -3023,7 +3023,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(atoc, atoc);
     }
 
-    @Test
+@Test
     public void testEquals_Object_8_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -3044,7 +3044,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(atoc, atoc2);
     }
 
-    @Test
+@Test
     public void testEquals_Object_9_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -3066,7 +3066,7 @@ public class CharSetTest_OE25Dev  {
         assertNotEquals(atoc, notatoc);
     }
 
-    @Test
+@Test
     public void testEquals_Object_10_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -3090,7 +3090,7 @@ public class CharSetTest_OE25Dev  {
         assertNotEquals(notatoc, abc);
     }
 
-    @Test
+@Test
     public void testEquals_Object_11_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -3115,7 +3115,7 @@ public class CharSetTest_OE25Dev  {
         assertNotEquals(notatoc, atoc);
     }
 
-    @Test
+@Test
     public void testEquals_Object_12_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -3141,7 +3141,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(notatoc, notatoc);
     }
 
-    @Test
+@Test
     public void testEquals_Object_13_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -3168,7 +3168,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(notatoc, notatoc2);
     }
 
-    @Test
+@Test
     public void testHashCode_1_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -3180,7 +3180,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(abc.hashCode(), abc.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_2_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -3193,7 +3193,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(abc.hashCode(), abc2.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_3_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -3207,7 +3207,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(atoc.hashCode(), atoc.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_4_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -3222,7 +3222,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(atoc.hashCode(), atoc2.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_5_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -3238,7 +3238,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(notatoc.hashCode(), notatoc.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_6_oe() {
         final CharSet abc = CharSet.getInstance("abc");
         final CharSet abc2 = CharSet.getInstance("abc");
@@ -3255,7 +3255,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(notatoc.hashCode(), notatoc2.hashCode());
     }
 
-    @Test
+@Test
     public void testContains_Char_1_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3266,7 +3266,7 @@ public class CharSetTest_OE25Dev  {
         assertFalse(btod.contains('a'));
     }
 
-    @Test
+@Test
     public void testContains_Char_2_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3278,7 +3278,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(btod.contains('b'));
     }
 
-    @Test
+@Test
     public void testContains_Char_3_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3291,7 +3291,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(btod.contains('c'));
     }
 
-    @Test
+@Test
     public void testContains_Char_4_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3305,7 +3305,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(btod.contains('d'));
     }
 
-    @Test
+@Test
     public void testContains_Char_5_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3320,7 +3320,7 @@ public class CharSetTest_OE25Dev  {
         assertFalse(btod.contains('e'));
     }
 
-    @Test
+@Test
     public void testContains_Char_6_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3337,7 +3337,7 @@ public class CharSetTest_OE25Dev  {
         assertFalse(bcd.contains('a'));
     }
 
-    @Test
+@Test
     public void testContains_Char_7_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3355,7 +3355,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(bcd.contains('b'));
     }
 
-    @Test
+@Test
     public void testContains_Char_8_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3374,7 +3374,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(bcd.contains('c'));
     }
 
-    @Test
+@Test
     public void testContains_Char_9_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3394,7 +3394,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(bcd.contains('d'));
     }
 
-    @Test
+@Test
     public void testContains_Char_10_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3415,7 +3415,7 @@ public class CharSetTest_OE25Dev  {
         assertFalse(bcd.contains('e'));
     }
 
-    @Test
+@Test
     public void testContains_Char_11_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3438,7 +3438,7 @@ public class CharSetTest_OE25Dev  {
         assertFalse(bd.contains('a'));
     }
 
-    @Test
+@Test
     public void testContains_Char_12_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3462,7 +3462,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(bd.contains('b'));
     }
 
-    @Test
+@Test
     public void testContains_Char_13_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3487,7 +3487,7 @@ public class CharSetTest_OE25Dev  {
         assertFalse(bd.contains('c'));
     }
 
-    @Test
+@Test
     public void testContains_Char_14_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3513,7 +3513,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(bd.contains('d'));
     }
 
-    @Test
+@Test
     public void testContains_Char_15_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3540,7 +3540,7 @@ public class CharSetTest_OE25Dev  {
         assertFalse(bd.contains('e'));
     }
 
-    @Test
+@Test
     public void testContains_Char_16_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3569,7 +3569,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(notbtod.contains('a'));
     }
 
-    @Test
+@Test
     public void testContains_Char_17_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3599,7 +3599,7 @@ public class CharSetTest_OE25Dev  {
         assertFalse(notbtod.contains('b'));
     }
 
-    @Test
+@Test
     public void testContains_Char_18_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3630,7 +3630,7 @@ public class CharSetTest_OE25Dev  {
         assertFalse(notbtod.contains('c'));
     }
 
-    @Test
+@Test
     public void testContains_Char_19_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3662,7 +3662,7 @@ public class CharSetTest_OE25Dev  {
         assertFalse(notbtod.contains('d'));
     }
 
-    @Test
+@Test
     public void testContains_Char_20_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3695,7 +3695,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(notbtod.contains('e'));
     }
 
-    @Test
+@Test
     public void testContains_Char_21_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3730,7 +3730,7 @@ public class CharSetTest_OE25Dev  {
         assertFalse(dtob.contains('a'));
     }
 
-    @Test
+@Test
     public void testContains_Char_22_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3766,7 +3766,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(dtob.contains('b'));
     }
 
-    @Test
+@Test
     public void testContains_Char_23_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3803,7 +3803,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(dtob.contains('c'));
     }
 
-    @Test
+@Test
     public void testContains_Char_24_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3841,7 +3841,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(dtob.contains('d'));
     }
 
-    @Test
+@Test
     public void testContains_Char_25_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3880,7 +3880,7 @@ public class CharSetTest_OE25Dev  {
         assertFalse(dtob.contains('e'));
     }
 
-    @Test
+@Test
     public void testContains_Char_26_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3922,7 +3922,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals("[b-d]", dtob.toString());
     }
 
-    @Test
+@Test
     public void testContains_Char_27_oe() {
         final CharSet btod = CharSet.getInstance("b-d");
         final CharSet dtob = CharSet.getInstance("d-b");
@@ -3965,13 +3965,13 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testSerialization_1_oe() {
         CharSet set = CharSet.getInstance("a");
         assertEquals(set, SerializationUtils.clone(set));
     }
 
-    @Test
+@Test
     public void testSerialization_2_oe() {
         CharSet set = CharSet.getInstance("a");
         // removed other assertion
@@ -3979,7 +3979,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(set, SerializationUtils.clone(set));
     }
 
-    @Test
+@Test
     public void testSerialization_3_oe() {
         CharSet set = CharSet.getInstance("a");
         // removed other assertion
@@ -3989,7 +3989,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(set, SerializationUtils.clone(set));
     }
 
-    @Test
+@Test
     public void testStatics_1_oe() {
         CharRange[] array;
 
@@ -3997,7 +3997,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(0, array.length);
     }
 
-    @Test
+@Test
     public void testStatics_2_oe() {
         CharRange[] array;
 
@@ -4008,7 +4008,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(2, array.length);
     }
 
-    @Test
+@Test
     public void testStatics_3_oe() {
         CharRange[] array;
 
@@ -4020,7 +4020,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isIn('a', 'z')));
     }
 
-    @Test
+@Test
     public void testStatics_4_oe() {
         CharRange[] array;
 
@@ -4033,7 +4033,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isIn('A', 'Z')));
     }
 
-    @Test
+@Test
     public void testStatics_5_oe() {
         CharRange[] array;
 
@@ -4049,7 +4049,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testStatics_6_oe() {
         CharRange[] array;
 
@@ -4066,7 +4066,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isIn('a', 'z')));
     }
 
-    @Test
+@Test
     public void testStatics_7_oe() {
         CharRange[] array;
 
@@ -4086,7 +4086,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testStatics_8_oe() {
         CharRange[] array;
 
@@ -4107,7 +4107,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isIn('A', 'Z')));
     }
 
-    @Test
+@Test
     public void testStatics_9_oe() {
         CharRange[] array;
 
@@ -4131,7 +4131,7 @@ public class CharSetTest_OE25Dev  {
         assertEquals(1, array.length);
     }
 
-    @Test
+@Test
     public void testStatics_10_oe() {
         CharRange[] array;
 
@@ -4156,25 +4156,25 @@ public class CharSetTest_OE25Dev  {
         assertTrue(ArrayUtils.contains(array, CharRange.isIn('0', '9')));
     }
 
-    @Test
+@Test
     public void testJavadocExamples_1_oe() {
         assertFalse(CharSet.getInstance("^a-c").contains('a'));
     }
 
-    @Test
+@Test
     public void testJavadocExamples_2_oe() {
         // removed other assertion
         assertTrue(CharSet.getInstance("^a-c").contains('d'));
     }
 
-    @Test
+@Test
     public void testJavadocExamples_3_oe() {
         // removed other assertion
         // removed other assertion
         assertTrue(CharSet.getInstance("^^a-c").contains('a'));
     }
 
-    @Test
+@Test
     public void testJavadocExamples_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -4182,7 +4182,7 @@ public class CharSetTest_OE25Dev  {
         assertFalse(CharSet.getInstance("^^a-c").contains('^'));
     }
 
-    @Test
+@Test
     public void testJavadocExamples_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -4191,7 +4191,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(CharSet.getInstance("^a-cd-f").contains('d'));
     }
 
-    @Test
+@Test
     public void testJavadocExamples_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -4201,7 +4201,7 @@ public class CharSetTest_OE25Dev  {
         assertTrue(CharSet.getInstance("a-c^").contains('^'));
     }
 
-    @Test
+@Test
     public void testJavadocExamples_7_oe() {
         // removed other assertion
         // removed other assertion

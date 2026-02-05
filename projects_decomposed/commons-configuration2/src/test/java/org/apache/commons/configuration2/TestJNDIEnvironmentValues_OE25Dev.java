@@ -45,30 +45,30 @@ public class TestJNDIEnvironmentValues_OE25Dev {
         conf.getString("test.imaginarykey");
     }
 
-    @Test
+@Test
     public void testClearProperty_1_oe() {
         assertNotNull("null short for the 'test.short' key", conf.getShort("test.short", null));
     }
 
-    @Test
+@Test
     public void testClearProperty_2_oe() {
         // removed other assertion
         conf.clearProperty("test.short");
         assertNull("'test.short' property not cleared", conf.getShort("test.short", null));
     }
 
-    @Test
+@Test
     public void testContainsKey_1_oe() throws Exception {
         assertTrue(conf.containsKey("test.key"));
     }
 
-    @Test
+@Test
     public void testContainsKey_2_oe() throws Exception {
         // removed other assertion
         assertFalse(conf.containsKey("test.imaginarykey"));
     }
 
-    @Test
+@Test
     public void testGetKeys_1_oe() throws Exception {
         boolean found = false;
         final Iterator<String> it = conf.getKeys();
@@ -76,7 +76,7 @@ public class TestJNDIEnvironmentValues_OE25Dev {
         assertTrue("no key found", it.hasNext());
     }
 
-    @Test
+@Test
     public void testGetKeys_2_oe() throws Exception {
         boolean found = false;
         final Iterator<String> it = conf.getKeys();
@@ -90,7 +90,7 @@ public class TestJNDIEnvironmentValues_OE25Dev {
         assertTrue("'test.boolean' key not found", found);
     }
 
-    @Test
+@Test
     public void testGetKeysWithExistingPrefix_1_oe() {
         // test for an existing prefix
         final Iterator<String> it = conf.getKeys("test");
@@ -102,7 +102,7 @@ public class TestJNDIEnvironmentValues_OE25Dev {
         assertTrue("'test.boolean' key not found", found);
     }
 
-    @Test
+@Test
     public void testGetKeysWithKeyAsPrefix_1_oe() {
         // test for a prefix matching exactly the key of a property
         final Iterator<String> it = conf.getKeys("test.boolean");
@@ -114,38 +114,38 @@ public class TestJNDIEnvironmentValues_OE25Dev {
         assertTrue("'test.boolean' key not found", found);
     }
 
-    @Test
+@Test
     public void testGetKeysWithUnknownPrefix_1_oe() {
         // test for a unknown prefix
         final Iterator<String> it = conf.getKeys("foo.bar");
         assertFalse("no key should be found", it.hasNext());
     }
 
-    @Test
+@Test
     public void testGetMissingKeyWithDefault_1_oe() throws Exception {
         final String result = conf.getString("test.imaginarykey", "bob");
         assertEquals("bob", result);
     }
 
-    @Test
+@Test
     public void testIsEmpty_1_oe() {
         assertFalse("the configuration shouldn't be empty", conf.isEmpty());
     }
 
-    @Test
+@Test
     public void testMoreGets_1_oe() throws Exception {
         final String s = conf.getString("test.key");
         assertEquals("jndivalue", s);
     }
 
-    @Test
+@Test
     public void testMoreGets_2_oe() throws Exception {
         final String s = conf.getString("test.key");
         // removed other assertion
         assertEquals("jndivalue2", conf.getString("test.key2"));
     }
 
-    @Test
+@Test
     public void testMoreGets_3_oe() throws Exception {
         final String s = conf.getString("test.key");
         // removed other assertion
@@ -153,13 +153,13 @@ public class TestJNDIEnvironmentValues_OE25Dev {
         assertEquals(1, conf.getShort("test.short"));
     }
 
-    @Test
+@Test
     public void testSimpleGet_1_oe() throws Exception {
         final String s = conf.getString("test.key");
         assertEquals("jndivalue", s);
     }
 
-    @Test
+@Test
     public void testThrowExceptionOnMissing_1_oe() {
         assertTrue("Throw Exception Property is not set!", conf.isThrowExceptionOnMissing());
     }

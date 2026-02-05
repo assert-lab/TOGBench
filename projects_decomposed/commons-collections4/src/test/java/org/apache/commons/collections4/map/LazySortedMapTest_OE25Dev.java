@@ -79,13 +79,13 @@ public class LazySortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest<K, V>
 //            "src/test/resources/data/test/LazySortedMap.fullCollection.version4.obj");
 //    }
 
-    @Test
+@Test
     public void mapGet_1_oe() {
         Map<Integer, Number> map = lazySortedMap(new TreeMap<Integer,Number>(), oneFactory);
         assertEquals(0, map.size());
     }
 
-    @Test
+@Test
     public void mapGet_2_oe() {
         Map<Integer, Number> map = lazySortedMap(new TreeMap<Integer,Number>(), oneFactory);
         // removed other assertion
@@ -93,7 +93,7 @@ public class LazySortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest<K, V>
         assertEquals(1, i1);
     }
 
-    @Test
+@Test
     public void mapGet_3_oe() {
         Map<Integer, Number> map = lazySortedMap(new TreeMap<Integer,Number>(), oneFactory);
         // removed other assertion
@@ -102,7 +102,7 @@ public class LazySortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest<K, V>
         assertEquals(1, map.size());
     }
 
-    @Test
+@Test
     public void mapGet_4_oe() {
         Map<Integer, Number> map = lazySortedMap(new TreeMap<Integer,Number>(), oneFactory);
         // removed other assertion
@@ -115,7 +115,7 @@ public class LazySortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest<K, V>
         assertEquals(null,o);
     }
 
-    @Test
+@Test
     public void mapGet_5_oe() {
         Map<Integer, Number> map = lazySortedMap(new TreeMap<Integer,Number>(), oneFactory);
         // removed other assertion
@@ -129,7 +129,7 @@ public class LazySortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest<K, V>
         assertEquals(1, map.size());
     }
 
-    public void testSortOrder_1_oe() {
+public void testSortOrder_1_oe() {
         final SortedMap<String, Number> map = lazySortedMap(new TreeMap<String,Number>(), oneFactory);
         map.put("A",  5);
         map.get("B"); // Entry with value "One" created
@@ -137,7 +137,7 @@ public class LazySortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest<K, V>
         assertEquals("First key should be A", "A", map.firstKey());
     }
 
-    public void testSortOrder_2_oe() {
+public void testSortOrder_2_oe() {
         final SortedMap<String, Number> map = lazySortedMap(new TreeMap<String,Number>(), oneFactory);
         map.put("A",  5);
         map.get("B"); // Entry with value "One" created
@@ -146,7 +146,7 @@ public class LazySortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest<K, V>
         assertEquals("Last key should be C", "C", map.lastKey());
     }
 
-    public void testSortOrder_3_oe() {
+public void testSortOrder_3_oe() {
         final SortedMap<String, Number> map = lazySortedMap(new TreeMap<String,Number>(), oneFactory);
         map.put("A",  5);
         map.get("B"); // Entry with value "One" created
@@ -156,7 +156,7 @@ public class LazySortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest<K, V>
         assertEquals("First key in tail map should be B","B",map.tailMap("B").firstKey());
     }
 
-    public void testSortOrder_4_oe() {
+public void testSortOrder_4_oe() {
         final SortedMap<String, Number> map = lazySortedMap(new TreeMap<String,Number>(), oneFactory);
         map.put("A",  5);
         map.get("B"); // Entry with value "One" created
@@ -167,7 +167,7 @@ public class LazySortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest<K, V>
         assertEquals("Last key in head map should be B","B",map.headMap("C").lastKey());
     }
 
-    public void testSortOrder_5_oe() {
+public void testSortOrder_5_oe() {
         final SortedMap<String, Number> map = lazySortedMap(new TreeMap<String,Number>(), oneFactory);
         map.put("A",  5);
         map.get("B"); // Entry with value "One" created
@@ -179,7 +179,7 @@ public class LazySortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest<K, V>
         assertEquals("Last key in submap should be B","B",map.subMap("A","C").lastKey());
     }
 
-    public void testSortOrder_6_oe() {
+public void testSortOrder_6_oe() {
         final SortedMap<String, Number> map = lazySortedMap(new TreeMap<String,Number>(), oneFactory);
         map.put("A",  5);
         map.get("B"); // Entry with value "One" created
@@ -194,7 +194,7 @@ public class LazySortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest<K, V>
         assertTrue("natural order,so comparator should be null",c == null);
     }
 
-    public void testTransformerDecorate_1_oe() {
+public void testTransformerDecorate_1_oe() {
         final Transformer<Object, Integer> transformer = TransformerUtils.asTransformer(oneFactory);
         SortedMap<Integer, Number> map = lazySortedMap(new TreeMap<Integer, Number>(), transformer);
         assertTrue(map instanceof LazySortedMap);

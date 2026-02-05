@@ -155,21 +155,21 @@ public class BeanComparatorTestCase_OE25Dev extends TestCase {
      *  tests comparing two beans on a boolean property, then changing the property and testing
      */
 
-    public void testSimpleCompare_1_oe() {
+public void testSimpleCompare_1_oe() {
         final BeanComparator<AlphaBean> beanComparator = new BeanComparator<AlphaBean>(
                 "name");
         final int result = beanComparator.compare(alphaBean1, alphaBean2);
         assertTrue("Comparator did not sort properly. Result:" + result,result == -1);
     }
 
-    public void testSimpleCompareInverse_1_oe() {
+public void testSimpleCompareInverse_1_oe() {
         final BeanComparator<AlphaBean> beanComparator = new BeanComparator<AlphaBean>(
                 "name");
         final int result = beanComparator.compare(alphaBean2, alphaBean1);
         assertTrue("Comparator did not sort properly. Result:" + result,result == 1);
     }
 
-    public void testCompareIdentical_1_oe() {
+public void testCompareIdentical_1_oe() {
         alphaBean1 = new AlphaBean("alphabean");
         alphaBean2 = new AlphaBean("alphabean");
         final BeanComparator<AlphaBean> beanComparator = new BeanComparator<AlphaBean>(
@@ -178,14 +178,14 @@ public class BeanComparatorTestCase_OE25Dev extends TestCase {
         assertTrue("Comparator did not sort properly. Result:" + result,result == 0);
     }
 
-    public void testCompareBeanAgainstSelf_1_oe() {
+public void testCompareBeanAgainstSelf_1_oe() {
         final BeanComparator<AlphaBean> beanComparator = new BeanComparator<AlphaBean>(
                 "name");
         final int result = beanComparator.compare(alphaBean1, alphaBean1);
         assertTrue("Comparator did not sort properly. Result:" + result,result == 0);
     }
 
-    public void testCompareOnMissingProperty_2_oe() {
+public void testCompareOnMissingProperty_2_oe() {
         try {
           final BeanComparator<AlphaBean> beanComparator = new BeanComparator<AlphaBean>("bogusName");
           beanComparator.compare(alphaBean2, alphaBean1);
@@ -198,7 +198,7 @@ public class BeanComparatorTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testSetProperty_1_oe() {
+public void testSetProperty_1_oe() {
         final TestBean testBeanA = new TestBean();
         final TestBean testBeanB = new TestBean();
 
@@ -212,7 +212,7 @@ public class BeanComparatorTestCase_OE25Dev extends TestCase {
         assertTrue("Comparator did not sort properly. Result:" + result,result == 1);
     }
 
-    public void testSetProperty_2_oe() {
+public void testSetProperty_2_oe() {
         final TestBean testBeanA = new TestBean();
         final TestBean testBeanB = new TestBean();
 

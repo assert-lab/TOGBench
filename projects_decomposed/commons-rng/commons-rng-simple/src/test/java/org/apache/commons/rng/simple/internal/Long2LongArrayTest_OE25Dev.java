@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
  */
 class Long2LongArrayTest_OE25Dev {
 
-    @Test
+@Test
     void testFixedLengthConversion_1_oe() {
         final Long seed = 567L;
         final int length = 3;

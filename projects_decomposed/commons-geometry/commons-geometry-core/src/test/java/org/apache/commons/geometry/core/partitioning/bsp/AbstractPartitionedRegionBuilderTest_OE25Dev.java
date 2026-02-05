@@ -91,7 +91,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testBuildRegion_empty_1_oe() {
         // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -103,7 +103,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testBuildRegion_empty_2_oe() {
         // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -116,7 +116,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testBuildRegion_empty_3_oe() {
         // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -130,7 +130,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertEquals(0, tree.height());
     }
 
-    @Test
+@Test
     void testBuildRegion_noPartitions_halfSpace_1_oe() {
         // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -143,7 +143,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testBuildRegion_noPartitions_halfSpace_2_oe() {
         // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -157,7 +157,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testBuildRegion_noPartitions_halfSpace_3_oe() {
         // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -173,7 +173,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertEquals(3, tree.count());
     }
 
-    @Test
+@Test
     void testBuildRegion_noPartitions_halfSpace_4_oe() {
         // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -190,7 +190,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertEquals(1, tree.height());
     }
 
-    @Test
+@Test
     void testBuildRegion_boundaryOnPartition_sameOrientation_1_oe() {
      // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -205,7 +205,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testBuildRegion_boundaryOnPartition_sameOrientation_2_oe() {
      // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -221,7 +221,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testBuildRegion_boundaryOnPartition_oppositeOrientation_1_oe() {
      // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -236,7 +236,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testBuildRegion_boundaryOnPartition_oppositeOrientation_2_oe() {
      // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -252,7 +252,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testBuildRegion_boundaryOnPartition_multipleBoundaries_sameOrientation_1_oe() {
      // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -268,7 +268,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testBuildRegion_boundaryOnPartition_multipleBoundaries_sameOrientation_2_oe() {
      // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -285,7 +285,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testBuildRegion_boundaryOnPartition_multipleBoundaries_oppositeOrientation_1_oe() {
      // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -301,7 +301,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testBuildRegion_boundaryOnPartition_multipleBoundaries_oppositeOrientation_2_oe() {
      // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -318,7 +318,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testBuildRegion_multipleBoundariesOnPartition_1_oe() {
         // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -337,7 +337,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testBuildRegion_multipleBoundariesOnPartition_2_oe() {
         // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -357,7 +357,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testBuildRegion_grid_halfSpace_boundaryOnPartition_1_oe() {
         // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -372,7 +372,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testBuildRegion_grid_halfSpace_boundaryOnPartition_2_oe() {
         // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -388,7 +388,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testBuildRegion_boundariesOnPartitionPropagateInsideCorrectly_1_oe() {
         // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -405,7 +405,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testBuildRegion_boundariesOnPartitionPropagateInsideCorrectly_2_oe() {
         // arrange
         final TestRegionBuilder builder = new TestRegionBuilder(new TestRegionBSPTree(false));
@@ -423,7 +423,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testBuildRegion_grid_cube_1_oe() {
         // arrange
         final int maxCount = 5;
@@ -452,7 +452,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testBuildRegion_grid_cube_2_oe() {
         // arrange
         final int maxCount = 5;
@@ -482,7 +482,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testBuildRegion_grid_diamond_1_oe() {
         // arrange
         final int maxCount = 5;
@@ -511,7 +511,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testBuildRegion_grid_diamond_2_oe() {
         // arrange
         final int maxCount = 5;
@@ -541,7 +541,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testBuildRegion_grid_horseshoe_1_oe() {
         // arrange
         final int maxCount = 5;
@@ -574,7 +574,7 @@ class AbstractPartitionedRegionBuilderTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testBuildRegion_grid_horseshoe_2_oe() {
         // arrange
         final int maxCount = 5;

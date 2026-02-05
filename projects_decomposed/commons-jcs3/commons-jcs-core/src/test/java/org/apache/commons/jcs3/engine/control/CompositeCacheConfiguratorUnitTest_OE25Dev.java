@@ -42,7 +42,7 @@ public class CompositeCacheConfiguratorUnitTest_OE25Dev
      * Verify that we can parse the spool chunk size
      */
 
-    public void testParseAuxiliary_CacheEventLogger_Normal_1_oe()
+public void testParseAuxiliary_CacheEventLogger_Normal_1_oe()
     {
         // SETUP
         final String regionName = "MyRegion";
@@ -71,7 +71,7 @@ public class CompositeCacheConfiguratorUnitTest_OE25Dev
         assertNotNull( "Should have an auxcache.", result );
     }
 
-    public void testParseAuxiliary_CacheEventLogger_Normal_2_oe()
+public void testParseAuxiliary_CacheEventLogger_Normal_2_oe()
     {
         // SETUP
         final String regionName = "MyRegion";
@@ -101,7 +101,7 @@ public class CompositeCacheConfiguratorUnitTest_OE25Dev
         assertNotNull( "Should have an event logger.", result.getCacheEventLogger() );
     }
 
-    public void testParseSpoolChunkSize_Normal_1_oe()
+public void testParseSpoolChunkSize_Normal_1_oe()
     {
         // SETUP
         final String regionName = "MyRegion";

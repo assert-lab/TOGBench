@@ -223,7 +223,7 @@ public class TestNodeTreeWalker_OE25Dev {
         NodeTreeWalker.INSTANCE.walkDFS(NodeStructureHelper.ROOT_AUTHORS_TREE, null, createHandler());
     }
 
-    @Test
+@Test
     public void testWalkBFS_1_oe() {
         final List<String> expected = expectBFS();
         final TestVisitor visitor = new TestVisitor();
@@ -231,7 +231,7 @@ public class TestNodeTreeWalker_OE25Dev {
         assertEquals("Wrong visited nodes", expected, visitor.getVisitedNodes());
     }
 
-    @Test
+@Test
     public void testWalkBFSTerminate_1_oe() {
         final TestVisitor visitor = new TestVisitor();
         final int nodeCount = 9;
@@ -240,7 +240,7 @@ public class TestNodeTreeWalker_OE25Dev {
         assertEquals("Wrong number of visited nodes", nodeCount, visitor.getVisitedNodes().size());
     }
 
-    @Test
+@Test
     public void testWalkDFS_1_oe() {
         final List<String> expected = expectDFS();
         final TestVisitor visitor = new TestVisitor();
@@ -248,7 +248,7 @@ public class TestNodeTreeWalker_OE25Dev {
         assertEquals("Wrong visited nodes", expected, visitor.getVisitedNodes());
     }
 
-    @Test
+@Test
     public void testWalkDFSTerminate_1_oe() {
         final TestVisitor visitor = new TestVisitor();
         final int nodeCount = 5;

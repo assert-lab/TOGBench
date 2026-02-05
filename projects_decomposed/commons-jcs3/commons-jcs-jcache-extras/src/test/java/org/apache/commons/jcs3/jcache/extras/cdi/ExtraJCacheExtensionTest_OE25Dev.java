@@ -80,13 +80,13 @@ public class ExtraJCacheExtensionTest_OE25Dev
         }
     }
 
-    @Test
+@Test
     public void defaultCacheManager_1_oe()
     {
         assertNotNull(bean.getMgr());
     }
 
-    @Test
+@Test
     public void defaultCacheProvider_1_oe()
     {
         assertNotNull(bean.getProvider());

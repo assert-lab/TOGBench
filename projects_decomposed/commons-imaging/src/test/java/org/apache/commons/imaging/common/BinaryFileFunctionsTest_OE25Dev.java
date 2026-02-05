@@ -24,13 +24,13 @@ import org.junit.jupiter.api.Test;
 
 public class BinaryFileFunctionsTest_OE25Dev extends ImagingTest {
 
-    @Test
+@Test
     public void testFloatToByteConversion_1_oe() {
         final byte[] bytesLE = ByteConversions.toBytes(1.0f, ByteOrder.LITTLE_ENDIAN);
         assertEquals(ByteConversions.toFloat(bytesLE, ByteOrder.LITTLE_ENDIAN), 1.0f, 0f);
     }
 
-    @Test
+@Test
     public void testFloatToByteConversion_2_oe() {
         final byte[] bytesLE = ByteConversions.toBytes(1.0f, ByteOrder.LITTLE_ENDIAN);
         // removed other assertion
@@ -39,13 +39,13 @@ public class BinaryFileFunctionsTest_OE25Dev extends ImagingTest {
         assertEquals(ByteConversions.toFloat(bytesBE, ByteOrder.BIG_ENDIAN), 1.0f, 0f);
     }
 
-    @Test
+@Test
     public void testDoubleToByteConversion_1_oe() {
         final byte[] bytesLE = ByteConversions.toBytes(1.0, ByteOrder.LITTLE_ENDIAN);
         assertEquals(ByteConversions.toDouble(bytesLE, ByteOrder.LITTLE_ENDIAN), 1.0, 0);
     }
 
-    @Test
+@Test
     public void testDoubleToByteConversion_2_oe() {
         final byte[] bytesLE = ByteConversions.toBytes(1.0, ByteOrder.LITTLE_ENDIAN);
         // removed other assertion

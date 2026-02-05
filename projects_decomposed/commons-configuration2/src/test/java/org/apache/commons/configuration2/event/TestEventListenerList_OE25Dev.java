@@ -438,7 +438,7 @@ public class TestEventListenerList_OE25Dev {
         listener.assertNoEvent();
     }
 
-    @Test
+@Test
     public void testAddAll_1_oe() {
         final EventListener<EventBase> l1 = new ListenerTestImpl();
         final EventListener<EventBase> l2 = new ListenerTestImpl();
@@ -454,7 +454,7 @@ public class TestEventListenerList_OE25Dev {
         assertEquals("Wrong type (1)", typeBase, reg.getEventType());
     }
 
-    @Test
+@Test
     public void testAddAll_2_oe() {
         final EventListener<EventBase> l1 = new ListenerTestImpl();
         final EventListener<EventBase> l2 = new ListenerTestImpl();
@@ -471,7 +471,7 @@ public class TestEventListenerList_OE25Dev {
         assertEquals("Wrong listener (1)", l1, reg.getListener());
     }
 
-    @Test
+@Test
     public void testAddAll_3_oe() {
         final EventListener<EventBase> l1 = new ListenerTestImpl();
         final EventListener<EventBase> l2 = new ListenerTestImpl();
@@ -490,7 +490,7 @@ public class TestEventListenerList_OE25Dev {
         assertEquals("Wrong type (2)", typeSub1, reg.getEventType());
     }
 
-    @Test
+@Test
     public void testAddAll_4_oe() {
         final EventListener<EventBase> l1 = new ListenerTestImpl();
         final EventListener<EventBase> l2 = new ListenerTestImpl();
@@ -510,7 +510,7 @@ public class TestEventListenerList_OE25Dev {
         assertEquals("Wrong listener (2)", l2, reg.getListener());
     }
 
-    @Test
+@Test
     public void testAddAll_5_oe() {
         final EventListener<EventBase> l1 = new ListenerTestImpl();
         final EventListener<EventBase> l2 = new ListenerTestImpl();
@@ -532,7 +532,7 @@ public class TestEventListenerList_OE25Dev {
         assertEquals("Wrong type (3)", typeBase, reg.getEventType());
     }
 
-    @Test
+@Test
     public void testAddAll_6_oe() {
         final EventListener<EventBase> l1 = new ListenerTestImpl();
         final EventListener<EventBase> l2 = new ListenerTestImpl();
@@ -555,7 +555,7 @@ public class TestEventListenerList_OE25Dev {
         assertEquals("Wrong listener (3)", l3, reg.getListener());
     }
 
-    @Test
+@Test
     public void testClear_1_oe() {
         list.addEventListener(typeSub1, new ListenerTestImpl());
         list.addEventListener(typeSub2, new ListenerTestImpl());
@@ -564,7 +564,7 @@ public class TestEventListenerList_OE25Dev {
         assertTrue("Got listeners", list.getRegistrations().isEmpty());
     }
 
-    @Test
+@Test
     public void testGetEventListenerRegistrationsForSuperType_1_oe() {
         final ListenerTestImpl l1 = new ListenerTestImpl();
         final ListenerTestImpl l2 = new ListenerTestImpl();
@@ -578,12 +578,12 @@ public class TestEventListenerList_OE25Dev {
         assertEquals("Wrong listener 1", l1, iterator.next().getListener());
     }
 
-    @Test
+@Test
     public void testGetEventListenersNull_1_oe() {
         assertTrue("Got listeners", fetchElements(list.getEventListeners(null)).isEmpty());
     }
 
-    @Test
+@Test
     public void testGetRegistrations_1_oe() {
         final EventListenerRegistrationData<EventSub1> reg1 = new EventListenerRegistrationData<>(typeSub1, new ListenerTestImpl());
         final EventListenerRegistrationData<EventSub2> reg2 = new EventListenerRegistrationData<>(typeSub2, new ListenerTestImpl());
@@ -594,7 +594,7 @@ public class TestEventListenerList_OE25Dev {
         assertEquals("Wrong number of registrations", 2, registrations.size());
     }
 
-    @Test
+@Test
     public void testGetRegistrations_2_oe() {
         final EventListenerRegistrationData<EventSub1> reg1 = new EventListenerRegistrationData<>(typeSub1, new ListenerTestImpl());
         final EventListenerRegistrationData<EventSub2> reg2 = new EventListenerRegistrationData<>(typeSub2, new ListenerTestImpl());
@@ -606,7 +606,7 @@ public class TestEventListenerList_OE25Dev {
         assertTrue("Registration 1 not found", registrations.contains(reg1));
     }
 
-    @Test
+@Test
     public void testGetRegistrations_3_oe() {
         final EventListenerRegistrationData<EventSub1> reg1 = new EventListenerRegistrationData<>(typeSub1, new ListenerTestImpl());
         final EventListenerRegistrationData<EventSub2> reg2 = new EventListenerRegistrationData<>(typeSub2, new ListenerTestImpl());
@@ -619,7 +619,7 @@ public class TestEventListenerList_OE25Dev {
         assertTrue("Registration 2 not found", registrations.contains(reg2));
     }
 
-    @Test
+@Test
     public void testRemoveEventListenerExisting_1_oe() {
         final ListenerTestImpl listener = new ListenerTestImpl();
         list.addEventListener(typeSub1, listener);
@@ -627,7 +627,7 @@ public class TestEventListenerList_OE25Dev {
         assertTrue("Wrong result", list.removeEventListener(typeSub1, listener));
     }
 
-    @Test
+@Test
     public void testRemoveEventListenerNonExistingEventType_1_oe() {
         final ListenerTestImpl listener = new ListenerTestImpl();
         list.addEventListener(typeSub1, listener);
@@ -635,23 +635,23 @@ public class TestEventListenerList_OE25Dev {
         assertFalse("Wrong result", list.removeEventListener(typeBase, listener));
     }
 
-    @Test
+@Test
     public void testRemoveEventListenerNonExistingListener_1_oe() {
         list.addEventListener(typeBase, new ListenerTestImpl());
         assertFalse("Wrong result", list.removeEventListener(typeBase, new ListenerTestImpl()));
     }
 
-    @Test
+@Test
     public void testRemoveEventListenerNullListener_1_oe() {
         assertFalse("Wrong result", list.removeEventListener(typeBase, null));
     }
 
-    @Test
+@Test
     public void testRemoveEventListenerNullRegistration_1_oe() {
         assertFalse("Wrong result", list.removeEventListener(null));
     }
 
-    @Test
+@Test
     public void testRemoveEventListenerNullType_1_oe() {
         assertFalse("Wrong result", list.removeEventListener(null, new ListenerTestImpl()));
     }

@@ -103,20 +103,20 @@ public class FileExtensionSelectorTest_OE25Dev {
      * @throws Exception
      */
 
-    @Test
+@Test
     public void testEmpty_1_oe() throws Exception {
         final FileSelector selector = new FileExtensionSelector();
         final FileObject[] foList = BaseFolder.findFiles(selector);
         Assert.assertEquals(0, foList.length);
     }
 
-    @Test
+@Test
     public void testManyExtensions_1_oe() throws Exception {
         final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
         Assert.assertTrue(foArray.length > 0);
     }
 
-    @Test
+@Test
     public void testManyExtensions_2_oe() throws Exception {
         final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
         // removed other assertion
@@ -130,7 +130,7 @@ public class FileExtensionSelectorTest_OE25Dev {
         Assert.assertFalse(message, extensionSet.isEmpty());
     }
 
-    @Test
+@Test
     public void testManyExtensions_3_oe() throws Exception {
         final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
         // removed other assertion
@@ -145,7 +145,7 @@ public class FileExtensionSelectorTest_OE25Dev {
         Assert.assertEquals(message, ExtensionCount, extensionSet.size());
     }
 
-    @Test
+@Test
     public void testManyExtensions_4_oe() throws Exception {
         final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
         // removed other assertion
@@ -164,27 +164,27 @@ public class FileExtensionSelectorTest_OE25Dev {
         Assert.assertEquals(FileCount, list.length);
     }
 
-    @Test
+@Test
     public void testNullCollection_1_oe() throws Exception {
         final FileSelector selector0 = new FileExtensionSelector((Collection<String>) null);
         final FileObject[] foList = BaseFolder.findFiles(selector0);
         Assert.assertEquals(0, foList.length);
     }
 
-    @Test
+@Test
     public void testNullString_1_oe() throws Exception {
         final FileSelector selector0 = new FileExtensionSelector((String) null);
         final FileObject[] foList = BaseFolder.findFiles(selector0);
         Assert.assertEquals(0, foList.length);
     }
 
-    @Test
+@Test
     public void testOneExtension_1_oe() throws Exception {
         final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
         Assert.assertTrue(foArray.length > 0);
     }
 
-    @Test
+@Test
     public void testOneExtension_2_oe() throws Exception {
         final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
         // removed other assertion
@@ -198,7 +198,7 @@ public class FileExtensionSelectorTest_OE25Dev {
         Assert.assertEquals(message, ExtensionCount, extensionSet.size());
     }
 
-    @Test
+@Test
     public void testOneExtension_3_oe() throws Exception {
         final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
         // removed other assertion
@@ -218,7 +218,7 @@ public class FileExtensionSelectorTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testOneExtension_4_oe() throws Exception {
         final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
         // removed other assertion

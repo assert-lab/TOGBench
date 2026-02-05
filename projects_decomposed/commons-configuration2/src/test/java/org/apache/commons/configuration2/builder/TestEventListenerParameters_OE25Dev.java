@@ -46,14 +46,14 @@ public class TestEventListenerParameters_OE25Dev {
      * Tests that the list of event listeners is empty for a newly created instance.
      */
 
-    @Test
+@Test
     public void testAddEventListener_1_oe() {
         final EventListenerTestImpl listener = new EventListenerTestImpl(null);
         final EventListenerParameters parameters = new EventListenerParameters();
         assertSame("Wrong result", parameters, parameters.addEventListener(ConfigurationEvent.ADD_PROPERTY, listener));
     }
 
-    @Test
+@Test
     public void testAddEventListenerRegistration_1_oe() {
         final EventListenerRegistrationData<ConfigurationEvent> reg = new EventListenerRegistrationData<>(ConfigurationEvent.SET_PROPERTY,
             new EventListenerTestImpl(null));
@@ -61,13 +61,13 @@ public class TestEventListenerParameters_OE25Dev {
         assertSame("Wrong result", parameters, parameters.addEventListener(reg));
     }
 
-    @Test
+@Test
     public void testGetParameters_1_oe() {
         final EventListenerParameters parameters = new EventListenerParameters();
         assertTrue("Got parameters", parameters.getParameters().isEmpty());
     }
 
-    @Test
+@Test
     public void testRegistrationsAfterCreation_1_oe() {
         final EventListenerParameters parameters = new EventListenerParameters();
         assertTrue("Got registrations", parameters.getListeners().getRegistrations().isEmpty());

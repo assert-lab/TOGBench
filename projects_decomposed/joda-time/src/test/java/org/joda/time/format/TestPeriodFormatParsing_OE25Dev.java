@@ -92,19 +92,19 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testParseStandard1_1_oe() {
+public void testParseStandard1_1_oe() {
         PeriodFormatter parser = PeriodFormat.getDefault();
         Period p = parser.parsePeriod("6 years, 3 months and 2 days");
         assertEquals(new Period(6,3,0,2,0,0,0,0),p);
     }
 
-    public void testParseNegativeMillis1_1_oe() {
+public void testParseNegativeMillis1_1_oe() {
         Period period = new Period(0, 0, 0, -1);
         String formatted = period.toString();
         assertEquals("PT-0.001S",formatted);
     }
 
-    public void testParseNegativeMillis1_2_oe() {
+public void testParseNegativeMillis1_2_oe() {
         Period period = new Period(0, 0, 0, -1);
         String formatted = period.toString();
         // removed other assertion
@@ -112,13 +112,13 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals(period,parsed);
     }
 
-    public void testParseNegativeMillis2_1_oe() {
+public void testParseNegativeMillis2_1_oe() {
         Period period = new Period(0, 0, 0, -999);
         String formatted = period.toString();
         assertEquals("PT-0.999S",formatted);
     }
 
-    public void testParseNegativeMillis2_2_oe() {
+public void testParseNegativeMillis2_2_oe() {
         Period period = new Period(0, 0, 0, -999);
         String formatted = period.toString();
         // removed other assertion
@@ -126,7 +126,7 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals(period,parsed);
     }
 
-    public void testParseCustom1_1_oe() {
+public void testParseCustom1_1_oe() {
         PeriodFormatter formatter = new PeriodFormatterBuilder()
             .printZeroAlways()
             .appendHours()
@@ -141,7 +141,7 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals("47:55",formatter.print(p));
     }
 
-    public void testParseCustom1_2_oe() {
+public void testParseCustom1_2_oe() {
         PeriodFormatter formatter = new PeriodFormatterBuilder()
             .printZeroAlways()
             .appendHours()
@@ -157,7 +157,7 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals(p,formatter.parsePeriod("47:55"));
     }
 
-    public void testParseCustom1_3_oe() {
+public void testParseCustom1_3_oe() {
         PeriodFormatter formatter = new PeriodFormatterBuilder()
             .printZeroAlways()
             .appendHours()
@@ -174,7 +174,7 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals(p,formatter.parsePeriod("047:055"));
     }
 
-    public void testParseCustom1_4_oe() {
+public void testParseCustom1_4_oe() {
         PeriodFormatter formatter = new PeriodFormatterBuilder()
             .printZeroAlways()
             .appendHours()
@@ -194,7 +194,7 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals("7:05",formatter.print(p));
     }
 
-    public void testParseCustom1_5_oe() {
+public void testParseCustom1_5_oe() {
         PeriodFormatter formatter = new PeriodFormatterBuilder()
             .printZeroAlways()
             .appendHours()
@@ -215,7 +215,7 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals(p,formatter.parsePeriod("7:05"));
     }
 
-    public void testParseCustom1_6_oe() {
+public void testParseCustom1_6_oe() {
         PeriodFormatter formatter = new PeriodFormatterBuilder()
             .printZeroAlways()
             .appendHours()
@@ -237,7 +237,7 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals(p,formatter.parsePeriod("7:5"));
     }
 
-    public void testParseCustom1_7_oe() {
+public void testParseCustom1_7_oe() {
         PeriodFormatter formatter = new PeriodFormatterBuilder()
             .printZeroAlways()
             .appendHours()
@@ -260,7 +260,7 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals(p,formatter.parsePeriod("07:05"));
     }
 
-    public void testParseCustom1_8_oe() {
+public void testParseCustom1_8_oe() {
         PeriodFormatter formatter = new PeriodFormatterBuilder()
             .printZeroAlways()
             .appendHours()
@@ -286,7 +286,7 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals("0:05",formatter.print(p));
     }
 
-    public void testParseCustom1_9_oe() {
+public void testParseCustom1_9_oe() {
         PeriodFormatter formatter = new PeriodFormatterBuilder()
             .printZeroAlways()
             .appendHours()
@@ -313,7 +313,7 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals(p,formatter.parsePeriod("0:05"));
     }
 
-    public void testParseCustom1_10_oe() {
+public void testParseCustom1_10_oe() {
         PeriodFormatter formatter = new PeriodFormatterBuilder()
             .printZeroAlways()
             .appendHours()
@@ -341,7 +341,7 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals(p,formatter.parsePeriod("0:5"));
     }
 
-    public void testParseCustom1_11_oe() {
+public void testParseCustom1_11_oe() {
         PeriodFormatter formatter = new PeriodFormatterBuilder()
             .printZeroAlways()
             .appendHours()
@@ -370,7 +370,7 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals(p,formatter.parsePeriod("00:005"));
     }
 
-    public void testParseCustom1_12_oe() {
+public void testParseCustom1_12_oe() {
         PeriodFormatter formatter = new PeriodFormatterBuilder()
             .printZeroAlways()
             .appendHours()
@@ -400,7 +400,7 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals(p,formatter.parsePeriod("0:005"));
     }
 
-    public void testParseCustom1_13_oe() {
+public void testParseCustom1_13_oe() {
         PeriodFormatter formatter = new PeriodFormatterBuilder()
             .printZeroAlways()
             .appendHours()
@@ -433,7 +433,7 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals("0:00",formatter.print(p));
     }
 
-    public void testParseCustom1_14_oe() {
+public void testParseCustom1_14_oe() {
         PeriodFormatter formatter = new PeriodFormatterBuilder()
             .printZeroAlways()
             .appendHours()
@@ -467,7 +467,7 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals(p,formatter.parsePeriod("0:00"));
     }
 
-    public void testParseCustom1_15_oe() {
+public void testParseCustom1_15_oe() {
         PeriodFormatter formatter = new PeriodFormatterBuilder()
             .printZeroAlways()
             .appendHours()
@@ -502,7 +502,7 @@ public class TestPeriodFormatParsing_OE25Dev extends TestCase {
         assertEquals(p,formatter.parsePeriod("0:0"));
     }
 
-    public void testParseCustom1_16_oe() {
+public void testParseCustom1_16_oe() {
         PeriodFormatter formatter = new PeriodFormatterBuilder()
             .printZeroAlways()
             .appendHours()

@@ -3604,25 +3604,6 @@ http_66_1,"  @Test
     assertTrue(post(url).referer(""http://heroku.com"").ok());
   }
 ",HttpRequestTest::refererHeader_1_oe
-http_67_1,"  @Test
-  public void postMultipart_1_oe() throws Exception {
-    final StringBuilder body = new StringBuilder();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        char[] buffer = new char[8192];
-        int read;
-        try {
-          while ((read = request.getReader().read(buffer)) != -1)
-            body.append(buffer, 0, read);
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::postMultipart_1_oe
 http_67_2,"  @Test
   public void postMultipart_2_oe() throws Exception {
     final StringBuilder body = new StringBuilder();
@@ -3670,22 +3651,6 @@ http_68_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::postMultipartWithContentType_1_oe
-http_69_1,"  @Test
-  public void receiveAppendable_1_oe() throws Exception {
-    final StringBuilder body = new StringBuilder();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""content"");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::receiveAppendable_1_oe
 http_69_2,"  @Test
   public void receiveAppendable_2_oe() throws Exception {
     final StringBuilder body = new StringBuilder();
@@ -3704,21 +3669,6 @@ http_69_2,"  @Test
     assertTrue(post(url).receive(body).ok());
   }
 ",HttpRequestTest::receiveAppendable_2_oe
-http_70_1,"  @Test
-  public void receiveWriter_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""content"");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::receiveWriter_1_oe
 http_70_2,"  @Test
   public void receiveWriter_2_oe() throws Exception {
     handler = new RequestHandler() {
@@ -3737,21 +3687,6 @@ http_70_2,"  @Test
     assertTrue(post(url).receive(writer).ok());
   }
 ",HttpRequestTest::receiveWriter_2_oe
-http_71_1,"  @Test
-  public void receivePrintStream_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""content"");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::receivePrintStream_1_oe
 http_71_2,"  @Test
   public void receivePrintStream_2_oe() throws Exception {
     handler = new RequestHandler() {
@@ -3771,21 +3706,6 @@ http_71_2,"  @Test
     assertTrue(post(url).receive(stream).ok());
   }
 ",HttpRequestTest::receivePrintStream_2_oe
-http_72_1,"  @Test
-  public void receiveFile_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""content"");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::receiveFile_1_oe
 http_72_2,"  @Test
   public void receiveFile_2_oe() throws Exception {
     handler = new RequestHandler() {
@@ -3881,55 +3801,6 @@ http_77_3,"  @Test
     assertEquals(((HttpsURLConnection)request1.getConnection()).getSSLSocketFactory(),((HttpsURLConnection)request2.getConnection()).getSSLSocketFactory());
   }
 ",HttpRequestTest::singleSslSocketFactory_3_oe
-http_78_1,"  @Test
-  public void sendErrorReadStream_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""content"");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::sendErrorReadStream_1_oe
-http_78_2,"  @Test
-  public void sendErrorReadStream_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""content"");
-        } catch (IOException e) {
-          // removed other assertion
-        }
-      }
-    };
-    final IOException readCause = new IOException();
-    final IOException closeCause = new IOException();
-    InputStream stream = new InputStream() {
-
-      public int read() throws IOException {
-        throw readCause;
-      }
-
-      public void close() throws IOException {
-        throw closeCause;
-      }
-    };
-    try {
-      post(url).send(stream);
-      fail(""Exception not thrown"");
-    } catch (HttpRequestException e) {
-      assertEquals(readCause, e.getCause());
-    }
-  }
-",HttpRequestTest::sendErrorReadStream_2_oe
 http_78_3,"  @Test
   public void sendErrorReadStream_3_oe() throws Exception {
     handler = new RequestHandler() {
@@ -3961,56 +3832,8 @@ http_78_3,"  @Test
       // removed other assertion
     } catch (HttpRequestException e) {
       assertEquals(readCause, e.getCause());
-  };
+  }
   }",HttpRequestTest::sendErrorReadStream_3_oe
-http_79_1,"  @Test
-  public void sendErrorCloseStream_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""content"");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::sendErrorCloseStream_1_oe
-http_79_2,"  @Test
-  public void sendErrorCloseStream_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""content"");
-        } catch (IOException e) {
-          // removed other assertion
-        }
-      }
-    };
-    final IOException closeCause = new IOException();
-    InputStream stream = new InputStream() {
-
-      public int read() throws IOException {
-        return -1;
-      }
-
-      public void close() throws IOException {
-        throw closeCause;
-      }
-    };
-    try {
-      post(url).ignoreCloseExceptions(false).send(stream);
-      fail(""Exception not thrown"");
-    } catch (HttpRequestException e) {
-      assertEquals(closeCause, e.getCause());
-    }
-  }
-",HttpRequestTest::sendErrorCloseStream_2_oe
 http_79_3,"  @Test
   public void sendErrorCloseStream_3_oe() throws Exception {
     handler = new RequestHandler() {
@@ -4058,21 +3881,6 @@ http_80_1,"  @Test
     assertEquals(HTTP_OK, code.get());
   }
 ",HttpRequestTest::getToOutputCode_1_oe
-http_81_1,"  @Test
-  public void getToOutputBody_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""hello world"");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::getToOutputBody_1_oe
 http_81_2,"  @Test
   public void getToOutputBody_2_oe() throws Exception {
     handler = new RequestHandler() {
@@ -4092,21 +3900,6 @@ http_81_2,"  @Test
     assertEquals(""hello world"", body.get());
   }
 ",HttpRequestTest::getToOutputBody_2_oe
-http_82_1,"  @Test
-  public void getToOutputBodyWithCharset_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""hello world"");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::getToOutputBodyWithCharset_1_oe
 http_82_2,"  @Test
   public void getToOutputBodyWithCharset_2_oe() throws Exception {
     handler = new RequestHandler() {
@@ -6366,7 +6159,7 @@ http_155_1,"  @Test
       public void onUpload(long transferred, long total) {
         assertEquals(file.length(), total);
   }
-  };
+  }
   }",HttpRequestTest::uploadProgressSend_1_oe
 http_155_2,"  @Test
   public void uploadProgressSend_2_oe() throws Exception {
@@ -6388,7 +6181,7 @@ http_155_2,"  @Test
         // removed other assertion
         assertEquals(tx.incrementAndGet(), transferred);
   }
-  };
+  }
   }",HttpRequestTest::uploadProgressSend_2_oe
 http_156_1,"  @Test
   public void uploadProgressSendInputStream_1_oe() throws Exception {
@@ -6409,7 +6202,7 @@ http_156_1,"  @Test
       public void onUpload(long transferred, long total) {
         assertEquals(-1, total);
   }
-  };
+  }
   }",HttpRequestTest::uploadProgressSendInputStream_1_oe
 http_156_2,"  @Test
   public void uploadProgressSendInputStream_2_oe() throws Exception {
@@ -6431,7 +6224,7 @@ http_156_2,"  @Test
         // removed other assertion
         assertEquals(tx.incrementAndGet(), transferred);
   }
-  };
+  }
   }",HttpRequestTest::uploadProgressSendInputStream_2_oe
 http_157_1,"  @Test
   public void uploadProgressSendByteArray_1_oe() throws Exception {
@@ -6451,7 +6244,7 @@ http_157_1,"  @Test
       public void onUpload(long transferred, long total) {
         assertEquals(bytes.length, total);
   }
-  };
+  }
   }",HttpRequestTest::uploadProgressSendByteArray_1_oe
 http_157_2,"  @Test
   public void uploadProgressSendByteArray_2_oe() throws Exception {
@@ -6472,7 +6265,7 @@ http_157_2,"  @Test
         // removed other assertion
         assertEquals(tx.incrementAndGet(), transferred);
   }
-  };
+  }
   }",HttpRequestTest::uploadProgressSendByteArray_2_oe
 http_158_1,"  @Test
   public void uploadProgressSendReader_1_oe() throws Exception {
@@ -6491,7 +6284,7 @@ http_158_1,"  @Test
       public void onUpload(long transferred, long total) {
         assertEquals(-1, total);
   }
-  };
+  }
   }",HttpRequestTest::uploadProgressSendReader_1_oe
 http_158_2,"  @Test
   public void uploadProgressSendReader_2_oe() throws Exception {
@@ -6511,7 +6304,7 @@ http_158_2,"  @Test
         // removed other assertion
         assertEquals(tx.incrementAndGet(), transferred);
   }
-  };
+  }
   }",HttpRequestTest::uploadProgressSendReader_2_oe
 http_159_1,"  @Test
   public void nullUploadProgress_1_oe() throws Exception {
@@ -10136,25 +9929,6 @@ http_225_1,"  @Test
     assertTrue(post(url).referer(""http://heroku.com"").ok());
   }
 ",HttpRequestTest::refererHeader_1_oe
-http_226_1,"  @Test
-  public void postMultipart_1_oe() throws Exception {
-    final StringBuilder body = new StringBuilder();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        char[] buffer = new char[8192];
-        int read;
-        try {
-          while ((read = request.getReader().read(buffer)) != -1)
-            body.append(buffer, 0, read);
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::postMultipart_1_oe
 http_226_2,"  @Test
   public void postMultipart_2_oe() throws Exception {
     final StringBuilder body = new StringBuilder();
@@ -10202,22 +9976,6 @@ http_227_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::postMultipartWithContentType_1_oe
-http_228_1,"  @Test
-  public void receiveAppendable_1_oe() throws Exception {
-    final StringBuilder body = new StringBuilder();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""content"");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::receiveAppendable_1_oe
 http_228_2,"  @Test
   public void receiveAppendable_2_oe() throws Exception {
     final StringBuilder body = new StringBuilder();
@@ -10236,21 +9994,6 @@ http_228_2,"  @Test
     assertTrue(post(url).receive(body).ok());
   }
 ",HttpRequestTest::receiveAppendable_2_oe
-http_229_1,"  @Test
-  public void receiveWriter_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""content"");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::receiveWriter_1_oe
 http_229_2,"  @Test
   public void receiveWriter_2_oe() throws Exception {
     handler = new RequestHandler() {
@@ -10269,21 +10012,6 @@ http_229_2,"  @Test
     assertTrue(post(url).receive(writer).ok());
   }
 ",HttpRequestTest::receiveWriter_2_oe
-http_230_1,"  @Test
-  public void receivePrintStream_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""content"");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::receivePrintStream_1_oe
 http_230_2,"  @Test
   public void receivePrintStream_2_oe() throws Exception {
     handler = new RequestHandler() {
@@ -10303,21 +10031,6 @@ http_230_2,"  @Test
     assertTrue(post(url).receive(stream).ok());
   }
 ",HttpRequestTest::receivePrintStream_2_oe
-http_231_1,"  @Test
-  public void receiveFile_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""content"");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::receiveFile_1_oe
 http_231_2,"  @Test
   public void receiveFile_2_oe() throws Exception {
     handler = new RequestHandler() {
@@ -10394,55 +10107,6 @@ http_235_3,"  @Test
     assertEquals(((HttpsURLConnection)request1.getConnection()).getSSLSocketFactory(),((HttpsURLConnection)request2.getConnection()).getSSLSocketFactory());
   }
 ",HttpRequestTest::singleSslSocketFactory_3_oe
-http_236_1,"  @Test
-  public void sendErrorReadStream_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""content"");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::sendErrorReadStream_1_oe
-http_236_2,"  @Test
-  public void sendErrorReadStream_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""content"");
-        } catch (IOException e) {
-          // removed other assertion
-        }
-      }
-    };
-    final IOException readCause = new IOException();
-    final IOException closeCause = new IOException();
-    InputStream stream = new InputStream() {
-
-      public int read() throws IOException {
-        throw readCause;
-      }
-
-      public void close() throws IOException {
-        throw closeCause;
-      }
-    };
-    try {
-      post(url).send(stream);
-      fail(""Exception not thrown"");
-    } catch (HttpRequestException e) {
-      assertEquals(readCause, e.getCause());
-    }
-  }
-",HttpRequestTest::sendErrorReadStream_2_oe
 http_236_3,"  @Test
   public void sendErrorReadStream_3_oe() throws Exception {
     handler = new RequestHandler() {
@@ -10474,56 +10138,8 @@ http_236_3,"  @Test
       // removed other assertion
     } catch (HttpRequestException e) {
       assertEquals(readCause, e.getCause());
-  };
+  }
   }",HttpRequestTest::sendErrorReadStream_3_oe
-http_237_1,"  @Test
-  public void sendErrorCloseStream_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""content"");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::sendErrorCloseStream_1_oe
-http_237_2,"  @Test
-  public void sendErrorCloseStream_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""content"");
-        } catch (IOException e) {
-          // removed other assertion
-        }
-      }
-    };
-    final IOException closeCause = new IOException();
-    InputStream stream = new InputStream() {
-
-      public int read() throws IOException {
-        return -1;
-      }
-
-      public void close() throws IOException {
-        throw closeCause;
-      }
-    };
-    try {
-      post(url).ignoreCloseExceptions(false).send(stream);
-      fail(""Exception not thrown"");
-    } catch (HttpRequestException e) {
-      assertEquals(closeCause, e.getCause());
-    }
-  }
-",HttpRequestTest::sendErrorCloseStream_2_oe
 http_237_3,"  @Test
   public void sendErrorCloseStream_3_oe() throws Exception {
     handler = new RequestHandler() {
@@ -10571,21 +10187,6 @@ http_238_1,"  @Test
     assertEquals(HTTP_OK, code.get());
   }
 ",HttpRequestTest::getToOutputCode_1_oe
-http_239_1,"  @Test
-  public void getToOutputBody_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""hello world"");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::getToOutputBody_1_oe
 http_239_2,"  @Test
   public void getToOutputBody_2_oe() throws Exception {
     handler = new RequestHandler() {
@@ -10605,21 +10206,6 @@ http_239_2,"  @Test
     assertEquals(""hello world"", body.get());
   }
 ",HttpRequestTest::getToOutputBody_2_oe
-http_240_1,"  @Test
-  public void getToOutputBodyWithCharset_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print(""hello world"");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }",HttpRequestTest::getToOutputBodyWithCharset_1_oe
 http_240_2,"  @Test
   public void getToOutputBodyWithCharset_2_oe() throws Exception {
     handler = new RequestHandler() {
@@ -12384,7 +11970,7 @@ http_309_1,"  @Test
       public void onUpload(long transferred, long total) {
         assertEquals(file.length(), total);
   }
-  };
+  }
   }",HttpRequestTest::uploadProgressSend_1_oe
 http_309_2,"  @Test
   public void uploadProgressSend_2_oe() throws Exception {
@@ -12406,7 +11992,7 @@ http_309_2,"  @Test
         // removed other assertion
         assertEquals(tx.incrementAndGet(), transferred);
   }
-  };
+  }
   }",HttpRequestTest::uploadProgressSend_2_oe
 http_310_1,"  @Test
   public void uploadProgressSendInputStream_1_oe() throws Exception {
@@ -12427,7 +12013,7 @@ http_310_1,"  @Test
       public void onUpload(long transferred, long total) {
         assertEquals(-1, total);
   }
-  };
+  }
   }",HttpRequestTest::uploadProgressSendInputStream_1_oe
 http_310_2,"  @Test
   public void uploadProgressSendInputStream_2_oe() throws Exception {
@@ -12449,7 +12035,7 @@ http_310_2,"  @Test
         // removed other assertion
         assertEquals(tx.incrementAndGet(), transferred);
   }
-  };
+  }
   }",HttpRequestTest::uploadProgressSendInputStream_2_oe
 http_311_1,"  @Test
   public void uploadProgressSendByteArray_1_oe() throws Exception {
@@ -12469,7 +12055,7 @@ http_311_1,"  @Test
       public void onUpload(long transferred, long total) {
         assertEquals(bytes.length, total);
   }
-  };
+  }
   }",HttpRequestTest::uploadProgressSendByteArray_1_oe
 http_311_2,"  @Test
   public void uploadProgressSendByteArray_2_oe() throws Exception {
@@ -12490,7 +12076,7 @@ http_311_2,"  @Test
         // removed other assertion
         assertEquals(tx.incrementAndGet(), transferred);
   }
-  };
+  }
   }",HttpRequestTest::uploadProgressSendByteArray_2_oe
 http_312_1,"  @Test
   public void uploadProgressSendReader_1_oe() throws Exception {
@@ -12509,7 +12095,7 @@ http_312_1,"  @Test
       public void onUpload(long transferred, long total) {
         assertEquals(-1, total);
   }
-  };
+  }
   }",HttpRequestTest::uploadProgressSendReader_1_oe
 http_312_2,"  @Test
   public void uploadProgressSendReader_2_oe() throws Exception {
@@ -12529,7 +12115,7 @@ http_312_2,"  @Test
         // removed other assertion
         assertEquals(tx.incrementAndGet(), transferred);
   }
-  };
+  }
   }",HttpRequestTest::uploadProgressSendReader_2_oe
 http_313_1,"  @Test
   public void nullUploadProgress_1_oe() throws Exception {

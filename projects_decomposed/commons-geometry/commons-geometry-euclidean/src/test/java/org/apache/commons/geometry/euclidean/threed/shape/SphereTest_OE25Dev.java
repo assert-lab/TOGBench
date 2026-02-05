@@ -359,7 +359,7 @@ class SphereTest_OE25Dev {
         EuclideanTestUtils.assertRegionLocation(s, RegionLocation.INSIDE, tree.getCentroid());
     }
 
-    @Test
+@Test
     void testFrom_1_oe() {
         // arrange
         final Vector3D center = Vector3D.of(1, 2, 3);
@@ -371,7 +371,7 @@ class SphereTest_OE25Dev {
         Assertions.assertFalse(s.isFull());
     }
 
-    @Test
+@Test
     void testFrom_2_oe() {
         // arrange
         final Vector3D center = Vector3D.of(1, 2, 3);
@@ -384,7 +384,7 @@ class SphereTest_OE25Dev {
         Assertions.assertFalse(s.isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_3_oe() {
         // arrange
         final Vector3D center = Vector3D.of(1, 2, 3);
@@ -399,7 +399,7 @@ class SphereTest_OE25Dev {
         Assertions.assertSame(center, s.getCenter());
     }
 
-    @Test
+@Test
     void testFrom_4_oe() {
         // arrange
         final Vector3D center = Vector3D.of(1, 2, 3);
@@ -415,7 +415,7 @@ class SphereTest_OE25Dev {
         Assertions.assertSame(center, s.getCentroid());
     }
 
-    @Test
+@Test
     void testFrom_5_oe() {
         // arrange
         final Vector3D center = Vector3D.of(1, 2, 3);
@@ -433,7 +433,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals(3, s.getRadius(), 0.0);
     }
 
-    @Test
+@Test
     void testFrom_6_oe() {
         // arrange
         final Vector3D center = Vector3D.of(1, 2, 3);
@@ -453,20 +453,20 @@ class SphereTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, s.getPrecision());
     }
 
-    @Test
+@Test
     void testFrom_illegalCenter_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> Sphere.from(Vector3D.of(Double.POSITIVE_INFINITY, 1, 2), 1, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFrom_illegalCenter_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> Sphere.from(Vector3D.of(Double.NaN, 1, 2), 1, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFrom_illegalRadius_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -475,7 +475,7 @@ class SphereTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Sphere.from(Vector3D.ZERO, -1, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFrom_illegalRadius_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -485,7 +485,7 @@ class SphereTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Sphere.from(Vector3D.ZERO, 0, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFrom_illegalRadius_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -496,7 +496,7 @@ class SphereTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Sphere.from(Vector3D.ZERO, Double.POSITIVE_INFINITY, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFrom_illegalRadius_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -508,7 +508,7 @@ class SphereTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Sphere.from(Vector3D.ZERO, Double.NaN, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFrom_illegalRadius_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -521,7 +521,7 @@ class SphereTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Sphere.from(Vector3D.ZERO, 1e-3, precision));
     }
 
-    @Test
+@Test
     void testGeometricProperties_1_oe() {
         // arrange
         final double r = 2;
@@ -531,7 +531,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals(4 * Math.PI * r * r, s.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_2_oe() {
         // arrange
         final double r = 2;
@@ -542,7 +542,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals((4.0 * Math.PI * r * r * r) / 3.0, s.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToTree_zeroSubdivisions_1_oe() throws IOException {
         // arrange
         final double r = 2;
@@ -558,7 +558,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals(8, boundaries.size());
     }
 
-    @Test
+@Test
     void testToTree_zeroSubdivisions_2_oe() throws IOException {
         // arrange
         final double r = 2;
@@ -577,7 +577,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals(8, triangles.size());
     }
 
-    @Test
+@Test
     void testToTree_zeroSubdivisions_3_oe() throws IOException {
         // arrange
         final double r = 2;
@@ -599,7 +599,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals(expectedSize, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToTree_oneSubdivision_1_oe() throws IOException {
         // arrange
         final double r = 2;
@@ -615,7 +615,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals(32, boundaries.size());
     }
 
-    @Test
+@Test
     void testToTree_oneSubdivision_2_oe() throws IOException {
         // arrange
         final double r = 2;
@@ -634,7 +634,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals(32, triangles.size());
     }
 
-    @Test
+@Test
     void testToTree_oneSubdivision_3_oe() throws IOException {
         // arrange
         final double r = 2;
@@ -655,7 +655,7 @@ class SphereTest_OE25Dev {
         Assertions.assertTrue(tree.getSize() <= s.getSize());
     }
 
-    @Test
+@Test
     void testToTree_multipleSubdivisionCounts_1_oe() {
         // -- arrange
         final Sphere s = Sphere.from(Vector3D.of(-3, 5, 1), 10, TEST_PRECISION);
@@ -681,7 +681,7 @@ class SphereTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testToTree_multipleSubdivisionCounts_2_oe() {
         // -- arrange
         final Sphere s = Sphere.from(Vector3D.of(-3, 5, 1), 10, TEST_PRECISION);
@@ -710,7 +710,7 @@ class SphereTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testToTree_multipleSubdivisionCounts_3_oe() {
         // -- arrange
         final Sphere s = Sphere.from(Vector3D.of(-3, 5, 1), 10, TEST_PRECISION);
@@ -743,7 +743,7 @@ class SphereTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testToTree_randomSpheres_1_oe() {
         // arrange
         final UniformRandomProvider rand = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP, 1L);
@@ -773,7 +773,7 @@ class SphereTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testToTree_randomSpheres_2_oe() {
         // arrange
         final UniformRandomProvider rand = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP, 1L);
@@ -804,7 +804,7 @@ class SphereTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testToTree_randomSpheres_3_oe() {
         // arrange
         final UniformRandomProvider rand = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP, 1L);
@@ -836,7 +836,7 @@ class SphereTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testToTree_randomSpheres_4_oe() {
         // arrange
         final UniformRandomProvider rand = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP, 1L);
@@ -869,7 +869,7 @@ class SphereTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testToTree_closeApproximation_1_oe() throws IOException {
         // arrange
         final Sphere s = Sphere.from(Vector3D.ZERO, 1, TEST_PRECISION);
@@ -884,7 +884,7 @@ class SphereTest_OE25Dev {
         Assertions.assertTrue(tree.isFinite());
     }
 
-    @Test
+@Test
     void testToTree_closeApproximation_2_oe() throws IOException {
         // arrange
         final Sphere s = Sphere.from(Vector3D.ZERO, 1, TEST_PRECISION);
@@ -900,7 +900,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals(s.getSize(), tree.getSize(), eps);
     }
 
-    @Test
+@Test
     void testToTree_closeApproximation_3_oe() throws IOException {
         // arrange
         final Sphere s = Sphere.from(Vector3D.ZERO, 1, TEST_PRECISION);
@@ -917,7 +917,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals(s.getBoundarySize(), tree.getBoundarySize(), eps);
     }
 
-    @Test
+@Test
     void testToMesh_zeroSubdivisions_1_oe() {
         // arrange
         final Sphere s = Sphere.from(Vector3D.of(1, 2, 3), 2, TEST_PRECISION);
@@ -929,7 +929,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals(6, mesh.getVertexCount());
     }
 
-    @Test
+@Test
     void testToMesh_zeroSubdivisions_2_oe() {
         // arrange
         final Sphere s = Sphere.from(Vector3D.of(1, 2, 3), 2, TEST_PRECISION);
@@ -942,7 +942,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals(8, mesh.getFaceCount());
     }
 
-    @Test
+@Test
     void testToMesh_zeroSubdivisions_5_oe() {
         // arrange
         final Sphere s = Sphere.from(Vector3D.of(1, 2, 3), 2, TEST_PRECISION);
@@ -961,7 +961,7 @@ class SphereTest_OE25Dev {
         Assertions.assertTrue(mesh.toTree().isFinite());
     }
 
-    @Test
+@Test
     void testToMesh_manySubdivisions_1_oe() {
         // arrange
         final Sphere s = Sphere.from(Vector3D.of(1, 2, 3), 2, TEST_PRECISION);
@@ -974,7 +974,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals((int) (8 * Math.pow(4, subdivisions)), mesh.getFaceCount());
     }
 
-    @Test
+@Test
     void testToMesh_manySubdivisions_4_oe() {
         // arrange
         final Sphere s = Sphere.from(Vector3D.of(1, 2, 3), 2, TEST_PRECISION);
@@ -998,7 +998,7 @@ class SphereTest_OE25Dev {
         Assertions.assertTrue(tree.isFinite());
     }
 
-    @Test
+@Test
     void testToMesh_manySubdivisions_5_oe() {
         // arrange
         final Sphere s = Sphere.from(Vector3D.of(1, 2, 3), 2, TEST_PRECISION);
@@ -1025,7 +1025,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals(s.getSize(), tree.getSize(), approximationEps);
     }
 
-    @Test
+@Test
     void testToMesh_manySubdivisions_6_oe() {
         // arrange
         final Sphere s = Sphere.from(Vector3D.of(1, 2, 3), 2, TEST_PRECISION);
@@ -1053,7 +1053,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals(s.getBoundarySize(), tree.getBoundarySize(), approximationEps);
     }
 
-    @Test
+@Test
     void testHashCode_1_oe() {
         // arrange
         final Precision.DoubleEquivalence otherPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -1071,7 +1071,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals(hash, a.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_2_oe() {
         // arrange
         final Precision.DoubleEquivalence otherPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -1091,7 +1091,7 @@ class SphereTest_OE25Dev {
         Assertions.assertNotEquals(hash, b.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_3_oe() {
         // arrange
         final Precision.DoubleEquivalence otherPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -1112,7 +1112,7 @@ class SphereTest_OE25Dev {
         Assertions.assertNotEquals(hash, c.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_4_oe() {
         // arrange
         final Precision.DoubleEquivalence otherPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -1134,7 +1134,7 @@ class SphereTest_OE25Dev {
         Assertions.assertNotEquals(hash, d.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_5_oe() {
         // arrange
         final Precision.DoubleEquivalence otherPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -1158,7 +1158,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals(hash, e.hashCode());
     }
 
-    @Test
+@Test
     void testEquals_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -1175,7 +1175,7 @@ class SphereTest_OE25Dev {
         Assertions.assertNotEquals(a, b);
     }
 
-    @Test
+@Test
     void testEquals_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -1193,7 +1193,7 @@ class SphereTest_OE25Dev {
         Assertions.assertNotEquals(a, c);
     }
 
-    @Test
+@Test
     void testEquals_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -1212,7 +1212,7 @@ class SphereTest_OE25Dev {
         Assertions.assertNotEquals(a, d);
     }
 
-    @Test
+@Test
     void testEquals_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -1233,7 +1233,7 @@ class SphereTest_OE25Dev {
         Assertions.assertEquals(a, e);
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // arrange
         final Sphere c = Sphere.from(Vector3D.of(1, 2, 3), 3, TEST_PRECISION);

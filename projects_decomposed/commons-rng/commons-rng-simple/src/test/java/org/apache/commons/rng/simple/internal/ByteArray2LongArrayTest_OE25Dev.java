@@ -24,14 +24,14 @@ import org.junit.jupiter.api.Test;
  */
 class ByteArray2LongArrayTest_OE25Dev {
 
-    @Test
+@Test
     void testSeedSizeIsMultipleOfLongSize_1_oe() {
         final byte[] seed = new byte[128];
         final long[] out = new ByteArray2LongArray().convert(seed);
         Assertions.assertEquals(16, out.length);
     }
 
-    @Test
+@Test
     void testSeedSizeIsNotMultipleOfLongSize_1_oe() {
         final int len = 16;
         final ByteArray2LongArray conv = new ByteArray2LongArray();

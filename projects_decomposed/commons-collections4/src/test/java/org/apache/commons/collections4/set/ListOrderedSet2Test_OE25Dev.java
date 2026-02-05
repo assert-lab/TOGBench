@@ -64,7 +64,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
 //        writeExternalFormToDisk((java.io.Serializable) collection, "D:/dev/collections/data/test/ListOrderedSet.fullCollection.version3.1.obj");
 //    }
 
-    public void testOrdering_1_oe() {
+public void testOrdering_1_oe() {
         final ListOrderedSet<E> set = setupSet();
         Iterator<E> it = set.iterator();
 
@@ -73,7 +73,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
     }
     }
 
-    public void testOrdering_2_oe() {
+public void testOrdering_2_oe() {
         final ListOrderedSet<E> set = setupSet();
         Iterator<E> it = set.iterator();
 
@@ -86,7 +86,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
     }
     }
 
-    public void testOrdering_3_oe() {
+public void testOrdering_3_oe() {
         final ListOrderedSet<E> set = setupSet();
         Iterator<E> it = set.iterator();
 
@@ -104,7 +104,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
     }
     }
 
-    public void testOrdering_4_oe() {
+public void testOrdering_4_oe() {
         final ListOrderedSet<E> set = setupSet();
         Iterator<E> it = set.iterator();
 
@@ -128,7 +128,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals("Size of set is wrong!", 10, set.size());
     }
 
-    public void testOrdering_5_oe() {
+public void testOrdering_5_oe() {
         final ListOrderedSet<E> set = setupSet();
         Iterator<E> it = set.iterator();
 
@@ -157,7 +157,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
     }
     }
 
-    public void testOrdering_6_oe() {
+public void testOrdering_6_oe() {
         final ListOrderedSet<E> set = setupSet();
         Iterator<E> it = set.iterator();
 
@@ -189,7 +189,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
     }
     }
 
-    public void testListAddRemove_1_oe() {
+public void testListAddRemove_1_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -199,7 +199,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals(3, set.size());
     }
 
-    public void testListAddRemove_2_oe() {
+public void testListAddRemove_2_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -210,7 +210,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(ZERO, set.get(0));
     }
 
-    public void testListAddRemove_3_oe() {
+public void testListAddRemove_3_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -222,7 +222,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(ONE, set.get(1));
     }
 
-    public void testListAddRemove_4_oe() {
+public void testListAddRemove_4_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -235,7 +235,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(TWO, set.get(2));
     }
 
-    public void testListAddRemove_5_oe() {
+public void testListAddRemove_5_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -249,7 +249,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals(3, view.size());
     }
 
-    public void testListAddRemove_6_oe() {
+public void testListAddRemove_6_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -264,7 +264,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(ZERO, view.get(0));
     }
 
-    public void testListAddRemove_7_oe() {
+public void testListAddRemove_7_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -280,7 +280,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(ONE, view.get(1));
     }
 
-    public void testListAddRemove_8_oe() {
+public void testListAddRemove_8_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -297,7 +297,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(TWO, view.get(2));
     }
 
-    public void testListAddRemove_9_oe() {
+public void testListAddRemove_9_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -316,7 +316,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals(0, set.indexOf(ZERO));
     }
 
-    public void testListAddRemove_10_oe() {
+public void testListAddRemove_10_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -336,7 +336,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals(1, set.indexOf(ONE));
     }
 
-    public void testListAddRemove_11_oe() {
+public void testListAddRemove_11_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -357,7 +357,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals(2, set.indexOf(TWO));
     }
 
-    public void testListAddRemove_12_oe() {
+public void testListAddRemove_12_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -381,7 +381,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals(2, set.size());
     }
 
-    public void testListAddRemove_13_oe() {
+public void testListAddRemove_13_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -406,7 +406,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(ZERO, set.get(0));
     }
 
-    public void testListAddRemove_14_oe() {
+public void testListAddRemove_14_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -432,7 +432,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(TWO, set.get(1));
     }
 
-    public void testListAddRemove_15_oe() {
+public void testListAddRemove_15_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -459,7 +459,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals(2, view.size());
     }
 
-    public void testListAddRemove_16_oe() {
+public void testListAddRemove_16_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -487,7 +487,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(ZERO, view.get(0));
     }
 
-    public void testListAddRemove_17_oe() {
+public void testListAddRemove_17_oe() {
         final ListOrderedSet<E> set = makeObject();
         final List<E> view = set.asList();
         set.add((E) ZERO);
@@ -516,7 +516,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(TWO, view.get(1));
     }
 
-    public void testListAddIndexed_1_oe() {
+public void testListAddIndexed_1_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);
@@ -525,7 +525,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals(3, set.size());
     }
 
-    public void testListAddIndexed_2_oe() {
+public void testListAddIndexed_2_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);
@@ -535,7 +535,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(ZERO, set.get(0));
     }
 
-    public void testListAddIndexed_3_oe() {
+public void testListAddIndexed_3_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);
@@ -546,7 +546,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(ONE, set.get(1));
     }
 
-    public void testListAddIndexed_4_oe() {
+public void testListAddIndexed_4_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);
@@ -558,7 +558,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(TWO, set.get(2));
     }
 
-    public void testListAddIndexed_5_oe() {
+public void testListAddIndexed_5_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);
@@ -573,7 +573,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals(3, set.size());
     }
 
-    public void testListAddIndexed_6_oe() {
+public void testListAddIndexed_6_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);
@@ -589,7 +589,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(ZERO, set.get(0));
     }
 
-    public void testListAddIndexed_7_oe() {
+public void testListAddIndexed_7_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);
@@ -606,7 +606,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(ONE, set.get(1));
     }
 
-    public void testListAddIndexed_8_oe() {
+public void testListAddIndexed_8_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);
@@ -624,7 +624,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(TWO, set.get(2));
     }
 
-    public void testListAddIndexed_9_oe() {
+public void testListAddIndexed_9_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);
@@ -649,7 +649,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals(3, set.size());
     }
 
-    public void testListAddIndexed_10_oe() {
+public void testListAddIndexed_10_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);
@@ -675,7 +675,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(ZERO, set.get(0));
     }
 
-    public void testListAddIndexed_11_oe() {
+public void testListAddIndexed_11_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);
@@ -702,7 +702,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(ONE, set.get(1));
     }
 
-    public void testListAddIndexed_12_oe() {
+public void testListAddIndexed_12_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);
@@ -730,7 +730,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(TWO, set.get(2));
     }
 
-    public void testListAddIndexed_13_oe() {
+public void testListAddIndexed_13_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);
@@ -763,7 +763,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals(4, set.size());
     }
 
-    public void testListAddIndexed_14_oe() {
+public void testListAddIndexed_14_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);
@@ -797,7 +797,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(ZERO, set.get(0));
     }
 
-    public void testListAddIndexed_15_oe() {
+public void testListAddIndexed_15_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);
@@ -832,7 +832,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(THREE, set.get(1));
     }
 
-    public void testListAddIndexed_16_oe() {
+public void testListAddIndexed_16_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);
@@ -868,7 +868,7 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertSame(TWO, set.get(2));
     }
 
-    public void testListAddIndexed_17_oe() {
+public void testListAddIndexed_17_oe() {
         final ListOrderedSet<E> set = makeObject();
         set.add((E) ZERO);
         set.add((E) TWO);

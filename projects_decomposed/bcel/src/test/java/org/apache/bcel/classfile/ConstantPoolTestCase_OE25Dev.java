@@ -33,7 +33,7 @@ public class ConstantPoolTestCase_OE25Dev extends AbstractTestCase {
         return instructionList.getInstructionHandles();
     }
 
-    @Test
+@Test
     public void testConstantToString_1_oe() throws ClassNotFoundException {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME + ".data.SimpleClassWithDefaultConstructor");
         final ConstantPoolGen cp = new ConstantPoolGen(clazz.getConstantPool());

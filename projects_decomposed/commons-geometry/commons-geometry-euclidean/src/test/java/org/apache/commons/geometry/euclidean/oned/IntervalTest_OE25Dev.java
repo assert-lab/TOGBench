@@ -384,14 +384,14 @@ class IntervalTest_OE25Dev {
         Assertions.assertFalse(interval.isEmpty()); // always false
     }
 
-    @Test
+@Test
     void testOf_doubles_invalidIntervals_1_oe() {
 
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(1, Double.NaN, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_doubles_invalidIntervals_2_oe() {
 
         // act/assert
@@ -399,7 +399,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Double.NaN, 1, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_doubles_invalidIntervals_3_oe() {
 
         // act/assert
@@ -408,7 +408,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Double.NaN, Double.NaN, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_doubles_invalidIntervals_4_oe() {
 
         // act/assert
@@ -418,7 +418,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_doubles_invalidIntervals_5_oe() {
 
         // act/assert
@@ -429,14 +429,14 @@ class IntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_points_invalidIntervals_1_oe() {
 
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Vector1D.of(1), Vector1D.of(Double.NaN), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_points_invalidIntervals_2_oe() {
 
         // act/assert
@@ -444,26 +444,26 @@ class IntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Vector1D.of(Double.POSITIVE_INFINITY), Vector1D.of(Double.POSITIVE_INFINITY), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_hyperplanes_1_oe() {
         // act/assert
         Assertions.assertSame(Interval.full(), Interval.of(null, null));
     }
 
-    @Test
+@Test
     void testOf_hyperplanes_invalidArgs_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of( OrientedPoints.fromLocationAndDirection(1, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(1, false, TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testOf_hyperplanes_invalidArgs_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of( OrientedPoints.fromLocationAndDirection(2, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(1, true, TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testOf_hyperplanes_invalidArgs_3_oe() {
         // act/assert
         // removed other assertion
@@ -471,7 +471,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of( OrientedPoints.fromLocationAndDirection(Double.POSITIVE_INFINITY, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(Double.POSITIVE_INFINITY, true, TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testOf_hyperplanes_invalidArgs_4_oe() {
         // act/assert
         // removed other assertion
@@ -480,7 +480,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of( OrientedPoints.fromLocationAndDirection(Double.NaN, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(1, true, TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testOf_hyperplanes_invalidArgs_5_oe() {
         // act/assert
         // removed other assertion
@@ -490,7 +490,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of( OrientedPoints.fromLocationAndDirection(1, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(Double.NaN, true, TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testOf_hyperplanes_invalidArgs_6_oe() {
         // act/assert
         // removed other assertion
@@ -501,7 +501,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of( OrientedPoints.fromLocationAndDirection(Double.NaN, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(Double.NaN, true, TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testOf_hyperplanes_invalidArgs_7_oe() {
         // act/assert
         // removed other assertion
@@ -513,20 +513,20 @@ class IntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of( null, OrientedPoints.fromLocationAndDirection(Double.NaN, true, TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testPoint_invalidArgs_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.point(Double.NEGATIVE_INFINITY, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testPoint_invalidArgs_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.point(Double.POSITIVE_INFINITY, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testPoint_invalidArgs_3_oe() {
         // act/assert
         // removed other assertion
@@ -534,39 +534,39 @@ class IntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.point(Double.NaN, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testMin_invalidArgs_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.min(Double.POSITIVE_INFINITY, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testMin_invalidArgs_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.min(Double.NaN, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testMax_invalidArgs_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.max(Double.NEGATIVE_INFINITY, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testMax_invalidArgs_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.max(Double.NaN, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testIsInfinite_1_oe() {
         // act/assert
         Assertions.assertFalse(Interval.of(1, 2, TEST_PRECISION).isInfinite());
     }
 
-    @Test
+@Test
     void testIsInfinite_2_oe() {
         // act/assert
         // removed other assertion
@@ -574,7 +574,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertTrue(Interval.of(Double.NEGATIVE_INFINITY, 2, TEST_PRECISION).isInfinite());
     }
 
-    @Test
+@Test
     void testIsInfinite_3_oe() {
         // act/assert
         // removed other assertion
@@ -583,7 +583,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertTrue(Interval.of(2, Double.POSITIVE_INFINITY, TEST_PRECISION).isInfinite());
     }
 
-    @Test
+@Test
     void testIsInfinite_4_oe() {
         // act/assert
         // removed other assertion
@@ -593,13 +593,13 @@ class IntervalTest_OE25Dev {
         Assertions.assertTrue(Interval.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION).isInfinite());
     }
 
-    @Test
+@Test
     void testIsFinite_1_oe() {
         // act/assert
         Assertions.assertTrue(Interval.of(1, 2, TEST_PRECISION).isFinite());
     }
 
-    @Test
+@Test
     void testIsFinite_2_oe() {
         // act/assert
         // removed other assertion
@@ -607,7 +607,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertFalse(Interval.of(Double.NEGATIVE_INFINITY, 2, TEST_PRECISION).isFinite());
     }
 
-    @Test
+@Test
     void testIsFinite_3_oe() {
         // act/assert
         // removed other assertion
@@ -616,7 +616,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertFalse(Interval.of(2, Double.POSITIVE_INFINITY, TEST_PRECISION).isFinite());
     }
 
-    @Test
+@Test
     void testIsFinite_4_oe() {
         // act/assert
         // removed other assertion
@@ -626,20 +626,20 @@ class IntervalTest_OE25Dev {
         Assertions.assertFalse(Interval.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION).isFinite());
     }
 
-    @Test
+@Test
     void testIsFull_1_oe() {
         // act/assert
         Assertions.assertFalse(Interval.of(1, 1, TEST_PRECISION).isFull());
     }
 
-    @Test
+@Test
     void testIsFull_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertFalse(Interval.of(-2, 2, TEST_PRECISION).isFull());
     }
 
-    @Test
+@Test
     void testIsFull_3_oe() {
         // act/assert
         // removed other assertion
@@ -648,7 +648,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertFalse(Interval.of(1, Double.POSITIVE_INFINITY, TEST_PRECISION).isFull());
     }
 
-    @Test
+@Test
     void testIsFull_4_oe() {
         // act/assert
         // removed other assertion
@@ -658,7 +658,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertFalse(Interval.of(Double.NEGATIVE_INFINITY, 1, TEST_PRECISION).isFull());
     }
 
-    @Test
+@Test
     void testIsFull_5_oe() {
         // act/assert
         // removed other assertion
@@ -670,13 +670,13 @@ class IntervalTest_OE25Dev {
         Assertions.assertTrue(Interval.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION).isFull());
     }
 
-    @Test
+@Test
     void testGetSize_1_oe() {
         // act/assert
         Assertions.assertEquals(0, Interval.of(1, 1, TEST_PRECISION).getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_2_oe() {
         // act/assert
         // removed other assertion
@@ -684,7 +684,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(4, Interval.of(-2, 2, TEST_PRECISION).getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_3_oe() {
         // act/assert
         // removed other assertion
@@ -693,7 +693,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(5, Interval.of(2, -3, TEST_PRECISION).getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_4_oe() {
         // act/assert
         // removed other assertion
@@ -704,7 +704,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(Double.POSITIVE_INFINITY,Interval.of(1,Double.POSITIVE_INFINITY,TEST_PRECISION).getSize(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_5_oe() {
         // act/assert
         // removed other assertion
@@ -716,7 +716,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(Double.POSITIVE_INFINITY,Interval.of(Double.NEGATIVE_INFINITY,1,TEST_PRECISION).getSize(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_6_oe() {
         // act/assert
         // removed other assertion
@@ -730,20 +730,20 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(Double.POSITIVE_INFINITY,Interval.of(Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY,TEST_PRECISION).getSize(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetBoundarySize_1_oe() {
         // act/assert
         Assertions.assertEquals(0, Interval.of(1, 1, TEST_PRECISION).getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetBoundarySize_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals(0, Interval.of(-2, 5, TEST_PRECISION).getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetBoundarySize_3_oe() {
         // act/assert
         // removed other assertion
@@ -751,7 +751,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(0, Interval.full().getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetCentroid_5_oe() {
         // act/assert
         // removed other assertion
@@ -763,7 +763,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertNull(Interval.of(1, Double.POSITIVE_INFINITY, TEST_PRECISION).getCentroid());
     }
 
-    @Test
+@Test
     void testGetCentroid_6_oe() {
         // act/assert
         // removed other assertion
@@ -776,7 +776,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertNull(Interval.of(Double.NEGATIVE_INFINITY, 1, TEST_PRECISION).getCentroid());
     }
 
-    @Test
+@Test
     void testGetCentroid_7_oe() {
         // act/assert
         // removed other assertion
@@ -790,7 +790,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertNull(Interval.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION).getCentroid());
     }
 
-    @Test
+@Test
     void checkToTree_finite_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -803,7 +803,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(5, tree.count());
     }
 
-    @Test
+@Test
     void checkToTree_singlePoint_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -816,7 +816,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(5, tree.count());
     }
 
-    @Test
+@Test
     void checkToTree_maxInfinite_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -829,7 +829,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(3, tree.count());
     }
 
-    @Test
+@Test
     void checkToTree_minInfinite_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -842,7 +842,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(3, tree.count());
     }
 
-    @Test
+@Test
     void checkToTree_minMaxInfinite_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -855,7 +855,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testProjectToBoundary_full_1_oe() {
         // arrange
         final Interval full = Interval.full();
@@ -865,7 +865,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertNull(full.project(Vector1D.of(Double.NEGATIVE_INFINITY)));
     }
 
-    @Test
+@Test
     void testProjectToBoundary_full_2_oe() {
         // arrange
         final Interval full = Interval.full();
@@ -876,7 +876,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertNull(full.project(Vector1D.of(0)));
     }
 
-    @Test
+@Test
     void testProjectToBoundary_full_3_oe() {
         // arrange
         final Interval full = Interval.full();
@@ -888,7 +888,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertNull(full.project(Vector1D.of(Double.POSITIVE_INFINITY)));
     }
 
-    @Test
+@Test
     void testSplit_full_positiveFacingSplitter_1_oe() {
         // arrange
         final Interval interval = Interval.full();
@@ -902,7 +902,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_full_negativeFacingSplitter_1_oe() {
         // arrange
         final Interval interval = Interval.full();
@@ -916,7 +916,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_halfSpace_positiveFacingSplitter_1_oe() {
         // arrange
         final Interval interval = Interval.min(-1, TEST_PRECISION);
@@ -930,7 +930,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_halfSpace_negativeFacingSplitter_1_oe() {
         // arrange
         final Interval interval = Interval.min(-1, TEST_PRECISION);
@@ -944,7 +944,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_splitterBelowInterval_1_oe() {
         // arrange
         final Interval interval = Interval.of(5, 10, TEST_PRECISION);
@@ -958,7 +958,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_splitterBelowInterval_2_oe() {
         // arrange
         final Interval interval = Interval.of(5, 10, TEST_PRECISION);
@@ -974,7 +974,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertSame(interval, split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_splitterOnMinBoundary_1_oe() {
         // arrange
         final Interval interval = Interval.of(5, 10, TEST_PRECISION);
@@ -988,7 +988,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_splitterOnMinBoundary_2_oe() {
         // arrange
         final Interval interval = Interval.of(5, 10, TEST_PRECISION);
@@ -1004,7 +1004,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertSame(interval, split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_splitterAboveInterval_1_oe() {
         // arrange
         final Interval interval = Interval.of(5, 10, TEST_PRECISION);
@@ -1018,7 +1018,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_splitterAboveInterval_2_oe() {
         // arrange
         final Interval interval = Interval.of(5, 10, TEST_PRECISION);
@@ -1034,7 +1034,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertSame(interval, split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_splitterOnMaxBoundary_1_oe() {
         // arrange
         final Interval interval = Interval.of(5, 10, TEST_PRECISION);
@@ -1048,7 +1048,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_splitterOnMaxBoundary_2_oe() {
         // arrange
         final Interval interval = Interval.of(5, 10, TEST_PRECISION);
@@ -1064,7 +1064,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertSame(interval, split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_point_minusOnly_1_oe() {
         // arrange
         final Interval interval = Interval.point(2, TEST_PRECISION);
@@ -1078,7 +1078,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_point_minusOnly_2_oe() {
         // arrange
         final Interval interval = Interval.point(2, TEST_PRECISION);
@@ -1095,7 +1095,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_point_plusOnly_1_oe() {
         // arrange
         final Interval interval = Interval.point(2, TEST_PRECISION);
@@ -1109,7 +1109,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_point_plusOnly_2_oe() {
         // arrange
         final Interval interval = Interval.point(2, TEST_PRECISION);
@@ -1125,7 +1125,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_point_onPoint_1_oe() {
         // arrange
         final Interval interval = Interval.point(1, TEST_PRECISION);
@@ -1139,7 +1139,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_point_onPoint_2_oe() {
         // arrange
         final Interval interval = Interval.point(1, TEST_PRECISION);
@@ -1155,7 +1155,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_point_onPoint_3_oe() {
         // arrange
         final Interval interval = Interval.point(1, TEST_PRECISION);
@@ -1172,7 +1172,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // arrange
         final Interval interval = Interval.of(2, 1, TEST_PRECISION);
@@ -1184,7 +1184,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertTrue(str.contains("Interval"));
     }
 
-    @Test
+@Test
     void testToString_2_oe() {
         // arrange
         final Interval interval = Interval.of(2, 1, TEST_PRECISION);
@@ -1197,7 +1197,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertTrue(str.contains("min= 1.0"));
     }
 
-    @Test
+@Test
     void testToString_3_oe() {
         // arrange
         final Interval interval = Interval.of(2, 1, TEST_PRECISION);
@@ -1211,7 +1211,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertTrue(str.contains("max= 2.0"));
     }
 
-    @Test
+@Test
     void testFull_1_oe() {
         // act
         final Interval full = Interval.full();
@@ -1220,7 +1220,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertTrue(full.isFull());
     }
 
-    @Test
+@Test
     void testFull_2_oe() {
         // act
         final Interval full = Interval.full();
@@ -1230,7 +1230,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertFalse(full.isEmpty());
     }
 
-    @Test
+@Test
     void testFull_3_oe() {
         // act
         final Interval full = Interval.full();
@@ -1241,7 +1241,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertFalse(full.hasMinBoundary());
     }
 
-    @Test
+@Test
     void testFull_4_oe() {
         // act
         final Interval full = Interval.full();
@@ -1253,7 +1253,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertFalse(full.hasMaxBoundary());
     }
 
-    @Test
+@Test
     void testFull_5_oe() {
         // act
         final Interval full = Interval.full();
@@ -1266,7 +1266,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertTrue(full.isInfinite());
     }
 
-    @Test
+@Test
     void testFull_6_oe() {
         // act
         final Interval full = Interval.full();
@@ -1281,7 +1281,7 @@ class IntervalTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, full.classify(Double.NEGATIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testFull_7_oe() {
         // act
         final Interval full = Interval.full();

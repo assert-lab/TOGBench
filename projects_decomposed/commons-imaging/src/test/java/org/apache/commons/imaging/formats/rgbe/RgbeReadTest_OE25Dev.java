@@ -38,7 +38,7 @@ public class RgbeReadTest_OE25Dev extends RgbeBaseTest {
      * Test that a bad file does not gets the RgbeImageParser stuck reading it.
      */
 
-    @Test
+@Test
     public void test_1_oe() throws IOException, ImageReadException {
         Debug.debug("start");
 
@@ -53,7 +53,7 @@ public class RgbeReadTest_OE25Dev extends RgbeBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_2_oe() throws IOException, ImageReadException {
         Debug.debug("start");
 
@@ -71,7 +71,7 @@ public class RgbeReadTest_OE25Dev extends RgbeBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_3_oe() throws IOException, ImageReadException {
         Debug.debug("start");
 
@@ -92,7 +92,7 @@ public class RgbeReadTest_OE25Dev extends RgbeBaseTest {
     }
     }
 
-    @Test
+@Test
     public void testErrorDecompressingInvalidFile_1_oe() {
         // From IMAGING-219
         final File inputFile = new File(

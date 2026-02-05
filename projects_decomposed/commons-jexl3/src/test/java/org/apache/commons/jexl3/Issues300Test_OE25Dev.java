@@ -118,7 +118,7 @@ public class Issues300Test_OE25Dev {
         JexlScript script = jexl.createScript(text);
     }
 
-    @Test
+@Test
     public void testIssue301a_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).arithmetic(new JexlArithmetic(false)).create();
         final String[] srcs = new String[]{
@@ -138,7 +138,7 @@ public class Issues300Test_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIssue302_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
         final String[] strs = new String[]{
@@ -156,7 +156,7 @@ public class Issues300Test_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIssue304_1_oe() {
         final JexlEngine jexlEngine = new JexlBuilder().strict(false).create();
         JexlExpression e304 = jexlEngine.createExpression("overview.limit.var");
@@ -173,7 +173,7 @@ public class Issues300Test_OE25Dev {
         assertEquals("4711",value);// fails map.clear();
     }
 
-    @Test
+@Test
     public void testIssue304_2_oe() {
         final JexlEngine jexlEngine = new JexlBuilder().strict(false).create();
         JexlExpression e304 = jexlEngine.createExpression("overview.limit.var");
@@ -193,7 +193,7 @@ public class Issues300Test_OE25Dev {
         assertEquals(42, value);
     }
 
-    @Test
+@Test
     public void testIssue304_3_oe() {
         final JexlEngine jexlEngine = new JexlBuilder().strict(false).create();
         JexlExpression e304 = jexlEngine.createExpression("overview.limit.var");
@@ -219,7 +219,7 @@ public class Issues300Test_OE25Dev {
         assertEquals(42, value);
     }
 
-    @Test
+@Test
     public void testIssue305_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         JexlScript e;
@@ -229,7 +229,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertNotNull(e);
     }
 
-    @Test
+@Test
     public void testIssue305_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         JexlScript e;
@@ -241,7 +241,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(str0, str1);
     }
 
-    @Test
+@Test
     public void testIssue306_1_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         final JexlEngine jexl = new JexlBuilder().create();
@@ -250,7 +250,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(2, o1);
     }
 
-    @Test
+@Test
     public void testIssue306_2_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         final JexlEngine jexl = new JexlBuilder().create();
@@ -262,7 +262,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(2, o2);
     }
 
-    @Test
+@Test
     public void testIssue306a_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlScript e = jexl.createScript("x.y ?: 2", "x");
@@ -270,7 +270,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(2, o);
     }
 
-    @Test
+@Test
     public void testIssue306a_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlScript e = jexl.createScript("x.y ?: 2", "x");
@@ -280,7 +280,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(2, o);
     }
 
-    @Test
+@Test
     public void testIssue306b_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlScript e = jexl.createScript("x?.y ?: 2", "x");
@@ -288,7 +288,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(2, o1);
     }
 
-    @Test
+@Test
     public void testIssue306b_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlScript e = jexl.createScript("x?.y ?: 2", "x");
@@ -298,7 +298,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(2, o2);
     }
 
-    @Test
+@Test
     public void testIssue306c_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(true).create();
         final JexlScript e = jexl.createScript("x.y ?: 2", "x");
@@ -306,7 +306,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(2, o);
     }
 
-    @Test
+@Test
     public void testIssue306c_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(true).create();
         final JexlScript e = jexl.createScript("x.y ?: 2", "x");
@@ -316,7 +316,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(2, o);
     }
 
-    @Test
+@Test
     public void testIssue306d_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(true).create();
         final JexlScript e = jexl.createScript("x.y[z.t] ?: 2", "x");
@@ -324,7 +324,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(2, o);
     }
 
-    @Test
+@Test
     public void testIssue306d_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(true).create();
         final JexlScript e = jexl.createScript("x.y[z.t] ?: 2", "x");
@@ -334,7 +334,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(2, o);
     }
 
-    @Test
+@Test
     public void testIssue309a_2_oe() throws Exception {
         final String src = "<html lang=\"en\">\n"
                 + "  <body>\n"
@@ -353,7 +353,7 @@ public class Issues300Test_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIssue309b_2_oe() throws Exception {
         final String src = "<html lang=\"en\">\n"
                 + "  <body>\n"
@@ -372,7 +372,7 @@ public class Issues300Test_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIssue309c_2_oe() throws Exception {
         final String src = "<html lang=\"en\">\n"
                 + "  <body>\n"
@@ -393,7 +393,7 @@ public class Issues300Test_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void test314_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -405,7 +405,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(0, result);
     }
 
-    @Test
+@Test
     public void test314_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -420,7 +420,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test314_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -438,7 +438,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(2, result);
     }
 
-    @Test
+@Test
     public void test314_4_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -459,7 +459,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(44, result);
     }
 
-    @Test
+@Test
     public void test314_5_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -486,7 +486,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals("SIMON", result);
     }
 
-    @Test
+@Test
     public void test314_6_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -522,7 +522,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals("SIMON", result);
     }
 
-    @Test
+@Test
     public void test314_7_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -563,7 +563,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals("SIMON", result);
     }
 
-    @Test
+@Test
     public void test315_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -575,7 +575,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(32, result);
     }
 
-    @Test
+@Test
     public void test315_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -589,7 +589,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(52, result);
     }
 
-    @Test
+@Test
     public void test315_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -606,7 +606,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(-32, result);
     }
 
-    @Test
+@Test
     public void test315_4_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -625,7 +625,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(52, result);
     }
 
-    @Test
+@Test
     public void test315_5_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -648,7 +648,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(32, result);
     }
 
-    @Test
+@Test
     public void test315_6_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -673,7 +673,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(52, result);
     }
 
-    @Test
+@Test
     public void test315_7_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -702,7 +702,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(32, result);
     }
 
-    @Test
+@Test
     public void test315_8_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -733,7 +733,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(52, result);
     }
 
-    @Test
+@Test
     public void test317_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final JexlContext ctxt = new MapContext();
@@ -747,7 +747,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertTrue(result instanceof JexlScript);
     }
 
-    @Test
+@Test
     public void test317_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final JexlContext ctxt = new MapContext();
@@ -764,7 +764,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertNotNull(info);
     }
 
-    @Test
+@Test
     public void test317_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final JexlContext ctxt = new MapContext();
@@ -782,7 +782,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals("test317", info.getName());
     }
 
-    @Test
+@Test
     public void test317_4_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final JexlContext ctxt = new MapContext();
@@ -802,7 +802,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test322b_1_oe() throws Exception {
         final MapContext ctxt = new MapContext();
         final String src = "L'utilisateur ${session.user.name} s'est connecte";
@@ -820,7 +820,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals("L'utilisateur user322 s'est connecte", output);
     }
 
-    @Test
+@Test
     public void test322b_2_oe() throws Exception {
         final MapContext ctxt = new MapContext();
         final String src = "L'utilisateur ${session.user.name} s'est connecte";
@@ -844,7 +844,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals("L'utilisateur user322 s'est connecte", output);
     }
 
-    @Test
+@Test
     public void test322b_3_oe() throws Exception {
         final MapContext ctxt = new MapContext();
         final String src = "L'utilisateur ${session.user.name} s'est connecte";
@@ -874,7 +874,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals("L'utilisateur user322 s'est connecte", output);
     }
 
-    @Test
+@Test
     public void test323_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -892,7 +892,7 @@ public class Issues300Test_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void test323_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -916,7 +916,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertNull(result);
     }
 
-    @Test
+@Test
     public void test323_5_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -950,7 +950,7 @@ public class Issues300Test_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void test323_7_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -994,7 +994,7 @@ public class Issues300Test_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void test323_9_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -1048,7 +1048,7 @@ public class Issues300Test_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void test323_11_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -1111,7 +1111,7 @@ public class Issues300Test_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void test324_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final String src42 = "new('java.lang.Integer', 42)";
@@ -1119,7 +1119,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(42, expr0.evaluate(null));
     }
 
-    @Test
+@Test
     public void test324_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final String src42 = "new('java.lang.Integer', 42)";
@@ -1129,7 +1129,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(src42, parsed);
     }
 
-    @Test
+@Test
     public void test324_4_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final String src42 = "new('java.lang.Integer', 42)";
@@ -1145,7 +1145,7 @@ public class Issues300Test_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void test325_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).create();
         final Map<String, Object> map = new HashMap<String, Object>() {
@@ -1169,7 +1169,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test325_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).create();
         final Map<String, Object> map = new HashMap<String, Object>() {
@@ -1196,7 +1196,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test325_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).create();
         final Map<String, Object> map = new HashMap<String, Object>() {
@@ -1225,7 +1225,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test330_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         // Extended form of: 'literal' + VARIABLE   'literal'
@@ -1245,7 +1245,7 @@ public class Issues300Test_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void test331_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext ctxt = new MapContext();
@@ -1256,7 +1256,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertTrue(result.toString().contains("\n"));
     }
 
-    @Test
+@Test
     public void test347_1_oe() throws Exception {
         final String src = "A.B == 5";
         JexlEngine jexl = new JexlBuilder().safe(true).create();
@@ -1266,7 +1266,7 @@ public class Issues300Test_OE25Dev {
         Assert.assertFalse((Boolean) result);
     }
 
-    @Test
+@Test
     public void test347_3_oe() throws Exception {
         final String src = "A.B == 5";
         JexlEngine jexl = new JexlBuilder().safe(true).create();
@@ -1287,7 +1287,7 @@ public class Issues300Test_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void test347_5_oe() throws Exception {
         final String src = "A.B == 5";
         JexlEngine jexl = new JexlBuilder().safe(true).create();
@@ -1316,7 +1316,7 @@ public class Issues300Test_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void test347_6_oe() throws Exception {
         final String src = "A.B == 5";
         JexlEngine jexl = new JexlBuilder().safe(true).create();

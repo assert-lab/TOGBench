@@ -78,7 +78,7 @@ public class ReverseComparatorTest_OE25Dev extends AbstractComparatorTest<Intege
      * already "canonized" the comparator returned by makeComparator.
      */
 
-    @Test
+@Test
     public void testSerializeDeserializeThenCompare_1_oe() throws Exception {
         final Comparator<?> comp = new ReverseComparator<>(new ComparableComparator<String>());
 

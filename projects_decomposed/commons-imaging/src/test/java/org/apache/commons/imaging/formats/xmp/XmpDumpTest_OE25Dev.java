@@ -28,7 +28,7 @@ import org.junit.jupiter.api.Test;
 
 public class XmpDumpTest_OE25Dev extends ImagingTest {
 
-    @Test
+@Test
     public void test_1_oe() throws Exception {
         final List<File> images = getTestImages();
         for (final File imageFile : images) {

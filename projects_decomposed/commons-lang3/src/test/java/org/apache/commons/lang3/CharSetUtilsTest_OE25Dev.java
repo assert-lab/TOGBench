@@ -44,19 +44,19 @@ public class CharSetUtilsTest_OE25Dev  {
 
     //-----------------------------------------------------------------------
 
-    @Test
+@Test
     public void testConstructor_1_oe() {
         assertNotNull(new CharSetUtils());
     }
 
-    @Test
+@Test
     public void testConstructor_2_oe() {
         // removed other assertion
         final Constructor<?>[] cons = CharSetUtils.class.getDeclaredConstructors();
         assertEquals(1, cons.length);
     }
 
-    @Test
+@Test
     public void testConstructor_3_oe() {
         // removed other assertion
         final Constructor<?>[] cons = CharSetUtils.class.getDeclaredConstructors();
@@ -64,7 +64,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertTrue(Modifier.isPublic(cons[0].getModifiers()));
     }
 
-    @Test
+@Test
     public void testConstructor_4_oe() {
         // removed other assertion
         final Constructor<?>[] cons = CharSetUtils.class.getDeclaredConstructors();
@@ -73,7 +73,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertTrue(Modifier.isPublic(CharSetUtils.class.getModifiers()));
     }
 
-    @Test
+@Test
     public void testConstructor_5_oe() {
         // removed other assertion
         final Constructor<?>[] cons = CharSetUtils.class.getDeclaredConstructors();
@@ -83,18 +83,18 @@ public class CharSetUtilsTest_OE25Dev  {
         assertFalse(Modifier.isFinal(CharSetUtils.class.getModifiers()));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringString_1_oe() {
         assertNull(CharSetUtils.squeeze(null, (String) null));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringString_2_oe() {
         // removed other assertion
         assertNull(CharSetUtils.squeeze(null, ""));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringString_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -102,7 +102,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.squeeze("", (String) null));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringString_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -111,7 +111,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.squeeze("", ""));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringString_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -121,7 +121,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.squeeze("", "a-e"));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringString_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -133,7 +133,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.squeeze("hello", (String) null));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringString_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -146,7 +146,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.squeeze("hello", ""));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringString_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -160,7 +160,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.squeeze("hello", "a-e"));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringString_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -175,7 +175,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("helo", CharSetUtils.squeeze("hello", "l-p"));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringString_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -191,7 +191,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("heloo", CharSetUtils.squeeze("helloo", "l"));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringString_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -208,25 +208,25 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.squeeze("helloo", "^l"));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringStringarray_1_oe() {
         assertNull(CharSetUtils.squeeze(null, (String[]) null));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringStringarray_2_oe() {
         // removed other assertion
         assertNull(CharSetUtils.squeeze(null));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringStringarray_3_oe() {
         // removed other assertion
         // removed other assertion
         assertNull(CharSetUtils.squeeze(null, null));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringStringarray_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -234,7 +234,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertNull(CharSetUtils.squeeze(null, "el"));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringStringarray_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -244,7 +244,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.squeeze("", (String[]) null));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringStringarray_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -255,7 +255,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.squeeze(""));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringStringarray_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -267,7 +267,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.squeeze("", null));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringStringarray_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -280,7 +280,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.squeeze("", "a-e"));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringStringarray_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -295,7 +295,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.squeeze("hello", (String[]) null));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringStringarray_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -311,7 +311,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.squeeze("hello"));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringStringarray_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -328,7 +328,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.squeeze("hello", null));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringStringarray_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -346,7 +346,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.squeeze("hello", "a-e"));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringStringarray_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -366,7 +366,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("helo", CharSetUtils.squeeze("hello", "el"));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringStringarray_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -387,7 +387,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.squeeze("hello", "e"));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringStringarray_15_oe() {
         // removed other assertion
         // removed other assertion
@@ -409,7 +409,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("fofof", CharSetUtils.squeeze("fooffooff", "of"));
     }
 
-    @Test
+@Test
     public void testSqueeze_StringStringarray_16_oe() {
         // removed other assertion
         // removed other assertion
@@ -432,18 +432,18 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("fof", CharSetUtils.squeeze("fooooff", "fo"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_1_oe() {
         assertFalse(CharSetUtils.containsAny(null, (String) null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_2_oe() {
         // removed other assertion
         assertFalse(CharSetUtils.containsAny(null, ""));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -451,7 +451,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertFalse(CharSetUtils.containsAny("", (String) null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -460,7 +460,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertFalse(CharSetUtils.containsAny("", ""));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -470,7 +470,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertFalse(CharSetUtils.containsAny("", "a-e"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -482,7 +482,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertFalse(CharSetUtils.containsAny("hello", (String) null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -495,7 +495,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertFalse(CharSetUtils.containsAny("hello", ""));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -509,7 +509,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertTrue(CharSetUtils.containsAny("hello", "a-e"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -524,25 +524,25 @@ public class CharSetUtilsTest_OE25Dev  {
         assertTrue(CharSetUtils.containsAny("hello", "l-p"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_1_oe() {
         assertFalse(CharSetUtils.containsAny(null, (String[]) null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_2_oe() {
         // removed other assertion
         assertFalse(CharSetUtils.containsAny(null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(CharSetUtils.containsAny(null, null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -550,7 +550,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertFalse(CharSetUtils.containsAny(null, "a-e"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -560,7 +560,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertFalse(CharSetUtils.containsAny("", (String[]) null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -571,7 +571,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertFalse(CharSetUtils.containsAny(""));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -583,7 +583,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertFalse(CharSetUtils.containsAny("", null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -596,7 +596,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertFalse(CharSetUtils.containsAny("", "a-e"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -611,7 +611,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertFalse(CharSetUtils.containsAny("hello", (String[]) null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -627,7 +627,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertFalse(CharSetUtils.containsAny("hello"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -644,7 +644,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertFalse(CharSetUtils.containsAny("hello", null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -662,7 +662,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertTrue(CharSetUtils.containsAny("hello", "a-e"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -682,7 +682,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertTrue(CharSetUtils.containsAny("hello", "el"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -703,7 +703,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertFalse(CharSetUtils.containsAny("hello", "x"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_15_oe() {
         // removed other assertion
         // removed other assertion
@@ -725,7 +725,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertTrue(CharSetUtils.containsAny("hello", "e-i"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_16_oe() {
         // removed other assertion
         // removed other assertion
@@ -748,7 +748,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertTrue(CharSetUtils.containsAny("hello", "a-z"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringarray_17_oe() {
         // removed other assertion
         // removed other assertion
@@ -772,18 +772,18 @@ public class CharSetUtilsTest_OE25Dev  {
         assertFalse(CharSetUtils.containsAny("hello", ""));
     }
 
-    @Test
+@Test
     public void testCount_StringString_1_oe() {
         assertEquals(0, CharSetUtils.count(null, (String) null));
     }
 
-    @Test
+@Test
     public void testCount_StringString_2_oe() {
         // removed other assertion
         assertEquals(0, CharSetUtils.count(null, ""));
     }
 
-    @Test
+@Test
     public void testCount_StringString_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -791,7 +791,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(0, CharSetUtils.count("", (String) null));
     }
 
-    @Test
+@Test
     public void testCount_StringString_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -800,7 +800,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(0, CharSetUtils.count("", ""));
     }
 
-    @Test
+@Test
     public void testCount_StringString_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -810,7 +810,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(0, CharSetUtils.count("", "a-e"));
     }
 
-    @Test
+@Test
     public void testCount_StringString_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -822,7 +822,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(0, CharSetUtils.count("hello", (String) null));
     }
 
-    @Test
+@Test
     public void testCount_StringString_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -835,7 +835,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(0, CharSetUtils.count("hello", ""));
     }
 
-    @Test
+@Test
     public void testCount_StringString_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -849,7 +849,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(1, CharSetUtils.count("hello", "a-e"));
     }
 
-    @Test
+@Test
     public void testCount_StringString_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -864,25 +864,25 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(3, CharSetUtils.count("hello", "l-p"));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_1_oe() {
         assertEquals(0, CharSetUtils.count(null, (String[]) null));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_2_oe() {
         // removed other assertion
         assertEquals(0, CharSetUtils.count(null));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(0, CharSetUtils.count(null, null));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -890,7 +890,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(0, CharSetUtils.count(null, "a-e"));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -900,7 +900,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(0, CharSetUtils.count("", (String[]) null));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -911,7 +911,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(0, CharSetUtils.count(""));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -923,7 +923,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(0, CharSetUtils.count("", null));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -936,7 +936,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(0, CharSetUtils.count("", "a-e"));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -951,7 +951,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(0, CharSetUtils.count("hello", (String[]) null));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -967,7 +967,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(0, CharSetUtils.count("hello"));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -984,7 +984,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(0, CharSetUtils.count("hello", null));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -1002,7 +1002,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(1, CharSetUtils.count("hello", "a-e"));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -1022,7 +1022,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(3, CharSetUtils.count("hello", "el"));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -1043,7 +1043,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(0, CharSetUtils.count("hello", "x"));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_15_oe() {
         // removed other assertion
         // removed other assertion
@@ -1065,7 +1065,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(2, CharSetUtils.count("hello", "e-i"));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_16_oe() {
         // removed other assertion
         // removed other assertion
@@ -1088,7 +1088,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(5, CharSetUtils.count("hello", "a-z"));
     }
 
-    @Test
+@Test
     public void testCount_StringStringarray_17_oe() {
         // removed other assertion
         // removed other assertion
@@ -1112,18 +1112,18 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals(0, CharSetUtils.count("hello", ""));
     }
 
-    @Test
+@Test
     public void testKeep_StringString_1_oe() {
         assertNull(CharSetUtils.keep(null, (String) null));
     }
 
-    @Test
+@Test
     public void testKeep_StringString_2_oe() {
         // removed other assertion
         assertNull(CharSetUtils.keep(null, ""));
     }
 
-    @Test
+@Test
     public void testKeep_StringString_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -1131,7 +1131,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.keep("", (String) null));
     }
 
-    @Test
+@Test
     public void testKeep_StringString_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1140,7 +1140,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.keep("", ""));
     }
 
-    @Test
+@Test
     public void testKeep_StringString_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1150,7 +1150,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.keep("", "a-e"));
     }
 
-    @Test
+@Test
     public void testKeep_StringString_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1162,7 +1162,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.keep("hello", (String) null));
     }
 
-    @Test
+@Test
     public void testKeep_StringString_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -1175,7 +1175,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.keep("hello", ""));
     }
 
-    @Test
+@Test
     public void testKeep_StringString_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -1189,7 +1189,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.keep("hello", "xyz"));
     }
 
-    @Test
+@Test
     public void testKeep_StringString_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -1204,7 +1204,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.keep("hello", "a-z"));
     }
 
-    @Test
+@Test
     public void testKeep_StringString_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -1220,7 +1220,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.keep("hello", "oleh"));
     }
 
-    @Test
+@Test
     public void testKeep_StringString_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -1237,25 +1237,25 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("ell", CharSetUtils.keep("hello", "el"));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_1_oe() {
         assertNull(CharSetUtils.keep(null, (String[]) null));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_2_oe() {
         // removed other assertion
         assertNull(CharSetUtils.keep(null));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_3_oe() {
         // removed other assertion
         // removed other assertion
         assertNull(CharSetUtils.keep(null, null));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1263,7 +1263,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertNull(CharSetUtils.keep(null, "a-e"));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1273,7 +1273,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.keep("", (String[]) null));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1284,7 +1284,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.keep(""));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -1296,7 +1296,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.keep("", null));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -1309,7 +1309,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.keep("", "a-e"));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -1324,7 +1324,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.keep("hello", (String[]) null));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -1340,7 +1340,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.keep("hello"));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -1357,7 +1357,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.keep("hello", null));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -1375,7 +1375,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("e", CharSetUtils.keep("hello", "a-e"));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -1395,7 +1395,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("e", CharSetUtils.keep("hello", "a-e"));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -1416,7 +1416,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("ell", CharSetUtils.keep("hello", "el"));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_15_oe() {
         // removed other assertion
         // removed other assertion
@@ -1438,7 +1438,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.keep("hello", "elho"));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_16_oe() {
         // removed other assertion
         // removed other assertion
@@ -1461,7 +1461,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.keep("hello", "a-z"));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_17_oe() {
         // removed other assertion
         // removed other assertion
@@ -1485,7 +1485,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("----", CharSetUtils.keep("----", "-"));
     }
 
-    @Test
+@Test
     public void testKeep_StringStringarray_18_oe() {
         // removed other assertion
         // removed other assertion
@@ -1510,18 +1510,18 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("ll", CharSetUtils.keep("hello", "l"));
     }
 
-    @Test
+@Test
     public void testDelete_StringString_1_oe() {
         assertNull(CharSetUtils.delete(null, (String) null));
     }
 
-    @Test
+@Test
     public void testDelete_StringString_2_oe() {
         // removed other assertion
         assertNull(CharSetUtils.delete(null, ""));
     }
 
-    @Test
+@Test
     public void testDelete_StringString_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -1529,7 +1529,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.delete("", (String) null));
     }
 
-    @Test
+@Test
     public void testDelete_StringString_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1538,7 +1538,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.delete("", ""));
     }
 
-    @Test
+@Test
     public void testDelete_StringString_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1548,7 +1548,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.delete("", "a-e"));
     }
 
-    @Test
+@Test
     public void testDelete_StringString_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1560,7 +1560,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.delete("hello", (String) null));
     }
 
-    @Test
+@Test
     public void testDelete_StringString_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -1573,7 +1573,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.delete("hello", ""));
     }
 
-    @Test
+@Test
     public void testDelete_StringString_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -1587,7 +1587,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hllo", CharSetUtils.delete("hello", "a-e"));
     }
 
-    @Test
+@Test
     public void testDelete_StringString_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -1602,7 +1602,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("he", CharSetUtils.delete("hello", "l-p"));
     }
 
-    @Test
+@Test
     public void testDelete_StringString_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -1618,25 +1618,25 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.delete("hello", "z"));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_1_oe() {
         assertNull(CharSetUtils.delete(null, (String[]) null));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_2_oe() {
         // removed other assertion
         assertNull(CharSetUtils.delete(null));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_3_oe() {
         // removed other assertion
         // removed other assertion
         assertNull(CharSetUtils.delete(null, null));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1644,7 +1644,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertNull(CharSetUtils.delete(null, "el"));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1654,7 +1654,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.delete("", (String[]) null));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1665,7 +1665,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.delete(""));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -1677,7 +1677,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.delete("", null));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -1690,7 +1690,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.delete("", "a-e"));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -1705,7 +1705,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.delete("hello", (String[]) null));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -1721,7 +1721,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.delete("hello"));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -1738,7 +1738,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.delete("hello", null));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -1756,7 +1756,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.delete("hello", "xyz"));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -1776,7 +1776,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("ho", CharSetUtils.delete("hello", "el"));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -1797,7 +1797,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.delete("hello", "elho"));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_15_oe() {
         // removed other assertion
         // removed other assertion
@@ -1819,7 +1819,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.delete("hello", ""));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_16_oe() {
         // removed other assertion
         // removed other assertion
@@ -1842,7 +1842,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("hello", CharSetUtils.delete("hello", ""));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_17_oe() {
         // removed other assertion
         // removed other assertion
@@ -1866,7 +1866,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.delete("hello", "a-z"));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_18_oe() {
         // removed other assertion
         // removed other assertion
@@ -1891,7 +1891,7 @@ public class CharSetUtilsTest_OE25Dev  {
         assertEquals("", CharSetUtils.delete("----", "-"));
     }
 
-    @Test
+@Test
     public void testDelete_StringStringarray_19_oe() {
         // removed other assertion
         // removed other assertion

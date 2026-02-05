@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
 
 public class FieldTypeByteTest_OE25Dev{
 
-  @Test
+@Test
   public void testWriteDataWithNull_1_oe() {
       final FieldTypeByte fieldTypeByte = FieldType.UNDEFINED;
       final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;

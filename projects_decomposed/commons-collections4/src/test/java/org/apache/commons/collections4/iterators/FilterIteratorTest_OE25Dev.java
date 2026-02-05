@@ -189,13 +189,13 @@ public class FilterIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         return new FilterIterator<>(i, pred);
     }
 
-    public void testRepeatedHasNext_1_oe() {
+public void testRepeatedHasNext_1_oe() {
         for (int i = 0; i <= array.length; i++) {
             assertTrue(iterator.hasNext());
     }
     }
 
-    public void testSetIterator_1_oe() {
+public void testSetIterator_1_oe() {
         final Iterator<E> iter1 = Collections.singleton((E) new Object()).iterator();
         final Iterator<E> iter2 = Collections.<E>emptyList().iterator();
 
@@ -205,7 +205,7 @@ public class FilterIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals(true, filterIterator.hasNext());
     }
 
-    public void testSetIterator_2_oe() {
+public void testSetIterator_2_oe() {
         final Iterator<E> iter1 = Collections.singleton((E) new Object()).iterator();
         final Iterator<E> iter2 = Collections.<E>emptyList().iterator();
 
@@ -219,7 +219,7 @@ public class FilterIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals(false, filterIterator.hasNext());
     }
 
-    public void testSetPredicate_1_oe() {
+public void testSetPredicate_1_oe() {
         final Iterator<E> iter = Collections.singleton((E) null).iterator();
 
         final FilterIterator<E> filterIterator = new FilterIterator<>(iter);
@@ -228,7 +228,7 @@ public class FilterIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals(true, filterIterator.hasNext());
     }
 
-    public void testSetPredicate_2_oe() {
+public void testSetPredicate_2_oe() {
         final Iterator<E> iter = Collections.singleton((E) null).iterator();
 
         final FilterIterator<E> filterIterator = new FilterIterator<>(iter);

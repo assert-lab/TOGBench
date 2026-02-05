@@ -137,13 +137,13 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testForStyle_shortDate_1_oe() throws Exception {
+public void testForStyle_shortDate_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("S-");
         assertSame(g,f);
     }
 
-    public void testForStyle_shortDate_2_oe() throws Exception {
+public void testForStyle_shortDate_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("S-");
         // removed other assertion
@@ -152,7 +152,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_shortDate_3_oe() throws Exception {
+public void testForStyle_shortDate_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("S-");
         // removed other assertion
@@ -163,7 +163,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_shortDate_4_oe() throws Exception {
+public void testForStyle_shortDate_4_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("S-");
         // removed other assertion
@@ -176,7 +176,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_shortDate_5_oe() throws Exception {
+public void testForStyle_shortDate_5_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("S-");
         // removed other assertion
@@ -193,13 +193,13 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(date,f.withLocale(FRANCE).parseDateTime(expect));
     }
 
-    public void testForStyle_shortTime_1_oe() throws Exception {
+public void testForStyle_shortTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-S");
         assertSame(g,f);
     }
 
-    public void testForStyle_shortTime_2_oe() throws Exception {
+public void testForStyle_shortTime_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-S");
         // removed other assertion
@@ -208,7 +208,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_shortTime_3_oe() throws Exception {
+public void testForStyle_shortTime_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-S");
         // removed other assertion
@@ -219,7 +219,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_shortTime_4_oe() throws Exception {
+public void testForStyle_shortTime_4_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-S");
         // removed other assertion
@@ -232,7 +232,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_shortTime_5_oe() throws Exception {
+public void testForStyle_shortTime_5_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-S");
         // removed other assertion
@@ -253,13 +253,13 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
     }
     }
 
-    public void testForStyle_shortDateTime_1_oe() throws Exception {
+public void testForStyle_shortDateTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("SS");
         assertSame(g,f);
     }
 
-    public void testForStyle_shortDateTime_2_oe() throws Exception {
+public void testForStyle_shortDateTime_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("SS");
         // removed other assertion
@@ -268,7 +268,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_shortDateTime_3_oe() throws Exception {
+public void testForStyle_shortDateTime_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("SS");
         // removed other assertion
@@ -279,7 +279,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_shortDateTime_4_oe() throws Exception {
+public void testForStyle_shortDateTime_4_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("SS");
         // removed other assertion
@@ -292,7 +292,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_shortDateTime_5_oe() throws Exception {
+public void testForStyle_shortDateTime_5_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("SS");
         // removed other assertion
@@ -309,13 +309,13 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(date,f.withLocale(FRANCE).parseDateTime(expect));
     }
 
-    public void testForStyle_mediumDate_1_oe() throws Exception {
+public void testForStyle_mediumDate_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("M-");
         assertSame(g,f);
     }
 
-    public void testForStyle_mediumDate_2_oe() throws Exception {
+public void testForStyle_mediumDate_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("M-");
         // removed other assertion
@@ -324,7 +324,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_mediumDate_3_oe() throws Exception {
+public void testForStyle_mediumDate_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("M-");
         // removed other assertion
@@ -335,7 +335,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_mediumDate_4_oe() throws Exception {
+public void testForStyle_mediumDate_4_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("M-");
         // removed other assertion
@@ -348,13 +348,13 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_mediumTime_1_oe() throws Exception {
+public void testForStyle_mediumTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-M");
         assertSame(g,f);
     }
 
-    public void testForStyle_mediumTime_2_oe() throws Exception {
+public void testForStyle_mediumTime_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-M");
         // removed other assertion
@@ -363,7 +363,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_mediumTime_3_oe() throws Exception {
+public void testForStyle_mediumTime_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-M");
         // removed other assertion
@@ -374,7 +374,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_mediumTime_4_oe() throws Exception {
+public void testForStyle_mediumTime_4_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-M");
         // removed other assertion
@@ -387,13 +387,13 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_mediumDateTime_1_oe() throws Exception {
+public void testForStyle_mediumDateTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("MM");
         assertSame(g,f);
     }
 
-    public void testForStyle_mediumDateTime_2_oe() throws Exception {
+public void testForStyle_mediumDateTime_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("MM");
         // removed other assertion
@@ -402,7 +402,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_mediumDateTime_3_oe() throws Exception {
+public void testForStyle_mediumDateTime_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("MM");
         // removed other assertion
@@ -413,7 +413,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_mediumDateTime_4_oe() throws Exception {
+public void testForStyle_mediumDateTime_4_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("MM");
         // removed other assertion
@@ -426,13 +426,13 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_longDate_1_oe() throws Exception {
+public void testForStyle_longDate_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("L-");
         assertSame(g,f);
     }
 
-    public void testForStyle_longDate_2_oe() throws Exception {
+public void testForStyle_longDate_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("L-");
         // removed other assertion
@@ -441,7 +441,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_longDate_3_oe() throws Exception {
+public void testForStyle_longDate_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("L-");
         // removed other assertion
@@ -452,7 +452,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_longDate_4_oe() throws Exception {
+public void testForStyle_longDate_4_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("L-");
         // removed other assertion
@@ -465,13 +465,13 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_longTime_1_oe() throws Exception {
+public void testForStyle_longTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-L");
         assertSame(g,f);
     }
 
-    public void testForStyle_longTime_2_oe() throws Exception {
+public void testForStyle_longTime_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-L");
         // removed other assertion
@@ -480,7 +480,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_longTime_3_oe() throws Exception {
+public void testForStyle_longTime_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-L");
         // removed other assertion
@@ -491,7 +491,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_longTime_4_oe() throws Exception {
+public void testForStyle_longTime_4_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-L");
         // removed other assertion
@@ -504,13 +504,13 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_longDateTime_1_oe() throws Exception {
+public void testForStyle_longDateTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("LL");
         assertSame(g,f);
     }
 
-    public void testForStyle_longDateTime_2_oe() throws Exception {
+public void testForStyle_longDateTime_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("LL");
         // removed other assertion
@@ -519,7 +519,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_longDateTime_3_oe() throws Exception {
+public void testForStyle_longDateTime_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("LL");
         // removed other assertion
@@ -530,7 +530,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_longDateTime_4_oe() throws Exception {
+public void testForStyle_longDateTime_4_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("LL");
         // removed other assertion
@@ -543,13 +543,13 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_fullDate_1_oe() throws Exception {
+public void testForStyle_fullDate_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("F-");
         assertSame(g,f);
     }
 
-    public void testForStyle_fullDate_2_oe() throws Exception {
+public void testForStyle_fullDate_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("F-");
         // removed other assertion
@@ -558,7 +558,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_fullDate_3_oe() throws Exception {
+public void testForStyle_fullDate_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("F-");
         // removed other assertion
@@ -569,7 +569,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_fullDate_4_oe() throws Exception {
+public void testForStyle_fullDate_4_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("F-");
         // removed other assertion
@@ -582,13 +582,13 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_fullTime_1_oe() throws Exception {
+public void testForStyle_fullTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-F");
         assertSame(g,f);
     }
 
-    public void testForStyle_fullTime_2_oe() throws Exception {
+public void testForStyle_fullTime_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-F");
         // removed other assertion
@@ -597,7 +597,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_fullTime_3_oe() throws Exception {
+public void testForStyle_fullTime_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-F");
         // removed other assertion
@@ -608,7 +608,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_fullTime_4_oe() throws Exception {
+public void testForStyle_fullTime_4_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-F");
         // removed other assertion
@@ -621,13 +621,13 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_fullDateTime_1_oe() throws Exception {
+public void testForStyle_fullDateTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("FF");
         assertSame(g,f);
     }
 
-    public void testForStyle_fullDateTime_2_oe() throws Exception {
+public void testForStyle_fullDateTime_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("FF");
         // removed other assertion
@@ -636,7 +636,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_fullDateTime_3_oe() throws Exception {
+public void testForStyle_fullDateTime_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("FF");
         // removed other assertion
@@ -647,7 +647,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_fullDateTime_4_oe() throws Exception {
+public void testForStyle_fullDateTime_4_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("FF");
         // removed other assertion
@@ -660,14 +660,14 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_shortMediumDateTime_1_oe() throws Exception {
+public void testForStyle_shortMediumDateTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("SM");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM, UK).format(dt.toDate());
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_shortMediumDateTime_2_oe() throws Exception {
+public void testForStyle_shortMediumDateTime_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("SM");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM, UK).format(dt.toDate());
@@ -676,7 +676,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_shortMediumDateTime_3_oe() throws Exception {
+public void testForStyle_shortMediumDateTime_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("SM");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM, UK).format(dt.toDate());
@@ -687,14 +687,14 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_shortLongDateTime_1_oe() throws Exception {
+public void testForStyle_shortLongDateTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("SL");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.LONG, UK).format(dt.toDate());
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_shortLongDateTime_2_oe() throws Exception {
+public void testForStyle_shortLongDateTime_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("SL");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.LONG, UK).format(dt.toDate());
@@ -703,7 +703,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_shortLongDateTime_3_oe() throws Exception {
+public void testForStyle_shortLongDateTime_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("SL");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.LONG, UK).format(dt.toDate());
@@ -714,14 +714,14 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_shortFullDateTime_1_oe() throws Exception {
+public void testForStyle_shortFullDateTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("SF");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.FULL, UK).format(dt.toDate());
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_shortFullDateTime_2_oe() throws Exception {
+public void testForStyle_shortFullDateTime_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("SF");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.FULL, UK).format(dt.toDate());
@@ -730,7 +730,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_shortFullDateTime_3_oe() throws Exception {
+public void testForStyle_shortFullDateTime_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("SF");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.FULL, UK).format(dt.toDate());
@@ -741,14 +741,14 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_mediumShortDateTime_1_oe() throws Exception {
+public void testForStyle_mediumShortDateTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("MS");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT, UK).format(dt.toDate());
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_mediumShortDateTime_2_oe() throws Exception {
+public void testForStyle_mediumShortDateTime_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("MS");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT, UK).format(dt.toDate());
@@ -757,7 +757,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_mediumShortDateTime_3_oe() throws Exception {
+public void testForStyle_mediumShortDateTime_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("MS");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT, UK).format(dt.toDate());
@@ -768,14 +768,14 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_mediumLongDateTime_1_oe() throws Exception {
+public void testForStyle_mediumLongDateTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("ML");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.LONG, UK).format(dt.toDate());
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_mediumLongDateTime_2_oe() throws Exception {
+public void testForStyle_mediumLongDateTime_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("ML");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.LONG, UK).format(dt.toDate());
@@ -784,7 +784,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_mediumLongDateTime_3_oe() throws Exception {
+public void testForStyle_mediumLongDateTime_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("ML");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.LONG, UK).format(dt.toDate());
@@ -795,14 +795,14 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void testForStyle_mediumFullDateTime_1_oe() throws Exception {
+public void testForStyle_mediumFullDateTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("MF");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.FULL, UK).format(dt.toDate());
         assertEquals(expect,f.print(dt));
     }
 
-    public void testForStyle_mediumFullDateTime_2_oe() throws Exception {
+public void testForStyle_mediumFullDateTime_2_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("MF");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.FULL, UK).format(dt.toDate());
@@ -811,7 +811,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(US).print(dt));
     }
 
-    public void testForStyle_mediumFullDateTime_3_oe() throws Exception {
+public void testForStyle_mediumFullDateTime_3_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.forStyle("MF");
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.FULL, UK).format(dt.toDate());
@@ -822,7 +822,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
         assertEquals(expect,f.withLocale(FRANCE).print(dt));
     }
 
-    public void test_patternForStyle_1_oe() throws Exception {
+public void test_patternForStyle_1_oe() throws Exception {
         String format = DateTimeFormat.patternForStyle("MF", UK);
         assertNotNull(format);
     }

@@ -65,16 +65,16 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
      * Test Invalid percentage values
      */
 
-    public void testFormatType_1_oe() {
+public void testFormatType_1_oe() {
         assertEquals("Format Type A", 2, PercentValidator.getInstance().getFormatType());
     }
 
-    public void testFormatType_2_oe() {
+public void testFormatType_2_oe() {
         // removed other assertion
         assertEquals("Format Type B", AbstractNumberValidator.PERCENT_FORMAT, PercentValidator.getInstance().getFormatType());
     }
 
-    public void testValid_1_oe() {
+public void testValid_1_oe() {
         // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
@@ -87,7 +87,7 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         assertEquals("Default locale", expected, validator.validate("12%"));
     }
 
-    public void testValid_2_oe() {
+public void testValid_2_oe() {
         // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
@@ -101,7 +101,7 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         assertEquals("Default negtve", negative, validator.validate("-12%"));
     }
 
-    public void testValid_3_oe() {
+public void testValid_3_oe() {
         // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
@@ -118,7 +118,7 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         assertEquals("UK locale",      expected, validator.validate("12%",   Locale.UK));
     }
 
-    public void testValid_4_oe() {
+public void testValid_4_oe() {
         // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
@@ -136,7 +136,7 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         assertEquals("UK negative",    negative, validator.validate("-12%",  Locale.UK));
     }
 
-    public void testValid_5_oe() {
+public void testValid_5_oe() {
         // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
@@ -155,7 +155,7 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         assertEquals("UK No symbol",   expected, validator.validate("12",    Locale.UK));
     }
 
-    public void testValid_6_oe() {
+public void testValid_6_oe() {
         // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
@@ -177,7 +177,7 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         assertEquals("US locale",      expected, validator.validate("12%",   Locale.US));
     }
 
-    public void testValid_7_oe() {
+public void testValid_7_oe() {
         // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
@@ -200,7 +200,7 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         assertEquals("US negative",    negative, validator.validate("-12%",  Locale.US));
     }
 
-    public void testValid_8_oe() {
+public void testValid_8_oe() {
         // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
@@ -224,7 +224,7 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         assertEquals("US No symbol",   expected, validator.validate("12",    Locale.US));
     }
 
-    public void testValid_9_oe() {
+public void testValid_9_oe() {
         // Set the default Locale
         Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
@@ -250,14 +250,14 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         assertEquals("100%",           hundred, validator.validate("100%"));
     }
 
-    public void testInvalid_1_oe() {
+public void testInvalid_1_oe() {
         BigDecimalValidator validator = PercentValidator.getInstance();
 
         // Invalid Missing
         assertFalse("isValid() Null Value",    validator.isValid(null));
     }
 
-    public void testInvalid_2_oe() {
+public void testInvalid_2_oe() {
         BigDecimalValidator validator = PercentValidator.getInstance();
 
         // Invalid Missing
@@ -265,7 +265,7 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         assertFalse("isValid() Empty Value",   validator.isValid(""));
     }
 
-    public void testInvalid_3_oe() {
+public void testInvalid_3_oe() {
         BigDecimalValidator validator = PercentValidator.getInstance();
 
         // Invalid Missing
@@ -274,7 +274,7 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         assertNull("validate() Null Value",    validator.validate(null));
     }
 
-    public void testInvalid_4_oe() {
+public void testInvalid_4_oe() {
         BigDecimalValidator validator = PercentValidator.getInstance();
 
         // Invalid Missing
@@ -284,7 +284,7 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         assertNull("validate() Empty Value",   validator.validate(""));
     }
 
-    public void testInvalid_5_oe() {
+public void testInvalid_5_oe() {
         BigDecimalValidator validator = PercentValidator.getInstance();
 
         // Invalid Missing
@@ -297,7 +297,7 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         assertFalse("UK wrong symbol",validator.isValid("12@",Locale.UK));// ??? assertFalse("UK wrong negative",validator.isValid("(12%)",Locale.UK));
     }
 
-    public void testInvalid_6_oe() {
+public void testInvalid_6_oe() {
         BigDecimalValidator validator = PercentValidator.getInstance();
 
         // Invalid Missing

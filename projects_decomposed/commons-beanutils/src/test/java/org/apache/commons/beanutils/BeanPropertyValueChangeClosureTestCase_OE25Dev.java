@@ -242,67 +242,67 @@ public class BeanPropertyValueChangeClosureTestCase_OE25Dev extends TestCase {
         }
     }
 
-    public void testExecuteWithSimpleFloatPropertyAndFloatValue_1_oe() {
+public void testExecuteWithSimpleFloatPropertyAndFloatValue_1_oe() {
         final TestBean testBean = new TestBean();
         new BeanPropertyValueChangeClosure("floatProperty", expectedFloatValue).execute(testBean);
         assertTrue(expectedFloatValue.floatValue() == testBean.getFloatProperty());
     }
 
-    public void testExecuteWithSimpleFloatPropertyAndIntegerValue_1_oe() {
+public void testExecuteWithSimpleFloatPropertyAndIntegerValue_1_oe() {
         final TestBean testBean = new TestBean();
         new BeanPropertyValueChangeClosure("floatProperty", expectedIntegerValue).execute(testBean);
         assertTrue(expectedIntegerValue.floatValue() == testBean.getFloatProperty());
     }
 
-    public void testExecuteWithSimpleDoublePropertyAndDoubleValue_1_oe() {
+public void testExecuteWithSimpleDoublePropertyAndDoubleValue_1_oe() {
         final TestBean testBean = new TestBean();
         new BeanPropertyValueChangeClosure("doubleProperty", expectedDoubleValue).execute(testBean);
         assertTrue(expectedDoubleValue.doubleValue() == testBean.getDoubleProperty());
     }
 
-    public void testExecuteWithSimpleDoublePropertyAndFloatValue_1_oe() {
+public void testExecuteWithSimpleDoublePropertyAndFloatValue_1_oe() {
         final TestBean testBean = new TestBean();
         new BeanPropertyValueChangeClosure("doubleProperty", expectedFloatValue).execute(testBean);
         assertTrue(expectedFloatValue.doubleValue() == testBean.getDoubleProperty());
     }
 
-    public void testExecuteWithSimpleDoublePropertyAndIntegerValue_1_oe() {
+public void testExecuteWithSimpleDoublePropertyAndIntegerValue_1_oe() {
         final TestBean testBean = new TestBean();
         new BeanPropertyValueChangeClosure("doubleProperty", expectedIntegerValue).execute(testBean);
         assertTrue(expectedIntegerValue.doubleValue() == testBean.getDoubleProperty());
     }
 
-    public void testExecuteWithSimpleIntPropertyAndIntegerValue_1_oe() {
+public void testExecuteWithSimpleIntPropertyAndIntegerValue_1_oe() {
         final TestBean testBean = new TestBean();
         new BeanPropertyValueChangeClosure("intProperty", expectedIntegerValue).execute(testBean);
         assertTrue(expectedIntegerValue.intValue() == testBean.getIntProperty());
     }
 
-    public void testExecuteWithSimpleBooleanPropertyAndBooleanValue_1_oe() {
+public void testExecuteWithSimpleBooleanPropertyAndBooleanValue_1_oe() {
         final TestBean testBean = new TestBean();
         new BeanPropertyValueChangeClosure("booleanProperty", expectedBooleanValue).execute(testBean);
         assertTrue(expectedBooleanValue.booleanValue() == testBean.getBooleanProperty());
     }
 
-    public void testExecuteWithSimpleBytePropertyAndByteValue_1_oe() {
+public void testExecuteWithSimpleBytePropertyAndByteValue_1_oe() {
         final TestBean testBean = new TestBean();
         new BeanPropertyValueChangeClosure("byteProperty", expectedByteValue).execute(testBean);
         assertTrue(expectedByteValue.byteValue() == testBean.getByteProperty());
     }
 
-    public void testExecuteWithWriteOnlyProperty_1_oe() {
+public void testExecuteWithWriteOnlyProperty_1_oe() {
         final TestBean testBean = new TestBean();
         new BeanPropertyValueChangeClosure("writeOnlyProperty", "foo").execute(testBean);
         assertEquals("foo", testBean.getWriteOnlyPropertyValue());
     }
 
-    public void testExecuteWithNestedProperty_1_oe() {
+public void testExecuteWithNestedProperty_1_oe() {
         final TestBean testBean = new TestBean();
         new BeanPropertyValueChangeClosure("nested.stringProperty", "bar").execute(testBean);
         assertEquals("bar", testBean.getNested().getStringProperty());
     }
 
-    public void testExecuteWithNullInPropertyPathAngIgnoreTrue_1_oe() {
+public void testExecuteWithNullInPropertyPathAngIgnoreTrue_1_oe() {
         final TestBean testBean = new TestBean();
 
         // create a closure that will attempt to set a property on the null bean in the path
@@ -316,19 +316,19 @@ public class BeanPropertyValueChangeClosureTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testExecuteWithIndexedProperty_1_oe() {
+public void testExecuteWithIndexedProperty_1_oe() {
         final TestBean testBean = new TestBean();
         new BeanPropertyValueChangeClosure("intIndexed[0]", expectedIntegerValue).execute(testBean);
         assertTrue(expectedIntegerValue.intValue() == testBean.getIntIndexed(0));
     }
 
-    public void testExecuteWithMappedProperty_1_oe() {
+public void testExecuteWithMappedProperty_1_oe() {
         final TestBean testBean = new TestBean();
         new BeanPropertyValueChangeClosure("mappedProperty(fred)", "barney").execute(testBean);
         assertEquals("barney", testBean.getMappedProperty("fred"));
     }
 
-    public void testExecuteWithSimpleStringProperty_1_oe() {
+public void testExecuteWithSimpleStringProperty_1_oe() {
         final TestBean testBean = new TestBean();
         new BeanPropertyValueChangeClosure("stringProperty", "barney").execute(testBean);
         assertEquals("barney", testBean.getStringProperty());

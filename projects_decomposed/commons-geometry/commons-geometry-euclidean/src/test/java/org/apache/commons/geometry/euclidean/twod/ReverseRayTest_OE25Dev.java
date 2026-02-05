@@ -274,7 +274,7 @@ class ReverseRayTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_1_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 2);
@@ -287,7 +287,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertFalse(revRay.isFull());
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_2_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 2);
@@ -301,7 +301,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertFalse(revRay.isEmpty());
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_3_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 2);
@@ -316,7 +316,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertTrue(revRay.isInfinite());
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_4_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 2);
@@ -332,7 +332,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertFalse(revRay.isFinite());
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_5_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 2);
@@ -350,7 +350,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertNull(revRay.getStartPoint());
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_8_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 2);
@@ -372,7 +372,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertEquals(1, revRay.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_10_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 2);
@@ -397,7 +397,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertNull(revRay.getCentroid());
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_11_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 2);
@@ -423,7 +423,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertNull(revRay.getBounds());
     }
 
-    @Test
+@Test
     void testFromPoint_1_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -439,7 +439,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertFalse(revRay.isFull());
     }
 
-    @Test
+@Test
     void testFromPoint_2_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -456,7 +456,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertFalse(revRay.isEmpty());
     }
 
-    @Test
+@Test
     void testFromPoint_3_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -474,7 +474,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertTrue(revRay.isInfinite());
     }
 
-    @Test
+@Test
     void testFromPoint_4_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -493,7 +493,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertFalse(revRay.isFinite());
     }
 
-    @Test
+@Test
     void testFromPoint_5_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -514,7 +514,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertNull(revRay.getStartPoint());
     }
 
-    @Test
+@Test
     void testFromPoint_8_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -539,7 +539,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertEquals(3, revRay.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoint_10_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -567,7 +567,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertNull(revRay.getCentroid());
     }
 
-    @Test
+@Test
     void testFromPoint_11_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -596,7 +596,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertNull(revRay.getBounds());
     }
 
-    @Test
+@Test
     void testFromLocation_1_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -611,7 +611,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertFalse(revRay.isFull());
     }
 
-    @Test
+@Test
     void testFromLocation_2_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -627,7 +627,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertFalse(revRay.isEmpty());
     }
 
-    @Test
+@Test
     void testFromLocation_3_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -644,7 +644,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertTrue(revRay.isInfinite());
     }
 
-    @Test
+@Test
     void testFromLocation_4_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -662,7 +662,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertFalse(revRay.isFinite());
     }
 
-    @Test
+@Test
     void testFromLocation_5_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -682,7 +682,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertNull(revRay.getStartPoint());
     }
 
-    @Test
+@Test
     void testFromLocation_8_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -706,7 +706,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertEquals(-2, revRay.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocation_10_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -733,7 +733,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertNull(revRay.getCentroid());
     }
 
-    @Test
+@Test
     void testFromLocation_11_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -761,7 +761,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertNull(revRay.getBounds());
     }
 
-    @Test
+@Test
     void testSplit_smallAngle_pointOnSplitter_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-5);
@@ -778,7 +778,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_smallAngle_pointOnSplitter_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-5);
@@ -797,7 +797,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_smallAngle_pointOnSplitter_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-5);
@@ -817,7 +817,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertSame(revRay, split.getPlus());
     }
 
-    @Test
+@Test
     void testGetInterval_2_oe() {
         // arrange
         final ReverseRay revRay = Lines.reverseRayFromPointAndDirection(Vector2D.of(2, -1), Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -830,7 +830,7 @@ class ReverseRayTest_OE25Dev {
         Assertions.assertEquals(2, interval.getMax(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetInterval_3_oe() {
         // arrange
         final ReverseRay revRay = Lines.reverseRayFromPointAndDirection(Vector2D.of(2, -1), Vector2D.Unit.PLUS_X, TEST_PRECISION);

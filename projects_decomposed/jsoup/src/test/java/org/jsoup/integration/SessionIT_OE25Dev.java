@@ -38,7 +38,7 @@ public class SessionIT_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void multiThread_2_oe() throws InterruptedException {
         int numThreads = 20;
         int numThreadLoops = 5;
@@ -86,7 +86,7 @@ public class SessionIT_OE25Dev {
         assertEquals(0, catcher.exceptionCount.get());
     }
 
-    @Test
+@Test
     public void multiThreadWithoutNewRequestBlowsUp_2_oe() throws InterruptedException {
         int numThreads = 20;
         String url = SlowRider.Url + "?" + SlowRider.MaxTimeParam + "=10000"; // this makes sure that the first req is still executing whilst the others run
@@ -120,7 +120,7 @@ public class SessionIT_OE25Dev {
         assertEquals(numThreads - 1, catcher.multiThreadExceptions.get());
     }
 
-    @Test
+@Test
     public void multiThreadWithoutNewRequestBlowsUp_3_oe() throws InterruptedException {
         int numThreads = 20;
         String url = SlowRider.Url + "?" + SlowRider.MaxTimeParam + "=10000"; // this makes sure that the first req is still executing whilst the others run

@@ -112,21 +112,21 @@ class CombinationsTest_OE25Dev {
         Assertions.assertThrows(NoSuchElementException.class, () -> iter.next());
     }
 
-    @Test
+@Test
     void testGetN_1_oe() {
         final int n = 5;
         final int k = 3;
         Assertions.assertEquals(n, Combinations.of(n, k).getN());
     }
 
-    @Test
+@Test
     void testGetK_1_oe() {
         final int n = 5;
         final int k = 3;
         Assertions.assertEquals(k, Combinations.of(n, k).getK());
     }
 
-    @Test
+@Test
     void testLexicographicComparatorWrongIterate1_1_oe() {
         final int n = 5;
         final int k = 3;
@@ -134,7 +134,7 @@ class CombinationsTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> comp.compare(new int[] {1}, new int[] {0, 1, 2}));
     }
 
-    @Test
+@Test
     void testLexicographicComparatorWrongIterate2_1_oe() {
         final int n = 5;
         final int k = 3;
@@ -142,7 +142,7 @@ class CombinationsTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> comp.compare(new int[] {0, 1, 2}, new int[] {0, 1, 2, 3}));
     }
 
-    @Test
+@Test
     void testLexicographicComparatorWrongIterate3_1_oe() {
         final int n = 5;
         final int k = 3;
@@ -150,7 +150,7 @@ class CombinationsTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> comp.compare(new int[] {1, 2, 5}, new int[] {0, 1, 2}));
     }
 
-    @Test
+@Test
     void testLexicographicComparatorWrongIterate4_1_oe() {
         final int n = 5;
         final int k = 3;
@@ -158,7 +158,7 @@ class CombinationsTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> comp.compare(new int[] {1, 2, 4}, new int[] {-1, 1, 2}));
     }
 
-    @Test
+@Test
     void testLexicographicComparator_1_oe() {
         final int n = 5;
         final int k = 3;
@@ -166,7 +166,7 @@ class CombinationsTest_OE25Dev {
         Assertions.assertEquals(1, comp.compare(new int[] {1, 2, 4}, new int[] {1, 2, 3}));
     }
 
-    @Test
+@Test
     void testLexicographicComparator_2_oe() {
         final int n = 5;
         final int k = 3;
@@ -175,7 +175,7 @@ class CombinationsTest_OE25Dev {
         Assertions.assertEquals(-1, comp.compare(new int[] {0, 1, 4}, new int[] {0, 2, 4}));
     }
 
-    @Test
+@Test
     void testLexicographicComparator_3_oe() {
         final int n = 5;
         final int k = 3;
@@ -185,7 +185,7 @@ class CombinationsTest_OE25Dev {
         Assertions.assertEquals(0, comp.compare(new int[] {1, 3, 4}, new int[] {1, 3, 4}));
     }
 
-    @Test
+@Test
     void testLexicographicComparatorUnsorted_1_oe() {
         final int n = 5;
         final int k = 3;
@@ -193,7 +193,7 @@ class CombinationsTest_OE25Dev {
         Assertions.assertEquals(1, comp.compare(new int[] {1, 4, 2}, new int[] {1, 3, 2}));
     }
 
-    @Test
+@Test
     void testLexicographicComparatorUnsorted_2_oe() {
         final int n = 5;
         final int k = 3;
@@ -202,7 +202,7 @@ class CombinationsTest_OE25Dev {
         Assertions.assertEquals(-1, comp.compare(new int[] {0, 4, 1}, new int[] {0, 4, 2}));
     }
 
-    @Test
+@Test
     void testLexicographicComparatorUnsorted_3_oe() {
         final int n = 5;
         final int k = 3;
@@ -212,13 +212,13 @@ class CombinationsTest_OE25Dev {
         Assertions.assertEquals(0, comp.compare(new int[] {1, 4, 3}, new int[] {1, 3, 4}));
     }
 
-    @Test
+@Test
     void testEmptyCombination_1_oe() {
         final Iterator<int[]> iter = Combinations.of(12345, 0).iterator();
         Assertions.assertTrue(iter.hasNext());
     }
 
-    @Test
+@Test
     void testEmptyCombination_2_oe() {
         final Iterator<int[]> iter = Combinations.of(12345, 0).iterator();
         // removed other assertion
@@ -226,7 +226,7 @@ class CombinationsTest_OE25Dev {
         Assertions.assertEquals(0, c.length);
     }
 
-    @Test
+@Test
     void testEmptyCombination_3_oe() {
         final Iterator<int[]> iter = Combinations.of(12345, 0).iterator();
         // removed other assertion
@@ -235,14 +235,14 @@ class CombinationsTest_OE25Dev {
         Assertions.assertFalse(iter.hasNext());
     }
 
-    @Test
+@Test
     void testFullSetCombination_1_oe() {
         final int n = 67;
         final Iterator<int[]> iter = Combinations.of(n, n).iterator();
         Assertions.assertTrue(iter.hasNext());
     }
 
-    @Test
+@Test
     void testFullSetCombination_2_oe() {
         final int n = 67;
         final Iterator<int[]> iter = Combinations.of(n, n).iterator();
@@ -251,7 +251,7 @@ class CombinationsTest_OE25Dev {
         Assertions.assertEquals(n, c.length);
     }
 
-    @Test
+@Test
     void testFullSetCombination_3_oe() {
         final int n = 67;
         final Iterator<int[]> iter = Combinations.of(n, n).iterator();
@@ -264,7 +264,7 @@ class CombinationsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testFullSetCombination_4_oe() {
         final int n = 67;
         final Iterator<int[]> iter = Combinations.of(n, n).iterator();
@@ -279,22 +279,22 @@ class CombinationsTest_OE25Dev {
         Assertions.assertFalse(iter.hasNext());
     }
 
-    @Test
+@Test
     void testBinomialCoefficientKLargerThanN_1_oe() {
         Assertions.assertThrows(CombinatoricsException.class, () -> Combinations.of(4, 5) );
     }
 
-    @Test
+@Test
     void testBinomialCoefficientNegativeN_1_oe() {
         Assertions.assertThrows(CombinatoricsException.class, () -> Combinations.of(-1, 1) );
     }
 
-    @Test
+@Test
     void testBinomialCoefficientNegativeK_1_oe() {
         Assertions.assertThrows(CombinatoricsException.class, () -> Combinations.of(10, -1) );
     }
 
-    @Test
+@Test
     void testBinomialCoefficientKAboveN_1_oe() {
         Assertions.assertThrows(CombinatoricsException.class, () -> Combinations.of(10, 20) );
     }

@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class UriPathTest_OE25Dev {
 
-    @Test
+@Test
     public void canonical_1_oe() throws Exception {
         String[][] canonical = {
             {"/aaa/bbb/", "/aaa/bbb/"},

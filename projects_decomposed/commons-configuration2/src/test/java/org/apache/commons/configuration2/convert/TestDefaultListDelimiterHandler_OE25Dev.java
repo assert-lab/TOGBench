@@ -136,41 +136,41 @@ public class TestDefaultListDelimiterHandler_OE25Dev {
         checkSplit("\\x, \\,y, \\", true, "\\x", ",y", "\\");
     }
 
-    @Test
+@Test
     public void testEscapeIntegerList_1_oe() {
         final ValueTransformer trans = ListDelimiterHandler.NOOP_TRANSFORMER;
         final List<Integer> data = Arrays.asList(1, 2, 3, 4);
         assertEquals("1,2,3,4", handler.escapeList(data, trans));
     }
 
-    @Test
+@Test
     public void testEscapeList_1_oe() {
         final ValueTransformer trans = value -> String.valueOf(value) + "_trans";
         final List<String> data = Arrays.asList("simple", "Hello,world!", "\\,\\", "end");
         assertEquals("Wrong result", "simple_trans,Hello\\,world!_trans," + "\\\\\\,\\\\_trans,end_trans", handler.escapeList(data, trans));
     }
 
-    @Test
+@Test
     public void testEscapeStringBackslash_1_oe() {
         assertEquals("Wrong result", "C:\\\\Temp\\\\", handler.escapeString("C:\\Temp\\"));
     }
 
-    @Test
+@Test
     public void testEscapeStringListDelimiter_1_oe() {
         assertEquals("Wrong result", "3\\,1415", handler.escapeString("3,1415"));
     }
 
-    @Test
+@Test
     public void testEscapeStringListDelimiterAndBackslash_1_oe() {
         assertEquals("Wrong result", "C:\\\\Temp\\\\\\,\\\\\\\\Share\\,/root", handler.escapeString("C:\\Temp\\,\\\\Share,/root"));
     }
 
-    @Test
+@Test
     public void testEscapeStringNoSpecialCharacter_1_oe() {
         assertEquals("Wrong result", "test", handler.escapeString("test"));
     }
 
-    @Test
+@Test
     public void testEscapeWithTransformer_1_oe() {
         final ValueTransformer trans = EasyMock.createMock(ValueTransformer.class);
         EasyMock.expect(trans.transformValue("a\\,b")).andReturn("ok");

@@ -31,7 +31,7 @@ public class MutableShortTest_OE25Dev {
 
     // ----------------------------------------------------------------
 
-    @Test
+@Test
     public void testAddAndGetValueObject_1_oe() {
         final MutableShort mutableShort = new MutableShort((short) 0);
         final short result = mutableShort.addAndGet(Short.valueOf((short) 1));
@@ -39,7 +39,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 1, result);
     }
 
-    @Test
+@Test
     public void testAddAndGetValueObject_2_oe() {
         final MutableShort mutableShort = new MutableShort((short) 0);
         final short result = mutableShort.addAndGet(Short.valueOf((short) 1));
@@ -48,7 +48,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 1, mutableShort.shortValue());
     }
 
-    @Test
+@Test
     public void testAddAndGetValuePrimitive_1_oe() {
         final MutableShort mutableShort = new MutableShort((short) 0);
         final short result = mutableShort.addAndGet((short) 1);
@@ -56,7 +56,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 1, result);
     }
 
-    @Test
+@Test
     public void testAddAndGetValuePrimitive_2_oe() {
         final MutableShort mutableShort = new MutableShort((short) 0);
         final short result = mutableShort.addAndGet((short) 1);
@@ -65,7 +65,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 1, mutableShort.shortValue());
     }
 
-    @Test
+@Test
     public void testAddValueObject_1_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         mutNum.add(Short.valueOf((short) 1));
@@ -73,7 +73,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 2, mutNum.shortValue());
     }
 
-    @Test
+@Test
     public void testAddValuePrimitive_1_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         mutNum.add((short) 1);
@@ -81,14 +81,14 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 2, mutNum.shortValue());
     }
 
-    @Test
+@Test
     public void testCompareTo_1_oe() {
         final MutableShort mutNum = new MutableShort((short) 0);
 
         assertEquals((short) 0, mutNum.compareTo(new MutableShort((short) 0)));
     }
 
-    @Test
+@Test
     public void testCompareTo_2_oe() {
         final MutableShort mutNum = new MutableShort((short) 0);
 
@@ -96,7 +96,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) +1, mutNum.compareTo(new MutableShort((short) -1)));
     }
 
-    @Test
+@Test
     public void testCompareTo_3_oe() {
         final MutableShort mutNum = new MutableShort((short) 0);
 
@@ -105,7 +105,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) -1, mutNum.compareTo(new MutableShort((short) 1)));
     }
 
-    @Test
+@Test
     public void testCompareTo_4_oe() {
         final MutableShort mutNum = new MutableShort((short) 0);
 
@@ -115,19 +115,19 @@ public class MutableShortTest_OE25Dev {
         assertThrows(NullPointerException.class, () -> mutNum.compareTo(null));
     }
 
-    @Test
+@Test
     public void testConstructors_1_oe() {
         assertEquals((short) 0, new MutableShort().shortValue());
     }
 
-    @Test
+@Test
     public void testConstructors_2_oe() {
         // removed other assertion
 
         assertEquals((short) 1, new MutableShort((short) 1).shortValue());
     }
 
-    @Test
+@Test
     public void testConstructors_3_oe() {
         // removed other assertion
 
@@ -136,7 +136,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 2, new MutableShort(Short.valueOf((short) 2)).shortValue());
     }
 
-    @Test
+@Test
     public void testConstructors_4_oe() {
         // removed other assertion
 
@@ -146,7 +146,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 3, new MutableShort(new MutableShort((short) 3)).shortValue());
     }
 
-    @Test
+@Test
     public void testConstructors_5_oe() {
         // removed other assertion
 
@@ -158,7 +158,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 2, new MutableShort("2").shortValue());
     }
 
-    @Test
+@Test
     public void testConstructors_6_oe() {
         // removed other assertion
 
@@ -172,7 +172,7 @@ public class MutableShortTest_OE25Dev {
         assertThrows(NullPointerException.class, () -> new MutableShort((Number) null));
     }
 
-    @Test
+@Test
     public void testDecrement_1_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         mutNum.decrement();
@@ -180,7 +180,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(0, mutNum.intValue());
     }
 
-    @Test
+@Test
     public void testDecrement_2_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         mutNum.decrement();
@@ -189,7 +189,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(0L, mutNum.longValue());
     }
 
-    @Test
+@Test
     public void testDecrementAndGet_1_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         final short result = mutNum.decrementAndGet();
@@ -197,7 +197,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(0, result);
     }
 
-    @Test
+@Test
     public void testDecrementAndGet_2_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         final short result = mutNum.decrementAndGet();
@@ -206,7 +206,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(0, mutNum.intValue());
     }
 
-    @Test
+@Test
     public void testDecrementAndGet_3_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         final short result = mutNum.decrementAndGet();
@@ -216,7 +216,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(0L, mutNum.longValue());
     }
 
-    @Test
+@Test
     public void testEquals_1_oe() {
         final MutableShort mutNumA = new MutableShort((short) 0);
         final MutableShort mutNumB = new MutableShort((short) 0);
@@ -225,7 +225,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(mutNumA, mutNumA);
     }
 
-    @Test
+@Test
     public void testEquals_2_oe() {
         final MutableShort mutNumA = new MutableShort((short) 0);
         final MutableShort mutNumB = new MutableShort((short) 0);
@@ -235,7 +235,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(mutNumA, mutNumB);
     }
 
-    @Test
+@Test
     public void testEquals_3_oe() {
         final MutableShort mutNumA = new MutableShort((short) 0);
         final MutableShort mutNumB = new MutableShort((short) 0);
@@ -246,7 +246,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(mutNumB, mutNumA);
     }
 
-    @Test
+@Test
     public void testEquals_4_oe() {
         final MutableShort mutNumA = new MutableShort((short) 0);
         final MutableShort mutNumB = new MutableShort((short) 0);
@@ -258,7 +258,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(mutNumB, mutNumB);
     }
 
-    @Test
+@Test
     public void testEquals_5_oe() {
         final MutableShort mutNumA = new MutableShort((short) 0);
         final MutableShort mutNumB = new MutableShort((short) 0);
@@ -271,7 +271,7 @@ public class MutableShortTest_OE25Dev {
         assertNotEquals(mutNumA, mutNumC);
     }
 
-    @Test
+@Test
     public void testEquals_6_oe() {
         final MutableShort mutNumA = new MutableShort((short) 0);
         final MutableShort mutNumB = new MutableShort((short) 0);
@@ -285,7 +285,7 @@ public class MutableShortTest_OE25Dev {
         assertNotEquals(mutNumB, mutNumC);
     }
 
-    @Test
+@Test
     public void testEquals_7_oe() {
         final MutableShort mutNumA = new MutableShort((short) 0);
         final MutableShort mutNumB = new MutableShort((short) 0);
@@ -300,7 +300,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(mutNumC, mutNumC);
     }
 
-    @Test
+@Test
     public void testEquals_8_oe() {
         final MutableShort mutNumA = new MutableShort((short) 0);
         final MutableShort mutNumB = new MutableShort((short) 0);
@@ -316,7 +316,7 @@ public class MutableShortTest_OE25Dev {
         assertNotEquals(null, mutNumA);
     }
 
-    @Test
+@Test
     public void testEquals_9_oe() {
         final MutableShort mutNumA = new MutableShort((short) 0);
         final MutableShort mutNumB = new MutableShort((short) 0);
@@ -333,7 +333,7 @@ public class MutableShortTest_OE25Dev {
         assertNotEquals(mutNumA, Short.valueOf((short) 0));
     }
 
-    @Test
+@Test
     public void testEquals_10_oe() {
         final MutableShort mutNumA = new MutableShort((short) 0);
         final MutableShort mutNumB = new MutableShort((short) 0);
@@ -351,7 +351,7 @@ public class MutableShortTest_OE25Dev {
         assertNotEquals("0", mutNumA);
     }
 
-    @Test
+@Test
     public void testGetAndAddValueObject_1_oe() {
         final MutableShort mutableShort = new MutableShort((short) 0);
         final short result = mutableShort.getAndAdd(Short.valueOf((short) 1));
@@ -359,7 +359,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 0, result);
     }
 
-    @Test
+@Test
     public void testGetAndAddValueObject_2_oe() {
         final MutableShort mutableShort = new MutableShort((short) 0);
         final short result = mutableShort.getAndAdd(Short.valueOf((short) 1));
@@ -368,7 +368,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 1, mutableShort.shortValue());
     }
 
-    @Test
+@Test
     public void testGetAndAddValuePrimitive_1_oe() {
         final MutableShort mutableShort = new MutableShort((short) 0);
         final short result = mutableShort.getAndAdd((short) 1);
@@ -376,7 +376,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 0, result);
     }
 
-    @Test
+@Test
     public void testGetAndAddValuePrimitive_2_oe() {
         final MutableShort mutableShort = new MutableShort((short) 0);
         final short result = mutableShort.getAndAdd((short) 1);
@@ -385,7 +385,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 1, mutableShort.shortValue());
     }
 
-    @Test
+@Test
     public void testGetAndDecrement_1_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         final short result = mutNum.getAndDecrement();
@@ -393,7 +393,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(1, result);
     }
 
-    @Test
+@Test
     public void testGetAndDecrement_2_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         final short result = mutNum.getAndDecrement();
@@ -402,7 +402,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(0, mutNum.intValue());
     }
 
-    @Test
+@Test
     public void testGetAndDecrement_3_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         final short result = mutNum.getAndDecrement();
@@ -412,7 +412,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(0L, mutNum.longValue());
     }
 
-    @Test
+@Test
     public void testGetAndIncrement_1_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         final short result = mutNum.getAndIncrement();
@@ -420,7 +420,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(1, result);
     }
 
-    @Test
+@Test
     public void testGetAndIncrement_2_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         final short result = mutNum.getAndIncrement();
@@ -429,7 +429,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(2, mutNum.intValue());
     }
 
-    @Test
+@Test
     public void testGetAndIncrement_3_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         final short result = mutNum.getAndIncrement();
@@ -439,20 +439,20 @@ public class MutableShortTest_OE25Dev {
         assertEquals(2L, mutNum.longValue());
     }
 
-    @Test
+@Test
     public void testGetSet_1_oe() {
         final MutableShort mutNum = new MutableShort((short) 0);
         assertEquals((short) 0, new MutableShort().shortValue());
     }
 
-    @Test
+@Test
     public void testGetSet_2_oe() {
         final MutableShort mutNum = new MutableShort((short) 0);
         // removed other assertion
         assertEquals(Short.valueOf((short) 0), new MutableShort().getValue());
     }
 
-    @Test
+@Test
     public void testGetSet_3_oe() {
         final MutableShort mutNum = new MutableShort((short) 0);
         // removed other assertion
@@ -462,7 +462,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 1, mutNum.shortValue());
     }
 
-    @Test
+@Test
     public void testGetSet_4_oe() {
         final MutableShort mutNum = new MutableShort((short) 0);
         // removed other assertion
@@ -473,7 +473,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(Short.valueOf((short) 1), mutNum.getValue());
     }
 
-    @Test
+@Test
     public void testGetSet_5_oe() {
         final MutableShort mutNum = new MutableShort((short) 0);
         // removed other assertion
@@ -487,7 +487,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 2, mutNum.shortValue());
     }
 
-    @Test
+@Test
     public void testGetSet_6_oe() {
         final MutableShort mutNum = new MutableShort((short) 0);
         // removed other assertion
@@ -502,7 +502,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(Short.valueOf((short) 2), mutNum.getValue());
     }
 
-    @Test
+@Test
     public void testGetSet_7_oe() {
         final MutableShort mutNum = new MutableShort((short) 0);
         // removed other assertion
@@ -520,7 +520,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 3, mutNum.shortValue());
     }
 
-    @Test
+@Test
     public void testGetSet_8_oe() {
         final MutableShort mutNum = new MutableShort((short) 0);
         // removed other assertion
@@ -539,7 +539,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(Short.valueOf((short) 3), mutNum.getValue());
     }
 
-    @Test
+@Test
     public void testGetSet_9_oe() {
         final MutableShort mutNum = new MutableShort((short) 0);
         // removed other assertion
@@ -559,7 +559,7 @@ public class MutableShortTest_OE25Dev {
         assertThrows(NullPointerException.class, () -> mutNum.setValue(null));
     }
 
-    @Test
+@Test
     public void testHashCode_1_oe() {
         final MutableShort mutNumA = new MutableShort((short) 0);
         final MutableShort mutNumB = new MutableShort((short) 0);
@@ -568,7 +568,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(mutNumA.hashCode(), mutNumA.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_2_oe() {
         final MutableShort mutNumA = new MutableShort((short) 0);
         final MutableShort mutNumB = new MutableShort((short) 0);
@@ -578,7 +578,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(mutNumA.hashCode(), mutNumB.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_3_oe() {
         final MutableShort mutNumA = new MutableShort((short) 0);
         final MutableShort mutNumB = new MutableShort((short) 0);
@@ -589,7 +589,7 @@ public class MutableShortTest_OE25Dev {
         assertNotEquals(mutNumA.hashCode(), mutNumC.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_4_oe() {
         final MutableShort mutNumA = new MutableShort((short) 0);
         final MutableShort mutNumB = new MutableShort((short) 0);
@@ -601,7 +601,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(mutNumA.hashCode(), Short.valueOf((short) 0).hashCode());
     }
 
-    @Test
+@Test
     public void testIncrement_1_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         mutNum.increment();
@@ -609,7 +609,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(2, mutNum.intValue());
     }
 
-    @Test
+@Test
     public void testIncrement_2_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         mutNum.increment();
@@ -618,7 +618,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(2L, mutNum.longValue());
     }
 
-    @Test
+@Test
     public void testIncrementAndGet_1_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         final short result = mutNum.incrementAndGet();
@@ -626,7 +626,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(2, result);
     }
 
-    @Test
+@Test
     public void testIncrementAndGet_2_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         final short result = mutNum.incrementAndGet();
@@ -635,7 +635,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals(2, mutNum.intValue());
     }
 
-    @Test
+@Test
     public void testIncrementAndGet_3_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         final short result = mutNum.incrementAndGet();
@@ -645,20 +645,20 @@ public class MutableShortTest_OE25Dev {
         assertEquals(2L, mutNum.longValue());
     }
 
-    @Test
+@Test
     public void testPrimitiveValues_1_oe() {
         final MutableShort mutNum = new MutableShort( (short) 1 );
         assertEquals(1.0F, mutNum.floatValue());
     }
 
-    @Test
+@Test
     public void testPrimitiveValues_2_oe() {
         final MutableShort mutNum = new MutableShort( (short) 1 );
         // removed other assertion
         assertEquals(1.0, mutNum.doubleValue());
     }
 
-    @Test
+@Test
     public void testPrimitiveValues_3_oe() {
         final MutableShort mutNum = new MutableShort( (short) 1 );
         // removed other assertion
@@ -666,7 +666,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals( (byte) 1, mutNum.byteValue() );
     }
 
-    @Test
+@Test
     public void testPrimitiveValues_4_oe() {
         final MutableShort mutNum = new MutableShort( (short) 1 );
         // removed other assertion
@@ -675,7 +675,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals( (short) 1, mutNum.shortValue() );
     }
 
-    @Test
+@Test
     public void testPrimitiveValues_5_oe() {
         final MutableShort mutNum = new MutableShort( (short) 1 );
         // removed other assertion
@@ -685,7 +685,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals( 1, mutNum.intValue() );
     }
 
-    @Test
+@Test
     public void testPrimitiveValues_6_oe() {
         final MutableShort mutNum = new MutableShort( (short) 1 );
         // removed other assertion
@@ -696,7 +696,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals( 1L, mutNum.longValue() );
     }
 
-    @Test
+@Test
     public void testSubtractValueObject_1_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         mutNum.subtract(Short.valueOf((short) 1));
@@ -704,7 +704,7 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 0, mutNum.shortValue());
     }
 
-    @Test
+@Test
     public void testSubtractValuePrimitive_1_oe() {
         final MutableShort mutNum = new MutableShort((short) 1);
         mutNum.subtract((short) 1);
@@ -712,29 +712,29 @@ public class MutableShortTest_OE25Dev {
         assertEquals((short) 0, mutNum.shortValue());
     }
 
-    @Test
+@Test
     public void testToShort_1_oe() {
         assertEquals(Short.valueOf((short) 0), new MutableShort((short) 0).toShort());
     }
 
-    @Test
+@Test
     public void testToShort_2_oe() {
         // removed other assertion
         assertEquals(Short.valueOf((short) 123), new MutableShort((short) 123).toShort());
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         assertEquals("0", new MutableShort((short) 0).toString());
     }
 
-    @Test
+@Test
     public void testToString_2_oe() {
         // removed other assertion
         assertEquals("10", new MutableShort((short) 10).toString());
     }
 
-    @Test
+@Test
     public void testToString_3_oe() {
         // removed other assertion
         // removed other assertion

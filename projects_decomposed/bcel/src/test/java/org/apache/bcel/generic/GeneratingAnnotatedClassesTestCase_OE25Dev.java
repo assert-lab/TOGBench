@@ -441,7 +441,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         return a;
     }
 
-    public void testGenerateClassLevelAnnotations_1_oe()
+public void testGenerateClassLevelAnnotations_1_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -460,7 +460,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Should be two AnnotationEntries but found " + as.length,as.length == 2);
     }
 
-    public void testGenerateClassLevelAnnotations_2_oe()
+public void testGenerateClassLevelAnnotations_2_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -481,7 +481,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Name of annotation 1 should be LSimpleAnnotation;but it is " + as[0].getAnnotationType(),as[0].getAnnotationType().equals("LSimpleAnnotation;"));
     }
 
-    public void testGenerateClassLevelAnnotations_3_oe()
+public void testGenerateClassLevelAnnotations_3_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -503,7 +503,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Name of annotation 2 should be LSimpleAnnotation;but it is " + as[1].getAnnotationType(),as[1].getAnnotationType().equals("LSimpleAnnotation;"));
     }
 
-    public void testGenerateClassLevelAnnotations_4_oe()
+public void testGenerateClassLevelAnnotations_4_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -528,7 +528,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Name of element in SimpleAnnotation should be 'id' but it is " + nvp.getNameString(),nvp.getNameString().equals("id"));
     }
 
-    public void testGenerateClassLevelAnnotations_5_oe()
+public void testGenerateClassLevelAnnotations_5_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -555,7 +555,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Type of element value should be int but it is " + ev.getElementValueType(),ev.getElementValueType()== ElementValue.PRIMITIVE_INT);
     }
 
-    public void testGenerateClassLevelAnnotations_6_oe()
+public void testGenerateClassLevelAnnotations_6_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -583,7 +583,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Value of element should be 4 but it is " + ev.stringifyValue(),ev.stringifyValue().equals("4"));
     }
 
-    public void testGenerateClassLevelAnnotations_7_oe()
+public void testGenerateClassLevelAnnotations_7_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -1113,7 +1113,7 @@ public void test_standard_new_oe_1_oe()
 }
 }
 
-    public void testGenerateMethodLevelAnnotations1_1_oe()
+public void testGenerateMethodLevelAnnotations1_1_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -1126,7 +1126,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("Prior to dumping,main method should have 1 annotation but has " + i,i == 1);
     }
 
-    public void testGenerateMethodLevelAnnotations1_2_oe()
+public void testGenerateMethodLevelAnnotations1_2_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -1144,7 +1144,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("JavaClass should say 1 annotation on main method but says " + i,i == 1);
     }
 
-    public void testGenerateMethodLevelAnnotations1_3_oe()
+public void testGenerateMethodLevelAnnotations1_3_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -1167,7 +1167,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("The main 'Method' should have one annotation but has " + i,i == 1);
     }
 
-    public void testGenerateMethodLevelAnnotations1_4_oe()
+public void testGenerateMethodLevelAnnotations1_4_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -1195,7 +1195,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("The main 'MethodGen' should have one annotation but has " + i,i == 1);
     }
 
-    public void testGenerateMethodLevelAnnotations1_5_oe()
+public void testGenerateMethodLevelAnnotations1_5_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -1225,7 +1225,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue(wipe("temp1", "HelloWorld.class"));
     }
 
-    public void testGenerateMethodLevelAnnotations2_1_oe()
+public void testGenerateMethodLevelAnnotations2_1_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -1241,7 +1241,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("The 'Method' should have one annotations but has " + mainMethod1.getAnnotationEntries().length,mainMethod1 .getAnnotationEntries().length == 1);
     }
 
-    public void testGenerateMethodLevelAnnotations2_2_oe()
+public void testGenerateMethodLevelAnnotations2_2_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -1260,7 +1260,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("The 'MethodGen' should have one annotations but has " + mainMethod2.getAnnotationEntries().length,mainMethod2 .getAnnotationEntries().length == 1);
     }
 
-    public void testGenerateMethodLevelAnnotations2_3_oe()
+public void testGenerateMethodLevelAnnotations2_3_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -1289,7 +1289,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("The 'Method' should now have two annotations but has " + i,i == 2);
     }
 
-    public void testGenerateMethodLevelAnnotations2_4_oe()
+public void testGenerateMethodLevelAnnotations2_4_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -1319,7 +1319,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue(wipe("temp2", "HelloWorld.class"));
     }
 
-    public void testGenerateMethodLevelAnnotations2_5_oe()
+public void testGenerateMethodLevelAnnotations2_5_oe()
             throws ClassNotFoundException
     {
         // Create HelloWorld
@@ -1350,7 +1350,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue(wipe("temp3", "HelloWorld.class"));
     }
 
-    public void testTransformClassToClassGen_SimpleTypes_1_oe()
+public void testTransformClassToClassGen_SimpleTypes_1_oe()
             throws ClassNotFoundException
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.SimpleAnnotatedClass");
@@ -1360,7 +1360,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("Expected one annotation but found " + annotations.length,annotations.length == 1);
     }
 
-    public void testTransformClassToClassGen_EnumType_1_oe()
+public void testTransformClassToClassGen_EnumType_1_oe()
             throws ClassNotFoundException
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithEnumClass");
@@ -1370,7 +1370,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("Expected one annotation but found " + annotations.length,annotations.length == 1);
     }
 
-    public void testTransformClassToClassGen_ArrayAndAnnotationTypes_1_oe()
+public void testTransformClassToClassGen_ArrayAndAnnotationTypes_1_oe()
             throws ClassNotFoundException
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
@@ -1380,7 +1380,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("Expected one annotation but found " + annotations.length,annotations.length == 1);
     }
 
-    public void testTransformClassToClassGen_ArrayAndAnnotationTypes_2_oe()
+public void testTransformClassToClassGen_ArrayAndAnnotationTypes_2_oe()
             throws ClassNotFoundException
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
@@ -1392,7 +1392,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("That annotation should only have one value but has " + a.getValues().size(),a.getValues().size()== 1);
     }
 
-    public void testTransformClassToClassGen_ArrayAndAnnotationTypes_3_oe()
+public void testTransformClassToClassGen_ArrayAndAnnotationTypes_3_oe()
             throws ClassNotFoundException
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
@@ -1407,7 +1407,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("Value should be ArrayElementValueGen but is " + value,value instanceof ArrayElementValueGen);
     }
 
-    public void testTransformClassToClassGen_ArrayAndAnnotationTypes_4_oe()
+public void testTransformClassToClassGen_ArrayAndAnnotationTypes_4_oe()
             throws ClassNotFoundException
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
@@ -1424,7 +1424,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("Array value should be size one but is " + arrayValue.getElementValuesSize(),arrayValue .getElementValuesSize()== 1);
     }
 
-    public void testTransformClassToClassGen_ArrayAndAnnotationTypes_5_oe()
+public void testTransformClassToClassGen_ArrayAndAnnotationTypes_5_oe()
             throws ClassNotFoundException
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
@@ -1443,7 +1443,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("Value in the array should be AnnotationElementValueGen but is " + innerValue,innerValue instanceof AnnotationElementValueGen);
     }
 
-    public void testTransformClassToClassGen_ArrayAndAnnotationTypes_6_oe()
+public void testTransformClassToClassGen_ArrayAndAnnotationTypes_6_oe()
             throws ClassNotFoundException
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
@@ -1464,7 +1464,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("Should be called L"+PACKAGE_BASE_SIG+"/data/SimpleAnnotation;but is called: " + innerAnnotationValue.getAnnotation().getTypeName(),innerAnnotationValue.getAnnotation().getTypeSignature().equals("L"+PACKAGE_BASE_SIG+"/data/SimpleAnnotation;"));
     }
 
-    public void testTransformClassToClassGen_ArrayAndAnnotationTypes_7_oe()
+public void testTransformClassToClassGen_ArrayAndAnnotationTypes_7_oe()
             throws ClassNotFoundException
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
@@ -1489,7 +1489,7 @@ public void test_standard_new_oe_1_oe()
         assertEquals(3, methods.length);
     }
 
-    public void testTransformClassToClassGen_ArrayAndAnnotationTypes_12_oe()
+public void testTransformClassToClassGen_ArrayAndAnnotationTypes_12_oe()
             throws ClassNotFoundException
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedWithCombinedAnnotation");
@@ -1535,7 +1535,7 @@ public void test_standard_new_oe_1_oe()
     }
     }
 
-    public void testTransformComplexClassToClassGen_1_oe()
+public void testTransformComplexClassToClassGen_1_oe()
             throws ClassNotFoundException
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.ComplexAnnotatedClass");
@@ -1545,7 +1545,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("Expected one annotation but found " + annotations.length,annotations.length == 1);
     }
 
-    public void testTransformComplexClassToClassGen_2_oe()
+public void testTransformComplexClassToClassGen_2_oe()
             throws ClassNotFoundException
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.ComplexAnnotatedClass");
@@ -1568,7 +1568,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("Did not find double annotation value with value 33.4",found);
     }
 
-    public void testModifyingClasses1_1_oe() throws ClassNotFoundException
+public void testModifyingClasses1_1_oe() throws ClassNotFoundException
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.SimpleAnnotatedClass");
         final ClassGen cgen = new ClassGen(jc);
@@ -1577,7 +1577,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("Should now have two annotations but has " + cgen.getAnnotationEntries().length,cgen .getAnnotationEntries().length == 2);
     }
 
-    public void testModifyingClasses1_2_oe() throws ClassNotFoundException
+public void testModifyingClasses1_2_oe() throws ClassNotFoundException
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.SimpleAnnotatedClass");
         final ClassGen cgen = new ClassGen(jc);
@@ -1588,7 +1588,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue(wipe("SimpleAnnotatedClass.class"));
     }
 
-    public void testModifyingClasses2_1_oe() throws ClassNotFoundException
+public void testModifyingClasses2_1_oe() throws ClassNotFoundException
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.SimpleAnnotatedClass");
         final ClassGen cgen = new ClassGen(jc);
@@ -1597,7 +1597,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue("Should now have two annotations but has " + cgen.getAnnotationEntries().length,cgen .getAnnotationEntries().length == 2);
     }
 
-    public void testModifyingClasses2_2_oe() throws ClassNotFoundException
+public void testModifyingClasses2_2_oe() throws ClassNotFoundException
     {
         final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+".data.SimpleAnnotatedClass");
         final ClassGen cgen = new ClassGen(jc);
@@ -1610,7 +1610,7 @@ public void test_standard_new_oe_1_oe()
         assertTrue(wipe("SimpleAnnotatedClass.class"));
     }
 
-    public void test_new_1_oe_1_oe()
+public void test_new_1_oe_1_oe()
         throws ClassNotFoundException
 {
     final JavaClass jc = getTestClass(PACKAGE_BASE_NAME + ".data.AnnotatedWithCombinedAnnotation");

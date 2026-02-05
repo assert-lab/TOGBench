@@ -168,7 +168,7 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
      * Test of overlapping entries
      */
 
-    @Test
+@Test
     public void testInterpretPixel_1_oe() {
         for (int i = 0; i < 256; i++) {
             final int lowTest = (i / 32) * 32;
@@ -178,7 +178,7 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testInterpretPixel_2_oe() {
         for (int i = 0; i < 256; i++) {
             final int lowTest = (i / 32) * 32;
@@ -196,7 +196,7 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
         assertEquals(argb, 0, "Invalid upper-bound test");
     }
 
-    @Test
+@Test
     public void testInterpretPixel_3_oe() {
         for (int i = 0; i < 256; i++) {
             final int lowTest = (i / 32) * 32;
@@ -218,7 +218,7 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
         assertEquals(Color.gray.getRGB(), argb, "Invalid mapping of NaN");
     }
 
-    @Test
+@Test
     public void testInterpretPixel_4_oe() {
         for (int i = 0; i < 256; i++) {
             final int lowTest = (i / 32) * 32;
@@ -242,7 +242,7 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
         assertEquals(green.getRGB(), argb, "Invalid mapping of green range");
     }
 
-    @Test
+@Test
     public void testInterpretPixel_5_oe() {
         for (int i = 0; i < 256; i++) {
             final int lowTest = (i / 32) * 32;
@@ -268,7 +268,7 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
         assertEquals(Color.white.getRGB(), argb, "Invalid mapping of white range");
     }
 
-    @Test
+@Test
     public void testInterpretPixel_6_oe() {
         for (int i = 0; i < 256; i++) {
             final int lowTest = (i / 32) * 32;
@@ -296,42 +296,42 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
         assertEquals(orange.getRGB(), argb, "Invalid mapping of orange range");
     }
 
-    @Test
+@Test
     public void testGetMinFound_1_oe() {
         final float expResult = 0.0F;
         final float result = pInterp.getMinFound();
         assertEquals(expResult, result, 0.0, "Invalid minimum value");
     }
 
-    @Test
+@Test
     public void testGetMaxXY_1_oe() {
         final int[] expResult = new int[]{256, 256};
         final int[] result = pInterp.getMaxXY();
         assertArrayEquals(expResult, result);
     }
 
-    @Test
+@Test
     public void testGetMaxFound_1_oe() {
         final float expResult = 1.0F;
         final float result = pInterp.getMinFound();
         assertEquals(expResult, result, 1.0, "Invalid maximum value");
     }
 
-    @Test
+@Test
     public void testGetMinXY_1_oe() {
         final int[] expResult = new int[]{0, 0};
         final int[] result = pInterp.getMinXY();
         assertArrayEquals(expResult, result);
     }
 
-    @Test
+@Test
     public void testGetMeanFound_1_oe() {
         final float expResult = 0.5F;
         final float result = pInterp.getMinFound();
         assertEquals(expResult, result, 1.0, "Invalid mean value");
     }
 
-    @Test
+@Test
     public void testMapValueToARGB_1_oe() {
 
         int argb = pInterp.mapValueToARGB(0.5f);
@@ -339,7 +339,7 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
         assertEquals(test, argb, "Conflicting results from value-to-ARGB map");
     }
 
-    @Test
+@Test
     public void testMapValueToARGB_2_oe() {
 
         int argb = pInterp.mapValueToARGB(0.5f);
@@ -352,7 +352,7 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
         assertEquals(0, argb, "Non-defined NaN did not return ARGB of zero");
     }
 
-    @Test
+@Test
     public void testMapValueToARGB_3_oe() {
 
         int argb = pInterp.mapValueToARGB(0.5f);
@@ -370,7 +370,7 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
         assertEquals(test, argb, "Float.NaN mapped to incorrect ARGB");
     }
 
-    @Test
+@Test
     public void testMapValueToARGB_4_oe() {
 
         int argb = pInterp.mapValueToARGB(0.5f);
@@ -391,7 +391,7 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
         assertEquals(test, argb, "Excluded value mapped to incorrect ARGB");
     }
 
-    @Test
+@Test
     public void testOverlappingEntriesEntry_1_oe() throws ImageReadException, IOException  {
         final Color c0 = new Color(0xff0000ff);
         final Color c1 = new Color(0xff00ff00);
@@ -412,7 +412,7 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
         assertEquals(argb0, c0.getRGB(), "Invalid result for overlapping palette entry 0");
     }
 
-    @Test
+@Test
     public void testOverlappingEntriesEntry_2_oe() throws ImageReadException, IOException  {
         final Color c0 = new Color(0xff0000ff);
         final Color c1 = new Color(0xff00ff00);
@@ -434,7 +434,7 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
         assertEquals(argb1, c1.getRGB(), "Invalid result for overlapping palette entry 1");
     }
 
-    @Test
+@Test
     public void testOverlappingEntriesEntry_3_oe() throws ImageReadException, IOException  {
         final Color c0 = new Color(0xff0000ff);
         final Color c1 = new Color(0xff00ff00);
@@ -459,7 +459,7 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
         assertEquals(argb0, c0.getRGB(), "Invalid mapping for overlapping palette entry 0");
     }
 
-    @Test
+@Test
     public void testOverlappingEntriesEntry_4_oe() throws ImageReadException, IOException  {
         final Color c0 = new Color(0xff0000ff);
         final Color c1 = new Color(0xff00ff00);

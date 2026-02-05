@@ -118,12 +118,12 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
      */
 
 
-    public void testGetName_1_oe() {
+public void testGetName_1_oe() {
 
         assertEquals("DynaClass name","org.apache.commons.beanutils.ResultSetDynaClass",dynaClass.getName());
     }
 
-    public void testGetDynaProperty_2_oe() {
+public void testGetDynaProperty_2_oe() {
 
         // Invalid argument test
         try {
@@ -138,7 +138,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertTrue("unknown property returns null",(dynaProp == null));
     }
 
-    public void testGetDynaProperty_3_oe() {
+public void testGetDynaProperty_3_oe() {
 
         // Invalid argument test
         try {
@@ -157,7 +157,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertNotNull("string property exists", dynaProp);
     }
 
-    public void testGetDynaProperty_4_oe() {
+public void testGetDynaProperty_4_oe() {
 
         // Invalid argument test
         try {
@@ -177,7 +177,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertEquals("string property name","stringproperty",dynaProp.getName());
     }
 
-    public void testGetDynaProperty_5_oe() {
+public void testGetDynaProperty_5_oe() {
 
         // Invalid argument test
         try {
@@ -198,20 +198,20 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertEquals("string property class",String.class,dynaProp.getType());
     }
 
-    public void testGetDynaProperties_1_oe() {
+public void testGetDynaProperties_1_oe() {
 
         final DynaProperty dynaProps[] = dynaClass.getDynaProperties();
         assertNotNull("dynaProps exists", dynaProps);
     }
 
-    public void testGetDynaProperties_2_oe() {
+public void testGetDynaProperties_2_oe() {
 
         final DynaProperty dynaProps[] = dynaClass.getDynaProperties();
         // removed other assertion
         assertEquals("dynaProps length", columns.length, dynaProps.length);
     }
 
-    public void testGetDynaProperties_3_oe() {
+public void testGetDynaProperties_3_oe() {
 
         final DynaProperty dynaProps[] = dynaClass.getDynaProperties();
         // removed other assertion
@@ -221,7 +221,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testNewInstance_2_oe() {
+public void testNewInstance_2_oe() {
 
         try {
             dynaClass.newInstance();
@@ -233,13 +233,13 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIteratorCount_1_oe() {
+public void testIteratorCount_1_oe() {
 
         final Iterator<?> rows = dynaClass.iterator();
         assertNotNull("iterator exists", rows);
     }
 
-    public void testIteratorCount_2_oe() {
+public void testIteratorCount_2_oe() {
 
         final Iterator<?> rows = dynaClass.iterator();
         // removed other assertion
@@ -253,7 +253,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIteratorCount_3_oe() {
+public void testIteratorCount_3_oe() {
 
         final Iterator<?> rows = dynaClass.iterator();
         // removed other assertion
@@ -268,7 +268,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertEquals("iterator rows", 5, n);
     }
 
-    public void testIteratorResults_2_oe() {
+public void testIteratorResults_2_oe() {
 
         // Grab the third row
         final Iterator<DynaBean> rows = dynaClass.iterator();
@@ -290,7 +290,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertNotNull("bigDecimalProperty exists", bigDecimalProperty);
     }
 
-    public void testIteratorResults_3_oe() {
+public void testIteratorResults_3_oe() {
 
         // Grab the third row
         final Iterator<DynaBean> rows = dynaClass.iterator();
@@ -313,7 +313,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertTrue("bigDecimalProperty type",bigDecimalProperty instanceof BigDecimal);
     }
 
-    public void testIteratorResults_4_oe() {
+public void testIteratorResults_4_oe() {
 
         // Grab the third row
         final Iterator<DynaBean> rows = dynaClass.iterator();
@@ -337,7 +337,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertEquals("bigDecimalProperty value",123.45,((BigDecimal)bigDecimalProperty).doubleValue(),0.005);
     }
 
-    public void testIteratorResults_5_oe() {
+public void testIteratorResults_5_oe() {
 
         // Grab the third row
         final Iterator<DynaBean> rows = dynaClass.iterator();
@@ -364,7 +364,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertNotNull("intProperty exists", intProperty);
     }
 
-    public void testIteratorResults_6_oe() {
+public void testIteratorResults_6_oe() {
 
         // Grab the third row
         final Iterator<DynaBean> rows = dynaClass.iterator();
@@ -392,7 +392,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertTrue("intProperty type",intProperty instanceof Integer);
     }
 
-    public void testIteratorResults_7_oe() {
+public void testIteratorResults_7_oe() {
 
         // Grab the third row
         final Iterator<DynaBean> rows = dynaClass.iterator();
@@ -421,7 +421,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertEquals("intProperty value",103,((Integer)intProperty).intValue());
     }
 
-    public void testIteratorResults_8_oe() {
+public void testIteratorResults_8_oe() {
 
         // Grab the third row
         final Iterator<DynaBean> rows = dynaClass.iterator();
@@ -453,7 +453,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertNull("nullProperty null", nullProperty);
     }
 
-    public void testIteratorResults_9_oe() {
+public void testIteratorResults_9_oe() {
 
         // Grab the third row
         final Iterator<DynaBean> rows = dynaClass.iterator();
@@ -488,7 +488,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertNotNull("stringProperty exists", stringProperty);
     }
 
-    public void testIteratorResults_10_oe() {
+public void testIteratorResults_10_oe() {
 
         // Grab the third row
         final Iterator<DynaBean> rows = dynaClass.iterator();
@@ -524,7 +524,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertTrue("stringProperty type",stringProperty instanceof String);
     }
 
-    public void testIteratorResults_11_oe() {
+public void testIteratorResults_11_oe() {
 
         // Grab the third row
         final Iterator<DynaBean> rows = dynaClass.iterator();
@@ -561,7 +561,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertEquals("stringProperty value","This is a string",(String)stringProperty);
     }
 
-    public void testIteratorResultsNormalCase_1_oe() {
+public void testIteratorResultsNormalCase_1_oe() {
         ResultSetDynaClass dynaClass = null;
         try {
             dynaClass = new ResultSetDynaClass(TestResultSet.createProxy(), false);
@@ -570,7 +570,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIteratorResultsNormalCase_3_oe() {
+public void testIteratorResultsNormalCase_3_oe() {
         ResultSetDynaClass dynaClass = null;
         try {
             dynaClass = new ResultSetDynaClass(TestResultSet.createProxy(), false);
@@ -598,7 +598,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertNotNull("bigDecimalProperty exists", bigDecimalProperty);
     }
 
-    public void testIteratorResultsNormalCase_4_oe() {
+public void testIteratorResultsNormalCase_4_oe() {
         ResultSetDynaClass dynaClass = null;
         try {
             dynaClass = new ResultSetDynaClass(TestResultSet.createProxy(), false);
@@ -627,7 +627,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertTrue("bigDecimalProperty type",bigDecimalProperty instanceof BigDecimal);
     }
 
-    public void testIteratorResultsNormalCase_5_oe() {
+public void testIteratorResultsNormalCase_5_oe() {
         ResultSetDynaClass dynaClass = null;
         try {
             dynaClass = new ResultSetDynaClass(TestResultSet.createProxy(), false);
@@ -657,7 +657,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertEquals("bigDecimalProperty value",123.45,((BigDecimal)bigDecimalProperty).doubleValue(),0.005);
     }
 
-    public void testIteratorResultsNormalCase_6_oe() {
+public void testIteratorResultsNormalCase_6_oe() {
         ResultSetDynaClass dynaClass = null;
         try {
             dynaClass = new ResultSetDynaClass(TestResultSet.createProxy(), false);
@@ -690,7 +690,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertNotNull("intProperty exists", intProperty);
     }
 
-    public void testIteratorResultsNormalCase_7_oe() {
+public void testIteratorResultsNormalCase_7_oe() {
         ResultSetDynaClass dynaClass = null;
         try {
             dynaClass = new ResultSetDynaClass(TestResultSet.createProxy(), false);
@@ -724,7 +724,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertTrue("intProperty type",intProperty instanceof Integer);
     }
 
-    public void testIteratorResultsNormalCase_8_oe() {
+public void testIteratorResultsNormalCase_8_oe() {
         ResultSetDynaClass dynaClass = null;
         try {
             dynaClass = new ResultSetDynaClass(TestResultSet.createProxy(), false);
@@ -759,7 +759,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertEquals("intProperty value",103,((Integer)intProperty).intValue());
     }
 
-    public void testIteratorResultsNormalCase_9_oe() {
+public void testIteratorResultsNormalCase_9_oe() {
         ResultSetDynaClass dynaClass = null;
         try {
             dynaClass = new ResultSetDynaClass(TestResultSet.createProxy(), false);
@@ -797,7 +797,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertNull("nullProperty null", nullProperty);
     }
 
-    public void testIteratorResultsNormalCase_10_oe() {
+public void testIteratorResultsNormalCase_10_oe() {
         ResultSetDynaClass dynaClass = null;
         try {
             dynaClass = new ResultSetDynaClass(TestResultSet.createProxy(), false);
@@ -838,7 +838,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertNotNull("stringProperty exists", stringProperty);
     }
 
-    public void testIteratorResultsNormalCase_11_oe() {
+public void testIteratorResultsNormalCase_11_oe() {
         ResultSetDynaClass dynaClass = null;
         try {
             dynaClass = new ResultSetDynaClass(TestResultSet.createProxy(), false);
@@ -880,7 +880,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         assertTrue("stringProperty type",stringProperty instanceof String);
     }
 
-    public void testIteratorResultsNormalCase_12_oe() {
+public void testIteratorResultsNormalCase_12_oe() {
         ResultSetDynaClass dynaClass = null;
         try {
             dynaClass = new ResultSetDynaClass(TestResultSet.createProxy(), false);

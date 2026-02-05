@@ -423,7 +423,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         }
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testInterval_1_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
@@ -437,7 +437,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(result instanceof Iterable<?>);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testInterval_2_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
@@ -453,7 +453,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Integer.valueOf(1), ii.next());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testInterval_3_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
@@ -470,7 +470,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Integer.valueOf(2), ii.next());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testInterval_4_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
@@ -488,7 +488,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Integer.valueOf(3), ii.next());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testInterval_5_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
@@ -510,7 +510,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(result instanceof Iterable<?>);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testInterval_6_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
@@ -534,7 +534,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Integer.valueOf(1), ii.next());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testInterval_7_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
@@ -559,7 +559,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Integer.valueOf(2), ii.next());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testInterval_8_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
@@ -585,7 +585,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Integer.valueOf(3), ii.next());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testInterval_9_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
@@ -616,7 +616,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Integer.valueOf(6), result);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testInterval_10_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
@@ -651,7 +651,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Integer.valueOf(6), result);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testInterval_11_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
@@ -690,7 +690,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Integer.valueOf(0), result);
     }
 
-    @Test
+@Test
     public void testDateArithmetic_1_oe() throws Exception {
         final Date d = new Date();
         final JexlContext jc = new MapContext();
@@ -700,7 +700,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(value0);
     }
 
-    @Test
+@Test
     public void testDateArithmetic_2_oe() throws Exception {
         final Date d = new Date();
         final JexlContext jc = new MapContext();
@@ -713,7 +713,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1969, jexl.createScript("date.yyyy", "date").execute(jc, value0));
     }
 
-    @Test
+@Test
     public void testDateArithmetic_3_oe() throws Exception {
         final Date d = new Date();
         final JexlContext jc = new MapContext();
@@ -727,7 +727,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(7, jexl.createScript("date.MM", "date").execute(jc, value0));
     }
 
-    @Test
+@Test
     public void testDateArithmetic_4_oe() throws Exception {
         final Date d = new Date();
         final JexlContext jc = new MapContext();
@@ -742,7 +742,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(20, jexl.createScript("date.dd", "date").execute(jc, value0));
     }
 
-    @Test
+@Test
     public void testFormatArithmetic_1_oe() throws Exception {
         final Calendar cal = Calendar.getInstance(UTC);
         cal.set(1969, Calendar.AUGUST, 20);
@@ -758,7 +758,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(value10, value20);
     }
 
-    @Test
+@Test
     public void testFormatArithmetic_2_oe() throws Exception {
         final Calendar cal = Calendar.getInstance(UTC);
         cal.set(1969, Calendar.AUGUST, 20);
@@ -777,7 +777,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(value11, value21);
     }
 
-    @Test
+@Test
     public void testFormatArithmetic_3_oe() throws Exception {
         final Calendar cal = Calendar.getInstance(UTC);
         cal.set(1969, Calendar.AUGUST, 20);
@@ -798,7 +798,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(value10, value20);
     }
 
-    @Test
+@Test
     public void testFormatArithmetic_4_oe() throws Exception {
         final Calendar cal = Calendar.getInstance(UTC);
         cal.set(1969, Calendar.AUGUST, 20);
@@ -821,7 +821,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(value11, value21);
     }
 
-    @Test
+@Test
     public void testFormatArithmetic_5_oe() throws Exception {
         final Calendar cal = Calendar.getInstance(UTC);
         cal.set(1969, Calendar.AUGUST, 20);
@@ -846,7 +846,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(value10, value20);
     }
 
-    @Test
+@Test
     public void testFormatArithmetic_6_oe() throws Exception {
         final Calendar cal = Calendar.getInstance(UTC);
         cal.set(1969, Calendar.AUGUST, 20);
@@ -873,7 +873,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(value11, value21);
     }
 
-    @Test
+@Test
     public void testFormatArithmetic_7_oe() throws Exception {
         final Calendar cal = Calendar.getInstance(UTC);
         cal.set(1969, Calendar.AUGUST, 20);
@@ -904,7 +904,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(value10, value20);
     }
 
-    @Test
+@Test
     public void testFormatArithmetic_8_oe() throws Exception {
         final Calendar cal = Calendar.getInstance(UTC);
         cal.set(1969, Calendar.AUGUST, 20);
@@ -937,7 +937,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Wed 20 Aug 1969", s0);
     }
 
-    @Test
+@Test
     public void testFormatArithmetic_9_oe() throws Exception {
         final Calendar cal = Calendar.getInstance(UTC);
         cal.set(1969, Calendar.AUGUST, 20);
@@ -973,7 +973,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("mer. 20 ao\u00fbt 1969", s0);
     }
 
-    @Test
+@Test
     public void testFormatArithmetic_10_oe() throws Exception {
         final Calendar cal = Calendar.getInstance(UTC);
         cal.set(1969, Calendar.AUGUST, 20);
@@ -1013,7 +1013,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(n0);
     }
 
-    @Test
+@Test
     public void testFormatArithmetic_11_oe() throws Exception {
         final Calendar cal = Calendar.getInstance(UTC);
         cal.set(1969, Calendar.AUGUST, 20);
@@ -1056,7 +1056,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(n0);
     }
 
-    @Test
+@Test
     public void testFormatArithmetic_12_oe() throws Exception {
         final Calendar cal = Calendar.getInstance(UTC);
         cal.set(1969, Calendar.AUGUST, 20);
@@ -1100,7 +1100,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(n0, n1);
     }
 
-    @Test
+@Test
     public void testFormatArithmeticJxlt_1_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
         ns.put("calc", Aggregate.class);
@@ -1119,7 +1119,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("1969-08-20", strws);
     }
 
-    @Test
+@Test
     public void testFormatArithmeticJxlt_2_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
         ns.put("calc", Aggregate.class);
@@ -1144,7 +1144,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("6", strws);
     }
 
-    @Test
+@Test
     public void testFormatArithmeticJxlt_3_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
         ns.put("calc", Aggregate.class);
@@ -1175,7 +1175,7 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("6", strws);
     }
 
-    @Test
+@Test
     public void testFormatArithmeticJxlt_4_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
         ns.put("calc", Aggregate.class);

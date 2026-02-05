@@ -160,7 +160,7 @@ public class CustomRamProviderTest_OE25Dev {
      * the (Windows) LocalFileProvider.
      */
 
-    @Test
+@Test
     public void testFSOptions_1_oe() throws Exception {
         // Default FS
         final FileObject fo1 = manager.resolveFile("ram:/");
@@ -168,7 +168,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertSame("Both files should exist in the same fs instance.", fo1.getFileSystem(), fo2.getFileSystem());
     }
 
-    @Test
+@Test
     public void testFSOptions_2_oe() throws Exception {
         // Default FS
         final FileObject fo1 = manager.resolveFile("ram:/");
@@ -180,7 +180,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("Filesystem option maxSize must be unlimited", Long.MAX_VALUE, maxFilesystemSize);
     }
 
-    @Test
+@Test
     public void testFSOptions_3_oe() throws Exception {
         // Default FS
         final FileObject fo1 = manager.resolveFile("ram:/");
@@ -197,7 +197,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertSame("Both files should exist in the same FileSystem instance.", fo3.getFileSystem(), fo4.getFileSystem());
     }
 
-    @Test
+@Test
     public void testFSOptions_4_oe() throws Exception {
         // Default FS
         final FileObject fo1 = manager.resolveFile("ram:/");
@@ -215,7 +215,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertNotSame("Both files should exist in different FileSystem instance.", fo1.getFileSystem(), fo3.getFileSystem());
     }
 
-    @Test
+@Test
     public void testFSOptions_5_oe() throws Exception {
         // Default FS
         final FileObject fo1 = manager.resolveFile("ram:/");
@@ -237,7 +237,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("Filesystem option maxSize must be set", 10, maxFilesystemSize);
     }
 
-    @Test
+@Test
     public void testMoveFile_1_oe() throws FileSystemException {
         final FileObject fileSource = manager.resolveFile("ram://virtual/source");
         fileSource.createFile();
@@ -245,13 +245,13 @@ public class CustomRamProviderTest_OE25Dev {
         Assert.assertTrue(fileSource.canRenameTo(fileDest));
     }
 
-    @Test
+@Test
     public void testReadEmptyFileByteByByte_1_oe() throws FileSystemException, IOException {
         final InputStream input = this.createEmptyFile();
         assertEquals("Empty file didnt return EOF -1", -1, input.read());
     }
 
-    @Test
+@Test
     public void testReadEmptyFileIntoBuffer_1_oe() throws FileSystemException, IOException {
         final InputStream input = this.createEmptyFile();
 
@@ -259,7 +259,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("Empty file didnt return when filling buffer", -1, input.read(buffer));
     }
 
-    @Test
+@Test
     public void testReadEmptyFileIntoBuffer_2_oe() throws FileSystemException, IOException {
         final InputStream input = this.createEmptyFile();
 
@@ -268,14 +268,14 @@ public class CustomRamProviderTest_OE25Dev {
         assertArrayEquals("Buffer was written too", new byte[100], buffer);
     }
 
-    @Test
+@Test
     public void testReadEmptyFileIntoBufferWithOffsetAndLength_1_oe() throws FileSystemException, IOException {
         final InputStream input = this.createEmptyFile();
         final byte[] buffer = new byte[100];
         assertEquals("Empty file didnt return when filling buffer", -1, input.read(buffer, 10, 90));
     }
 
-    @Test
+@Test
     public void testReadEmptyFileIntoBufferWithOffsetAndLength_2_oe() throws FileSystemException, IOException {
         final InputStream input = this.createEmptyFile();
         final byte[] buffer = new byte[100];
@@ -283,14 +283,14 @@ public class CustomRamProviderTest_OE25Dev {
         assertArrayEquals("Buffer was written too", new byte[100], buffer);
     }
 
-    @Test
+@Test
     public void testReadNonEmptyFileByteByByte_1_oe() throws FileSystemException, IOException {
         final InputStream input = this.createNonEmptyFile();
 
         assertEquals("Read 1st byte failed", 1, input.read());
     }
 
-    @Test
+@Test
     public void testReadNonEmptyFileByteByByte_2_oe() throws FileSystemException, IOException {
         final InputStream input = this.createNonEmptyFile();
 
@@ -298,7 +298,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("Rread 2st byte failed", 2, input.read());
     }
 
-    @Test
+@Test
     public void testReadNonEmptyFileByteByByte_3_oe() throws FileSystemException, IOException {
         final InputStream input = this.createNonEmptyFile();
 
@@ -307,7 +307,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("Read 3st byte failed", 3, input.read());
     }
 
-    @Test
+@Test
     public void testReadNonEmptyFileByteByByte_4_oe() throws FileSystemException, IOException {
         final InputStream input = this.createNonEmptyFile();
 
@@ -317,7 +317,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("File should be empty", -1, input.read());
     }
 
-    @Test
+@Test
     public void testReadNonEmptyFileIntoBuffer_1_oe() throws FileSystemException, IOException {
         final InputStream input = this.createNonEmptyFile();
 
@@ -325,7 +325,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("Filling buffer failed when file is not empty", NON_EMPTY_FILE_CONTENT.length, input.read(buffer));
     }
 
-    @Test
+@Test
     public void testReadNonEmptyFileIntoBuffer_2_oe() throws FileSystemException, IOException {
         final InputStream input = this.createNonEmptyFile();
 
@@ -337,7 +337,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertArrayEquals("Buffer not filled", expectedBuffer, buffer);
     }
 
-    @Test
+@Test
     public void testReadNonEmptyFileIntoBuffer_3_oe() throws FileSystemException, IOException {
         final InputStream input = this.createNonEmptyFile();
 
@@ -354,7 +354,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("File should be empty after filling buffer", -1, input.read(buffer));
     }
 
-    @Test
+@Test
     public void testReadNonEmptyFileIntoBuffer_4_oe() throws FileSystemException, IOException {
         final InputStream input = this.createNonEmptyFile();
 
@@ -372,7 +372,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertArrayEquals("Buffer was written when empty", expectedBuffer, buffer);
     }
 
-    @Test
+@Test
     public void testReadNonEmptyFileIntoBufferWithOffsetAndLength_1_oe() throws FileSystemException, IOException {
         final InputStream input = this.createNonEmptyFile();
 
@@ -381,7 +381,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("Filling buffer failed when file is not empty",NON_EMPTY_FILE_CONTENT.length,input.read(buffer,offset,100 - offset));
     }
 
-    @Test
+@Test
     public void testReadNonEmptyFileIntoBufferWithOffsetAndLength_2_oe() throws FileSystemException, IOException {
         final InputStream input = this.createNonEmptyFile();
 
@@ -394,7 +394,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertArrayEquals("Buffer not filled", expectedBuffer, buffer);
     }
 
-    @Test
+@Test
     public void testReadNonEmptyFileIntoBufferWithOffsetAndLength_3_oe() throws FileSystemException, IOException {
         final InputStream input = this.createNonEmptyFile();
 
@@ -411,7 +411,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("File should be empty after filling buffer", -1, input.read(buffer, 10, 90));
     }
 
-    @Test
+@Test
     public void testReadNonEmptyFileIntoBufferWithOffsetAndLength_4_oe() throws FileSystemException, IOException {
         final InputStream input = this.createNonEmptyFile();
 
@@ -429,13 +429,13 @@ public class CustomRamProviderTest_OE25Dev {
         assertArrayEquals("Buffer was written when empty", expectedBuffer, buffer);
     }
 
-    @Test
+@Test
     public void testRootFolderExists_1_oe() throws FileSystemException {
         final FileObject root = manager.resolveFile("ram:///", defaultRamFso);
         assertTrue(root.getType().hasChildren());
     }
 
-    @Test
+@Test
     public void testSchemePrefix_1_oe() throws FileSystemException
     {
         // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
@@ -467,7 +467,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("Unexpected result findFiles: " + Arrays.toString(findFilesResult), 2, findFilesResult.length);
     }
 
-    @Test
+@Test
     public void testSchemePrefix_2_oe() throws FileSystemException
     {
         // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
@@ -501,7 +501,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("findFiles Child name does not match", expectedName, resultName);
     }
 
-    @Test
+@Test
     public void testSchemePrefix_3_oe() throws FileSystemException
     {
         // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
@@ -536,7 +536,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("Did findFiles but child was no file", FileType.FILE, findFilesResult[0].getType());
     }
 
-    @Test
+@Test
     public void testSchemePrefix_4_oe() throws FileSystemException
     {
         // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
@@ -574,7 +574,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("Unexpected result getChildren: " + Arrays.toString(getChildrenResult), 1, getChildrenResult.length);
     }
 
-    @Test
+@Test
     public void testSchemePrefix_5_oe() throws FileSystemException
     {
         // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
@@ -614,7 +614,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("getChildren Child name does not match", expectedName, resultName);
     }
 
-    @Test
+@Test
     public void testSchemePrefix_6_oe() throws FileSystemException
     {
         // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
@@ -655,7 +655,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("Did getChildren but child was no file", FileType.FILE, getChildrenResult[0].getType());
     }
 
-    @Test
+@Test
     public void testSchemePrefix_7_oe() throws FileSystemException
     {
         // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
@@ -699,7 +699,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertNotNull("Did not find direct child", getChildResult);
     }
 
-    @Test
+@Test
     public void testSchemePrefix_8_oe() throws FileSystemException
     {
         // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
@@ -745,7 +745,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("getChild name does not match", expectedName, resultName);
     }
 
-    @Test
+@Test
     public void testSchemePrefix_9_oe() throws FileSystemException
     {
         // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
@@ -792,7 +792,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("getChild was no file", FileType.FILE, getChildResult.getType());
     }
 
-    @Test
+@Test
     public void testSmallFS_1_oe() throws Exception {
         // Small FS
         final FileObject fo3 = manager.resolveFile("ram:/fo3", smallSizedFso);
@@ -806,7 +806,7 @@ public class CustomRamProviderTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSpecialName_1_oe() throws FileSystemException
     {
         // we test with this file name
@@ -828,7 +828,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("Unexpected result findFiles: " + Arrays.toString(findFilesResult), 2, findFilesResult.length);
     }
 
-    @Test
+@Test
     public void testSpecialName_2_oe() throws FileSystemException
     {
         // we test with this file name
@@ -852,7 +852,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("findFiles Child name does not match", expectedName, resultName);
     }
 
-    @Test
+@Test
     public void testSpecialName_3_oe() throws FileSystemException
     {
         // we test with this file name
@@ -877,7 +877,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("Did findFiles but child was no file", FileType.FILE, findFilesResult[0].getType());
     }
 
-    @Test
+@Test
     public void testSpecialName_4_oe() throws FileSystemException
     {
         // we test with this file name
@@ -905,7 +905,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("Unexpected result getChildren: " + Arrays.toString(getChildrenResult), 1, getChildrenResult.length);
     }
 
-    @Test
+@Test
     public void testSpecialName_5_oe() throws FileSystemException
     {
         // we test with this file name
@@ -935,7 +935,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("getChildren Child name does not match", expectedName, resultName);
     }
 
-    @Test
+@Test
     public void testSpecialName_6_oe() throws FileSystemException
     {
         // we test with this file name
@@ -966,7 +966,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("Did getChildren but child was no file", FileType.FILE, getChildrenResult[0].getType());
     }
 
-    @Test
+@Test
     public void testSpecialName_7_oe() throws FileSystemException
     {
         // we test with this file name
@@ -1000,7 +1000,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertNotNull("Did not find direct child", getChildResult);
     }
 
-    @Test
+@Test
     public void testSpecialName_8_oe() throws FileSystemException
     {
         // we test with this file name
@@ -1036,7 +1036,7 @@ public class CustomRamProviderTest_OE25Dev {
         assertEquals("getChild name does not match", expectedName, resultName);
     }
 
-    @Test
+@Test
     public void testSpecialName_9_oe() throws FileSystemException
     {
         // we test with this file name

@@ -37,13 +37,13 @@ public class InstructionHandleTestCase_OE25Dev {
         new TABLESWITCH(new int[0], new InstructionHandle[0], ih);
     }
 
-    @Test(expected=ClassGenException.class)
+@Test(expected=ClassGenException.class)
     public void testsetInstructionNull_1_oe() {
         final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
         Assert.assertNotNull(ih);
     }
 
-    @Test(expected=ClassGenException.class)
+@Test(expected=ClassGenException.class)
     public void testsetInstructionNull_2_oe() {
         final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
         // removed other assertion
@@ -51,13 +51,13 @@ public class InstructionHandleTestCase_OE25Dev {
         Assert.assertNotNull(ih);
     }
 
-    @Test
+@Test
     public void testsetInstructionI_1_oe() {
         final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
         Assert.assertNotNull(ih);
     }
 
-    @Test
+@Test
     public void testsetInstructionI_2_oe() {
         final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
         // removed other assertion
@@ -65,13 +65,13 @@ public class InstructionHandleTestCase_OE25Dev {
         Assert.assertNotNull(ih);
     }
 
-    @Test(expected=ClassGenException.class)
+@Test(expected=ClassGenException.class)
     public void testsetInstructionnotI_1_oe() {
         final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
         Assert.assertNotNull(ih);
     }
 
-    @Test(expected=ClassGenException.class)
+@Test(expected=ClassGenException.class)
     public void testsetInstructionnotI_2_oe() {
         final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
         // removed other assertion

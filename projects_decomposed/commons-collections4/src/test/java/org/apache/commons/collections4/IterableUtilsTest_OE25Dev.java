@@ -146,7 +146,7 @@ public class IterableUtilsTest_OE25Dev {
         IterableUtils.first(bag);
     }
 
-    @Test
+@Test
     public void forEach_1_oe() {
         final List<Integer> listA = new ArrayList<>();
         listA.add(1);
@@ -162,7 +162,7 @@ public class IterableUtilsTest_OE25Dev {
         assertTrue(listA.isEmpty() && listB.isEmpty());
     }
 
-    @Test
+@Test
     public void forEachButLast_1_oe() {
         final List<Integer> listA = new ArrayList<>();
         listA.add(1);
@@ -178,7 +178,7 @@ public class IterableUtilsTest_OE25Dev {
         assertTrue(listA.isEmpty() && !listB.isEmpty());
     }
 
-    @Test
+@Test
     public void forEachButLast_2_oe() {
         final List<Integer> listA = new ArrayList<>();
         listA.add(1);
@@ -195,7 +195,7 @@ public class IterableUtilsTest_OE25Dev {
         assertSame(listB, last);
     }
 
-    @Test
+@Test
     public void forEachButLast_4_oe() {
         final List<Integer> listA = new ArrayList<>();
         listA.add(1);
@@ -227,7 +227,7 @@ public class IterableUtilsTest_OE25Dev {
         assertNull(last);
     }
 
-    @Test
+@Test
     public void containsWithEquator_1_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -251,7 +251,7 @@ public class IterableUtilsTest_OE25Dev {
         assertFalse(base.contains("CC"));
     }
 
-    @Test
+@Test
     public void containsWithEquator_2_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -276,7 +276,7 @@ public class IterableUtilsTest_OE25Dev {
         assertTrue(IterableUtils.contains(base, "AC", secondLetterEquator));
     }
 
-    @Test
+@Test
     public void containsWithEquator_3_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -302,7 +302,7 @@ public class IterableUtilsTest_OE25Dev {
         assertTrue(IterableUtils.contains(base, "CC", secondLetterEquator));
     }
 
-    @Test
+@Test
     public void containsWithEquator_4_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -329,7 +329,7 @@ public class IterableUtilsTest_OE25Dev {
         assertFalse(IterableUtils.contains(base, "CX", secondLetterEquator));
     }
 
-    @Test
+@Test
     public void containsWithEquator_5_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -357,13 +357,13 @@ public class IterableUtilsTest_OE25Dev {
         assertFalse(IterableUtils.contains(null, null, secondLetterEquator));
     }
 
-    @Test
+@Test
     public void frequency_1_oe() {
         // null iterable test
         assertEquals(0, IterableUtils.frequency(null, 1));
     }
 
-    @Test
+@Test
     public void frequency_2_oe() {
         // null iterable test
         // removed other assertion
@@ -371,7 +371,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(1, IterableUtils.frequency(iterableA, 1));
     }
 
-    @Test
+@Test
     public void frequency_3_oe() {
         // null iterable test
         // removed other assertion
@@ -380,7 +380,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(2, IterableUtils.frequency(iterableA, 2));
     }
 
-    @Test
+@Test
     public void frequency_4_oe() {
         // null iterable test
         // removed other assertion
@@ -390,7 +390,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(3, IterableUtils.frequency(iterableA, 3));
     }
 
-    @Test
+@Test
     public void frequency_5_oe() {
         // null iterable test
         // removed other assertion
@@ -401,7 +401,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(4, IterableUtils.frequency(iterableA, 4));
     }
 
-    @Test
+@Test
     public void frequency_6_oe() {
         // null iterable test
         // removed other assertion
@@ -413,7 +413,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(0, IterableUtils.frequency(iterableA, 5));
     }
 
-    @Test
+@Test
     public void frequency_7_oe() {
         // null iterable test
         // removed other assertion
@@ -427,7 +427,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(0, IterableUtils.frequency(iterableB, 1L));
     }
 
-    @Test
+@Test
     public void frequency_8_oe() {
         // null iterable test
         // removed other assertion
@@ -442,7 +442,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(4, IterableUtils.frequency(iterableB, 2L));
     }
 
-    @Test
+@Test
     public void frequency_9_oe() {
         // null iterable test
         // removed other assertion
@@ -458,7 +458,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(3, IterableUtils.frequency(iterableB, 3L));
     }
 
-    @Test
+@Test
     public void frequency_10_oe() {
         // null iterable test
         // removed other assertion
@@ -475,7 +475,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(2, IterableUtils.frequency(iterableB, 4L));
     }
 
-    @Test
+@Test
     public void frequency_11_oe() {
         // null iterable test
         // removed other assertion
@@ -493,7 +493,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(1, IterableUtils.frequency(iterableB, 5L));
     }
 
-    @Test
+@Test
     public void frequency_12_oe() {
         // null iterable test
         // removed other assertion
@@ -518,7 +518,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(0, IterableUtils.frequency(iterableIntAsNumber, 2L));
     }
 
-    @Test
+@Test
     public void frequency_13_oe() {
         // null iterable test
         // removed other assertion
@@ -544,7 +544,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(0, IterableUtils.frequency(iterableLongAsNumber, 2));
     }
 
-    @Test
+@Test
     public void frequency_14_oe() {
         // null iterable test
         // removed other assertion
@@ -577,7 +577,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(1, IterableUtils.frequency(set, "A"));
     }
 
-    @Test
+@Test
     public void frequency_15_oe() {
         // null iterable test
         // removed other assertion
@@ -611,7 +611,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(0, IterableUtils.frequency(set, "B"));
     }
 
-    @Test
+@Test
     public void frequency_16_oe() {
         // null iterable test
         // removed other assertion
@@ -646,7 +646,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(1, IterableUtils.frequency(set, "C"));
     }
 
-    @Test
+@Test
     public void frequency_17_oe() {
         // null iterable test
         // removed other assertion
@@ -682,7 +682,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(0, IterableUtils.frequency(set, "D"));
     }
 
-    @Test
+@Test
     public void frequency_18_oe() {
         // null iterable test
         // removed other assertion
@@ -719,7 +719,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(1, IterableUtils.frequency(set, "E"));
     }
 
-    @Test
+@Test
     public void frequency_19_oe() {
         // null iterable test
         // removed other assertion
@@ -763,7 +763,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(3, IterableUtils.frequency(bag, "A"));
     }
 
-    @Test
+@Test
     public void frequency_20_oe() {
         // null iterable test
         // removed other assertion
@@ -808,7 +808,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(0, IterableUtils.frequency(bag, "B"));
     }
 
-    @Test
+@Test
     public void frequency_21_oe() {
         // null iterable test
         // removed other assertion
@@ -854,7 +854,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(1, IterableUtils.frequency(bag, "C"));
     }
 
-    @Test
+@Test
     public void frequency_22_oe() {
         // null iterable test
         // removed other assertion
@@ -901,7 +901,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(0, IterableUtils.frequency(bag, "D"));
     }
 
-    @Test
+@Test
     public void frequency_23_oe() {
         // null iterable test
         // removed other assertion
@@ -949,13 +949,13 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(2, IterableUtils.frequency(bag, "E"));
     }
 
-    @Test
+@Test
     public void frequencyOfNull_1_oe() {
         final List<String> list = new ArrayList<>();
         assertEquals(0, IterableUtils.frequency(list, null));
     }
 
-    @Test
+@Test
     public void frequencyOfNull_2_oe() {
         final List<String> list = new ArrayList<>();
         // removed other assertion
@@ -963,7 +963,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(0, IterableUtils.frequency(list, null));
     }
 
-    @Test
+@Test
     public void frequencyOfNull_3_oe() {
         final List<String> list = new ArrayList<>();
         // removed other assertion
@@ -973,7 +973,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(1, IterableUtils.frequency(list, null));
     }
 
-    @Test
+@Test
     public void frequencyOfNull_4_oe() {
         final List<String> list = new ArrayList<>();
         // removed other assertion
@@ -985,7 +985,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(1, IterableUtils.frequency(list, null));
     }
 
-    @Test
+@Test
     public void frequencyOfNull_5_oe() {
         final List<String> list = new ArrayList<>();
         // removed other assertion
@@ -999,7 +999,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(2, IterableUtils.frequency(list, null));
     }
 
-    @Test
+@Test
     public void frequencyOfNull_6_oe() {
         final List<String> list = new ArrayList<>();
         // removed other assertion
@@ -1015,7 +1015,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(2, IterableUtils.frequency(list, null));
     }
 
-    @Test
+@Test
     public void frequencyOfNull_7_oe() {
         final List<String> list = new ArrayList<>();
         // removed other assertion
@@ -1033,14 +1033,14 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(3, IterableUtils.frequency(list, null));
     }
 
-    @Test
+@Test
     public void find_1_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
         Integer test = IterableUtils.find(iterableA, testPredicate);
         assertTrue(test.equals(4));
     }
 
-    @Test
+@Test
     public void find_2_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
         Integer test = IterableUtils.find(iterableA, testPredicate);
@@ -1050,7 +1050,7 @@ public class IterableUtilsTest_OE25Dev {
         assertTrue(test == null);
     }
 
-    @Test
+@Test
     public void find_3_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
         Integer test = IterableUtils.find(iterableA, testPredicate);
@@ -1061,14 +1061,14 @@ public class IterableUtilsTest_OE25Dev {
         assertNull(IterableUtils.find(null,testPredicate));
     }
 
-    @Test
+@Test
     public void indexOf_1_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
         int index = IterableUtils.indexOf(iterableA, testPredicate);
         assertEquals(6, index);
     }
 
-    @Test
+@Test
     public void indexOf_2_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
         int index = IterableUtils.indexOf(iterableA, testPredicate);
@@ -1078,7 +1078,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(-1, index);
     }
 
-    @Test
+@Test
     public void indexOf_3_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
         int index = IterableUtils.indexOf(iterableA, testPredicate);
@@ -1089,18 +1089,18 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(-1, IterableUtils.indexOf(null, testPredicate));
     }
 
-    @Test
+@Test
     public void countMatches_1_oe() {
         assertEquals(4, IterableUtils.countMatches(iterableB, EQUALS_TWO));
     }
 
-    @Test
+@Test
     public void countMatches_2_oe() {
         // removed other assertion
         assertEquals(0, IterableUtils.countMatches(null, EQUALS_TWO));
     }
 
-    @Test
+@Test
     public void matchesAny_5_oe() {
         final List<Integer> list = new ArrayList<>();
 
@@ -1121,7 +1121,7 @@ public class IterableUtilsTest_OE25Dev {
         assertFalse(IterableUtils.matchesAny(null, EQUALS_TWO));
     }
 
-    @Test
+@Test
     public void matchesAny_6_oe() {
         final List<Integer> list = new ArrayList<>();
 
@@ -1143,7 +1143,7 @@ public class IterableUtilsTest_OE25Dev {
         assertFalse(IterableUtils.matchesAny(list, EQUALS_TWO));
     }
 
-    @Test
+@Test
     public void matchesAny_7_oe() {
         final List<Integer> list = new ArrayList<>();
 
@@ -1169,7 +1169,7 @@ public class IterableUtilsTest_OE25Dev {
         assertFalse(IterableUtils.matchesAny(list, EQUALS_TWO));
     }
 
-    @Test
+@Test
     public void matchesAny_8_oe() {
         final List<Integer> list = new ArrayList<>();
 
@@ -1198,7 +1198,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(true, IterableUtils.matchesAny(list, EQUALS_TWO));
     }
 
-    @Test
+@Test
     public void matchesAll_5_oe() {
         try {
             // removed other assertion
@@ -1223,7 +1223,7 @@ public class IterableUtilsTest_OE25Dev {
         assertTrue(IterableUtils.matchesAll(iterableA, lessThanFive));
     }
 
-    @Test
+@Test
     public void matchesAll_6_oe() {
         try {
             // removed other assertion
@@ -1256,7 +1256,7 @@ public class IterableUtilsTest_OE25Dev {
         assertFalse(IterableUtils.matchesAll(iterableA, lessThanFour));
     }
 
-    @Test
+@Test
     public void matchesAll_7_oe() {
         try {
             // removed other assertion
@@ -1291,7 +1291,7 @@ public class IterableUtilsTest_OE25Dev {
         assertTrue(IterableUtils.matchesAll(null, lessThanFour));
     }
 
-    @Test
+@Test
     public void matchesAll_8_oe() {
         try {
             // removed other assertion
@@ -1327,7 +1327,7 @@ public class IterableUtilsTest_OE25Dev {
         assertTrue(IterableUtils.matchesAll(emptyIterable, lessThanFour));
     }
 
-    @Test
+@Test
     public void partition_1_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -1338,7 +1338,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(2, partitions.size());
     }
 
-    @Test
+@Test
     public void partition_2_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -1353,7 +1353,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(1, partition.size());
     }
 
-    @Test
+@Test
     public void partition_3_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -1369,7 +1369,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(2, CollectionUtils.extractSingleton(partition).intValue());
     }
 
-    @Test
+@Test
     public void partition_4_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -1390,7 +1390,7 @@ public class IterableUtilsTest_OE25Dev {
         Assert.assertArrayEquals(expected, partition.toArray());
     }
 
-    @Test
+@Test
     public void partition_5_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -1414,7 +1414,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(2, partitions.size());
     }
 
-    @Test
+@Test
     public void partition_6_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -1439,7 +1439,7 @@ public class IterableUtilsTest_OE25Dev {
         assertTrue(partitions.get(0).isEmpty());
     }
 
-    @Test
+@Test
     public void partition_7_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -1465,7 +1465,7 @@ public class IterableUtilsTest_OE25Dev {
         assertTrue(partitions.get(1).isEmpty());
     }
 
-    @Test
+@Test
     public void partition_8_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -1494,7 +1494,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(1, partitions.size());
     }
 
-    @Test
+@Test
     public void partition_9_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -1524,7 +1524,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(input, partitions.get(0));
     }
 
-    @Test
+@Test
     public void partitionMultiplePredicates_1_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -1538,7 +1538,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(1, partition.size());
     }
 
-    @Test
+@Test
     public void partitionMultiplePredicates_2_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -1553,7 +1553,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(2, partition.iterator().next().intValue());
     }
 
-    @Test
+@Test
     public void partitionMultiplePredicates_3_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -1572,7 +1572,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(1, partition.size());
     }
 
-    @Test
+@Test
     public void partitionMultiplePredicates_4_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -1592,7 +1592,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals(4, partition.iterator().next().intValue());
     }
 
-    @Test
+@Test
     public void partitionMultiplePredicates_5_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -1617,13 +1617,13 @@ public class IterableUtilsTest_OE25Dev {
         Assert.assertArrayEquals(expected, partition.toArray());
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         String result = IterableUtils.toString(iterableA);
         assertEquals("[1, 2, 2, 3, 3, 3, 4, 4, 4, 4]", result);
     }
 
-    @Test
+@Test
     public void testToString_2_oe() {
         String result = IterableUtils.toString(iterableA);
         // removed other assertion
@@ -1632,7 +1632,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals("[]", result);
     }
 
-    @Test
+@Test
     public void testToString_3_oe() {
         String result = IterableUtils.toString(iterableA);
         // removed other assertion
@@ -1644,7 +1644,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals("[]", result);
     }
 
-    @Test
+@Test
     public void testToString_4_oe() {
         String result = IterableUtils.toString(iterableA);
         // removed other assertion
@@ -1664,7 +1664,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals("[2, 4, 4, 6, 6, 6, 8, 8, 8, 8]", result);
     }
 
-    @Test
+@Test
     public void testToString_6_oe() {
         String result = IterableUtils.toString(iterableA);
         // removed other assertion
@@ -1693,7 +1693,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals("[]", result);
     }
 
-    @Test
+@Test
     public void testToString_8_oe() {
         String result = IterableUtils.toString(iterableA);
         // removed other assertion
@@ -1731,7 +1731,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals("[]", result);
     }
 
-    @Test
+@Test
     public void testToStringDelimiter_1_oe() {
 
         final Transformer<Integer, String> transformer = new Transformer<Integer, String>() {
@@ -1745,7 +1745,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals("2446668888", result);
     }
 
-    @Test
+@Test
     public void testToStringDelimiter_2_oe() {
 
         final Transformer<Integer, String> transformer = new Transformer<Integer, String>() {
@@ -1762,7 +1762,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals("2,4,4,6,6,6,8,8,8,8", result);
     }
 
-    @Test
+@Test
     public void testToStringDelimiter_3_oe() {
 
         final Transformer<Integer, String> transformer = new Transformer<Integer, String>() {
@@ -1782,7 +1782,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals("[2446668888]", result);
     }
 
-    @Test
+@Test
     public void testToStringDelimiter_4_oe() {
 
         final Transformer<Integer, String> transformer = new Transformer<Integer, String>() {
@@ -1805,7 +1805,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals("[2,4,4,6,6,6,8,8,8,8]", result);
     }
 
-    @Test
+@Test
     public void testToStringDelimiter_5_oe() {
 
         final Transformer<Integer, String> transformer = new Transformer<Integer, String>() {
@@ -1831,7 +1831,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals("[[2,4,4,6,6,6,8,8,8,8]]", result);
     }
 
-    @Test
+@Test
     public void testToStringDelimiter_6_oe() {
 
         final Transformer<Integer, String> transformer = new Transformer<Integer, String>() {
@@ -1860,7 +1860,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals("[2,,4,,4,,6,,6,,6,,8,,8,,8,,8]", result);
     }
 
-    @Test
+@Test
     public void testToStringDelimiter_7_oe() {
 
         final Transformer<Integer, String> transformer = new Transformer<Integer, String>() {
@@ -1892,7 +1892,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals("((2,,4,,4,,6,,6,,6,,8,,8,,8,,8))", result);
     }
 
-    @Test
+@Test
     public void testToStringDelimiter_8_oe() {
 
         final Transformer<Integer, String> transformer = new Transformer<Integer, String>() {
@@ -1927,7 +1927,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals("()", result);
     }
 
-    @Test
+@Test
     public void testToStringDelimiter_9_oe() {
 
         final Transformer<Integer, String> transformer = new Transformer<Integer, String>() {
@@ -1965,7 +1965,7 @@ public class IterableUtilsTest_OE25Dev {
         assertEquals("", result);
     }
 
-    @Test
+@Test
     public void testToStringWithNullArguments_2_oe() {
         final String result = IterableUtils.toString(null, new Transformer<Integer, String>() {
             @Override

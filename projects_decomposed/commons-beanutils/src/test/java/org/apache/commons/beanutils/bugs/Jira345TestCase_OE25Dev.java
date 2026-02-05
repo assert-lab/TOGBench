@@ -107,13 +107,13 @@ public class Jira345TestCase_OE25Dev extends TestCase {
         }
     }
 
-    public void testBeanUtilsSetProperty_2DArray_1_oe() throws Exception{
+public void testBeanUtilsSetProperty_2DArray_1_oe() throws Exception{
         final MyBean myBean = new MyBean();
         BeanUtils.setProperty(myBean, "matr[0][0]","Sample");
         assertEquals("Sample", myBean.getMatr()[0][0]);
     }
 
-    public void testBeanUtilsSetProperty_3DArray_1_oe() throws Exception{
+public void testBeanUtilsSetProperty_3DArray_1_oe() throws Exception{
         final MyBean myBean = new MyBean();
         BeanUtils.setProperty(myBean, "matr3D[0][0][0]","Sample");
         assertEquals("Sample", myBean.getMatr3D()[0][0][0]);

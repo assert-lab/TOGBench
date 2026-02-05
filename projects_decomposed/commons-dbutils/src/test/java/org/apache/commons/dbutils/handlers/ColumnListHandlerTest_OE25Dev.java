@@ -27,14 +27,14 @@ import org.apache.commons.dbutils.ResultSetHandler;
  */
 public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
 
-    public void testHandle_1_oe() throws SQLException {
+public void testHandle_1_oe() throws SQLException {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>();
         List<String> results = h.handle(this.rs);
 
         assertNotNull(results);
     }
 
-    public void testHandle_2_oe() throws SQLException {
+public void testHandle_2_oe() throws SQLException {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>();
         List<String> results = h.handle(this.rs);
 
@@ -42,7 +42,7 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals(ROWS, results.size());
     }
 
-    public void testHandle_3_oe() throws SQLException {
+public void testHandle_3_oe() throws SQLException {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>();
         List<String> results = h.handle(this.rs);
 
@@ -52,7 +52,7 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("1", results.get(0));
     }
 
-    public void testHandle_4_oe() throws SQLException {
+public void testHandle_4_oe() throws SQLException {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>();
         List<String> results = h.handle(this.rs);
 
@@ -63,14 +63,14 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("4", results.get(1));
     }
 
-    public void testColumnIndexHandle_1_oe() throws SQLException {
+public void testColumnIndexHandle_1_oe() throws SQLException {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>(2);
         List<String> results = h.handle(this.rs);
 
         assertNotNull(results);
     }
 
-    public void testColumnIndexHandle_2_oe() throws SQLException {
+public void testColumnIndexHandle_2_oe() throws SQLException {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>(2);
         List<String> results = h.handle(this.rs);
 
@@ -78,7 +78,7 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals(ROWS, results.size());
     }
 
-    public void testColumnIndexHandle_3_oe() throws SQLException {
+public void testColumnIndexHandle_3_oe() throws SQLException {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>(2);
         List<String> results = h.handle(this.rs);
 
@@ -88,7 +88,7 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("2", results.get(0));
     }
 
-    public void testColumnIndexHandle_4_oe() throws SQLException {
+public void testColumnIndexHandle_4_oe() throws SQLException {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>(2);
         List<String> results = h.handle(this.rs);
 
@@ -99,14 +99,14 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("5", results.get(1));
     }
 
-    public void testColumnNameHandle_1_oe() throws SQLException {
+public void testColumnNameHandle_1_oe() throws SQLException {
         ResultSetHandler<List<Integer>> h = new ColumnListHandler<Integer>("intTest");
         List<Integer> results = h.handle(this.rs);
 
         assertNotNull(results);
     }
 
-    public void testColumnNameHandle_2_oe() throws SQLException {
+public void testColumnNameHandle_2_oe() throws SQLException {
         ResultSetHandler<List<Integer>> h = new ColumnListHandler<Integer>("intTest");
         List<Integer> results = h.handle(this.rs);
 
@@ -114,7 +114,7 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals(ROWS, results.size());
     }
 
-    public void testColumnNameHandle_3_oe() throws SQLException {
+public void testColumnNameHandle_3_oe() throws SQLException {
         ResultSetHandler<List<Integer>> h = new ColumnListHandler<Integer>("intTest");
         List<Integer> results = h.handle(this.rs);
 
@@ -124,7 +124,7 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals(new Integer(1), results.get(0));
     }
 
-    public void testColumnNameHandle_4_oe() throws SQLException {
+public void testColumnNameHandle_4_oe() throws SQLException {
         ResultSetHandler<List<Integer>> h = new ColumnListHandler<Integer>("intTest");
         List<Integer> results = h.handle(this.rs);
 
@@ -135,14 +135,14 @@ public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals(new Integer(3), results.get(1));
     }
 
-    public void testEmptyResultSetHandle_1_oe() throws SQLException {
+public void testEmptyResultSetHandle_1_oe() throws SQLException {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>();
         List<String> results = h.handle(this.emptyResultSet);
 
         assertNotNull(results);
     }
 
-    public void testEmptyResultSetHandle_2_oe() throws SQLException {
+public void testEmptyResultSetHandle_2_oe() throws SQLException {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>();
         List<String> results = h.handle(this.emptyResultSet);
 

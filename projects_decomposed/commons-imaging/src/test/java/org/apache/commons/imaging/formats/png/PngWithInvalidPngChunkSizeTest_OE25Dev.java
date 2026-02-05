@@ -40,7 +40,7 @@ public class PngWithInvalidPngChunkSizeTest_OE25Dev {
      * ImageReadException instead of other exception types.
      */
 
-    @Test
+@Test
     public void testPngWithInvalidPngChunkSize_1_oe() {
         final File imageFile = new File(JpegWithInvalidDhtSegmentTest.class.getResource("/IMAGING-211/testfile_2.png").getFile());
         final PngImagingParameters params = new PngImagingParameters();
@@ -49,7 +49,7 @@ public class PngWithInvalidPngChunkSizeTest_OE25Dev {
         Assertions.assertThrows(ImageReadException.class, () -> jpegImageParser.getBufferedImage(imageFile, params));
     }
 
-    @Test
+@Test
     public void testPngWithInvalidNegativePngChunkSize_1_oe() {
         final File imageFile = new File(
                 JpegWithInvalidDhtSegmentTest.class.getResource("/IMAGING-210/testfile.png").getFile());

@@ -257,7 +257,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
      * Tests the root file name.
      */
 
-    @Test
+@Test
     public void testAbsoluteNameConvert_1_oe() throws Exception {
         final FileName baseName = getReadFolder().getName();
 
@@ -266,7 +266,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(path, name.getPath());
     }
 
-    @Test
+@Test
     public void testAbsoluteNameConvert_2_oe() throws Exception {
         final FileName baseName = getReadFolder().getName();
 
@@ -306,7 +306,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(path, name.getPath());
     }
 
-    @Test
+@Test
     public void testChildName_1_oe() throws Exception {
         final FileName baseName = getReadFolder().getName();
         final String basePath = baseName.getPath();
@@ -316,7 +316,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue("is absolute", basePath.startsWith("/"));
     }
 
-    @Test
+@Test
     public void testChildName_2_oe() throws Exception {
         final FileName baseName = getReadFolder().getName();
         final String basePath = baseName.getPath();
@@ -329,7 +329,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals("base name", "some-child", name.getBaseName());
     }
 
-    @Test
+@Test
     public void testChildName_3_oe() throws Exception {
         final FileName baseName = getReadFolder().getName();
         final String basePath = baseName.getPath();
@@ -345,7 +345,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals("absolute path", basePath + "/some-child", name.getPath());
     }
 
-    @Test
+@Test
     public void testChildName_4_oe() throws Exception {
         final FileName baseName = getReadFolder().getName();
         final String basePath = baseName.getPath();
@@ -364,7 +364,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals("parent absolute path", basePath, name.getParent().getPath());
     }
 
-    @Test
+@Test
     public void testRelativeURI_1_oe() throws Exception {
         // Build base dir
         getManager().setBaseFile(getReadFolder());
@@ -374,7 +374,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertSame("file object", getReadFolder(), file);
     }
 
-    @Test
+@Test
     public void testRelativeURI_2_oe() throws Exception {
         // Build base dir
         getManager().setBaseFile(getReadFolder());
@@ -388,7 +388,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertSame("file object", getReadFolder(), file.getParent());
     }
 
-    @Test
+@Test
     public void testRelativeURI_3_oe() throws Exception {
         // Build base dir
         getManager().setBaseFile(getReadFolder());
@@ -406,7 +406,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertSame("file object", getReadFolder(), file.getParent().getParent());
     }
 
-    @Test
+@Test
     public void testRelativeURI_4_oe() throws Exception {
         // Build base dir
         getManager().setBaseFile(getReadFolder());
@@ -428,7 +428,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertSame("file object", getReadFolder().getParent(), file);
     }
 
-    @Test
+@Test
     public void testRelativeUriEncoding_1_oe() throws Exception {
         // Build base dir
         getManager().setBaseFile(getReadFolder());
@@ -439,7 +439,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(path + "/some file", file.getName().getPathDecoded());
     }
 
-    @Test
+@Test
     public void testRelativeUriEncoding_2_oe() throws Exception {
         // Build base dir
         getManager().setBaseFile(getReadFolder());
@@ -456,7 +456,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(path, file.getName().getPathDecoded());
     }
 
-    @Test
+@Test
     public void testRelativeUriEncoding_3_oe() throws Exception {
         // Build base dir
         getManager().setBaseFile(getReadFolder());
@@ -477,7 +477,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(path + "/a%", file.getName().getPathDecoded());
     }
 
-    @Test
+@Test
     public void testRelativeUriEncoding_4_oe() throws Exception {
         // Build base dir
         getManager().setBaseFile(getReadFolder());
@@ -502,7 +502,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(path + "/dir/child", file.getName().getPathDecoded());
     }
 
-    @Test
+@Test
     public void testRelativeUriEncoding_5_oe() throws Exception {
         // Build base dir
         getManager().setBaseFile(getReadFolder());
@@ -535,7 +535,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(path + "/dir/child", file.getName().getPathDecoded());
     }
 
-    @Test
+@Test
     public void testRootFileName_1_oe() throws Exception {
         // Locate the root file
         final FileName rootName = getReadFolder().getFileSystem().getRoot().getName();
@@ -544,7 +544,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals("root path", "/", rootName.getPath());
     }
 
-    @Test
+@Test
     public void testRootFileName_2_oe() throws Exception {
         // Locate the root file
         final FileName rootName = getReadFolder().getFileSystem().getRoot().getName();
@@ -556,7 +556,7 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals("root base name", "", rootName.getBaseName());
     }
 
-    @Test
+@Test
     public void testRootFileName_3_oe() throws Exception {
         // Locate the root file
         final FileName rootName = getReadFolder().getFileSystem().getRoot().getName();

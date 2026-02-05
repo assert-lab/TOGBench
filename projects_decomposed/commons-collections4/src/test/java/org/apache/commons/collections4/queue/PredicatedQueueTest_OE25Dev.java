@@ -96,13 +96,13 @@ public class PredicatedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/PredicatedQueue.fullCollection.version4.obj");
 //    }
 
-    public void testGet_1_oe() {
+public void testGet_1_oe() {
         final Queue<E> queue = makeTestQueue();
 
         assertNull(queue.peek());
     }
 
-    public void testGet_2_oe() {
+public void testGet_2_oe() {
         final Queue<E> queue = makeTestQueue();
 
         // removed other assertion
@@ -113,13 +113,13 @@ public class PredicatedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("Queue get", "one", queue.peek());
     }
 
-    public void testRemove_1_oe() {
+public void testRemove_1_oe() {
         final Queue<E> queue = makeTestQueue();
         queue.add((E) "one");
         assertEquals("Queue get", "one", queue.poll());
     }
 
-    public void testRemove_2_oe() {
+public void testRemove_2_oe() {
         final Queue<E> queue = makeTestQueue();
         queue.add((E) "one");
         // removed other assertion

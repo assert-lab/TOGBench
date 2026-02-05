@@ -93,20 +93,20 @@ public class TestNodeNameMatchers_OE25Dev {
         checkMatcherWithNullInput(NodeNameMatchers.EQUALS);
     }
 
-    @Test
+@Test
     public void testEqualsIgnoreCaseMatch_1_oe() {
         final ImmutableNode node = createNode(NODE_NAME);
         assertTrue("No match (1)", NodeNameMatchers.EQUALS_IGNORE_CASE.matches(node, handler, NODE_NAME));
     }
 
-    @Test
+@Test
     public void testEqualsIgnoreCaseMatch_2_oe() {
         final ImmutableNode node = createNode(NODE_NAME);
         // removed other assertion
         assertTrue("No match (2)", NodeNameMatchers.EQUALS_IGNORE_CASE.matches(node, handler, NODE_NAME.toLowerCase(Locale.ENGLISH)));
     }
 
-    @Test
+@Test
     public void testEqualsIgnoreCaseMatch_3_oe() {
         final ImmutableNode node = createNode(NODE_NAME);
         // removed other assertion
@@ -114,25 +114,25 @@ public class TestNodeNameMatchers_OE25Dev {
         assertTrue("No match (3)", NodeNameMatchers.EQUALS_IGNORE_CASE.matches(node, handler, NODE_NAME.toUpperCase(Locale.ENGLISH)));
     }
 
-    @Test
+@Test
     public void testEqualsIgnoreCaseNoMatch_1_oe() {
         final ImmutableNode node = createNode(NODE_NAME);
         assertFalse("Match", NodeNameMatchers.EQUALS_IGNORE_CASE.matches(node, handler, NODE_NAME + "_other"));
     }
 
-    @Test
+@Test
     public void testEqualsMatch_1_oe() {
         final ImmutableNode node = createNode(NODE_NAME);
         assertTrue("No match", NodeNameMatchers.EQUALS.matches(node, handler, NODE_NAME));
     }
 
-    @Test
+@Test
     public void testEqualsNoMatch_1_oe() {
         final ImmutableNode node = createNode(NODE_NAME);
         assertFalse("Match (1)", NodeNameMatchers.EQUALS.matches(node, handler, NODE_NAME + "_other"));
     }
 
-    @Test
+@Test
     public void testEqualsNoMatch_2_oe() {
         final ImmutableNode node = createNode(NODE_NAME);
         // removed other assertion

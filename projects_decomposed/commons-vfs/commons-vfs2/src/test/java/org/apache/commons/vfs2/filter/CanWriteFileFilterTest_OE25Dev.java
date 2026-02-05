@@ -104,20 +104,20 @@ public class CanWriteFileFilterTest_OE25Dev extends BaseFilterTest {
 
     }
 
-    @Test
+@Test
     public void testAcceptCannotWrite_1_oe() throws FileSystemException {
 
         Assert.assertFalse(CanWriteFileFilter.CANNOT_WRITE.accept(writableFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptCannotWrite_2_oe() throws FileSystemException {
 
         // removed other assertion
         Assert.assertTrue(CanWriteFileFilter.CANNOT_WRITE.accept(readOnlyFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptCannotWrite_3_oe() throws FileSystemException {
 
         // removed other assertion
@@ -125,20 +125,20 @@ public class CanWriteFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(CanWriteFileFilter.CANNOT_WRITE.accept(notExistingFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptCanWrite_1_oe() throws FileSystemException {
 
         Assert.assertTrue(CanWriteFileFilter.CAN_WRITE.accept(writableFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptCanWrite_2_oe() throws FileSystemException {
 
         // removed other assertion
         Assert.assertFalse(CanWriteFileFilter.CAN_WRITE.accept(readOnlyFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptCanWrite_3_oe() throws FileSystemException {
 
         // removed other assertion
@@ -146,7 +146,7 @@ public class CanWriteFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(CanWriteFileFilter.CAN_WRITE.accept(notExistingFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptZipFile_1_oe() throws FileSystemException {
 
         FileObject[] files;
@@ -156,7 +156,7 @@ public class CanWriteFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(files == null || files.length == 0);
     }
 
-    @Test
+@Test
     public void testAcceptZipFile_3_oe() throws FileSystemException {
 
         FileObject[] files;

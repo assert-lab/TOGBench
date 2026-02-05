@@ -68,7 +68,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
      * Tests parsing a URI into its parts.
      */
 
-    @Test
+@Test
     public void testParseUri_1_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -76,7 +76,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp", name.getScheme());
     }
 
-    @Test
+@Test
     public void testParseUri_2_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -85,7 +85,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertNull(name.getUserName());
     }
 
-    @Test
+@Test
     public void testParseUri_3_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -95,7 +95,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertNull(name.getPassword());
     }
 
-    @Test
+@Test
     public void testParseUri_4_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -106,7 +106,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("hostname", name.getHostName());
     }
 
-    @Test
+@Test
     public void testParseUri_5_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -118,7 +118,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals(21, name.getPort());
     }
 
-    @Test
+@Test
     public void testParseUri_6_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -131,7 +131,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals(name.getDefaultPort(), name.getPort());
     }
 
-    @Test
+@Test
     public void testParseUri_7_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -145,7 +145,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("/file", name.getPath());
     }
 
-    @Test
+@Test
     public void testParseUri_8_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -160,7 +160,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp://hostname/", name.getRootURI());
     }
 
-    @Test
+@Test
     public void testParseUri_9_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -176,7 +176,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp://hostname/file", name.getURI());
     }
 
-    @Test
+@Test
     public void testParseUri_10_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -196,7 +196,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp", name.getScheme());
     }
 
-    @Test
+@Test
     public void testParseUri_11_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -217,7 +217,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertNull(name.getUserName());
     }
 
-    @Test
+@Test
     public void testParseUri_12_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -239,7 +239,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertNull(name.getPassword());
     }
 
-    @Test
+@Test
     public void testParseUri_13_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -262,7 +262,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("hostname", name.getHostName());
     }
 
-    @Test
+@Test
     public void testParseUri_14_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -286,7 +286,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals(9090, name.getPort());
     }
 
-    @Test
+@Test
     public void testParseUri_15_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -311,7 +311,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("/file", name.getPath());
     }
 
-    @Test
+@Test
     public void testParseUri_16_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -337,7 +337,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp://hostname:9090/", name.getRootURI());
     }
 
-    @Test
+@Test
     public void testParseUri_17_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -364,7 +364,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp://hostname:9090/file", name.getURI());
     }
 
-    @Test
+@Test
     public void testParseUri_18_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -395,7 +395,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp", name.getScheme());
     }
 
-    @Test
+@Test
     public void testParseUri_19_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -427,7 +427,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertNull(name.getUserName());
     }
 
-    @Test
+@Test
     public void testParseUri_20_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -460,7 +460,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertNull(name.getPassword());
     }
 
-    @Test
+@Test
     public void testParseUri_21_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -494,7 +494,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("hostname", name.getHostName());
     }
 
-    @Test
+@Test
     public void testParseUri_22_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -529,7 +529,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals(21, name.getPort());
     }
 
-    @Test
+@Test
     public void testParseUri_23_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -565,7 +565,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("/", name.getPath());
     }
 
-    @Test
+@Test
     public void testParseUri_24_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -602,7 +602,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp://hostname/", name.getRootURI());
     }
 
-    @Test
+@Test
     public void testParseUri_25_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -640,7 +640,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp://hostname/", name.getURI());
     }
 
-    @Test
+@Test
     public void testParseUri_26_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -682,7 +682,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp", name.getScheme());
     }
 
-    @Test
+@Test
     public void testParseUri_27_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -725,7 +725,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("user", name.getUserName());
     }
 
-    @Test
+@Test
     public void testParseUri_28_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -769,7 +769,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertNull(name.getPassword());
     }
 
-    @Test
+@Test
     public void testParseUri_29_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -814,7 +814,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("hostname", name.getHostName());
     }
 
-    @Test
+@Test
     public void testParseUri_30_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -860,7 +860,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals(21, name.getPort());
     }
 
-    @Test
+@Test
     public void testParseUri_31_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -907,7 +907,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("/file", name.getPath());
     }
 
-    @Test
+@Test
     public void testParseUri_32_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -955,7 +955,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp://user@hostname/", name.getRootURI());
     }
 
-    @Test
+@Test
     public void testParseUri_33_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -1004,7 +1004,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp://user@hostname/file", name.getURI());
     }
 
-    @Test
+@Test
     public void testParseUri_34_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -1057,7 +1057,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp", name.getScheme());
     }
 
-    @Test
+@Test
     public void testParseUri_35_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -1111,7 +1111,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("user", name.getUserName());
     }
 
-    @Test
+@Test
     public void testParseUri_36_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -1166,7 +1166,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("password", name.getPassword());
     }
 
-    @Test
+@Test
     public void testParseUri_37_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -1222,7 +1222,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("hostname", name.getHostName());
     }
 
-    @Test
+@Test
     public void testParseUri_38_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -1279,7 +1279,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals(21, name.getPort());
     }
 
-    @Test
+@Test
     public void testParseUri_39_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -1337,7 +1337,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("/file", name.getPath());
     }
 
-    @Test
+@Test
     public void testParseUri_40_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -1396,7 +1396,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp://user:password@hostname/", name.getRootURI());
     }
 
-    @Test
+@Test
     public void testParseUri_41_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -1456,7 +1456,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp://user:password@hostname/file", name.getURI());
     }
 
-    @Test
+@Test
     public void testParseUri_42_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -1520,7 +1520,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp", name.getScheme());
     }
 
-    @Test
+@Test
     public void testParseUri_43_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -1585,7 +1585,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("user:", name.getUserName());
     }
 
-    @Test
+@Test
     public void testParseUri_44_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -1651,7 +1651,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("@", name.getPassword());
     }
 
-    @Test
+@Test
     public void testParseUri_45_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -1718,7 +1718,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("hostname", name.getHostName());
     }
 
-    @Test
+@Test
     public void testParseUri_46_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -1786,7 +1786,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals(21, name.getPort());
     }
 
-    @Test
+@Test
     public void testParseUri_47_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -1855,7 +1855,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("/", name.getPath());
     }
 
-    @Test
+@Test
     public void testParseUri_48_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name
@@ -1925,7 +1925,7 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
         assertEquals("ftp://user%3a:%40@hostname/", name.getRootURI());
     }
 
-    @Test
+@Test
     public void testParseUri_49_oe() throws Exception {
         final URLFileNameParser urlParser = new URLFileNameParser(21);
         // Simple name

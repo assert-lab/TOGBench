@@ -76,20 +76,20 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         }
     }
 
-    @Test
+@Test
     public void testRanges_1_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         Assert.assertEquals(10L, lr0.getMin());
     }
 
-    @Test
+@Test
     public void testRanges_2_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
         Assert.assertEquals(20L, lr0.getMax());
     }
 
-    @Test
+@Test
     public void testRanges_3_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -97,7 +97,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(lr0.isEmpty());
     }
 
-    @Test
+@Test
     public void testRanges_4_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -106,7 +106,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(lr0.contains(10L));
     }
 
-    @Test
+@Test
     public void testRanges_5_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -116,7 +116,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(lr0.contains(20L));
     }
 
-    @Test
+@Test
     public void testRanges_6_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -127,7 +127,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(lr0.contains(30L));
     }
 
-    @Test
+@Test
     public void testRanges_7_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -139,7 +139,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(lr0.contains(5L));
     }
 
-    @Test
+@Test
     public void testRanges_8_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -152,7 +152,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(lr0.contains(null));
     }
 
-    @Test
+@Test
     public void testRanges_9_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -169,7 +169,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(lr0.containsAll(lr1));
     }
 
-    @Test
+@Test
     public void testRanges_10_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -188,7 +188,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertNotEquals(lr0, lr2);
     }
 
-    @Test
+@Test
     public void testRanges_11_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -208,7 +208,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(lr0.containsAll(lr2));
     }
 
-    @Test
+@Test
     public void testRanges_12_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -229,7 +229,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(lr2.containsAll(lr1));
     }
 
-    @Test
+@Test
     public void testRanges_13_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -253,7 +253,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(10, ir0.getMin());
     }
 
-    @Test
+@Test
     public void testRanges_14_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -278,7 +278,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(20, ir0.getMax());
     }
 
-    @Test
+@Test
     public void testRanges_15_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -304,7 +304,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ir0.isEmpty());
     }
 
-    @Test
+@Test
     public void testRanges_16_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -331,7 +331,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ir0.contains(10));
     }
 
-    @Test
+@Test
     public void testRanges_17_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -359,7 +359,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ir0.contains(20));
     }
 
-    @Test
+@Test
     public void testRanges_18_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -388,7 +388,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ir0.contains(30));
     }
 
-    @Test
+@Test
     public void testRanges_19_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -418,7 +418,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ir0.contains(5));
     }
 
-    @Test
+@Test
     public void testRanges_20_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -449,7 +449,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ir0.contains(null));
     }
 
-    @Test
+@Test
     public void testRanges_21_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -483,7 +483,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ir0.containsAll(ir1));
     }
 
-    @Test
+@Test
     public void testRanges_22_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -518,7 +518,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertNotEquals(ir0, lr0);
     }
 
-    @Test
+@Test
     public void testRanges_23_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -554,7 +554,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertNotEquals(ir1, lr1);
     }
 
-    @Test
+@Test
     public void testRanges_24_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -592,7 +592,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertNotEquals(ir0, ir2);
     }
 
-    @Test
+@Test
     public void testRanges_25_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -631,7 +631,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(ir0.containsAll(ir2));
     }
 
-    @Test
+@Test
     public void testRanges_26_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -671,7 +671,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(ir2.containsAll(ir1));
     }
 
-    @Test
+@Test
     public void testRanges_27_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -718,7 +718,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testRanges_28_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -779,7 +779,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(9L, lc0);
     }
 
-    @Test
+@Test
     public void testRanges_30_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -853,7 +853,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testRanges_31_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion

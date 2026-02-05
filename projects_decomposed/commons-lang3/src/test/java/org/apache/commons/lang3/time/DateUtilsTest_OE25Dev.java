@@ -428,13 +428,13 @@ public class DateUtilsTest_OE25Dev {
      * Tests the calendar iterator for week ranges
      */
 
-    @Test
+@Test
     public void testAddDays_1_oe() throws Exception {
         Date result = DateUtils.addDays(BASE_DATE, 0);
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddDays_4_oe() throws Exception {
         Date result = DateUtils.addDays(BASE_DATE, 0);
         // removed other assertion
@@ -445,7 +445,7 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddDays_7_oe() throws Exception {
         Date result = DateUtils.addDays(BASE_DATE, 0);
         // removed other assertion
@@ -461,13 +461,13 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddHours_1_oe() throws Exception {
         Date result = DateUtils.addHours(BASE_DATE, 0);
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddHours_4_oe() throws Exception {
         Date result = DateUtils.addHours(BASE_DATE, 0);
         // removed other assertion
@@ -478,7 +478,7 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddHours_7_oe() throws Exception {
         Date result = DateUtils.addHours(BASE_DATE, 0);
         // removed other assertion
@@ -494,13 +494,13 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddMilliseconds_1_oe() throws Exception {
         Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddMilliseconds_4_oe() throws Exception {
         Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
         // removed other assertion
@@ -511,7 +511,7 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddMilliseconds_7_oe() throws Exception {
         Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
         // removed other assertion
@@ -527,13 +527,13 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddMinutes_1_oe() throws Exception {
         Date result = DateUtils.addMinutes(BASE_DATE, 0);
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddMinutes_4_oe() throws Exception {
         Date result = DateUtils.addMinutes(BASE_DATE, 0);
         // removed other assertion
@@ -544,7 +544,7 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddMinutes_7_oe() throws Exception {
         Date result = DateUtils.addMinutes(BASE_DATE, 0);
         // removed other assertion
@@ -560,13 +560,13 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddMonths_1_oe() throws Exception {
         Date result = DateUtils.addMonths(BASE_DATE, 0);
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddMonths_4_oe() throws Exception {
         Date result = DateUtils.addMonths(BASE_DATE, 0);
         // removed other assertion
@@ -577,7 +577,7 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddMonths_7_oe() throws Exception {
         Date result = DateUtils.addMonths(BASE_DATE, 0);
         // removed other assertion
@@ -593,13 +593,13 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddSeconds_1_oe() throws Exception {
         Date result = DateUtils.addSeconds(BASE_DATE, 0);
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddSeconds_4_oe() throws Exception {
         Date result = DateUtils.addSeconds(BASE_DATE, 0);
         // removed other assertion
@@ -610,7 +610,7 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddSeconds_7_oe() throws Exception {
         Date result = DateUtils.addSeconds(BASE_DATE, 0);
         // removed other assertion
@@ -626,13 +626,13 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddWeeks_1_oe() throws Exception {
         Date result = DateUtils.addWeeks(BASE_DATE, 0);
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddWeeks_4_oe() throws Exception {
         Date result = DateUtils.addWeeks(BASE_DATE, 0);
         // removed other assertion
@@ -643,7 +643,7 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddWeeks_7_oe() throws Exception {
         Date result = DateUtils.addWeeks(BASE_DATE, 0);
         // removed other assertion
@@ -659,13 +659,13 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddYears_1_oe() throws Exception {
         Date result = DateUtils.addYears(BASE_DATE, 0);
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddYears_4_oe() throws Exception {
         Date result = DateUtils.addYears(BASE_DATE, 0);
         // removed other assertion
@@ -676,7 +676,7 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testAddYears_7_oe() throws Exception {
         Date result = DateUtils.addYears(BASE_DATE, 0);
         // removed other assertion
@@ -692,20 +692,20 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testCeil_1_oe() throws Exception {
         // test javadoc
         assertEquals(dateTimeParser.parse("March 28,2002 14:00:00.000"),DateUtils.ceiling(dateTimeParser.parse("March 28,2002 13:45:01.231"),Calendar.HOUR),"ceiling javadoc-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_2_oe() throws Exception {
         // test javadoc
         // removed other assertion
         assertEquals(dateTimeParser.parse("April 1,2002 00:00:00.000"),DateUtils.ceiling(dateTimeParser.parse("March 28,2002 13:45:01.231"),Calendar.MONTH),"ceiling javadoc-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_3_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -715,7 +715,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("January 1,2003"),DateUtils.ceiling(date1,Calendar.YEAR),"ceiling year-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_4_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -726,7 +726,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("January 1,2002"),DateUtils.ceiling(date2,Calendar.YEAR),"ceiling year-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_5_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -738,7 +738,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("March 1,2002"),DateUtils.ceiling(date1,Calendar.MONTH),"ceiling month-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_6_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -751,7 +751,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("December 1,2001"),DateUtils.ceiling(date2,Calendar.MONTH),"ceiling month-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_7_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -765,7 +765,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 16,2002"),DateUtils.ceiling(date1,DateUtils.SEMI_MONTH),"ceiling semimonth-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_8_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -780,7 +780,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("December 1,2001"),DateUtils.ceiling(date2,DateUtils.SEMI_MONTH),"ceiling semimonth-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_9_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -796,7 +796,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 13,2002"),DateUtils.ceiling(date1,Calendar.DATE),"ceiling date-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_10_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -813,7 +813,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("November 19,2001"),DateUtils.ceiling(date2,Calendar.DATE),"ceiling date-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_11_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -831,7 +831,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 13:00:00.000"),DateUtils.ceiling(date1,Calendar.HOUR),"ceiling hour-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_12_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -850,7 +850,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 2:00:00.000"),DateUtils.ceiling(date2,Calendar.HOUR),"ceiling hour-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_13_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -870,7 +870,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:35:00.000"),DateUtils.ceiling(date1,Calendar.MINUTE),"ceiling minute-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_14_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -891,7 +891,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:24:00.000"),DateUtils.ceiling(date2,Calendar.MINUTE),"ceiling minute-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_15_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -913,7 +913,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:34:57.000"),DateUtils.ceiling(date1,Calendar.SECOND),"ceiling second-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_16_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -936,7 +936,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:23:12.000"),DateUtils.ceiling(date2,Calendar.SECOND),"ceiling second-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_17_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -960,7 +960,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.ceiling(dateAmPm1,Calendar.AM_PM),"ceiling ampm-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_18_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -985,7 +985,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.ceiling(dateAmPm2,Calendar.AM_PM),"ceiling ampm-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_19_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1011,7 +1011,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 4,2002 00:00:00.000"),DateUtils.ceiling(dateAmPm3,Calendar.AM_PM),"ceiling ampm-3 failed");
     }
 
-    @Test
+@Test
     public void testCeil_20_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1038,7 +1038,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 4,2002 00:00:00.000"),DateUtils.ceiling(dateAmPm4,Calendar.AM_PM),"ceiling ampm-4 failed");
     }
 
-    @Test
+@Test
     public void testCeil_21_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1068,7 +1068,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("January 1,2003"),DateUtils.ceiling((Object)date1,Calendar.YEAR),"ceiling year-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_22_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1099,7 +1099,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("January 1,2002"),DateUtils.ceiling((Object)date2,Calendar.YEAR),"ceiling year-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_23_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1131,7 +1131,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("March 1,2002"),DateUtils.ceiling((Object)date1,Calendar.MONTH),"ceiling month-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_24_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1164,7 +1164,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("December 1,2001"),DateUtils.ceiling((Object)date2,Calendar.MONTH),"ceiling month-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_25_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1198,7 +1198,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 16,2002"),DateUtils.ceiling((Object)date1,DateUtils.SEMI_MONTH),"ceiling semimonth-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_26_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1233,7 +1233,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("December 1,2001"),DateUtils.ceiling((Object)date2,DateUtils.SEMI_MONTH),"ceiling semimonth-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_27_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1269,7 +1269,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 13,2002"),DateUtils.ceiling((Object)date1,Calendar.DATE),"ceiling date-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_28_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1306,7 +1306,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("November 19,2001"),DateUtils.ceiling((Object)date2,Calendar.DATE),"ceiling date-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_29_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1344,7 +1344,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 13:00:00.000"),DateUtils.ceiling((Object)date1,Calendar.HOUR),"ceiling hour-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_30_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1383,7 +1383,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 2:00:00.000"),DateUtils.ceiling((Object)date2,Calendar.HOUR),"ceiling hour-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_31_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1423,7 +1423,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:35:00.000"),DateUtils.ceiling((Object)date1,Calendar.MINUTE),"ceiling minute-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_32_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1464,7 +1464,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:24:00.000"),DateUtils.ceiling((Object)date2,Calendar.MINUTE),"ceiling minute-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_33_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1506,7 +1506,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:34:57.000"),DateUtils.ceiling((Object)date1,Calendar.SECOND),"ceiling second-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_34_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1549,7 +1549,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:23:12.000"),DateUtils.ceiling((Object)date2,Calendar.SECOND),"ceiling second-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_35_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1593,7 +1593,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.ceiling((Object)dateAmPm1,Calendar.AM_PM),"ceiling ampm-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_36_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1638,7 +1638,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.ceiling((Object)dateAmPm2,Calendar.AM_PM),"ceiling ampm-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_37_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1684,7 +1684,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 4,2002 00:00:00.000"),DateUtils.ceiling((Object)dateAmPm3,Calendar.AM_PM),"ceiling ampm-3 failed");
     }
 
-    @Test
+@Test
     public void testCeil_38_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1731,7 +1731,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 4,2002 00:00:00.000"),DateUtils.ceiling((Object)dateAmPm4,Calendar.AM_PM),"ceiling ampm-4 failed");
     }
 
-    @Test
+@Test
     public void testCeil_39_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1780,7 +1780,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:34:57.000"),DateUtils.ceiling((Object)cal1,Calendar.SECOND),"ceiling calendar second-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_40_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1830,7 +1830,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:23:12.000"),DateUtils.ceiling((Object)cal2,Calendar.SECOND),"ceiling calendar second-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_41_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1882,7 +1882,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.ceiling((Object)calAmPm1,Calendar.AM_PM),"ceiling ampm-1 failed");
     }
 
-    @Test
+@Test
     public void testCeil_42_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1935,7 +1935,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.ceiling((Object)calAmPm2,Calendar.AM_PM),"ceiling ampm-2 failed");
     }
 
-    @Test
+@Test
     public void testCeil_43_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -1989,7 +1989,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 4,2002 00:00:00.000"),DateUtils.ceiling((Object)calAmPm3,Calendar.AM_PM),"ceiling ampm-3 failed");
     }
 
-    @Test
+@Test
     public void testCeil_44_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -2044,7 +2044,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 4,2002 00:00:00.000"),DateUtils.ceiling((Object)calAmPm4,Calendar.AM_PM),"ceiling ampm-4 failed");
     }
 
-    @Test
+@Test
     public void testCeil_45_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -2101,7 +2101,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(NullPointerException.class, () -> DateUtils.ceiling((Date) null, Calendar.SECOND));
     }
 
-    @Test
+@Test
     public void testCeil_46_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -2159,7 +2159,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.ceiling((Calendar) null, Calendar.SECOND));
     }
 
-    @Test
+@Test
     public void testCeil_47_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -2218,7 +2218,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.ceiling((Object) null, Calendar.SECOND));
     }
 
-    @Test
+@Test
     public void testCeil_48_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -2278,7 +2278,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(ClassCastException.class, () -> DateUtils.ceiling("", Calendar.SECOND));
     }
 
-    @Test
+@Test
     public void testCeil_49_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -2339,7 +2339,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.ceiling(date1, -9999));
     }
 
-    @Test
+@Test
     public void testCeil_66_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -2435,7 +2435,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(ArithmeticException.class, () -> DateUtils.ceiling(endCal, Calendar.DATE));
     }
 
-    @Test
+@Test
     public void testCeil_67_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -2533,7 +2533,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(ArithmeticException.class, () -> DateUtils.ceiling(endCal, Calendar.DATE));
     }
 
-    @Test
+@Test
     public void testCeil_68_oe() throws Exception {
         // test javadoc
         // removed other assertion
@@ -2634,19 +2634,19 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(0, cal.get(Calendar.HOUR));
     }
 
-    @Test
+@Test
     public void testConstructor_1_oe() {
         assertNotNull(new DateUtils());
     }
 
-    @Test
+@Test
     public void testConstructor_2_oe() {
         // removed other assertion
         final Constructor<?>[] cons = DateUtils.class.getDeclaredConstructors();
         assertEquals(1, cons.length);
     }
 
-    @Test
+@Test
     public void testConstructor_3_oe() {
         // removed other assertion
         final Constructor<?>[] cons = DateUtils.class.getDeclaredConstructors();
@@ -2654,7 +2654,7 @@ public class DateUtilsTest_OE25Dev {
         assertTrue(Modifier.isPublic(cons[0].getModifiers()));
     }
 
-    @Test
+@Test
     public void testConstructor_4_oe() {
         // removed other assertion
         final Constructor<?>[] cons = DateUtils.class.getDeclaredConstructors();
@@ -2663,7 +2663,7 @@ public class DateUtilsTest_OE25Dev {
         assertTrue(Modifier.isPublic(DateUtils.class.getModifiers()));
     }
 
-    @Test
+@Test
     public void testConstructor_5_oe() {
         // removed other assertion
         final Constructor<?>[] cons = DateUtils.class.getDeclaredConstructors();
@@ -2673,14 +2673,14 @@ public class DateUtilsTest_OE25Dev {
         assertFalse(Modifier.isFinal(DateUtils.class.getModifiers()));
     }
 
-    @Test
+@Test
     public void testIsSameDay_Cal_1_oe() {
         final GregorianCalendar cala = new GregorianCalendar(2004, 6, 9, 13, 45);
         final GregorianCalendar calb = new GregorianCalendar(2004, 6, 9, 13, 45);
         assertTrue(DateUtils.isSameDay(cala, calb));
     }
 
-    @Test
+@Test
     public void testIsSameDay_Cal_2_oe() {
         final GregorianCalendar cala = new GregorianCalendar(2004, 6, 9, 13, 45);
         final GregorianCalendar calb = new GregorianCalendar(2004, 6, 9, 13, 45);
@@ -2689,7 +2689,7 @@ public class DateUtilsTest_OE25Dev {
         assertFalse(DateUtils.isSameDay(cala, calb));
     }
 
-    @Test
+@Test
     public void testIsSameDay_Cal_3_oe() {
         final GregorianCalendar cala = new GregorianCalendar(2004, 6, 9, 13, 45);
         final GregorianCalendar calb = new GregorianCalendar(2004, 6, 9, 13, 45);
@@ -2700,7 +2700,7 @@ public class DateUtilsTest_OE25Dev {
         assertTrue(DateUtils.isSameDay(cala, calb));
     }
 
-    @Test
+@Test
     public void testIsSameDay_Cal_4_oe() {
         final GregorianCalendar cala = new GregorianCalendar(2004, 6, 9, 13, 45);
         final GregorianCalendar calb = new GregorianCalendar(2004, 6, 9, 13, 45);
@@ -2713,29 +2713,29 @@ public class DateUtilsTest_OE25Dev {
         assertFalse(DateUtils.isSameDay(cala, calb));
     }
 
-    @Test
+@Test
     public void testIsSameDay_CalNotNullNull_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.isSameDay(Calendar.getInstance(), null));
     }
 
-    @Test
+@Test
     public void testIsSameDay_CalNullNotNull_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.isSameDay(null, Calendar.getInstance()));
     }
 
-    @Test
+@Test
     public void testIsSameDay_CalNullNull_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.isSameDay((Calendar) null, null));
     }
 
-    @Test
+@Test
     public void testIsSameDay_Date_1_oe() {
         Date datea = new GregorianCalendar(2004, 6, 9, 13, 45).getTime();
         Date dateb = new GregorianCalendar(2004, 6, 9, 13, 45).getTime();
         assertTrue(DateUtils.isSameDay(datea, dateb));
     }
 
-    @Test
+@Test
     public void testIsSameDay_Date_2_oe() {
         Date datea = new GregorianCalendar(2004, 6, 9, 13, 45).getTime();
         Date dateb = new GregorianCalendar(2004, 6, 9, 13, 45).getTime();
@@ -2744,7 +2744,7 @@ public class DateUtilsTest_OE25Dev {
         assertFalse(DateUtils.isSameDay(datea, dateb));
     }
 
-    @Test
+@Test
     public void testIsSameDay_Date_3_oe() {
         Date datea = new GregorianCalendar(2004, 6, 9, 13, 45).getTime();
         Date dateb = new GregorianCalendar(2004, 6, 9, 13, 45).getTime();
@@ -2755,7 +2755,7 @@ public class DateUtilsTest_OE25Dev {
         assertTrue(DateUtils.isSameDay(datea, dateb));
     }
 
-    @Test
+@Test
     public void testIsSameDay_Date_4_oe() {
         Date datea = new GregorianCalendar(2004, 6, 9, 13, 45).getTime();
         Date dateb = new GregorianCalendar(2004, 6, 9, 13, 45).getTime();
@@ -2768,22 +2768,22 @@ public class DateUtilsTest_OE25Dev {
         assertFalse(DateUtils.isSameDay(datea, dateb));
     }
 
-    @Test
+@Test
     public void testIsSameDay_DateNotNullNull_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.isSameDay(new Date(), null));
     }
 
-    @Test
+@Test
     public void testIsSameDay_DateNullNotNull_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.isSameDay(null, new Date()));
     }
 
-    @Test
+@Test
     public void testIsSameDay_DateNullNull_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.isSameDay((Date) null, null));
     }
 
-    @Test
+@Test
     public void testIsSameInstant_Cal_1_oe() {
         final GregorianCalendar cala = new GregorianCalendar(TimeZone.getTimeZone("GMT+1"));
         final GregorianCalendar calb = new GregorianCalendar(TimeZone.getTimeZone("GMT-1"));
@@ -2794,7 +2794,7 @@ public class DateUtilsTest_OE25Dev {
         assertFalse(DateUtils.isSameInstant(cala, calb));
     }
 
-    @Test
+@Test
     public void testIsSameInstant_Cal_2_oe() {
         final GregorianCalendar cala = new GregorianCalendar(TimeZone.getTimeZone("GMT+1"));
         final GregorianCalendar calb = new GregorianCalendar(TimeZone.getTimeZone("GMT-1"));
@@ -2808,29 +2808,29 @@ public class DateUtilsTest_OE25Dev {
         assertTrue(DateUtils.isSameInstant(cala, calb));
     }
 
-    @Test
+@Test
     public void testIsSameInstant_CalNotNullNull_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.isSameInstant(Calendar.getInstance(), null));
     }
 
-    @Test
+@Test
     public void testIsSameInstant_CalNullNotNull_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.isSameInstant(null, Calendar.getInstance()));
     }
 
-    @Test
+@Test
     public void testIsSameInstant_CalNullNull_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.isSameInstant((Calendar) null, null));
     }
 
-    @Test
+@Test
     public void testIsSameInstant_Date_1_oe() {
         Date datea = new GregorianCalendar(2004, 6, 9, 13, 45).getTime();
         Date dateb = new GregorianCalendar(2004, 6, 9, 13, 45).getTime();
         assertTrue(DateUtils.isSameInstant(datea, dateb));
     }
 
-    @Test
+@Test
     public void testIsSameInstant_Date_2_oe() {
         Date datea = new GregorianCalendar(2004, 6, 9, 13, 45).getTime();
         Date dateb = new GregorianCalendar(2004, 6, 9, 13, 45).getTime();
@@ -2839,7 +2839,7 @@ public class DateUtilsTest_OE25Dev {
         assertFalse(DateUtils.isSameInstant(datea, dateb));
     }
 
-    @Test
+@Test
     public void testIsSameInstant_Date_3_oe() {
         Date datea = new GregorianCalendar(2004, 6, 9, 13, 45).getTime();
         Date dateb = new GregorianCalendar(2004, 6, 9, 13, 45).getTime();
@@ -2850,7 +2850,7 @@ public class DateUtilsTest_OE25Dev {
         assertTrue(DateUtils.isSameInstant(datea, dateb));
     }
 
-    @Test
+@Test
     public void testIsSameInstant_Date_4_oe() {
         Date datea = new GregorianCalendar(2004, 6, 9, 13, 45).getTime();
         Date dateb = new GregorianCalendar(2004, 6, 9, 13, 45).getTime();
@@ -2863,22 +2863,22 @@ public class DateUtilsTest_OE25Dev {
         assertFalse(DateUtils.isSameInstant(datea, dateb));
     }
 
-    @Test
+@Test
     public void testIsSameInstant_DateNotNullNull_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.isSameInstant(new Date(), null));
     }
 
-    @Test
+@Test
     public void testIsSameInstant_DateNullNotNull_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.isSameInstant(null, new Date()));
     }
 
-    @Test
+@Test
     public void testIsSameInstant_DateNullNull_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.isSameInstant((Date) null, null));
     }
 
-    @Test
+@Test
     public void testIsSameLocalTime_Cal_1_oe() {
         final GregorianCalendar cala = new GregorianCalendar(TimeZone.getTimeZone("GMT+1"));
         final GregorianCalendar calb = new GregorianCalendar(TimeZone.getTimeZone("GMT-1"));
@@ -2889,7 +2889,7 @@ public class DateUtilsTest_OE25Dev {
         assertTrue(DateUtils.isSameLocalTime(cala, calb));
     }
 
-    @Test
+@Test
     public void testIsSameLocalTime_Cal_2_oe() {
         final GregorianCalendar cala = new GregorianCalendar(TimeZone.getTimeZone("GMT+1"));
         final GregorianCalendar calb = new GregorianCalendar(TimeZone.getTimeZone("GMT-1"));
@@ -2908,7 +2908,7 @@ public class DateUtilsTest_OE25Dev {
         assertFalse(DateUtils.isSameLocalTime(calc, cald), "LANG-677");
     }
 
-    @Test
+@Test
     public void testIsSameLocalTime_Cal_3_oe() {
         final GregorianCalendar cala = new GregorianCalendar(TimeZone.getTimeZone("GMT+1"));
         final GregorianCalendar calb = new GregorianCalendar(TimeZone.getTimeZone("GMT-1"));
@@ -2930,27 +2930,27 @@ public class DateUtilsTest_OE25Dev {
         assertFalse(DateUtils.isSameLocalTime(cala, calb));
     }
 
-    @Test
+@Test
     public void testIsSameLocalTime_CalNotNullNull_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.isSameLocalTime(Calendar.getInstance(), null));
     }
 
-    @Test
+@Test
     public void testIsSameLocalTime_CalNullNotNull_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.isSameLocalTime(null, Calendar.getInstance()));
     }
 
-    @Test
+@Test
     public void testIsSameLocalTime_CalNullNull_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.isSameLocalTime(null, null));
     }
 
-    @Test
+@Test
     public void testIteratorEx_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.iterator(Calendar.getInstance(), -9999));
     }
 
-    @Test
+@Test
     public void testIteratorEx_2_oe() {
         // removed other assertion
         assertThrows
@@ -2962,7 +2962,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(ClassCastException.class, () -> DateUtils.iterator("", DateUtils.RANGE_WEEK_CENTER));
     }
 
-    @Test
+@Test
     public void testLang530_1_oe() throws ParseException {
         final Date d = new Date();
         final String isoDateStr = DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(d);
@@ -2971,27 +2971,27 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(d.getTime(), d2.getTime() + d.getTime() % 1000, "Date not equal to itself ISO formatted and parsed");
     }
 
-    @Test
+@Test
     public void testLANG799_DE_FAIL_1_oe() {
         assertThrows(ParseException.class, () -> DateUtils.parseDate("Wed, 09 Apr 2008 23:55:38 GMT", "EEE, dd MMM yyyy HH:mm:ss zzz"));
     }
 
-    @Test
+@Test
     public void testLANG799_EN_FAIL_1_oe() {
         assertThrows(ParseException.class, () -> DateUtils.parseDate("Mi, 09 Apr 2008 23:55:38 GMT", "EEE, dd MMM yyyy HH:mm:ss zzz"));
     }
 
-    @Test
+@Test
     public void testParse_EmptyParsers_1_oe() {
         assertThrows(ParseException.class, () -> DateUtils.parseDate("19721203"));
     }
 
-    @Test
+@Test
     public void testParse_NullParsers_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.parseDate("19721203", (String[]) null));
     }
 
-    @Test
+@Test
     public void testParseDate_1_oe() throws Exception {
         final GregorianCalendar cal = new GregorianCalendar(1972, 11, 3);
         String dateStr = "1972-12-03";
@@ -3000,7 +3000,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(cal.getTime(), date);
     }
 
-    @Test
+@Test
     public void testParseDate_2_oe() throws Exception {
         final GregorianCalendar cal = new GregorianCalendar(1972, 11, 3);
         String dateStr = "1972-12-03";
@@ -3013,7 +3013,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(cal.getTime(), date);
     }
 
-    @Test
+@Test
     public void testParseDate_3_oe() throws Exception {
         final GregorianCalendar cal = new GregorianCalendar(1972, 11, 3);
         String dateStr = "1972-12-03";
@@ -3030,25 +3030,25 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(cal.getTime(), date);
     }
 
-    @Test
+@Test
     public void testParseDate_InvalidDateString_1_oe() {
         final String[] parsers = new String[] {"yyyy'-'DDD", "yyyy'-'MM'-'dd", "yyyyMMdd"};
         assertThrows(ParseException.class, () -> DateUtils.parseDate("197212AB", parsers));
     }
 
-    @Test
+@Test
     public void testParseDate_NoDateString_1_oe() {
         final String[] parsers = new String[] {"yyyy'-'DDD", "yyyy'-'MM'-'dd", "yyyyMMdd"};
         assertThrows(ParseException.class, () -> DateUtils.parseDate("PURPLE", parsers));
     }
 
-    @Test
+@Test
     public void testParseDate_Null_1_oe() {
         final String[] parsers = new String[] {"yyyy'-'DDD", "yyyy'-'MM'-'dd", "yyyyMMdd"};
         assertThrows(IllegalArgumentException.class, () -> DateUtils.parseDate(null, parsers));
     }
 
-    @Test
+@Test
     public void testParseDateWithLeniency_1_oe() throws Exception {
         final GregorianCalendar cal = new GregorianCalendar(1998, 6, 30);
         final String dateStr = "02 942, 1996";
@@ -3058,7 +3058,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(cal.getTime(), date);
     }
 
-    @Test
+@Test
     public void testParseDateWithLeniency_2_oe() throws Exception {
         final GregorianCalendar cal = new GregorianCalendar(1998, 6, 30);
         final String dateStr = "02 942, 1996";
@@ -3070,20 +3070,20 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(ParseException.class, () -> DateUtils.parseDateStrictly(dateStr, parsers));
     }
 
-    @Test
+@Test
     public void testRound_1_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         assertEquals(dateParser.parse("January 1,2002"),DateUtils.round(date1,Calendar.YEAR),"round year-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_2_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
         assertEquals(dateParser.parse("January 1,2002"),DateUtils.round(date2,Calendar.YEAR),"round year-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_3_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3091,7 +3091,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 1,2002"),DateUtils.round(date1,Calendar.MONTH),"round month-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_4_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3100,7 +3100,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("December 1,2001"),DateUtils.round(date2,Calendar.MONTH),"round month-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_5_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3110,7 +3110,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 1,2002"),DateUtils.round(date0,DateUtils.SEMI_MONTH),"round semimonth-0 failed");
     }
 
-    @Test
+@Test
     public void testRound_6_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3121,7 +3121,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 16,2002"),DateUtils.round(date1,DateUtils.SEMI_MONTH),"round semimonth-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_7_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3133,7 +3133,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("November 16,2001"),DateUtils.round(date2,DateUtils.SEMI_MONTH),"round semimonth-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_8_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3148,7 +3148,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 13,2002"),DateUtils.round(date1,Calendar.DATE),"round date-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_9_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3164,7 +3164,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("November 18,2001"),DateUtils.round(date2,Calendar.DATE),"round date-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_10_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3181,7 +3181,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 13:00:00.000"),DateUtils.round(date1,Calendar.HOUR),"round hour-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_11_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3199,7 +3199,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:00:00.000"),DateUtils.round(date2,Calendar.HOUR),"round hour-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_12_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3218,7 +3218,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:35:00.000"),DateUtils.round(date1,Calendar.MINUTE),"round minute-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_13_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3238,7 +3238,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:23:00.000"),DateUtils.round(date2,Calendar.MINUTE),"round minute-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_14_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3259,7 +3259,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:34:57.000"),DateUtils.round(date1,Calendar.SECOND),"round second-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_15_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3281,7 +3281,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:23:11.000"),DateUtils.round(date2,Calendar.SECOND),"round second-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_16_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3304,7 +3304,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 00:00:00.000"),DateUtils.round(dateAmPm1,Calendar.AM_PM),"round ampm-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_17_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3328,7 +3328,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.round(dateAmPm2,Calendar.AM_PM),"round ampm-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_18_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3353,7 +3353,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.round(dateAmPm3,Calendar.AM_PM),"round ampm-3 failed");
     }
 
-    @Test
+@Test
     public void testRound_19_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3379,7 +3379,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 4,2002 00:00:00.000"),DateUtils.round(dateAmPm4,Calendar.AM_PM),"round ampm-4 failed");
     }
 
-    @Test
+@Test
     public void testRound_20_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3408,7 +3408,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("January 1,2002"),DateUtils.round((Object)date1,Calendar.YEAR),"round year-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_21_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3438,7 +3438,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("January 1,2002"),DateUtils.round((Object)date2,Calendar.YEAR),"round year-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_22_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3469,7 +3469,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 1,2002"),DateUtils.round((Object)date1,Calendar.MONTH),"round month-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_23_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3501,7 +3501,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("December 1,2001"),DateUtils.round((Object)date2,Calendar.MONTH),"round month-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_24_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3534,7 +3534,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 16,2002"),DateUtils.round((Object)date1,DateUtils.SEMI_MONTH),"round semimonth-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_25_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3568,7 +3568,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("November 16,2001"),DateUtils.round((Object)date2,DateUtils.SEMI_MONTH),"round semimonth-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_26_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3603,7 +3603,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 13,2002"),DateUtils.round((Object)date1,Calendar.DATE),"round date-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_27_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3639,7 +3639,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("November 18,2001"),DateUtils.round((Object)date2,Calendar.DATE),"round date-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_28_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3676,7 +3676,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 13:00:00.000"),DateUtils.round((Object)date1,Calendar.HOUR),"round hour-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_29_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3714,7 +3714,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:00:00.000"),DateUtils.round((Object)date2,Calendar.HOUR),"round hour-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_30_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3753,7 +3753,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:35:00.000"),DateUtils.round((Object)date1,Calendar.MINUTE),"round minute-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_31_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3793,7 +3793,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:23:00.000"),DateUtils.round((Object)date2,Calendar.MINUTE),"round minute-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_32_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3834,7 +3834,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:34:57.000"),DateUtils.round((Object)date1,Calendar.SECOND),"round second-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_33_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3876,7 +3876,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:23:11.000"),DateUtils.round((Object)date2,Calendar.SECOND),"round second-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_34_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3919,7 +3919,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:34:57.000"),DateUtils.round((Object)cal1,Calendar.SECOND),"round calendar second-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_35_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -3963,7 +3963,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:23:11.000"),DateUtils.round((Object)cal2,Calendar.SECOND),"round calendar second-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_36_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -4008,7 +4008,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 00:00:00.000"),DateUtils.round((Object)dateAmPm1,Calendar.AM_PM),"round ampm-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_37_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -4054,7 +4054,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.round((Object)dateAmPm2,Calendar.AM_PM),"round ampm-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_38_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -4101,7 +4101,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.round((Object)dateAmPm3,Calendar.AM_PM),"round ampm-3 failed");
     }
 
-    @Test
+@Test
     public void testRound_39_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -4149,7 +4149,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 4,2002 00:00:00.000"),DateUtils.round((Object)dateAmPm4,Calendar.AM_PM),"round ampm-4 failed");
     }
 
-    @Test
+@Test
     public void testRound_40_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -4199,7 +4199,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(NullPointerException.class, () -> DateUtils.round((Date) null, Calendar.SECOND));
     }
 
-    @Test
+@Test
     public void testRound_41_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -4250,7 +4250,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.round((Calendar) null, Calendar.SECOND));
     }
 
-    @Test
+@Test
     public void testRound_42_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -4302,7 +4302,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.round((Object) null, Calendar.SECOND));
     }
 
-    @Test
+@Test
     public void testRound_43_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -4355,7 +4355,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(ClassCastException.class, () -> DateUtils.round("", Calendar.SECOND));
     }
 
-    @Test
+@Test
     public void testRound_44_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -4409,7 +4409,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.round(date1, -9999));
     }
 
-    @Test
+@Test
     public void testRound_45_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -4465,7 +4465,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 00:00:00.000"),DateUtils.round((Object)calAmPm1,Calendar.AM_PM),"round ampm-1 failed");
     }
 
-    @Test
+@Test
     public void testRound_46_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -4522,7 +4522,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.round((Object)calAmPm2,Calendar.AM_PM),"round ampm-2 failed");
     }
 
-    @Test
+@Test
     public void testRound_47_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -4580,7 +4580,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.round((Object)calAmPm3,Calendar.AM_PM),"round ampm-3 failed");
     }
 
-    @Test
+@Test
     public void testRound_48_oe() throws Exception {
         // tests for public static Date round(Date date, int field)
         // removed other assertion
@@ -4639,7 +4639,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 4,2002 00:00:00.000"),DateUtils.round((Object)calAmPm4,Calendar.AM_PM),"round ampm-4 failed");
     }
 
-    @Test
+@Test
     public void testRoundLang346_1_oe() throws Exception {
         final Calendar testCalendar = Calendar.getInstance();
         testCalendar.set(2007, Calendar.JULY, 2, 8, 8, 50);
@@ -4647,7 +4647,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("July 2,2007 08:09:00.000"),DateUtils.round(date,Calendar.MINUTE),"Minute Round Up Failed");
     }
 
-    @Test
+@Test
     public void testRoundLang346_2_oe() throws Exception {
         final Calendar testCalendar = Calendar.getInstance();
         testCalendar.set(2007, Calendar.JULY, 2, 8, 8, 50);
@@ -4659,7 +4659,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("July 2,2007 08:08:00.000"),DateUtils.round(date,Calendar.MINUTE),"Minute No Round Failed");
     }
 
-    @Test
+@Test
     public void testRoundLang346_3_oe() throws Exception {
         final Calendar testCalendar = Calendar.getInstance();
         testCalendar.set(2007, Calendar.JULY, 2, 8, 8, 50);
@@ -4677,7 +4677,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("July 2,2007 08:08:51.000"),DateUtils.round(date,Calendar.SECOND),"Second Round Up with 600 Milli Seconds Failed");
     }
 
-    @Test
+@Test
     public void testRoundLang346_4_oe() throws Exception {
         final Calendar testCalendar = Calendar.getInstance();
         testCalendar.set(2007, Calendar.JULY, 2, 8, 8, 50);
@@ -4700,7 +4700,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("July 2,2007 08:08:50.000"),DateUtils.round(date,Calendar.SECOND),"Second Round Down with 200 Milli Seconds Failed");
     }
 
-    @Test
+@Test
     public void testRoundLang346_5_oe() throws Exception {
         final Calendar testCalendar = Calendar.getInstance();
         testCalendar.set(2007, Calendar.JULY, 2, 8, 8, 50);
@@ -4728,7 +4728,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("July 2,2007 08:08:21.000"),DateUtils.round(date,Calendar.SECOND),"Second Round Up with 200 Milli Seconds Failed");
     }
 
-    @Test
+@Test
     public void testRoundLang346_6_oe() throws Exception {
         final Calendar testCalendar = Calendar.getInstance();
         testCalendar.set(2007, Calendar.JULY, 2, 8, 8, 50);
@@ -4761,7 +4761,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("July 2,2007 08:08:20.000"),DateUtils.round(date,Calendar.SECOND),"Second Round Down with 200 Milli Seconds Failed");
     }
 
-    @Test
+@Test
     public void testRoundLang346_7_oe() throws Exception {
         final Calendar testCalendar = Calendar.getInstance();
         testCalendar.set(2007, Calendar.JULY, 2, 8, 8, 50);
@@ -4798,7 +4798,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("July 2,2007 08:00:00.000"),DateUtils.round(date,Calendar.HOUR),"Hour Round Down Failed");
     }
 
-    @Test
+@Test
     public void testRoundLang346_8_oe() throws Exception {
         final Calendar testCalendar = Calendar.getInstance();
         testCalendar.set(2007, Calendar.JULY, 2, 8, 8, 50);
@@ -4839,13 +4839,13 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("July 2,2007 09:00:00.000"),DateUtils.round(date,Calendar.HOUR),"Hour Round Up Failed");
     }
 
-    @Test
+@Test
     public void testSetDays_1_oe() throws Exception {
         Date result = DateUtils.setDays(BASE_DATE, 1);
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testSetDays_4_oe() throws Exception {
         Date result = DateUtils.setDays(BASE_DATE, 1);
         // removed other assertion
@@ -4856,7 +4856,7 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testSetDays_7_oe() throws Exception {
         Date result = DateUtils.setDays(BASE_DATE, 1);
         // removed other assertion
@@ -4871,13 +4871,13 @@ public class DateUtilsTest_OE25Dev {
         assertThrows( IllegalArgumentException.class, () -> DateUtils.setDays(BASE_DATE, 32), "DateUtils.setDays did not throw an expected IllegalArgumentException.");
     }
 
-    @Test
+@Test
     public void testSetHours_1_oe() throws Exception {
         Date result = DateUtils.setHours(BASE_DATE, 0);
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testSetHours_4_oe() throws Exception {
         Date result = DateUtils.setHours(BASE_DATE, 0);
         // removed other assertion
@@ -4888,7 +4888,7 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testSetHours_7_oe() throws Exception {
         Date result = DateUtils.setHours(BASE_DATE, 0);
         // removed other assertion
@@ -4903,13 +4903,13 @@ public class DateUtilsTest_OE25Dev {
         assertThrows( IllegalArgumentException.class, () -> DateUtils.setHours(BASE_DATE, 24), "DateUtils.setHours did not throw an expected IllegalArgumentException.");
     }
 
-    @Test
+@Test
     public void testSetMilliseconds_1_oe() throws Exception {
         Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testSetMilliseconds_4_oe() throws Exception {
         Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
         // removed other assertion
@@ -4920,7 +4920,7 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testSetMilliseconds_7_oe() throws Exception {
         Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
         // removed other assertion
@@ -4935,13 +4935,13 @@ public class DateUtilsTest_OE25Dev {
         assertThrows( IllegalArgumentException.class, () -> DateUtils.setMilliseconds(BASE_DATE, 1000), "DateUtils.setMilliseconds did not throw an expected IllegalArgumentException.");
     }
 
-    @Test
+@Test
     public void testSetMinutes_1_oe() throws Exception {
         Date result = DateUtils.setMinutes(BASE_DATE, 0);
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testSetMinutes_4_oe() throws Exception {
         Date result = DateUtils.setMinutes(BASE_DATE, 0);
         // removed other assertion
@@ -4952,7 +4952,7 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testSetMinutes_7_oe() throws Exception {
         Date result = DateUtils.setMinutes(BASE_DATE, 0);
         // removed other assertion
@@ -4967,13 +4967,13 @@ public class DateUtilsTest_OE25Dev {
         assertThrows( IllegalArgumentException.class, () -> DateUtils.setMinutes(BASE_DATE, 60), "DateUtils.setMinutes did not throw an expected IllegalArgumentException.");
     }
 
-    @Test
+@Test
     public void testSetMonths_1_oe() throws Exception {
         Date result = DateUtils.setMonths(BASE_DATE, 5);
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testSetMonths_4_oe() throws Exception {
         Date result = DateUtils.setMonths(BASE_DATE, 5);
         // removed other assertion
@@ -4984,7 +4984,7 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testSetMonths_7_oe() throws Exception {
         Date result = DateUtils.setMonths(BASE_DATE, 5);
         // removed other assertion
@@ -4999,13 +4999,13 @@ public class DateUtilsTest_OE25Dev {
         assertThrows( IllegalArgumentException.class, () -> DateUtils.setMonths(BASE_DATE, 12), "DateUtils.setMonths did not throw an expected IllegalArgumentException.");
     }
 
-    @Test
+@Test
     public void testSetSeconds_1_oe() throws Exception {
         Date result = DateUtils.setSeconds(BASE_DATE, 0);
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testSetSeconds_4_oe() throws Exception {
         Date result = DateUtils.setSeconds(BASE_DATE, 0);
         // removed other assertion
@@ -5016,7 +5016,7 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testSetSeconds_7_oe() throws Exception {
         Date result = DateUtils.setSeconds(BASE_DATE, 0);
         // removed other assertion
@@ -5031,13 +5031,13 @@ public class DateUtilsTest_OE25Dev {
         assertThrows( IllegalArgumentException.class, () -> DateUtils.setSeconds(BASE_DATE, 60), "DateUtils.setSeconds did not throw an expected IllegalArgumentException.");
     }
 
-    @Test
+@Test
     public void testSetYears_1_oe() throws Exception {
         Date result = DateUtils.setYears(BASE_DATE, 2000);
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testSetYears_4_oe() throws Exception {
         Date result = DateUtils.setYears(BASE_DATE, 2000);
         // removed other assertion
@@ -5048,7 +5048,7 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testSetYears_7_oe() throws Exception {
         Date result = DateUtils.setYears(BASE_DATE, 2000);
         // removed other assertion
@@ -5064,59 +5064,59 @@ public class DateUtilsTest_OE25Dev {
         assertNotSame(BASE_DATE, result);
     }
 
-    @Test
+@Test
     public void testToCalendar_1_oe() {
         assertEquals(date1, DateUtils.toCalendar(date1).getTime(), "Failed to convert to a Calendar and back");
     }
 
-    @Test
+@Test
     public void testToCalendar_2_oe() {
         // removed other assertion
         assertThrows(NullPointerException.class, () -> DateUtils.toCalendar(null));
     }
 
-    @Test
+@Test
     public void testToCalendarWithDateAndTimeZoneNotNull_1_oe() {
         final Calendar c = DateUtils.toCalendar(date2, defaultZone);
         assertEquals(date2, c.getTime(), "Convert Date and TimeZone to a Calendar, but failed to get the Date back");
     }
 
-    @Test
+@Test
     public void testToCalendarWithDateAndTimeZoneNotNull_2_oe() {
         final Calendar c = DateUtils.toCalendar(date2, defaultZone);
         // removed other assertion
         assertEquals(defaultZone, c.getTimeZone(), "Convert Date and TimeZone to a Calendar, but failed to get the TimeZone back");
     }
 
-    @Test
+@Test
     public void testToCalendarWithDateAndTimeZoneNull_1_oe() {
         assertThrows(NullPointerException.class, () -> DateUtils.toCalendar(null, null));
     }
 
-    @Test
+@Test
     public void testToCalendarWithDateNull_1_oe() {
         assertThrows(NullPointerException.class, () -> DateUtils.toCalendar(null, zone));
     }
 
-    @Test
+@Test
     public void testToCalendarWithTimeZoneNull_1_oe() {
         assertThrows(NullPointerException.class, () -> DateUtils.toCalendar(date1, null));
     }
 
-    @Test
+@Test
     public void testTruncate_1_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         assertEquals(dateParser.parse("January 1,2002"),DateUtils.truncate(date1,Calendar.YEAR),"truncate year-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_2_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
         assertEquals(dateParser.parse("January 1,2001"),DateUtils.truncate(date2,Calendar.YEAR),"truncate year-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_3_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5124,7 +5124,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 1,2002"),DateUtils.truncate(date1,Calendar.MONTH),"truncate month-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_4_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5133,7 +5133,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("November 1,2001"),DateUtils.truncate(date2,Calendar.MONTH),"truncate month-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_5_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5143,7 +5143,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 1,2002"),DateUtils.truncate(date1,DateUtils.SEMI_MONTH),"truncate semimonth-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_6_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5154,7 +5154,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("November 16,2001"),DateUtils.truncate(date2,DateUtils.SEMI_MONTH),"truncate semimonth-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_7_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5166,7 +5166,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 12,2002"),DateUtils.truncate(date1,Calendar.DATE),"truncate date-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_8_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5179,7 +5179,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("November 18,2001"),DateUtils.truncate(date2,Calendar.DATE),"truncate date-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_9_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5193,7 +5193,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:00:00.000"),DateUtils.truncate(date1,Calendar.HOUR),"truncate hour-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_10_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5208,7 +5208,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:00:00.000"),DateUtils.truncate(date2,Calendar.HOUR),"truncate hour-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_11_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5224,7 +5224,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:34:00.000"),DateUtils.truncate(date1,Calendar.MINUTE),"truncate minute-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_12_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5241,7 +5241,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:23:00.000"),DateUtils.truncate(date2,Calendar.MINUTE),"truncate minute-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_13_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5259,7 +5259,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:34:56.000"),DateUtils.truncate(date1,Calendar.SECOND),"truncate second-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_14_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5278,7 +5278,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:23:11.000"),DateUtils.truncate(date2,Calendar.SECOND),"truncate second-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_15_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5298,7 +5298,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 00:00:00.000"),DateUtils.truncate(dateAmPm1,Calendar.AM_PM),"truncate ampm-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_16_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5319,7 +5319,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 00:00:00.000"),DateUtils.truncate(dateAmPm2,Calendar.AM_PM),"truncate ampm-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_17_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5341,7 +5341,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.truncate(dateAmPm3,Calendar.AM_PM),"truncate ampm-3 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_18_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5364,7 +5364,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.truncate(dateAmPm4,Calendar.AM_PM),"truncate ampm-4 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_19_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5390,7 +5390,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("January 1,2002"),DateUtils.truncate((Object)date1,Calendar.YEAR),"truncate year-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_20_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5417,7 +5417,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("January 1,2001"),DateUtils.truncate((Object)date2,Calendar.YEAR),"truncate year-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_21_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5445,7 +5445,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 1,2002"),DateUtils.truncate((Object)date1,Calendar.MONTH),"truncate month-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_22_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5474,7 +5474,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("November 1,2001"),DateUtils.truncate((Object)date2,Calendar.MONTH),"truncate month-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_23_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5504,7 +5504,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 1,2002"),DateUtils.truncate((Object)date1,DateUtils.SEMI_MONTH),"truncate semimonth-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_24_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5535,7 +5535,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("November 16,2001"),DateUtils.truncate((Object)date2,DateUtils.SEMI_MONTH),"truncate semimonth-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_25_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5567,7 +5567,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("February 12,2002"),DateUtils.truncate((Object)date1,Calendar.DATE),"truncate date-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_26_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5600,7 +5600,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateParser.parse("November 18,2001"),DateUtils.truncate((Object)date2,Calendar.DATE),"truncate date-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_27_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5634,7 +5634,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:00:00.000"),DateUtils.truncate((Object)date1,Calendar.HOUR),"truncate hour-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_28_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5669,7 +5669,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:00:00.000"),DateUtils.truncate((Object)date2,Calendar.HOUR),"truncate hour-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_29_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5705,7 +5705,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:34:00.000"),DateUtils.truncate((Object)date1,Calendar.MINUTE),"truncate minute-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_30_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5742,7 +5742,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:23:00.000"),DateUtils.truncate((Object)date2,Calendar.MINUTE),"truncate minute-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_31_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5780,7 +5780,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:34:56.000"),DateUtils.truncate((Object)date1,Calendar.SECOND),"truncate second-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_32_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5819,7 +5819,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:23:11.000"),DateUtils.truncate((Object)date2,Calendar.SECOND),"truncate second-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_33_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5859,7 +5859,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 00:00:00.000"),DateUtils.truncate((Object)dateAmPm1,Calendar.AM_PM),"truncate ampm-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_34_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5900,7 +5900,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 00:00:00.000"),DateUtils.truncate((Object)dateAmPm2,Calendar.AM_PM),"truncate ampm-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_35_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5942,7 +5942,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.truncate((Object)dateAmPm3,Calendar.AM_PM),"truncate ampm-3 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_36_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -5985,7 +5985,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.truncate((Object)dateAmPm4,Calendar.AM_PM),"truncate ampm-4 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_37_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -6030,7 +6030,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 12,2002 12:34:56.000"),DateUtils.truncate((Object)cal1,Calendar.SECOND),"truncate calendar second-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_38_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -6076,7 +6076,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("November 18,2001 1:23:11.000"),DateUtils.truncate((Object)cal2,Calendar.SECOND),"truncate calendar second-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_39_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -6124,7 +6124,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 00:00:00.000"),DateUtils.truncate((Object)calAmPm1,Calendar.AM_PM),"truncate ampm-1 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_40_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -6173,7 +6173,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 00:00:00.000"),DateUtils.truncate((Object)calAmPm2,Calendar.AM_PM),"truncate ampm-2 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_41_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -6223,7 +6223,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.truncate((Object)calAmPm3,Calendar.AM_PM),"truncate ampm-3 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_42_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -6274,7 +6274,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(dateTimeParser.parse("February 3,2002 12:00:00.000"),DateUtils.truncate((Object)calAmPm4,Calendar.AM_PM),"truncate ampm-4 failed");
     }
 
-    @Test
+@Test
     public void testTruncate_43_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -6327,7 +6327,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(NullPointerException.class, () -> DateUtils.truncate((Date) null, Calendar.SECOND));
     }
 
-    @Test
+@Test
     public void testTruncate_44_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -6381,7 +6381,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.truncate((Calendar) null, Calendar.SECOND));
     }
 
-    @Test
+@Test
     public void testTruncate_45_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -6436,7 +6436,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(IllegalArgumentException.class, () -> DateUtils.truncate((Object) null, Calendar.SECOND));
     }
 
-    @Test
+@Test
     public void testTruncate_46_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -6492,7 +6492,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(ClassCastException.class, () -> DateUtils.truncate("", Calendar.SECOND));
     }
 
-    @Test
+@Test
     public void testTruncate_51_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -6569,7 +6569,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(ArithmeticException.class, () -> DateUtils.truncate(endCal, Calendar.DATE));
     }
 
-    @Test
+@Test
     public void testTruncate_52_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -6648,7 +6648,7 @@ public class DateUtilsTest_OE25Dev {
         assertThrows(ArithmeticException.class, () -> DateUtils.truncate(endCal, Calendar.DATE));
     }
 
-    @Test
+@Test
     public void testTruncate_53_oe() throws Exception {
         // tests public static Date truncate(Date date, int field)
         // removed other assertion
@@ -6730,7 +6730,7 @@ public class DateUtilsTest_OE25Dev {
         assertEquals(0, cal.get(Calendar.HOUR));
     }
 
-    @Test
+@Test
     public void testWeekIterator_7_oe() {
         final Calendar now = Calendar.getInstance();
         for (int i = 0; i< 7; i++) {
@@ -6764,7 +6764,7 @@ public class DateUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testWeekIterator_8_oe() {
         final Calendar now = Calendar.getInstance();
         for (int i = 0; i< 7; i++) {

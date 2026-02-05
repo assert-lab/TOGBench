@@ -41,7 +41,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
 
     private final Line3D testLine = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 0), TEST_PRECISION);
 
-    @Test
+@Test
     void testCtor_default_1_oe() {
         // act
         final EmbeddedTreeLineSubset3D sub = new EmbeddedTreeLineSubset3D(testLine);
@@ -50,7 +50,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertSame(testLine, sub.getLine());
     }
 
-    @Test
+@Test
     void testCtor_default_2_oe() {
         // act
         final EmbeddedTreeLineSubset3D sub = new EmbeddedTreeLineSubset3D(testLine);
@@ -60,7 +60,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertTrue(sub.getSubspaceRegion().isEmpty());
     }
 
-    @Test
+@Test
     void testCtor_default_3_oe() {
         // act
         final EmbeddedTreeLineSubset3D sub = new EmbeddedTreeLineSubset3D(testLine);
@@ -71,7 +71,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertEquals(0, sub.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testCtor_true_1_oe() {
         // act
         final EmbeddedTreeLineSubset3D sub = new EmbeddedTreeLineSubset3D(testLine, true);
@@ -80,7 +80,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertSame(testLine, sub.getLine());
     }
 
-    @Test
+@Test
     void testCtor_true_2_oe() {
         // act
         final EmbeddedTreeLineSubset3D sub = new EmbeddedTreeLineSubset3D(testLine, true);
@@ -90,7 +90,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertTrue(sub.getSubspaceRegion().isFull());
     }
 
-    @Test
+@Test
     void testCtor_false_1_oe() {
         // act
         final EmbeddedTreeLineSubset3D sub = new EmbeddedTreeLineSubset3D(testLine, false);
@@ -99,7 +99,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertSame(testLine, sub.getLine());
     }
 
-    @Test
+@Test
     void testCtor_false_2_oe() {
         // act
         final EmbeddedTreeLineSubset3D sub = new EmbeddedTreeLineSubset3D(testLine, false);
@@ -109,7 +109,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertTrue(sub.getSubspaceRegion().isEmpty());
     }
 
-    @Test
+@Test
     void testCtor_false_3_oe() {
         // act
         final EmbeddedTreeLineSubset3D sub = new EmbeddedTreeLineSubset3D(testLine, false);
@@ -120,7 +120,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertEquals(0, sub.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testCtor_lineAndRegion_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -132,7 +132,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertSame(testLine, sub.getLine());
     }
 
-    @Test
+@Test
     void testCtor_lineAndRegion_2_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -145,7 +145,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertSame(tree, sub.getSubspaceRegion());
     }
 
-    @Test
+@Test
     void testCtor_lineAndRegion_3_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -159,7 +159,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertEquals(0, sub.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProperties_full_1_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D full = new EmbeddedTreeLineSubset3D(testLine, true);
@@ -168,7 +168,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertTrue(full.isInfinite());
     }
 
-    @Test
+@Test
     void testProperties_full_2_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D full = new EmbeddedTreeLineSubset3D(testLine, true);
@@ -178,7 +178,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertFalse(full.isFinite());
     }
 
-    @Test
+@Test
     void testProperties_full_4_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D full = new EmbeddedTreeLineSubset3D(testLine, true);
@@ -191,7 +191,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertNull(full.getCentroid());
     }
 
-    @Test
+@Test
     void testProperties_full_5_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D full = new EmbeddedTreeLineSubset3D(testLine, true);
@@ -205,7 +205,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertNull(full.getBounds());
     }
 
-    @Test
+@Test
     void testProperties_empty_1_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D empty = new EmbeddedTreeLineSubset3D(testLine, false);
@@ -214,7 +214,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertFalse(empty.isInfinite());
     }
 
-    @Test
+@Test
     void testProperties_empty_2_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D empty = new EmbeddedTreeLineSubset3D(testLine, false);
@@ -224,7 +224,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertTrue(empty.isFinite());
     }
 
-    @Test
+@Test
     void testProperties_empty_3_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D empty = new EmbeddedTreeLineSubset3D(testLine, false);
@@ -236,7 +236,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertEquals(0, empty.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProperties_empty_4_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D empty = new EmbeddedTreeLineSubset3D(testLine, false);
@@ -249,7 +249,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertNull(empty.getCentroid());
     }
 
-    @Test
+@Test
     void testProperties_empty_5_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D empty = new EmbeddedTreeLineSubset3D(testLine, false);
@@ -263,7 +263,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertNull(empty.getBounds());
     }
 
-    @Test
+@Test
     void testProperties_half_1_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D half = new EmbeddedTreeLineSubset3D(testLine, false);
@@ -273,7 +273,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertTrue(half.isInfinite());
     }
 
-    @Test
+@Test
     void testProperties_half_2_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D half = new EmbeddedTreeLineSubset3D(testLine, false);
@@ -284,7 +284,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertFalse(half.isFinite());
     }
 
-    @Test
+@Test
     void testProperties_half_4_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D half = new EmbeddedTreeLineSubset3D(testLine, false);
@@ -298,7 +298,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertNull(half.getCentroid());
     }
 
-    @Test
+@Test
     void testProperties_half_5_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D half = new EmbeddedTreeLineSubset3D(testLine, false);
@@ -313,7 +313,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertNull(half.getBounds());
     }
 
-    @Test
+@Test
     void testProperties_finite_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, 1), Vector3D.of(1, 1, 0), TEST_PRECISION);
@@ -327,7 +327,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertFalse(sub.isInfinite());
     }
 
-    @Test
+@Test
     void testProperties_finite_2_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, 1), Vector3D.of(1, 1, 0), TEST_PRECISION);
@@ -342,7 +342,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertTrue(sub.isFinite());
     }
 
-    @Test
+@Test
     void testProperties_finite_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, 1), Vector3D.of(1, 1, 0), TEST_PRECISION);
@@ -359,7 +359,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertEquals(2 * sqrt2, sub.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTransform_full_3_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D sub = new EmbeddedTreeLineSubset3D(testLine, true);
@@ -384,7 +384,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertTrue(result.getSubspaceRegion().isFull());
     }
 
-    @Test
+@Test
     void testTransform_finite_3_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -414,7 +414,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertFalse(result.getSubspaceRegion().isFull());
     }
 
-    @Test
+@Test
     void testTransform_finite_4_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -447,7 +447,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertEquals(1, intervals.size());
     }
 
-    @Test
+@Test
     void testToConvex_full_1_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D sub = new EmbeddedTreeLineSubset3D(testLine, true);
@@ -459,7 +459,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertEquals(1, segments.size());
     }
 
-    @Test
+@Test
     void testToConvex_full_2_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D sub = new EmbeddedTreeLineSubset3D(testLine, true);
@@ -472,7 +472,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertTrue(segments.get(0).getSubspaceRegion().isFull());
     }
 
-    @Test
+@Test
     void testToConvex_finite_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -489,7 +489,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertEquals(1, segments.size());
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D sub = new EmbeddedTreeLineSubset3D(testLine);
@@ -501,7 +501,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertTrue(str.contains("EmbeddedTreeLineSubset3D[lineOrigin= "));
     }
 
-    @Test
+@Test
     void testToString_2_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D sub = new EmbeddedTreeLineSubset3D(testLine);
@@ -514,7 +514,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         Assertions.assertTrue(str.contains(", lineDirection= "));
     }
 
-    @Test
+@Test
     void testToString_3_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D sub = new EmbeddedTreeLineSubset3D(testLine);

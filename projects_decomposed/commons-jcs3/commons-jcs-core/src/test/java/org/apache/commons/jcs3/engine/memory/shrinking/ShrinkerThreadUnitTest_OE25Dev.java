@@ -77,7 +77,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
      * @throws Exception
      */
 
-    public void testCheckForRemoval_Expired_1_oe() throws IOException
+public void testCheckForRemoval_Expired_1_oe() throws IOException
     {
         // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
@@ -109,7 +109,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
         assertTrue( "Item should have expired.", result );
     }
 
-    public void testCheckForRemoval_NotExpired_1_oe() throws IOException
+public void testCheckForRemoval_NotExpired_1_oe() throws IOException
     {
         // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
@@ -141,7 +141,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
         assertFalse( "Item should not have expired.", result );
     }
 
-    public void testCheckForRemoval_IdleTooLong_1_oe() throws IOException
+public void testCheckForRemoval_IdleTooLong_1_oe() throws IOException
     {
         // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
@@ -174,7 +174,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
         assertTrue( "Item should have expired.", result );
     }
 
-    public void testCheckForRemoval_NotIdleTooLong_1_oe() throws IOException
+public void testCheckForRemoval_NotIdleTooLong_1_oe() throws IOException
     {
         // SETUP
         final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
@@ -207,7 +207,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
         assertFalse( "Item should not have expired.", result );
     }
 
-    public void testSimpleShrink_1_oe()
+public void testSimpleShrink_1_oe()
         throws Exception
     {
         // SETUP
@@ -235,7 +235,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
         assertNotNull( "We should have received an element", returnedElement1 );
     }
 
-    public void testSimpleShrink_2_oe()
+public void testSimpleShrink_2_oe()
         throws Exception
     {
         // SETUP
@@ -276,7 +276,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
         assertTrue( "Waterfall should have been called.", memory.waterfallCallCount > 0 );
     }
 
-    public void testSimpleShrink_3_oe()
+public void testSimpleShrink_3_oe()
         throws Exception
     {
         // SETUP
@@ -318,7 +318,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
         assertNull( "We not should have received an element.  It should have been spooled.", returnedElement2 );
     }
 
-    public void testSimpleShrinkMultiple_1_oe()
+public void testSimpleShrinkMultiple_1_oe()
         throws Exception
     {
         // SETUP
@@ -349,7 +349,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
     }
     }
 
-    public void testSimpleShrinkMultiple_2_oe()
+public void testSimpleShrinkMultiple_2_oe()
         throws Exception
     {
         // SETUP
@@ -391,7 +391,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
         assertEquals( "Waterfall called the wrong number of times.", 3, memory.waterfallCallCount );
     }
 
-    public void testSimpleShrinkMultiple_3_oe()
+public void testSimpleShrinkMultiple_3_oe()
         throws Exception
     {
         // SETUP
@@ -434,7 +434,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
         assertEquals( "Wrong number of elements remain.", 7, memory.getSize() );
     }
 
-    public void testSimpleShrinkMultipleWithEventHandler_1_oe()
+public void testSimpleShrinkMultipleWithEventHandler_1_oe()
         throws Exception
     {
         // SETUP
@@ -468,7 +468,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
     }
     }
 
-    public void testSimpleShrinkMultipleWithEventHandler_2_oe()
+public void testSimpleShrinkMultipleWithEventHandler_2_oe()
         throws Exception
     {
         // SETUP
@@ -513,7 +513,7 @@ public class ShrinkerThreadUnitTest_OE25Dev
         assertEquals( "Waterfall called the wrong number of times.", 3, memory.waterfallCallCount );
     }
 
-    public void testSimpleShrinkMultipleWithEventHandler_3_oe()
+public void testSimpleShrinkMultipleWithEventHandler_3_oe()
         throws Exception
     {
         // SETUP

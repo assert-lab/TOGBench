@@ -41,14 +41,14 @@ public class HtmlTreeBuilderStateTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void ensureArraysAreSorted_1_oe() {
         List<Object[]> constants = findConstantArrays(Constants.class);
         ensureSorted(constants);
         assertEquals(38, constants.size());
     }
 
-    @Test public void ensureTagSearchesAreKnownTags_1_oe() {
+@Test public void ensureTagSearchesAreKnownTags_1_oe() {
         List<Object[]> constants = findConstantArrays(Constants.class);
         for (Object[] constant : constants) {
             String[] tagNames = (String[]) constant;
@@ -60,7 +60,7 @@ public class HtmlTreeBuilderStateTest_OE25Dev {
         }
         }
 
-    @Test
+@Test
     public void nestedAnchorElements01_1_oe() {
         String html = "<html>\n" +
             "  <body>\n" +
@@ -75,7 +75,7 @@ public class HtmlTreeBuilderStateTest_OE25Dev {
         assertEquals("<html>\n" + " <head></head>\n" + " <body><a href=\"#1\"> </a>\n" + " <div>\n" + " <a href=\"#1\"> </a><a href=\"#2\">child</a>\n" + " </div>\n" + " </body>\n" + "</html>",s);
     }
 
-    @Test
+@Test
     public void nestedAnchorElements02_1_oe() {
         String html = "<html>\n" +
             "  <body>\n" +

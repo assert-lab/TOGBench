@@ -4115,3 +4115,796 @@ vfs_370_23,"    @Test
         assertTrue(map.containsKey(VersionControlledResource.CHECKED_IN.toString()));
     }
 ",Webdav4VersioningTests::testVersioningWithCreator_23_oe
+vfs_354_1,"@Test
+    public void testBasicCacheOps_1_oe() throws Exception {
+        final FilesCache cache = getManager().getFilesCache();
+        final FileObject fo = getWriteFolder().resolveFile(""dir1"");
+        final FileName fn = fo.getName();
+        final FileSystem fs = fo.getFileSystem();
+
+        cache.clear(fs);
+        assertNull(cache.getFile(fs, fn));
+    }",AbstractFilesCacheTestsBase::testBasicCacheOps_1_oe
+vfs_354_2,"@Test
+    public void testBasicCacheOps_2_oe() throws Exception {
+        final FilesCache cache = getManager().getFilesCache();
+        final FileObject fo = getWriteFolder().resolveFile(""dir1"");
+        final FileName fn = fo.getName();
+        final FileSystem fs = fo.getFileSystem();
+
+        cache.clear(fs);
+        // removed other assertion
+
+        cache.putFile(fo);
+        assertSame(fo, cache.getFile(fs, fn));
+    }",AbstractFilesCacheTestsBase::testBasicCacheOps_2_oe
+vfs_354_3,"@Test
+    public void testBasicCacheOps_3_oe() throws Exception {
+        final FilesCache cache = getManager().getFilesCache();
+        final FileObject fo = getWriteFolder().resolveFile(""dir1"");
+        final FileName fn = fo.getName();
+        final FileSystem fs = fo.getFileSystem();
+
+        cache.clear(fs);
+        // removed other assertion
+
+        cache.putFile(fo);
+        // removed other assertion
+
+        assertFalse(cache.putFileIfAbsent(fo));
+    }",AbstractFilesCacheTestsBase::testBasicCacheOps_3_oe
+vfs_354_4,"@Test
+    public void testBasicCacheOps_4_oe() throws Exception {
+        final FilesCache cache = getManager().getFilesCache();
+        final FileObject fo = getWriteFolder().resolveFile(""dir1"");
+        final FileName fn = fo.getName();
+        final FileSystem fs = fo.getFileSystem();
+
+        cache.clear(fs);
+        // removed other assertion
+
+        cache.putFile(fo);
+        // removed other assertion
+
+        // removed other assertion
+        cache.clear(fs);
+        assertNull(cache.getFile(fs, fn));
+    }",AbstractFilesCacheTestsBase::testBasicCacheOps_4_oe
+vfs_354_5,"@Test
+    public void testBasicCacheOps_5_oe() throws Exception {
+        final FilesCache cache = getManager().getFilesCache();
+        final FileObject fo = getWriteFolder().resolveFile(""dir1"");
+        final FileName fn = fo.getName();
+        final FileSystem fs = fo.getFileSystem();
+
+        cache.clear(fs);
+        // removed other assertion
+
+        cache.putFile(fo);
+        // removed other assertion
+
+        // removed other assertion
+        cache.clear(fs);
+        // removed other assertion
+        assertTrue(cache.putFileIfAbsent(fo));
+    }",AbstractFilesCacheTestsBase::testBasicCacheOps_5_oe
+vfs_354_6,"@Test
+    public void testBasicCacheOps_6_oe() throws Exception {
+        final FilesCache cache = getManager().getFilesCache();
+        final FileObject fo = getWriteFolder().resolveFile(""dir1"");
+        final FileName fn = fo.getName();
+        final FileSystem fs = fo.getFileSystem();
+
+        cache.clear(fs);
+        // removed other assertion
+
+        cache.putFile(fo);
+        // removed other assertion
+
+        // removed other assertion
+        cache.clear(fs);
+        // removed other assertion
+        // removed other assertion
+
+        cache.removeFile(fs, fn);
+        assertNull(cache.getFile(fs, fn));
+    }",AbstractFilesCacheTestsBase::testBasicCacheOps_6_oe
+vfs_354_7,"@Test
+    public void testBasicCacheOps_7_oe() throws Exception {
+        final FilesCache cache = getManager().getFilesCache();
+        final FileObject fo = getWriteFolder().resolveFile(""dir1"");
+        final FileName fn = fo.getName();
+        final FileSystem fs = fo.getFileSystem();
+
+        cache.clear(fs);
+        // removed other assertion
+
+        cache.putFile(fo);
+        // removed other assertion
+
+        // removed other assertion
+        cache.clear(fs);
+        // removed other assertion
+        // removed other assertion
+
+        cache.removeFile(fs, fn);
+        // removed other assertion
+        assertTrue(cache.putFileIfAbsent(fo));
+    }",AbstractFilesCacheTestsBase::testBasicCacheOps_7_oe
+vfs_355_1,"@Test
+    public void testClearFiles_1_oe() throws Exception {
+        final FilesCache cache = getManager().getFilesCache();
+
+        final FileObject fo1 = getWriteFolder().resolveFile(""dir1"");
+
+        // clean the cache for this file system
+        cache.clear(fo1.getFileSystem());
+        // make sure a empty cache clean does not fail
+        cache.clear(fo1.getFileSystem());
+
+        final FileObject fo2 = getWriteFolder().resolveFile(""dir1"");
+
+        assertNotSame(""Objects after cache clear should be different"", fo1, fo2);
+    }",AbstractFilesCacheTestsBase::testClearFiles_1_oe
+vfs_365_1,"@Test
+    public void testVersioning_1_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        assertSame(opts, newOpts);
+    }",WebdavVersioningTests::testVersioning_1_oe
+vfs_365_2,"@Test
+    public void testVersioning_2_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        assertTrue(builder.isVersioning(newOpts));
+    }",WebdavVersioningTests::testVersioning_2_oe
+vfs_365_3,"@Test
+    public void testVersioning_3_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        assertFalse(file.exists());
+    }",WebdavVersioningTests::testVersioning_3_oe
+vfs_365_4,"@Test
+    public void testVersioning_4_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        assertTrue(file.exists());
+    }",WebdavVersioningTests::testVersioning_4_oe
+vfs_365_5,"@Test
+    public void testVersioning_5_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        assertSame(FileType.FILE, file.getType());
+    }",WebdavVersioningTests::testVersioning_5_oe
+vfs_365_6,"@Test
+    public void testVersioning_6_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        assertTrue(file.isFile());
+    }",WebdavVersioningTests::testVersioning_6_oe
+vfs_365_7,"@Test
+    public void testVersioning_7_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, file.getContent().getSize());
+    }",WebdavVersioningTests::testVersioning_7_oe
+vfs_365_8,"@Test
+    public void testVersioning_8_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(file.getContent().isEmpty());
+    }",WebdavVersioningTests::testVersioning_8_oe
+vfs_365_9,"@Test
+    public void testVersioning_9_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(file.isExecutable());
+    }",WebdavVersioningTests::testVersioning_9_oe
+vfs_365_10,"@Test
+    public void testVersioning_10_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(file.isHidden());
+    }",WebdavVersioningTests::testVersioning_10_oe
+vfs_365_11,"@Test
+    public void testVersioning_11_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(file.isReadable());
+    }",WebdavVersioningTests::testVersioning_11_oe
+vfs_365_12,"@Test
+    public void testVersioning_12_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(file.isWriteable());
+    }",WebdavVersioningTests::testVersioning_12_oe
+vfs_365_13,"@Test
+    public void testVersioning_13_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        assertTrue(map.containsKey(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
+    }",WebdavVersioningTests::testVersioning_13_oe
+vfs_365_14,"@Test
+    public void testVersioning_14_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        if (name != null) {
+            assertEquals(name, map.get(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
+    }
+    }",WebdavVersioningTests::testVersioning_14_oe
+vfs_365_15,"@Test
+    public void testVersioning_15_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+        }
+        assertTrue(map.containsKey(VersionControlledResource.CHECKED_IN.toString()));
+    }",WebdavVersioningTests::testVersioning_15_oe
+vfs_366_1,"@Test
+    public void testVersioningWithCreator_1_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        assertSame(opts, newOpts);
+    }",WebdavVersioningTests::testVersioningWithCreator_1_oe
+vfs_366_2,"@Test
+    public void testVersioningWithCreator_2_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        assertTrue(builder.isVersioning(newOpts));
+    }",WebdavVersioningTests::testVersioningWithCreator_2_oe
+vfs_366_3,"@Test
+    public void testVersioningWithCreator_3_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        assertFalse(file.exists());
+    }",WebdavVersioningTests::testVersioningWithCreator_3_oe
+vfs_366_4,"@Test
+    public void testVersioningWithCreator_4_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        assertTrue(file.exists());
+    }",WebdavVersioningTests::testVersioningWithCreator_4_oe
+vfs_366_5,"@Test
+    public void testVersioningWithCreator_5_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        assertSame(FileType.FILE, file.getType());
+    }",WebdavVersioningTests::testVersioningWithCreator_5_oe
+vfs_366_6,"@Test
+    public void testVersioningWithCreator_6_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        assertTrue(file.isFile());
+    }",WebdavVersioningTests::testVersioningWithCreator_6_oe
+vfs_366_7,"@Test
+    public void testVersioningWithCreator_7_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, file.getContent().getSize());
+    }",WebdavVersioningTests::testVersioningWithCreator_7_oe
+vfs_366_8,"@Test
+    public void testVersioningWithCreator_8_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(file.getContent().isEmpty());
+    }",WebdavVersioningTests::testVersioningWithCreator_8_oe
+vfs_366_9,"@Test
+    public void testVersioningWithCreator_9_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(file.isExecutable());
+    }",WebdavVersioningTests::testVersioningWithCreator_9_oe
+vfs_366_10,"@Test
+    public void testVersioningWithCreator_10_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(file.isHidden());
+    }",WebdavVersioningTests::testVersioningWithCreator_10_oe
+vfs_366_11,"@Test
+    public void testVersioningWithCreator_11_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(file.isReadable());
+    }",WebdavVersioningTests::testVersioningWithCreator_11_oe
+vfs_366_12,"@Test
+    public void testVersioningWithCreator_12_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(file.isWriteable());
+    }",WebdavVersioningTests::testVersioningWithCreator_12_oe
+vfs_366_13,"@Test
+    public void testVersioningWithCreator_13_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        assertTrue(map.containsKey(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
+    }",WebdavVersioningTests::testVersioningWithCreator_13_oe
+vfs_366_14,"@Test
+    public void testVersioningWithCreator_14_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        assertEquals(""testUser"", map.get(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
+    }",WebdavVersioningTests::testVersioningWithCreator_14_oe
+vfs_366_15,"@Test
+    public void testVersioningWithCreator_15_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            assertTrue(map.containsKey(DeltaVConstants.COMMENT.toString()));
+    }
+    }",WebdavVersioningTests::testVersioningWithCreator_15_oe
+vfs_366_16,"@Test
+    public void testVersioningWithCreator_16_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+            assertEquals(""Modified by user "" + name, map.get(DeltaVConstants.COMMENT.toString()));
+    }
+    }",WebdavVersioningTests::testVersioningWithCreator_16_oe
+vfs_366_17,"@Test
+    public void testVersioningWithCreator_17_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+            // removed other assertion
+        }
+        assertTrue(map.containsKey(VersionControlledResource.CHECKED_IN.toString()));
+    }",WebdavVersioningTests::testVersioningWithCreator_17_oe

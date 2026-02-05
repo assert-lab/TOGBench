@@ -127,7 +127,7 @@ public class LockingVisitorsTest_OE25Dev {
             LockingVisitors.stampedLockVisitor(booleanValues));
     }
 
-    @Test
+@Test
     public void testResultValidation_1_oe() {
         final Object hidden = new Object();
         final StampedLockVisitor<Object> lock = LockingVisitors.stampedLockVisitor(hidden);
@@ -135,7 +135,7 @@ public class LockingVisitorsTest_OE25Dev {
         assertNotNull(o1);
     }
 
-    @Test
+@Test
     public void testResultValidation_2_oe() {
         final Object hidden = new Object();
         final StampedLockVisitor<Object> lock = LockingVisitors.stampedLockVisitor(hidden);
@@ -144,7 +144,7 @@ public class LockingVisitorsTest_OE25Dev {
         assertNotSame(hidden, o1);
     }
 
-    @Test
+@Test
     public void testResultValidation_3_oe() {
         final Object hidden = new Object();
         final StampedLockVisitor<Object> lock = LockingVisitors.stampedLockVisitor(hidden);
@@ -155,7 +155,7 @@ public class LockingVisitorsTest_OE25Dev {
         assertNotNull(o2);
     }
 
-    @Test
+@Test
     public void testResultValidation_4_oe() {
         final Object hidden = new Object();
         final StampedLockVisitor<Object> lock = LockingVisitors.stampedLockVisitor(hidden);

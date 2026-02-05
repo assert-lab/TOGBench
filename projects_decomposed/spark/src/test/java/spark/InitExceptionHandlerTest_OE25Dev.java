@@ -27,7 +27,7 @@ public class InitExceptionHandlerTest_OE25Dev {
         service.stop();
     }
 
-    @Test
+@Test
     public void testInitExceptionHandler_1_oe() throws Exception {
         Assert.assertEquals("Custom init error", errorMessage);
     }

@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ValidateTest_OE25Dev {
 
-    @Test
+@Test
     public void testNotNull_1_oe() {
         Validate.notNull("foo");
         boolean threw = false;
@@ -19,7 +19,7 @@ public class ValidateTest_OE25Dev {
         Assertions.assertTrue(threw);
     }
 
-    @Test void stacktraceFiltersOutValidateClass_1_oe() {
+@Test void stacktraceFiltersOutValidateClass_1_oe() {
         boolean threw = false;
         try {
             Validate.notNull(null);
@@ -29,7 +29,7 @@ public class ValidateTest_OE25Dev {
         }
         }
 
-    @Test void stacktraceFiltersOutValidateClass_2_oe() {
+@Test void stacktraceFiltersOutValidateClass_2_oe() {
         boolean threw = false;
         try {
             Validate.notNull(null);
@@ -43,7 +43,7 @@ public class ValidateTest_OE25Dev {
         }
         }
 
-    @Test void stacktraceFiltersOutValidateClass_3_oe() {
+@Test void stacktraceFiltersOutValidateClass_3_oe() {
         boolean threw = false;
         try {
             Validate.notNull(null);
@@ -58,7 +58,7 @@ public class ValidateTest_OE25Dev {
         }
         }
 
-    @Test void stacktraceFiltersOutValidateClass_4_oe() {
+@Test void stacktraceFiltersOutValidateClass_4_oe() {
         boolean threw = false;
         try {
             Validate.notNull(null);
@@ -74,7 +74,7 @@ public class ValidateTest_OE25Dev {
         Assertions.assertTrue(threw);
         }
 
-    @Test void nonnullParam_1_oe() {
+@Test void nonnullParam_1_oe() {
         boolean threw = true;
         try {
             Validate.notNullParam(null, "foo");
@@ -83,7 +83,7 @@ public class ValidateTest_OE25Dev {
         }
         }
 
-    @Test void nonnullParam_2_oe() {
+@Test void nonnullParam_2_oe() {
         boolean threw = true;
         try {
             Validate.notNullParam(null, "foo");

@@ -53,40 +53,40 @@ public class ModularRuntimeImageTestCase_OE25Dev {
         this.modularRuntimeImage = new ModularRuntimeImage(javaHome);
     }
 
-    @Test
+@Test
     public void testListJreModules_1_oe() throws IOException {
         final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.MODULES_PATH);
         Assert.assertFalse(listEntries.isEmpty());
     }
 
-    @Test
+@Test
     public void testListJreModules_2_oe() throws IOException {
         final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.MODULES_PATH);
         // removed other assertion
         Assert.assertTrue(listEntries.toString().indexOf("/java.base") > -1);
     }
 
-    @Test
+@Test
     public void testListJreModule_1_oe() throws IOException {
         final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.MODULES_PATH + "/java.base");
         Assert.assertFalse(listEntries.isEmpty());
     }
 
-    @Test
+@Test
     public void testListJreModule_2_oe() throws IOException {
         final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.MODULES_PATH + "/java.base");
         // removed other assertion
         Assert.assertTrue(listEntries.toString().indexOf("/java.base") > -1);
     }
 
-    @Test
+@Test
     public void testListJreModulePackageDir_1_oe() throws IOException {
         final List<Path> listEntries = modularRuntimeImage
                 .list(ModularRuntimeImage.MODULES_PATH + "/java.base/java/lang");
         Assert.assertFalse(listEntries.isEmpty());
     }
 
-    @Test
+@Test
     public void testListJreModulePackageDir_2_oe() throws IOException {
         final List<Path> listEntries = modularRuntimeImage
                 .list(ModularRuntimeImage.MODULES_PATH + "/java.base/java/lang");
@@ -94,13 +94,13 @@ public class ModularRuntimeImageTestCase_OE25Dev {
         Assert.assertTrue(listEntries.toString().indexOf("/java.base/java/lang/String.class") > -1);
     }
 
-    @Test
+@Test
     public void testListJrePackages_1_oe() throws IOException {
         final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.PACKAGES_PATH);
         Assert.assertFalse(listEntries.isEmpty());
     }
 
-    @Test
+@Test
     public void testListJrePackages_2_oe() throws IOException {
         final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.PACKAGES_PATH);
         // removed other assertion

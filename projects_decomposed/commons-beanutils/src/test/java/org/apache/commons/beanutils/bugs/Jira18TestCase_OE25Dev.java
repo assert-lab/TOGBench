@@ -146,7 +146,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
      * for mapped properties.
      */
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_isReadable_1_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_isReadable_1_oe() {
         boolean result = false;
         try {
             result = PropertyUtils.isReadable(bean, "simple");
@@ -156,7 +156,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_isReadable_2_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_isReadable_2_oe() {
         boolean result = false;
         try {
             result = PropertyUtils.isReadable(bean, "simple");
@@ -167,7 +167,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
         assertFalse("PropertyUtils.isReadable(bean, \"simple\") returned true", result);
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_isWriteable_1_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_isWriteable_1_oe() {
         boolean result = false;
         try {
             result = PropertyUtils.isWriteable(bean, "simple");
@@ -177,7 +177,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_isWriteable_2_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_isWriteable_2_oe() {
         boolean result = false;
         try {
             result = PropertyUtils.isWriteable(bean, "simple");
@@ -188,7 +188,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
         assertFalse("PropertyUtils.isWriteable(bean, \"simple\") returned true", result);
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_isReadable_Indexed_1_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_isReadable_Indexed_1_oe() {
         boolean result = false;
         try {
             result = PropertyUtils.isReadable(bean, "indexed");
@@ -198,7 +198,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_isReadable_Indexed_2_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_isReadable_Indexed_2_oe() {
         boolean result = false;
         try {
             result = PropertyUtils.isReadable(bean, "indexed");
@@ -209,7 +209,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
         assertFalse("PropertyUtils.isReadable(bean, \"indexed\") returned true", result);
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_isWriteable_Indexed_1_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_isWriteable_Indexed_1_oe() {
         boolean result = false;
         try {
             result = PropertyUtils.isWriteable(bean, "indexed");
@@ -219,7 +219,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_isWriteable_Indexed_2_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_isWriteable_Indexed_2_oe() {
         boolean result = false;
         try {
             result = PropertyUtils.isWriteable(bean, "indexed");
@@ -230,7 +230,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
         assertFalse("PropertyUtils.isWriteable(bean, \"indexed\") returned true", result);
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_isReadable_Mapped_1_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_isReadable_Mapped_1_oe() {
         boolean result = false;
         try {
             result = PropertyUtils.isReadable(bean, "mapped");
@@ -240,7 +240,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_isReadable_Mapped_2_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_isReadable_Mapped_2_oe() {
         boolean result = false;
         try {
             result = PropertyUtils.isReadable(bean, "mapped");
@@ -251,7 +251,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
         assertFalse("PropertyUtils.isReadable(bean, \"mapped\") returned true", result);
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_isWriteable_Mapped_1_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_isWriteable_Mapped_1_oe() {
         boolean result = false;
         try {
             result = PropertyUtils.isWriteable(bean, "mapped");
@@ -261,7 +261,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_isWriteable_Mapped_2_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_isWriteable_Mapped_2_oe() {
         boolean result = false;
         try {
             result = PropertyUtils.isWriteable(bean, "mapped");
@@ -272,7 +272,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
         assertFalse("PropertyUtils.isWriteable(bean, \"mapped\") returned true", result);
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_getProperty_1_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_getProperty_1_oe() {
         boolean threwNoSuchMethodException = false;
         Object result = null;
         try {
@@ -285,7 +285,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_getProperty_2_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_getProperty_2_oe() {
         boolean threwNoSuchMethodException = false;
         Object result = null;
         try {
@@ -299,7 +299,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
         assertTrue("Expected NoSuchMethodException but returned '" + result + "'", threwNoSuchMethodException);
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_setProperty_1_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_setProperty_1_oe() {
         boolean threwNoSuchMethodException = false;
         try {
             PropertyUtils.setProperty(bean, "simple", "BAR");
@@ -311,7 +311,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_setProperty_2_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_setProperty_2_oe() {
         boolean threwNoSuchMethodException = false;
         try {
             PropertyUtils.setProperty(bean, "simple", "BAR");
@@ -324,7 +324,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
         assertTrue("Expected NoSuchMethodException", threwNoSuchMethodException);
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_getProperty_Indexed_1_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_getProperty_Indexed_1_oe() {
         boolean threwNoSuchMethodException = false;
         Object result = null;
         try {
@@ -337,7 +337,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_getProperty_Indexed_2_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_getProperty_Indexed_2_oe() {
         boolean threwNoSuchMethodException = false;
         Object result = null;
         try {
@@ -351,7 +351,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
         assertTrue("Expected NoSuchMethodException but returned '" + result + "'", threwNoSuchMethodException);
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_setProperty_Indexed_1_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_setProperty_Indexed_1_oe() {
         boolean threwNoSuchMethodException = false;
         try {
             PropertyUtils.setProperty(bean, "indexed[0]", "BAR");
@@ -363,7 +363,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_setProperty_Indexed_2_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_setProperty_Indexed_2_oe() {
         boolean threwNoSuchMethodException = false;
         try {
             PropertyUtils.setProperty(bean, "indexed[0]", "BAR");
@@ -376,7 +376,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
         assertTrue("Expected NoSuchMethodException", threwNoSuchMethodException);
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_getProperty_Mapped_1_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_getProperty_Mapped_1_oe() {
         boolean threwNoSuchMethodException = false;
         Object result = null;
         try {
@@ -389,7 +389,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_getProperty_Mapped_2_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_getProperty_Mapped_2_oe() {
         boolean threwNoSuchMethodException = false;
         Object result = null;
         try {
@@ -403,7 +403,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
         assertTrue("Expected NoSuchMethodException but returned '" + result + "'", threwNoSuchMethodException);
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_setProperty_Mapped_1_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_setProperty_Mapped_1_oe() {
         boolean threwNoSuchMethodException = false;
         try {
             PropertyUtils.setProperty(bean, "mapped(foo-key)", "BAR");
@@ -415,7 +415,7 @@ public class Jira18TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_18_PropertyUtils_setProperty_Mapped_2_oe() {
+public void testIssue_BEANUTILS_18_PropertyUtils_setProperty_Mapped_2_oe() {
         boolean threwNoSuchMethodException = false;
         try {
             PropertyUtils.setProperty(bean, "mapped(foo-key)", "BAR");

@@ -236,7 +236,7 @@ public class JSONTokenerTest_OE25Dev {
      * with different new line combinations.
      */
 
-    @Test
+@Test
     public void testNextBackComboWithNewLines_1_oe() {
         final String testString = "this is\nA test\r\nWith some different\rNew Lines";
         //                         ^       ^         ^                    ^
@@ -245,7 +245,7 @@ public class JSONTokenerTest_OE25Dev {
         assertEquals(" at 0 [character 1 line 1]", tokener.toString());
     }
 
-    @Test
+@Test
     public void testNextBackComboWithNewLines_2_oe() {
         final String testString = "this is\nA test\r\nWith some different\rNew Lines";
         //                         ^       ^         ^                    ^
@@ -255,7 +255,7 @@ public class JSONTokenerTest_OE25Dev {
         assertEquals('t',tokener.next());
     }
 
-    @Test
+@Test
     public void testNextBackComboWithNewLines_4_oe() {
         final String testString = "this is\nA test\r\nWith some different\rNew Lines";
         //                         ^       ^         ^                    ^
@@ -268,7 +268,7 @@ public class JSONTokenerTest_OE25Dev {
         assertEquals("skipTo() improperly modifying indexes"," at 7 [character 8 line 1]", tokener.toString());
     }
 
-    @Test
+@Test
     public void testNextBackComboWithNewLines_5_oe() {
         final String testString = "this is\nA test\r\nWith some different\rNew Lines";
         //                         ^       ^         ^                    ^

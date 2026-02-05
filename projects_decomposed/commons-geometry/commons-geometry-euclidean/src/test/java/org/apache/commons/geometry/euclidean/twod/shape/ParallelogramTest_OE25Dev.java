@@ -41,7 +41,7 @@ class ParallelogramTest_OE25Dev {
         EuclideanTestUtils.assertCoordinatesEqual(end, segment.getEndPoint(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testUnitSquare_1_oe() {
         // act
         final Parallelogram box = Parallelogram.unitSquare(TEST_PRECISION);
@@ -50,7 +50,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(1, box.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testUnitSquare_2_oe() {
         // act
         final Parallelogram box = Parallelogram.unitSquare(TEST_PRECISION);
@@ -60,7 +60,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(4, box.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testUnitSquare_4_oe() {
         // act
         final Parallelogram box = Parallelogram.unitSquare(TEST_PRECISION);
@@ -74,7 +74,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(4, vertices.size());
     }
 
-    @Test
+@Test
     void testFromTransformedUnitSquare_1_oe() {
         // arrange
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.of(1, 0))
@@ -91,7 +91,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(2, p.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromTransformedUnitSquare_2_oe() {
         // arrange
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.of(1, 0))
@@ -109,7 +109,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(4 * Math.sqrt(2.5), p.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromTransformedUnitSquare_4_oe() {
         // arrange
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.of(1, 0))
@@ -131,7 +131,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(4, vertices.size());
     }
 
-    @Test
+@Test
     void testFromTransformedUnitSquare_transformDoesNotPreserveOrientation_1_oe() {
         // arrange
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.of(1, 0))
@@ -148,7 +148,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(2, p.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromTransformedUnitSquare_transformDoesNotPreserveOrientation_2_oe() {
         // arrange
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.of(1, 0))
@@ -166,7 +166,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(4 * Math.sqrt(2.5), p.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromTransformedUnitSquare_transformDoesNotPreserveOrientation_4_oe() {
         // arrange
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.of(1, 0))
@@ -188,13 +188,13 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(4, vertices.size());
     }
 
-    @Test
+@Test
     void testFromTransformedUnitSquare_zeroSizeRegion_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.fromTransformedUnitSquare(AffineTransformMatrix2D.createScale(Vector2D.of(1e-16, 1)), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFromTransformedUnitSquare_zeroSizeRegion_2_oe() {
         // act/assert
         // removed other assertion
@@ -202,7 +202,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.fromTransformedUnitSquare(AffineTransformMatrix2D.createScale(Vector2D.of(1, 1e-16)), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testAxisAligned_minFirst_1_oe() {
         // act
         final Parallelogram box = Parallelogram.axisAligned(Vector2D.of(1, 2), Vector2D.of(3, 4), TEST_PRECISION);
@@ -211,7 +211,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(1, box.getBoundaryPaths().size());
     }
 
-    @Test
+@Test
     void testAxisAligned_minFirst_2_oe() {
         // act
         final Parallelogram box = Parallelogram.axisAligned(Vector2D.of(1, 2), Vector2D.of(3, 4), TEST_PRECISION);
@@ -224,7 +224,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testAxisAligned_maxFirst_1_oe() {
         // act
         final Parallelogram box = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(-1, -2), TEST_PRECISION);
@@ -233,7 +233,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(1, box.getBoundaryPaths().size());
     }
 
-    @Test
+@Test
     void testAxisAligned_maxFirst_2_oe() {
         // act
         final Parallelogram box = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(-1, -2), TEST_PRECISION);
@@ -246,14 +246,14 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testAxisAligned_illegalArgs_1_oe() {
         // act/assert
 
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(1, 3), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testAxisAligned_illegalArgs_2_oe() {
         // act/assert
 
@@ -261,7 +261,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(3, 1), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testAxisAligned_illegalArgs_3_oe() {
         // act/assert
 
@@ -270,7 +270,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.axisAligned(Vector2D.of(2, 3), Vector2D.of(2, 3), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testBuilder_defaultValues_1_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
@@ -282,7 +282,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(1, p.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBuilder_defaultValues_2_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
@@ -295,7 +295,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(4, p.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBuilder_defaultValues_4_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
@@ -312,7 +312,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(4, vertices.size());
     }
 
-    @Test
+@Test
     void testBuilder_rotatedRect_withXDirection_1_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
@@ -328,7 +328,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(2, p.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBuilder_rotatedRect_withXDirection_2_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
@@ -345,7 +345,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(6, p.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBuilder_rotatedRect_withXDirection_4_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
@@ -366,7 +366,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(4, vertices.size());
     }
 
-    @Test
+@Test
     void testBuilder_rotatedRect_withYDirection_1_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
@@ -382,7 +382,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(2, p.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBuilder_rotatedRect_withYDirection_2_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
@@ -399,7 +399,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(6, p.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBuilder_rotatedRect_withYDirection_4_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
@@ -420,7 +420,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(4, vertices.size());
     }
 
-    @Test
+@Test
     void testBuilder_rotatedRect_withRotation_1_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
@@ -436,7 +436,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(4, p.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBuilder_rotatedRect_withRotation_2_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
@@ -453,7 +453,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(8, p.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBuilder_rotatedRect_withRotation_4_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
@@ -474,7 +474,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertEquals(4, vertices.size());
     }
 
-    @Test
+@Test
     void testToTree_1_oe() {
         // act
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(1, 4), TEST_PRECISION)
@@ -484,7 +484,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_2_oe() {
         // act
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(1, 4), TEST_PRECISION)
@@ -495,7 +495,7 @@ class ParallelogramTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testToTree_3_oe() {
         // act
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(1, 4), TEST_PRECISION)

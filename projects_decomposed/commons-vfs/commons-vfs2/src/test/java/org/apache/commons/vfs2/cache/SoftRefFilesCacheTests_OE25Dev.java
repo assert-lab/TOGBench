@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class SoftRefFilesCacheTests_OE25Dev extends AbstractFilesCacheTestsBase {
 
-    @Test
+@Test
     public void testFilesCache_1_oe() throws Exception {
         final FileObject scratchFolder = getWriteFolder();
 
@@ -35,7 +35,7 @@ public class SoftRefFilesCacheTests_OE25Dev extends AbstractFilesCacheTestsBase 
         assertSame(dir1, dir1_2);
     }
 
-    @Test
+@Test
     public void testFilesCacheClass_1_oe() {
         assertTrue(getManager().getFilesCache() instanceof SoftRefFilesCache);
     }

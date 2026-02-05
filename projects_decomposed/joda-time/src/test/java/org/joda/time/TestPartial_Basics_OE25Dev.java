@@ -355,47 +355,47 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(test.toString(),min,test.get(DateTimeFieldType.minuteOfHour()));
     }
 
-    public void testGet_1_oe() {
+public void testGet_1_oe() {
         Partial test = createHourMinPartial();
         assertEquals(10,test.get(DateTimeFieldType.hourOfDay()));
     }
 
-    public void testGet_2_oe() {
+public void testGet_2_oe() {
         Partial test = createHourMinPartial();
         // removed other assertion
         assertEquals(20,test.get(DateTimeFieldType.minuteOfHour()));
     }
 
-    public void testSize_1_oe() {
+public void testSize_1_oe() {
         Partial test = createHourMinPartial();
         assertEquals(2,test.size());
     }
 
-    public void testGetFieldType_1_oe() {
+public void testGetFieldType_1_oe() {
         Partial test = createHourMinPartial();
         assertSame(DateTimeFieldType.hourOfDay(),test.getFieldType(0));
     }
 
-    public void testGetFieldType_2_oe() {
+public void testGetFieldType_2_oe() {
         Partial test = createHourMinPartial();
         // removed other assertion
         assertSame(DateTimeFieldType.minuteOfHour(),test.getFieldType(1));
     }
 
-    public void testGetFieldTypes_1_oe() {
+public void testGetFieldTypes_1_oe() {
         Partial test = createHourMinPartial();
         DateTimeFieldType[] fields = test.getFieldTypes();
         assertEquals(2,fields.length);
     }
 
-    public void testGetFieldTypes_2_oe() {
+public void testGetFieldTypes_2_oe() {
         Partial test = createHourMinPartial();
         DateTimeFieldType[] fields = test.getFieldTypes();
         // removed other assertion
         assertSame(DateTimeFieldType.hourOfDay(),fields[0]);
     }
 
-    public void testGetFieldTypes_3_oe() {
+public void testGetFieldTypes_3_oe() {
         Partial test = createHourMinPartial();
         DateTimeFieldType[] fields = test.getFieldTypes();
         // removed other assertion
@@ -403,7 +403,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertSame(DateTimeFieldType.minuteOfHour(),fields[1]);
     }
 
-    public void testGetFieldTypes_4_oe() {
+public void testGetFieldTypes_4_oe() {
         Partial test = createHourMinPartial();
         DateTimeFieldType[] fields = test.getFieldTypes();
         // removed other assertion
@@ -412,31 +412,31 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertNotSame(test.getFieldTypes(),test.getFieldTypes());
     }
 
-    public void testGetField_1_oe() {
+public void testGetField_1_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         assertSame(CopticChronology.getInstanceUTC().hourOfDay(),test.getField(0));
     }
 
-    public void testGetField_2_oe() {
+public void testGetField_2_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
         assertSame(CopticChronology.getInstanceUTC().minuteOfHour(),test.getField(1));
     }
 
-    public void testGetFields_1_oe() {
+public void testGetFields_1_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         DateTimeField[] fields = test.getFields();
         assertEquals(2,fields.length);
     }
 
-    public void testGetFields_2_oe() {
+public void testGetFields_2_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         DateTimeField[] fields = test.getFields();
         // removed other assertion
         assertSame(CopticChronology.getInstanceUTC().hourOfDay(),fields[0]);
     }
 
-    public void testGetFields_3_oe() {
+public void testGetFields_3_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         DateTimeField[] fields = test.getFields();
         // removed other assertion
@@ -444,7 +444,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertSame(CopticChronology.getInstanceUTC().minuteOfHour(),fields[1]);
     }
 
-    public void testGetFields_4_oe() {
+public void testGetFields_4_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         DateTimeField[] fields = test.getFields();
         // removed other assertion
@@ -453,31 +453,31 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertNotSame(test.getFields(),test.getFields());
     }
 
-    public void testGetValue_1_oe() {
+public void testGetValue_1_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         assertEquals(10,test.getValue(0));
     }
 
-    public void testGetValue_2_oe() {
+public void testGetValue_2_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
         assertEquals(20,test.getValue(1));
     }
 
-    public void testGetValues_1_oe() {
+public void testGetValues_1_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         int[] values = test.getValues();
         assertEquals(2,values.length);
     }
 
-    public void testGetValues_2_oe() {
+public void testGetValues_2_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         int[] values = test.getValues();
         // removed other assertion
         assertEquals(10,values[0]);
     }
 
-    public void testGetValues_3_oe() {
+public void testGetValues_3_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         int[] values = test.getValues();
         // removed other assertion
@@ -485,7 +485,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(20,values[1]);
     }
 
-    public void testGetValues_4_oe() {
+public void testGetValues_4_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         int[] values = test.getValues();
         // removed other assertion
@@ -494,25 +494,25 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertNotSame(test.getValues(),test.getValues());
     }
 
-    public void testIsSupported_1_oe() {
+public void testIsSupported_1_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         assertEquals(true,test.isSupported(DateTimeFieldType.hourOfDay()));
     }
 
-    public void testIsSupported_2_oe() {
+public void testIsSupported_2_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
         assertEquals(true,test.isSupported(DateTimeFieldType.minuteOfHour()));
     }
 
-    public void testIsSupported_3_oe() {
+public void testIsSupported_3_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
         assertEquals(false,test.isSupported(DateTimeFieldType.secondOfMinute()));
     }
 
-    public void testIsSupported_4_oe() {
+public void testIsSupported_4_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
@@ -520,7 +520,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isSupported(DateTimeFieldType.millisOfSecond()));
     }
 
-    public void testIsSupported_5_oe() {
+public void testIsSupported_5_oe() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
@@ -529,20 +529,20 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isSupported(DateTimeFieldType.dayOfMonth()));
     }
 
-    public void testEqualsHashCode_1_oe() {
+public void testEqualsHashCode_1_oe() {
         Partial test1 = createHourMinPartial(COPTIC_PARIS);
         Partial test2 = createHourMinPartial(COPTIC_PARIS);
         assertEquals(true,test1.equals(test2));
     }
 
-    public void testEqualsHashCode_2_oe() {
+public void testEqualsHashCode_2_oe() {
         Partial test1 = createHourMinPartial(COPTIC_PARIS);
         Partial test2 = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
         assertEquals(true,test2.equals(test1));
     }
 
-    public void testEqualsHashCode_3_oe() {
+public void testEqualsHashCode_3_oe() {
         Partial test1 = createHourMinPartial(COPTIC_PARIS);
         Partial test2 = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
@@ -550,7 +550,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.equals(test1));
     }
 
-    public void testEqualsHashCode_4_oe() {
+public void testEqualsHashCode_4_oe() {
         Partial test1 = createHourMinPartial(COPTIC_PARIS);
         Partial test2 = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
@@ -559,7 +559,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.equals(test2));
     }
 
-    public void testEqualsHashCode_5_oe() {
+public void testEqualsHashCode_5_oe() {
         Partial test1 = createHourMinPartial(COPTIC_PARIS);
         Partial test2 = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
@@ -569,7 +569,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test2.hashCode());
     }
 
-    public void testEqualsHashCode_6_oe() {
+public void testEqualsHashCode_6_oe() {
         Partial test1 = createHourMinPartial(COPTIC_PARIS);
         Partial test2 = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
@@ -580,7 +580,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test1.hashCode());
     }
 
-    public void testEqualsHashCode_7_oe() {
+public void testEqualsHashCode_7_oe() {
         Partial test1 = createHourMinPartial(COPTIC_PARIS);
         Partial test2 = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
@@ -592,7 +592,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.hashCode()== test2.hashCode());
     }
 
-    public void testEqualsHashCode_8_oe() {
+public void testEqualsHashCode_8_oe() {
         Partial test1 = createHourMinPartial(COPTIC_PARIS);
         Partial test2 = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
@@ -607,7 +607,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals(test3));
     }
 
-    public void testEqualsHashCode_9_oe() {
+public void testEqualsHashCode_9_oe() {
         Partial test1 = createHourMinPartial(COPTIC_PARIS);
         Partial test2 = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
@@ -623,7 +623,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.equals(test3));
     }
 
-    public void testEqualsHashCode_10_oe() {
+public void testEqualsHashCode_10_oe() {
         Partial test1 = createHourMinPartial(COPTIC_PARIS);
         Partial test2 = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
@@ -640,7 +640,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.equals(test1));
     }
 
-    public void testEqualsHashCode_11_oe() {
+public void testEqualsHashCode_11_oe() {
         Partial test1 = createHourMinPartial(COPTIC_PARIS);
         Partial test2 = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
@@ -658,7 +658,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.equals(test2));
     }
 
-    public void testEqualsHashCode_12_oe() {
+public void testEqualsHashCode_12_oe() {
         Partial test1 = createHourMinPartial(COPTIC_PARIS);
         Partial test2 = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
@@ -677,7 +677,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.hashCode()== test3.hashCode());
     }
 
-    public void testEqualsHashCode_13_oe() {
+public void testEqualsHashCode_13_oe() {
         Partial test1 = createHourMinPartial(COPTIC_PARIS);
         Partial test2 = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
@@ -697,7 +697,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.hashCode()== test3.hashCode());
     }
 
-    public void testEqualsHashCode_14_oe() {
+public void testEqualsHashCode_14_oe() {
         Partial test1 = createHourMinPartial(COPTIC_PARIS);
         Partial test2 = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
@@ -719,7 +719,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals("Hello"));
     }
 
-    public void testEqualsHashCode_15_oe() {
+public void testEqualsHashCode_15_oe() {
         Partial test1 = createHourMinPartial(COPTIC_PARIS);
         Partial test2 = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
@@ -742,7 +742,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals(MockPartial.EMPTY_INSTANCE));
     }
 
-    public void testEqualsHashCode_16_oe() {
+public void testEqualsHashCode_16_oe() {
         Partial test1 = createHourMinPartial(COPTIC_PARIS);
         Partial test2 = createHourMinPartial(COPTIC_PARIS);
         // removed other assertion
@@ -766,20 +766,20 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(new TimeOfDay(10,20,30,40),createTODPartial(ISO_UTC));
     }
 
-    public void testCompareTo_1_oe() {
+public void testCompareTo_1_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         assertEquals(0,test1.compareTo(test1a));
     }
 
-    public void testCompareTo_2_oe() {
+public void testCompareTo_2_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
         assertEquals(0,test1a.compareTo(test1));
     }
 
-    public void testCompareTo_3_oe() {
+public void testCompareTo_3_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -787,7 +787,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(0,test1.compareTo(test1));
     }
 
-    public void testCompareTo_4_oe() {
+public void testCompareTo_4_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -796,7 +796,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(0,test1a.compareTo(test1a));
     }
 
-    public void testCompareTo_5_oe() {
+public void testCompareTo_5_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -808,7 +808,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(-1,test1.compareTo(test2));
     }
 
-    public void testCompareTo_6_oe() {
+public void testCompareTo_6_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -821,7 +821,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(+1,test2.compareTo(test1));
     }
 
-    public void testCompareTo_7_oe() {
+public void testCompareTo_7_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -837,7 +837,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(-1,test1.compareTo(test3));
     }
 
-    public void testCompareTo_8_oe() {
+public void testCompareTo_8_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -854,7 +854,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(+1,test3.compareTo(test1));
     }
 
-    public void testCompareTo_9_oe() {
+public void testCompareTo_9_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -872,7 +872,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(0,test3.compareTo(test2));
     }
 
-    public void testCompareTo_10_oe() {
+public void testCompareTo_10_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -892,20 +892,20 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(0,new TimeOfDay(10,20,30,40).compareTo(createTODPartial(ISO_UTC)));
     }
 
-    public void testIsEqual_TOD_1_oe() {
+public void testIsEqual_TOD_1_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         assertEquals(true,test1.isEqual(test1a));
     }
 
-    public void testIsEqual_TOD_2_oe() {
+public void testIsEqual_TOD_2_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
         assertEquals(true,test1a.isEqual(test1));
     }
 
-    public void testIsEqual_TOD_3_oe() {
+public void testIsEqual_TOD_3_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -913,7 +913,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.isEqual(test1));
     }
 
-    public void testIsEqual_TOD_4_oe() {
+public void testIsEqual_TOD_4_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -922,7 +922,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1a.isEqual(test1a));
     }
 
-    public void testIsEqual_TOD_5_oe() {
+public void testIsEqual_TOD_5_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -934,7 +934,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isEqual(test2));
     }
 
-    public void testIsEqual_TOD_6_oe() {
+public void testIsEqual_TOD_6_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -947,7 +947,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.isEqual(test1));
     }
 
-    public void testIsEqual_TOD_7_oe() {
+public void testIsEqual_TOD_7_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -963,7 +963,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isEqual(test3));
     }
 
-    public void testIsEqual_TOD_8_oe() {
+public void testIsEqual_TOD_8_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -980,7 +980,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.isEqual(test1));
     }
 
-    public void testIsEqual_TOD_9_oe() {
+public void testIsEqual_TOD_9_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -998,20 +998,20 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,test3.isEqual(test2));
     }
 
-    public void testIsBefore_TOD_1_oe() {
+public void testIsBefore_TOD_1_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         assertEquals(false,test1.isBefore(test1a));
     }
 
-    public void testIsBefore_TOD_2_oe() {
+public void testIsBefore_TOD_2_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
         assertEquals(false,test1a.isBefore(test1));
     }
 
-    public void testIsBefore_TOD_3_oe() {
+public void testIsBefore_TOD_3_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -1019,7 +1019,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isBefore(test1));
     }
 
-    public void testIsBefore_TOD_4_oe() {
+public void testIsBefore_TOD_4_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -1028,7 +1028,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1a.isBefore(test1a));
     }
 
-    public void testIsBefore_TOD_5_oe() {
+public void testIsBefore_TOD_5_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -1040,7 +1040,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.isBefore(test2));
     }
 
-    public void testIsBefore_TOD_6_oe() {
+public void testIsBefore_TOD_6_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -1053,7 +1053,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.isBefore(test1));
     }
 
-    public void testIsBefore_TOD_7_oe() {
+public void testIsBefore_TOD_7_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -1069,7 +1069,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.isBefore(test3));
     }
 
-    public void testIsBefore_TOD_8_oe() {
+public void testIsBefore_TOD_8_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -1086,7 +1086,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.isBefore(test1));
     }
 
-    public void testIsBefore_TOD_9_oe() {
+public void testIsBefore_TOD_9_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -1104,20 +1104,20 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.isBefore(test2));
     }
 
-    public void testIsAfter_TOD_1_oe() {
+public void testIsAfter_TOD_1_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         assertEquals(false,test1.isAfter(test1a));
     }
 
-    public void testIsAfter_TOD_2_oe() {
+public void testIsAfter_TOD_2_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
         assertEquals(false,test1a.isAfter(test1));
     }
 
-    public void testIsAfter_TOD_3_oe() {
+public void testIsAfter_TOD_3_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -1125,7 +1125,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isAfter(test1));
     }
 
-    public void testIsAfter_TOD_4_oe() {
+public void testIsAfter_TOD_4_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -1134,7 +1134,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1a.isAfter(test1a));
     }
 
-    public void testIsAfter_TOD_5_oe() {
+public void testIsAfter_TOD_5_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -1146,7 +1146,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isAfter(test2));
     }
 
-    public void testIsAfter_TOD_6_oe() {
+public void testIsAfter_TOD_6_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -1159,7 +1159,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.isAfter(test1));
     }
 
-    public void testIsAfter_TOD_7_oe() {
+public void testIsAfter_TOD_7_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -1175,7 +1175,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isAfter(test3));
     }
 
-    public void testIsAfter_TOD_8_oe() {
+public void testIsAfter_TOD_8_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -1192,7 +1192,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,test3.isAfter(test1));
     }
 
-    public void testIsAfter_TOD_9_oe() {
+public void testIsAfter_TOD_9_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
         // removed other assertion
@@ -1210,14 +1210,14 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.isAfter(test2));
     }
 
-    public void testWithChronologyRetainFields_Chrono_1_oe() {
+public void testWithChronologyRetainFields_Chrono_1_oe() {
         Partial base = createHourMinPartial(COPTIC_PARIS);
         Partial test = base.withChronologyRetainFields(BUDDHIST_TOKYO);
         check(base, 10, 20);
         assertEquals(COPTIC_UTC,base.getChronology());
     }
 
-    public void testWithChronologyRetainFields_Chrono_2_oe() {
+public void testWithChronologyRetainFields_Chrono_2_oe() {
         Partial base = createHourMinPartial(COPTIC_PARIS);
         Partial test = base.withChronologyRetainFields(BUDDHIST_TOKYO);
         check(base, 10, 20);
@@ -1226,20 +1226,20 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(BUDDHIST_UTC,test.getChronology());
     }
 
-    public void testWithChronologyRetainFields_sameChrono_1_oe() {
+public void testWithChronologyRetainFields_sameChrono_1_oe() {
         Partial base = createHourMinPartial(COPTIC_PARIS);
         Partial test = base.withChronologyRetainFields(COPTIC_TOKYO);
         assertSame(base,test);
     }
 
-    public void testWithChronologyRetainFields_nullChrono_1_oe() {
+public void testWithChronologyRetainFields_nullChrono_1_oe() {
         Partial base = createHourMinPartial(COPTIC_PARIS);
         Partial test = base.withChronologyRetainFields(null);
         check(base, 10, 20);
         assertEquals(COPTIC_UTC,base.getChronology());
     }
 
-    public void testWithChronologyRetainFields_nullChrono_2_oe() {
+public void testWithChronologyRetainFields_nullChrono_2_oe() {
         Partial base = createHourMinPartial(COPTIC_PARIS);
         Partial test = base.withChronologyRetainFields(null);
         check(base, 10, 20);
@@ -1248,14 +1248,14 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testWith3a_1_oe() {
+public void testWith3a_1_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.secondOfMinute(), 15);
         check(test, 10, 20);
         assertEquals(3,result.size());
     }
 
-    public void testWith3a_2_oe() {
+public void testWith3a_2_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.secondOfMinute(), 15);
         check(test, 10, 20);
@@ -1263,7 +1263,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,result.isSupported(DateTimeFieldType.hourOfDay()));
     }
 
-    public void testWith3a_3_oe() {
+public void testWith3a_3_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.secondOfMinute(), 15);
         check(test, 10, 20);
@@ -1272,7 +1272,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,result.isSupported(DateTimeFieldType.minuteOfHour()));
     }
 
-    public void testWith3a_4_oe() {
+public void testWith3a_4_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.secondOfMinute(), 15);
         check(test, 10, 20);
@@ -1282,7 +1282,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,result.isSupported(DateTimeFieldType.secondOfMinute()));
     }
 
-    public void testWith3a_5_oe() {
+public void testWith3a_5_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.secondOfMinute(), 15);
         check(test, 10, 20);
@@ -1293,7 +1293,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(DateTimeFieldType.hourOfDay(),result.getFieldType(0));
     }
 
-    public void testWith3a_6_oe() {
+public void testWith3a_6_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.secondOfMinute(), 15);
         check(test, 10, 20);
@@ -1305,7 +1305,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(DateTimeFieldType.minuteOfHour(),result.getFieldType(1));
     }
 
-    public void testWith3a_7_oe() {
+public void testWith3a_7_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.secondOfMinute(), 15);
         check(test, 10, 20);
@@ -1318,7 +1318,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(DateTimeFieldType.secondOfMinute(),result.getFieldType(2));
     }
 
-    public void testWith3a_8_oe() {
+public void testWith3a_8_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.secondOfMinute(), 15);
         check(test, 10, 20);
@@ -1332,7 +1332,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(10,result.get(DateTimeFieldType.hourOfDay()));
     }
 
-    public void testWith3a_9_oe() {
+public void testWith3a_9_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.secondOfMinute(), 15);
         check(test, 10, 20);
@@ -1347,7 +1347,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(20,result.get(DateTimeFieldType.minuteOfHour()));
     }
 
-    public void testWith3a_10_oe() {
+public void testWith3a_10_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.secondOfMinute(), 15);
         check(test, 10, 20);
@@ -1363,14 +1363,14 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(15,result.get(DateTimeFieldType.secondOfMinute()));
     }
 
-    public void testWith3b_1_oe() {
+public void testWith3b_1_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.minuteOfDay(), 15);
         check(test, 10, 20);
         assertEquals(3,result.size());
     }
 
-    public void testWith3b_2_oe() {
+public void testWith3b_2_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.minuteOfDay(), 15);
         check(test, 10, 20);
@@ -1378,7 +1378,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,result.isSupported(DateTimeFieldType.hourOfDay()));
     }
 
-    public void testWith3b_3_oe() {
+public void testWith3b_3_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.minuteOfDay(), 15);
         check(test, 10, 20);
@@ -1387,7 +1387,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,result.isSupported(DateTimeFieldType.minuteOfDay()));
     }
 
-    public void testWith3b_4_oe() {
+public void testWith3b_4_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.minuteOfDay(), 15);
         check(test, 10, 20);
@@ -1397,7 +1397,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,result.isSupported(DateTimeFieldType.minuteOfHour()));
     }
 
-    public void testWith3b_5_oe() {
+public void testWith3b_5_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.minuteOfDay(), 15);
         check(test, 10, 20);
@@ -1408,7 +1408,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(DateTimeFieldType.hourOfDay(),result.getFieldType(0));
     }
 
-    public void testWith3b_6_oe() {
+public void testWith3b_6_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.minuteOfDay(), 15);
         check(test, 10, 20);
@@ -1420,7 +1420,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(DateTimeFieldType.minuteOfDay(),result.getFieldType(1));
     }
 
-    public void testWith3b_7_oe() {
+public void testWith3b_7_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.minuteOfDay(), 15);
         check(test, 10, 20);
@@ -1433,7 +1433,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(DateTimeFieldType.minuteOfHour(),result.getFieldType(2));
     }
 
-    public void testWith3b_8_oe() {
+public void testWith3b_8_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.minuteOfDay(), 15);
         check(test, 10, 20);
@@ -1447,7 +1447,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(10,result.get(DateTimeFieldType.hourOfDay()));
     }
 
-    public void testWith3b_9_oe() {
+public void testWith3b_9_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.minuteOfDay(), 15);
         check(test, 10, 20);
@@ -1462,7 +1462,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(20,result.get(DateTimeFieldType.minuteOfHour()));
     }
 
-    public void testWith3b_10_oe() {
+public void testWith3b_10_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.minuteOfDay(), 15);
         check(test, 10, 20);
@@ -1478,14 +1478,14 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(15,result.get(DateTimeFieldType.minuteOfDay()));
     }
 
-    public void testWith3c_1_oe() {
+public void testWith3c_1_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.dayOfMonth(), 15);
         check(test, 10, 20);
         assertEquals(3,result.size());
     }
 
-    public void testWith3c_2_oe() {
+public void testWith3c_2_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.dayOfMonth(), 15);
         check(test, 10, 20);
@@ -1493,7 +1493,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,result.isSupported(DateTimeFieldType.dayOfMonth()));
     }
 
-    public void testWith3c_3_oe() {
+public void testWith3c_3_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.dayOfMonth(), 15);
         check(test, 10, 20);
@@ -1502,7 +1502,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,result.isSupported(DateTimeFieldType.hourOfDay()));
     }
 
-    public void testWith3c_4_oe() {
+public void testWith3c_4_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.dayOfMonth(), 15);
         check(test, 10, 20);
@@ -1512,7 +1512,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,result.isSupported(DateTimeFieldType.minuteOfHour()));
     }
 
-    public void testWith3c_5_oe() {
+public void testWith3c_5_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.dayOfMonth(), 15);
         check(test, 10, 20);
@@ -1523,7 +1523,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(DateTimeFieldType.dayOfMonth(),result.getFieldType(0));
     }
 
-    public void testWith3c_6_oe() {
+public void testWith3c_6_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.dayOfMonth(), 15);
         check(test, 10, 20);
@@ -1535,7 +1535,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(DateTimeFieldType.hourOfDay(),result.getFieldType(1));
     }
 
-    public void testWith3c_7_oe() {
+public void testWith3c_7_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.dayOfMonth(), 15);
         check(test, 10, 20);
@@ -1548,7 +1548,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(DateTimeFieldType.minuteOfHour(),result.getFieldType(2));
     }
 
-    public void testWith3c_8_oe() {
+public void testWith3c_8_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.dayOfMonth(), 15);
         check(test, 10, 20);
@@ -1562,7 +1562,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(10,result.get(DateTimeFieldType.hourOfDay()));
     }
 
-    public void testWith3c_9_oe() {
+public void testWith3c_9_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.dayOfMonth(), 15);
         check(test, 10, 20);
@@ -1577,7 +1577,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(20,result.get(DateTimeFieldType.minuteOfHour()));
     }
 
-    public void testWith3c_10_oe() {
+public void testWith3c_10_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.dayOfMonth(), 15);
         check(test, 10, 20);
@@ -1593,20 +1593,20 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(15,result.get(DateTimeFieldType.dayOfMonth()));
     }
 
-    public void testWith3d_1_oe() {
+public void testWith3d_1_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 2005);
         Partial result = test.with(DateTimeFieldType.monthOfYear(), 6);
         assertEquals(2,result.size());
     }
 
-    public void testWith3d_2_oe() {
+public void testWith3d_2_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 2005);
         Partial result = test.with(DateTimeFieldType.monthOfYear(), 6);
         // removed other assertion
         assertEquals(2005,result.get(DateTimeFieldType.year()));
     }
 
-    public void testWith3d_3_oe() {
+public void testWith3d_3_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 2005);
         Partial result = test.with(DateTimeFieldType.monthOfYear(), 6);
         // removed other assertion
@@ -1614,20 +1614,20 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(6,result.get(DateTimeFieldType.monthOfYear()));
     }
 
-    public void testWith3e_1_oe() {
+public void testWith3e_1_oe() {
         Partial test = new Partial(DateTimeFieldType.era(), 1);
         Partial result = test.with(DateTimeFieldType.halfdayOfDay(), 0);
         assertEquals(2,result.size());
     }
 
-    public void testWith3e_2_oe() {
+public void testWith3e_2_oe() {
         Partial test = new Partial(DateTimeFieldType.era(), 1);
         Partial result = test.with(DateTimeFieldType.halfdayOfDay(), 0);
         // removed other assertion
         assertEquals(1,result.get(DateTimeFieldType.era()));
     }
 
-    public void testWith3e_3_oe() {
+public void testWith3e_3_oe() {
         Partial test = new Partial(DateTimeFieldType.era(), 1);
         Partial result = test.with(DateTimeFieldType.halfdayOfDay(), 0);
         // removed other assertion
@@ -1635,7 +1635,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(0,result.get(DateTimeFieldType.halfdayOfDay()));
     }
 
-    public void testWith3e_4_oe() {
+public void testWith3e_4_oe() {
         Partial test = new Partial(DateTimeFieldType.era(), 1);
         Partial result = test.with(DateTimeFieldType.halfdayOfDay(), 0);
         // removed other assertion
@@ -1644,7 +1644,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(0,result.indexOf(DateTimeFieldType.era()));
     }
 
-    public void testWith3e_5_oe() {
+public void testWith3e_5_oe() {
         Partial test = new Partial(DateTimeFieldType.era(), 1);
         Partial result = test.with(DateTimeFieldType.halfdayOfDay(), 0);
         // removed other assertion
@@ -1654,20 +1654,20 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(1,result.indexOf(DateTimeFieldType.halfdayOfDay()));
     }
 
-    public void testWith3f_1_oe() {
+public void testWith3f_1_oe() {
         Partial test = new Partial(DateTimeFieldType.halfdayOfDay(), 0);
         Partial result = test.with(DateTimeFieldType.era(), 1);
         assertEquals(2,result.size());
     }
 
-    public void testWith3f_2_oe() {
+public void testWith3f_2_oe() {
         Partial test = new Partial(DateTimeFieldType.halfdayOfDay(), 0);
         Partial result = test.with(DateTimeFieldType.era(), 1);
         // removed other assertion
         assertEquals(1,result.get(DateTimeFieldType.era()));
     }
 
-    public void testWith3f_3_oe() {
+public void testWith3f_3_oe() {
         Partial test = new Partial(DateTimeFieldType.halfdayOfDay(), 0);
         Partial result = test.with(DateTimeFieldType.era(), 1);
         // removed other assertion
@@ -1675,7 +1675,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(0,result.get(DateTimeFieldType.halfdayOfDay()));
     }
 
-    public void testWith3f_4_oe() {
+public void testWith3f_4_oe() {
         Partial test = new Partial(DateTimeFieldType.halfdayOfDay(), 0);
         Partial result = test.with(DateTimeFieldType.era(), 1);
         // removed other assertion
@@ -1684,7 +1684,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(0,result.indexOf(DateTimeFieldType.era()));
     }
 
-    public void testWith3f_5_oe() {
+public void testWith3f_5_oe() {
         Partial test = new Partial(DateTimeFieldType.halfdayOfDay(), 0);
         Partial result = test.with(DateTimeFieldType.era(), 1);
         // removed other assertion
@@ -1694,26 +1694,26 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(1,result.indexOf(DateTimeFieldType.halfdayOfDay()));
     }
 
-    public void testWith4_1_oe() {
+public void testWith4_1_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.hourOfDay(), 10);
         assertSame(test,result);
     }
 
-    public void testWith_baseHasNoRange_1_oe() {
+public void testWith_baseHasNoRange_1_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 1);
         Partial result = test.with(DateTimeFieldType.hourOfDay(), 10);
         assertEquals(2,result.size());
     }
 
-    public void testWith_baseHasNoRange_2_oe() {
+public void testWith_baseHasNoRange_2_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 1);
         Partial result = test.with(DateTimeFieldType.hourOfDay(), 10);
         // removed other assertion
         assertEquals(0,result.indexOf(DateTimeFieldType.year()));
     }
 
-    public void testWith_baseHasNoRange_3_oe() {
+public void testWith_baseHasNoRange_3_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 1);
         Partial result = test.with(DateTimeFieldType.hourOfDay(), 10);
         // removed other assertion
@@ -1721,20 +1721,20 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(1,result.indexOf(DateTimeFieldType.hourOfDay()));
     }
 
-    public void testWith_argHasNoRange_1_oe() {
+public void testWith_argHasNoRange_1_oe() {
         Partial test = new Partial(DateTimeFieldType.hourOfDay(), 1);
         Partial result = test.with(DateTimeFieldType.year(), 10);
         assertEquals(2,result.size());
     }
 
-    public void testWith_argHasNoRange_2_oe() {
+public void testWith_argHasNoRange_2_oe() {
         Partial test = new Partial(DateTimeFieldType.hourOfDay(), 1);
         Partial result = test.with(DateTimeFieldType.year(), 10);
         // removed other assertion
         assertEquals(0,result.indexOf(DateTimeFieldType.year()));
     }
 
-    public void testWith_argHasNoRange_3_oe() {
+public void testWith_argHasNoRange_3_oe() {
         Partial test = new Partial(DateTimeFieldType.hourOfDay(), 1);
         Partial result = test.with(DateTimeFieldType.year(), 10);
         // removed other assertion
@@ -1742,20 +1742,20 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(1,result.indexOf(DateTimeFieldType.hourOfDay()));
     }
 
-    public void testWith_baseAndArgHaveNoRange_1_oe() {
+public void testWith_baseAndArgHaveNoRange_1_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 1);
         Partial result = test.with(DateTimeFieldType.era(), 1);
         assertEquals(2,result.size());
     }
 
-    public void testWith_baseAndArgHaveNoRange_2_oe() {
+public void testWith_baseAndArgHaveNoRange_2_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 1);
         Partial result = test.with(DateTimeFieldType.era(), 1);
         // removed other assertion
         assertEquals(0,result.indexOf(DateTimeFieldType.era()));
     }
 
-    public void testWith_baseAndArgHaveNoRange_3_oe() {
+public void testWith_baseAndArgHaveNoRange_3_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 1);
         Partial result = test.with(DateTimeFieldType.era(), 1);
         // removed other assertion
@@ -1763,14 +1763,14 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(1,result.indexOf(DateTimeFieldType.year()));
     }
 
-    public void testWithout3_1_oe() {
+public void testWithout3_1_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.without(DateTimeFieldType.hourOfDay());
         check(test, 10, 20);
         assertEquals(1,result.size());
     }
 
-    public void testWithout3_2_oe() {
+public void testWithout3_2_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.without(DateTimeFieldType.hourOfDay());
         check(test, 10, 20);
@@ -1778,7 +1778,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,result.isSupported(DateTimeFieldType.hourOfDay()));
     }
 
-    public void testWithout3_3_oe() {
+public void testWithout3_3_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.without(DateTimeFieldType.hourOfDay());
         check(test, 10, 20);
@@ -1787,7 +1787,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,result.isSupported(DateTimeFieldType.minuteOfHour()));
     }
 
-    public void testWithout3_4_oe() {
+public void testWithout3_4_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.without(DateTimeFieldType.hourOfDay());
         check(test, 10, 20);
@@ -1797,14 +1797,14 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(DateTimeFieldType.minuteOfHour(),result.getFieldType(0));
     }
 
-    public void testWithout4_1_oe() {
+public void testWithout4_1_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.without(DateTimeFieldType.minuteOfHour());
         check(test, 10, 20);
         assertEquals(1,result.size());
     }
 
-    public void testWithout4_2_oe() {
+public void testWithout4_2_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.without(DateTimeFieldType.minuteOfHour());
         check(test, 10, 20);
@@ -1812,7 +1812,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(true,result.isSupported(DateTimeFieldType.hourOfDay()));
     }
 
-    public void testWithout4_3_oe() {
+public void testWithout4_3_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.without(DateTimeFieldType.minuteOfHour());
         check(test, 10, 20);
@@ -1821,7 +1821,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(false,result.isSupported(DateTimeFieldType.minuteOfHour()));
     }
 
-    public void testWithout4_4_oe() {
+public void testWithout4_4_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.without(DateTimeFieldType.minuteOfHour());
         check(test, 10, 20);
@@ -1831,59 +1831,59 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(DateTimeFieldType.hourOfDay(),result.getFieldType(0));
     }
 
-    public void testWithout5_1_oe() {
+public void testWithout5_1_oe() {
         Partial test = new Partial(DateTimeFieldType.hourOfDay(), 12);
         Partial result = test.without(DateTimeFieldType.hourOfDay());
         assertEquals(0,result.size());
     }
 
-    public void testWithout5_2_oe() {
+public void testWithout5_2_oe() {
         Partial test = new Partial(DateTimeFieldType.hourOfDay(), 12);
         Partial result = test.without(DateTimeFieldType.hourOfDay());
         // removed other assertion
         assertEquals(false,result.isSupported(DateTimeFieldType.hourOfDay()));
     }
 
-    public void testWithField4_1_oe() {
+public void testWithField4_1_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.withField(DateTimeFieldType.hourOfDay(), 10);
         assertSame(test,result);
     }
 
-    public void testWithFieldAdded1_1_oe() {
+public void testWithFieldAdded1_1_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.withFieldAdded(DurationFieldType.hours(), 6);
         
         assertEquals(createHourMinPartial(),test);
     }
 
-    public void testWithFieldAdded4_1_oe() {
+public void testWithFieldAdded4_1_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.withFieldAdded(DurationFieldType.hours(), 0);
         assertSame(test,result);
     }
 
-    public void testWithFieldAddWrapped1_1_oe() {
+public void testWithFieldAddWrapped1_1_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.withFieldAddWrapped(DurationFieldType.hours(), 6);
         
         assertEquals(createHourMinPartial(),test);
     }
 
-    public void testWithFieldAddWrapped4_1_oe() {
+public void testWithFieldAddWrapped4_1_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.withFieldAddWrapped(DurationFieldType.hours(), 0);
         assertSame(test,result);
     }
 
-    public void testWithFieldAddWrapped6_1_oe() {
+public void testWithFieldAddWrapped6_1_oe() {
         Partial test = createHourMinPartial();
         Partial result = test.withFieldAddWrapped(DurationFieldType.hours(), 16);
         
         assertEquals(createHourMinPartial(),test);
     }
 
-    public void testPlus_RP_1_oe() {
+public void testPlus_RP_1_oe() {
         Partial test = createHourMinPartial(BUDDHIST_LONDON);
         Partial result = test.plus(new Period(1, 2, 3, 4, 5, 6, 7, 8));
         check(test, 10, 20);
@@ -1893,7 +1893,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testMinus_RP_1_oe() {
+public void testMinus_RP_1_oe() {
         Partial test = createHourMinPartial(BUDDHIST_LONDON);
         Partial result = test.minus(new Period(1, 1, 1, 1, 1, 1, 1, 1));
         check(test, 10, 20);
@@ -1903,13 +1903,13 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testToDateTime_RI_1_oe() {
+public void testToDateTime_RI_1_oe() {
         Partial base = createHourMinPartial(COPTIC_PARIS);
         DateTime dt = new DateTime(0L); // LONDON zone
         assertEquals("1970-01-01T01:00:00.000+01:00",dt.toString());
     }
 
-    public void testToDateTime_RI_2_oe() {
+public void testToDateTime_RI_2_oe() {
         Partial base = createHourMinPartial(COPTIC_PARIS);
         DateTime dt = new DateTime(0L); // LONDON zone
         // removed other assertion
@@ -1919,7 +1919,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals("1970-01-01T01:00:00.000+01:00",dt.toString());
     }
 
-    public void testToDateTime_RI_3_oe() {
+public void testToDateTime_RI_3_oe() {
         Partial base = createHourMinPartial(COPTIC_PARIS);
         DateTime dt = new DateTime(0L); // LONDON zone
         // removed other assertion
@@ -1930,7 +1930,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals("1970-01-01T10:20:00.000+01:00",test.toString());
     }
 
-    public void testToDateTime_nullRI_1_oe() {
+public void testToDateTime_nullRI_1_oe() {
         Partial base = createHourMinPartial(1, 2, ISO_UTC);
         DateTimeUtils.setCurrentMillisFixed(TEST_TIME2);
         
@@ -1939,18 +1939,18 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals("1970-01-02T01:02:07.008+01:00",test.toString());
     }
 
-    public void testProperty_1_oe() {
+public void testProperty_1_oe() {
         Partial test = createHourMinPartial();
         assertNotNull(test.property(DateTimeFieldType.hourOfDay()));
     }
 
-    public void testProperty_2_oe() {
+public void testProperty_2_oe() {
         Partial test = createHourMinPartial();
         // removed other assertion
         assertNotNull(test.property(DateTimeFieldType.minuteOfHour()));
     }
 
-    public void testSerialization_1_oe() throws Exception {
+public void testSerialization_1_oe() throws Exception {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -1967,7 +1967,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(test,result);
     }
 
-    public void testSerialization_2_oe() throws Exception {
+public void testSerialization_2_oe() throws Exception {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -1985,7 +1985,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertTrue(Arrays.equals(test.getValues(),result.getValues()));
     }
 
-    public void testSerialization_3_oe() throws Exception {
+public void testSerialization_3_oe() throws Exception {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -2004,7 +2004,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertTrue(Arrays.equals(test.getFields(),result.getFields()));
     }
 
-    public void testSerialization_4_oe() throws Exception {
+public void testSerialization_4_oe() throws Exception {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -2024,12 +2024,12 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(test.getChronology(),result.getChronology());
     }
 
-    public void testGetFormatter1_1_oe() {
+public void testGetFormatter1_1_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 2005);
         assertEquals("2005",test.getFormatter().print(test));
     }
 
-    public void testGetFormatter1_2_oe() {
+public void testGetFormatter1_2_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 2005);
         // removed other assertion
         
@@ -2037,7 +2037,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals("2005-06",test.getFormatter().print(test));
     }
 
-    public void testGetFormatter1_3_oe() {
+public void testGetFormatter1_3_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 2005);
         // removed other assertion
         
@@ -2048,7 +2048,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals("2005-06-25",test.getFormatter().print(test));
     }
 
-    public void testGetFormatter1_4_oe() {
+public void testGetFormatter1_4_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 2005);
         // removed other assertion
         
@@ -2062,12 +2062,12 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals("2005--25",test.getFormatter().print(test));
     }
 
-    public void testGetFormatter2_1_oe() {
+public void testGetFormatter2_1_oe() {
         Partial test = new Partial();
         assertEquals(null,test.getFormatter());
     }
 
-    public void testGetFormatter2_2_oe() {
+public void testGetFormatter2_2_oe() {
         Partial test = new Partial();
         // removed other assertion
         
@@ -2075,7 +2075,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(null,test.getFormatter());
     }
 
-    public void testGetFormatter2_3_oe() {
+public void testGetFormatter2_3_oe() {
         Partial test = new Partial();
         // removed other assertion
         
@@ -2086,12 +2086,12 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals(null,test.getFormatter());
     }
 
-    public void testGetFormatter3_1_oe() {
+public void testGetFormatter3_1_oe() {
         Partial test = new Partial(DateTimeFieldType.dayOfWeek(), 5);
         assertEquals("-W-5",test.getFormatter().print(test));
     }
 
-    public void testGetFormatter3_2_oe() {
+public void testGetFormatter3_2_oe() {
         Partial test = new Partial(DateTimeFieldType.dayOfWeek(), 5);
         // removed other assertion
         
@@ -2100,22 +2100,22 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals("---13",test.getFormatter().print(test));
     }
 
-    public void testToString1_1_oe() {
+public void testToString1_1_oe() {
         Partial test = createHourMinPartial();
         assertEquals("10:20",test.toString());
     }
 
-    public void testToString2_1_oe() {
+public void testToString2_1_oe() {
         Partial test = new Partial();
         assertEquals("[]",test.toString());
     }
 
-    public void testToString3_1_oe() {
+public void testToString3_1_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 2005);
         assertEquals("2005",test.toString());
     }
 
-    public void testToString3_2_oe() {
+public void testToString3_2_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 2005);
         // removed other assertion
         
@@ -2123,7 +2123,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals("2005-06",test.toString());
     }
 
-    public void testToString3_3_oe() {
+public void testToString3_3_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 2005);
         // removed other assertion
         
@@ -2134,7 +2134,7 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals("2005-06-25",test.toString());
     }
 
-    public void testToString3_4_oe() {
+public void testToString3_4_oe() {
         Partial test = new Partial(DateTimeFieldType.year(), 2005);
         // removed other assertion
         
@@ -2148,12 +2148,12 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals("2005--25",test.toString());
     }
 
-    public void testToString4_1_oe() {
+public void testToString4_1_oe() {
         Partial test = new Partial(DateTimeFieldType.dayOfWeek(), 5);
         assertEquals("-W-5",test.toString());
     }
 
-    public void testToString4_2_oe() {
+public void testToString4_2_oe() {
         Partial test = new Partial(DateTimeFieldType.dayOfWeek(), 5);
         // removed other assertion
         
@@ -2161,12 +2161,12 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals("[dayOfMonth=13,dayOfWeek=5]",test.toString());
     }
 
-    public void testToString5_1_oe() {
+public void testToString5_1_oe() {
         Partial test = new Partial(DateTimeFieldType.era(), 1);
         assertEquals("[era=1]",test.toString());
     }
 
-    public void testToString5_2_oe() {
+public void testToString5_2_oe() {
         Partial test = new Partial(DateTimeFieldType.era(), 1);
         // removed other assertion
         
@@ -2174,36 +2174,36 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals("[era=1,halfdayOfDay=0]",test.toString());
     }
 
-    public void testToString_String_1_oe() {
+public void testToString_String_1_oe() {
         Partial test = createHourMinPartial();
         assertEquals("\ufffd\ufffd\ufffd\ufffd 10",test.toString("yyyy HH"));
     }
 
-    public void testToString_String_2_oe() {
+public void testToString_String_2_oe() {
         Partial test = createHourMinPartial();
         // removed other assertion
         assertEquals("10:20",test.toString((String)null));
     }
 
-    public void testToString_String_Locale_1_oe() {
+public void testToString_String_Locale_1_oe() {
         Partial test = createHourMinPartial();
         assertEquals("10 20",test.toString("H m",Locale.ENGLISH));
     }
 
-    public void testToString_String_Locale_2_oe() {
+public void testToString_String_Locale_2_oe() {
         Partial test = createHourMinPartial();
         // removed other assertion
         assertEquals("10:20",test.toString(null,Locale.ENGLISH));
     }
 
-    public void testToString_String_Locale_3_oe() {
+public void testToString_String_Locale_3_oe() {
         Partial test = createHourMinPartial();
         // removed other assertion
         // removed other assertion
         assertEquals("10 20",test.toString("H m",null));
     }
 
-    public void testToString_String_Locale_4_oe() {
+public void testToString_String_Locale_4_oe() {
         Partial test = createHourMinPartial();
         // removed other assertion
         // removed other assertion
@@ -2211,12 +2211,12 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals("10:20",test.toString(null,null));
     }
 
-    public void testToString_DTFormatter_1_oe() {
+public void testToString_DTFormatter_1_oe() {
         Partial test = createHourMinPartial();
         assertEquals("\ufffd\ufffd\ufffd\ufffd 10",test.toString(DateTimeFormat.forPattern("yyyy HH")));
     }
 
-    public void testToString_DTFormatter_2_oe() {
+public void testToString_DTFormatter_2_oe() {
         Partial test = createHourMinPartial();
         // removed other assertion
         assertEquals("10:20",test.toString((DateTimeFormatter)null));

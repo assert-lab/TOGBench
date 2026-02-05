@@ -76,7 +76,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesWithOutUnderscores_1_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
         
@@ -89,7 +89,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertNotNull(ret);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesWithOutUnderscores_2_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
         
@@ -103,7 +103,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(4, ret.length);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesWithOutUnderscores_3_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
         
@@ -118,7 +118,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(-1, ret[0]);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesWithOutUnderscores_4_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
         
@@ -134,7 +134,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(2, ret[1]);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesWithOutUnderscores_5_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
         
@@ -151,7 +151,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(0, ret[2]);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesWithOutUnderscores_6_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
         
@@ -169,7 +169,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(1, ret[3]);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesMixedCase_1_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
 
@@ -182,7 +182,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertNotNull(ret);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesMixedCase_2_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
 
@@ -196,7 +196,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(4, ret.length);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesMixedCase_3_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
 
@@ -211,7 +211,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(-1, ret[0]);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesMixedCase_4_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
 
@@ -227,7 +227,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(2, ret[1]);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesMixedCase_5_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
 
@@ -244,7 +244,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(0, ret[2]);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesMixedCase_6_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
 
@@ -262,7 +262,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(1, ret[3]);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesWithUnderscores_1_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
         
@@ -275,7 +275,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertNotNull(ret);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesWithUnderscores_2_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
         
@@ -289,7 +289,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(4, ret.length);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesWithUnderscores_3_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
         
@@ -304,7 +304,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(-1, ret[0]);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesWithUnderscores_4_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
         
@@ -320,7 +320,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(2, ret[1]);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesWithUnderscores_5_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
         
@@ -337,7 +337,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(0, ret[2]);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesWithUnderscores_6_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(3);
         
@@ -355,7 +355,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(1, ret[3]);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesColumnLabelIsNull_1_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(1);
         when(metaData.getColumnName(1)).thenReturn("juhu");
@@ -369,7 +369,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertNotNull(ret);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesColumnLabelIsNull_2_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(1);
         when(metaData.getColumnName(1)).thenReturn("juhu");
@@ -384,7 +384,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(2, ret.length);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesColumnLabelIsNull_3_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(1);
         when(metaData.getColumnName(1)).thenReturn("juhu");
@@ -400,7 +400,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(-1, ret[0]);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesColumnLabelIsNull_4_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(1);
         when(metaData.getColumnName(1)).thenReturn("juhu");
@@ -417,7 +417,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(-1, ret[1]);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesColumnLabelIsNull_5_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(1);
         when(metaData.getColumnName(1)).thenReturn("juhu");
@@ -435,7 +435,7 @@ public class GenerousBeanProcessorTest_OE25Dev {
         assertEquals(-1, ret[1]);
     }
 
-    @Test
+@Test
     public void testMapColumnsToPropertiesColumnLabelIsNull_6_oe() throws Exception {
         when(metaData.getColumnCount()).thenReturn(1);
         when(metaData.getColumnName(1)).thenReturn("juhu");

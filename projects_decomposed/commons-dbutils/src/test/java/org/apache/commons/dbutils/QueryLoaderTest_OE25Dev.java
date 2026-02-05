@@ -27,14 +27,14 @@ public class QueryLoaderTest_OE25Dev extends BaseTestCase {
     private static final String QUERIES =
         "/org/apache/commons/dbutils/TestQueries.properties";
 
-    public void testLoad_1_oe() throws IOException {
+public void testLoad_1_oe() throws IOException {
         QueryLoader loader = QueryLoader.instance();
         Map<String,String> q = loader.load(QUERIES);
         Map<String,String> q2 = loader.load(QUERIES);
         assertTrue(q == q2);// pointer comparison should return true assertEquals("SELECT * FROM SomeTable",q.get("test.query"));
     }
 
-    public void testLoad_2_oe() throws IOException {
+public void testLoad_2_oe() throws IOException {
         QueryLoader loader = QueryLoader.instance();
         Map<String,String> q = loader.load(QUERIES);
         Map<String,String> q2 = loader.load(QUERIES);
@@ -45,7 +45,7 @@ public class QueryLoaderTest_OE25Dev extends BaseTestCase {
         assertTrue(q != q3); // pointer comparison should return false;
     }
 
-    public void testLoadThrowsIllegalArgumentException_2_oe() throws IOException {
+public void testLoadThrowsIllegalArgumentException_2_oe() throws IOException {
 
         QueryLoader queryLoader = QueryLoader.instance();
 
@@ -57,7 +57,7 @@ public class QueryLoaderTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testLoadThrowsIllegalArgumentException_3_oe() throws IOException {
+public void testLoadThrowsIllegalArgumentException_3_oe() throws IOException {
 
         QueryLoader queryLoader = QueryLoader.instance();
 

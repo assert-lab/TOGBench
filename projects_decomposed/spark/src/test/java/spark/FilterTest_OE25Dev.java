@@ -30,7 +30,7 @@ public class FilterTest_OE25Dev {
         awaitInitialization();
     }
 
-    @Test
+@Test
     public void testJustFilter_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/justfilter", null);
 

@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 
 public class ReflectionToStringBuilderTest_OE25Dev {
 
-    @Test
+@Test
     public void testConstructorWithNullObject_1_oe() {
         assertThrows(NullPointerException.class, () -> new ReflectionToStringBuilder(null, ToStringStyle.DEFAULT_STYLE, new StringBuffer()));
     }

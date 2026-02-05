@@ -114,7 +114,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         EuclideanTestUtils.assertVertexLoopSequence(Arrays.asList(pts), ps.getVertices(), TEST_PRECISION);
     }
 
-    @Test
+@Test
     void testToConvex_1_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(
@@ -127,7 +127,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(1, convex.size());
     }
 
-    @Test
+@Test
     void testToConvex_2_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(
@@ -141,7 +141,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertSame(sp, convex.get(0));
     }
 
-    @Test
+@Test
     void testReverse_1_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 0, 1);
@@ -157,7 +157,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(sp.getPlane().reverse(), reversed.getPlane());
     }
 
-    @Test
+@Test
     void testReverse_3_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 0, 1);
@@ -176,7 +176,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(0.5, reversed.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTransform_full_1_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
@@ -193,7 +193,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertTrue(transformed.isFull());
     }
 
-    @Test
+@Test
     void testTransform_full_2_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
@@ -211,7 +211,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(transformed.isEmpty());
     }
 
-    @Test
+@Test
     void testTransform_halfSpace_1_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
@@ -228,7 +228,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(transformed.isFull());
     }
 
-    @Test
+@Test
     void testTransform_halfSpace_2_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
@@ -246,7 +246,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(transformed.isEmpty());
     }
 
-    @Test
+@Test
     void testSplit_full_1_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION)
@@ -262,7 +262,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_full_2_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION)
@@ -281,7 +281,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(1, minus.getEmbedded().getSubspaceRegion().getBoundaries().size());
     }
 
-    @Test
+@Test
     void testSplit_full_3_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION)
@@ -306,7 +306,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(1, plus.getEmbedded().getSubspaceRegion().getBoundaries().size());
     }
 
-    @Test
+@Test
     void testSplit_both_1_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -322,7 +322,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_plusOnly_1_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -338,7 +338,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_plusOnly_2_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -356,7 +356,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_minusOnly_1_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -372,7 +372,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_minusOnly_2_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -393,7 +393,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_parallelSplitter_on_1_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -409,7 +409,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_parallelSplitter_on_2_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -427,7 +427,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_parallelSplitter_on_3_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -446,7 +446,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_parallelSplitter_minus_1_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -463,7 +463,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_parallelSplitter_minus_2_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -482,7 +482,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertSame(sp, split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_parallelSplitter_minus_3_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -502,7 +502,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_parallelSplitter_plus_1_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -519,7 +519,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_parallelSplitter_plus_2_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -538,7 +538,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_parallelSplitter_plus_3_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -558,7 +558,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertSame(sp, split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_antiParallelSplitter_on_1_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -574,7 +574,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_antiParallelSplitter_on_2_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -592,7 +592,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_antiParallelSplitter_on_3_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -611,7 +611,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_antiParallelSplitter_minus_1_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -628,7 +628,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_antiParallelSplitter_minus_2_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -647,7 +647,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertSame(sp, split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_antiParallelSplitter_minus_3_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -667,7 +667,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_antiParallelSplitter_plus_1_oe() {
         // arrange
         final PlaneConvexSubset ps = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -684,7 +684,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_antiParallelSplitter_plus_2_oe() {
         // arrange
         final PlaneConvexSubset ps = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -703,7 +703,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_antiParallelSplitter_plus_3_oe() {
         // arrange
         final PlaneConvexSubset ps = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -723,7 +723,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertSame(ps, split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_usesVertexBasedTypesWhenPossible_1_oe() {
         // arrange
         // create an infinite subset
@@ -744,7 +744,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertTrue(ps.isInfinite());
     }
 
-    @Test
+@Test
     void testSplit_usesVertexBasedTypesWhenPossible_2_oe() {
         // arrange
         // create an infinite subset
@@ -767,7 +767,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_usesVertexBasedTypesWhenPossible_3_oe() {
         // arrange
         // create an infinite subset
@@ -793,7 +793,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNotNull(plus);
     }
 
-    @Test
+@Test
     void testSplit_usesVertexBasedTypesWhenPossible_4_oe() {
         // arrange
         // create an infinite subset
@@ -820,7 +820,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertTrue(plus.isInfinite());
     }
 
-    @Test
+@Test
     void testSplit_usesVertexBasedTypesWhenPossible_5_oe() {
         // arrange
         // create an infinite subset
@@ -848,7 +848,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(plus instanceof ConvexPolygon3D);
     }
 
-    @Test
+@Test
     void testSplit_usesVertexBasedTypesWhenPossible_6_oe() {
         // arrange
         // create an infinite subset
@@ -879,7 +879,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNotNull(minus);
     }
 
-    @Test
+@Test
     void testSplit_usesVertexBasedTypesWhenPossible_7_oe() {
         // arrange
         // create an infinite subset
@@ -911,7 +911,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(minus.isInfinite());
     }
 
-    @Test
+@Test
     void testSplit_usesVertexBasedTypesWhenPossible_8_oe() {
         // arrange
         // create an infinite subset
@@ -944,7 +944,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertTrue(minus instanceof ConvexPolygon3D);
     }
 
-    @Test
+@Test
     void testIntersection_line_3_oe() {
         // arrange
         final PlaneConvexSubset ps = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -959,7 +959,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(ps.intersection(Lines3D.fromPoints(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testIntersection_line_4_oe() {
         // arrange
         final PlaneConvexSubset ps = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -975,7 +975,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(ps.intersection(Lines3D.fromPoints(Vector3D.of(0, 0, 2), Vector3D.of(1, 1, 2), TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testIntersection_line_5_oe() {
         // arrange
         final PlaneConvexSubset ps = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -993,7 +993,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(ps.intersection(Lines3D.fromPoints(Vector3D.of(4, 4, 2), Vector3D.of(4, 4, 0), TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testIntersection_segment_3_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -1008,7 +1008,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(sp.intersection(Lines3D.segmentFromPoints(Vector3D.of(0.5, 0.5, 4), Vector3D.of(0.5, 0.5, 3), TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testIntersection_segment_4_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -1025,7 +1025,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(sp.intersection(Lines3D.segmentFromPoints(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testIntersection_segment_5_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -1043,7 +1043,7 @@ class PlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(sp.intersection(Lines3D.segmentFromPoints(Vector3D.of(0, 0, 2), Vector3D.of(1, 1, 2), TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testIntersection_segment_6_oe() {
         // arrange
         final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(

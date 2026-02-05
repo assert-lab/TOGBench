@@ -296,14 +296,14 @@ public class IBANValidatorTest_OE25Dev {
         System.out.println("Processed " + countries + " countries.");
     }
 
-    @Test
+@Test
     public void testValid_1_oe() {
         for(String f : validIBANFormat) {
             assertTrue("Checksum fail: "+f, IBANCheckDigit.IBAN_CHECK_DIGIT.isValid(f));
     }
     }
 
-    @Test
+@Test
     public void testValid_2_oe() {
         for(String f : validIBANFormat) {
             // removed other assertion
@@ -311,7 +311,7 @@ public class IBANValidatorTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testValid_3_oe() {
         for(String f : validIBANFormat) {
             // removed other assertion
@@ -320,89 +320,89 @@ public class IBANValidatorTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testInValid_1_oe() {
         for(String f : invalidIBANFormat) {
             assertFalse(f, VALIDATOR.isValid(f));
     }
     }
 
-    @Test
+@Test
     public void testNull_1_oe() {
         assertFalse("isValid(null)",  VALIDATOR.isValid(null));
     }
 
-    @Test
+@Test
     public void testHasValidator_1_oe() {
         assertTrue("GB", VALIDATOR.hasValidator("GB"));
     }
 
-    @Test
+@Test
     public void testHasValidator_2_oe() {
         // removed other assertion
         assertFalse("gb", VALIDATOR.hasValidator("gb"));
     }
 
-    @Test
+@Test
     public void testGetValidator_1_oe() {
         assertNotNull("GB", VALIDATOR.getValidator("GB"));
     }
 
-    @Test
+@Test
     public void testGetValidator_2_oe() {
         // removed other assertion
         assertNull("gb", VALIDATOR.getValidator("gb"));
     }
 
-    @Test(expected=IllegalStateException.class)
+@Test(expected=IllegalStateException.class)
     public void testSetDefaultValidator1_1_oe() {
         assertNotNull(VALIDATOR.setValidator("GB", 15, "GB"));
     }
 
-    @Test(expected=IllegalStateException.class)
+@Test(expected=IllegalStateException.class)
     public void testSetDefaultValidator2_1_oe() {
         assertNotNull(VALIDATOR.setValidator("GB", -1, "GB"));
     }
 
-    @Test(expected=IllegalArgumentException.class)
+@Test(expected=IllegalArgumentException.class)
     public void testSetValidatorLC_1_oe() {
         IBANValidator validator = new IBANValidator();
         assertNotNull(validator.setValidator("gb", 15, "GB"));
     }
 
-    @Test(expected=IllegalArgumentException.class)
+@Test(expected=IllegalArgumentException.class)
     public void testSetValidatorLen7_1_oe() {
         IBANValidator validator = new IBANValidator();
         assertNotNull(validator.setValidator("GB", 7, "GB"));
     }
 
-    @Test(expected=IllegalArgumentException.class)
+@Test(expected=IllegalArgumentException.class)
     public void testSetValidatorLen35_1_oe() {
         IBANValidator validator = new IBANValidator();
         assertNotNull(validator.setValidator("GB", 35, "GB")); // valid params, but immutable validator;
     }
 
-    @Test
+@Test
     public void testSetValidatorLen_1_1_oe() {
         IBANValidator validator = new IBANValidator();
         assertNotNull("should be present",validator.setValidator("GB", -1, ""));
     }
 
-    @Test
+@Test
     public void testSetValidatorLen_1_2_oe() {
         IBANValidator validator = new IBANValidator();
         // removed other assertion
         assertNull("no longer present",validator.setValidator("GB", -1, ""));
     }
 
-    @Test
+@Test
     public void testSorted_1_oe() {
         IBANValidator validator = new IBANValidator();
         Validator[] vals = validator.getDefaultValidators();
         assertNotNull(vals);
     }
 
-    @Test
+@Test
     public void testSorted_2_oe() {
         IBANValidator validator = new IBANValidator();
         Validator[] vals = validator.getDefaultValidators();

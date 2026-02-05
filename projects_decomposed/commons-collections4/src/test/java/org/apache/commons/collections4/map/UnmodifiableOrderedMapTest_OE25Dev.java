@@ -82,16 +82,16 @@ public class UnmodifiableOrderedMapTest_OE25Dev<K, V> extends AbstractOrderedMap
 //            "src/test/resources/data/test/UnmodifiableOrderedMap.fullCollection.version4.obj");
 //    }
 
-    public void testUnmodifiable_1_oe() {
+public void testUnmodifiable_1_oe() {
         assertTrue(makeObject() instanceof Unmodifiable);
     }
 
-    public void testUnmodifiable_2_oe() {
+public void testUnmodifiable_2_oe() {
         // removed other assertion
         assertTrue(makeFullMap() instanceof Unmodifiable);
     }
 
-    public void testDecorateFactory_1_oe() {
+public void testDecorateFactory_1_oe() {
         final OrderedMap<K, V> map = makeFullMap();
         assertSame(map, UnmodifiableOrderedMap.unmodifiableOrderedMap(map));
     }

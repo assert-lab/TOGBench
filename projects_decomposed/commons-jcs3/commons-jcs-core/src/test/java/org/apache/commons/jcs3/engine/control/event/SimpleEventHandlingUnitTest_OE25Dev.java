@@ -190,7 +190,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         }
     }
 
-    public void testSpoolEvent_1_oe()
+public void testSpoolEvent_1_oe()
         throws Exception
     {
         final CacheAccess<String, String> jcs = JCS.getInstance( "WithDisk" );
@@ -213,7 +213,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         assertTrue("The number of ELEMENT_EVENT_SPOOLED_DISK_AVAILABLE events [" + meh.getSpoolCount()+ "] does not equal the number expected [" + items + "]",meh.getSpoolCount()>= items);
     }
 
-    public void testSpoolNoDiskEvent_1_oe()
+public void testSpoolNoDiskEvent_1_oe()
         throws Exception
     {
         final CacheAccess<String, String> jcs = JCS.getInstance( "NoDisk" );
@@ -236,7 +236,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         assertTrue("The number of ELEMENT_EVENT_SPOOLED_DISK_NOT_AVAILABLE events [" + meh.getSpoolNoDiskCount()+ "] does not equal the number expected.",meh.getSpoolNoDiskCount()>= items);
     }
 
-    public void testSpoolNotAllowedEvent_1_oe()
+public void testSpoolNotAllowedEvent_1_oe()
         throws Exception
     {
         final CacheAccess<String, String> jcs = JCS.getInstance( "DiskButNotAllowed" );
@@ -258,7 +258,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         assertTrue("The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [" + meh.getSpoolNotAllowedCount()+ "] does not equal the number expected.",meh.getSpoolNotAllowedCount()>= items);
     }
 
-    public void testSpoolNotAllowedEventOnItem_1_oe()
+public void testSpoolNotAllowedEventOnItem_1_oe()
         throws Exception
     {
         final CacheAccess<String, String> jcs = JCS.getInstance( "DiskButNotAllowed" );
@@ -282,7 +282,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         assertTrue("The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [" + meh.getSpoolNotAllowedCount()+ "] does not equal the number expected.",meh.getSpoolNotAllowedCount()>= items);
     }
 
-    public void testExceededMaxlifeOnrequestEvent_1_oe()
+public void testExceededMaxlifeOnrequestEvent_1_oe()
         throws Exception
     {
         final CacheAccess<String, String> jcs = JCS.getInstance( "Maxlife" );
@@ -307,7 +307,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
     }
     }
 
-    public void testExceededMaxlifeOnrequestEvent_2_oe()
+public void testExceededMaxlifeOnrequestEvent_2_oe()
         throws Exception
     {
         final CacheAccess<String, String> jcs = JCS.getInstance( "Maxlife" );
@@ -338,7 +338,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         assertTrue("The number of ELEMENT_EVENT_EXCEEDED_MAXLIFE_ONREQUEST events [" + meh.getExceededMaxlifeCount()+ "] does not equal the number expected.",meh.getExceededMaxlifeCount()>= 200);
     }
 
-    public void testExceededIdletimeOnrequestEvent_1_oe()
+public void testExceededIdletimeOnrequestEvent_1_oe()
         throws Exception
     {
         final CacheAccess<String, String> jcs = JCS.getInstance( "Idletime" );
@@ -361,7 +361,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
     }
     }
 
-    public void testExceededIdletimeOnrequestEvent_2_oe()
+public void testExceededIdletimeOnrequestEvent_2_oe()
         throws Exception
     {
         final CacheAccess<String, String> jcs = JCS.getInstance( "Idletime" );
@@ -393,7 +393,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
     }
     }
 
-    public void testExceededIdletimeOnrequestEvent_3_oe()
+public void testExceededIdletimeOnrequestEvent_3_oe()
         throws Exception
     {
         final CacheAccess<String, String> jcs = JCS.getInstance( "Idletime" );
@@ -431,7 +431,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         assertTrue("The number of ELEMENT_EVENT_EXCEEDED_IDLETIME_ONREQUEST events [" + meh.getExceededIdletimeCount()+ "] does not equal the number expected.",meh.getExceededIdletimeCount()>= 200);
     }
 
-    public void testElementAttributesCreationTime_1_oe()
+public void testElementAttributesCreationTime_1_oe()
         throws Exception
     {
     	final ElementAttributes elem1 = new ElementAttributes();

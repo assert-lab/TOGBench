@@ -366,18 +366,18 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         return truePredicate();  //Just return something to satisfy super class.
     }
 
-    @Test
+@Test
     public void testExceptionPredicate_1_oe() {
         assertNotNull(PredicateUtils.exceptionPredicate());
     }
 
-    @Test
+@Test
     public void testExceptionPredicate_2_oe() {
         // removed other assertion
         assertSame(PredicateUtils.exceptionPredicate(), PredicateUtils.exceptionPredicate());
     }
 
-    @Test
+@Test
     public void testExceptionPredicate_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -393,25 +393,25 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         fail();
     }
 
-    @Test
+@Test
     public void testIsNotNullPredicate_1_oe() {
         assertNotNull(PredicateUtils.notNullPredicate());
     }
 
-    @Test
+@Test
     public void testIsNotNullPredicate_2_oe() {
         // removed other assertion
         assertSame(PredicateUtils.notNullPredicate(), PredicateUtils.notNullPredicate());
     }
 
-    @Test
+@Test
     public void testIsNotNullPredicate_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(false, PredicateUtils.notNullPredicate().evaluate(null));
     }
 
-    @Test
+@Test
     public void testIsNotNullPredicate_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -419,7 +419,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.notNullPredicate().evaluate(cObject));
     }
 
-    @Test
+@Test
     public void testIsNotNullPredicate_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -428,7 +428,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.notNullPredicate().evaluate(cString));
     }
 
-    @Test
+@Test
     public void testIsNotNullPredicate_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -438,25 +438,25 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.notNullPredicate().evaluate(cInteger));
     }
 
-    @Test
+@Test
     public void testIdentityPredicate_1_oe() {
         assertSame(nullPredicate(), PredicateUtils.identityPredicate(null));
     }
 
-    @Test
+@Test
     public void testIdentityPredicate_2_oe() {
         // removed other assertion
         assertNotNull(PredicateUtils.identityPredicate(Integer.valueOf(6)));
     }
 
-    @Test
+@Test
     public void testIdentityPredicate_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(false, PredicateUtils.identityPredicate(Integer.valueOf(6)).evaluate(null));
     }
 
-    @Test
+@Test
     public void testIdentityPredicate_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -464,7 +464,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.<Object>identityPredicate(Integer.valueOf(6)).evaluate(cObject));
     }
 
-    @Test
+@Test
     public void testIdentityPredicate_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -473,7 +473,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.<Object>identityPredicate(Integer.valueOf(6)).evaluate(cString));
     }
 
-    @Test
+@Test
     public void testIdentityPredicate_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -483,25 +483,25 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false,PredicateUtils.identityPredicate(new Integer(6)).evaluate(cInteger));// Cannot use valueOf here assertEquals(true,PredicateUtils.identityPredicate(cInteger).evaluate(cInteger));
     }
 
-    @Test
+@Test
     public void testTruePredicate_1_oe() {
         assertNotNull(TruePredicate.truePredicate());
     }
 
-    @Test
+@Test
     public void testTruePredicate_2_oe() {
         // removed other assertion
         assertSame(TruePredicate.truePredicate(), TruePredicate.truePredicate());
     }
 
-    @Test
+@Test
     public void testTruePredicate_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(true, TruePredicate.truePredicate().evaluate(null));
     }
 
-    @Test
+@Test
     public void testTruePredicate_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -509,7 +509,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, TruePredicate.truePredicate().evaluate(cObject));
     }
 
-    @Test
+@Test
     public void testTruePredicate_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -518,7 +518,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, TruePredicate.truePredicate().evaluate(cString));
     }
 
-    @Test
+@Test
     public void testTruePredicate_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -528,25 +528,25 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, TruePredicate.truePredicate().evaluate(cInteger));
     }
 
-    @Test
+@Test
     public void testFalsePredicate_1_oe() {
         assertNotNull(FalsePredicate.falsePredicate());
     }
 
-    @Test
+@Test
     public void testFalsePredicate_2_oe() {
         // removed other assertion
         assertSame(FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate());
     }
 
-    @Test
+@Test
     public void testFalsePredicate_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(false, FalsePredicate.falsePredicate().evaluate(null));
     }
 
-    @Test
+@Test
     public void testFalsePredicate_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -554,7 +554,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, FalsePredicate.falsePredicate().evaluate(cObject));
     }
 
-    @Test
+@Test
     public void testFalsePredicate_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -563,7 +563,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, FalsePredicate.falsePredicate().evaluate(cString));
     }
 
-    @Test
+@Test
     public void testFalsePredicate_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -573,25 +573,25 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, FalsePredicate.falsePredicate().evaluate(cInteger));
     }
 
-    @Test
+@Test
     public void testNotPredicate_1_oe() {
         assertNotNull(PredicateUtils.notPredicate(TruePredicate.truePredicate()));
     }
 
-    @Test
+@Test
     public void testNotPredicate_2_oe() {
         // removed other assertion
         assertEquals(false, PredicateUtils.notPredicate(TruePredicate.truePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testNotPredicate_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(false, PredicateUtils.notPredicate(TruePredicate.truePredicate()).evaluate(cObject));
     }
 
-    @Test
+@Test
     public void testNotPredicate_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -599,7 +599,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.notPredicate(TruePredicate.truePredicate()).evaluate(cString));
     }
 
-    @Test
+@Test
     public void testNotPredicate_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -608,25 +608,25 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.notPredicate(TruePredicate.truePredicate()).evaluate(cInteger));
     }
 
-    @Test
+@Test
     public void testAndPredicate_1_oe() {
         assertEquals(true, PredicateUtils.andPredicate(TruePredicate.truePredicate(), TruePredicate.truePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAndPredicate_2_oe() {
         // removed other assertion
         assertEquals(false, PredicateUtils.andPredicate(TruePredicate.truePredicate(), FalsePredicate.falsePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAndPredicate_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(false, PredicateUtils.andPredicate(FalsePredicate.falsePredicate(), TruePredicate.truePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAndPredicate_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -634,25 +634,25 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.andPredicate(FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAllPredicate_1_oe() {
         assertTrue(AllPredicate.allPredicate(new Predicate[] {}), null);
     }
 
-    @Test
+@Test
     public void testAllPredicate_2_oe() {
         // removed other assertion
         assertEquals(true, AllPredicate.allPredicate(new Predicate[] { TruePredicate.truePredicate(), TruePredicate.truePredicate(), TruePredicate.truePredicate()}).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAllPredicate_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(false, AllPredicate.allPredicate(new Predicate[] { TruePredicate.truePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAllPredicate_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -660,7 +660,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, AllPredicate.allPredicate(new Predicate[] { FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAllPredicate_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -669,7 +669,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, AllPredicate.allPredicate(new Predicate[] { FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()}).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAllPredicate_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -683,7 +683,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, AllPredicate.allPredicate(coll).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAllPredicate_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -702,7 +702,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, AllPredicate.allPredicate(coll).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAllPredicate_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -726,7 +726,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, AllPredicate.allPredicate(coll).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAllPredicate_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -755,7 +755,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, AllPredicate.allPredicate(coll).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAllPredicate_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -787,7 +787,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertFalse(AllPredicate.allPredicate(coll), null);
     }
 
-    @Test
+@Test
     public void testAllPredicate_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -822,7 +822,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertTrue(AllPredicate.allPredicate(coll), null);
     }
 
-    @Test
+@Test
     public void testAllPredicate_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -859,25 +859,25 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertTrue(AllPredicate.allPredicate(coll), null);
     }
 
-    @Test
+@Test
     public void testOrPredicate_1_oe() {
         assertEquals(true, PredicateUtils.orPredicate(TruePredicate.truePredicate(), TruePredicate.truePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testOrPredicate_2_oe() {
         // removed other assertion
         assertEquals(true, PredicateUtils.orPredicate(TruePredicate.truePredicate(), FalsePredicate.falsePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testOrPredicate_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(true, PredicateUtils.orPredicate(FalsePredicate.falsePredicate(), TruePredicate.truePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testOrPredicate_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -885,19 +885,19 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.orPredicate(FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAnyPredicate_1_oe() {
         assertFalse(PredicateUtils.anyPredicate(new Predicate[] {}), null);
     }
 
-    @Test
+@Test
     public void testAnyPredicate_2_oe() {
         // removed other assertion
 
         assertEquals(true, PredicateUtils.anyPredicate(new Predicate[] { TruePredicate.truePredicate(), TruePredicate.truePredicate(), TruePredicate.truePredicate()}).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAnyPredicate_3_oe() {
         // removed other assertion
 
@@ -905,7 +905,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.anyPredicate(new Predicate[] { TruePredicate.truePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAnyPredicate_4_oe() {
         // removed other assertion
 
@@ -914,7 +914,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.anyPredicate(new Predicate[] { FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAnyPredicate_5_oe() {
         // removed other assertion
 
@@ -924,7 +924,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.anyPredicate(new Predicate[] { FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()}).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAnyPredicate_6_oe() {
         // removed other assertion
 
@@ -939,7 +939,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.anyPredicate(coll).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAnyPredicate_7_oe() {
         // removed other assertion
 
@@ -959,7 +959,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.anyPredicate(coll).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAnyPredicate_8_oe() {
         // removed other assertion
 
@@ -984,7 +984,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.anyPredicate(coll).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAnyPredicate_9_oe() {
         // removed other assertion
 
@@ -1014,7 +1014,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.anyPredicate(coll).evaluate(null));
     }
 
-    @Test
+@Test
     public void testAnyPredicate_10_oe() {
         // removed other assertion
 
@@ -1047,7 +1047,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertFalse(PredicateUtils.anyPredicate(coll), null);
     }
 
-    @Test
+@Test
     public void testAnyPredicate_11_oe() {
         // removed other assertion
 
@@ -1083,7 +1083,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertTrue(PredicateUtils.anyPredicate(coll), null);
     }
 
-    @Test
+@Test
     public void testAnyPredicate_12_oe() {
         // removed other assertion
 
@@ -1121,25 +1121,25 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertFalse(PredicateUtils.anyPredicate(coll), null);
     }
 
-    @Test
+@Test
     public void testEitherPredicate_1_oe() {
         assertEquals(false, PredicateUtils.eitherPredicate(TruePredicate.truePredicate(), TruePredicate.truePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testEitherPredicate_2_oe() {
         // removed other assertion
         assertEquals(true, PredicateUtils.eitherPredicate(TruePredicate.truePredicate(), FalsePredicate.falsePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testEitherPredicate_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(true, PredicateUtils.eitherPredicate(FalsePredicate.falsePredicate(), TruePredicate.truePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testEitherPredicate_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1147,25 +1147,25 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.eitherPredicate(FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testOnePredicate_1_oe() {
         assertFalse(PredicateUtils.onePredicate((Predicate<Object>[]) new Predicate[] {}), null);
     }
 
-    @Test
+@Test
     public void testOnePredicate_2_oe() {
         // removed other assertion
         assertEquals(false, PredicateUtils.onePredicate(new Predicate[] { TruePredicate.truePredicate(), TruePredicate.truePredicate(), TruePredicate.truePredicate()}).evaluate(null));
     }
 
-    @Test
+@Test
     public void testOnePredicate_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(false, PredicateUtils.onePredicate(new Predicate[] { TruePredicate.truePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null));
     }
 
-    @Test
+@Test
     public void testOnePredicate_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1173,7 +1173,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.onePredicate(new Predicate[] { TruePredicate.truePredicate(), FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()}).evaluate(null));
     }
 
-    @Test
+@Test
     public void testOnePredicate_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1182,7 +1182,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.onePredicate(new Predicate[] { FalsePredicate.falsePredicate(), TruePredicate.truePredicate(), FalsePredicate.falsePredicate()}).evaluate(null));
     }
 
-    @Test
+@Test
     public void testOnePredicate_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1192,7 +1192,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.onePredicate(new Predicate[] { FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null));
     }
 
-    @Test
+@Test
     public void testOnePredicate_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -1203,7 +1203,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.onePredicate(new Predicate[] { FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()}).evaluate(null));
     }
 
-    @Test
+@Test
     public void testOnePredicate_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -1219,7 +1219,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.onePredicate(coll).evaluate(null));
     }
 
-    @Test
+@Test
     public void testOnePredicate_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -1240,7 +1240,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.onePredicate(coll).evaluate(null));
     }
 
-    @Test
+@Test
     public void testOnePredicate_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -1266,7 +1266,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.onePredicate(coll).evaluate(null));
     }
 
-    @Test
+@Test
     public void testOnePredicate_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -1297,7 +1297,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.onePredicate(coll).evaluate(null));
     }
 
-    @Test
+@Test
     public void testOnePredicate_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -1331,7 +1331,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertFalse(PredicateUtils.onePredicate(coll), null);
     }
 
-    @Test
+@Test
     public void testOnePredicate_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -1368,7 +1368,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertTrue(PredicateUtils.onePredicate(coll), null);
     }
 
-    @Test
+@Test
     public void testOnePredicate_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -1407,25 +1407,25 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertFalse(PredicateUtils.onePredicate(coll), null);
     }
 
-    @Test
+@Test
     public void testNeitherPredicate_1_oe() {
         assertEquals(false, PredicateUtils.neitherPredicate(TruePredicate.truePredicate(), TruePredicate.truePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testNeitherPredicate_2_oe() {
         // removed other assertion
         assertEquals(false, PredicateUtils.neitherPredicate(TruePredicate.truePredicate(), FalsePredicate.falsePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testNeitherPredicate_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(false, PredicateUtils.neitherPredicate(FalsePredicate.falsePredicate(), TruePredicate.truePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testNeitherPredicate_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1433,25 +1433,25 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.neitherPredicate(FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testNonePredicate_1_oe() {
         assertTrue(PredicateUtils.nonePredicate(new Predicate[] {}), null);
     }
 
-    @Test
+@Test
     public void testNonePredicate_2_oe() {
         // removed other assertion
         assertEquals(false, PredicateUtils.nonePredicate(new Predicate[] { TruePredicate.truePredicate(), TruePredicate.truePredicate(), TruePredicate.truePredicate() }).evaluate(null));
     }
 
-    @Test
+@Test
     public void testNonePredicate_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(false, PredicateUtils.nonePredicate(new Predicate[] { TruePredicate.truePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate() }).evaluate(null));
     }
 
-    @Test
+@Test
     public void testNonePredicate_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1459,7 +1459,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.nonePredicate(new Predicate[] { FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate() }).evaluate(null));
     }
 
-    @Test
+@Test
     public void testNonePredicate_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1468,7 +1468,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.nonePredicate(new Predicate[] { FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate() }).evaluate(null));
     }
 
-    @Test
+@Test
     public void testNonePredicate_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1482,7 +1482,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.nonePredicate(coll).evaluate(null));
     }
 
-    @Test
+@Test
     public void testNonePredicate_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -1501,7 +1501,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.nonePredicate(coll).evaluate(null));
     }
 
-    @Test
+@Test
     public void testNonePredicate_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -1525,7 +1525,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.nonePredicate(coll).evaluate(null));
     }
 
-    @Test
+@Test
     public void testNonePredicate_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -1554,7 +1554,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.nonePredicate(coll).evaluate(null));
     }
 
-    @Test
+@Test
     public void testNonePredicate_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -1586,7 +1586,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertTrue(PredicateUtils.nonePredicate(coll), null);
     }
 
-    @Test
+@Test
     public void testNonePredicate_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -1621,7 +1621,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertFalse(PredicateUtils.nonePredicate(coll), null);
     }
 
-    @Test
+@Test
     public void testNonePredicate_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -1658,25 +1658,25 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertTrue(PredicateUtils.nonePredicate(coll), null);
     }
 
-    @Test
+@Test
     public void testInstanceOfPredicate_1_oe() {
         assertNotNull(PredicateUtils.instanceofPredicate(String.class));
     }
 
-    @Test
+@Test
     public void testInstanceOfPredicate_2_oe() {
         // removed other assertion
         assertEquals(false, PredicateUtils.instanceofPredicate(String.class).evaluate(null));
     }
 
-    @Test
+@Test
     public void testInstanceOfPredicate_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(false, PredicateUtils.instanceofPredicate(String.class).evaluate(cObject));
     }
 
-    @Test
+@Test
     public void testInstanceOfPredicate_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1684,7 +1684,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.instanceofPredicate(String.class).evaluate(cString));
     }
 
-    @Test
+@Test
     public void testInstanceOfPredicate_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1693,20 +1693,20 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.instanceofPredicate(String.class).evaluate(cInteger));
     }
 
-    @Test
+@Test
     public void testUniquePredicate_1_oe() {
         final Predicate<Object> p = PredicateUtils.uniquePredicate();
         assertEquals(true, p.evaluate(new Object()));
     }
 
-    @Test
+@Test
     public void testUniquePredicate_2_oe() {
         final Predicate<Object> p = PredicateUtils.uniquePredicate();
         // removed other assertion
         assertEquals(true, p.evaluate(new Object()));
     }
 
-    @Test
+@Test
     public void testUniquePredicate_3_oe() {
         final Predicate<Object> p = PredicateUtils.uniquePredicate();
         // removed other assertion
@@ -1714,7 +1714,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, p.evaluate(new Object()));
     }
 
-    @Test
+@Test
     public void testUniquePredicate_4_oe() {
         final Predicate<Object> p = PredicateUtils.uniquePredicate();
         // removed other assertion
@@ -1723,7 +1723,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, p.evaluate(cString));
     }
 
-    @Test
+@Test
     public void testUniquePredicate_5_oe() {
         final Predicate<Object> p = PredicateUtils.uniquePredicate();
         // removed other assertion
@@ -1733,7 +1733,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, p.evaluate(cString));
     }
 
-    @Test
+@Test
     public void testUniquePredicate_6_oe() {
         final Predicate<Object> p = PredicateUtils.uniquePredicate();
         // removed other assertion
@@ -1744,24 +1744,24 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, p.evaluate(cString));
     }
 
-    @Test
+@Test
     public void testAsPredicateTransformer_1_oe() {
         assertEquals(false, PredicateUtils.asPredicate(TransformerUtils.<Boolean>nopTransformer()).evaluate(false));
     }
 
-    @Test
+@Test
     public void testAsPredicateTransformer_2_oe() {
         // removed other assertion
         assertEquals(true, PredicateUtils.asPredicate(TransformerUtils.<Boolean>nopTransformer()).evaluate(true));
     }
 
-    @Test
+@Test
     public void testInvokerPredicate_1_oe() {
         final List<Object> list = new ArrayList<>();
         assertEquals(true, PredicateUtils.invokerPredicate("isEmpty").evaluate(list));
     }
 
-    @Test
+@Test
     public void testInvokerPredicate_2_oe() {
         final List<Object> list = new ArrayList<>();
         // removed other assertion
@@ -1769,13 +1769,13 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.invokerPredicate("isEmpty").evaluate(list));
     }
 
-    @Test
+@Test
     public void testInvokerPredicate2_1_oe() {
         final List<String> list = new ArrayList<>();
         assertEquals(false, PredicateUtils.invokerPredicate( "contains", new Class[] {Object.class}, new Object[] {cString}).evaluate(list));
     }
 
-    @Test
+@Test
     public void testInvokerPredicate2_2_oe() {
         final List<String> list = new ArrayList<>();
         // removed other assertion
@@ -1783,53 +1783,53 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(true, PredicateUtils.invokerPredicate( "contains", new Class[] {Object.class}, new Object[] {cString}).evaluate(list));
     }
 
-    @Test(expected=FunctorException.class)
+@Test(expected=FunctorException.class)
     public void testNullIsExceptionPredicate_1_oe() {
         assertEquals(true, PredicateUtils.nullIsExceptionPredicate(TruePredicate.truePredicate()).evaluate(new Object()));
     }
 
-    @Test
+@Test
     public void testNullIsTruePredicate_1_oe() {
         assertEquals(true, PredicateUtils.nullIsTruePredicate(TruePredicate.truePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testNullIsTruePredicate_2_oe() {
         // removed other assertion
         assertEquals(true, PredicateUtils.nullIsTruePredicate(TruePredicate.truePredicate()).evaluate(new Object()));
     }
 
-    @Test
+@Test
     public void testNullIsTruePredicate_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(false, PredicateUtils.nullIsTruePredicate(FalsePredicate.falsePredicate()).evaluate(new Object()));
     }
 
-    @Test
+@Test
     public void testNullIsFalsePredicate_1_oe() {
         assertEquals(false, PredicateUtils.nullIsFalsePredicate(TruePredicate.truePredicate()).evaluate(null));
     }
 
-    @Test
+@Test
     public void testNullIsFalsePredicate_2_oe() {
         // removed other assertion
         assertEquals(true, PredicateUtils.nullIsFalsePredicate(TruePredicate.truePredicate()).evaluate(new Object()));
     }
 
-    @Test
+@Test
     public void testNullIsFalsePredicate_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(false, PredicateUtils.nullIsFalsePredicate(FalsePredicate.falsePredicate()).evaluate(new Object()));
     }
 
-    @Test
+@Test
     public void testTransformedPredicate_1_oe() {
         assertEquals(true,PredicateUtils.transformedPredicate(TransformerUtils.nopTransformer(),TruePredicate.truePredicate()).evaluate(new Object()));
     }
 
-    @Test
+@Test
     public void testTransformedPredicate_2_oe() {
         // removed other assertion
 
@@ -1840,7 +1840,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.transformedPredicate(t, p).evaluate(null));
     }
 
-    @Test
+@Test
     public void testTransformedPredicate_3_oe() {
         // removed other assertion
 

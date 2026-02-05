@@ -950,7 +950,7 @@ public class QueryRunnerTest_OE25Dev {
         runner.update("update blah set unit = test");
     }
 
-    @Test
+@Test
     public void testGoodInsert_1_oe() throws Exception {
         results = mock(ResultSet.class);
         
@@ -969,7 +969,7 @@ public class QueryRunnerTest_OE25Dev {
         Assert.assertEquals(1L, generatedKey.longValue());
     }
 
-    @Test
+@Test
     public void testGoodBatchInsert_1_oe() throws Exception {
         results = mock(ResultSet.class);
         resultsMeta = mock(ResultSetMetaData.class);
@@ -1011,7 +1011,7 @@ public class QueryRunnerTest_OE25Dev {
         Assert.assertEquals(2, generatedKeys.size());
     }
 
-    @Test
+@Test
     public void testExecuteWithMultipleResultSets_1_oe() throws Exception {
         when(call.execute()).thenReturn(true);
         when(call.getMoreResults()).thenAnswer(new Answer<Boolean>()

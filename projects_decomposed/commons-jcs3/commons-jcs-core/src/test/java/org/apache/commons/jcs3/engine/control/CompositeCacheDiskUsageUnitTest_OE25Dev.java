@@ -323,21 +323,21 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
 
     }
 
-    public void testSwapConfig_1_oe()
+public void testSwapConfig_1_oe()
         throws CacheException
     {
         final CacheAccess<String, String> swap = JCS.getInstance( "Swap" );
         assertEquals(ICompositeCacheAttributes.DiskUsagePattern.SWAP,swap.getCacheAttributes().getDiskUsagePattern());
     }
 
-    public void testUpdateConfig_1_oe()
+public void testUpdateConfig_1_oe()
         throws CacheException
     {
         final CacheAccess<String, String> swap = JCS.getInstance( "Update" );
         assertEquals(ICompositeCacheAttributes.DiskUsagePattern.UPDATE,swap.getCacheAttributes().getDiskUsagePattern());
     }
 
-    public void testSpoolAllowed_1_oe()
+public void testSpoolAllowed_1_oe()
     {
         // SETUP
         final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
@@ -361,7 +361,7 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
         assertEquals( "Wrong number of calls to the disk cache update.", 1, mock.updateCount );
     }
 
-    public void testSpoolAllowed_2_oe()
+public void testSpoolAllowed_2_oe()
     {
         // SETUP
         final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
@@ -386,7 +386,7 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
         assertEquals( "Wrong element updated.", inputElement, mock.lastUpdatedItem );
     }
 
-    public void testSpoolNotAllowed_1_oe()
+public void testSpoolNotAllowed_1_oe()
     {
         // SETUP
         final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
@@ -410,7 +410,7 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
         assertEquals( "Wrong number of calls to the disk cache update.", 0, mock.updateCount );
     }
 
-    public void testUpdateAllowed_1_oe()
+public void testUpdateAllowed_1_oe()
         throws IOException
     {
         // SETUP
@@ -435,7 +435,7 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
         assertEquals( "Wrong number of calls to the disk cache update.", 1, mock.updateCount );
     }
 
-    public void testUpdateAllowed_2_oe()
+public void testUpdateAllowed_2_oe()
         throws IOException
     {
         // SETUP
@@ -461,7 +461,7 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
         assertEquals( "Wrong element updated.", inputElement, mock.lastUpdatedItem );
     }
 
-    public void testUpdateAllowed_localFalse_1_oe()
+public void testUpdateAllowed_localFalse_1_oe()
         throws IOException
     {
         // SETUP
@@ -486,7 +486,7 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
         assertEquals( "Wrong number of calls to the disk cache update.", 1, mock.updateCount );
     }
 
-    public void testUpdateAllowed_localFalse_2_oe()
+public void testUpdateAllowed_localFalse_2_oe()
         throws IOException
     {
         // SETUP
@@ -512,7 +512,7 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
         assertEquals( "Wrong element updated.", inputElement, mock.lastUpdatedItem );
     }
 
-    public void testUpdateNotAllowed_1_oe()
+public void testUpdateNotAllowed_1_oe()
         throws IOException
     {
         // SETUP
@@ -537,7 +537,7 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
         assertEquals( "Wrong number of calls to the disk cache update.", 0, mock.updateCount );
     }
 
-    public void testUpdateAllowed_withOtherCaches_1_oe()
+public void testUpdateAllowed_withOtherCaches_1_oe()
         throws IOException
     {
         // SETUP
@@ -565,7 +565,7 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
         assertEquals( "Wrong number of calls to the disk cache update.", 1, mock.updateCount );
     }
 
-    public void testUpdateAllowed_withOtherCaches_2_oe()
+public void testUpdateAllowed_withOtherCaches_2_oe()
         throws IOException
     {
         // SETUP
@@ -594,7 +594,7 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
         assertEquals( "Wrong element updated.", inputElement, mock.lastUpdatedItem );
     }
 
-    public void testUpdateAllowed_withOtherCaches_3_oe()
+public void testUpdateAllowed_withOtherCaches_3_oe()
         throws IOException
     {
         // SETUP
@@ -625,7 +625,7 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
         assertEquals( "Wrong number of calls to the lateral cache update.", 1, mockLateral.updateCount );
     }
 
-    public void testUpdateAllowed_withOtherCaches_4_oe()
+public void testUpdateAllowed_withOtherCaches_4_oe()
         throws IOException
     {
         // SETUP

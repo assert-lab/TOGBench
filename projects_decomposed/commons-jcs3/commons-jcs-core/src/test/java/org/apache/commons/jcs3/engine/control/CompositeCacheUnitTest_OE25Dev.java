@@ -75,7 +75,7 @@ public class CompositeCacheUnitTest_OE25Dev
      * @throws IOException
      */
 
-    public void testShutdownMemoryFlush_1_oe()
+public void testShutdownMemoryFlush_1_oe()
         throws IOException
     {
         // SETUP
@@ -107,7 +107,7 @@ public class CompositeCacheUnitTest_OE25Dev
         assertEquals( "Wrong number freed.", numToInsert, memoryCache.lastNumberOfFreedElements );
     }
 
-    public void testShutdownMemoryFlush_noDisk_1_oe()
+public void testShutdownMemoryFlush_noDisk_1_oe()
         throws IOException
     {
         // SETUP
@@ -139,7 +139,7 @@ public class CompositeCacheUnitTest_OE25Dev
         assertEquals( "Wrong number freed.", 0, memoryCache.lastNumberOfFreedElements );
     }
 
-    public void testGetMatching_Normal_1_oe()
+public void testGetMatching_Normal_1_oe()
         throws IOException
     {
         // SETUP
@@ -184,7 +184,7 @@ public class CompositeCacheUnitTest_OE25Dev
         assertEquals( "Wrong number returned 1:", numToInsertPrefix1, result1.size() );
     }
 
-    public void testGetMatching_Normal_2_oe()
+public void testGetMatching_Normal_2_oe()
         throws IOException
     {
         // SETUP
@@ -230,7 +230,7 @@ public class CompositeCacheUnitTest_OE25Dev
         assertEquals( "Wrong number returned 2:", numToInsertPrefix2, result2.size() );
     }
 
-    public void testGetMatching_NotOnDisk_1_oe()
+public void testGetMatching_NotOnDisk_1_oe()
         throws IOException
     {
         // SETUP
@@ -257,7 +257,7 @@ public class CompositeCacheUnitTest_OE25Dev
         assertEquals( "Wrong number of calls", 1, diskMock.getMatchingCallCount );
     }
 
-    public void testGetMatching_NotOnRemote_1_oe()
+public void testGetMatching_NotOnRemote_1_oe()
         throws IOException
     {
         // SETUP

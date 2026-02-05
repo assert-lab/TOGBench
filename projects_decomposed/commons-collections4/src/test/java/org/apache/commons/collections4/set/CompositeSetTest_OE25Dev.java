@@ -131,22 +131,22 @@ public class CompositeSetTest_OE25Dev<E> extends AbstractSetTest<E> {
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/CompositeSet.fullCollection.version4.obj");
 //    }
 
-    public void testContains_1_oe() {
+public void testContains_1_oe() {
         final CompositeSet<E> set = new CompositeSet<>(new Set[]{ buildOne(), buildTwo() });
         assertTrue(set.contains("1"));
     }
 
-    public void testContainsAll_1_oe() {
+public void testContainsAll_1_oe() {
         final CompositeSet<E> set = new CompositeSet<>(new Set[]{ buildOne(), buildTwo() });
         assertFalse(set.containsAll(null));
     }
 
-    public void testRemoveAll_1_oe() {
+public void testRemoveAll_1_oe() {
         final CompositeSet<E> set = new CompositeSet<>(new Set[]{ buildOne(), buildTwo() });
         assertFalse(set.removeAll(null));
     }
 
-    public void testRemoveUnderlying_1_oe() {
+public void testRemoveUnderlying_1_oe() {
         final Set<E> one = buildOne();
         final Set<E> two = buildTwo();
         final CompositeSet<E> set = new CompositeSet<>(new Set[] { one, two });
@@ -154,7 +154,7 @@ public class CompositeSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         assertFalse(set.contains("1"));
     }
 
-    public void testRemoveUnderlying_2_oe() {
+public void testRemoveUnderlying_2_oe() {
         final Set<E> one = buildOne();
         final Set<E> two = buildTwo();
         final CompositeSet<E> set = new CompositeSet<>(new Set[] { one, two });
@@ -165,7 +165,7 @@ public class CompositeSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         assertFalse(set.contains("3"));
     }
 
-    public void testRemoveComposited_1_oe() {
+public void testRemoveComposited_1_oe() {
         final Set<E> one = buildOne();
         final Set<E> two = buildTwo();
         final CompositeSet<E> set = new CompositeSet<>(new Set[] { one, two });
@@ -173,7 +173,7 @@ public class CompositeSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         assertFalse(one.contains("1"));
     }
 
-    public void testRemoveComposited_2_oe() {
+public void testRemoveComposited_2_oe() {
         final Set<E> one = buildOne();
         final Set<E> two = buildTwo();
         final CompositeSet<E> set = new CompositeSet<>(new Set[] { one, two });
@@ -184,7 +184,7 @@ public class CompositeSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         assertFalse(one.contains("3"));
     }
 
-    public void testAddComposited_1_oe() {
+public void testAddComposited_1_oe() {
         final Set<E> one = buildOne();
         final Set<E> two = buildTwo();
         final CompositeSet<E> set = new CompositeSet<>();
@@ -198,7 +198,7 @@ public class CompositeSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         assertTrue(set.equals(set2));
     }
 
-    public void testAddComposited_2_oe() {
+public void testAddComposited_2_oe() {
         final Set<E> one = buildOne();
         final Set<E> two = buildTwo();
         final CompositeSet<E> set = new CompositeSet<>();

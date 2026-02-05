@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 
 public class JpegImageDataTest_OE25Dev{
 
-    @Test
+@Test
     public void testCreatesJpegImageDataAndCallsGetElementDescription_1_oe() {
         final byte[] byteArray = new byte[5];
         final JpegImageData jpegImageData = new JpegImageData((-1L), 1, byteArray);

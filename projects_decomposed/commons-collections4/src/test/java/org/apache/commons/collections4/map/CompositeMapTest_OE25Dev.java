@@ -76,18 +76,18 @@ public class CompositeMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
 //        writeExternalFormToDisk((java.io.Serializable) map, "src/test/resources/data/test/CompositeMap.fullCollection.version4.obj");
 //    }
 
-    public void testGet_1_oe() {
+public void testGet_1_oe() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
         assertEquals("one", map.get("1"));
     }
 
-    public void testGet_2_oe() {
+public void testGet_2_oe() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
         // removed other assertion
         assertEquals("four", map.get("4"));
     }
 
-    public void testAddComposited_1_oe() {
+public void testAddComposited_1_oe() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
         final HashMap<K, V> three = new HashMap<>();
         three.put((K) "5", (V) "five");
@@ -96,7 +96,7 @@ public class CompositeMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         assertTrue(map.containsKey("5"));
     }
 
-    public void testRemoveComposited_1_oe() {
+public void testRemoveComposited_1_oe() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
         final HashMap<K, V> three = new HashMap<>();
         three.put((K) "5", (V) "five");
@@ -105,7 +105,7 @@ public class CompositeMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         assertTrue(map.containsKey("5"));
     }
 
-    public void testRemoveComposited_2_oe() {
+public void testRemoveComposited_2_oe() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
         final HashMap<K, V> three = new HashMap<>();
         three.put((K) "5", (V) "five");
@@ -117,7 +117,7 @@ public class CompositeMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         assertFalse(map.containsKey("5"));
     }
 
-    public void testRemoveComposited_3_oe() {
+public void testRemoveComposited_3_oe() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
         final HashMap<K, V> three = new HashMap<>();
         three.put((K) "5", (V) "five");
@@ -132,7 +132,7 @@ public class CompositeMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         assertFalse(map.containsKey("2"));
     }
 
-    public void testRemoveFromUnderlying_1_oe() {
+public void testRemoveFromUnderlying_1_oe() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
         final HashMap<K, V> three = new HashMap<>();
         three.put((K) "5", (V) "five");
@@ -141,7 +141,7 @@ public class CompositeMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         assertTrue(map.containsKey("5"));
     }
 
-    public void testRemoveFromUnderlying_2_oe() {
+public void testRemoveFromUnderlying_2_oe() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
         final HashMap<K, V> three = new HashMap<>();
         three.put((K) "5", (V) "five");
@@ -154,7 +154,7 @@ public class CompositeMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         assertFalse(map.containsKey("5"));
     }
 
-    public void testRemoveFromComposited_1_oe() {
+public void testRemoveFromComposited_1_oe() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
         final HashMap<K, V> three = new HashMap<>();
         three.put((K) "5", (V) "five");
@@ -163,7 +163,7 @@ public class CompositeMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         assertTrue(map.containsKey("5"));
     }
 
-    public void testRemoveFromComposited_2_oe() {
+public void testRemoveFromComposited_2_oe() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
         final HashMap<K, V> three = new HashMap<>();
         three.put((K) "5", (V) "five");
@@ -176,7 +176,7 @@ public class CompositeMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         assertFalse(three.containsKey("5"));
     }
 
-    public void testResolveCollision_1_oe() {
+public void testResolveCollision_1_oe() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo(),
             new CompositeMap.MapMutator<K, V>() {
             private static final long serialVersionUID = 1L;
@@ -205,7 +205,7 @@ public class CompositeMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         assertTrue(pass);
     }
 
-    public void testPut_1_oe() {
+public void testPut_1_oe() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo(),
             new CompositeMap.MapMutator<K, V>() {
             private static final long serialVersionUID = 1L;
@@ -234,7 +234,7 @@ public class CompositeMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         assertTrue(pass);
     }
 
-    public void testPutAll_1_oe() {
+public void testPutAll_1_oe() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo(),
             new CompositeMap.MapMutator<K, V>() {
             private static final long serialVersionUID = 1L;

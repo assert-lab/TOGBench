@@ -84,7 +84,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
      * Test BigDecimal Range/Min/Max
      */
 
-    public void testBigDecimalValidatorMethods_1_oe() {
+public void testBigDecimalValidatorMethods_1_oe() {
         Locale locale           = Locale.GERMAN;
         String pattern          = "0,00,00";
         String patternVal       = "1,23,45";
@@ -96,7 +96,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertEquals("validate(A) default", expected, BigDecimalValidator.getInstance().validate(defaultVal));
     }
 
-    public void testBigDecimalValidatorMethods_2_oe() {
+public void testBigDecimalValidatorMethods_2_oe() {
         Locale locale           = Locale.GERMAN;
         String pattern          = "0,00,00";
         String patternVal       = "1,23,45";
@@ -109,7 +109,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertEquals("validate(A) locale ", expected, BigDecimalValidator.getInstance().validate(localeVal, locale));
     }
 
-    public void testBigDecimalValidatorMethods_3_oe() {
+public void testBigDecimalValidatorMethods_3_oe() {
         Locale locale           = Locale.GERMAN;
         String pattern          = "0,00,00";
         String patternVal       = "1,23,45";
@@ -123,7 +123,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertEquals("validate(A) pattern", expected, BigDecimalValidator.getInstance().validate(patternVal, pattern));
     }
 
-    public void testBigDecimalValidatorMethods_4_oe() {
+public void testBigDecimalValidatorMethods_4_oe() {
         Locale locale           = Locale.GERMAN;
         String pattern          = "0,00,00";
         String patternVal       = "1,23,45";
@@ -138,7 +138,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertEquals("validate(A) both",    expected, BigDecimalValidator.getInstance().validate(germanPatternVal, pattern, Locale.GERMAN));
     }
 
-    public void testBigDecimalValidatorMethods_5_oe() {
+public void testBigDecimalValidatorMethods_5_oe() {
         Locale locale           = Locale.GERMAN;
         String pattern          = "0,00,00";
         String patternVal       = "1,23,45";
@@ -155,7 +155,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("isValid(A) default", BigDecimalValidator.getInstance().isValid(defaultVal));
     }
 
-    public void testBigDecimalValidatorMethods_6_oe() {
+public void testBigDecimalValidatorMethods_6_oe() {
         Locale locale           = Locale.GERMAN;
         String pattern          = "0,00,00";
         String patternVal       = "1,23,45";
@@ -173,7 +173,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("isValid(A) locale ", BigDecimalValidator.getInstance().isValid(localeVal, locale));
     }
 
-    public void testBigDecimalValidatorMethods_7_oe() {
+public void testBigDecimalValidatorMethods_7_oe() {
         Locale locale           = Locale.GERMAN;
         String pattern          = "0,00,00";
         String patternVal       = "1,23,45";
@@ -192,7 +192,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("isValid(A) pattern", BigDecimalValidator.getInstance().isValid(patternVal, pattern));
     }
 
-    public void testBigDecimalValidatorMethods_8_oe() {
+public void testBigDecimalValidatorMethods_8_oe() {
         Locale locale           = Locale.GERMAN;
         String pattern          = "0,00,00";
         String patternVal       = "1,23,45";
@@ -212,7 +212,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("isValid(A) both",    BigDecimalValidator.getInstance().isValid(germanPatternVal, pattern, Locale.GERMAN));
     }
 
-    public void testBigDecimalValidatorMethods_9_oe() {
+public void testBigDecimalValidatorMethods_9_oe() {
         Locale locale           = Locale.GERMAN;
         String pattern          = "0,00,00";
         String patternVal       = "1,23,45";
@@ -234,7 +234,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertNull("validate(B) default", BigDecimalValidator.getInstance().validate(XXXX));
     }
 
-    public void testBigDecimalValidatorMethods_10_oe() {
+public void testBigDecimalValidatorMethods_10_oe() {
         Locale locale           = Locale.GERMAN;
         String pattern          = "0,00,00";
         String patternVal       = "1,23,45";
@@ -257,7 +257,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertNull("validate(B) locale ", BigDecimalValidator.getInstance().validate(XXXX, locale));
     }
 
-    public void testBigDecimalValidatorMethods_11_oe() {
+public void testBigDecimalValidatorMethods_11_oe() {
         Locale locale           = Locale.GERMAN;
         String pattern          = "0,00,00";
         String patternVal       = "1,23,45";
@@ -281,7 +281,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertNull("validate(B) pattern", BigDecimalValidator.getInstance().validate(XXXX, pattern));
     }
 
-    public void testBigDecimalValidatorMethods_12_oe() {
+public void testBigDecimalValidatorMethods_12_oe() {
         Locale locale           = Locale.GERMAN;
         String pattern          = "0,00,00";
         String patternVal       = "1,23,45";
@@ -306,7 +306,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertNull("validate(B) both",    BigDecimalValidator.getInstance().validate(patternVal, pattern, Locale.GERMAN));
     }
 
-    public void testBigDecimalValidatorMethods_13_oe() {
+public void testBigDecimalValidatorMethods_13_oe() {
         Locale locale           = Locale.GERMAN;
         String pattern          = "0,00,00";
         String patternVal       = "1,23,45";
@@ -333,7 +333,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertFalse("isValid(B) default", BigDecimalValidator.getInstance().isValid(XXXX));
     }
 
-    public void testBigDecimalValidatorMethods_14_oe() {
+public void testBigDecimalValidatorMethods_14_oe() {
         Locale locale           = Locale.GERMAN;
         String pattern          = "0,00,00";
         String patternVal       = "1,23,45";
@@ -361,7 +361,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertFalse("isValid(B) locale ", BigDecimalValidator.getInstance().isValid(XXXX, locale));
     }
 
-    public void testBigDecimalValidatorMethods_15_oe() {
+public void testBigDecimalValidatorMethods_15_oe() {
         Locale locale           = Locale.GERMAN;
         String pattern          = "0,00,00";
         String patternVal       = "1,23,45";
@@ -390,7 +390,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertFalse("isValid(B) pattern", BigDecimalValidator.getInstance().isValid(XXXX, pattern));
     }
 
-    public void testBigDecimalValidatorMethods_16_oe() {
+public void testBigDecimalValidatorMethods_16_oe() {
         Locale locale           = Locale.GERMAN;
         String pattern          = "0,00,00";
         String patternVal       = "1,23,45";
@@ -420,7 +420,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertFalse("isValid(B) both",    BigDecimalValidator.getInstance().isValid(patternVal, pattern, Locale.GERMAN));
     }
 
-    public void testBigDecimalRangeMinMax_1_oe() {
+public void testBigDecimalRangeMinMax_1_oe() {
         BigDecimalValidator validator = new BigDecimalValidator(true, AbstractNumberValidator.STANDARD_FORMAT, true);
         BigDecimal number9  = new BigDecimal("9");
         BigDecimal number10 = new BigDecimal("10");
@@ -436,7 +436,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertFalse("isInRange(A) < min",   validator.isInRange(number9,  min, max));
     }
 
-    public void testBigDecimalRangeMinMax_2_oe() {
+public void testBigDecimalRangeMinMax_2_oe() {
         BigDecimalValidator validator = new BigDecimalValidator(true, AbstractNumberValidator.STANDARD_FORMAT, true);
         BigDecimal number9  = new BigDecimal("9");
         BigDecimal number10 = new BigDecimal("10");
@@ -453,7 +453,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("isInRange(A) = min",    validator.isInRange(number10, min, max));
     }
 
-    public void testBigDecimalRangeMinMax_3_oe() {
+public void testBigDecimalRangeMinMax_3_oe() {
         BigDecimalValidator validator = new BigDecimalValidator(true, AbstractNumberValidator.STANDARD_FORMAT, true);
         BigDecimal number9  = new BigDecimal("9");
         BigDecimal number10 = new BigDecimal("10");
@@ -471,7 +471,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("isInRange(A) in range", validator.isInRange(number11, min, max));
     }
 
-    public void testBigDecimalRangeMinMax_4_oe() {
+public void testBigDecimalRangeMinMax_4_oe() {
         BigDecimalValidator validator = new BigDecimalValidator(true, AbstractNumberValidator.STANDARD_FORMAT, true);
         BigDecimal number9  = new BigDecimal("9");
         BigDecimal number10 = new BigDecimal("10");
@@ -490,7 +490,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("isInRange(A) = max",    validator.isInRange(number20, min, max));
     }
 
-    public void testBigDecimalRangeMinMax_5_oe() {
+public void testBigDecimalRangeMinMax_5_oe() {
         BigDecimalValidator validator = new BigDecimalValidator(true, AbstractNumberValidator.STANDARD_FORMAT, true);
         BigDecimal number9  = new BigDecimal("9");
         BigDecimal number10 = new BigDecimal("10");
@@ -510,7 +510,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertFalse("isInRange(A) > max",   validator.isInRange(number21, min, max));
     }
 
-    public void testBigDecimalRangeMinMax_6_oe() {
+public void testBigDecimalRangeMinMax_6_oe() {
         BigDecimalValidator validator = new BigDecimalValidator(true, AbstractNumberValidator.STANDARD_FORMAT, true);
         BigDecimal number9  = new BigDecimal("9");
         BigDecimal number10 = new BigDecimal("10");
@@ -533,7 +533,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertFalse("minValue(A) < min",    validator.minValue(number9,  min));
     }
 
-    public void testBigDecimalRangeMinMax_7_oe() {
+public void testBigDecimalRangeMinMax_7_oe() {
         BigDecimalValidator validator = new BigDecimalValidator(true, AbstractNumberValidator.STANDARD_FORMAT, true);
         BigDecimal number9  = new BigDecimal("9");
         BigDecimal number10 = new BigDecimal("10");
@@ -557,7 +557,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("minValue(A) = min",     validator.minValue(number10, min));
     }
 
-    public void testBigDecimalRangeMinMax_8_oe() {
+public void testBigDecimalRangeMinMax_8_oe() {
         BigDecimalValidator validator = new BigDecimalValidator(true, AbstractNumberValidator.STANDARD_FORMAT, true);
         BigDecimal number9  = new BigDecimal("9");
         BigDecimal number10 = new BigDecimal("10");
@@ -582,7 +582,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("minValue(A) > min",     validator.minValue(number11, min));
     }
 
-    public void testBigDecimalRangeMinMax_9_oe() {
+public void testBigDecimalRangeMinMax_9_oe() {
         BigDecimalValidator validator = new BigDecimalValidator(true, AbstractNumberValidator.STANDARD_FORMAT, true);
         BigDecimal number9  = new BigDecimal("9");
         BigDecimal number10 = new BigDecimal("10");
@@ -610,7 +610,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("maxValue(A) < max",     validator.maxValue(number19, max));
     }
 
-    public void testBigDecimalRangeMinMax_10_oe() {
+public void testBigDecimalRangeMinMax_10_oe() {
         BigDecimalValidator validator = new BigDecimalValidator(true, AbstractNumberValidator.STANDARD_FORMAT, true);
         BigDecimal number9  = new BigDecimal("9");
         BigDecimal number10 = new BigDecimal("10");
@@ -639,7 +639,7 @@ public class BigDecimalValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("maxValue(A) = max",     validator.maxValue(number20, max));
     }
 
-    public void testBigDecimalRangeMinMax_11_oe() {
+public void testBigDecimalRangeMinMax_11_oe() {
         BigDecimalValidator validator = new BigDecimalValidator(true, AbstractNumberValidator.STANDARD_FORMAT, true);
         BigDecimal number9  = new BigDecimal("9");
         BigDecimal number10 = new BigDecimal("10");

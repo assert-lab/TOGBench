@@ -42,7 +42,7 @@ class SeedUtilsTest_OE25Dev {
      * character position.
      */
 
-    @Test
+@Test
     void testCreateIntHexPermutation_1_oe() {
         final UniformRandomProvider rng = new SplitMix64(-567435247L);
         final long[][] samples = new long[8][16];
@@ -56,7 +56,7 @@ class SeedUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testCreateIntHexPermutation_2_oe() {
         final UniformRandomProvider rng = new SplitMix64(-567435247L);
         final long[][] samples = new long[8][16];
@@ -81,7 +81,7 @@ class SeedUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testCreateLongHexPermutation_1_oe() {
         final UniformRandomProvider rng = new SplitMix64(34645768L);
         final long[][] samples = new long[16][16];
@@ -96,7 +96,7 @@ class SeedUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testCreateLongHexPermutation_2_oe() {
         final UniformRandomProvider rng = new SplitMix64(34645768L);
         final long[][] samples = new long[16][16];
@@ -120,7 +120,7 @@ class SeedUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testCreateLongHexPermutation_3_oe() {
         final UniformRandomProvider rng = new SplitMix64(34645768L);
         final long[][] samples = new long[16][16];

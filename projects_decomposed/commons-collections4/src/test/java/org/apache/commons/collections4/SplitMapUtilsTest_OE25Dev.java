@@ -76,7 +76,7 @@ public class SplitMapUtilsTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testReadableMap_1_oe() {
         final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
 
@@ -86,7 +86,7 @@ public class SplitMapUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testReadableMap_2_oe() {
         final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
 
@@ -97,7 +97,7 @@ public class SplitMapUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testReadableMap_3_oe() {
         final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
 
@@ -115,7 +115,7 @@ public class SplitMapUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testReadableMap_4_oe() {
         final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
 
@@ -134,7 +134,7 @@ public class SplitMapUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testReadableMap_5_oe() {
         final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
 
@@ -156,7 +156,7 @@ public class SplitMapUtilsTest_OE25Dev {
         assertTrue(map instanceof Unmodifiable);
     }
 
-    @Test
+@Test
     public void testReadableMap_6_oe() {
         final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
 
@@ -190,7 +190,7 @@ public class SplitMapUtilsTest_OE25Dev {
         assertEquals(sz, map.size());
     }
 
-    @Test
+@Test
     public void testReadableMap_7_oe() {
         final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
 
@@ -246,7 +246,7 @@ public class SplitMapUtilsTest_OE25Dev {
         assertEquals(other, map);
     }
 
-    @Test
+@Test
     public void testReadableMap_8_oe() {
         final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
 
@@ -303,7 +303,7 @@ public class SplitMapUtilsTest_OE25Dev {
         assertEquals(other.hashCode(), map.hashCode());
     }
 
-    @Test
+@Test
     public void testReadableMap_9_oe() {
         final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
 
@@ -365,7 +365,7 @@ public class SplitMapUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testReadableMap_10_oe() {
         final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
 
@@ -428,7 +428,7 @@ public class SplitMapUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testReadableMap_11_oe() {
         final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
 
@@ -492,7 +492,7 @@ public class SplitMapUtilsTest_OE25Dev {
         assertTrue(map.isEmpty());
     }
 
-    @Test
+@Test
     public void testReadableMap_12_oe() {
         final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
 
@@ -557,13 +557,13 @@ public class SplitMapUtilsTest_OE25Dev {
         assertSame(map, SplitMapUtils.readableMap(map));
     }
 
-    @Test
+@Test
     public void testAlreadyReadableMap_1_oe() {
         final HashedMap<String, Integer> hashedMap = new HashedMap<>();
         assertSame(hashedMap, SplitMapUtils.readableMap(hashedMap));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testWritableMap_1_oe() {
         final Map<String, String> map = SplitMapUtils.writableMap(transformedMap);
@@ -627,7 +627,7 @@ public class SplitMapUtilsTest_OE25Dev {
         assertEquals(other, map);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testWritableMap_2_oe() {
         final Map<String, String> map = SplitMapUtils.writableMap(transformedMap);
@@ -692,7 +692,7 @@ public class SplitMapUtilsTest_OE25Dev {
         assertEquals(other.hashCode(), map.hashCode());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testWritableMap_3_oe() {
         final Map<String, String> map = SplitMapUtils.writableMap(transformedMap);
@@ -761,7 +761,7 @@ public class SplitMapUtilsTest_OE25Dev {
         assertFalse(backingMap.containsKey("foo"));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testWritableMap_4_oe() {
         final Map<String, String> map = SplitMapUtils.writableMap(transformedMap);
@@ -832,7 +832,7 @@ public class SplitMapUtilsTest_OE25Dev {
         assertEquals(++sz, backingMap.size());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testWritableMap_5_oe() {
         final Map<String, String> map = SplitMapUtils.writableMap(transformedMap);
@@ -911,7 +911,7 @@ public class SplitMapUtilsTest_OE25Dev {
         assertEquals(sz + more.size(), backingMap.size());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testWritableMap_6_oe() {
         final Map<String, String> map = SplitMapUtils.writableMap(transformedMap);
@@ -994,7 +994,7 @@ public class SplitMapUtilsTest_OE25Dev {
         assertTrue(backingMap.isEmpty());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testWritableMap_7_oe() {
         final Map<String, String> map = SplitMapUtils.writableMap(transformedMap);
@@ -1078,7 +1078,7 @@ public class SplitMapUtilsTest_OE25Dev {
         assertSame(map, SplitMapUtils.writableMap((Put<String, String>) map));
     }
 
-    @Test
+@Test
     public void testAlreadyWritableMap_1_oe() {
         final HashedMap<String, String> hashedMap = new HashedMap<>();
         assertSame(hashedMap, SplitMapUtils.writableMap(hashedMap));

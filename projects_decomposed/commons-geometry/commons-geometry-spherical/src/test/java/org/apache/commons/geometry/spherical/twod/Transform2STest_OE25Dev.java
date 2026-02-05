@@ -138,7 +138,7 @@ class Transform2STest_OE25Dev {
                 t.apply(inv.apply(Point2S.of(-1, Math.PI))).getVector(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testIdentity_1_oe() {
         // act
         final Transform2S t = Transform2S.identity();
@@ -147,7 +147,7 @@ class Transform2STest_OE25Dev {
         Assertions.assertTrue(t.preservesOrientation());
     }
 
-    @Test
+@Test
     void testIdentity_2_oe() {
         // act
         final Transform2S t = Transform2S.identity();
@@ -157,7 +157,7 @@ class Transform2STest_OE25Dev {
         Assertions.assertArrayEquals(new double[] { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0 }, t.getEuclideanTransform().toArray(), 0);
     }
 
-    @Test
+@Test
     void testReflection_point_1_oe() {
         // arrange
         final Point2S a = Point2S.of(1, 1);
@@ -173,7 +173,7 @@ class Transform2STest_OE25Dev {
         Assertions.assertFalse(t.preservesOrientation());
     }
 
-    @Test
+@Test
     void testReflection_vector_1_oe() {
         // arrange
         final Point2S a = Point2S.of(1, 1);
@@ -189,7 +189,7 @@ class Transform2STest_OE25Dev {
         Assertions.assertFalse(t.preservesOrientation());
     }
 
-    @Test
+@Test
     void testDoubleReflection_1_oe() {
         // arrange
         final Point2S a = Point2S.of(1, 1);
@@ -207,7 +207,7 @@ class Transform2STest_OE25Dev {
         Assertions.assertTrue(t.preservesOrientation());
     }
 
-    @Test
+@Test
     void testHashcode_1_oe() {
         // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
@@ -222,7 +222,7 @@ class Transform2STest_OE25Dev {
         Assertions.assertEquals(hash, a.hashCode());
     }
 
-    @Test
+@Test
     void testHashcode_2_oe() {
         // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
@@ -239,7 +239,7 @@ class Transform2STest_OE25Dev {
         Assertions.assertNotEquals(hash, b.hashCode());
     }
 
-    @Test
+@Test
     void testHashcode_3_oe() {
         // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
@@ -257,7 +257,7 @@ class Transform2STest_OE25Dev {
         Assertions.assertNotEquals(hash, c.hashCode());
     }
 
-    @Test
+@Test
     void testHashcode_4_oe() {
         // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
@@ -277,7 +277,7 @@ class Transform2STest_OE25Dev {
         Assertions.assertEquals(hash, d.hashCode());
     }
 
-    @Test
+@Test
     void testEquals_2_oe() {
         // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
@@ -291,7 +291,7 @@ class Transform2STest_OE25Dev {
         Assertions.assertNotEquals(a, b);
     }
 
-    @Test
+@Test
     void testEquals_3_oe() {
         // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
@@ -306,7 +306,7 @@ class Transform2STest_OE25Dev {
         Assertions.assertNotEquals(a, c);
     }
 
-    @Test
+@Test
     void testEquals_4_oe() {
         // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
@@ -323,7 +323,7 @@ class Transform2STest_OE25Dev {
         Assertions.assertEquals(a, d);
     }
 
-    @Test
+@Test
     void testEquals_5_oe() {
         // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);

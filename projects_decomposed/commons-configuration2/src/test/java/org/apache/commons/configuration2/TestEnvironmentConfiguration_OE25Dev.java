@@ -76,13 +76,13 @@ public class TestEnvironmentConfiguration_OE25Dev {
         config.setProperty("JAVA_HOME", "C:\\java");
     }
 
-    @Test
+@Test
     public void testInit_1_oe() {
         boolean found = false;
         assertFalse("No properties found", config.isEmpty());
     }
 
-    @Test
+@Test
     public void testInit_2_oe() {
         boolean found = false;
         // removed other assertion
@@ -92,7 +92,7 @@ public class TestEnvironmentConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testInit_3_oe() {
         boolean found = false;
         // removed other assertion
@@ -103,7 +103,7 @@ public class TestEnvironmentConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testInit_4_oe() {
         boolean found = false;
         // removed other assertion

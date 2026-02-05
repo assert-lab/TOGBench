@@ -29,7 +29,7 @@ class BoundarySource2STest_OE25Dev {
     private static final Precision.DoubleEquivalence TEST_PRECISION =
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
-    @Test
+@Test
     void testToList_1_oe() {
         // act
         final BoundarySource2S src = BoundarySource2S.of(
@@ -44,7 +44,7 @@ class BoundarySource2STest_OE25Dev {
         Assertions.assertEquals(2, list.count());
     }
 
-    @Test
+@Test
     void testToList_noBoundaries_1_oe() {
         // act
         final BoundarySource2S src = BoundarySource2S.of();
@@ -56,7 +56,7 @@ class BoundarySource2STest_OE25Dev {
         Assertions.assertEquals(0, list.count());
     }
 
-    @Test
+@Test
     void testToTree_1_oe() {
         // act
         final BoundarySource2S src = BoundarySource2S.of(
@@ -69,7 +69,7 @@ class BoundarySource2STest_OE25Dev {
         Assertions.assertEquals(3, tree.count());
     }
 
-    @Test
+@Test
     void testToTree_2_oe() {
         // act
         final BoundarySource2S src = BoundarySource2S.of(
@@ -83,7 +83,7 @@ class BoundarySource2STest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_3_oe() {
         // act
         final BoundarySource2S src = BoundarySource2S.of(
@@ -98,7 +98,7 @@ class BoundarySource2STest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testToTree_noBoundaries_1_oe() {
         // act
         final BoundarySource2S src = BoundarySource2S.of(Collections.emptyList());
@@ -110,7 +110,7 @@ class BoundarySource2STest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testToTree_noBoundaries_2_oe() {
         // act
         final BoundarySource2S src = BoundarySource2S.of(Collections.emptyList());
@@ -123,7 +123,7 @@ class BoundarySource2STest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_noBoundaries_3_oe() {
         // act
         final BoundarySource2S src = BoundarySource2S.of(Collections.emptyList());

@@ -140,7 +140,7 @@ public class TestReloadingFileBasedConfigurationBuilder_OE25Dev {
      * Tests whether the controller's reloading state is reset when a new result configuration is created.
      */
 
-    @Test
+@Test
     public void testCreateReloadingDetectorDefaultFactory_1_oe() throws ConfigurationException {
         final ReloadingFileBasedConfigurationBuilder<PropertiesConfiguration> builder = new ReloadingFileBasedConfigurationBuilder<>(
             PropertiesConfiguration.class);
@@ -152,7 +152,7 @@ public class TestReloadingFileBasedConfigurationBuilder_OE25Dev {
         assertSame("Wrong file handler", handler, detector.getFileHandler());
     }
 
-    @Test
+@Test
     public void testCreateReloadingDetectorDefaultFactory_2_oe() throws ConfigurationException {
         final ReloadingFileBasedConfigurationBuilder<PropertiesConfiguration> builder = new ReloadingFileBasedConfigurationBuilder<>(
             PropertiesConfiguration.class);
@@ -165,7 +165,7 @@ public class TestReloadingFileBasedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong refresh delay", refreshDelay, detector.getRefreshDelay());
     }
 
-    @Test
+@Test
     public void testCreateReloadingDetectoryCustomFactory_1_oe() throws ConfigurationException {
         final ReloadingDetector detector = EasyMock.createMock(ReloadingDetector.class);
         final ReloadingDetectorFactory factory = EasyMock.createMock(ReloadingDetectorFactory.class);
@@ -179,7 +179,7 @@ public class TestReloadingFileBasedConfigurationBuilder_OE25Dev {
         assertSame("Wrong detector", detector, builder.createReloadingDetector(handler, params));
     }
 
-    @Test
+@Test
     public void testGetConfigurationNoLocation_1_oe() throws ConfigurationException {
         final Map<String, Object> params = new HashMap<>();
         params.put("throwExceptionOnMissing", Boolean.TRUE);
@@ -189,7 +189,7 @@ public class TestReloadingFileBasedConfigurationBuilder_OE25Dev {
         assertTrue("Property not set", conf.isThrowExceptionOnMissing());
     }
 
-    @Test
+@Test
     public void testGetConfigurationNoLocation_2_oe() throws ConfigurationException {
         final Map<String, Object> params = new HashMap<>();
         params.put("throwExceptionOnMissing", Boolean.TRUE);
@@ -200,14 +200,14 @@ public class TestReloadingFileBasedConfigurationBuilder_OE25Dev {
         assertTrue("Not empty", conf.isEmpty());
     }
 
-    @Test
+@Test
     public void testInitAllowFailOnInitFlag_1_oe() {
         final ReloadingFileBasedConfigurationBuilder<PropertiesConfiguration> builder = new ReloadingFileBasedConfigurationBuilder<>(
             PropertiesConfiguration.class, null, true);
         assertTrue("Flag not set", builder.isAllowFailOnInit());
     }
 
-    @Test
+@Test
     public void testReloadingDetectorIsReloadingRequired_1_oe() throws ConfigurationException {
         final ReloadingDetector detector = EasyMock.createMock(ReloadingDetector.class);
         EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
@@ -219,7 +219,7 @@ public class TestReloadingFileBasedConfigurationBuilder_OE25Dev {
         assertTrue("Wrong result (1)", ctrlDetector.isReloadingRequired());
     }
 
-    @Test
+@Test
     public void testReloadingDetectorIsReloadingRequired_3_oe() throws ConfigurationException {
         final ReloadingDetector detector = EasyMock.createMock(ReloadingDetector.class);
         EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
@@ -233,7 +233,7 @@ public class TestReloadingFileBasedConfigurationBuilder_OE25Dev {
         assertSame("Wrong file handler", builder.getFileHandler(), builder.getHandlerForDetector());
     }
 
-    @Test
+@Test
     public void testReloadingDetectorNoFileHandler_1_oe() {
         final ReloadingFileBasedConfigurationBuilder<PropertiesConfiguration> builder = new ReloadingFileBasedConfigurationBuilder<>(
             PropertiesConfiguration.class);
@@ -242,7 +242,7 @@ public class TestReloadingFileBasedConfigurationBuilder_OE25Dev {
         assertFalse("Wrong result", ctrlDetector.isReloadingRequired());
     }
 
-    @Test
+@Test
     public void testResetReloadingStateInGetConfiguration_1_oe() throws ConfigurationException {
         final ReloadingDetector detector = EasyMock.createMock(ReloadingDetector.class);
         EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
@@ -255,7 +255,7 @@ public class TestReloadingFileBasedConfigurationBuilder_OE25Dev {
         assertNotSame("No new configuration instance", config1, config2);
     }
 
-    @Test
+@Test
     public void testResetReloadingStateInGetConfiguration_2_oe() throws ConfigurationException {
         final ReloadingDetector detector = EasyMock.createMock(ReloadingDetector.class);
         EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);

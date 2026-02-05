@@ -484,45 +484,45 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         }
     }
 
-    public void testTest_1_oe() {
+public void testTest_1_oe() {
         assertEquals("2002-06-09T00:00:00.000Z",new Instant(TEST_TIME_NOW).toString());
     }
 
-    public void testTest_2_oe() {
+public void testTest_2_oe() {
         // removed other assertion
         assertEquals("2002-04-05T12:24:00.000Z",new Instant(TEST_TIME1).toString());
     }
 
-    public void testTest_3_oe() {
+public void testTest_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("2003-05-06T14:28:00.000Z",new Instant(TEST_TIME2).toString());
     }
 
-    public void testGetPeriodType_1_oe() {
+public void testGetPeriodType_1_oe() {
         Period test = new Period(0L);
         assertEquals(PeriodType.standard(),test.getPeriodType());
     }
 
-    public void testGetMethods_1_oe() {
+public void testGetMethods_1_oe() {
         Period test = new Period(0L);
         assertEquals(0,test.getYears());
     }
 
-    public void testGetMethods_2_oe() {
+public void testGetMethods_2_oe() {
         Period test = new Period(0L);
         // removed other assertion
         assertEquals(0,test.getMonths());
     }
 
-    public void testGetMethods_3_oe() {
+public void testGetMethods_3_oe() {
         Period test = new Period(0L);
         // removed other assertion
         // removed other assertion
         assertEquals(0,test.getWeeks());
     }
 
-    public void testGetMethods_4_oe() {
+public void testGetMethods_4_oe() {
         Period test = new Period(0L);
         // removed other assertion
         // removed other assertion
@@ -530,7 +530,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getDays());
     }
 
-    public void testGetMethods_5_oe() {
+public void testGetMethods_5_oe() {
         Period test = new Period(0L);
         // removed other assertion
         // removed other assertion
@@ -539,7 +539,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getHours());
     }
 
-    public void testGetMethods_6_oe() {
+public void testGetMethods_6_oe() {
         Period test = new Period(0L);
         // removed other assertion
         // removed other assertion
@@ -549,7 +549,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMinutes());
     }
 
-    public void testGetMethods_7_oe() {
+public void testGetMethods_7_oe() {
         Period test = new Period(0L);
         // removed other assertion
         // removed other assertion
@@ -560,7 +560,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getSeconds());
     }
 
-    public void testGetMethods_8_oe() {
+public void testGetMethods_8_oe() {
         Period test = new Period(0L);
         // removed other assertion
         // removed other assertion
@@ -572,25 +572,25 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMillis());
     }
 
-    public void testValueIndexMethods_1_oe() {
+public void testValueIndexMethods_1_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         assertEquals(6,test.size());
     }
 
-    public void testValueIndexMethods_2_oe() {
+public void testValueIndexMethods_2_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         assertEquals(1,test.getValue(0));
     }
 
-    public void testValueIndexMethods_3_oe() {
+public void testValueIndexMethods_3_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
         assertEquals(4,test.getValue(1));
     }
 
-    public void testValueIndexMethods_4_oe() {
+public void testValueIndexMethods_4_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -598,7 +598,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(5,test.getValue(2));
     }
 
-    public void testValueIndexMethods_5_oe() {
+public void testValueIndexMethods_5_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -607,7 +607,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(6,test.getValue(3));
     }
 
-    public void testValueIndexMethods_6_oe() {
+public void testValueIndexMethods_6_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -617,7 +617,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(7,test.getValue(4));
     }
 
-    public void testValueIndexMethods_7_oe() {
+public void testValueIndexMethods_7_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -628,7 +628,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(8,test.getValue(5));
     }
 
-    public void testValueIndexMethods_8_oe() {
+public void testValueIndexMethods_8_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -640,25 +640,25 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true, Arrays.equals(new int[] {1, 4, 5, 6, 7, 8}, test.getValues()));
     }
 
-    public void testTypeIndexMethods_1_oe() {
+public void testTypeIndexMethods_1_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         assertEquals(6,test.size());
     }
 
-    public void testTypeIndexMethods_2_oe() {
+public void testTypeIndexMethods_2_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         assertEquals(DurationFieldType.years(),test.getFieldType(0));
     }
 
-    public void testTypeIndexMethods_3_oe() {
+public void testTypeIndexMethods_3_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
         assertEquals(DurationFieldType.days(),test.getFieldType(1));
     }
 
-    public void testTypeIndexMethods_4_oe() {
+public void testTypeIndexMethods_4_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -666,7 +666,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(DurationFieldType.hours(),test.getFieldType(2));
     }
 
-    public void testTypeIndexMethods_5_oe() {
+public void testTypeIndexMethods_5_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -675,7 +675,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(DurationFieldType.minutes(),test.getFieldType(3));
     }
 
-    public void testTypeIndexMethods_6_oe() {
+public void testTypeIndexMethods_6_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -685,7 +685,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(DurationFieldType.seconds(),test.getFieldType(4));
     }
 
-    public void testTypeIndexMethods_7_oe() {
+public void testTypeIndexMethods_7_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -696,7 +696,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(DurationFieldType.millis(),test.getFieldType(5));
     }
 
-    public void testTypeIndexMethods_8_oe() {
+public void testTypeIndexMethods_8_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -708,25 +708,25 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true, Arrays.equals(new DurationFieldType[] { DurationFieldType.years(), DurationFieldType.days(), DurationFieldType.hours(), DurationFieldType.minutes(), DurationFieldType.seconds(), DurationFieldType.millis()}, test.getFieldTypes()));
     }
 
-    public void testIsSupported_1_oe() {
+public void testIsSupported_1_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         assertEquals(true,test.isSupported(DurationFieldType.years()));
     }
 
-    public void testIsSupported_2_oe() {
+public void testIsSupported_2_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         assertEquals(false,test.isSupported(DurationFieldType.months()));
     }
 
-    public void testIsSupported_3_oe() {
+public void testIsSupported_3_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
         assertEquals(false,test.isSupported(DurationFieldType.weeks()));
     }
 
-    public void testIsSupported_4_oe() {
+public void testIsSupported_4_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -734,7 +734,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DurationFieldType.days()));
     }
 
-    public void testIsSupported_5_oe() {
+public void testIsSupported_5_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -743,7 +743,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DurationFieldType.hours()));
     }
 
-    public void testIsSupported_6_oe() {
+public void testIsSupported_6_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -753,7 +753,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DurationFieldType.minutes()));
     }
 
-    public void testIsSupported_7_oe() {
+public void testIsSupported_7_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -764,7 +764,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DurationFieldType.seconds()));
     }
 
-    public void testIsSupported_8_oe() {
+public void testIsSupported_8_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -776,25 +776,25 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isSupported(DurationFieldType.millis()));
     }
 
-    public void testIndexOf_1_oe() {
+public void testIndexOf_1_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         assertEquals(0,test.indexOf(DurationFieldType.years()));
     }
 
-    public void testIndexOf_2_oe() {
+public void testIndexOf_2_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         assertEquals(-1,test.indexOf(DurationFieldType.months()));
     }
 
-    public void testIndexOf_3_oe() {
+public void testIndexOf_3_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
         assertEquals(-1,test.indexOf(DurationFieldType.weeks()));
     }
 
-    public void testIndexOf_4_oe() {
+public void testIndexOf_4_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -802,7 +802,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(1,test.indexOf(DurationFieldType.days()));
     }
 
-    public void testIndexOf_5_oe() {
+public void testIndexOf_5_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -811,7 +811,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(2,test.indexOf(DurationFieldType.hours()));
     }
 
-    public void testIndexOf_6_oe() {
+public void testIndexOf_6_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -821,7 +821,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(3,test.indexOf(DurationFieldType.minutes()));
     }
 
-    public void testIndexOf_7_oe() {
+public void testIndexOf_7_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -832,7 +832,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(4,test.indexOf(DurationFieldType.seconds()));
     }
 
-    public void testIndexOf_8_oe() {
+public void testIndexOf_8_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -844,25 +844,25 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(5,test.indexOf(DurationFieldType.millis()));
     }
 
-    public void testGet_1_oe() {
+public void testGet_1_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         assertEquals(1,test.get(DurationFieldType.years()));
     }
 
-    public void testGet_2_oe() {
+public void testGet_2_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         assertEquals(0,test.get(DurationFieldType.months()));
     }
 
-    public void testGet_3_oe() {
+public void testGet_3_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
         assertEquals(0,test.get(DurationFieldType.weeks()));
     }
 
-    public void testGet_4_oe() {
+public void testGet_4_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -870,7 +870,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(4,test.get(DurationFieldType.days()));
     }
 
-    public void testGet_5_oe() {
+public void testGet_5_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -879,7 +879,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(5,test.get(DurationFieldType.hours()));
     }
 
-    public void testGet_6_oe() {
+public void testGet_6_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -889,7 +889,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(6,test.get(DurationFieldType.minutes()));
     }
 
-    public void testGet_7_oe() {
+public void testGet_7_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -900,7 +900,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(7,test.get(DurationFieldType.seconds()));
     }
 
-    public void testGet_8_oe() {
+public void testGet_8_oe() {
         Period test = new Period(1, 0, 0, 4, 5, 6, 7, 8, PeriodType.yearDayTime());
         // removed other assertion
         // removed other assertion
@@ -912,20 +912,20 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(8,test.get(DurationFieldType.millis()));
     }
 
-    public void testEqualsHashCode_1_oe() {
+public void testEqualsHashCode_1_oe() {
         Period test1 = new Period(123L);
         Period test2 = new Period(123L);
         assertEquals(true,test1.equals(test2));
     }
 
-    public void testEqualsHashCode_2_oe() {
+public void testEqualsHashCode_2_oe() {
         Period test1 = new Period(123L);
         Period test2 = new Period(123L);
         // removed other assertion
         assertEquals(true,test2.equals(test1));
     }
 
-    public void testEqualsHashCode_3_oe() {
+public void testEqualsHashCode_3_oe() {
         Period test1 = new Period(123L);
         Period test2 = new Period(123L);
         // removed other assertion
@@ -933,7 +933,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.equals(test1));
     }
 
-    public void testEqualsHashCode_4_oe() {
+public void testEqualsHashCode_4_oe() {
         Period test1 = new Period(123L);
         Period test2 = new Period(123L);
         // removed other assertion
@@ -942,7 +942,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.equals(test2));
     }
 
-    public void testEqualsHashCode_5_oe() {
+public void testEqualsHashCode_5_oe() {
         Period test1 = new Period(123L);
         Period test2 = new Period(123L);
         // removed other assertion
@@ -952,7 +952,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test2.hashCode());
     }
 
-    public void testEqualsHashCode_6_oe() {
+public void testEqualsHashCode_6_oe() {
         Period test1 = new Period(123L);
         Period test2 = new Period(123L);
         // removed other assertion
@@ -963,7 +963,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test1.hashCode());
     }
 
-    public void testEqualsHashCode_7_oe() {
+public void testEqualsHashCode_7_oe() {
         Period test1 = new Period(123L);
         Period test2 = new Period(123L);
         // removed other assertion
@@ -975,7 +975,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.hashCode()== test2.hashCode());
     }
 
-    public void testEqualsHashCode_8_oe() {
+public void testEqualsHashCode_8_oe() {
         Period test1 = new Period(123L);
         Period test2 = new Period(123L);
         // removed other assertion
@@ -990,7 +990,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals(test3));
     }
 
-    public void testEqualsHashCode_9_oe() {
+public void testEqualsHashCode_9_oe() {
         Period test1 = new Period(123L);
         Period test2 = new Period(123L);
         // removed other assertion
@@ -1006,7 +1006,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.equals(test3));
     }
 
-    public void testEqualsHashCode_10_oe() {
+public void testEqualsHashCode_10_oe() {
         Period test1 = new Period(123L);
         Period test2 = new Period(123L);
         // removed other assertion
@@ -1023,7 +1023,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.equals(test1));
     }
 
-    public void testEqualsHashCode_11_oe() {
+public void testEqualsHashCode_11_oe() {
         Period test1 = new Period(123L);
         Period test2 = new Period(123L);
         // removed other assertion
@@ -1041,7 +1041,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.equals(test2));
     }
 
-    public void testEqualsHashCode_12_oe() {
+public void testEqualsHashCode_12_oe() {
         Period test1 = new Period(123L);
         Period test2 = new Period(123L);
         // removed other assertion
@@ -1060,7 +1060,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.hashCode()== test3.hashCode());
     }
 
-    public void testEqualsHashCode_13_oe() {
+public void testEqualsHashCode_13_oe() {
         Period test1 = new Period(123L);
         Period test2 = new Period(123L);
         // removed other assertion
@@ -1080,7 +1080,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.hashCode()== test3.hashCode());
     }
 
-    public void testEqualsHashCode_14_oe() {
+public void testEqualsHashCode_14_oe() {
         Period test1 = new Period(123L);
         Period test2 = new Period(123L);
         // removed other assertion
@@ -1102,7 +1102,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals("Hello"));
     }
 
-    public void testEqualsHashCode_15_oe() {
+public void testEqualsHashCode_15_oe() {
         Period test1 = new Period(123L);
         Period test2 = new Period(123L);
         // removed other assertion
@@ -1125,7 +1125,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.equals(new MockPeriod(123L)));
     }
 
-    public void testEqualsHashCode_16_oe() {
+public void testEqualsHashCode_16_oe() {
         Period test1 = new Period(123L);
         Period test2 = new Period(123L);
         // removed other assertion
@@ -1149,7 +1149,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals(new Period(123L,PeriodType.dayTime())));
     }
 
-    public void testSerialization_1_oe() throws Exception {
+public void testSerialization_1_oe() throws Exception {
         Period test = new Period(123L);
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -1166,12 +1166,12 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(test,result);
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         Period test = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         assertEquals("P1Y2M3W4DT5H6M7.008S",test.toString());
     }
 
-    public void testToString_2_oe() {
+public void testToString_2_oe() {
         Period test = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         
@@ -1179,7 +1179,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals("PT0S",test.toString());
     }
 
-    public void testToString_3_oe() {
+public void testToString_3_oe() {
         Period test = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         
@@ -1190,12 +1190,12 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals("PT12.345S",test.toString());
     }
 
-    public void testToString_PeriodFormatter_1_oe() {
+public void testToString_PeriodFormatter_1_oe() {
         Period test = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         assertEquals("1 year,2 months,3 weeks,4 days,5 hours,6 minutes,7 seconds and 8 milliseconds",test.toString(PeriodFormat.getDefault()));
     }
 
-    public void testToString_PeriodFormatter_2_oe() {
+public void testToString_PeriodFormatter_2_oe() {
         Period test = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         
@@ -1203,53 +1203,53 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals("0 milliseconds",test.toString(PeriodFormat.getDefault()));
     }
 
-    public void testToString_nullPeriodFormatter_1_oe() {
+public void testToString_nullPeriodFormatter_1_oe() {
         Period test = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         assertEquals("P1Y2M3W4DT5H6M7.008S",test.toString((PeriodFormatter)null));
     }
 
-    public void testToPeriod_1_oe() {
+public void testToPeriod_1_oe() {
         Period test = new Period(123L);
         Period result = test.toPeriod();
         assertSame(test,result);
     }
 
-    public void testToMutablePeriod_1_oe() {
+public void testToMutablePeriod_1_oe() {
         Period test = new Period(123L);
         MutablePeriod result = test.toMutablePeriod();
         assertEquals(test,result);
     }
 
-    public void testToDurationFrom_1_oe() {
+public void testToDurationFrom_1_oe() {
         Period test = new Period(123L);
         assertEquals(new Duration(123L),test.toDurationFrom(new Instant(0L)));
     }
 
-    public void testToDurationTo_1_oe() {
+public void testToDurationTo_1_oe() {
         Period test = new Period(123L);
         assertEquals(new Duration(123L),test.toDurationTo(new Instant(123L)));
     }
 
-    public void testWithPeriodType1_1_oe() {
+public void testWithPeriodType1_1_oe() {
         Period test = new Period(123L);
         Period result = test.withPeriodType(PeriodType.standard());
         assertSame(test,result);
     }
 
-    public void testWithPeriodType2_1_oe() {
+public void testWithPeriodType2_1_oe() {
         Period test = new Period(3123L);
         Period result = test.withPeriodType(PeriodType.dayTime());
         assertEquals(3,result.getSeconds());
     }
 
-    public void testWithPeriodType2_2_oe() {
+public void testWithPeriodType2_2_oe() {
         Period test = new Period(3123L);
         Period result = test.withPeriodType(PeriodType.dayTime());
         // removed other assertion
         assertEquals(123,result.getMillis());
     }
 
-    public void testWithPeriodType2_3_oe() {
+public void testWithPeriodType2_3_oe() {
         Period test = new Period(3123L);
         Period result = test.withPeriodType(PeriodType.dayTime());
         // removed other assertion
@@ -1257,20 +1257,20 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(PeriodType.dayTime(),result.getPeriodType());
     }
 
-    public void testWithPeriodType4_1_oe() {
+public void testWithPeriodType4_1_oe() {
         Period test = new Period(3123L);
         Period result = test.withPeriodType(null);
         assertEquals(3,result.getSeconds());
     }
 
-    public void testWithPeriodType4_2_oe() {
+public void testWithPeriodType4_2_oe() {
         Period test = new Period(3123L);
         Period result = test.withPeriodType(null);
         // removed other assertion
         assertEquals(123,result.getMillis());
     }
 
-    public void testWithPeriodType4_3_oe() {
+public void testWithPeriodType4_3_oe() {
         Period test = new Period(3123L);
         Period result = test.withPeriodType(null);
         // removed other assertion
@@ -1278,20 +1278,20 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(PeriodType.standard(),result.getPeriodType());
     }
 
-    public void testWithPeriodType5_1_oe() {
+public void testWithPeriodType5_1_oe() {
         Period test = new Period(1, 2, 0, 4, 5, 6, 7, 8, PeriodType.standard());
         Period result = test.withPeriodType(PeriodType.yearMonthDayTime());
         assertEquals(PeriodType.yearMonthDayTime(),result.getPeriodType());
     }
 
-    public void testWithPeriodType5_2_oe() {
+public void testWithPeriodType5_2_oe() {
         Period test = new Period(1, 2, 0, 4, 5, 6, 7, 8, PeriodType.standard());
         Period result = test.withPeriodType(PeriodType.yearMonthDayTime());
         // removed other assertion
         assertEquals(1,result.getYears());
     }
 
-    public void testWithPeriodType5_3_oe() {
+public void testWithPeriodType5_3_oe() {
         Period test = new Period(1, 2, 0, 4, 5, 6, 7, 8, PeriodType.standard());
         Period result = test.withPeriodType(PeriodType.yearMonthDayTime());
         // removed other assertion
@@ -1299,7 +1299,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(2,result.getMonths());
     }
 
-    public void testWithPeriodType5_4_oe() {
+public void testWithPeriodType5_4_oe() {
         Period test = new Period(1, 2, 0, 4, 5, 6, 7, 8, PeriodType.standard());
         Period result = test.withPeriodType(PeriodType.yearMonthDayTime());
         // removed other assertion
@@ -1308,7 +1308,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,result.getWeeks());
     }
 
-    public void testWithPeriodType5_5_oe() {
+public void testWithPeriodType5_5_oe() {
         Period test = new Period(1, 2, 0, 4, 5, 6, 7, 8, PeriodType.standard());
         Period result = test.withPeriodType(PeriodType.yearMonthDayTime());
         // removed other assertion
@@ -1318,7 +1318,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(4,result.getDays());
     }
 
-    public void testWithPeriodType5_6_oe() {
+public void testWithPeriodType5_6_oe() {
         Period test = new Period(1, 2, 0, 4, 5, 6, 7, 8, PeriodType.standard());
         Period result = test.withPeriodType(PeriodType.yearMonthDayTime());
         // removed other assertion
@@ -1329,7 +1329,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(5,result.getHours());
     }
 
-    public void testWithPeriodType5_7_oe() {
+public void testWithPeriodType5_7_oe() {
         Period test = new Period(1, 2, 0, 4, 5, 6, 7, 8, PeriodType.standard());
         Period result = test.withPeriodType(PeriodType.yearMonthDayTime());
         // removed other assertion
@@ -1341,7 +1341,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(6,result.getMinutes());
     }
 
-    public void testWithPeriodType5_8_oe() {
+public void testWithPeriodType5_8_oe() {
         Period test = new Period(1, 2, 0, 4, 5, 6, 7, 8, PeriodType.standard());
         Period result = test.withPeriodType(PeriodType.yearMonthDayTime());
         // removed other assertion
@@ -1354,7 +1354,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(7,result.getSeconds());
     }
 
-    public void testWithPeriodType5_9_oe() {
+public void testWithPeriodType5_9_oe() {
         Period test = new Period(1, 2, 0, 4, 5, 6, 7, 8, PeriodType.standard());
         Period result = test.withPeriodType(PeriodType.yearMonthDayTime());
         // removed other assertion
@@ -1368,7 +1368,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(8,result.getMillis());
     }
 
-    public void testWithFields1_1_oe() {
+public void testWithFields1_1_oe() {
         Period test1 = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period test2 = new Period(0, 0, 0, 0, 0, 0, 0, 9, PeriodType.millis());
         Period result = test1.withFields(test2);
@@ -1376,7 +1376,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(1,2,3,4,5,6,7,8),test1);
     }
 
-    public void testWithFields1_2_oe() {
+public void testWithFields1_2_oe() {
         Period test1 = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period test2 = new Period(0, 0, 0, 0, 0, 0, 0, 9, PeriodType.millis());
         Period result = test1.withFields(test2);
@@ -1385,7 +1385,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(0,0,0,0,0,0,0,9,PeriodType.millis()),test2);
     }
 
-    public void testWithFields1_3_oe() {
+public void testWithFields1_3_oe() {
         Period test1 = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period test2 = new Period(0, 0, 0, 0, 0, 0, 0, 9, PeriodType.millis());
         Period result = test1.withFields(test2);
@@ -1395,7 +1395,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(1,2,3,4,5,6,7,9),result);
     }
 
-    public void testWithFields2_1_oe() {
+public void testWithFields2_1_oe() {
         Period test1 = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period test2 = null;
         Period result = test1.withFields(test2);
@@ -1403,7 +1403,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(1,2,3,4,5,6,7,8),test1);
     }
 
-    public void testWithFields2_2_oe() {
+public void testWithFields2_2_oe() {
         Period test1 = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period test2 = null;
         Period result = test1.withFields(test2);
@@ -1412,7 +1412,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertSame(test1,result);
     }
 
-    public void testWithFields3_2_oe() {
+public void testWithFields3_2_oe() {
         Period test1 = new Period(0, 0, 0, 0, 0, 0, 0, 9, PeriodType.millis());
         Period test2 = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         try {
@@ -1422,7 +1422,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(0,0,0,0,0,0,0,9,PeriodType.millis()),test1);
     }
 
-    public void testWithFields3_3_oe() {
+public void testWithFields3_3_oe() {
         Period test1 = new Period(0, 0, 0, 0, 0, 0, 0, 9, PeriodType.millis());
         Period test2 = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         try {
@@ -1433,14 +1433,14 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(1,2,3,4,5,6,7,8),test2);
     }
 
-    public void testWithField1_1_oe() {
+public void testWithField1_1_oe() {
         Period test = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period result = test.withField(DurationFieldType.years(), 6);
         
         assertEquals(new Period(1,2,3,4,5,6,7,8),test);
     }
 
-    public void testWithField1_2_oe() {
+public void testWithField1_2_oe() {
         Period test = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period result = test.withField(DurationFieldType.years(), 6);
         
@@ -1448,20 +1448,20 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(6,2,3,4,5,6,7,8),result);
     }
 
-    public void testWithField4_1_oe() {
+public void testWithField4_1_oe() {
         Period test = new Period(0, 0, 0, 0, 5, 6, 7, 8, PeriodType.time());
         Period result = test.withField(DurationFieldType.years(), 0);
         assertEquals(test,result);
     }
 
-    public void testWithFieldAdded1_1_oe() {
+public void testWithFieldAdded1_1_oe() {
         Period test = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period result = test.withFieldAdded(DurationFieldType.years(), 6);
         
         assertEquals(new Period(1,2,3,4,5,6,7,8),test);
     }
 
-    public void testWithFieldAdded1_2_oe() {
+public void testWithFieldAdded1_2_oe() {
         Period test = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period result = test.withFieldAdded(DurationFieldType.years(), 6);
         
@@ -1469,19 +1469,19 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(7,2,3,4,5,6,7,8),result);
     }
 
-    public void testWithFieldAdded4_1_oe() {
+public void testWithFieldAdded4_1_oe() {
         Period test = new Period(0, 0, 0, 0, 5, 6, 7, 8, PeriodType.time());
         Period result = test.withFieldAdded(DurationFieldType.years(), 0);
         assertEquals(test,result);
     }
 
-    public void testPeriodStatics_1_oe() {
+public void testPeriodStatics_1_oe() {
         Period test;
         test = Period.years(1);
         assertEquals(test,new Period(1,0,0,0,0,0,0,0,PeriodType.standard()));
     }
 
-    public void testPeriodStatics_2_oe() {
+public void testPeriodStatics_2_oe() {
         Period test;
         test = Period.years(1);
         // removed other assertion
@@ -1489,7 +1489,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(test,new Period(0,1,0,0,0,0,0,0,PeriodType.standard()));
     }
 
-    public void testPeriodStatics_3_oe() {
+public void testPeriodStatics_3_oe() {
         Period test;
         test = Period.years(1);
         // removed other assertion
@@ -1499,7 +1499,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(test,new Period(0,0,1,0,0,0,0,0,PeriodType.standard()));
     }
 
-    public void testPeriodStatics_4_oe() {
+public void testPeriodStatics_4_oe() {
         Period test;
         test = Period.years(1);
         // removed other assertion
@@ -1511,7 +1511,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(test,new Period(0,0,0,1,0,0,0,0,PeriodType.standard()));
     }
 
-    public void testPeriodStatics_5_oe() {
+public void testPeriodStatics_5_oe() {
         Period test;
         test = Period.years(1);
         // removed other assertion
@@ -1525,7 +1525,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(test,new Period(0,0,0,0,1,0,0,0,PeriodType.standard()));
     }
 
-    public void testPeriodStatics_6_oe() {
+public void testPeriodStatics_6_oe() {
         Period test;
         test = Period.years(1);
         // removed other assertion
@@ -1541,7 +1541,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(test,new Period(0,0,0,0,0,1,0,0,PeriodType.standard()));
     }
 
-    public void testPeriodStatics_7_oe() {
+public void testPeriodStatics_7_oe() {
         Period test;
         test = Period.years(1);
         // removed other assertion
@@ -1559,7 +1559,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(test,new Period(0,0,0,0,0,0,1,0,PeriodType.standard()));
     }
 
-    public void testPeriodStatics_8_oe() {
+public void testPeriodStatics_8_oe() {
         Period test;
         test = Period.years(1);
         // removed other assertion
@@ -1579,13 +1579,13 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(test,new Period(0,0,0,0,0,0,0,1,PeriodType.standard()));
     }
 
-    public void testWith_1_oe() {
+public void testWith_1_oe() {
         Period test;
         test = Period.years(5).withYears(1);
         assertEquals(test,new Period(1,0,0,0,0,0,0,0,PeriodType.standard()));
     }
 
-    public void testWith_2_oe() {
+public void testWith_2_oe() {
         Period test;
         test = Period.years(5).withYears(1);
         // removed other assertion
@@ -1593,7 +1593,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(test,new Period(0,1,0,0,0,0,0,0,PeriodType.standard()));
     }
 
-    public void testWith_3_oe() {
+public void testWith_3_oe() {
         Period test;
         test = Period.years(5).withYears(1);
         // removed other assertion
@@ -1603,7 +1603,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(test,new Period(0,0,1,0,0,0,0,0,PeriodType.standard()));
     }
 
-    public void testWith_4_oe() {
+public void testWith_4_oe() {
         Period test;
         test = Period.years(5).withYears(1);
         // removed other assertion
@@ -1615,7 +1615,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(test,new Period(0,0,0,1,0,0,0,0,PeriodType.standard()));
     }
 
-    public void testWith_5_oe() {
+public void testWith_5_oe() {
         Period test;
         test = Period.years(5).withYears(1);
         // removed other assertion
@@ -1629,7 +1629,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(test,new Period(0,0,0,0,1,0,0,0,PeriodType.standard()));
     }
 
-    public void testWith_6_oe() {
+public void testWith_6_oe() {
         Period test;
         test = Period.years(5).withYears(1);
         // removed other assertion
@@ -1645,7 +1645,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(test,new Period(0,0,0,0,0,1,0,0,PeriodType.standard()));
     }
 
-    public void testWith_7_oe() {
+public void testWith_7_oe() {
         Period test;
         test = Period.years(5).withYears(1);
         // removed other assertion
@@ -1663,7 +1663,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(test,new Period(0,0,0,0,0,0,1,0,PeriodType.standard()));
     }
 
-    public void testWith_8_oe() {
+public void testWith_8_oe() {
         Period test;
         test = Period.years(5).withYears(1);
         // removed other assertion
@@ -1683,7 +1683,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(test,new Period(0,0,0,0,0,0,0,1,PeriodType.standard()));
     }
 
-    public void testPlus_1_oe() {
+public void testPlus_1_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -1691,7 +1691,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertSame(base,test);
     }
 
-    public void testPlus_2_oe() {
+public void testPlus_2_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -1702,7 +1702,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(11,test.getYears());
     }
 
-    public void testPlus_3_oe() {
+public void testPlus_3_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -1714,7 +1714,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(2,test.getMonths());
     }
 
-    public void testPlus_4_oe() {
+public void testPlus_4_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -1727,7 +1727,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(3,test.getWeeks());
     }
 
-    public void testPlus_5_oe() {
+public void testPlus_5_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -1741,7 +1741,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(4,test.getDays());
     }
 
-    public void testPlus_6_oe() {
+public void testPlus_6_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -1756,7 +1756,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(5,test.getHours());
     }
 
-    public void testPlus_7_oe() {
+public void testPlus_7_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -1772,7 +1772,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(6,test.getMinutes());
     }
 
-    public void testPlus_8_oe() {
+public void testPlus_8_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -1789,7 +1789,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(7,test.getSeconds());
     }
 
-    public void testPlus_9_oe() {
+public void testPlus_9_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -1807,7 +1807,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(8,test.getMillis());
     }
 
-    public void testPlus_10_oe() {
+public void testPlus_10_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -1828,7 +1828,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(11,test.getYears());
     }
 
-    public void testPlus_11_oe() {
+public void testPlus_11_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -1850,7 +1850,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(2,test.getMonths());
     }
 
-    public void testPlus_12_oe() {
+public void testPlus_12_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -1873,7 +1873,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(3,test.getWeeks());
     }
 
-    public void testPlus_13_oe() {
+public void testPlus_13_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -1897,7 +1897,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(4,test.getDays());
     }
 
-    public void testPlus_14_oe() {
+public void testPlus_14_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -1922,7 +1922,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(5,test.getHours());
     }
 
-    public void testPlus_15_oe() {
+public void testPlus_15_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -1948,7 +1948,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(6,test.getMinutes());
     }
 
-    public void testPlus_16_oe() {
+public void testPlus_16_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -1975,7 +1975,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(7,test.getSeconds());
     }
 
-    public void testPlus_17_oe() {
+public void testPlus_17_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2003,7 +2003,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(8,test.getMillis());
     }
 
-    public void testPlus_18_oe() {
+public void testPlus_18_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2034,7 +2034,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(1,test.getYears());
     }
 
-    public void testPlus_19_oe() {
+public void testPlus_19_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2066,7 +2066,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(2,test.getMonths());
     }
 
-    public void testPlus_20_oe() {
+public void testPlus_20_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2099,7 +2099,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(3,test.getWeeks());
     }
 
-    public void testPlus_21_oe() {
+public void testPlus_21_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2133,7 +2133,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(14,test.getDays());
     }
 
-    public void testPlus_22_oe() {
+public void testPlus_22_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2168,7 +2168,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(5,test.getHours());
     }
 
-    public void testPlus_23_oe() {
+public void testPlus_23_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2204,7 +2204,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(6,test.getMinutes());
     }
 
-    public void testPlus_24_oe() {
+public void testPlus_24_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2241,7 +2241,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(7,test.getSeconds());
     }
 
-    public void testPlus_25_oe() {
+public void testPlus_25_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2279,7 +2279,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(8,test.getMillis());
     }
 
-    public void testPlus_26_oe() {
+public void testPlus_26_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2320,7 +2320,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getYears());
     }
 
-    public void testPlus_27_oe() {
+public void testPlus_27_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2362,7 +2362,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMonths());
     }
 
-    public void testPlus_28_oe() {
+public void testPlus_28_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2405,7 +2405,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getWeeks());
     }
 
-    public void testPlus_29_oe() {
+public void testPlus_29_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2449,7 +2449,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(10,test.getDays());
     }
 
-    public void testPlus_30_oe() {
+public void testPlus_30_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2494,7 +2494,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getHours());
     }
 
-    public void testPlus_31_oe() {
+public void testPlus_31_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2540,7 +2540,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMinutes());
     }
 
-    public void testPlus_32_oe() {
+public void testPlus_32_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2587,7 +2587,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getSeconds());
     }
 
-    public void testPlus_33_oe() {
+public void testPlus_33_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2635,7 +2635,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMillis());
     }
 
-    public void testPlus_34_oe() {
+public void testPlus_34_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2686,7 +2686,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getYears());
     }
 
-    public void testPlus_35_oe() {
+public void testPlus_35_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2738,7 +2738,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMonths());
     }
 
-    public void testPlus_36_oe() {
+public void testPlus_36_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2791,7 +2791,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getWeeks());
     }
 
-    public void testPlus_37_oe() {
+public void testPlus_37_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2845,7 +2845,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(20,test.getDays());
     }
 
-    public void testPlus_38_oe() {
+public void testPlus_38_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2900,7 +2900,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getHours());
     }
 
-    public void testPlus_39_oe() {
+public void testPlus_39_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -2956,7 +2956,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMinutes());
     }
 
-    public void testPlus_40_oe() {
+public void testPlus_40_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3013,7 +3013,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getSeconds());
     }
 
-    public void testPlus_41_oe() {
+public void testPlus_41_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3071,7 +3071,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMillis());
     }
 
-    public void testMinus_1_oe() {
+public void testMinus_1_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3079,7 +3079,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertSame(base,test);
     }
 
-    public void testMinus_2_oe() {
+public void testMinus_2_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3090,7 +3090,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-9,test.getYears());
     }
 
-    public void testMinus_3_oe() {
+public void testMinus_3_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3102,7 +3102,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(2,test.getMonths());
     }
 
-    public void testMinus_4_oe() {
+public void testMinus_4_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3115,7 +3115,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(3,test.getWeeks());
     }
 
-    public void testMinus_5_oe() {
+public void testMinus_5_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3129,7 +3129,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(4,test.getDays());
     }
 
-    public void testMinus_6_oe() {
+public void testMinus_6_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3144,7 +3144,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(5,test.getHours());
     }
 
-    public void testMinus_7_oe() {
+public void testMinus_7_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3160,7 +3160,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(6,test.getMinutes());
     }
 
-    public void testMinus_8_oe() {
+public void testMinus_8_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3177,7 +3177,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(7,test.getSeconds());
     }
 
-    public void testMinus_9_oe() {
+public void testMinus_9_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3195,7 +3195,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(8,test.getMillis());
     }
 
-    public void testMinus_10_oe() {
+public void testMinus_10_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3216,7 +3216,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-9,test.getYears());
     }
 
-    public void testMinus_11_oe() {
+public void testMinus_11_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3238,7 +3238,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(2,test.getMonths());
     }
 
-    public void testMinus_12_oe() {
+public void testMinus_12_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3261,7 +3261,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(3,test.getWeeks());
     }
 
-    public void testMinus_13_oe() {
+public void testMinus_13_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3285,7 +3285,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(4,test.getDays());
     }
 
-    public void testMinus_14_oe() {
+public void testMinus_14_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3310,7 +3310,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(5,test.getHours());
     }
 
-    public void testMinus_15_oe() {
+public void testMinus_15_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3336,7 +3336,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(6,test.getMinutes());
     }
 
-    public void testMinus_16_oe() {
+public void testMinus_16_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3363,7 +3363,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(7,test.getSeconds());
     }
 
-    public void testMinus_17_oe() {
+public void testMinus_17_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3391,7 +3391,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(8,test.getMillis());
     }
 
-    public void testMinus_18_oe() {
+public void testMinus_18_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3422,7 +3422,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(1,test.getYears());
     }
 
-    public void testMinus_19_oe() {
+public void testMinus_19_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3454,7 +3454,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(2,test.getMonths());
     }
 
-    public void testMinus_20_oe() {
+public void testMinus_20_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3487,7 +3487,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(3,test.getWeeks());
     }
 
-    public void testMinus_21_oe() {
+public void testMinus_21_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3521,7 +3521,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-6,test.getDays());
     }
 
-    public void testMinus_22_oe() {
+public void testMinus_22_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3556,7 +3556,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(5,test.getHours());
     }
 
-    public void testMinus_23_oe() {
+public void testMinus_23_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3592,7 +3592,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(6,test.getMinutes());
     }
 
-    public void testMinus_24_oe() {
+public void testMinus_24_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3629,7 +3629,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(7,test.getSeconds());
     }
 
-    public void testMinus_25_oe() {
+public void testMinus_25_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3667,7 +3667,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(8,test.getMillis());
     }
 
-    public void testMinus_26_oe() {
+public void testMinus_26_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3708,7 +3708,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getYears());
     }
 
-    public void testMinus_27_oe() {
+public void testMinus_27_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3750,7 +3750,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMonths());
     }
 
-    public void testMinus_28_oe() {
+public void testMinus_28_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3793,7 +3793,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getWeeks());
     }
 
-    public void testMinus_29_oe() {
+public void testMinus_29_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3837,7 +3837,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(10,test.getDays());
     }
 
-    public void testMinus_30_oe() {
+public void testMinus_30_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3882,7 +3882,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getHours());
     }
 
-    public void testMinus_31_oe() {
+public void testMinus_31_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3928,7 +3928,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMinutes());
     }
 
-    public void testMinus_32_oe() {
+public void testMinus_32_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -3975,7 +3975,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getSeconds());
     }
 
-    public void testMinus_33_oe() {
+public void testMinus_33_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -4023,7 +4023,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMillis());
     }
 
-    public void testMinus_34_oe() {
+public void testMinus_34_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -4074,7 +4074,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getYears());
     }
 
-    public void testMinus_35_oe() {
+public void testMinus_35_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -4126,7 +4126,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMonths());
     }
 
-    public void testMinus_36_oe() {
+public void testMinus_36_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -4179,7 +4179,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getWeeks());
     }
 
-    public void testMinus_37_oe() {
+public void testMinus_37_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -4233,7 +4233,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getDays());
     }
 
-    public void testMinus_38_oe() {
+public void testMinus_38_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -4288,7 +4288,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getHours());
     }
 
-    public void testMinus_39_oe() {
+public void testMinus_39_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -4344,7 +4344,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMinutes());
     }
 
-    public void testMinus_40_oe() {
+public void testMinus_40_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -4401,7 +4401,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getSeconds());
     }
 
-    public void testMinus_41_oe() {
+public void testMinus_41_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
@@ -4459,13 +4459,13 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMillis());
     }
 
-    public void testPlusFields_1_oe() {
+public void testPlusFields_1_oe() {
         Period test;
         test = Period.years(1).plusYears(1);
         assertEquals(new Period(2,0,0,0,0,0,0,0,PeriodType.standard()),test);
     }
 
-    public void testPlusFields_2_oe() {
+public void testPlusFields_2_oe() {
         Period test;
         test = Period.years(1).plusYears(1);
         // removed other assertion
@@ -4473,7 +4473,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(0,2,0,0,0,0,0,0,PeriodType.standard()),test);
     }
 
-    public void testPlusFields_3_oe() {
+public void testPlusFields_3_oe() {
         Period test;
         test = Period.years(1).plusYears(1);
         // removed other assertion
@@ -4483,7 +4483,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(0,0,2,0,0,0,0,0,PeriodType.standard()),test);
     }
 
-    public void testPlusFields_4_oe() {
+public void testPlusFields_4_oe() {
         Period test;
         test = Period.years(1).plusYears(1);
         // removed other assertion
@@ -4495,7 +4495,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(0,0,0,2,0,0,0,0,PeriodType.standard()),test);
     }
 
-    public void testPlusFields_5_oe() {
+public void testPlusFields_5_oe() {
         Period test;
         test = Period.years(1).plusYears(1);
         // removed other assertion
@@ -4509,7 +4509,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(0,0,0,0,2,0,0,0,PeriodType.standard()),test);
     }
 
-    public void testPlusFields_6_oe() {
+public void testPlusFields_6_oe() {
         Period test;
         test = Period.years(1).plusYears(1);
         // removed other assertion
@@ -4525,7 +4525,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(0,0,0,0,0,2,0,0,PeriodType.standard()),test);
     }
 
-    public void testPlusFields_7_oe() {
+public void testPlusFields_7_oe() {
         Period test;
         test = Period.years(1).plusYears(1);
         // removed other assertion
@@ -4543,7 +4543,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(0,0,0,0,0,0,2,0,PeriodType.standard()),test);
     }
 
-    public void testPlusFields_8_oe() {
+public void testPlusFields_8_oe() {
         Period test;
         test = Period.years(1).plusYears(1);
         // removed other assertion
@@ -4563,14 +4563,14 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(0,0,0,0,0,0,0,2,PeriodType.standard()),test);
     }
 
-    public void testPlusFieldsZero_1_oe() {
+public void testPlusFieldsZero_1_oe() {
         Period test, result;
         test = Period.years(1);
         result = test.plusYears(0);
         assertSame(test,result);
     }
 
-    public void testPlusFieldsZero_2_oe() {
+public void testPlusFieldsZero_2_oe() {
         Period test, result;
         test = Period.years(1);
         result = test.plusYears(0);
@@ -4580,7 +4580,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testPlusFieldsZero_3_oe() {
+public void testPlusFieldsZero_3_oe() {
         Period test, result;
         test = Period.years(1);
         result = test.plusYears(0);
@@ -4593,7 +4593,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testPlusFieldsZero_4_oe() {
+public void testPlusFieldsZero_4_oe() {
         Period test, result;
         test = Period.years(1);
         result = test.plusYears(0);
@@ -4609,7 +4609,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testPlusFieldsZero_5_oe() {
+public void testPlusFieldsZero_5_oe() {
         Period test, result;
         test = Period.years(1);
         result = test.plusYears(0);
@@ -4628,7 +4628,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testPlusFieldsZero_6_oe() {
+public void testPlusFieldsZero_6_oe() {
         Period test, result;
         test = Period.years(1);
         result = test.plusYears(0);
@@ -4650,7 +4650,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testPlusFieldsZero_7_oe() {
+public void testPlusFieldsZero_7_oe() {
         Period test, result;
         test = Period.years(1);
         result = test.plusYears(0);
@@ -4675,7 +4675,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testPlusFieldsZero_8_oe() {
+public void testPlusFieldsZero_8_oe() {
         Period test, result;
         test = Period.years(1);
         result = test.plusYears(0);
@@ -4703,13 +4703,13 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testMinusFields_1_oe() {
+public void testMinusFields_1_oe() {
         Period test;
         test = Period.years(3).minusYears(1);
         assertEquals(new Period(2,0,0,0,0,0,0,0,PeriodType.standard()),test);
     }
 
-    public void testMinusFields_2_oe() {
+public void testMinusFields_2_oe() {
         Period test;
         test = Period.years(3).minusYears(1);
         // removed other assertion
@@ -4717,7 +4717,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(0,2,0,0,0,0,0,0,PeriodType.standard()),test);
     }
 
-    public void testMinusFields_3_oe() {
+public void testMinusFields_3_oe() {
         Period test;
         test = Period.years(3).minusYears(1);
         // removed other assertion
@@ -4727,7 +4727,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(0,0,2,0,0,0,0,0,PeriodType.standard()),test);
     }
 
-    public void testMinusFields_4_oe() {
+public void testMinusFields_4_oe() {
         Period test;
         test = Period.years(3).minusYears(1);
         // removed other assertion
@@ -4739,7 +4739,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(0,0,0,2,0,0,0,0,PeriodType.standard()),test);
     }
 
-    public void testMinusFields_5_oe() {
+public void testMinusFields_5_oe() {
         Period test;
         test = Period.years(3).minusYears(1);
         // removed other assertion
@@ -4753,7 +4753,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(0,0,0,0,2,0,0,0,PeriodType.standard()),test);
     }
 
-    public void testMinusFields_6_oe() {
+public void testMinusFields_6_oe() {
         Period test;
         test = Period.years(3).minusYears(1);
         // removed other assertion
@@ -4769,7 +4769,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(0,0,0,0,0,2,0,0,PeriodType.standard()),test);
     }
 
-    public void testMinusFields_7_oe() {
+public void testMinusFields_7_oe() {
         Period test;
         test = Period.years(3).minusYears(1);
         // removed other assertion
@@ -4787,7 +4787,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(0,0,0,0,0,0,2,0,PeriodType.standard()),test);
     }
 
-    public void testMinusFields_8_oe() {
+public void testMinusFields_8_oe() {
         Period test;
         test = Period.years(3).minusYears(1);
         // removed other assertion
@@ -4807,14 +4807,14 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(0,0,0,0,0,0,0,2,PeriodType.standard()),test);
     }
 
-    public void testMultipliedBy_1_oe() {
+public void testMultipliedBy_1_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
         assertSame(base,test);
     }
 
-    public void testMultipliedBy_2_oe() {
+public void testMultipliedBy_2_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -4824,7 +4824,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(Period.ZERO,test);
     }
 
-    public void testMultipliedBy_3_oe() {
+public void testMultipliedBy_3_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -4837,7 +4837,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(2,test.getYears());
     }
 
-    public void testMultipliedBy_4_oe() {
+public void testMultipliedBy_4_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -4851,7 +4851,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(4,test.getMonths());
     }
 
-    public void testMultipliedBy_5_oe() {
+public void testMultipliedBy_5_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -4866,7 +4866,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(6,test.getWeeks());
     }
 
-    public void testMultipliedBy_6_oe() {
+public void testMultipliedBy_6_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -4882,7 +4882,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(8,test.getDays());
     }
 
-    public void testMultipliedBy_7_oe() {
+public void testMultipliedBy_7_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -4899,7 +4899,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(10,test.getHours());
     }
 
-    public void testMultipliedBy_8_oe() {
+public void testMultipliedBy_8_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -4917,7 +4917,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(12,test.getMinutes());
     }
 
-    public void testMultipliedBy_9_oe() {
+public void testMultipliedBy_9_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -4936,7 +4936,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(14,test.getSeconds());
     }
 
-    public void testMultipliedBy_10_oe() {
+public void testMultipliedBy_10_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -4956,7 +4956,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(16,test.getMillis());
     }
 
-    public void testMultipliedBy_11_oe() {
+public void testMultipliedBy_11_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -4979,7 +4979,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(3,test.getYears());
     }
 
-    public void testMultipliedBy_12_oe() {
+public void testMultipliedBy_12_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -5003,7 +5003,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(6,test.getMonths());
     }
 
-    public void testMultipliedBy_13_oe() {
+public void testMultipliedBy_13_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -5028,7 +5028,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(9,test.getWeeks());
     }
 
-    public void testMultipliedBy_14_oe() {
+public void testMultipliedBy_14_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -5054,7 +5054,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(12,test.getDays());
     }
 
-    public void testMultipliedBy_15_oe() {
+public void testMultipliedBy_15_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -5081,7 +5081,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(15,test.getHours());
     }
 
-    public void testMultipliedBy_16_oe() {
+public void testMultipliedBy_16_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -5109,7 +5109,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(18,test.getMinutes());
     }
 
-    public void testMultipliedBy_17_oe() {
+public void testMultipliedBy_17_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -5138,7 +5138,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(21,test.getSeconds());
     }
 
-    public void testMultipliedBy_18_oe() {
+public void testMultipliedBy_18_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -5168,7 +5168,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(24,test.getMillis());
     }
 
-    public void testMultipliedBy_19_oe() {
+public void testMultipliedBy_19_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -5201,7 +5201,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-4,test.getYears());
     }
 
-    public void testMultipliedBy_20_oe() {
+public void testMultipliedBy_20_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -5235,7 +5235,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-8,test.getMonths());
     }
 
-    public void testMultipliedBy_21_oe() {
+public void testMultipliedBy_21_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -5270,7 +5270,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-12,test.getWeeks());
     }
 
-    public void testMultipliedBy_22_oe() {
+public void testMultipliedBy_22_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -5306,7 +5306,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-16,test.getDays());
     }
 
-    public void testMultipliedBy_23_oe() {
+public void testMultipliedBy_23_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -5343,7 +5343,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-20,test.getHours());
     }
 
-    public void testMultipliedBy_24_oe() {
+public void testMultipliedBy_24_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -5381,7 +5381,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-24,test.getMinutes());
     }
 
-    public void testMultipliedBy_25_oe() {
+public void testMultipliedBy_25_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -5420,7 +5420,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-28,test.getSeconds());
     }
 
-    public void testMultipliedBy_26_oe() {
+public void testMultipliedBy_26_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
@@ -5460,14 +5460,14 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-32,test.getMillis());
     }
 
-    public void testNegated_1_oe() {
+public void testNegated_1_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = Period.ZERO.negated();
         assertEquals(Period.ZERO,test);
     }
 
-    public void testNegated_2_oe() {
+public void testNegated_2_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = Period.ZERO.negated();
@@ -5477,7 +5477,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-1,test.getYears());
     }
 
-    public void testNegated_3_oe() {
+public void testNegated_3_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = Period.ZERO.negated();
@@ -5488,7 +5488,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-2,test.getMonths());
     }
 
-    public void testNegated_4_oe() {
+public void testNegated_4_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = Period.ZERO.negated();
@@ -5500,7 +5500,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-3,test.getWeeks());
     }
 
-    public void testNegated_5_oe() {
+public void testNegated_5_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = Period.ZERO.negated();
@@ -5513,7 +5513,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-4,test.getDays());
     }
 
-    public void testNegated_6_oe() {
+public void testNegated_6_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = Period.ZERO.negated();
@@ -5527,7 +5527,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-5,test.getHours());
     }
 
-    public void testNegated_7_oe() {
+public void testNegated_7_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = Period.ZERO.negated();
@@ -5542,7 +5542,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-6,test.getMinutes());
     }
 
-    public void testNegated_8_oe() {
+public void testNegated_8_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = Period.ZERO.negated();
@@ -5558,7 +5558,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-7,test.getSeconds());
     }
 
-    public void testNegated_9_oe() {
+public void testNegated_9_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = Period.ZERO.negated();
@@ -5575,7 +5575,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-8,test.getMillis());
     }
 
-    public void testNegated_10_oe() {
+public void testNegated_10_oe() {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = Period.ZERO.negated();
@@ -5595,12 +5595,12 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(-Integer.MAX_VALUE,test.getDays());
     }
 
-    public void testToStandardWeeks_1_oe() {
+public void testToStandardWeeks_1_oe() {
         Period test = new Period(0, 0, 3, 4, 5, 6, 7, 8);
         assertEquals(3,test.toStandardWeeks().getWeeks());
     }
 
-    public void testToStandardWeeks_2_oe() {
+public void testToStandardWeeks_2_oe() {
         Period test = new Period(0, 0, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         
@@ -5608,7 +5608,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(4,test.toStandardWeeks().getWeeks());
     }
 
-    public void testToStandardWeeks_3_oe() {
+public void testToStandardWeeks_3_oe() {
         Period test = new Period(0, 0, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         
@@ -5619,7 +5619,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(1,test.toStandardWeeks().getWeeks());
     }
 
-    public void testToStandardWeeks_4_oe() {
+public void testToStandardWeeks_4_oe() {
         Period test = new Period(0, 0, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         
@@ -5633,7 +5633,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(Integer.MAX_VALUE,test.toStandardWeeks().getWeeks());
     }
 
-    public void testToStandardWeeks_5_oe() {
+public void testToStandardWeeks_5_oe() {
         Period test = new Period(0, 0, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         
@@ -5657,7 +5657,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertTrue(expected.compareTo(BigInteger.valueOf(Long.MAX_VALUE))< 0);
     }
 
-    public void testToStandardWeeks_6_oe() {
+public void testToStandardWeeks_6_oe() {
         Period test = new Period(0, 0, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         
@@ -5682,7 +5682,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(expected.longValue(),test.toStandardWeeks().getWeeks());
     }
 
-    public void testToStandardWeeks_years_3_oe() {
+public void testToStandardWeeks_years_3_oe() {
         Period test = Period.years(1);
         try {
             test.toStandardWeeks();
@@ -5699,7 +5699,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.toStandardWeeks().getWeeks());
     }
 
-    public void testToStandardWeeks_months_3_oe() {
+public void testToStandardWeeks_months_3_oe() {
         Period test = Period.months(1);
         try {
             test.toStandardWeeks();
@@ -5716,12 +5716,12 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.toStandardWeeks().getWeeks());
     }
 
-    public void testToStandardDays_1_oe() {
+public void testToStandardDays_1_oe() {
         Period test = new Period(0, 0, 0, 4, 5, 6, 7, 8);
         assertEquals(4,test.toStandardDays().getDays());
     }
 
-    public void testToStandardDays_2_oe() {
+public void testToStandardDays_2_oe() {
         Period test = new Period(0, 0, 0, 4, 5, 6, 7, 8);
         // removed other assertion
         
@@ -5729,7 +5729,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(11,test.toStandardDays().getDays());
     }
 
-    public void testToStandardDays_3_oe() {
+public void testToStandardDays_3_oe() {
         Period test = new Period(0, 0, 0, 4, 5, 6, 7, 8);
         // removed other assertion
         
@@ -5740,7 +5740,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(1,test.toStandardDays().getDays());
     }
 
-    public void testToStandardDays_4_oe() {
+public void testToStandardDays_4_oe() {
         Period test = new Period(0, 0, 0, 4, 5, 6, 7, 8);
         // removed other assertion
         
@@ -5754,7 +5754,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(Integer.MAX_VALUE,test.toStandardDays().getDays());
     }
 
-    public void testToStandardDays_5_oe() {
+public void testToStandardDays_5_oe() {
         Period test = new Period(0, 0, 0, 4, 5, 6, 7, 8);
         // removed other assertion
         
@@ -5777,7 +5777,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertTrue(expected.compareTo(BigInteger.valueOf(Long.MAX_VALUE))< 0);
     }
 
-    public void testToStandardDays_6_oe() {
+public void testToStandardDays_6_oe() {
         Period test = new Period(0, 0, 0, 4, 5, 6, 7, 8);
         // removed other assertion
         
@@ -5801,7 +5801,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(expected.longValue(),test.toStandardDays().getDays());
     }
 
-    public void testToStandardDays_years_3_oe() {
+public void testToStandardDays_years_3_oe() {
         Period test = Period.years(1);
         try {
             test.toStandardDays();
@@ -5818,7 +5818,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.toStandardDays().getDays());
     }
 
-    public void testToStandardDays_months_3_oe() {
+public void testToStandardDays_months_3_oe() {
         Period test = Period.months(1);
         try {
             test.toStandardDays();
@@ -5835,12 +5835,12 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.toStandardDays().getDays());
     }
 
-    public void testToStandardHours_1_oe() {
+public void testToStandardHours_1_oe() {
         Period test = new Period(0, 0, 0, 0, 5, 6, 7, 8);
         assertEquals(5,test.toStandardHours().getHours());
     }
 
-    public void testToStandardHours_2_oe() {
+public void testToStandardHours_2_oe() {
         Period test = new Period(0, 0, 0, 0, 5, 6, 7, 8);
         // removed other assertion
         
@@ -5848,7 +5848,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(29,test.toStandardHours().getHours());
     }
 
-    public void testToStandardHours_3_oe() {
+public void testToStandardHours_3_oe() {
         Period test = new Period(0, 0, 0, 0, 5, 6, 7, 8);
         // removed other assertion
         
@@ -5859,7 +5859,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(1,test.toStandardHours().getHours());
     }
 
-    public void testToStandardHours_4_oe() {
+public void testToStandardHours_4_oe() {
         Period test = new Period(0, 0, 0, 0, 5, 6, 7, 8);
         // removed other assertion
         
@@ -5873,7 +5873,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(Integer.MAX_VALUE,test.toStandardHours().getHours());
     }
 
-    public void testToStandardHours_5_oe() {
+public void testToStandardHours_5_oe() {
         Period test = new Period(0, 0, 0, 0, 5, 6, 7, 8);
         // removed other assertion
         
@@ -5895,7 +5895,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertTrue(expected.compareTo(BigInteger.valueOf(Long.MAX_VALUE))< 0);
     }
 
-    public void testToStandardHours_6_oe() {
+public void testToStandardHours_6_oe() {
         Period test = new Period(0, 0, 0, 0, 5, 6, 7, 8);
         // removed other assertion
         
@@ -5918,7 +5918,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(expected.longValue(),test.toStandardHours().getHours());
     }
 
-    public void testToStandardHours_years_3_oe() {
+public void testToStandardHours_years_3_oe() {
         Period test = Period.years(1);
         try {
             test.toStandardHours();
@@ -5935,7 +5935,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.toStandardHours().getHours());
     }
 
-    public void testToStandardHours_months_3_oe() {
+public void testToStandardHours_months_3_oe() {
         Period test = Period.months(1);
         try {
             test.toStandardHours();
@@ -5952,12 +5952,12 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.toStandardHours().getHours());
     }
 
-    public void testToStandardMinutes_1_oe() {
+public void testToStandardMinutes_1_oe() {
         Period test = new Period(0, 0, 0, 0, 0, 6, 7, 8);
         assertEquals(6,test.toStandardMinutes().getMinutes());
     }
 
-    public void testToStandardMinutes_2_oe() {
+public void testToStandardMinutes_2_oe() {
         Period test = new Period(0, 0, 0, 0, 0, 6, 7, 8);
         // removed other assertion
         
@@ -5965,7 +5965,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(66,test.toStandardMinutes().getMinutes());
     }
 
-    public void testToStandardMinutes_3_oe() {
+public void testToStandardMinutes_3_oe() {
         Period test = new Period(0, 0, 0, 0, 0, 6, 7, 8);
         // removed other assertion
         
@@ -5976,7 +5976,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(1,test.toStandardMinutes().getMinutes());
     }
 
-    public void testToStandardMinutes_4_oe() {
+public void testToStandardMinutes_4_oe() {
         Period test = new Period(0, 0, 0, 0, 0, 6, 7, 8);
         // removed other assertion
         
@@ -5990,7 +5990,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(Integer.MAX_VALUE,test.toStandardMinutes().getMinutes());
     }
 
-    public void testToStandardMinutes_5_oe() {
+public void testToStandardMinutes_5_oe() {
         Period test = new Period(0, 0, 0, 0, 0, 6, 7, 8);
         // removed other assertion
         
@@ -6011,7 +6011,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertTrue(expected.compareTo(BigInteger.valueOf(Long.MAX_VALUE))< 0);
     }
 
-    public void testToStandardMinutes_6_oe() {
+public void testToStandardMinutes_6_oe() {
         Period test = new Period(0, 0, 0, 0, 0, 6, 7, 8);
         // removed other assertion
         
@@ -6033,7 +6033,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(expected.longValue(),test.toStandardMinutes().getMinutes());
     }
 
-    public void testToStandardMinutes_years_3_oe() {
+public void testToStandardMinutes_years_3_oe() {
         Period test = Period.years(1);
         try {
             test.toStandardMinutes();
@@ -6050,7 +6050,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.toStandardMinutes().getMinutes());
     }
 
-    public void testToStandardMinutes_months_3_oe() {
+public void testToStandardMinutes_months_3_oe() {
         Period test = Period.months(1);
         try {
             test.toStandardMinutes();
@@ -6067,12 +6067,12 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.toStandardMinutes().getMinutes());
     }
 
-    public void testToStandardSeconds_1_oe() {
+public void testToStandardSeconds_1_oe() {
         Period test = new Period(0, 0, 0, 0, 0, 0, 7, 8);
         assertEquals(7,test.toStandardSeconds().getSeconds());
     }
 
-    public void testToStandardSeconds_2_oe() {
+public void testToStandardSeconds_2_oe() {
         Period test = new Period(0, 0, 0, 0, 0, 0, 7, 8);
         // removed other assertion
         
@@ -6080,7 +6080,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(63,test.toStandardSeconds().getSeconds());
     }
 
-    public void testToStandardSeconds_3_oe() {
+public void testToStandardSeconds_3_oe() {
         Period test = new Period(0, 0, 0, 0, 0, 0, 7, 8);
         // removed other assertion
         
@@ -6091,7 +6091,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(1,test.toStandardSeconds().getSeconds());
     }
 
-    public void testToStandardSeconds_4_oe() {
+public void testToStandardSeconds_4_oe() {
         Period test = new Period(0, 0, 0, 0, 0, 0, 7, 8);
         // removed other assertion
         
@@ -6105,7 +6105,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(Integer.MAX_VALUE,test.toStandardSeconds().getSeconds());
     }
 
-    public void testToStandardSeconds_5_oe() {
+public void testToStandardSeconds_5_oe() {
         Period test = new Period(0, 0, 0, 0, 0, 0, 7, 8);
         // removed other assertion
         
@@ -6124,7 +6124,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test.toStandardSeconds().getSeconds());
     }
 
-    public void testToStandardSeconds_years_3_oe() {
+public void testToStandardSeconds_years_3_oe() {
         Period test = Period.years(1);
         try {
             test.toStandardSeconds();
@@ -6141,7 +6141,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.toStandardSeconds().getSeconds());
     }
 
-    public void testToStandardSeconds_months_3_oe() {
+public void testToStandardSeconds_months_3_oe() {
         Period test = Period.months(1);
         try {
             test.toStandardSeconds();
@@ -6158,12 +6158,12 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.toStandardSeconds().getSeconds());
     }
 
-    public void testToStandardDuration_1_oe() {
+public void testToStandardDuration_1_oe() {
         Period test = new Period(0, 0, 0, 0, 0, 0, 0, 8);
         assertEquals(8,test.toStandardDuration().getMillis());
     }
 
-    public void testToStandardDuration_2_oe() {
+public void testToStandardDuration_2_oe() {
         Period test = new Period(0, 0, 0, 0, 0, 0, 0, 8);
         // removed other assertion
         
@@ -6171,7 +6171,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(1020,test.toStandardDuration().getMillis());
     }
 
-    public void testToStandardDuration_3_oe() {
+public void testToStandardDuration_3_oe() {
         Period test = new Period(0, 0, 0, 0, 0, 0, 0, 8);
         // removed other assertion
         
@@ -6182,7 +6182,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(Integer.MAX_VALUE,test.toStandardDuration().getMillis());
     }
 
-    public void testToStandardDuration_4_oe() {
+public void testToStandardDuration_4_oe() {
         Period test = new Period(0, 0, 0, 0, 0, 0, 0, 8);
         // removed other assertion
         
@@ -6199,7 +6199,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test.toStandardDuration().getMillis());
     }
 
-    public void testToStandardDuration_5_oe() {
+public void testToStandardDuration_5_oe() {
         Period test = new Period(0, 0, 0, 0, 0, 0, 0, 8);
         // removed other assertion
         
@@ -6226,7 +6226,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertTrue(exp.compareTo(BigInteger.valueOf(Long.MAX_VALUE))< 0);
     }
 
-    public void testToStandardDuration_years_3_oe() {
+public void testToStandardDuration_years_3_oe() {
         Period test = Period.years(1);
         try {
             test.toStandardDuration();
@@ -6243,7 +6243,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.toStandardDuration().getMillis());
     }
 
-    public void testToStandardDuration_months_3_oe() {
+public void testToStandardDuration_months_3_oe() {
         Period test = Period.months(1);
         try {
             test.toStandardDuration();
@@ -6260,189 +6260,189 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.toStandardDuration().getMillis());
     }
 
-    public void testNormalizedStandard_yearMonth1_1_oe() {
+public void testNormalizedStandard_yearMonth1_1_oe() {
         Period test = new Period(1, 15, 0, 0, 0, 0, 0, 0);
         Period result = test.normalizedStandard();
         assertEquals(new Period(1,15,0,0,0,0,0,0),test);
     }
 
-    public void testNormalizedStandard_yearMonth1_2_oe() {
+public void testNormalizedStandard_yearMonth1_2_oe() {
         Period test = new Period(1, 15, 0, 0, 0, 0, 0, 0);
         Period result = test.normalizedStandard();
         // removed other assertion
         assertEquals(new Period(2,3,0,0,0,0,0,0),result);
     }
 
-    public void testNormalizedStandard_weekDay1_1_oe() {
+public void testNormalizedStandard_weekDay1_1_oe() {
         Period test = new Period(0, 0, 1, 12, 0, 0, 0, 0);
         Period result = test.normalizedStandard();
         assertEquals(new Period(0,0,1,12,0,0,0,0),test);
     }
 
-    public void testNormalizedStandard_weekDay1_2_oe() {
+public void testNormalizedStandard_weekDay1_2_oe() {
         Period test = new Period(0, 0, 1, 12, 0, 0, 0, 0);
         Period result = test.normalizedStandard();
         // removed other assertion
         assertEquals(new Period(0,0,2,5,0,0,0,0),result);
     }
 
-    public void testNormalizedStandard_yearMonthWeekDay_1_oe() {
+public void testNormalizedStandard_yearMonthWeekDay_1_oe() {
         Period test = new Period(1, 15, 1, 12, 0, 0, 0, 0);
         Period result = test.normalizedStandard();
         assertEquals(new Period(1,15,1,12,0,0,0,0),test);
     }
 
-    public void testNormalizedStandard_yearMonthWeekDay_2_oe() {
+public void testNormalizedStandard_yearMonthWeekDay_2_oe() {
         Period test = new Period(1, 15, 1, 12, 0, 0, 0, 0);
         Period result = test.normalizedStandard();
         // removed other assertion
         assertEquals(new Period(2,3,2,5,0,0,0,0),result);
     }
 
-    public void testNormalizedStandard_yearMonthDay_1_oe() {
+public void testNormalizedStandard_yearMonthDay_1_oe() {
         Period test = new Period(1, 15, 0, 36, 0, 0, 0, 0);
         Period result = test.normalizedStandard();
         assertEquals(new Period(1,15,0,36,0,0,0,0),test);
     }
 
-    public void testNormalizedStandard_yearMonthDay_2_oe() {
+public void testNormalizedStandard_yearMonthDay_2_oe() {
         Period test = new Period(1, 15, 0, 36, 0, 0, 0, 0);
         Period result = test.normalizedStandard();
         // removed other assertion
         assertEquals(new Period(2,3,5,1,0,0,0,0),result);
     }
 
-    public void testNormalizedStandard_negative_1_oe() {
+public void testNormalizedStandard_negative_1_oe() {
         Period test = new Period(0, 0, 0, 0, 2, -10, 0, 0);
         Period result = test.normalizedStandard();
         assertEquals(new Period(0,0,0,0,2,-10,0,0),test);
     }
 
-    public void testNormalizedStandard_negative_2_oe() {
+public void testNormalizedStandard_negative_2_oe() {
         Period test = new Period(0, 0, 0, 0, 2, -10, 0, 0);
         Period result = test.normalizedStandard();
         // removed other assertion
         assertEquals(new Period(0,0,0,0,1,50,0,0),result);
     }
 
-    public void testNormalizedStandard_fullNegative_1_oe() {
+public void testNormalizedStandard_fullNegative_1_oe() {
         Period test = new Period(0, 0, 0, 0, 1, -70, 0, 0);
         Period result = test.normalizedStandard();
         assertEquals(new Period(0,0,0,0,1,-70,0,0),test);
     }
 
-    public void testNormalizedStandard_fullNegative_2_oe() {
+public void testNormalizedStandard_fullNegative_2_oe() {
         Period test = new Period(0, 0, 0, 0, 1, -70, 0, 0);
         Period result = test.normalizedStandard();
         // removed other assertion
         assertEquals(new Period(0,0,0,0,0,-10,0,0),result);
     }
 
-    public void testNormalizedStandard_periodType_yearMonth1_1_oe() {
+public void testNormalizedStandard_periodType_yearMonth1_1_oe() {
         Period test = new Period(1, 15, 0, 0, 0, 0, 0, 0);
         Period result = test.normalizedStandard((PeriodType) null);
         assertEquals(new Period(1,15,0,0,0,0,0,0),test);
     }
 
-    public void testNormalizedStandard_periodType_yearMonth1_2_oe() {
+public void testNormalizedStandard_periodType_yearMonth1_2_oe() {
         Period test = new Period(1, 15, 0, 0, 0, 0, 0, 0);
         Period result = test.normalizedStandard((PeriodType) null);
         // removed other assertion
         assertEquals(new Period(2,3,0,0,0,0,0,0),result);
     }
 
-    public void testNormalizedStandard_periodType_weekDay1_1_oe() {
+public void testNormalizedStandard_periodType_weekDay1_1_oe() {
         Period test = new Period(0, 0, 1, 12, 0, 0, 0, 0);
         Period result = test.normalizedStandard((PeriodType) null);
         assertEquals(new Period(0,0,1,12,0,0,0,0),test);
     }
 
-    public void testNormalizedStandard_periodType_weekDay1_2_oe() {
+public void testNormalizedStandard_periodType_weekDay1_2_oe() {
         Period test = new Period(0, 0, 1, 12, 0, 0, 0, 0);
         Period result = test.normalizedStandard((PeriodType) null);
         // removed other assertion
         assertEquals(new Period(0,0,2,5,0,0,0,0),result);
     }
 
-    public void testNormalizedStandard_periodType_weekDay3_1_oe() {
+public void testNormalizedStandard_periodType_weekDay3_1_oe() {
         Period test = new Period(0, 0, 1, 12, 0, 0, 0, 0);
         Period result = test.normalizedStandard(PeriodType.dayTime());
         assertEquals(new Period(0,0,1,12,0,0,0,0),test);
     }
 
-    public void testNormalizedStandard_periodType_weekDay3_2_oe() {
+public void testNormalizedStandard_periodType_weekDay3_2_oe() {
         Period test = new Period(0, 0, 1, 12, 0, 0, 0, 0);
         Period result = test.normalizedStandard(PeriodType.dayTime());
         // removed other assertion
         assertEquals(new Period(0,0,0,19,0,0,0,0,PeriodType.dayTime()),result);
     }
 
-    public void testNormalizedStandard_periodType_yearMonthWeekDay_1_oe() {
+public void testNormalizedStandard_periodType_yearMonthWeekDay_1_oe() {
         Period test = new Period(1, 15, 1, 12, 0, 0, 0, 0);
         Period result = test.normalizedStandard(PeriodType.yearMonthDayTime());
         assertEquals(new Period(1,15,1,12,0,0,0,0),test);
     }
 
-    public void testNormalizedStandard_periodType_yearMonthWeekDay_2_oe() {
+public void testNormalizedStandard_periodType_yearMonthWeekDay_2_oe() {
         Period test = new Period(1, 15, 1, 12, 0, 0, 0, 0);
         Period result = test.normalizedStandard(PeriodType.yearMonthDayTime());
         // removed other assertion
         assertEquals(new Period(2,3,0,19,0,0,0,0,PeriodType.yearMonthDayTime()),result);
     }
 
-    public void testNormalizedStandard_periodType_yearMonthDay_1_oe() {
+public void testNormalizedStandard_periodType_yearMonthDay_1_oe() {
         Period test = new Period(1, 15, 0, 36, 27, 0, 0, 0);
         Period result = test.normalizedStandard(PeriodType.yearMonthDayTime());
         assertEquals(new Period(1,15,0,36,27,0,0,0),test);
     }
 
-    public void testNormalizedStandard_periodType_yearMonthDay_2_oe() {
+public void testNormalizedStandard_periodType_yearMonthDay_2_oe() {
         Period test = new Period(1, 15, 0, 36, 27, 0, 0, 0);
         Period result = test.normalizedStandard(PeriodType.yearMonthDayTime());
         // removed other assertion
         assertEquals(new Period(2,3,0,37,3,0,0,0,PeriodType.yearMonthDayTime()),result);
     }
 
-    public void testNormalizedStandard_periodType_months1_1_oe() {
+public void testNormalizedStandard_periodType_months1_1_oe() {
         Period test = new Period(1, 15, 0, 0, 0, 0, 0, 0);
         Period result = test.normalizedStandard(PeriodType.months());
         assertEquals(new Period(1,15,0,0,0,0,0,0),test);
     }
 
-    public void testNormalizedStandard_periodType_months1_2_oe() {
+public void testNormalizedStandard_periodType_months1_2_oe() {
         Period test = new Period(1, 15, 0, 0, 0, 0, 0, 0);
         Period result = test.normalizedStandard(PeriodType.months());
         // removed other assertion
         assertEquals(new Period(0,27,0,0,0,0,0,0,PeriodType.months()),result);
     }
 
-    public void testNormalizedStandard_periodType_months2_1_oe() {
+public void testNormalizedStandard_periodType_months2_1_oe() {
         Period test = new Period(-2, 15, 0, 0, 0, 0, 0, 0);
         Period result = test.normalizedStandard(PeriodType.months());
         assertEquals(new Period(-2,15,0,0,0,0,0,0),test);
     }
 
-    public void testNormalizedStandard_periodType_months2_2_oe() {
+public void testNormalizedStandard_periodType_months2_2_oe() {
         Period test = new Period(-2, 15, 0, 0, 0, 0, 0, 0);
         Period result = test.normalizedStandard(PeriodType.months());
         // removed other assertion
         assertEquals(new Period(0,-9,0,0,0,0,0,0,PeriodType.months()),result);
     }
 
-    public void testNormalizedStandard_periodType_months3_1_oe() {
+public void testNormalizedStandard_periodType_months3_1_oe() {
         Period test = new Period(0, 4, 0, 0, 0, 0, 0, 0);
         Period result = test.normalizedStandard(PeriodType.months());
         assertEquals(new Period(0,4,0,0,0,0,0,0),test);
     }
 
-    public void testNormalizedStandard_periodType_months3_2_oe() {
+public void testNormalizedStandard_periodType_months3_2_oe() {
         Period test = new Period(0, 4, 0, 0, 0, 0, 0, 0);
         Period result = test.normalizedStandard(PeriodType.months());
         // removed other assertion
         assertEquals(new Period(0,4,0,0,0,0,0,0,PeriodType.months()),result);
     }
 
-    public void testNormalizedStandard_periodType_monthsWeeks_1_oe() {
+public void testNormalizedStandard_periodType_monthsWeeks_1_oe() {
         PeriodType type = PeriodType.forFields(new DurationFieldType[]{
                         DurationFieldType.months(),
                         DurationFieldType.weeks(),
@@ -6452,7 +6452,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals(new Period(2,4,6,0,0,0,0,0),test);
     }
 
-    public void testNormalizedStandard_periodType_monthsWeeks_2_oe() {
+public void testNormalizedStandard_periodType_monthsWeeks_2_oe() {
         PeriodType type = PeriodType.forFields(new DurationFieldType[]{
                         DurationFieldType.months(),
                         DurationFieldType.weeks(),

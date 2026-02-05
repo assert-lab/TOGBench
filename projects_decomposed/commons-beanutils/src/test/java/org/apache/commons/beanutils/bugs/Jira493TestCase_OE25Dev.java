@@ -30,7 +30,7 @@ import org.junit.Test;
 
 public class Jira493TestCase_OE25Dev {
 	
-	@Test
+@Test
 	public void testIndexedProperties_1_oe() throws Exception {
 		LazyDynaBean lazyDynaBean = new LazyDynaBean();
 		BeanUtilsBean beanUtilsBean = BeanUtilsBean.getInstance();

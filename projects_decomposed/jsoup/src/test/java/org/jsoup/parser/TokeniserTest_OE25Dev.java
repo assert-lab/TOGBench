@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TokeniserTest_OE25Dev {
 
-    @Test
+@Test
     public void bufferUpInAttributeVal_1_oe() {
         // https://github.com/jhy/jsoup/issues/967
 
@@ -40,7 +40,7 @@ public class TokeniserTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void bufferUpInAttributeVal_2_oe() {
         // https://github.com/jhy/jsoup/issues/967
 
@@ -68,7 +68,7 @@ public class TokeniserTest_OE25Dev {
     }
     }
 
-    @Test public void handleSuperLargeTagNames_1_oe() {
+@Test public void handleSuperLargeTagNames_1_oe() {
         // unlikely, but valid. so who knows.
 
         StringBuilder sb = new StringBuilder(maxBufferLen);
@@ -83,7 +83,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals(1, els.size());
         }
 
-    @Test public void handleSuperLargeTagNames_2_oe() {
+@Test public void handleSuperLargeTagNames_2_oe() {
         // unlikely, but valid. so who knows.
 
         StringBuilder sb = new StringBuilder(maxBufferLen);
@@ -100,7 +100,7 @@ public class TokeniserTest_OE25Dev {
         assertNotNull(el);
         }
 
-    @Test public void handleSuperLargeTagNames_3_oe() {
+@Test public void handleSuperLargeTagNames_3_oe() {
         // unlikely, but valid. so who knows.
 
         StringBuilder sb = new StringBuilder(maxBufferLen);
@@ -118,7 +118,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals("One", el.text());
         }
 
-    @Test public void handleSuperLargeTagNames_4_oe() {
+@Test public void handleSuperLargeTagNames_4_oe() {
         // unlikely, but valid. so who knows.
 
         StringBuilder sb = new StringBuilder(maxBufferLen);
@@ -137,7 +137,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals(tag, el.tagName());
         }
 
-    @Test public void handleSuperLargeAttributeName_1_oe() {
+@Test public void handleSuperLargeAttributeName_1_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("LargAttributeName");
@@ -150,7 +150,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals(1, els.size());
         }
 
-    @Test public void handleSuperLargeAttributeName_2_oe() {
+@Test public void handleSuperLargeAttributeName_2_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("LargAttributeName");
@@ -165,7 +165,7 @@ public class TokeniserTest_OE25Dev {
         assertNotNull(el);
         }
 
-    @Test public void handleSuperLargeAttributeName_3_oe() {
+@Test public void handleSuperLargeAttributeName_3_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("LargAttributeName");
@@ -181,7 +181,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals("One", el.text());
         }
 
-    @Test public void handleSuperLargeAttributeName_4_oe() {
+@Test public void handleSuperLargeAttributeName_4_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("LargAttributeName");
@@ -199,7 +199,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals(attrName.toLowerCase(), attribute.getKey());
         }
 
-    @Test public void handleSuperLargeAttributeName_5_oe() {
+@Test public void handleSuperLargeAttributeName_5_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("LargAttributeName");
@@ -218,7 +218,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals("foo", attribute.getValue());
         }
 
-    @Test public void handleLargeText_1_oe() {
+@Test public void handleLargeText_1_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("A Large Amount of Text");
@@ -231,7 +231,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals(1, els.size());
         }
 
-    @Test public void handleLargeText_2_oe() {
+@Test public void handleLargeText_2_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("A Large Amount of Text");
@@ -247,7 +247,7 @@ public class TokeniserTest_OE25Dev {
         assertNotNull(el);
         }
 
-    @Test public void handleLargeText_3_oe() {
+@Test public void handleLargeText_3_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("A Large Amount of Text");
@@ -264,7 +264,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals(text, el.text());
         }
 
-    @Test public void handleLargeComment_1_oe() {
+@Test public void handleLargeComment_1_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("Quite a comment ");
@@ -277,7 +277,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals(1, els.size());
         }
 
-    @Test public void handleLargeComment_2_oe() {
+@Test public void handleLargeComment_2_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("Quite a comment ");
@@ -293,7 +293,7 @@ public class TokeniserTest_OE25Dev {
         assertNotNull(el);
         }
 
-    @Test public void handleLargeComment_3_oe() {
+@Test public void handleLargeComment_3_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("Quite a comment ");
@@ -311,7 +311,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals(" " + comment + " ", child.getData());
         }
 
-    @Test public void handleLargeCdata_1_oe() {
+@Test public void handleLargeCdata_1_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("Quite a lot of CDATA <><><><>");
@@ -324,7 +324,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals(1, els.size());
         }
 
-    @Test public void handleLargeCdata_2_oe() {
+@Test public void handleLargeCdata_2_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("Quite a lot of CDATA <><><><>");
@@ -340,7 +340,7 @@ public class TokeniserTest_OE25Dev {
         assertNotNull(el);
         }
 
-    @Test public void handleLargeCdata_3_oe() {
+@Test public void handleLargeCdata_3_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("Quite a lot of CDATA <><><><>");
@@ -358,7 +358,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals(cdata, el.text());
         }
 
-    @Test public void handleLargeCdata_4_oe() {
+@Test public void handleLargeCdata_4_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("Quite a lot of CDATA <><><><>");
@@ -377,7 +377,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals(cdata, child.getWholeText());
         }
 
-    @Test public void handleLargeTitle_1_oe() {
+@Test public void handleLargeTitle_1_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("Quite a long title");
@@ -390,7 +390,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals(1, els.size());
         }
 
-    @Test public void handleLargeTitle_2_oe() {
+@Test public void handleLargeTitle_2_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("Quite a long title");
@@ -406,7 +406,7 @@ public class TokeniserTest_OE25Dev {
         assertNotNull(el);
         }
 
-    @Test public void handleLargeTitle_3_oe() {
+@Test public void handleLargeTitle_3_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("Quite a long title");
@@ -424,7 +424,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals(title, el.text());
         }
 
-    @Test public void handleLargeTitle_4_oe() {
+@Test public void handleLargeTitle_4_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("Quite a long title");
@@ -443,7 +443,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals(title, child.getWholeText());
         }
 
-    @Test public void handleLargeTitle_5_oe() {
+@Test public void handleLargeTitle_5_oe() {
         StringBuilder sb = new StringBuilder(maxBufferLen);
         do {
             sb.append("Quite a long title");
@@ -463,42 +463,42 @@ public class TokeniserTest_OE25Dev {
         assertEquals(title, doc.title());
         }
 
-    @Test public void cp1252Entities_1_oe() {
+@Test public void cp1252Entities_1_oe() {
         assertEquals("\u20ac", Jsoup.parse("&#0128;").text());
         }
 
-    @Test public void cp1252Entities_2_oe() {
+@Test public void cp1252Entities_2_oe() {
         // removed other assertion
         assertEquals("\u201a", Jsoup.parse("&#0130;").text());
         }
 
-    @Test public void cp1252Entities_3_oe() {
+@Test public void cp1252Entities_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("\u20ac", Jsoup.parse("&#x80;").text());
         }
 
-    @Test public void cp1252EntitiesProduceError_1_oe() {
+@Test public void cp1252EntitiesProduceError_1_oe() {
         Parser parser = new Parser(new HtmlTreeBuilder());
         parser.setTrackErrors(10);
         assertEquals("\u20ac", parser.parseInput("<html><body>&#0128;</body></html>", "").text());
         }
 
-    @Test public void cp1252EntitiesProduceError_2_oe() {
+@Test public void cp1252EntitiesProduceError_2_oe() {
         Parser parser = new Parser(new HtmlTreeBuilder());
         parser.setTrackErrors(10);
         // removed other assertion
         assertEquals(1, parser.getErrors().size());
         }
 
-    @Test public void cp1252SubstitutionTable_1_oe() {
+@Test public void cp1252SubstitutionTable_1_oe() {
         for (int i = 0; i < Tokeniser.win1252Extensions.length; i++) {
             String s = new String(new byte[]{ (byte) (i + Tokeniser.win1252ExtensionsStart) }, Charset.forName("Windows-1252"));
             assertEquals(1, s.length());
         }
         }
 
-    @Test public void cp1252SubstitutionTable_2_oe() {
+@Test public void cp1252SubstitutionTable_2_oe() {
         for (int i = 0; i < Tokeniser.win1252Extensions.length; i++) {
             String s = new String(new byte[]{ (byte) (i + Tokeniser.win1252ExtensionsStart) }, Charset.forName("Windows-1252"));
             // removed other assertion
@@ -510,7 +510,7 @@ public class TokeniserTest_OE25Dev {
         }
         }
 
-    @Test public void canParseVeryLongBogusComment_1_oe() {
+@Test public void canParseVeryLongBogusComment_1_oe() {
         StringBuilder commentData = new StringBuilder(maxBufferLen);
         do {
             commentData.append("blah blah blah blah ");
@@ -525,7 +525,7 @@ public class TokeniserTest_OE25Dev {
         assertTrue(commentNode instanceof Comment, "Expected comment node");
         }
 
-    @Test public void canParseVeryLongBogusComment_2_oe() {
+@Test public void canParseVeryLongBogusComment_2_oe() {
         StringBuilder commentData = new StringBuilder(maxBufferLen);
         do {
             commentData.append("blah blah blah blah ");
@@ -541,7 +541,7 @@ public class TokeniserTest_OE25Dev {
         assertEquals(expectedCommentData, ((Comment)commentNode).getData());
         }
 
-    @Test public void canParseCdataEndingAtEdgeOfBuffer_1_oe() {
+@Test public void canParseCdataEndingAtEdgeOfBuffer_1_oe() {
         String cdataStart = "<![CDATA[";
         String cdataEnd = "]]>";
         int bufLen = maxBufferLen - cdataStart.length() - 1;    // also breaks with -2, but not with -3 or 0
@@ -557,7 +557,7 @@ public class TokeniserTest_OE25Dev {
         assertTrue(cdataNode instanceof CDataNode, "Expected CDATA node");
         }
 
-    @Test public void canParseCdataEndingAtEdgeOfBuffer_2_oe() {
+@Test public void canParseCdataEndingAtEdgeOfBuffer_2_oe() {
         String cdataStart = "<![CDATA[";
         String cdataEnd = "]]>";
         int bufLen = maxBufferLen - cdataStart.length() - 1;    // also breaks with -2, but not with -3 or 0

@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 
 public class DataParserCmykTest_OE25Dev {
 
-    @Test
+@Test
     public void testGetBasicChannelsCount_1_oe() {
         final DataParserCmyk dataParserCmyk = new DataParserCmyk();
 

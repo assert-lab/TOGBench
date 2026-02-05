@@ -216,7 +216,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         }
     }
 
-    @Test
+@Test
     public void testCtorBlock_1_oe() throws Exception {
         final String expr = "new('" + Foo.class.getName() + "', '42')";
         JexlScript script = JEXL.createScript(expr);
@@ -225,7 +225,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("42", ((Foo) result).getName());
     }
 
-    @Test
+@Test
     public void testMethodBlock_1_oe() throws Exception {
         final String expr = "foo.Quux()";
         JexlScript script = JEXL.createScript(expr, "foo");
@@ -235,7 +235,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.Quux(), result);
     }
 
-    @Test
+@Test
     public void testGetBlock_1_oe() throws Exception {
         final String expr = "foo.alias";
         JexlScript script = JEXL.createScript(expr, "foo");
@@ -245,7 +245,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.alias, result);
     }
 
-    @Test
+@Test
     public void testSetBlock_1_oe() throws Exception {
         final String expr = "foo.alias = $0";
         JexlScript script = JEXL.createScript(expr, "foo", "$0");
@@ -255,7 +255,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("43", result);
     }
 
-    @Test
+@Test
     public void testCantSeeMe_2_oe() throws Exception {
         final JexlContext jc = new MapContext();
         final String expr = "foo.doIt()";
@@ -279,7 +279,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, ((Integer) result).intValue());
     }
 
-    @Test
+@Test
     public void testCtorAllow_1_oe() throws Exception {
         final String expr = "new('" + Foo.class.getName() + "', '42')";
         JexlScript script;
@@ -294,7 +294,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("42", ((Foo) result).getName());
     }
 
-    @Test
+@Test
     public void testMethodAllow_1_oe() throws Exception {
         final Foo foo = new Foo("42");
         final String expr = "foo.Quux()";
@@ -310,7 +310,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.Quux(), result);
     }
 
-    @Test
+@Test
     public void testGetAllow_1_oe() throws Exception {
         final Foo foo = new Foo("42");
         final String expr = "foo.alias";
@@ -327,7 +327,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.alias, result);
     }
 
-    @Test
+@Test
     public void testGetAllow_2_oe() throws Exception {
         final Foo foo = new Foo("42");
         final String expr = "foo.alias";
@@ -348,7 +348,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.alias, result);
     }
 
-    @Test
+@Test
     public void testSetAllow_1_oe() throws Exception {
         final Foo foo = new Foo("42");
         final String expr = "foo.alias = $0";
@@ -364,7 +364,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("43", result);
     }
 
-    @Test
+@Test
     public void testSetAllow_2_oe() throws Exception {
         final Foo foo = new Foo("42");
         final String expr = "foo.alias = $0";
@@ -381,7 +381,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("43", foo.alias);
     }
 
-    @Test
+@Test
     public void testRestrict_4_oe() throws Exception {
         final JexlContext context = new MapContext();
         context.set("System", System.class);
@@ -427,7 +427,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(result);
     }
 
-    @Test
+@Test
        public void testSandboxInherit0_1_oe() throws Exception {
         Object result;
         final JexlContext ctxt = null;
@@ -444,7 +444,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(true, result);
        }
 
-    @Test
+@Test
        public void testSandboxInherit0_2_oe() throws Exception {
         Object result;
         final JexlContext ctxt = null;
@@ -464,7 +464,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("nothing", result);
        }
 
-    @Test
+@Test
        public void testSandboxInherit0_3_oe() throws Exception {
         Object result;
         final JexlContext ctxt = null;
@@ -487,7 +487,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("42", result);
        }
 
-    @Test
+@Test
        public void testSandboxInherit0_4_oe() throws Exception {
         Object result;
         final JexlContext ctxt = null;
@@ -514,7 +514,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("42", result);
        }
 
-    @Test
+@Test
     public void testSandboxInherit1_1_oe() throws Exception {
         Object result;
         final JexlContext ctxt = null;
@@ -529,7 +529,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testNoJexl312_2_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
 
@@ -543,7 +543,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testGetNullKeyAllowed0_1_oe() throws Exception {
         JexlEngine jexl = new JexlBuilder().sandbox(new JexlSandbox(true)).create();
         JexlExpression expression = jexl.createExpression("{null : 'foo'}[null]");
@@ -551,7 +551,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("foo", o);
     }
 
-    @Test
+@Test
     public void testGetNullKeyAllowed1_2_oe() throws Exception {
         JexlSandbox sandbox = new JexlSandbox(true, true);
         JexlSandbox.Permissions p = sandbox.permissions("java.util.Map", false, true, true);
@@ -568,7 +568,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testGetNullKeyAllowed1_3_oe() throws Exception {
         JexlSandbox sandbox = new JexlSandbox(true, true);
         JexlSandbox.Permissions p = sandbox.permissions("java.util.Map", false, true, true);
@@ -591,7 +591,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testGetNullKeyBlocked_1_oe() throws Exception {
         JexlSandbox sandbox = new JexlSandbox(true, true);
         JexlSandbox.Permissions p = sandbox.permissions("java.util.Map", false, true, true);
@@ -604,7 +604,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("foo", r0);
     }
 
-    @Test
+@Test
     public void testGetNullKeyBlocked_3_oe() throws Exception {
         JexlSandbox sandbox = new JexlSandbox(true, true);
         JexlSandbox.Permissions p = sandbox.permissions("java.util.Map", false, true, true);
@@ -627,7 +627,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testSetNullKeyAllowed0_1_oe() throws Exception {
         Arithmetic350 a350 = new Arithmetic350(true);
         JexlEngine jexl = new JexlBuilder().arithmetic(a350).sandbox(new JexlSandbox(true)).create();
@@ -638,7 +638,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("bar", map.get(null));
     }
 
-    @Test
+@Test
     public void testSetNullKeyAllowed1_2_oe() throws Exception {
         Arithmetic350 a350 = new Arithmetic350(true);
         JexlSandbox sandbox = new JexlSandbox(true, true);
@@ -656,7 +656,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testSetNullKeyAllowed1_3_oe() throws Exception {
         Arithmetic350 a350 = new Arithmetic350(true);
         JexlSandbox sandbox = new JexlSandbox(true, true);
@@ -679,7 +679,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("42", map.get("bar"));
     }
 
-    @Test
+@Test
     public void testSetNullKeyAllowed1_4_oe() throws Exception {
         Arithmetic350 a350 = new Arithmetic350(true);
         JexlSandbox sandbox = new JexlSandbox(true, true);
@@ -707,7 +707,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("42", map.get(null));
     }
 
-    @Test
+@Test
     public void testSetNullKeyBlocked_1_oe() throws Exception {
         Arithmetic350 a350 = new Arithmetic350(true);
         JexlSandbox sandbox = new JexlSandbox(true, true);
@@ -722,7 +722,7 @@ public class SandboxTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("42", map.get("bar"));
     }
 
-    @Test
+@Test
     public void testSetNullKeyBlocked_3_oe() throws Exception {
         Arithmetic350 a350 = new Arithmetic350(true);
         JexlSandbox sandbox = new JexlSandbox(true, true);

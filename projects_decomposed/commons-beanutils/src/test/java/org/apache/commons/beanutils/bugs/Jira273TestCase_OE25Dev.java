@@ -113,7 +113,7 @@ public class Jira273TestCase_OE25Dev extends TestCase {
      * of a "grand parent" public class.
      */
 
-    public void testIssue_BEANUTILS_273_AnnonymousOverriden_1_oe() {
+public void testIssue_BEANUTILS_273_AnnonymousOverriden_1_oe() {
         final Object bean = Jira273BeanFactory.createAnnonymousOverriden();
         Object result = null;
         try {
@@ -124,7 +124,7 @@ public class Jira273TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_273_AnnonymousOverriden_2_oe() {
+public void testIssue_BEANUTILS_273_AnnonymousOverriden_2_oe() {
         final Object bean = Jira273BeanFactory.createAnnonymousOverriden();
         Object result = null;
         try {
@@ -136,7 +136,7 @@ public class Jira273TestCase_OE25Dev extends TestCase {
         assertEquals("AnnonymousOverriden", result);
     }
 
-    public void testIssue_BEANUTILS_273_AnnonymousNotOverriden_1_oe() {
+public void testIssue_BEANUTILS_273_AnnonymousNotOverriden_1_oe() {
         final Object bean = Jira273BeanFactory.createAnnonymousNotOverriden();
         Object result = null;
         try {
@@ -147,7 +147,7 @@ public class Jira273TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_273_AnnonymousNotOverriden_2_oe() {
+public void testIssue_BEANUTILS_273_AnnonymousNotOverriden_2_oe() {
         final Object bean = Jira273BeanFactory.createAnnonymousNotOverriden();
         Object result = null;
         try {
@@ -159,7 +159,7 @@ public class Jira273TestCase_OE25Dev extends TestCase {
         assertEquals("PublicBeanWithMethod", result);
     }
 
-    public void testIssue_BEANUTILS_273_PrivatePublicNotOverriden_1_oe() {
+public void testIssue_BEANUTILS_273_PrivatePublicNotOverriden_1_oe() {
         final Object bean = Jira273BeanFactory.createPrivatePublicNotOverriden();
         Object result = null;
         try {
@@ -170,7 +170,7 @@ public class Jira273TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_273_PrivatePublicNotOverriden_2_oe() {
+public void testIssue_BEANUTILS_273_PrivatePublicNotOverriden_2_oe() {
         final Object bean = Jira273BeanFactory.createPrivatePublicNotOverriden();
         Object result = null;
         try {
@@ -182,7 +182,7 @@ public class Jira273TestCase_OE25Dev extends TestCase {
         assertEquals("PublicBeanWithMethod", result);
     }
 
-    public void testIssue_BEANUTILS_273_PrivatePublicOverriden_1_oe() {
+public void testIssue_BEANUTILS_273_PrivatePublicOverriden_1_oe() {
         final Object bean = Jira273BeanFactory.createPrivatePublicOverriden();
         Object result = null;
         try {
@@ -193,7 +193,7 @@ public class Jira273TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_273_PrivatePublicOverriden_2_oe() {
+public void testIssue_BEANUTILS_273_PrivatePublicOverriden_2_oe() {
         final Object bean = Jira273BeanFactory.createPrivatePublicOverriden();
         Object result = null;
         try {
@@ -205,7 +205,7 @@ public class Jira273TestCase_OE25Dev extends TestCase {
         assertEquals("PrivatePublicOverriden", result);
     }
 
-    public void testIssue_BEANUTILS_273_PrivatePrivatePublicNotOverriden_1_oe() {
+public void testIssue_BEANUTILS_273_PrivatePrivatePublicNotOverriden_1_oe() {
         final Object bean = Jira273BeanFactory.createPrivatePrivatePublicNotOverriden();
         Object result = null;
         try {
@@ -216,7 +216,7 @@ public class Jira273TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_273_PrivatePrivatePublicNotOverriden_2_oe() {
+public void testIssue_BEANUTILS_273_PrivatePrivatePublicNotOverriden_2_oe() {
         final Object bean = Jira273BeanFactory.createPrivatePrivatePublicNotOverriden();
         Object result = null;
         try {
@@ -228,7 +228,7 @@ public class Jira273TestCase_OE25Dev extends TestCase {
         assertEquals("PublicBeanWithMethod", result);
     }
 
-    public void testIssue_BEANUTILS_273_PrivatePrivatePublicOverriden_1_oe() {
+public void testIssue_BEANUTILS_273_PrivatePrivatePublicOverriden_1_oe() {
         final Object bean = Jira273BeanFactory.createPrivatePrivatePublicOverriden();
         Object result = null;
         try {
@@ -239,7 +239,7 @@ public class Jira273TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_273_PrivatePrivatePublicOverriden_2_oe() {
+public void testIssue_BEANUTILS_273_PrivatePrivatePublicOverriden_2_oe() {
         final Object bean = Jira273BeanFactory.createPrivatePrivatePublicOverriden();
         Object result = null;
         try {

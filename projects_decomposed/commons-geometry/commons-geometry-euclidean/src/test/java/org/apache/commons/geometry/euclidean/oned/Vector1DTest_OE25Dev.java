@@ -342,20 +342,20 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(x, v.getX(), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testConstants_normalize_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, Vector1D.ZERO::normalize);
     }
 
-    @Test
+@Test
     void testConstants_normalize_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, Vector1D.NaN::normalize);
     }
 
-    @Test
+@Test
     void testConstants_normalize_3_oe() {
         // act/assert
         // removed other assertion
@@ -363,7 +363,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, Vector1D.POSITIVE_INFINITY::normalize);
     }
 
-    @Test
+@Test
     void testConstants_normalize_4_oe() {
         // act/assert
         // removed other assertion
@@ -372,7 +372,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, Vector1D.NEGATIVE_INFINITY::normalize);
     }
 
-    @Test
+@Test
     void testConstants_normalize_5_oe() {
         // act/assert
         // removed other assertion
@@ -383,7 +383,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertSame(Vector1D.Unit.PLUS, Vector1D.Unit.PLUS.normalize());
     }
 
-    @Test
+@Test
     void testConstants_normalize_6_oe() {
         // act/assert
         // removed other assertion
@@ -395,7 +395,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertSame(Vector1D.Unit.MINUS, Vector1D.Unit.MINUS.normalize());
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrderComparator_1_oe() {
         // arrange
         final Comparator<Vector1D> cmp = Vector1D.COORDINATE_ASCENDING_ORDER;
@@ -404,7 +404,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(0, cmp.compare(Vector1D.of(1), Vector1D.of(1)));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrderComparator_2_oe() {
         // arrange
         final Comparator<Vector1D> cmp = Vector1D.COORDINATE_ASCENDING_ORDER;
@@ -414,7 +414,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(1, cmp.compare(Vector1D.of(2), Vector1D.of(1)));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrderComparator_3_oe() {
         // arrange
         final Comparator<Vector1D> cmp = Vector1D.COORDINATE_ASCENDING_ORDER;
@@ -425,7 +425,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(-1, cmp.compare(Vector1D.of(0), Vector1D.of(1)));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrderComparator_4_oe() {
         // arrange
         final Comparator<Vector1D> cmp = Vector1D.COORDINATE_ASCENDING_ORDER;
@@ -438,7 +438,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(0, cmp.compare(Vector1D.of(0), Vector1D.of(0)));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrderComparator_5_oe() {
         // arrange
         final Comparator<Vector1D> cmp = Vector1D.COORDINATE_ASCENDING_ORDER;
@@ -452,7 +452,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(1, cmp.compare(Vector1D.of(1e-15), Vector1D.of(0)));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrderComparator_6_oe() {
         // arrange
         final Comparator<Vector1D> cmp = Vector1D.COORDINATE_ASCENDING_ORDER;
@@ -467,7 +467,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(-1, cmp.compare(Vector1D.of(-1e-15), Vector1D.of(0)));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrderComparator_7_oe() {
         // arrange
         final Comparator<Vector1D> cmp = Vector1D.COORDINATE_ASCENDING_ORDER;
@@ -484,7 +484,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(-1, cmp.compare(Vector1D.of(1), null));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrderComparator_8_oe() {
         // arrange
         final Comparator<Vector1D> cmp = Vector1D.COORDINATE_ASCENDING_ORDER;
@@ -502,7 +502,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(1, cmp.compare(null, Vector1D.of(1)));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrderComparator_9_oe() {
         // arrange
         final Comparator<Vector1D> cmp = Vector1D.COORDINATE_ASCENDING_ORDER;
@@ -521,20 +521,20 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(0, cmp.compare(null, null));
     }
 
-    @Test
+@Test
     void testCoordinates_1_oe() {
         // act/assert
         Assertions.assertEquals(-1, Vector1D.of(-1).getX(), 0.0);
     }
 
-    @Test
+@Test
     void testCoordinates_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals(0, Vector1D.of(0).getX(), 0.0);
     }
 
-    @Test
+@Test
     void testCoordinates_3_oe() {
         // act/assert
         // removed other assertion
@@ -542,7 +542,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(1, Vector1D.of(1).getX(), 0.0);
     }
 
-    @Test
+@Test
     void testDimension_1_oe() {
         // arrange
         final Vector1D v = Vector1D.of(2);
@@ -551,13 +551,13 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(1, v.getDimension());
     }
 
-    @Test
+@Test
     void testNaN_1_oe() {
         // act/assert
         Assertions.assertTrue(Vector1D.of(Double.NaN).isNaN());
     }
 
-    @Test
+@Test
     void testNaN_2_oe() {
         // act/assert
         // removed other assertion
@@ -565,7 +565,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertFalse(Vector1D.of(1).isNaN());
     }
 
-    @Test
+@Test
     void testNaN_3_oe() {
         // act/assert
         // removed other assertion
@@ -574,20 +574,20 @@ class Vector1DTest_OE25Dev {
         Assertions.assertFalse(Vector1D.of(Double.NEGATIVE_INFINITY).isNaN());
     }
 
-    @Test
+@Test
     void testInfinite_1_oe() {
         // act/assert
         Assertions.assertTrue(Vector1D.of(Double.NEGATIVE_INFINITY).isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertTrue(Vector1D.of(Double.POSITIVE_INFINITY).isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_3_oe() {
         // act/assert
         // removed other assertion
@@ -596,7 +596,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertFalse(Vector1D.of(1).isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_4_oe() {
         // act/assert
         // removed other assertion
@@ -606,20 +606,20 @@ class Vector1DTest_OE25Dev {
         Assertions.assertFalse(Vector1D.of(Double.NaN).isInfinite());
     }
 
-    @Test
+@Test
     void testFinite_1_oe() {
         // act/assert
         Assertions.assertTrue(Vector1D.ZERO.isFinite());
     }
 
-    @Test
+@Test
     void testFinite_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertTrue(Vector1D.of(1).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_3_oe() {
         // act/assert
         // removed other assertion
@@ -628,7 +628,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertFalse(Vector1D.of(Double.NEGATIVE_INFINITY).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_4_oe() {
         // act/assert
         // removed other assertion
@@ -638,7 +638,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertFalse(Vector1D.of(Double.POSITIVE_INFINITY).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_5_oe() {
         // act/assert
         // removed other assertion
@@ -650,20 +650,20 @@ class Vector1DTest_OE25Dev {
         Assertions.assertFalse(Vector1D.of(Double.NaN).isFinite());
     }
 
-    @Test
+@Test
     void testNorm_1_oe() {
         // act/assert
         Assertions.assertEquals(0.0, Vector1D.ZERO.norm(), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testNorm_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals(3.0, Vector1D.of(3).norm(), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testNorm_3_oe() {
         // act/assert
         // removed other assertion
@@ -671,7 +671,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(3.0, Vector1D.of(-3).norm(), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testNorm_unitVectors_1_oe() {
         // arrange
         final Vector1D v = Vector1D.of(2.0).normalize();
@@ -680,20 +680,20 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(1.0, v.norm(), 0.0);
     }
 
-    @Test
+@Test
     void testNormSq_1_oe() {
         // act/assert
         Assertions.assertEquals(0.0, Vector1D.of(0).normSq(), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testNormSq_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals(9.0, Vector1D.of(3).normSq(), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testNormSq_3_oe() {
         // act/assert
         // removed other assertion
@@ -701,7 +701,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(9.0, Vector1D.of(-3).normSq(), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testNormSq_unitVectors_1_oe() {
         // arrange
         final Vector1D v = Vector1D.of(2.0).normalize();
@@ -710,20 +710,20 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(1.0, v.normSq(), 0.0);
     }
 
-    @Test
+@Test
     void testWithNorm_illegalNorm_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.ZERO.withNorm(2.0));
     }
 
-    @Test
+@Test
     void testWithNorm_illegalNorm_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.NaN.withNorm(2.0));
     }
 
-    @Test
+@Test
     void testWithNorm_illegalNorm_3_oe() {
         // act/assert
         // removed other assertion
@@ -731,7 +731,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.POSITIVE_INFINITY.withNorm(2.0));
     }
 
-    @Test
+@Test
     void testWithNorm_illegalNorm_4_oe() {
         // act/assert
         // removed other assertion
@@ -740,7 +740,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.NEGATIVE_INFINITY.withNorm(2.0));
     }
 
-    @Test
+@Test
     void testWithNorm_unitVectors_1_oe() {
         // arrange
         final Vector1D v = Vector1D.of(2.0).normalize();
@@ -754,7 +754,7 @@ class Vector1DTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testNormalize_isIdempotent_1_oe() {
         // arrange
         final Vector1D v = Vector1D.of(2).normalize();
@@ -763,7 +763,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertSame(v, v.normalize());
     }
 
-    @Test
+@Test
     void testNormalizeOrNull_1_oe() {
         // act/assert
         checkVector(Vector1D.of(100).normalizeOrNull(), 1);
@@ -781,7 +781,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertNull(Vector1D.ZERO.normalizeOrNull());
     }
 
-    @Test
+@Test
     void testNormalizeOrNull_2_oe() {
         // act/assert
         checkVector(Vector1D.of(100).normalizeOrNull(), 1);
@@ -800,7 +800,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertNull(Vector1D.NaN.normalizeOrNull());
     }
 
-    @Test
+@Test
     void testNormalizeOrNull_3_oe() {
         // act/assert
         checkVector(Vector1D.of(100).normalizeOrNull(), 1);
@@ -820,7 +820,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertNull(Vector1D.POSITIVE_INFINITY.normalizeOrNull());
     }
 
-    @Test
+@Test
     void testNormalizeOrNull_4_oe() {
         // act/assert
         checkVector(Vector1D.of(100).normalizeOrNull(), 1);
@@ -841,7 +841,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertNull(Vector1D.NEGATIVE_INFINITY.normalizeOrNull());
     }
 
-    @Test
+@Test
     void testNormalizeOrNull_isIdempotent_1_oe() {
         // arrange
         final Vector1D v = Vector1D.of(2).normalizeOrNull();
@@ -850,7 +850,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertSame(v, v.normalizeOrNull());
     }
 
-    @Test
+@Test
     void testDistance_1_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(1);
@@ -860,7 +860,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(0.0, v1.distance(v1), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testDistance_2_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(1);
@@ -872,7 +872,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(5.0, v1.distance(v2), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testDistance_3_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(1);
@@ -885,7 +885,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(5.0, v2.distance(v1), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testDistance_4_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(1);
@@ -899,7 +899,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(v1.subtract(v2).norm(), v1.distance(v2), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testDistance_5_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(1);
@@ -915,7 +915,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(0.0, Vector1D.of(-1).distance(Vector1D.of(-1)), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testDistanceSq_1_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(1);
@@ -925,7 +925,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(0.0, Vector1D.of(-1).distanceSq(Vector1D.of(-1)), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testDistanceSq_2_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(1);
@@ -936,7 +936,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(25.0, v1.distanceSq(v2), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testDistanceSq_3_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(1);
@@ -948,7 +948,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(25.0, v2.distanceSq(v1), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testDotProduct_1_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -959,7 +959,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(-6.0, v1.dot(v2), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testDotProduct_2_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -971,7 +971,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(-6.0, v2.dot(v1), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testDotProduct_3_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -985,7 +985,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(6.0, v1.dot(v3), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testDotProduct_4_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1000,7 +1000,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(6.0, v3.dot(v1), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_1_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1012,7 +1012,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(0.0, v1.angle(v1), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_2_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1025,7 +1025,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(Math.PI, v1.angle(v2), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_3_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1039,7 +1039,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(0.0, v1.angle(v3), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_4_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1054,7 +1054,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(Math.PI, v1.angle(v4), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_5_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1071,7 +1071,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(Math.PI, v2.angle(v1), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_6_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1089,7 +1089,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(0.0, v2.angle(v2), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_7_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1108,7 +1108,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(Math.PI, v2.angle(v3), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_8_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1128,7 +1128,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(0.0, v2.angle(v4), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_9_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1150,7 +1150,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(0.0, v3.angle(v1), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_10_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1173,7 +1173,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(Math.PI, v3.angle(v2), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_11_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1197,7 +1197,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(0.0, v3.angle(v3), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_12_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1222,7 +1222,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(Math.PI, v3.angle(v4), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_13_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1249,7 +1249,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(Math.PI, v4.angle(v1), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_14_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1277,7 +1277,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(0.0, v4.angle(v2), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_15_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1306,7 +1306,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(Math.PI, v4.angle(v3), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_16_oe() {
         // arrange
         final Vector1D v1 = Vector1D.of(2);
@@ -1336,7 +1336,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(0.0, v4.angle(v4), TEST_TOLERANCE);
     }
 
-    @Test
+@Test
     void testAngle_illegalNorm_1_oe() {
         // arrange
         final Vector1D v = Vector1D.of(1.0);
@@ -1345,7 +1345,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.ZERO.angle(v));
     }
 
-    @Test
+@Test
     void testAngle_illegalNorm_2_oe() {
         // arrange
         final Vector1D v = Vector1D.of(1.0);
@@ -1355,7 +1355,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.NaN.angle(v));
     }
 
-    @Test
+@Test
     void testAngle_illegalNorm_3_oe() {
         // arrange
         final Vector1D v = Vector1D.of(1.0);
@@ -1366,7 +1366,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.POSITIVE_INFINITY.angle(v));
     }
 
-    @Test
+@Test
     void testAngle_illegalNorm_4_oe() {
         // arrange
         final Vector1D v = Vector1D.of(1.0);
@@ -1378,7 +1378,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.NEGATIVE_INFINITY.angle(v));
     }
 
-    @Test
+@Test
     void testAngle_illegalNorm_5_oe() {
         // arrange
         final Vector1D v = Vector1D.of(1.0);
@@ -1391,7 +1391,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> v.angle(Vector1D.ZERO));
     }
 
-    @Test
+@Test
     void testAngle_illegalNorm_6_oe() {
         // arrange
         final Vector1D v = Vector1D.of(1.0);
@@ -1405,7 +1405,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> v.angle(Vector1D.NaN));
     }
 
-    @Test
+@Test
     void testAngle_illegalNorm_7_oe() {
         // arrange
         final Vector1D v = Vector1D.of(1.0);
@@ -1420,7 +1420,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> v.angle(Vector1D.POSITIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testAngle_illegalNorm_8_oe() {
         // arrange
         final Vector1D v = Vector1D.of(1.0);
@@ -1436,7 +1436,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> v.angle(Vector1D.NEGATIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testDirectionTo_illegalNorm_1_oe() {
         // arrange
         final Vector1D v = Vector1D.of(2);
@@ -1445,7 +1445,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.ZERO.directionTo(Vector1D.ZERO));
     }
 
-    @Test
+@Test
     void testDirectionTo_illegalNorm_2_oe() {
         // arrange
         final Vector1D v = Vector1D.of(2);
@@ -1455,7 +1455,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> v.directionTo(v));
     }
 
-    @Test
+@Test
     void testDirectionTo_illegalNorm_3_oe() {
         // arrange
         final Vector1D v = Vector1D.of(2);
@@ -1466,7 +1466,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> v.directionTo(Vector1D.NaN));
     }
 
-    @Test
+@Test
     void testDirectionTo_illegalNorm_4_oe() {
         // arrange
         final Vector1D v = Vector1D.of(2);
@@ -1478,7 +1478,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.NEGATIVE_INFINITY.directionTo(v));
     }
 
-    @Test
+@Test
     void testDirectionTo_illegalNorm_5_oe() {
         // arrange
         final Vector1D v = Vector1D.of(2);
@@ -1491,7 +1491,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> v.directionTo(Vector1D.POSITIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_1_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -1503,7 +1503,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertTrue(vec.eq(vec, smallEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_2_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -1516,7 +1516,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertTrue(vec.eq(vec, largeEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_3_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -1531,7 +1531,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertTrue(vec.eq(Vector1D.of(1.0000007), smallEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_4_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -1547,7 +1547,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertTrue(vec.eq(Vector1D.of(1.0000007), largeEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_5_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -1565,7 +1565,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertFalse(vec.eq(Vector1D.of(1.004), smallEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_6_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -1584,7 +1584,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertTrue(vec.eq(Vector1D.of(1.004), largeEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_7_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -1605,7 +1605,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertFalse(vec.eq(Vector1D.of(2), smallEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_8_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -1627,7 +1627,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertFalse(vec.eq(Vector1D.of(-2), largeEps));
     }
 
-    @Test
+@Test
     void testIsZero_1_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -1637,7 +1637,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertTrue(Vector1D.of(0.0).isZero(smallEps));
     }
 
-    @Test
+@Test
     void testIsZero_2_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -1648,7 +1648,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertTrue(Vector1D.of(-0.0).isZero(largeEps));
     }
 
-    @Test
+@Test
     void testIsZero_3_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -1661,7 +1661,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertTrue(Vector1D.of(1e-7).isZero(smallEps));
     }
 
-    @Test
+@Test
     void testIsZero_4_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -1675,7 +1675,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertTrue(Vector1D.of(-1e-7).isZero(largeEps));
     }
 
-    @Test
+@Test
     void testIsZero_5_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -1691,7 +1691,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertFalse(Vector1D.of(1e-2).isZero(smallEps));
     }
 
-    @Test
+@Test
     void testIsZero_6_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -1708,7 +1708,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertTrue(Vector1D.of(-1e-2).isZero(largeEps));
     }
 
-    @Test
+@Test
     void testIsZero_7_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -1727,7 +1727,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertFalse(Vector1D.of(0.2).isZero(smallEps));
     }
 
-    @Test
+@Test
     void testIsZero_8_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -1747,7 +1747,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertFalse(Vector1D.of(-0.2).isZero(largeEps));
     }
 
-    @Test
+@Test
     void testHashCode_1_oe() {
         // arrange
         final Vector1D u = Vector1D.of(1);
@@ -1758,7 +1758,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertTrue(u.hashCode() != v.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_2_oe() {
         // arrange
         final Vector1D u = Vector1D.of(1);
@@ -1770,7 +1770,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(u.hashCode(), w.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_3_oe() {
         // arrange
         final Vector1D u = Vector1D.of(1);
@@ -1784,7 +1784,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(Vector1D.of(Double.NaN).hashCode(), Vector1D.NaN.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_4_oe() {
         // arrange
         final Vector1D u = Vector1D.of(1);
@@ -1799,7 +1799,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(Vector1D.of(Double.NaN).hashCode(), Vector1D.of(Double.NaN).hashCode());
     }
 
-    @Test
+@Test
     void testEquals_2_oe() {
         // arrange
         final Vector1D u1 = Vector1D.of(1);
@@ -1810,7 +1810,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(u1, u2);
     }
 
-    @Test
+@Test
     void testEquals_3_oe() {
         // arrange
         final Vector1D u1 = Vector1D.of(1);
@@ -1823,7 +1823,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertNotEquals(u1, Vector1D.of(-1));
     }
 
-    @Test
+@Test
     void testEquals_4_oe() {
         // arrange
         final Vector1D u1 = Vector1D.of(1);
@@ -1837,7 +1837,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertNotEquals(u1, Vector1D.of(1 + 10 * Precision.EPSILON));
     }
 
-    @Test
+@Test
     void testEquals_5_oe() {
         // arrange
         final Vector1D u1 = Vector1D.of(1);
@@ -1853,7 +1853,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(Vector1D.of(Double.NaN), Vector1D.of(Double.NaN));
     }
 
-    @Test
+@Test
     void testEquals_6_oe() {
         // arrange
         final Vector1D u1 = Vector1D.of(1);
@@ -1870,7 +1870,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(Vector1D.of(Double.POSITIVE_INFINITY), Vector1D.of(Double.POSITIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testEquals_7_oe() {
         // arrange
         final Vector1D u1 = Vector1D.of(1);
@@ -1888,7 +1888,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(Vector1D.of(Double.NEGATIVE_INFINITY), Vector1D.of(Double.NEGATIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_1_oe() {
         // arrange
         final Vector1D a = Vector1D.of(0.0);
@@ -1900,7 +1900,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertFalse(a.equals(b));
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_2_oe() {
         // arrange
         final Vector1D a = Vector1D.of(0.0);
@@ -1913,7 +1913,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertNotEquals(a.hashCode(), b.hashCode());
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_3_oe() {
         // arrange
         final Vector1D a = Vector1D.of(0.0);
@@ -1928,7 +1928,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertTrue(a.equals(c));
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_4_oe() {
         // arrange
         final Vector1D a = Vector1D.of(0.0);
@@ -1944,7 +1944,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(a.hashCode(), c.hashCode());
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_5_oe() {
         // arrange
         final Vector1D a = Vector1D.of(0.0);
@@ -1962,7 +1962,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertTrue(b.equals(d));
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_6_oe() {
         // arrange
         final Vector1D a = Vector1D.of(0.0);
@@ -1981,7 +1981,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertEquals(b.hashCode(), d.hashCode());
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // arrange
         final Vector1D v = Vector1D.of(3);
@@ -1994,13 +1994,13 @@ class Vector1DTest_OE25Dev {
         Assertions.assertTrue(pattern.matcher(str).matches(), "Expected string " + str + " to match regex " + pattern);
     }
 
-    @Test
+@Test
     void testParse_failure_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector1D.parse("abc"));
     }
 
-    @Test
+@Test
     void testUnitFrom_vector_1_oe() {
         // arrange
         final Vector1D vec = Vector1D.of(2);
@@ -2011,25 +2011,25 @@ class Vector1DTest_OE25Dev {
         Assertions.assertSame(unitVec, Vector1D.Unit.from(unitVec));
     }
 
-    @Test
+@Test
     void testUnitFrom_illegalNorm_1_oe() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.Unit.from(0.0));
     }
 
-    @Test
+@Test
     void testUnitFrom_illegalNorm_2_oe() {
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.Unit.from(Double.NaN));
     }
 
-    @Test
+@Test
     void testUnitFrom_illegalNorm_3_oe() {
         // removed other assertion
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.Unit.from(Double.NEGATIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testUnitFrom_illegalNorm_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -2037,7 +2037,7 @@ class Vector1DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.Unit.from(Double.POSITIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testUnitFactoryOptimization_1_oe() {
         // An already normalized vector will avoid unnecessary creation.
         final Vector1D v = Vector1D.of(3).normalize();

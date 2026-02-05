@@ -50,7 +50,7 @@ public class TestConfigurationPropertiesFactoryBean_OE25Dev {
         configurationFactory.afterPropertiesSet();
     }
 
-    @Test
+@Test
     public void testGetConfigurationDefensiveCopy_1_oe() {
         final Configuration[] configs = {new PropertiesConfiguration(), new XMLConfiguration()};
         configurationFactory.setConfigurations(configs);
@@ -60,7 +60,7 @@ public class TestConfigurationPropertiesFactoryBean_OE25Dev {
         assertArrayEquals("Configurations were changed", configs, configurationFactory.getConfigurations());
     }
 
-    @Test
+@Test
     public void testGetLocationsDefensiveCopy_1_oe() {
         final Resource[] locations = {new ClassPathResource("f1"), new ClassPathResource("f2")};
         configurationFactory.setLocations(locations);
@@ -70,13 +70,13 @@ public class TestConfigurationPropertiesFactoryBean_OE25Dev {
         assertArrayEquals("Locations were changed", locations, configurationFactory.getLocations());
     }
 
-    @Test
+@Test
     public void testGetObject_1_oe() throws Exception {
         configurationFactory.setConfigurations(new BaseConfiguration());
         Assert.assertNull(configurationFactory.getObject());
     }
 
-    @Test
+@Test
     public void testGetObject_2_oe() throws Exception {
         configurationFactory.setConfigurations(new BaseConfiguration());
         // removed other assertion
@@ -84,14 +84,14 @@ public class TestConfigurationPropertiesFactoryBean_OE25Dev {
         Assert.assertNotNull(configurationFactory.getObject());
     }
 
-    @Test
+@Test
     public void testInitialConfiguration_1_oe() throws Exception {
         configurationFactory = new ConfigurationPropertiesFactoryBean(new BaseConfiguration());
         configurationFactory.afterPropertiesSet();
         Assert.assertNotNull(configurationFactory.getConfiguration());
     }
 
-    @Test
+@Test
     public void testLoadResources_1_oe() throws Exception {
         configurationFactory.setLocations(new ClassPathResource("testConfigurationFactoryBean.file"));
         configurationFactory.setConfigurations(new BaseConfiguration());
@@ -101,7 +101,7 @@ public class TestConfigurationPropertiesFactoryBean_OE25Dev {
         Assert.assertEquals("duke", props.getProperty("java"));
     }
 
-    @Test
+@Test
     public void testMergeConfigurations_1_oe() throws Exception {
         final Configuration one = new BaseConfiguration();
         one.setProperty("foo", "bar");
@@ -117,7 +117,7 @@ public class TestConfigurationPropertiesFactoryBean_OE25Dev {
         Assert.assertEquals("foo", props.getProperty("bar"));
     }
 
-    @Test
+@Test
     public void testMergeConfigurations_2_oe() throws Exception {
         final Configuration one = new BaseConfiguration();
         one.setProperty("foo", "bar");
@@ -134,7 +134,7 @@ public class TestConfigurationPropertiesFactoryBean_OE25Dev {
         Assert.assertEquals("bar", props.getProperty("foo"));
     }
 
-    @Test
+@Test
     public void testSetConfigurationsDefensiveCopy_1_oe() {
         final Configuration[] configs = {new PropertiesConfiguration(), new XMLConfiguration()};
         final Configuration[] configsUpdate = configs.clone();
@@ -144,7 +144,7 @@ public class TestConfigurationPropertiesFactoryBean_OE25Dev {
         assertArrayEquals("Configurations were changed", configs, configurationFactory.getConfigurations());
     }
 
-    @Test
+@Test
     public void testSetLocationsDefensiveCopy_1_oe() {
         final Resource[] locations = {new ClassPathResource("f1"), new ClassPathResource("f2")};
         final Resource[] locationsUpdate = locations.clone();
@@ -154,7 +154,7 @@ public class TestConfigurationPropertiesFactoryBean_OE25Dev {
         assertArrayEquals("Locations were changed", locations, configurationFactory.getLocations());
     }
 
-    @Test
+@Test
     public void testSetLocationsNull_1_oe() {
         configurationFactory.setLocations(null);
         assertNull("Got locations", configurationFactory.getLocations());

@@ -109,14 +109,14 @@ public class BooksIntegrationTest_OE25Dev {
         return response.headers.get("FOZ").get(0).equals("BAZ");
     }
 
-    @Test
+@Test
     public void canCreateBook_1_oe() {
         UrlResponse response = createBookViaPOST();
 
         assertNotNull(response);
     }
 
-    @Test
+@Test
     public void canCreateBook_2_oe() {
         UrlResponse response = createBookViaPOST();
 
@@ -124,7 +124,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertNotNull(response.body);
     }
 
-    @Test
+@Test
     public void canCreateBook_3_oe() {
         UrlResponse response = createBookViaPOST();
 
@@ -133,7 +133,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertTrue(Integer.valueOf(response.body) > 0);
     }
 
-    @Test
+@Test
     public void canCreateBook_4_oe() {
         UrlResponse response = createBookViaPOST();
 
@@ -143,7 +143,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertEquals(201, response.status);
     }
 
-    @Test
+@Test
     public void canListBooks_1_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -152,7 +152,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertNotNull(response);
     }
 
-    @Test
+@Test
     public void canListBooks_2_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -163,7 +163,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertNotNull(body);
     }
 
-    @Test
+@Test
     public void canListBooks_3_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -175,7 +175,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertTrue(Integer.valueOf(body) > 0);
     }
 
-    @Test
+@Test
     public void canListBooks_4_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -188,7 +188,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void canListBooks_5_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -202,7 +202,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertTrue(response.body.contains(bookId));
     }
 
-    @Test
+@Test
     public void canGetBook_1_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -212,7 +212,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertNotNull(response);
     }
 
-    @Test
+@Test
     public void canGetBook_2_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -223,7 +223,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertNotNull(response.body);
     }
 
-    @Test
+@Test
     public void canGetBook_3_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -235,7 +235,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void canGetBook_4_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -248,7 +248,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertTrue(result.contains(AUTHOR));
     }
 
-    @Test
+@Test
     public void canGetBook_5_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -262,7 +262,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertTrue(result.contains(TITLE));
     }
 
-    @Test
+@Test
     public void canGetBook_6_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -277,7 +277,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertTrue(beforeFilterIsSet(response));
     }
 
-    @Test
+@Test
     public void canGetBook_7_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -293,7 +293,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertTrue(afterFilterIsSet(response));
     }
 
-    @Test
+@Test
     public void canUpdateBook_1_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -303,7 +303,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertNotNull(response);
     }
 
-    @Test
+@Test
     public void canUpdateBook_2_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -314,7 +314,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertNotNull(response.body);
     }
 
-    @Test
+@Test
     public void canUpdateBook_3_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -326,7 +326,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void canUpdateBook_4_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -339,7 +339,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertTrue(result.contains(bookId));
     }
 
-    @Test
+@Test
     public void canUpdateBook_5_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -353,7 +353,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertTrue(result.contains("updated"));
     }
 
-    @Test
+@Test
     public void canGetUpdatedBook_1_oe() {
         bookId = createBookViaPOST().body.trim();
         updateBook();
@@ -364,7 +364,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertNotNull(response);
     }
 
-    @Test
+@Test
     public void canGetUpdatedBook_2_oe() {
         bookId = createBookViaPOST().body.trim();
         updateBook();
@@ -376,7 +376,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertNotNull(response.body);
     }
 
-    @Test
+@Test
     public void canGetUpdatedBook_3_oe() {
         bookId = createBookViaPOST().body.trim();
         updateBook();
@@ -389,7 +389,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void canGetUpdatedBook_4_oe() {
         bookId = createBookViaPOST().body.trim();
         updateBook();
@@ -403,7 +403,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertTrue(result.contains(AUTHOR));
     }
 
-    @Test
+@Test
     public void canGetUpdatedBook_5_oe() {
         bookId = createBookViaPOST().body.trim();
         updateBook();
@@ -418,7 +418,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertTrue(result.contains(NEW_TITLE));
     }
 
-    @Test
+@Test
     public void canDeleteBook_1_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -428,7 +428,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertNotNull(response);
     }
 
-    @Test
+@Test
     public void canDeleteBook_2_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -439,7 +439,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertNotNull(response.body);
     }
 
-    @Test
+@Test
     public void canDeleteBook_3_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -451,7 +451,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void canDeleteBook_4_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -464,7 +464,7 @@ public class BooksIntegrationTest_OE25Dev {
         assertTrue(result.contains(bookId));
     }
 
-    @Test
+@Test
     public void canDeleteBook_5_oe() {
         bookId = createBookViaPOST().body.trim();
 

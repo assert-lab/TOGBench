@@ -329,7 +329,7 @@ class CircleTest_OE25Dev {
         EuclideanTestUtils.assertCoordinatesEqual(end, segment.getEndPoint(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFrom_1_oe() {
         // arrange
         final Vector2D center = Vector2D.of(1, 2);
@@ -341,7 +341,7 @@ class CircleTest_OE25Dev {
         Assertions.assertFalse(c.isFull());
     }
 
-    @Test
+@Test
     void testFrom_2_oe() {
         // arrange
         final Vector2D center = Vector2D.of(1, 2);
@@ -354,7 +354,7 @@ class CircleTest_OE25Dev {
         Assertions.assertFalse(c.isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_3_oe() {
         // arrange
         final Vector2D center = Vector2D.of(1, 2);
@@ -369,7 +369,7 @@ class CircleTest_OE25Dev {
         Assertions.assertSame(center, c.getCenter());
     }
 
-    @Test
+@Test
     void testFrom_4_oe() {
         // arrange
         final Vector2D center = Vector2D.of(1, 2);
@@ -385,7 +385,7 @@ class CircleTest_OE25Dev {
         Assertions.assertSame(center, c.getCentroid());
     }
 
-    @Test
+@Test
     void testFrom_5_oe() {
         // arrange
         final Vector2D center = Vector2D.of(1, 2);
@@ -403,7 +403,7 @@ class CircleTest_OE25Dev {
         Assertions.assertEquals(3, c.getRadius(), 0.0);
     }
 
-    @Test
+@Test
     void testFrom_6_oe() {
         // arrange
         final Vector2D center = Vector2D.of(1, 2);
@@ -423,20 +423,20 @@ class CircleTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, c.getPrecision());
     }
 
-    @Test
+@Test
     void testFrom_illegalCenter_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.of(Double.POSITIVE_INFINITY, 1), 1, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFrom_illegalCenter_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.of(Double.NaN, 1), 1, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFrom_illegalRadius_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -445,7 +445,7 @@ class CircleTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.ZERO, -1, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFrom_illegalRadius_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -455,7 +455,7 @@ class CircleTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.ZERO, 0, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFrom_illegalRadius_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -466,7 +466,7 @@ class CircleTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.ZERO, Double.POSITIVE_INFINITY, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFrom_illegalRadius_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -478,7 +478,7 @@ class CircleTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.ZERO, Double.NaN, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFrom_illegalRadius_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -491,7 +491,7 @@ class CircleTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.ZERO, 1e-3, precision));
     }
 
-    @Test
+@Test
     void testGeometricProperties_1_oe() {
         // arrange
         final double r = 2;
@@ -501,7 +501,7 @@ class CircleTest_OE25Dev {
         Assertions.assertEquals(2 * Math.PI * r, c.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_2_oe() {
         // arrange
         final double r = 2;
@@ -512,7 +512,7 @@ class CircleTest_OE25Dev {
         Assertions.assertEquals(Math.PI * r * r, c.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToTree_threeSegments_1_oe() {
         // arrange
         final Circle c = Circle.from(Vector2D.of(2, 1), 2, TEST_PRECISION);
@@ -529,7 +529,7 @@ class CircleTest_OE25Dev {
         Assertions.assertEquals(3, segments.size());
     }
 
-    @Test
+@Test
     void testToTree_fourSegments_1_oe() {
         // arrange
         final Circle c = Circle.from(Vector2D.of(2, 1), 2, TEST_PRECISION);
@@ -546,7 +546,7 @@ class CircleTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testToTree_multipleApproximationSizes_1_oe() {
         // -- arrange
         final Circle c = Circle.from(Vector2D.of(-3, 5), 10, TEST_PRECISION);
@@ -572,7 +572,7 @@ class CircleTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testToTree_closeApproximation_1_oe() {
         // arrange
         final Circle c = Circle.from(Vector2D.of(-2, 0), 1, TEST_PRECISION);
@@ -587,7 +587,7 @@ class CircleTest_OE25Dev {
         Assertions.assertEquals(c.getSize(), tree.getSize(), eps);
     }
 
-    @Test
+@Test
     void testToTree_closeApproximation_2_oe() {
         // arrange
         final Circle c = Circle.from(Vector2D.of(-2, 0), 1, TEST_PRECISION);
@@ -603,7 +603,7 @@ class CircleTest_OE25Dev {
         Assertions.assertEquals(c.getBoundarySize(), tree.getBoundarySize(), eps);
     }
 
-    @Test
+@Test
     void testHashCode_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -621,7 +621,7 @@ class CircleTest_OE25Dev {
         Assertions.assertEquals(hash, a.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -641,7 +641,7 @@ class CircleTest_OE25Dev {
         Assertions.assertNotEquals(hash, b.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -662,7 +662,7 @@ class CircleTest_OE25Dev {
         Assertions.assertNotEquals(hash, c.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -684,7 +684,7 @@ class CircleTest_OE25Dev {
         Assertions.assertNotEquals(hash, d.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -708,7 +708,7 @@ class CircleTest_OE25Dev {
         Assertions.assertEquals(hash, e.hashCode());
     }
 
-    @Test
+@Test
     void testEquals_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -725,7 +725,7 @@ class CircleTest_OE25Dev {
         Assertions.assertNotEquals(a, b);
     }
 
-    @Test
+@Test
     void testEquals_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -743,7 +743,7 @@ class CircleTest_OE25Dev {
         Assertions.assertNotEquals(a, c);
     }
 
-    @Test
+@Test
     void testEquals_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -762,7 +762,7 @@ class CircleTest_OE25Dev {
         Assertions.assertNotEquals(a, d);
     }
 
-    @Test
+@Test
     void testEquals_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -783,7 +783,7 @@ class CircleTest_OE25Dev {
         Assertions.assertEquals(a, e);
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // arrange
         final Circle c = Circle.from(Vector2D.of(1, 2), 3, TEST_PRECISION);

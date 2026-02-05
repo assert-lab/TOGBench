@@ -29,7 +29,7 @@ import org.apache.bcel.generic.InstructionList;
 
 public class InstructionFinderTest_OE25Dev extends AbstractTestCase {
 
-    public void testSearch_1_oe() {
+public void testSearch_1_oe() {
         final InstructionList il = new InstructionList();
         il.append(new ILOAD(1));
         il.append(new ILOAD(2));
@@ -42,7 +42,7 @@ public class InstructionFinderTest_OE25Dev extends AbstractTestCase {
         assertEquals(2, ihs.length);
     }
 
-    public void testSearch_2_oe() {
+public void testSearch_2_oe() {
         final InstructionList il = new InstructionList();
         il.append(new ILOAD(1));
         il.append(new ILOAD(2));
@@ -56,7 +56,7 @@ public class InstructionFinderTest_OE25Dev extends AbstractTestCase {
         assertEquals(ihs[0].getInstruction(), new ILOAD(2));
     }
 
-    public void testSearch_3_oe() {
+public void testSearch_3_oe() {
         final InstructionList il = new InstructionList();
         il.append(new ILOAD(1));
         il.append(new ILOAD(2));

@@ -96,7 +96,7 @@ public class HiddenFileFilterTest_OE25Dev extends BaseFilterTest {
 
     }
 
-    @Test
+@Test
     public void testAcceptHidden_1_oe() throws FileSystemException {
 
         final FileFilter testee = HiddenFileFilter.HIDDEN;
@@ -104,7 +104,7 @@ public class HiddenFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(visibleFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptHidden_2_oe() throws FileSystemException {
 
         final FileFilter testee = HiddenFileFilter.HIDDEN;
@@ -115,7 +115,7 @@ public class HiddenFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(notExistingFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptVisible_1_oe() throws FileSystemException {
 
         final FileFilter testee = HiddenFileFilter.VISIBLE;
@@ -123,7 +123,7 @@ public class HiddenFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(visibleFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptVisible_2_oe() throws FileSystemException {
 
         final FileFilter testee = HiddenFileFilter.VISIBLE;
@@ -134,7 +134,7 @@ public class HiddenFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(notExistingFileInfo));
     }
 
-    @Test
+@Test
     public void testZipFile_2_oe() throws FileSystemException {
 
         // Same test with ZIP file

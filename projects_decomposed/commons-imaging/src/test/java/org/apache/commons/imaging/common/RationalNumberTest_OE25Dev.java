@@ -124,20 +124,20 @@ public class RationalNumberTest_OE25Dev extends ImagingTest {
         Debug.debug();
     }
 
-    @Test
+@Test
     public void testSpecialRationalNumber_1_oe(){
         RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
         assertEquals(58.858331871428570, test.doubleValue(), 1.0e-14, "Unsigned integer support failed for double conversion");
     }
 
-    @Test
+@Test
     public void testSpecialRationalNumber_2_oe(){
         RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
         // removed other assertion
         assertEquals(58.858334f, test.floatValue(), 1.0e-6f, "Float conversion failed");
     }
 
-    @Test
+@Test
     public void testSpecialRationalNumber_3_oe(){
         RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
         // removed other assertion
@@ -145,7 +145,7 @@ public class RationalNumberTest_OE25Dev extends ImagingTest {
         assertEquals(58L, test.longValue(), "Long value conversion failed");
     }
 
-    @Test
+@Test
     public void testSpecialRationalNumber_4_oe(){
         RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
         // removed other assertion
@@ -154,7 +154,7 @@ public class RationalNumberTest_OE25Dev extends ImagingTest {
         assertEquals(58, test.intValue(), "Int value conversion failed");
     }
 
-    @Test
+@Test
     public void testSpecialRationalNumber_5_oe(){
         RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
         // removed other assertion

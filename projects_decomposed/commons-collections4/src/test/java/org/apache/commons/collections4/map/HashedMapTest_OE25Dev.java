@@ -55,14 +55,14 @@ public class HashedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
      * Test for <a href="https://issues.apache.org/jira/browse/COLLECTIONS-323">COLLECTIONS-323</a>.
      */
 
-    public void testClone_1_oe() {
+public void testClone_1_oe() {
         final HashedMap<K, V> map = new HashedMap<>(10);
         map.put((K) "1", (V) "1");
         final HashedMap<K, V> cloned = map.clone();
         assertEquals(map.size(), cloned.size());
     }
 
-    public void testClone_2_oe() {
+public void testClone_2_oe() {
         final HashedMap<K, V> map = new HashedMap<>(10);
         map.put((K) "1", (V) "1");
         final HashedMap<K, V> cloned = map.clone();
@@ -70,25 +70,25 @@ public class HashedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
         assertSame(map.get("1"), cloned.get("1"));
     }
 
-    public void testInternalState_1_oe() {
+public void testInternalState_1_oe() {
         final HashedMap<K, V> map = new HashedMap<>(42, 0.75f);
         assertEquals(0.75f, map.loadFactor, 0.1f);
     }
 
-    public void testInternalState_2_oe() {
+public void testInternalState_2_oe() {
         final HashedMap<K, V> map = new HashedMap<>(42, 0.75f);
         // removed other assertion
         assertEquals(0, map.size);
     }
 
-    public void testInternalState_3_oe() {
+public void testInternalState_3_oe() {
         final HashedMap<K, V> map = new HashedMap<>(42, 0.75f);
         // removed other assertion
         // removed other assertion
         assertEquals(64, map.data.length);
     }
 
-    public void testInternalState_4_oe() {
+public void testInternalState_4_oe() {
         final HashedMap<K, V> map = new HashedMap<>(42, 0.75f);
         // removed other assertion
         // removed other assertion
@@ -96,7 +96,7 @@ public class HashedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
         assertEquals(48, map.threshold);
     }
 
-    public void testInternalState_5_oe() {
+public void testInternalState_5_oe() {
         final HashedMap<K, V> map = new HashedMap<>(42, 0.75f);
         // removed other assertion
         // removed other assertion
@@ -105,7 +105,7 @@ public class HashedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
         assertEquals(0, map.modCount);
     }
 
-    public void testInitialCapacityZero_1_oe() {
+public void testInitialCapacityZero_1_oe() {
         final HashedMap<String,String> map = new HashedMap<>(0);
         assertEquals(1, map.data.length);
     }

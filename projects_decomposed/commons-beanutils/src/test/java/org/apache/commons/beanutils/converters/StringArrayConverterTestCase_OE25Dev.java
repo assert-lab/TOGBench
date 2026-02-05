@@ -31,7 +31,7 @@ public class StringArrayConverterTestCase_OE25Dev extends TestCase {
         super(name);
     }
 
-    public void testIntToString_1_oe() {
+public void testIntToString_1_oe() {
 
         final int[] testArray = {1, 2, 3, 4, 5};
         final String[] results = (String []) new StringArrayConverter().convert(String.class, testArray);
@@ -39,7 +39,7 @@ public class StringArrayConverterTestCase_OE25Dev extends TestCase {
         assertEquals("Incorrect results size", 5, results.length);
     }
 
-    public void testIntToString_2_oe() {
+public void testIntToString_2_oe() {
 
         final int[] testArray = {1, 2, 3, 4, 5};
         final String[] results = (String []) new StringArrayConverter().convert(String.class, testArray);
@@ -48,7 +48,7 @@ public class StringArrayConverterTestCase_OE25Dev extends TestCase {
         assertEquals("Entry one is wrong", "1", results[0]);
     }
 
-    public void testIntToString_3_oe() {
+public void testIntToString_3_oe() {
 
         final int[] testArray = {1, 2, 3, 4, 5};
         final String[] results = (String []) new StringArrayConverter().convert(String.class, testArray);
@@ -58,7 +58,7 @@ public class StringArrayConverterTestCase_OE25Dev extends TestCase {
         assertEquals("Entry two is wrong", "2", results[1]);
     }
 
-    public void testIntToString_4_oe() {
+public void testIntToString_4_oe() {
 
         final int[] testArray = {1, 2, 3, 4, 5};
         final String[] results = (String []) new StringArrayConverter().convert(String.class, testArray);
@@ -69,7 +69,7 @@ public class StringArrayConverterTestCase_OE25Dev extends TestCase {
         assertEquals("Entry three is wrong", "3", results[2]);
     }
 
-    public void testIntToString_5_oe() {
+public void testIntToString_5_oe() {
 
         final int[] testArray = {1, 2, 3, 4, 5};
         final String[] results = (String []) new StringArrayConverter().convert(String.class, testArray);
@@ -81,7 +81,7 @@ public class StringArrayConverterTestCase_OE25Dev extends TestCase {
         assertEquals("Entry four is wrong", "4", results[3]);
     }
 
-    public void testIntToString_6_oe() {
+public void testIntToString_6_oe() {
 
         final int[] testArray = {1, 2, 3, 4, 5};
         final String[] results = (String []) new StringArrayConverter().convert(String.class, testArray);

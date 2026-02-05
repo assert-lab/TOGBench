@@ -50,7 +50,7 @@ class LinecastPoint2DTest_OE25Dev {
         GeometryTestUtils.assertContains("LinecastPoint2D[point= (1.0, 1.0), normal= (1.0, 0.0)", str);
     }
 
-    @Test
+@Test
     void testProperties_1_oe() {
         // arrange
         final Vector2D pt = Vector2D.of(1, 1);
@@ -62,7 +62,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertSame(pt, it.getPoint());
     }
 
-    @Test
+@Test
     void testProperties_2_oe() {
         // arrange
         final Vector2D pt = Vector2D.of(1, 1);
@@ -75,7 +75,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertSame(normal, it.getNormal());
     }
 
-    @Test
+@Test
     void testProperties_3_oe() {
         // arrange
         final Vector2D pt = Vector2D.of(1, 1);
@@ -89,7 +89,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertSame(X_AXIS, it.getLine());
     }
 
-    @Test
+@Test
     void testProperties_4_oe() {
         // arrange
         final Vector2D pt = Vector2D.of(1, 1);
@@ -104,7 +104,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertEquals(1.0, it.getAbscissa(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAbscissaOrder_1_oe() {
         // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -118,7 +118,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertEquals(-1, LinecastPoint2D.ABSCISSA_ORDER.compare(a, b));
     }
 
-    @Test
+@Test
     void testAbscissaOrder_2_oe() {
         // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -133,7 +133,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertEquals(1, LinecastPoint2D.ABSCISSA_ORDER.compare(a, c));
     }
 
-    @Test
+@Test
     void testAbscissaOrder_3_oe() {
         // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -149,7 +149,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertEquals(1, LinecastPoint2D.ABSCISSA_ORDER.compare(a, d));
     }
 
-    @Test
+@Test
     void testAbscissaOrder_4_oe() {
         // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -166,7 +166,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertEquals(0, LinecastPoint2D.ABSCISSA_ORDER.compare(a, e));
     }
 
-    @Test
+@Test
     void testHashCode_1_oe() {
         // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -182,7 +182,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertEquals(hash, a.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_2_oe() {
         // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -200,7 +200,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertNotEquals(hash, b.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_3_oe() {
         // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -219,7 +219,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertNotEquals(hash, c.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_4_oe() {
         // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -239,7 +239,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertNotEquals(hash, d.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_5_oe() {
         // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -261,7 +261,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertEquals(hash, e.hashCode());
     }
 
-    @Test
+@Test
     void testEquals_2_oe() {
         // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -276,7 +276,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertNotEquals(a, b);
     }
 
-    @Test
+@Test
     void testEquals_3_oe() {
         // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -292,7 +292,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertNotEquals(a, c);
     }
 
-    @Test
+@Test
     void testEquals_4_oe() {
         // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -309,7 +309,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertNotEquals(a, d);
     }
 
-    @Test
+@Test
     void testEquals_5_oe() {
         // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -328,7 +328,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertEquals(a, e);
     }
 
-    @Test
+@Test
     void testEquals_6_oe() {
         // arrange
         final LinecastPoint2D a = new LinecastPoint2D(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, X_AXIS);
@@ -348,7 +348,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertEquals(e, a);
     }
 
-    @Test
+@Test
     void testEq_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -369,7 +369,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertTrue(a.eq(a, precision));
     }
 
-    @Test
+@Test
     void testEq_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -392,7 +392,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertFalse(a.eq(b, precision));
     }
 
-    @Test
+@Test
     void testEq_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -416,7 +416,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertFalse(a.eq(c, precision));
     }
 
-    @Test
+@Test
     void testEq_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -442,7 +442,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertTrue(a.eq(d, precision));
     }
 
-    @Test
+@Test
     void testEq_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -469,7 +469,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertTrue(a.eq(e, precision));
     }
 
-    @Test
+@Test
     void testSortAndFilter_empty_1_oe() {
         // arrange
         final List<LinecastPoint2D> pts = new ArrayList<>();
@@ -481,7 +481,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertEquals(0, pts.size());
     }
 
-    @Test
+@Test
     void testSortAndFilter_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -510,7 +510,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertEquals(4, list.size());
     }
 
-    @Test
+@Test
     void testSortAndFilter_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -541,7 +541,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertSame(b, list.get(0));
     }
 
-    @Test
+@Test
     void testSortAndFilter_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -573,7 +573,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertSame(a, list.get(1));
     }
 
-    @Test
+@Test
     void testSortAndFilter_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -606,7 +606,7 @@ class LinecastPoint2DTest_OE25Dev {
         Assertions.assertSame(c, list.get(2));
     }
 
-    @Test
+@Test
     void testSortAndFilter_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);

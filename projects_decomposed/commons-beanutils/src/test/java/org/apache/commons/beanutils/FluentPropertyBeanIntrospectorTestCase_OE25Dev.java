@@ -88,7 +88,7 @@ public class FluentPropertyBeanIntrospectorTestCase_OE25Dev extends TestCase {
 		}
 	}
 
-    public void testIntrospection_1_oe() throws IntrospectionException {
+public void testIntrospection_1_oe() throws IntrospectionException {
         final PropertyUtilsBean pu = new PropertyUtilsBean();
         final FluentPropertyBeanIntrospector introspector = new FluentPropertyBeanIntrospector();
         pu.addBeanIntrospector(introspector);
@@ -98,7 +98,7 @@ public class FluentPropertyBeanIntrospectorTestCase_OE25Dev extends TestCase {
         assertNotNull("No read method for name", pd.getReadMethod());
     }
 
-    public void testIntrospection_2_oe() throws IntrospectionException {
+public void testIntrospection_2_oe() throws IntrospectionException {
         final PropertyUtilsBean pu = new PropertyUtilsBean();
         final FluentPropertyBeanIntrospector introspector = new FluentPropertyBeanIntrospector();
         pu.addBeanIntrospector(introspector);
@@ -109,7 +109,7 @@ public class FluentPropertyBeanIntrospectorTestCase_OE25Dev extends TestCase {
         assertNotNull("No write method for name", pd.getWriteMethod());
     }
 
-    public void testIntrospection_3_oe() throws IntrospectionException {
+public void testIntrospection_3_oe() throws IntrospectionException {
         final PropertyUtilsBean pu = new PropertyUtilsBean();
         final FluentPropertyBeanIntrospector introspector = new FluentPropertyBeanIntrospector();
         pu.addBeanIntrospector(introspector);
@@ -123,7 +123,7 @@ public class FluentPropertyBeanIntrospectorTestCase_OE25Dev extends TestCase {
         assertNull("Read method for fluentProperty", pd.getReadMethod());
     }
 
-    public void testIntrospection_4_oe() throws IntrospectionException {
+public void testIntrospection_4_oe() throws IntrospectionException {
         final PropertyUtilsBean pu = new PropertyUtilsBean();
         final FluentPropertyBeanIntrospector introspector = new FluentPropertyBeanIntrospector();
         pu.addBeanIntrospector(introspector);
@@ -138,7 +138,7 @@ public class FluentPropertyBeanIntrospectorTestCase_OE25Dev extends TestCase {
         assertNotNull("No write method for fluentProperty", pd.getWriteMethod());
     }
 
-    public void testIntrospection_5_oe() throws IntrospectionException {
+public void testIntrospection_5_oe() throws IntrospectionException {
         final PropertyUtilsBean pu = new PropertyUtilsBean();
         final FluentPropertyBeanIntrospector introspector = new FluentPropertyBeanIntrospector();
         pu.addBeanIntrospector(introspector);
@@ -155,7 +155,7 @@ public class FluentPropertyBeanIntrospectorTestCase_OE25Dev extends TestCase {
         assertNotNull("No read method for fluentGetProperty",pd.getReadMethod());
     }
 
-    public void testIntrospection_6_oe() throws IntrospectionException {
+public void testIntrospection_6_oe() throws IntrospectionException {
         final PropertyUtilsBean pu = new PropertyUtilsBean();
         final FluentPropertyBeanIntrospector introspector = new FluentPropertyBeanIntrospector();
         pu.addBeanIntrospector(introspector);
@@ -173,7 +173,7 @@ public class FluentPropertyBeanIntrospectorTestCase_OE25Dev extends TestCase {
         assertNotNull("No write method for fluentGetProperty",pd.getWriteMethod());
     }
 
-    public void testIntrospectionCaps_1_oe() throws Exception {
+public void testIntrospectionCaps_1_oe() throws Exception {
 	    final PropertyUtilsBean pu = new PropertyUtilsBean();
 
         final FluentPropertyBeanIntrospector introspector = new FluentPropertyBeanIntrospector();
@@ -188,7 +188,7 @@ public class FluentPropertyBeanIntrospectorTestCase_OE25Dev extends TestCase {
 	    assertNotNull("missing property", aDescriptor);
     }
 
-    public void testIntrospectionCaps_2_oe() throws Exception {
+public void testIntrospectionCaps_2_oe() throws Exception {
 	    final PropertyUtilsBean pu = new PropertyUtilsBean();
 
         final FluentPropertyBeanIntrospector introspector = new FluentPropertyBeanIntrospector();
@@ -205,7 +205,7 @@ public class FluentPropertyBeanIntrospectorTestCase_OE25Dev extends TestCase {
 	    assertNotNull("No read method for uri", aDescriptor.getReadMethod());
     }
 
-    public void testIntrospectionCaps_3_oe() throws Exception {
+public void testIntrospectionCaps_3_oe() throws Exception {
 	    final PropertyUtilsBean pu = new PropertyUtilsBean();
 
         final FluentPropertyBeanIntrospector introspector = new FluentPropertyBeanIntrospector();
@@ -223,7 +223,7 @@ public class FluentPropertyBeanIntrospectorTestCase_OE25Dev extends TestCase {
 	    assertNotNull("No write method for uri", aDescriptor.getWriteMethod());
     }
 
-    public void testIntrospectionCaps_4_oe() throws Exception {
+public void testIntrospectionCaps_4_oe() throws Exception {
 	    final PropertyUtilsBean pu = new PropertyUtilsBean();
 
         final FluentPropertyBeanIntrospector introspector = new FluentPropertyBeanIntrospector();

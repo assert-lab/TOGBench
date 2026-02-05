@@ -201,7 +201,7 @@ public class MemoryLeakTestCase_OE25Dev {
                 + fmt.format(free) + "k";
     }
 
-    @Test
+@Test
     public void testPropertyUtilsBean_descriptorsCache_memoryLeak_1_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -221,7 +221,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("ClassLoader is null", loader);
     }
 
-    @Test
+@Test
     public void testPropertyUtilsBean_descriptorsCache_memoryLeak_2_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -242,7 +242,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("BeanClass is null", beanClass);
     }
 
-    @Test
+@Test
     public void testPropertyUtilsBean_descriptorsCache_memoryLeak_3_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -264,7 +264,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotSame("ClassLoaders should be different..", getClass().getClassLoader(), beanClass.getClassLoader());
     }
 
-    @Test
+@Test
     public void testPropertyUtilsBean_descriptorsCache_memoryLeak_4_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -287,7 +287,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertSame("BeanClass ClassLoader incorrect", beanClass.getClassLoader(), loader);
     }
 
-    @Test
+@Test
     public void testPropertyUtilsBean_descriptorsCache_memoryLeak_5_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -314,7 +314,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertEquals("initialValue", PropertyUtils.getProperty(bean, "name"));
     }
 
-    @Test
+@Test
     public void testPropertyUtilsBean_descriptorsCache_memoryLeak_6_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -355,7 +355,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNull("PropertyUtilsBean is holding a reference to the classLoader", someRef.get());
     }
 
-    @Test
+@Test
     public void testPropertyUtilsBean_mappedDescriptorsCache_memoryLeak_1_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -375,7 +375,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("ClassLoader is null", loader);
     }
 
-    @Test
+@Test
     public void testPropertyUtilsBean_mappedDescriptorsCache_memoryLeak_2_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -396,7 +396,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("BeanClass is null", beanClass);
     }
 
-    @Test
+@Test
     public void testPropertyUtilsBean_mappedDescriptorsCache_memoryLeak_3_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -418,7 +418,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotSame("ClassLoaders should be different..", getClass().getClassLoader(), beanClass.getClassLoader());
     }
 
-    @Test
+@Test
     public void testPropertyUtilsBean_mappedDescriptorsCache_memoryLeak_4_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -441,7 +441,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertSame("BeanClass ClassLoader incorrect", beanClass.getClassLoader(), loader);
     }
 
-    @Test
+@Test
     public void testPropertyUtilsBean_mappedDescriptorsCache_memoryLeak_5_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -468,7 +468,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertEquals("Second Value", PropertyUtils.getProperty(bean, "mappedProperty(Second Key)"));
     }
 
-    @Test
+@Test
     public void testPropertyUtilsBean_mappedDescriptorsCache_memoryLeak_6_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -497,7 +497,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertEquals("New Second Value", PropertyUtils.getProperty(bean, "mappedProperty(Second Key)"));
     }
 
-    @Test
+@Test
     public void testPropertyUtilsBean_mappedDescriptorsCache_memoryLeak_7_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -544,7 +544,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNull("PropertyUtilsBean is holding a reference to the classLoader", someRef.get());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference1_1_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -560,7 +560,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("ClassLoader is null", loader);
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference1_2_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -577,7 +577,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("BeanClass is null", beanClass);
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference1_3_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -595,7 +595,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("Bean is null", bean);
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference1_4_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -614,7 +614,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotSame("ClassLoaders should be different..", getClass().getClassLoader(), beanClass.getClassLoader());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference1_5_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -634,7 +634,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertSame("BeanClass ClassLoader incorrect", beanClass.getClassLoader(), loader);
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference1_6_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -657,7 +657,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("1-Read Method null", descriptor.getMappedReadMethod());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference1_7_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -681,7 +681,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("1-Write Method null", descriptor.getMappedWriteMethod());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference1_8_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -706,7 +706,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertEquals("1-Read Method name", "getMappedProperty", descriptor.getMappedReadMethod().getName());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference1_9_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -732,7 +732,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertEquals("1-Read Write name", "setMappedProperty", descriptor.getMappedWriteMethod().getName());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference1_10_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -768,7 +768,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("1-Read Method null", descriptor.getMappedReadMethod());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference1_11_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -805,7 +805,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("1-Write Method null", descriptor.getMappedWriteMethod());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference1_12_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -843,7 +843,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertEquals("1-Read Method name", "getMappedProperty", descriptor.getMappedReadMethod().getName());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference1_13_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -882,7 +882,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertEquals("1-Read Write name", "setMappedProperty", descriptor.getMappedWriteMethod().getName());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference2_1_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -898,7 +898,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("ClassLoader is null", loader);
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference2_2_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -915,7 +915,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("BeanClass is null", beanClass);
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference2_3_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -933,7 +933,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("Bean is null", bean);
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference2_4_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -952,7 +952,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotSame("ClassLoaders should be different..", getClass().getClassLoader(), beanClass.getClassLoader());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference2_5_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -972,7 +972,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertSame("BeanClass ClassLoader incorrect", beanClass.getClassLoader(), loader);
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference2_6_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -995,7 +995,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("1-Read Method null", descriptor.getMappedReadMethod());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference2_7_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1019,7 +1019,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("1-Write Method null", descriptor.getMappedWriteMethod());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference2_8_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1044,7 +1044,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertEquals("1-Read Method name", "getMappedProperty", descriptor.getMappedReadMethod().getName());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference2_9_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1070,7 +1070,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertEquals("1-Read Write name", "setMappedProperty", descriptor.getMappedWriteMethod().getName());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference2_10_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1111,7 +1111,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("1-Read Method null", descriptor.getMappedReadMethod());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference2_11_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1153,7 +1153,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("1-Write Method null", descriptor.getMappedWriteMethod());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference2_12_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1196,7 +1196,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertEquals("1-Read Method name", "getMappedProperty", descriptor.getMappedReadMethod().getName());
     }
 
-    @Test
+@Test
     public void testMappedPropertyDescriptor_MappedMethodReference2_13_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1240,7 +1240,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertEquals("1-Read Write name", "setMappedProperty", descriptor.getMappedWriteMethod().getName());
     }
 
-    @Test
+@Test
     public void testMethodUtils_cache_memoryLeak_1_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1260,7 +1260,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("ClassLoader is null", loader);
     }
 
-    @Test
+@Test
     public void testMethodUtils_cache_memoryLeak_2_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1281,7 +1281,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("BeanClass is null", beanClass);
     }
 
-    @Test
+@Test
     public void testMethodUtils_cache_memoryLeak_3_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1303,7 +1303,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotSame("ClassLoaders should be different..", getClass().getClassLoader(), beanClass.getClassLoader());
     }
 
-    @Test
+@Test
     public void testMethodUtils_cache_memoryLeak_4_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1326,7 +1326,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertSame("BeanClass ClassLoader incorrect", beanClass.getClassLoader(), loader);
     }
 
-    @Test
+@Test
     public void testMethodUtils_cache_memoryLeak_5_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1353,7 +1353,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertEquals("initialValue", MethodUtils.invokeExactMethod(bean, "getName", new Object[0]));
     }
 
-    @Test
+@Test
     public void testMethodUtils_cache_memoryLeak_6_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1394,7 +1394,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNull("MethodUtils is holding a reference to the classLoader", someRef.get());
     }
 
-    @Test
+@Test
     public void testWrapDynaClass_dynaClasses_memoryLeak_1_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1415,7 +1415,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("ClassLoader is null", loader);
     }
 
-    @Test
+@Test
     public void testWrapDynaClass_dynaClasses_memoryLeak_2_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1437,7 +1437,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("BeanClass is null", beanClass);
     }
 
-    @Test
+@Test
     public void testWrapDynaClass_dynaClasses_memoryLeak_3_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1460,7 +1460,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotSame("ClassLoaders should be different..", getClass().getClassLoader(), beanClass.getClassLoader());
     }
 
-    @Test
+@Test
     public void testWrapDynaClass_dynaClasses_memoryLeak_4_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1484,7 +1484,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertSame("BeanClass ClassLoader incorrect", beanClass.getClassLoader(), loader);
     }
 
-    @Test
+@Test
     public void testWrapDynaClass_dynaClasses_memoryLeak_5_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1512,7 +1512,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertEquals("initialValue", wrapDynaBean.get("name"));
     }
 
-    @Test
+@Test
     public void testWrapDynaClass_dynaClasses_memoryLeak_6_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1559,7 +1559,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNull("WrapDynaClass is holding a reference to the classLoader", someRef.get());
     }
 
-    @Test
+@Test
     public void testConvertUtilsBean_converters_memoryLeak_1_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1579,7 +1579,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("ClassLoader is null", loader);
     }
 
-    @Test
+@Test
     public void testConvertUtilsBean_converters_memoryLeak_2_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1600,7 +1600,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("BeanClass is null", beanClass);
     }
 
-    @Test
+@Test
     public void testConvertUtilsBean_converters_memoryLeak_3_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1622,7 +1622,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotSame("ClassLoaders should be different..", getClass().getClassLoader(), beanClass.getClassLoader());
     }
 
-    @Test
+@Test
     public void testConvertUtilsBean_converters_memoryLeak_4_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1645,7 +1645,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertSame("BeanClass ClassLoader incorrect", beanClass.getClassLoader(), loader);
     }
 
-    @Test
+@Test
     public void testConvertUtilsBean_converters_memoryLeak_5_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1673,7 +1673,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertEquals("12345", ConvertUtils.convert(bean, String.class));
     }
 
-    @Test
+@Test
     public void testConvertUtilsBean_converters_memoryLeak_6_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1715,7 +1715,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNull("ConvertUtilsBean is holding a reference to the classLoader", someRef.get());
     }
 
-    @Test
+@Test
     public void testLocaleConvertUtilsBean_converters_memoryLeak_1_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1735,7 +1735,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("ClassLoader is null", loader);
     }
 
-    @Test
+@Test
     public void testLocaleConvertUtilsBean_converters_memoryLeak_2_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1756,7 +1756,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotNull("BeanClass is null", beanClass);
     }
 
-    @Test
+@Test
     public void testLocaleConvertUtilsBean_converters_memoryLeak_3_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1778,7 +1778,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertNotSame("ClassLoaders should be different..", getClass().getClassLoader(), beanClass.getClassLoader());
     }
 
-    @Test
+@Test
     public void testLocaleConvertUtilsBean_converters_memoryLeak_4_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1801,7 +1801,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertSame("BeanClass ClassLoader incorrect", beanClass.getClassLoader(), loader);
     }
 
-    @Test
+@Test
     public void testLocaleConvertUtilsBean_converters_memoryLeak_5_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test
@@ -1829,7 +1829,7 @@ public class MemoryLeakTestCase_OE25Dev {
         assertEquals(new Integer(12345), LocaleConvertUtils.convert(bean.toString(), Integer.class, Locale.US, "#,###"));
     }
 
-    @Test
+@Test
     public void testLocaleConvertUtilsBean_converters_memoryLeak_6_oe() throws Exception {
 
         // Clear All BeanUtils caches before the test

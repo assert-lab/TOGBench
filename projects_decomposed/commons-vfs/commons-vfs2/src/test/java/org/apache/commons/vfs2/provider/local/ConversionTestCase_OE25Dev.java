@@ -38,7 +38,7 @@ import org.junit.Test;
  */
 public class ConversionTestCase_OE25Dev {
 
-    @Test
+@Test
     @Ignore
     public void testFileNameWithCharacters_1_oe() throws URISyntaxException, IOException {
         final File file = new File("target", "+# %&.txt");
@@ -46,7 +46,7 @@ public class ConversionTestCase_OE25Dev {
         assertEquals(file.getAbsoluteFile(), new File(file.toURI().getPath()));
     }
 
-    @Test
+@Test
     @Ignore
     public void testFileNameWithCharacters_2_oe() throws URISyntaxException, IOException {
         final File file = new File("target", "+# %&.txt");
@@ -55,7 +55,7 @@ public class ConversionTestCase_OE25Dev {
         assertEquals(file.getAbsoluteFile(), new File(new URL(fileURL).toURI().getPath()));
     }
 
-    @Test
+@Test
     @Ignore
     public void testFileNameWithSpaces_1_oe() throws URISyntaxException, IOException {
         final File file = new File("target", "a name.txt");
@@ -63,7 +63,7 @@ public class ConversionTestCase_OE25Dev {
         assertEquals(file.getAbsoluteFile(), new File(file.toURI().getPath()));
     }
 
-    @Test
+@Test
     @Ignore
     public void testFileNameWithSpaces_2_oe() throws URISyntaxException, IOException {
         final File file = new File("target", "a name.txt");
@@ -72,7 +72,7 @@ public class ConversionTestCase_OE25Dev {
         assertEquals(file.getAbsoluteFile(), new File(new URL(fileURL).toURI().getPath()));
     }
 
-    @Test
+@Test
     @Ignore
     public void testFileNameWithSpaces_3_oe() throws URISyntaxException, IOException {
         final File file = new File("target", "a name.txt");

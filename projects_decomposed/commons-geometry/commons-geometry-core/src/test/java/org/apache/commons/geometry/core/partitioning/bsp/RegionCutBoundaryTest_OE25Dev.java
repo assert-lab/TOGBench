@@ -103,7 +103,7 @@ class RegionCutBoundaryTest_OE25Dev {
         PartitionTestUtils.assertPointsEqual(b, boundary.closest(new TestPoint2D(1, 2)));
     }
 
-    @Test
+@Test
     void testProperties_1_oe() {
         // arrange
         final List<HyperplaneConvexSubset<TestPoint2D>> insideFacing =
@@ -118,7 +118,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertNotSame(insideFacing, boundary.getInsideFacing());
     }
 
-    @Test
+@Test
     void testProperties_2_oe() {
         // arrange
         final List<HyperplaneConvexSubset<TestPoint2D>> insideFacing =
@@ -134,7 +134,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertEquals(insideFacing, boundary.getInsideFacing());
     }
 
-    @Test
+@Test
     void testProperties_3_oe() {
         // arrange
         final List<HyperplaneConvexSubset<TestPoint2D>> insideFacing =
@@ -152,7 +152,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertNotSame(outsideFacing, boundary.getOutsideFacing());
     }
 
-    @Test
+@Test
     void testProperties_4_oe() {
         // arrange
         final List<HyperplaneConvexSubset<TestPoint2D>> insideFacing =
@@ -171,7 +171,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertEquals(outsideFacing, boundary.getOutsideFacing());
     }
 
-    @Test
+@Test
     void testProperties_nullLists_1_oe() {
         // act
         final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, null);
@@ -180,7 +180,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertEquals(0, boundary.getInsideFacing().size());
     }
 
-    @Test
+@Test
     void testProperties_nullLists_2_oe() {
         // act
         final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, null);
@@ -190,7 +190,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertEquals(0, boundary.getOutsideFacing().size());
     }
 
-    @Test
+@Test
     void testGetSize_noSize_1_oe() {
         // act
         final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, null);
@@ -199,7 +199,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertEquals(0, boundary.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_finite_1_oe() {
         // act
         final TestLine line = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0));
@@ -211,7 +211,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertEquals(4, boundary.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testClosest_nullInsideAndOutsideFacing_1_oe() {
         // arrange
         final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, null);
@@ -220,7 +220,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertNull(boundary.closest(TestPoint2D.ZERO));
     }
 
-    @Test
+@Test
     void testClosest_nullInsideAndOutsideFacing_2_oe() {
         // arrange
         final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, null);
@@ -230,7 +230,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertNull(boundary.closest(new TestPoint2D(1, 1)));
     }
 
-    @Test
+@Test
     void testContains_1_oe() {
         // arrange
         final TestPoint2D a = new TestPoint2D(-1, 0);
@@ -247,7 +247,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertFalse(boundary.contains(new TestPoint2D(-2, 0)));
     }
 
-    @Test
+@Test
     void testContains_2_oe() {
         // arrange
         final TestPoint2D a = new TestPoint2D(-1, 0);
@@ -266,7 +266,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertTrue(boundary.contains(new TestPoint2D(-1, 0)));
     }
 
-    @Test
+@Test
     void testContains_3_oe() {
         // arrange
         final TestPoint2D a = new TestPoint2D(-1, 0);
@@ -286,7 +286,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertTrue(boundary.contains(new TestPoint2D(-0.5, 0)));
     }
 
-    @Test
+@Test
     void testContains_4_oe() {
         // arrange
         final TestPoint2D a = new TestPoint2D(-1, 0);
@@ -307,7 +307,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertTrue(boundary.contains(new TestPoint2D(0, 0)));
     }
 
-    @Test
+@Test
     void testContains_5_oe() {
         // arrange
         final TestPoint2D a = new TestPoint2D(-1, 0);
@@ -329,7 +329,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertTrue(boundary.contains(new TestPoint2D(0.5, 0)));
     }
 
-    @Test
+@Test
     void testContains_6_oe() {
         // arrange
         final TestPoint2D a = new TestPoint2D(-1, 0);
@@ -352,7 +352,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertTrue(boundary.contains(new TestPoint2D(1, 0)));
     }
 
-    @Test
+@Test
     void testContains_7_oe() {
         // arrange
         final TestPoint2D a = new TestPoint2D(-1, 0);
@@ -377,7 +377,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertFalse(boundary.contains(new TestPoint2D(2, 0)));
     }
 
-    @Test
+@Test
     void testContains_8_oe() {
         // arrange
         final TestPoint2D a = new TestPoint2D(-1, 0);
@@ -404,7 +404,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertFalse(boundary.contains(new TestPoint2D(-1, 1)));
     }
 
-    @Test
+@Test
     void testContains_9_oe() {
         // arrange
         final TestPoint2D a = new TestPoint2D(-1, 0);
@@ -432,7 +432,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertFalse(boundary.contains(new TestPoint2D(0, -1)));
     }
 
-    @Test
+@Test
     void testContains_10_oe() {
         // arrange
         final TestPoint2D a = new TestPoint2D(-1, 0);
@@ -461,7 +461,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertFalse(boundary.contains(new TestPoint2D(1, 1)));
     }
 
-    @Test
+@Test
     void testContains_nullHyperplaneSubsets_1_oe() {
         // arrange
         final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, null);
@@ -470,7 +470,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertFalse(boundary.contains(new TestPoint2D(-1, 0)));
     }
 
-    @Test
+@Test
     void testContains_nullHyperplaneSubsets_2_oe() {
         // arrange
         final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, null);
@@ -480,7 +480,7 @@ class RegionCutBoundaryTest_OE25Dev {
         Assertions.assertFalse(boundary.contains(new TestPoint2D(0, 0)));
     }
 
-    @Test
+@Test
     void testContains_nullHyperplaneSubsets_3_oe() {
         // arrange
         final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, null);

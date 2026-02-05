@@ -2798,3 +2798,881 @@ imag_309_1,"  @Test
   }
   }
 ",DataParserIndexedTest::testFailsToCreateDataParserIndexedThrowsArrayIndexOutOfBoundsException_1_oe
+imag_82_1,"@Test
+    public void testGetInputStreamThrowsNullPointerException_1_oe() {
+        final ByteSourceArray byteSourceArray = new ByteSourceArray(null);
+        Assertions.assertThrows(NullPointerException.class, () -> byteSourceArray.getInputStream(0L));
+    }",ByteSourceTest::testGetInputStreamThrowsNullPointerException_1_oe
+imag_191_3,"@Test
+    public void testAll5x2Compressions_3_oe() {
+        final byte[] uncompressed = new byte[2];
+        final int[] combinations = new int[10];
+        do {
+            for (int x = 0; x < 5; x++) {
+                if (combinations[x] != 0) {
+                    uncompressed[0] |= (0x80 >>> x);
+                }
+            }
+            for (int x = 0; x < 5; x++) {
+                if (combinations[5 + x] != 0) {
+                    uncompressed[1] |= (0x80 >>> x);
+                }
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressModifiedHuffman(
+                        uncompressed, 5, 2);
+                final byte[] result = T4AndT6Compression.decompressModifiedHuffman(
+                        compressed, 5, 2);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                fail();
+    }
+    }
+    }",TiffCcittTest::testAll5x2Compressions_3_oe
+imag_191_6,"@Test
+    public void testAll5x2Compressions_6_oe() {
+        final byte[] uncompressed = new byte[2];
+        final int[] combinations = new int[10];
+        do {
+            for (int x = 0; x < 5; x++) {
+                if (combinations[x] != 0) {
+                    uncompressed[0] |= (0x80 >>> x);
+                }
+            }
+            for (int x = 0; x < 5; x++) {
+                if (combinations[5 + x] != 0) {
+                    uncompressed[1] |= (0x80 >>> x);
+                }
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressModifiedHuffman(
+                        uncompressed, 5, 2);
+                final byte[] result = T4AndT6Compression.decompressModifiedHuffman(
+                        compressed, 5, 2);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_1D(
+                        uncompressed, 5, 2, true);
+                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
+                        5, 2, true);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                fail();
+    }
+    }
+    }",TiffCcittTest::testAll5x2Compressions_6_oe
+imag_191_9,"@Test
+    public void testAll5x2Compressions_9_oe() {
+        final byte[] uncompressed = new byte[2];
+        final int[] combinations = new int[10];
+        do {
+            for (int x = 0; x < 5; x++) {
+                if (combinations[x] != 0) {
+                    uncompressed[0] |= (0x80 >>> x);
+                }
+            }
+            for (int x = 0; x < 5; x++) {
+                if (combinations[5 + x] != 0) {
+                    uncompressed[1] |= (0x80 >>> x);
+                }
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressModifiedHuffman(
+                        uncompressed, 5, 2);
+                final byte[] result = T4AndT6Compression.decompressModifiedHuffman(
+                        compressed, 5, 2);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_1D(
+                        uncompressed, 5, 2, true);
+                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
+                        5, 2, true);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_1D(
+                        uncompressed, 5, 2, false);
+                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
+                        5, 2, false);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                fail();
+    }
+    }
+    }",TiffCcittTest::testAll5x2Compressions_9_oe
+imag_191_12,"@Test
+    public void testAll5x2Compressions_12_oe() {
+        final byte[] uncompressed = new byte[2];
+        final int[] combinations = new int[10];
+        do {
+            for (int x = 0; x < 5; x++) {
+                if (combinations[x] != 0) {
+                    uncompressed[0] |= (0x80 >>> x);
+                }
+            }
+            for (int x = 0; x < 5; x++) {
+                if (combinations[5 + x] != 0) {
+                    uncompressed[1] |= (0x80 >>> x);
+                }
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressModifiedHuffman(
+                        uncompressed, 5, 2);
+                final byte[] result = T4AndT6Compression.decompressModifiedHuffman(
+                        compressed, 5, 2);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_1D(
+                        uncompressed, 5, 2, true);
+                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
+                        5, 2, true);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_1D(
+                        uncompressed, 5, 2, false);
+                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
+                        5, 2, false);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_2D(
+                        uncompressed, 5, 2, true, 2);
+                final byte[] result = T4AndT6Compression.decompressT4_2D(compressed,
+                        5, 2, true);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                fail();
+    }
+    }
+    }",TiffCcittTest::testAll5x2Compressions_12_oe
+imag_191_15,"@Test
+    public void testAll5x2Compressions_15_oe() {
+        final byte[] uncompressed = new byte[2];
+        final int[] combinations = new int[10];
+        do {
+            for (int x = 0; x < 5; x++) {
+                if (combinations[x] != 0) {
+                    uncompressed[0] |= (0x80 >>> x);
+                }
+            }
+            for (int x = 0; x < 5; x++) {
+                if (combinations[5 + x] != 0) {
+                    uncompressed[1] |= (0x80 >>> x);
+                }
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressModifiedHuffman(
+                        uncompressed, 5, 2);
+                final byte[] result = T4AndT6Compression.decompressModifiedHuffman(
+                        compressed, 5, 2);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_1D(
+                        uncompressed, 5, 2, true);
+                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
+                        5, 2, true);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_1D(
+                        uncompressed, 5, 2, false);
+                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
+                        5, 2, false);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_2D(
+                        uncompressed, 5, 2, true, 2);
+                final byte[] result = T4AndT6Compression.decompressT4_2D(compressed,
+                        5, 2, true);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_2D(
+                        uncompressed, 5, 2, false, 2);
+                final byte[] result = T4AndT6Compression.decompressT4_2D(compressed,
+                        5, 2, false);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                fail();
+    }
+    }
+    }",TiffCcittTest::testAll5x2Compressions_15_oe
+imag_191_18,"@Test
+    public void testAll5x2Compressions_18_oe() {
+        final byte[] uncompressed = new byte[2];
+        final int[] combinations = new int[10];
+        do {
+            for (int x = 0; x < 5; x++) {
+                if (combinations[x] != 0) {
+                    uncompressed[0] |= (0x80 >>> x);
+                }
+            }
+            for (int x = 0; x < 5; x++) {
+                if (combinations[5 + x] != 0) {
+                    uncompressed[1] |= (0x80 >>> x);
+                }
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressModifiedHuffman(
+                        uncompressed, 5, 2);
+                final byte[] result = T4AndT6Compression.decompressModifiedHuffman(
+                        compressed, 5, 2);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_1D(
+                        uncompressed, 5, 2, true);
+                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
+                        5, 2, true);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_1D(
+                        uncompressed, 5, 2, false);
+                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
+                        5, 2, false);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_2D(
+                        uncompressed, 5, 2, true, 2);
+                final byte[] result = T4AndT6Compression.decompressT4_2D(compressed,
+                        5, 2, true);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_2D(
+                        uncompressed, 5, 2, false, 2);
+                final byte[] result = T4AndT6Compression.decompressT4_2D(compressed,
+                        5, 2, false);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT6(uncompressed,
+                        5, 2);
+                final byte[] result = T4AndT6Compression.decompressT6(compressed, 5,
+                        2);
+                // removed other assertion
+                for (int i = 0; i < uncompressed.length; i++) {
+                    // removed other assertion
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                fail();
+    }
+    }
+    }",TiffCcittTest::testAll5x2Compressions_18_oe
+imag_192_1,"@Test
+    public void testAll5x2Images_1_oe() {
+        final int[] combinations = new int[10];
+        final BufferedImage image = new BufferedImage(5, 2,
+                BufferedImage.TYPE_INT_RGB);
+        do {
+            for (int x = 0; x < 5; x++) {
+                if (combinations[x] == 0) {
+                    image.setRGB(x, 0, 0xFFFFFF);
+                } else {
+                    image.setRGB(x, 0, 0);
+                }
+            }
+            for (int x = 0; x < 5; x++) {
+                if (combinations[5 + x] == 0) {
+                    image.setRGB(x, 1, 0xFFFFFF);
+                } else {
+                    image.setRGB(x, 1, 0);
+                }
+            }
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_1D);
+                final TiffImageParser tiffImageParser = new TiffImageParser();
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                fail();
+    }
+    }
+    }",TiffCcittTest::testAll5x2Images_1_oe
+imag_192_2,"@Test
+    public void testAll5x2Images_2_oe() {
+        final int[] combinations = new int[10];
+        final BufferedImage image = new BufferedImage(5, 2,
+                BufferedImage.TYPE_INT_RGB);
+        do {
+            for (int x = 0; x < 5; x++) {
+                if (combinations[x] == 0) {
+                    image.setRGB(x, 0, 0xFFFFFF);
+                } else {
+                    image.setRGB(x, 0, 0);
+                }
+            }
+            for (int x = 0; x < 5; x++) {
+                if (combinations[5 + x] == 0) {
+                    image.setRGB(x, 1, 0xFFFFFF);
+                } else {
+                    image.setRGB(x, 1, 0);
+                }
+            }
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_1D);
+                final TiffImageParser tiffImageParser = new TiffImageParser();
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            final TiffImageParser tiffImageParser = new TiffImageParser();
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
+                params.setT4Options(0);
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                fail();
+    }
+    }
+    }",TiffCcittTest::testAll5x2Images_2_oe
+imag_192_3,"@Test
+    public void testAll5x2Images_3_oe() {
+        final int[] combinations = new int[10];
+        final BufferedImage image = new BufferedImage(5, 2,
+                BufferedImage.TYPE_INT_RGB);
+        do {
+            for (int x = 0; x < 5; x++) {
+                if (combinations[x] == 0) {
+                    image.setRGB(x, 0, 0xFFFFFF);
+                } else {
+                    image.setRGB(x, 0, 0);
+                }
+            }
+            for (int x = 0; x < 5; x++) {
+                if (combinations[5 + x] == 0) {
+                    image.setRGB(x, 1, 0xFFFFFF);
+                } else {
+                    image.setRGB(x, 1, 0);
+                }
+            }
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_1D);
+                final TiffImageParser tiffImageParser = new TiffImageParser();
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            final TiffImageParser tiffImageParser = new TiffImageParser();
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
+                params.setT4Options(0);
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
+                params.setT4Options(4);
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                fail();
+    }
+    }
+    }",TiffCcittTest::testAll5x2Images_3_oe
+imag_192_4,"@Test
+    public void testAll5x2Images_4_oe() {
+        final int[] combinations = new int[10];
+        final BufferedImage image = new BufferedImage(5, 2,
+                BufferedImage.TYPE_INT_RGB);
+        do {
+            for (int x = 0; x < 5; x++) {
+                if (combinations[x] == 0) {
+                    image.setRGB(x, 0, 0xFFFFFF);
+                } else {
+                    image.setRGB(x, 0, 0);
+                }
+            }
+            for (int x = 0; x < 5; x++) {
+                if (combinations[5 + x] == 0) {
+                    image.setRGB(x, 1, 0xFFFFFF);
+                } else {
+                    image.setRGB(x, 1, 0);
+                }
+            }
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_1D);
+                final TiffImageParser tiffImageParser = new TiffImageParser();
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            final TiffImageParser tiffImageParser = new TiffImageParser();
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
+                params.setT4Options(0);
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
+                params.setT4Options(4);
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
+                params.setT4Options(1);
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                fail();
+    }
+    }
+    }",TiffCcittTest::testAll5x2Images_4_oe
+imag_192_5,"@Test
+    public void testAll5x2Images_5_oe() {
+        final int[] combinations = new int[10];
+        final BufferedImage image = new BufferedImage(5, 2,
+                BufferedImage.TYPE_INT_RGB);
+        do {
+            for (int x = 0; x < 5; x++) {
+                if (combinations[x] == 0) {
+                    image.setRGB(x, 0, 0xFFFFFF);
+                } else {
+                    image.setRGB(x, 0, 0);
+                }
+            }
+            for (int x = 0; x < 5; x++) {
+                if (combinations[5 + x] == 0) {
+                    image.setRGB(x, 1, 0xFFFFFF);
+                } else {
+                    image.setRGB(x, 1, 0);
+                }
+            }
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_1D);
+                final TiffImageParser tiffImageParser = new TiffImageParser();
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            final TiffImageParser tiffImageParser = new TiffImageParser();
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
+                params.setT4Options(0);
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
+                params.setT4Options(4);
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
+                params.setT4Options(1);
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
+                params.setT4Options(5);
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                fail();
+    }
+    }
+    }",TiffCcittTest::testAll5x2Images_5_oe
+imag_192_6,"@Test
+    public void testAll5x2Images_6_oe() {
+        final int[] combinations = new int[10];
+        final BufferedImage image = new BufferedImage(5, 2,
+                BufferedImage.TYPE_INT_RGB);
+        do {
+            for (int x = 0; x < 5; x++) {
+                if (combinations[x] == 0) {
+                    image.setRGB(x, 0, 0xFFFFFF);
+                } else {
+                    image.setRGB(x, 0, 0);
+                }
+            }
+            for (int x = 0; x < 5; x++) {
+                if (combinations[5 + x] == 0) {
+                    image.setRGB(x, 1, 0xFFFFFF);
+                } else {
+                    image.setRGB(x, 1, 0);
+                }
+            }
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_1D);
+                final TiffImageParser tiffImageParser = new TiffImageParser();
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            final TiffImageParser tiffImageParser = new TiffImageParser();
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
+                params.setT4Options(0);
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
+                params.setT4Options(4);
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
+                params.setT4Options(1);
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
+                params.setT4Options(5);
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                // removed other assertion
+            }
+
+            try {
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_4);
+                final byte[] compressed;
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    tiffImageParser.writeImage(image, baos, params);
+                    compressed = baos.toByteArray();
+                }
+                final BufferedImage result = Imaging.getBufferedImage(compressed);
+                compareImages(image, result);
+            } catch (final ImageWriteException | ImageReadException | IOException ex) {
+                Debug.debug(ex);
+                fail();
+    }
+    }
+    }",TiffCcittTest::testAll5x2Images_6_oe

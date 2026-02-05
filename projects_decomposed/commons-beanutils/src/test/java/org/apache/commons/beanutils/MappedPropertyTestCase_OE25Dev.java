@@ -183,7 +183,7 @@ public class MappedPropertyTestCase_OE25Dev extends TestCase {
      * Test Interface Inherited mapped property
      */
 
-    public void testFound_3_oe() {
+public void testFound_3_oe() {
         final String property = "mapproperty";
         final Class<?> clazz = MappedPropertyTestBean.class;
         try {
@@ -196,7 +196,7 @@ public class MappedPropertyTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testBooleanMapped_3_oe() {
+public void testBooleanMapped_3_oe() {
         final String property = "mappedBoolean";
         final Class<?> clazz = MappedPropertyTestBean.class;
         try {
@@ -209,7 +209,7 @@ public class MappedPropertyTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testMappedGetterOnly_3_oe() {
+public void testMappedGetterOnly_3_oe() {
         final String property = "mappedGetterOnly";
         final Class<?> clazz = MappedPropertyTestBean.class;
         try {
@@ -222,7 +222,7 @@ public class MappedPropertyTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testMappedSetterOnly_3_oe() {
+public void testMappedSetterOnly_3_oe() {
         final String property = "mappedSetterOnly";
         final Class<?> clazz = MappedPropertyTestBean.class;
         try {
@@ -235,7 +235,7 @@ public class MappedPropertyTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testInvalidSetter_3_oe() {
+public void testInvalidSetter_3_oe() {
         final String property = "invalidSetter";
         final Class<?> clazz = MappedPropertyTestBean.class;
         try {
@@ -248,7 +248,7 @@ public class MappedPropertyTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testInvalidGetter_3_oe() {
+public void testInvalidGetter_3_oe() {
         final String property = "invalidGetter";
         final Class<?> clazz = MappedPropertyTestBean.class;
         try {
@@ -261,7 +261,7 @@ public class MappedPropertyTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testDifferentTypes_3_oe() {
+public void testDifferentTypes_3_oe() {
         final String property = "differentTypes";
         final Class<?> clazz = MappedPropertyTestBean.class;
         try {
@@ -274,7 +274,7 @@ public class MappedPropertyTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testMapGetter_2_oe() {
+public void testMapGetter_2_oe() {
         final MappedPropertyTestBean bean = new MappedPropertyTestBean();
         try {
             final String testValue = "test value";
@@ -286,7 +286,7 @@ public class MappedPropertyTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testAnyArgsProperty_3_oe() {
+public void testAnyArgsProperty_3_oe() {
         final String property = "anyMapped";
         final Class<?> clazz = MappedPropertyTestBean.class;
         try {
@@ -299,7 +299,7 @@ public class MappedPropertyTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testPrimitiveArgsProperty_3_oe() {
+public void testPrimitiveArgsProperty_3_oe() {
         final String property = "mappedPrimitive";
         final Class<?> clazz = MappedPropertyTestBean.class;
         try {
@@ -312,7 +312,7 @@ public class MappedPropertyTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testPublicParentMethod_3_oe() {
+public void testPublicParentMethod_3_oe() {
         final String property = "mapproperty";
         final Class<?> clazz = MappedPropertyChildBean.class;
         try {
@@ -325,7 +325,7 @@ public class MappedPropertyTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testInterfaceMapped_3_oe() {
+public void testInterfaceMapped_3_oe() {
         final String property = "mapproperty";
         final Class<?> clazz = MappedPropertyTestInterface.class;
         try {
@@ -338,7 +338,7 @@ public class MappedPropertyTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testChildInterfaceMapped_3_oe() {
+public void testChildInterfaceMapped_3_oe() {
         final String property = "mapproperty";
         final Class<?> clazz = MappedPropertyChildInterface.class;
         try {

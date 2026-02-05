@@ -310,7 +310,7 @@ class SegmentTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testFromPoints_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
@@ -323,7 +323,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isFull());
     }
 
-    @Test
+@Test
     void testFromPoints_2_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
@@ -337,7 +337,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isEmpty());
     }
 
-    @Test
+@Test
     void testFromPoints_3_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
@@ -352,7 +352,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isInfinite());
     }
 
-    @Test
+@Test
     void testFromPoints_4_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
@@ -368,7 +368,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertTrue(seg.isFinite());
     }
 
-    @Test
+@Test
     void testFromPoints_8_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
@@ -390,7 +390,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(1, seg.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_9_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
@@ -413,7 +413,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(3, seg.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_10_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
@@ -438,7 +438,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(2, seg.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
@@ -453,7 +453,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isFull());
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_2_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
@@ -469,7 +469,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isEmpty());
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_3_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
@@ -486,7 +486,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isInfinite());
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_4_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
@@ -504,7 +504,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertTrue(seg.isFinite());
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_8_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
@@ -528,7 +528,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(2, seg.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_9_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
@@ -553,7 +553,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(3, seg.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_10_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
@@ -580,7 +580,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(1, seg.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_singlePoint_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
@@ -594,7 +594,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isFull());
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_singlePoint_2_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
@@ -609,7 +609,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isEmpty());
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_singlePoint_3_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
@@ -625,7 +625,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isInfinite());
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_singlePoint_4_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
@@ -642,7 +642,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertTrue(seg.isFinite());
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_singlePoint_8_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
@@ -665,7 +665,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(2, seg.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_singlePoint_9_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
@@ -689,7 +689,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(2, seg.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_singlePoint_10_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
@@ -715,7 +715,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(0, seg.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -727,7 +727,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isFull());
     }
 
-    @Test
+@Test
     void testFromLocations_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -740,7 +740,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isEmpty());
     }
 
-    @Test
+@Test
     void testFromLocations_3_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -754,7 +754,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isInfinite());
     }
 
-    @Test
+@Test
     void testFromLocations_4_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -769,7 +769,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertTrue(seg.isFinite());
     }
 
-    @Test
+@Test
     void testFromLocations_8_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -790,7 +790,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(-1, seg.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_9_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -812,7 +812,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(2, seg.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_10_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -836,7 +836,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(3, seg.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_reversedLocationOrder_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -848,7 +848,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isFull());
     }
 
-    @Test
+@Test
     void testFromLocations_reversedLocationOrder_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -861,7 +861,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isEmpty());
     }
 
-    @Test
+@Test
     void testFromLocations_reversedLocationOrder_3_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -875,7 +875,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isInfinite());
     }
 
-    @Test
+@Test
     void testFromLocations_reversedLocationOrder_4_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -890,7 +890,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertTrue(seg.isFinite());
     }
 
-    @Test
+@Test
     void testFromLocations_reversedLocationOrder_8_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -911,7 +911,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(-1, seg.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_reversedLocationOrder_9_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -933,7 +933,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(2, seg.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_reversedLocationOrder_10_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -957,7 +957,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(3, seg.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_singlePoint_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -969,7 +969,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isFull());
     }
 
-    @Test
+@Test
     void testFromLocations_singlePoint_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -982,7 +982,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isEmpty());
     }
 
-    @Test
+@Test
     void testFromLocations_singlePoint_3_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -996,7 +996,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertFalse(seg.isInfinite());
     }
 
-    @Test
+@Test
     void testFromLocations_singlePoint_4_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -1011,7 +1011,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertTrue(seg.isFinite());
     }
 
-    @Test
+@Test
     void testFromLocations_singlePoint_8_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -1032,7 +1032,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(1, seg.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_singlePoint_9_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -1054,7 +1054,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(1, seg.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_singlePoint_10_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
@@ -1078,7 +1078,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(0, seg.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSplit_pointsOnSplitterWithLineIntersection_1_oe() {
         // arrange
         // Create a segment with both of its points lying on the splitter but with the intersection
@@ -1098,7 +1098,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_pointsOnSplitterWithLineIntersection_2_oe() {
         // arrange
         // Create a segment with both of its points lying on the splitter but with the intersection
@@ -1120,7 +1120,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_pointsOnSplitterWithLineIntersection_3_oe() {
         // arrange
         // Create a segment with both of its points lying on the splitter but with the intersection
@@ -1143,7 +1143,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testGetInterval_1_oe() {
         // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.of(2, -1), Vector2D.of(2, 2), TEST_PRECISION);
@@ -1155,7 +1155,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(-1, interval.getMin(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetInterval_2_oe() {
         // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.of(2, -1), Vector2D.of(2, 2), TEST_PRECISION);
@@ -1168,7 +1168,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(2, interval.getMax(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetInterval_3_oe() {
         // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.of(2, -1), Vector2D.of(2, 2), TEST_PRECISION);
@@ -1183,7 +1183,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertSame(seg.getLine().getPrecision(), interval.getMinBoundary().getPrecision());
     }
 
-    @Test
+@Test
     void testGetInterval_singlePoint_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
@@ -1196,7 +1196,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(1, interval.getMin(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetInterval_singlePoint_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
@@ -1210,7 +1210,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(1, interval.getMax(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetInterval_singlePoint_3_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
@@ -1225,7 +1225,7 @@ class SegmentTest_OE25Dev {
         Assertions.assertEquals(0, interval.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetInterval_singlePoint_4_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);

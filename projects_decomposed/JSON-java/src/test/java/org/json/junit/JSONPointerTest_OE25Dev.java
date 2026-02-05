@@ -114,95 +114,95 @@ public class JSONPointerTest_OE25Dev {
      *  
      */
 
-    @Test
+@Test
     public void emptyPointer_1_oe() {
         assertTrue(new JSONObject(EXPECTED_COMPLETE_DOCUMENT).similar(query("")));
     }
 
-    @Test
+@Test
     public void objectPropertyQuery_1_oe() {
         assertEquals("[\"bar\",\"baz\"]", query("/foo").toString());
     }
 
-    @Test
+@Test
     public void arrayIndexQuery_1_oe() {
         assertEquals("bar", query("/foo/0"));
     }
 
-    @Test
+@Test
     public void queryByEmptyKey_1_oe() {
         assertEquals(0, query("/"));
     }
 
-    @Test
+@Test
     public void queryByEmptyKeySubObject_1_oe() {
         assertEquals( "{\"\":\"empty key of an object with an empty key\",\"subKey\":\"Some" + " other value\"}", query("/obj/").toString());
     }
 
-    @Test
+@Test
     public void queryByEmptyKeySubObjectSubOject_1_oe() {
         assertEquals("empty key of an object with an empty key", query("/obj//"));
     }
 
-    @Test
+@Test
     public void queryByEmptyKeySubObjectValue_1_oe() {
         assertEquals("Some other value", query("/obj//subKey"));
     }
 
-    @Test
+@Test
     public void slashEscaping_1_oe() {
         assertEquals(1, query("/a~1b"));
     }
 
-    @Test
+@Test
     public void tildeEscaping_1_oe() {
         assertEquals(8, query("/m~0n"));
     }
 
-    @Test
+@Test
     public void backslashHandling_1_oe() {
         assertEquals(5, query("/i\\j"));
     }
 
-    @Test
+@Test
     public void quotationHandling_1_oe() {
         assertEquals(6, query("/k\"l"));
     }
 
-    @Test
+@Test
     public void whitespaceKey_1_oe() {
         assertEquals(7, query("/ "));
     }
 
-    @Test
+@Test
     public void uriFragmentNotation_1_oe() {
         assertEquals("[\"bar\",\"baz\"]", query("#/foo").toString());
     }
 
-    @Test
+@Test
     public void uriFragmentNotationRoot_1_oe() {
         assertTrue(new JSONObject(EXPECTED_COMPLETE_DOCUMENT).similar(query("#")));
     }
 
-    @Test
+@Test
     public void uriFragmentPercentHandling_1_oe() {
         assertEquals(2, query("#/c%25d"));
     }
 
-    @Test
+@Test
     public void uriFragmentPercentHandling_2_oe() {
         // removed other assertion
         assertEquals(3, query("#/e%5Ef"));
     }
 
-    @Test
+@Test
     public void uriFragmentPercentHandling_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(4, query("#/g%7Ch"));
     }
 
-    @Test
+@Test
     public void uriFragmentPercentHandling_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -210,7 +210,7 @@ public class JSONPointerTest_OE25Dev {
         assertEquals(8, query("#/m~0n"));
     }
 
-    @Test
+@Test
     public void builderTest_1_oe() {
         JSONPointer pointer = JSONPointer.builder()
                 .append("obj")
@@ -220,7 +220,7 @@ public class JSONPointerTest_OE25Dev {
         assertEquals("val", pointer.queryFrom(document));
     }
 
-    @Test
+@Test
     public void toStringEscaping_1_oe() {
         JSONPointer pointer = JSONPointer.builder()
                 .append("obj")
@@ -231,30 +231,30 @@ public class JSONPointerTest_OE25Dev {
         assertEquals("/obj/other~0key/another~1key/\"/0", pointer.toString());
     }
 
-    @Test
+@Test
     public void emptyPointerToString_1_oe() {
         assertEquals("", new JSONPointer("").toString());
     }
 
-    @Test
+@Test
     public void toURIFragment_1_oe() {
         assertEquals("#/c%25d", new JSONPointer("/c%d").toURIFragment());
     }
 
-    @Test
+@Test
     public void toURIFragment_2_oe() {
         // removed other assertion
         assertEquals("#/e%5Ef", new JSONPointer("/e^f").toURIFragment());
     }
 
-    @Test
+@Test
     public void toURIFragment_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("#/g%7Ch", new JSONPointer("/g|h").toURIFragment());
     }
 
-    @Test
+@Test
     public void toURIFragment_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -262,7 +262,7 @@ public class JSONPointerTest_OE25Dev {
         assertEquals("#/m%7En", new JSONPointer("/m~n").toURIFragment());
     }
 
-    @Test
+@Test
     public void tokenListIsCopiedInConstructor_1_oe() {
         JSONPointer.Builder b = JSONPointer.builder().append("key1");
         JSONPointer jp1 = b.build();
@@ -273,7 +273,7 @@ public class JSONPointerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void queryFromJSONObject_1_oe() {
         String str = "{"+
                 "\"stringKey\":\"hello world!\","+
@@ -288,7 +288,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected 'hello world!'", "hello world!".equals(obj));
     }
 
-    @Test
+@Test
     public void queryFromJSONObject_2_oe() {
         String str = "{"+
                 "\"stringKey\":\"hello world!\","+
@@ -305,7 +305,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected 1", Integer.valueOf(1).equals(obj));
     }
 
-    @Test
+@Test
     public void queryFromJSONObject_3_oe() {
         String str = "{"+
                 "\"stringKey\":\"hello world!\","+
@@ -324,7 +324,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected bVal", "bVal".equals(obj));
     }
 
-    @Test
+@Test
     public void queryFromJSONObject_5_oe() {
         String str = "{"+
                 "\"stringKey\":\"hello world!\","+
@@ -349,7 +349,7 @@ public class JSONPointerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void queryFromJSONObjectUsingPointer_1_oe() {
         String str = "{"+
                 "\"stringKey\":\"hello world!\","+
@@ -364,7 +364,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected 'hello world!'", "hello world!".equals(obj));
     }
 
-    @Test
+@Test
     public void queryFromJSONObjectUsingPointer_2_oe() {
         String str = "{"+
                 "\"stringKey\":\"hello world!\","+
@@ -381,7 +381,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected 1", Integer.valueOf(1).equals(obj));
     }
 
-    @Test
+@Test
     public void queryFromJSONObjectUsingPointer_3_oe() {
         String str = "{"+
                 "\"stringKey\":\"hello world!\","+
@@ -400,7 +400,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected bVal", "bVal".equals(obj));
     }
 
-    @Test
+@Test
     public void queryFromJSONObjectUsingPointer_5_oe() {
         String str = "{"+
                 "\"stringKey\":\"hello world!\","+
@@ -425,7 +425,7 @@ public class JSONPointerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void optQueryFromJSONObjectUsingPointer_1_oe() {
         String str = "{"+
                 "\"stringKey\":\"hello world!\","+
@@ -440,7 +440,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected 'hello world!'", "hello world!".equals(obj));
     }
 
-    @Test
+@Test
     public void optQueryFromJSONObjectUsingPointer_2_oe() {
         String str = "{"+
                 "\"stringKey\":\"hello world!\","+
@@ -457,7 +457,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected 1", Integer.valueOf(1).equals(obj));
     }
 
-    @Test
+@Test
     public void optQueryFromJSONObjectUsingPointer_3_oe() {
         String str = "{"+
                 "\"stringKey\":\"hello world!\","+
@@ -476,7 +476,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected bVal", "bVal".equals(obj));
     }
 
-    @Test
+@Test
     public void optQueryFromJSONObjectUsingPointer_4_oe() {
         String str = "{"+
                 "\"stringKey\":\"hello world!\","+
@@ -497,7 +497,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected null", obj == null);
     }
 
-    @Test
+@Test
     public void queryFromJSONArray_1_oe() {
         String str = "["+
                 "\"hello world!\","+
@@ -512,7 +512,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected 'hello world!'", "hello world!".equals(obj));
     }
 
-    @Test
+@Test
     public void queryFromJSONArray_2_oe() {
         String str = "["+
                 "\"hello world!\","+
@@ -529,7 +529,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected 1", Integer.valueOf(1).equals(obj));
     }
 
-    @Test
+@Test
     public void queryFromJSONArray_3_oe() {
         String str = "["+
                 "\"hello world!\","+
@@ -548,7 +548,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected bVal", "bVal".equals(obj));
     }
 
-    @Test
+@Test
     public void queryFromJSONArray_5_oe() {
         String str = "["+
                 "\"hello world!\","+
@@ -573,7 +573,7 @@ public class JSONPointerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void queryFromJSONArrayUsingPointer_1_oe() {
         String str = "["+
                 "\"hello world!\","+
@@ -588,7 +588,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected 'hello world!'", "hello world!".equals(obj));
     }
 
-    @Test
+@Test
     public void queryFromJSONArrayUsingPointer_2_oe() {
         String str = "["+
                 "\"hello world!\","+
@@ -605,7 +605,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected 1", Integer.valueOf(1).equals(obj));
     }
 
-    @Test
+@Test
     public void queryFromJSONArrayUsingPointer_3_oe() {
         String str = "["+
                 "\"hello world!\","+
@@ -624,7 +624,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected bVal", "bVal".equals(obj));
     }
 
-    @Test
+@Test
     public void queryFromJSONArrayUsingPointer_5_oe() {
         String str = "["+
                 "\"hello world!\","+
@@ -649,7 +649,7 @@ public class JSONPointerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void optQueryFromJSONArrayUsingPointer_1_oe() {
         String str = "["+
                 "\"hello world!\","+
@@ -664,7 +664,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected 'hello world!'", "hello world!".equals(obj));
     }
 
-    @Test
+@Test
     public void optQueryFromJSONArrayUsingPointer_2_oe() {
         String str = "["+
                 "\"hello world!\","+
@@ -681,7 +681,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected 1", Integer.valueOf(1).equals(obj));
     }
 
-    @Test
+@Test
     public void optQueryFromJSONArrayUsingPointer_3_oe() {
         String str = "["+
                 "\"hello world!\","+
@@ -700,7 +700,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected bVal", "bVal".equals(obj));
     }
 
-    @Test
+@Test
     public void optQueryFromJSONArrayUsingPointer_4_oe() {
         String str = "["+
                 "\"hello world!\","+
@@ -721,7 +721,7 @@ public class JSONPointerTest_OE25Dev {
         assertTrue("Expected null", obj == null);
     }
 
-    @Test
+@Test
     public void queryFromJSONObjectUsingPointer0_1_oe() {
     	String str = "{"+
                 "\"string\\\\\\\\Key\":\"hello world!\","+
@@ -736,7 +736,7 @@ public class JSONPointerTest_OE25Dev {
             assertEquals("slash test", twoBackslahObj);
     }
 
-    @Test
+@Test
     public void queryFromJSONObjectUsingPointer0_2_oe() {
     	String str = "{"+
                 "\"string\\\\\\\\Key\":\"hello world!\","+

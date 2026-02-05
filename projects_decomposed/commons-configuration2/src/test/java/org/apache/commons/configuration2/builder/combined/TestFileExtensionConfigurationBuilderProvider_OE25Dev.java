@@ -118,7 +118,7 @@ public class TestFileExtensionConfigurationBuilderProvider_OE25Dev {
      * Tests whether the super class is correctly initialized.
      */
 
-    @Test
+@Test
     public void testDetermineConfigurationClassExtensionMatch_1_oe() throws ConfigurationException {
         final ConfigurationDeclaration decl = setUpDecl();
         final BuilderParameters params = new FileBasedBuilderParametersImpl().setPath("C:\\Test\\someTestConfiguration." + EXT);
@@ -126,7 +126,7 @@ public class TestFileExtensionConfigurationBuilderProvider_OE25Dev {
         assertEquals("Wrong class", MATCH_CLASS, provider.determineConfigurationClass(decl, Collections.singleton(params)));
     }
 
-    @Test
+@Test
     public void testDetermineConfigurationClassExtensionNoMatch_1_oe() throws ConfigurationException {
         final ConfigurationDeclaration decl = setUpDecl();
         final BuilderParameters params = new FileBasedBuilderParametersImpl().setPath("C:\\Test\\someTestConfiguration.properties");
@@ -134,7 +134,7 @@ public class TestFileExtensionConfigurationBuilderProvider_OE25Dev {
         assertEquals("Wrong class", DEF_CLASS, provider.determineConfigurationClass(decl, Collections.singleton(params)));
     }
 
-    @Test
+@Test
     public void testDetermineConfigurationClassMatchCase_1_oe() throws ConfigurationException {
         final ConfigurationDeclaration decl = setUpDecl();
         final BuilderParameters params = new FileBasedBuilderParametersImpl().setPath("C:\\Test\\someTestConfiguration." + EXT.toUpperCase(Locale.ENGLISH));
@@ -142,7 +142,7 @@ public class TestFileExtensionConfigurationBuilderProvider_OE25Dev {
         assertEquals("Wrong class", MATCH_CLASS, provider.determineConfigurationClass(decl, Collections.singleton(params)));
     }
 
-    @Test
+@Test
     public void testDetermineConfigurationClassNoExtension_1_oe() throws ConfigurationException {
         final ConfigurationDeclaration decl = setUpDecl();
         final BuilderParameters params = new FileBasedBuilderParametersImpl().setPath("C:\\Test\\someTestConfiguration");
@@ -150,14 +150,14 @@ public class TestFileExtensionConfigurationBuilderProvider_OE25Dev {
         assertEquals("Wrong class", DEF_CLASS, provider.determineConfigurationClass(decl, Collections.singleton(params)));
     }
 
-    @Test
+@Test
     public void testDetermineConfigurationClassNoParams_1_oe() throws ConfigurationException {
         final ConfigurationDeclaration decl = setUpDecl();
         final FileExtensionConfigurationBuilderProvider provider = setUpProvider();
         assertEquals("Wrong class", DEF_CLASS, provider.determineConfigurationClass(decl, new ArrayList<>()));
     }
 
-    @Test
+@Test
     public void testDeterminieConfigurationClassNoFileName_1_oe() throws ConfigurationException {
         final ConfigurationDeclaration decl = setUpDecl();
         final BuilderParameters params = new FileBasedBuilderParametersImpl();
@@ -165,14 +165,14 @@ public class TestFileExtensionConfigurationBuilderProvider_OE25Dev {
         assertEquals("Wrong class", DEF_CLASS, provider.determineConfigurationClass(decl, Collections.singleton(params)));
     }
 
-    @Test
+@Test
     public void testInitSuper_1_oe() {
         final FileExtensionConfigurationBuilderProvider provider = new FileExtensionConfigurationBuilderProvider(BasicConfigurationBuilder.class.getName(),
             ReloadingFileBasedConfigurationBuilder.class.getName(), MATCH_CLASS, DEF_CLASS, EXT, null);
         assertEquals("Wrong builder class", BasicConfigurationBuilder.class.getName(), provider.getBuilderClass());
     }
 
-    @Test
+@Test
     public void testInitSuper_2_oe() {
         final FileExtensionConfigurationBuilderProvider provider = new FileExtensionConfigurationBuilderProvider(BasicConfigurationBuilder.class.getName(),
             ReloadingFileBasedConfigurationBuilder.class.getName(), MATCH_CLASS, DEF_CLASS, EXT, null);
@@ -180,7 +180,7 @@ public class TestFileExtensionConfigurationBuilderProvider_OE25Dev {
         assertEquals("Wrong reloading builder class", ReloadingFileBasedConfigurationBuilder.class.getName(), provider.getReloadingBuilderClass());
     }
 
-    @Test
+@Test
     public void testInitSuper_3_oe() {
         final FileExtensionConfigurationBuilderProvider provider = new FileExtensionConfigurationBuilderProvider(BasicConfigurationBuilder.class.getName(),
             ReloadingFileBasedConfigurationBuilder.class.getName(), MATCH_CLASS, DEF_CLASS, EXT, null);

@@ -58,7 +58,7 @@ public class ArrayIterator2Test_OE25Dev<E> extends AbstractIteratorTest<E> {
         return false;
     }
 
-    public void testIterator_1_oe() {
+public void testIterator_1_oe() {
         final Iterator<E> iter = makeObject();
         for (final int element : testArray) {
             final Integer testValue = Integer.valueOf(element);
@@ -68,7 +68,7 @@ public class ArrayIterator2Test_OE25Dev<E> extends AbstractIteratorTest<E> {
     }
     }
 
-    public void testIterator_2_oe() {
+public void testIterator_2_oe() {
         final Iterator<E> iter = makeObject();
         for (final int element : testArray) {
             final Integer testValue = Integer.valueOf(element);
@@ -80,7 +80,7 @@ public class ArrayIterator2Test_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertTrue("Iterator should now be empty", !iter.hasNext());
     }
 
-    public void testIterator_3_oe() {
+public void testIterator_3_oe() {
         final Iterator<E> iter = makeObject();
         for (final int element : testArray) {
             final Integer testValue = Integer.valueOf(element);
@@ -98,7 +98,7 @@ public class ArrayIterator2Test_OE25Dev<E> extends AbstractIteratorTest<E> {
     }
     }
 
-    public void testIndexedArray_1_oe() {
+public void testIndexedArray_1_oe() {
         Iterator<E> iter = makeArrayIterator(testArray, 2);
         int count = 0;
         while (iter.hasNext()) {
@@ -109,7 +109,7 @@ public class ArrayIterator2Test_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("the count should be right using ArrayIterator(Object,2) ", count, testArray.length - 2);
     }
 
-    public void testIndexedArray_2_oe() {
+public void testIndexedArray_2_oe() {
         Iterator<E> iter = makeArrayIterator(testArray, 2);
         int count = 0;
         while (iter.hasNext()) {
@@ -129,7 +129,7 @@ public class ArrayIterator2Test_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("the count should be right using ArrayIterator(Object,1," +(testArray.length - 1)+ ")",count,testArray.length - 2);
     }
 
-    public void testIndexedArray_7_oe() {
+public void testIndexedArray_7_oe() {
         Iterator<E> iter = makeArrayIterator(testArray, 2);
         int count = 0;
         while (iter.hasNext()) {

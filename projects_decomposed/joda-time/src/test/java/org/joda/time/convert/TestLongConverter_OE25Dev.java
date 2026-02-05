@@ -76,25 +76,25 @@ public class TestLongConverter_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testSingleton_1_oe() throws Exception {
+public void testSingleton_1_oe() throws Exception {
         Class cls = LongConverter.class;
         assertEquals(false,Modifier.isPublic(cls.getModifiers()));
     }
 
-    public void testSingleton_2_oe() throws Exception {
+public void testSingleton_2_oe() throws Exception {
         Class cls = LongConverter.class;
         // removed other assertion
         assertEquals(false,Modifier.isProtected(cls.getModifiers()));
     }
 
-    public void testSingleton_3_oe() throws Exception {
+public void testSingleton_3_oe() throws Exception {
         Class cls = LongConverter.class;
         // removed other assertion
         // removed other assertion
         assertEquals(false,Modifier.isPrivate(cls.getModifiers()));
     }
 
-    public void testSingleton_4_oe() throws Exception {
+public void testSingleton_4_oe() throws Exception {
         Class cls = LongConverter.class;
         // removed other assertion
         // removed other assertion
@@ -104,7 +104,7 @@ public class TestLongConverter_OE25Dev extends TestCase {
         assertEquals(1,cls.getDeclaredConstructors().length);
     }
 
-    public void testSingleton_5_oe() throws Exception {
+public void testSingleton_5_oe() throws Exception {
         Class cls = LongConverter.class;
         // removed other assertion
         // removed other assertion
@@ -115,7 +115,7 @@ public class TestLongConverter_OE25Dev extends TestCase {
         assertEquals(true,Modifier.isProtected(con.getModifiers()));
     }
 
-    public void testSingleton_6_oe() throws Exception {
+public void testSingleton_6_oe() throws Exception {
         Class cls = LongConverter.class;
         // removed other assertion
         // removed other assertion
@@ -129,7 +129,7 @@ public class TestLongConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPublic(fld.getModifiers()));
     }
 
-    public void testSingleton_7_oe() throws Exception {
+public void testSingleton_7_oe() throws Exception {
         Class cls = LongConverter.class;
         // removed other assertion
         // removed other assertion
@@ -144,7 +144,7 @@ public class TestLongConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isProtected(fld.getModifiers()));
     }
 
-    public void testSingleton_8_oe() throws Exception {
+public void testSingleton_8_oe() throws Exception {
         Class cls = LongConverter.class;
         // removed other assertion
         // removed other assertion
@@ -160,49 +160,49 @@ public class TestLongConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPrivate(fld.getModifiers()));
     }
 
-    public void testSupportedType_1_oe() throws Exception {
+public void testSupportedType_1_oe() throws Exception {
         assertEquals(Long.class,LongConverter.INSTANCE.getSupportedType());
     }
 
-    public void testGetInstantMillis_Object_Chronology_1_oe() throws Exception {
+public void testGetInstantMillis_Object_Chronology_1_oe() throws Exception {
         assertEquals(123L,LongConverter.INSTANCE.getInstantMillis(new Long(123L),JULIAN));
     }
 
-    public void testGetInstantMillis_Object_Chronology_2_oe() throws Exception {
+public void testGetInstantMillis_Object_Chronology_2_oe() throws Exception {
         // removed other assertion
         assertEquals(123L,LongConverter.INSTANCE.getInstantMillis(new Long(123L),(Chronology)null));
     }
 
-    public void testGetChronology_Object_Zone_1_oe() throws Exception {
+public void testGetChronology_Object_Zone_1_oe() throws Exception {
         assertEquals(ISO_PARIS,LongConverter.INSTANCE.getChronology(new Long(123L),PARIS));
     }
 
-    public void testGetChronology_Object_Zone_2_oe() throws Exception {
+public void testGetChronology_Object_Zone_2_oe() throws Exception {
         // removed other assertion
         assertEquals(ISO,LongConverter.INSTANCE.getChronology(new Long(123L),(DateTimeZone)null));
     }
 
-    public void testGetChronology_Object_Chronology_1_oe() throws Exception {
+public void testGetChronology_Object_Chronology_1_oe() throws Exception {
         assertEquals(JULIAN,LongConverter.INSTANCE.getChronology(new Long(123L),JULIAN));
     }
 
-    public void testGetChronology_Object_Chronology_2_oe() throws Exception {
+public void testGetChronology_Object_Chronology_2_oe() throws Exception {
         // removed other assertion
         assertEquals(ISO,LongConverter.INSTANCE.getChronology(new Long(123L),(Chronology)null));
     }
 
-    public void testGetPartialValues_1_oe() throws Exception {
+public void testGetPartialValues_1_oe() throws Exception {
         TimeOfDay tod = new TimeOfDay();
         int[] expected = ISOChronology.getInstance().get(tod, 12345678L);
         int[] actual = LongConverter.INSTANCE.getPartialValues(tod, new Long(12345678L), ISOChronology.getInstance());
         assertEquals(true,Arrays.equals(expected,actual));
     }
 
-    public void testGetDurationMillis_Object_1_oe() throws Exception {
+public void testGetDurationMillis_Object_1_oe() throws Exception {
         assertEquals(123L,LongConverter.INSTANCE.getDurationMillis(new Long(123L)));
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         assertEquals("Converter[java.lang.Long]",LongConverter.INSTANCE.toString());
     }
 

@@ -51,12 +51,12 @@ public class TestUTCProvider_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testClass_1_oe() throws Exception {
+public void testClass_1_oe() throws Exception {
         Class cls = UTCProvider.class;
         assertEquals(true,Modifier.isPublic(cls.getModifiers()));
     }
 
-    public void testClass_2_oe() throws Exception {
+public void testClass_2_oe() throws Exception {
         Class cls = UTCProvider.class;
         // removed other assertion
         
@@ -64,7 +64,7 @@ public class TestUTCProvider_OE25Dev extends TestCase {
         assertEquals(1,cls.getDeclaredConstructors().length);
     }
 
-    public void testClass_3_oe() throws Exception {
+public void testClass_3_oe() throws Exception {
         Class cls = UTCProvider.class;
         // removed other assertion
         
@@ -73,38 +73,38 @@ public class TestUTCProvider_OE25Dev extends TestCase {
         assertEquals(true,Modifier.isPublic(con.getModifiers()));
     }
 
-    public void testGetAvailableIDs_1_oe() throws Exception {
+public void testGetAvailableIDs_1_oe() throws Exception {
         Provider p = new UTCProvider();
         Set set = p.getAvailableIDs();
         assertEquals(1,set.size());
     }
 
-    public void testGetAvailableIDs_2_oe() throws Exception {
+public void testGetAvailableIDs_2_oe() throws Exception {
         Provider p = new UTCProvider();
         Set set = p.getAvailableIDs();
         // removed other assertion
         assertEquals("UTC",set.iterator().next());
     }
 
-    public void testGetZone_String_1_oe() throws Exception {
+public void testGetZone_String_1_oe() throws Exception {
         Provider p = new UTCProvider();
         assertSame(DateTimeZone.UTC,p.getZone("UTC"));
     }
 
-    public void testGetZone_String_2_oe() throws Exception {
+public void testGetZone_String_2_oe() throws Exception {
         Provider p = new UTCProvider();
         // removed other assertion
         assertEquals(null,p.getZone(null));
     }
 
-    public void testGetZone_String_3_oe() throws Exception {
+public void testGetZone_String_3_oe() throws Exception {
         Provider p = new UTCProvider();
         // removed other assertion
         // removed other assertion
         assertEquals(null,p.getZone("Europe/London"));
     }
 
-    public void testGetZone_String_4_oe() throws Exception {
+public void testGetZone_String_4_oe() throws Exception {
         Provider p = new UTCProvider();
         // removed other assertion
         // removed other assertion

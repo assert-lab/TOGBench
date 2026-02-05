@@ -36,16 +36,16 @@
  T E S T S
 -------------------------------------------------------
 Running TestSuite
-Tests run: 175, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 60.599 sec <<< FAILURE! - in TestSuite
-testGetCompleteServicePrincipalName_2_oe(org.asynchttpclient.spnego.SpnegoEngineTest_OE25Dev)  Time elapsed: 0.004 sec  <<< FAILURE!
+Tests run: 175, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 59.76 sec <<< FAILURE! - in TestSuite
+testGetCompleteServicePrincipalName_2_oe(org.asynchttpclient.spnego.SpnegoEngineTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
 java.lang.AssertionError: did not expect [HTTP@localhost] but found [HTTP@localhost]
 	at org.asynchttpclient.spnego.SpnegoEngineTest_OE25Dev.testGetCompleteServicePrincipalName_2_oe(SpnegoEngineTest_OE25Dev.java:199)
 
-testGetWithRequestBuilderAndQuery_3_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+testGetWithRequestBuilderAndQuery_3_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.IllegalStateException: No match found
 	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_3_oe(OAuthSignatureCalculatorTest_OE25Dev.java:433)
 
-testGetWithRequestBuilderAndQuery_4_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+testGetWithRequestBuilderAndQuery_4_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.IllegalStateException: No match found
 	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_4_oe(OAuthSignatureCalculatorTest_OE25Dev.java:467)
 
@@ -61,11 +61,11 @@ testGetWithRequestBuilder_4_oe(org.asynchttpclient.oauth.OAuthSignatureCalculato
 java.lang.IllegalStateException: No match found
 	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilder_4_oe(OAuthSignatureCalculatorTest_OE25Dev.java:351)
 
-testPostCalculateSignature_2_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+testPostCalculateSignature_2_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.IllegalStateException: No match found
 	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testPostCalculateSignature_2_oe(OAuthSignatureCalculatorTest_OE25Dev.java:228)
 
-onFailureTest_1_oe(org.asynchttpclient.ws.TextMessageTest_OE25Dev)  Time elapsed: 0.031 sec  <<< FAILURE!
+onFailureTest_1_oe(org.asynchttpclient.ws.TextMessageTest_OE25Dev)  Time elapsed: 0.011 sec  <<< FAILURE!
 org.testng.TestException: 
 
 Expected exception of any of types [class java.net.UnknownHostException, class java.net.ConnectException] but got java.lang.AssertionError: expected [true] but found [false]
@@ -90,8 +90,8 @@ Tests run: 175, Failures: 8, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  01:12 min
-[INFO] Finished at: 2026-02-04T19:42:05-06:00
+[INFO] Total time:  01:14 min
+[INFO] Finished at: 2026-02-05T02:20:03-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client: There are test failures.
 [ERROR] 

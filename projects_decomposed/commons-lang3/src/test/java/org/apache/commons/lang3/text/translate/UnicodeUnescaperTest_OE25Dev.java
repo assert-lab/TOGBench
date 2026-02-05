@@ -30,7 +30,7 @@ public class UnicodeUnescaperTest_OE25Dev {
 
     // Requested in LANG-507
 
-    @Test
+@Test
     public void testUPlus_1_oe() {
         final UnicodeUnescaper uu = new UnicodeUnescaper();
 
@@ -38,7 +38,7 @@ public class UnicodeUnescaperTest_OE25Dev {
         assertEquals("G", uu.translate(input), "Failed to unescape Unicode characters with 'u+' notation");
     }
 
-    @Test
+@Test
     public void testUuuuu_1_oe() {
         final UnicodeUnescaper uu = new UnicodeUnescaper();
 
@@ -47,7 +47,7 @@ public class UnicodeUnescaperTest_OE25Dev {
         assertEquals("G", result, "Failed to unescape Unicode characters with many 'u' characters");
     }
 
-    @Test
+@Test
     public void testLessThanFour_1_oe() {
         final UnicodeUnescaper uu = new UnicodeUnescaper();
 

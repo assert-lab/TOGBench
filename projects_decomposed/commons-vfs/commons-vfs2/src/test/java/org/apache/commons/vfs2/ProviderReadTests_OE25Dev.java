@@ -199,13 +199,13 @@ public class ProviderReadTests_OE25Dev extends AbstractProviderTestCase {
      * Tests type determination.
      */
 
-    @Test
+@Test
     public void testConcurrentReadFolder_1_oe() throws Exception {
         final FileObject file = resolveFile1Txt();
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testConcurrentReadFolder_2_oe() throws Exception {
         final FileObject file = resolveFile1Txt();
         // removed other assertion
@@ -213,13 +213,13 @@ public class ProviderReadTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(folder.exists());
     }
 
-    @Test
+@Test
     public void testDotJarFolderName_1_oe() throws Exception {
         final FileObject folder = getReadFolderDir1().resolveFile("subdir4.jar");
         Assert.assertTrue(folder.exists());
     }
 
-    @Test
+@Test
     public void testDotJarFolderName_2_oe() throws Exception {
         final FileObject folder = getReadFolderDir1().resolveFile("subdir4.jar");
         // removed other assertion
@@ -227,20 +227,20 @@ public class ProviderReadTests_OE25Dev extends AbstractProviderTestCase {
         Assert.assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testDotJarFolderNameLayer_1_oe() throws Exception {
         final FileObject folder = getReadFolderDir1().resolveFile("subdir4.jar");
         Assert.assertTrue("subdir4.jar/ must exist as folder, check test setup.", folder.isFolder());
     }
 
-    @Test
+@Test
     public void testDotJarFolderNameLayer_2_oe() throws Exception {
         final FileObject folder = getReadFolderDir1().resolveFile("subdir4.jar");
         // removed other assertion
         Assert.assertFalse("subdir4.jar/ must not be layerable", getManager().canCreateFileSystem(folder));
     }
 
-    @Test
+@Test
     public void testDotJarFolderNameLayer_4_oe() throws Exception {
         final FileObject folder = getReadFolderDir1().resolveFile("subdir4.jar");
         // removed other assertion
@@ -253,7 +253,7 @@ public class ProviderReadTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testFindFiles_1_oe() throws Exception {
         final FileInfo fileInfo = buildExpectedStructure();
         final VerifyingFileSelector selector = new VerifyingFileSelector(fileInfo);
@@ -266,7 +266,7 @@ public class ProviderReadTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(expectedFiles.size(), actualFiles.length);
     }
 
-    @Test
+@Test
     public void testFindFiles_2_oe() throws Exception {
         final FileInfo fileInfo = buildExpectedStructure();
         final VerifyingFileSelector selector = new VerifyingFileSelector(fileInfo);
@@ -285,31 +285,31 @@ public class ProviderReadTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testFolderIsHidden_1_oe() throws Exception {
         final FileObject folder = getReadFolderDir1();
         Assert.assertFalse(folder.isHidden());
     }
 
-    @Test
+@Test
     public void testFolderIsReadable_1_oe() throws Exception {
         final FileObject folder = getReadFolderDir1();
         Assert.assertTrue(folder.isReadable());
     }
 
-    @Test
+@Test
     public void testFolderIsSymbolicLink_1_oe() throws Exception {
         final FileObject folder = getReadFolderDir1();
         Assert.assertFalse(folder.isSymbolicLink());
     }
 
-    @Test
+@Test
     public void testGetContent_1_oe() throws Exception {
         final FileObject file = resolveFile1Txt();
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testGetContent_2_oe() throws Exception {
         final FileObject file = resolveFile1Txt();
         // removed other assertion
@@ -317,13 +317,13 @@ public class ProviderReadTests_OE25Dev extends AbstractProviderTestCase {
         assertNotNull(content);
     }
 
-    @Test
+@Test
     public void testGetContentInfo_1_oe() throws Exception {
         final FileObject file = resolveFile1Txt();
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testGetContentInfo_2_oe() throws Exception {
         final FileObject file = resolveFile1Txt();
         // removed other assertion
@@ -331,7 +331,7 @@ public class ProviderReadTests_OE25Dev extends AbstractProviderTestCase {
         assertNotNull(content);
     }
 
-    @Test
+@Test
     public void testGetContentInfo_3_oe() throws Exception {
         final FileObject file = resolveFile1Txt();
         // removed other assertion
@@ -341,26 +341,26 @@ public class ProviderReadTests_OE25Dev extends AbstractProviderTestCase {
         assertNotNull(contentInfo);
     }
 
-    @Test
+@Test
     public void testReadEmptyMultipleEOF_1_oe() throws Exception {
         final FileObject file = getReadFolder().resolveFile("empty.txt");
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testReadFileEOFMultiple_1_oe() throws Exception {
         final FileObject file = getReadFolder().resolveFile("file1.txt");
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testReadFileEOFMultiple_2_oe() throws Exception {
         final FileObject file = getReadFolder().resolveFile("file1.txt");
         // removed other assertion
         assertEquals("Expecting 20 bytes test-data file1.txt", 20, file.getContent().getSize());
     }
 
-    @Test
+@Test
     public void testSort_1_oe() throws FileSystemException {
         final FileInfo fileInfo = buildExpectedStructure();
         final VerifyingFileSelector selector = new VerifyingFileSelector(fileInfo);
@@ -374,7 +374,7 @@ public class ProviderReadTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testSort_2_oe() throws FileSystemException {
         final FileInfo fileInfo = buildExpectedStructure();
         final VerifyingFileSelector selector = new VerifyingFileSelector(fileInfo);
@@ -394,7 +394,7 @@ public class ProviderReadTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(expectedFiles.size(), actualFiles.length);
     }
 
-    @Test
+@Test
     public void testSort_3_oe() throws FileSystemException {
         final FileInfo fileInfo = buildExpectedStructure();
         final VerifyingFileSelector selector = new VerifyingFileSelector(fileInfo);
@@ -420,14 +420,14 @@ public class ProviderReadTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testType_1_oe() throws Exception {
         // Test a file
         FileObject file = resolveFile1Txt();
         assertSame(FileType.FILE, file.getType());
     }
 
-    @Test
+@Test
     public void testType_2_oe() throws Exception {
         // Test a file
         FileObject file = resolveFile1Txt();
@@ -435,7 +435,7 @@ public class ProviderReadTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isFile());
     }
 
-    @Test
+@Test
     public void testType_3_oe() throws Exception {
         // Test a file
         FileObject file = resolveFile1Txt();
@@ -447,7 +447,7 @@ public class ProviderReadTests_OE25Dev extends AbstractProviderTestCase {
         assertSame(FileType.FOLDER, file.getType());
     }
 
-    @Test
+@Test
     public void testType_4_oe() throws Exception {
         // Test a file
         FileObject file = resolveFile1Txt();
@@ -460,7 +460,7 @@ public class ProviderReadTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isFolder());
     }
 
-    @Test
+@Test
     public void testType_5_oe() throws Exception {
         // Test a file
         FileObject file = resolveFile1Txt();

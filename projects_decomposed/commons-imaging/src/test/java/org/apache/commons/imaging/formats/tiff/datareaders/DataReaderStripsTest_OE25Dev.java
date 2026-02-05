@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 
 public class DataReaderStripsTest_OE25Dev {
 
-    @Test
+@Test
     public void testApplyPredictor_1_oe() {
         final int[] bitsPerPixel = {1,2,3};
         final DataReaderStrips strips = new DataReaderStrips(
@@ -36,7 +36,7 @@ public class DataReaderStripsTest_OE25Dev {
         assertArrayEquals(expected, predicted);
     }
 
-    @Test
+@Test
     public void testApplyPredictor_2_oe() {
         final int[] bitsPerPixel = {1,2,3};
         final DataReaderStrips strips = new DataReaderStrips(

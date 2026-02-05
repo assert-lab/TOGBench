@@ -370,19 +370,19 @@ public class LocaleUtilsTest_OE25Dev  {
      * Tests #LANG-865, strings starting with an underscore.
      */
 
-    @Test
+@Test
     public void testConstructor_1_oe() {
         assertNotNull(new LocaleUtils());
     }
 
-    @Test
+@Test
     public void testConstructor_2_oe() {
         // removed other assertion
         final Constructor<?>[] cons = LocaleUtils.class.getDeclaredConstructors();
         assertEquals(1, cons.length);
     }
 
-    @Test
+@Test
     public void testConstructor_3_oe() {
         // removed other assertion
         final Constructor<?>[] cons = LocaleUtils.class.getDeclaredConstructors();
@@ -390,7 +390,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertTrue(Modifier.isPublic(cons[0].getModifiers()));
     }
 
-    @Test
+@Test
     public void testConstructor_4_oe() {
         // removed other assertion
         final Constructor<?>[] cons = LocaleUtils.class.getDeclaredConstructors();
@@ -399,7 +399,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertTrue(Modifier.isPublic(LocaleUtils.class.getModifiers()));
     }
 
-    @Test
+@Test
     public void testConstructor_5_oe() {
         // removed other assertion
         final Constructor<?>[] cons = LocaleUtils.class.getDeclaredConstructors();
@@ -409,36 +409,36 @@ public class LocaleUtilsTest_OE25Dev  {
         assertFalse(Modifier.isFinal(LocaleUtils.class.getModifiers()));
     }
 
-    @Test
+@Test
     public void testToLocale_Locale_defaults_1_oe() {
         assertNull(LocaleUtils.toLocale((String) null));
     }
 
-    @Test
+@Test
     public void testToLocale_Locale_defaults_2_oe() {
         // removed other assertion
         assertEquals(Locale.getDefault(), LocaleUtils.toLocale((Locale) null));
     }
 
-    @Test
+@Test
     public void testToLocale_Locale_defaults_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(Locale.getDefault(), LocaleUtils.toLocale(Locale.getDefault()));
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("java.util.Locale#getAvailableLocales")
     public void testToLocales_1_oe(final Locale actualLocale) {
         assertEquals(actualLocale, LocaleUtils.toLocale(actualLocale));
     }
 
-    @Test
+@Test
     public void testToLocale_1Part_1_oe() {
         assertNull(LocaleUtils.toLocale((String) null));
     }
 
-    @Test
+@Test
     public void testToLocale_1Part_8_oe() {
         // removed other assertion
 
@@ -454,7 +454,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("Us"), "Should fail if not lowercase");
     }
 
-    @Test
+@Test
     public void testToLocale_1Part_9_oe() {
         // removed other assertion
 
@@ -471,7 +471,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("uS"), "Should fail if not lowercase");
     }
 
-    @Test
+@Test
     public void testToLocale_1Part_10_oe() {
         // removed other assertion
 
@@ -489,7 +489,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("u#"), "Should fail if not lowercase");
     }
 
-    @Test
+@Test
     public void testToLocale_1Part_11_oe() {
         // removed other assertion
 
@@ -508,7 +508,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("u"), "Must be 2 chars if less than 5");
     }
 
-    @Test
+@Test
     public void testToLocale_1Part_12_oe() {
         // removed other assertion
 
@@ -528,7 +528,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("uu_U"), "Must be 2 chars if less than 5");
     }
 
-    @Test
+@Test
     public void testToLocale_2Part_3_oe() {
         // removed other assertion
         //valid though doesn't exist
@@ -537,7 +537,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("us-EN"), "Should fail as not underscore");
     }
 
-    @Test
+@Test
     public void testToLocale_2Part_4_oe() {
         // removed other assertion
         //valid though doesn't exist
@@ -547,7 +547,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("us_En"), "Should fail second part not uppercase");
     }
 
-    @Test
+@Test
     public void testToLocale_2Part_5_oe() {
         // removed other assertion
         //valid though doesn't exist
@@ -558,7 +558,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("us_en"), "Should fail second part not uppercase");
     }
 
-    @Test
+@Test
     public void testToLocale_2Part_6_oe() {
         // removed other assertion
         //valid though doesn't exist
@@ -570,7 +570,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("us_eN"), "Should fail second part not uppercase");
     }
 
-    @Test
+@Test
     public void testToLocale_2Part_7_oe() {
         // removed other assertion
         //valid though doesn't exist
@@ -583,7 +583,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("uS_EN"), "Should fail first part not lowercase");
     }
 
-    @Test
+@Test
     public void testToLocale_2Part_8_oe() {
         // removed other assertion
         //valid though doesn't exist
@@ -597,7 +597,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("us_E3"), "Should fail second part not uppercase");
     }
 
-    @Test
+@Test
     public void testToLocale_3Part_6_oe() {
         // removed other assertion
         // this isn't pretty, but was caused by a jdk bug it seems
@@ -613,7 +613,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("us_EN-a"), "Should fail as not underscore");
     }
 
-    @Test
+@Test
     public void testToLocale_3Part_7_oe() {
         // removed other assertion
         // this isn't pretty, but was caused by a jdk bug it seems
@@ -630,14 +630,14 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("uu_UU_"), "Must be 3, 5 or 7+ in length");
     }
 
-    @Test
+@Test
     public void testAvailableLocaleList_1_oe() {
         final List<Locale> list = LocaleUtils.availableLocaleList();
         final List<Locale> list2 = LocaleUtils.availableLocaleList();
         assertNotNull(list);
     }
 
-    @Test
+@Test
     public void testAvailableLocaleList_2_oe() {
         final List<Locale> list = LocaleUtils.availableLocaleList();
         final List<Locale> list2 = LocaleUtils.availableLocaleList();
@@ -645,7 +645,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertSame(list, list2);
     }
 
-    @Test
+@Test
     public void testAvailableLocaleList_4_oe() {
         final List<Locale> list = LocaleUtils.availableLocaleList();
         final List<Locale> list2 = LocaleUtils.availableLocaleList();
@@ -658,14 +658,14 @@ public class LocaleUtilsTest_OE25Dev  {
         assertEquals(jdkLocaleList, list);
     }
 
-    @Test
+@Test
     public void testAvailableLocaleSet_1_oe() {
         final Set<Locale> set = LocaleUtils.availableLocaleSet();
         final Set<Locale> set2 = LocaleUtils.availableLocaleSet();
         assertNotNull(set);
     }
 
-    @Test
+@Test
     public void testAvailableLocaleSet_2_oe() {
         final Set<Locale> set = LocaleUtils.availableLocaleSet();
         final Set<Locale> set2 = LocaleUtils.availableLocaleSet();
@@ -673,7 +673,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertSame(set, set2);
     }
 
-    @Test
+@Test
     public void testAvailableLocaleSet_4_oe() {
         final Set<Locale> set = LocaleUtils.availableLocaleSet();
         final Set<Locale> set2 = LocaleUtils.availableLocaleSet();
@@ -687,20 +687,20 @@ public class LocaleUtilsTest_OE25Dev  {
         assertEquals(jdkLocaleSet, set);
     }
 
-    @Test
+@Test
     public void testIsAvailableLocale_1_oe() {
         final Set<Locale> set = LocaleUtils.availableLocaleSet();
         assertEquals(set.contains(LOCALE_EN), LocaleUtils.isAvailableLocale(LOCALE_EN));
     }
 
-    @Test
+@Test
     public void testIsAvailableLocale_2_oe() {
         final Set<Locale> set = LocaleUtils.availableLocaleSet();
         // removed other assertion
         assertEquals(set.contains(LOCALE_EN_US), LocaleUtils.isAvailableLocale(LOCALE_EN_US));
     }
 
-    @Test
+@Test
     public void testIsAvailableLocale_3_oe() {
         final Set<Locale> set = LocaleUtils.availableLocaleSet();
         // removed other assertion
@@ -708,7 +708,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertEquals(set.contains(LOCALE_EN_US_ZZZZ), LocaleUtils.isAvailableLocale(LOCALE_EN_US_ZZZZ));
     }
 
-    @Test
+@Test
     public void testIsAvailableLocale_4_oe() {
         final Set<Locale> set = LocaleUtils.availableLocaleSet();
         // removed other assertion
@@ -717,7 +717,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertEquals(set.contains(LOCALE_FR), LocaleUtils.isAvailableLocale(LOCALE_FR));
     }
 
-    @Test
+@Test
     public void testIsAvailableLocale_5_oe() {
         final Set<Locale> set = LocaleUtils.availableLocaleSet();
         // removed other assertion
@@ -727,7 +727,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertEquals(set.contains(LOCALE_FR_CA), LocaleUtils.isAvailableLocale(LOCALE_FR_CA));
     }
 
-    @Test
+@Test
     public void testIsAvailableLocale_6_oe() {
         final Set<Locale> set = LocaleUtils.availableLocaleSet();
         // removed other assertion
@@ -738,7 +738,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertEquals(set.contains(LOCALE_QQ), LocaleUtils.isAvailableLocale(LOCALE_QQ));
     }
 
-    @Test
+@Test
     public void testIsAvailableLocale_7_oe() {
         final Set<Locale> set = LocaleUtils.availableLocaleSet();
         // removed other assertion
@@ -750,7 +750,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertEquals(set.contains(LOCALE_QQ_ZZ), LocaleUtils.isAvailableLocale(LOCALE_QQ_ZZ));
     }
 
-    @Test
+@Test
     public void testThreeCharsLocale_1_oe() {
         for (final String str : Arrays.asList("udm", "tet")) {
             final Locale locale = LocaleUtils.toLocale(str);
@@ -758,7 +758,7 @@ public class LocaleUtilsTest_OE25Dev  {
     }
     }
 
-    @Test
+@Test
     public void testThreeCharsLocale_2_oe() {
         for (final String str : Arrays.asList("udm", "tet")) {
             final Locale locale = LocaleUtils.toLocale(str);
@@ -767,7 +767,7 @@ public class LocaleUtilsTest_OE25Dev  {
     }
     }
 
-    @Test
+@Test
     public void testThreeCharsLocale_3_oe() {
         for (final String str : Arrays.asList("udm", "tet")) {
             final Locale locale = LocaleUtils.toLocale(str);
@@ -777,7 +777,7 @@ public class LocaleUtilsTest_OE25Dev  {
     }
     }
 
-    @Test
+@Test
     public void testThreeCharsLocale_4_oe() {
         for (final String str : Arrays.asList("udm", "tet")) {
             final Locale locale = LocaleUtils.toLocale(str);
@@ -788,7 +788,7 @@ public class LocaleUtilsTest_OE25Dev  {
     }
     }
 
-    @Test
+@Test
     public void testLang865_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -796,7 +796,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("_G"), "Must be at least 3 chars if starts with underscore");
     }
 
-    @Test
+@Test
     public void testLang865_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -805,7 +805,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("_Gb"), "Must be uppercase if starts with underscore");
     }
 
-    @Test
+@Test
     public void testLang865_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -815,7 +815,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("_gB"), "Must be uppercase if starts with underscore");
     }
 
-    @Test
+@Test
     public void testLang865_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -826,7 +826,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("_1B"), "Must be letter if starts with underscore");
     }
 
-    @Test
+@Test
     public void testLang865_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -838,7 +838,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("_G1"), "Must be letter if starts with underscore");
     }
 
-    @Test
+@Test
     public void testLang865_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -851,7 +851,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("_GB_"), "Must be at least 5 chars if starts with underscore");
     }
 
-    @Test
+@Test
     public void testLang865_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -865,7 +865,7 @@ public class LocaleUtilsTest_OE25Dev  {
         assertThrows( IllegalArgumentException.class, () -> LocaleUtils.toLocale("_GBAP"), "Must have underscore after the country if starts with underscore and is at least 5 chars");
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("java.util.Locale#getAvailableLocales")
     public void testParseAllLocales_1_oe(final Locale actualLocale) {
         // Check if it's possible to recreate the Locale using just the standard constructor
@@ -884,7 +884,7 @@ public class LocaleUtilsTest_OE25Dev  {
     }
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("java.util.Locale#getAvailableLocales")
     public void testParseAllLocales_2_oe(final Locale actualLocale) {
         // Check if it's possible to recreate the Locale using just the standard constructor

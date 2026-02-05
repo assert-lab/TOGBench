@@ -62,7 +62,7 @@ public class TiffReadAlphaTest_OE25Dev {
         return new File(alphaFolder, name);
     }
 
-    @Test
+@Test
     public void test_2_oe() {
         for (final String name : names) {
             try {

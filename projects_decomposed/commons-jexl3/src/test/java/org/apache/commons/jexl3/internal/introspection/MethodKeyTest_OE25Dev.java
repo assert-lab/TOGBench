@@ -174,14 +174,14 @@ public class MethodKeyTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testDebugString_1_oe() throws Exception {
         final MethodKey c = KEY_LIST[0];
         final String str = c.debugString();
         Assert.assertNotNull(str);
     }
 
-    @Test
+@Test
     public void testObjectKey_1_oe() throws Exception {
         for (final MethodKey ctl : KEY_LIST) {
             final MethodKey key = makeKey(ctl.getMethod(), ctl.getParameters());
@@ -190,7 +190,7 @@ public class MethodKeyTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testObjectKey_2_oe() throws Exception {
         for (final MethodKey ctl : KEY_LIST) {
             final MethodKey key = makeKey(ctl.getMethod(), ctl.getParameters());
@@ -200,7 +200,7 @@ public class MethodKeyTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testStringKey_1_oe() throws Exception {
         for (final MethodKey ctl : KEY_LIST) {
             final String key = makeStringKey(ctl.getMethod(), ctl.getParameters());
@@ -209,7 +209,7 @@ public class MethodKeyTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testStringKey_2_oe() throws Exception {
         for (final MethodKey ctl : KEY_LIST) {
             final String key = makeStringKey(ctl.getMethod(), ctl.getParameters());
@@ -219,7 +219,7 @@ public class MethodKeyTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testPerfKey_1_oe() throws Exception {
         for (int l = 0; l < LOOP; ++l) {
             for (final MethodKey ctl : KEY_LIST) {
@@ -230,7 +230,7 @@ public class MethodKeyTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testPerfString_1_oe() throws Exception {
         for (int l = 0; l < LOOP; ++l) {
             for (final MethodKey ctl : KEY_LIST) {

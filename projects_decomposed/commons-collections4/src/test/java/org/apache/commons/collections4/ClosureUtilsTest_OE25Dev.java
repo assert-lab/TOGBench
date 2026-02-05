@@ -118,18 +118,18 @@ public class ClosureUtilsTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testExceptionClosure_1_oe() {
         assertNotNull(ClosureUtils.exceptionClosure());
     }
 
-    @Test
+@Test
     public void testExceptionClosure_2_oe() {
         // removed other assertion
         assertSame(ClosureUtils.exceptionClosure(), ClosureUtils.exceptionClosure());
     }
 
-    @Test
+@Test
     public void testExceptionClosure_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -145,14 +145,14 @@ public class ClosureUtilsTest_OE25Dev {
         fail();
     }
 
-    @Test
+@Test
     public void testNopClosure_1_oe() {
         final StringBuilder buf = new StringBuilder("Hello");
         ClosureUtils.nopClosure().execute(null);
         assertEquals("Hello", buf.toString());
     }
 
-    @Test
+@Test
     public void testNopClosure_2_oe() {
         final StringBuilder buf = new StringBuilder("Hello");
         ClosureUtils.nopClosure().execute(null);
@@ -161,14 +161,14 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals("Hello", buf.toString());
     }
 
-    @Test
+@Test
     public void testInvokeClosure_1_oe() {
         StringBuffer buf = new StringBuffer("Hello"); // Only StringBuffer has setLength() method
         ClosureUtils.invokerClosure("reverse").execute(buf);
         assertEquals("olleH", buf.toString());
     }
 
-    @Test
+@Test
     public void testInvokeClosure_2_oe() {
         StringBuffer buf = new StringBuffer("Hello"); // Only StringBuffer has setLength() method
         ClosureUtils.invokerClosure("reverse").execute(buf);
@@ -178,14 +178,14 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals("He", buf.toString());
     }
 
-    @Test
+@Test
     public void testForClosure_1_oe() {
         final MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.forClosure(5, cmd).execute(null);
         assertEquals(5, cmd.count);
     }
 
-    @Test
+@Test
     public void testForClosure_2_oe() {
         final MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.forClosure(5, cmd).execute(null);
@@ -193,7 +193,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertSame(NOPClosure.INSTANCE, ClosureUtils.forClosure(0, new MockClosure<>()));
     }
 
-    @Test
+@Test
     public void testForClosure_3_oe() {
         final MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.forClosure(5, cmd).execute(null);
@@ -202,7 +202,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertSame(NOPClosure.INSTANCE, ClosureUtils.forClosure(-1, new MockClosure<>()));
     }
 
-    @Test
+@Test
     public void testForClosure_4_oe() {
         final MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.forClosure(5, cmd).execute(null);
@@ -212,7 +212,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertSame(NOPClosure.INSTANCE, ClosureUtils.forClosure(1, null));
     }
 
-    @Test
+@Test
     public void testForClosure_5_oe() {
         final MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.forClosure(5, cmd).execute(null);
@@ -223,7 +223,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertSame(NOPClosure.INSTANCE, ClosureUtils.forClosure(3, null));
     }
 
-    @Test
+@Test
     public void testForClosure_6_oe() {
         final MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.forClosure(5, cmd).execute(null);
@@ -235,14 +235,14 @@ public class ClosureUtilsTest_OE25Dev {
         assertSame(cmd, ClosureUtils.forClosure(1, cmd));
     }
 
-    @Test
+@Test
     public void testWhileClosure_1_oe() {
         MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.whileClosure(FalsePredicate.falsePredicate(), cmd).execute(null);
         assertEquals(0, cmd.count);
     }
 
-    @Test
+@Test
     public void testWhileClosure_2_oe() {
         MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.whileClosure(FalsePredicate.falsePredicate(), cmd).execute(null);
@@ -253,14 +253,14 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(1, cmd.count);
     }
 
-    @Test
+@Test
     public void testDoWhileClosure_1_oe() {
         MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.doWhileClosure(cmd, FalsePredicate.falsePredicate()).execute(null);
         assertEquals(1, cmd.count);
     }
 
-    @Test
+@Test
     public void testDoWhileClosure_2_oe() {
         MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.doWhileClosure(cmd, FalsePredicate.falsePredicate()).execute(null);
@@ -271,7 +271,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(2, cmd.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testChainedClosure_1_oe() {
         MockClosure<Object> a = new MockClosure<>();
@@ -280,7 +280,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(1, a.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testChainedClosure_2_oe() {
         MockClosure<Object> a = new MockClosure<>();
@@ -290,7 +290,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(1, b.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testChainedClosure_3_oe() {
         MockClosure<Object> a = new MockClosure<>();
@@ -305,7 +305,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(2, a.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testChainedClosure_4_oe() {
         MockClosure<Object> a = new MockClosure<>();
@@ -321,7 +321,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(1, b.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testChainedClosure_5_oe() {
         MockClosure<Object> a = new MockClosure<>();
@@ -346,7 +346,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(1, a.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testChainedClosure_6_oe() {
         MockClosure<Object> a = new MockClosure<>();
@@ -372,7 +372,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(2, b.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testChainedClosure_7_oe() {
         MockClosure<Object> a = new MockClosure<>();
@@ -400,7 +400,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertSame(NOPClosure.INSTANCE, ClosureUtils.<Object>chainedClosure(new Closure[0]));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testChainedClosure_8_oe() {
         MockClosure<Object> a = new MockClosure<>();
@@ -429,7 +429,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertSame(NOPClosure.INSTANCE, ClosureUtils.<Object>chainedClosure(Collections.<Closure<Object>>emptyList()));
     }
 
-    @Test
+@Test
     public void testIfClosure_1_oe() {
         MockClosure<Object> a = new MockClosure<>();
         MockClosure<Object> b = null;
@@ -437,7 +437,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(1, a.count);
     }
 
-    @Test
+@Test
     public void testIfClosure_2_oe() {
         MockClosure<Object> a = new MockClosure<>();
         MockClosure<Object> b = null;
@@ -449,7 +449,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, a.count);
     }
 
-    @Test
+@Test
     public void testIfClosure_3_oe() {
         MockClosure<Object> a = new MockClosure<>();
         MockClosure<Object> b = null;
@@ -466,7 +466,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(1, a.count);
     }
 
-    @Test
+@Test
     public void testIfClosure_4_oe() {
         MockClosure<Object> a = new MockClosure<>();
         MockClosure<Object> b = null;
@@ -484,7 +484,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, b.count);
     }
 
-    @Test
+@Test
     public void testIfClosure_5_oe() {
         MockClosure<Object> a = new MockClosure<>();
         MockClosure<Object> b = null;
@@ -507,7 +507,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, a.count);
     }
 
-    @Test
+@Test
     public void testIfClosure_6_oe() {
         MockClosure<Object> a = new MockClosure<>();
         MockClosure<Object> b = null;
@@ -531,7 +531,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(1, b.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_1_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -542,7 +542,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, a.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_2_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -554,7 +554,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, b.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_3_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -573,7 +573,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(1, a.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_4_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -593,7 +593,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, b.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_5_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -621,7 +621,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, a.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_6_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -650,7 +650,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, b.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_7_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -680,7 +680,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(1, c.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_8_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -718,7 +718,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, a.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_9_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -757,7 +757,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, b.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_10_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -804,7 +804,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, a.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_11_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -852,7 +852,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(1, b.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_12_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -910,7 +910,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, a.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_13_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -969,7 +969,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, b.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_14_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -1029,7 +1029,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(1, c.count);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_15_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -1091,7 +1091,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(NOPClosure.INSTANCE, ClosureUtils.<String>switchClosure(new Predicate[0], new Closure[0]));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_16_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -1154,7 +1154,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(NOPClosure.INSTANCE, ClosureUtils.<String>switchClosure(new HashMap<Predicate<String>, Closure<String>>()));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchClosure_17_oe() {
         final MockClosure<String> a = new MockClosure<>();
@@ -1220,7 +1220,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(NOPClosure.INSTANCE, ClosureUtils.switchClosure(map));
     }
 
-    @Test
+@Test
     public void testSwitchMapClosure_1_oe() {
         final MockClosure<String> a = new MockClosure<>();
         final MockClosure<String> b = new MockClosure<>();
@@ -1231,7 +1231,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, a.count);
     }
 
-    @Test
+@Test
     public void testSwitchMapClosure_2_oe() {
         final MockClosure<String> a = new MockClosure<>();
         final MockClosure<String> b = new MockClosure<>();
@@ -1243,7 +1243,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, b.count);
     }
 
-    @Test
+@Test
     public void testSwitchMapClosure_3_oe() {
         final MockClosure<String> a = new MockClosure<>();
         final MockClosure<String> b = new MockClosure<>();
@@ -1263,7 +1263,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, a.count);
     }
 
-    @Test
+@Test
     public void testSwitchMapClosure_4_oe() {
         final MockClosure<String> a = new MockClosure<>();
         final MockClosure<String> b = new MockClosure<>();
@@ -1284,7 +1284,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(1, b.count);
     }
 
-    @Test
+@Test
     public void testSwitchMapClosure_5_oe() {
         final MockClosure<String> a = new MockClosure<>();
         final MockClosure<String> b = new MockClosure<>();
@@ -1315,7 +1315,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, a.count);
     }
 
-    @Test
+@Test
     public void testSwitchMapClosure_6_oe() {
         final MockClosure<String> a = new MockClosure<>();
         final MockClosure<String> b = new MockClosure<>();
@@ -1347,7 +1347,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(0, b.count);
     }
 
-    @Test
+@Test
     public void testSwitchMapClosure_7_oe() {
         final MockClosure<String> a = new MockClosure<>();
         final MockClosure<String> b = new MockClosure<>();
@@ -1380,7 +1380,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(1, c.count);
     }
 
-    @Test
+@Test
     public void testSwitchMapClosure_8_oe() {
         final MockClosure<String> a = new MockClosure<>();
         final MockClosure<String> b = new MockClosure<>();
@@ -1415,7 +1415,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(NOPClosure.INSTANCE, ClosureUtils.switchMapClosure(new HashMap<String, Closure<String>>()));
     }
 
-    @Test
+@Test
     public void testTransformerClosure_1_oe() {
         final MockTransformer<Object> mock = new MockTransformer<>();
         final Closure<Object> closure = ClosureUtils.asClosure(mock);
@@ -1423,7 +1423,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(1, mock.count);
     }
 
-    @Test
+@Test
     public void testTransformerClosure_2_oe() {
         final MockTransformer<Object> mock = new MockTransformer<>();
         final Closure<Object> closure = ClosureUtils.asClosure(mock);
@@ -1433,7 +1433,7 @@ public class ClosureUtilsTest_OE25Dev {
         assertEquals(2, mock.count);
     }
 
-    @Test
+@Test
     public void testTransformerClosure_3_oe() {
         final MockTransformer<Object> mock = new MockTransformer<>();
         final Closure<Object> closure = ClosureUtils.asClosure(mock);

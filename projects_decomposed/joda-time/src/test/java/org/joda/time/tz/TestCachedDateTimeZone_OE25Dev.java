@@ -59,13 +59,13 @@ public class TestCachedDateTimeZone_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void test_caching_1_oe() throws Exception {
+public void test_caching_1_oe() throws Exception {
         CachedDateTimeZone zone1 = CachedDateTimeZone.forZone(DateTimeZone.forID("Europe/Paris"));
         CachedDateTimeZone zone2 = CachedDateTimeZone.forZone(DateTimeZone.forID("Europe/Paris"));
         assertSame(zone1,zone2);
     }
 
-    public void testSerialization_1_oe() throws Exception {
+public void testSerialization_1_oe() throws Exception {
         CachedDateTimeZone test = CachedDateTimeZone.forZone(DateTimeZone.forID("Europe/Paris"));
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

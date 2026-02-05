@@ -115,20 +115,20 @@ public class SymbolicLinkFileFilterTest_OE25Dev extends BaseFilterTest {
         zipFileObject = getZipFileObject(zipFile);
     }
 
-    @Test
+@Test
     public void testAcceptActual_1_oe() throws FileSystemException {
         final FileFilter testee = SymbolicLinkFileFilter.ACTUAL;
         Assert.assertTrue(targetFileInfo.getBaseFolder().exists());
     }
 
-    @Test
+@Test
     public void testAcceptActual_2_oe() throws FileSystemException {
         final FileFilter testee = SymbolicLinkFileFilter.ACTUAL;
         // removed other assertion
         Assert.assertTrue(targetFileInfo.getFile().exists());
     }
 
-    @Test
+@Test
     public void testAcceptActual_3_oe() throws FileSystemException {
         final FileFilter testee = SymbolicLinkFileFilter.ACTUAL;
         // removed other assertion
@@ -136,7 +136,7 @@ public class SymbolicLinkFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(targetFileInfo.toString(), testee.accept(targetFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptActual_4_oe() throws FileSystemException {
         final FileFilter testee = SymbolicLinkFileFilter.ACTUAL;
         // removed other assertion
@@ -145,20 +145,20 @@ public class SymbolicLinkFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(notExistingFileInfo.toString(), testee.accept(notExistingFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptSymbolic_1_oe() throws FileSystemException {
         final FileFilter testee = SymbolicLinkFileFilter.SYMBOLIC;
         Assert.assertTrue(linkFileInfo.toString(), testee.accept(linkFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptSymbolic_2_oe() throws FileSystemException {
         final FileFilter testee = SymbolicLinkFileFilter.SYMBOLIC;
         // removed other assertion
         Assert.assertFalse(notExistingFileInfo.toString(), testee.accept(notExistingFileInfo));
     }
 
-    @Test
+@Test
     public void testZipFile_1_oe() throws FileSystemException {
         final FileObject[] files = zipFileObject.findFiles(new FileFilterSelector(SymbolicLinkFileFilter.SYMBOLIC));
         Assert.assertEquals(0, files.length);

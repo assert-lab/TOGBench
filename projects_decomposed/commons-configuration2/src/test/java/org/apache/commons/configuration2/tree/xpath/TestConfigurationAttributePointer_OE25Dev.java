@@ -116,28 +116,28 @@ public class TestConfigurationAttributePointer_OE25Dev {
      * Tests the testNode() method.
      */
 
-    @Test
+@Test
     public void testAttributeIterator_1_oe() {
         assertNull("Returned an attribute iterator", pointer.attributeIterator(new QName(null, "test")));
     }
 
-    @Test
+@Test
     public void testChildIterator_1_oe() {
         assertNull("Returned an iterator for children", pointer.childIterator(null, false, null));
     }
 
-    @Test
+@Test
     public void testGetBaseValue_1_oe() {
         assertEquals("Wrong base value", ATTR_VALUE, pointer.getBaseValue());
     }
 
-    @Test
+@Test
     public void testGetImmediateNode_1_oe() {
         final Object node = pointer.getImmediateNode();
         assertTrue("Wrong node class", node instanceof QueryResult);
     }
 
-    @Test
+@Test
     public void testGetImmediateNode_2_oe() {
         final Object node = pointer.getImmediateNode();
         // removed other assertion
@@ -145,7 +145,7 @@ public class TestConfigurationAttributePointer_OE25Dev {
         assertTrue("No attribute result", proxy.isAttributeResult());
     }
 
-    @Test
+@Test
     public void testGetImmediateNode_3_oe() {
         final Object node = pointer.getImmediateNode();
         // removed other assertion
@@ -154,7 +154,7 @@ public class TestConfigurationAttributePointer_OE25Dev {
         assertEquals("Wrong parent node", parent.getConfigurationNode(), proxy.getNode());
     }
 
-    @Test
+@Test
     public void testGetImmediateNode_4_oe() {
         final Object node = pointer.getImmediateNode();
         // removed other assertion
@@ -164,56 +164,56 @@ public class TestConfigurationAttributePointer_OE25Dev {
         assertEquals("Wrong attribute name", ATTR_NAME, proxy.getAttributeName());
     }
 
-    @Test
+@Test
     public void testGetLength_1_oe() {
         assertEquals("Wrong length", 1, pointer.getLength());
     }
 
-    @Test
+@Test
     public void testGetName_1_oe() {
         final QName name = pointer.getName();
         assertEquals("Wrong name", ATTR_NAME, name.getName());
     }
 
-    @Test
+@Test
     public void testGetName_2_oe() {
         final QName name = pointer.getName();
         // removed other assertion
         assertNull("Prefix not null", name.getPrefix());
     }
 
-    @Test
+@Test
     public void testGetParentPointer_1_oe() {
         assertSame("Wrong parent pointer", parent, pointer.getParentPointer());
     }
 
-    @Test
+@Test
     public void testGetValue_1_oe() {
         assertEquals("Wrong value", ATTR_VALUE, pointer.getValue());
     }
 
-    @Test
+@Test
     public void testIsAttribute_1_oe() {
         assertTrue("Not an attribute", pointer.isAttribute());
     }
 
-    @Test
+@Test
     public void testIsCollection_1_oe() {
         assertFalse("Wrong collection flag", pointer.isCollection());
     }
 
-    @Test
+@Test
     public void testIsLeaf_1_oe() {
         assertTrue("Wrong leaf flag", pointer.isLeaf());
     }
 
-    @Test
+@Test
     public void testTestNode_1_oe() {
         NodeTest test = new NodeTypeTest(Compiler.NODE_TYPE_TEXT);
         assertTrue("No a text node", pointer.testNode(test));
     }
 
-    @Test
+@Test
     public void testTestNode_2_oe() {
         NodeTest test = new NodeTypeTest(Compiler.NODE_TYPE_TEXT);
         // removed other assertion

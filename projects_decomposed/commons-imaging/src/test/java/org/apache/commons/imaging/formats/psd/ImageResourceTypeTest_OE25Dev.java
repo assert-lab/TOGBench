@@ -22,14 +22,14 @@ import org.junit.jupiter.api.Test;
 
 public class ImageResourceTypeTest_OE25Dev{
 
-    @Test
+@Test
     public void testGetDescriptionWithPositive_1_oe() {
         final String string = ImageResourceType.getDescription(2309);
 
         assertEquals("Path Information (saved paths).", string);
     }
 
-    @Test
+@Test
     public void testGetDescriptionWithZero_1_oe() {
         final String string = ImageResourceType.getDescription(0);
 

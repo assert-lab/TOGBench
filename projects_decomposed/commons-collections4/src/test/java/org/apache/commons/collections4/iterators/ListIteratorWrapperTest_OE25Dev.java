@@ -63,7 +63,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         return new ListIteratorWrapper<>(list1.iterator());
     }
 
-    public void testIterator_1_oe() {
+public void testIterator_1_oe() {
         final ListIterator<E> iter = makeObject();
         for (final String testValue : testArray) {
             final Object iterValue = iter.next();
@@ -72,7 +72,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
     }
     }
 
-    public void testIterator_2_oe() {
+public void testIterator_2_oe() {
         final ListIterator<E> iter = makeObject();
         for (final String testValue : testArray) {
             final Object iterValue = iter.next();
@@ -83,7 +83,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertTrue("Iterator should now be empty", !iter.hasNext());
     }
 
-    public void testIterator_3_oe() {
+public void testIterator_3_oe() {
         final ListIterator<E> iter = makeObject();
         for (final String testValue : testArray) {
             final Object iterValue = iter.next();
@@ -100,7 +100,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
     }
     }
 
-    public void testIterator_4_oe() {
+public void testIterator_4_oe() {
         final ListIterator<E> iter = makeObject();
         for (final String testValue : testArray) {
             final Object iterValue = iter.next();
@@ -125,7 +125,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
     }
     }
 
-    public void testIterator_5_oe() {
+public void testIterator_5_oe() {
         final ListIterator<E> iter = makeObject();
         for (final String testValue : testArray) {
             final Object iterValue = iter.next();
@@ -156,7 +156,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
     }
     }
 
-    public void testIterator_6_oe() {
+public void testIterator_6_oe() {
         final ListIterator<E> iter = makeObject();
         for (final String testValue : testArray) {
             final Object iterValue = iter.next();
@@ -194,14 +194,14 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
     }
     }
 
-    public void testRemove_1_oe() {
+public void testRemove_1_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
         assertEquals(-1, iter.previousIndex());
     }
 
-    public void testRemove_2_oe() {
+public void testRemove_2_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -209,7 +209,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(0, iter.nextIndex());
     }
 
-    public void testRemove_4_oe() {
+public void testRemove_4_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -226,7 +226,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(-1, iter.previousIndex());
     }
 
-    public void testRemove_5_oe() {
+public void testRemove_5_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -244,7 +244,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(0, iter.nextIndex());
     }
 
-    public void testRemove_6_oe() {
+public void testRemove_6_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -268,7 +268,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(list1.get(0), iter.next());
     }
 
-    public void testRemove_7_oe() {
+public void testRemove_7_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -293,7 +293,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(0, iter.previousIndex());
     }
 
-    public void testRemove_8_oe() {
+public void testRemove_8_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -319,7 +319,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(1, iter.nextIndex());
     }
 
-    public void testRemove_9_oe() {
+public void testRemove_9_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -349,7 +349,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(--sz, list1.size());
     }
 
-    public void testRemove_10_oe() {
+public void testRemove_10_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -381,7 +381,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(-1, iter.previousIndex());
     }
 
-    public void testRemove_11_oe() {
+public void testRemove_11_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -414,7 +414,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(0, iter.nextIndex());
     }
 
-    public void testRemove_13_oe() {
+public void testRemove_13_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -456,7 +456,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(-1, iter.previousIndex());
     }
 
-    public void testRemove_14_oe() {
+public void testRemove_14_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -499,7 +499,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(0, iter.nextIndex());
     }
 
-    public void testRemove_15_oe() {
+public void testRemove_15_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -545,7 +545,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(list1.get(0), iter.next());
     }
 
-    public void testRemove_16_oe() {
+public void testRemove_16_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -592,7 +592,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(0, iter.previousIndex());
     }
 
-    public void testRemove_17_oe() {
+public void testRemove_17_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -640,7 +640,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(1, iter.nextIndex());
     }
 
-    public void testRemove_18_oe() {
+public void testRemove_18_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -690,7 +690,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(list1.get(1), iter.next());
     }
 
-    public void testRemove_19_oe() {
+public void testRemove_19_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -741,7 +741,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(1, iter.previousIndex());
     }
 
-    public void testRemove_20_oe() {
+public void testRemove_20_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -793,7 +793,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(2, iter.nextIndex());
     }
 
-    public void testRemove_21_oe() {
+public void testRemove_21_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -848,7 +848,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(list1.get(1), iter.previous());
     }
 
-    public void testRemove_22_oe() {
+public void testRemove_22_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -904,7 +904,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(0, iter.previousIndex());
     }
 
-    public void testRemove_23_oe() {
+public void testRemove_23_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -961,7 +961,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(1, iter.nextIndex());
     }
 
-    public void testRemove_24_oe() {
+public void testRemove_24_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -1022,7 +1022,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(--sz, list1.size());
     }
 
-    public void testRemove_25_oe() {
+public void testRemove_25_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -1084,7 +1084,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(0, iter.previousIndex());
     }
 
-    public void testRemove_26_oe() {
+public void testRemove_26_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -1147,7 +1147,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(1, iter.nextIndex());
     }
 
-    public void testRemove_27_oe() {
+public void testRemove_27_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -1213,7 +1213,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(list1.get(0), iter.previous());
     }
 
-    public void testRemove_28_oe() {
+public void testRemove_28_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -1280,7 +1280,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(-1, iter.previousIndex());
     }
 
-    public void testRemove_29_oe() {
+public void testRemove_29_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -1348,7 +1348,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(0, iter.nextIndex());
     }
 
-    public void testRemove_31_oe() {
+public void testRemove_31_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -1425,7 +1425,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(-1, iter.previousIndex());
     }
 
-    public void testRemove_32_oe() {
+public void testRemove_32_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -1503,7 +1503,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(0, iter.nextIndex());
     }
 
-    public void testRemove_33_oe() {
+public void testRemove_33_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -1584,7 +1584,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(list1.get(0), iter.next());
     }
 
-    public void testRemove_34_oe() {
+public void testRemove_34_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -1666,7 +1666,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(0, iter.previousIndex());
     }
 
-    public void testRemove_35_oe() {
+public void testRemove_35_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -1749,7 +1749,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(1, iter.nextIndex());
     }
 
-    public void testRemove_36_oe() {
+public void testRemove_36_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -1834,7 +1834,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(list1.get(1), iter.next());
     }
 
-    public void testRemove_37_oe() {
+public void testRemove_37_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -1920,7 +1920,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(1, iter.previousIndex());
     }
 
-    public void testRemove_38_oe() {
+public void testRemove_38_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -2007,7 +2007,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(2, iter.nextIndex());
     }
 
-    public void testRemove_39_oe() {
+public void testRemove_39_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -2098,7 +2098,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(--sz, list1.size());
     }
 
-    public void testRemove_40_oe() {
+public void testRemove_40_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -2190,7 +2190,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(0, iter.previousIndex());
     }
 
-    public void testRemove_41_oe() {
+public void testRemove_41_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -2283,7 +2283,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(1, iter.nextIndex());
     }
 
-    public void testRemove_42_oe() {
+public void testRemove_42_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -2378,7 +2378,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(list1.get(1), iter.next());
     }
 
-    public void testRemove_43_oe() {
+public void testRemove_43_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -2474,7 +2474,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(1, iter.previousIndex());
     }
 
-    public void testRemove_44_oe() {
+public void testRemove_44_oe() {
         final ListIterator<E> iter = makeObject();
 
         //initial state:
@@ -2571,7 +2571,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(2, iter.nextIndex());
     }
 
-    public void testReset_1_oe() {
+public void testReset_1_oe() {
         final ResettableListIterator<E> iter = makeObject();
         final E first = iter.next();
         final E second = iter.next();
@@ -2582,7 +2582,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertFalse("No previous elements after reset()", iter.hasPrevious());
     }
 
-    public void testReset_2_oe() {
+public void testReset_2_oe() {
         final ResettableListIterator<E> iter = makeObject();
         final E first = iter.next();
         final E second = iter.next();
@@ -2596,7 +2596,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals("First element should be the same", first, iter.next());
     }
 
-    public void testReset_3_oe() {
+public void testReset_3_oe() {
         final ResettableListIterator<E> iter = makeObject();
         final E first = iter.next();
         final E second = iter.next();
@@ -2611,7 +2611,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals("Second elment should be the same", second, iter.next());
     }
 
-    public void testReset_4_oe() {
+public void testReset_4_oe() {
         final ResettableListIterator<E> iter = makeObject();
         final E first = iter.next();
         final E second = iter.next();

@@ -191,7 +191,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
      * Tests whether the flag that controls settings inheritance can be set.
      */
 
-    @Test
+@Test
     public void testClone_1_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         params.setBasePath("some base path");
@@ -202,7 +202,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertEquals("Wrong field value", params.getBasePath(), clone.getBasePath());
     }
 
-    @Test
+@Test
     public void testClone_2_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         params.setBasePath("some base path");
@@ -214,7 +214,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertNotSame("Parameters object not cloned", params.getDefinitionBuilderParameters(), clone.getDefinitionBuilderParameters());
     }
 
-    @Test
+@Test
     public void testClone_3_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         params.setBasePath("some base path");
@@ -227,32 +227,32 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertEquals("Wrong field value in parameters object",params.getDefinitionBuilderParameters().getParameters().get("systemID"),clone.getDefinitionBuilderParameters().getParameters().get("systemID"));
     }
 
-    @Test
+@Test
     public void testFromParametersCreate_1_oe() {
         final CombinedBuilderParametersImpl params = CombinedBuilderParametersImpl.fromParameters(new HashMap<>(), true);
         assertNotNull("No instance", params);
     }
 
-    @Test
+@Test
     public void testFromParametersCreate_2_oe() {
         final CombinedBuilderParametersImpl params = CombinedBuilderParametersImpl.fromParameters(new HashMap<>(), true);
         // removed other assertion
         assertNull("Got data", params.getDefinitionBuilder());
     }
 
-    @Test
+@Test
     public void testFromParametersExisting_1_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         final Map<String, Object> map = params.getParameters();
         assertSame("Wrong result", params, CombinedBuilderParametersImpl.fromParameters(map));
     }
 
-    @Test
+@Test
     public void testFromParametersNotFound_1_oe() {
         assertNull("Got an instance", CombinedBuilderParametersImpl.fromParameters(new HashMap<>()));
     }
 
-    @Test
+@Test
     public void testGetChildDefaultParametersManagerSpecific_1_oe() {
         final DefaultParametersManager manager = EasyMock.createMock(DefaultParametersManager.class);
         EasyMock.replay(manager);
@@ -260,13 +260,13 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertSame("Wrong result", params, params.setChildDefaultParametersManager(manager));
     }
 
-    @Test
+@Test
     public void testGetChildDefaultParametersManagerUndefined_1_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         assertNotNull("No default manager", params.getChildDefaultParametersManager());
     }
 
-    @Test
+@Test
     public void testGetParametersInherited_1_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         params.setThrowExceptionOnMissing(true);
@@ -274,13 +274,13 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertEquals("Exception flag not found", Boolean.TRUE, map.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testGetProvidersInitial_1_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         assertTrue("Got providers", params.getProviders().isEmpty());
     }
 
-    @Test
+@Test
     public void testInheritFrom_1_oe() {
         final DefaultParametersManager manager = EasyMock.createMock(DefaultParametersManager.class);
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl().setInheritSettings(false).setChildDefaultParametersManager(manager);
@@ -292,7 +292,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertEquals("Exception flag not set", Boolean.TRUE, parameters.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_2_oe() {
         final DefaultParametersManager manager = EasyMock.createMock(DefaultParametersManager.class);
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl().setInheritSettings(false).setChildDefaultParametersManager(manager);
@@ -305,7 +305,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertEquals("Default manager not set", manager, params2.getChildDefaultParametersManager());
     }
 
-    @Test
+@Test
     public void testInheritFrom_3_oe() {
         final DefaultParametersManager manager = EasyMock.createMock(DefaultParametersManager.class);
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl().setInheritSettings(false).setChildDefaultParametersManager(manager);
@@ -319,7 +319,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertFalse("Inherit flag not set", params2.isInheritSettings());
     }
 
-    @Test
+@Test
     public void testInheritFromNoParametersInMap_1_oe() {
         final BasicBuilderParameters params = new BasicBuilderParameters().setThrowExceptionOnMissing(true);
         final CombinedBuilderParametersImpl params2 = new CombinedBuilderParametersImpl();
@@ -329,13 +329,13 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertEquals("Exception flag not set", Boolean.TRUE, parameters.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testProviderForUnknown_1_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         assertNull("Got a provider", params.providerForTag("someTag"));
     }
 
-    @Test
+@Test
     public void testRegisterChildDefaultsHandler_1_oe() {
         final DefaultParametersManager manager = EasyMock.createMock(DefaultParametersManager.class);
         final DefaultParametersHandler<BuilderParameters> handler = createDefaultsHandlerMock();
@@ -346,7 +346,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertSame("Wrong result", params, params.registerChildDefaultsHandler(BuilderParameters.class, handler));
     }
 
-    @Test
+@Test
     public void testRegisterChildDefaultsHandlerWithStartClass_1_oe() {
         final DefaultParametersManager manager = EasyMock.createMock(DefaultParametersManager.class);
         final DefaultParametersHandler<BuilderParameters> handler = createDefaultsHandlerMock();
@@ -357,7 +357,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertSame("Wrong result", params, params.registerChildDefaultsHandler(BuilderParameters.class, handler, FileBasedBuilderParameters.class));
     }
 
-    @Test
+@Test
     public void testRegisterMissingProviders_1_oe() {
         final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
         final ConfigurationBuilderProvider provider2 = EasyMock.createMock(ConfigurationBuilderProvider.class);
@@ -371,7 +371,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertSame("Wrong result", params, params.registerMissingProviders(map));
     }
 
-    @Test
+@Test
     public void testRegisterMissingProviders_3_oe() {
         final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
         final ConfigurationBuilderProvider provider2 = EasyMock.createMock(ConfigurationBuilderProvider.class);
@@ -387,7 +387,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertSame("Wrong provider (1)", provider1, params.providerForTag(tagPrefix));
     }
 
-    @Test
+@Test
     public void testRegisterMissingProvidersParams_1_oe() {
         final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
         final ConfigurationBuilderProvider provider2 = EasyMock.createMock(ConfigurationBuilderProvider.class);
@@ -401,7 +401,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertSame("Wrong result", params, params.registerMissingProviders(params2));
     }
 
-    @Test
+@Test
     public void testRegisterMissingProvidersParams_3_oe() {
         final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
         final ConfigurationBuilderProvider provider2 = EasyMock.createMock(ConfigurationBuilderProvider.class);
@@ -417,7 +417,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertSame("Wrong provider (1)", provider1, params.providerForTag(tagPrefix));
     }
 
-    @Test
+@Test
     public void testRegisterProvider_1_oe() {
         final ConfigurationBuilderProvider provider = EasyMock.createMock(ConfigurationBuilderProvider.class);
         EasyMock.replay(provider);
@@ -426,14 +426,14 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertSame("Wrong result", params, params.registerProvider(tagName, provider));
     }
 
-    @Test
+@Test
     public void testSetBasePath_1_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         final String basePath = ConfigurationAssert.OUT_DIR.getAbsolutePath();
         assertSame("Wrong result", params, params.setBasePath(basePath));
     }
 
-    @Test
+@Test
     public void testSetBeanProperties_1_oe() throws Exception {
         final BuilderParameters defparams = EasyMock.createMock(BuilderParameters.class);
         EasyMock.replay(defparams);
@@ -444,7 +444,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertEquals("Wrong path", "testPath", params.getBasePath());
     }
 
-    @Test
+@Test
     public void testSetBeanProperties_2_oe() throws Exception {
         final BuilderParameters defparams = EasyMock.createMock(BuilderParameters.class);
         EasyMock.replay(defparams);
@@ -456,7 +456,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertSame("Wrong def parameters", defparams, params.getDefinitionBuilderParameters());
     }
 
-    @Test
+@Test
     public void testSetBeanProperties_3_oe() throws Exception {
         final BuilderParameters defparams = EasyMock.createMock(BuilderParameters.class);
         EasyMock.replay(defparams);
@@ -469,13 +469,13 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertFalse("Wrong inherit flag", params.isInheritSettings());
     }
 
-    @Test
+@Test
     public void testSetDefinitionBuilder_1_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         assertNull("Got a definition builder", params.getDefinitionBuilder());
     }
 
-    @Test
+@Test
     public void testSetDefinitionBuilder_2_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         // removed other assertion
@@ -483,7 +483,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertSame("Wrong result", params, params.setDefinitionBuilder(builder));
     }
 
-    @Test
+@Test
     public void testSetDefinitionBuilderParameters_1_oe() {
         final BuilderParameters defparams = EasyMock.createMock(BuilderParameters.class);
         EasyMock.replay(defparams);
@@ -491,13 +491,13 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         assertSame("Wrong result", params, params.setDefinitionBuilderParameters(defparams));
     }
 
-    @Test
+@Test
     public void testSetInheritSettings_1_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         assertTrue("Wrong initial value", params.isInheritSettings());
     }
 
-    @Test
+@Test
     public void testSetInheritSettings_2_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         // removed other assertion

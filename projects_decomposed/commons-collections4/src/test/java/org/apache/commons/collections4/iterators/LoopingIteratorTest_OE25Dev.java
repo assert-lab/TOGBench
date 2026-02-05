@@ -78,14 +78,14 @@ public class LoopingIteratorTest_OE25Dev {
      * @throws Exception  If something unexpected occurs.
      */
 
-    @Test
+@Test
     public void testLooping0_1_oe() throws Exception {
         final List<Object> list = new ArrayList<>();
         final LoopingIterator<Object> loop = new LoopingIterator<>(list);
         assertTrue("hasNext should return false", !loop.hasNext());
     }
 
-    @Test
+@Test
     public void testLooping1_1_oe() throws Exception {
         final List<String> list = Arrays.asList("a");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -93,7 +93,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertTrue("1st hasNext should return true", loop.hasNext());
     }
 
-    @Test
+@Test
     public void testLooping1_2_oe() throws Exception {
         final List<String> list = Arrays.asList("a");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -102,7 +102,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("a", loop.next());
     }
 
-    @Test
+@Test
     public void testLooping1_3_oe() throws Exception {
         final List<String> list = Arrays.asList("a");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -113,7 +113,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertTrue("2nd hasNext should return true", loop.hasNext());
     }
 
-    @Test
+@Test
     public void testLooping1_4_oe() throws Exception {
         final List<String> list = Arrays.asList("a");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -125,7 +125,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("a", loop.next());
     }
 
-    @Test
+@Test
     public void testLooping1_5_oe() throws Exception {
         final List<String> list = Arrays.asList("a");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -139,7 +139,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertTrue("3rd hasNext should return true", loop.hasNext());
     }
 
-    @Test
+@Test
     public void testLooping1_6_oe() throws Exception {
         final List<String> list = Arrays.asList("a");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -154,7 +154,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("a", loop.next());
     }
 
-    @Test
+@Test
     public void testLooping2_1_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -162,7 +162,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertTrue("1st hasNext should return true", loop.hasNext());
     }
 
-    @Test
+@Test
     public void testLooping2_2_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -171,7 +171,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("a", loop.next());
     }
 
-    @Test
+@Test
     public void testLooping2_3_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -182,7 +182,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertTrue("2nd hasNext should return true", loop.hasNext());
     }
 
-    @Test
+@Test
     public void testLooping2_4_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -194,7 +194,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("b", loop.next());
     }
 
-    @Test
+@Test
     public void testLooping2_5_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -208,7 +208,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertTrue("3rd hasNext should return true", loop.hasNext());
     }
 
-    @Test
+@Test
     public void testLooping2_6_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -223,7 +223,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("a", loop.next());
     }
 
-    @Test
+@Test
     public void testLooping3_1_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -231,7 +231,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertTrue("1st hasNext should return true", loop.hasNext());
     }
 
-    @Test
+@Test
     public void testLooping3_2_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -240,7 +240,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("a", loop.next());
     }
 
-    @Test
+@Test
     public void testLooping3_3_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -251,7 +251,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertTrue("2nd hasNext should return true", loop.hasNext());
     }
 
-    @Test
+@Test
     public void testLooping3_4_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -263,7 +263,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("b", loop.next());
     }
 
-    @Test
+@Test
     public void testLooping3_5_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -277,7 +277,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertTrue("3rd hasNext should return true", loop.hasNext());
     }
 
-    @Test
+@Test
     public void testLooping3_6_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -292,7 +292,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("c", loop.next());
     }
 
-    @Test
+@Test
     public void testLooping3_7_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -309,7 +309,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertTrue("4th hasNext should return true", loop.hasNext());
     }
 
-    @Test
+@Test
     public void testLooping3_8_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -327,14 +327,14 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("a", loop.next());
     }
 
-    @Test
+@Test
     public void testRemoving1_1_oe() throws Exception {
         final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
         assertEquals("list should have 3 elements.", 3, list.size());
     }
 
-    @Test
+@Test
     public void testRemoving1_2_oe() throws Exception {
         final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -343,7 +343,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertTrue("1st hasNext should return true", loop.hasNext());
     }
 
-    @Test
+@Test
     public void testRemoving1_3_oe() throws Exception {
         final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -353,7 +353,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("a", loop.next());
     }
 
-    @Test
+@Test
     public void testRemoving1_4_oe() throws Exception {
         final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -365,7 +365,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("list should have 2 elements.", 2, list.size());
     }
 
-    @Test
+@Test
     public void testRemoving1_5_oe() throws Exception {
         final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -379,7 +379,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertTrue("2nd hasNext should return true", loop.hasNext());
     }
 
-    @Test
+@Test
     public void testRemoving1_6_oe() throws Exception {
         final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -394,7 +394,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("b", loop.next());
     }
 
-    @Test
+@Test
     public void testRemoving1_7_oe() throws Exception {
         final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -411,7 +411,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("list should have 1 elements.", 1, list.size());
     }
 
-    @Test
+@Test
     public void testRemoving1_8_oe() throws Exception {
         final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -430,7 +430,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertTrue("3rd hasNext should return true", loop.hasNext());
     }
 
-    @Test
+@Test
     public void testRemoving1_9_oe() throws Exception {
         final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -450,7 +450,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("c", loop.next());
     }
 
-    @Test
+@Test
     public void testRemoving1_10_oe() throws Exception {
         final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -472,7 +472,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("list should have 0 elements.", 0, list.size());
     }
 
-    @Test
+@Test
     public void testRemoving1_11_oe() throws Exception {
         final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -496,7 +496,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertFalse("4th hasNext should return false", loop.hasNext());
     }
 
-    @Test
+@Test
     public void testReset_1_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -504,7 +504,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("a", loop.next());
     }
 
-    @Test
+@Test
     public void testReset_2_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -513,7 +513,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("b", loop.next());
     }
 
-    @Test
+@Test
     public void testReset_3_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -524,7 +524,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("a", loop.next());
     }
 
-    @Test
+@Test
     public void testReset_4_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -537,7 +537,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("a", loop.next());
     }
 
-    @Test
+@Test
     public void testReset_5_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -551,7 +551,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("b", loop.next());
     }
 
-    @Test
+@Test
     public void testReset_6_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -566,7 +566,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("c", loop.next());
     }
 
-    @Test
+@Test
     public void testReset_7_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -583,7 +583,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("a", loop.next());
     }
 
-    @Test
+@Test
     public void testReset_8_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -601,7 +601,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("b", loop.next());
     }
 
-    @Test
+@Test
     public void testReset_9_oe() throws Exception {
         final List<String> list = Arrays.asList("a", "b", "c");
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -620,7 +620,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals("c", loop.next());
     }
 
-    @Test
+@Test
     public void testSize_1_oe() throws Exception {
         final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -628,7 +628,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals(3, loop.size());
     }
 
-    @Test
+@Test
     public void testSize_2_oe() throws Exception {
         final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -639,7 +639,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals(3, loop.size());
     }
 
-    @Test
+@Test
     public void testSize_3_oe() throws Exception {
         final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
         final LoopingIterator<String> loop = new LoopingIterator<>(list);
@@ -652,7 +652,7 @@ public class LoopingIteratorTest_OE25Dev {
         assertEquals(3, loop.size());
     }
 
-    @Test
+@Test
     public void testSize_4_oe() throws Exception {
         final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
         final LoopingIterator<String> loop = new LoopingIterator<>(list);

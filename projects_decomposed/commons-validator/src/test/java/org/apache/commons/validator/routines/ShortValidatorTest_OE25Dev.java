@@ -81,7 +81,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
      * Test Short Range/Min/Max
      */
 
-    public void testShortValidatorMethods_1_oe() {
+public void testShortValidatorMethods_1_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -93,7 +93,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertEquals("validate(A) default", expected, ShortValidator.getInstance().validate(defaultVal));
     }
 
-    public void testShortValidatorMethods_2_oe() {
+public void testShortValidatorMethods_2_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -106,7 +106,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertEquals("validate(A) locale ", expected, ShortValidator.getInstance().validate(localeVal, locale));
     }
 
-    public void testShortValidatorMethods_3_oe() {
+public void testShortValidatorMethods_3_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -120,7 +120,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertEquals("validate(A) pattern", expected, ShortValidator.getInstance().validate(patternVal, pattern));
     }
 
-    public void testShortValidatorMethods_4_oe() {
+public void testShortValidatorMethods_4_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -135,7 +135,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertEquals("validate(A) both",    expected, ShortValidator.getInstance().validate(germanPatternVal, pattern, Locale.GERMAN));
     }
 
-    public void testShortValidatorMethods_5_oe() {
+public void testShortValidatorMethods_5_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -152,7 +152,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isValid(A) default", ShortValidator.getInstance().isValid(defaultVal));
     }
 
-    public void testShortValidatorMethods_6_oe() {
+public void testShortValidatorMethods_6_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -170,7 +170,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isValid(A) locale ", ShortValidator.getInstance().isValid(localeVal, locale));
     }
 
-    public void testShortValidatorMethods_7_oe() {
+public void testShortValidatorMethods_7_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -189,7 +189,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isValid(A) pattern", ShortValidator.getInstance().isValid(patternVal, pattern));
     }
 
-    public void testShortValidatorMethods_8_oe() {
+public void testShortValidatorMethods_8_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -209,7 +209,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isValid(A) both",    ShortValidator.getInstance().isValid(germanPatternVal, pattern, Locale.GERMAN));
     }
 
-    public void testShortValidatorMethods_9_oe() {
+public void testShortValidatorMethods_9_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -231,7 +231,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertNull("validate(B) default", ShortValidator.getInstance().validate(XXXX));
     }
 
-    public void testShortValidatorMethods_10_oe() {
+public void testShortValidatorMethods_10_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -254,7 +254,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertNull("validate(B) locale ", ShortValidator.getInstance().validate(XXXX, locale));
     }
 
-    public void testShortValidatorMethods_11_oe() {
+public void testShortValidatorMethods_11_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -278,7 +278,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertNull("validate(B) pattern", ShortValidator.getInstance().validate(XXXX, pattern));
     }
 
-    public void testShortValidatorMethods_12_oe() {
+public void testShortValidatorMethods_12_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -303,7 +303,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertNull("validate(B) both",    ShortValidator.getInstance().validate(patternVal, pattern, Locale.GERMAN));
     }
 
-    public void testShortValidatorMethods_13_oe() {
+public void testShortValidatorMethods_13_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -330,7 +330,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isValid(B) default", ShortValidator.getInstance().isValid(XXXX));
     }
 
-    public void testShortValidatorMethods_14_oe() {
+public void testShortValidatorMethods_14_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -358,7 +358,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isValid(B) locale ", ShortValidator.getInstance().isValid(XXXX, locale));
     }
 
-    public void testShortValidatorMethods_15_oe() {
+public void testShortValidatorMethods_15_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -387,7 +387,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isValid(B) pattern", ShortValidator.getInstance().isValid(XXXX, pattern));
     }
 
-    public void testShortValidatorMethods_16_oe() {
+public void testShortValidatorMethods_16_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -417,7 +417,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isValid(B) both",    ShortValidator.getInstance().isValid(patternVal, pattern, Locale.GERMAN));
     }
 
-    public void testShortRangeMinMax_1_oe() {
+public void testShortRangeMinMax_1_oe() {
         ShortValidator validator = (ShortValidator)strictValidator;
         Short number9  = validator.validate("9", "#");
         Short number10 = validator.validate("10", "#");
@@ -432,7 +432,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isInRange() < min",   validator.isInRange(number9,  min, max));
     }
 
-    public void testShortRangeMinMax_2_oe() {
+public void testShortRangeMinMax_2_oe() {
         ShortValidator validator = (ShortValidator)strictValidator;
         Short number9  = validator.validate("9", "#");
         Short number10 = validator.validate("10", "#");
@@ -448,7 +448,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isInRange() = min",    validator.isInRange(number10, min, max));
     }
 
-    public void testShortRangeMinMax_3_oe() {
+public void testShortRangeMinMax_3_oe() {
         ShortValidator validator = (ShortValidator)strictValidator;
         Short number9  = validator.validate("9", "#");
         Short number10 = validator.validate("10", "#");
@@ -465,7 +465,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isInRange() in range", validator.isInRange(number11, min, max));
     }
 
-    public void testShortRangeMinMax_4_oe() {
+public void testShortRangeMinMax_4_oe() {
         ShortValidator validator = (ShortValidator)strictValidator;
         Short number9  = validator.validate("9", "#");
         Short number10 = validator.validate("10", "#");
@@ -483,7 +483,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isInRange() = max",    validator.isInRange(number20, min, max));
     }
 
-    public void testShortRangeMinMax_5_oe() {
+public void testShortRangeMinMax_5_oe() {
         ShortValidator validator = (ShortValidator)strictValidator;
         Short number9  = validator.validate("9", "#");
         Short number10 = validator.validate("10", "#");
@@ -502,7 +502,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isInRange() > max",   validator.isInRange(number21, min, max));
     }
 
-    public void testShortRangeMinMax_6_oe() {
+public void testShortRangeMinMax_6_oe() {
         ShortValidator validator = (ShortValidator)strictValidator;
         Short number9  = validator.validate("9", "#");
         Short number10 = validator.validate("10", "#");
@@ -524,7 +524,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("minValue() < min",    validator.minValue(number9,  min));
     }
 
-    public void testShortRangeMinMax_7_oe() {
+public void testShortRangeMinMax_7_oe() {
         ShortValidator validator = (ShortValidator)strictValidator;
         Short number9  = validator.validate("9", "#");
         Short number10 = validator.validate("10", "#");
@@ -547,7 +547,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("minValue() = min",     validator.minValue(number10, min));
     }
 
-    public void testShortRangeMinMax_8_oe() {
+public void testShortRangeMinMax_8_oe() {
         ShortValidator validator = (ShortValidator)strictValidator;
         Short number9  = validator.validate("9", "#");
         Short number10 = validator.validate("10", "#");
@@ -571,7 +571,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("minValue() > min",     validator.minValue(number11, min));
     }
 
-    public void testShortRangeMinMax_9_oe() {
+public void testShortRangeMinMax_9_oe() {
         ShortValidator validator = (ShortValidator)strictValidator;
         Short number9  = validator.validate("9", "#");
         Short number10 = validator.validate("10", "#");
@@ -598,7 +598,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("maxValue() < max",     validator.maxValue(number19, max));
     }
 
-    public void testShortRangeMinMax_10_oe() {
+public void testShortRangeMinMax_10_oe() {
         ShortValidator validator = (ShortValidator)strictValidator;
         Short number9  = validator.validate("9", "#");
         Short number10 = validator.validate("10", "#");
@@ -626,7 +626,7 @@ public class ShortValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("maxValue() = max",     validator.maxValue(number20, max));
     }
 
-    public void testShortRangeMinMax_11_oe() {
+public void testShortRangeMinMax_11_oe() {
         ShortValidator validator = (ShortValidator)strictValidator;
         Short number9  = validator.validate("9", "#");
         Short number10 = validator.validate("10", "#");

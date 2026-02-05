@@ -34,7 +34,7 @@ public class CompositeCacheManagerTest_OE25Dev
      * Verify that calling release, when there are active clients, the caches are correctly disposed or not.
      */
 
-    public void testRelease_1_oe()
+public void testRelease_1_oe()
     {
         // See JCS-184
         // create the manager
@@ -51,7 +51,7 @@ public class CompositeCacheManagerTest_OE25Dev
         assertEquals("The cache was disposed during release!", CacheStatus.ALIVE, cache.getStatus());
     }
 
-    public void testRelease_2_oe()
+public void testRelease_2_oe()
     {
         // See JCS-184
         // create the manager

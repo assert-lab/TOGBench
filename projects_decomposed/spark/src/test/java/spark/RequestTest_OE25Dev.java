@@ -110,7 +110,7 @@ public class RequestTest_OE25Dev {
         verify(servletRequest, times(1)).getSession(false);
     }
 
-    @Test
+@Test
     public void queryParamShouldReturnsParametersFromQueryString_1_oe() {
 
         when(servletRequest.getParameter("name")).thenReturn("Federico");
@@ -119,7 +119,7 @@ public class RequestTest_OE25Dev {
         assertEquals("Invalid name in query string", "Federico", name);
     }
 
-    @Test
+@Test
     public void queryParamOrDefault_shouldReturnQueryParam_whenQueryParamExists_1_oe() {
 
         when(servletRequest.getParameter("name")).thenReturn("Federico");
@@ -128,7 +128,7 @@ public class RequestTest_OE25Dev {
         assertEquals("Invalid name in query string", "Federico", name);
     }
 
-    @Test
+@Test
     public void queryParamOrDefault_shouldReturnDefault_whenQueryParamIsNull_1_oe() {
 
         when(servletRequest.getParameter("name")).thenReturn(null);
@@ -137,7 +137,7 @@ public class RequestTest_OE25Dev {
         assertEquals("Invalid name in default value", "David", name);
     }
 
-    @Test
+@Test
     public void queryParamShouldBeParsedAsHashMap_1_oe() {
         Map<String, String[]> params = new HashMap<>();
         params.put("user[name]", new String[] {"Federico"});
@@ -148,7 +148,7 @@ public class RequestTest_OE25Dev {
         assertEquals("Invalid name in query string", "Federico", name);
     }
 
-    @Test
+@Test
     public void shouldBeAbleToGetTheServletPath_1_oe() {
 
         when(servletRequest.getServletPath()).thenReturn(THE_SERVLET_PATH);
@@ -157,7 +157,7 @@ public class RequestTest_OE25Dev {
         assertEquals("Should have delegated getting the servlet path", THE_SERVLET_PATH, request.servletPath());
     }
 
-    @Test
+@Test
     public void shouldBeAbleToGetTheContextPath_1_oe() {
 
         when(servletRequest.getContextPath()).thenReturn(THE_CONTEXT_PATH);
@@ -166,13 +166,13 @@ public class RequestTest_OE25Dev {
         assertEquals("Should have delegated getting the context path", THE_CONTEXT_PATH, request.contextPath());
     }
 
-    @Test
+@Test
     public void shouldBeAbleToGetTheMatchedPath_1_oe() {
         Request request = new Request(matchWithParams, servletRequest);
         assertEquals("Should have returned the matched route", THE_MATCHED_ROUTE, request.matchedPath());
     }
 
-    @Test
+@Test
     public void testSessionNoParams_whenSessionIsNull_1_oe() {
 
         when(servletRequest.getSession()).thenReturn(httpSession);
@@ -180,7 +180,7 @@ public class RequestTest_OE25Dev {
         assertEquals("A Session with an HTTPSession from the Request should have been created",httpSession,request.session().raw());
     }
 
-    @Test
+@Test
     public void testSession_whenCreateIsTrue_1_oe() {
 
         when(servletRequest.getSession(true)).thenReturn(httpSession);
@@ -188,7 +188,7 @@ public class RequestTest_OE25Dev {
         assertEquals("A Session with an HTTPSession from the Request should have been created because create parameter " + "was set to true",httpSession,request.session(true).raw());
     }
 
-    @Test
+@Test
     public void testSession_whenCreateIsFalse_1_oe() {
 
         when(servletRequest.getSession(true)).thenReturn(httpSession);
@@ -196,7 +196,7 @@ public class RequestTest_OE25Dev {
         assertEquals("A Session should not have been created because create parameter was set to false",null,request.session(false));
     }
 
-    @Test
+@Test
     public void testSession_2times_1_oe() {
         when(servletRequest.getSession(true)).thenReturn(httpSession);
 
@@ -206,7 +206,7 @@ public class RequestTest_OE25Dev {
         assertNotNull(session);
     }
 
-    @Test
+@Test
     public void testCookies_whenCookiesArePresent_1_oe() {
 
         Collection<Cookie> cookies = new ArrayList<>();
@@ -225,7 +225,7 @@ public class RequestTest_OE25Dev {
         assertTrue("The count of cookies returned should be the same as those in the request",request.cookies().size()== 2);
     }
 
-    @Test
+@Test
     public void testCookies_whenCookiesArePresent_2_oe() {
 
         Collection<Cookie> cookies = new ArrayList<>();
@@ -246,7 +246,7 @@ public class RequestTest_OE25Dev {
         assertEquals("A Map of Cookies should have been returned because they exist", expected, request.cookies());
     }
 
-    @Test
+@Test
     public void testCookies_whenCookiesAreNotPresent_1_oe() {
 
         when(servletRequest.getCookies()).thenReturn(null);
@@ -254,7 +254,7 @@ public class RequestTest_OE25Dev {
         assertNotNull("A Map of Cookies should have been instantiated even if cookies are not present in the request",request.cookies());
     }
 
-    @Test
+@Test
     public void testCookies_whenCookiesAreNotPresent_2_oe() {
 
         when(servletRequest.getCookies()).thenReturn(null);
@@ -264,7 +264,7 @@ public class RequestTest_OE25Dev {
         assertTrue("The Map of cookies should be empty because cookies are not present in the request",request.cookies().size()== 0);
     }
 
-    @Test
+@Test
     public void testCookie_whenCookiesArePresent_1_oe() {
 
         final String cookieKey = "cookie1";
@@ -279,7 +279,7 @@ public class RequestTest_OE25Dev {
         assertNotNull("A value for the key provided should exist because a cookie with the same key is present",request.cookie(cookieKey));
     }
 
-    @Test
+@Test
     public void testCookie_whenCookiesArePresent_2_oe() {
 
         final String cookieKey = "cookie1";
@@ -296,7 +296,7 @@ public class RequestTest_OE25Dev {
         assertEquals("The correct value for the cookie key supplied should be returned",cookieValue,request.cookie(cookieKey));
     }
 
-    @Test
+@Test
     public void testCookie_whenCookiesAreNotPresent_1_oe() {
 
         final String cookieKey = "nonExistentCookie";
@@ -306,7 +306,7 @@ public class RequestTest_OE25Dev {
         assertNull("A null value should have been returned because the cookie with that key does not exist",request.cookie(cookieKey));
     }
 
-    @Test
+@Test
     public void testRequestMethod_1_oe() {
 
         final String requestMethod = "GET";
@@ -316,7 +316,7 @@ public class RequestTest_OE25Dev {
         assertEquals("The request method of the underlying servlet request should be returned",requestMethod,request.requestMethod());
     }
 
-    @Test
+@Test
     public void testScheme_1_oe() {
 
         final String scheme = "http";
@@ -326,7 +326,7 @@ public class RequestTest_OE25Dev {
         assertEquals("The scheme of the underlying servlet request should be returned",scheme,request.scheme());
     }
 
-    @Test
+@Test
     public void testHost_1_oe() {
 
         final String host = "www.google.com";
@@ -336,7 +336,7 @@ public class RequestTest_OE25Dev {
         assertEquals("The value of the host header of the underlying servlet request should be returned",host,request.host());
     }
 
-    @Test
+@Test
     public void testUserAgent_1_oe() {
 
         final String userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36";
@@ -346,7 +346,7 @@ public class RequestTest_OE25Dev {
         assertEquals("The value of the user agent header of the underlying servlet request should be returned",userAgent,request.userAgent());
     }
 
-    @Test
+@Test
     public void testPort_1_oe() {
 
         final int port = 80;
@@ -356,7 +356,7 @@ public class RequestTest_OE25Dev {
         assertEquals("The server port of the the underlying servlet request should be returned",port,request.port());
     }
 
-    @Test
+@Test
     public void testPathInfo_1_oe() {
 
         final String pathInfo = "/path/to/resource";
@@ -366,7 +366,7 @@ public class RequestTest_OE25Dev {
         assertEquals("The path info of the underlying servlet request should be returned",pathInfo,request.pathInfo());
     }
 
-    @Test
+@Test
     public void testServletPath_1_oe() {
 
         final String servletPath = "/api";
@@ -376,7 +376,7 @@ public class RequestTest_OE25Dev {
         assertEquals("The servlet path of the underlying servlet request should be returned",servletPath,request.servletPath());
     }
 
-    @Test
+@Test
     public void testContextPath_1_oe() {
 
         final String contextPath = "/my-app";
@@ -386,7 +386,7 @@ public class RequestTest_OE25Dev {
         assertEquals("The context path of the underlying servlet request should be returned",contextPath,request.contextPath());
     }
 
-    @Test
+@Test
     public void testUrl_1_oe() {
 
         final String url = "http://www.myapp.com/myapp/a";
@@ -396,7 +396,7 @@ public class RequestTest_OE25Dev {
         assertEquals("The request url of the underlying servlet request should be returned",url,request.url());
     }
 
-    @Test
+@Test
     public void testContentType_1_oe() {
 
         final String contentType = "image/jpeg";
@@ -406,7 +406,7 @@ public class RequestTest_OE25Dev {
         assertEquals("The content type of the underlying servlet request should be returned",contentType,request.contentType());
     }
 
-    @Test
+@Test
     public void testIp_1_oe() {
 
         final String ip = "216.58.197.106:80";
@@ -416,7 +416,7 @@ public class RequestTest_OE25Dev {
         assertEquals("The remote IP of the underlying servlet request should be returned",ip,request.ip());
     }
 
-    @Test
+@Test
     public void testContentLength_1_oe() {
 
         final int contentLength = 500;
@@ -426,7 +426,7 @@ public class RequestTest_OE25Dev {
         assertEquals("The content length the underlying servlet request should be returned",contentLength,request.contentLength());
     }
 
-    @Test
+@Test
     public void testHeaders_1_oe() {
 
         final String headerKey = "host";
@@ -437,7 +437,7 @@ public class RequestTest_OE25Dev {
         assertEquals("The value of the header specified should be returned",host,request.headers(headerKey));
     }
 
-    @Test
+@Test
     public void testQueryParamsValues_whenParamExists_1_oe() {
 
         final String[] paramValues = {"foo", "bar"};
@@ -447,7 +447,7 @@ public class RequestTest_OE25Dev {
         assertArrayEquals("An array of Strings for a parameter with multiple values should be returned",paramValues,request.queryParamsValues("id"));
     }
 
-    @Test
+@Test
     public void testQueryParamsValues_whenParamDoesNotExists_1_oe() {
 
         when(servletRequest.getParameterValues("id")).thenReturn(null);
@@ -455,7 +455,7 @@ public class RequestTest_OE25Dev {
         assertNull("Null should be returned because the parameter specified does not exist in the request",request.queryParamsValues("id"));
     }
 
-    @Test
+@Test
     public void testQueryParams_1_oe() {
 
         Map<String, String[]> params = new HashMap<>();
@@ -469,7 +469,7 @@ public class RequestTest_OE25Dev {
         assertArrayEquals("Should return the query parameter names", params.keySet().toArray(), result.toArray());
     }
 
-    @Test
+@Test
     public void testURI_1_oe() {
 
         final String requestURI = "http://localhost:8080/myapp/";
@@ -479,7 +479,7 @@ public class RequestTest_OE25Dev {
         assertEquals("The request URI should be returned",requestURI,request.uri());
     }
 
-    @Test
+@Test
     public void testProtocol_1_oe() {
 
         final String protocol = "HTTP/1.1";

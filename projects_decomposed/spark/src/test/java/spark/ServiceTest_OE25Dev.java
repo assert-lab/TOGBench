@@ -193,12 +193,12 @@ public class ServiceTest_OE25Dev {
     protected static class DummyWebSocketListener {
     }
 
-    @Test
+@Test
     public void testEmbeddedServerIdentifier_defaultAndSet_1_oe() {
         assertEquals("Should return defaultIdentifier()",EmbeddedServers.defaultIdentifier(),service.embeddedServerIdentifier());
     }
 
-    @Test
+@Test
     public void testEmbeddedServerIdentifier_defaultAndSet_2_oe() {
         // removed other assertion
 
@@ -209,7 +209,7 @@ public class ServiceTest_OE25Dev {
         assertEquals("Should return expected obj",obj,service.embeddedServerIdentifier());
     }
 
-    @Test
+@Test
     public void testIpAddress_whenInitializedFalse_1_oe() {
         service.ipAddress(IP_ADDRESS);
 
@@ -217,7 +217,7 @@ public class ServiceTest_OE25Dev {
         assertEquals("IP address should be set to the IP address that was specified", IP_ADDRESS, ipAddress);
     }
 
-    @Test
+@Test
     public void testSetIpAddress_whenInitializedFalse_1_oe() {
         service.ipAddress(IP_ADDRESS);
 
@@ -225,7 +225,7 @@ public class ServiceTest_OE25Dev {
         assertEquals("IP address should be set to the IP address that was specified", IP_ADDRESS, ipAddress);
     }
 
-    @Test
+@Test
     public void testPort_whenInitializedFalse_1_oe() {
         service.port(8080);
 
@@ -233,7 +233,7 @@ public class ServiceTest_OE25Dev {
         assertEquals("Port should be set to the Port that was specified", 8080, port);
     }
 
-    @Test
+@Test
     public void testSetPort_whenInitializedFalse_1_oe() {
         service.port(8080);
 
@@ -241,7 +241,7 @@ public class ServiceTest_OE25Dev {
         assertEquals("Port should be set to the Port that was specified", 8080, port);
     }
 
-    @Test
+@Test
     public void testGetPort_whenInitializedTrue_1_oe() {
         int expectedPort = 8080;
         Whitebox.setInternalState(service, "initialized", true);
@@ -252,7 +252,7 @@ public class ServiceTest_OE25Dev {
         assertEquals("Port retrieved should be the port setted", expectedPort, actualPort);
     }
 
-    @Test
+@Test
     public void testGetPort_whenInitializedTrue_Default_1_oe() {
         int expectedPort = Service.SPARK_DEFAULT_PORT;
         Whitebox.setInternalState(service, "initialized", true);
@@ -262,7 +262,7 @@ public class ServiceTest_OE25Dev {
         assertEquals("Port retrieved should be the port setted", expectedPort, actualPort);
     }
 
-    @Test
+@Test
     public void testThreadPool_whenOnlyMaxThreads_1_oe() {
         service.threadPool(100);
         int maxThreads = Whitebox.getInternalState(service, "maxThreads");
@@ -271,7 +271,7 @@ public class ServiceTest_OE25Dev {
         assertEquals("Should return maxThreads specified", 100, maxThreads);
     }
 
-    @Test
+@Test
     public void testThreadPool_whenOnlyMaxThreads_2_oe() {
         service.threadPool(100);
         int maxThreads = Whitebox.getInternalState(service, "maxThreads");
@@ -281,7 +281,7 @@ public class ServiceTest_OE25Dev {
         assertEquals("Should return minThreads specified", -1, minThreads);
     }
 
-    @Test
+@Test
     public void testThreadPool_whenOnlyMaxThreads_3_oe() {
         service.threadPool(100);
         int maxThreads = Whitebox.getInternalState(service, "maxThreads");
@@ -292,7 +292,7 @@ public class ServiceTest_OE25Dev {
         assertEquals("Should return threadIdleTimeoutMillis specified", -1, threadIdleTimeoutMillis);
     }
 
-    @Test
+@Test
     public void testThreadPool_whenMaxMinAndTimeoutParameters_1_oe() {
         service.threadPool(100, 50, 75);
         int maxThreads = Whitebox.getInternalState(service, "maxThreads");
@@ -301,7 +301,7 @@ public class ServiceTest_OE25Dev {
         assertEquals("Should return maxThreads specified", 100, maxThreads);
     }
 
-    @Test
+@Test
     public void testThreadPool_whenMaxMinAndTimeoutParameters_2_oe() {
         service.threadPool(100, 50, 75);
         int maxThreads = Whitebox.getInternalState(service, "maxThreads");
@@ -311,7 +311,7 @@ public class ServiceTest_OE25Dev {
         assertEquals("Should return minThreads specified", 50, minThreads);
     }
 
-    @Test
+@Test
     public void testThreadPool_whenMaxMinAndTimeoutParameters_3_oe() {
         service.threadPool(100, 50, 75);
         int maxThreads = Whitebox.getInternalState(service, "maxThreads");
@@ -322,14 +322,14 @@ public class ServiceTest_OE25Dev {
         assertEquals("Should return threadIdleTimeoutMillis specified", 75, threadIdleTimeoutMillis);
     }
 
-    @Test
+@Test
     public void testSecure_thenReturnNewSslStores_1_oe() {
         service.secure("keyfile", "keypassword", "truststorefile", "truststorepassword");
         SslStores sslStores = Whitebox.getInternalState(service, "sslStores");
         assertNotNull("Should return a SslStores because we configured it to have one", sslStores);
     }
 
-    @Test
+@Test
     public void testSecure_thenReturnNewSslStores_2_oe() {
         service.secure("keyfile", "keypassword", "truststorefile", "truststorepassword");
         SslStores sslStores = Whitebox.getInternalState(service, "sslStores");
@@ -337,7 +337,7 @@ public class ServiceTest_OE25Dev {
         assertEquals("Should return keystoreFile from SslStores", "keyfile", sslStores.keystoreFile());
     }
 
-    @Test
+@Test
     public void testSecure_thenReturnNewSslStores_3_oe() {
         service.secure("keyfile", "keypassword", "truststorefile", "truststorepassword");
         SslStores sslStores = Whitebox.getInternalState(service, "sslStores");
@@ -346,7 +346,7 @@ public class ServiceTest_OE25Dev {
         assertEquals("Should return keystorePassword from SslStores", "keypassword", sslStores.keystorePassword());
     }
 
-    @Test
+@Test
     public void testSecure_thenReturnNewSslStores_4_oe() {
         service.secure("keyfile", "keypassword", "truststorefile", "truststorepassword");
         SslStores sslStores = Whitebox.getInternalState(service, "sslStores");
@@ -356,7 +356,7 @@ public class ServiceTest_OE25Dev {
         assertEquals("Should return trustStoreFile from SslStores", "truststorefile", sslStores.trustStoreFile());
     }
 
-    @Test
+@Test
     public void testSecure_thenReturnNewSslStores_5_oe() {
         service.secure("keyfile", "keypassword", "truststorefile", "truststorepassword");
         SslStores sslStores = Whitebox.getInternalState(service, "sslStores");
@@ -367,7 +367,7 @@ public class ServiceTest_OE25Dev {
         assertEquals("Should return trustStorePassword from SslStores", "truststorepassword", sslStores.trustStorePassword());
     }
 
-    @Test
+@Test
     public void awaitStopBlocksUntilExtinguished_1_oe() {
         Service service = Service.ignite();
         Routes routes = Mockito.mock(Routes.class);

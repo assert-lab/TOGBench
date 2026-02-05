@@ -20,14 +20,14 @@ public class ServletFlagTest_OE25Dev {
         Whitebox.setInternalState(ServletFlag.class, "isRunningFromServlet", new AtomicBoolean(false));
     }
 
-    @Test
+@Test
     public void testRunFromServlet_whenDefault_1_oe() throws Exception {
 
         AtomicBoolean isRunningFromServlet = Whitebox.getInternalState(ServletFlag.class, "isRunningFromServlet");
         assertFalse("Should be false because it is the default value", isRunningFromServlet.get());
     }
 
-    @Test
+@Test
     public void testRunFromServlet_whenExecuted_1_oe() throws Exception {
 
         ServletFlag.runFromServlet();
@@ -36,13 +36,13 @@ public class ServletFlagTest_OE25Dev {
         assertTrue("Should be true because it flag has been set after runFromServlet", isRunningFromServlet.get());
     }
 
-    @Test
+@Test
     public void testIsRunningFromServlet_whenDefault_1_oe() throws Exception {
 
         assertFalse("Should be false because it is the default value", ServletFlag.isRunningFromServlet());
     }
 
-    @Test
+@Test
     public void testIsRunningFromServlet_whenRunningFromServlet_1_oe() throws Exception {
 
         ServletFlag.runFromServlet();

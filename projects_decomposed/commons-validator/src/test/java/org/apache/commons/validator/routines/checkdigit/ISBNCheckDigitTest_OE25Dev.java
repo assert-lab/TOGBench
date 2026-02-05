@@ -57,29 +57,29 @@ public class ISBNCheckDigitTest_OE25Dev extends AbstractCheckDigitTest {
      */
     
 
-    public void testInvalidLength_1_oe() {
+public void testInvalidLength_1_oe() {
         assertFalse("isValid() Lth 9 ", routine.isValid("123456789"));
     }
 
-    public void testInvalidLength_2_oe() {
+public void testInvalidLength_2_oe() {
         // removed other assertion
         assertFalse("isValid() Lth 11", routine.isValid("12345678901"));
     }
 
-    public void testInvalidLength_3_oe() {
+public void testInvalidLength_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse("isValid() Lth 12", routine.isValid("123456789012"));
     }
 
-    public void testInvalidLength_4_oe() {
+public void testInvalidLength_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertFalse("isValid() Lth 14", routine.isValid("12345678901234"));
     }
 
-    public void testInvalidLength_6_oe() {
+public void testInvalidLength_6_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -93,7 +93,7 @@ public class ISBNCheckDigitTest_OE25Dev extends AbstractCheckDigitTest {
     }
     }
 
-    public void testInvalidLength_8_oe() {
+public void testInvalidLength_8_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -114,7 +114,7 @@ public class ISBNCheckDigitTest_OE25Dev extends AbstractCheckDigitTest {
     }
     }
 
-    public void testInvalidLength_10_oe() {
+public void testInvalidLength_10_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -142,7 +142,7 @@ public class ISBNCheckDigitTest_OE25Dev extends AbstractCheckDigitTest {
     }
     }
 
-    public void testInvalidLength_12_oe() {
+public void testInvalidLength_12_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion

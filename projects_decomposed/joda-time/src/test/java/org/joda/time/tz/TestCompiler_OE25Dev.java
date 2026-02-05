@@ -207,7 +207,7 @@ public class TestCompiler_OE25Dev extends TestCase {
         assertEquals(expected.getMillis(),next);
     }
 
-    public void testDateTimeZoneBuilder_1_oe() throws Exception {
+public void testDateTimeZoneBuilder_1_oe() throws Exception {
         // test multithreading, issue #18
         getTestDataTimeZoneBuilder().toDateTimeZone("TestDTZ1", true);
         final DateTimeZone[] zone = new DateTimeZone[1];
@@ -221,14 +221,14 @@ public class TestCompiler_OE25Dev extends TestCase {
         assertNotNull(zone[0]);
     }
 
-    public void testCompile_1_oe() throws Exception {
+public void testCompile_1_oe() throws Exception {
         Provider provider = compileAndLoad(AMERICA_LOS_ANGELES_FILE);
         DateTimeZone tz = provider.getZone("America/Los_Angeles");
 
         assertEquals("America/Los_Angeles",tz.getID());
     }
 
-    public void testCompile_2_oe() throws Exception {
+public void testCompile_2_oe() throws Exception {
         Provider provider = compileAndLoad(AMERICA_LOS_ANGELES_FILE);
         DateTimeZone tz = provider.getZone("America/Los_Angeles");
 
@@ -236,7 +236,7 @@ public class TestCompiler_OE25Dev extends TestCase {
         assertEquals(false,tz.isFixed());
     }
 
-    public void testCompileOnBrokenTimeZoneFile_3_oe() throws Exception {
+public void testCompileOnBrokenTimeZoneFile_3_oe() throws Exception {
         try {
             Provider provider = compileAndLoad(BROKEN_TIMEZONE_FILE);
             // removed other assertion
@@ -248,7 +248,7 @@ public class TestCompiler_OE25Dev extends TestCase {
     }
     }
 
-    public void testCompileOnBrokenTimeZoneFile_2_3_oe() throws Exception {
+public void testCompileOnBrokenTimeZoneFile_2_3_oe() throws Exception {
         try {
             Provider provider = compileAndLoad(BROKEN_TIMEZONE_FILE_2);
             // removed other assertion
@@ -260,53 +260,53 @@ public class TestCompiler_OE25Dev extends TestCase {
     }
     }
 
-    public void test_2400_fromDay_1_oe() {
+public void test_2400_fromDay_1_oe() {
         StringTokenizer st = new StringTokenizer("Apr Sun>=1  24:00");
         DateTimeOfYear test = new DateTimeOfYear(st);
         assertEquals(4,test.iMonthOfYear);// Apr assertEquals(2,test.iDayOfMonth);// 2nd assertEquals(1,test.iDayOfWeek);// Mon assertEquals(0,test.iMillisOfDay);// 00:00 assertEquals(true,test.iAdvanceDayOfWeek);
     }
 
-    public void test_2400_last_1_oe() {
+public void test_2400_last_1_oe() {
         StringTokenizer st = new StringTokenizer("Mar lastSun 24:00");
         DateTimeOfYear test = new DateTimeOfYear(st);
         assertEquals(4,test.iMonthOfYear);// Apr assertEquals(1,test.iDayOfMonth);// 1st assertEquals(1,test.iDayOfWeek);// Mon assertEquals(0,test.iMillisOfDay);// 00:00 assertEquals(false,test.iAdvanceDayOfWeek);
     }
 
-    public void test_2400_specific_day_1_oe() {
+public void test_2400_specific_day_1_oe() {
         StringTokenizer st = new StringTokenizer("Sep 21 24:00");
         DateTimeOfYear test = new DateTimeOfYear(st);
         assertEquals(9,test.iMonthOfYear);// Sep assertEquals(22,test.iDayOfMonth);// 22st assertEquals(0,test.iDayOfWeek);// Ignored assertEquals(0,test.iMillisOfDay);// 00:00 assertEquals(false,test.iAdvanceDayOfWeek);
     }
 
-    public void test_Amman_2003_1_oe() {
+public void test_Amman_2003_1_oe() {
         DateTimeZone zone = DateTimeZone.forID("Asia/Amman");
         DateTime dt = new DateTime(2003, 3, 1, 0, 0, zone);
         long next = zone.nextTransition(dt.getMillis());
         assertEquals(next,new DateTime(2003,3,28,0,0,DateTimeZone.forOffsetHours(2)).getMillis());
     }
 
-    public void test_Amman_2004_1_oe() {
+public void test_Amman_2004_1_oe() {
         DateTimeZone zone = DateTimeZone.forID("Asia/Amman");
         DateTime dt = new DateTime(2004, 3, 1, 0, 0, zone);
         long next = zone.nextTransition(dt.getMillis());
         assertEquals(next,new DateTime(2004,3,26,0,0,DateTimeZone.forOffsetHours(2)).getMillis());
     }
 
-    public void test_Amman_2005_1_oe() {
+public void test_Amman_2005_1_oe() {
         DateTimeZone zone = DateTimeZone.forID("Asia/Amman");
         DateTime dt = new DateTime(2005, 3, 1, 0, 0, zone);
         long next = zone.nextTransition(dt.getMillis());
         assertEquals(next,new DateTime(2005,4,1,0,0,DateTimeZone.forOffsetHours(2)).getMillis());
     }
 
-    public void test_Amman_2006_1_oe() {
+public void test_Amman_2006_1_oe() {
         DateTimeZone zone = DateTimeZone.forID("Asia/Amman");
         DateTime dt = new DateTime(2006, 3, 1, 0, 0, zone);
         long next = zone.nextTransition(dt.getMillis());
         assertEquals(next,new DateTime(2006,3,31,0,0,DateTimeZone.forOffsetHours(2)).getMillis());
     }
 
-    public void test_Tokyo_1949_1_oe() {
+public void test_Tokyo_1949_1_oe() {
         DateTimeZone zone = DateTimeZone.forID("Asia/Tokyo");
         DateTime dt = new DateTime(1949, 9, 7, 0, 0, zone);
         long next = zone.nextTransition(dt.getMillis());
@@ -314,7 +314,7 @@ public class TestCompiler_OE25Dev extends TestCase {
         assertEquals(DateTimeConstants.SUNDAY,expected.getDayOfWeek());
     }
 
-    public void test_Tokyo_1949_2_oe() {
+public void test_Tokyo_1949_2_oe() {
         DateTimeZone zone = DateTimeZone.forID("Asia/Tokyo");
         DateTime dt = new DateTime(1949, 9, 7, 0, 0, zone);
         long next = zone.nextTransition(dt.getMillis());

@@ -29,30 +29,30 @@ import org.junit.jupiter.api.Test;
  */
 public class InheritanceUtilsTest_OE25Dev {
 
-    @Test
+@Test
     public void testConstructor_1_oe() throws Exception {
         assertNotNull(InheritanceUtils.class.newInstance());
     }
 
-    @Test
+@Test
     public void testDistanceGreaterThanZero_1_oe() {
         assertEquals(1, InheritanceUtils.distance(AnotherChild.class, AnotherParent.class));
     }
 
-    @Test
+@Test
     public void testDistanceGreaterThanZero_2_oe() {
         // removed other assertion
         assertEquals(1, InheritanceUtils.distance(Grandchild.class, AnotherChild.class));
     }
 
-    @Test
+@Test
     public void testDistanceGreaterThanZero_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(2, InheritanceUtils.distance(Grandchild.class, AnotherParent.class));
     }
 
-    @Test
+@Test
     public void testDistanceGreaterThanZero_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -60,37 +60,37 @@ public class InheritanceUtilsTest_OE25Dev {
         assertEquals(3, InheritanceUtils.distance(Grandchild.class, Object.class));
     }
 
-    @Test
+@Test
     public void testDistanceEqual_1_oe() {
         assertEquals(0, InheritanceUtils.distance(AnotherChild.class, AnotherChild.class));
     }
 
-    @Test
+@Test
     public void testDistanceEqualObject_1_oe() {
         assertEquals(0, InheritanceUtils.distance(Object.class, Object.class));
     }
 
-    @Test
+@Test
     public void testDistanceNullChild_1_oe() {
         assertEquals(-1, InheritanceUtils.distance(null, Object.class));
     }
 
-    @Test
+@Test
     public void testDistanceNullParent_1_oe() {
         assertEquals(-1, InheritanceUtils.distance(Object.class, null));
     }
 
-    @Test
+@Test
     public void testDistanceNullParentNullChild_1_oe() {
         assertEquals(-1, InheritanceUtils.distance(null, null));
     }
 
-    @Test
+@Test
     public void testDistanceDisjoint_1_oe() {
         assertEquals(-1, InheritanceUtils.distance(Boolean.class, String.class));
     }
 
-    @Test
+@Test
     public void testDistanceReverseParentChild_1_oe() {
         assertEquals(-1, InheritanceUtils.distance(Object.class, Grandchild.class));
     }

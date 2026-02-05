@@ -140,7 +140,7 @@ public class TiffFloatingPointReadTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void test_7_oe() {
         // These TIFF sample data includes files that contain known
         // floating-point values in various formats.  We know the range

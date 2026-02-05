@@ -26,7 +26,7 @@ public class PngChunkScalTest_OE25Dev {
    private static final double delta = 0.001;
    private static final int chunkType = 1933787468;
 
-   @Test
+@Test
    public void testConstructMeters_1_oe() throws ImageReadException {
       final PngChunkScal pngChunkScal = new PngChunkScal(10, chunkType, 0,
             new byte[]{1, 48, 46, 48, 49, 0, 48, 46, 48, 50});
@@ -34,7 +34,7 @@ public class PngChunkScalTest_OE25Dev {
       assertEquals(pngChunkScal.unitSpecifier, 1);
    }
 
-   @Test
+@Test
    public void testConstructMeters_2_oe() throws ImageReadException {
       final PngChunkScal pngChunkScal = new PngChunkScal(10, chunkType, 0,
             new byte[]{1, 48, 46, 48, 49, 0, 48, 46, 48, 50});
@@ -43,7 +43,7 @@ public class PngChunkScalTest_OE25Dev {
       assertEquals(pngChunkScal.unitsPerPixelXAxis, 0.01, delta);
    }
 
-   @Test
+@Test
    public void testConstructMeters_3_oe() throws ImageReadException {
       final PngChunkScal pngChunkScal = new PngChunkScal(10, chunkType, 0,
             new byte[]{1, 48, 46, 48, 49, 0, 48, 46, 48, 50});
@@ -53,7 +53,7 @@ public class PngChunkScalTest_OE25Dev {
       assertEquals(pngChunkScal.unitsPerPixelYAxis, 0.02, delta);
    }
 
-   @Test
+@Test
    public void testConstructRadians_1_oe() throws ImageReadException {
       final PngChunkScal pngChunkScal = new PngChunkScal(10, chunkType, 0,
             new byte[]{2, 48, 46, 48, 49, 0, 48, 46, 48, 50});
@@ -61,7 +61,7 @@ public class PngChunkScalTest_OE25Dev {
       assertEquals(pngChunkScal.unitSpecifier, 2);
    }
 
-   @Test
+@Test
    public void testConstructRadians_2_oe() throws ImageReadException {
       final PngChunkScal pngChunkScal = new PngChunkScal(10, chunkType, 0,
             new byte[]{2, 48, 46, 48, 49, 0, 48, 46, 48, 50});
@@ -70,7 +70,7 @@ public class PngChunkScalTest_OE25Dev {
       assertEquals(pngChunkScal.unitsPerPixelXAxis, 0.01, delta);
    }
 
-   @Test
+@Test
    public void testConstructRadians_3_oe() throws ImageReadException {
       final PngChunkScal pngChunkScal = new PngChunkScal(10, chunkType, 0,
             new byte[]{2, 48, 46, 48, 49, 0, 48, 46, 48, 50});
@@ -80,27 +80,27 @@ public class PngChunkScalTest_OE25Dev {
       assertEquals(pngChunkScal.unitsPerPixelYAxis, 0.02, delta);
    }
 
-   @Test
+@Test
    public void testConstruct_InvalidUnitSpecifier_1_oe() {
        Assertions.assertThrows(ImageReadException.class,() -> new PngChunkScal(10, chunkType, 0, new byte[]{3, 48, 46, 48, 49, 0, 48, 46, 48, 50}));
    }
 
-   @Test
+@Test
    public void testConstruct_MissingSeparator_1_oe() {
       Assertions.assertThrows(ImageReadException.class,() -> new PngChunkScal(9, chunkType, 0, new byte[]{1, 48, 46, 48, 49, 48, 46, 48, 50}));
    }
 
-   @Test
+@Test
    public void testConstruct_InvalidDblValue_1_oe() {
        Assertions.assertThrows(ImageReadException.class,() -> new PngChunkScal(10, chunkType, 0, new byte[]{2, 65, 46, 48, 49, 0, 48, 46, 48, 50}));
    }
 
-   @Test
+@Test
    public void testConstruct_MissingXValue_1_oe() {
       Assertions.assertThrows(ImageReadException.class,() -> new PngChunkScal(2, chunkType, 0, new byte[]{2, 0}));
    }
 
-   @Test
+@Test
    public void testConstruct_MissingYValue_1_oe() {
        Assertions.assertThrows(ImageReadException.class,() -> new PngChunkScal(6, chunkType, 0, new byte[]{2, 48, 46, 48, 49, 0}));
    }

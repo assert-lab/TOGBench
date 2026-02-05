@@ -68,13 +68,13 @@ public class TestReloadingCombinedConfigurationBuilder_OE25Dev {
      * Tests whether the definition builder created by default supports reloading.
      */
 
-    @Test
+@Test
     public void testInitWithFailOnInitFlag_1_oe() {
         builder = new ReloadingCombinedConfigurationBuilder(null, true);
         assertTrue("Flag not set", builder.isAllowFailOnInit());
     }
 
-    @Test
+@Test
     public void testInitWithParameters_1_oe() throws ConfigurationException {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         params.setFile(ConfigurationAssert.getTestFile("testDigesterConfiguration.xml"));
@@ -83,7 +83,7 @@ public class TestReloadingCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Property not found", cc.getBoolean("test.boolean"));
     }
 
-    @Test
+@Test
     public void testNestedReloadableSources_1_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testCCReloadingNested.xml");
         builder.configure(new FileBasedBuilderParametersImpl().setFile(testFile));
@@ -93,7 +93,7 @@ public class TestReloadingCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong number of sub controllers", 2, subControllers.size());
     }
 
-    @Test
+@Test
     public void testNestedReloadableSources_2_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testCCReloadingNested.xml");
         builder.configure(new FileBasedBuilderParametersImpl().setFile(testFile));
@@ -105,7 +105,7 @@ public class TestReloadingCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Sub controller not found", subControllers.contains(ccBuilder.getReloadingController()));
     }
 
-    @Test
+@Test
     public void testNestedReloadableSources_3_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testCCReloadingNested.xml");
         builder.configure(new FileBasedBuilderParametersImpl().setFile(testFile));
@@ -119,7 +119,7 @@ public class TestReloadingCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong number of sub controllers (2)", 3, rc2.getSubControllers().size());
     }
 
-    @Test
+@Test
     public void testNoReloadableSources_1_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testDigesterConfiguration.xml");
         builder.configure(new CombinedBuilderParametersImpl().setDefinitionBuilder(new FileBasedConfigurationBuilder<>(XMLConfiguration.class))
@@ -129,14 +129,14 @@ public class TestReloadingCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Got sub reloading controllers", rc.getSubControllers().isEmpty());
     }
 
-    @Test
+@Test
     public void testReloadableDefinitionBuilder_1_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testDigesterConfiguration.xml");
         final ReloadingCombinedConfigurationBuilder confBuilder = builder.configure(new FileBasedBuilderParametersImpl().setFile(testFile));
         assertSame("Wrong configured builder instance", builder, confBuilder);
     }
 
-    @Test
+@Test
     public void testReloadableDefinitionBuilder_2_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testDigesterConfiguration.xml");
         final ReloadingCombinedConfigurationBuilder confBuilder = builder.configure(new FileBasedBuilderParametersImpl().setFile(testFile));
@@ -147,7 +147,7 @@ public class TestReloadingCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong number of sub controllers", 1, subControllers.size());
     }
 
-    @Test
+@Test
     public void testReloadableDefinitionBuilder_3_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testDigesterConfiguration.xml");
         final ReloadingCombinedConfigurationBuilder confBuilder = builder.configure(new FileBasedBuilderParametersImpl().setFile(testFile));

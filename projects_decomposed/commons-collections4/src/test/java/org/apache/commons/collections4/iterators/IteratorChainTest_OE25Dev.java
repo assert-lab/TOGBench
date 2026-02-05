@@ -71,7 +71,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
         return chain;
     }
 
-    public void testIterator_1_oe() {
+public void testIterator_1_oe() {
         final Iterator<String> iter = makeObject();
         for (final String testValue : testArray) {
             final Object iterValue = iter.next();
@@ -80,7 +80,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
     }
     }
 
-    public void testIterator_2_oe() {
+public void testIterator_2_oe() {
         final Iterator<String> iter = makeObject();
         for (final String testValue : testArray) {
             final Object iterValue = iter.next();
@@ -91,7 +91,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
         assertTrue("Iterator should now be empty", !iter.hasNext());
     }
 
-    public void testIterator_3_oe() {
+public void testIterator_3_oe() {
         final Iterator<String> iter = makeObject();
         for (final String testValue : testArray) {
             final Object iterValue = iter.next();
@@ -108,7 +108,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
     }
     }
 
-    public void testRemoveFromFilteredIterator_1_oe() {
+public void testRemoveFromFilteredIterator_1_oe() {
 
         final Predicate<Integer> myPredicate = new Predicate<Integer>() {
             @Override
@@ -136,7 +136,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
         assertEquals(0, list1.size());
     }
 
-    public void testRemoveFromFilteredIterator_2_oe() {
+public void testRemoveFromFilteredIterator_2_oe() {
 
         final Predicate<Integer> myPredicate = new Predicate<Integer>() {
             @Override
@@ -165,7 +165,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
         assertEquals(1, list2.size());
     }
 
-    public void testRemove_2_oe() {
+public void testRemove_2_oe() {
         final Iterator<String> iter = makeObject();
 
         try {
@@ -182,7 +182,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
     }
     }
 
-    public void testRemove_3_oe() {
+public void testRemove_3_oe() {
         final Iterator<String> iter = makeObject();
 
         try {
@@ -205,7 +205,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
         assertTrue("List is empty",list1.size() == 0);
     }
 
-    public void testRemove_4_oe() {
+public void testRemove_4_oe() {
         final Iterator<String> iter = makeObject();
 
         try {
@@ -229,7 +229,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
         assertTrue("List is empty",list2.size() == 1);
     }
 
-    public void testRemove_5_oe() {
+public void testRemove_5_oe() {
         final Iterator<String> iter = makeObject();
 
         try {
@@ -254,7 +254,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
         assertTrue("List is empty",list3.size() == 0);
     }
 
-    public void testFirstIteratorIsEmptyBug_1_oe() {
+public void testFirstIteratorIsEmptyBug_1_oe() {
         final List<String> empty = new ArrayList<>();
         final List<String> notEmpty = new ArrayList<>();
         notEmpty.add("A");
@@ -266,7 +266,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
         assertTrue("should have next",chain.hasNext());
     }
 
-    public void testFirstIteratorIsEmptyBug_2_oe() {
+public void testFirstIteratorIsEmptyBug_2_oe() {
         final List<String> empty = new ArrayList<>();
         final List<String> notEmpty = new ArrayList<>();
         notEmpty.add("A");
@@ -279,7 +279,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
         assertEquals("A",chain.next());
     }
 
-    public void testFirstIteratorIsEmptyBug_3_oe() {
+public void testFirstIteratorIsEmptyBug_3_oe() {
         final List<String> empty = new ArrayList<>();
         final List<String> notEmpty = new ArrayList<>();
         notEmpty.add("A");
@@ -293,7 +293,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
         assertTrue("should have next",chain.hasNext());
     }
 
-    public void testFirstIteratorIsEmptyBug_4_oe() {
+public void testFirstIteratorIsEmptyBug_4_oe() {
         final List<String> empty = new ArrayList<>();
         final List<String> notEmpty = new ArrayList<>();
         notEmpty.add("A");
@@ -308,7 +308,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
         assertEquals("B",chain.next());
     }
 
-    public void testFirstIteratorIsEmptyBug_5_oe() {
+public void testFirstIteratorIsEmptyBug_5_oe() {
         final List<String> empty = new ArrayList<>();
         final List<String> notEmpty = new ArrayList<>();
         notEmpty.add("A");
@@ -324,7 +324,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
         assertTrue("should have next",chain.hasNext());
     }
 
-    public void testFirstIteratorIsEmptyBug_6_oe() {
+public void testFirstIteratorIsEmptyBug_6_oe() {
         final List<String> empty = new ArrayList<>();
         final List<String> notEmpty = new ArrayList<>();
         notEmpty.add("A");
@@ -341,7 +341,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
         assertEquals("C",chain.next());
     }
 
-    public void testFirstIteratorIsEmptyBug_7_oe() {
+public void testFirstIteratorIsEmptyBug_7_oe() {
         final List<String> empty = new ArrayList<>();
         final List<String> notEmpty = new ArrayList<>();
         notEmpty.add("A");
@@ -359,7 +359,7 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
         assertTrue("should not have next",!chain.hasNext());
     }
 
-    public void testEmptyChain_1_oe() {
+public void testEmptyChain_1_oe() {
         final IteratorChain<Object> chain = new IteratorChain<>();
         assertEquals(false, chain.hasNext());
     }

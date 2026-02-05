@@ -118,7 +118,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         EuclideanTestUtils.assertCoordinatesEqual(end, segment.getEndPoint(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testCtor_lineOnly_1_oe() {
         // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
@@ -127,7 +127,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertSame(DEFAULT_TEST_LINE, sub.getLine());
     }
 
-    @Test
+@Test
     void testCtor_lineOnly_2_oe() {
         // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
@@ -137,7 +137,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, sub.getPrecision());
     }
 
-    @Test
+@Test
     void testCtor_lineOnly_3_oe() {
         // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
@@ -149,7 +149,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertFalse(sub.isFull());
     }
 
-    @Test
+@Test
     void testCtor_lineOnly_4_oe() {
         // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
@@ -162,7 +162,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertTrue(sub.isEmpty());
     }
 
-    @Test
+@Test
     void testCtor_lineOnly_5_oe() {
         // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
@@ -176,7 +176,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertFalse(sub.isInfinite());
     }
 
-    @Test
+@Test
     void testCtor_lineOnly_6_oe() {
         // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
@@ -191,7 +191,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertTrue(sub.isFinite());
     }
 
-    @Test
+@Test
     void testCtor_lineOnly_7_oe() {
         // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
@@ -208,7 +208,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(0, sub.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testCtor_lineOnly_8_oe() {
         // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
@@ -226,7 +226,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(sub.getCentroid());
     }
 
-    @Test
+@Test
     void testCtor_lineAndBoolean_1_oe() {
         // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
@@ -235,7 +235,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertSame(DEFAULT_TEST_LINE, sub.getLine());
     }
 
-    @Test
+@Test
     void testCtor_lineAndBoolean_2_oe() {
         // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
@@ -245,7 +245,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, sub.getPrecision());
     }
 
-    @Test
+@Test
     void testCtor_lineAndBoolean_3_oe() {
         // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
@@ -257,7 +257,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertTrue(sub.isFull());
     }
 
-    @Test
+@Test
     void testCtor_lineAndBoolean_4_oe() {
         // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
@@ -270,7 +270,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertFalse(sub.isEmpty());
     }
 
-    @Test
+@Test
     void testCtor_lineAndBoolean_5_oe() {
         // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
@@ -284,7 +284,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertTrue(sub.isInfinite());
     }
 
-    @Test
+@Test
     void testCtor_lineAndBoolean_6_oe() {
         // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
@@ -299,7 +299,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertFalse(sub.isFinite());
     }
 
-    @Test
+@Test
     void testCtor_lineAndBoolean_8_oe() {
         // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
@@ -317,7 +317,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(sub.getCentroid());
     }
 
-    @Test
+@Test
     void testCtor_lineAndRegion_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
@@ -329,7 +329,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertSame(DEFAULT_TEST_LINE, sub.getLine());
     }
 
-    @Test
+@Test
     void testCtor_lineAndRegion_2_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
@@ -342,7 +342,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertSame(tree, sub.getSubspaceRegion());
     }
 
-    @Test
+@Test
     void testCtor_lineAndRegion_3_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
@@ -356,7 +356,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, sub.getPrecision());
     }
 
-    @Test
+@Test
     void testCtor_lineAndRegion_4_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
@@ -372,7 +372,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertTrue(sub.isFull());
     }
 
-    @Test
+@Test
     void testCtor_lineAndRegion_5_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
@@ -389,7 +389,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertFalse(sub.isEmpty());
     }
 
-    @Test
+@Test
     void testCtor_lineAndRegion_6_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
@@ -407,7 +407,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertTrue(sub.isInfinite());
     }
 
-    @Test
+@Test
     void testCtor_lineAndRegion_7_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
@@ -426,7 +426,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertFalse(sub.isFinite());
     }
 
-    @Test
+@Test
     void testCtor_lineAndRegion_9_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
@@ -448,7 +448,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(sub.getCentroid());
     }
 
-    @Test
+@Test
     void testToConvex_full_1_oe() {
         // arrange
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
@@ -460,7 +460,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(1, segments.size());
     }
 
-    @Test
+@Test
     void testToConvex_full_2_oe() {
         // arrange
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
@@ -475,7 +475,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertTrue(seg.isFull());
     }
 
-    @Test
+@Test
     void testToConvex_empty_1_oe() {
         // arrange
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, false);
@@ -487,7 +487,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(0, segments.size());
     }
 
-    @Test
+@Test
     void testToConvex_finiteAndInfiniteSegments_1_oe() {
         // arrange
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, false);
@@ -502,7 +502,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(2, segments.size());
     }
 
-    @Test
+@Test
     void testToConvex_finiteAndInfiniteSegments_2_oe() {
         // arrange
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, false);
@@ -519,7 +519,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(segments.get(0).getStartPoint());
     }
 
-    @Test
+@Test
     void testAdd_lineSegment_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -536,7 +536,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertFalse(subset.isFull());
     }
 
-    @Test
+@Test
     void testAdd_lineSegment_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -554,7 +554,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertFalse(subset.isEmpty());
     }
 
-    @Test
+@Test
     void testAdd_lineSegment_7_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -582,7 +582,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(5, subset.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAdd_subset_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -610,7 +610,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertFalse(subset.isFull());
     }
 
-    @Test
+@Test
     void testAdd_subset_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -639,7 +639,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertFalse(subset.isEmpty());
     }
 
-    @Test
+@Test
     void testAdd_subset_3_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -672,7 +672,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(2, segments.size());
     }
 
-    @Test
+@Test
     void testAdd_subset_4_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -707,7 +707,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(segments.get(0).getStartPoint());
     }
 
-    @Test
+@Test
     void testAdd_subset_8_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -748,7 +748,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(aTreeCount, aTree.count());
     }
 
-    @Test
+@Test
     void testAdd_subset_9_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -790,7 +790,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(bTreeCount, bTree.count());
     }
 
-    @Test
+@Test
     void testAdd_subset_11_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -835,7 +835,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(subset.getCentroid());
     }
 
-    @Test
+@Test
     void testAdd_argumentsFromDifferentLine_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -847,7 +847,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> subset.add(Lines.subsetFromInterval(otherLine, 0, 1)));
     }
 
-    @Test
+@Test
     void testAdd_argumentsFromDifferentLine_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -860,7 +860,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> subset.add(new EmbeddedTreeLineSubset(otherLine)));
     }
 
-    @Test
+@Test
     void testGetBounds_noBounds_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
@@ -873,7 +873,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(full.getBounds());
     }
 
-    @Test
+@Test
     void testGetBounds_noBounds_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
@@ -887,7 +887,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(empty.getBounds());
     }
 
-    @Test
+@Test
     void testGetBounds_noBounds_3_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(1, 0), 0.25 * Math.PI, TEST_PRECISION);
@@ -902,7 +902,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(halfFull.getBounds());
     }
 
-    @Test
+@Test
     void testSplit_both_anglePositive_1_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -921,7 +921,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_both_anglePositive_2_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -943,7 +943,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(1, minusSegments.size());
     }
 
-    @Test
+@Test
     void testSplit_both_anglePositive_3_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -969,7 +969,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(2, plusSegments.size());
     }
 
-    @Test
+@Test
     void testSplit_both_angleNegative_1_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -988,7 +988,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_both_angleNegative_2_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1010,7 +1010,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(2, minusSegments.size());
     }
 
-    @Test
+@Test
     void testSplit_both_angleNegative_3_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1037,7 +1037,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(1, plusSegments.size());
     }
 
-    @Test
+@Test
     void testSplit_intersection_plusOnly_1_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1056,7 +1056,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_intersection_plusOnly_2_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1077,7 +1077,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_intersection_plusOnly_3_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1099,7 +1099,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertSame(subset, split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_intersection_minusOnly_1_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1118,7 +1118,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_intersection_minusOnly_2_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1139,7 +1139,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertSame(subset, split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_intersection_minusOnly_3_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1161,7 +1161,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_parallel_plus_1_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1180,7 +1180,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_parallel_plus_2_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1201,7 +1201,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_parallel_plus_3_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1223,7 +1223,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertSame(subset, split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_parallel_minus_1_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1242,7 +1242,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_parallel_minus_2_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1263,7 +1263,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertSame(subset, split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_parallel_minus_3_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1285,7 +1285,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_coincident_sameDirection_1_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1304,7 +1304,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_coincident_sameDirection_2_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1325,7 +1325,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_coincident_sameDirection_3_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1347,7 +1347,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_coincident_oppositeDirection_1_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1366,7 +1366,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_coincident_oppositeDirection_2_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1387,7 +1387,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_coincident_oppositeDirection_3_oe() {
         // arrange
         final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
@@ -1409,7 +1409,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testTransform_1_oe() {
         // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D
@@ -1427,7 +1427,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNotSame(subset, transformed);
     }
 
-    @Test
+@Test
     void testTransform_2_oe() {
         // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D
@@ -1448,7 +1448,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(2, originalSegments.size());
     }
 
-    @Test
+@Test
     void testTransform_4_oe() {
         // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D
@@ -1472,7 +1472,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(originalSegments.get(1).getEndPoint());
     }
 
-    @Test
+@Test
     void testTransform_5_oe() {
         // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D
@@ -1499,7 +1499,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(2, transformedSegments.size());
     }
 
-    @Test
+@Test
     void testTransform_7_oe() {
         // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D
@@ -1529,7 +1529,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(transformedSegments.get(1).getEndPoint());
     }
 
-    @Test
+@Test
     void testTransform_reflection_1_oe() {
         // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D.createScale(Vector2D.of(-1, 2));
@@ -1545,7 +1545,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNotSame(subset, transformed);
     }
 
-    @Test
+@Test
     void testTransform_reflection_2_oe() {
         // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D.createScale(Vector2D.of(-1, 2));
@@ -1564,7 +1564,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(1, originalSegments.size());
     }
 
-    @Test
+@Test
     void testTransform_reflection_3_oe() {
         // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D.createScale(Vector2D.of(-1, 2));
@@ -1587,7 +1587,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertEquals(1, transformedSegments.size());
     }
 
-    @Test
+@Test
     void testClosest_empty_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -1597,7 +1597,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertNull(subset.closest(Vector2D.ZERO));
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // arrange
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
@@ -1609,7 +1609,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertTrue(str.contains("EmbeddedTreeLineSubset[lineOrigin= "));
     }
 
-    @Test
+@Test
     void testToString_2_oe() {
         // arrange
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);
@@ -1622,7 +1622,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         Assertions.assertTrue(str.contains(", lineDirection= "));
     }
 
-    @Test
+@Test
     void testToString_3_oe() {
         // arrange
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE);

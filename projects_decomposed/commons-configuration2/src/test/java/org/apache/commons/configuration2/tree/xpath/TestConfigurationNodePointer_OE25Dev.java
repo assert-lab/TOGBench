@@ -106,7 +106,7 @@ public class TestConfigurationNodePointer_OE25Dev extends AbstractXPathTest {
         pointer.setValue("newValue");
     }
 
-    @Test
+@Test
     public void testCompareChildNodePointersAttributes_1_oe() {
         final ImmutableNode n1 = new ImmutableNode.Builder().name("n1").create();
         final ImmutableNode n2 = new ImmutableNode.Builder().name("n2").create();
@@ -115,7 +115,7 @@ public class TestConfigurationNodePointer_OE25Dev extends AbstractXPathTest {
         assertEquals("Incorrect order", 0, pointer.compareChildNodePointers(p1, p2));
     }
 
-    @Test
+@Test
     public void testCompareChildNodePointersAttributes_2_oe() {
         final ImmutableNode n1 = new ImmutableNode.Builder().name("n1").create();
         final ImmutableNode n2 = new ImmutableNode.Builder().name("n2").create();
@@ -125,14 +125,14 @@ public class TestConfigurationNodePointer_OE25Dev extends AbstractXPathTest {
         assertEquals("Incorrect symmetric order", 0, pointer.compareChildNodePointers(p2, p1));
     }
 
-    @Test
+@Test
     public void testCompareChildNodePointersChildren_1_oe() {
         final NodePointer p1 = new ConfigurationNodePointer<>(pointer, root.getChildren().get(1), handler);
         final NodePointer p2 = new ConfigurationNodePointer<>(pointer, root.getChildren().get(3), handler);
         assertEquals("Incorrect order", -1, pointer.compareChildNodePointers(p1, p2));
     }
 
-    @Test
+@Test
     public void testCompareChildNodePointersChildren_2_oe() {
         final NodePointer p1 = new ConfigurationNodePointer<>(pointer, root.getChildren().get(1), handler);
         final NodePointer p2 = new ConfigurationNodePointer<>(pointer, root.getChildren().get(3), handler);
@@ -140,19 +140,19 @@ public class TestConfigurationNodePointer_OE25Dev extends AbstractXPathTest {
         assertEquals("Incorrect symmetric order", 1, pointer.compareChildNodePointers(p2, p1));
     }
 
-    @Test
+@Test
     public void testIsAttribute_1_oe() {
         assertFalse("Node is an attribute", pointer.isAttribute());
     }
 
-    @Test
+@Test
     public void testIsLeafTrue_1_oe() {
         final ImmutableNode leafNode = new ImmutableNode.Builder().name("leafNode").create();
         pointer = new ConfigurationNodePointer<>(pointer, leafNode, handler);
         assertTrue("Not a leaf node", pointer.isLeaf());
     }
 
-    @Test
+@Test
     public void testIsLeave_1_oe() {
         assertFalse("Root node is leaf", pointer.isLeaf());
     }

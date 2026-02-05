@@ -330,7 +330,7 @@ public class DateLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTest
      * Test Calendar
      */
 
-    public void testSetLenient_1_oe() {
+public void testSetLenient_1_oe() {
         // make sure that date format works as expected
         final SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.UK);
 
@@ -346,7 +346,7 @@ public class DateLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTest
     }
     }
 
-    public void testSetLenient_3_oe() {
+public void testSetLenient_3_oe() {
         // make sure that date format works as expected
         final SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.UK);
 
@@ -382,7 +382,7 @@ public class DateLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTest
     }
     }
 
-    public void testSetLenient_4_oe() {
+public void testSetLenient_4_oe() {
         // make sure that date format works as expected
         final SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.UK);
 
@@ -426,7 +426,7 @@ public class DateLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTest
     }
     }
 
-    public void testSetLenient_5_oe() {
+public void testSetLenient_5_oe() {
         // make sure that date format works as expected
         final SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.UK);
 
@@ -477,7 +477,7 @@ public class DateLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTest
         assertEquals("Set lenient failed", converter.isLenient(), false);
     }
 
-    public void testSetLenient_6_oe() {
+public void testSetLenient_6_oe() {
         // make sure that date format works as expected
         final SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.UK);
 
@@ -536,7 +536,7 @@ public class DateLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTest
     }
     }
 
-    public void testSetLenient_9_oe() {
+public void testSetLenient_9_oe() {
         // make sure that date format works as expected
         final SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.UK);
 
@@ -609,7 +609,7 @@ public class DateLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTest
         assertEquals("Set lenient failed", converter.isLenient(), true);
     }
 
-    public void testSetLenient_10_oe() {
+public void testSetLenient_10_oe() {
         // make sure that date format works as expected
         final SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.UK);
 
@@ -690,7 +690,7 @@ public class DateLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTest
     }
     }
 
-    public void testSetLenient_11_oe() {
+public void testSetLenient_11_oe() {
         // make sure that date format works as expected
         final SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.UK);
 
@@ -779,7 +779,7 @@ public class DateLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTest
     }
     }
 
-    public void testInvalidDate_1_oe() {
+public void testInvalidDate_1_oe() {
 
         converter = new DateLocaleConverter(defaultLocale);
 
@@ -790,7 +790,7 @@ public class DateLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTest
     }
     }
 
-    public void testInvalidDate_2_oe() {
+public void testInvalidDate_2_oe() {
 
         converter = new DateLocaleConverter(defaultLocale);
 
@@ -807,12 +807,12 @@ public class DateLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTest
     }
     }
 
-    public void testDateObject_1_oe() {
+public void testDateObject_1_oe() {
         converter = new DateLocaleConverter(defaultLocale);
         assertEquals("java.util.Date", expectedValue, converter.convert(expectedValue));
     }
 
-    public void testCalendarObject_1_oe() {
+public void testCalendarObject_1_oe() {
         converter = new DateLocaleConverter(defaultLocale);
         final java.util.Calendar calendar = java.util.Calendar.getInstance();
         calendar.setTime((java.util.Date)expectedValue);

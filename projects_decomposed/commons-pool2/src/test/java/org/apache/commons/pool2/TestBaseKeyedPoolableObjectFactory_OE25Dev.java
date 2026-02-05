@@ -37,7 +37,7 @@ public class TestBaseKeyedPoolableObjectFactory_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testDefaultMethods_1_oe() throws Exception {
         final KeyedPooledObjectFactory<Object,Object> factory = new TestFactory();
 

@@ -75,7 +75,7 @@ public class EncryptingSerializerUnitTest_OE25Dev
      * @throws Exception on error
      */
 
-    public void testDeserialize_NullInput_1_oe()
+public void testDeserialize_NullInput_1_oe()
         throws IOException, ClassNotFoundException
     {
         // DO WORK
@@ -85,7 +85,7 @@ public class EncryptingSerializerUnitTest_OE25Dev
         assertNull( "Should have nothing.", result );
     }
 
-    public void testSimpleBackAndForth_1_oe()
+public void testSimpleBackAndForth_1_oe()
         throws Exception
     {
         // DO WORK
@@ -96,7 +96,7 @@ public class EncryptingSerializerUnitTest_OE25Dev
         assertEquals( "Before and after should be the same.", before, after );
     }
 
-    public void testGCMBackAndForth_1_oe()
+public void testGCMBackAndForth_1_oe()
         throws Exception
     {
         this.serializer.setAesCipherTransformation("AES/GCM/NoPadding");
@@ -109,7 +109,7 @@ public class EncryptingSerializerUnitTest_OE25Dev
         assertEquals( "Before and after should be the same.", before, after );
     }
 
-    public void testDifferentKey_1_oe()
+public void testDifferentKey_1_oe()
         throws Exception
     {
         // DO WORK
@@ -120,7 +120,7 @@ public class EncryptingSerializerUnitTest_OE25Dev
         assertThrows(IOException.class, () -> serializer.deSerialize(serialized, null));
     }
 
-    public void testSerialize_NullInput_1_oe()
+public void testSerialize_NullInput_1_oe()
         throws Exception
     {
         final String before = null;

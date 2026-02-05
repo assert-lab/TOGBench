@@ -150,25 +150,25 @@ public class BooleanComparatorTest_OE25Dev extends AbstractComparatorTest<Boolea
         }
     }
 
-    @Test
+@Test
     public void testEqualsCompatibleInstance_1_oe() {
         assertEquals(new BooleanComparator(),new BooleanComparator(false));
     }
 
-    @Test
+@Test
     public void testEqualsCompatibleInstance_2_oe() {
         // removed other assertion
         assertEquals(new BooleanComparator(false),new BooleanComparator(false));
     }
 
-    @Test
+@Test
     public void testEqualsCompatibleInstance_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(new BooleanComparator(false),BooleanComparator.getFalseFirstComparator());
     }
 
-    @Test
+@Test
     public void testEqualsCompatibleInstance_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -176,7 +176,7 @@ public class BooleanComparatorTest_OE25Dev extends AbstractComparatorTest<Boolea
         assertSame(BooleanComparator.getFalseFirstComparator(),BooleanComparator.booleanComparator(false));
     }
 
-    @Test
+@Test
     public void testEqualsCompatibleInstance_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -186,7 +186,7 @@ public class BooleanComparatorTest_OE25Dev extends AbstractComparatorTest<Boolea
         assertEquals(new BooleanComparator(true),new BooleanComparator(true));
     }
 
-    @Test
+@Test
     public void testEqualsCompatibleInstance_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -197,7 +197,7 @@ public class BooleanComparatorTest_OE25Dev extends AbstractComparatorTest<Boolea
         assertEquals(new BooleanComparator(true),BooleanComparator.getTrueFirstComparator());
     }
 
-    @Test
+@Test
     public void testEqualsCompatibleInstance_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -209,7 +209,7 @@ public class BooleanComparatorTest_OE25Dev extends AbstractComparatorTest<Boolea
         assertSame(BooleanComparator.getTrueFirstComparator(),BooleanComparator.booleanComparator(true));
     }
 
-    @Test
+@Test
     public void testEqualsCompatibleInstance_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -223,7 +223,7 @@ public class BooleanComparatorTest_OE25Dev extends AbstractComparatorTest<Boolea
         assertTrue(!new BooleanComparator().equals(new BooleanComparator(true)));
     }
 
-    @Test
+@Test
     public void testEqualsCompatibleInstance_9_oe() {
         // removed other assertion
         // removed other assertion

@@ -94,7 +94,7 @@ public class PermutationIteratorTest_OE25Dev extends AbstractIteratorTest<List<C
         }
     }
 
-    public void testPermutationResultSize_1_oe() {
+public void testPermutationResultSize_1_oe() {
         int factorial = 1;
         for (int i = 0; i < 8; i++, factorial*=i) {
             final List<Integer> list = new ArrayList<>();
@@ -111,7 +111,7 @@ public class PermutationIteratorTest_OE25Dev extends AbstractIteratorTest<List<C
     }
     }
 
-    public void testPermutationExhaustivity_1_oe() {
+public void testPermutationExhaustivity_1_oe() {
         final List<Character> perm1 = new ArrayList<>();
         final List<Character> perm2 = new ArrayList<>();
         final List<Character> perm3 = new ArrayList<>();
@@ -151,7 +151,7 @@ public class PermutationIteratorTest_OE25Dev extends AbstractIteratorTest<List<C
         assertEquals(6, results.size());
     }
 
-    public void testPermutationExhaustivity_2_oe() {
+public void testPermutationExhaustivity_2_oe() {
         final List<Character> perm1 = new ArrayList<>();
         final List<Character> perm2 = new ArrayList<>();
         final List<Character> perm3 = new ArrayList<>();
@@ -192,7 +192,7 @@ public class PermutationIteratorTest_OE25Dev extends AbstractIteratorTest<List<C
         assertTrue(results.contains(perm1));
     }
 
-    public void testPermutationExhaustivity_3_oe() {
+public void testPermutationExhaustivity_3_oe() {
         final List<Character> perm1 = new ArrayList<>();
         final List<Character> perm2 = new ArrayList<>();
         final List<Character> perm3 = new ArrayList<>();
@@ -234,7 +234,7 @@ public class PermutationIteratorTest_OE25Dev extends AbstractIteratorTest<List<C
         assertTrue(results.contains(perm2));
     }
 
-    public void testPermutationExhaustivity_4_oe() {
+public void testPermutationExhaustivity_4_oe() {
         final List<Character> perm1 = new ArrayList<>();
         final List<Character> perm2 = new ArrayList<>();
         final List<Character> perm3 = new ArrayList<>();
@@ -277,7 +277,7 @@ public class PermutationIteratorTest_OE25Dev extends AbstractIteratorTest<List<C
         assertTrue(results.contains(perm3));
     }
 
-    public void testPermutationExhaustivity_5_oe() {
+public void testPermutationExhaustivity_5_oe() {
         final List<Character> perm1 = new ArrayList<>();
         final List<Character> perm2 = new ArrayList<>();
         final List<Character> perm3 = new ArrayList<>();
@@ -321,7 +321,7 @@ public class PermutationIteratorTest_OE25Dev extends AbstractIteratorTest<List<C
         assertTrue(results.contains(perm4));
     }
 
-    public void testPermutationExhaustivity_6_oe() {
+public void testPermutationExhaustivity_6_oe() {
         final List<Character> perm1 = new ArrayList<>();
         final List<Character> perm2 = new ArrayList<>();
         final List<Character> perm3 = new ArrayList<>();
@@ -366,7 +366,7 @@ public class PermutationIteratorTest_OE25Dev extends AbstractIteratorTest<List<C
         assertTrue(results.contains(perm5));
     }
 
-    public void testPermutationExhaustivity_7_oe() {
+public void testPermutationExhaustivity_7_oe() {
         final List<Character> perm1 = new ArrayList<>();
         final List<Character> perm2 = new ArrayList<>();
         final List<Character> perm3 = new ArrayList<>();
@@ -412,7 +412,7 @@ public class PermutationIteratorTest_OE25Dev extends AbstractIteratorTest<List<C
         assertTrue(results.contains(perm6));
     }
 
-    public void testPermutationUnicity_1_oe() {
+public void testPermutationUnicity_1_oe() {
         final List<List<Character>> resultsList = new ArrayList<>();
         final Set<List<Character>> resultsSet = new HashSet<>();
 
@@ -426,7 +426,7 @@ public class PermutationIteratorTest_OE25Dev extends AbstractIteratorTest<List<C
         assertEquals(6, resultsList.size());
     }
 
-    public void testPermutationUnicity_2_oe() {
+public void testPermutationUnicity_2_oe() {
         final List<List<Character>> resultsList = new ArrayList<>();
         final Set<List<Character>> resultsSet = new HashSet<>();
 
@@ -441,14 +441,14 @@ public class PermutationIteratorTest_OE25Dev extends AbstractIteratorTest<List<C
         assertEquals(6, resultsSet.size());
     }
 
-    public void testPermutatorHasMore_1_oe() {
+public void testPermutatorHasMore_1_oe() {
         final PermutationIterator<Character> it = makeObject();
         for (int i = 0; i < 6; i++) {
             assertTrue(it.hasNext());
     }
     }
 
-    public void testPermutatorHasMore_2_oe() {
+public void testPermutatorHasMore_2_oe() {
         final PermutationIterator<Character> it = makeObject();
         for (int i = 0; i < 6; i++) {
             // removed other assertion
@@ -457,13 +457,13 @@ public class PermutationIteratorTest_OE25Dev extends AbstractIteratorTest<List<C
         assertFalse(it.hasNext());
     }
 
-    public void testEmptyCollection_1_oe() {
+public void testEmptyCollection_1_oe() {
         final PermutationIterator<Character> it = makeEmptyIterator();
         // there is one permutation for an empty set: 0! = 1
         assertTrue(it.hasNext());
     }
 
-    public void testEmptyCollection_2_oe() {
+public void testEmptyCollection_2_oe() {
         final PermutationIterator<Character> it = makeEmptyIterator();
         // there is one permutation for an empty set: 0! = 1
         // removed other assertion
@@ -472,7 +472,7 @@ public class PermutationIteratorTest_OE25Dev extends AbstractIteratorTest<List<C
         assertEquals(0, nextPermutation.size());
     }
 
-    public void testEmptyCollection_3_oe() {
+public void testEmptyCollection_3_oe() {
         final PermutationIterator<Character> it = makeEmptyIterator();
         // there is one permutation for an empty set: 0! = 1
         // removed other assertion

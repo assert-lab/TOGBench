@@ -24,19 +24,19 @@ public class HtmlTreeBuilderTest_OE25Dev {
         ); // I'm not convinced that this lambda is easier to read than the old Junit 4 @Test(expected=IEA.class)...
     }
 
-    @Test
+@Test
     public void ensureSearchArraysAreSorted_1_oe() {
         List<Object[]> constants = HtmlTreeBuilderStateTest.findConstantArrays(HtmlTreeBuilder.class);
         HtmlTreeBuilderStateTest.ensureSorted(constants);
         assertEquals(8, constants.size());
     }
 
-    @Test public void nonnullAssertions_1_oe() throws NoSuchMethodException {
+@Test public void nonnullAssertions_1_oe() throws NoSuchMethodException {
         Method parseMethod = TreeBuilder.class.getDeclaredMethod("parse", Reader.class, String.class, Parser.class);
         assertNotNull(parseMethod);
         }
 
-    @Test public void nonnullAssertions_2_oe() throws NoSuchMethodException {
+@Test public void nonnullAssertions_2_oe() throws NoSuchMethodException {
         Method parseMethod = TreeBuilder.class.getDeclaredMethod("parse", Reader.class, String.class, Parser.class);
         // removed other assertion
         Annotation[] declaredAnnotations = parseMethod.getDeclaredAnnotations();

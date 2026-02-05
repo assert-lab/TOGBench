@@ -22,14 +22,14 @@ import org.junit.jupiter.api.Test;
 
 public class IptcTypeLookupTest_OE25Dev{
 
-    @Test
+@Test
     public void testGetIptcTypeWithPositive_1_oe() {
         final IptcType iptcType = IptcTypeLookup.getIptcType(1117);
 
         assertEquals(1117, iptcType.getType());
     }
 
-    @Test
+@Test
     public void testGetIptcTypeWithPositive_2_oe() {
         final IptcType iptcType = IptcTypeLookup.getIptcType(1117);
 

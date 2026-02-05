@@ -147,7 +147,7 @@ class Segment3DTest_OE25Dev {
         GeometryTestUtils.assertContains(", endPoint= (1", str);
     }
 
-    @Test
+@Test
     void testFromPoints_1_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 1, 2);
@@ -160,7 +160,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertFalse(seg.isInfinite());
     }
 
-    @Test
+@Test
     void testFromPoints_2_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 1, 2);
@@ -174,7 +174,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertTrue(seg.isFinite());
     }
 
-    @Test
+@Test
     void testFromPoints_5_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 1, 2);
@@ -193,7 +193,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(1, seg.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_6_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 1, 2);
@@ -213,7 +213,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(3, seg.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_7_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 1, 2);
@@ -235,7 +235,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(2, seg.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_1_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(-1, -1, 2);
@@ -250,7 +250,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertFalse(seg.isInfinite());
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_2_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(-1, -1, 2);
@@ -266,7 +266,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertTrue(seg.isFinite());
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_5_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(-1, -1, 2);
@@ -287,7 +287,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(-1, seg.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_6_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(-1, -1, 2);
@@ -309,7 +309,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(3, seg.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_7_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(-1, -1, 2);
@@ -333,7 +333,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(4, seg.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_singlePoint_1_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(-1, 2, 0);
@@ -347,7 +347,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertFalse(seg.isInfinite());
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_singlePoint_2_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(-1, 2, 0);
@@ -362,7 +362,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertTrue(seg.isFinite());
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_singlePoint_5_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(-1, 2, 0);
@@ -382,7 +382,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(2, seg.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_singlePoint_6_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(-1, 2, 0);
@@ -403,7 +403,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(2, seg.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_givenLine_singlePoint_7_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(-1, 2, 0);
@@ -426,7 +426,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(0, seg.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -438,7 +438,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertFalse(seg.isInfinite());
     }
 
-    @Test
+@Test
     void testFromLocations_2_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -451,7 +451,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertTrue(seg.isFinite());
     }
 
-    @Test
+@Test
     void testFromLocations_5_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -469,7 +469,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(-1, seg.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_6_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -488,7 +488,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(2, seg.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_7_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -509,7 +509,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(3, seg.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_reversedLocationOrder_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -521,7 +521,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertFalse(seg.isInfinite());
     }
 
-    @Test
+@Test
     void testFromLocations_reversedLocationOrder_2_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -534,7 +534,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertTrue(seg.isFinite());
     }
 
-    @Test
+@Test
     void testFromLocations_reversedLocationOrder_5_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -552,7 +552,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(-1, seg.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_reversedLocationOrder_6_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -571,7 +571,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(2, seg.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_reversedLocationOrder_7_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -592,7 +592,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(3, seg.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_singlePoint_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -604,7 +604,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertFalse(seg.isInfinite());
     }
 
-    @Test
+@Test
     void testFromLocations_singlePoint_2_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -617,7 +617,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertTrue(seg.isFinite());
     }
 
-    @Test
+@Test
     void testFromLocations_singlePoint_5_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -635,7 +635,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(1, seg.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_singlePoint_6_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -654,7 +654,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(1, seg.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocations_singlePoint_7_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -675,7 +675,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(0, seg.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testContains_1_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -689,7 +689,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertFalse(seg.contains(Vector3D.of(2, 2, 2)));
     }
 
-    @Test
+@Test
     void testContains_2_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -704,7 +704,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertFalse(seg.contains(Vector3D.of(0.9, 1, 1)));
     }
 
-    @Test
+@Test
     void testContains_3_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -720,7 +720,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertFalse(seg.contains(Vector3D.of(3.1, 1, 1)));
     }
 
-    @Test
+@Test
     void testContains_4_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -738,7 +738,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertTrue(seg.contains(p0));
     }
 
-    @Test
+@Test
     void testContains_5_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -757,7 +757,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertTrue(seg.contains(p1));
     }
 
-    @Test
+@Test
     void testContains_6_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -778,7 +778,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertTrue(seg.contains(p0.subtract(delta)));
     }
 
-    @Test
+@Test
     void testContains_7_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -800,7 +800,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertTrue(seg.contains(p1.add(delta)));
     }
 
-    @Test
+@Test
     void testContains_8_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -824,7 +824,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertTrue(seg.contains(p0.lerp(p1, 0.5)));
     }
 
-    @Test
+@Test
     void testGetInterval_1_oe() {
         // arrange
         final Segment3D seg = Lines3D.segmentFromPoints(Vector3D.of(2, -1, 3), Vector3D.of(2, 2, 3), TEST_PRECISION);
@@ -836,7 +836,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(-1, interval.getMin(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetInterval_2_oe() {
         // arrange
         final Segment3D seg = Lines3D.segmentFromPoints(Vector3D.of(2, -1, 3), Vector3D.of(2, 2, 3), TEST_PRECISION);
@@ -849,7 +849,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(2, interval.getMax(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetInterval_3_oe() {
         // arrange
         final Segment3D seg = Lines3D.segmentFromPoints(Vector3D.of(2, -1, 3), Vector3D.of(2, 2, 3), TEST_PRECISION);
@@ -864,7 +864,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertSame(seg.getLine().getPrecision(), interval.getMinBoundary().getPrecision());
     }
 
-    @Test
+@Test
     void testGetInterval_singlePoint_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -877,7 +877,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(1, interval.getMin(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetInterval_singlePoint_2_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -891,7 +891,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(1, interval.getMax(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetInterval_singlePoint_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -906,7 +906,7 @@ class Segment3DTest_OE25Dev {
         Assertions.assertEquals(0, interval.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetInterval_singlePoint_4_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);

@@ -61,7 +61,7 @@ public class PLSETestCase_OE25Dev extends AbstractTestCase
      * BCEL-295:
      */
 
-    public void testB79_1_oe() throws ClassNotFoundException
+public void testB79_1_oe() throws ClassNotFoundException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.PLSETestClass");
         final ClassGen gen = new ClassGen(clazz);
@@ -76,7 +76,7 @@ public class PLSETestCase_OE25Dev extends AbstractTestCase
         assertEquals("number of locals", lvt.getTableLength(), new_lvt.getTableLength());
     }
 
-    public void testB262_1_oe() throws ClassNotFoundException
+public void testB262_1_oe() throws ClassNotFoundException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.PLSETestEnum");
         final ClassGen gen = new ClassGen(clazz);
@@ -94,7 +94,7 @@ public class PLSETestCase_OE25Dev extends AbstractTestCase
         assertEquals("[Lorg.apache.bcel.data.PLSETestEnum;", cn);
     }
 
-    public void testB295_1_oe() throws Exception
+public void testB295_1_oe() throws Exception
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.PLSETestClass2");
         final ClassGen cg = new ClassGen(clazz);

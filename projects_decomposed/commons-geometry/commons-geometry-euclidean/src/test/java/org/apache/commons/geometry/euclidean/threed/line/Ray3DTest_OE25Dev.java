@@ -77,7 +77,7 @@ class Ray3DTest_OE25Dev {
         GeometryTestUtils.assertContains(", direction= (1", str);
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_1_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 1, 2);
@@ -89,7 +89,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertTrue(ray.isInfinite());
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_2_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 1, 2);
@@ -102,7 +102,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertFalse(ray.isFinite());
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_4_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 1, 2);
@@ -118,7 +118,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertNull(ray.getEndPoint());
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_6_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 1, 2);
@@ -138,7 +138,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertEquals(2, ray.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_9_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 1, 2);
@@ -163,7 +163,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertNull(ray.getCentroid());
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_10_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 1, 2);
@@ -189,7 +189,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertNull(ray.getBounds());
     }
 
-    @Test
+@Test
     void testFromPoint_1_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(-2, -1, 2);
@@ -203,7 +203,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertTrue(ray.isInfinite());
     }
 
-    @Test
+@Test
     void testFromPoint_2_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(-2, -1, 2);
@@ -218,7 +218,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertFalse(ray.isFinite());
     }
 
-    @Test
+@Test
     void testFromPoint_4_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(-2, -1, 2);
@@ -236,7 +236,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertNull(ray.getEndPoint());
     }
 
-    @Test
+@Test
     void testFromPoint_5_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(-2, -1, 2);
@@ -256,7 +256,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertEquals(-1, ray.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoint_8_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(-2, -1, 2);
@@ -281,7 +281,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertNull(ray.getCentroid());
     }
 
-    @Test
+@Test
     void testFromPoint_9_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(-2, -1, 2);
@@ -307,7 +307,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertNull(ray.getBounds());
     }
 
-    @Test
+@Test
     void testFromLocation_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -319,7 +319,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertTrue(ray.isInfinite());
     }
 
-    @Test
+@Test
     void testFromLocation_2_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -332,7 +332,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertFalse(ray.isFinite());
     }
 
-    @Test
+@Test
     void testFromLocation_4_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -348,7 +348,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertNull(ray.getEndPoint());
     }
 
-    @Test
+@Test
     void testFromLocation_5_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -366,7 +366,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertEquals(-1, ray.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocation_8_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -389,7 +389,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertNull(ray.getCentroid());
     }
 
-    @Test
+@Test
     void testFromLocation_9_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -413,7 +413,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertNull(ray.getBounds());
     }
 
-    @Test
+@Test
     void testTransform_2_oe() {
         // arrange
         final AffineTransformMatrix3D t = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, 0.5 * Math.PI)
@@ -430,7 +430,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertNull(result.getEndPoint());
     }
 
-    @Test
+@Test
     void testTransform_reflection_2_oe() {
         // arrange
         final AffineTransformMatrix3D t = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, 0.5 * Math.PI)
@@ -448,7 +448,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertNull(result.getEndPoint());
     }
 
-    @Test
+@Test
     void testContains_1_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -461,7 +461,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertFalse(ray.contains(Vector3D.of(2, 2, 2)));
     }
 
-    @Test
+@Test
     void testContains_2_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -475,7 +475,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertFalse(ray.contains(Vector3D.of(0.9, 1, 1)));
     }
 
-    @Test
+@Test
     void testContains_3_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -490,7 +490,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertFalse(ray.contains(Vector3D.of(-1, 1, 1)));
     }
 
-    @Test
+@Test
     void testContains_4_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -507,7 +507,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertTrue(ray.contains(p0));
     }
 
-    @Test
+@Test
     void testContains_5_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -525,7 +525,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertTrue(ray.contains(p0.subtract(delta)));
     }
 
-    @Test
+@Test
     void testContains_6_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -545,7 +545,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertTrue(ray.contains(Vector3D.of(1000, 1, 1)));
     }
 
-    @Test
+@Test
     void testGetInterval_1_oe() {
         // arrange
         final Ray3D ray = Lines3D.rayFromPointAndDirection(Vector3D.of(2, -1, 3), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
@@ -557,7 +557,7 @@ class Ray3DTest_OE25Dev {
         Assertions.assertEquals(-1, interval.getMin(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetInterval_3_oe() {
         // arrange
         final Ray3D ray = Lines3D.rayFromPointAndDirection(Vector3D.of(2, -1, 3), Vector3D.Unit.PLUS_Y, TEST_PRECISION);

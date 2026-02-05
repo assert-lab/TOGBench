@@ -96,7 +96,7 @@ public class TestExprLookup_OE25Dev {
      * Tests an expression that yields a null value.
      */
 
-    @Test
+@Test
     public void testGetVariables_1_oe() {
         final ExprLookup.Variables vars = new ExprLookup.Variables();
         vars.add(new ExprLookup.Variable("String", org.apache.commons.lang3.StringUtils.class));
@@ -104,7 +104,7 @@ public class TestExprLookup_OE25Dev {
         assertEquals("Wrong variables", vars, lookup.getVariables());
     }
 
-    @Test
+@Test
     public void testGetVariablesDefensiveCopy_1_oe() {
         final ExprLookup.Variables vars = new ExprLookup.Variables();
         vars.add(new ExprLookup.Variable("String", org.apache.commons.lang3.StringUtils.class));
@@ -114,7 +114,7 @@ public class TestExprLookup_OE25Dev {
         assertEquals("Modified variables", vars, lookup.getVariables());
     }
 
-    @Test
+@Test
     public void testLookup_1_oe() throws Exception {
         final ConsoleAppender app = new ConsoleAppender(new SimpleLayout());
         final Log log = LogFactory.getLog("TestLogger");
@@ -136,7 +136,7 @@ public class TestExprLookup_OE25Dev {
         assertTrue(str.startsWith("Goodbye"));
     }
 
-    @Test
+@Test
     public void testLookup_2_oe() throws Exception {
         final ConsoleAppender app = new ConsoleAppender(new SimpleLayout());
         final Log log = LogFactory.getLog("TestLogger");
@@ -160,7 +160,7 @@ public class TestExprLookup_OE25Dev {
         assertTrue("Incorrect value: " + str, str.equals("value Some text"));
     }
 
-    @Test
+@Test
     public void testLookupLog4j1_1_oe() throws Exception {
         final ConsoleAppender app = new ConsoleAppender(new SimpleLayout());
         final Log log = LogFactory.getLog("TestLogger");
@@ -184,7 +184,7 @@ public class TestExprLookup_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testLookupLog4j1_2_oe() throws Exception {
         final ConsoleAppender app = new ConsoleAppender(new SimpleLayout());
         final Log log = LogFactory.getLog("TestLogger");
@@ -210,7 +210,7 @@ public class TestExprLookup_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testLookupNoConfigurationInterpolator_1_oe() {
         final ExprLookup.Variables vars = new ExprLookup.Variables();
         vars.add(new ExprLookup.Variable("String", org.apache.commons.lang3.StringUtils.class));
@@ -219,7 +219,7 @@ public class TestExprLookup_OE25Dev {
         assertEquals("Wrong result", value, lookup.lookup(value));
     }
 
-    @Test
+@Test
     public void testLookupNonStringExpression_1_oe() throws ConfigurationException {
         final ExprLookup.Variables vars = new ExprLookup.Variables();
         vars.add(new ExprLookup.Variable("System", "Class:java.lang.System"));
@@ -231,7 +231,7 @@ public class TestExprLookup_OE25Dev {
         assertNotEquals("Not replaced", pattern, result);
     }
 
-    @Test
+@Test
     public void testLookupNullExpression_1_oe() throws ConfigurationException {
         final ExprLookup.Variables vars = new ExprLookup.Variables();
         vars.add(new ExprLookup.Variable("System", "Class:java.lang.System"));

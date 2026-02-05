@@ -281,25 +281,25 @@ public class TestBuilder_OE25Dev extends TestCase {
         return tz;
     }
 
-    public void testID_1_oe() {
+public void testID_1_oe() {
         DateTimeZone tz = buildAmericaLosAngeles();
         assertEquals("America/Los_Angeles",tz.getID());
     }
 
-    public void testID_2_oe() {
+public void testID_2_oe() {
         DateTimeZone tz = buildAmericaLosAngeles();
         // removed other assertion
         assertEquals(false,tz.isFixed());
     }
 
-    public void testSerialization_1_oe() throws IOException {
+public void testSerialization_1_oe() throws IOException {
         DateTimeZone tz = testSerialization
             (buildAmericaLosAngelesBuilder(), "America/Los_Angeles");
 
         assertEquals(false,tz.isFixed());
     }
 
-    public void testFixed_1_oe() throws IOException {
+public void testFixed_1_oe() throws IOException {
         DateTimeZoneBuilder builder = new DateTimeZoneBuilder()
             .setStandardOffset(3600000)
             .setFixedSavings("LMT", 0);
@@ -310,7 +310,7 @@ public class TestBuilder_OE25Dev extends TestCase {
     }
     }
 
-    public void testFixed_2_oe() throws IOException {
+public void testFixed_2_oe() throws IOException {
         DateTimeZoneBuilder builder = new DateTimeZoneBuilder()
             .setStandardOffset(3600000)
             .setFixedSavings("LMT", 0);
@@ -322,7 +322,7 @@ public class TestBuilder_OE25Dev extends TestCase {
     }
     }
 
-    public void testFixed_3_oe() throws IOException {
+public void testFixed_3_oe() throws IOException {
         DateTimeZoneBuilder builder = new DateTimeZoneBuilder()
             .setStandardOffset(3600000)
             .setFixedSavings("LMT", 0);
@@ -335,7 +335,7 @@ public class TestBuilder_OE25Dev extends TestCase {
     }
     }
 
-    public void testFixed_4_oe() throws IOException {
+public void testFixed_4_oe() throws IOException {
         DateTimeZoneBuilder builder = new DateTimeZoneBuilder()
             .setStandardOffset(3600000)
             .setFixedSavings("LMT", 0);
@@ -349,7 +349,7 @@ public class TestBuilder_OE25Dev extends TestCase {
     }
     }
 
-    public void testFixed_5_oe() throws IOException {
+public void testFixed_5_oe() throws IOException {
         DateTimeZoneBuilder builder = new DateTimeZoneBuilder()
             .setStandardOffset(3600000)
             .setFixedSavings("LMT", 0);
@@ -364,7 +364,7 @@ public class TestBuilder_OE25Dev extends TestCase {
     }
     }
 
-    public void testFixed_6_oe() throws IOException {
+public void testFixed_6_oe() throws IOException {
         DateTimeZoneBuilder builder = new DateTimeZoneBuilder()
             .setStandardOffset(3600000)
             .setFixedSavings("LMT", 0);

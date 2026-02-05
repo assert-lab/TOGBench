@@ -88,7 +88,7 @@ public class TestMapConfiguration_OE25Dev extends TestAbstractConfiguration {
      * performed (trimming only works if list splitting is enabled).
      */
 
-    @Test
+@Test
     public void testAddProperty_1_oe() {
         final MapConfiguration config = (MapConfiguration) getConfiguration();
         config.addProperty(KEY, TRIM_VALUE);
@@ -97,7 +97,7 @@ public class TestMapConfiguration_OE25Dev extends TestAbstractConfiguration {
         assertEquals("Wrong number of values", 3, values.size());
     }
 
-    @Test
+@Test
     public void testClone_1_oe() {
         final MapConfiguration config = (MapConfiguration) getConfiguration();
         final MapConfiguration copy = (MapConfiguration) config.clone();
@@ -105,7 +105,7 @@ public class TestMapConfiguration_OE25Dev extends TestAbstractConfiguration {
         assertTrue("Configurations are not equal", comp.compare(config, copy));
     }
 
-    @Test
+@Test
     public void testCloneInterpolation_1_oe() {
         final String keyAnswer = "answer";
         final String keyValue = "value";
@@ -117,7 +117,7 @@ public class TestMapConfiguration_OE25Dev extends TestAbstractConfiguration {
         assertEquals("Wrong interpolation in original", "The answer is 42.", config.getString(keyAnswer));
     }
 
-    @Test
+@Test
     public void testCloneInterpolation_2_oe() {
         final String keyAnswer = "answer";
         final String keyValue = "value";
@@ -130,7 +130,7 @@ public class TestMapConfiguration_OE25Dev extends TestAbstractConfiguration {
         assertEquals("Wrong interpolation in clone", "The answer is 43.", clone.getString(keyAnswer));
     }
 
-    @Test
+@Test
     public void testCloneModify_1_oe() {
         final MapConfiguration config = (MapConfiguration) getConfiguration();
         config.addEventListener(ConfigurationEvent.ANY, new EventListenerTestImpl(config));
@@ -138,7 +138,7 @@ public class TestMapConfiguration_OE25Dev extends TestAbstractConfiguration {
         assertTrue("Event listeners were copied", copy.getEventListeners(ConfigurationEvent.ANY).isEmpty());
     }
 
-    @Test
+@Test
     public void testCloneModify_2_oe() {
         final MapConfiguration config = (MapConfiguration) getConfiguration();
         config.addEventListener(ConfigurationEvent.ANY, new EventListenerTestImpl(config));
@@ -149,7 +149,7 @@ public class TestMapConfiguration_OE25Dev extends TestAbstractConfiguration {
         assertFalse("Map not decoupled", copy.containsKey("cloneTest"));
     }
 
-    @Test
+@Test
     public void testCloneModify_3_oe() {
         final MapConfiguration config = (MapConfiguration) getConfiguration();
         config.addEventListener(ConfigurationEvent.ANY, new EventListenerTestImpl(config));
@@ -162,7 +162,7 @@ public class TestMapConfiguration_OE25Dev extends TestAbstractConfiguration {
         assertEquals("Map not decoupled (2)", "value1", config.getString("key1"));
     }
 
-    @Test
+@Test
     public void testGetMap_1_oe() {
         final Map<String, Object> map = new HashMap<>();
 
@@ -170,14 +170,14 @@ public class TestMapConfiguration_OE25Dev extends TestAbstractConfiguration {
         assertEquals(map, conf.getMap());
     }
 
-    @Test
+@Test
     public void testGetPropertyTrim_1_oe() {
         final MapConfiguration config = (MapConfiguration) getConfiguration();
         config.getMap().put(KEY, SPACE_VALUE);
         assertEquals("Wrong trimmed value", TRIM_VALUE, config.getProperty(KEY));
     }
 
-    @Test
+@Test
     public void testGetPropertyTrimDisabled_1_oe() {
         final MapConfiguration config = (MapConfiguration) getConfiguration();
         config.getMap().put(KEY, SPACE_VALUE);
@@ -185,7 +185,7 @@ public class TestMapConfiguration_OE25Dev extends TestAbstractConfiguration {
         assertEquals("Wrong trimmed value", SPACE_VALUE, config.getProperty(KEY));
     }
 
-    @Test
+@Test
     public void testGetPropertyTrimNoSplit_1_oe() {
         final MapConfiguration config = (MapConfiguration) getConfiguration();
         config.getMap().put(KEY, SPACE_VALUE);

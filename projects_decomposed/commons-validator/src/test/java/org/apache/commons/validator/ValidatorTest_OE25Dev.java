@@ -138,7 +138,7 @@ public class ValidatorTest_OE25Dev extends TestCase {
       }
    }
 
-   public void testManualObject_5_oe() {
+public void testManualObject_5_oe() {
         //     property name of the method we are validating
         String property = "date";
         // name of ValidatorAction
@@ -168,7 +168,7 @@ public class ValidatorTest_OE25Dev extends TestCase {
    }
    }
 
-   public void testManualObject_10_oe() {
+public void testManualObject_10_oe() {
         //     property name of the method we are validating
         String property = "date";
         // name of ValidatorAction
@@ -216,7 +216,7 @@ public class ValidatorTest_OE25Dev extends TestCase {
    }
    }
 
-   public void testOnlyReturnErrors_1_oe() throws ValidatorException {
+public void testOnlyReturnErrors_1_oe() throws ValidatorException {
         //     property name of the method we are validating
         String property = "date";
         // name of ValidatorAction
@@ -234,7 +234,7 @@ public class ValidatorTest_OE25Dev extends TestCase {
         assertNotNull(results);
    }
 
-   public void testOnlyReturnErrors_2_oe() throws ValidatorException {
+public void testOnlyReturnErrors_2_oe() throws ValidatorException {
         //     property name of the method we are validating
         String property = "date";
         // name of ValidatorAction
@@ -255,7 +255,7 @@ public class ValidatorTest_OE25Dev extends TestCase {
         assertTrue(results.getPropertyNames().contains(property));
    }
 
-   public void testOnlyReturnErrors_3_oe() throws ValidatorException {
+public void testOnlyReturnErrors_3_oe() throws ValidatorException {
         //     property name of the method we are validating
         String property = "date";
         // name of ValidatorAction
@@ -281,7 +281,7 @@ public class ValidatorTest_OE25Dev extends TestCase {
         assertFalse(results.getPropertyNames().contains(property));
    }
 
-   public void testOnlyValidateField_1_oe() throws ValidatorException {
+public void testOnlyValidateField_1_oe() throws ValidatorException {
         //     property name of the method we are validating
         String property = "date";
         // name of ValidatorAction
@@ -299,7 +299,7 @@ public class ValidatorTest_OE25Dev extends TestCase {
         assertNotNull(results);
    }
 
-   public void testOnlyValidateField_2_oe() throws ValidatorException {
+public void testOnlyValidateField_2_oe() throws ValidatorException {
         //     property name of the method we are validating
         String property = "date";
         // name of ValidatorAction
@@ -320,7 +320,7 @@ public class ValidatorTest_OE25Dev extends TestCase {
         assertTrue(results.getPropertyNames().contains(property));
    }
 
-   public void testManualBoolean_1_oe() {
+public void testManualBoolean_1_oe() {
       ValidatorResources resources = new ValidatorResources();
 
       ValidatorAction va = new ValidatorAction();
@@ -358,7 +358,7 @@ public class ValidatorTest_OE25Dev extends TestCase {
    }
    }
 
-   public void testManualBoolean_2_oe() {
+public void testManualBoolean_2_oe() {
       ValidatorResources resources = new ValidatorResources();
 
       ValidatorAction va = new ValidatorAction();
@@ -398,7 +398,7 @@ public class ValidatorTest_OE25Dev extends TestCase {
       assertEquals("Validation of the letter 'A'.", 0, l.size());
    }
 
-   public void testManualBoolean_3_oe() {
+public void testManualBoolean_3_oe() {
       ValidatorResources resources = new ValidatorResources();
 
       ValidatorAction va = new ValidatorAction();
@@ -447,7 +447,7 @@ public class ValidatorTest_OE25Dev extends TestCase {
    }
    }
 
-   public void testManualBoolean_4_oe() {
+public void testManualBoolean_4_oe() {
       ValidatorResources resources = new ValidatorResources();
 
       ValidatorAction va = new ValidatorAction();

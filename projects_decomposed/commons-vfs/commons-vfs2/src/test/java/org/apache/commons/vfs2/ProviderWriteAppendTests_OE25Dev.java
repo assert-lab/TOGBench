@@ -51,7 +51,7 @@ public class ProviderWriteAppendTests_OE25Dev extends AbstractProviderTestCase {
      * Tests create-delete-create-a-file sequence on the same file system.
      */
 
-    @Test
+@Test
     public void testAppendContent_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 

@@ -45,7 +45,7 @@ public class ServiceLoaderTest_OE25Dev {
      * were loaded, too.
      */
 
-    @Test
+@Test
     public void testFindsLocalColumnHandler_1_oe() {
         boolean found = false;
         for (ColumnHandler handler : columns) {
@@ -58,7 +58,7 @@ public class ServiceLoaderTest_OE25Dev {
         assertTrue(found);
     }
 
-    @Test
+@Test
     public void testFindsLocalPropertyHandler_1_oe() {
         boolean found = false;
         for (PropertyHandler handler : properties) {
@@ -71,7 +71,7 @@ public class ServiceLoaderTest_OE25Dev {
         assertTrue(found);
     }
 
-    @Test
+@Test
     public void testFindMoreThanLocalColumns_1_oe() {
         int count = 0;
         for (ColumnHandler handler : columns) {
@@ -81,7 +81,7 @@ public class ServiceLoaderTest_OE25Dev {
         assertTrue(count > 1);
     }
 
-    @Test
+@Test
     public void testFindMoreThanLocalProperties_1_oe() {
         int count = 0;
         for (PropertyHandler handler : properties) {

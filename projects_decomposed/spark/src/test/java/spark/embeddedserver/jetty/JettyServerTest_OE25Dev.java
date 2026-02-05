@@ -10,7 +10,7 @@ import static org.junit.Assert.fail;
 
 public class JettyServerTest_OE25Dev {
 
-    @Test
+@Test
     public void testCreateServer_useDefaults_1_oe() {
         Server server = new JettyServer().create(0, 0, 0);
 
@@ -23,7 +23,7 @@ public class JettyServerTest_OE25Dev {
         assertEquals("Server thread pool default minThreads should be 8", 8, minThreads);
     }
 
-    @Test
+@Test
     public void testCreateServer_useDefaults_2_oe() {
         Server server = new JettyServer().create(0, 0, 0);
 
@@ -37,7 +37,7 @@ public class JettyServerTest_OE25Dev {
         assertEquals("Server thread pool default maxThreads should be 200", 200, maxThreads);
     }
 
-    @Test
+@Test
     public void testCreateServer_useDefaults_3_oe() {
         Server server = new JettyServer().create(0, 0, 0);
 
@@ -52,7 +52,7 @@ public class JettyServerTest_OE25Dev {
         assertEquals("Server thread pool default idleTimeout should be 60000", 60000, idleTimeout);
     }
 
-    @Test
+@Test
     public void testCreateServer_whenNonDefaultMaxThreadsOnly_thenUseDefaultMinThreadsAndTimeout_1_oe() {
         Server server = new JettyServer().create(9, 0, 0);
 
@@ -65,7 +65,7 @@ public class JettyServerTest_OE25Dev {
         assertEquals("Server thread pool default minThreads should be 8", 8, minThreads);
     }
 
-    @Test
+@Test
     public void testCreateServer_whenNonDefaultMaxThreadsOnly_thenUseDefaultMinThreadsAndTimeout_2_oe() {
         Server server = new JettyServer().create(9, 0, 0);
 
@@ -79,7 +79,7 @@ public class JettyServerTest_OE25Dev {
         assertEquals("Server thread pool default maxThreads should be the same as specified", 9, maxThreads);
     }
 
-    @Test
+@Test
     public void testCreateServer_whenNonDefaultMaxThreadsOnly_thenUseDefaultMinThreadsAndTimeout_3_oe() {
         Server server = new JettyServer().create(9, 0, 0);
 
@@ -94,7 +94,7 @@ public class JettyServerTest_OE25Dev {
         assertEquals("Server thread pool default idleTimeout should be 60000", 60000, idleTimeout);
     }
 
-    @Test
+@Test
     public void testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_2_oe() {
         try {
             new JettyServer().create(2, 0, 0);

@@ -128,7 +128,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals(jText, textNode.getUserData(W3CDom.SourceProperty));
     }
 
-    @Test
+@Test
     public void simpleConversion_1_oe() {
         String html = "<html><head><title>W3c</title></head><body><p class='one' id=12>Text</p><!-- comment --><invalid>What<script>alert('!')";
         org.jsoup.nodes.Document doc = Jsoup.parse(html);
@@ -139,7 +139,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals(0, meta.getLength());
     }
 
-    @Test
+@Test
     public void simpleConversion_2_oe() {
         String html = "<html><head><title>W3c</title></head><body><p class='one' id=12>Text</p><!-- comment --><invalid>What<script>alert('!')";
         org.jsoup.nodes.Document doc = Jsoup.parse(html);
@@ -154,7 +154,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals(expected, TextUtil.stripNewlines(out));
     }
 
-    @Test
+@Test
     public void simpleConversion_3_oe() {
         String html = "<html><head><title>W3c</title></head><body><p class='one' id=12>Text</p><!-- comment --><invalid>What<script>alert('!')";
         org.jsoup.nodes.Document doc = Jsoup.parse(html);
@@ -172,7 +172,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("Text", roundTrip.getElementsByTagName("p").item(0).getTextContent());
     }
 
-    @Test
+@Test
     public void simpleConversion_4_oe() {
         String html = "<html><head><title>W3c</title></head><body><p class='one' id=12>Text</p><!-- comment --><invalid>What<script>alert('!')";
         org.jsoup.nodes.Document doc = Jsoup.parse(html);
@@ -196,7 +196,7 @@ public class W3CDomTest_OE25Dev {
         assertTrue(furtherOut.length()> out.length());// wanted to assert formatting,but actual indentation is platform specific so breaks in CI;
     }
 
-    @Test
+@Test
     public void simpleConversion_5_oe() {
         String html = "<html><head><title>W3c</title></head><body><p class='one' id=12>Text</p><!-- comment --><invalid>What<script>alert('!')";
         org.jsoup.nodes.Document doc = Jsoup.parse(html);
@@ -222,7 +222,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals(furtherExpected, TextUtil.stripNewlines(furtherOut)); // on windows, DOM will write newlines as \r\n;
     }
 
-    @Test
+@Test
     public void convertsGoogle_1_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/google-ipod.html.gz");
         org.jsoup.nodes.Document doc = Jsoup.parse(in, "UTF8");
@@ -233,7 +233,7 @@ public class W3CDomTest_OE25Dev {
         assertNull(htmlEl.getNamespaceURI());
     }
 
-    @Test
+@Test
     public void convertsGoogle_2_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/google-ipod.html.gz");
         org.jsoup.nodes.Document doc = Jsoup.parse(in, "UTF8");
@@ -245,7 +245,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("html", htmlEl.getLocalName());
     }
 
-    @Test
+@Test
     public void convertsGoogle_3_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/google-ipod.html.gz");
         org.jsoup.nodes.Document doc = Jsoup.parse(in, "UTF8");
@@ -258,7 +258,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("html", htmlEl.getNodeName());
     }
 
-    @Test
+@Test
     public void convertsGoogle_4_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/google-ipod.html.gz");
         org.jsoup.nodes.Document doc = Jsoup.parse(in, "UTF8");
@@ -275,7 +275,7 @@ public class W3CDomTest_OE25Dev {
         assertSame(doctype, doctypeNode);
     }
 
-    @Test
+@Test
     public void convertsGoogle_5_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/google-ipod.html.gz");
         org.jsoup.nodes.Document doc = Jsoup.parse(in, "UTF8");
@@ -293,7 +293,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("html", doctype.getName());
     }
 
-    @Test
+@Test
     public void convertsGoogle_6_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/google-ipod.html.gz");
         org.jsoup.nodes.Document doc = Jsoup.parse(in, "UTF8");
@@ -314,7 +314,7 @@ public class W3CDomTest_OE25Dev {
         assertTrue(xml.contains("ipod"));
     }
 
-    @Test
+@Test
     public void convertsGoogle_7_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/google-ipod.html.gz");
         org.jsoup.nodes.Document doc = Jsoup.parse(in, "UTF8");
@@ -338,7 +338,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("Images", roundTrip.getElementsByTagName("a").item(0).getTextContent());
     }
 
-    @Test
+@Test
     public void convertsGoogleLocation_1_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/google-ipod.html.gz");
         org.jsoup.nodes.Document doc = Jsoup.parse(in, "UTF8");
@@ -350,7 +350,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals(doc.location(), wDoc.getDocumentURI());
     }
 
-    @Test
+@Test
     public void namespacePreservation_1_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -364,7 +364,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("http://www.w3.org/1999/xhtml", htmlEl.getNamespaceURI());
     }
 
-    @Test
+@Test
     public void namespacePreservation_2_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -379,7 +379,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("html", htmlEl.getLocalName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_3_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -395,7 +395,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("html", htmlEl.getNodeName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_4_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -415,7 +415,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("http://www.w3.org/1999/xhtml", head.getNamespaceURI());
     }
 
-    @Test
+@Test
     public void namespacePreservation_5_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -436,7 +436,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("head", head.getLocalName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_6_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -458,7 +458,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("head", head.getNodeName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_7_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -483,7 +483,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("Check", epubTitle.getTextContent());
     }
 
-    @Test
+@Test
     public void namespacePreservation_8_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -509,7 +509,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("http://www.idpf.org/2007/ops", epubTitle.getNamespaceURI());
     }
 
-    @Test
+@Test
     public void namespacePreservation_9_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -536,7 +536,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("title", epubTitle.getLocalName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_10_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -564,7 +564,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("epub:title", epubTitle.getNodeName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_11_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -595,7 +595,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("urn:test", xSection.getNamespaceURI());
     }
 
-    @Test
+@Test
     public void namespacePreservation_12_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -627,7 +627,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("section", xSection.getLocalName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_13_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -660,7 +660,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("x:section", xSection.getNodeName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_14_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -698,7 +698,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("http://www.w3.org/2000/svg", svg.getNamespaceURI());
     }
 
-    @Test
+@Test
     public void namespacePreservation_15_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -737,7 +737,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("svg", svg.getLocalName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_16_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -777,7 +777,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("svg", svg.getNodeName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_17_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -820,7 +820,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("http://www.w3.org/2000/svg", path.getNamespaceURI());
     }
 
-    @Test
+@Test
     public void namespacePreservation_18_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -864,7 +864,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("path", path.getLocalName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_19_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -909,7 +909,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("path", path.getNodeName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_20_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -957,7 +957,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("http://example.com/clip", clip.getNamespaceURI());
     }
 
-    @Test
+@Test
     public void namespacePreservation_21_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -1006,7 +1006,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("clip", clip.getLocalName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_22_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -1056,7 +1056,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("clip", clip.getNodeName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_23_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -1107,7 +1107,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("456", clip.getTextContent());
     }
 
-    @Test
+@Test
     public void namespacePreservation_24_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -1161,7 +1161,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("http://www.w3.org/1999/xhtml", picture.getNamespaceURI());
     }
 
-    @Test
+@Test
     public void namespacePreservation_25_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -1216,7 +1216,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("picture", picture.getLocalName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_26_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -1272,7 +1272,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("picture", picture.getNodeName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_27_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -1331,7 +1331,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("http://www.w3.org/1999/xhtml", img.getNamespaceURI());
     }
 
-    @Test
+@Test
     public void namespacePreservation_28_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -1391,7 +1391,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("img", img.getLocalName());
     }
 
-    @Test
+@Test
     public void namespacePreservation_29_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/namespaces.xhtml");
         org.jsoup.nodes.Document jsoupDoc;
@@ -1452,7 +1452,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("img", img.getNodeName());
     }
 
-    @Test
+@Test
     public void handlesInvalidAttributeNames_1_oe() {
         String html = "<html><head></head><body style=\"color: red\" \" name\"></body></html>";
         org.jsoup.nodes.Document jsoupDoc;
@@ -1461,7 +1461,7 @@ public class W3CDomTest_OE25Dev {
         assertTrue(body.hasAttr("\""));// actually an attribute with key '"'. Correct per HTML5 spec,but w3c xml dom doesn't dig it assertTrue(body.hasAttr("name\""));
     }
 
-    @Test
+@Test
     public void handlesInvalidAttributeNames_2_oe() {
         String html = "<html><head></head><body style=\"color: red\" \" name\"></body></html>";
         org.jsoup.nodes.Document jsoupDoc;
@@ -1474,7 +1474,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?><html><head/><body name=\"\" style=\"color: red\"/></html>", xml);
     }
 
-    @Test
+@Test
     public void htmlInputDocMaintainsHtmlAttributeNames_1_oe() {
         String html = "<!DOCTYPE html><html><head></head><body><p hành=\"1\" hình=\"2\">unicode attr names</p></body></html>";
         org.jsoup.nodes.Document jsoupDoc;
@@ -1486,7 +1486,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals(expected, TextUtil.stripNewlines(out));
     }
 
-    @Test
+@Test
     public void xmlInputDocMaintainsHtmlAttributeNames_1_oe() {
         String html = "<!DOCTYPE html><html><head></head><body><p hành=\"1\" hình=\"2\">unicode attr names coerced</p></body></html>";
         org.jsoup.nodes.Document jsoupDoc;
@@ -1499,7 +1499,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals(expected, TextUtil.stripNewlines(out));
     }
 
-    @Test
+@Test
     public void handlesInvalidTagAsText_1_oe() {
         org.jsoup.nodes.Document jsoup = Jsoup.parse("<インセンティブで高収入！>Text <p>More</p>");
 
@@ -1508,7 +1508,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?><html><head/><body>&lt;インセンティブで高収入！&gt;Text <p>More</p></body></html>", xml);
     }
 
-    @Test
+@Test
     public void treatsUndeclaredNamespaceAsLocalName_1_oe() {
         String html = "<fb:like>One</fb:like>";
         org.jsoup.nodes.Document doc = Jsoup.parse(html);
@@ -1519,7 +1519,7 @@ public class W3CDomTest_OE25Dev {
         assertNull(htmlEl.getNamespaceURI());
     }
 
-    @Test
+@Test
     public void treatsUndeclaredNamespaceAsLocalName_2_oe() {
         String html = "<fb:like>One</fb:like>";
         org.jsoup.nodes.Document doc = Jsoup.parse(html);
@@ -1531,7 +1531,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("html", htmlEl.getLocalName());
     }
 
-    @Test
+@Test
     public void treatsUndeclaredNamespaceAsLocalName_3_oe() {
         String html = "<fb:like>One</fb:like>";
         org.jsoup.nodes.Document doc = Jsoup.parse(html);
@@ -1544,7 +1544,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("html", htmlEl.getNodeName());
     }
 
-    @Test
+@Test
     public void treatsUndeclaredNamespaceAsLocalName_4_oe() {
         String html = "<fb:like>One</fb:like>";
         org.jsoup.nodes.Document doc = Jsoup.parse(html);
@@ -1560,7 +1560,7 @@ public class W3CDomTest_OE25Dev {
         assertNull(fb.getNamespaceURI());
     }
 
-    @Test
+@Test
     public void treatsUndeclaredNamespaceAsLocalName_5_oe() {
         String html = "<fb:like>One</fb:like>";
         org.jsoup.nodes.Document doc = Jsoup.parse(html);
@@ -1577,7 +1577,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("like", fb.getLocalName());
     }
 
-    @Test
+@Test
     public void treatsUndeclaredNamespaceAsLocalName_6_oe() {
         String html = "<fb:like>One</fb:like>";
         org.jsoup.nodes.Document doc = Jsoup.parse(html);
@@ -1595,7 +1595,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("fb:like", fb.getNodeName());
     }
 
-    @Test
+@Test
     public void xmlnsXpathTest_1_oe() throws XPathExpressionException {
         W3CDom w3c = new W3CDom();
         String html = "<html><body><div>hello</div></body></html>";
@@ -1604,7 +1604,7 @@ public class W3CDomTest_OE25Dev {
         assertEquals("div", nodeList.item(0).getLocalName());
     }
 
-    @Test
+@Test
     public void xmlnsXpathTest_2_oe() throws XPathExpressionException {
         W3CDom w3c = new W3CDom();
         String html = "<html><body><div>hello</div></body></html>";

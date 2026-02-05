@@ -108,20 +108,20 @@ public class ClassConverterTestCase_OE25Dev extends TestCase {
         }
     }
 
-    public void testConvertToString_1_oe() {
+public void testConvertToString_1_oe() {
         final Converter converter = new ClassConverter();
 
         assertEquals("Class Test", "java.lang.Integer", converter.convert(String.class, Integer.class));
     }
 
-    public void testConvertToString_2_oe() {
+public void testConvertToString_2_oe() {
         final Converter converter = new ClassConverter();
 
         // removed other assertion
         assertEquals("Value Test", "foo", converter.convert(String.class, "foo"));
     }
 
-    public void testConvertToString_3_oe() {
+public void testConvertToString_3_oe() {
         final Converter converter = new ClassConverter();
 
         // removed other assertion
@@ -129,7 +129,7 @@ public class ClassConverterTestCase_OE25Dev extends TestCase {
         assertEquals("Value Test", "bar", converter.convert(String.class, new StringBuilder("bar")));
     }
 
-    public void testConvertToString_4_oe() {
+public void testConvertToString_4_oe() {
         final Converter converter = new ClassConverter();
 
         // removed other assertion
@@ -138,20 +138,20 @@ public class ClassConverterTestCase_OE25Dev extends TestCase {
         assertEquals("Null Test",   null, converter.convert(String.class, null));
     }
 
-    public void testConvertToClass_1_oe() {
+public void testConvertToClass_1_oe() {
         final Converter converter = new ClassConverter();
 
         assertEquals("Class Test",        Integer.class, converter.convert(Class.class, Integer.class));
     }
 
-    public void testConvertToClass_2_oe() {
+public void testConvertToClass_2_oe() {
         final Converter converter = new ClassConverter();
 
         // removed other assertion
         assertEquals("String Test",       Integer.class, converter.convert(Class.class, "java.lang.Integer"));
     }
 
-    public void testConvertToClass_3_oe() {
+public void testConvertToClass_3_oe() {
         final Converter converter = new ClassConverter();
 
         // removed other assertion
@@ -159,14 +159,14 @@ public class ClassConverterTestCase_OE25Dev extends TestCase {
         assertEquals("StringBuilder Test", Integer.class, converter.convert(Class.class, new StringBuilder("java.lang.Integer")));
     }
 
-    public void testConvertToClassDefault_1_oe() {
+public void testConvertToClassDefault_1_oe() {
 
         final Converter converter = new ClassConverter(Object.class);
 
         assertEquals("Invalid Test", Object.class, converter.convert(Class.class, new Integer(6)));
     }
 
-    public void testConvertToClassDefault_2_oe() {
+public void testConvertToClassDefault_2_oe() {
 
         final Converter converter = new ClassConverter(Object.class);
 
@@ -174,14 +174,14 @@ public class ClassConverterTestCase_OE25Dev extends TestCase {
         assertEquals("Null Test",    Object.class, converter.convert(Class.class, null));
     }
 
-    public void testConvertToClassDefaultNull_1_oe() {
+public void testConvertToClassDefaultNull_1_oe() {
 
         final Converter converter = new ClassConverter(null);
 
         assertEquals("Invalid Test", null, converter.convert(Class.class, new Integer(6)));
     }
 
-    public void testConvertToClassDefaultNull_2_oe() {
+public void testConvertToClassDefaultNull_2_oe() {
 
         final Converter converter = new ClassConverter(null);
 
@@ -189,7 +189,7 @@ public class ClassConverterTestCase_OE25Dev extends TestCase {
         assertEquals("Null Test",    null, converter.convert(Class.class, null));
     }
 
-    public void testArray_1_oe() {
+public void testArray_1_oe() {
         final Converter converter = new ClassConverter();
 
         // Test Array Class to String

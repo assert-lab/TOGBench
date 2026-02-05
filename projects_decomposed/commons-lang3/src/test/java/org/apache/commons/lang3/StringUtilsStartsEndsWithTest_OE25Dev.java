@@ -53,25 +53,25 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
      */
 
 
-    @Test
+@Test
     public void testStartsWith_1_oe() {
         assertTrue(StringUtils.startsWith(null, null), "startsWith(null, null)");
     }
 
-    @Test
+@Test
     public void testStartsWith_2_oe() {
         // removed other assertion
         assertFalse(StringUtils.startsWith(FOOBAR, null), "startsWith(FOOBAR, null)");
     }
 
-    @Test
+@Test
     public void testStartsWith_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(StringUtils.startsWith(null, FOO), "startsWith(null, FOO)");
     }
 
-    @Test
+@Test
     public void testStartsWith_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -79,7 +79,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.startsWith(FOOBAR, ""), "startsWith(FOOBAR, \"\")");
     }
 
-    @Test
+@Test
     public void testStartsWith_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -89,7 +89,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.startsWith(foobar, foo), "startsWith(foobar, foo)");
     }
 
-    @Test
+@Test
     public void testStartsWith_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -100,7 +100,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.startsWith(FOOBAR, FOO), "startsWith(FOOBAR, FOO)");
     }
 
-    @Test
+@Test
     public void testStartsWith_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -112,7 +112,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWith(foobar, FOO), "startsWith(foobar, FOO)");
     }
 
-    @Test
+@Test
     public void testStartsWith_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -125,7 +125,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWith(FOOBAR, foo), "startsWith(FOOBAR, foo)");
     }
 
-    @Test
+@Test
     public void testStartsWith_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -140,7 +140,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWith(foo, foobar), "startsWith(foo, foobar)");
     }
 
-    @Test
+@Test
     public void testStartsWith_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -156,7 +156,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWith(bar, foobar), "startsWith(foo, foobar)");
     }
 
-    @Test
+@Test
     public void testStartsWith_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -174,7 +174,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWith(foobar, bar), "startsWith(foobar, bar)");
     }
 
-    @Test
+@Test
     public void testStartsWith_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -193,7 +193,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWith(FOOBAR, BAR), "startsWith(FOOBAR, BAR)");
     }
 
-    @Test
+@Test
     public void testStartsWith_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -213,7 +213,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWith(foobar, BAR), "startsWith(foobar, BAR)");
     }
 
-    @Test
+@Test
     public void testStartsWith_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -234,25 +234,25 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWith(FOOBAR, bar), "startsWith(FOOBAR, bar)");
     }
 
-    @Test
+@Test
     public void testStartsWithIgnoreCase_1_oe() {
         assertTrue(StringUtils.startsWithIgnoreCase(null, null), "startsWithIgnoreCase(null, null)");
     }
 
-    @Test
+@Test
     public void testStartsWithIgnoreCase_2_oe() {
         // removed other assertion
         assertFalse(StringUtils.startsWithIgnoreCase(FOOBAR, null), "startsWithIgnoreCase(FOOBAR, null)");
     }
 
-    @Test
+@Test
     public void testStartsWithIgnoreCase_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(StringUtils.startsWithIgnoreCase(null, FOO), "startsWithIgnoreCase(null, FOO)");
     }
 
-    @Test
+@Test
     public void testStartsWithIgnoreCase_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -260,7 +260,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.startsWithIgnoreCase(FOOBAR, ""), "startsWithIgnoreCase(FOOBAR, \"\")");
     }
 
-    @Test
+@Test
     public void testStartsWithIgnoreCase_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -270,7 +270,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.startsWithIgnoreCase(foobar, foo), "startsWithIgnoreCase(foobar, foo)");
     }
 
-    @Test
+@Test
     public void testStartsWithIgnoreCase_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -281,7 +281,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.startsWithIgnoreCase(FOOBAR, FOO), "startsWithIgnoreCase(FOOBAR, FOO)");
     }
 
-    @Test
+@Test
     public void testStartsWithIgnoreCase_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -293,7 +293,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.startsWithIgnoreCase(foobar, FOO), "startsWithIgnoreCase(foobar, FOO)");
     }
 
-    @Test
+@Test
     public void testStartsWithIgnoreCase_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -306,7 +306,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.startsWithIgnoreCase(FOOBAR, foo), "startsWithIgnoreCase(FOOBAR, foo)");
     }
 
-    @Test
+@Test
     public void testStartsWithIgnoreCase_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -321,7 +321,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWithIgnoreCase(foo, foobar), "startsWithIgnoreCase(foo, foobar)");
     }
 
-    @Test
+@Test
     public void testStartsWithIgnoreCase_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -337,7 +337,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWithIgnoreCase(bar, foobar), "startsWithIgnoreCase(foo, foobar)");
     }
 
-    @Test
+@Test
     public void testStartsWithIgnoreCase_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -355,7 +355,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWithIgnoreCase(foobar, bar), "startsWithIgnoreCase(foobar, bar)");
     }
 
-    @Test
+@Test
     public void testStartsWithIgnoreCase_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -374,7 +374,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWithIgnoreCase(FOOBAR, BAR), "startsWithIgnoreCase(FOOBAR, BAR)");
     }
 
-    @Test
+@Test
     public void testStartsWithIgnoreCase_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -394,7 +394,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWithIgnoreCase(foobar, BAR), "startsWithIgnoreCase(foobar, BAR)");
     }
 
-    @Test
+@Test
     public void testStartsWithIgnoreCase_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -415,25 +415,25 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWithIgnoreCase(FOOBAR, bar), "startsWithIgnoreCase(FOOBAR, bar)");
     }
 
-    @Test
+@Test
     public void testStartsWithAny_1_oe() {
         assertFalse(StringUtils.startsWithAny(null, (String[]) null));
     }
 
-    @Test
+@Test
     public void testStartsWithAny_2_oe() {
         // removed other assertion
         assertFalse(StringUtils.startsWithAny(null, "abc"));
     }
 
-    @Test
+@Test
     public void testStartsWithAny_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(StringUtils.startsWithAny("abcxyz", (String[]) null));
     }
 
-    @Test
+@Test
     public void testStartsWithAny_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -441,7 +441,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWithAny("abcxyz"));
     }
 
-    @Test
+@Test
     public void testStartsWithAny_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -450,7 +450,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.startsWithAny("abcxyz", "abc"));
     }
 
-    @Test
+@Test
     public void testStartsWithAny_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -460,7 +460,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.startsWithAny("abcxyz", null, "xyz", "abc"));
     }
 
-    @Test
+@Test
     public void testStartsWithAny_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -471,7 +471,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWithAny("abcxyz", null, "xyz", "abcd"));
     }
 
-    @Test
+@Test
     public void testStartsWithAny_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -483,7 +483,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.startsWithAny("abcxyz", ""));
     }
 
-    @Test
+@Test
     public void testStartsWithAny_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -496,7 +496,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWithAny("abcxyz", null, "xyz", "ABCX"));
     }
 
-    @Test
+@Test
     public void testStartsWithAny_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -510,7 +510,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.startsWithAny("ABCXYZ", null, "xyz", "abc"));
     }
 
-    @Test
+@Test
     public void testStartsWithAny_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -526,7 +526,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.startsWithAny("abcxyz", new StringBuilder("xyz"), new StringBuffer("abc")), "StringUtils.startsWithAny(abcxyz, StringBuilder(xyz), StringBuffer(abc))");
     }
 
-    @Test
+@Test
     public void testStartsWithAny_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -543,25 +543,25 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.startsWithAny(new StringBuffer("abcxyz"), new StringBuilder("xyz"), new StringBuffer("abc")), "StringUtils.startsWithAny(StringBuffer(abcxyz), StringBuilder(xyz), StringBuffer(abc))");
     }
 
-    @Test
+@Test
     public void testEndsWith_1_oe() {
         assertTrue(StringUtils.endsWith(null, null), "endsWith(null, null)");
     }
 
-    @Test
+@Test
     public void testEndsWith_2_oe() {
         // removed other assertion
         assertFalse(StringUtils.endsWith(FOOBAR, null), "endsWith(FOOBAR, null)");
     }
 
-    @Test
+@Test
     public void testEndsWith_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(StringUtils.endsWith(null, FOO), "endsWith(null, FOO)");
     }
 
-    @Test
+@Test
     public void testEndsWith_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -569,7 +569,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWith(FOOBAR, ""), "endsWith(FOOBAR, \"\")");
     }
 
-    @Test
+@Test
     public void testEndsWith_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -579,7 +579,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWith(foobar, foo), "endsWith(foobar, foo)");
     }
 
-    @Test
+@Test
     public void testEndsWith_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -590,7 +590,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWith(FOOBAR, FOO), "endsWith(FOOBAR, FOO)");
     }
 
-    @Test
+@Test
     public void testEndsWith_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -602,7 +602,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWith(foobar, FOO), "endsWith(foobar, FOO)");
     }
 
-    @Test
+@Test
     public void testEndsWith_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -615,7 +615,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWith(FOOBAR, foo), "endsWith(FOOBAR, foo)");
     }
 
-    @Test
+@Test
     public void testEndsWith_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -630,7 +630,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWith(foo, foobar), "endsWith(foo, foobar)");
     }
 
-    @Test
+@Test
     public void testEndsWith_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -646,7 +646,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWith(bar, foobar), "endsWith(foo, foobar)");
     }
 
-    @Test
+@Test
     public void testEndsWith_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -664,7 +664,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWith(foobar, bar), "endsWith(foobar, bar)");
     }
 
-    @Test
+@Test
     public void testEndsWith_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -683,7 +683,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWith(FOOBAR, BAR), "endsWith(FOOBAR, BAR)");
     }
 
-    @Test
+@Test
     public void testEndsWith_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -703,7 +703,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWith(foobar, BAR), "endsWith(foobar, BAR)");
     }
 
-    @Test
+@Test
     public void testEndsWith_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -724,7 +724,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWith(FOOBAR, bar), "endsWith(FOOBAR, bar)");
     }
 
-    @Test
+@Test
     public void testEndsWith_15_oe() {
         // removed other assertion
         // removed other assertion
@@ -748,7 +748,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWith("\u03B1\u03B2\u03B3\u03B4","\u03B4"),"endsWith(\u03B1\u03B2\u03B3\u03B4,\u03B4)");
     }
 
-    @Test
+@Test
     public void testEndsWith_16_oe() {
         // removed other assertion
         // removed other assertion
@@ -774,25 +774,25 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWith("\u03B1\u03B2\u03B3\u03B4","\u03B3\u0394"),"endsWith(\u03B1\u03B2\u03B3\u03B4,\u03B3\u0394)");
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_1_oe() {
         assertTrue(StringUtils.endsWithIgnoreCase(null, null), "endsWithIgnoreCase(null, null)");
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_2_oe() {
         // removed other assertion
         assertFalse(StringUtils.endsWithIgnoreCase(FOOBAR, null), "endsWithIgnoreCase(FOOBAR, null)");
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(StringUtils.endsWithIgnoreCase(null, FOO), "endsWithIgnoreCase(null, FOO)");
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -800,7 +800,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWithIgnoreCase(FOOBAR, ""), "endsWithIgnoreCase(FOOBAR, \"\")");
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -810,7 +810,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWithIgnoreCase(foobar, foo), "endsWithIgnoreCase(foobar, foo)");
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -821,7 +821,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWithIgnoreCase(FOOBAR, FOO), "endsWithIgnoreCase(FOOBAR, FOO)");
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -833,7 +833,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWithIgnoreCase(foobar, FOO), "endsWithIgnoreCase(foobar, FOO)");
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -846,7 +846,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWithIgnoreCase(FOOBAR, foo), "endsWithIgnoreCase(FOOBAR, foo)");
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -861,7 +861,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWithIgnoreCase(foo, foobar), "endsWithIgnoreCase(foo, foobar)");
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -877,7 +877,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWithIgnoreCase(bar, foobar), "endsWithIgnoreCase(foo, foobar)");
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -895,7 +895,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWithIgnoreCase(foobar, bar), "endsWithIgnoreCase(foobar, bar)");
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -914,7 +914,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWithIgnoreCase(FOOBAR, BAR), "endsWithIgnoreCase(FOOBAR, BAR)");
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -934,7 +934,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWithIgnoreCase(foobar, BAR), "endsWithIgnoreCase(foobar, BAR)");
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -955,7 +955,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWithIgnoreCase(FOOBAR, bar), "endsWithIgnoreCase(FOOBAR, bar)");
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_15_oe() {
         // removed other assertion
         // removed other assertion
@@ -979,7 +979,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWithIgnoreCase("abcdef", "def"));
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_16_oe() {
         // removed other assertion
         // removed other assertion
@@ -1004,7 +1004,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWithIgnoreCase("ABCDEF", "def"));
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_17_oe() {
         // removed other assertion
         // removed other assertion
@@ -1030,7 +1030,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWithIgnoreCase("ABCDEF", "cde"));
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_18_oe() {
         // removed other assertion
         // removed other assertion
@@ -1059,7 +1059,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWithIgnoreCase("\u03B1\u03B2\u03B3\u03B4","\u0394"),"endsWith(\u03B1\u03B2\u03B3\u03B4,\u0394)");
     }
 
-    @Test
+@Test
     public void testEndsWithIgnoreCase_19_oe() {
         // removed other assertion
         // removed other assertion
@@ -1090,25 +1090,25 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWithIgnoreCase("\u03B1\u03B2\u03B3\u03B4","\u0393"),"endsWith(\u03B1\u03B2\u03B3\u03B4,\u0393)");
     }
 
-    @Test
+@Test
     public void testEndsWithAny_1_oe() {
         assertFalse(StringUtils.endsWithAny(null, (String) null), "StringUtils.endsWithAny(null, null)");
     }
 
-    @Test
+@Test
     public void testEndsWithAny_2_oe() {
         // removed other assertion
         assertFalse(StringUtils.endsWithAny(null, "abc"), "StringUtils.endsWithAny(null, new String[] {abc})");
     }
 
-    @Test
+@Test
     public void testEndsWithAny_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(StringUtils.endsWithAny("abcxyz", (String) null), "StringUtils.endsWithAny(abcxyz, null)");
     }
 
-    @Test
+@Test
     public void testEndsWithAny_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1116,7 +1116,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWithAny("abcxyz", ""), "StringUtils.endsWithAny(abcxyz, new String[] {\"\"})");
     }
 
-    @Test
+@Test
     public void testEndsWithAny_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1125,7 +1125,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWithAny("abcxyz", "xyz"), "StringUtils.endsWithAny(abcxyz, new String[] {xyz})");
     }
 
-    @Test
+@Test
     public void testEndsWithAny_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1135,7 +1135,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWithAny("abcxyz", null, "xyz", "abc"), "StringUtils.endsWithAny(abcxyz, new String[] {null, xyz, abc})");
     }
 
-    @Test
+@Test
     public void testEndsWithAny_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -1146,7 +1146,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWithAny("defg", null, "xyz", "abc"), "StringUtils.endsWithAny(defg, new String[] {null, xyz, abc})");
     }
 
-    @Test
+@Test
     public void testEndsWithAny_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -1158,7 +1158,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWithAny("abcXYZ", "def", "XYZ"));
     }
 
-    @Test
+@Test
     public void testEndsWithAny_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -1171,7 +1171,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWithAny("abcXYZ", "def", "xyz"));
     }
 
-    @Test
+@Test
     public void testEndsWithAny_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -1185,7 +1185,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWithAny("abcXYZ", "def", "YZ"));
     }
 
-    @Test
+@Test
     public void testEndsWithAny_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -1209,7 +1209,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWithAny("abcXYZ", (CharSequence) null));
     }
 
-    @Test
+@Test
     public void testEndsWithAny_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -1234,7 +1234,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertFalse(StringUtils.endsWithAny("abcXYZ", (CharSequence[]) null));
     }
 
-    @Test
+@Test
     public void testEndsWithAny_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -1260,7 +1260,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWithAny("abcXYZ", ""));
     }
 
-    @Test
+@Test
     public void testEndsWithAny_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -1288,7 +1288,7 @@ public class StringUtilsStartsEndsWithTest_OE25Dev {
         assertTrue(StringUtils.endsWithAny("abcxyz", new StringBuilder("abc"), new StringBuffer("xyz")), "StringUtils.endsWithAny(abcxyz, StringBuilder(abc), StringBuffer(xyz))");
     }
 
-    @Test
+@Test
     public void testEndsWithAny_15_oe() {
         // removed other assertion
         // removed other assertion

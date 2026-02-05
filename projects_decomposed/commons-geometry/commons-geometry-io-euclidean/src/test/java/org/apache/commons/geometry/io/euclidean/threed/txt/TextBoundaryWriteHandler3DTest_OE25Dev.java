@@ -56,7 +56,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
 
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
-    @Test
+@Test
     void testProperties_1_oe() {
         // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
@@ -65,7 +65,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals(GeometryFormat3D.TXT, handler.getFormat());
     }
 
-    @Test
+@Test
     void testProperties_2_oe() {
         // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
@@ -75,7 +75,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals(StandardCharsets.UTF_8, handler.getDefaultCharset());
     }
 
-    @Test
+@Test
     void testProperties_3_oe() {
         // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
@@ -86,7 +86,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals("\n", handler.getLineSeparator());
     }
 
-    @Test
+@Test
     void testProperties_4_oe() {
         // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
@@ -98,7 +98,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals(" ", handler.getVertexComponentSeparator());
     }
 
-    @Test
+@Test
     void testProperties_5_oe() {
         // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
@@ -111,7 +111,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals("; ", handler.getVertexSeparator());
     }
 
-    @Test
+@Test
     void testProperties_6_oe() {
         // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
@@ -125,7 +125,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertNotNull(handler.getDoubleFormat());
     }
 
-    @Test
+@Test
     void testProperties_7_oe() {
         // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
@@ -140,7 +140,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals(-1, handler.getFacetVertexCount());
     }
 
-    @Test
+@Test
     void testWriteFacets_1_oe() {
         // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
@@ -153,7 +153,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals(1, closeOut.getCloseCount());
     }
 
-    @Test
+@Test
     void testWriteFacets_2_oe() {
         // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
@@ -167,7 +167,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals("0.0 0.0 0.0;0.3333333333333333 0.0 0.0;1.0 1.0 0.0\n",new String(out.toByteArray(),StandardCharsets.UTF_8));
     }
 
-    @Test
+@Test
     void testWriteFacets_usesOutputCharset_1_oe() {
         // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
@@ -180,7 +180,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals(1, closeOut.getCloseCount());
     }
 
-    @Test
+@Test
     void testWriteFacets_usesOutputCharset_2_oe() {
         // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
@@ -194,7 +194,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals("0.0 0.0 0.0;0.3333333333333333 0.0 0.0;1.0 1.0 0.0\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
     }
 
-    @Test
+@Test
     void testWriteFacets_customConfiguration_1_oe() {
         // arrange
         final DecimalFormat fmt =
@@ -217,7 +217,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals(1, closeOut.getCloseCount());
     }
 
-    @Test
+@Test
     void testWriteFacets_customConfiguration_2_oe() {
         // arrange
         final DecimalFormat fmt =
@@ -241,7 +241,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals("0.0|0.0|0.0 | 0.3|0.0|0.0 | 1.0|1.0|0.0 | 0.0|1.0|0.0\r\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
     }
 
-    @Test
+@Test
     void testWriteBoundarySource_1_oe() {
         // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
@@ -254,7 +254,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals(1, closeOut.getCloseCount());
     }
 
-    @Test
+@Test
     void testWriteBoundarySource_2_oe() {
         // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
@@ -268,7 +268,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals("0.0 0.0 0.0;0.3333333333333333 0.0 0.0;1.0 1.0 0.0;0.0 1.0 0.0\n",new String(out.toByteArray(),StandardCharsets.UTF_8));
     }
 
-    @Test
+@Test
     void testWriteBoundarySource_customConfiguration_1_oe() {
         // arrange
         // arrange
@@ -292,7 +292,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals(1, closeOut.getCloseCount());
     }
 
-    @Test
+@Test
     void testWriteBoundarySource_customConfiguration_2_oe() {
         // arrange
         // arrange

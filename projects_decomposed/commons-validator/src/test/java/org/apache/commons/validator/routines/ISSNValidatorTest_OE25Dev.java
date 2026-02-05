@@ -162,27 +162,27 @@ public class ISSNValidatorTest_OE25Dev extends TestCase {
      *  Test valid EAN-13 ISSN codes and extract the ISSN
      */
 
-    public void testIsValidISSN_1_oe() {
+public void testIsValidISSN_1_oe() {
         for(String f : validFormat) {
             assertTrue(f, VALIDATOR.isValid(f));
     }
     }
 
-    public void testNull_1_oe() {
+public void testNull_1_oe() {
         assertFalse("isValid",  VALIDATOR.isValid(null));
     }
 
-    public void testInvalid_1_oe() {
+public void testInvalid_1_oe() {
         for(String f : invalidFormat) {
             assertFalse(f, VALIDATOR.isValid(f));
     }
     }
 
-    public void testIsValidISSNConvertNull_1_oe() {
+public void testIsValidISSNConvertNull_1_oe() {
         assertNull(VALIDATOR.convertToEAN13(null, "00"));
     }
 
-    public void testIsValidISSNConvert_1_oe() {        
+public void testIsValidISSNConvert_1_oe() {        
         CheckDigit ean13cd = EAN13CheckDigit.EAN13_CHECK_DIGIT;
         Random r = new Random();
         for(String f : validFormat) {
@@ -192,7 +192,7 @@ public class ISSNValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testIsValidISSNConvert_2_oe() {        
+public void testIsValidISSNConvert_2_oe() {        
         CheckDigit ean13cd = EAN13CheckDigit.EAN13_CHECK_DIGIT;
         Random r = new Random();
         for(String f : validFormat) {
@@ -204,7 +204,7 @@ public class ISSNValidatorTest_OE25Dev extends TestCase {
         assertEquals("9771144875007", VALIDATOR.convertToEAN13("1144-875X", "00"));
     }
 
-    public void testIsValidISSNConvert_3_oe() {        
+public void testIsValidISSNConvert_3_oe() {        
         CheckDigit ean13cd = EAN13CheckDigit.EAN13_CHECK_DIGIT;
         Random r = new Random();
         for(String f : validFormat) {
@@ -217,7 +217,7 @@ public class ISSNValidatorTest_OE25Dev extends TestCase {
         assertEquals("9770264359008", VALIDATOR.convertToEAN13("0264-3596", "00"));
     }
 
-    public void testIsValidISSNConvert_4_oe() {        
+public void testIsValidISSNConvert_4_oe() {        
         CheckDigit ean13cd = EAN13CheckDigit.EAN13_CHECK_DIGIT;
         Random r = new Random();
         for(String f : validFormat) {
@@ -231,29 +231,29 @@ public class ISSNValidatorTest_OE25Dev extends TestCase {
         assertEquals("9771234567003", VALIDATOR.convertToEAN13("1234-5679", "00"));
     }
 
-    public void testValidCheckDigitEan13_1_oe() {
+public void testValidCheckDigitEan13_1_oe() {
         assertNull(VALIDATOR.extractFromEAN13("9771234567001"));
     }
 
-    public void testValidCheckDigitEan13_2_oe() {
+public void testValidCheckDigitEan13_2_oe() {
         // removed other assertion
         assertNull(VALIDATOR.extractFromEAN13("9771234567002"));
     }
 
-    public void testValidCheckDigitEan13_3_oe() {
+public void testValidCheckDigitEan13_3_oe() {
         // removed other assertion
         // removed other assertion
         assertNotNull(VALIDATOR.extractFromEAN13("9771234567003"));// valid check digit assertNull(VALIDATOR.extractFromEAN13("9771234567004"));
     }
 
-    public void testValidCheckDigitEan13_4_oe() {
+public void testValidCheckDigitEan13_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertNull(VALIDATOR.extractFromEAN13("9771234567005"));
     }
 
-    public void testValidCheckDigitEan13_5_oe() {
+public void testValidCheckDigitEan13_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -261,7 +261,7 @@ public class ISSNValidatorTest_OE25Dev extends TestCase {
         assertNull(VALIDATOR.extractFromEAN13("9771234567006"));
     }
 
-    public void testValidCheckDigitEan13_6_oe() {
+public void testValidCheckDigitEan13_6_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -270,7 +270,7 @@ public class ISSNValidatorTest_OE25Dev extends TestCase {
         assertNull(VALIDATOR.extractFromEAN13("9771234567007"));
     }
 
-    public void testValidCheckDigitEan13_7_oe() {
+public void testValidCheckDigitEan13_7_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -280,7 +280,7 @@ public class ISSNValidatorTest_OE25Dev extends TestCase {
         assertNull(VALIDATOR.extractFromEAN13("9771234567008"));
     }
 
-    public void testValidCheckDigitEan13_8_oe() {
+public void testValidCheckDigitEan13_8_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -291,7 +291,7 @@ public class ISSNValidatorTest_OE25Dev extends TestCase {
         assertNull(VALIDATOR.extractFromEAN13("9771234567009"));
     }
 
-    public void testValidCheckDigitEan13_9_oe() {
+public void testValidCheckDigitEan13_9_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -303,22 +303,22 @@ public class ISSNValidatorTest_OE25Dev extends TestCase {
         assertNull(VALIDATOR.extractFromEAN13("9771234567000"));
     }
 
-    public void testIsValidExtract_1_oe() {
+public void testIsValidExtract_1_oe() {
         assertEquals("12345679", VALIDATOR.extractFromEAN13("9771234567003"));
     }
 
-    public void testIsValidExtract_2_oe() {
+public void testIsValidExtract_2_oe() {
         // removed other assertion
         assertEquals("00014664", VALIDATOR.extractFromEAN13("9770001466006"));
     }
 
-    public void testIsValidExtract_3_oe() {
+public void testIsValidExtract_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("03178471", VALIDATOR.extractFromEAN13("9770317847001"));
     }
 
-    public void testIsValidExtract_4_oe() {
+public void testIsValidExtract_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion

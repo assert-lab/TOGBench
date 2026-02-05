@@ -132,7 +132,7 @@ class DocumentationExamplesTest_OE25Dev {
         EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, 1), rotOutput.get(3), TEST_EPS);
     }
 
-    @Test
+@Test
     void testPrecisionContextExample_1_oe() {
         // create a precision instance with an epsilon (aka, tolerance) value of 1e-3
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -149,7 +149,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertTrue(precision.eq(1.0009, 1.0));
     }
 
-    @Test
+@Test
     void testPrecisionContextExample_2_oe() {
         // create a precision instance with an epsilon (aka, tolerance) value of 1e-3
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -167,7 +167,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertFalse(precision.eq(1.002, 1.0));
     }
 
-    @Test
+@Test
     void testPrecisionContextExample_3_oe() {
         // create a precision instance with an epsilon (aka, tolerance) value of 1e-3
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -187,7 +187,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(0, precision.compare(1.0009, 1.0));
     }
 
-    @Test
+@Test
     void testPrecisionContextExample_4_oe() {
         // create a precision instance with an epsilon (aka, tolerance) value of 1e-3
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -208,7 +208,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(1, precision.compare(1.002, 1.0));
     }
 
-    @Test
+@Test
     void testEqualsVsEqExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -227,7 +227,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(v1, v2);
     }
 
-    @Test
+@Test
     void testEqualsVsEqExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -247,7 +247,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertNotEquals(v1, v3);
     }
 
-    @Test
+@Test
     void testEqualsVsEqExample_3_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -268,7 +268,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertTrue(v1.eq(v3, precision));
     }
 
-    @Test
+@Test
     void testManualBSPTreeExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -308,7 +308,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(1, size, TEST_EPS);
     }
 
-    @Test
+@Test
     void testManualBSPTreeExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -349,7 +349,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(11, count);
     }
 
-    @Test
+@Test
     void testManualBSPTreeExample_3_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -391,7 +391,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(3, height);
     }
 
-    @Test
+@Test
     void testHyperplaneSubsetBSPTreeExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -416,7 +416,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(1, size, TEST_EPS);
     }
 
-    @Test
+@Test
     void testHyperplaneSubsetBSPTreeExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -442,7 +442,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(9, count);
     }
 
-    @Test
+@Test
     void testHyperplaneSubsetBSPTreeExample_3_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -469,7 +469,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(4, height);
     }
 
-    @Test
+@Test
     void testIntervalExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -491,7 +491,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertFalse(closed.contains(0));
     }
 
-    @Test
+@Test
     void testIntervalExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -514,7 +514,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertFalse(halfOpen.contains(0));
     }
 
-    @Test
+@Test
     void testIntervalExample_3_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -539,7 +539,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, closedOneLoc);
     }
 
-    @Test
+@Test
     void testIntervalExample_4_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -565,7 +565,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, halfOpenOneLoc);
     }
 
-    @Test
+@Test
     void testIntervalExample_5_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -593,7 +593,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, closedThreeLoc);
     }
 
-    @Test
+@Test
     void testIntervalExample_6_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -622,7 +622,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, halfOpenThreeLoc);
     }
 
-    @Test
+@Test
     void testRegionBSPTree1DExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -643,7 +643,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(3, size, TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionBSPTree1DExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -665,7 +665,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(2, intervals.size());
     }
 
-    @Test
+@Test
     void testLineIntersectionExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -683,7 +683,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(0.25 * Math.PI, angleAtoB, TEST_EPS);
     }
 
-    @Test
+@Test
     void testLineIntersectionExample_3_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -702,7 +702,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(-0.25 * Math.PI, angleBtoA, TEST_EPS);
     }
 
-    @Test
+@Test
     void testLineSegmentIntersectionExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -722,7 +722,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertNull(bIntersection);
     }
 
-    @Test
+@Test
     void testRegionBSPTree2DExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -759,7 +759,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(1.75, size, TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionBSPTree2DExample_3_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -798,7 +798,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(1, boundaries.size());
     }
 
-    @Test
+@Test
     void testRegionBSPTree3DExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -839,7 +839,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(1.0 / 6.0, minusSize, TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionBSPTree3DExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -881,7 +881,7 @@ class DocumentationExamplesTest_OE25Dev {
         Assertions.assertEquals(4, minusBoundaries.size());
     }
 
-    @Test
+@Test
     void testLinecast3DExample_1_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 

@@ -252,7 +252,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         }
     }
 
-    @Test
+@Test
     public void test100_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().cache(4).create();
         final JexlContext ctxt = new MapContext();
@@ -265,7 +265,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test100_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().cache(4).create();
         final JexlContext ctxt = new MapContext();
@@ -280,7 +280,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test100_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().cache(4).create();
         final JexlContext ctxt = new MapContext();
@@ -297,7 +297,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test100_4_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().cache(4).create();
         final JexlContext ctxt = new MapContext();
@@ -316,7 +316,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test105_1_oe() throws Exception {
         final JexlContext context = new MapContext();
         final JexlExpression selectExp = new Engine().createExpression("[a.propA]");
@@ -325,7 +325,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("p1", r[0]);
     }
 
-    @Test
+@Test
     public void test105_2_oe() throws Exception {
         final JexlContext context = new MapContext();
         final JexlExpression selectExp = new Engine().createExpression("[a.propA]");
@@ -339,7 +339,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("p2", r[0]);
     }
 
-    @Test
+@Test
     public void test106_2_oe() throws Exception {
         final JexlEvalContext context = new JexlEvalContext();
         final JexlOptions options = context.getEngineOptions();
@@ -356,7 +356,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test107_1_oe() throws Exception {
         final String[] exprs = {
             "'Q4'.toLowerCase()", "q4",
@@ -380,7 +380,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test107_2_oe() throws Exception {
         final String[] exprs = {
             "'Q4'.toLowerCase()", "q4",
@@ -407,7 +407,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test108_1_oe() throws Exception {
         JexlScript expr;
         Object value;
@@ -417,7 +417,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0, value);
     }
 
-    @Test
+@Test
     public void test108_2_oe() throws Exception {
         JexlScript expr;
         Object value;
@@ -430,7 +430,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0, value);
     }
 
-    @Test
+@Test
     public void test108_3_oe() throws Exception {
         JexlScript expr;
         Object value;
@@ -447,7 +447,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertTrue(value.getClass().isArray());
     }
 
-    @Test
+@Test
     public void test108_4_oe() throws Exception {
         JexlScript expr;
         Object value;
@@ -467,7 +467,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertTrue(value.getClass().isArray());
     }
 
-    @Test
+@Test
     public void test108_5_oe() throws Exception {
         JexlScript expr;
         Object value;
@@ -491,7 +491,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0, value);
     }
 
-    @Test
+@Test
     public void test108_6_oe() throws Exception {
         JexlScript expr;
         Object value;
@@ -518,7 +518,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(0, value);
     }
 
-    @Test
+@Test
     public void test108_7_oe() throws Exception {
         JexlScript expr;
         Object value;
@@ -549,7 +549,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertTrue(value instanceof Map<?, ?>);
     }
 
-    @Test
+@Test
     public void test108_8_oe() throws Exception {
         JexlScript expr;
         Object value;
@@ -583,7 +583,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertTrue(value instanceof Map<?, ?>);
     }
 
-    @Test
+@Test
     public void test109_1_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         Object value;
@@ -593,7 +593,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, value);
     }
 
-    @Test
+@Test
     public void test110_1_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final String[] names = {"foo"};
@@ -603,7 +603,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, value);
     }
 
-    @Test
+@Test
     public void test110_2_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final String[] names = {"foo"};
@@ -616,7 +616,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(-42, value);
     }
 
-    @Test
+@Test
     public void testRichContext_1_oe() throws Exception {
         final A105 a105 = new A105("foo", "bar");
         final JexlEngine jexl = new Engine();
@@ -626,7 +626,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("FOOBAR", value);
     }
 
-    @Test
+@Test
     public void test111_1_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         Object value;
@@ -640,7 +640,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("FirstValue=9", value);
     }
 
-    @Test
+@Test
     public void test111_2_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         Object value;
@@ -659,7 +659,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("FirstValue=9.0", value);
     }
 
-    @Test
+@Test
     public void test111_3_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         Object value;
@@ -683,7 +683,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("FirstValue=9.0", value);
     }
 
-    @Test
+@Test
     public void test111_4_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         Object value;
@@ -712,7 +712,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("FirstValue=9.0", value);
     }
 
-    @Test
+@Test
     public void test111_5_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         Object value;
@@ -746,7 +746,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("SecondValue=-10", value);
     }
 
-    @Test
+@Test
     public void test111_6_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         Object value;
@@ -785,7 +785,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("SecondValue=-10.0", value);
     }
 
-    @Test
+@Test
     public void test111_7_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         Object value;
@@ -829,7 +829,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("SecondValue=-10", value);
     }
 
-    @Test
+@Test
     public void test111_8_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         Object value;
@@ -878,7 +878,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("SecondValue=-10.0", value);
     }
 
-    @Test
+@Test
     public void testScaleIssue_1_oe() throws Exception {
         final JexlEngine jexlX = new Engine();
         final String expStr1 = "result == salary/month * work.percent/100.00";
@@ -894,7 +894,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertFalse((Boolean) exp1.evaluate(ctx));
     }
 
-    @Test
+@Test
     public void testScaleIssue_2_oe() throws Exception {
         final JexlEngine jexlX = new Engine();
         final String expStr1 = "result == salary/month * work.percent/100.00";
@@ -914,7 +914,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertTrue((Boolean) exp1.evaluate(ctx));
     }
 
-    @Test
+@Test
     public void test112_1_oe() throws Exception {
         Object result;
         final JexlEngine jexl = new Engine();
@@ -922,7 +922,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Integer.MAX_VALUE, result);
     }
 
-    @Test
+@Test
     public void test112_2_oe() throws Exception {
         Object result;
         final JexlEngine jexl = new Engine();
@@ -932,7 +932,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Integer.MIN_VALUE + 1, result);
     }
 
-    @Test
+@Test
     public void test112_3_oe() throws Exception {
         Object result;
         final JexlEngine jexl = new Engine();
@@ -944,7 +944,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Integer.MIN_VALUE, result);
     }
 
-    @Test
+@Test
     public void test117_1_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlExpression e = jexl.createExpression("TIMESTAMP > 20100102000000");
@@ -954,7 +954,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertTrue((Boolean) result);
     }
 
-    @Test
+@Test
     public void test125_1_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlExpression e = jexl.createExpression("method()");
@@ -962,7 +962,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("OK", e.evaluate(jc));
     }
 
-    @Test
+@Test
     public void test130a_1_oe() throws Exception {
         final String myName = "Test.Name";
         final Object myValue = "Test.Value";
@@ -975,7 +975,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(myValue, myObjectWithTernaryConditional);
     }
 
-    @Test
+@Test
     public void test130b_1_oe() throws Exception {
         final String myName = "Test.Name";
         final Object myValue = new Object() {
@@ -993,7 +993,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(myValue, myObjectWithTernaryConditional);
     }
 
-    @Test
+@Test
     public void test135_1_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1008,7 +1008,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test135_2_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1028,7 +1028,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test135_3_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1053,7 +1053,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test135_4_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1084,7 +1084,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test135_5_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1119,7 +1119,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test135_6_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1158,7 +1158,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test135_7_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1201,7 +1201,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test135_8_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1248,7 +1248,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void test136_1_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1267,7 +1267,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("EXPR01 result", 22, result);
     }
 
-    @Test
+@Test
     public void test143_1_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1279,7 +1279,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(8, result);
     }
 
-    @Test
+@Test
     public void test143_2_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1294,7 +1294,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(8, result);
     }
 
-    @Test
+@Test
     public void test144_2_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1309,7 +1309,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test144a_1_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1323,7 +1323,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertNotNull("quux is null", quux);
     }
 
-    @Test
+@Test
     public void test144a_2_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1341,7 +1341,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not a string array", String[].class, o.getClass());
     }
 
-    @Test
+@Test
     public void test144a_3_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1361,7 +1361,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("The array elements are equal", Arrays.asList("hello", "world"), Arrays.asList((String[]) o));
     }
 
-    @Test
+@Test
     public void test144a_4_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1386,7 +1386,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertNull("Result is not null", o);
     }
 
-    @Test
+@Test
     public void test144a_5_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1413,7 +1413,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertNull("Result is not null", o);
     }
 
-    @Test
+@Test
     public void test144a_6_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1445,7 +1445,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertNotNull("Result is null", o);
     }
 
-    @Test
+@Test
     public void test144a_7_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1479,7 +1479,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("The array elements are not equal", Collections.emptyList(), Arrays.asList((String[]) o));
     }
 
-    @Test
+@Test
     public void test144a_8_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1514,7 +1514,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("The array size is not zero", 0, ((String[]) o).length);
     }
 
-    @Test
+@Test
     public void test144a_10_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1560,7 +1560,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertNull("The arr2 property value should remain as null, not an empty array.", quux.arr2);
     }
 
-    @Test
+@Test
     public void test147b_1_oe() throws Exception {
         final String[] scripts = {"var x = new ('java.util.HashMap'); x.one = 1; x.two = 2; x.one", // results to 1
             "x = new ('java.util.HashMap'); x.one = 1; x.two = 2; x.one",// results to 1
@@ -1576,7 +1576,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test147c_1_oe() throws Exception {
         final String[] scripts = {
             "var x = new ('java.util.HashMap'); x.one = 1; x.two = 2; x.one",
@@ -1592,7 +1592,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test148a_1_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1604,7 +1604,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertTrue(o instanceof List);
     }
 
-    @Test
+@Test
     public void test148a_2_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1617,7 +1617,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Arrays.asList("foo", "bar"), o);
     }
 
-    @Test
+@Test
     public void test148a_3_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1635,7 +1635,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertTrue(o instanceof List);
     }
 
-    @Test
+@Test
     public void test148a_4_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -1654,7 +1654,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Arrays.asList(1, 2), o);
     }
 
-    @Test
+@Test
     public void test155_1_oe() throws Exception {
         final JexlEngine jexlEngine = new Engine();
         final JexlExpression jexlExpresssion = jexlEngine.createExpression("first.second.name");
@@ -1665,7 +1665,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("RIGHT", value.toString());
     }
 
-    @Test
+@Test
     public void testQuestion42_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new Arithmetic42()).create();
         final JexlContext jc = new Question42();
@@ -1676,7 +1676,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("BCD", value0);
     }
 
-    @Test
+@Test
     public void testQuestion42_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().arithmetic(new Arithmetic42()).create();
         final JexlContext jc = new Question42();
@@ -1692,7 +1692,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("CD", value1);
     }
 
-    @Test
+@Test
     public void test179_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
         final JexlEngine jexl = new JexlBuilder().create();
@@ -1702,7 +1702,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertTrue(o instanceof Set);
     }
 
-    @Test
+@Test
     public void test179_2_oe() throws Exception {
         final JexlContext jc = new MapContext();
         final JexlEngine jexl = new JexlBuilder().create();
@@ -1713,7 +1713,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertTrue(((Set) o).contains(1));
     }
 
-    @Test
+@Test
     public void test192_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set("x.y.z", C192.class);
@@ -1723,7 +1723,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertNull(js0.evaluate(jc));
     }
 
-    @Test
+@Test
     public void test192_2_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set("x.y.z", C192.class);
@@ -1735,7 +1735,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, js0.evaluate(jc));
     }
 
-    @Test
+@Test
     public void test192_3_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set("x.y.z", C192.class);
@@ -1749,7 +1749,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(-42, js0.evaluate(jc));
     }
 
-    @Test
+@Test
     public void test192_4_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set("x.y.z", C192.class);
@@ -1765,7 +1765,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertNull(js0.evaluate(jc));
     }
 
-    @Test
+@Test
     public void test192_5_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set("x.y.z", C192.class);
@@ -1784,7 +1784,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertNull(js0.evaluate(jc));
     }
 
-    @Test
+@Test
     public void test192_6_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set("x.y.z", C192.class);
@@ -1805,7 +1805,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, js0.evaluate(jc));
     }
 
-    @Test
+@Test
     public void test192_7_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set("x.y.z", C192.class);
@@ -1828,7 +1828,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals(-42, js0.evaluate(jc));
     }
 
-    @Test
+@Test
     public void test192_8_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set("x.y.z", C192.class);
@@ -1853,7 +1853,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertNull(js0.evaluate(jc));
     }
 
-    @Test
+@Test
     public void test199_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(false)).create();
@@ -1863,7 +1863,7 @@ public class Issues100Test_OE25Dev extends JexlTestCase {
         Assert.assertEquals("trueEURT", r);
     }
 
-    @Test
+@Test
     public void test199_2_oe() throws Exception {
         final JexlContext jc = new MapContext();
         final JexlEngine jexl = new JexlBuilder().arithmetic(new JexlArithmetic(false)).create();

@@ -53,7 +53,7 @@ public class ZombieCacheServiceNonLocalUnitTest_OE25Dev
      * @throws Exception
      */
 
-    public void testUpdateThenWalk_1_oe()
+public void testUpdateThenWalk_1_oe()
         throws Exception
     {
         // SETUP
@@ -72,7 +72,7 @@ public class ZombieCacheServiceNonLocalUnitTest_OE25Dev
         assertEquals( "Updated element is not as expected.", element, service.lastUpdate );
     }
 
-    public void testUpdateThenWalk_zeroSize_1_oe()
+public void testUpdateThenWalk_zeroSize_1_oe()
         throws Exception
     {
         // SETUP
@@ -91,7 +91,7 @@ public class ZombieCacheServiceNonLocalUnitTest_OE25Dev
         assertNull( "Nothing should have been put to the service.", service.lastUpdate );
     }
 
-    public void testRemoveThenWalk_1_oe()
+public void testRemoveThenWalk_1_oe()
         throws Exception
     {
         // SETUP
@@ -110,7 +110,7 @@ public class ZombieCacheServiceNonLocalUnitTest_OE25Dev
         assertEquals( "Updated element is not as expected.", key, service.lastRemoveKey );
     }
 
-    public void testRemoveAllThenWalk_1_oe()
+public void testRemoveAllThenWalk_1_oe()
         throws Exception
     {
         // SETUP

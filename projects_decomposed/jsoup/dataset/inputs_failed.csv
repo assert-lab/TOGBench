@@ -1,27 +1,4 @@
 id,test_prefix,test_name
-jsoup_900_2,"    @Test public void headers_2_oe() {
-        Connection con = HttpConnection.connect(""http://example.com"");
-        Map<String, String> headers = new HashMap<>();
-        headers.put(""content-type"", ""text/html"");
-        headers.put(""Connection"", ""keep-alive"");
-        headers.put(""Host"", ""http://example.com"");
-        con.headers(headers);
-        // removed other assertion
-        assertEquals(""keep-alive"", con.request().header(""Connection""));
-        }
-",HttpConnectionTest::headers_2_oe
-jsoup_900_3,"    @Test public void headers_3_oe() {
-        Connection con = HttpConnection.connect(""http://example.com"");
-        Map<String, String> headers = new HashMap<>();
-        headers.put(""content-type"", ""text/html"");
-        headers.put(""Connection"", ""keep-alive"");
-        headers.put(""Host"", ""http://example.com"");
-        con.headers(headers);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""http://example.com"", con.request().header(""Host""));
-        }
-",HttpConnectionTest::headers_3_oe
 jsoup_389_1,"    @Test
     public void chompBalancedThrowIllegalArgumentException_1_oe() {
         try {
@@ -20209,3 +20186,1112 @@ jsoup_865_5,"    @Test
     }
     }
 ",ConnectIT::noLimitAfterFirstRead_5_oe
+jsoup_803_1,"@Test
+    public void fetchBaidu_1_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(""http://www.baidu.com/"").timeout(10*1000).execute();
+        Document doc = res.parse();
+
+        assertEquals(""GBK"", doc.outputSettings().charset().displayName());
+    }",UrlConnectTest::fetchBaidu_1_oe
+jsoup_803_2,"@Test
+    public void fetchBaidu_2_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(""http://www.baidu.com/"").timeout(10*1000).execute();
+        Document doc = res.parse();
+
+        // removed other assertion
+        assertEquals(""GBK"", res.charset());
+    }",UrlConnectTest::fetchBaidu_2_oe
+jsoup_803_3,"@Test
+    public void fetchBaidu_3_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(""http://www.baidu.com/"").timeout(10*1000).execute();
+        Document doc = res.parse();
+
+        // removed other assertion
+        // removed other assertion
+        assert(res.hasCookie(""BAIDUID""));
+    }",UrlConnectTest::fetchBaidu_3_oe
+jsoup_803_4,"@Test
+    public void fetchBaidu_4_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(""http://www.baidu.com/"").timeout(10*1000).execute();
+        Document doc = res.parse();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""text/html;charset=gbk"", res.contentType());
+    }",UrlConnectTest::fetchBaidu_4_oe
+jsoup_805_1,"@Test
+    public void canConnectToLocalServer_1_oe() throws IOException {
+        String url = HelloServlet.Url;
+        Document doc = Jsoup.connect(url).get();
+        Element p = doc.selectFirst(""p"");
+        assertEquals(""Hello, World!"", p.text());
+    }",ConnectTest::canConnectToLocalServer_1_oe
+jsoup_806_1,"@Test
+    public void fetchURl_1_oe() throws IOException {
+        Document doc = Jsoup.parse(new URL(echoUrl), 10 * 1000);
+        assertTrue(doc.title().contains(""Environment Variables""));
+    }",ConnectTest::fetchURl_1_oe
+jsoup_807_1,"@Test
+    public void fetchURIWithWhitespace_1_oe() throws IOException {
+        Connection con = Jsoup.connect(echoUrl + ""#with whitespaces"");
+        Document doc = con.get();
+        assertTrue(doc.title().contains(""Environment Variables""));
+    }",ConnectTest::fetchURIWithWhitespace_1_oe
+jsoup_808_1,"@Test
+    public void exceptOnUnsupportedProtocol_1_oe() {
+        String url = ""file://etc/passwd"";
+        boolean threw = false;
+        try {
+            Document doc = Jsoup.connect(url).get();
+        } catch (MalformedURLException e) {
+            threw = true;
+            assertEquals(""java.net.MalformedURLException: Only http & https protocols supported"", e.toString());
+    }
+    }",ConnectTest::exceptOnUnsupportedProtocol_1_oe
+jsoup_808_2,"@Test
+    public void exceptOnUnsupportedProtocol_2_oe() {
+        String url = ""file://etc/passwd"";
+        boolean threw = false;
+        try {
+            Document doc = Jsoup.connect(url).get();
+        } catch (MalformedURLException e) {
+            threw = true;
+            // removed other assertion
+        } catch (IOException e) {
+        }
+        assertTrue(threw);
+    }",ConnectTest::exceptOnUnsupportedProtocol_2_oe
+jsoup_809_1,"@Test
+    public void throwsExceptionOn404_1_oe() {
+        String url = EchoServlet.Url;
+        Connection con = Jsoup.connect(url).header(EchoServlet.CodeParam, ""404"");
+
+        boolean threw = false;
+        try {
+            Document doc = con.get();
+        } catch (HttpStatusException e) {
+            threw = true;
+            assertEquals(""org.jsoup.HttpStatusException: HTTP error fetching URL. Status=404, URL=["" + e.getUrl() + ""]"", e.toString());
+    }
+    }",ConnectTest::throwsExceptionOn404_1_oe
+jsoup_809_2,"@Test
+    public void throwsExceptionOn404_2_oe() {
+        String url = EchoServlet.Url;
+        Connection con = Jsoup.connect(url).header(EchoServlet.CodeParam, ""404"");
+
+        boolean threw = false;
+        try {
+            Document doc = con.get();
+        } catch (HttpStatusException e) {
+            threw = true;
+            // removed other assertion
+            assertTrue(e.getUrl().startsWith(url));
+    }
+    }",ConnectTest::throwsExceptionOn404_2_oe
+jsoup_809_3,"@Test
+    public void throwsExceptionOn404_3_oe() {
+        String url = EchoServlet.Url;
+        Connection con = Jsoup.connect(url).header(EchoServlet.CodeParam, ""404"");
+
+        boolean threw = false;
+        try {
+            Document doc = con.get();
+        } catch (HttpStatusException e) {
+            threw = true;
+            // removed other assertion
+            // removed other assertion
+            assertEquals(404, e.getStatusCode());
+    }
+    }",ConnectTest::throwsExceptionOn404_3_oe
+jsoup_809_4,"@Test
+    public void throwsExceptionOn404_4_oe() {
+        String url = EchoServlet.Url;
+        Connection con = Jsoup.connect(url).header(EchoServlet.CodeParam, ""404"");
+
+        boolean threw = false;
+        try {
+            Document doc = con.get();
+        } catch (HttpStatusException e) {
+            threw = true;
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (IOException e) {
+        }
+        assertTrue(threw);
+    }",ConnectTest::throwsExceptionOn404_4_oe
+jsoup_810_1,"@Test
+    public void ignoresExceptionIfSoConfigured_1_oe() throws IOException {
+        String url = EchoServlet.Url;
+        Connection con = Jsoup.connect(url)
+            .header(EchoServlet.CodeParam, ""404"")
+            .ignoreHttpErrors(true);
+        Connection.Response res = con.execute();
+        Document doc = res.parse();
+        assertEquals(404, res.statusCode());
+    }",ConnectTest::ignoresExceptionIfSoConfigured_1_oe
+jsoup_810_2,"@Test
+    public void ignoresExceptionIfSoConfigured_2_oe() throws IOException {
+        String url = EchoServlet.Url;
+        Connection con = Jsoup.connect(url)
+            .header(EchoServlet.CodeParam, ""404"")
+            .ignoreHttpErrors(true);
+        Connection.Response res = con.execute();
+        Document doc = res.parse();
+        // removed other assertion
+        assertEquals(""Webserver Environment Variables"", doc.title());
+    }",ConnectTest::ignoresExceptionIfSoConfigured_2_oe
+jsoup_811_1,"@Test
+    public void doesPost_1_oe() throws IOException {
+        Document doc = Jsoup.connect(echoUrl)
+            .data(""uname"", ""Jsoup"", ""uname"", ""Jonathan"", ""百"", ""度一下"")
+            .cookie(""auth"", ""token"")
+            .post();
+
+        assertEquals(""POST"", ihVal(""Method"", doc));
+    }",ConnectTest::doesPost_1_oe
+jsoup_811_2,"@Test
+    public void doesPost_2_oe() throws IOException {
+        Document doc = Jsoup.connect(echoUrl)
+            .data(""uname"", ""Jsoup"", ""uname"", ""Jonathan"", ""百"", ""度一下"")
+            .cookie(""auth"", ""token"")
+            .post();
+
+        // removed other assertion
+        assertEquals(""gzip"", ihVal(""Accept-Encoding"", doc));
+    }",ConnectTest::doesPost_2_oe
+jsoup_811_3,"@Test
+    public void doesPost_3_oe() throws IOException {
+        Document doc = Jsoup.connect(echoUrl)
+            .data(""uname"", ""Jsoup"", ""uname"", ""Jonathan"", ""百"", ""度一下"")
+            .cookie(""auth"", ""token"")
+            .post();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""auth=token"", ihVal(""Cookie"", doc));
+    }",ConnectTest::doesPost_3_oe
+jsoup_811_4,"@Test
+    public void doesPost_4_oe() throws IOException {
+        Document doc = Jsoup.connect(echoUrl)
+            .data(""uname"", ""Jsoup"", ""uname"", ""Jonathan"", ""百"", ""度一下"")
+            .cookie(""auth"", ""token"")
+            .post();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""度一下"", ihVal(""百"", doc));
+    }",ConnectTest::doesPost_4_oe
+jsoup_811_5,"@Test
+    public void doesPost_5_oe() throws IOException {
+        Document doc = Jsoup.connect(echoUrl)
+            .data(""uname"", ""Jsoup"", ""uname"", ""Jonathan"", ""百"", ""度一下"")
+            .cookie(""auth"", ""token"")
+            .post();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Jsoup, Jonathan"", ihVal(""uname"", doc));
+    }",ConnectTest::doesPost_5_oe
+jsoup_811_6,"@Test
+    public void doesPost_6_oe() throws IOException {
+        Document doc = Jsoup.connect(echoUrl)
+            .data(""uname"", ""Jsoup"", ""uname"", ""Jonathan"", ""百"", ""度一下"")
+            .cookie(""auth"", ""token"")
+            .post();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""application/x-www-form-urlencoded; charset=UTF-8"", ihVal(""Content-Type"", doc));
+    }",ConnectTest::doesPost_6_oe
+jsoup_812_1,"@Test
+    public void doesPostMultipartWithoutInputstream_1_oe() throws IOException {
+        Document doc = Jsoup.connect(echoUrl)
+                .header(CONTENT_TYPE, MULTIPART_FORM_DATA)
+                .userAgent(browserUa)
+                .data(""uname"", ""Jsoup"", ""uname"", ""Jonathan"", ""百"", ""度一下"")
+                .post();
+
+        assertTrue(ihVal(""Content-Type"", doc).contains(MULTIPART_FORM_DATA));
+    }",ConnectTest::doesPostMultipartWithoutInputstream_1_oe
+jsoup_812_2,"@Test
+    public void doesPostMultipartWithoutInputstream_2_oe() throws IOException {
+        Document doc = Jsoup.connect(echoUrl)
+                .header(CONTENT_TYPE, MULTIPART_FORM_DATA)
+                .userAgent(browserUa)
+                .data(""uname"", ""Jsoup"", ""uname"", ""Jonathan"", ""百"", ""度一下"")
+                .post();
+
+        // removed other assertion
+
+        assertTrue(ihVal(""Content-Type"",doc).contains(""boundary""));// should be automatically set assertEquals(""Jsoup,Jonathan"",ihVal(""uname"",doc));
+    }",ConnectTest::doesPostMultipartWithoutInputstream_2_oe
+jsoup_812_3,"@Test
+    public void doesPostMultipartWithoutInputstream_3_oe() throws IOException {
+        Document doc = Jsoup.connect(echoUrl)
+                .header(CONTENT_TYPE, MULTIPART_FORM_DATA)
+                .userAgent(browserUa)
+                .data(""uname"", ""Jsoup"", ""uname"", ""Jonathan"", ""百"", ""度一下"")
+                .post();
+
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(""度一下"", ihVal(""百"", doc));
+    }",ConnectTest::doesPostMultipartWithoutInputstream_3_oe
+jsoup_813_1,"@Test
+    public void canSendSecFetchHeaders_1_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/1461
+        Document doc = Jsoup.connect(echoUrl)
+            .header(""Random-Header-name"", ""hello"")
+            .header(""Sec-Fetch-Site"", ""cross-site"")
+            .header(""Sec-Fetch-Mode"", ""cors"")
+            .get();
+
+        assertEquals(""hello"", ihVal(""Random-Header-name"", doc));
+    }",ConnectTest::canSendSecFetchHeaders_1_oe
+jsoup_813_2,"@Test
+    public void canSendSecFetchHeaders_2_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/1461
+        Document doc = Jsoup.connect(echoUrl)
+            .header(""Random-Header-name"", ""hello"")
+            .header(""Sec-Fetch-Site"", ""cross-site"")
+            .header(""Sec-Fetch-Mode"", ""cors"")
+            .get();
+
+        // removed other assertion
+        assertEquals(""cross-site"", ihVal(""Sec-Fetch-Site"", doc));
+    }",ConnectTest::canSendSecFetchHeaders_2_oe
+jsoup_813_3,"@Test
+    public void canSendSecFetchHeaders_3_oe() throws IOException {
+        // https://github.com/jhy/jsoup/issues/1461
+        Document doc = Jsoup.connect(echoUrl)
+            .header(""Random-Header-name"", ""hello"")
+            .header(""Sec-Fetch-Site"", ""cross-site"")
+            .header(""Sec-Fetch-Mode"", ""cors"")
+            .get();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""cors"", ihVal(""Sec-Fetch-Mode"", doc));
+    }",ConnectTest::canSendSecFetchHeaders_3_oe
+jsoup_814_1,"@Test
+    public void secFetchHeadersSurviveRedirect_1_oe() throws IOException {
+        Document doc = Jsoup
+            .connect(RedirectServlet.Url)
+            .data(RedirectServlet.LocationParam, echoUrl)
+            .header(""Random-Header-name"", ""hello"")
+            .header(""Sec-Fetch-Site"", ""cross-site"")
+            .header(""Sec-Fetch-Mode"", ""cors"")
+            .get();
+
+        assertEquals(""hello"", ihVal(""Random-Header-name"", doc));
+    }",ConnectTest::secFetchHeadersSurviveRedirect_1_oe
+jsoup_814_2,"@Test
+    public void secFetchHeadersSurviveRedirect_2_oe() throws IOException {
+        Document doc = Jsoup
+            .connect(RedirectServlet.Url)
+            .data(RedirectServlet.LocationParam, echoUrl)
+            .header(""Random-Header-name"", ""hello"")
+            .header(""Sec-Fetch-Site"", ""cross-site"")
+            .header(""Sec-Fetch-Mode"", ""cors"")
+            .get();
+
+        // removed other assertion
+        assertEquals(""cross-site"", ihVal(""Sec-Fetch-Site"", doc));
+    }",ConnectTest::secFetchHeadersSurviveRedirect_2_oe
+jsoup_814_3,"@Test
+    public void secFetchHeadersSurviveRedirect_3_oe() throws IOException {
+        Document doc = Jsoup
+            .connect(RedirectServlet.Url)
+            .data(RedirectServlet.LocationParam, echoUrl)
+            .header(""Random-Header-name"", ""hello"")
+            .header(""Sec-Fetch-Site"", ""cross-site"")
+            .header(""Sec-Fetch-Mode"", ""cors"")
+            .get();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""cors"", ihVal(""Sec-Fetch-Mode"", doc));
+    }",ConnectTest::secFetchHeadersSurviveRedirect_3_oe
+jsoup_815_1,"@Test
+    public void sendsRequestBodyJsonWithData_1_oe() throws IOException {
+        final String body = ""{key:value}"";
+        Document doc = Jsoup.connect(echoUrl)
+            .requestBody(body)
+            .header(""Content-Type"", ""application/json"")
+            .userAgent(browserUa)
+            .data(""foo"", ""true"")
+            .post();
+        assertEquals(""POST"", ihVal(""Method"", doc));
+    }",ConnectTest::sendsRequestBodyJsonWithData_1_oe
+jsoup_815_2,"@Test
+    public void sendsRequestBodyJsonWithData_2_oe() throws IOException {
+        final String body = ""{key:value}"";
+        Document doc = Jsoup.connect(echoUrl)
+            .requestBody(body)
+            .header(""Content-Type"", ""application/json"")
+            .userAgent(browserUa)
+            .data(""foo"", ""true"")
+            .post();
+        // removed other assertion
+        assertEquals(""application/json"", ihVal(""Content-Type"", doc));
+    }",ConnectTest::sendsRequestBodyJsonWithData_2_oe
+jsoup_815_3,"@Test
+    public void sendsRequestBodyJsonWithData_3_oe() throws IOException {
+        final String body = ""{key:value}"";
+        Document doc = Jsoup.connect(echoUrl)
+            .requestBody(body)
+            .header(""Content-Type"", ""application/json"")
+            .userAgent(browserUa)
+            .data(""foo"", ""true"")
+            .post();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""foo=true"", ihVal(""Query String"", doc));
+    }",ConnectTest::sendsRequestBodyJsonWithData_3_oe
+jsoup_815_4,"@Test
+    public void sendsRequestBodyJsonWithData_4_oe() throws IOException {
+        final String body = ""{key:value}"";
+        Document doc = Jsoup.connect(echoUrl)
+            .requestBody(body)
+            .header(""Content-Type"", ""application/json"")
+            .userAgent(browserUa)
+            .data(""foo"", ""true"")
+            .post();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(body, ihVal(""Post Data"", doc));
+    }",ConnectTest::sendsRequestBodyJsonWithData_4_oe
+jsoup_816_1,"@Test
+    public void sendsRequestBodyJsonWithoutData_1_oe() throws IOException {
+        final String body = ""{key:value}"";
+        Document doc = Jsoup.connect(echoUrl)
+            .requestBody(body)
+            .header(""Content-Type"", ""application/json"")
+            .userAgent(browserUa)
+            .post();
+        assertEquals(""POST"", ihVal(""Method"", doc));
+    }",ConnectTest::sendsRequestBodyJsonWithoutData_1_oe
+jsoup_816_2,"@Test
+    public void sendsRequestBodyJsonWithoutData_2_oe() throws IOException {
+        final String body = ""{key:value}"";
+        Document doc = Jsoup.connect(echoUrl)
+            .requestBody(body)
+            .header(""Content-Type"", ""application/json"")
+            .userAgent(browserUa)
+            .post();
+        // removed other assertion
+        assertEquals(""application/json"", ihVal(""Content-Type"", doc));
+    }",ConnectTest::sendsRequestBodyJsonWithoutData_2_oe
+jsoup_816_3,"@Test
+    public void sendsRequestBodyJsonWithoutData_3_oe() throws IOException {
+        final String body = ""{key:value}"";
+        Document doc = Jsoup.connect(echoUrl)
+            .requestBody(body)
+            .header(""Content-Type"", ""application/json"")
+            .userAgent(browserUa)
+            .post();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(body, ihVal(""Post Data"", doc));
+    }",ConnectTest::sendsRequestBodyJsonWithoutData_3_oe
+jsoup_817_1,"@Test
+    public void sendsRequestBody_1_oe() throws IOException {
+        final String body = ""{key:value}"";
+        Document doc = Jsoup.connect(echoUrl)
+            .requestBody(body)
+            .header(""Content-Type"", ""text/plain"")
+            .userAgent(browserUa)
+            .post();
+        assertEquals(""POST"", ihVal(""Method"", doc));
+    }",ConnectTest::sendsRequestBody_1_oe
+jsoup_817_2,"@Test
+    public void sendsRequestBody_2_oe() throws IOException {
+        final String body = ""{key:value}"";
+        Document doc = Jsoup.connect(echoUrl)
+            .requestBody(body)
+            .header(""Content-Type"", ""text/plain"")
+            .userAgent(browserUa)
+            .post();
+        // removed other assertion
+        assertEquals(""text/plain"", ihVal(""Content-Type"", doc));
+    }",ConnectTest::sendsRequestBody_2_oe
+jsoup_817_3,"@Test
+    public void sendsRequestBody_3_oe() throws IOException {
+        final String body = ""{key:value}"";
+        Document doc = Jsoup.connect(echoUrl)
+            .requestBody(body)
+            .header(""Content-Type"", ""text/plain"")
+            .userAgent(browserUa)
+            .post();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(body, ihVal(""Post Data"", doc));
+    }",ConnectTest::sendsRequestBody_3_oe
+jsoup_818_1,"@Test
+    public void sendsRequestBodyWithUrlParams_1_oe() throws IOException {
+        final String body = ""{key:value}"";
+        Document doc = Jsoup.connect(echoUrl)
+            .requestBody(body)
+            .data(""uname"", ""Jsoup"", ""uname"", ""Jonathan"", ""百"", ""度一下"")
+            .header(""Content-Type"", ""text/plain"") // todo - if user sets content-type, we should append postcharset
+            .userAgent(browserUa)
+            .post();
+        assertEquals(""POST"", ihVal(""Method"", doc));
+    }",ConnectTest::sendsRequestBodyWithUrlParams_1_oe
+jsoup_818_2,"@Test
+    public void sendsRequestBodyWithUrlParams_2_oe() throws IOException {
+        final String body = ""{key:value}"";
+        Document doc = Jsoup.connect(echoUrl)
+            .requestBody(body)
+            .data(""uname"", ""Jsoup"", ""uname"", ""Jonathan"", ""百"", ""度一下"")
+            .header(""Content-Type"", ""text/plain"") // todo - if user sets content-type, we should append postcharset
+            .userAgent(browserUa)
+            .post();
+        // removed other assertion
+        assertEquals(""uname=Jsoup&uname=Jonathan&%E7%99%BE=%E5%BA%A6%E4%B8%80%E4%B8%8B"", ihVal(""Query String"", doc));
+    }",ConnectTest::sendsRequestBodyWithUrlParams_2_oe
+jsoup_818_3,"@Test
+    public void sendsRequestBodyWithUrlParams_3_oe() throws IOException {
+        final String body = ""{key:value}"";
+        Document doc = Jsoup.connect(echoUrl)
+            .requestBody(body)
+            .data(""uname"", ""Jsoup"", ""uname"", ""Jonathan"", ""百"", ""度一下"")
+            .header(""Content-Type"", ""text/plain"") // todo - if user sets content-type, we should append postcharset
+            .userAgent(browserUa)
+            .post();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(body, ihVal(""Post Data"", doc));
+    }",ConnectTest::sendsRequestBodyWithUrlParams_3_oe
+jsoup_819_1,"@Test
+    public void doesGet_1_oe() throws IOException {
+        Connection con = Jsoup.connect(echoUrl + ""?what=the"")
+            .userAgent(""Mozilla"")
+            .referrer(""http://example.com"")
+            .data(""what"", ""about & me?"");
+
+        Document doc = con.get();
+        assertEquals(""what=the&what=about+%26+me%3F"", ihVal(""Query String"", doc));
+    }",ConnectTest::doesGet_1_oe
+jsoup_819_2,"@Test
+    public void doesGet_2_oe() throws IOException {
+        Connection con = Jsoup.connect(echoUrl + ""?what=the"")
+            .userAgent(""Mozilla"")
+            .referrer(""http://example.com"")
+            .data(""what"", ""about & me?"");
+
+        Document doc = con.get();
+        // removed other assertion
+        assertEquals(""the, about & me?"", ihVal(""what"", doc));
+    }",ConnectTest::doesGet_2_oe
+jsoup_819_3,"@Test
+    public void doesGet_3_oe() throws IOException {
+        Connection con = Jsoup.connect(echoUrl + ""?what=the"")
+            .userAgent(""Mozilla"")
+            .referrer(""http://example.com"")
+            .data(""what"", ""about & me?"");
+
+        Document doc = con.get();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Mozilla"", ihVal(""User-Agent"", doc));
+    }",ConnectTest::doesGet_3_oe
+jsoup_819_4,"@Test
+    public void doesGet_4_oe() throws IOException {
+        Connection con = Jsoup.connect(echoUrl + ""?what=the"")
+            .userAgent(""Mozilla"")
+            .referrer(""http://example.com"")
+            .data(""what"", ""about & me?"");
+
+        Document doc = con.get();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""http://example.com"", ihVal(""Referer"", doc));
+    }",ConnectTest::doesGet_4_oe
+jsoup_820_1,"@Test
+    public void doesPut_1_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(echoUrl)
+            .data(""uname"", ""Jsoup"", ""uname"", ""Jonathan"", ""百"", ""度一下"")
+            .cookie(""auth"", ""token"")
+            .method(Connection.Method.PUT)
+            .execute();
+
+        Document doc = res.parse();
+        assertEquals(""PUT"", ihVal(""Method"", doc));
+    }",ConnectTest::doesPut_1_oe
+jsoup_820_2,"@Test
+    public void doesPut_2_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(echoUrl)
+            .data(""uname"", ""Jsoup"", ""uname"", ""Jonathan"", ""百"", ""度一下"")
+            .cookie(""auth"", ""token"")
+            .method(Connection.Method.PUT)
+            .execute();
+
+        Document doc = res.parse();
+        // removed other assertion
+        assertEquals(""gzip"", ihVal(""Accept-Encoding"", doc));
+    }",ConnectTest::doesPut_2_oe
+jsoup_820_3,"@Test
+    public void doesPut_3_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(echoUrl)
+            .data(""uname"", ""Jsoup"", ""uname"", ""Jonathan"", ""百"", ""度一下"")
+            .cookie(""auth"", ""token"")
+            .method(Connection.Method.PUT)
+            .execute();
+
+        Document doc = res.parse();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""auth=token"", ihVal(""Cookie"", doc));
+    }",ConnectTest::doesPut_3_oe
+jsoup_821_1,"@Test
+    public void postFiles_1_oe() throws IOException {
+        File thumb = ParseTest.getFile(""/htmltests/thumb.jpg"");
+        File html = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+
+        Document res = Jsoup
+            .connect(EchoServlet.Url)
+            .data(""firstname"", ""Jay"")
+            .data(""firstPart"", thumb.getName(), new FileInputStream(thumb), ""image/jpeg"")
+            .data(""secondPart"", html.getName(), new FileInputStream(html)) // defaults to ""application-octetstream"";
+            .data(""surname"", ""Soup"")
+            .post();
+
+        assertEquals(""4"", ihVal(""Parts"", res));
+    }",ConnectTest::postFiles_1_oe
+jsoup_821_2,"@Test
+    public void postFiles_2_oe() throws IOException {
+        File thumb = ParseTest.getFile(""/htmltests/thumb.jpg"");
+        File html = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+
+        Document res = Jsoup
+            .connect(EchoServlet.Url)
+            .data(""firstname"", ""Jay"")
+            .data(""firstPart"", thumb.getName(), new FileInputStream(thumb), ""image/jpeg"")
+            .data(""secondPart"", html.getName(), new FileInputStream(html)) // defaults to ""application-octetstream"";
+            .data(""surname"", ""Soup"")
+            .post();
+
+        // removed other assertion
+
+        assertEquals(""application/octet-stream"", ihVal(""Part secondPart ContentType"", res));
+    }",ConnectTest::postFiles_2_oe
+jsoup_821_3,"@Test
+    public void postFiles_3_oe() throws IOException {
+        File thumb = ParseTest.getFile(""/htmltests/thumb.jpg"");
+        File html = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+
+        Document res = Jsoup
+            .connect(EchoServlet.Url)
+            .data(""firstname"", ""Jay"")
+            .data(""firstPart"", thumb.getName(), new FileInputStream(thumb), ""image/jpeg"")
+            .data(""secondPart"", html.getName(), new FileInputStream(html)) // defaults to ""application-octetstream"";
+            .data(""surname"", ""Soup"")
+            .post();
+
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(""secondPart"", ihVal(""Part secondPart Name"", res));
+    }",ConnectTest::postFiles_3_oe
+jsoup_821_4,"@Test
+    public void postFiles_4_oe() throws IOException {
+        File thumb = ParseTest.getFile(""/htmltests/thumb.jpg"");
+        File html = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+
+        Document res = Jsoup
+            .connect(EchoServlet.Url)
+            .data(""firstname"", ""Jay"")
+            .data(""firstPart"", thumb.getName(), new FileInputStream(thumb), ""image/jpeg"")
+            .data(""secondPart"", html.getName(), new FileInputStream(html)) // defaults to ""application-octetstream"";
+            .data(""surname"", ""Soup"")
+            .post();
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""google-ipod.html.gz"", ihVal(""Part secondPart Filename"", res));
+    }",ConnectTest::postFiles_4_oe
+jsoup_821_5,"@Test
+    public void postFiles_5_oe() throws IOException {
+        File thumb = ParseTest.getFile(""/htmltests/thumb.jpg"");
+        File html = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+
+        Document res = Jsoup
+            .connect(EchoServlet.Url)
+            .data(""firstname"", ""Jay"")
+            .data(""firstPart"", thumb.getName(), new FileInputStream(thumb), ""image/jpeg"")
+            .data(""secondPart"", html.getName(), new FileInputStream(html)) // defaults to ""application-octetstream"";
+            .data(""surname"", ""Soup"")
+            .post();
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""12212"", ihVal(""Part secondPart Size"", res));
+    }",ConnectTest::postFiles_5_oe
+jsoup_821_6,"@Test
+    public void postFiles_6_oe() throws IOException {
+        File thumb = ParseTest.getFile(""/htmltests/thumb.jpg"");
+        File html = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+
+        Document res = Jsoup
+            .connect(EchoServlet.Url)
+            .data(""firstname"", ""Jay"")
+            .data(""firstPart"", thumb.getName(), new FileInputStream(thumb), ""image/jpeg"")
+            .data(""secondPart"", html.getName(), new FileInputStream(html)) // defaults to ""application-octetstream"";
+            .data(""surname"", ""Soup"")
+            .post();
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(""image/jpeg"", ihVal(""Part firstPart ContentType"", res));
+    }",ConnectTest::postFiles_6_oe
+jsoup_821_7,"@Test
+    public void postFiles_7_oe() throws IOException {
+        File thumb = ParseTest.getFile(""/htmltests/thumb.jpg"");
+        File html = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+
+        Document res = Jsoup
+            .connect(EchoServlet.Url)
+            .data(""firstname"", ""Jay"")
+            .data(""firstPart"", thumb.getName(), new FileInputStream(thumb), ""image/jpeg"")
+            .data(""secondPart"", html.getName(), new FileInputStream(html)) // defaults to ""application-octetstream"";
+            .data(""surname"", ""Soup"")
+            .post();
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(""firstPart"", ihVal(""Part firstPart Name"", res));
+    }",ConnectTest::postFiles_7_oe
+jsoup_821_8,"@Test
+    public void postFiles_8_oe() throws IOException {
+        File thumb = ParseTest.getFile(""/htmltests/thumb.jpg"");
+        File html = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+
+        Document res = Jsoup
+            .connect(EchoServlet.Url)
+            .data(""firstname"", ""Jay"")
+            .data(""firstPart"", thumb.getName(), new FileInputStream(thumb), ""image/jpeg"")
+            .data(""secondPart"", html.getName(), new FileInputStream(html)) // defaults to ""application-octetstream"";
+            .data(""surname"", ""Soup"")
+            .post();
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""thumb.jpg"", ihVal(""Part firstPart Filename"", res));
+    }",ConnectTest::postFiles_8_oe
+jsoup_821_9,"@Test
+    public void postFiles_9_oe() throws IOException {
+        File thumb = ParseTest.getFile(""/htmltests/thumb.jpg"");
+        File html = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+
+        Document res = Jsoup
+            .connect(EchoServlet.Url)
+            .data(""firstname"", ""Jay"")
+            .data(""firstPart"", thumb.getName(), new FileInputStream(thumb), ""image/jpeg"")
+            .data(""secondPart"", html.getName(), new FileInputStream(html)) // defaults to ""application-octetstream"";
+            .data(""surname"", ""Soup"")
+            .post();
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""1052"", ihVal(""Part firstPart Size"", res));
+    }",ConnectTest::postFiles_9_oe
+jsoup_821_10,"@Test
+    public void postFiles_10_oe() throws IOException {
+        File thumb = ParseTest.getFile(""/htmltests/thumb.jpg"");
+        File html = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+
+        Document res = Jsoup
+            .connect(EchoServlet.Url)
+            .data(""firstname"", ""Jay"")
+            .data(""firstPart"", thumb.getName(), new FileInputStream(thumb), ""image/jpeg"")
+            .data(""secondPart"", html.getName(), new FileInputStream(html)) // defaults to ""application-octetstream"";
+            .data(""surname"", ""Soup"")
+            .post();
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(""Jay"", ihVal(""firstname"", res));
+    }",ConnectTest::postFiles_10_oe
+jsoup_821_11,"@Test
+    public void postFiles_11_oe() throws IOException {
+        File thumb = ParseTest.getFile(""/htmltests/thumb.jpg"");
+        File html = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+
+        Document res = Jsoup
+            .connect(EchoServlet.Url)
+            .data(""firstname"", ""Jay"")
+            .data(""firstPart"", thumb.getName(), new FileInputStream(thumb), ""image/jpeg"")
+            .data(""secondPart"", html.getName(), new FileInputStream(html)) // defaults to ""application-octetstream"";
+            .data(""surname"", ""Soup"")
+            .post();
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(""Soup"", ihVal(""surname"", res));
+    }",ConnectTest::postFiles_11_oe
+jsoup_822_1,"@Test
+    public void multipleParsesOkAfterBufferUp_1_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(echoUrl).execute().bufferUp();
+
+        Document doc = res.parse();
+        assertTrue(doc.title().contains(""Environment""));
+    }",ConnectTest::multipleParsesOkAfterBufferUp_1_oe
+jsoup_822_2,"@Test
+    public void multipleParsesOkAfterBufferUp_2_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(echoUrl).execute().bufferUp();
+
+        Document doc = res.parse();
+        // removed other assertion
+
+        Document doc2 = res.parse();
+        assertTrue(doc2.title().contains(""Environment""));
+    }",ConnectTest::multipleParsesOkAfterBufferUp_2_oe
+jsoup_823_1,"@Test
+    public void bodyAfterParseThrowsValidationError_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> { Connection.Response res = Jsoup.connect(echoUrl).execute(); Document doc = res.parse(); String body = res.body(); });
+    }",ConnectTest::bodyAfterParseThrowsValidationError_1_oe
+jsoup_824_1,"@Test
+    public void bodyAndBytesAvailableBeforeParse_1_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(echoUrl).execute();
+        String body = res.body();
+        assertTrue(body.contains(""Environment""));
+    }",ConnectTest::bodyAndBytesAvailableBeforeParse_1_oe
+jsoup_824_2,"@Test
+    public void bodyAndBytesAvailableBeforeParse_2_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(echoUrl).execute();
+        String body = res.body();
+        // removed other assertion
+        byte[] bytes = res.bodyAsBytes();
+        assertTrue(bytes.length > 100);
+    }",ConnectTest::bodyAndBytesAvailableBeforeParse_2_oe
+jsoup_824_3,"@Test
+    public void bodyAndBytesAvailableBeforeParse_3_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(echoUrl).execute();
+        String body = res.body();
+        // removed other assertion
+        byte[] bytes = res.bodyAsBytes();
+        // removed other assertion
+
+        Document doc = res.parse();
+        assertTrue(doc.title().contains(""Environment""));
+    }",ConnectTest::bodyAndBytesAvailableBeforeParse_3_oe
+jsoup_826_1,"@Test
+    public void multiCookieSet_1_oe() throws IOException {
+        Connection con = Jsoup
+                .connect(RedirectServlet.Url)
+                .data(RedirectServlet.CodeParam, ""302"")
+                .data(RedirectServlet.SetCookiesParam, ""true"")
+                .data(RedirectServlet.LocationParam, echoUrl);
+        Connection.Response res = con.execute();
+
+        // test cookies set by redirect:
+        Map<String, String> cookies = res.cookies();
+        assertEquals(""asdfg123"", cookies.get(""token""));
+    }",ConnectTest::multiCookieSet_1_oe
+jsoup_826_2,"@Test
+    public void multiCookieSet_2_oe() throws IOException {
+        Connection con = Jsoup
+                .connect(RedirectServlet.Url)
+                .data(RedirectServlet.CodeParam, ""302"")
+                .data(RedirectServlet.SetCookiesParam, ""true"")
+                .data(RedirectServlet.LocationParam, echoUrl);
+        Connection.Response res = con.execute();
+
+        // test cookies set by redirect:
+        Map<String, String> cookies = res.cookies();
+        // removed other assertion
+        assertEquals(""jhy"", cookies.get(""uid""));
+    }",ConnectTest::multiCookieSet_2_oe
+jsoup_826_3,"@Test
+    public void multiCookieSet_3_oe() throws IOException {
+        Connection con = Jsoup
+                .connect(RedirectServlet.Url)
+                .data(RedirectServlet.CodeParam, ""302"")
+                .data(RedirectServlet.SetCookiesParam, ""true"")
+                .data(RedirectServlet.LocationParam, echoUrl);
+        Connection.Response res = con.execute();
+
+        // test cookies set by redirect:
+        Map<String, String> cookies = res.cookies();
+        // removed other assertion
+        // removed other assertion
+
+        // send those cookies into the echo URL by map:
+        Document doc = Jsoup.connect(echoUrl).cookies(cookies).get();
+        assertEquals(""token=asdfg123; uid=jhy"", ihVal(""Cookie"", doc));
+    }",ConnectTest::multiCookieSet_3_oe
+jsoup_827_1,"@Test public void requestCookiesSurviveRedirect_1_oe() throws IOException {
+        // this test makes sure that Request keyval cookies (not in the cookie store) are sent on subsequent redirections,
+        // when not using the session method
+        Connection con = Jsoup.connect(RedirectServlet.Url)
+            .data(RedirectServlet.LocationParam, echoUrl)
+            .cookie(""LetMeIn"", ""True"")
+            .cookie(""DoesItWork"", ""Yes"");
+
+        Connection.Response res = con.execute();
+        assertEquals(0,res.cookies().size());// were not set by Redir or Echo servlet;
+        }",ConnectTest::requestCookiesSurviveRedirect_1_oe
+jsoup_827_2,"@Test public void requestCookiesSurviveRedirect_2_oe() throws IOException {
+        // this test makes sure that Request keyval cookies (not in the cookie store) are sent on subsequent redirections,
+        // when not using the session method
+        Connection con = Jsoup.connect(RedirectServlet.Url)
+            .data(RedirectServlet.LocationParam, echoUrl)
+            .cookie(""LetMeIn"", ""True"")
+            .cookie(""DoesItWork"", ""Yes"");
+
+        Connection.Response res = con.execute();
+        // removed other assertion
+        Document doc = res.parse();
+        assertEquals(echoUrl, doc.location());
+        }",ConnectTest::requestCookiesSurviveRedirect_2_oe
+jsoup_827_3,"@Test public void requestCookiesSurviveRedirect_3_oe() throws IOException {
+        // this test makes sure that Request keyval cookies (not in the cookie store) are sent on subsequent redirections,
+        // when not using the session method
+        Connection con = Jsoup.connect(RedirectServlet.Url)
+            .data(RedirectServlet.LocationParam, echoUrl)
+            .cookie(""LetMeIn"", ""True"")
+            .cookie(""DoesItWork"", ""Yes"");
+
+        Connection.Response res = con.execute();
+        // removed other assertion
+        Document doc = res.parse();
+        // removed other assertion
+        assertEquals(""True"", ihVal(""Cookie: LetMeIn"", doc));
+        }",ConnectTest::requestCookiesSurviveRedirect_3_oe
+jsoup_827_4,"@Test public void requestCookiesSurviveRedirect_4_oe() throws IOException {
+        // this test makes sure that Request keyval cookies (not in the cookie store) are sent on subsequent redirections,
+        // when not using the session method
+        Connection con = Jsoup.connect(RedirectServlet.Url)
+            .data(RedirectServlet.LocationParam, echoUrl)
+            .cookie(""LetMeIn"", ""True"")
+            .cookie(""DoesItWork"", ""Yes"");
+
+        Connection.Response res = con.execute();
+        // removed other assertion
+        Document doc = res.parse();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Yes"", ihVal(""Cookie: DoesItWork"", doc));
+        }",ConnectTest::requestCookiesSurviveRedirect_4_oe
+jsoup_828_1,"@Test
+    public void supportsDeflate_1_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(Deflateservlet.Url).execute();
+        assertEquals(""deflate"", res.header(""Content-Encoding""));
+    }",ConnectTest::supportsDeflate_1_oe
+jsoup_828_2,"@Test
+    public void supportsDeflate_2_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(Deflateservlet.Url).execute();
+        // removed other assertion
+
+        Document doc = res.parse();
+        assertEquals(""Hello, World!"", doc.selectFirst(""p"").text());
+    }",ConnectTest::supportsDeflate_2_oe
+jsoup_829_1,"@Test
+    public void handlesLargerContentLengthParseRead_1_oe() throws IOException {
+        // this handles situations where the remote server sets a content length greater than it actually writes
+
+        Connection.Response res = Jsoup.connect(InterruptedServlet.Url)
+            .data(InterruptedServlet.Magnitude, InterruptedServlet.Larger)
+            .timeout(400)
+            .execute();
+
+        Document document = res.parse();
+        assertEquals(""Something"", document.title());
+    }",ConnectTest::handlesLargerContentLengthParseRead_1_oe
+jsoup_829_2,"@Test
+    public void handlesLargerContentLengthParseRead_2_oe() throws IOException {
+        // this handles situations where the remote server sets a content length greater than it actually writes
+
+        Connection.Response res = Jsoup.connect(InterruptedServlet.Url)
+            .data(InterruptedServlet.Magnitude, InterruptedServlet.Larger)
+            .timeout(400)
+            .execute();
+
+        Document document = res.parse();
+        // removed other assertion
+        assertEquals(0, document.select(""p"").size());
+    }",ConnectTest::handlesLargerContentLengthParseRead_2_oe
+jsoup_830_1,"@Test
+    public void handlesWrongContentLengthDuringBufferedRead_1_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(InterruptedServlet.Url)
+                .timeout(400)
+                .execute();
+        // this servlet writes max_buffer data, but sets content length to max_buffer/2. So will read up to that.
+        // previous versions of jetty would allow to write less, and would throw except here
+
+        res.bufferUp();
+        Document doc = res.parse();
+        assertEquals(0, doc.select(""p"").size());
+    }",ConnectTest::handlesWrongContentLengthDuringBufferedRead_1_oe
+jsoup_831_1,"@Test public void handlesRedirect_1_oe() throws IOException {
+        Document doc = Jsoup.connect(RedirectServlet.Url)
+            .data(RedirectServlet.LocationParam, HelloServlet.Url)
+            .get();
+
+        Element p = doc.selectFirst(""p"");
+        assertEquals(""Hello, World!"", p.text());
+        }",ConnectTest::handlesRedirect_1_oe
+jsoup_831_2,"@Test public void handlesRedirect_2_oe() throws IOException {
+        Document doc = Jsoup.connect(RedirectServlet.Url)
+            .data(RedirectServlet.LocationParam, HelloServlet.Url)
+            .get();
+
+        Element p = doc.selectFirst(""p"");
+        // removed other assertion
+
+        assertEquals(HelloServlet.Url, doc.location());
+        }",ConnectTest::handlesRedirect_2_oe
+jsoup_832_1,"@Test public void handlesEmptyRedirect_1_oe() {
+        boolean threw = false;
+        try {
+            Connection.Response res = Jsoup.connect(RedirectServlet.Url)
+                .execute();
+        } catch (IOException e) {
+            assertTrue(e.getMessage().contains(""Too many redirects""));
+        }
+        }",ConnectTest::handlesEmptyRedirect_1_oe
+jsoup_832_2,"@Test public void handlesEmptyRedirect_2_oe() {
+        boolean threw = false;
+        try {
+            Connection.Response res = Jsoup.connect(RedirectServlet.Url)
+                .execute();
+        } catch (IOException e) {
+            // removed other assertion
+            threw = true;
+        }
+        assertTrue(threw);
+        }",ConnectTest::handlesEmptyRedirect_2_oe
+jsoup_833_1,"@Test public void doesNotPostFor302_1_oe() throws IOException {
+        final Document doc = Jsoup.connect(RedirectServlet.Url)
+            .data(""Hello"", ""there"")
+            .data(RedirectServlet.LocationParam, EchoServlet.Url)
+            .post();
+
+        assertEquals(EchoServlet.Url, doc.location());
+        }",ConnectTest::doesNotPostFor302_1_oe
+jsoup_833_2,"@Test public void doesNotPostFor302_2_oe() throws IOException {
+        final Document doc = Jsoup.connect(RedirectServlet.Url)
+            .data(""Hello"", ""there"")
+            .data(RedirectServlet.LocationParam, EchoServlet.Url)
+            .post();
+
+        // removed other assertion
+        assertEquals(""GET"", ihVal(""Method"", doc));
+        }",ConnectTest::doesNotPostFor302_2_oe
+jsoup_833_3,"@Test public void doesNotPostFor302_3_oe() throws IOException {
+        final Document doc = Jsoup.connect(RedirectServlet.Url)
+            .data(""Hello"", ""there"")
+            .data(RedirectServlet.LocationParam, EchoServlet.Url)
+            .post();
+
+        // removed other assertion
+        // removed other assertion
+        assertNull(ihVal(""Hello"", doc)); // data not sent;
+        }",ConnectTest::doesNotPostFor302_3_oe
+jsoup_834_1,"@Test public void doesPostFor307_1_oe() throws IOException {
+        final Document doc = Jsoup.connect(RedirectServlet.Url)
+            .data(""Hello"", ""there"")
+            .data(RedirectServlet.LocationParam, EchoServlet.Url)
+            .data(RedirectServlet.CodeParam, ""307"")
+            .post();
+
+        assertEquals(EchoServlet.Url, doc.location());
+        }",ConnectTest::doesPostFor307_1_oe
+jsoup_834_2,"@Test public void doesPostFor307_2_oe() throws IOException {
+        final Document doc = Jsoup.connect(RedirectServlet.Url)
+            .data(""Hello"", ""there"")
+            .data(RedirectServlet.LocationParam, EchoServlet.Url)
+            .data(RedirectServlet.CodeParam, ""307"")
+            .post();
+
+        // removed other assertion
+        assertEquals(""POST"", ihVal(""Method"", doc));
+        }",ConnectTest::doesPostFor307_2_oe
+jsoup_834_3,"@Test public void doesPostFor307_3_oe() throws IOException {
+        final Document doc = Jsoup.connect(RedirectServlet.Url)
+            .data(""Hello"", ""there"")
+            .data(RedirectServlet.LocationParam, EchoServlet.Url)
+            .data(RedirectServlet.CodeParam, ""307"")
+            .post();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""there"", ihVal(""Hello"", doc));
+        }",ConnectTest::doesPostFor307_3_oe
+jsoup_835_1,"@Test public void getUtf8Bom_1_oe() throws IOException {
+        Connection con = Jsoup.connect(FileServlet.urlTo(""/bomtests/bom_utf8.html""));
+        Document doc = con.get();
+
+        assertEquals(""UTF-8"", con.response().charset());
+        }",ConnectTest::getUtf8Bom_1_oe
+jsoup_835_2,"@Test public void getUtf8Bom_2_oe() throws IOException {
+        Connection con = Jsoup.connect(FileServlet.urlTo(""/bomtests/bom_utf8.html""));
+        Document doc = con.get();
+
+        // removed other assertion
+        assertEquals(""OK"", doc.title());
+        }",ConnectTest::getUtf8Bom_2_oe

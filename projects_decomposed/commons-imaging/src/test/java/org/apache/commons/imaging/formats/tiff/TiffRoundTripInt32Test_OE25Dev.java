@@ -203,7 +203,7 @@ public class TiffRoundTripInt32Test_OE25Dev extends TiffBaseTest {
     }
 
 
-    @Test
+@Test
     public void test_1_oe() throws Exception {
         final File[] testFile = new File[4];
         testFile[0] = writeFile(32, ByteOrder.LITTLE_ENDIAN, false);
@@ -227,7 +227,7 @@ public class TiffRoundTripInt32Test_OE25Dev extends TiffBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_2_oe() throws Exception {
         final File[] testFile = new File[4];
         testFile[0] = writeFile(32, ByteOrder.LITTLE_ENDIAN, false);
@@ -255,7 +255,7 @@ public class TiffRoundTripInt32Test_OE25Dev extends TiffBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_3_oe() throws Exception {
         final File[] testFile = new File[4];
         testFile[0] = writeFile(32, ByteOrder.LITTLE_ENDIAN, false);
@@ -284,7 +284,7 @@ public class TiffRoundTripInt32Test_OE25Dev extends TiffBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_4_oe() throws Exception {
         final File[] testFile = new File[4];
         testFile[0] = writeFile(32, ByteOrder.LITTLE_ENDIAN, false);
@@ -320,7 +320,7 @@ public class TiffRoundTripInt32Test_OE25Dev extends TiffBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_5_oe() throws Exception {
         final File[] testFile = new File[4];
         testFile[0] = writeFile(32, ByteOrder.LITTLE_ENDIAN, false);

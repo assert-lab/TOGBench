@@ -92,7 +92,7 @@ public class ProviderDeleteTests_OE25Dev extends AbstractProviderTestCase {
      * deletes a.txt
      */
 
-    @Test
+@Test
     public void testDeleteAllFiles_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -104,7 +104,7 @@ public class ProviderDeleteTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(2, deleteCount);
     }
 
-    @Test
+@Test
     public void testDeleteFile_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -113,14 +113,14 @@ public class ProviderDeleteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.delete());
     }
 
-    @Test
+@Test
     public void testDeleteFiles_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
         assertEquals(4, scratchFolder.delete(Selectors.EXCLUDE_SELF));
     }
 
-    @Test
+@Test
     public void testDeleteNonExistantFile_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -129,7 +129,7 @@ public class ProviderDeleteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.delete());
     }
 
-    @Test
+@Test
     public void testDeleteOneFiles_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 

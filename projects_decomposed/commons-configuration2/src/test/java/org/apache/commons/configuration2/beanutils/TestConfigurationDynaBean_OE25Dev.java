@@ -374,13 +374,13 @@ public class TestConfigurationDynaBean_OE25Dev {
      * Test setSimpleProperty on a String property.
      */
 
-    @Test
+@Test
     public void testGetDescriptors_1_oe() {
         final DynaProperty pd[] = bean.getDynaClass().getDynaProperties();
         assertNotNull("Got descriptors", pd);
     }
 
-    @Test
+@Test
     public void testGetDescriptors_2_oe() {
         final DynaProperty pd[] = bean.getDynaClass().getDynaProperties();
         // removed other assertion
@@ -401,7 +401,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetDescriptors_3_oe() {
         final DynaProperty pd[] = bean.getDynaClass().getDynaProperties();
         // removed other assertion
@@ -424,7 +424,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetIndexedValues_1_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
@@ -433,7 +433,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetIndexedValues_3_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
@@ -444,7 +444,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetIndexedValues_4_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
@@ -459,7 +459,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetIndexedValues_6_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
@@ -476,7 +476,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetIndexedValues_7_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
@@ -497,7 +497,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetIndexedValues_9_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
@@ -520,7 +520,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetIndexedValues_10_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
@@ -547,7 +547,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetIndexedValues_11_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
@@ -575,7 +575,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetIndexedValues_13_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
@@ -605,7 +605,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetIndexedValues_14_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
@@ -639,7 +639,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetIndexedValues_16_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
@@ -675,7 +675,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetMappedArguments_2_oe() {
         try {
             final Object value = bean.get("mappedProperty", "unknown");
@@ -685,13 +685,13 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetMappedValues_1_oe() {
         Object value = bean.get("mappedProperty", "key1");
         assertEquals("Can find first value", "First Value", value);
     }
 
-    @Test
+@Test
     public void testGetMappedValues_2_oe() {
         Object value = bean.get("mappedProperty", "key1");
         // removed other assertion
@@ -700,7 +700,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Can find second value", "Second Value", value);
     }
 
-    @Test
+@Test
     public void testGetMappedValues_3_oe() {
         Object value = bean.get("mappedProperty", "key1");
         // removed other assertion
@@ -712,13 +712,13 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertNotNull("Cannot find third value", value);
     }
 
-    @Test
+@Test
     public void testGetSimpleBoolean_1_oe() {
         final Object value = bean.get("booleanProperty");
         assertNotNull("Got a value", value);
     }
 
-    @Test
+@Test
     public void testGetSimpleBoolean_3_oe() {
         final Object value = bean.get("booleanProperty");
         // removed other assertion
@@ -726,13 +726,13 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertTrue("Got correct value", ((Boolean) value).booleanValue());
     }
 
-    @Test
+@Test
     public void testGetSimpleDouble_1_oe() {
         final Object value = bean.get("doubleProperty");
         assertNotNull("Got a value", value);
     }
 
-    @Test
+@Test
     public void testGetSimpleDouble_3_oe() {
         final Object value = bean.get("doubleProperty");
         // removed other assertion
@@ -740,13 +740,13 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Got correct value", ((Double) value).doubleValue(), Double.MAX_VALUE, 0.005);
     }
 
-    @Test
+@Test
     public void testGetSimpleFloat_1_oe() {
         final Object value = bean.get("floatProperty");
         assertNotNull("Got a value", value);
     }
 
-    @Test
+@Test
     public void testGetSimpleFloat_3_oe() {
         final Object value = bean.get("floatProperty");
         // removed other assertion
@@ -754,13 +754,13 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Got correct value", ((Float) value).floatValue(), Float.MAX_VALUE, 0.005f);
     }
 
-    @Test
+@Test
     public void testGetSimpleInt_1_oe() {
         final Object value = bean.get("intProperty");
         assertNotNull("Failed to get value", value);
     }
 
-    @Test
+@Test
     public void testGetSimpleInt_3_oe() {
         final Object value = bean.get("intProperty");
         // removed other assertion
@@ -768,13 +768,13 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Incorrect value", ((Integer) value).intValue(), Integer.MAX_VALUE);
     }
 
-    @Test
+@Test
     public void testGetSimpleLong_1_oe() {
         final Object value = bean.get("longProperty");
         assertNotNull("Got a value", value);
     }
 
-    @Test
+@Test
     public void testGetSimpleLong_3_oe() {
         final Object value = bean.get("longProperty");
         // removed other assertion
@@ -782,13 +782,13 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Returned value of Incorrect value", ((Long) value).longValue(), Long.MAX_VALUE);
     }
 
-    @Test
+@Test
     public void testGetSimpleShort_1_oe() {
         final Object value = bean.get("shortProperty");
         assertNotNull("Got a value", value);
     }
 
-    @Test
+@Test
     public void testGetSimpleShort_3_oe() {
         final Object value = bean.get("shortProperty");
         // removed other assertion
@@ -796,13 +796,13 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Got correct value", ((Short) value).shortValue(), Short.MAX_VALUE);
     }
 
-    @Test
+@Test
     public void testGetSimpleString_1_oe() {
         final Object value = bean.get("stringProperty");
         assertNotNull("Got a value", value);
     }
 
-    @Test
+@Test
     public void testGetSimpleString_3_oe() {
         final Object value = bean.get("stringProperty");
         // removed other assertion
@@ -810,30 +810,30 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Got correct value", value, "This is a string");
     }
 
-    @Test
+@Test
     public void testMappedContains_1_oe() {
         assertTrue("Can't see first key", bean.contains("mappedProperty", "key1"));
     }
 
-    @Test
+@Test
     public void testMappedContains_2_oe() {
         // removed other assertion
         assertFalse("Can see unknown key", bean.contains("mappedProperty", "Unknown Key"));
     }
 
-    @Test
+@Test
     public void testMappedRemove_1_oe() {
         assertTrue("Can see first key", bean.contains("mappedProperty", "key1"));
     }
 
-    @Test
+@Test
     public void testMappedRemove_2_oe() {
         // removed other assertion
         bean.remove("mappedProperty", "key1");
         assertFalse("Can not see first key", bean.contains("mappedProperty", "key1"));
     }
 
-    @Test
+@Test
     public void testMappedRemove_3_oe() {
         // removed other assertion
         bean.remove("mappedProperty", "key1");
@@ -842,7 +842,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertFalse("Can not see unknown key", bean.contains("mappedProperty", "key4"));
     }
 
-    @Test
+@Test
     public void testMappedRemove_4_oe() {
         // removed other assertion
         bean.remove("mappedProperty", "key1");
@@ -853,7 +853,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertFalse("Can not see unknown key", bean.contains("mappedProperty", "key4"));
     }
 
-    @Test
+@Test
     public void testNestedPropeties_1_oe() {
         final ConfigurationDynaBean nested = (ConfigurationDynaBean) bean.get("mappedProperty");
 
@@ -861,7 +861,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Can find first value", "First Value", value);
     }
 
-    @Test
+@Test
     public void testNestedPropeties_2_oe() {
         final ConfigurationDynaBean nested = (ConfigurationDynaBean) bean.get("mappedProperty");
 
@@ -872,7 +872,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Incorrect value returned", "undefined", bean.get("mappedProperty.key1"));
     }
 
-    @Test
+@Test
     public void testSetArrayValue_1_oe() {
         final MapConfiguration configuration = new MapConfiguration(new HashMap<>());
         configuration.getMap().put("objectArray", new Object[] {"value1", "value2", "value3"});
@@ -885,7 +885,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertNotNull("Returned new value 1", value);
     }
 
-    @Test
+@Test
     public void testSetArrayValue_3_oe() {
         final MapConfiguration configuration = new MapConfiguration(new HashMap<>());
         configuration.getMap().put("objectArray", new Object[] {"value1", "value2", "value3"});
@@ -900,7 +900,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Returned correct new value 1", "New Value 1", value);
     }
 
-    @Test
+@Test
     public void testSetIndexedValues_1_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
@@ -908,7 +908,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertNotNull("Returned new value 0", value);
     }
 
-    @Test
+@Test
     public void testSetIndexedValues_3_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
@@ -918,7 +918,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Returned correct new value 0", 1, ((Integer) value).intValue());
     }
 
-    @Test
+@Test
     public void testSetIndexedValues_4_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
@@ -933,7 +933,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertNotNull("Returned new value 1", value);
     }
 
-    @Test
+@Test
     public void testSetIndexedValues_6_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
@@ -950,7 +950,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Returned correct new value 1", 11, ((Integer) value).intValue());
     }
 
-    @Test
+@Test
     public void testSetIndexedValues_7_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
@@ -972,7 +972,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertNotNull("Returned new value 2", value);
     }
 
-    @Test
+@Test
     public void testSetIndexedValues_9_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
@@ -996,7 +996,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Returned correct new value 2", "New Value 2", value);
     }
 
-    @Test
+@Test
     public void testSetIndexedValues_10_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
@@ -1025,7 +1025,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertNotNull("Returned new value 3", value);
     }
 
-    @Test
+@Test
     public void testSetIndexedValues_12_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
@@ -1056,7 +1056,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Returned correct new value 3", "New Value 3", value);
     }
 
-    @Test
+@Test
     public void testSetIndexedValues_13_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
@@ -1092,7 +1092,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertNotNull("Returned new value 4", value);
     }
 
-    @Test
+@Test
     public void testSetIndexedValues_15_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
@@ -1130,13 +1130,13 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Returned correct new value 4", "New Value 4", value);
     }
 
-    @Test
+@Test
     public void testSetMappedValues_1_oe() {
         bean.set("mappedProperty", "First Key", "New First Value");
         assertEquals("Can replace old value", "New First Value", bean.get("mappedProperty", "First Key"));
     }
 
-    @Test
+@Test
     public void testSetMappedValues_2_oe() {
         bean.set("mappedProperty", "First Key", "New First Value");
         // removed other assertion
@@ -1145,7 +1145,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Can set new value", "Fourth Value", bean.get("mappedProperty", "Fourth Key"));
     }
 
-    @Test
+@Test
     public void testSetSimpleBoolean_1_oe() {
         final boolean oldValue = ((Boolean) bean.get("booleanProperty")).booleanValue();
         final boolean newValue = !oldValue;
@@ -1153,7 +1153,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Matched new value", newValue, ((Boolean) bean.get("booleanProperty")).booleanValue());
     }
 
-    @Test
+@Test
     public void testSetSimpleDouble_1_oe() {
         final double oldValue = ((Double) bean.get("doubleProperty")).doubleValue();
         final double newValue = oldValue + 1.0;
@@ -1161,7 +1161,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Matched new value", newValue, ((Double) bean.get("doubleProperty")).doubleValue(), 0.005);
     }
 
-    @Test
+@Test
     public void testSetSimpleFloat_1_oe() {
         final float oldValue = ((Float) bean.get("floatProperty")).floatValue();
         final float newValue = oldValue + (float) 1.0;
@@ -1169,7 +1169,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Matched new value", newValue, ((Float) bean.get("floatProperty")).floatValue(), 0.005f);
     }
 
-    @Test
+@Test
     public void testSetSimpleInt_1_oe() {
         final int oldValue = ((Integer) bean.get("intProperty")).intValue();
         final int newValue = oldValue + 1;
@@ -1177,7 +1177,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Matched new value", newValue, ((Integer) bean.get("intProperty")).intValue());
     }
 
-    @Test
+@Test
     public void testSetSimpleLong_1_oe() {
         final long oldValue = ((Long) bean.get("longProperty")).longValue();
         final long newValue = oldValue + 1;
@@ -1185,7 +1185,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Matched new value", newValue, ((Long) bean.get("longProperty")).longValue());
     }
 
-    @Test
+@Test
     public void testSetSimpleShort_1_oe() {
         final short oldValue = ((Short) bean.get("shortProperty")).shortValue();
         final short newValue = (short) (oldValue + 1);
@@ -1193,7 +1193,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         assertEquals("Matched new value", newValue, ((Short) bean.get("shortProperty")).shortValue());
     }
 
-    @Test
+@Test
     public void testSetSimpleString_1_oe() {
         final String oldValue = (String) bean.get("stringProperty");
         final String newValue = oldValue + " Extra Value";

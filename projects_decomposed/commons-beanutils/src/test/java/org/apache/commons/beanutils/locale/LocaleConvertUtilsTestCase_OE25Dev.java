@@ -453,25 +453,25 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
     }
 
 
-    public void testObjectToStringScalar_1_oe() {
+public void testObjectToStringScalar_1_oe() {
 
         assertEquals("Boolean->String","false",LocaleConvertUtils.convert(Boolean.FALSE));
     }
 
-    public void testObjectToStringScalar_2_oe() {
+public void testObjectToStringScalar_2_oe() {
 
         // removed other assertion
         assertEquals("Boolean->String","true",LocaleConvertUtils.convert(Boolean.TRUE));
     }
 
-    public void testObjectToStringScalar_3_oe() {
+public void testObjectToStringScalar_3_oe() {
 
         // removed other assertion
         // removed other assertion
         assertEquals("Byte->String","123",LocaleConvertUtils.convert(new Byte((byte)123)));
     }
 
-    public void testObjectToStringScalar_4_oe() {
+public void testObjectToStringScalar_4_oe() {
 
         // removed other assertion
         // removed other assertion
@@ -479,7 +479,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Character->String","a",LocaleConvertUtils.convert(new Character('a')));
     }
 
-    public void testObjectToStringScalar_5_oe() {
+public void testObjectToStringScalar_5_oe() {
 
         // removed other assertion
         // removed other assertion
@@ -488,7 +488,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Double->String","123" + m_decimalSeparator + "4",LocaleConvertUtils.convert(new Double(123.4)));
     }
 
-    public void testObjectToStringScalar_6_oe() {
+public void testObjectToStringScalar_6_oe() {
 
         // removed other assertion
         // removed other assertion
@@ -498,7 +498,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Float->String","123" + m_decimalSeparator + "4",LocaleConvertUtils.convert(new Float((float)123.4)));
     }
 
-    public void testObjectToStringScalar_7_oe() {
+public void testObjectToStringScalar_7_oe() {
 
         // removed other assertion
         // removed other assertion
@@ -509,7 +509,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Integer->String","123",LocaleConvertUtils.convert(new Integer(123)));
     }
 
-    public void testObjectToStringScalar_8_oe() {
+public void testObjectToStringScalar_8_oe() {
 
         // removed other assertion
         // removed other assertion
@@ -521,7 +521,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Long->String","123",LocaleConvertUtils.convert(new Long(123)));
     }
 
-    public void testObjectToStringScalar_9_oe() {
+public void testObjectToStringScalar_9_oe() {
 
         // removed other assertion
         // removed other assertion
@@ -534,7 +534,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Short->String","123",LocaleConvertUtils.convert(new Short((short)123)));
     }
 
-    public void testObjectToStringScalar_10_oe() {
+public void testObjectToStringScalar_10_oe() {
 
         // removed other assertion
         // removed other assertion
@@ -548,7 +548,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("String->String","abc",LocaleConvertUtils.convert("abc"));
     }
 
-    public void testObjectToStringScalar_11_oe() {
+public void testObjectToStringScalar_11_oe() {
 
         // removed other assertion
         // removed other assertion
@@ -563,7 +563,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("String->String null",null,LocaleConvertUtils.convert(null));
     }
 
-    public void testPositiveScalar_1_oe() {
+public void testPositiveScalar_1_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -636,7 +636,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertTrue(value instanceof Byte);
     }
 
-    public void testPositiveScalar_2_oe() {
+public void testPositiveScalar_2_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -710,7 +710,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals(((Byte) value).byteValue(), (byte) 123);
     }
 
-    public void testPositiveScalar_3_oe() {
+public void testPositiveScalar_3_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -787,7 +787,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertTrue(value instanceof Byte);
     }
 
-    public void testPositiveScalar_4_oe() {
+public void testPositiveScalar_4_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -865,7 +865,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals(((Byte) value).byteValue(), (byte) 123);
     }
 
-    public void testPositiveScalar_5_oe() {
+public void testPositiveScalar_5_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -961,7 +961,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertTrue(value instanceof Double);
     }
 
-    public void testPositiveScalar_6_oe() {
+public void testPositiveScalar_6_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -1058,7 +1058,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals(((Double) value).doubleValue(), 123.456, 0.005);
     }
 
-    public void testPositiveScalar_7_oe() {
+public void testPositiveScalar_7_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -1158,7 +1158,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertTrue(value instanceof Double);
     }
 
-    public void testPositiveScalar_8_oe() {
+public void testPositiveScalar_8_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -1259,7 +1259,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals(((Double) value).doubleValue(), 123.456, 0.005);
     }
 
-    public void testPositiveScalar_9_oe() {
+public void testPositiveScalar_9_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -1363,7 +1363,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertTrue(value instanceof Float);
     }
 
-    public void testPositiveScalar_10_oe() {
+public void testPositiveScalar_10_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -1468,7 +1468,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals(((Float)value).floatValue(),(float)123.456,(float)0.005);
     }
 
-    public void testPositiveScalar_11_oe() {
+public void testPositiveScalar_11_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -1576,7 +1576,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertTrue(value instanceof Float);
     }
 
-    public void testPositiveScalar_12_oe() {
+public void testPositiveScalar_12_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -1685,7 +1685,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals(((Float)value).floatValue(),(float)123.456,(float)0.005);
     }
 
-    public void testPositiveScalar_13_oe() {
+public void testPositiveScalar_13_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -1797,7 +1797,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertTrue(value instanceof Integer);
     }
 
-    public void testPositiveScalar_14_oe() {
+public void testPositiveScalar_14_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -1910,7 +1910,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals(((Integer) value).intValue(), 123);
     }
 
-    public void testPositiveScalar_15_oe() {
+public void testPositiveScalar_15_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -2026,7 +2026,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertTrue(value instanceof Integer);
     }
 
-    public void testPositiveScalar_16_oe() {
+public void testPositiveScalar_16_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -2143,7 +2143,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals(((Integer) value).intValue(), 123);
     }
 
-    public void testPositiveScalar_17_oe() {
+public void testPositiveScalar_17_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -2263,7 +2263,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertTrue(value instanceof Long);
     }
 
-    public void testPositiveScalar_18_oe() {
+public void testPositiveScalar_18_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -2384,7 +2384,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals(((Long) value).longValue(), 123);
     }
 
-    public void testPositiveScalar_19_oe() {
+public void testPositiveScalar_19_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -2508,7 +2508,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertTrue(value instanceof Long);
     }
 
-    public void testPositiveScalar_20_oe() {
+public void testPositiveScalar_20_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -2633,7 +2633,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals(((Long) value).longValue(), 123456);
     }
 
-    public void testPositiveScalar_21_oe() {
+public void testPositiveScalar_21_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -2774,7 +2774,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertTrue(value instanceof Date);
     }
 
-    public void testPositiveScalar_22_oe() {
+public void testPositiveScalar_22_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -2916,7 +2916,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals(input, value.toString());
     }
 
-    public void testPositiveScalar_23_oe() {
+public void testPositiveScalar_23_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -3062,7 +3062,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertTrue(value instanceof Time);
     }
 
-    public void testPositiveScalar_24_oe() {
+public void testPositiveScalar_24_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -3209,7 +3209,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals(input, value.toString());
     }
 
-    public void testPositiveScalar_25_oe() {
+public void testPositiveScalar_25_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -3360,7 +3360,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertTrue(value instanceof Timestamp);
     }
 
-    public void testPositiveScalar_26_oe() {
+public void testPositiveScalar_26_oe() {
         Object value = null;
 
         /* fixme Boolean converters not implemented
@@ -3512,7 +3512,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals(input, value.toString());
     }
 
-    public void testConvertStringLocaleNull_1_oe() {
+public void testConvertStringLocaleNull_1_oe() {
         Object result = null;
         try {
             result = LocaleConvertUtils.convert("123", Integer.class, (Locale)null, "#,###");
@@ -3522,7 +3522,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testConvertStringLocaleNull_2_oe() {
+public void testConvertStringLocaleNull_2_oe() {
         Object result = null;
         try {
             result = LocaleConvertUtils.convert("123", Integer.class, (Locale)null, "#,###");
@@ -3533,7 +3533,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertNotNull("Null Result", result);
     }
 
-    public void testConvertStringLocaleNull_3_oe() {
+public void testConvertStringLocaleNull_3_oe() {
         Object result = null;
         try {
             result = LocaleConvertUtils.convert("123", Integer.class, (Locale)null, "#,###");
@@ -3545,7 +3545,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Integer Type", Integer.class, result.getClass());
     }
 
-    public void testConvertStringLocaleNull_4_oe() {
+public void testConvertStringLocaleNull_4_oe() {
         Object result = null;
         try {
             result = LocaleConvertUtils.convert("123", Integer.class, (Locale)null, "#,###");
@@ -3558,7 +3558,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Integer Value", new Integer(123), result);
     }
 
-    public void testConvertStringArrayLocaleNull_1_oe() {
+public void testConvertStringArrayLocaleNull_1_oe() {
         Object result = null;
         try {
             result = LocaleConvertUtils.convert(new String[] {"123"}, Integer[].class, (Locale)null, "#,###");
@@ -3568,7 +3568,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testConvertStringArrayLocaleNull_2_oe() {
+public void testConvertStringArrayLocaleNull_2_oe() {
         Object result = null;
         try {
             result = LocaleConvertUtils.convert(new String[] {"123"}, Integer[].class, (Locale)null, "#,###");
@@ -3579,7 +3579,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertNotNull("Null Result", result);
     }
 
-    public void testConvertStringArrayLocaleNull_3_oe() {
+public void testConvertStringArrayLocaleNull_3_oe() {
         Object result = null;
         try {
             result = LocaleConvertUtils.convert(new String[] {"123"}, Integer[].class, (Locale)null, "#,###");
@@ -3591,7 +3591,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Integer Array Type", Integer[].class, result.getClass());
     }
 
-    public void testConvertStringArrayLocaleNull_4_oe() {
+public void testConvertStringArrayLocaleNull_4_oe() {
         Object result = null;
         try {
             result = LocaleConvertUtils.convert(new String[] {"123"}, Integer[].class, (Locale)null, "#,###");
@@ -3604,7 +3604,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Integer Array Length", 1, ((Integer[])result).length);
     }
 
-    public void testConvertStringArrayLocaleNull_5_oe() {
+public void testConvertStringArrayLocaleNull_5_oe() {
         Object result = null;
         try {
             result = LocaleConvertUtils.convert(new String[] {"123"}, Integer[].class, (Locale)null, "#,###");
@@ -3618,7 +3618,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Integer Array Value", new Integer(123), ((Integer[])result)[0]);
     }
 
-    public void testDefaultToStringConversionUnsupportedType_1_oe() {
+public void testDefaultToStringConversionUnsupportedType_1_oe() {
         final Integer value = 20131101;
         assertEquals("Wrong result",value.toString(),LocaleConvertUtils.convert(value.toString(),getClass()));
     }

@@ -16,7 +16,7 @@ public class SafelistTest_OE25Dev {
     private static final String TEST_VALUE = TEST_SCHEME + "://testValue";
 
 
-    @Test
+@Test
     public void testCopyConstructor_noSideEffectOnTags_1_oe() {
         Safelist safelist1 = Safelist.none().addTags(TEST_TAG);
         Safelist safelist2 = new Safelist(safelist1);
@@ -25,7 +25,7 @@ public class SafelistTest_OE25Dev {
         assertFalse(safelist2.isSafeTag("invalidTag"));
     }
 
-    @Test
+@Test
     public void testCopyConstructor_noSideEffectOnAttributes_1_oe() {
         Safelist safelist1 = Safelist.none().addAttributes(TEST_TAG, TEST_ATTRIBUTE);
         Safelist safelist2 = new Safelist(safelist1);
@@ -34,7 +34,7 @@ public class SafelistTest_OE25Dev {
         assertFalse(safelist2.isSafeAttribute(TEST_TAG, null, new Attribute("invalidAttribute", TEST_VALUE)));
     }
 
-    @Test
+@Test
     public void testCopyConstructor_noSideEffectOnEnforcedAttributes_1_oe() {
         Safelist safelist1 = Safelist.none().addEnforcedAttribute(TEST_TAG, TEST_ATTRIBUTE, TEST_VALUE);
         Safelist safelist2 = new Safelist(safelist1);
@@ -45,7 +45,7 @@ public class SafelistTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testCopyConstructor_noSideEffectOnProtocols_1_oe() {
         final String invalidScheme = "invalid-scheme";
         Safelist safelist1 = Safelist.none()

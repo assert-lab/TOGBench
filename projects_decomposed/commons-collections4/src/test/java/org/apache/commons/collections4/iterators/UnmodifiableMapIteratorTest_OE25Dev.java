@@ -76,16 +76,16 @@ public class UnmodifiableMapIteratorTest_OE25Dev<K, V> extends AbstractMapIterat
 
     //-----------------------------------------------------------------------
 
-    public void testMapIterator_1_oe() {
+public void testMapIterator_1_oe() {
         assertTrue(makeEmptyIterator() instanceof Unmodifiable);
     }
 
-    public void testDecorateFactory_1_oe() {
+public void testDecorateFactory_1_oe() {
         MapIterator<K, V> it = makeObject();
         assertSame(it, UnmodifiableMapIterator.unmodifiableMapIterator(it));
     }
 
-    public void testDecorateFactory_2_oe() {
+public void testDecorateFactory_2_oe() {
         MapIterator<K, V> it = makeObject();
         // removed other assertion
 

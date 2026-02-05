@@ -135,33 +135,33 @@ public class BeanPropertyValueEqualsPredicateTestCase_OE25Dev extends TestCase {
         }
     }
 
-    public void testEvaluateWithSimpleStringProperty_1_oe() {
+public void testEvaluateWithSimpleStringProperty_1_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("stringProperty","foo");
         assertTrue(predicate.evaluate(new TestBean("foo")));
     }
 
-    public void testEvaluateWithSimpleStringProperty_2_oe() {
+public void testEvaluateWithSimpleStringProperty_2_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("stringProperty","foo");
         // removed other assertion
         assertTrue(!predicate.evaluate(new TestBean("bar")));
     }
 
-    public void testEvaluateWithSimpleStringPropertyWithNullValues_1_oe() {
+public void testEvaluateWithSimpleStringPropertyWithNullValues_1_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("stringProperty",null);
         assertTrue(predicate.evaluate(new TestBean((String) null)));
     }
 
-    public void testEvaluateWithSimpleStringPropertyWithNullValues_2_oe() {
+public void testEvaluateWithSimpleStringPropertyWithNullValues_2_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("stringProperty",null);
         // removed other assertion
         assertTrue(!predicate.evaluate(new TestBean("bar")));
     }
 
-    public void testEvaluateWithNestedProperty_1_oe() {
+public void testEvaluateWithNestedProperty_1_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("anotherNested.stringProperty","match");
         final TestBean testBean = new TestBean();
@@ -170,7 +170,7 @@ public class BeanPropertyValueEqualsPredicateTestCase_OE25Dev extends TestCase {
         assertTrue(predicate.evaluate(testBean));
     }
 
-    public void testEvaluateWithNestedProperty_2_oe() {
+public void testEvaluateWithNestedProperty_2_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("anotherNested.stringProperty","match");
         final TestBean testBean = new TestBean();
@@ -181,7 +181,7 @@ public class BeanPropertyValueEqualsPredicateTestCase_OE25Dev extends TestCase {
         assertTrue(!predicate.evaluate(testBean));
     }
 
-    public void testEvaluateWithNullInPathAndIgnoreTrue_2_oe() {
+public void testEvaluateWithNullInPathAndIgnoreTrue_2_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("anotherNested.stringProperty","foo", true);
         try {
@@ -191,59 +191,59 @@ public class BeanPropertyValueEqualsPredicateTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testEvaluateWithIntProperty_1_oe() {
+public void testEvaluateWithIntProperty_1_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("intProperty",expectedIntegerValue);
         assertTrue(predicate.evaluate(new TestBean(expectedIntegerValue.intValue())));
     }
 
-    public void testEvaluateWithIntProperty_2_oe() {
+public void testEvaluateWithIntProperty_2_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("intProperty",expectedIntegerValue);
         // removed other assertion
         assertTrue(!predicate.evaluate(new TestBean(expectedIntegerValue.intValue() - 1)));
     }
 
-    public void testEvaluateWithFloatProperty_1_oe() {
+public void testEvaluateWithFloatProperty_1_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("floatProperty",expectedFloatValue);
         assertTrue(predicate.evaluate(new TestBean(expectedFloatValue.floatValue())));
     }
 
-    public void testEvaluateWithFloatProperty_2_oe() {
+public void testEvaluateWithFloatProperty_2_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("floatProperty",expectedFloatValue);
         // removed other assertion
         assertTrue(!predicate.evaluate(new TestBean(expectedFloatValue.floatValue() - 1)));
     }
 
-    public void testEvaluateWithDoubleProperty_1_oe() {
+public void testEvaluateWithDoubleProperty_1_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("doubleProperty",expectedDoubleValue);
         assertTrue(predicate.evaluate(new TestBean(expectedDoubleValue.doubleValue())));
     }
 
-    public void testEvaluateWithDoubleProperty_2_oe() {
+public void testEvaluateWithDoubleProperty_2_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("doubleProperty",expectedDoubleValue);
         // removed other assertion
         assertTrue(!predicate.evaluate(new TestBean(expectedDoubleValue.doubleValue() - 1)));
     }
 
-    public void testEvaluateWithBooleanProperty_1_oe() {
+public void testEvaluateWithBooleanProperty_1_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("booleanProperty",expectedBooleanValue);
         assertTrue(predicate.evaluate(new TestBean(expectedBooleanValue.booleanValue())));
     }
 
-    public void testEvaluateWithBooleanProperty_2_oe() {
+public void testEvaluateWithBooleanProperty_2_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("booleanProperty",expectedBooleanValue);
         // removed other assertion
         assertTrue(!predicate.evaluate(new TestBean(!expectedBooleanValue.booleanValue())));
     }
 
-    public void testEvaluateWithByteProperty_1_oe() {
+public void testEvaluateWithByteProperty_1_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("byteProperty",expectedByteValue);
         final TestBean testBean = new TestBean();
@@ -251,7 +251,7 @@ public class BeanPropertyValueEqualsPredicateTestCase_OE25Dev extends TestCase {
         assertTrue(predicate.evaluate(testBean));
     }
 
-    public void testEvaluateWithByteProperty_2_oe() {
+public void testEvaluateWithByteProperty_2_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("byteProperty",expectedByteValue);
         final TestBean testBean = new TestBean();
@@ -261,7 +261,7 @@ public class BeanPropertyValueEqualsPredicateTestCase_OE25Dev extends TestCase {
         assertTrue(!predicate.evaluate(testBean));
     }
 
-    public void testEvaluateWithMappedProperty_1_oe() {
+public void testEvaluateWithMappedProperty_1_oe() {
         // try a key that is in the map
         BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("mappedProperty(test-key)","match");
@@ -270,7 +270,7 @@ public class BeanPropertyValueEqualsPredicateTestCase_OE25Dev extends TestCase {
         assertTrue(predicate.evaluate(testBean));
     }
 
-    public void testEvaluateWithMappedProperty_2_oe() {
+public void testEvaluateWithMappedProperty_2_oe() {
         // try a key that is in the map
         BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("mappedProperty(test-key)","match");
@@ -281,7 +281,7 @@ public class BeanPropertyValueEqualsPredicateTestCase_OE25Dev extends TestCase {
         assertTrue(!predicate.evaluate(testBean));
     }
 
-    public void testEvaluateWithMappedProperty_3_oe() {
+public void testEvaluateWithMappedProperty_3_oe() {
         // try a key that is in the map
         BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("mappedProperty(test-key)","match");
@@ -296,7 +296,7 @@ public class BeanPropertyValueEqualsPredicateTestCase_OE25Dev extends TestCase {
         assertTrue(!predicate.evaluate(testBean));
     }
 
-    public void testEvaluateWithIndexedProperty_1_oe() {
+public void testEvaluateWithIndexedProperty_1_oe() {
         // try a valid index
         BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("intIndexed[0]",expectedIntegerValue);
@@ -305,7 +305,7 @@ public class BeanPropertyValueEqualsPredicateTestCase_OE25Dev extends TestCase {
         assertTrue(predicate.evaluate(testBean));
     }
 
-    public void testEvaluateWithIndexedProperty_2_oe() {
+public void testEvaluateWithIndexedProperty_2_oe() {
         // try a valid index
         BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("intIndexed[0]",expectedIntegerValue);
@@ -316,13 +316,13 @@ public class BeanPropertyValueEqualsPredicateTestCase_OE25Dev extends TestCase {
         assertTrue(!predicate.evaluate(testBean));
     }
 
-    public void testEvaluateWithPrimitiveAndNull_1_oe() {
+public void testEvaluateWithPrimitiveAndNull_1_oe() {
         BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("intProperty",null);
         assertTrue(!predicate.evaluate(new TestBean(0)));
     }
 
-    public void testEvaluateWithPrimitiveAndNull_2_oe() {
+public void testEvaluateWithPrimitiveAndNull_2_oe() {
         BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("intProperty",null);
         // removed other assertion
@@ -331,7 +331,7 @@ public class BeanPropertyValueEqualsPredicateTestCase_OE25Dev extends TestCase {
         assertTrue(!predicate.evaluate(new TestBean(true)));
     }
 
-    public void testEvaluateWithPrimitiveAndNull_3_oe() {
+public void testEvaluateWithPrimitiveAndNull_3_oe() {
         BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("intProperty",null);
         // removed other assertion
@@ -343,7 +343,7 @@ public class BeanPropertyValueEqualsPredicateTestCase_OE25Dev extends TestCase {
         assertTrue(!predicate.evaluate(new TestBean(expectedFloatValue.floatValue())));
     }
 
-    public void testEvaluateWithNestedMappedProperty_1_oe() {
+public void testEvaluateWithNestedMappedProperty_1_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("anotherNested.mappedProperty(test-key)","match");
         final TestBean testBean = new TestBean();
@@ -353,7 +353,7 @@ public class BeanPropertyValueEqualsPredicateTestCase_OE25Dev extends TestCase {
         assertTrue(predicate.evaluate(testBean));
     }
 
-    public void testEvaluateWithNestedMappedProperty_2_oe() {
+public void testEvaluateWithNestedMappedProperty_2_oe() {
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("anotherNested.mappedProperty(test-key)","match");
         final TestBean testBean = new TestBean();
@@ -365,7 +365,7 @@ public class BeanPropertyValueEqualsPredicateTestCase_OE25Dev extends TestCase {
         assertTrue(!predicate.evaluate(testBean));
     }
 
-    public void testEvaluateWithReadOnlyProperty_1_oe() {
+public void testEvaluateWithReadOnlyProperty_1_oe() {
         final TestBean testBean = new TestBean();
         final BeanPropertyValueEqualsPredicate predicate =
             new BeanPropertyValueEqualsPredicate("readOnlyProperty",testBean.getReadOnlyProperty());

@@ -47,13 +47,13 @@ public class HMACSha1SignatureServiceTest_OE25Dev {
         service.getSignature("base string", "  ", "tokenSecret");
     }
 
-    @Test
+@Test
     public void shouldReturnSignatureMethodString_1_oe() {
         final String expected = "HMAC-SHA1";
         assertEquals(expected, service.getSignatureMethod());
     }
 
-    @Test
+@Test
     public void shouldReturnSignature_1_oe() {
         final String apiSecret = "api secret";
         final String tokenSecret = "token secret";

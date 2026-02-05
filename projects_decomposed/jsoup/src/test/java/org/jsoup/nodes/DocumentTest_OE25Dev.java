@@ -48,20 +48,20 @@ public class DocumentTest_OE25Dev {
         return doc;
     }
 
-    @Test public void setTextPreservesDocumentStructure_1_oe() {
+@Test public void setTextPreservesDocumentStructure_1_oe() {
         Document doc = Jsoup.parse("<p>Hello</p>");
         doc.text("Replaced");
         assertEquals("Replaced", doc.text());
         }
 
-    @Test public void setTextPreservesDocumentStructure_2_oe() {
+@Test public void setTextPreservesDocumentStructure_2_oe() {
         Document doc = Jsoup.parse("<p>Hello</p>");
         doc.text("Replaced");
         // removed other assertion
         assertEquals("Replaced", doc.body().text());
         }
 
-    @Test public void setTextPreservesDocumentStructure_3_oe() {
+@Test public void setTextPreservesDocumentStructure_3_oe() {
         Document doc = Jsoup.parse("<p>Hello</p>");
         doc.text("Replaced");
         // removed other assertion
@@ -69,14 +69,14 @@ public class DocumentTest_OE25Dev {
         assertEquals(1, doc.select("head").size());
         }
 
-    @Test public void testTitles_1_oe() {
+@Test public void testTitles_1_oe() {
         Document noTitle = Jsoup.parse("<p>Hello</p>");
         Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
 
         assertEquals("", noTitle.title());
         }
 
-    @Test public void testTitles_2_oe() {
+@Test public void testTitles_2_oe() {
         Document noTitle = Jsoup.parse("<p>Hello</p>");
         Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
 
@@ -85,7 +85,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("Hello", noTitle.title());
         }
 
-    @Test public void testTitles_3_oe() {
+@Test public void testTitles_3_oe() {
         Document noTitle = Jsoup.parse("<p>Hello</p>");
         Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
 
@@ -95,7 +95,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("Hello", noTitle.select("title").first().text());
         }
 
-    @Test public void testTitles_4_oe() {
+@Test public void testTitles_4_oe() {
         Document noTitle = Jsoup.parse("<p>Hello</p>");
         Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
 
@@ -107,7 +107,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("First", withTitle.title());
         }
 
-    @Test public void testTitles_5_oe() {
+@Test public void testTitles_5_oe() {
         Document noTitle = Jsoup.parse("<p>Hello</p>");
         Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
 
@@ -121,7 +121,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("Hello", withTitle.title());
         }
 
-    @Test public void testTitles_6_oe() {
+@Test public void testTitles_6_oe() {
         Document noTitle = Jsoup.parse("<p>Hello</p>");
         Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
 
@@ -136,7 +136,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("Hello", withTitle.select("title").first().text());
         }
 
-    @Test public void testTitles_7_oe() {
+@Test public void testTitles_7_oe() {
         Document noTitle = Jsoup.parse("<p>Hello</p>");
         Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
 
@@ -154,20 +154,20 @@ public class DocumentTest_OE25Dev {
         assertEquals("Hello there now", normaliseTitle.title());
         }
 
-    @Test public void testOutputEncoding_1_oe() {
+@Test public void testOutputEncoding_1_oe() {
         Document doc = Jsoup.parse("<p title=π>π & < > </p>");
         // default is utf-8
         assertEquals("<p title=\"π\">π &amp; &lt; &gt;</p>", doc.body().html());
         }
 
-    @Test public void testOutputEncoding_2_oe() {
+@Test public void testOutputEncoding_2_oe() {
         Document doc = Jsoup.parse("<p title=π>π & < > </p>");
         // default is utf-8
         // removed other assertion
         assertEquals("UTF-8", doc.outputSettings().charset().name());
         }
 
-    @Test public void testOutputEncoding_3_oe() {
+@Test public void testOutputEncoding_3_oe() {
         Document doc = Jsoup.parse("<p title=π>π & < > </p>");
         // default is utf-8
         // removed other assertion
@@ -177,7 +177,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(Entities.EscapeMode.base, doc.outputSettings().escapeMode());
         }
 
-    @Test public void testOutputEncoding_4_oe() {
+@Test public void testOutputEncoding_4_oe() {
         Document doc = Jsoup.parse("<p title=π>π & < > </p>");
         // default is utf-8
         // removed other assertion
@@ -188,7 +188,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("<p title=\"&#x3c0;\">&#x3c0; &amp; &lt; &gt;</p>", doc.body().html());
         }
 
-    @Test public void testOutputEncoding_5_oe() {
+@Test public void testOutputEncoding_5_oe() {
         Document doc = Jsoup.parse("<p title=π>π & < > </p>");
         // default is utf-8
         // removed other assertion
@@ -202,23 +202,23 @@ public class DocumentTest_OE25Dev {
         assertEquals("<p title=\"&pi;\">&pi; &amp; &lt; &gt;</p>", doc.body().html());
         }
 
-    @Test public void testXhtmlReferences_1_oe() {
+@Test public void testXhtmlReferences_1_oe() {
         Document doc = Jsoup.parse("&lt; &gt; &amp; &quot; &apos; &times;");
         doc.outputSettings().escapeMode(Entities.EscapeMode.xhtml);
         assertEquals("&lt; &gt; &amp; \" ' ×", doc.body().html());
         }
 
-    @Test public void testNormalisesStructure_1_oe() {
+@Test public void testNormalisesStructure_1_oe() {
         Document doc = Jsoup.parse("<html><head><script>one</script><noscript><p>two</p></noscript></head><body><p>three</p></body><p>four</p></html>");
         assertEquals("<html><head><script>one</script><noscript>&lt;p&gt;two</noscript></head><body><p>three</p><p>four</p></body></html>", TextUtil.stripNewlines(doc.html()));
         }
 
-    @Test public void accessorsWillNormalizeStructure_1_oe() {
+@Test public void accessorsWillNormalizeStructure_1_oe() {
         Document doc = new Document("");
         assertEquals("", doc.html());
         }
 
-    @Test public void accessorsWillNormalizeStructure_2_oe() {
+@Test public void accessorsWillNormalizeStructure_2_oe() {
         Document doc = new Document("");
         // removed other assertion
 
@@ -226,7 +226,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("body", body.tagName());
         }
 
-    @Test public void accessorsWillNormalizeStructure_3_oe() {
+@Test public void accessorsWillNormalizeStructure_3_oe() {
         Document doc = new Document("");
         // removed other assertion
 
@@ -236,7 +236,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("head", head.tagName());
         }
 
-    @Test public void accessorsWillNormalizeStructure_4_oe() {
+@Test public void accessorsWillNormalizeStructure_4_oe() {
         Document doc = new Document("");
         // removed other assertion
 
@@ -247,7 +247,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("<html><head></head><body></body></html>", TextUtil.stripNewlines(doc.html()));
         }
 
-    @Test public void accessorsAreCaseInsensitive_1_oe() {
+@Test public void accessorsAreCaseInsensitive_1_oe() {
         Parser parser = Parser.htmlParser().settings(ParseSettings.preserveCase);
         Document doc = parser.parseInput("<!DOCTYPE html><HTML><HEAD><TITLE>SHOUTY</TITLE></HEAD><BODY>HELLO</BODY></HTML>", "");
 
@@ -255,7 +255,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("BODY", body.tagName());
         }
 
-    @Test public void accessorsAreCaseInsensitive_2_oe() {
+@Test public void accessorsAreCaseInsensitive_2_oe() {
         Parser parser = Parser.htmlParser().settings(ParseSettings.preserveCase);
         Document doc = parser.parseInput("<!DOCTYPE html><HTML><HEAD><TITLE>SHOUTY</TITLE></HEAD><BODY>HELLO</BODY></HTML>", "");
 
@@ -264,7 +264,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("body", body.normalName());
         }
 
-    @Test public void accessorsAreCaseInsensitive_3_oe() {
+@Test public void accessorsAreCaseInsensitive_3_oe() {
         Parser parser = Parser.htmlParser().settings(ParseSettings.preserveCase);
         Document doc = parser.parseInput("<!DOCTYPE html><HTML><HEAD><TITLE>SHOUTY</TITLE></HEAD><BODY>HELLO</BODY></HTML>", "");
 
@@ -275,7 +275,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("HEAD", head.tagName());
         }
 
-    @Test public void accessorsAreCaseInsensitive_4_oe() {
+@Test public void accessorsAreCaseInsensitive_4_oe() {
         Parser parser = Parser.htmlParser().settings(ParseSettings.preserveCase);
         Document doc = parser.parseInput("<!DOCTYPE html><HTML><HEAD><TITLE>SHOUTY</TITLE></HEAD><BODY>HELLO</BODY></HTML>", "");
 
@@ -287,7 +287,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("body", body.normalName());
         }
 
-    @Test public void accessorsAreCaseInsensitive_5_oe() {
+@Test public void accessorsAreCaseInsensitive_5_oe() {
         Parser parser = Parser.htmlParser().settings(ParseSettings.preserveCase);
         Document doc = parser.parseInput("<!DOCTYPE html><HTML><HEAD><TITLE>SHOUTY</TITLE></HEAD><BODY>HELLO</BODY></HTML>", "");
 
@@ -302,7 +302,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("HTML", root.tagName());
         }
 
-    @Test public void accessorsAreCaseInsensitive_6_oe() {
+@Test public void accessorsAreCaseInsensitive_6_oe() {
         Parser parser = Parser.htmlParser().settings(ParseSettings.preserveCase);
         Document doc = parser.parseInput("<!DOCTYPE html><HTML><HEAD><TITLE>SHOUTY</TITLE></HEAD><BODY>HELLO</BODY></HTML>", "");
 
@@ -318,7 +318,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("html", root.normalName());
         }
 
-    @Test public void accessorsAreCaseInsensitive_7_oe() {
+@Test public void accessorsAreCaseInsensitive_7_oe() {
         Parser parser = Parser.htmlParser().settings(ParseSettings.preserveCase);
         Document doc = parser.parseInput("<!DOCTYPE html><HTML><HEAD><TITLE>SHOUTY</TITLE></HEAD><BODY>HELLO</BODY></HTML>", "");
 
@@ -335,14 +335,14 @@ public class DocumentTest_OE25Dev {
         assertEquals("SHOUTY", doc.title());
         }
 
-    @Test public void testClone_1_oe() {
+@Test public void testClone_1_oe() {
         Document doc = Jsoup.parse("<title>Hello</title> <p>One<p>Two");
         Document clone = doc.clone();
 
         assertEquals("<html><head><title>Hello</title></head><body><p>One</p><p>Two</p></body></html>", TextUtil.stripNewlines(clone.html()));
         }
 
-    @Test public void testClone_2_oe() {
+@Test public void testClone_2_oe() {
         Document doc = Jsoup.parse("<title>Hello</title> <p>One<p>Two");
         Document clone = doc.clone();
 
@@ -352,7 +352,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("<html><head><title>Hello there</title></head><body><p id=\"1\">One more</p><p>Two</p></body></html>", TextUtil.stripNewlines(clone.html()));
         }
 
-    @Test public void testClone_3_oe() {
+@Test public void testClone_3_oe() {
         Document doc = Jsoup.parse("<title>Hello</title> <p>One<p>Two");
         Document clone = doc.clone();
 
@@ -363,20 +363,20 @@ public class DocumentTest_OE25Dev {
         assertEquals("<html><head><title>Hello</title></head><body><p>One</p><p>Two</p></body></html>", TextUtil.stripNewlines(doc.html()));
         }
 
-    @Test void testBasicIndent_1_oe() {
+@Test void testBasicIndent_1_oe() {
         Document doc = Jsoup.parse("<title>Hello</title> <p>One<p>Two");
         String expect = "<html>\n <head>\n  <title>Hello</title>\n </head>\n <body>\n  <p>One</p>\n  <p>Two</p>\n </body>\n</html>";
         assertEquals(expect, doc.html());
         }
 
-    @Test public void testClonesDeclarations_1_oe() {
+@Test public void testClonesDeclarations_1_oe() {
         Document doc = Jsoup.parse("<!DOCTYPE html><html><head><title>Doctype test");
         Document clone = doc.clone();
 
         assertEquals(doc.html(), clone.html());
         }
 
-    @Test public void testClonesDeclarations_2_oe() {
+@Test public void testClonesDeclarations_2_oe() {
         Document doc = Jsoup.parse("<!DOCTYPE html><html><head><title>Doctype test");
         Document clone = doc.clone();
 
@@ -384,7 +384,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("<!doctype html><html><head><title>Doctype test</title></head><body></body></html>",TextUtil.stripNewlines(clone.html()));
         }
 
-    @Test public void testLocation_1_oe() throws IOException {
+@Test public void testLocation_1_oe() throws IOException {
     	File in = ParseTest.getFile("/htmltests/yahoo-jp.html.gz");
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/index.html");
         String location = doc.location();
@@ -392,7 +392,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("http://www.yahoo.co.jp/index.html",location);
     	}
 
-    @Test public void testLocation_2_oe() throws IOException {
+@Test public void testLocation_2_oe() throws IOException {
     	File in = ParseTest.getFile("/htmltests/yahoo-jp.html.gz");
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/index.html");
         String location = doc.location();
@@ -401,7 +401,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("http://www.yahoo.co.jp/_ylh=X3oDMTB0NWxnaGxsBF9TAzIwNzcyOTYyNjUEdGlkAzEyBHRtcGwDZ2Ex/",baseUri);
     	}
 
-    @Test public void testLocation_3_oe() throws IOException {
+@Test public void testLocation_3_oe() throws IOException {
     	File in = ParseTest.getFile("/htmltests/yahoo-jp.html.gz");
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/index.html");
         String location = doc.location();
@@ -415,7 +415,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp",location);
     	}
 
-    @Test public void testLocation_4_oe() throws IOException {
+@Test public void testLocation_4_oe() throws IOException {
     	File in = ParseTest.getFile("/htmltests/yahoo-jp.html.gz");
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/index.html");
         String location = doc.location();
@@ -430,12 +430,12 @@ public class DocumentTest_OE25Dev {
         assertEquals("http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp",baseUri);
     	}
 
-    @Test public void testLocationFromString_1_oe() {
+@Test public void testLocationFromString_1_oe() {
         Document doc = Jsoup.parse("<p>Hello");
         assertEquals("", doc.location());
         }
 
-    @Test public void testHtmlAndXmlSyntax_1_oe() {
+@Test public void testHtmlAndXmlSyntax_1_oe() {
         String h = "<!DOCTYPE html><body><img async checked='checked' src='&<>\"'>&lt;&gt;&amp;&quot;<foo />bar";
         Document doc = Jsoup.parse(h);
 
@@ -443,7 +443,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("<!doctype html>\n" + "<html>\n" + " <head></head>\n" + " <body>\n" + " <img async checked src=\"&amp;<>&quot;\">&lt;&gt;&amp;\"<foo />bar\n" + " </body>\n" + "</html>",doc.html());
         }
 
-    @Test public void testHtmlAndXmlSyntax_2_oe() {
+@Test public void testHtmlAndXmlSyntax_2_oe() {
         String h = "<!DOCTYPE html><body><img async checked='checked' src='&<>\"'>&lt;&gt;&amp;&quot;<foo />bar";
         Document doc = Jsoup.parse(h);
 
@@ -454,12 +454,12 @@ public class DocumentTest_OE25Dev {
         assertEquals("<!DOCTYPE html>\n" + "<html>\n" + " <head></head>\n" + " <body>\n" + " <img async=\"\" checked=\"checked\" src=\"&amp;&lt;>&quot;\" />&lt;&gt;&amp;\"<foo />bar\n" + " </body>\n" + "</html>",doc.html());
         }
 
-    @Test public void htmlParseDefaultsToHtmlOutputSyntax_1_oe() {
+@Test public void htmlParseDefaultsToHtmlOutputSyntax_1_oe() {
         Document doc = Jsoup.parse("x");
         assertEquals(Syntax.html, doc.outputSettings().syntax());
         }
 
-    @Test public void testHtmlAppendable_1_oe() {
+@Test public void testHtmlAppendable_1_oe() {
     	String htmlContent = "<html><head><title>Hello</title></head><body><p>One</p><p>Two</p></body></html>";
     	Document document = Jsoup.parse(htmlContent);
     	OutputSettings outputSettings = new OutputSettings();
@@ -469,7 +469,7 @@ public class DocumentTest_OE25Dev {
     	assertEquals(htmlContent, document.html(new StringWriter()).toString());
     	}
 
-    @Test public void testOverflowClone_1_oe() {
+@Test public void testOverflowClone_1_oe() {
         StringBuilder sb = new StringBuilder();
         sb.append("<head><base href='https://jsoup.org/'>");
         for (int i = 0; i < 100000; i++) {
@@ -483,7 +483,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(expectedLink, doc.selectFirst("a").attr("abs:href"));
         }
 
-    @Test public void testOverflowClone_2_oe() {
+@Test public void testOverflowClone_2_oe() {
         StringBuilder sb = new StringBuilder();
         sb.append("<head><base href='https://jsoup.org/'>");
         for (int i = 0; i < 100000; i++) {
@@ -500,7 +500,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(expectedLink, clone.selectFirst("a").attr("abs:href"));
         }
 
-    @Test public void DocumentsWithSameContentAreEqual_1_oe() {
+@Test public void DocumentsWithSameContentAreEqual_1_oe() {
         Document docA = Jsoup.parse("<div/>One");
         Document docB = Jsoup.parse("<div/>One");
         Document docC = Jsoup.parse("<div/>Two");
@@ -508,7 +508,7 @@ public class DocumentTest_OE25Dev {
         assertNotEquals(docA, docB);
         }
 
-    @Test public void DocumentsWithSameContentAreEqual_2_oe() {
+@Test public void DocumentsWithSameContentAreEqual_2_oe() {
         Document docA = Jsoup.parse("<div/>One");
         Document docB = Jsoup.parse("<div/>One");
         Document docC = Jsoup.parse("<div/>Two");
@@ -517,7 +517,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(docA, docA);
         }
 
-    @Test public void DocumentsWithSameContentAreEqual_3_oe() {
+@Test public void DocumentsWithSameContentAreEqual_3_oe() {
         Document docA = Jsoup.parse("<div/>One");
         Document docB = Jsoup.parse("<div/>One");
         Document docC = Jsoup.parse("<div/>Two");
@@ -527,7 +527,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(docA.hashCode(), docA.hashCode());
         }
 
-    @Test public void DocumentsWithSameContentAreEqual_4_oe() {
+@Test public void DocumentsWithSameContentAreEqual_4_oe() {
         Document docA = Jsoup.parse("<div/>One");
         Document docB = Jsoup.parse("<div/>One");
         Document docC = Jsoup.parse("<div/>Two");
@@ -538,7 +538,7 @@ public class DocumentTest_OE25Dev {
         assertNotEquals(docA.hashCode(), docC.hashCode());
         }
 
-    @Test public void DocumentsWithSameContentAreVerifiable_1_oe() {
+@Test public void DocumentsWithSameContentAreVerifiable_1_oe() {
         Document docA = Jsoup.parse("<div/>One");
         Document docB = Jsoup.parse("<div/>One");
         Document docC = Jsoup.parse("<div/>Two");
@@ -546,7 +546,7 @@ public class DocumentTest_OE25Dev {
         assertTrue(docA.hasSameValue(docB));
         }
 
-    @Test public void DocumentsWithSameContentAreVerifiable_2_oe() {
+@Test public void DocumentsWithSameContentAreVerifiable_2_oe() {
         Document docA = Jsoup.parse("<div/>One");
         Document docB = Jsoup.parse("<div/>One");
         Document docC = Jsoup.parse("<div/>Two");
@@ -555,7 +555,7 @@ public class DocumentTest_OE25Dev {
         assertFalse(docA.hasSameValue(docC));
         }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateUtf8_1_oe() {
         final Document doc = createHtmlDocument("changeThis");
         doc.updateMetaCharsetElement(true);
@@ -570,7 +570,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(htmlCharsetUTF8, doc.toString());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateUtf8_2_oe() {
         final Document doc = createHtmlDocument("changeThis");
         doc.updateMetaCharsetElement(true);
@@ -588,7 +588,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(charsetUtf8, doc.charset().name());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateUtf8_3_oe() {
         final Document doc = createHtmlDocument("changeThis");
         doc.updateMetaCharsetElement(true);
@@ -607,7 +607,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(charsetUtf8, selectedElement.attr("charset"));
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateUtf8_4_oe() {
         final Document doc = createHtmlDocument("changeThis");
         doc.updateMetaCharsetElement(true);
@@ -627,7 +627,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(doc.charset(), doc.outputSettings().charset());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateIso8859_1_oe() {
         final Document doc = createHtmlDocument("changeThis");
         doc.updateMetaCharsetElement(true);
@@ -642,7 +642,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(htmlCharsetISO, doc.toString());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateIso8859_2_oe() {
         final Document doc = createHtmlDocument("changeThis");
         doc.updateMetaCharsetElement(true);
@@ -660,7 +660,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(charsetIso8859, doc.charset().name());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateIso8859_3_oe() {
         final Document doc = createHtmlDocument("changeThis");
         doc.updateMetaCharsetElement(true);
@@ -679,7 +679,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(charsetIso8859, selectedElement.attr("charset"));
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateIso8859_4_oe() {
         final Document doc = createHtmlDocument("changeThis");
         doc.updateMetaCharsetElement(true);
@@ -699,7 +699,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(doc.charset(), doc.outputSettings().charset());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateNoCharset_1_oe() {
         final Document docNoCharset = Document.createShell("");
         docNoCharset.updateMetaCharsetElement(true);
@@ -708,7 +708,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(charsetUtf8, docNoCharset.select("meta[charset]").first().attr("charset"));
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateNoCharset_2_oe() {
         final Document docNoCharset = Document.createShell("");
         docNoCharset.updateMetaCharsetElement(true);
@@ -725,7 +725,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(htmlCharsetUTF8, docNoCharset.toString());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateDisabled_1_oe() {
         final Document docDisabled = Document.createShell("");
 
@@ -736,7 +736,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(htmlNoCharset, docDisabled.toString());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateDisabled_2_oe() {
         final Document docDisabled = Document.createShell("");
 
@@ -748,7 +748,7 @@ public class DocumentTest_OE25Dev {
         assertNull(docDisabled.select("meta[charset]").first());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateDisabledNoChanges_1_oe() {
         final Document doc = createHtmlDocument("dontTouch");
 
@@ -762,7 +762,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(htmlCharset, doc.toString());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateDisabledNoChanges_2_oe() {
         final Document doc = createHtmlDocument("dontTouch");
 
@@ -779,7 +779,7 @@ public class DocumentTest_OE25Dev {
         assertNotNull(selectedElement);
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateDisabledNoChanges_3_oe() {
         final Document doc = createHtmlDocument("dontTouch");
 
@@ -797,7 +797,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("dontTouch", selectedElement.attr("charset"));
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateDisabledNoChanges_4_oe() {
         final Document doc = createHtmlDocument("dontTouch");
 
@@ -818,7 +818,7 @@ public class DocumentTest_OE25Dev {
         assertNotNull(selectedElement);
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateDisabledNoChanges_5_oe() {
         final Document doc = createHtmlDocument("dontTouch");
 
@@ -840,7 +840,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("dontTouch", selectedElement.attr("content"));
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateEnabledAfterCharsetChange_1_oe() {
         final Document doc = createHtmlDocument("dontTouch");
         doc.charset(Charset.forName(charsetUtf8));
@@ -849,7 +849,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(charsetUtf8, selectedElement.attr("charset"));
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateEnabledAfterCharsetChange_2_oe() {
         final Document doc = createHtmlDocument("dontTouch");
         doc.charset(Charset.forName(charsetUtf8));
@@ -859,7 +859,7 @@ public class DocumentTest_OE25Dev {
         assertTrue(doc.select("meta[name=charset]").isEmpty());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateCleanup_1_oe() {
         final Document doc = createHtmlDocument("dontTouch");
         doc.updateMetaCharsetElement(true);
@@ -875,7 +875,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(htmlCharsetUTF8, doc.toString());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateXmlUtf8_1_oe() {
         final Document doc = createXmlDocument("1.0", "changeThis", true);
         doc.updateMetaCharsetElement(true);
@@ -888,7 +888,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(xmlCharsetUTF8, doc.toString());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateXmlUtf8_2_oe() {
         final Document doc = createXmlDocument("1.0", "changeThis", true);
         doc.updateMetaCharsetElement(true);
@@ -904,7 +904,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(charsetUtf8, doc.charset().name());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateXmlUtf8_3_oe() {
         final Document doc = createXmlDocument("1.0", "changeThis", true);
         doc.updateMetaCharsetElement(true);
@@ -921,7 +921,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(charsetUtf8, selectedNode.attr("encoding"));
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateXmlUtf8_4_oe() {
         final Document doc = createXmlDocument("1.0", "changeThis", true);
         doc.updateMetaCharsetElement(true);
@@ -939,7 +939,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(doc.charset(), doc.outputSettings().charset());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateXmlIso8859_1_oe() {
         final Document doc = createXmlDocument("1.0", "changeThis", true);
         doc.updateMetaCharsetElement(true);
@@ -952,7 +952,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(xmlCharsetISO, doc.toString());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateXmlIso8859_2_oe() {
         final Document doc = createXmlDocument("1.0", "changeThis", true);
         doc.updateMetaCharsetElement(true);
@@ -968,7 +968,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(charsetIso8859, doc.charset().name());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateXmlIso8859_3_oe() {
         final Document doc = createXmlDocument("1.0", "changeThis", true);
         doc.updateMetaCharsetElement(true);
@@ -985,7 +985,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(charsetIso8859, selectedNode.attr("encoding"));
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateXmlIso8859_4_oe() {
         final Document doc = createXmlDocument("1.0", "changeThis", true);
         doc.updateMetaCharsetElement(true);
@@ -1003,7 +1003,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(doc.charset(), doc.outputSettings().charset());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateXmlNoCharset_1_oe() {
         final Document doc = createXmlDocument("1.0", "none", false);
         doc.updateMetaCharsetElement(true);
@@ -1016,7 +1016,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(xmlCharsetUTF8, doc.toString());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateXmlNoCharset_2_oe() {
         final Document doc = createXmlDocument("1.0", "none", false);
         doc.updateMetaCharsetElement(true);
@@ -1032,7 +1032,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(charsetUtf8, selectedNode.attr("encoding"));
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateXmlDisabled_1_oe() {
         final Document doc = createXmlDocument("none", "none", false);
 
@@ -1042,7 +1042,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(xmlNoCharset, doc.toString());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateXmlDisabledNoChanges_1_oe() {
         final Document doc = createXmlDocument("dontTouch", "dontTouch", true);
 
@@ -1053,7 +1053,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(xmlCharset, doc.toString());
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateXmlDisabledNoChanges_2_oe() {
         final Document doc = createXmlDocument("dontTouch", "dontTouch", true);
 
@@ -1067,7 +1067,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("dontTouch", selectedNode.attr("encoding"));
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdateXmlDisabledNoChanges_3_oe() {
         final Document doc = createXmlDocument("dontTouch", "dontTouch", true);
 
@@ -1082,13 +1082,13 @@ public class DocumentTest_OE25Dev {
         assertEquals("dontTouch", selectedNode.attr("version"));
     }
 
-    @Test
+@Test
     public void testMetaCharsetUpdatedDisabledPerDefault_1_oe() {
         final Document doc = createHtmlDocument("none");
         assertFalse(doc.updateMetaCharsetElement());
     }
 
-    @Test
+@Test
     public void testShiftJisRoundtrip_1_oe() throws Exception {
         String input =
                 "<html>"
@@ -1109,7 +1109,7 @@ public class DocumentTest_OE25Dev {
         assertFalse(output.contains("?"), "Should not have contained a '?'.");
     }
 
-    @Test
+@Test
     public void testShiftJisRoundtrip_2_oe() throws Exception {
         String input =
                 "<html>"
@@ -1131,7 +1131,7 @@ public class DocumentTest_OE25Dev {
         assertTrue(output.contains("&#xa0;")|| output.contains("&nbsp;"),"Should have contained a '&#xa0;' or a '&nbsp;'.");
     }
 
-    @Test public void parseAndHtmlOnDifferentThreads_1_oe() throws InterruptedException {
+@Test public void parseAndHtmlOnDifferentThreads_1_oe() throws InterruptedException {
         String html = "<p>Alrighty then it's not \uD83D\uDCA9. <span>Next</span></p>"; // 💩
         String asci = "<p>Alrighty then it's not &#x1f4a9;. <span>Next</span></p>";
 
@@ -1141,7 +1141,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(html, p.outerHtml());
         }
 
-    @Test public void parseAndHtmlOnDifferentThreads_2_oe() throws InterruptedException {
+@Test public void parseAndHtmlOnDifferentThreads_2_oe() throws InterruptedException {
         String html = "<p>Alrighty then it's not \uD83D\uDCA9. <span>Next</span></p>"; // 💩
         String asci = "<p>Alrighty then it's not &#x1f4a9;. <span>Next</span></p>";
 
@@ -1160,7 +1160,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(html, out[0]);
         }
 
-    @Test public void parseAndHtmlOnDifferentThreads_3_oe() throws InterruptedException {
+@Test public void parseAndHtmlOnDifferentThreads_3_oe() throws InterruptedException {
         String html = "<p>Alrighty then it's not \uD83D\uDCA9. <span>Next</span></p>"; // 💩
         String asci = "<p>Alrighty then it's not &#x1f4a9;. <span>Next</span></p>";
 
@@ -1180,7 +1180,7 @@ public class DocumentTest_OE25Dev {
         assertEquals(StandardCharsets.US_ASCII, doc.outputSettings().charset());
         }
 
-    @Test public void parseAndHtmlOnDifferentThreads_4_oe() throws InterruptedException {
+@Test public void parseAndHtmlOnDifferentThreads_4_oe() throws InterruptedException {
         String html = "<p>Alrighty then it's not \uD83D\uDCA9. <span>Next</span></p>"; // 💩
         String asci = "<p>Alrighty then it's not &#x1f4a9;. <span>Next</span></p>";
 
@@ -1201,14 +1201,14 @@ public class DocumentTest_OE25Dev {
         assertEquals(asci, p.outerHtml());
         }
 
-    @Test public void testDocumentTypeGet_1_oe() {
+@Test public void testDocumentTypeGet_1_oe() {
         String html = "\n\n<!-- comment -->  <!doctype html><p>One</p>";
         Document doc = Jsoup.parse(html);
         DocumentType documentType = doc.documentType();
         assertNotNull(documentType);
         }
 
-    @Test public void testDocumentTypeGet_2_oe() {
+@Test public void testDocumentTypeGet_2_oe() {
         String html = "\n\n<!-- comment -->  <!doctype html><p>One</p>";
         Document doc = Jsoup.parse(html);
         DocumentType documentType = doc.documentType();
@@ -1216,14 +1216,14 @@ public class DocumentTest_OE25Dev {
         assertEquals("html", documentType.name());
         }
 
-    @Test public void framesetSupportsBodyMethod_1_oe() {
+@Test public void framesetSupportsBodyMethod_1_oe() {
         String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
         Document doc = Jsoup.parse(html);
         Element head = doc.head();
         assertNotNull(head);
         }
 
-    @Test public void framesetSupportsBodyMethod_2_oe() {
+@Test public void framesetSupportsBodyMethod_2_oe() {
         String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
         Document doc = Jsoup.parse(html);
         Element head = doc.head();
@@ -1231,7 +1231,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("Frame Test", doc.title());
         }
 
-    @Test public void framesetSupportsBodyMethod_3_oe() {
+@Test public void framesetSupportsBodyMethod_3_oe() {
         String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
         Document doc = Jsoup.parse(html);
         Element head = doc.head();
@@ -1242,7 +1242,7 @@ public class DocumentTest_OE25Dev {
         assertNull(doc.selectFirst("body"));
         }
 
-    @Test public void framesetSupportsBodyMethod_4_oe() {
+@Test public void framesetSupportsBodyMethod_4_oe() {
         String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
         Document doc = Jsoup.parse(html);
         Element head = doc.head();
@@ -1255,7 +1255,7 @@ public class DocumentTest_OE25Dev {
         assertNotNull(frameset);
         }
 
-    @Test public void framesetSupportsBodyMethod_5_oe() {
+@Test public void framesetSupportsBodyMethod_5_oe() {
         String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
         Document doc = Jsoup.parse(html);
         Element head = doc.head();
@@ -1273,7 +1273,7 @@ public class DocumentTest_OE25Dev {
         assertNotNull(body);
         }
 
-    @Test public void framesetSupportsBodyMethod_6_oe() {
+@Test public void framesetSupportsBodyMethod_6_oe() {
         String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
         Document doc = Jsoup.parse(html);
         Element head = doc.head();
@@ -1292,7 +1292,7 @@ public class DocumentTest_OE25Dev {
         assertSame(frameset, body);
         }
 
-    @Test public void framesetSupportsBodyMethod_7_oe() {
+@Test public void framesetSupportsBodyMethod_7_oe() {
         String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
         Document doc = Jsoup.parse(html);
         Element head = doc.head();
@@ -1312,7 +1312,7 @@ public class DocumentTest_OE25Dev {
         assertEquals("frame", body.child(0).tagName());
         }
 
-    @Test public void framesetSupportsBodyMethod_8_oe() {
+@Test public void framesetSupportsBodyMethod_8_oe() {
         String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
         Document doc = Jsoup.parse(html);
         Element head = doc.head();
@@ -1334,7 +1334,7 @@ public class DocumentTest_OE25Dev {
         assertNull(doc.selectFirst("body"));// did not vivify a body element;
         }
 
-    @Test public void framesetSupportsBodyMethod_9_oe() {
+@Test public void framesetSupportsBodyMethod_9_oe() {
         String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
         Document doc = Jsoup.parse(html);
         Element head = doc.head();

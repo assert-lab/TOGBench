@@ -31,7 +31,7 @@ import org.junit.Test;
 // CHECKSTYLE:OFF Test code
 public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
 
-    @Test
+@Test
     public void testPatternNullArgConstruction_2_oe() {
         try {
             new RegexFileFilter((Pattern) null);
@@ -41,7 +41,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
     }
     }
 
-    @Test
+@Test
     public void testRegex_1_oe() throws Exception {
 
         FileFilter filter;
@@ -50,7 +50,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test.java"))));
     }
 
-    @Test
+@Test
     public void testRegex_2_oe() throws Exception {
 
         FileFilter filter;
@@ -60,7 +60,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test-10.java"))));
     }
 
-    @Test
+@Test
     public void testRegex_3_oe() throws Exception {
 
         FileFilter filter;
@@ -71,7 +71,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test-.java"))));
     }
 
-    @Test
+@Test
     public void testRegex_4_oe() throws Exception {
 
         FileFilter filter;
@@ -85,7 +85,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test.java"))));
     }
 
-    @Test
+@Test
     public void testRegex_5_oe() throws Exception {
 
         FileFilter filter;
@@ -100,7 +100,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.java"))));
     }
 
-    @Test
+@Test
     public void testRegex_6_oe() throws Exception {
 
         FileFilter filter;
@@ -116,7 +116,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("tEST.java"))));
     }
 
-    @Test
+@Test
     public void testRegex_7_oe() throws Exception {
 
         FileFilter filter;
@@ -135,7 +135,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test.java"))));
     }
 
-    @Test
+@Test
     public void testRegex_8_oe() throws Exception {
 
         FileFilter filter;
@@ -155,7 +155,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.java"))));
     }
 
-    @Test
+@Test
     public void testRegex_9_oe() throws Exception {
 
         FileFilter filter;
@@ -176,7 +176,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("tEST.java"))));
     }
 
-    @Test
+@Test
     public void testRegex_10_oe() throws Exception {
 
         FileFilter filter;
@@ -200,7 +200,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test.java"))));
     }
 
-    @Test
+@Test
     public void testRegex_11_oe() throws Exception {
 
         FileFilter filter;
@@ -225,7 +225,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.java"))));
     }
 
-    @Test
+@Test
     public void testRegex_12_oe() throws Exception {
 
         FileFilter filter;
@@ -251,7 +251,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("tEST.java"))));
     }
 
-    @Test
+@Test
     public void testRegex_13_oe() throws Exception {
 
         FileFilter filter;
@@ -280,7 +280,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test.java"))));
     }
 
-    @Test
+@Test
     public void testRegex_14_oe() throws Exception {
 
         FileFilter filter;
@@ -310,7 +310,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.java"))));
     }
 
-    @Test
+@Test
     public void testRegex_15_oe() throws Exception {
 
         FileFilter filter;
@@ -341,7 +341,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("tEST.java"))));
     }
 
-    @Test
+@Test
     public void testStringIOCaseNullArgConstruction_2_oe() {
         try {
             new RegexFileFilter((String) null, IOCase.INSENSITIVE);
@@ -351,7 +351,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
     }
     }
 
-    @Test
+@Test
     public void testStringNullArgConstruction_2_oe() {
         try {
             new RegexFileFilter((String) null);
@@ -361,7 +361,7 @@ public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
     }
     }
 
-    @Test
+@Test
     public void testStringPatternNullArgConstruction_2_oe() {
         try {
             new RegexFileFilter((String) null, Pattern.CASE_INSENSITIVE);

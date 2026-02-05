@@ -37,7 +37,7 @@ public class PropertyHandlerTest_OE25Dev {
      * were loaded, too.
      */
 
-    @Test
+@Test
     public void testServiceLoaderFindsMultipleRegistries_1_oe() {
         boolean found = false;
         for (PropertyHandler handler : loader) {
@@ -50,7 +50,7 @@ public class PropertyHandlerTest_OE25Dev {
         assertTrue(found);
     }
 
-    @Test
+@Test
     public void testFoundMoreThanLocal_1_oe() {
         int count = 0;
         for (PropertyHandler handler : loader) {

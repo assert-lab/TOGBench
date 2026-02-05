@@ -82,7 +82,7 @@ public class OpenJPAJCacheDataCacheTest_OE25Dev
         }
     }
 
-    @Test
+@Test
     public void entity_1_oe()
     {
         final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
@@ -98,7 +98,7 @@ public class OpenJPAJCacheDataCacheTest_OE25Dev
         assertNotNull(conf.getDataCacheManagerInstance().getDataCache("default"));
     }
 
-    @Test
+@Test
     public void entity_2_oe()
     {
         final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
@@ -116,7 +116,7 @@ public class OpenJPAJCacheDataCacheTest_OE25Dev
         assertThat(conf.getDataCacheManagerInstance(), instanceOf(OpenJPAJCacheDataCacheManager.class));
     }
 
-    @Test
+@Test
     public void entity_3_oe()
     {
         final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
@@ -135,7 +135,7 @@ public class OpenJPAJCacheDataCacheTest_OE25Dev
         assertThat(conf.getDataCacheManagerInstance().getDataCache("default"), instanceOf(OpenJPAJCacheDataCache.class));
     }
 
-    @Test
+@Test
     public void entity_4_oe()
     {
         final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
@@ -155,7 +155,7 @@ public class OpenJPAJCacheDataCacheTest_OE25Dev
         assertTrue(conf.getDataCacheManagerInstance().getDataCache("default").contains(JPAFacadeHelper.toOpenJPAObjectId(conf.getMetaDataRepositoryInstance().getCachedMetaData(MyEntity.class), entity.getId())));
     }
 
-    @Test
+@Test
     public void query_1_oe()
     {
         final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
@@ -172,7 +172,7 @@ public class OpenJPAJCacheDataCacheTest_OE25Dev
         assertEquals(1, query.setParameter("id", entity.getId()).getResultList().size());
     }
 
-    @Test
+@Test
     public void query_2_oe()
     {
         final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
@@ -190,7 +190,7 @@ public class OpenJPAJCacheDataCacheTest_OE25Dev
         assertNotNull(conf.getDataCacheManagerInstance().getDataCache("default"));
     }
 
-    @Test
+@Test
     public void query_3_oe()
     {
         final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
@@ -210,7 +210,7 @@ public class OpenJPAJCacheDataCacheTest_OE25Dev
         assertThat(conf.getDataCacheManagerInstance(), instanceOf(OpenJPAJCacheDataCacheManager.class));
     }
 
-    @Test
+@Test
     public void query_4_oe()
     {
         final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
@@ -231,7 +231,7 @@ public class OpenJPAJCacheDataCacheTest_OE25Dev
         assertThat(conf.getDataCacheManagerInstance().getDataCache("default"), instanceOf(OpenJPAJCacheDataCache.class));
     }
 
-    @Test
+@Test
     public void query_5_oe()
     {
         final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
@@ -253,7 +253,7 @@ public class OpenJPAJCacheDataCacheTest_OE25Dev
         assertTrue(conf.getDataCacheManagerInstance().getDataCache("default").contains(JPAFacadeHelper.toOpenJPAObjectId(conf.getMetaDataRepositoryInstance().getCachedMetaData(MyEntity.class), entity.getId())));
     }
 
-    @Test
+@Test
     public void query_6_oe()
     {
         final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);

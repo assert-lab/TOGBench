@@ -52,7 +52,7 @@ public class WeekYearTest_OE25Dev {
         );
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testParser_1_oe(final Calendar vulgar, final String isoForm) {
         final DateParser parser = new FastDateParser("YYYY-'W'ww-u", TimeZone.getDefault(), Locale.getDefault());
@@ -66,7 +66,7 @@ public class WeekYearTest_OE25Dev {
         assertEquals(vulgar.getTime(), cal.getTime());
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testPrinter_1_oe(final Calendar vulgar, final String isoForm) {
         final FastDatePrinter printer = new FastDatePrinter("YYYY-'W'ww-u", TimeZone.getDefault(), Locale.getDefault());

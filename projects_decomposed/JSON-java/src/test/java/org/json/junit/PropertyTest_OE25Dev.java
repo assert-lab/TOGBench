@@ -41,21 +41,21 @@ public class PropertyTest_OE25Dev {
      * Properties without changing.
      */
 
-    @Test
+@Test
     public void shouldHandleNullProperties_1_oe() {
         Properties properties = null;
         JSONObject jsonObject = Property.toJSONObject(properties);
         assertTrue("jsonObject should be empty", jsonObject.isEmpty());
     }
 
-    @Test
+@Test
     public void shouldHandleEmptyProperties_1_oe() {
         Properties properties = new Properties();
         JSONObject jsonObject = Property.toJSONObject(properties);
         assertTrue("jsonObject should be empty", jsonObject.isEmpty());
     }
 
-    @Test
+@Test
     public void shouldHandleProperties_1_oe() {
         Properties properties = new Properties();
         
@@ -70,7 +70,7 @@ public class PropertyTest_OE25Dev {
         assertTrue("jsonObject should contain 5 items", jsonObject.length() == 5);
     }
 
-    @Test
+@Test
     public void shouldHandleProperties_2_oe() {
         Properties properties = new Properties();
         
@@ -86,7 +86,7 @@ public class PropertyTest_OE25Dev {
         assertTrue("jsonObject should contain Illinois property","Springfield".equals(jsonObject.get("Illinois")));
     }
 
-    @Test
+@Test
     public void shouldHandleProperties_3_oe() {
         Properties properties = new Properties();
         
@@ -103,7 +103,7 @@ public class PropertyTest_OE25Dev {
         assertTrue("jsonObject should contain Missouri property","Jefferson City".equals(jsonObject.get("Missouri")));
     }
 
-    @Test
+@Test
     public void shouldHandleProperties_4_oe() {
         Properties properties = new Properties();
         
@@ -121,7 +121,7 @@ public class PropertyTest_OE25Dev {
         assertTrue("jsonObject should contain Washington property","Olympia".equals(jsonObject.get("Washington")));
     }
 
-    @Test
+@Test
     public void shouldHandleProperties_5_oe() {
         Properties properties = new Properties();
         
@@ -140,7 +140,7 @@ public class PropertyTest_OE25Dev {
         assertTrue("jsonObject should contain California property","Sacramento".equals(jsonObject.get("California")));
     }
 
-    @Test
+@Test
     public void shouldHandleProperties_6_oe() {
         Properties properties = new Properties();
         
@@ -160,14 +160,14 @@ public class PropertyTest_OE25Dev {
         assertTrue("jsonObject should contain Indiana property","Indianapolis".equals(jsonObject.get("Indiana")));
     }
 
-    @Test
+@Test
     public void shouldHandleNullJSONProperty_1_oe() {
         JSONObject jsonObject= null;
         Properties properties = Property.toProperties(jsonObject);
         assertTrue("properties should be empty",properties.size()== 0);
     }
 
-    @Test
+@Test
     public void shouldHandleJSONProperty_1_oe() {
         Properties properties = new Properties();
         

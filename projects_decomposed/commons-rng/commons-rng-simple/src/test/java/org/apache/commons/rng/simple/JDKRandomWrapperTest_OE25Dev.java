@@ -121,7 +121,7 @@ class JDKRandomWrapperTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testNextLongInRange_1_oe() {
         final long seed = RandomSource.createLong();
         // This will use the RNG core BaseProvider implementation.
@@ -152,7 +152,7 @@ class JDKRandomWrapperTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testNextLongInRangeThrows_1_oe() {
         final UniformRandomProvider rng1 = new JDKRandomWrapper(new Random(5675767L));
         Assertions.assertThrows(IllegalArgumentException.class, () -> rng1.nextLong(0));

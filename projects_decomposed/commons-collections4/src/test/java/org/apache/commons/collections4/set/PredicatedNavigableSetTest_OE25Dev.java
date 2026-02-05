@@ -85,12 +85,12 @@ public class PredicatedNavigableSetTest_OE25Dev<E> extends AbstractNavigableSetT
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/PredicatedNavigableSet.fullCollection.version4.1.obj");
 //    }
 
-    public void testGetSet_1_oe() {
+public void testGetSet_1_oe() {
         final PredicatedNavigableSet<E> set = makeTestSet();
         assertTrue("returned set should not be null", set.decorated() != null);
     }
 
-    public void testIllegalAdd_2_oe() {
+public void testIllegalAdd_2_oe() {
         final NavigableSet<E> set = makeTestSet();
         final String testString = "B";
         try {
@@ -102,7 +102,7 @@ public class PredicatedNavigableSetTest_OE25Dev<E> extends AbstractNavigableSetT
         assertTrue("Collection shouldn't contain illegal element",!set.contains(testString));
     }
 
-    public void testIllegalAddAll_2_oe() {
+public void testIllegalAddAll_2_oe() {
         final NavigableSet<E> set = makeTestSet();
         final Set<E> elements = new TreeSet<>();
         elements.add((E) "Aone");
@@ -118,7 +118,7 @@ public class PredicatedNavigableSetTest_OE25Dev<E> extends AbstractNavigableSetT
         assertTrue("Set shouldn't contain illegal element", !set.contains("Aone"));
     }
 
-    public void testIllegalAddAll_3_oe() {
+public void testIllegalAddAll_3_oe() {
         final NavigableSet<E> set = makeTestSet();
         final Set<E> elements = new TreeSet<>();
         elements.add((E) "Aone");
@@ -135,7 +135,7 @@ public class PredicatedNavigableSetTest_OE25Dev<E> extends AbstractNavigableSetT
         assertTrue("Set shouldn't contain illegal element", !set.contains("Atwo"));
     }
 
-    public void testIllegalAddAll_4_oe() {
+public void testIllegalAddAll_4_oe() {
         final NavigableSet<E> set = makeTestSet();
         final Set<E> elements = new TreeSet<>();
         elements.add((E) "Aone");
@@ -153,7 +153,7 @@ public class PredicatedNavigableSetTest_OE25Dev<E> extends AbstractNavigableSetT
         assertTrue("Set shouldn't contain illegal element", !set.contains("Bthree"));
     }
 
-    public void testIllegalAddAll_5_oe() {
+public void testIllegalAddAll_5_oe() {
         final NavigableSet<E> set = makeTestSet();
         final Set<E> elements = new TreeSet<>();
         elements.add((E) "Aone");
@@ -172,7 +172,7 @@ public class PredicatedNavigableSetTest_OE25Dev<E> extends AbstractNavigableSetT
         assertTrue("Set shouldn't contain illegal element", !set.contains("Afour"));
     }
 
-    public void testComparator_1_oe() {
+public void testComparator_1_oe() {
         final NavigableSet<E> set = makeTestSet();
         final Comparator<? super E> c = set.comparator();
         assertTrue("natural order, so comparator should be null", c == null);

@@ -26,13 +26,13 @@ public class ParameterListTest_OE25Dev {
         });
     }
 
-    @Test
+@Test
     public void shouldAppendNothingToQuerystringIfGivenEmptyMap_1_oe() {
         final String url = "http://www.example.com";
         Assert.assertEquals(url, params.appendTo(url));
     }
 
-    @Test
+@Test
     public void shouldAppendParametersToSimpleUrl_1_oe() {
         String url = "http://www.example.com";
         final String expectedUrl = "http://www.example.com?param1=value1&param2=value%20with%20spaces";
@@ -44,7 +44,7 @@ public class ParameterListTest_OE25Dev {
         Assert.assertEquals(expectedUrl, url);
     }
 
-    @Test
+@Test
     public void shouldAppendParametersToUrlWithQuerystring_1_oe() {
         String url = "http://www.example.com?already=present";
         final String expectedUrl = "http://www.example.com?already=present&param1=value1&param2=value%20with%20spaces";
@@ -56,7 +56,7 @@ public class ParameterListTest_OE25Dev {
         Assert.assertEquals(expectedUrl, url);
     }
 
-    @Test
+@Test
     public void shouldProperlySortParameters_1_oe() {
         params.add("param1", "v1");
         params.add("param6", "v2");
@@ -65,7 +65,7 @@ public class ParameterListTest_OE25Dev {
         Assert.assertEquals("a_param=v3&param1=v1&param2=v4&param6=v2", params.sort().asFormUrlEncodedString());
     }
 
-    @Test
+@Test
     public void shouldProperlySortParametersWithTheSameName_1_oe() {
         params.add("param1", "v1");
         params.add("param6", "v2");
@@ -74,7 +74,7 @@ public class ParameterListTest_OE25Dev {
         Assert.assertEquals("a_param=v3&param1=v1&param1=v4&param6=v2", params.sort().asFormUrlEncodedString());
     }
 
-    @Test
+@Test
     public void shouldNotModifyTheOriginalParameterList_1_oe() {
         params.add("param1", "v1");
         params.add("param6", "v2");

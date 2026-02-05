@@ -55,7 +55,7 @@ public class MapBackedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
     public void testCanonicalFullCollectionExists() {
     }
 
-    public void testOrdering_1_oe() {
+public void testOrdering_1_oe() {
         final Set<E> set = setupSet();
         Iterator<E> it = set.iterator();
 
@@ -64,7 +64,7 @@ public class MapBackedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
     }
     }
 
-    public void testOrdering_2_oe() {
+public void testOrdering_2_oe() {
         final Set<E> set = setupSet();
         Iterator<E> it = set.iterator();
 
@@ -77,7 +77,7 @@ public class MapBackedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
     }
     }
 
-    public void testOrdering_3_oe() {
+public void testOrdering_3_oe() {
         final Set<E> set = setupSet();
         Iterator<E> it = set.iterator();
 
@@ -95,7 +95,7 @@ public class MapBackedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
     }
     }
 
-    public void testOrdering_4_oe() {
+public void testOrdering_4_oe() {
         final Set<E> set = setupSet();
         Iterator<E> it = set.iterator();
 
@@ -119,7 +119,7 @@ public class MapBackedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals("Size of set is wrong!", 10, set.size());
     }
 
-    public void testOrdering_5_oe() {
+public void testOrdering_5_oe() {
         final Set<E> set = setupSet();
         Iterator<E> it = set.iterator();
 
@@ -148,7 +148,7 @@ public class MapBackedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
     }
     }
 
-    public void testOrdering_6_oe() {
+public void testOrdering_6_oe() {
         final Set<E> set = setupSet();
         Iterator<E> it = set.iterator();
 

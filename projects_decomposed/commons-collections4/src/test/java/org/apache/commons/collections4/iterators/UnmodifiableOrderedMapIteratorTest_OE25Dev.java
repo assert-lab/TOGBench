@@ -78,16 +78,16 @@ public class UnmodifiableOrderedMapIteratorTest_OE25Dev<K, V> extends AbstractOr
 
     //-----------------------------------------------------------------------
 
-    public void testOrderedMapIterator_1_oe() {
+public void testOrderedMapIterator_1_oe() {
         assertTrue(makeEmptyIterator() instanceof Unmodifiable);
     }
 
-    public void testDecorateFactory_1_oe() {
+public void testDecorateFactory_1_oe() {
         OrderedMapIterator<K, V> it = makeObject();
         assertSame(it, UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator(it));
     }
 
-    public void testDecorateFactory_2_oe() {
+public void testDecorateFactory_2_oe() {
         OrderedMapIterator<K, V> it = makeObject();
         // removed other assertion
 

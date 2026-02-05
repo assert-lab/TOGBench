@@ -40,7 +40,7 @@ public class EntityArraysTest_OE25Dev  {
    // LANG-658 - check arrays for duplicate entries
 
 
-    @Test
+@Test
     public void testHTML40_EXTENDED_ESCAPE_1_oe() {
         final Set<String> col0 = new HashSet<>();
         final Set<String> col1 = new HashSet<>();
@@ -50,7 +50,7 @@ public class EntityArraysTest_OE25Dev  {
     }
     }
 
-    @Test
+@Test
     public void testHTML40_EXTENDED_ESCAPE_2_oe() {
         final Set<String> col0 = new HashSet<>();
         final Set<String> col1 = new HashSet<>();
@@ -61,7 +61,7 @@ public class EntityArraysTest_OE25Dev  {
     }
     }
 
-    @Test
+@Test
     public void testISO8859_1_ESCAPE_1_oe() {
         final Set<String> col0 = new HashSet<>();
         final Set<String> col1 = new HashSet<>();

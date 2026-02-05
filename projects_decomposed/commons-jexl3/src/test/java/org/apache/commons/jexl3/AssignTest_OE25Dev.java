@@ -75,7 +75,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
      * @throws Exception on any error
      */
 
-    @Test
+@Test
     public void testAntish_1_oe() throws Exception {
         final JexlExpression assign = JEXL.createExpression("froboz.value = 10");
         final JexlExpression check = JEXL.createExpression("froboz.value");
@@ -84,7 +84,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
 
-    @Test
+@Test
     public void testAntish_2_oe() throws Exception {
         final JexlExpression assign = JEXL.createExpression("froboz.value = 10");
         final JexlExpression check = JEXL.createExpression("froboz.value");
@@ -95,7 +95,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
 
-    @Test
+@Test
     public void testAntishInteger_1_oe() throws Exception {
         final JexlExpression assign = JEXL.createExpression("froboz.0 = 10");
         final JexlExpression check = JEXL.createExpression("froboz.0");
@@ -104,7 +104,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
 
-    @Test
+@Test
     public void testAntishInteger_2_oe() throws Exception {
         final JexlExpression assign = JEXL.createExpression("froboz.0 = 10");
         final JexlExpression check = JEXL.createExpression("froboz.0");
@@ -115,7 +115,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
 
-    @Test
+@Test
     public void testBeanish_1_oe() throws Exception {
         final JexlExpression assign = JEXL.createExpression("froboz.value = 10");
         final JexlExpression check = JEXL.createExpression("froboz.value");
@@ -126,7 +126,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
 
-    @Test
+@Test
     public void testBeanish_2_oe() throws Exception {
         final JexlExpression assign = JEXL.createExpression("froboz.value = 10");
         final JexlExpression check = JEXL.createExpression("froboz.value");
@@ -139,7 +139,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
 
-    @Test
+@Test
     public void testAmbiguous_1_oe() throws Exception {
         final JexlExpression assign = JEXL.createExpression("froboz.nosuchbean = 10");
         final JexlContext jc = new MapContext();
@@ -155,7 +155,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testAmbiguous_2_oe() throws Exception {
         final JexlExpression assign = JEXL.createExpression("froboz.nosuchbean = 10");
         final JexlContext jc = new MapContext();
@@ -174,7 +174,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testArray_1_oe() throws Exception {
         final JexlExpression assign = JEXL.createExpression("froboz[\"value\"] = 10");
         final JexlExpression check = JEXL.createExpression("froboz[\"value\"]");
@@ -185,7 +185,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
 
-    @Test
+@Test
     public void testArray_2_oe() throws Exception {
         final JexlExpression assign = JEXL.createExpression("froboz[\"value\"] = 10");
         final JexlExpression check = JEXL.createExpression("froboz[\"value\"]");
@@ -198,7 +198,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
 
-    @Test
+@Test
     public void testMini_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
         final JexlExpression assign = JEXL.createExpression("quux = 10");
@@ -206,7 +206,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
 
-    @Test
+@Test
     public void testMore_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set("quuxClass", Quux.class);
@@ -218,7 +218,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull("quux is null", quux);
     }
 
-    @Test
+@Test
     public void testMore_2_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set("quuxClass", Quux.class);
@@ -232,7 +232,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
 
-    @Test
+@Test
     public void testMore_3_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set("quuxClass", Quux.class);
@@ -248,13 +248,13 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
 
-    @Test
+@Test
     public void testUtil_1_oe() throws Exception {
         final Quux quux = JEXL.newInstance(Quux.class, "xuuq", Integer.valueOf(100));
         Assert.assertNotNull(quux);
     }
 
-    @Test
+@Test
     public void testUtil_2_oe() throws Exception {
         final Quux quux = JEXL.newInstance(Quux.class, "xuuq", Integer.valueOf(100));
         // removed other assertion
@@ -263,7 +263,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 100", new Integer(100), o);
     }
 
-    @Test
+@Test
     public void testUtil_3_oe() throws Exception {
         final Quux quux = JEXL.newInstance(Quux.class, "xuuq", Integer.valueOf(100));
         // removed other assertion
@@ -275,7 +275,7 @@ public class AssignTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 1000", new Integer(1000), o);
     }
 
-    @Test
+@Test
     public void testRejectLocal_2_oe() throws Exception {
         final JexlContext jc = new MapContext();
         JexlScript assign = JEXL.createScript("var quux = null; quux.froboz.value = 10");

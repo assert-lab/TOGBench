@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Test;
 
 public class JfifSegmentTest_OE25Dev{
 
-  @Test
+@Test
   public void testCreatesJfifSegment_2_oe() throws IOException {
       final byte[] byteArray = new byte[25];
 
@@ -38,7 +38,7 @@ public class JfifSegmentTest_OE25Dev{
   }
   }
 
-  @Test
+@Test
   public void testCreatesJfifSegment_3_oe() throws IOException {
       final byte[] byteArray = new byte[25];
 

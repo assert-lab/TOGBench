@@ -70,7 +70,7 @@ public class ReflectionDiffBuilderTest_OE25Dev {
         String field = "a";
     }
 
-    @Test
+@Test
     public void test_no_differences_1_oe() {
         final TypeTestClass firstObject = new TypeTestClass();
         final TypeTestClass secondObject = new TypeTestClass();
@@ -79,7 +79,7 @@ public class ReflectionDiffBuilderTest_OE25Dev {
         assertEquals(0, list.getNumberOfDiffs());
     }
 
-    @Test
+@Test
     public void test_primitive_difference_1_oe() {
         final TypeTestClass firstObject = new TypeTestClass();
         firstObject.charField = 'c';
@@ -89,7 +89,7 @@ public class ReflectionDiffBuilderTest_OE25Dev {
         assertEquals(1, list.getNumberOfDiffs());
     }
 
-    @Test
+@Test
     public void test_array_difference_1_oe() {
         final TypeTestClass firstObject = new TypeTestClass();
         firstObject.charArrayField = new char[] { 'c' };
@@ -99,7 +99,7 @@ public class ReflectionDiffBuilderTest_OE25Dev {
         assertEquals(1, list.getNumberOfDiffs());
     }
 
-    @Test
+@Test
     public void test_transient_field_difference_1_oe() {
         final TypeTestClass firstObject = new TypeTestClass();
         firstObject.transientField = "a";
@@ -110,7 +110,7 @@ public class ReflectionDiffBuilderTest_OE25Dev {
         assertEquals(0, list.getNumberOfDiffs());
     }
 
-    @Test
+@Test
     public void test_no_differences_inheritance_1_oe() {
         final TypeTestChildClass firstObject = new TypeTestChildClass();
         final TypeTestChildClass secondObject = new TypeTestChildClass();
@@ -119,7 +119,7 @@ public class ReflectionDiffBuilderTest_OE25Dev {
         assertEquals(0, list.getNumberOfDiffs());
     }
 
-    @Test
+@Test
     public void test_difference_in_inherited_field_1_oe() {
         final TypeTestChildClass firstObject = new TypeTestChildClass();
         firstObject.intField = 99;

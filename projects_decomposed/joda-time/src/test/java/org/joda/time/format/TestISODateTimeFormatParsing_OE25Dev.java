@@ -750,17 +750,17 @@ public class TestISODateTimeFormatParsing_OE25Dev extends TestCase {
         }
     }
 
-    public void test_localDateParser_1_oe() {
+public void test_localDateParser_1_oe() {
         DateTimeFormatter parser = ISODateTimeFormat.localDateParser();
         assertEquals(DateTimeZone.UTC,parser.getZone());
     }
 
-    public void test_localTimeParser_1_oe() {
+public void test_localTimeParser_1_oe() {
         DateTimeFormatter parser = ISODateTimeFormat.localTimeParser();
         assertEquals(DateTimeZone.UTC,parser.getZone());
     }
 
-    public void test_localTimeParser_23_oe() {
+public void test_localTimeParser_23_oe() {
         DateTimeFormatter parser = ISODateTimeFormat.localTimeParser();
         // removed other assertion
         // removed other assertion
@@ -791,7 +791,7 @@ public class TestISODateTimeFormatParsing_OE25Dev extends TestCase {
         assertEquals(10512,parser.parseMillis("00:00:10.512345678"));
     }
 
-    public void test_timeElementParser_22_oe() {
+public void test_timeElementParser_22_oe() {
         DateTimeFormatter parser = ISODateTimeFormat.timeElementParser();
         // removed other assertion
         // removed other assertion
@@ -822,7 +822,7 @@ public class TestISODateTimeFormatParsing_OE25Dev extends TestCase {
         assertEquals(10512,parser.parseMillis("00:00:10.512345678")+ DateTimeZone.getDefault().getOffset(0L));
     }
 
-    public void test_localDateOptionalTimeParser_1_oe() {
+public void test_localDateOptionalTimeParser_1_oe() {
         DateTimeFormatter parser = ISODateTimeFormat.localDateOptionalTimeParser();
         assertEquals(DateTimeZone.UTC,parser.getZone());
     }

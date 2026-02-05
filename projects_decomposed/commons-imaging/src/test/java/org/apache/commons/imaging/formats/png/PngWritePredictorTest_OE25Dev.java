@@ -75,7 +75,7 @@ public class PngWritePredictorTest_OE25Dev {
     return argb;
   }
 
-  @Test
+@Test
   void testWriteWithPredictor_1_oe() {
     int[] argb = populateARGB();
 
@@ -92,7 +92,7 @@ public class PngWritePredictorTest_OE25Dev {
   }
   }
 
-  @Test
+@Test
   void testWriteWithPredictor_2_oe() {
     int[] argb = populateARGB();
 
@@ -118,7 +118,7 @@ public class PngWritePredictorTest_OE25Dev {
   }
   }
 
-  @Test
+@Test
   void testWriteWithPredictor_4_oe() {
     int[] argb = populateARGB();
 
@@ -153,7 +153,7 @@ public class PngWritePredictorTest_OE25Dev {
   }
   }
 
-  @Test
+@Test
   void testWriteWithPredictor_5_oe() {
     int[] argb = populateARGB();
 
@@ -201,7 +201,7 @@ public class PngWritePredictorTest_OE25Dev {
   }
   }
 
-  @Test
+@Test
   void testWriteWithPredictor_7_oe() {
     int[] argb = populateARGB();
 

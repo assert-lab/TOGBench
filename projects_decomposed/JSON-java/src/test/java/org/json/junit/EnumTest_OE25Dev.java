@@ -76,7 +76,7 @@ public class EnumTest_OE25Dev {
      * Exercise these enum API methods on JSONObject and JSONArray
      */
 
-    @Test
+@Test
     public void jsonObjectFromEnum_1_oe() {
         // If there are no getters then the object is empty.
         MyEnum myEnum = MyEnum.VAL2;
@@ -84,7 +84,7 @@ public class EnumTest_OE25Dev {
         assertTrue("simple enum has no getters", jsonObject.isEmpty());
     }
 
-    @Test
+@Test
     public void jsonObjectFromEnum_2_oe() {
         // If there are no getters then the object is empty.
         MyEnum myEnum = MyEnum.VAL2;
@@ -101,7 +101,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expecting 2 items in top level object", ((Map<?,?>)(JsonPath.read(doc, "$"))).size() == 2);
     }
 
-    @Test
+@Test
     public void jsonObjectFromEnum_3_oe() {
         // If there are no getters then the object is empty.
         MyEnum myEnum = MyEnum.VAL2;
@@ -119,7 +119,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expecting val 2", "val 2".equals(jsonObject.query("/value")));
     }
 
-    @Test
+@Test
     public void jsonObjectFromEnum_4_oe() {
         // If there are no getters then the object is empty.
         MyEnum myEnum = MyEnum.VAL2;
@@ -138,7 +138,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expecting 2", Integer.valueOf(2).equals(jsonObject.query("/intVal")));
     }
 
-    @Test
+@Test
     public void jsonObjectFromEnum_5_oe() {
         // If there are no getters then the object is empty.
         MyEnum myEnum = MyEnum.VAL2;
@@ -170,7 +170,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected 2 top level items", ((Map<?,?>)(JsonPath.read(doc, "$"))).size() == 2);
     }
 
-    @Test
+@Test
     public void jsonObjectFromEnum_6_oe() {
         // If there are no getters then the object is empty.
         MyEnum myEnum = MyEnum.VAL2;
@@ -203,7 +203,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected 2 myEnumField items", "VAL3".equals((JsonPath.read(doc, "$.myEnumField"))));
     }
 
-    @Test
+@Test
     public void jsonObjectFromEnum_7_oe() {
         // If there are no getters then the object is empty.
         MyEnum myEnum = MyEnum.VAL2;
@@ -237,7 +237,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected 0 myEnum items", "VAL1".equals((JsonPath.read(doc, "$.myEnum"))));
     }
 
-    @Test
+@Test
     public void jsonObjectFromEnum_8_oe() {
         // If there are no getters then the object is empty.
         MyEnum myEnum = MyEnum.VAL2;
@@ -273,7 +273,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expecting MyEnumField.VAL3", MyEnumField.VAL3.equals(jsonObject.query("/myEnumField")));
     }
 
-    @Test
+@Test
     public void jsonObjectFromEnum_9_oe() {
         // If there are no getters then the object is empty.
         MyEnum myEnum = MyEnum.VAL2;
@@ -310,7 +310,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expecting MyEnum.VAL1", MyEnum.VAL1.equals(jsonObject.query("/myEnum")));
     }
 
-    @Test
+@Test
     public void jsonObjectFromEnumWithNames_1_oe() {
         String [] names;
         JSONObject jsonObject;
@@ -325,7 +325,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected 3 top level items", ((Map<?,?>)(JsonPath.read(doc, "$"))).size() == 3);
     }
 
-    @Test
+@Test
     public void jsonObjectFromEnumWithNames_2_oe() {
         String [] names;
         JSONObject jsonObject;
@@ -341,7 +341,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL1", MyEnum.VAL1.equals(jsonObject.query("/VAL1")));
     }
 
-    @Test
+@Test
     public void jsonObjectFromEnumWithNames_3_oe() {
         String [] names;
         JSONObject jsonObject;
@@ -358,7 +358,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL2", MyEnum.VAL2.equals(jsonObject.query("/VAL2")));
     }
 
-    @Test
+@Test
     public void jsonObjectFromEnumWithNames_4_oe() {
         String [] names;
         JSONObject jsonObject;
@@ -376,7 +376,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL3", MyEnum.VAL3.equals(jsonObject.query("/VAL3")));
     }
 
-    @Test
+@Test
     public void jsonObjectFromEnumWithNames_5_oe() {
         String [] names;
         JSONObject jsonObject;
@@ -401,7 +401,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected 3 top level items", ((Map<?,?>)(JsonPath.read(doc, "$"))).size() == 3);
     }
 
-    @Test
+@Test
     public void jsonObjectFromEnumWithNames_6_oe() {
         String [] names;
         JSONObject jsonObject;
@@ -427,7 +427,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL1", MyEnumField.VAL1.equals(jsonObject.query("/VAL1")));
     }
 
-    @Test
+@Test
     public void jsonObjectFromEnumWithNames_7_oe() {
         String [] names;
         JSONObject jsonObject;
@@ -454,7 +454,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL2", MyEnumField.VAL2.equals(jsonObject.query("/VAL2")));
     }
 
-    @Test
+@Test
     public void jsonObjectFromEnumWithNames_8_oe() {
         String [] names;
         JSONObject jsonObject;
@@ -482,7 +482,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL3", MyEnumField.VAL3.equals(jsonObject.query("/VAL3")));
     }
 
-    @Test
+@Test
     public void verifyEnumConsistency_1_oe(){
         JSONObject jo = new JSONObject();
         
@@ -492,7 +492,7 @@ public class EnumTest_OE25Dev {
         assertTrue("Expected "+expected+" but actual was "+actual, expected.equals(actual));
     }
 
-    @Test
+@Test
     public void verifyEnumConsistency_2_oe(){
         JSONObject jo = new JSONObject();
         
@@ -507,7 +507,7 @@ public class EnumTest_OE25Dev {
         assertTrue("Expected "+expected+" but actual was "+actual, expected.equals(actual));
     }
 
-    @Test
+@Test
     public void verifyEnumConsistency_3_oe(){
         JSONObject jo = new JSONObject();
         
@@ -528,7 +528,7 @@ public class EnumTest_OE25Dev {
         assertTrue("Expected "+expected+" but actual was "+actual, expected.equals(actual));
     }
 
-    @Test
+@Test
     public void verifyEnumConsistency_4_oe(){
         JSONObject jo = new JSONObject();
         
@@ -554,7 +554,7 @@ public class EnumTest_OE25Dev {
         assertTrue("Expected "+expected+" but actual was "+actual, expected.equals(actual));
     }
 
-    @Test
+@Test
     public void verifyEnumConsistency_5_oe(){
         JSONObject jo = new JSONObject();
         
@@ -586,7 +586,7 @@ public class EnumTest_OE25Dev {
         assertTrue("Expected "+expected+" but actual was "+actual, expected.equals(actual));
     }
 
-    @Test
+@Test
     public void verifyEnumConsistency_6_oe(){
         JSONObject jo = new JSONObject();
         
@@ -622,7 +622,7 @@ public class EnumTest_OE25Dev {
         assertTrue("Expected "+expected+" but actual was "+actual, expected.equals(actual));
     }
 
-    @Test
+@Test
     public void enumPut_1_oe() {
         JSONObject jsonObject = new JSONObject();
         MyEnum myEnum = MyEnum.VAL2;
@@ -635,7 +635,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected 2 top level objects", ((Map<?,?>)(JsonPath.read(doc, "$"))).size() == 2);
     }
 
-    @Test
+@Test
     public void enumPut_2_oe() {
         JSONObject jsonObject = new JSONObject();
         MyEnum myEnum = MyEnum.VAL2;
@@ -649,7 +649,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL2", MyEnum.VAL2.equals(jsonObject.query("/myEnum")));
     }
 
-    @Test
+@Test
     public void enumPut_3_oe() {
         JSONObject jsonObject = new JSONObject();
         MyEnum myEnum = MyEnum.VAL2;
@@ -664,7 +664,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL1", MyEnumField.VAL1.equals(jsonObject.query("/myEnumField")));
     }
 
-    @Test
+@Test
     public void enumPut_4_oe() {
         JSONObject jsonObject = new JSONObject();
         MyEnum myEnum = MyEnum.VAL2;
@@ -687,7 +687,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected 2 top level objects", ((List<?>)(JsonPath.read(doc, "$"))).size() == 2);
     }
 
-    @Test
+@Test
     public void enumPut_5_oe() {
         JSONObject jsonObject = new JSONObject();
         MyEnum myEnum = MyEnum.VAL2;
@@ -711,7 +711,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL2", MyEnum.VAL2.equals(jsonArray.query("/0")));
     }
 
-    @Test
+@Test
     public void enumPut_6_oe() {
         JSONObject jsonObject = new JSONObject();
         MyEnum myEnum = MyEnum.VAL2;
@@ -736,7 +736,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL1", MyEnumField.VAL1.equals(jsonArray.query("/1")));
     }
 
-    @Test
+@Test
     public void enumPut_7_oe() {
         JSONObject jsonObject = new JSONObject();
         MyEnum myEnum = MyEnum.VAL2;
@@ -766,7 +766,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expecting myEnum value", MyEnum.VAL2.equals(jsonArray.get(0)));
     }
 
-    @Test
+@Test
     public void enumPut_8_oe() {
         JSONObject jsonObject = new JSONObject();
         MyEnum myEnum = MyEnum.VAL2;
@@ -797,7 +797,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expecting myEnumField value", MyEnumField.VAL1.equals(jsonArray.opt(1)));
     }
 
-    @Test
+@Test
     public void enumPut_9_oe() {
         JSONObject jsonObject = new JSONObject();
         MyEnum myEnum = MyEnum.VAL2;
@@ -829,7 +829,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expecting myEnumField value", MyEnumField.VAL1.equals(jsonArray.remove(1)));
     }
 
-    @Test
+@Test
     public void enumValueToString_1_oe() {
         String expectedStr1 = "\"VAL1\"";
         String expectedStr2 = "\"VAL1\"";
@@ -841,7 +841,7 @@ public class EnumTest_OE25Dev {
         assertTrue("actual myEnum: "+str1+" expected: "+expectedStr1,str1.equals(expectedStr1));
     }
 
-    @Test
+@Test
     public void enumValueToString_2_oe() {
         String expectedStr1 = "\"VAL1\"";
         String expectedStr2 = "\"VAL1\"";
@@ -855,7 +855,7 @@ public class EnumTest_OE25Dev {
         assertTrue("actual myEnumField: "+str2+" expected: "+expectedStr2,str2.equals(expectedStr2));
     }
 
-    @Test
+@Test
     public void enumValueToString_3_oe() {
         String expectedStr1 = "\"VAL1\"";
         String expectedStr2 = "\"VAL1\"";
@@ -879,7 +879,7 @@ public class EnumTest_OE25Dev {
         assertTrue("actual myEnumClass: "+str3+" expected: "+expectedStr3,str3.startsWith(expectedStr3));
     }
 
-    @Test
+@Test
     public void enumToString_1_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -887,7 +887,7 @@ public class EnumTest_OE25Dev {
         assertTrue("myEnum toString() should be empty", expectedStr.equals(jsonObject.toString()));
     }
 
-    @Test
+@Test
     public void enumToString_2_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -902,7 +902,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected 2 top level items", ((Map<?,?>)(JsonPath.read(doc, "$"))).size() == 2);
     }
 
-    @Test
+@Test
     public void enumToString_3_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -918,7 +918,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected val 2", "val 2".equals(jsonObject.query("/value")));
     }
 
-    @Test
+@Test
     public void enumToString_4_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -935,7 +935,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected 2", Integer.valueOf(2).equals(jsonObject.query("/intVal")));
     }
 
-    @Test
+@Test
     public void enumToString_5_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -961,7 +961,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected 2 top level items", ((Map<?,?>)(JsonPath.read(doc, "$"))).size() == 2);
     }
 
-    @Test
+@Test
     public void enumToString_6_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -988,7 +988,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL3", "VAL3".equals((JsonPath.read(doc, "$.myEnumField"))));
     }
 
-    @Test
+@Test
     public void enumToString_7_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -1016,7 +1016,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL1", "VAL1".equals((JsonPath.read(doc, "$.myEnum"))));
     }
 
-    @Test
+@Test
     public void enumToString_8_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -1051,7 +1051,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected 3 top level items", ((Map<?,?>)(JsonPath.read(doc, "$"))).size() == 3);
     }
 
-    @Test
+@Test
     public void enumToString_9_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -1087,7 +1087,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL1", MyEnum.VAL1.equals(jsonObject.query("/VAL1")));
     }
 
-    @Test
+@Test
     public void enumToString_10_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -1124,7 +1124,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL2", MyEnum.VAL2.equals(jsonObject.query("/VAL2")));
     }
 
-    @Test
+@Test
     public void enumToString_11_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -1162,7 +1162,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL3", MyEnum.VAL3.equals(jsonObject.query("/VAL3")));
     }
 
-    @Test
+@Test
     public void enumToString_12_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -1207,7 +1207,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected 3 top level items", ((Map<?,?>)(JsonPath.read(doc, "$"))).size() == 3);
     }
 
-    @Test
+@Test
     public void enumToString_13_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -1253,7 +1253,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL1", MyEnumField.VAL1.equals(jsonObject.query("/VAL1")));
     }
 
-    @Test
+@Test
     public void enumToString_14_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -1300,7 +1300,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL2", MyEnumField.VAL2.equals(jsonObject.query("/VAL2")));
     }
 
-    @Test
+@Test
     public void enumToString_15_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -1348,7 +1348,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL3", MyEnumField.VAL3.equals(jsonObject.query("/VAL3")));
     }
 
-    @Test
+@Test
     public void enumToString_16_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -1405,7 +1405,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected 2 top level items", ((Map<?,?>)(JsonPath.read(doc, "$"))).size() == 2);
     }
 
-    @Test
+@Test
     public void enumToString_17_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -1463,7 +1463,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL2", MyEnum.VAL2.equals(jsonObject.query("/myEnum")));
     }
 
-    @Test
+@Test
     public void enumToString_18_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -1522,7 +1522,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL2", MyEnumField.VAL2.equals(jsonObject.query("/myEnumField")));
     }
 
-    @Test
+@Test
     public void enumToString_19_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -1589,7 +1589,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected 2 top level items", ((List<?>)(JsonPath.read(doc, "$"))).size() == 2);
     }
 
-    @Test
+@Test
     public void enumToString_20_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -1657,7 +1657,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL2", MyEnum.VAL2.equals(jsonArray.query("/0")));
     }
 
-    @Test
+@Test
     public void enumToString_21_oe() {
         MyEnum myEnum = MyEnum.VAL2;
         JSONObject jsonObject = new JSONObject(myEnum);
@@ -1726,12 +1726,12 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL2", MyEnumField.VAL2.equals(jsonArray.query("/1")));
     }
 
-    @Test
+@Test
     public void wrap_1_oe() {
         assertTrue("simple enum has no getters", JSONObject.wrap(MyEnum.VAL2) instanceof MyEnum);
     }
 
-    @Test
+@Test
     public void wrap_2_oe() {
         // removed other assertion
 
@@ -1744,7 +1744,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected 1 top level items", ((Map<?,?>)(JsonPath.read(doc, "$"))).size() == 1);
     }
 
-    @Test
+@Test
     public void wrap_3_oe() {
         // removed other assertion
 
@@ -1758,7 +1758,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL2", MyEnumField.VAL2.equals(jsonObject.query("/enum")));
     }
 
-    @Test
+@Test
     public void wrap_4_oe() {
         // removed other assertion
 
@@ -1781,7 +1781,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected 2 top level items", ((Map<?,?>)(JsonPath.read(doc, "$"))).size() == 2);
     }
 
-    @Test
+@Test
     public void wrap_5_oe() {
         // removed other assertion
 
@@ -1805,7 +1805,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL3", "VAL3".equals((JsonPath.read(doc, "$.myEnumField"))));
     }
 
-    @Test
+@Test
     public void wrap_6_oe() {
         // removed other assertion
 
@@ -1830,7 +1830,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expected VAL1", "VAL1".equals((JsonPath.read(doc, "$.myEnum"))));
     }
 
-    @Test
+@Test
     public void wrap_7_oe() {
         // removed other assertion
 
@@ -1857,7 +1857,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expecting MyEnumField.VAL3", MyEnumField.VAL3.equals(jsonObject.query("/myEnumField")));
     }
 
-    @Test
+@Test
     public void wrap_8_oe() {
         // removed other assertion
 
@@ -1885,7 +1885,7 @@ public class EnumTest_OE25Dev {
         assertTrue("expecting MyEnum.VAL1", MyEnum.VAL1.equals(jsonObject.query("/myEnum")));
     }
 
-    @Test
+@Test
     public void enumAPI_1_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -1902,7 +1902,7 @@ public class EnumTest_OE25Dev {
         assertTrue("get myEnumField", actualEnum == MyEnumField.VAL2);
     }
 
-    @Test
+@Test
     public void enumAPI_3_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -1929,7 +1929,7 @@ public class EnumTest_OE25Dev {
         assertTrue("get enum", actualEnumClass.getMyEnum() == MyEnum.VAL1);
     }
 
-    @Test
+@Test
     public void enumAPI_4_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -1960,7 +1960,7 @@ public class EnumTest_OE25Dev {
         assertTrue("opt myEnumField", actualEnum == MyEnumField.VAL2);
     }
 
-    @Test
+@Test
     public void enumAPI_5_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -1995,7 +1995,7 @@ public class EnumTest_OE25Dev {
         assertTrue("opt null", actualEnum == null);
     }
 
-    @Test
+@Test
     public void enumAPI_6_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -2034,7 +2034,7 @@ public class EnumTest_OE25Dev {
         assertTrue("get enum", actualEnumClass.getMyEnum() == MyEnum.VAL1);
     }
 
-    @Test
+@Test
     public void enumAPI_7_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -2077,7 +2077,7 @@ public class EnumTest_OE25Dev {
         assertTrue("opt myEnumField", actualEnum == MyEnumField.VAL2);
     }
 
-    @Test
+@Test
     public void enumAPI_8_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -2124,7 +2124,7 @@ public class EnumTest_OE25Dev {
         assertNull("opt null", actualEnum);
     }
 
-    @Test
+@Test
     public void enumAPI_9_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -2175,7 +2175,7 @@ public class EnumTest_OE25Dev {
         assertEquals(MyEnumField.VAL1, actualEnum);
     }
 
-    @Test
+@Test
     public void enumAPI_10_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -2230,7 +2230,7 @@ public class EnumTest_OE25Dev {
         assertNull("opt null", actualEnum);
     }
 
-    @Test
+@Test
     public void enumAPI_11_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -2287,7 +2287,7 @@ public class EnumTest_OE25Dev {
         assertNull("Expected Null when the enum class is null",jsonObject.optEnum(null,"enumKey"));
     }
 
-    @Test
+@Test
     public void enumAPI_12_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -2356,7 +2356,7 @@ public class EnumTest_OE25Dev {
         assertTrue("get myEnumField", actualEnum == MyEnumField.VAL2);
     }
 
-    @Test
+@Test
     public void enumAPI_14_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -2435,7 +2435,7 @@ public class EnumTest_OE25Dev {
         assertTrue("get enum", actualEnumClass.getMyEnum() == MyEnum.VAL1);
     }
 
-    @Test
+@Test
     public void enumAPI_15_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -2518,7 +2518,7 @@ public class EnumTest_OE25Dev {
         assertTrue("opt myEnumField", actualEnum == MyEnumField.VAL2);
     }
 
-    @Test
+@Test
     public void enumAPI_16_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -2605,7 +2605,7 @@ public class EnumTest_OE25Dev {
         assertTrue("opt null", actualEnum == null);
     }
 
-    @Test
+@Test
     public void enumAPI_17_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -2696,7 +2696,7 @@ public class EnumTest_OE25Dev {
         assertTrue("get enum", actualEnumClass.getMyEnum() == MyEnum.VAL1);
     }
 
-    @Test
+@Test
     public void enumAPI_18_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -2791,7 +2791,7 @@ public class EnumTest_OE25Dev {
         assertTrue("opt myEnumField", actualEnum == MyEnumField.VAL2);
     }
 
-    @Test
+@Test
     public void enumAPI_19_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);
@@ -2890,7 +2890,7 @@ public class EnumTest_OE25Dev {
         assertTrue("opt null", actualEnum == null);
     }
 
-    @Test
+@Test
     public void enumAPI_20_oe() {
         MyEnumClass myEnumClass = new MyEnumClass();
         myEnumClass.setMyEnum(MyEnum.VAL1);

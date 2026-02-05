@@ -39,17 +39,17 @@ public class StringTrimmedResultSetTest_OE25Dev extends BaseTestCase {
      * @throws SQLException if a database access error occurs
      */
 
-    public void testGetString_1_oe() throws SQLException {
+public void testGetString_1_oe() throws SQLException {
         this.rs.next();
         assertEquals("notInBean", rs.getString(4));
     }
 
-    public void testGetObject_1_oe() throws SQLException {
+public void testGetObject_1_oe() throws SQLException {
         this.rs.next();
         assertEquals("notInBean", rs.getObject(4));
     }
 
-    public void testMultipleWrappers_1_oe() throws Exception {
+public void testMultipleWrappers_1_oe() throws Exception {
         // Create a ResultSet with data
         Object[][] rows = new Object[][] { { null }
         };

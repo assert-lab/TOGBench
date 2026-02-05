@@ -153,7 +153,7 @@ public class StrTokenizerTest_OE25Dev {
 
     //-----------------------------------------------------------------------
 
-    @Test
+@Test
     public void test1_1_oe() {
 
         final String input = "a;b;c;\"d;\"\"e\";f; ; ;  ";
@@ -169,7 +169,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(expected.length, tokens.length, ArrayUtils.toString(tokens));
     }
 
-    @Test
+@Test
     public void test1_2_oe() {
 
         final String input = "a;b;c;\"d;\"\"e\";f; ; ;  ";
@@ -188,7 +188,7 @@ public class StrTokenizerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void test2_1_oe() {
 
         final String input = "a;b;c ;\"d;\"\"e\";f; ; ;";
@@ -204,7 +204,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(expected.length, tokens.length, ArrayUtils.toString(tokens));
     }
 
-    @Test
+@Test
     public void test2_2_oe() {
 
         final String input = "a;b;c ;\"d;\"\"e\";f; ; ;";
@@ -223,7 +223,7 @@ public class StrTokenizerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void test3_1_oe() {
 
         final String input = "a;b; c;\"d;\"\"e\";f; ; ;";
@@ -239,7 +239,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(expected.length, tokens.length, ArrayUtils.toString(tokens));
     }
 
-    @Test
+@Test
     public void test3_2_oe() {
 
         final String input = "a;b; c;\"d;\"\"e\";f; ; ;";
@@ -258,7 +258,7 @@ public class StrTokenizerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void test4_1_oe() {
 
         final String input = "a;b; c;\"d;\"\"e\";f; ; ;";
@@ -274,7 +274,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(expected.length, tokens.length, ArrayUtils.toString(tokens));
     }
 
-    @Test
+@Test
     public void test4_2_oe() {
 
         final String input = "a;b; c;\"d;\"\"e\";f; ; ;";
@@ -293,7 +293,7 @@ public class StrTokenizerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void test5_1_oe() {
 
         final String input = "a;b; c;\"d;\"\"e\";f; ; ;";
@@ -310,7 +310,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(expected.length, tokens.length, ArrayUtils.toString(tokens));
     }
 
-    @Test
+@Test
     public void test5_2_oe() {
 
         final String input = "a;b; c;\"d;\"\"e\";f; ; ;";
@@ -330,7 +330,7 @@ public class StrTokenizerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void test6_1_oe() {
 
         final String input = "a;b; c;\"d;\"\"e\";f; ; ;";
@@ -359,7 +359,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(expected.length, tokens.length, ArrayUtils.toString(tokens));
     }
 
-    @Test
+@Test
     public void test6_2_oe() {
 
         final String input = "a;b; c;\"d;\"\"e\";f; ; ;";
@@ -390,7 +390,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(nextCount, expected.length, "could not cycle through entire token list" + " using the 'hasNext' and 'next' methods");
     }
 
-    @Test
+@Test
     public void test6_3_oe() {
 
         final String input = "a;b; c;\"d;\"\"e\";f; ; ;";
@@ -423,7 +423,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(prevCount, expected.length, "could not cycle through entire token list" + " using the 'hasPrevious' and 'previous' methods");
     }
 
-    @Test
+@Test
     public void test7_1_oe() {
 
         final String input = "a   b c \"d e\" f ";
@@ -439,7 +439,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(expected.length, tokens.length, ArrayUtils.toString(tokens));
     }
 
-    @Test
+@Test
     public void test7_2_oe() {
 
         final String input = "a   b c \"d e\" f ";
@@ -458,7 +458,7 @@ public class StrTokenizerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void test8_1_oe() {
 
         final String input = "a   b c \"d e\" f ";
@@ -474,7 +474,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(expected.length, tokens.length, ArrayUtils.toString(tokens));
     }
 
-    @Test
+@Test
     public void test8_2_oe() {
 
         final String input = "a   b c \"d e\" f ";
@@ -493,14 +493,14 @@ public class StrTokenizerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testBasic1_1_oe() {
         final String input = "a  b c";
         final StrTokenizer tok = new StrTokenizer(input);
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasic1_2_oe() {
         final String input = "a  b c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -508,7 +508,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testBasic1_3_oe() {
         final String input = "a  b c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -517,7 +517,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("c", tok.next());
     }
 
-    @Test
+@Test
     public void testBasic1_4_oe() {
         final String input = "a  b c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -527,14 +527,14 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasic2_1_oe() {
         final String input = "a \nb\fc";
         final StrTokenizer tok = new StrTokenizer(input);
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasic2_2_oe() {
         final String input = "a \nb\fc";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -542,7 +542,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testBasic2_3_oe() {
         final String input = "a \nb\fc";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -551,7 +551,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("c", tok.next());
     }
 
-    @Test
+@Test
     public void testBasic2_4_oe() {
         final String input = "a \nb\fc";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -561,14 +561,14 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasic3_1_oe() {
         final String input = "a \nb\u0001\fc";
         final StrTokenizer tok = new StrTokenizer(input);
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasic3_2_oe() {
         final String input = "a \nb\u0001\fc";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -576,7 +576,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b\u0001", tok.next());
     }
 
-    @Test
+@Test
     public void testBasic3_3_oe() {
         final String input = "a \nb\u0001\fc";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -585,7 +585,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("c", tok.next());
     }
 
-    @Test
+@Test
     public void testBasic3_4_oe() {
         final String input = "a \nb\u0001\fc";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -595,14 +595,14 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasic4_1_oe() {
         final String input = "a \"b\" c";
         final StrTokenizer tok = new StrTokenizer(input);
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasic4_2_oe() {
         final String input = "a \"b\" c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -610,7 +610,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("\"b\"", tok.next());
     }
 
-    @Test
+@Test
     public void testBasic4_3_oe() {
         final String input = "a \"b\" c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -619,7 +619,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("c", tok.next());
     }
 
-    @Test
+@Test
     public void testBasic4_4_oe() {
         final String input = "a \"b\" c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -629,14 +629,14 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasic5_1_oe() {
         final String input = "a:b':c";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasic5_2_oe() {
         final String input = "a:b':c";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -644,7 +644,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b'", tok.next());
     }
 
-    @Test
+@Test
     public void testBasic5_3_oe() {
         final String input = "a:b':c";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -653,7 +653,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("c", tok.next());
     }
 
-    @Test
+@Test
     public void testBasic5_4_oe() {
         final String input = "a:b':c";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -663,14 +663,14 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicDelim1_1_oe() {
         final String input = "a:b:c";
         final StrTokenizer tok = new StrTokenizer(input, ':');
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicDelim1_2_oe() {
         final String input = "a:b:c";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -678,7 +678,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicDelim1_3_oe() {
         final String input = "a:b:c";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -687,7 +687,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("c", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicDelim1_4_oe() {
         final String input = "a:b:c";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -697,14 +697,14 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicDelim2_1_oe() {
         final String input = "a:b:c";
         final StrTokenizer tok = new StrTokenizer(input, ',');
         assertEquals("a:b:c", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicDelim2_2_oe() {
         final String input = "a:b:c";
         final StrTokenizer tok = new StrTokenizer(input, ',');
@@ -712,7 +712,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicEmpty1_1_oe() {
         final String input = "a  b c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -720,7 +720,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicEmpty1_2_oe() {
         final String input = "a  b c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -729,7 +729,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicEmpty1_3_oe() {
         final String input = "a  b c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -739,7 +739,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicEmpty1_4_oe() {
         final String input = "a  b c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -750,7 +750,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("c", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicEmpty1_5_oe() {
         final String input = "a  b c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -762,7 +762,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicEmpty2_1_oe() {
         final String input = "a  b c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -771,7 +771,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicEmpty2_2_oe() {
         final String input = "a  b c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -781,7 +781,7 @@ public class StrTokenizerTest_OE25Dev {
         assertNull(tok.next());
     }
 
-    @Test
+@Test
     public void testBasicEmpty2_3_oe() {
         final String input = "a  b c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -792,7 +792,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicEmpty2_4_oe() {
         final String input = "a  b c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -804,7 +804,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("c", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicEmpty2_5_oe() {
         final String input = "a  b c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -817,14 +817,14 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicQuoted1_1_oe() {
         final String input = "a 'b' c";
         final StrTokenizer tok = new StrTokenizer(input, ' ', '\'');
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted1_2_oe() {
         final String input = "a 'b' c";
         final StrTokenizer tok = new StrTokenizer(input, ' ', '\'');
@@ -832,7 +832,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted1_3_oe() {
         final String input = "a 'b' c";
         final StrTokenizer tok = new StrTokenizer(input, ' ', '\'');
@@ -841,7 +841,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("c", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted1_4_oe() {
         final String input = "a 'b' c";
         final StrTokenizer tok = new StrTokenizer(input, ' ', '\'');
@@ -851,7 +851,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicQuoted2_1_oe() {
         final String input = "a:'b':";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -860,7 +860,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted2_2_oe() {
         final String input = "a:'b':";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -870,7 +870,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted2_3_oe() {
         final String input = "a:'b':";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -881,7 +881,7 @@ public class StrTokenizerTest_OE25Dev {
         assertNull(tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted2_4_oe() {
         final String input = "a:'b':";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -893,7 +893,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicQuoted3_1_oe() {
         final String input = "a:'b''c'";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -902,7 +902,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted3_2_oe() {
         final String input = "a:'b''c'";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -912,7 +912,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b'c", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted3_3_oe() {
         final String input = "a:'b''c'";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -923,7 +923,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicQuoted4_1_oe() {
         final String input = "a: 'b' 'c' :d";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -933,7 +933,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted4_2_oe() {
         final String input = "a: 'b' 'c' :d";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -944,7 +944,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b c", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted4_3_oe() {
         final String input = "a: 'b' 'c' :d";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -956,7 +956,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("d", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted4_4_oe() {
         final String input = "a: 'b' 'c' :d";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -969,7 +969,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicQuoted5_1_oe() {
         final String input = "a: 'b'x'c' :d";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -979,7 +979,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted5_2_oe() {
         final String input = "a: 'b'x'c' :d";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -990,7 +990,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("bxc", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted5_3_oe() {
         final String input = "a: 'b'x'c' :d";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -1002,7 +1002,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("d", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted5_4_oe() {
         final String input = "a: 'b'x'c' :d";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -1015,7 +1015,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicQuoted6_1_oe() {
         final String input = "a:'b'\"c':d";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1023,7 +1023,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted6_2_oe() {
         final String input = "a:'b'\"c':d";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1032,7 +1032,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b\"c:d", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted6_3_oe() {
         final String input = "a:'b'\"c':d";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1042,7 +1042,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicQuoted7_1_oe() {
         final String input = "a:\"There's a reason here\":b";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1050,7 +1050,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted7_2_oe() {
         final String input = "a:\"There's a reason here\":b";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1059,7 +1059,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("There's a reason here", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted7_3_oe() {
         final String input = "a:\"There's a reason here\":b";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1069,7 +1069,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuoted7_4_oe() {
         final String input = "a:\"There's a reason here\":b";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1080,7 +1080,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicQuotedTrimmed1_1_oe() {
         final String input = "a: 'b' :";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -1090,7 +1090,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuotedTrimmed1_2_oe() {
         final String input = "a: 'b' :";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -1101,7 +1101,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuotedTrimmed1_3_oe() {
         final String input = "a: 'b' :";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -1113,7 +1113,7 @@ public class StrTokenizerTest_OE25Dev {
         assertNull(tok.next());
     }
 
-    @Test
+@Test
     public void testBasicQuotedTrimmed1_4_oe() {
         final String input = "a: 'b' :";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -1126,7 +1126,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicTrimmed1_1_oe() {
         final String input = "a: b :  ";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1136,7 +1136,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicTrimmed1_2_oe() {
         final String input = "a: b :  ";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1147,7 +1147,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicTrimmed1_3_oe() {
         final String input = "a: b :  ";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1159,7 +1159,7 @@ public class StrTokenizerTest_OE25Dev {
         assertNull(tok.next());
     }
 
-    @Test
+@Test
     public void testBasicTrimmed1_4_oe() {
         final String input = "a: b :  ";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1172,7 +1172,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicTrimmed2_1_oe() {
         final String input = "a:  b  :";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1182,7 +1182,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicTrimmed2_2_oe() {
         final String input = "a:  b  :";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1193,7 +1193,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicTrimmed2_3_oe() {
         final String input = "a:  b  :";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1205,7 +1205,7 @@ public class StrTokenizerTest_OE25Dev {
         assertNull(tok.next());
     }
 
-    @Test
+@Test
     public void testBasicTrimmed2_4_oe() {
         final String input = "a:  b  :";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1218,7 +1218,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicIgnoreTrimmed1_1_oe() {
         final String input = "a: bIGNOREc : ";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1229,7 +1229,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicIgnoreTrimmed1_2_oe() {
         final String input = "a: bIGNOREc : ";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1241,7 +1241,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("bc", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicIgnoreTrimmed1_3_oe() {
         final String input = "a: bIGNOREc : ";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1254,7 +1254,7 @@ public class StrTokenizerTest_OE25Dev {
         assertNull(tok.next());
     }
 
-    @Test
+@Test
     public void testBasicIgnoreTrimmed1_4_oe() {
         final String input = "a: bIGNOREc : ";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1268,7 +1268,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicIgnoreTrimmed2_1_oe() {
         final String input = "IGNOREaIGNORE: IGNORE bIGNOREc IGNORE : IGNORE ";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1279,7 +1279,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicIgnoreTrimmed2_2_oe() {
         final String input = "IGNOREaIGNORE: IGNORE bIGNOREc IGNORE : IGNORE ";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1291,7 +1291,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("bc", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicIgnoreTrimmed2_3_oe() {
         final String input = "IGNOREaIGNORE: IGNORE bIGNOREc IGNORE : IGNORE ";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1304,7 +1304,7 @@ public class StrTokenizerTest_OE25Dev {
         assertNull(tok.next());
     }
 
-    @Test
+@Test
     public void testBasicIgnoreTrimmed2_4_oe() {
         final String input = "IGNOREaIGNORE: IGNORE bIGNOREc IGNORE : IGNORE ";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1318,7 +1318,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicIgnoreTrimmed3_1_oe() {
         final String input = "IGNOREaIGNORE: IGNORE bIGNOREc IGNORE : IGNORE ";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1328,7 +1328,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicIgnoreTrimmed3_2_oe() {
         final String input = "IGNOREaIGNORE: IGNORE bIGNOREc IGNORE : IGNORE ";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1339,7 +1339,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("  bc  ", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicIgnoreTrimmed3_3_oe() {
         final String input = "IGNOREaIGNORE: IGNORE bIGNOREc IGNORE : IGNORE ";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1351,7 +1351,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("  ", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicIgnoreTrimmed3_4_oe() {
         final String input = "IGNOREaIGNORE: IGNORE bIGNOREc IGNORE : IGNORE ";
         final StrTokenizer tok = new StrTokenizer(input, ':');
@@ -1364,7 +1364,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testBasicIgnoreTrimmed4_1_oe() {
         final String input = "IGNOREaIGNORE: IGNORE 'bIGNOREc'IGNORE'd' IGNORE : IGNORE ";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -1375,7 +1375,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicIgnoreTrimmed4_2_oe() {
         final String input = "IGNOREaIGNORE: IGNORE 'bIGNOREc'IGNORE'd' IGNORE : IGNORE ";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -1387,7 +1387,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("bIGNOREcd", tok.next());
     }
 
-    @Test
+@Test
     public void testBasicIgnoreTrimmed4_3_oe() {
         final String input = "IGNOREaIGNORE: IGNORE 'bIGNOREc'IGNORE'd' IGNORE : IGNORE ";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -1400,7 +1400,7 @@ public class StrTokenizerTest_OE25Dev {
         assertNull(tok.next());
     }
 
-    @Test
+@Test
     public void testBasicIgnoreTrimmed4_4_oe() {
         final String input = "IGNOREaIGNORE: IGNORE 'bIGNOREc'IGNORE'd' IGNORE : IGNORE ";
         final StrTokenizer tok = new StrTokenizer(input, ':', '\'');
@@ -1414,7 +1414,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testListArray_1_oe() {
         final String input = "a  b c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -1424,7 +1424,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(Arrays.asList(array), list);
     }
 
-    @Test
+@Test
     public void testListArray_2_oe() {
         final String input = "a  b c";
         final StrTokenizer tok = new StrTokenizer(input);
@@ -1435,14 +1435,14 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(3, list.size());
     }
 
-    @Test
+@Test
     public void testGetContent_1_oe() {
         final String input = "a   b c \"d e\" f ";
         StrTokenizer tok = new StrTokenizer(input);
         assertEquals(input, tok.getContent());
     }
 
-    @Test
+@Test
     public void testGetContent_2_oe() {
         final String input = "a   b c \"d e\" f ";
         StrTokenizer tok = new StrTokenizer(input);
@@ -1452,7 +1452,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(input, tok.getContent());
     }
 
-    @Test
+@Test
     public void testGetContent_3_oe() {
         final String input = "a   b c \"d e\" f ";
         StrTokenizer tok = new StrTokenizer(input);
@@ -1465,20 +1465,20 @@ public class StrTokenizerTest_OE25Dev {
         assertNull(tok.getContent());
     }
 
-    @Test
+@Test
     public void testChaining_1_oe() {
         final StrTokenizer tok = new StrTokenizer();
         assertEquals(tok, tok.reset());
     }
 
-    @Test
+@Test
     public void testChaining_2_oe() {
         final StrTokenizer tok = new StrTokenizer();
         // removed other assertion
         assertEquals(tok, tok.reset(""));
     }
 
-    @Test
+@Test
     public void testChaining_3_oe() {
         final StrTokenizer tok = new StrTokenizer();
         // removed other assertion
@@ -1486,7 +1486,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(tok, tok.reset(new char[0]));
     }
 
-    @Test
+@Test
     public void testChaining_4_oe() {
         final StrTokenizer tok = new StrTokenizer();
         // removed other assertion
@@ -1495,7 +1495,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(tok, tok.setDelimiterChar(' '));
     }
 
-    @Test
+@Test
     public void testChaining_5_oe() {
         final StrTokenizer tok = new StrTokenizer();
         // removed other assertion
@@ -1505,7 +1505,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(tok, tok.setDelimiterString(" "));
     }
 
-    @Test
+@Test
     public void testChaining_6_oe() {
         final StrTokenizer tok = new StrTokenizer();
         // removed other assertion
@@ -1516,7 +1516,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(tok, tok.setDelimiterMatcher(null));
     }
 
-    @Test
+@Test
     public void testChaining_7_oe() {
         final StrTokenizer tok = new StrTokenizer();
         // removed other assertion
@@ -1528,7 +1528,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(tok, tok.setQuoteChar(' '));
     }
 
-    @Test
+@Test
     public void testChaining_8_oe() {
         final StrTokenizer tok = new StrTokenizer();
         // removed other assertion
@@ -1541,7 +1541,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(tok, tok.setQuoteMatcher(null));
     }
 
-    @Test
+@Test
     public void testChaining_9_oe() {
         final StrTokenizer tok = new StrTokenizer();
         // removed other assertion
@@ -1555,7 +1555,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(tok, tok.setIgnoredChar(' '));
     }
 
-    @Test
+@Test
     public void testChaining_10_oe() {
         final StrTokenizer tok = new StrTokenizer();
         // removed other assertion
@@ -1570,7 +1570,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(tok, tok.setIgnoredMatcher(null));
     }
 
-    @Test
+@Test
     public void testChaining_11_oe() {
         final StrTokenizer tok = new StrTokenizer();
         // removed other assertion
@@ -1586,7 +1586,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(tok, tok.setTrimmerMatcher(null));
     }
 
-    @Test
+@Test
     public void testChaining_12_oe() {
         final StrTokenizer tok = new StrTokenizer();
         // removed other assertion
@@ -1603,7 +1603,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(tok, tok.setEmptyTokenAsNull(false));
     }
 
-    @Test
+@Test
     public void testChaining_13_oe() {
         final StrTokenizer tok = new StrTokenizer();
         // removed other assertion
@@ -1621,7 +1621,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals(tok, tok.setIgnoreEmptyTokens(false));
     }
 
-    @Test
+@Test
     public void testCloneNotSupportedException_1_oe() {
         final Object notCloned = new StrTokenizer() {
             @Override
@@ -1632,14 +1632,14 @@ public class StrTokenizerTest_OE25Dev {
         assertNull(notCloned);
     }
 
-    @Test
+@Test
     public void testCloneNull_1_oe() {
         final StrTokenizer tokenizer = new StrTokenizer((char[]) null);
         // Start sanity check
         assertNull(tokenizer.nextToken());
     }
 
-    @Test
+@Test
     public void testCloneNull_2_oe() {
         final StrTokenizer tokenizer = new StrTokenizer((char[]) null);
         // Start sanity check
@@ -1648,7 +1648,7 @@ public class StrTokenizerTest_OE25Dev {
         assertNull(tokenizer.nextToken());
     }
 
-    @Test
+@Test
     public void testCloneNull_3_oe() {
         final StrTokenizer tokenizer = new StrTokenizer((char[]) null);
         // Start sanity check
@@ -1661,7 +1661,7 @@ public class StrTokenizerTest_OE25Dev {
         assertNull(tokenizer.nextToken());
     }
 
-    @Test
+@Test
     public void testCloneNull_4_oe() {
         final StrTokenizer tokenizer = new StrTokenizer((char[]) null);
         // Start sanity check
@@ -1675,7 +1675,7 @@ public class StrTokenizerTest_OE25Dev {
         assertNull(clonedTokenizer.nextToken());
     }
 
-    @Test
+@Test
     public void testCloneReset_1_oe() {
         final char[] input = new char[]{'a'};
         final StrTokenizer tokenizer = new StrTokenizer(input);
@@ -1683,7 +1683,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tokenizer.nextToken());
     }
 
-    @Test
+@Test
     public void testCloneReset_2_oe() {
         final char[] input = new char[]{'a'};
         final StrTokenizer tokenizer = new StrTokenizer(input);
@@ -1693,7 +1693,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tokenizer.nextToken());
     }
 
-    @Test
+@Test
     public void testCloneReset_3_oe() {
         final char[] input = new char[]{'a'};
         final StrTokenizer tokenizer = new StrTokenizer(input);
@@ -1708,7 +1708,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tokenizer.nextToken());
     }
 
-    @Test
+@Test
     public void testCloneReset_4_oe() {
         final char[] input = new char[]{'a'};
         final StrTokenizer tokenizer = new StrTokenizer(input);
@@ -1724,20 +1724,20 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", clonedTokenizer.nextToken());
     }
 
-    @Test
+@Test
     public void testConstructor_String_1_oe() {
         StrTokenizer tok = new StrTokenizer("a b");
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testConstructor_String_2_oe() {
         StrTokenizer tok = new StrTokenizer("a b");
         // removed other assertion
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testConstructor_String_3_oe() {
         StrTokenizer tok = new StrTokenizer("a b");
         // removed other assertion
@@ -1745,7 +1745,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_String_4_oe() {
         StrTokenizer tok = new StrTokenizer("a b");
         // removed other assertion
@@ -1756,7 +1756,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_String_5_oe() {
         StrTokenizer tok = new StrTokenizer("a b");
         // removed other assertion
@@ -1770,20 +1770,20 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_String_char_1_oe() {
         StrTokenizer tok = new StrTokenizer("a b", ' ');
         assertEquals(1, tok.getDelimiterMatcher().isMatch(" ".toCharArray(), 0, 0, 1));
     }
 
-    @Test
+@Test
     public void testConstructor_String_char_2_oe() {
         StrTokenizer tok = new StrTokenizer("a b", ' ');
         // removed other assertion
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testConstructor_String_char_3_oe() {
         StrTokenizer tok = new StrTokenizer("a b", ' ');
         // removed other assertion
@@ -1791,7 +1791,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testConstructor_String_char_4_oe() {
         StrTokenizer tok = new StrTokenizer("a b", ' ');
         // removed other assertion
@@ -1800,7 +1800,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_String_char_5_oe() {
         StrTokenizer tok = new StrTokenizer("a b", ' ');
         // removed other assertion
@@ -1812,7 +1812,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_String_char_6_oe() {
         StrTokenizer tok = new StrTokenizer("a b", ' ');
         // removed other assertion
@@ -1827,20 +1827,20 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_String_char_char_1_oe() {
         StrTokenizer tok = new StrTokenizer("a b", ' ', '"');
         assertEquals(1, tok.getDelimiterMatcher().isMatch(" ".toCharArray(), 0, 0, 1));
     }
 
-    @Test
+@Test
     public void testConstructor_String_char_char_2_oe() {
         StrTokenizer tok = new StrTokenizer("a b", ' ', '"');
         // removed other assertion
         assertEquals(1, tok.getQuoteMatcher().isMatch("\"".toCharArray(), 0, 0, 1));
     }
 
-    @Test
+@Test
     public void testConstructor_String_char_char_3_oe() {
         StrTokenizer tok = new StrTokenizer("a b", ' ', '"');
         // removed other assertion
@@ -1848,7 +1848,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testConstructor_String_char_char_4_oe() {
         StrTokenizer tok = new StrTokenizer("a b", ' ', '"');
         // removed other assertion
@@ -1857,7 +1857,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testConstructor_String_char_char_5_oe() {
         StrTokenizer tok = new StrTokenizer("a b", ' ', '"');
         // removed other assertion
@@ -1867,7 +1867,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_String_char_char_6_oe() {
         StrTokenizer tok = new StrTokenizer("a b", ' ', '"');
         // removed other assertion
@@ -1880,7 +1880,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_String_char_char_7_oe() {
         StrTokenizer tok = new StrTokenizer("a b", ' ', '"');
         // removed other assertion
@@ -1896,20 +1896,20 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_1_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray());
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_2_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray());
         // removed other assertion
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_3_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray());
         // removed other assertion
@@ -1917,7 +1917,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_4_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray());
         // removed other assertion
@@ -1928,7 +1928,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_5_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray());
         // removed other assertion
@@ -1942,20 +1942,20 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_char_1_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray(), ' ');
         assertEquals(1, tok.getDelimiterMatcher().isMatch(" ".toCharArray(), 0, 0, 1));
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_char_2_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray(), ' ');
         // removed other assertion
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_char_3_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray(), ' ');
         // removed other assertion
@@ -1963,7 +1963,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_char_4_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray(), ' ');
         // removed other assertion
@@ -1972,7 +1972,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_char_5_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray(), ' ');
         // removed other assertion
@@ -1984,7 +1984,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_char_6_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray(), ' ');
         // removed other assertion
@@ -1999,20 +1999,20 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_char_char_1_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray(), ' ', '"');
         assertEquals(1, tok.getDelimiterMatcher().isMatch(" ".toCharArray(), 0, 0, 1));
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_char_char_2_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray(), ' ', '"');
         // removed other assertion
         assertEquals(1, tok.getQuoteMatcher().isMatch("\"".toCharArray(), 0, 0, 1));
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_char_char_3_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray(), ' ', '"');
         // removed other assertion
@@ -2020,7 +2020,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_char_char_4_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray(), ' ', '"');
         // removed other assertion
@@ -2029,7 +2029,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_char_char_5_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray(), ' ', '"');
         // removed other assertion
@@ -2039,7 +2039,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_char_char_6_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray(), ' ', '"');
         // removed other assertion
@@ -2052,7 +2052,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testConstructor_charArray_char_char_7_oe() {
         StrTokenizer tok = new StrTokenizer("a b".toCharArray(), ' ', '"');
         // removed other assertion
@@ -2068,20 +2068,20 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testReset_1_oe() {
         final StrTokenizer tok = new StrTokenizer("a b c");
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testReset_2_oe() {
         final StrTokenizer tok = new StrTokenizer("a b c");
         // removed other assertion
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testReset_3_oe() {
         final StrTokenizer tok = new StrTokenizer("a b c");
         // removed other assertion
@@ -2089,7 +2089,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("c", tok.next());
     }
 
-    @Test
+@Test
     public void testReset_4_oe() {
         final StrTokenizer tok = new StrTokenizer("a b c");
         // removed other assertion
@@ -2098,7 +2098,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testReset_5_oe() {
         final StrTokenizer tok = new StrTokenizer("a b c");
         // removed other assertion
@@ -2110,7 +2110,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tok.next());
     }
 
-    @Test
+@Test
     public void testReset_6_oe() {
         final StrTokenizer tok = new StrTokenizer("a b c");
         // removed other assertion
@@ -2123,7 +2123,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tok.next());
     }
 
-    @Test
+@Test
     public void testReset_7_oe() {
         final StrTokenizer tok = new StrTokenizer("a b c");
         // removed other assertion
@@ -2137,7 +2137,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("c", tok.next());
     }
 
-    @Test
+@Test
     public void testReset_8_oe() {
         final StrTokenizer tok = new StrTokenizer("a b c");
         // removed other assertion
@@ -2152,14 +2152,14 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testReset_String_1_oe() {
         final StrTokenizer tok = new StrTokenizer("x x x");
         tok.reset("d e");
         assertEquals("d", tok.next());
     }
 
-    @Test
+@Test
     public void testReset_String_2_oe() {
         final StrTokenizer tok = new StrTokenizer("x x x");
         tok.reset("d e");
@@ -2167,7 +2167,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("e", tok.next());
     }
 
-    @Test
+@Test
     public void testReset_String_3_oe() {
         final StrTokenizer tok = new StrTokenizer("x x x");
         tok.reset("d e");
@@ -2176,7 +2176,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testReset_String_4_oe() {
         final StrTokenizer tok = new StrTokenizer("x x x");
         tok.reset("d e");
@@ -2188,7 +2188,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testReset_charArray_1_oe() {
         final StrTokenizer tok = new StrTokenizer("x x x");
 
@@ -2197,7 +2197,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("abc", tok.next());
     }
 
-    @Test
+@Test
     public void testReset_charArray_2_oe() {
         final StrTokenizer tok = new StrTokenizer("x x x");
 
@@ -2207,7 +2207,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testReset_charArray_3_oe() {
         final StrTokenizer tok = new StrTokenizer("x x x");
 
@@ -2220,20 +2220,20 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tok.hasNext());
     }
 
-    @Test
+@Test
     public void testIteration_1_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         assertFalse(tkn.hasPrevious());
     }
 
-    @Test
+@Test
     public void testIteration_2_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
         assertThrows(NoSuchElementException.class, tkn::previous);
     }
 
-    @Test
+@Test
     public void testIteration_3_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
@@ -2241,7 +2241,7 @@ public class StrTokenizerTest_OE25Dev {
         assertTrue(tkn.hasNext());
     }
 
-    @Test
+@Test
     public void testIteration_4_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
@@ -2251,7 +2251,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tkn.next());
     }
 
-    @Test
+@Test
     public void testIteration_5_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
@@ -2262,7 +2262,7 @@ public class StrTokenizerTest_OE25Dev {
         assertThrows(UnsupportedOperationException.class, tkn::remove);
     }
 
-    @Test
+@Test
     public void testIteration_6_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
@@ -2274,7 +2274,7 @@ public class StrTokenizerTest_OE25Dev {
         assertThrows(UnsupportedOperationException.class, () -> tkn.set("x"));
     }
 
-    @Test
+@Test
     public void testIteration_7_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
@@ -2287,7 +2287,7 @@ public class StrTokenizerTest_OE25Dev {
         assertThrows(UnsupportedOperationException.class, () -> tkn.add("y"));
     }
 
-    @Test
+@Test
     public void testIteration_8_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
@@ -2301,7 +2301,7 @@ public class StrTokenizerTest_OE25Dev {
         assertTrue(tkn.hasPrevious());
     }
 
-    @Test
+@Test
     public void testIteration_9_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
@@ -2316,7 +2316,7 @@ public class StrTokenizerTest_OE25Dev {
         assertTrue(tkn.hasNext());
     }
 
-    @Test
+@Test
     public void testIteration_10_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
@@ -2333,7 +2333,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tkn.next());
     }
 
-    @Test
+@Test
     public void testIteration_11_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
@@ -2351,7 +2351,7 @@ public class StrTokenizerTest_OE25Dev {
         assertTrue(tkn.hasPrevious());
     }
 
-    @Test
+@Test
     public void testIteration_12_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
@@ -2370,7 +2370,7 @@ public class StrTokenizerTest_OE25Dev {
         assertTrue(tkn.hasNext());
     }
 
-    @Test
+@Test
     public void testIteration_13_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
@@ -2391,7 +2391,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("c", tkn.next());
     }
 
-    @Test
+@Test
     public void testIteration_14_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
@@ -2413,7 +2413,7 @@ public class StrTokenizerTest_OE25Dev {
         assertTrue(tkn.hasPrevious());
     }
 
-    @Test
+@Test
     public void testIteration_15_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
@@ -2436,7 +2436,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tkn.hasNext());
     }
 
-    @Test
+@Test
     public void testIteration_16_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
@@ -2461,7 +2461,7 @@ public class StrTokenizerTest_OE25Dev {
         assertThrows(NoSuchElementException.class, tkn::next);
     }
 
-    @Test
+@Test
     public void testIteration_17_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
@@ -2487,7 +2487,7 @@ public class StrTokenizerTest_OE25Dev {
         assertTrue(tkn.hasPrevious());
     }
 
-    @Test
+@Test
     public void testIteration_18_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c");
         // removed other assertion
@@ -2514,7 +2514,7 @@ public class StrTokenizerTest_OE25Dev {
         assertFalse(tkn.hasNext());
     }
 
-    @Test
+@Test
     public void testTokenizeSubclassInputChange_1_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c d e") {
             @Override
@@ -2525,7 +2525,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("x", tkn.next());
     }
 
-    @Test
+@Test
     public void testTokenizeSubclassInputChange_2_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c d e") {
             @Override
@@ -2537,7 +2537,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("y", tkn.next());
     }
 
-    @Test
+@Test
     public void testTokenizeSubclassOutputChange_1_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c") {
             @Override
@@ -2550,7 +2550,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("c", tkn.next());
     }
 
-    @Test
+@Test
     public void testTokenizeSubclassOutputChange_2_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c") {
             @Override
@@ -2564,7 +2564,7 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("b", tkn.next());
     }
 
-    @Test
+@Test
     public void testTokenizeSubclassOutputChange_3_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c") {
             @Override
@@ -2579,13 +2579,13 @@ public class StrTokenizerTest_OE25Dev {
         assertEquals("a", tkn.next());
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c d e");
         assertEquals("StrTokenizer[not tokenized yet]", tkn.toString());
     }
 
-    @Test
+@Test
     public void testToString_2_oe() {
         final StrTokenizer tkn = new StrTokenizer("a b c d e");
         // removed other assertion

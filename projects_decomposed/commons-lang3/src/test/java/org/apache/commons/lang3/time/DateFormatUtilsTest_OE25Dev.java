@@ -128,19 +128,19 @@ public class DateFormatUtilsTest_OE25Dev {
         assertFormats(expectedValue, pattern, timeZone, createFebruaryTestDate(timeZone));
     }
 
-    @Test
+@Test
     public void testConstructor_1_oe() {
         assertNotNull(new DateFormatUtils());
     }
 
-    @Test
+@Test
     public void testConstructor_2_oe() {
         // removed other assertion
         final Constructor<?>[] cons = DateFormatUtils.class.getDeclaredConstructors();
         assertEquals(1, cons.length);
     }
 
-    @Test
+@Test
     public void testConstructor_3_oe() {
         // removed other assertion
         final Constructor<?>[] cons = DateFormatUtils.class.getDeclaredConstructors();
@@ -148,7 +148,7 @@ public class DateFormatUtilsTest_OE25Dev {
         assertTrue(Modifier.isPublic(cons[0].getModifiers()));
     }
 
-    @Test
+@Test
     public void testConstructor_4_oe() {
         // removed other assertion
         final Constructor<?>[] cons = DateFormatUtils.class.getDeclaredConstructors();
@@ -157,7 +157,7 @@ public class DateFormatUtilsTest_OE25Dev {
         assertTrue(Modifier.isPublic(DateFormatUtils.class.getModifiers()));
     }
 
-    @Test
+@Test
     public void testConstructor_5_oe() {
         // removed other assertion
         final Constructor<?>[] cons = DateFormatUtils.class.getDeclaredConstructors();
@@ -167,7 +167,7 @@ public class DateFormatUtilsTest_OE25Dev {
         assertFalse(Modifier.isFinal(DateFormatUtils.class.getModifiers()));
     }
 
-    @Test
+@Test
     public void testFormat_1_oe() {
         final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
         c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
@@ -184,7 +184,7 @@ public class DateFormatUtilsTest_OE25Dev {
         assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime(), "yyyyMdH"));
     }
 
-    @Test
+@Test
     public void testFormat_2_oe() {
         final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
         c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
@@ -203,7 +203,7 @@ public class DateFormatUtilsTest_OE25Dev {
         assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime().getTime(), "yyyyMdH"));
     }
 
-    @Test
+@Test
     public void testFormat_3_oe() {
         final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
         c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
@@ -224,7 +224,7 @@ public class DateFormatUtilsTest_OE25Dev {
         assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime(), "yyyyMdH", Locale.US));
     }
 
-    @Test
+@Test
     public void testFormat_4_oe() {
         final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
         c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
@@ -247,7 +247,7 @@ public class DateFormatUtilsTest_OE25Dev {
         assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime().getTime(), "yyyyMdH", Locale.US));
     }
 
-    @Test
+@Test
     public void testFormatCalendar_1_oe() {
         final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
         c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
@@ -264,7 +264,7 @@ public class DateFormatUtilsTest_OE25Dev {
         assertEquals(buffer.toString(), DateFormatUtils.format(c, "yyyyMdH"));
     }
 
-    @Test
+@Test
     public void testFormatCalendar_2_oe() {
         final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
         c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
@@ -283,7 +283,7 @@ public class DateFormatUtilsTest_OE25Dev {
         assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime(), "yyyyMdH"));
     }
 
-    @Test
+@Test
     public void testFormatCalendar_3_oe() {
         final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
         c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
@@ -304,7 +304,7 @@ public class DateFormatUtilsTest_OE25Dev {
         assertEquals(buffer.toString(), DateFormatUtils.format(c, "yyyyMdH", Locale.US));
     }
 
-    @Test
+@Test
     public void testFormatCalendar_4_oe() {
         final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
         c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
@@ -327,14 +327,14 @@ public class DateFormatUtilsTest_OE25Dev {
         assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime(), "yyyyMdH", Locale.US));
     }
 
-    @Test
+@Test
     public void testFormatUTC_1_oe() {
         final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
         c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
         assertEquals ("2005-01-01T12:00:00", DateFormatUtils.formatUTC(c.getTime(), DateFormatUtils.ISO_DATETIME_FORMAT.getPattern()));
     }
 
-    @Test
+@Test
     public void testFormatUTC_2_oe() {
         final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
         c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
@@ -343,7 +343,7 @@ public class DateFormatUtilsTest_OE25Dev {
         assertEquals ("2005-01-01T12:00:00", DateFormatUtils.formatUTC(c.getTime().getTime(), DateFormatUtils.ISO_DATETIME_FORMAT.getPattern()));
     }
 
-    @Test
+@Test
     public void testFormatUTC_3_oe() {
         final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
         c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
@@ -354,7 +354,7 @@ public class DateFormatUtilsTest_OE25Dev {
         assertEquals ("2005-01-01T12:00:00", DateFormatUtils.formatUTC(c.getTime(), DateFormatUtils.ISO_DATETIME_FORMAT.getPattern(), Locale.US));
     }
 
-    @Test
+@Test
     public void testFormatUTC_4_oe() {
         final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
         c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
@@ -367,7 +367,7 @@ public class DateFormatUtilsTest_OE25Dev {
         assertEquals ("2005-01-01T12:00:00", DateFormatUtils.formatUTC(c.getTime().getTime(), DateFormatUtils.ISO_DATETIME_FORMAT.getPattern(), Locale.US));
     }
 
-    @Test
+@Test
     public void testLang530_1_oe() throws ParseException {
         final Date d = new Date();
         final String isoDateStr = DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(d);
@@ -376,7 +376,7 @@ public class DateFormatUtilsTest_OE25Dev {
         assertEquals(d.getTime(), d2.getTime() + d.getTime() % 1000, "Date not equal to itself ISO formatted and parsed");
     }
 
-    @Test
+@Test
     public void testLang916_1_oe() {
 
         final Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"));
@@ -390,7 +390,7 @@ public class DateFormatUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testLang916_2_oe() {
 
         final Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"));
@@ -408,7 +408,7 @@ public class DateFormatUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testLang916_3_oe() {
 
         final Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"));
@@ -430,7 +430,7 @@ public class DateFormatUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testLang916_4_oe() {
 
         final Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"));
@@ -458,7 +458,7 @@ public class DateFormatUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testLang916_5_oe() {
 
         final Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"));
@@ -490,7 +490,7 @@ public class DateFormatUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testLang916_6_oe() {
 
         final Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"));

@@ -28,14 +28,14 @@ import org.junit.jupiter.api.Test;
 
 public class TestImageInfo_OE25Dev {
 
-    @Test
+@Test
     public void testColorType_1_oe() {
         // ColorType is an enum within ImageInfo. We don't want to test every value
         // of the enum. Just that one has the right values should be enough.
         assertEquals("RGB", ColorType.RGB.toString());
     }
 
-    @Test
+@Test
     public void testColorType_2_oe() {
         // ColorType is an enum within ImageInfo. We don't want to test every value
         // of the enum. Just that one has the right values should be enough.
@@ -43,18 +43,18 @@ public class TestImageInfo_OE25Dev {
         assertEquals(ColorType.RGB, ColorType.valueOf("RGB"));
     }
 
-    @Test
+@Test
     public void testCompressionAlgorithm_1_oe() {
         assertEquals("LZW", CompressionAlgorithm.LZW.toString());
     }
 
-    @Test
+@Test
     public void testCompressionAlgorithm_2_oe() {
         // removed other assertion
         assertEquals(CompressionAlgorithm.LZW, CompressionAlgorithm.valueOf("LZW"));
     }
 
-    @Test
+@Test
     public void testImageInfo_1_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -81,7 +81,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(formatDetails, imageInfo.getFormatDetails());
     }
 
-    @Test
+@Test
     public void testImageInfo_2_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -109,7 +109,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(bitsPerPixel, imageInfo.getBitsPerPixel());
     }
 
-    @Test
+@Test
     public void testImageInfo_3_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -138,7 +138,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(comments.toString(),imageInfo.getComments().toString());
     }
 
-    @Test
+@Test
     public void testImageInfo_4_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -168,7 +168,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(format, imageInfo.getFormat());
     }
 
-    @Test
+@Test
     public void testImageInfo_5_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -199,7 +199,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(formatName, imageInfo.getFormatName());
     }
 
-    @Test
+@Test
     public void testImageInfo_6_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -231,7 +231,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(height, imageInfo.getHeight());
     }
 
-    @Test
+@Test
     public void testImageInfo_7_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -264,7 +264,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(mimeType, imageInfo.getMimeType());
     }
 
-    @Test
+@Test
     public void testImageInfo_8_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -298,7 +298,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(numberOfImages, imageInfo.getNumberOfImages());
     }
 
-    @Test
+@Test
     public void testImageInfo_9_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -333,7 +333,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(physicalHeightDpi, imageInfo.getPhysicalHeightDpi());
     }
 
-    @Test
+@Test
     public void testImageInfo_10_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -369,7 +369,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(physicalHeightInch, imageInfo.getPhysicalHeightInch());
     }
 
-    @Test
+@Test
     public void testImageInfo_11_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -406,7 +406,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(physicalWidthDpi, imageInfo.getPhysicalWidthDpi());
     }
 
-    @Test
+@Test
     public void testImageInfo_12_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -444,7 +444,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(physicalWidthInch, imageInfo.getPhysicalWidthInch());
     }
 
-    @Test
+@Test
     public void testImageInfo_13_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -483,7 +483,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(width, imageInfo.getWidth());
     }
 
-    @Test
+@Test
     public void testImageInfo_14_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -523,7 +523,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(progressive, imageInfo.isProgressive());
     }
 
-    @Test
+@Test
     public void testImageInfo_15_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -564,7 +564,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(transparent, imageInfo.isTransparent());
     }
 
-    @Test
+@Test
     public void testImageInfo_16_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -606,7 +606,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(usesPalette, imageInfo.usesPalette());
     }
 
-    @Test
+@Test
     public void testImageInfo_17_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -649,7 +649,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(colorType, imageInfo.getColorType());
     }
 
-    @Test
+@Test
     public void testImageInfo_18_oe() {
         final String formatDetails = "image-info-format-details";
         final int bitsPerPixel = 2;
@@ -693,28 +693,28 @@ public class TestImageInfo_OE25Dev {
         assertEquals(compressionAlgorithm, imageInfo.getCompressionAlgorithm());
     }
 
-    @Test
+@Test
     public void testToStringErrorWhenCommentsIsNull_1_oe() {
         final ImageInfo imageInfo = new ImageInfo(null, 0, null, null, null, 0, null, 0, 0, 0.0f, 0, 0.0f, 0, false,
                 false, false, null, null);
         assertEquals("Image Data: Error", imageInfo.toString());
     }
 
-    @Test
+@Test
     public void testToStringErrorWhenColorPaletteIsNull_1_oe() {
         final ImageInfo imageInfo = new ImageInfo(null, 0, new ArrayList<>(), ImageFormats.DCX, null, 0, null, 0, 0, 0.0f, 0, 0.0f, 0, false,
                 false, false, null, null);
         assertEquals("Image Data: Error", imageInfo.toString());
     }
 
-    @Test
+@Test
     public void testToStringErrorWhenFormatIsNull_1_oe() {
         final ImageInfo imageInfo = new ImageInfo(null, 0, new ArrayList<>(), null, null, 0, null, 0, 0, 0.0f, 0, 0.0f, 0, false,
                 false, false, ColorType.BW, null);
         assertEquals("Image Data: Error", imageInfo.toString());
     }
 
-    @Test
+@Test
     public void testToStringEmptyComments_1_oe() {
         final ImageInfo imageInfo = new ImageInfo(null, 0, new ArrayList<String>(), ImageFormats.DCX, null, 0, null, 0, 0, 0.0f, 0, 0.0f, 0, false,
                 false, false, ColorType.BW, null);
@@ -740,7 +740,7 @@ public class TestImageInfo_OE25Dev {
         assertEquals(expected, testString);
     }
 
-    @Test
+@Test
     public void testToStringWithComments_1_oe() {
         final ImageInfo imageInfo = new ImageInfo(null, 0, Arrays.asList("a", "b"), ImageFormats.DCX, null, 0, null, 0, 0, 0.0f, 0, 0.0f, 0, false,
                 false, false, ColorType.BW, null);

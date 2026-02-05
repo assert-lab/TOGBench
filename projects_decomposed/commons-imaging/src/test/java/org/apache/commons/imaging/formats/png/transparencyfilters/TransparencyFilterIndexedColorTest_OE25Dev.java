@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
 
 public class TransparencyFilterIndexedColorTest_OE25Dev{
 
-    @Test
+@Test
     public void testFilterWithNegativeAndNegative_2_oe() {
         final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;
         final TransparencyFilterIndexedColor transparencyFilterIndexedColor = new TransparencyFilterIndexedColor(byteArray);
@@ -37,7 +37,7 @@ public class TransparencyFilterIndexedColorTest_OE25Dev{
     }
     }
 
-    @Test
+@Test
     public void testFilterWithNegativeAndNegative_3_oe() {
         final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;
         final TransparencyFilterIndexedColor transparencyFilterIndexedColor = new TransparencyFilterIndexedColor(byteArray);

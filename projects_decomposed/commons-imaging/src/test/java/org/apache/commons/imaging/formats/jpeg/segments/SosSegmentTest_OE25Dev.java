@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
 
 public class SosSegmentTest_OE25Dev{
 
-  @Test
+@Test
   public void testGetComponentsTakingNoArguments_1_oe() throws IOException {
       final byte[] byteArray = new byte[5];
       final SosSegment sosSegment = new SosSegment((-1044), byteArray);
@@ -33,7 +33,7 @@ public class SosSegmentTest_OE25Dev{
       assertEquals(0, sosSegment.successiveApproximationBitHigh);
   }
 
-  @Test
+@Test
   public void testGetComponentsTakingNoArguments_2_oe() throws IOException {
       final byte[] byteArray = new byte[5];
       final SosSegment sosSegment = new SosSegment((-1044), byteArray);
@@ -43,7 +43,7 @@ public class SosSegmentTest_OE25Dev{
       assertEquals(0, sosSegment.successiveApproximationBitLow);
   }
 
-  @Test
+@Test
   public void testCreatesSosSegmentTakingThreeArguments_1_oe() throws IOException {
       final byte[] byteArray = new byte[5];
       final SosSegment sosSegment = new SosSegment((-1044), byteArray);
@@ -51,7 +51,7 @@ public class SosSegmentTest_OE25Dev{
       assertEquals(0, sosSegment.successiveApproximationBitLow);
   }
 
-  @Test
+@Test
   public void testCreatesSosSegmentTakingThreeArguments_2_oe() throws IOException {
       final byte[] byteArray = new byte[5];
       final SosSegment sosSegment = new SosSegment((-1044), byteArray);
@@ -60,7 +60,7 @@ public class SosSegmentTest_OE25Dev{
       assertEquals(0, sosSegment.successiveApproximationBitHigh);
   }
 
-  @Test
+@Test
   public void testCreatesSosSegmentTakingThreeArguments_3_oe() throws IOException {
       final byte[] byteArray = new byte[5];
       final SosSegment sosSegment = new SosSegment((-1044), byteArray);

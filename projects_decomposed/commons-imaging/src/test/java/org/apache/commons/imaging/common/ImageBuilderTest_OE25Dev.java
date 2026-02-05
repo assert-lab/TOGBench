@@ -94,7 +94,7 @@ public class ImageBuilderTest_OE25Dev {
 
 
 
-    @Test
+@Test
     public void testSubimageAccess_1_oe() {
         final ImageBuilder imageBuilder = new ImageBuilder(100, 100, false );
         populate(imageBuilder);
@@ -104,7 +104,7 @@ public class ImageBuilderTest_OE25Dev {
         assertEquals(w, 25, "Width of subimage does not match");
     }
 
-    @Test
+@Test
     public void testSubimageAccess_2_oe() {
         final ImageBuilder imageBuilder = new ImageBuilder(100, 100, false );
         populate(imageBuilder);
@@ -115,7 +115,7 @@ public class ImageBuilderTest_OE25Dev {
         assertEquals(h, 25, "Height of subimage does not match");
     }
 
-    @Test
+@Test
     public void testSubimageAccess_3_oe() {
         final ImageBuilder imageBuilder = new ImageBuilder(100, 100, false );
         populate(imageBuilder);
@@ -134,7 +134,7 @@ public class ImageBuilderTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSubimageAccess_4_oe() {
         final ImageBuilder imageBuilder = new ImageBuilder(100, 100, false );
         populate(imageBuilder);
@@ -162,7 +162,7 @@ public class ImageBuilderTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testImageColorModel_1_oe() {
         ImageBuilder  imageBuilder;
         BufferedImage bImage;
@@ -173,7 +173,7 @@ public class ImageBuilderTest_OE25Dev {
         assertFalse(model.hasAlpha(), "Output image has alpha where not specified");
     }
 
-    @Test
+@Test
     void testImageColorModel_2_oe() {
         ImageBuilder  imageBuilder;
         BufferedImage bImage;
@@ -189,7 +189,7 @@ public class ImageBuilderTest_OE25Dev {
         assertTrue(model.hasAlpha(), "Output image does not have alpha where specified");
     }
 
-    @Test
+@Test
     void testImageColorModel_3_oe() {
         ImageBuilder  imageBuilder;
         BufferedImage bImage;
@@ -206,7 +206,7 @@ public class ImageBuilderTest_OE25Dev {
         assertFalse(model.isAlphaPremultiplied(), "Output image has alpha pre-multiplied where not specified");
     }
 
-    @Test
+@Test
     void testImageColorModel_4_oe() {
         ImageBuilder  imageBuilder;
         BufferedImage bImage;
@@ -228,7 +228,7 @@ public class ImageBuilderTest_OE25Dev {
         assertTrue(model.hasAlpha(), "Output image does not have alpha where specified");
     }
 
-    @Test
+@Test
     void testImageColorModel_5_oe() {
         ImageBuilder  imageBuilder;
         BufferedImage bImage;

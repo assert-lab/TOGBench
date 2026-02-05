@@ -49,25 +49,25 @@ public class TestDurationField_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void test_subtract_1_oe() throws Exception {
+public void test_subtract_1_oe() throws Exception {
         DurationField fld = ISOChronology.getInstanceUTC().millis();
         assertEquals(900,fld.subtract(1000L,100));
     }
 
-    public void test_subtract_2_oe() throws Exception {
+public void test_subtract_2_oe() throws Exception {
         DurationField fld = ISOChronology.getInstanceUTC().millis();
         // removed other assertion
         assertEquals(900L,fld.subtract(1000L,100L));
     }
 
-    public void test_subtract_3_oe() throws Exception {
+public void test_subtract_3_oe() throws Exception {
         DurationField fld = ISOChronology.getInstanceUTC().millis();
         // removed other assertion
         // removed other assertion
         assertEquals((1000L - Integer.MAX_VALUE),fld.subtract(1000L,Integer.MAX_VALUE));
     }
 
-    public void test_subtract_4_oe() throws Exception {
+public void test_subtract_4_oe() throws Exception {
         DurationField fld = ISOChronology.getInstanceUTC().millis();
         // removed other assertion
         // removed other assertion
@@ -75,7 +75,7 @@ public class TestDurationField_OE25Dev extends TestCase {
         assertEquals((1000L - Integer.MIN_VALUE),fld.subtract(1000L,Integer.MIN_VALUE));
     }
 
-    public void test_subtract_5_oe() throws Exception {
+public void test_subtract_5_oe() throws Exception {
         DurationField fld = ISOChronology.getInstanceUTC().millis();
         // removed other assertion
         // removed other assertion

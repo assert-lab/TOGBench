@@ -121,7 +121,7 @@ class TextFacetDefinitionReaderTest_OE25Dev {
         return new TextFacetDefinitionReader(new StringReader(content));
     }
 
-    @Test
+@Test
     void testPropertyDefaults_1_oe() {
         // arrange
         TextFacetDefinitionReader reader = facetReader("");
@@ -130,7 +130,7 @@ class TextFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals("#", reader.getCommentToken());
     }
 
-    @Test
+@Test
     void testReadFacet_empty_1_oe() {
         // arrange
         TextFacetDefinitionReader reader = facetReader("");
@@ -142,7 +142,7 @@ class TextFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals(0, facets.size());
     }
 
-    @Test
+@Test
     void testReadFacet_singleFacet_1_oe() {
         // arrange
         TextFacetDefinitionReader reader = facetReader(
@@ -155,7 +155,7 @@ class TextFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals(1, facets.size());
     }
 
-    @Test
+@Test
     void testReadFacet_multipleFacets_1_oe() {
         // arrange
         TextFacetDefinitionReader reader = facetReader(
@@ -170,7 +170,7 @@ class TextFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals(3, facets.size());
     }
 
-    @Test
+@Test
     void testReadFacet_blankLinesAndComments_1_oe() {
         // arrange
         TextFacetDefinitionReader reader = facetReader(
@@ -190,7 +190,7 @@ class TextFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals(3, facets.size());
     }
 
-    @Test
+@Test
     void testReadFacet_nonDefaultCommentToken_1_oe() {
         // arrange
         TextFacetDefinitionReader reader = facetReader(
@@ -212,7 +212,7 @@ class TextFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals(3, facets.size());
     }
 
-    @Test
+@Test
     void testReadFacet_longCommentToken_1_oe() {
         // arrange
         TextFacetDefinitionReader reader = facetReader(
@@ -234,7 +234,7 @@ class TextFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals(3, facets.size());
     }
 
-    @Test
+@Test
     void testClose_1_oe() {
         // arrange
         final CloseCountReader countReader = new CloseCountReader(new StringReader(""));

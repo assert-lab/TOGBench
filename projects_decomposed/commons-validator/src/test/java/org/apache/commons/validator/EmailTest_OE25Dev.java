@@ -427,14 +427,14 @@ protected void setUp() throws IOException, SAXException {
       assertTrue("Value "+info.getValue()+"ValidatorResult for the '" + ACTION +"' action should have " + (passed ? "passed" : "failed") + ".", (passed ? result.isValid(ACTION) : !result.isValid(ACTION)));
     }
 
-    public void testEmailWithControlChars_1_oe() {
+public void testEmailWithControlChars_1_oe() {
         EmailValidator validator = new EmailValidator();
         for (char c = 0; c < 32; c++) {
             assertFalse("Test control char " + ((int)c), validator.isValid("foo" + c + "bar@domain.com"));
     }
     }
 
-    public void testEmailWithControlChars_2_oe() {
+public void testEmailWithControlChars_2_oe() {
         EmailValidator validator = new EmailValidator();
         for (char c = 0; c < 32; c++) {
             // removed other assertion
@@ -442,7 +442,7 @@ protected void setUp() throws IOException, SAXException {
         assertFalse("Test control char 127", validator.isValid("foo" + ((char)127) + "bar@domain.com"));
     }
 
-   public void testEmailAtTLD_1_oe() throws ValidatorException {
+public void testEmailAtTLD_1_oe() throws ValidatorException {
       // Create bean to run test on.
       ValueBean info = new ValueBean();
 

@@ -84,12 +84,12 @@ public class ProvidersTest_OE25Dev {
         Providers.sort(Arrays.asList(y, z, monkeywrench));
     }
 
-    @Test
+@Test
     public void testSort_1_oe() {
         assertThat(Providers.sort(Arrays.asList(b, a, c)), IsIterableContainingInOrder.contains(a, b, c));
     }
 
-    @Test
+@Test
     public void testSort_2_oe() {
         // removed other assertion
         assertThat(Providers.sort(Arrays.asList(y, w, x, z)), IsIterableContainingInOrder.contains(z, y, x, w));

@@ -425,13 +425,13 @@ public class TestConfigurations_OE25Dev {
         checkXML(config);
     }
 
-    @Test
+@Test
     public void testDefaultParameters_1_oe() {
         final Configurations configs = new Configurations();
         assertNotNull("No parameters", configs.getParameters());
     }
 
-    @Test
+@Test
     public void testFileBasedBuilderWithFile_1_oe() {
         final Configurations configs = new Configurations();
         final File file = ConfigurationAssert.getTestFile(TEST_PROPERTIES);
@@ -439,7 +439,7 @@ public class TestConfigurations_OE25Dev {
         assertEquals("Wrong file", file.toURI(), builder.getFileHandler().getFile().toURI());
     }
 
-    @Test
+@Test
     public void testFileBasedBuilderWithPath_1_oe() {
         final Configurations configs = new Configurations();
         final String filePath = absolutePath(TEST_PROPERTIES);
@@ -447,7 +447,7 @@ public class TestConfigurations_OE25Dev {
         assertEquals("Wrong path", filePath, builder.getFileHandler().getFileName());
     }
 
-    @Test
+@Test
     public void testFileBasedBuilderWithURL_1_oe() {
         final Configurations configs = new Configurations();
         final URL url = ConfigurationAssert.getTestURL("test.properties");
@@ -455,14 +455,14 @@ public class TestConfigurations_OE25Dev {
         assertEquals("Wrong URL", url, builder.getFileHandler().getURL());
     }
 
-    @Test
+@Test
     public void testInitWithParameters_1_oe() {
         final Parameters params = new Parameters();
         final Configurations configs = new Configurations(params);
         assertSame("Wrong parameters", params, configs.getParameters());
     }
 
-    @Test
+@Test
     public void testPropertiesBuilderFromPathIncludeNotFoundPass_2_oe() throws ConfigurationException {
         final Configurations configs = new Configurations();
         final String absPath = absolutePath("include-not-found.properties");
@@ -497,7 +497,7 @@ public class TestConfigurations_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testPropertiesBuilderFromPathIncludeNotFoundPass_3_oe() throws ConfigurationException {
         final Configurations configs = new Configurations();
         final String absPath = absolutePath("include-not-found.properties");

@@ -158,14 +158,14 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
      * Test {@link MethodUtils#setCacheMethods(boolean)}.
      */
 
-    public void testInvokeExactMethod_1_oe() throws Exception {
+public void testInvokeExactMethod_1_oe() throws Exception {
             final TestBean bean = new TestBean();
             final Object ret = MethodUtils.invokeExactMethod(bean, "setStringProperty", "TEST");
 
             assertNull(ret);
     }
 
-    public void testInvokeExactMethod_2_oe() throws Exception {
+public void testInvokeExactMethod_2_oe() throws Exception {
             final TestBean bean = new TestBean();
             final Object ret = MethodUtils.invokeExactMethod(bean, "setStringProperty", "TEST");
 
@@ -173,7 +173,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
             assertEquals("Method ONE was invoked", "TEST", bean.getStringProperty());
     }
 
-    public void testInvokeExactMethodFromInterface_1_oe() throws Exception {
+public void testInvokeExactMethodFromInterface_1_oe() throws Exception {
         final Object ret = MethodUtils.invokeExactMethod(
                 PrivateBeanFactory.create(),
                 "methodBar",
@@ -182,7 +182,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Method TWO wasn't invoked correctly", "ANOTHER TEST", ret);
     }
 
-    public void testInvokeExactMethodIndirectInterface_1_oe() throws Exception {
+public void testInvokeExactMethodIndirectInterface_1_oe() throws Exception {
         final Object ret = MethodUtils.invokeExactMethod(
                 PrivateBeanFactory.createSubclass(),
                 "methodBaz",
@@ -191,7 +191,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Method TWO was invoked correctly", "YET ANOTHER TEST", ret);
     }
 
-    public void testInvokeExactMethodNullArray_1_oe() throws Exception {
+public void testInvokeExactMethodNullArray_1_oe() throws Exception {
         final Object result = MethodUtils.invokeExactMethod(
                 new AlphaBean("parent"),
                 "getName",
@@ -199,7 +199,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("parent", result);
     }
 
-    public void testInvokeExactMethodNullArrayNullArray_1_oe() throws Exception {
+public void testInvokeExactMethodNullArrayNullArray_1_oe() throws Exception {
         final Object result = MethodUtils.invokeExactMethod(
                 new AlphaBean("parent"),
                 "getName",
@@ -209,27 +209,27 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("parent", result);
     }
 
-    public void testInvokeExactMethodNull_1_oe() throws Exception {
+public void testInvokeExactMethodNull_1_oe() throws Exception {
         final Object object = new Object();
         final Object result = MethodUtils.invokeExactMethod(object, "toString", (Object) null);
         assertEquals(object.toString(), result);
     }
 
-    public void testInvokeMethod_1_oe() throws Exception {
+public void testInvokeMethod_1_oe() throws Exception {
         final AbstractParent parent = new AlphaBean("parent");
         final BetaBean childOne = new BetaBean("ChildOne");
 
         assertEquals("Cannot invoke through abstract class(1)","ChildOne",MethodUtils.invokeMethod(parent,"testAddChild",childOne));
     }
 
-    public void testInvokeMethodObject_1_oe() throws Exception {
+public void testInvokeMethodObject_1_oe() throws Exception {
         final AbstractParent parent = new AlphaBean("parent");
         final Child childTwo = new AlphaBean("ChildTwo");
 
         assertEquals("Cannot invoke through interface(1)","ChildTwo",MethodUtils.invokeMethod(parent,"testAddChild",childTwo));
     }
 
-    public void testInvokeMethodArray_1_oe() throws Exception {
+public void testInvokeMethodArray_1_oe() throws Exception {
         final AbstractParent parent = new AlphaBean("parent");
         final AlphaBean childTwo = new AlphaBean("ChildTwo");
 
@@ -240,7 +240,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Cannot invoke through abstract class","ChildTwo",MethodUtils.invokeMethod(parent,"testAddChild2",params));
     }
 
-    public void testInvokeMethodNullArray_1_oe() throws Exception {
+public void testInvokeMethodNullArray_1_oe() throws Exception {
         final Object result = MethodUtils.invokeMethod(
                 new AlphaBean("parent"),
                 "getName",
@@ -249,7 +249,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("parent", result);
     }
 
-    public void testInvokeMethodNullArrayNullArray_1_oe() throws Exception {
+public void testInvokeMethodNullArrayNullArray_1_oe() throws Exception {
         final Object result = MethodUtils.invokeMethod(
                 new AlphaBean("parent"),
                 "getName",
@@ -259,43 +259,43 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("parent", result);
     }
 
-    public void testInvokeMethodNull_1_oe() throws Exception {
+public void testInvokeMethodNull_1_oe() throws Exception {
         final Object object = new Object();
         final Object result = MethodUtils.invokeMethod(object, "toString", (Object) null);
         assertEquals(object.toString(), result);
     }
 
-    public void testInvokeMethodPrimitiveBoolean_1_oe() throws Exception {
+public void testInvokeMethodPrimitiveBoolean_1_oe() throws Exception {
         final PrimitiveBean bean = new PrimitiveBean();
         MethodUtils.invokeMethod(bean, "setBoolean", Boolean.FALSE);
         assertEquals("Call boolean property using invokeMethod", false, bean.getBoolean());
     }
 
-    public void testInvokeMethodPrimitiveFloat_1_oe() throws Exception {
+public void testInvokeMethodPrimitiveFloat_1_oe() throws Exception {
         final PrimitiveBean bean = new PrimitiveBean();
         MethodUtils.invokeMethod(bean, "setFloat", Float.valueOf(20.0f));
         assertEquals("Call float property using invokeMethod", 20.0f, bean.getFloat(), 0.01f);
     }
 
-    public void testInvokeMethodPrimitiveLong_1_oe() throws Exception {
+public void testInvokeMethodPrimitiveLong_1_oe() throws Exception {
         final PrimitiveBean bean = new PrimitiveBean();
         MethodUtils.invokeMethod(bean, "setLong", Long.valueOf(10));
         assertEquals("Call long property using invokeMethod", 10, bean.getLong());
     }
 
-    public void testInvokeMethodPrimitiveInt_1_oe() throws Exception {
+public void testInvokeMethodPrimitiveInt_1_oe() throws Exception {
         final PrimitiveBean bean = new PrimitiveBean();
         MethodUtils.invokeMethod(bean, "setInt", Integer.valueOf(12));
         assertEquals("Set int property using invokeMethod", 12, bean.getInt());
     }
 
-    public void testInvokeMethodPrimitiveDouble_1_oe() throws Exception {
+public void testInvokeMethodPrimitiveDouble_1_oe() throws Exception {
         final PrimitiveBean bean = new PrimitiveBean();
         MethodUtils.invokeMethod(bean, "setDouble", Double.valueOf(25.5d));
         assertEquals("Set double property using invokeMethod", 25.5d, bean.getDouble(), 0.01d);
     }
 
-    public void testStaticInvokeMethod_1_oe() throws Exception {
+public void testStaticInvokeMethod_1_oe() throws Exception {
 
         Object value = null;
         int current = TestBean.currentCounter();
@@ -304,7 +304,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("currentCounter value", current, ((Integer) value).intValue());
     }
 
-    public void testStaticInvokeMethod_2_oe() throws Exception {
+public void testStaticInvokeMethod_2_oe() throws Exception {
 
         Object value = null;
         int current = TestBean.currentCounter();
@@ -319,7 +319,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("currentCounter value", current, ((Integer) value).intValue());
     }
 
-    public void testStaticInvokeMethod_3_oe() throws Exception {
+public void testStaticInvokeMethod_3_oe() throws Exception {
 
         Object value = null;
         int current = TestBean.currentCounter();
@@ -340,7 +340,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("currentCounter value", current, ((Integer) value).intValue());
     }
 
-    public void testStaticInvokeMethod_4_oe() throws Exception {
+public void testStaticInvokeMethod_4_oe() throws Exception {
 
         Object value = null;
         int current = TestBean.currentCounter();
@@ -368,19 +368,19 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("currentCounter value", current, ((Integer) value).intValue());
     }
 
-    public void testInvokeStaticMethodNull_1_oe() throws Exception {
+public void testInvokeStaticMethodNull_1_oe() throws Exception {
         final int current = TestBean.currentCounter();
         final Object value = MethodUtils.invokeStaticMethod(TestBean.class, "currentCounter", (Object) null);
         assertEquals("currentCounter value", current, ((Integer) value).intValue());
     }
 
-    public void testInvokeExactStaticMethodNull_1_oe() throws Exception {
+public void testInvokeExactStaticMethodNull_1_oe() throws Exception {
         final int current = TestBean.currentCounter();
         final Object value = MethodUtils.invokeExactStaticMethod(TestBean.class, "currentCounter", (Object) null);
         assertEquals("currentCounter value", current, ((Integer) value).intValue());
     }
 
-    public void testSimpleStatic1_10_oe() {
+public void testSimpleStatic1_10_oe() {
 
         final TestBean bean = new TestBean();
         Object value = null;
@@ -426,7 +426,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testSimpleStatic2_10_oe() {
+public void testSimpleStatic2_10_oe() {
 
         final TestBean bean = new TestBean();
         Object value = null;
@@ -472,7 +472,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testSimpleStatic3_25_oe() {
+public void testSimpleStatic3_25_oe() {
 
         Object value = null;
         int current = TestBean.currentCounter();
@@ -537,20 +537,20 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testPublicSub_1_oe() throws Exception {
+public void testPublicSub_1_oe() throws Exception {
         // make sure that bean does what it should
         final PublicSubBean bean = new PublicSubBean();
         assertEquals("Start value (foo)", bean.getFoo(), "This is foo");
     }
 
-    public void testPublicSub_2_oe() throws Exception {
+public void testPublicSub_2_oe() throws Exception {
         // make sure that bean does what it should
         final PublicSubBean bean = new PublicSubBean();
         // removed other assertion
         assertEquals("Start value (bar)", bean.getBar(), "This is bar");
     }
 
-    public void testPublicSub_3_oe() throws Exception {
+public void testPublicSub_3_oe() throws Exception {
         // make sure that bean does what it should
         final PublicSubBean bean = new PublicSubBean();
         // removed other assertion
@@ -560,7 +560,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Set value (foo)", bean.getFoo(), "new foo");
     }
 
-    public void testPublicSub_4_oe() throws Exception {
+public void testPublicSub_4_oe() throws Exception {
         // make sure that bean does what it should
         final PublicSubBean bean = new PublicSubBean();
         // removed other assertion
@@ -571,7 +571,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Set value (bar)", bean.getBar(), "new bar");
     }
 
-    public void testPublicSub_5_oe() throws Exception {
+public void testPublicSub_5_oe() throws Exception {
         // make sure that bean does what it should
         final PublicSubBean bean = new PublicSubBean();
         // removed other assertion
@@ -587,7 +587,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Set value (foo:2)", bean.getFoo(), "alpha");
     }
 
-    public void testPublicSub_6_oe() throws Exception {
+public void testPublicSub_6_oe() throws Exception {
         // make sure that bean does what it should
         final PublicSubBean bean = new PublicSubBean();
         // removed other assertion
@@ -605,7 +605,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Set value (bar:2)", bean.getBar(), "beta");
     }
 
-    public void testPublicSub_7_oe() throws Exception {
+public void testPublicSub_7_oe() throws Exception {
         // make sure that bean does what it should
         final PublicSubBean bean = new PublicSubBean();
         // removed other assertion
@@ -630,7 +630,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testPublicSub_8_oe() throws Exception {
+public void testPublicSub_8_oe() throws Exception {
         // make sure that bean does what it should
         final PublicSubBean bean = new PublicSubBean();
         // removed other assertion
@@ -656,7 +656,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertNotNull("getAccessibleMethod() setFoo is Null", method);
     }
 
-    public void testPublicSub_9_oe() throws Exception {
+public void testPublicSub_9_oe() throws Exception {
         // make sure that bean does what it should
         final PublicSubBean bean = new PublicSubBean();
         // removed other assertion
@@ -687,7 +687,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testPublicSub_10_oe() throws Exception {
+public void testPublicSub_10_oe() throws Exception {
         // make sure that bean does what it should
         final PublicSubBean bean = new PublicSubBean();
         // removed other assertion
@@ -719,7 +719,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Set value (foo:3)", "1111", bean.getFoo());
     }
 
-    public void testPublicSub_11_oe() throws Exception {
+public void testPublicSub_11_oe() throws Exception {
         // make sure that bean does what it should
         final PublicSubBean bean = new PublicSubBean();
         // removed other assertion
@@ -757,7 +757,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testPublicSub_12_oe() throws Exception {
+public void testPublicSub_12_oe() throws Exception {
         // make sure that bean does what it should
         final PublicSubBean bean = new PublicSubBean();
         // removed other assertion
@@ -796,7 +796,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertNotNull("getAccessibleMethod() setBar is Null", method);
     }
 
-    public void testPublicSub_13_oe() throws Exception {
+public void testPublicSub_13_oe() throws Exception {
         // make sure that bean does what it should
         final PublicSubBean bean = new PublicSubBean();
         // removed other assertion
@@ -840,7 +840,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testPublicSub_14_oe() throws Exception {
+public void testPublicSub_14_oe() throws Exception {
         // make sure that bean does what it should
         final PublicSubBean bean = new PublicSubBean();
         // removed other assertion
@@ -885,7 +885,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Set value (bar:3)", "2222", bean.getBar());
     }
 
-    public void testParentMethod_1_oe() throws Exception {
+public void testParentMethod_1_oe() throws Exception {
         final OutputStream os = new PrintStream(System.out);
         final PrintStream ps = new PrintStream(System.out);
 
@@ -894,7 +894,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertTrue("Method Invoked(1)", a.called);
     }
 
-    public void testParentMethod_2_oe() throws Exception {
+public void testParentMethod_2_oe() throws Exception {
         final OutputStream os = new PrintStream(System.out);
         final PrintStream ps = new PrintStream(System.out);
 
@@ -907,14 +907,14 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertTrue("Method Invoked(2)", a.called);
     }
 
-    public void testClearCache_1_oe() throws Exception {
+public void testClearCache_1_oe() throws Exception {
         MethodUtils.clearCache(); // make sure it starts empty
         final PublicSubBean bean = new PublicSubBean();
         MethodUtils.invokeMethod(bean, "setFoo", "alpha");
         assertEquals(1, MethodUtils.clearCache());
     }
 
-    public void testClearCache_2_oe() throws Exception {
+public void testClearCache_2_oe() throws Exception {
         MethodUtils.clearCache(); // make sure it starts empty
         final PublicSubBean bean = new PublicSubBean();
         MethodUtils.invokeMethod(bean, "setFoo", "alpha");
@@ -922,7 +922,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals(0, MethodUtils.clearCache());
     }
 
-    public void testSetCacheMethods_1_oe() throws Exception {
+public void testSetCacheMethods_1_oe() throws Exception {
         MethodUtils.setCacheMethods(true);
         MethodUtils.clearCache(); // make sure it starts empty
 
@@ -931,7 +931,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals(1, MethodUtils.clearCache());
     }
 
-    public void testSetCacheMethods_2_oe() throws Exception {
+public void testSetCacheMethods_2_oe() throws Exception {
         MethodUtils.setCacheMethods(true);
         MethodUtils.clearCache(); // make sure it starts empty
 
@@ -941,7 +941,7 @@ public class MethodUtilsTestCase_OE25Dev extends TestCase {
         assertEquals(0, MethodUtils.clearCache());
     }
 
-    public void testNoCaching_1_oe() throws Exception {
+public void testNoCaching_1_oe() throws Exception {
         // no caching
         MethodUtils.setCacheMethods(false);
 

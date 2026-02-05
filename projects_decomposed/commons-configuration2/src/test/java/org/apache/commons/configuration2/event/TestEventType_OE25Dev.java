@@ -38,7 +38,7 @@ public class TestEventType_OE25Dev {
      * Tests the string representation.
      */
 
-    @Test
+@Test
     public void testToString_1_oe() {
         final String s = eventType.toString();
         assertEquals("Wrong string", "EventType [ TEST ]", s);

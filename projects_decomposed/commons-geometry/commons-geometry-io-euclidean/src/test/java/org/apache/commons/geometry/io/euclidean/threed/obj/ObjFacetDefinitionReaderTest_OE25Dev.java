@@ -72,7 +72,7 @@ class ObjFacetDefinitionReaderTest_OE25Dev {
         return new ObjFacetDefinitionReader(new StringReader(str));
     }
 
-    @Test
+@Test
     void testDefaults_1_oe() {
         // arrange
         final ObjFacetDefinitionReader reader = reader("");
@@ -81,7 +81,7 @@ class ObjFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertFalse(reader.isFailOnNonPolygonKeywords());
     }
 
-    @Test
+@Test
     void testReadFacet_withNormal_1_oe() {
         // arrange
         final ObjFacetDefinitionReader reader = reader(
@@ -101,7 +101,7 @@ class ObjFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals(1, facets.size());
     }
 
-    @Test
+@Test
     void testReadFacet_withoutNormal_1_oe() {
         // arrange
         final ObjFacetDefinitionReader reader = reader(
@@ -118,7 +118,7 @@ class ObjFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals(1, facets.size());
     }
 
-    @Test
+@Test
     void testReadFacet_withoutNormal_3_oe() {
         // arrange
         final ObjFacetDefinitionReader reader = reader(

@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 
 public class FieldTypeTest_OE25Dev{
 
-  @Test
+@Test
   public void testGetFieldTypeWithNegative_2_oe() {
       try {
         FieldType.getFieldType((-748));
@@ -33,7 +33,7 @@ public class FieldTypeTest_OE25Dev{
   }
   }
 
-  @Test
+@Test
   public void testGetFieldTypeWithNegative_3_oe() {
       try {
         FieldType.getFieldType((-748));

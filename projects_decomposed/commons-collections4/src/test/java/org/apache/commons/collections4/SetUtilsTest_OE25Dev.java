@@ -58,20 +58,20 @@ public class SetUtilsTest_OE25Dev {
         setB.add(7);
     }
 
-    @Test
+@Test
     public void difference_1_oe() {
         final SetView<Integer> set = SetUtils.difference(setA, setB);
         assertEquals(2, set.size());
     }
 
-    @Test
+@Test
     public void difference_2_oe() {
         final SetView<Integer> set = SetUtils.difference(setA, setB);
         // removed other assertion
         assertTrue(set.contains(1));
     }
 
-    @Test
+@Test
     public void difference_3_oe() {
         final SetView<Integer> set = SetUtils.difference(setA, setB);
         // removed other assertion
@@ -79,7 +79,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue(set.contains(2));
     }
 
-    @Test
+@Test
     public void difference_4_oe() {
         final SetView<Integer> set = SetUtils.difference(setA, setB);
         // removed other assertion
@@ -90,7 +90,7 @@ public class SetUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void difference_5_oe() {
         final SetView<Integer> set = SetUtils.difference(setA, setB);
         // removed other assertion
@@ -104,20 +104,20 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(setA, set2);
     }
 
-    @Test
+@Test
     public void disjunction_1_oe() {
         final SetView<Integer> set = SetUtils.disjunction(setA, setB);
         assertEquals(4, set.size());
     }
 
-    @Test
+@Test
     public void disjunction_2_oe() {
         final SetView<Integer> set = SetUtils.disjunction(setA, setB);
         // removed other assertion
         assertTrue(set.contains(1));
     }
 
-    @Test
+@Test
     public void disjunction_3_oe() {
         final SetView<Integer> set = SetUtils.disjunction(setA, setB);
         // removed other assertion
@@ -125,7 +125,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue(set.contains(2));
     }
 
-    @Test
+@Test
     public void disjunction_4_oe() {
         final SetView<Integer> set = SetUtils.disjunction(setA, setB);
         // removed other assertion
@@ -134,7 +134,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue(set.contains(6));
     }
 
-    @Test
+@Test
     public void disjunction_5_oe() {
         final SetView<Integer> set = SetUtils.disjunction(setA, setB);
         // removed other assertion
@@ -144,7 +144,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue(set.contains(7));
     }
 
-    @Test
+@Test
     public void disjunction_6_oe() {
         final SetView<Integer> set = SetUtils.disjunction(setA, setB);
         // removed other assertion
@@ -155,7 +155,7 @@ public class SetUtilsTest_OE25Dev {
         assertFalse(set.contains(3));
     }
 
-    @Test
+@Test
     public void disjunction_7_oe() {
         final SetView<Integer> set = SetUtils.disjunction(setA, setB);
         // removed other assertion
@@ -167,7 +167,7 @@ public class SetUtilsTest_OE25Dev {
         assertFalse(set.contains(4));
     }
 
-    @Test
+@Test
     public void disjunction_8_oe() {
         final SetView<Integer> set = SetUtils.disjunction(setA, setB);
         // removed other assertion
@@ -180,7 +180,7 @@ public class SetUtilsTest_OE25Dev {
         assertFalse(set.contains(5));
     }
 
-    @Test
+@Test
     public void disjunction_9_oe() {
         final SetView<Integer> set = SetUtils.disjunction(setA, setB);
         // removed other assertion
@@ -196,20 +196,20 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(setA, set2);
     }
 
-    @Test
+@Test
     public void intersection_1_oe() {
         final SetView<Integer> set = SetUtils.intersection(setA, setB);
         assertEquals(3, set.size());
     }
 
-    @Test
+@Test
     public void intersection_2_oe() {
         final SetView<Integer> set = SetUtils.intersection(setA, setB);
         // removed other assertion
         assertTrue(set.contains(3));
     }
 
-    @Test
+@Test
     public void intersection_3_oe() {
         final SetView<Integer> set = SetUtils.intersection(setA, setB);
         // removed other assertion
@@ -217,7 +217,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue(set.contains(4));
     }
 
-    @Test
+@Test
     public void intersection_4_oe() {
         final SetView<Integer> set = SetUtils.intersection(setA, setB);
         // removed other assertion
@@ -226,7 +226,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue(set.contains(5));
     }
 
-    @Test
+@Test
     public void intersection_5_oe() {
         final SetView<Integer> set = SetUtils.intersection(setA, setB);
         // removed other assertion
@@ -236,7 +236,7 @@ public class SetUtilsTest_OE25Dev {
         assertFalse(set.contains(1));
     }
 
-    @Test
+@Test
     public void intersection_6_oe() {
         final SetView<Integer> set = SetUtils.intersection(setA, setB);
         // removed other assertion
@@ -247,7 +247,7 @@ public class SetUtilsTest_OE25Dev {
         assertFalse(set.contains(2));
     }
 
-    @Test
+@Test
     public void intersection_7_oe() {
         final SetView<Integer> set = SetUtils.intersection(setA, setB);
         // removed other assertion
@@ -259,7 +259,7 @@ public class SetUtilsTest_OE25Dev {
         assertFalse(set.contains(6));
     }
 
-    @Test
+@Test
     public void intersection_8_oe() {
         final SetView<Integer> set = SetUtils.intersection(setA, setB);
         // removed other assertion
@@ -272,7 +272,7 @@ public class SetUtilsTest_OE25Dev {
         assertFalse(set.contains(7));
     }
 
-    @Test
+@Test
     public void intersection_9_oe() {
         final SetView<Integer> set = SetUtils.intersection(setA, setB);
         // removed other assertion
@@ -288,12 +288,12 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(SetUtils.<Integer>emptySet(), set2);
     }
 
-    @Test
+@Test
     public void testEmptyIfNull_1_oe() {
         assertTrue(SetUtils.emptyIfNull(null).isEmpty());
     }
 
-    @Test
+@Test
     public void testEmptyIfNull_2_oe() {
         // removed other assertion
 
@@ -301,7 +301,7 @@ public class SetUtilsTest_OE25Dev {
         assertSame(set, SetUtils.emptyIfNull(set));
     }
 
-    @Test
+@Test
     public void testEquals_1_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -311,7 +311,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(true, a.equals(b));
     }
 
-    @Test
+@Test
     public void testEquals_2_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -322,7 +322,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(true, SetUtils.isEqualSet(a, b));
     }
 
-    @Test
+@Test
     public void testEquals_3_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -335,7 +335,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(false, SetUtils.isEqualSet(a, b));
     }
 
-    @Test
+@Test
     public void testEquals_4_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -349,7 +349,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(false, SetUtils.isEqualSet(a, null));
     }
 
-    @Test
+@Test
     public void testEquals_5_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -364,7 +364,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(false, SetUtils.isEqualSet(null, b));
     }
 
-    @Test
+@Test
     public void testEquals_6_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -380,7 +380,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(true, SetUtils.isEqualSet(null, null));
     }
 
-    @Test
+@Test
     public void testHashCode_1_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -390,7 +390,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(true, a.hashCode() == b.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_2_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -401,7 +401,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(true, a.hashCode() == SetUtils.hashCodeForSet(a));
     }
 
-    @Test
+@Test
     public void testHashCode_3_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -413,7 +413,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(true, b.hashCode() == SetUtils.hashCodeForSet(b));
     }
 
-    @Test
+@Test
     public void testHashCode_4_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -426,7 +426,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(true, SetUtils.hashCodeForSet(a) == SetUtils.hashCodeForSet(b));
     }
 
-    @Test
+@Test
     public void testHashCode_5_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -441,7 +441,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(false, SetUtils.hashCodeForSet(a) == SetUtils.hashCodeForSet(b));
     }
 
-    @Test
+@Test
     public void testHashCode_6_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -457,14 +457,14 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(0, SetUtils.hashCodeForSet(null));
     }
 
-    @Test
+@Test
     public void testHashSet_1_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
         assertTrue("set is empty", set1.isEmpty());
     }
 
-    @Test
+@Test
     public void testHashSet_2_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -474,7 +474,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals("set has 3 elements", 3, set2.size());
     }
 
-    @Test
+@Test
     public void testHashSet_3_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -485,7 +485,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue("set contains 1", set2.contains(1));
     }
 
-    @Test
+@Test
     public void testHashSet_4_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -497,7 +497,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue("set contains 2", set2.contains(2));
     }
 
-    @Test
+@Test
     public void testHashSet_5_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -510,7 +510,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue("set contains 3", set2.contains(3));
     }
 
-    @Test
+@Test
     public void testHashSet_6_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -526,7 +526,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals("set has 3 elements", 3, set3.size());
     }
 
-    @Test
+@Test
     public void testHashSet_7_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -543,7 +543,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue("set contains 1", set3.contains("1"));
     }
 
-    @Test
+@Test
     public void testHashSet_8_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -561,7 +561,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue("set contains 2", set3.contains("2"));
     }
 
-    @Test
+@Test
     public void testHashSet_9_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -580,7 +580,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue("set contains 3", set3.contains("3"));
     }
 
-    @Test
+@Test
     public void testHashSet_10_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -602,7 +602,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals("set has 1 element", 1, set4.size());
     }
 
-    @Test
+@Test
     public void testHashSet_11_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -625,7 +625,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue("set contains null", set4.contains(null));
     }
 
-    @Test
+@Test
     public void testHashSet_12_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -651,7 +651,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals("set is null", null, set5);
     }
 
-    @Test
+@Test
     public void testNewIdentityHashSet_1_oe() {
         final Set<String> set = SetUtils.newIdentityHashSet();
         final String a = new String("a");
@@ -662,7 +662,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(2, set.size());
     }
 
-    @Test
+@Test
     public void testNewIdentityHashSet_2_oe() {
         final Set<String> set = SetUtils.newIdentityHashSet();
         final String a = new String("a");
@@ -676,7 +676,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(3, set.size());
     }
 
-    @Test
+@Test
     public void testNewIdentityHashSet_3_oe() {
         final Set<String> set = SetUtils.newIdentityHashSet();
         final String a = new String("a");
@@ -693,7 +693,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals(2, set.size());
     }
 
-    @Test
+@Test
     public void testpredicatedSet_1_oe() {
         final Predicate<Object> predicate = new Predicate<Object>() {
             @Override
@@ -705,14 +705,14 @@ public class SetUtilsTest_OE25Dev {
         assertTrue("returned object should be a PredicatedSet", set instanceof PredicatedSet);
     }
 
-    @Test
+@Test
     public void testUnmodifiableSet_1_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
         assertTrue("set is empty", set1.isEmpty());
     }
 
-    @Test
+@Test
     public void testUnmodifiableSet_2_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -722,7 +722,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals("set has 3 elements", 3, set2.size());
     }
 
-    @Test
+@Test
     public void testUnmodifiableSet_3_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -733,7 +733,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue("set contains 1", set2.contains(1));
     }
 
-    @Test
+@Test
     public void testUnmodifiableSet_4_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -745,7 +745,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue("set contains 2", set2.contains(2));
     }
 
-    @Test
+@Test
     public void testUnmodifiableSet_5_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -758,7 +758,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue("set contains 3", set2.contains(3));
     }
 
-    @Test
+@Test
     public void testUnmodifiableSet_6_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -774,7 +774,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals("set has 3 elements", 3, set3.size());
     }
 
-    @Test
+@Test
     public void testUnmodifiableSet_7_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -791,7 +791,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue("set contains 1", set3.contains("1"));
     }
 
-    @Test
+@Test
     public void testUnmodifiableSet_8_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -809,7 +809,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue("set contains 2", set3.contains("2"));
     }
 
-    @Test
+@Test
     public void testUnmodifiableSet_9_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -828,7 +828,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue("set contains 3", set3.contains("3"));
     }
 
-    @Test
+@Test
     public void testUnmodifiableSet_10_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -850,7 +850,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals("set has 1 element", 1, set4.size());
     }
 
-    @Test
+@Test
     public void testUnmodifiableSet_11_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -873,7 +873,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue("set contains null", set4.contains(null));
     }
 
-    @Test
+@Test
     public void testUnmodifiableSet_12_oe()
     {
         Set<?> set1 = SetUtils.unmodifiableSet();
@@ -899,7 +899,7 @@ public class SetUtilsTest_OE25Dev {
         assertEquals("set is null", null, set5);
     }
 
-    @Test
+@Test
     public void testUnmodifiableSetWrap_1_oe()
     {
         Set<Integer> set1 = SetUtils.unmodifiableSet(1, 2, 2, 3);
@@ -907,20 +907,20 @@ public class SetUtilsTest_OE25Dev {
         assertSame(set1, set2);
     }
 
-    @Test
+@Test
     public void union_1_oe() {
         final SetView<Integer> set = SetUtils.union(setA, setB);
         assertEquals(7, set.size());
     }
 
-    @Test
+@Test
     public void union_2_oe() {
         final SetView<Integer> set = SetUtils.union(setA, setB);
         // removed other assertion
         assertTrue(set.containsAll(setA));
     }
 
-    @Test
+@Test
     public void union_3_oe() {
         final SetView<Integer> set = SetUtils.union(setA, setB);
         // removed other assertion
@@ -928,7 +928,7 @@ public class SetUtilsTest_OE25Dev {
         assertTrue(set.containsAll(setB));
     }
 
-    @Test
+@Test
     public void union_4_oe() {
         final SetView<Integer> set = SetUtils.union(setA, setB);
         // removed other assertion

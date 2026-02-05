@@ -29,25 +29,38 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ http-request ---
 [INFO] Compiling 5 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/target/test-classes
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ http-request ---
-[INFO] Surefire report directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/target/surefire-reports
-
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
-Running com.github.kevinsawicki.http.EncodeTest_OE25Dev
-Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.24 sec
-Running com.github.kevinsawicki.http.HttpRequestTest_OE25Dev
-Tests run: 331, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 128.487 sec
-
-Results :
-
-Tests run: 351, Failures: 0, Errors: 0, Skipped: 0
-
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6214,3] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6237,3] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6259,3] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6282,3] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6303,3] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6325,3] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6345,3] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6366,3] error: ';' expected
+[INFO] 8 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  02:18 min
-[INFO] Finished at: 2026-02-04T19:42:16-06:00
+[INFO] Total time:  5.904 s
+[INFO] Finished at: 2026-02-05T02:17:59-06:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:2.3.2:testCompile (default-testCompile) on project http-request: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6214,3] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6237,3] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6259,3] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6282,3] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6303,3] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6325,3] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6345,3] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6366,3] error: ';' expected
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

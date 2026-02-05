@@ -57,34 +57,34 @@ public class HttpConnectionTest_OE25Dev {
         req.addHeader("xxx", "é");
     }
 
-    @Test public void canCreateEmptyConnection_1_oe() {
+@Test public void canCreateEmptyConnection_1_oe() {
         HttpConnection con = new HttpConnection();
         assertEquals(Connection.Method.GET, con.request().method());
         }
 
-    @Test public void canCreateEmptyConnection_2_oe() {
+@Test public void canCreateEmptyConnection_2_oe() {
         HttpConnection con = new HttpConnection();
         // removed other assertion
         assertThrows(IllegalArgumentException.class, () -> { URL url = con.request().url(); });
         }
 
-    @Test public void throwsExceptionOnResponseWithoutExecute_1_oe() {
+@Test public void throwsExceptionOnResponseWithoutExecute_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> { Connection con = HttpConnection.connect("http://example.com"); con.response(); });
         }
 
-    @Test public void throwsExceptionOnParseWithoutExecute_1_oe() {
+@Test public void throwsExceptionOnParseWithoutExecute_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> { Connection con = HttpConnection.connect("http://example.com"); con.response().parse(); });
         }
 
-    @Test public void throwsExceptionOnBodyWithoutExecute_1_oe() {
+@Test public void throwsExceptionOnBodyWithoutExecute_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> { Connection con = HttpConnection.connect("http://example.com"); con.response().body(); });
         }
 
-    @Test public void throwsExceptionOnBodyAsBytesWithoutExecute_1_oe() {
+@Test public void throwsExceptionOnBodyAsBytesWithoutExecute_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> { Connection con = HttpConnection.connect("http://example.com"); con.response().bodyAsBytes(); });
         }
 
-    @Test public void headers_1_oe() {
+@Test public void headers_1_oe() {
         Connection con = HttpConnection.connect("http://example.com");
         Map<String, String> headers = new HashMap<>();
         headers.put("content-type", "text/html");
@@ -94,7 +94,30 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("text/html", con.request().header("content-type"));
         }
 
-    @Test public void sameHeadersCombineWithComma_1_oe() {
+@Test public void headers_2_oe() {
+        Connection con = HttpConnection.connect("http://example.com");
+        Map<String, String> headers = new HashMap<>();
+        headers.put("content-type", "text/html");
+        headers.put("Connection", "keep-alive");
+        headers.put("Host", "http://example.com");
+        con.headers(headers);
+        // removed other assertion
+        assertEquals("keep-alive", con.request().header("Connection"));
+        }
+
+@Test public void headers_3_oe() {
+        Connection con = HttpConnection.connect("http://example.com");
+        Map<String, String> headers = new HashMap<>();
+        headers.put("content-type", "text/html");
+        headers.put("Connection", "keep-alive");
+        headers.put("Host", "http://example.com");
+        con.headers(headers);
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com", con.request().header("Host"));
+        }
+
+@Test public void sameHeadersCombineWithComma_1_oe() {
         Map<String, List<String>> headers = new HashMap<>();
         List<String> values = new ArrayList<>();
         values.add("no-cache");
@@ -105,7 +128,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("no-cache, no-store", res.header("Cache-Control"));
         }
 
-    @Test public void multipleHeaders_1_oe() {
+@Test public void multipleHeaders_1_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -114,7 +137,7 @@ public class HttpConnectionTest_OE25Dev {
         assertTrue(req.hasHeader("Accept"));
         }
 
-    @Test public void multipleHeaders_2_oe() {
+@Test public void multipleHeaders_2_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -124,7 +147,7 @@ public class HttpConnectionTest_OE25Dev {
         assertTrue(req.hasHeader("ACCEpt"));
         }
 
-    @Test public void multipleHeaders_3_oe() {
+@Test public void multipleHeaders_3_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -135,7 +158,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("Something, Everything", req.header("accept"));
         }
 
-    @Test public void multipleHeaders_4_oe() {
+@Test public void multipleHeaders_4_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -147,7 +170,7 @@ public class HttpConnectionTest_OE25Dev {
         assertTrue(req.hasHeader("fOO"));
         }
 
-    @Test public void multipleHeaders_5_oe() {
+@Test public void multipleHeaders_5_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -160,7 +183,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("Bar", req.header("foo"));
         }
 
-    @Test public void multipleHeaders_6_oe() {
+@Test public void multipleHeaders_6_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -176,7 +199,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals(2, accept.size());
         }
 
-    @Test public void multipleHeaders_7_oe() {
+@Test public void multipleHeaders_7_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -193,7 +216,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("Something", accept.get(0));
         }
 
-    @Test public void multipleHeaders_8_oe() {
+@Test public void multipleHeaders_8_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -211,7 +234,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("Everything", accept.get(1));
         }
 
-    @Test public void multipleHeaders_9_oe() {
+@Test public void multipleHeaders_9_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -232,7 +255,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals(accept, headers.get("Accept"));
         }
 
-    @Test public void multipleHeaders_10_oe() {
+@Test public void multipleHeaders_10_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -254,7 +277,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("Bar", headers.get("Foo").get(0));
         }
 
-    @Test public void multipleHeaders_11_oe() {
+@Test public void multipleHeaders_11_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -278,7 +301,7 @@ public class HttpConnectionTest_OE25Dev {
         assertTrue(req.hasHeader("Accept"));
         }
 
-    @Test public void multipleHeaders_12_oe() {
+@Test public void multipleHeaders_12_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -303,7 +326,7 @@ public class HttpConnectionTest_OE25Dev {
         assertTrue(req.hasHeaderWithValue("accept", "Something"));
         }
 
-    @Test public void multipleHeaders_13_oe() {
+@Test public void multipleHeaders_13_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -329,7 +352,7 @@ public class HttpConnectionTest_OE25Dev {
         assertTrue(req.hasHeaderWithValue("accept", "Everything"));
         }
 
-    @Test public void multipleHeaders_14_oe() {
+@Test public void multipleHeaders_14_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -356,7 +379,7 @@ public class HttpConnectionTest_OE25Dev {
         assertFalse(req.hasHeaderWithValue("accept", "Something for nothing"));
         }
 
-    @Test public void multipleHeaders_15_oe() {
+@Test public void multipleHeaders_15_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -387,7 +410,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("Bar", headers.get("Foo").get(0));
         }
 
-    @Test public void multipleHeaders_16_oe() {
+@Test public void multipleHeaders_16_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -419,7 +442,7 @@ public class HttpConnectionTest_OE25Dev {
         assertFalse(req.hasHeader("Accept"));
         }
 
-    @Test public void multipleHeaders_17_oe() {
+@Test public void multipleHeaders_17_oe() {
         Connection.Request req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
         req.addHeader("Accept", "Everything");
@@ -452,7 +475,7 @@ public class HttpConnectionTest_OE25Dev {
         assertNull(headers.get("Accept"));
         }
 
-    @Test public void ignoresEmptySetCookies_1_oe() {
+@Test public void ignoresEmptySetCookies_1_oe() {
         // prep http response header map
         Map<String, List<String>> headers = new HashMap<>();
         headers.put("Set-Cookie", Collections.emptyList());
@@ -461,7 +484,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals(0, res.cookies().size());
         }
 
-    @Test public void ignoresEmptyCookieNameAndVals_1_oe() {
+@Test public void ignoresEmptyCookieNameAndVals_1_oe() {
         // prep http response header map
         Map<String, List<String>> headers = new HashMap<>();
         List<String> cookieStrings = new ArrayList<>();
@@ -478,7 +501,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals(4, res.cookies().size());
         }
 
-    @Test public void ignoresEmptyCookieNameAndVals_2_oe() {
+@Test public void ignoresEmptyCookieNameAndVals_2_oe() {
         // prep http response header map
         Map<String, List<String>> headers = new HashMap<>();
         List<String> cookieStrings = new ArrayList<>();
@@ -496,7 +519,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("", res.cookie("one"));
         }
 
-    @Test public void ignoresEmptyCookieNameAndVals_3_oe() {
+@Test public void ignoresEmptyCookieNameAndVals_3_oe() {
         // prep http response header map
         Map<String, List<String>> headers = new HashMap<>();
         List<String> cookieStrings = new ArrayList<>();
@@ -515,7 +538,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("", res.cookie("two"));
         }
 
-    @Test public void ignoresEmptyCookieNameAndVals_4_oe() {
+@Test public void ignoresEmptyCookieNameAndVals_4_oe() {
         // prep http response header map
         Map<String, List<String>> headers = new HashMap<>();
         List<String> cookieStrings = new ArrayList<>();
@@ -535,7 +558,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("", res.cookie("three"));
         }
 
-    @Test public void ignoresEmptyCookieNameAndVals_5_oe() {
+@Test public void ignoresEmptyCookieNameAndVals_5_oe() {
         // prep http response header map
         Map<String, List<String>> headers = new HashMap<>();
         List<String> cookieStrings = new ArrayList<>();
@@ -556,62 +579,62 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("data", res.cookie("four"));
         }
 
-    @Test public void connectWithUrl_1_oe() throws MalformedURLException {
+@Test public void connectWithUrl_1_oe() throws MalformedURLException {
         Connection con = HttpConnection.connect(new URL("http://example.com"));
         assertEquals("http://example.com", con.request().url().toExternalForm());
         }
 
-    @Test public void throwsOnMalformedUrl_1_oe() {
+@Test public void throwsOnMalformedUrl_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> HttpConnection.connect("bzzt"));
         }
 
-    @Test public void userAgent_1_oe() {
+@Test public void userAgent_1_oe() {
         Connection con = HttpConnection.connect("http://example.com/");
         assertEquals(HttpConnection.DEFAULT_UA, con.request().header("User-Agent"));
         }
 
-    @Test public void userAgent_2_oe() {
+@Test public void userAgent_2_oe() {
         Connection con = HttpConnection.connect("http://example.com/");
         // removed other assertion
         con.userAgent("Mozilla");
         assertEquals("Mozilla", con.request().header("User-Agent"));
         }
 
-    @Test public void timeout_1_oe() {
+@Test public void timeout_1_oe() {
         Connection con = HttpConnection.connect("http://example.com/");
         assertEquals(30 * 1000, con.request().timeout());
         }
 
-    @Test public void timeout_2_oe() {
+@Test public void timeout_2_oe() {
         Connection con = HttpConnection.connect("http://example.com/");
         // removed other assertion
         con.timeout(1000);
         assertEquals(1000, con.request().timeout());
         }
 
-    @Test public void referrer_1_oe() {
+@Test public void referrer_1_oe() {
         Connection con = HttpConnection.connect("http://example.com/");
         con.referrer("http://foo.com");
         assertEquals("http://foo.com", con.request().header("Referer"));
         }
 
-    @Test public void method_1_oe() {
+@Test public void method_1_oe() {
         Connection con = HttpConnection.connect("http://example.com/");
         assertEquals(Connection.Method.GET, con.request().method());
         }
 
-    @Test public void method_2_oe() {
+@Test public void method_2_oe() {
         Connection con = HttpConnection.connect("http://example.com/");
         // removed other assertion
         con.method(Connection.Method.POST);
         assertEquals(Connection.Method.POST, con.request().method());
         }
 
-    @Test public void throwsOnOddData_1_oe() {
+@Test public void throwsOnOddData_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> { Connection con = HttpConnection.connect("http://example.com/"); con.data("Name", "val", "what"); });
         }
 
-    @Test public void data_1_oe() {
+@Test public void data_1_oe() {
         Connection con = HttpConnection.connect("http://example.com/");
         con.data("Name", "Val", "Foo", "bar");
         Collection<Connection.KeyVal> values = con.request().data();
@@ -621,7 +644,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("Name", one.key());
         }
 
-    @Test public void data_2_oe() {
+@Test public void data_2_oe() {
         Connection con = HttpConnection.connect("http://example.com/");
         con.data("Name", "Val", "Foo", "bar");
         Collection<Connection.KeyVal> values = con.request().data();
@@ -632,7 +655,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("Val", one.value());
         }
 
-    @Test public void data_3_oe() {
+@Test public void data_3_oe() {
         Connection con = HttpConnection.connect("http://example.com/");
         con.data("Name", "Val", "Foo", "bar");
         Collection<Connection.KeyVal> values = con.request().data();
@@ -644,7 +667,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("Foo", two.key());
         }
 
-    @Test public void data_4_oe() {
+@Test public void data_4_oe() {
         Connection con = HttpConnection.connect("http://example.com/");
         con.data("Name", "Val", "Foo", "bar");
         Collection<Connection.KeyVal> values = con.request().data();
@@ -657,31 +680,31 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("bar", two.value());
         }
 
-    @Test public void cookie_1_oe() {
+@Test public void cookie_1_oe() {
         Connection con = HttpConnection.connect("http://example.com/");
         con.cookie("Name", "Val");
         assertEquals("Val", con.request().cookie("Name"));
         }
 
-    @Test public void inputStream_1_oe() {
+@Test public void inputStream_1_oe() {
         Connection.KeyVal kv = HttpConnection.KeyVal.create("file", "thumb.jpg", ParseTest.inputStreamFrom("Check"));
         assertEquals("file", kv.key());
         }
 
-    @Test public void inputStream_2_oe() {
+@Test public void inputStream_2_oe() {
         Connection.KeyVal kv = HttpConnection.KeyVal.create("file", "thumb.jpg", ParseTest.inputStreamFrom("Check"));
         // removed other assertion
         assertEquals("thumb.jpg", kv.value());
         }
 
-    @Test public void inputStream_3_oe() {
+@Test public void inputStream_3_oe() {
         Connection.KeyVal kv = HttpConnection.KeyVal.create("file", "thumb.jpg", ParseTest.inputStreamFrom("Check"));
         // removed other assertion
         // removed other assertion
         assertTrue(kv.hasInputStream());
         }
 
-    @Test public void inputStream_4_oe() {
+@Test public void inputStream_4_oe() {
         Connection.KeyVal kv = HttpConnection.KeyVal.create("file", "thumb.jpg", ParseTest.inputStreamFrom("Check"));
         // removed other assertion
         // removed other assertion
@@ -691,7 +714,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("one", kv.key());
         }
 
-    @Test public void inputStream_5_oe() {
+@Test public void inputStream_5_oe() {
         Connection.KeyVal kv = HttpConnection.KeyVal.create("file", "thumb.jpg", ParseTest.inputStreamFrom("Check"));
         // removed other assertion
         // removed other assertion
@@ -702,7 +725,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("two", kv.value());
         }
 
-    @Test public void inputStream_6_oe() {
+@Test public void inputStream_6_oe() {
         Connection.KeyVal kv = HttpConnection.KeyVal.create("file", "thumb.jpg", ParseTest.inputStreamFrom("Check"));
         // removed other assertion
         // removed other assertion
@@ -714,19 +737,19 @@ public class HttpConnectionTest_OE25Dev {
         assertFalse(kv.hasInputStream());
         }
 
-    @Test public void requestBody_1_oe() {
+@Test public void requestBody_1_oe() {
         Connection con = HttpConnection.connect("http://example.com/");
         con.requestBody("foo");
         assertEquals("foo", con.request().requestBody());
         }
 
-    @Test public void encodeUrl_1_oe() throws MalformedURLException {
+@Test public void encodeUrl_1_oe() throws MalformedURLException {
         URL url1 = new URL("http://test.com/?q=white space");
         URL url2 = HttpConnection.encodeUrl(url1);
         assertEquals("http://test.com/?q=white%20space", url2.toExternalForm());
         }
 
-    @Test public void noUrlThrowsValidationError_1_oe() throws IOException {
+@Test public void noUrlThrowsValidationError_1_oe() throws IOException {
         HttpConnection con = new HttpConnection();
         boolean threw = false;
         try {
@@ -737,7 +760,7 @@ public class HttpConnectionTest_OE25Dev {
         }
         }
 
-    @Test public void noUrlThrowsValidationError_2_oe() throws IOException {
+@Test public void noUrlThrowsValidationError_2_oe() throws IOException {
         HttpConnection con = new HttpConnection();
         boolean threw = false;
         try {
@@ -749,7 +772,7 @@ public class HttpConnectionTest_OE25Dev {
         assertTrue(threw);
         }
 
-    @Test public void supportsInternationalDomainNames_1_oe() throws MalformedURLException {
+@Test public void supportsInternationalDomainNames_1_oe() throws MalformedURLException {
         String idn = "https://www.测试.测试/foo.html?bar";
         String puny = "https://www.xn--0zwm56d.xn--0zwm56d/foo.html?bar";
 
@@ -757,7 +780,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals(puny, con.request().url().toExternalForm());
         }
 
-    @Test public void supportsInternationalDomainNames_2_oe() throws MalformedURLException {
+@Test public void supportsInternationalDomainNames_2_oe() throws MalformedURLException {
         String idn = "https://www.测试.测试/foo.html?bar";
         String puny = "https://www.xn--0zwm56d.xn--0zwm56d/foo.html?bar";
 
@@ -769,7 +792,7 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals(puny, req.url().toExternalForm());
         }
 
-    @Test public void validationErrorsOnExecute_1_oe() throws IOException {
+@Test public void validationErrorsOnExecute_1_oe() throws IOException {
         Connection con = new HttpConnection();
         boolean urlThrew = false;
         try {
@@ -780,7 +803,7 @@ public class HttpConnectionTest_OE25Dev {
         assertTrue(urlThrew);
         }
 
-    @Test void testMalformedException_1_oe() {
+@Test void testMalformedException_1_oe() {
         boolean threw = false;
         try {
             Jsoup.connect("jsoup.org/test");
@@ -790,7 +813,7 @@ public class HttpConnectionTest_OE25Dev {
         }
         }
 
-    @Test void testMalformedException_2_oe() {
+@Test void testMalformedException_2_oe() {
         boolean threw = false;
         try {
             Jsoup.connect("jsoup.org/test");

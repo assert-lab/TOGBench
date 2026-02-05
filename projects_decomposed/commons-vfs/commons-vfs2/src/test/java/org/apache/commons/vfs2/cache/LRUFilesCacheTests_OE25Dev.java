@@ -29,14 +29,14 @@ import org.junit.Test;
  */
 public class LRUFilesCacheTests_OE25Dev extends AbstractFilesCacheTestsBase {
 
-    @Test
+@Test
     public void testClass_1_oe() {
         @SuppressWarnings("resource")
         final DefaultFileSystemManager manager = getManager();
         Assert.assertNotNull("manager", manager);
     }
 
-    @Test
+@Test
     public void testClass_2_oe() {
         @SuppressWarnings("resource")
         final DefaultFileSystemManager manager = getManager();
@@ -45,13 +45,13 @@ public class LRUFilesCacheTests_OE25Dev extends AbstractFilesCacheTestsBase {
         assertTrue(Objects.toString(filesCache), filesCache instanceof LRUFilesCache);
     }
 
-    @Test
+@Test
     public void testFilesCache_1_oe() throws Exception {
         final FileObject scratchFolder = getWriteFolder();
         Assert.assertNotNull("scratchFolder", scratchFolder);
     }
 
-    @Test
+@Test
     public void testFilesCache_2_oe() throws Exception {
         final FileObject scratchFolder = getWriteFolder();
         // removed other assertion
@@ -92,7 +92,7 @@ public class LRUFilesCacheTests_OE25Dev extends AbstractFilesCacheTestsBase {
         assertSame(dir2, dir2_2);
     }
 
-    @Test
+@Test
     public void testFilesCache_3_oe() throws Exception {
         final FileObject scratchFolder = getWriteFolder();
         // removed other assertion

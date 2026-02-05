@@ -59,7 +59,7 @@ public class CatchAndRethrowClosureTest_OE25Dev extends AbstractClosureTest {
         return generateNoExceptionClosure();
     }
 
-    @Test
+@Test
     public void testThrowingClosure_1_oe() {
         Closure<Integer> closure = generateNoExceptionClosure();
         try {
@@ -69,7 +69,7 @@ public class CatchAndRethrowClosureTest_OE25Dev extends AbstractClosureTest {
     }
     }
 
-    @Test
+@Test
     public void testThrowingClosure_2_oe() {
         Closure<Integer> closure = generateNoExceptionClosure();
         try {
@@ -81,7 +81,7 @@ public class CatchAndRethrowClosureTest_OE25Dev extends AbstractClosureTest {
     }
     }
 
-    @Test
+@Test
     public void testThrowingClosure_4_oe() {
         Closure<Integer> closure = generateNoExceptionClosure();
         try {
@@ -101,7 +101,7 @@ public class CatchAndRethrowClosureTest_OE25Dev extends AbstractClosureTest {
     }
     }
 
-    @Test
+@Test
     public void testThrowingClosure_5_oe() {
         Closure<Integer> closure = generateNoExceptionClosure();
         try {
@@ -123,7 +123,7 @@ public class CatchAndRethrowClosureTest_OE25Dev extends AbstractClosureTest {
     }
     }
 
-    @Test
+@Test
     public void testThrowingClosure_7_oe() {
         Closure<Integer> closure = generateNoExceptionClosure();
         try {
@@ -153,7 +153,7 @@ public class CatchAndRethrowClosureTest_OE25Dev extends AbstractClosureTest {
     }
     }
 
-    @Test
+@Test
     public void testThrowingClosure_8_oe() {
         Closure<Integer> closure = generateNoExceptionClosure();
         try {

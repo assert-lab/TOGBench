@@ -78,25 +78,25 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testSingleton_1_oe() throws Exception {
+public void testSingleton_1_oe() throws Exception {
         Class cls = CalendarConverter.class;
         assertEquals(false,Modifier.isPublic(cls.getModifiers()));
     }
 
-    public void testSingleton_2_oe() throws Exception {
+public void testSingleton_2_oe() throws Exception {
         Class cls = CalendarConverter.class;
         // removed other assertion
         assertEquals(false,Modifier.isProtected(cls.getModifiers()));
     }
 
-    public void testSingleton_3_oe() throws Exception {
+public void testSingleton_3_oe() throws Exception {
         Class cls = CalendarConverter.class;
         // removed other assertion
         // removed other assertion
         assertEquals(false,Modifier.isPrivate(cls.getModifiers()));
     }
 
-    public void testSingleton_4_oe() throws Exception {
+public void testSingleton_4_oe() throws Exception {
         Class cls = CalendarConverter.class;
         // removed other assertion
         // removed other assertion
@@ -106,7 +106,7 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
         assertEquals(1,cls.getDeclaredConstructors().length);
     }
 
-    public void testSingleton_5_oe() throws Exception {
+public void testSingleton_5_oe() throws Exception {
         Class cls = CalendarConverter.class;
         // removed other assertion
         // removed other assertion
@@ -117,7 +117,7 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
         assertEquals(true,Modifier.isProtected(con.getModifiers()));
     }
 
-    public void testSingleton_6_oe() throws Exception {
+public void testSingleton_6_oe() throws Exception {
         Class cls = CalendarConverter.class;
         // removed other assertion
         // removed other assertion
@@ -131,7 +131,7 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPublic(fld.getModifiers()));
     }
 
-    public void testSingleton_7_oe() throws Exception {
+public void testSingleton_7_oe() throws Exception {
         Class cls = CalendarConverter.class;
         // removed other assertion
         // removed other assertion
@@ -146,7 +146,7 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isProtected(fld.getModifiers()));
     }
 
-    public void testSingleton_8_oe() throws Exception {
+public void testSingleton_8_oe() throws Exception {
         Class cls = CalendarConverter.class;
         // removed other assertion
         // removed other assertion
@@ -162,29 +162,29 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPrivate(fld.getModifiers()));
     }
 
-    public void testSupportedType_1_oe() throws Exception {
+public void testSupportedType_1_oe() throws Exception {
         assertEquals(Calendar.class,CalendarConverter.INSTANCE.getSupportedType());
     }
 
-    public void testGetInstantMillis_Object_Chronology_1_oe() throws Exception {
+public void testGetInstantMillis_Object_Chronology_1_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(new Date(123L));
         assertEquals(123L,CalendarConverter.INSTANCE.getInstantMillis(cal,JULIAN));
     }
 
-    public void testGetInstantMillis_Object_Chronology_2_oe() throws Exception {
+public void testGetInstantMillis_Object_Chronology_2_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(new Date(123L));
         // removed other assertion
         assertEquals(123L,cal.getTime().getTime());
     }
 
-    public void testGetChronology_Object_Zone_1_oe() throws Exception {
+public void testGetChronology_Object_Zone_1_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Paris"));
         assertEquals(GJChronology.getInstance(MOSCOW),CalendarConverter.INSTANCE.getChronology(cal,MOSCOW));
     }
 
-    public void testGetChronology_Object_Zone_2_oe() throws Exception {
+public void testGetChronology_Object_Zone_2_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Paris"));
         // removed other assertion
         
@@ -192,7 +192,7 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
         assertEquals(GJChronology.getInstance(),CalendarConverter.INSTANCE.getChronology(cal,(DateTimeZone)null));
     }
 
-    public void testGetChronology_Object_Zone_3_oe() throws Exception {
+public void testGetChronology_Object_Zone_3_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Paris"));
         // removed other assertion
         
@@ -204,7 +204,7 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
         assertEquals(GJChronology.getInstance(MOSCOW,0L,4),CalendarConverter.INSTANCE.getChronology(cal,MOSCOW));
     }
 
-    public void testGetChronology_Object_Zone_4_oe() throws Exception {
+public void testGetChronology_Object_Zone_4_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Paris"));
         // removed other assertion
         
@@ -220,7 +220,7 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
         assertEquals(JulianChronology.getInstance(PARIS),CalendarConverter.INSTANCE.getChronology(cal,PARIS));
     }
 
-    public void testGetChronology_Object_Zone_5_oe() throws Exception {
+public void testGetChronology_Object_Zone_5_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Paris"));
         // removed other assertion
         
@@ -240,7 +240,7 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
         assertEquals(GregorianChronology.getInstance(PARIS),CalendarConverter.INSTANCE.getChronology(cal,PARIS));
     }
 
-    public void testGetChronology_Object_Zone_6_oe() throws Exception {
+public void testGetChronology_Object_Zone_6_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Paris"));
         // removed other assertion
         
@@ -263,12 +263,12 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
         assertEquals(ISOChronology.getInstance(PARIS),CalendarConverter.INSTANCE.getChronology(uc,PARIS));
     }
 
-    public void testGetChronology_Object_nullChronology_1_oe() throws Exception {
+public void testGetChronology_Object_nullChronology_1_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Paris"));
         assertEquals(GJChronology.getInstance(PARIS),CalendarConverter.INSTANCE.getChronology(cal,(Chronology)null));
     }
 
-    public void testGetChronology_Object_nullChronology_2_oe() throws Exception {
+public void testGetChronology_Object_nullChronology_2_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Paris"));
         // removed other assertion
         
@@ -277,7 +277,7 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
         assertEquals(GJChronology.getInstance(MOSCOW,0L,4),CalendarConverter.INSTANCE.getChronology(cal,(Chronology)null));
     }
 
-    public void testGetChronology_Object_nullChronology_3_oe() throws Exception {
+public void testGetChronology_Object_nullChronology_3_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Paris"));
         // removed other assertion
         
@@ -290,7 +290,7 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
         assertEquals(JulianChronology.getInstance(MOSCOW),CalendarConverter.INSTANCE.getChronology(cal,(Chronology)null));
     }
 
-    public void testGetChronology_Object_nullChronology_4_oe() throws Exception {
+public void testGetChronology_Object_nullChronology_4_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Paris"));
         // removed other assertion
         
@@ -307,7 +307,7 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
         assertEquals(GregorianChronology.getInstance(MOSCOW),CalendarConverter.INSTANCE.getChronology(cal,(Chronology)null));
     }
 
-    public void testGetChronology_Object_nullChronology_5_oe() throws Exception {
+public void testGetChronology_Object_nullChronology_5_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Paris"));
         // removed other assertion
         
@@ -327,7 +327,7 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
         assertEquals(GJChronology.getInstance(),CalendarConverter.INSTANCE.getChronology(cal,(Chronology)null));
     }
 
-    public void testGetChronology_Object_nullChronology_6_oe() throws Exception {
+public void testGetChronology_Object_nullChronology_6_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Paris"));
         // removed other assertion
         
@@ -350,12 +350,12 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
         assertEquals(ISOChronology.getInstance(MOSCOW),CalendarConverter.INSTANCE.getChronology(uc,(Chronology)null));
     }
 
-    public void testGetChronology_Object_Chronology_1_oe() throws Exception {
+public void testGetChronology_Object_Chronology_1_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Paris"));
         assertEquals(JULIAN,CalendarConverter.INSTANCE.getChronology(cal,JULIAN));
     }
 
-    public void testGetPartialValues_1_oe() throws Exception {
+public void testGetPartialValues_1_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(new Date(12345678L));
         TimeOfDay tod = new TimeOfDay();
@@ -364,7 +364,7 @@ public class TestCalendarConverter_OE25Dev extends TestCase {
         assertEquals(true,Arrays.equals(expected,actual));
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         assertEquals("Converter[java.util.Calendar]",CalendarConverter.INSTANCE.toString());
     }
 

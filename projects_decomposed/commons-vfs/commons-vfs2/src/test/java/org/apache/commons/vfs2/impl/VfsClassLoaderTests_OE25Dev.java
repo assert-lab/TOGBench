@@ -125,7 +125,7 @@ public class VfsClassLoaderTests_OE25Dev extends AbstractProviderTestCase {
         }
     }
 
-    @Test
+@Test
     public void testGetResourcesJARs_1_oe() throws Exception {
         final FileSystemManager manager = getManager();
         try {
@@ -152,7 +152,7 @@ public class VfsClassLoaderTests_OE25Dev extends AbstractProviderTestCase {
         assertSame("nested.jar is required for testing", nestedJar.getType(), FileType.FILE);
     }
 
-    @Test
+@Test
     public void testGetResourcesJARs_2_oe() throws Exception {
         final FileSystemManager manager = getManager();
         try {
@@ -180,7 +180,7 @@ public class VfsClassLoaderTests_OE25Dev extends AbstractProviderTestCase {
         assertSame("test.jar is required for testing", testJar.getType(), FileType.FILE);
     }
 
-    @Test
+@Test
     public void testGetResourcesJARs_3_oe() throws Exception {
         final FileSystemManager manager = getManager();
         try {
@@ -221,7 +221,7 @@ public class VfsClassLoaderTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue("First resource must refer to nested.jar but was " + url1,url1.toString().endsWith("nested.jar!/META-INF/MANIFEST.MF"));
     }
 
-    @Test
+@Test
     public void testGetResourcesJARs_4_oe() throws Exception {
         final FileSystemManager manager = getManager();
         try {
@@ -263,7 +263,7 @@ public class VfsClassLoaderTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue("Second resource must refer to test.jar but was " + url2,url2.toString().endsWith("test.jar!/META-INF/MANIFEST.MF"));
     }
 
-    @Test
+@Test
     public void testGetResourcesNoLayerLocal_1_oe() throws Exception {
         final FileSystemManager manager = getManager();
         try {
@@ -280,7 +280,7 @@ public class VfsClassLoaderTests_OE25Dev extends AbstractProviderTestCase {
         assertSame("subdir4.jar/ is required for testing " + dir, dir.getType(), FileType.FOLDER);
     }
 
-    @Test
+@Test
     public void testGetResourcesNoLayerLocal_2_oe() throws Exception {
         final FileSystemManager manager = getManager();
         try {
@@ -298,7 +298,7 @@ public class VfsClassLoaderTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(manager.canCreateFileSystem(dir));
     }
 
-    @Test
+@Test
     public void testGetResourcesNoLayerLocal_3_oe() throws Exception {
         final FileSystemManager manager = getManager();
         try {
@@ -326,7 +326,7 @@ public class VfsClassLoaderTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse("Only one hit expected", urls.hasMoreElements());
     }
 
-    @Test
+@Test
     public void testGetResourcesNoLayerLocal_4_oe() throws Exception {
         final FileSystemManager manager = getManager();
         try {
@@ -355,7 +355,7 @@ public class VfsClassLoaderTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue("not pointing to resource " + url1, url1.toString().endsWith("subdir4.jar/file1.txt"));
     }
 
-    @Test
+@Test
     public void testLoadClass_1_oe() throws Exception {
         final VFSClassLoader loader = createClassLoader();
 
@@ -364,7 +364,7 @@ public class VfsClassLoaderTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals("code", pack.getName());
     }
 
-    @Test
+@Test
     public void testLoadClass_2_oe() throws Exception {
         final VFSClassLoader loader = createClassLoader();
 
@@ -377,7 +377,7 @@ public class VfsClassLoaderTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals("**PRIVATE**", testObject.toString());
     }
 
-    @Test
+@Test
     public void testLoadResource_1_oe() throws Exception {
         final VFSClassLoader loader = createClassLoader();
 
@@ -386,7 +386,7 @@ public class VfsClassLoaderTests_OE25Dev extends AbstractProviderTestCase {
         assertNotNull(resource);
     }
 
-    @Test
+@Test
     public void testSealing_1_oe() throws Exception {
         final VFSClassLoader loader = createClassLoader();
         final Class<?> testClass = loader.loadClass("code.sealed.AnotherClass");

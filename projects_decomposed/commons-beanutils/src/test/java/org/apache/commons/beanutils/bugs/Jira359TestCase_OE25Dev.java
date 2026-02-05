@@ -120,7 +120,7 @@ public class Jira359TestCase_OE25Dev extends TestCase {
         }
     }
 
-    public void testBeanUtilsSetProperty_CustomConvertStringToArray_WithColonValue_1_oe() throws Exception{
+public void testBeanUtilsSetProperty_CustomConvertStringToArray_WithColonValue_1_oe() throws Exception{
         final ArrayConverter converter = new ArrayConverter(String[].class, new StringConverter());
         converter.setAllowedChars(new char[] {'.', '-', ':'});
 
@@ -133,7 +133,7 @@ public class Jira359TestCase_OE25Dev extends TestCase {
         assertEquals("array size", 2, simplePojo.getJcrMixinTypes().length);
     }
 
-    public void testBeanUtilsSetProperty_CustomConvertStringToArray_WithColonValue_2_oe() throws Exception{
+public void testBeanUtilsSetProperty_CustomConvertStringToArray_WithColonValue_2_oe() throws Exception{
         final ArrayConverter converter = new ArrayConverter(String[].class, new StringConverter());
         converter.setAllowedChars(new char[] {'.', '-', ':'});
 
@@ -147,7 +147,7 @@ public class Jira359TestCase_OE25Dev extends TestCase {
         assertEquals("mix:rereferencible", simplePojo.getJcrMixinTypes()[0]);
     }
 
-    public void testBeanUtilsSetProperty_CustomConvertStringToArray_WithColonValue_3_oe() throws Exception{
+public void testBeanUtilsSetProperty_CustomConvertStringToArray_WithColonValue_3_oe() throws Exception{
         final ArrayConverter converter = new ArrayConverter(String[].class, new StringConverter());
         converter.setAllowedChars(new char[] {'.', '-', ':'});
 
@@ -162,14 +162,14 @@ public class Jira359TestCase_OE25Dev extends TestCase {
         assertEquals("mix:simple", simplePojo.getJcrMixinTypes()[1]);
     }
 
-    public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithColonValue_1_oe() throws Exception{
+public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithColonValue_1_oe() throws Exception{
         final SimplePojoData simplePojo = new SimplePojoData();
         BeanUtils.setProperty(simplePojo, "jcrMixinTypes", "mix:rereferencible,mix:simple");
         showArray("Default WithColonValue", simplePojo.getJcrMixinTypes());
         assertEquals("array size", 4, simplePojo.getJcrMixinTypes().length);
     }
 
-    public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithColonValue_2_oe() throws Exception{
+public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithColonValue_2_oe() throws Exception{
         final SimplePojoData simplePojo = new SimplePojoData();
         BeanUtils.setProperty(simplePojo, "jcrMixinTypes", "mix:rereferencible,mix:simple");
         showArray("Default WithColonValue", simplePojo.getJcrMixinTypes());
@@ -177,7 +177,7 @@ public class Jira359TestCase_OE25Dev extends TestCase {
         assertEquals("mix", simplePojo.getJcrMixinTypes()[0]);
     }
 
-    public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithColonValue_3_oe() throws Exception{
+public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithColonValue_3_oe() throws Exception{
         final SimplePojoData simplePojo = new SimplePojoData();
         BeanUtils.setProperty(simplePojo, "jcrMixinTypes", "mix:rereferencible,mix:simple");
         showArray("Default WithColonValue", simplePojo.getJcrMixinTypes());
@@ -186,7 +186,7 @@ public class Jira359TestCase_OE25Dev extends TestCase {
         assertEquals("rereferencible", simplePojo.getJcrMixinTypes()[1]);
     }
 
-    public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithColonValue_4_oe() throws Exception{
+public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithColonValue_4_oe() throws Exception{
         final SimplePojoData simplePojo = new SimplePojoData();
         BeanUtils.setProperty(simplePojo, "jcrMixinTypes", "mix:rereferencible,mix:simple");
         showArray("Default WithColonValue", simplePojo.getJcrMixinTypes());
@@ -196,7 +196,7 @@ public class Jira359TestCase_OE25Dev extends TestCase {
         assertEquals("mix", simplePojo.getJcrMixinTypes()[2]);
     }
 
-    public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithColonValue_5_oe() throws Exception{
+public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithColonValue_5_oe() throws Exception{
         final SimplePojoData simplePojo = new SimplePojoData();
         BeanUtils.setProperty(simplePojo, "jcrMixinTypes", "mix:rereferencible,mix:simple");
         showArray("Default WithColonValue", simplePojo.getJcrMixinTypes());
@@ -207,14 +207,14 @@ public class Jira359TestCase_OE25Dev extends TestCase {
         assertEquals("simple", simplePojo.getJcrMixinTypes()[3]);
     }
 
-    public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithoutColonValue_1_oe() throws Exception{
+public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithoutColonValue_1_oe() throws Exception{
         final SimplePojoData simplePojo = new SimplePojoData();
         BeanUtils.setProperty(simplePojo, "jcrMixinTypes", "mixrereferencible,mixsimple");
         showArray("Default WithoutColonValue", simplePojo.getJcrMixinTypes());
         assertEquals("array size", 2, simplePojo.getJcrMixinTypes().length);
     }
 
-    public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithoutColonValue_2_oe() throws Exception{
+public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithoutColonValue_2_oe() throws Exception{
         final SimplePojoData simplePojo = new SimplePojoData();
         BeanUtils.setProperty(simplePojo, "jcrMixinTypes", "mixrereferencible,mixsimple");
         showArray("Default WithoutColonValue", simplePojo.getJcrMixinTypes());
@@ -222,7 +222,7 @@ public class Jira359TestCase_OE25Dev extends TestCase {
         assertEquals("mixrereferencible", simplePojo.getJcrMixinTypes()[0]);
     }
 
-    public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithoutColonValue_3_oe() throws Exception{
+public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithoutColonValue_3_oe() throws Exception{
         final SimplePojoData simplePojo = new SimplePojoData();
         BeanUtils.setProperty(simplePojo, "jcrMixinTypes", "mixrereferencible,mixsimple");
         showArray("Default WithoutColonValue", simplePojo.getJcrMixinTypes());
@@ -231,14 +231,14 @@ public class Jira359TestCase_OE25Dev extends TestCase {
         assertEquals("mixsimple", simplePojo.getJcrMixinTypes()[1]);
     }
 
-    public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithoutColonValueAndNocoma_1_oe() throws Exception{
+public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithoutColonValueAndNocoma_1_oe() throws Exception{
         final SimplePojoData simplePojo = new SimplePojoData();
         BeanUtils.setProperty(simplePojo, "jcrMixinTypes", "mixrereferencible");
         showArray("Default WithoutColonAndNocoma", simplePojo.getJcrMixinTypes());
         assertEquals("array size", 1, simplePojo.getJcrMixinTypes().length);
     }
 
-    public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithoutColonValueAndNocoma_2_oe() throws Exception{
+public void testBeanUtilsSetProperty_DefaultConvertStringToArray_WithoutColonValueAndNocoma_2_oe() throws Exception{
         final SimplePojoData simplePojo = new SimplePojoData();
         BeanUtils.setProperty(simplePojo, "jcrMixinTypes", "mixrereferencible");
         showArray("Default WithoutColonAndNocoma", simplePojo.getJcrMixinTypes());

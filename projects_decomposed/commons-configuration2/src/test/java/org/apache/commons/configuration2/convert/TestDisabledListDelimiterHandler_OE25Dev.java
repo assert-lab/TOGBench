@@ -128,13 +128,13 @@ public class TestDisabledListDelimiterHandler_OE25Dev {
      * Tests whether a simple string value can be parsed.
      */
 
-    @Test
+@Test
     public void testEscapeNonStringValue_1_oe() {
         final Object value = 42;
         assertEquals("Wrong escaped object", value, handler.escape(value, ListDelimiterHandler.NOOP_TRANSFORMER));
     }
 
-    @Test
+@Test
     public void testEscapeNonStringValueTransformer_1_oe() {
         final ValueTransformer trans = EasyMock.createMock(ValueTransformer.class);
         final Object value = 42;
@@ -143,12 +143,12 @@ public class TestDisabledListDelimiterHandler_OE25Dev {
         assertEquals("Wrong escaped object", STR_VALUE, handler.escape(value, trans));
     }
 
-    @Test
+@Test
     public void testEscapeStringValue_1_oe() {
         assertEquals("Wrong escaped string", STR_VALUE, handler.escape(STR_VALUE, ListDelimiterHandler.NOOP_TRANSFORMER));
     }
 
-    @Test
+@Test
     public void testEscapeStringValueTransformer_1_oe() {
         final ValueTransformer trans = EasyMock.createMock(ValueTransformer.class);
         final String testStr = "Some other string";
@@ -157,20 +157,20 @@ public class TestDisabledListDelimiterHandler_OE25Dev {
         assertEquals("Wrong escaped string", STR_VALUE, handler.escape(testStr, trans));
     }
 
-    @Test
+@Test
     public void testFlattenArrayWithLimit_1_oe() {
         final Collection<?> res = handler.flatten(VALUES, 1);
         assertEquals("Wrong collection size", 1, res.size());
     }
 
-    @Test
+@Test
     public void testFlattenArrayWithLimit_2_oe() {
         final Collection<?> res = handler.flatten(VALUES, 1);
         // removed other assertion
         assertEquals("Wrong element", VALUES[0], res.iterator().next());
     }
 
-    @Test
+@Test
     public void testFlattenCollectionWithArrayWithLimit_1_oe() {
         final Collection<Object> src = new ArrayList<>(2);
         src.add(STR_VALUE);
@@ -179,7 +179,7 @@ public class TestDisabledListDelimiterHandler_OE25Dev {
         assertEquals("Wrong collection size", 2, res.size());
     }
 
-    @Test
+@Test
     public void testFlattenCollectionWithArrayWithLimit_2_oe() {
         final Collection<Object> src = new ArrayList<>(2);
         src.add(STR_VALUE);
@@ -190,14 +190,14 @@ public class TestDisabledListDelimiterHandler_OE25Dev {
         assertEquals("Wrong element (1)", STR_VALUE, it.next());
     }
 
-    @Test
+@Test
     public void testFlattenCollectionWithLimit_1_oe() {
         final Collection<Object> src = Arrays.asList(VALUES);
         final Collection<?> res = handler.flatten(src, 1);
         assertEquals("Wrong collection size", 1, res.size());
     }
 
-    @Test
+@Test
     public void testFlattenCollectionWithLimit_2_oe() {
         final Collection<Object> src = Arrays.asList(VALUES);
         final Collection<?> res = handler.flatten(src, 1);
@@ -205,12 +205,12 @@ public class TestDisabledListDelimiterHandler_OE25Dev {
         assertEquals("Wrong element", VALUES[0], res.iterator().next());
     }
 
-    @Test
+@Test
     public void testParseNull_1_oe() {
         assertFalse("Got a value", handler.parse(null).iterator().hasNext());
     }
 
-    @Test
+@Test
     public void testParseSimpleValue_1_oe() {
         final Iterator<?> it = handler.parse(STR_VALUE).iterator();
         assertEquals("Wrong value", STR_VALUE, it.next());

@@ -234,12 +234,12 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         }
     }
 
-    public void testBasics_1_oe() {
+public void testBasics_1_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         assertEquals(0, map.size());
     }
 
-    public void testBasics_2_oe() {
+public void testBasics_2_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -247,7 +247,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(1, map.size());
     }
 
-    public void testBasics_3_oe() {
+public void testBasics_3_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -256,7 +256,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertSame(I2A, map.get(I1A));
     }
 
-    public void testBasics_4_oe() {
+public void testBasics_4_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -266,7 +266,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertSame(null, map.get(I1B));
     }
 
-    public void testBasics_5_oe() {
+public void testBasics_5_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -277,7 +277,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(true, map.containsKey(I1A));
     }
 
-    public void testBasics_6_oe() {
+public void testBasics_6_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -289,7 +289,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(false, map.containsKey(I1B));
     }
 
-    public void testBasics_7_oe() {
+public void testBasics_7_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -302,7 +302,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(true, map.containsValue(I2A));
     }
 
-    public void testBasics_8_oe() {
+public void testBasics_8_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -316,7 +316,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(false, map.containsValue(I2B));
     }
 
-    public void testBasics_9_oe() {
+public void testBasics_9_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -333,7 +333,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(1, map.size());
     }
 
-    public void testBasics_10_oe() {
+public void testBasics_10_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -351,7 +351,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertSame(I2B, map.get(I1A));
     }
 
-    public void testBasics_11_oe() {
+public void testBasics_11_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -370,7 +370,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertSame(null, map.get(I1B));
     }
 
-    public void testBasics_12_oe() {
+public void testBasics_12_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -390,7 +390,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(true, map.containsKey(I1A));
     }
 
-    public void testBasics_13_oe() {
+public void testBasics_13_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -411,7 +411,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(false, map.containsKey(I1B));
     }
 
-    public void testBasics_14_oe() {
+public void testBasics_14_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -433,7 +433,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(false, map.containsValue(I2A));
     }
 
-    public void testBasics_15_oe() {
+public void testBasics_15_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -456,7 +456,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(true, map.containsValue(I2B));
     }
 
-    public void testBasics_16_oe() {
+public void testBasics_16_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -482,7 +482,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(2, map.size());
     }
 
-    public void testBasics_17_oe() {
+public void testBasics_17_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -509,7 +509,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertSame(I2B, map.get(I1A));
     }
 
-    public void testBasics_18_oe() {
+public void testBasics_18_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -537,7 +537,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertSame(I2B, map.get(I1B));
     }
 
-    public void testBasics_19_oe() {
+public void testBasics_19_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -566,7 +566,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(true, map.containsKey(I1A));
     }
 
-    public void testBasics_20_oe() {
+public void testBasics_20_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -596,7 +596,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(true, map.containsKey(I1B));
     }
 
-    public void testBasics_21_oe() {
+public void testBasics_21_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -627,7 +627,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(false, map.containsValue(I2A));
     }
 
-    public void testBasics_22_oe() {
+public void testBasics_22_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
         // removed other assertion
 
@@ -659,7 +659,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(true, map.containsValue(I2B));
     }
 
-    public void testHashEntry_1_oe() {
+public void testHashEntry_1_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
 
         map.put((K) I1A, (V) I2A);
@@ -673,7 +673,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(true, entry1.equals(entry2));
     }
 
-    public void testHashEntry_2_oe() {
+public void testHashEntry_2_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
 
         map.put((K) I1A, (V) I2A);
@@ -688,7 +688,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(true, entry2.equals(entry1));
     }
 
-    public void testHashEntry_3_oe() {
+public void testHashEntry_3_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
 
         map.put((K) I1A, (V) I2A);
@@ -704,25 +704,25 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(false, entry1.equals(entry3));
     }
 
-    public void testNullHandling_1_oe() {
+public void testNullHandling_1_oe() {
         resetFull();
         assertEquals(null, getMap().get(null));
     }
 
-    public void testNullHandling_2_oe() {
+public void testNullHandling_2_oe() {
         resetFull();
         // removed other assertion
         assertEquals(false, getMap().containsKey(null));
     }
 
-    public void testNullHandling_3_oe() {
+public void testNullHandling_3_oe() {
         resetFull();
         // removed other assertion
         // removed other assertion
         assertEquals(false, getMap().containsValue(null));
     }
 
-    public void testNullHandling_4_oe() {
+public void testNullHandling_4_oe() {
         resetFull();
         // removed other assertion
         // removed other assertion
@@ -730,7 +730,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(null, getMap().remove(null));
     }
 
-    public void testNullHandling_5_oe() {
+public void testNullHandling_5_oe() {
         resetFull();
         // removed other assertion
         // removed other assertion
@@ -739,7 +739,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(false, getMap().entrySet().contains(null));
     }
 
-    public void testNullHandling_6_oe() {
+public void testNullHandling_6_oe() {
         resetFull();
         // removed other assertion
         // removed other assertion
@@ -749,7 +749,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(false, getMap().keySet().contains(null));
     }
 
-    public void testNullHandling_7_oe() {
+public void testNullHandling_7_oe() {
         resetFull();
         // removed other assertion
         // removed other assertion
@@ -760,7 +760,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(false, getMap().values().contains(null));
     }
 
-    public void testPurgeValues_1_oe() throws Exception {
+public void testPurgeValues_1_oe() throws Exception {
         // many thanks to Juozas Baliuka for suggesting this method
         final Map<K, V> testMap = buildRefMap();
 

@@ -55,7 +55,7 @@ class EuclideanUtilsTest_OE25Dev {
         }, IllegalArgumentException.class, baseMsg + "2");
     }
 
-    @Test
+@Test
     void testConvexPolygonToTriangleFan_threeVertices_1_oe() {
         // arrange
         final Vector3D p1 = Vector3D.ZERO;
@@ -71,7 +71,7 @@ class EuclideanUtilsTest_OE25Dev {
         Assertions.assertEquals(1, tris.size());
     }
 
-    @Test
+@Test
     void testConvexPolygonToTriangleFan_fourVertices_1_oe() {
         // arrange
         final Vector3D p1 = Vector3D.ZERO;
@@ -88,7 +88,7 @@ class EuclideanUtilsTest_OE25Dev {
         Assertions.assertEquals(2, tris.size());
     }
 
-    @Test
+@Test
     void testConvexPolygonToTriangleFan_fourVertices_chooseLargestInteriorAngleForBase_1_oe() {
         // arrange
         final Vector3D p1 = Vector3D.ZERO;
@@ -105,7 +105,7 @@ class EuclideanUtilsTest_OE25Dev {
         Assertions.assertEquals(2, tris.size());
     }
 
-    @Test
+@Test
     void testConvexPolygonToTriangleFan_fourVertices_distancesLessThanPrecision_1_oe() {
         // This test checks that the triangle fan algorithm is not affected by the distances between
         // the vertices, just as long as the points are not exactly equal. Callers are responsible for
@@ -126,7 +126,7 @@ class EuclideanUtilsTest_OE25Dev {
         Assertions.assertEquals(2, tris.size());
     }
 
-    @Test
+@Test
     void testConvexPolygonToTriangleFan_sixVertices_1_oe() {
         // arrange
         final Vector3D p1 = Vector3D.ZERO;

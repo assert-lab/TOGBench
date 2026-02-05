@@ -83,7 +83,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
      * @param nativeSeedType The native seed type enum instance.
      */
 
-    @Test
+@Test
     void testNativeSeedTypeEnum_1_oe() {
         Set<Class<?>> supported = Arrays.stream(SUPPORTED_NATIVE_TYPES)
             .map(o -> (Class<?>) o)
@@ -91,7 +91,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
         Assertions.assertEquals(SUPPORTED_NATIVE_TYPES.length,supported.size(),"Class type of supported seeds should be unique");
     }
 
-    @Test
+@Test
     void testNativeSeedTypeEnum_2_oe() {
         Set<Class<?>> supported = Arrays.stream(SUPPORTED_NATIVE_TYPES)
             .map(o -> (Class<?>) o)
@@ -102,7 +102,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
         Assertions.assertEquals(SUPPORTED_NATIVE_TYPES.length,values.length,"Incorrect number of enum values for the supported native types");
     }
 
-    @Test
+@Test
     void testNativeSeedTypeEnum_3_oe() {
         Set<Class<?>> supported = Arrays.stream(SUPPORTED_NATIVE_TYPES)
             .map(o -> (Class<?>) o)
@@ -117,7 +117,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
         Assertions.assertEquals(0, supported.size());
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @EnumSource
     void testCreateSeed_1_oe(NativeSeedType nativeSeedType) {
         final int size = 3;
@@ -125,7 +125,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
         Assertions.assertNotNull(seed);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @EnumSource
     void testCreateSeed_2_oe(NativeSeedType nativeSeedType) {
         final int size = 3;
@@ -135,7 +135,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
         Assertions.assertEquals(type, seed.getClass(), "Seed was not the correct class");
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @EnumSource
     void testCreateSeed_3_oe(NativeSeedType nativeSeedType) {
         final int size = 3;
@@ -148,7 +148,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
     }
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @EnumSource
     void testConvertSeedToBytes_1_oe(NativeSeedType nativeSeedType) {
         final int size = 3;
@@ -156,7 +156,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
         Assertions.assertNotNull(seed, "Null seed");
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @EnumSource
     void testConvertSeedToBytes_2_oe(NativeSeedType nativeSeedType) {
         final int size = 3;
@@ -167,7 +167,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
         Assertions.assertNotNull(bytes, "Null byte[] seed");
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @EnumSource
     void testConvertSeedToBytes_3_oe(NativeSeedType nativeSeedType) {
         final int size = 3;
@@ -184,7 +184,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
     }
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @EnumSource
     void testConvertSeedToBytes_4_oe(NativeSeedType nativeSeedType) {
         final int size = 3;
@@ -203,7 +203,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
     }
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @EnumSource
     void testConvertSupportedSeed_1_oe(NativeSeedType nativeSeedType) {
         // Size can be ignored during conversion and so it not asserted
@@ -215,7 +215,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
     }
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @EnumSource
     void testConvertSupportedSeed_2_oe(NativeSeedType nativeSeedType) {
         // Size can be ignored during conversion and so it not asserted
@@ -228,7 +228,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
     }
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @EnumSource
     void testCannotConvertUnsupportedSeed_1_oe(NativeSeedType nativeSeedType) {
         final int size = 3;

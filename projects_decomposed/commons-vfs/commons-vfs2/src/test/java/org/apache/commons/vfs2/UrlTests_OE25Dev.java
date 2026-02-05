@@ -86,14 +86,14 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
      * Tests content.
      */
 
-    @Test
+@Test
     public void testUnknownURL_1_oe() throws Exception {
         // Try getting the content of an unknown file
         final FileObject unknownFile = getReadFolder().resolveFile("unknown-file");
         assertFalse(unknownFile.exists());
     }
 
-    @Test
+@Test
     public void testUnknownURL_4_oe() throws Exception {
         // Try getting the content of an unknown file
         final FileObject unknownFile = getReadFolder().resolveFile("unknown-file");
@@ -109,7 +109,7 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(-1, connection.getContentLength());
     }
 
-    @Test
+@Test
     public void testURL_1_oe() throws Exception {
         final FileObject file = getReadFolder().resolveFile("some-dir/");
         final URL url = file.getURL();
@@ -117,7 +117,7 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(file.getName().getURI(), url.toExternalForm());
     }
 
-    @Test
+@Test
     public void testURL_2_oe() throws Exception {
         final FileObject file = getReadFolder().resolveFile("some-dir/");
         final URL url = file.getURL();
@@ -128,7 +128,7 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(file.getParent().getURL(), parentURL);
     }
 
-    @Test
+@Test
     public void testURL_3_oe() throws Exception {
         final FileObject file = getReadFolder().resolveFile("some-dir/");
         final URL url = file.getURL();
@@ -142,14 +142,14 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(file.getFileSystem().getRoot().getURL(), rootURL);
     }
 
-    @Test
+@Test
     public void testURLContentProvider_1_oe() throws Exception {
         // Test non-empty file
         final FileObject file = getReadFolder().resolveFile("file1.txt");
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testURLContentProvider_2_oe() throws Exception {
         // Test non-empty file
         final FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -164,7 +164,7 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals("Two files resolved by URI must be equals on " + uri, f1, f2);
     }
 
-    @Test
+@Test
     public void testURLContentProvider_3_oe() throws Exception {
         // Test non-empty file
         final FileObject file = getReadFolder().resolveFile("file1.txt");

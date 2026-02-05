@@ -40,7 +40,7 @@ public class KeyMatcherPatternImpllUnitTest_OE25Dev
      * Verify that the matching method works.
      */
 
-    public void testGetMatchingKeysFromArray_AllMatch_1_oe()
+public void testGetMatchingKeysFromArray_AllMatch_1_oe()
     {
         // SETUP
         final int numToInsertPrefix1 = 10;
@@ -63,7 +63,7 @@ public class KeyMatcherPatternImpllUnitTest_OE25Dev
         assertEquals( "Wrong number returned 1: " + result1, numToInsertPrefix1, result1.size() );
     }
 
-    public void testGetMatchingKeysFromArray_AllMatchFirstNull_1_oe()
+public void testGetMatchingKeysFromArray_AllMatchFirstNull_1_oe()
     {
         // SETUP
         final int numToInsertPrefix1 = 10;
@@ -86,7 +86,7 @@ public class KeyMatcherPatternImpllUnitTest_OE25Dev
         assertEquals( "Wrong number returned 1: " + result1, numToInsertPrefix1, result1.size() );
     }
 
-    public void testGetMatchingKeysFromArray_TwoTypes_1_oe()
+public void testGetMatchingKeysFromArray_TwoTypes_1_oe()
     {
         // SETUP
         final int numToInsertPrefix1 = 10;
@@ -118,7 +118,7 @@ public class KeyMatcherPatternImpllUnitTest_OE25Dev
         assertEquals( "Wrong number returned 1: " + result1, numToInsertPrefix1, result1.size() );
     }
 
-    public void testGetMatchingKeysFromArray_TwoTypes_2_oe()
+public void testGetMatchingKeysFromArray_TwoTypes_2_oe()
     {
         // SETUP
         final int numToInsertPrefix1 = 10;

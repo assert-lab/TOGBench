@@ -73,7 +73,7 @@ public class TestMultiFileBuilderParametersImpl_OE25Dev {
      * Tests whether parameters for managed configurations can be set.
      */
 
-    @Test
+@Test
     public void testBeanProperties_1_oe() throws Exception {
         final BuilderParameters bp = EasyMock.createMock(BuilderParameters.class);
         EasyMock.replay(bp);
@@ -85,7 +85,7 @@ public class TestMultiFileBuilderParametersImpl_OE25Dev {
         assertEquals("Exception flag not set", Boolean.TRUE, map.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testBeanProperties_2_oe() throws Exception {
         final BuilderParameters bp = EasyMock.createMock(BuilderParameters.class);
         EasyMock.replay(bp);
@@ -98,7 +98,7 @@ public class TestMultiFileBuilderParametersImpl_OE25Dev {
         assertSame("Wrong parameters instance", params, MultiFileBuilderParametersImpl.fromParameters(map));
     }
 
-    @Test
+@Test
     public void testBeanProperties_3_oe() throws Exception {
         final BuilderParameters bp = EasyMock.createMock(BuilderParameters.class);
         EasyMock.replay(bp);
@@ -112,7 +112,7 @@ public class TestMultiFileBuilderParametersImpl_OE25Dev {
         assertEquals("Wrong pattern", pattern, params.getFilePattern());
     }
 
-    @Test
+@Test
     public void testBeanProperties_4_oe() throws Exception {
         final BuilderParameters bp = EasyMock.createMock(BuilderParameters.class);
         EasyMock.replay(bp);
@@ -127,7 +127,7 @@ public class TestMultiFileBuilderParametersImpl_OE25Dev {
         assertSame("Wrong managed parameters", bp, params.getManagedBuilderParameters());
     }
 
-    @Test
+@Test
     public void testClone_1_oe() {
         final FileBasedBuilderParametersImpl managedParams = new FileBasedBuilderParametersImpl();
         managedParams.setFileName("test.xml");
@@ -137,7 +137,7 @@ public class TestMultiFileBuilderParametersImpl_OE25Dev {
         assertEquals("Wrong pattern", params.getFilePattern(), clone.getFilePattern());
     }
 
-    @Test
+@Test
     public void testClone_2_oe() {
         final FileBasedBuilderParametersImpl managedParams = new FileBasedBuilderParametersImpl();
         managedParams.setFileName("test.xml");
@@ -148,7 +148,7 @@ public class TestMultiFileBuilderParametersImpl_OE25Dev {
         assertNotSame("Managed parameters not cloned", params.getManagedBuilderParameters(), clone.getManagedBuilderParameters());
     }
 
-    @Test
+@Test
     public void testClone_3_oe() {
         final FileBasedBuilderParametersImpl managedParams = new FileBasedBuilderParametersImpl();
         managedParams.setFileName("test.xml");
@@ -160,30 +160,30 @@ public class TestMultiFileBuilderParametersImpl_OE25Dev {
         assertEquals("Wrong file name",managedParams.getFileHandler().getFileName(),((FileBasedBuilderParametersImpl)clone.getManagedBuilderParameters()).getFileHandler().getFileName());
     }
 
-    @Test
+@Test
     public void testFromParametersFound_1_oe() {
         final Map<String, Object> map = params.getParameters();
         assertSame("Instance not found", params, MultiFileBuilderParametersImpl.fromParameters(map, true));
     }
 
-    @Test
+@Test
     public void testFromParametersNewInstance_1_oe() {
         params = MultiFileBuilderParametersImpl.fromParameters(new HashMap<>(), true);
         assertNotNull("No new instance", params);
     }
 
-    @Test
+@Test
     public void testFromParatersNotFound_1_oe() {
         assertNull("Got an instance", MultiFileBuilderParametersImpl.fromParameters(new HashMap<>()));
     }
 
-    @Test
+@Test
     public void testSetFilePattern_1_oe() {
         final String pattern = "somePattern";
         assertSame("Wrong result", params, params.setFilePattern(pattern));
     }
 
-    @Test
+@Test
     public void testSetManagedBuilderParameters_1_oe() {
         final BuilderParameters bp = EasyMock.createMock(BuilderParameters.class);
         EasyMock.replay(bp);

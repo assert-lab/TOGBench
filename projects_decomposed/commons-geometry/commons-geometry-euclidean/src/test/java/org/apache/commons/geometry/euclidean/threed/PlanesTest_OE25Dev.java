@@ -285,7 +285,7 @@ class PlanesTest_OE25Dev {
         return false;
     }
 
-    @Test
+@Test
     void testSubsetFromConvexArea_1_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
@@ -304,7 +304,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertFalse(sp.isFull());
     }
 
-    @Test
+@Test
     void testSubsetFromConvexArea_2_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
@@ -324,7 +324,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertFalse(sp.isEmpty());
     }
 
-    @Test
+@Test
     void testSubsetFromConvexArea_3_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
@@ -345,7 +345,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(sp.isFinite());
     }
 
-    @Test
+@Test
     void testSubsetFromConvexArea_4_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
@@ -368,7 +368,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(2, sp.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSubsetFromConvexArea_5_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
@@ -393,7 +393,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertSame(plane, sp.getPlane());
     }
 
-    @Test
+@Test
     void testSubsetFromConvexArea_6_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
@@ -419,7 +419,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertSame(plane, sp.getHyperplane());
     }
 
-    @Test
+@Test
     void testConvexPolygonFromVertices_1_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 0, 0);
@@ -433,7 +433,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(sp instanceof Triangle3D);
     }
 
-    @Test
+@Test
     void testConvexPolygonFromVertices_2_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 0, 0);
@@ -449,7 +449,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertFalse(sp.isFull());
     }
 
-    @Test
+@Test
     void testConvexPolygonFromVertices_3_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 0, 0);
@@ -466,7 +466,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertFalse(sp.isEmpty());
     }
 
-    @Test
+@Test
     void testConvexPolygonFromVertices_4_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 0, 0);
@@ -484,7 +484,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(sp.isFinite());
     }
 
-    @Test
+@Test
     void testConvexPolygonFromVertices_5_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 0, 0);
@@ -504,7 +504,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(3, sp.getVertices().size());
     }
 
-    @Test
+@Test
     void testConvexPolygonFromVertices_7_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 0, 0);
@@ -527,7 +527,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(1, sp.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testConvexPolygonFromVertices_duplicatePoints_1_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 0, 0);
@@ -550,7 +550,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(sp instanceof VertexListConvexPolygon3D);
     }
 
-    @Test
+@Test
     void testConvexPolygonFromVertices_duplicatePoints_2_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 0, 0);
@@ -575,7 +575,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertFalse(sp.isFull());
     }
 
-    @Test
+@Test
     void testConvexPolygonFromVertices_duplicatePoints_3_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 0, 0);
@@ -601,7 +601,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertFalse(sp.isEmpty());
     }
 
-    @Test
+@Test
     void testConvexPolygonFromVertices_duplicatePoints_4_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 0, 0);
@@ -628,7 +628,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(sp.isFinite());
     }
 
-    @Test
+@Test
     void testConvexPolygonFromVertices_duplicatePoints_5_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 0, 0);
@@ -657,7 +657,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(4, sp.getVertices().size());
     }
 
-    @Test
+@Test
     void testConvexPolygonFromVertices_duplicatePoints_7_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 0, 0);
@@ -689,7 +689,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(2, sp.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTriangleFromVertices_1_oe() {
         // act
         final Triangle3D tri = Planes.triangleFromVertices(
@@ -701,7 +701,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(0.5, tri.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testIndexedTriangles_singleTriangle_noFaces_1_oe() {
         // act
         final List<Triangle3D> tris = Planes.indexedTriangles(new Vector3D[0], new int[0][], TEST_PRECISION);
@@ -710,7 +710,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(0, tris.size());
     }
 
-    @Test
+@Test
     void testIndexedTriangles_singleTriangle_1_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -730,7 +730,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(1, tris.size());
     }
 
-    @Test
+@Test
     void testIndexedTriangles_multipleTriangles_1_oe() {
         // arrange
         // define a square pyramind
@@ -758,7 +758,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(6, tris.size());
     }
 
-    @Test
+@Test
     void testIndexedTriangles_multipleTriangles_2_oe() {
         // arrange
         // define a square pyramind
@@ -789,7 +789,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(4 / 3.0, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testIndexedTriangles_invalidArgs_4_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -809,7 +809,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> Planes.indexedTriangles(vertices, new int[][] { {0, 1, 10} }, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testIndexedTriangles_invalidArgs_5_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -830,7 +830,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> Planes.indexedTriangles(new ArrayList<>(Arrays.asList(vertices)), new int[][] { {0, 1, 10} }, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testIndexedConvexPolygons_singleTriangle_noFaces_1_oe() {
         // act
         final List<ConvexPolygon3D> polys = Planes.indexedConvexPolygons(new Vector3D[0], new int[0][], TEST_PRECISION);
@@ -839,7 +839,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(0, polys.size());
     }
 
-    @Test
+@Test
     void testIndexedConvexPolygons_singleSquare_1_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -861,7 +861,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(1, polys.size());
     }
 
-    @Test
+@Test
     void testIndexedConvexPolygons_mixedPolygons_1_oe() {
         // arrange
         // define a square pyramind
@@ -888,7 +888,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(5, polys.size());
     }
 
-    @Test
+@Test
     void testIndexedConvexPolygons_mixedPolygons_2_oe() {
         // arrange
         // define a square pyramind
@@ -918,7 +918,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(4 / 3.0, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testIndexedConvexPolygons_cube_1_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -950,7 +950,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(6, polys.size());
     }
 
-    @Test
+@Test
     void testIndexedConvexPolygons_cube_2_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -985,7 +985,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(1.0, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testIndexedConvexPolygons_invalidArgs_3_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -1003,7 +1003,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> Planes.indexedConvexPolygons(vertices, new int[][] { {0, 1, 10} }, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testIndexedConvexPolygons_invalidArgs_4_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -1022,7 +1022,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> Planes.indexedConvexPolygons(new ArrayList<>(Arrays.asList(vertices)), new int[][] { {0, 1, 10} }, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testConvexPolygonToTriangleFan_threeVertices_1_oe() {
         // arrange
         final Plane plane = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1037,7 +1037,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(1, tris.size());
     }
 
-    @Test
+@Test
     void testConvexPolygonToTriangleFan_threeVertices_2_oe() {
         // arrange
         final Plane plane = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1055,7 +1055,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertSame(plane, a.getPlane());
     }
 
-    @Test
+@Test
     void testConvexPolygonToTriangleFan_fourVertices_1_oe() {
         // arrange
         final Plane plane = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1071,7 +1071,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(2, tris.size());
     }
 
-    @Test
+@Test
     void testConvexPolygonToTriangleFan_fourVertices_2_oe() {
         // arrange
         final Plane plane = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1090,7 +1090,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertSame(plane, a.getPlane());
     }
 
-    @Test
+@Test
     void testConvexPolygonToTriangleFan_fourVertices_4_oe() {
         // arrange
         final Plane plane = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1113,7 +1113,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertSame(plane, b.getPlane());
     }
 
-    @Test
+@Test
     void testConvexPolygonToTriangleFan_sixVertices_1_oe() {
         // arrange
         final Plane plane = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1131,7 +1131,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(4, tris.size());
     }
 
-    @Test
+@Test
     void testConvexPolygonToTriangleFan_sixVertices_2_oe() {
         // arrange
         final Plane plane = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1152,7 +1152,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertSame(plane, a.getPlane());
     }
 
-    @Test
+@Test
     void testConvexPolygonToTriangleFan_sixVertices_4_oe() {
         // arrange
         final Plane plane = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1177,7 +1177,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertSame(plane, b.getPlane());
     }
 
-    @Test
+@Test
     void testConvexPolygonToTriangleFan_sixVertices_6_oe() {
         // arrange
         final Plane plane = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1206,7 +1206,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertSame(plane, c.getPlane());
     }
 
-    @Test
+@Test
     void testConvexPolygonToTriangleFan_sixVertices_8_oe() {
         // arrange
         final Plane plane = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1239,7 +1239,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertSame(plane, d.getPlane());
     }
 
-    @Test
+@Test
     void testExtrudeVertexLoop_convex_1_oe() {
         // arrange
         final List<Vector2D> vertices = Arrays.asList(
@@ -1259,7 +1259,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(5, boundaries.size());
     }
 
-    @Test
+@Test
     void testExtrudeVertexLoop_convex_2_oe() {
         // arrange
         final List<Vector2D> vertices = Arrays.asList(
@@ -1283,7 +1283,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(1, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testExtrudeVertexLoop_nonConvex_1_oe() {
         // arrange
         final List<Vector2D> vertices = Arrays.asList(
@@ -1309,7 +1309,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(14, boundaries.size());
     }
 
-    @Test
+@Test
     void testExtrudeVertexLoop_nonConvex_2_oe() {
         // arrange
         final List<Vector2D> vertices = Arrays.asList(
@@ -1339,7 +1339,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(16, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testExtrudeVertexLoop_noVertices_1_oe() {
         // arrange
         final List<Vector2D> vertices = new ArrayList<>();
@@ -1355,7 +1355,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(0, boundaries.size());
     }
 
-    @Test
+@Test
     void testExtrudeVertexLoop_twoVertices_producesInfiniteRegion_1_oe() {
         // arrange
         final List<Vector2D> vertices = Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 1));
@@ -1371,7 +1371,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(3, boundaries.size());
     }
 
-    @Test
+@Test
     void testExtrudeVertexLoop_twoVertices_producesInfiniteRegion_2_oe() {
         // arrange
         final List<Vector2D> vertices = Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 1));
@@ -1390,7 +1390,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(bottom.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrudeVertexLoop_twoVertices_producesInfiniteRegion_3_oe() {
         // arrange
         final List<Vector2D> vertices = Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 1));
@@ -1410,7 +1410,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(bottom.getPlane().contains(Vector3D.of(0, 0, -1)));
     }
 
-    @Test
+@Test
     void testExtrudeVertexLoop_twoVertices_producesInfiniteRegion_5_oe() {
         // arrange
         final List<Vector2D> vertices = Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 1));
@@ -1434,7 +1434,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(top.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrudeVertexLoop_twoVertices_producesInfiniteRegion_6_oe() {
         // arrange
         final List<Vector2D> vertices = Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 1));
@@ -1459,7 +1459,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(top.getPlane().contains(Vector3D.of(0, 0, 1)));
     }
 
-    @Test
+@Test
     void testExtrudeVertexLoop_twoVertices_producesInfiniteRegion_8_oe() {
         // arrange
         final List<Vector2D> vertices = Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 1));
@@ -1488,7 +1488,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(side.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrudeVertexLoop_twoVertices_producesInfiniteRegion_9_oe() {
         // arrange
         final List<Vector2D> vertices = Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 1));
@@ -1518,7 +1518,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(side.getPlane().contains(Vector3D.ZERO));
     }
 
-    @Test
+@Test
     void testExtrudeVertexLoop_twoVertices_producesInfiniteRegion_11_oe() {
         // arrange
         final List<Vector2D> vertices = Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 1));
@@ -1552,7 +1552,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testExtrudeVertexLoop_twoVertices_producesInfiniteRegion_12_oe() {
         // arrange
         final List<Vector2D> vertices = Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 1));
@@ -1587,7 +1587,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(tree.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrudeVertexLoop_invalidVertexList_1_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, -1),
@@ -1598,7 +1598,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertThrows(IllegalStateException.class, () -> Planes.extrudeVertexLoop(Collections.singletonList(Vector2D.ZERO), plane, extrusionVector, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testExtrudeVertexLoop_invalidVertexList_2_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, -1),
@@ -1610,7 +1610,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertThrows(IllegalStateException.class, () -> Planes.extrudeVertexLoop(Arrays.asList(Vector2D.ZERO, Vector2D.of(0, 1e-16)), plane, extrusionVector, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testExtrude_vertexLoop_clockwiseWinding_1_oe() {
         // arrange
         final List<Vector2D> vertices = Arrays.asList(
@@ -1632,7 +1632,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(resultTree.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_emptyPath_1_oe() {
         // arrange
         final LinePath path = LinePath.empty();
@@ -1648,7 +1648,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(0, boundaries.size());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnMinus_1_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -1667,7 +1667,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(3, boundaries.size());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnMinus_2_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -1689,7 +1689,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(top.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnMinus_3_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -1712,7 +1712,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(top.getPlane().contains(Vector3D.of(0, 0, 1)));
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnMinus_5_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -1739,7 +1739,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(bottom.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnMinus_6_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -1767,7 +1767,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(bottom.getPlane().contains(Vector3D.of(0, 0, -1)));
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnMinus_8_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -1799,7 +1799,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(side.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnMinus_9_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -1832,7 +1832,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(side.getPlane().contains(Vector3D.ZERO));
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnMinus_11_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -1869,7 +1869,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnMinus_12_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -1907,7 +1907,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(tree.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnPlus_1_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -1926,7 +1926,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(3, boundaries.size());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnPlus_2_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -1948,7 +1948,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(bottom.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnPlus_3_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -1971,7 +1971,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(bottom.getPlane().contains(Vector3D.of(0, 0, -1)));
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnPlus_5_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -1998,7 +1998,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(top.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnPlus_6_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -2026,7 +2026,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(top.getPlane().contains(Vector3D.of(0, 0, 1)));
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnPlus_8_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -2058,7 +2058,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(side.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnPlus_9_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -2091,7 +2091,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(side.getPlane().contains(Vector3D.ZERO));
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnPlus_11_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -2128,7 +2128,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSegment_producesInfiniteRegion_extrudingOnPlus_12_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -2166,7 +2166,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(tree.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSpan_producesInfiniteRegion_1_oe() {
         // arrange
         final LinePath path = LinePath.from(Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION).span());
@@ -2182,7 +2182,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(3, boundaries.size());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSpan_producesInfiniteRegion_2_oe() {
         // arrange
         final LinePath path = LinePath.from(Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION).span());
@@ -2201,7 +2201,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(bottom.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSpan_producesInfiniteRegion_3_oe() {
         // arrange
         final LinePath path = LinePath.from(Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION).span());
@@ -2221,7 +2221,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(bottom.getPlane().contains(Vector3D.of(0, 0, -1)));
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSpan_producesInfiniteRegion_5_oe() {
         // arrange
         final LinePath path = LinePath.from(Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION).span());
@@ -2245,7 +2245,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(top.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSpan_producesInfiniteRegion_6_oe() {
         // arrange
         final LinePath path = LinePath.from(Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION).span());
@@ -2270,7 +2270,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(top.getPlane().contains(Vector3D.of(0, 0, 1)));
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSpan_producesInfiniteRegion_8_oe() {
         // arrange
         final LinePath path = LinePath.from(Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION).span());
@@ -2299,7 +2299,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(side.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSpan_producesInfiniteRegion_9_oe() {
         // arrange
         final LinePath path = LinePath.from(Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION).span());
@@ -2329,7 +2329,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(side.getPlane().contains(Vector3D.ZERO));
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSpan_producesInfiniteRegion_11_oe() {
         // arrange
         final LinePath path = LinePath.from(Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION).span());
@@ -2363,7 +2363,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_singleSpan_producesInfiniteRegion_12_oe() {
         // arrange
         final LinePath path = LinePath.from(Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION).span());
@@ -2398,7 +2398,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(tree.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_intersectingInfiniteLines_extrudingOnPlus_1_oe() {
         // arrange
         final Vector2D intersectionPt = Vector2D.of(1, 0);
@@ -2419,7 +2419,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(4, boundaries.size());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_intersectingInfiniteLines_extrudingOnPlus_2_oe() {
         // arrange
         final Vector2D intersectionPt = Vector2D.of(1, 0);
@@ -2443,7 +2443,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_intersectingInfiniteLines_extrudingOnPlus_3_oe() {
         // arrange
         final Vector2D intersectionPt = Vector2D.of(1, 0);
@@ -2468,7 +2468,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(tree.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_intersectingInfiniteLines_extrudingOnMinus_1_oe() {
         // arrange
         final Vector2D intersectionPt = Vector2D.of(1, 0);
@@ -2489,7 +2489,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(4, boundaries.size());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_intersectingInfiniteLines_extrudingOnMinus_2_oe() {
         // arrange
         final Vector2D intersectionPt = Vector2D.of(1, 0);
@@ -2513,7 +2513,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_intersectingInfiniteLines_extrudingOnMinus_3_oe() {
         // arrange
         final Vector2D intersectionPt = Vector2D.of(1, 0);
@@ -2538,7 +2538,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(tree.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_infiniteNonConvex_1_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -2560,7 +2560,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(8, boundaries.size());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_infiniteNonConvex_2_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -2585,7 +2585,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_infiniteNonConvex_3_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -2611,7 +2611,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(tree.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_linePath_clockwiseWinding_1_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -2634,7 +2634,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(resultTree.isInfinite());
     }
 
-    @Test
+@Test
     void testExtrude_region_empty_1_oe() {
         // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
@@ -2650,7 +2650,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(0, boundaries.size());
     }
 
-    @Test
+@Test
     void testExtrude_region_full_1_oe() {
         // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
@@ -2666,7 +2666,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(2, boundaries.size());
     }
 
-    @Test
+@Test
     void testExtrude_region_full_2_oe() {
         // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
@@ -2684,7 +2684,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(boundaries.get(0).isFull());
     }
 
-    @Test
+@Test
     void testExtrude_region_full_3_oe() {
         // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.full();
@@ -2703,7 +2703,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertTrue(boundaries.get(1).isFull());
     }
 
-    @Test
+@Test
     void testExtrude_region_disjointRegions_1_oe() {
         // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
@@ -2721,7 +2721,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(12, boundaries.size());
     }
 
-    @Test
+@Test
     void testExtrude_region_disjointRegions_2_oe() {
         // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
@@ -2743,7 +2743,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(4, resultTree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testExtrude_region_disjointRegions_3_oe() {
         // arrange
         final RegionBSPTree2D tree = RegionBSPTree2D.empty();
@@ -2766,7 +2766,7 @@ class PlanesTest_OE25Dev {
         Assertions.assertEquals(20, resultTree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testExtrude_region_starWithCutout_1_oe() {
         // arrange
         // NOTE: this is pretty messed-up looking star :-)

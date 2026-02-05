@@ -83,7 +83,7 @@ public class MethodGenTestCase_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testAnnotationsAreUnpacked_1_oe() throws Exception {
         final JavaClass jc = Repository.lookupClass(Bar.Inner.class);
         final ClassGen cg = new ClassGen(jc);
@@ -92,7 +92,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertEquals("Wrong number of annotations in the first parameter", 1, firstParamAnnotations.size());
     }
 
-    @Test
+@Test
     public void testAnnotationsAreUnpacked_2_oe() throws Exception {
         final JavaClass jc = Repository.lookupClass(Bar.Inner.class);
         final ClassGen cg = new ClassGen(jc);
@@ -103,7 +103,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertEquals("Wrong number of annotations in the second parameter", 1, secondParamAnnotations.size());
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariable_1_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -111,7 +111,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertEquals("variable name", "a", lv.getName());
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariable_2_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -122,7 +122,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertNotNull("scope start", start);
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariable_3_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -134,7 +134,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertNotNull("scope end", end);
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariable_4_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -147,7 +147,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertTrue("scope start not targeted by the local variable", Arrays.asList(start.getTargeters()).contains(lv));
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariable_5_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -161,7 +161,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertTrue("scope end not targeted by the local variable", Arrays.asList(end.getTargeters()).contains(lv));
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariable_6_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -180,7 +180,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertFalse("scope start still targeted by the removed variable", Arrays.asList(start.getTargeters()).contains(lv));
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariable_7_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -200,7 +200,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertFalse("scope end still targeted by the removed variable", Arrays.asList(end.getTargeters()).contains(lv));
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariable_8_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -221,7 +221,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertNull("scope start", lv.getStart());
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariable_9_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -243,7 +243,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertNull("scope end", lv.getEnd());
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariables_1_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -251,7 +251,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertEquals("variable name", "a", lv.getName());
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariables_2_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -262,7 +262,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertNotNull("scope start", start);
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariables_3_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -274,7 +274,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertNotNull("scope end", end);
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariables_4_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -287,7 +287,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertTrue("scope start not targeted by the local variable", Arrays.asList(start.getTargeters()).contains(lv));
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariables_5_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -301,7 +301,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertTrue("scope end not targeted by the local variable", Arrays.asList(end.getTargeters()).contains(lv));
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariables_6_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -320,7 +320,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertFalse("scope start still targeted by the removed variable", Arrays.asList(start.getTargeters()).contains(lv));
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariables_7_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -340,7 +340,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertFalse("scope end still targeted by the removed variable", Arrays.asList(end.getTargeters()).contains(lv));
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariables_8_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 
@@ -361,7 +361,7 @@ public class MethodGenTestCase_OE25Dev {
         Assert.assertNull("scope start", lv.getStart());
     }
 
-    @Test
+@Test
     public void testRemoveLocalVariables_9_oe() throws Exception {
         final MethodGen mg = getMethod(Foo.class, "bar");
 

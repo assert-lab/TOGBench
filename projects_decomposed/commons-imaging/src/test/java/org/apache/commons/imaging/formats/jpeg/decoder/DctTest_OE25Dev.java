@@ -92,7 +92,7 @@ public class DctTest_OE25Dev {
         return ret;
     }
 
-    @Test
+@Test
     public void testVectors_1_oe() {
         final float[] originalData = new float[8];
         for (int i = 0; i < 8; i++) {
@@ -106,7 +106,7 @@ public class DctTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testVectors_2_oe() {
         final float[] originalData = new float[8];
         for (int i = 0; i < 8; i++) {
@@ -127,7 +127,7 @@ public class DctTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testVectors_3_oe() {
         final float[] originalData = new float[8];
         for (int i = 0; i < 8; i++) {
@@ -154,7 +154,7 @@ public class DctTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testMatrices_1_oe() {
         final float[] originalData = new float[8 * 8];
         final float[][] originalData8x8 = new float[8][8];
@@ -175,7 +175,7 @@ public class DctTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testMatrices_2_oe() {
         final float[] originalData = new float[8 * 8];
         final float[][] originalData8x8 = new float[8][8];
@@ -205,7 +205,7 @@ public class DctTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testMatrices_3_oe() {
         final float[] originalData = new float[8 * 8];
         final float[][] originalData8x8 = new float[8][8];

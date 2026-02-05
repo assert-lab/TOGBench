@@ -99,25 +99,25 @@ public class TestReadablePartialConverter_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testSingleton_1_oe() throws Exception {
+public void testSingleton_1_oe() throws Exception {
         Class cls = ReadablePartialConverter.class;
         assertEquals(false,Modifier.isPublic(cls.getModifiers()));
     }
 
-    public void testSingleton_2_oe() throws Exception {
+public void testSingleton_2_oe() throws Exception {
         Class cls = ReadablePartialConverter.class;
         // removed other assertion
         assertEquals(false,Modifier.isProtected(cls.getModifiers()));
     }
 
-    public void testSingleton_3_oe() throws Exception {
+public void testSingleton_3_oe() throws Exception {
         Class cls = ReadablePartialConverter.class;
         // removed other assertion
         // removed other assertion
         assertEquals(false,Modifier.isPrivate(cls.getModifiers()));
     }
 
-    public void testSingleton_4_oe() throws Exception {
+public void testSingleton_4_oe() throws Exception {
         Class cls = ReadablePartialConverter.class;
         // removed other assertion
         // removed other assertion
@@ -127,7 +127,7 @@ public class TestReadablePartialConverter_OE25Dev extends TestCase {
         assertEquals(1,cls.getDeclaredConstructors().length);
     }
 
-    public void testSingleton_5_oe() throws Exception {
+public void testSingleton_5_oe() throws Exception {
         Class cls = ReadablePartialConverter.class;
         // removed other assertion
         // removed other assertion
@@ -138,7 +138,7 @@ public class TestReadablePartialConverter_OE25Dev extends TestCase {
         assertEquals(true,Modifier.isProtected(con.getModifiers()));
     }
 
-    public void testSingleton_6_oe() throws Exception {
+public void testSingleton_6_oe() throws Exception {
         Class cls = ReadablePartialConverter.class;
         // removed other assertion
         // removed other assertion
@@ -152,7 +152,7 @@ public class TestReadablePartialConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPublic(fld.getModifiers()));
     }
 
-    public void testSingleton_7_oe() throws Exception {
+public void testSingleton_7_oe() throws Exception {
         Class cls = ReadablePartialConverter.class;
         // removed other assertion
         // removed other assertion
@@ -167,7 +167,7 @@ public class TestReadablePartialConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isProtected(fld.getModifiers()));
     }
 
-    public void testSingleton_8_oe() throws Exception {
+public void testSingleton_8_oe() throws Exception {
         Class cls = ReadablePartialConverter.class;
         // removed other assertion
         // removed other assertion
@@ -183,48 +183,48 @@ public class TestReadablePartialConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPrivate(fld.getModifiers()));
     }
 
-    public void testSupportedType_1_oe() throws Exception {
+public void testSupportedType_1_oe() throws Exception {
         assertEquals(ReadablePartial.class,ReadablePartialConverter.INSTANCE.getSupportedType());
     }
 
-    public void testGetChronology_Object_Zone_1_oe() throws Exception {
+public void testGetChronology_Object_Zone_1_oe() throws Exception {
         assertEquals(ISO_PARIS,ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L),PARIS));
     }
 
-    public void testGetChronology_Object_Zone_2_oe() throws Exception {
+public void testGetChronology_Object_Zone_2_oe() throws Exception {
         // removed other assertion
         assertEquals(ISO,ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L),DateTimeZone.getDefault()));
     }
 
-    public void testGetChronology_Object_Zone_3_oe() throws Exception {
+public void testGetChronology_Object_Zone_3_oe() throws Exception {
         // removed other assertion
         // removed other assertion
         assertEquals(ISO,ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L),(DateTimeZone)null));
     }
 
-    public void testGetChronology_Object_Chronology_1_oe() throws Exception {
+public void testGetChronology_Object_Chronology_1_oe() throws Exception {
         assertEquals(JULIAN,ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L,BUDDHIST),JULIAN));
     }
 
-    public void testGetChronology_Object_Chronology_2_oe() throws Exception {
+public void testGetChronology_Object_Chronology_2_oe() throws Exception {
         // removed other assertion
         assertEquals(JULIAN,ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L),JULIAN));
     }
 
-    public void testGetChronology_Object_Chronology_3_oe() throws Exception {
+public void testGetChronology_Object_Chronology_3_oe() throws Exception {
         // removed other assertion
         // removed other assertion
         assertEquals(BUDDHIST.withUTC(),ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L,BUDDHIST),(Chronology)null));
     }
 
-    public void testGetPartialValues_1_oe() throws Exception {
+public void testGetPartialValues_1_oe() throws Exception {
         TimeOfDay tod = new TimeOfDay();
         int[] expected = new int[] {1, 2, 3, 4};
         int[] actual = ReadablePartialConverter.INSTANCE.getPartialValues(tod, new TimeOfDay(1, 2, 3, 4), ISOChronology.getInstance(PARIS));
         assertEquals(true,Arrays.equals(expected,actual));
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         assertEquals("Converter[org.joda.time.ReadablePartial]",ReadablePartialConverter.INSTANCE.toString());
     }
 

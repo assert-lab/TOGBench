@@ -135,7 +135,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertSame(precision, line.getPrecision());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_full_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -147,7 +147,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertTrue(span.isInfinite());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_full_2_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -160,7 +160,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertFalse(span.isFinite());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_full_5_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -178,7 +178,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertNull(span.getStartPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_full_6_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -197,7 +197,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertNull(span.getEndPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_full_7_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -218,7 +218,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertSame(Interval.full(), span.getInterval());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_positiveHalfSpace_1_oe() {
         // arrange
         final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -233,7 +233,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertTrue(ray.isInfinite());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_positiveHalfSpace_2_oe() {
         // arrange
         final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -249,7 +249,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertFalse(ray.isFinite());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_positiveHalfSpace_3_oe() {
         // arrange
         final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -267,7 +267,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertEquals(-1.0, ray.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_positiveHalfSpace_6_oe() {
         // arrange
         final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -291,7 +291,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertNull(ray.getEndPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_negativeHalfSpace_2_oe() {
         // arrange
         final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -307,7 +307,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertEquals(2, halfLine.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_negativeHalfSpace_3_oe() {
         // arrange
         final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -327,7 +327,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertNull(halfLine.getStartPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_doubleArgs_full_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -342,7 +342,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertNull(span.getStartPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_doubleArgs_full_4_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -358,7 +358,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertNull(span.getEndPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_doubleArgs_positiveHalfSpace_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -370,7 +370,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertEquals(-1.0, ray.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromInterval_doubleArgs_positiveHalfSpace_4_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -388,7 +388,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertNull(ray.getEndPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_doubleArgs_negativeHalfSpace_2_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -401,7 +401,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertEquals(2, halfLine.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromInterval_doubleArgs_negativeHalfSpace_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -418,7 +418,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertNull(halfLine.getStartPoint());
     }
 
-    @Test
+@Test
     void testGetSubspaceRegion_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -430,7 +430,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertSame(interval, subset.getInterval());
     }
 
-    @Test
+@Test
     void testGetSubspaceRegion_2_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -443,7 +443,7 @@ class LineConvexSubset3DTest_OE25Dev {
         Assertions.assertSame(interval, subset.getSubspaceRegion());
     }
 
-    @Test
+@Test
     void testTransform_infinite_2_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(1, 0, 0), Vector3D.of(0, 1, -1), TEST_PRECISION);

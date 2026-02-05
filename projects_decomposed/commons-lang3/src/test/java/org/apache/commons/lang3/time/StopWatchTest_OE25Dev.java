@@ -80,13 +80,13 @@ public class StopWatchTest_OE25Dev {
 
     // test bad states
 
-    @Test
+@Test
     public void testBadStates_1_oe() {
         final StopWatch watch = new StopWatch();
         assertThrows(IllegalStateException.class, watch::stop, "Calling stop on an unstarted StopWatch should throw an exception. ");
     }
 
-    @Test
+@Test
     public void testBadStates_2_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -94,7 +94,7 @@ public class StopWatchTest_OE25Dev {
         assertThrows(IllegalStateException.class, watch::suspend, "Calling suspend on an unstarted StopWatch should throw an exception. ");
     }
 
-    @Test
+@Test
     public void testBadStates_3_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -104,7 +104,7 @@ public class StopWatchTest_OE25Dev {
         assertThrows(IllegalStateException.class, watch::split, "Calling split on a non-running StopWatch should throw an exception. ");
     }
 
-    @Test
+@Test
     public void testBadStates_4_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -116,7 +116,7 @@ public class StopWatchTest_OE25Dev {
         assertThrows(IllegalStateException.class, watch::unsplit, "Calling unsplit on an unsplit StopWatch should throw an exception. ");
     }
 
-    @Test
+@Test
     public void testBadStates_5_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -130,7 +130,7 @@ public class StopWatchTest_OE25Dev {
         assertThrows(IllegalStateException.class, watch::resume, "Calling resume on an unsuspended StopWatch should throw an exception. ");
     }
 
-    @Test
+@Test
     public void testBadStates_6_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -148,7 +148,7 @@ public class StopWatchTest_OE25Dev {
         assertThrows(IllegalStateException.class, watch::start, "Calling start on a started StopWatch should throw an exception. ");
     }
 
-    @Test
+@Test
     public void testBadStates_7_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -168,7 +168,7 @@ public class StopWatchTest_OE25Dev {
         assertThrows(IllegalStateException.class, watch::unsplit, "Calling unsplit on an unsplit StopWatch should throw an exception. ");
     }
 
-    @Test
+@Test
     public void testBadStates_8_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -190,7 +190,7 @@ public class StopWatchTest_OE25Dev {
         assertThrows(IllegalStateException.class, watch::getSplitTime, "Calling getSplitTime on an unsplit StopWatch should throw an exception. ");
     }
 
-    @Test
+@Test
     public void testBadStates_9_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -214,7 +214,7 @@ public class StopWatchTest_OE25Dev {
         assertThrows(IllegalStateException.class, watch::resume, "Calling resume on an unsuspended StopWatch should throw an exception. ");
     }
 
-    @Test
+@Test
     public void testBadStates_10_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -242,20 +242,20 @@ public class StopWatchTest_OE25Dev {
         assertThrows(IllegalStateException.class, watch::start, "Calling start on a stopped StopWatch should throw an exception as it needs to be reset. ");
     }
 
-    @Test
+@Test
     public void testBooleanStates_1_oe() {
         final StopWatch watch = new StopWatch();
         assertFalse(watch.isStarted());
     }
 
-    @Test
+@Test
     public void testBooleanStates_2_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
         assertFalse(watch.isSuspended());
     }
 
-    @Test
+@Test
     public void testBooleanStates_3_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -263,7 +263,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(watch.isStopped());
     }
 
-    @Test
+@Test
     public void testBooleanStates_4_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -274,7 +274,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(watch.isStarted());
     }
 
-    @Test
+@Test
     public void testBooleanStates_5_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -286,7 +286,7 @@ public class StopWatchTest_OE25Dev {
         assertFalse(watch.isSuspended());
     }
 
-    @Test
+@Test
     public void testBooleanStates_6_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -299,7 +299,7 @@ public class StopWatchTest_OE25Dev {
         assertFalse(watch.isStopped());
     }
 
-    @Test
+@Test
     public void testBooleanStates_7_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -315,7 +315,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(watch.isStarted());
     }
 
-    @Test
+@Test
     public void testBooleanStates_8_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -332,7 +332,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(watch.isSuspended());
     }
 
-    @Test
+@Test
     public void testBooleanStates_9_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -350,7 +350,7 @@ public class StopWatchTest_OE25Dev {
         assertFalse(watch.isStopped());
     }
 
-    @Test
+@Test
     public void testBooleanStates_10_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -371,7 +371,7 @@ public class StopWatchTest_OE25Dev {
         assertFalse(watch.isStarted());
     }
 
-    @Test
+@Test
     public void testBooleanStates_11_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -393,7 +393,7 @@ public class StopWatchTest_OE25Dev {
         assertFalse(watch.isSuspended());
     }
 
-    @Test
+@Test
     public void testBooleanStates_12_oe() {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -416,7 +416,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(watch.isStopped());
     }
 
-    @Test
+@Test
     public void testFormatSplitTime_1_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         Thread.sleep(MIN_SLEEP_MILLISECONDS);
@@ -425,7 +425,7 @@ public class StopWatchTest_OE25Dev {
         assertNotEquals(ZERO_TIME_ELAPSED, formatSplitTime);
     }
 
-    @Test
+@Test
     public void testFormatSplitTime_2_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         Thread.sleep(MIN_SLEEP_MILLISECONDS);
@@ -435,7 +435,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(formatSplitTime.startsWith(ZERO_HOURS_PREFIX));
     }
 
-    @Test
+@Test
     public void testFormatSplitTimeWithMessage_1_oe() throws InterruptedException {
         final StopWatch watch = new StopWatch(MESSAGE);
         watch.start();
@@ -445,7 +445,7 @@ public class StopWatchTest_OE25Dev {
         assertFalse(formatSplitTime.startsWith(MESSAGE), formatSplitTime);
     }
 
-    @Test
+@Test
     public void testFormatSplitTimeWithMessage_2_oe() throws InterruptedException {
         final StopWatch watch = new StopWatch(MESSAGE);
         watch.start();
@@ -456,14 +456,14 @@ public class StopWatchTest_OE25Dev {
         assertTrue(formatSplitTime.startsWith(ZERO_HOURS_PREFIX));
     }
 
-    @Test
+@Test
     public void testFormatTime_1_oe() {
         final StopWatch watch = StopWatch.create();
         final String formatTime = watch.formatTime();
         assertEquals(ZERO_TIME_ELAPSED, formatTime);
     }
 
-    @Test
+@Test
     public void testFormatTime_2_oe() {
         final StopWatch watch = StopWatch.create();
         final String formatTime = watch.formatTime();
@@ -471,21 +471,21 @@ public class StopWatchTest_OE25Dev {
         assertTrue(formatTime.startsWith(ZERO_HOURS_PREFIX));
     }
 
-    @Test
+@Test
     public void testFormatTimeWithMessage_1_oe() {
         final StopWatch watch = new StopWatch(MESSAGE);
         final String formatTime = watch.formatTime();
         assertFalse(formatTime.startsWith(MESSAGE), formatTime);
     }
 
-    @Test
+@Test
     public void testGetStartTime_1_oe() {
         final long beforeStopWatchMillis = System.currentTimeMillis();
         final StopWatch watch = new StopWatch();
         assertThrows(IllegalStateException.class, watch::getStartTime, "Calling getStartTime on an unstarted StopWatch should throw an exception");
     }
 
-    @Test
+@Test
     public void testGetStartTime_2_oe() {
         final long beforeStopWatchMillis = System.currentTimeMillis();
         final StopWatch watch = new StopWatch();
@@ -496,7 +496,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(watch.getStartTime() >= beforeStopWatchMillis);
     }
 
-    @Test
+@Test
     public void testGetStartTime_3_oe() {
         final long beforeStopWatchMillis = System.currentTimeMillis();
         final StopWatch watch = new StopWatch();
@@ -510,7 +510,7 @@ public class StopWatchTest_OE25Dev {
         assertThrows(IllegalStateException.class, watch::getStartTime, "Calling getStartTime on a reset, but unstarted StopWatch should throw an exception");
     }
 
-    @Test
+@Test
     public void testLang315_1_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         sleepQuietly(MILLIS_200);
@@ -522,19 +522,19 @@ public class StopWatchTest_OE25Dev {
         assertEquals(suspendTime, totalTime);
     }
 
-    @Test
+@Test
     public void testMessage_1_oe() {
         assertNull(StopWatch.create().getMessage());
     }
 
-    @Test
+@Test
     public void testMessage_2_oe() {
         // removed other assertion
         final StopWatch stopWatch = new StopWatch(MESSAGE);
         assertEquals(MESSAGE, stopWatch.getMessage());
     }
 
-    @Test
+@Test
     public void testMessage_3_oe() {
         // removed other assertion
         final StopWatch stopWatch = new StopWatch(MESSAGE);
@@ -542,7 +542,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(stopWatch.toString().startsWith(MESSAGE));
     }
 
-    @Test
+@Test
     public void testMessage_4_oe() {
         // removed other assertion
         final StopWatch stopWatch = new StopWatch(MESSAGE);
@@ -553,7 +553,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(stopWatch.toSplitString().startsWith(MESSAGE));
     }
 
-    @Test
+@Test
     public void testStopTimeSimple_1_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         final long testStartMillis = System.currentTimeMillis();
@@ -564,7 +564,7 @@ public class StopWatchTest_OE25Dev {
         assertEquals(stopTime, watch.getStopTime());
     }
 
-    @Test
+@Test
     public void testStopTimeSimple_2_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         final long testStartMillis = System.currentTimeMillis();
@@ -577,7 +577,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(stopTime >= testStartMillis);
     }
 
-    @Test
+@Test
     public void testStopTimeSimple_3_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         final long testStartMillis = System.currentTimeMillis();
@@ -591,7 +591,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(stopTime <= testEndMillis);
     }
 
-    @Test
+@Test
     public void testStopWatchGetWithTimeUnit_1_oe() {
         // Create a mock StopWatch with a time of 2:59:01.999
         // @formatter:off
@@ -605,7 +605,7 @@ public class StopWatchTest_OE25Dev {
         assertEquals(2L, watch.getTime(TimeUnit.HOURS));
     }
 
-    @Test
+@Test
     public void testStopWatchGetWithTimeUnit_2_oe() {
         // Create a mock StopWatch with a time of 2:59:01.999
         // @formatter:off
@@ -620,7 +620,7 @@ public class StopWatchTest_OE25Dev {
         assertEquals(179L, watch.getTime(TimeUnit.MINUTES));
     }
 
-    @Test
+@Test
     public void testStopWatchGetWithTimeUnit_3_oe() {
         // Create a mock StopWatch with a time of 2:59:01.999
         // @formatter:off
@@ -636,7 +636,7 @@ public class StopWatchTest_OE25Dev {
         assertEquals(10741L, watch.getTime(TimeUnit.SECONDS));
     }
 
-    @Test
+@Test
     public void testStopWatchGetWithTimeUnit_4_oe() {
         // Create a mock StopWatch with a time of 2:59:01.999
         // @formatter:off
@@ -653,7 +653,7 @@ public class StopWatchTest_OE25Dev {
         assertEquals(10741999L, watch.getTime(TimeUnit.MILLISECONDS));
     }
 
-    @Test
+@Test
     public void testStopWatchSimple_1_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         sleepQuietly(MILLIS_550);
@@ -662,7 +662,7 @@ public class StopWatchTest_OE25Dev {
         assertEquals(time, watch.getTime());
     }
 
-    @Test
+@Test
     public void testStopWatchSimple_2_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         sleepQuietly(MILLIS_550);
@@ -673,7 +673,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(time >= 500);
     }
 
-    @Test
+@Test
     public void testStopWatchSimple_3_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         sleepQuietly(MILLIS_550);
@@ -685,7 +685,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(time < 700);
     }
 
-    @Test
+@Test
     public void testStopWatchSimple_4_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         sleepQuietly(MILLIS_550);
@@ -700,20 +700,20 @@ public class StopWatchTest_OE25Dev {
         assertEquals(0, watch.getTime());
     }
 
-    @Test
+@Test
     public void testStopWatchSimpleGet_1_oe() throws InterruptedException {
         final StopWatch watch = new StopWatch();
         assertEquals(0, watch.getTime());
     }
 
-    @Test
+@Test
     public void testStopWatchSimpleGet_2_oe() throws InterruptedException {
         final StopWatch watch = new StopWatch();
         // removed other assertion
         assertEquals(ZERO_TIME_ELAPSED, watch.toString());
     }
 
-    @Test
+@Test
     public void testStopWatchSimpleGet_3_oe() throws InterruptedException {
         final StopWatch watch = new StopWatch();
         // removed other assertion
@@ -724,7 +724,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(watch.getTime() < 2000);
     }
 
-    @Test
+@Test
     public void testStopWatchSplit_1_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         sleepQuietly(MILLIS_550);
@@ -740,7 +740,7 @@ public class StopWatchTest_OE25Dev {
         assertEquals(splitStr.length(), 12, "Formatted split string not the correct length");
     }
 
-    @Test
+@Test
     public void testStopWatchSplit_2_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         sleepQuietly(MILLIS_550);
@@ -757,7 +757,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(splitTime >= 500);
     }
 
-    @Test
+@Test
     public void testStopWatchSplit_3_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         sleepQuietly(MILLIS_550);
@@ -775,7 +775,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(splitTime < 700);
     }
 
-    @Test
+@Test
     public void testStopWatchSplit_4_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         sleepQuietly(MILLIS_550);
@@ -794,7 +794,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(totalTime >= 1500);
     }
 
-    @Test
+@Test
     public void testStopWatchSplit_5_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         sleepQuietly(MILLIS_550);
@@ -814,13 +814,13 @@ public class StopWatchTest_OE25Dev {
         assertTrue(totalTime < 1900);
     }
 
-    @Test
+@Test
     public void testStopWatchStatic_1_oe() {
         final StopWatch watch = StopWatch.createStarted();
         assertTrue(watch.isStarted());
     }
 
-    @Test
+@Test
     public void testStopWatchSuspend_1_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         final long testStartMillis = System.currentTimeMillis();
@@ -833,7 +833,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(testStartMillis <= stopTime);
     }
 
-    @Test
+@Test
     public void testStopWatchSuspend_2_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         final long testStartMillis = System.currentTimeMillis();
@@ -847,7 +847,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(testSuspendMillis <= stopTime);
     }
 
-    @Test
+@Test
     public void testStopWatchSuspend_3_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         final long testStartMillis = System.currentTimeMillis();
@@ -869,7 +869,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(suspendTime >= 500);
     }
 
-    @Test
+@Test
     public void testStopWatchSuspend_4_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         final long testStartMillis = System.currentTimeMillis();
@@ -892,7 +892,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(suspendTime < 700);
     }
 
-    @Test
+@Test
     public void testStopWatchSuspend_5_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         final long testStartMillis = System.currentTimeMillis();
@@ -916,7 +916,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(totalTime >= 1000);
     }
 
-    @Test
+@Test
     public void testStopWatchSuspend_6_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         final long testStartMillis = System.currentTimeMillis();
@@ -941,7 +941,7 @@ public class StopWatchTest_OE25Dev {
         assertTrue(totalTime < 1300);
     }
 
-    @Test
+@Test
     public void testToSplitString_1_oe() throws InterruptedException {
         final StopWatch watch = StopWatch.createStarted();
         sleepQuietly(MILLIS_550);
@@ -950,7 +950,7 @@ public class StopWatchTest_OE25Dev {
         assertEquals(splitStr.length(), 12, "Formatted split string not the correct length");
     }
 
-    @Test
+@Test
     public void testToSplitStringWithMessage_1_oe() throws InterruptedException {
         final StopWatch watch = new StopWatch(MESSAGE);
         watch.start();
@@ -960,7 +960,7 @@ public class StopWatchTest_OE25Dev {
         assertEquals(splitStr.length(), 12 + MESSAGE.length() + 1, "Formatted split string not the correct length");
     }
 
-    @Test
+@Test
     public void testToString_1_oe() throws InterruptedException {
         //
         final StopWatch watch = StopWatch.createStarted();
@@ -970,12 +970,12 @@ public class StopWatchTest_OE25Dev {
         assertEquals(splitStr.length(), 12, "Formatted split string not the correct length");
     }
 
-    @Test
+@Test
     public void testToStringWithMessage_1_oe() throws InterruptedException {
         assertTrue(new StopWatch(MESSAGE).toString().startsWith(MESSAGE));
     }
 
-    @Test
+@Test
     public void testToStringWithMessage_2_oe() throws InterruptedException {
         // removed other assertion
         //

@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
 
 public class DataParserIndexedTest_OE25Dev{
 
-  @Test
+@Test
   public void testFailsToCreateDataParserIndexedThrowsArrayIndexOutOfBoundsException_2_oe() {
       final byte[] byteArray = new byte[24];
       try {
@@ -35,7 +35,7 @@ public class DataParserIndexedTest_OE25Dev{
   }
   }
 
-  @Test
+@Test
   public void testFailsToCreateDataParserIndexedThrowsArrayIndexOutOfBoundsException_3_oe() {
       final byte[] byteArray = new byte[24];
       try {

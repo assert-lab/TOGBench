@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 
 public class ScanlineFilterAverageTest_OE25Dev{
 
-  @Test
+@Test
   public void testUnfilterWithNull_1_oe() throws IOException, ImageReadException {
       final ScanlineFilterAverage scanlineFilterAverage = new ScanlineFilterAverage(2);
       final byte[] byteArray = new byte[9];

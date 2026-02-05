@@ -40,7 +40,7 @@ public class SynchronizedOverloadsTest_OE25Dev extends JexlTestCase {
         java.util.logging.Logger.getLogger(JexlEngine.class.getName()).setLevel(java.util.logging.Level.SEVERE);
     }
 
-    @Test
+@Test
     public void testSynchronizer_1_oe() throws Exception {
         final Map<String, Object> ns = new TreeMap<String, Object>();
         ns.put("synchronized", SynchronizedContext.class);
@@ -51,7 +51,7 @@ public class SynchronizedOverloadsTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(6, size);
     }
 
-    @Test
+@Test
     public void testSynchronized_1_oe() throws Exception {
         final Map<String, Object> ns = new TreeMap<String, Object>();
         final JexlContext jc = new SynchronizedContext(new MapContext());
@@ -61,7 +61,7 @@ public class SynchronizedOverloadsTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(6, size);
     }
 
-    @Test
+@Test
     public void testUnsafeMonitor_1_oe() throws Exception {
         final SynchronizedArithmetic.Monitor monitor = new SynchronizedArithmetic.SafeMonitor();
         final Map<String, Object> foo = new TreeMap<String, Object>();
@@ -75,7 +75,7 @@ public class SynchronizedOverloadsTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(10.0d, t);
     }
 
-    @Test
+@Test
     public void testUnsafeMonitor_2_oe() throws Exception {
         final SynchronizedArithmetic.Monitor monitor = new SynchronizedArithmetic.SafeMonitor();
         final Map<String, Object> foo = new TreeMap<String, Object>();
@@ -90,7 +90,7 @@ public class SynchronizedOverloadsTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(monitor.isBalanced());
     }
 
-    @Test
+@Test
     public void testUnsafeMonitor_3_oe() throws Exception {
         final SynchronizedArithmetic.Monitor monitor = new SynchronizedArithmetic.SafeMonitor();
         final Map<String, Object> foo = new TreeMap<String, Object>();
@@ -106,7 +106,7 @@ public class SynchronizedOverloadsTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(2, monitor.getCount());
     }
 
-    @Test
+@Test
     public void testUnsafeMonitor_4_oe() throws Exception {
         final SynchronizedArithmetic.Monitor monitor = new SynchronizedArithmetic.SafeMonitor();
         final Map<String, Object> foo = new TreeMap<String, Object>();
@@ -124,7 +124,7 @@ public class SynchronizedOverloadsTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(10.0d, t);
     }
 
-    @Test
+@Test
     public void testUnsafeMonitor_5_oe() throws Exception {
         final SynchronizedArithmetic.Monitor monitor = new SynchronizedArithmetic.SafeMonitor();
         final Map<String, Object> foo = new TreeMap<String, Object>();
@@ -143,7 +143,7 @@ public class SynchronizedOverloadsTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(monitor.isBalanced());
     }
 
-    @Test
+@Test
     public void testUnsafeMonitor_6_oe() throws Exception {
         final SynchronizedArithmetic.Monitor monitor = new SynchronizedArithmetic.SafeMonitor();
         final Map<String, Object> foo = new TreeMap<String, Object>();

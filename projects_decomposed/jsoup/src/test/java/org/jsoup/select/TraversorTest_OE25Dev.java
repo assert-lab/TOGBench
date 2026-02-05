@@ -15,7 +15,7 @@ public class TraversorTest_OE25Dev {
     // Note: NodeTraversor.traverse(new NodeVisitor) is tested in
     // ElementsTest#traverse()
 
-    @Test
+@Test
     public void filterVisit_1_oe() {
         Document doc = Jsoup.parse("<div><p>Hello</p></div><div>There</div>");
         final StringBuilder accum = new StringBuilder();
@@ -35,7 +35,7 @@ public class TraversorTest_OE25Dev {
         assertEquals("<div><p><#text></#text></p></div><div><#text></#text></div>", accum.toString());
     }
 
-    @Test
+@Test
     public void filterSkipChildren_1_oe() {
         Document doc = Jsoup.parse("<div><p>Hello</p></div><div>There</div>");
         final StringBuilder accum = new StringBuilder();
@@ -56,7 +56,7 @@ public class TraversorTest_OE25Dev {
         assertEquals("<div><p></p></div><div><#text></#text></div>", accum.toString());
     }
 
-    @Test
+@Test
     public void filterSkipEntirely_1_oe() {
         Document doc = Jsoup.parse("<div><p>Hello</p></div><div>There</div>");
         final StringBuilder accum = new StringBuilder();
@@ -79,7 +79,7 @@ public class TraversorTest_OE25Dev {
         assertEquals("<div></div><div><#text></#text></div>", accum.toString());
     }
 
-    @Test
+@Test
     public void filterRemove_1_oe() {
         Document doc = Jsoup.parse("<div><p>Hello</p></div><div>There be <b>bold</b></div>");
         NodeTraversor.filter(new NodeFilter() {
@@ -98,7 +98,7 @@ public class TraversorTest_OE25Dev {
         assertEquals("<div></div>\n<div>\n There be\n</div>", doc.select("body").html());
     }
 
-    @Test
+@Test
     public void filterStop_1_oe() {
         Document doc = Jsoup.parse("<div><p>Hello</p></div><div>There</div>");
         final StringBuilder accum = new StringBuilder();
@@ -119,7 +119,7 @@ public class TraversorTest_OE25Dev {
         assertEquals("<div><p><#text></#text></p>", accum.toString());
     }
 
-    @Test public void replaceElement_1_oe() {
+@Test public void replaceElement_1_oe() {
         // https://github.com/jhy/jsoup/issues/1289
         // test we can replace an element during traversal
         String html = "<div><p>One <i>two</i> <i>three</i> four.</p></div>";
@@ -145,7 +145,7 @@ public class TraversorTest_OE25Dev {
         assertNotNull(p);
         }
 
-    @Test public void replaceElement_2_oe() {
+@Test public void replaceElement_2_oe() {
         // https://github.com/jhy/jsoup/issues/1289
         // test we can replace an element during traversal
         String html = "<div><p>One <i>two</i> <i>three</i> four.</p></div>";
@@ -172,7 +172,7 @@ public class TraversorTest_OE25Dev {
         assertEquals("<p>One <u>two</u> <u>three</u> four.</p>", p.outerHtml());
         }
 
-    @Test public void canAddChildren_1_oe() {
+@Test public void canAddChildren_1_oe() {
         Document doc = Jsoup.parse("<div><p></p><p></p></div>");
 
         NodeTraversor.traverse(new NodeVisitor() {
@@ -197,7 +197,7 @@ public class TraversorTest_OE25Dev {
         assertEquals("<div>\n" + " <p><span>0</span><span>1</span></p>\n" + " <p><span>2</span><span>3</span></p>\n" + "</div>",doc.body().html());
         }
 
-    @Test public void canSpecifyOnlyHead_1_oe() {
+@Test public void canSpecifyOnlyHead_1_oe() {
         // really, a compilation test - works as a lambda if just head
         Document doc = Jsoup.parse("<div><p>One</p></div>");
         final int[] count = {0};
@@ -205,7 +205,7 @@ public class TraversorTest_OE25Dev {
         assertEquals(7, count[0]);
         }
 
-    @Test public void canRemoveDuringHead_1_oe() {
+@Test public void canRemoveDuringHead_1_oe() {
         Document doc = Jsoup.parse("<div><p id=1>Zero<p id=1>One<p id=2>Two<p>Three</div>");
         NodeTraversor.traverse((node, depth) -> {
             if (node.attr("id").equals("1"))

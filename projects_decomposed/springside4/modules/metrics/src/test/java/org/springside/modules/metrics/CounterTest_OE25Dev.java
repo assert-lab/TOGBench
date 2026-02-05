@@ -22,7 +22,7 @@ public class CounterTest_OE25Dev {
 		Counter.clock = clock;
 	}
 
-	@Test
+@Test
 	public void normal_1_oe() {
 
 		Counter counter = new Counter();
@@ -35,7 +35,7 @@ public class CounterTest_OE25Dev {
 		assertThat(metric.totalCount).isEqualTo(60);
 	}
 
-	@Test
+@Test
 	public void normal_2_oe() {
 
 		Counter counter = new Counter();
@@ -49,7 +49,7 @@ public class CounterTest_OE25Dev {
 		assertThat(metric.avgRate).isEqualTo(60);
 	}
 
-	@Test
+@Test
 	public void normal_3_oe() {
 
 		Counter counter = new Counter();
@@ -64,7 +64,7 @@ public class CounterTest_OE25Dev {
 		assertThat(metric.latestCount).isEqualTo(60);
 	}
 
-	@Test
+@Test
 	public void normal_4_oe() {
 
 		Counter counter = new Counter();
@@ -80,7 +80,7 @@ public class CounterTest_OE25Dev {
 		assertThat(metric.latestRate).isEqualTo(60);
 	}
 
-	@Test
+@Test
 	public void normal_5_oe() {
 
 		Counter counter = new Counter();
@@ -102,7 +102,7 @@ public class CounterTest_OE25Dev {
 		assertThat(metric.totalCount).isEqualTo(80);
 	}
 
-	@Test
+@Test
 	public void normal_6_oe() {
 
 		Counter counter = new Counter();
@@ -125,7 +125,7 @@ public class CounterTest_OE25Dev {
 		assertThat(metric.avgRate).isEqualTo(40);
 	}
 
-	@Test
+@Test
 	public void normal_7_oe() {
 
 		Counter counter = new Counter();
@@ -149,7 +149,7 @@ public class CounterTest_OE25Dev {
 		assertThat(metric.latestCount).isEqualTo(20);
 	}
 
-	@Test
+@Test
 	public void normal_8_oe() {
 
 		Counter counter = new Counter();
@@ -174,7 +174,7 @@ public class CounterTest_OE25Dev {
 		assertThat(metric.latestRate).isEqualTo(20);
 	}
 
-	@Test
+@Test
 	public void incAndDec_1_oe() {
 		Counter counter = new Counter();
 
@@ -189,7 +189,7 @@ public class CounterTest_OE25Dev {
 		assertThat(metric.totalCount).isEqualTo(11);
 	}
 
-	@Test
+@Test
 	public void empty_1_oe() {
 		Counter counter = new Counter();
 		clock.increaseTime(1000);
@@ -198,7 +198,7 @@ public class CounterTest_OE25Dev {
 		assertThat(metric.totalCount).isEqualTo(0);
 	}
 
-	@Test
+@Test
 	public void empty_2_oe() {
 		Counter counter = new Counter();
 		clock.increaseTime(1000);

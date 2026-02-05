@@ -242,13 +242,13 @@ public class ResponseTest_OE25Dev {
         verify(httpServletResponse).sendError(finalStatusCode);
     }
 
-    @Test
+@Test
     public void testConstructor_whenHttpServletResponseParameter_1_oe() {
         HttpServletResponse returnResponse = Whitebox.getInternalState(response, "response");
         assertSame("Should be the same the HttpServletResponse object for httpServletResponse and returnResponse", httpServletResponse, returnResponse);
     }
 
-    @Test
+@Test
     public void testSetBody_1_oe() {
         final String finalBody = "Hello world!";
 
@@ -257,7 +257,7 @@ public class ResponseTest_OE25Dev {
         assertEquals("Should return body specified", finalBody, returnBody);
     }
 
-    @Test
+@Test
     public void testGetBody_1_oe() {
         final String finalBody = "Hello world!";
 
@@ -266,13 +266,13 @@ public class ResponseTest_OE25Dev {
         assertEquals("Should return body specified", finalBody, returnBody);
     }
 
-    @Test
+@Test
     public void testRaw_1_oe() {
         HttpServletResponse returnResponse = response.raw();
         assertSame("Should be the same the HttpServletResponse object for httpServletResponse and returnResponse", httpServletResponse, returnResponse);
     }
 
-    @Test
+@Test
     public void testRemoveCookie_shouldModifyPropertiesFromCookieSuccessfully_1_oe() {
         final String finalPath = "/cookie/SetCookie";
         final String finalName = "cookie_name";
@@ -289,7 +289,7 @@ public class ResponseTest_OE25Dev {
         assertEquals("Should return empty value for the given cookie name", "", cookieArgumentCaptor.getValue().getValue());
     }
 
-    @Test
+@Test
     public void testRemoveCookie_shouldModifyPropertiesFromCookieSuccessfully_2_oe() {
         final String finalPath = "/cookie/SetCookie";
         final String finalName = "cookie_name";

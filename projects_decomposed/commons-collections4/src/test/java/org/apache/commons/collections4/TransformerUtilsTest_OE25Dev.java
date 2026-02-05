@@ -144,18 +144,18 @@ public class TransformerUtilsTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testExceptionTransformer_1_oe() {
         assertNotNull(TransformerUtils.exceptionTransformer());
     }
 
-    @Test
+@Test
     public void testExceptionTransformer_2_oe() {
         // removed other assertion
         assertSame(TransformerUtils.exceptionTransformer(), TransformerUtils.exceptionTransformer());
     }
 
-    @Test
+@Test
     public void testExceptionTransformer_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -171,25 +171,25 @@ public class TransformerUtilsTest_OE25Dev {
         fail();
     }
 
-    @Test
+@Test
     public void testNullTransformer_1_oe() {
         assertNotNull(TransformerUtils.nullTransformer());
     }
 
-    @Test
+@Test
     public void testNullTransformer_2_oe() {
         // removed other assertion
         assertSame(TransformerUtils.nullTransformer(), TransformerUtils.nullTransformer());
     }
 
-    @Test
+@Test
     public void testNullTransformer_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(null, TransformerUtils.nullTransformer().transform(null));
     }
 
-    @Test
+@Test
     public void testNullTransformer_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -197,7 +197,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(null, TransformerUtils.nullTransformer().transform(cObject));
     }
 
-    @Test
+@Test
     public void testNullTransformer_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -206,7 +206,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(null, TransformerUtils.nullTransformer().transform(cString));
     }
 
-    @Test
+@Test
     public void testNullTransformer_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -216,25 +216,25 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(null, TransformerUtils.nullTransformer().transform(cInteger));
     }
 
-    @Test
+@Test
     public void testNopTransformer_1_oe() {
         assertNotNull(TransformerUtils.nullTransformer());
     }
 
-    @Test
+@Test
     public void testNopTransformer_2_oe() {
         // removed other assertion
         assertSame(TransformerUtils.nullTransformer(), TransformerUtils.nullTransformer());
     }
 
-    @Test
+@Test
     public void testNopTransformer_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(null, TransformerUtils.nopTransformer().transform(null));
     }
 
-    @Test
+@Test
     public void testNopTransformer_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -242,7 +242,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(cObject, TransformerUtils.nopTransformer().transform(cObject));
     }
 
-    @Test
+@Test
     public void testNopTransformer_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -251,7 +251,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(cString, TransformerUtils.nopTransformer().transform(cString));
     }
 
-    @Test
+@Test
     public void testNopTransformer_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -261,25 +261,25 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(cInteger, TransformerUtils.nopTransformer().transform(cInteger));
     }
 
-    @Test
+@Test
     public void testConstantTransformer_1_oe() {
         assertEquals(cObject, TransformerUtils.constantTransformer(cObject).transform(null));
     }
 
-    @Test
+@Test
     public void testConstantTransformer_2_oe() {
         // removed other assertion
         assertEquals(cObject, TransformerUtils.constantTransformer(cObject).transform(cObject));
     }
 
-    @Test
+@Test
     public void testConstantTransformer_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(cObject, TransformerUtils.constantTransformer(cObject).transform(cString));
     }
 
-    @Test
+@Test
     public void testConstantTransformer_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -287,7 +287,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(cObject, TransformerUtils.constantTransformer(cObject).transform(cInteger));
     }
 
-    @Test
+@Test
     public void testConstantTransformer_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -296,25 +296,25 @@ public class TransformerUtilsTest_OE25Dev {
         assertSame(ConstantTransformer.NULL_INSTANCE, TransformerUtils.constantTransformer(null));
     }
 
-    @Test
+@Test
     public void testCloneTransformer_1_oe() {
         assertEquals(null, TransformerUtils.cloneTransformer().transform(null));
     }
 
-    @Test
+@Test
     public void testCloneTransformer_2_oe() {
         // removed other assertion
         assertEquals(cString, TransformerUtils.cloneTransformer().transform(cString));
     }
 
-    @Test
+@Test
     public void testCloneTransformer_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(cInteger, TransformerUtils.cloneTransformer().transform(cInteger));
     }
 
-    @Test
+@Test
     public void testCloneTransformer_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -327,7 +327,7 @@ public class TransformerUtilsTest_OE25Dev {
         fail();
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testMapTransformer_1_oe() {
         final Map<Object, Integer> map = new HashMap<>();
@@ -337,7 +337,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(Integer.valueOf(0), TransformerUtils.mapTransformer(map).transform(null));
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testMapTransformer_2_oe() {
         final Map<Object, Integer> map = new HashMap<>();
@@ -348,7 +348,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(Integer.valueOf(1), TransformerUtils.mapTransformer(map).transform(cObject));
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testMapTransformer_3_oe() {
         final Map<Object, Integer> map = new HashMap<>();
@@ -360,7 +360,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(Integer.valueOf(2), TransformerUtils.mapTransformer(map).transform(cString));
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testMapTransformer_4_oe() {
         final Map<Object, Integer> map = new HashMap<>();
@@ -373,7 +373,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(null, TransformerUtils.mapTransformer(map).transform(cInteger));
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testMapTransformer_5_oe() {
         final Map<Object, Integer> map = new HashMap<>();
@@ -387,25 +387,25 @@ public class TransformerUtilsTest_OE25Dev {
         assertSame(ConstantTransformer.NULL_INSTANCE, TransformerUtils.mapTransformer(null));
     }
 
-    @Test
+@Test
     public void testExecutorTransformer_1_oe() {
         assertEquals(null, TransformerUtils.asTransformer(ClosureUtils.nopClosure()).transform(null));
     }
 
-    @Test
+@Test
     public void testExecutorTransformer_2_oe() {
         // removed other assertion
         assertEquals(cObject, TransformerUtils.asTransformer(ClosureUtils.nopClosure()).transform(cObject));
     }
 
-    @Test
+@Test
     public void testExecutorTransformer_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(cString, TransformerUtils.asTransformer(ClosureUtils.nopClosure()).transform(cString));
     }
 
-    @Test
+@Test
     public void testExecutorTransformer_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -413,7 +413,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(cInteger, TransformerUtils.asTransformer(ClosureUtils.nopClosure()).transform(cInteger));
     }
 
-    @Test
+@Test
     public void testExecutorTransformer_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -427,25 +427,25 @@ public class TransformerUtilsTest_OE25Dev {
         fail();
     }
 
-    @Test
+@Test
     public void testPredicateTransformer_1_oe() {
         assertEquals(Boolean.TRUE, TransformerUtils.asTransformer(TruePredicate.truePredicate()).transform(null));
     }
 
-    @Test
+@Test
     public void testPredicateTransformer_2_oe() {
         // removed other assertion
         assertEquals(Boolean.TRUE, TransformerUtils.asTransformer(TruePredicate.truePredicate()).transform(cObject));
     }
 
-    @Test
+@Test
     public void testPredicateTransformer_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(Boolean.TRUE, TransformerUtils.asTransformer(TruePredicate.truePredicate()).transform(cString));
     }
 
-    @Test
+@Test
     public void testPredicateTransformer_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -453,7 +453,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(Boolean.TRUE, TransformerUtils.asTransformer(TruePredicate.truePredicate()).transform(cInteger));
     }
 
-    @Test
+@Test
     public void testPredicateTransformer_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -467,25 +467,25 @@ public class TransformerUtilsTest_OE25Dev {
         fail();
     }
 
-    @Test
+@Test
     public void testFactoryTransformer_1_oe() {
         assertEquals(null, TransformerUtils.asTransformer(FactoryUtils.nullFactory()).transform(null));
     }
 
-    @Test
+@Test
     public void testFactoryTransformer_2_oe() {
         // removed other assertion
         assertEquals(null, TransformerUtils.asTransformer(FactoryUtils.nullFactory()).transform(cObject));
     }
 
-    @Test
+@Test
     public void testFactoryTransformer_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(null, TransformerUtils.asTransformer(FactoryUtils.nullFactory()).transform(cString));
     }
 
-    @Test
+@Test
     public void testFactoryTransformer_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -493,7 +493,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(null, TransformerUtils.asTransformer(FactoryUtils.nullFactory()).transform(cInteger));
     }
 
-    @Test
+@Test
     public void testFactoryTransformer_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -507,7 +507,7 @@ public class TransformerUtilsTest_OE25Dev {
         fail();
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testChainedTransformer_1_oe() {
         final Transformer<Object, Object> a = TransformerUtils.<Object, Object>constantTransformer("A");
@@ -516,7 +516,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("A", TransformerUtils.chainedTransformer(b, a).transform(null));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testChainedTransformer_2_oe() {
         final Transformer<Object, Object> a = TransformerUtils.<Object, Object>constantTransformer("A");
@@ -526,7 +526,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("B", TransformerUtils.chainedTransformer(a, b).transform(null));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testChainedTransformer_3_oe() {
         final Transformer<Object, Object> a = TransformerUtils.<Object, Object>constantTransformer("A");
@@ -537,7 +537,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("A", TransformerUtils.chainedTransformer(new Transformer[] { b, a }).transform(null));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testChainedTransformer_4_oe() {
         final Transformer<Object, Object> a = TransformerUtils.<Object, Object>constantTransformer("A");
@@ -552,7 +552,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("A", TransformerUtils.chainedTransformer(coll).transform(null));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testChainedTransformer_5_oe() {
         final Transformer<Object, Object> a = TransformerUtils.<Object, Object>constantTransformer("A");
@@ -569,7 +569,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertSame(NOPTransformer.INSTANCE, TransformerUtils.chainedTransformer(new Transformer[0]));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testChainedTransformer_6_oe() {
         final Transformer<Object, Object> a = TransformerUtils.<Object, Object>constantTransformer("A");
@@ -587,7 +587,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertSame(NOPTransformer.INSTANCE, TransformerUtils.chainedTransformer(Collections.<Transformer<Object, Object>>emptyList()));
     }
 
-    @Test
+@Test
     public void testIfTransformer_1_oe() {
         final Transformer<Object, String> a = TransformerUtils.constantTransformer("A");
         final Transformer<Object, String> b = TransformerUtils.constantTransformer("B");
@@ -596,7 +596,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("A", TransformerUtils.ifTransformer(TruePredicate.truePredicate(), a, b).transform(null));
     }
 
-    @Test
+@Test
     public void testIfTransformer_2_oe() {
         final Transformer<Object, String> a = TransformerUtils.constantTransformer("A");
         final Transformer<Object, String> b = TransformerUtils.constantTransformer("B");
@@ -606,7 +606,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("B", TransformerUtils.ifTransformer(FalsePredicate.falsePredicate(), a, b).transform(null));
     }
 
-    @Test
+@Test
     public void testIfTransformer_3_oe() {
         final Transformer<Object, String> a = TransformerUtils.constantTransformer("A");
         final Transformer<Object, String> b = TransformerUtils.constantTransformer("B");
@@ -625,7 +625,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("A", TransformerUtils.<Integer, String>ifTransformer(lessThanFivePredicate, a, b).transform(1));
     }
 
-    @Test
+@Test
     public void testIfTransformer_4_oe() {
         final Transformer<Object, String> a = TransformerUtils.constantTransformer("A");
         final Transformer<Object, String> b = TransformerUtils.constantTransformer("B");
@@ -645,7 +645,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("B", TransformerUtils.<Integer, String>ifTransformer(lessThanFivePredicate, a, b).transform(5));
     }
 
-    @Test
+@Test
     public void testIfTransformer_5_oe() {
         final Transformer<Object, String> a = TransformerUtils.constantTransformer("A");
         final Transformer<Object, String> b = TransformerUtils.constantTransformer("B");
@@ -669,7 +669,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("C", TransformerUtils.<String>ifTransformer(equalsAPredicate, c).transform("A"));
     }
 
-    @Test
+@Test
     public void testIfTransformer_6_oe() {
         final Transformer<Object, String> a = TransformerUtils.constantTransformer("A");
         final Transformer<Object, String> b = TransformerUtils.constantTransformer("B");
@@ -694,7 +694,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("B", TransformerUtils.<String>ifTransformer(equalsAPredicate, c).transform("B"));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchTransformer_1_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
@@ -704,7 +704,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("A", TransformerUtils.switchTransformer(TruePredicate.truePredicate(), a, b).transform(null));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchTransformer_2_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
@@ -715,7 +715,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("B", TransformerUtils.switchTransformer(FalsePredicate.falsePredicate(), a, b).transform(null));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchTransformer_3_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
@@ -728,7 +728,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(null, TransformerUtils.<Object, String>switchTransformer( new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") }, new Transformer[] { a, b }).transform("WELL"));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchTransformer_4_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
@@ -742,7 +742,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("A", TransformerUtils.switchTransformer( new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") }, new Transformer[] { a, b }).transform("HELLO"));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchTransformer_5_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
@@ -757,7 +757,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("B", TransformerUtils.switchTransformer( new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") }, new Transformer[] { a, b }).transform("THERE"));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchTransformer_6_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
@@ -774,7 +774,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("C", TransformerUtils.switchTransformer( new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") }, new Transformer[] { a, b }, c).transform("WELL"));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchTransformer_7_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
@@ -796,7 +796,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(null, TransformerUtils.switchTransformer(map).transform("WELL"));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchTransformer_8_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
@@ -819,7 +819,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("A", TransformerUtils.switchTransformer(map).transform("HELLO"));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchTransformer_9_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
@@ -843,7 +843,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("B", TransformerUtils.switchTransformer(map).transform("THERE"));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchTransformer_10_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
@@ -869,7 +869,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("C", TransformerUtils.switchTransformer(map).transform("WELL"));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchTransformer_11_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
@@ -897,7 +897,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(ConstantTransformer.NULL_INSTANCE, TransformerUtils.switchTransformer(new Predicate[0], new Transformer[0]));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchTransformer_12_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
@@ -926,7 +926,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(ConstantTransformer.NULL_INSTANCE, TransformerUtils.switchTransformer(new HashMap<Predicate<Object>, Transformer<Object, Object>>()));
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSwitchTransformer_13_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
@@ -958,7 +958,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(ConstantTransformer.NULL_INSTANCE, TransformerUtils.switchTransformer(map));
     }
 
-    @Test
+@Test
     public void testSwitchMapTransformer_1_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
         final Transformer<String, String> b = TransformerUtils.constantTransformer("B");
@@ -970,7 +970,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(null, TransformerUtils.switchMapTransformer(map).transform("WELL"));
     }
 
-    @Test
+@Test
     public void testSwitchMapTransformer_2_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
         final Transformer<String, String> b = TransformerUtils.constantTransformer("B");
@@ -983,7 +983,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("A", TransformerUtils.switchMapTransformer(map).transform("HELLO"));
     }
 
-    @Test
+@Test
     public void testSwitchMapTransformer_3_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
         final Transformer<String, String> b = TransformerUtils.constantTransformer("B");
@@ -997,7 +997,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("B", TransformerUtils.switchMapTransformer(map).transform("THERE"));
     }
 
-    @Test
+@Test
     public void testSwitchMapTransformer_4_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
         final Transformer<String, String> b = TransformerUtils.constantTransformer("B");
@@ -1013,7 +1013,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals("C", TransformerUtils.switchMapTransformer(map).transform("WELL"));
     }
 
-    @Test
+@Test
     public void testSwitchMapTransformer_5_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
         final Transformer<String, String> b = TransformerUtils.constantTransformer("B");
@@ -1031,7 +1031,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertSame(ConstantTransformer.NULL_INSTANCE, TransformerUtils.switchMapTransformer(new HashMap<Object, Transformer<Object, Object>>()));
     }
 
-    @Test
+@Test
     public void testSwitchMapTransformer_6_oe() {
         final Transformer<String, String> a = TransformerUtils.constantTransformer("A");
         final Transformer<String, String> b = TransformerUtils.constantTransformer("B");
@@ -1052,13 +1052,13 @@ public class TransformerUtilsTest_OE25Dev {
         assertSame(ConstantTransformer.NULL_INSTANCE, TransformerUtils.switchMapTransformer(map));
     }
 
-    @Test
+@Test
     public void testInvokerTransformer_1_oe() {
         final List<Object> list = new ArrayList<>();
         assertEquals(Integer.valueOf(0), TransformerUtils.invokerTransformer("size").transform(list));
     }
 
-    @Test
+@Test
     public void testInvokerTransformer_2_oe() {
         final List<Object> list = new ArrayList<>();
         // removed other assertion
@@ -1066,7 +1066,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(Integer.valueOf(1), TransformerUtils.invokerTransformer("size").transform(list));
     }
 
-    @Test
+@Test
     public void testInvokerTransformer_3_oe() {
         final List<Object> list = new ArrayList<>();
         // removed other assertion
@@ -1075,13 +1075,13 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(null, TransformerUtils.invokerTransformer("size").transform(null));
     }
 
-    @Test
+@Test
     public void testInvokerTransformer2_1_oe() {
         final List<Object> list = new ArrayList<>();
         assertEquals(Boolean.FALSE, TransformerUtils.invokerTransformer("contains", new Class[] { Object.class }, new Object[] { cString }).transform(list));
     }
 
-    @Test
+@Test
     public void testInvokerTransformer2_2_oe() {
         final List<Object> list = new ArrayList<>();
         // removed other assertion
@@ -1089,7 +1089,7 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(Boolean.TRUE, TransformerUtils.invokerTransformer("contains", new Class[] { Object.class }, new Object[] { cString }).transform(list));
     }
 
-    @Test
+@Test
     public void testInvokerTransformer2_3_oe() {
         final List<Object> list = new ArrayList<>();
         // removed other assertion
@@ -1098,18 +1098,18 @@ public class TransformerUtilsTest_OE25Dev {
         assertEquals(null, TransformerUtils.invokerTransformer("contains", new Class[] { Object.class }, new Object[] { cString }).transform(null));
     }
 
-    @Test
+@Test
     public void testStringValueTransformer_1_oe() {
         assertNotNull("StringValueTransformer should NEVER return a null value.",TransformerUtils.stringValueTransformer().transform(null));
     }
 
-    @Test
+@Test
     public void testStringValueTransformer_2_oe() {
         // removed other assertion
         assertEquals("StringValueTransformer should return \"null\" when given a null argument.","null",TransformerUtils.stringValueTransformer().transform(null));
     }
 
-    @Test
+@Test
     public void testStringValueTransformer_3_oe() {
         // removed other assertion
         // removed other assertion

@@ -229,20 +229,20 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(sec,test.getDayOfMonth());
     }
 
-    public void testSubclassableConstructor_1_oe() {
+public void testSubclassableConstructor_1_oe() {
         DateTimeFormat f = new DateTimeFormat() {
             // test constructor is protected
         };
         assertNotNull(f);
     }
 
-    public void testFormat_era_1_oe() {
+public void testFormat_era_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("G").withLocale(Locale.UK);
         assertEquals(dt.toString(),"AD",f.print(dt));
     }
 
-    public void testFormat_era_2_oe() {
+public void testFormat_era_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("G").withLocale(Locale.UK);
         // removed other assertion
@@ -251,7 +251,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"AD",f.print(dt));
     }
 
-    public void testFormat_era_3_oe() {
+public void testFormat_era_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("G").withLocale(Locale.UK);
         // removed other assertion
@@ -263,13 +263,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"AD",f.print(dt));
     }
 
-    public void testFormat_centuryOfEra_1_oe() {
+public void testFormat_centuryOfEra_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("C").withLocale(Locale.UK);
         assertEquals(dt.toString(),"20",f.print(dt));
     }
 
-    public void testFormat_centuryOfEra_2_oe() {
+public void testFormat_centuryOfEra_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("C").withLocale(Locale.UK);
         // removed other assertion
@@ -278,7 +278,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"20",f.print(dt));
     }
 
-    public void testFormat_centuryOfEra_3_oe() {
+public void testFormat_centuryOfEra_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("C").withLocale(Locale.UK);
         // removed other assertion
@@ -290,7 +290,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"20",f.print(dt));
     }
 
-    public void testFormat_centuryOfEra_4_oe() {
+public void testFormat_centuryOfEra_4_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("C").withLocale(Locale.UK);
         // removed other assertion
@@ -305,13 +305,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"1",f.print(dt));
     }
 
-    public void testFormat_yearOfEra_1_oe() {
+public void testFormat_yearOfEra_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("Y").withLocale(Locale.UK);
         assertEquals(dt.toString(),"2004",f.print(dt));
     }
 
-    public void testFormat_yearOfEra_2_oe() {
+public void testFormat_yearOfEra_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("Y").withLocale(Locale.UK);
         // removed other assertion
@@ -320,7 +320,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"2004",f.print(dt));
     }
 
-    public void testFormat_yearOfEra_3_oe() {
+public void testFormat_yearOfEra_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("Y").withLocale(Locale.UK);
         // removed other assertion
@@ -332,7 +332,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"2004",f.print(dt));
     }
 
-    public void testFormat_yearOfEra_4_oe() {
+public void testFormat_yearOfEra_4_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("Y").withLocale(Locale.UK);
         // removed other assertion
@@ -347,13 +347,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"124",f.print(dt));  // 124th year of BCE;
     }
 
-    public void testFormat_yearOfEra_twoDigit_1_oe() {
+public void testFormat_yearOfEra_twoDigit_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("YY").withLocale(Locale.UK);
         assertEquals(dt.toString(),"04",f.print(dt));
     }
 
-    public void testFormat_yearOfEra_twoDigit_2_oe() {
+public void testFormat_yearOfEra_twoDigit_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("YY").withLocale(Locale.UK);
         // removed other assertion
@@ -362,7 +362,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"23",f.print(dt));
     }
 
-    public void testFormat_yearOfEra_twoDigit_3_oe() {
+public void testFormat_yearOfEra_twoDigit_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("YY").withLocale(Locale.UK);
         // removed other assertion
@@ -377,7 +377,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("04"));
     }
 
-    public void testFormat_yearOfEra_twoDigit_4_oe() {
+public void testFormat_yearOfEra_twoDigit_4_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("YY").withLocale(Locale.UK);
         // removed other assertion
@@ -395,7 +395,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("22"));
     }
 
-    public void testFormat_yearOfEra_twoDigit_5_oe() {
+public void testFormat_yearOfEra_twoDigit_5_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("YY").withLocale(Locale.UK);
         // removed other assertion
@@ -416,7 +416,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("21"));
     }
 
-    public void testFormat_yearOfEra_twoDigit_8_oe() {
+public void testFormat_yearOfEra_twoDigit_8_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("YY").withLocale(Locale.UK);
         // removed other assertion
@@ -453,7 +453,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("00"));
     }
 
-    public void testFormat_yearOfEra_twoDigit_9_oe() {
+public void testFormat_yearOfEra_twoDigit_9_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("YY").withLocale(Locale.UK);
         // removed other assertion
@@ -493,7 +493,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("99"));
     }
 
-    public void testFormat_yearOfEraParse_1_oe() {
+public void testFormat_yearOfEraParse_1_oe() {
         Chronology chrono = GJChronology.getInstanceUTC();
 
         DateTimeFormatter f = DateTimeFormat
@@ -505,7 +505,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt,f.parseDateTime("2005-10 AD"));
     }
 
-    public void testFormat_yearOfEraParse_2_oe() {
+public void testFormat_yearOfEraParse_2_oe() {
         Chronology chrono = GJChronology.getInstanceUTC();
 
         DateTimeFormatter f = DateTimeFormat
@@ -518,7 +518,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt,f.parseDateTime("2005-10 CE"));
     }
 
-    public void testFormat_yearOfEraParse_3_oe() {
+public void testFormat_yearOfEraParse_3_oe() {
         Chronology chrono = GJChronology.getInstanceUTC();
 
         DateTimeFormatter f = DateTimeFormat
@@ -534,7 +534,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt,f.parseDateTime("2005-10 BC"));
     }
 
-    public void testFormat_yearOfEraParse_4_oe() {
+public void testFormat_yearOfEraParse_4_oe() {
         Chronology chrono = GJChronology.getInstanceUTC();
 
         DateTimeFormatter f = DateTimeFormat
@@ -551,13 +551,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt,f.parseDateTime("2005-10 BCE"));
     }
 
-    public void testFormat_year_1_oe() {
+public void testFormat_year_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("y").withLocale(Locale.UK);
         assertEquals(dt.toString(),"2004",f.print(dt));
     }
 
-    public void testFormat_year_2_oe() {
+public void testFormat_year_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("y").withLocale(Locale.UK);
         // removed other assertion
@@ -566,7 +566,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"2004",f.print(dt));
     }
 
-    public void testFormat_year_3_oe() {
+public void testFormat_year_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("y").withLocale(Locale.UK);
         // removed other assertion
@@ -578,7 +578,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"2004",f.print(dt));
     }
 
-    public void testFormat_year_4_oe() {
+public void testFormat_year_4_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("y").withLocale(Locale.UK);
         // removed other assertion
@@ -593,13 +593,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"-123",f.print(dt));
     }
 
-    public void testFormat_year_twoDigit_1_oe() {
+public void testFormat_year_twoDigit_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         assertEquals(dt.toString(),"04",f.print(dt));
     }
 
-    public void testFormat_year_twoDigit_2_oe() {
+public void testFormat_year_twoDigit_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -608,7 +608,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"23",f.print(dt));
     }
 
-    public void testFormat_year_twoDigit_3_oe() {
+public void testFormat_year_twoDigit_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -623,7 +623,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("04"));
     }
 
-    public void testFormat_year_twoDigit_4_oe() {
+public void testFormat_year_twoDigit_4_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -641,7 +641,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("22"));
     }
 
-    public void testFormat_year_twoDigit_5_oe() {
+public void testFormat_year_twoDigit_5_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -662,7 +662,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("21"));
     }
 
-    public void testFormat_year_twoDigit_8_oe() {
+public void testFormat_year_twoDigit_8_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -699,7 +699,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("00"));
     }
 
-    public void testFormat_year_twoDigit_9_oe() {
+public void testFormat_year_twoDigit_9_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -739,7 +739,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("99"));
     }
 
-    public void testFormat_year_twoDigit_14_oe() {
+public void testFormat_year_twoDigit_14_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -814,7 +814,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("04"));
     }
 
-    public void testFormat_year_twoDigit_15_oe() {
+public void testFormat_year_twoDigit_15_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -892,7 +892,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("+04"));
     }
 
-    public void testFormat_year_twoDigit_16_oe() {
+public void testFormat_year_twoDigit_16_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -973,7 +973,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("-04"));
     }
 
-    public void testFormat_year_twoDigit_17_oe() {
+public void testFormat_year_twoDigit_17_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -1057,7 +1057,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("4"));
     }
 
-    public void testFormat_year_twoDigit_18_oe() {
+public void testFormat_year_twoDigit_18_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -1144,7 +1144,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("-4"));
     }
 
-    public void testFormat_year_twoDigit_19_oe() {
+public void testFormat_year_twoDigit_19_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -1234,7 +1234,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("004"));
     }
 
-    public void testFormat_year_twoDigit_20_oe() {
+public void testFormat_year_twoDigit_20_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -1327,7 +1327,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("+004"));
     }
 
-    public void testFormat_year_twoDigit_21_oe() {
+public void testFormat_year_twoDigit_21_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -1423,7 +1423,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("-004"));
     }
 
-    public void testFormat_year_twoDigit_22_oe() {
+public void testFormat_year_twoDigit_22_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -1522,7 +1522,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("3004"));
     }
 
-    public void testFormat_year_twoDigit_23_oe() {
+public void testFormat_year_twoDigit_23_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -1624,7 +1624,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("+3004"));
     }
 
-    public void testFormat_year_twoDigit_24_oe() {
+public void testFormat_year_twoDigit_24_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yy").withLocale(Locale.UK);
         // removed other assertion
@@ -1729,13 +1729,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("-3004"));
     }
 
-    public void testFormat_year_long_1_oe() {
+public void testFormat_year_long_1_oe() {
         DateTime dt = new DateTime(278004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yyyy");
         assertEquals(dt.toString(),"278004",f.print(dt));
     }
 
-    public void testFormat_year_long_2_oe() {
+public void testFormat_year_long_2_oe() {
         DateTime dt = new DateTime(278004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yyyy");
         // removed other assertion
@@ -1745,7 +1745,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"2780040609",f.print(dt));
     }
 
-    public void testFormat_year_long_3_oe() {
+public void testFormat_year_long_3_oe() {
         DateTime dt = new DateTime(278004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yyyy");
         // removed other assertion
@@ -1759,13 +1759,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"2780040906",f.print(dt));
     }
 
-    public void testFormat_weekyear_1_oe() {
+public void testFormat_weekyear_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("x").withLocale(Locale.UK);
         assertEquals(dt.toString(),"2004",f.print(dt));
     }
 
-    public void testFormat_weekyear_2_oe() {
+public void testFormat_weekyear_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("x").withLocale(Locale.UK);
         // removed other assertion
@@ -1774,7 +1774,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"2004",f.print(dt));
     }
 
-    public void testFormat_weekyear_3_oe() {
+public void testFormat_weekyear_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("x").withLocale(Locale.UK);
         // removed other assertion
@@ -1786,7 +1786,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"2004",f.print(dt));
     }
 
-    public void testFormat_weekyear_4_oe() {
+public void testFormat_weekyear_4_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("x").withLocale(Locale.UK);
         // removed other assertion
@@ -1801,13 +1801,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"-123",f.print(dt));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_1_oe() {
+public void testFormat_weekyearOfEra_twoDigit_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         assertEquals(dt.toString(),"04",f.print(dt));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_2_oe() {
+public void testFormat_weekyearOfEra_twoDigit_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -1816,7 +1816,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"23",f.print(dt));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_3_oe() {
+public void testFormat_weekyearOfEra_twoDigit_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -1831,7 +1831,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("04"));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_4_oe() {
+public void testFormat_weekyearOfEra_twoDigit_4_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -1849,7 +1849,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("22"));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_5_oe() {
+public void testFormat_weekyearOfEra_twoDigit_5_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -1870,7 +1870,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("21"));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_8_oe() {
+public void testFormat_weekyearOfEra_twoDigit_8_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -1907,7 +1907,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("00"));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_9_oe() {
+public void testFormat_weekyearOfEra_twoDigit_9_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -1947,7 +1947,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("99"));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_14_oe() {
+public void testFormat_weekyearOfEra_twoDigit_14_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -2022,7 +2022,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("04"));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_15_oe() {
+public void testFormat_weekyearOfEra_twoDigit_15_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -2100,7 +2100,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("+04"));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_16_oe() {
+public void testFormat_weekyearOfEra_twoDigit_16_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -2181,7 +2181,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("-04"));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_17_oe() {
+public void testFormat_weekyearOfEra_twoDigit_17_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -2265,7 +2265,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("4"));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_18_oe() {
+public void testFormat_weekyearOfEra_twoDigit_18_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -2352,7 +2352,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("-4"));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_19_oe() {
+public void testFormat_weekyearOfEra_twoDigit_19_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -2442,7 +2442,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("004"));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_20_oe() {
+public void testFormat_weekyearOfEra_twoDigit_20_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -2535,7 +2535,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("+004"));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_21_oe() {
+public void testFormat_weekyearOfEra_twoDigit_21_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -2631,7 +2631,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("-004"));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_22_oe() {
+public void testFormat_weekyearOfEra_twoDigit_22_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -2730,7 +2730,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("3004"));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_23_oe() {
+public void testFormat_weekyearOfEra_twoDigit_23_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -2832,7 +2832,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("+3004"));
     }
 
-    public void testFormat_weekyearOfEra_twoDigit_24_oe() {
+public void testFormat_weekyearOfEra_twoDigit_24_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("xx").withLocale(Locale.UK);
         // removed other assertion
@@ -2937,13 +2937,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(expect,f.parseDateTime("-3004"));
     }
 
-    public void testFormat_weekOfWeekyear_1_oe() {
+public void testFormat_weekOfWeekyear_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("w").withLocale(Locale.UK);
         assertEquals(dt.toString(),"24",f.print(dt));
     }
 
-    public void testFormat_weekOfWeekyear_2_oe() {
+public void testFormat_weekOfWeekyear_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("w").withLocale(Locale.UK);
         // removed other assertion
@@ -2952,7 +2952,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"24",f.print(dt));
     }
 
-    public void testFormat_weekOfWeekyear_3_oe() {
+public void testFormat_weekOfWeekyear_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("w").withLocale(Locale.UK);
         // removed other assertion
@@ -2964,13 +2964,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"24",f.print(dt));
     }
 
-    public void testFormat_dayOfWeek_1_oe() {
+public void testFormat_dayOfWeek_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("e").withLocale(Locale.UK);
         assertEquals(dt.toString(),"3",f.print(dt));
     }
 
-    public void testFormat_dayOfWeek_2_oe() {
+public void testFormat_dayOfWeek_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("e").withLocale(Locale.UK);
         // removed other assertion
@@ -2979,7 +2979,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"3",f.print(dt));
     }
 
-    public void testFormat_dayOfWeek_3_oe() {
+public void testFormat_dayOfWeek_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("e").withLocale(Locale.UK);
         // removed other assertion
@@ -2991,13 +2991,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"3",f.print(dt));
     }
 
-    public void testFormat_dayOfWeekShortText_1_oe() {
+public void testFormat_dayOfWeekShortText_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("E").withLocale(Locale.UK);
         assertEquals(dt.toString(),"Wed",f.print(dt));
     }
 
-    public void testFormat_dayOfWeekShortText_2_oe() {
+public void testFormat_dayOfWeekShortText_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("E").withLocale(Locale.UK);
         // removed other assertion
@@ -3006,7 +3006,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"Wed",f.print(dt));
     }
 
-    public void testFormat_dayOfWeekShortText_3_oe() {
+public void testFormat_dayOfWeekShortText_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("E").withLocale(Locale.UK);
         // removed other assertion
@@ -3018,7 +3018,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"Wed",f.print(dt));
     }
 
-    public void testFormat_dayOfWeekShortText_4_oe() {
+public void testFormat_dayOfWeekShortText_4_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("E").withLocale(Locale.UK);
         // removed other assertion
@@ -3033,13 +3033,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"mer.",f.print(dt));
     }
 
-    public void testFormat_dayOfWeekText_1_oe() {
+public void testFormat_dayOfWeekText_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("EEEE").withLocale(Locale.UK);
         assertEquals(dt.toString(),"Wednesday",f.print(dt));
     }
 
-    public void testFormat_dayOfWeekText_2_oe() {
+public void testFormat_dayOfWeekText_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("EEEE").withLocale(Locale.UK);
         // removed other assertion
@@ -3048,7 +3048,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"Wednesday",f.print(dt));
     }
 
-    public void testFormat_dayOfWeekText_3_oe() {
+public void testFormat_dayOfWeekText_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("EEEE").withLocale(Locale.UK);
         // removed other assertion
@@ -3060,7 +3060,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"Wednesday",f.print(dt));
     }
 
-    public void testFormat_dayOfWeekText_4_oe() {
+public void testFormat_dayOfWeekText_4_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("EEEE").withLocale(Locale.UK);
         // removed other assertion
@@ -3075,13 +3075,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"mercredi",f.print(dt));
     }
 
-    public void testFormat_dayOfYearText_1_oe() {
+public void testFormat_dayOfYearText_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("D").withLocale(Locale.UK);
         assertEquals(dt.toString(),"161",f.print(dt));
     }
 
-    public void testFormat_dayOfYearText_2_oe() {
+public void testFormat_dayOfYearText_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("D").withLocale(Locale.UK);
         // removed other assertion
@@ -3090,7 +3090,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"161",f.print(dt));
     }
 
-    public void testFormat_dayOfYearText_3_oe() {
+public void testFormat_dayOfYearText_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("D").withLocale(Locale.UK);
         // removed other assertion
@@ -3102,13 +3102,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"161",f.print(dt));
     }
 
-    public void testFormat_monthOfYear_1_oe() {
+public void testFormat_monthOfYear_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("M").withLocale(Locale.UK);
         assertEquals(dt.toString(),"6",f.print(dt));
     }
 
-    public void testFormat_monthOfYear_2_oe() {
+public void testFormat_monthOfYear_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("M").withLocale(Locale.UK);
         // removed other assertion
@@ -3117,7 +3117,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"6",f.print(dt));
     }
 
-    public void testFormat_monthOfYear_3_oe() {
+public void testFormat_monthOfYear_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("M").withLocale(Locale.UK);
         // removed other assertion
@@ -3129,13 +3129,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"6",f.print(dt));
     }
 
-    public void testFormat_monthOfYearShortText_1_oe() {
+public void testFormat_monthOfYearShortText_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("MMM").withLocale(Locale.UK);
         assertEquals(dt.toString(),"Jun",f.print(dt));
     }
 
-    public void testFormat_monthOfYearShortText_2_oe() {
+public void testFormat_monthOfYearShortText_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("MMM").withLocale(Locale.UK);
         // removed other assertion
@@ -3144,7 +3144,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"Jun",f.print(dt));
     }
 
-    public void testFormat_monthOfYearShortText_3_oe() {
+public void testFormat_monthOfYearShortText_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("MMM").withLocale(Locale.UK);
         // removed other assertion
@@ -3156,7 +3156,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"Jun",f.print(dt));
     }
 
-    public void testFormat_monthOfYearShortText_4_oe() {
+public void testFormat_monthOfYearShortText_4_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("MMM").withLocale(Locale.UK);
         // removed other assertion
@@ -3171,13 +3171,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"juin",f.print(dt));
     }
 
-    public void testFormat_monthOfYearText_1_oe() {
+public void testFormat_monthOfYearText_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("MMMM").withLocale(Locale.UK);
         assertEquals(dt.toString(),"June",f.print(dt));
     }
 
-    public void testFormat_monthOfYearText_2_oe() {
+public void testFormat_monthOfYearText_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("MMMM").withLocale(Locale.UK);
         // removed other assertion
@@ -3186,7 +3186,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"June",f.print(dt));
     }
 
-    public void testFormat_monthOfYearText_3_oe() {
+public void testFormat_monthOfYearText_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("MMMM").withLocale(Locale.UK);
         // removed other assertion
@@ -3198,7 +3198,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"June",f.print(dt));
     }
 
-    public void testFormat_monthOfYearText_4_oe() {
+public void testFormat_monthOfYearText_4_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("MMMM").withLocale(Locale.UK);
         // removed other assertion
@@ -3213,13 +3213,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"juin",f.print(dt));
     }
 
-    public void testFormat_dayOfMonth_1_oe() {
+public void testFormat_dayOfMonth_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("d").withLocale(Locale.UK);
         assertEquals(dt.toString(),"9",f.print(dt));
     }
 
-    public void testFormat_dayOfMonth_2_oe() {
+public void testFormat_dayOfMonth_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("d").withLocale(Locale.UK);
         // removed other assertion
@@ -3228,7 +3228,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"9",f.print(dt));
     }
 
-    public void testFormat_dayOfMonth_3_oe() {
+public void testFormat_dayOfMonth_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("d").withLocale(Locale.UK);
         // removed other assertion
@@ -3240,13 +3240,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"9",f.print(dt));
     }
 
-    public void testFormat_halfdayOfDay_1_oe() {
+public void testFormat_halfdayOfDay_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("a").withLocale(Locale.UK);
         assertEquals(dt.toString(),"AM",f.print(dt).toUpperCase(Locale.ENGLISH));
     }
 
-    public void testFormat_halfdayOfDay_2_oe() {
+public void testFormat_halfdayOfDay_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("a").withLocale(Locale.UK);
         // removed other assertion
@@ -3255,7 +3255,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"AM",f.print(dt).toUpperCase(Locale.ENGLISH));
     }
 
-    public void testFormat_halfdayOfDay_3_oe() {
+public void testFormat_halfdayOfDay_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("a").withLocale(Locale.UK);
         // removed other assertion
@@ -3267,13 +3267,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"PM",f.print(dt).toUpperCase(Locale.ENGLISH));
     }
 
-    public void testFormat_hourOfHalfday_1_oe() {
+public void testFormat_hourOfHalfday_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("K").withLocale(Locale.UK);
         assertEquals(dt.toString(),"10",f.print(dt));
     }
 
-    public void testFormat_hourOfHalfday_2_oe() {
+public void testFormat_hourOfHalfday_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("K").withLocale(Locale.UK);
         // removed other assertion
@@ -3282,7 +3282,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"6",f.print(dt));
     }
 
-    public void testFormat_hourOfHalfday_3_oe() {
+public void testFormat_hourOfHalfday_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("K").withLocale(Locale.UK);
         // removed other assertion
@@ -3294,7 +3294,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"7",f.print(dt));
     }
 
-    public void testFormat_hourOfHalfday_4_oe() {
+public void testFormat_hourOfHalfday_4_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("K").withLocale(Locale.UK);
         // removed other assertion
@@ -3309,13 +3309,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"0",f.print(dt));
     }
 
-    public void testFormat_clockhourOfHalfday_1_oe() {
+public void testFormat_clockhourOfHalfday_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("h").withLocale(Locale.UK);
         assertEquals(dt.toString(),"10",f.print(dt));
     }
 
-    public void testFormat_clockhourOfHalfday_2_oe() {
+public void testFormat_clockhourOfHalfday_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("h").withLocale(Locale.UK);
         // removed other assertion
@@ -3324,7 +3324,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"6",f.print(dt));
     }
 
-    public void testFormat_clockhourOfHalfday_3_oe() {
+public void testFormat_clockhourOfHalfday_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("h").withLocale(Locale.UK);
         // removed other assertion
@@ -3336,7 +3336,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"7",f.print(dt));
     }
 
-    public void testFormat_clockhourOfHalfday_4_oe() {
+public void testFormat_clockhourOfHalfday_4_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("h").withLocale(Locale.UK);
         // removed other assertion
@@ -3351,13 +3351,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"12",f.print(dt));
     }
 
-    public void testFormat_hourOfDay_1_oe() {
+public void testFormat_hourOfDay_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("H").withLocale(Locale.UK);
         assertEquals(dt.toString(),"10",f.print(dt));
     }
 
-    public void testFormat_hourOfDay_2_oe() {
+public void testFormat_hourOfDay_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("H").withLocale(Locale.UK);
         // removed other assertion
@@ -3366,7 +3366,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"6",f.print(dt));
     }
 
-    public void testFormat_hourOfDay_3_oe() {
+public void testFormat_hourOfDay_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("H").withLocale(Locale.UK);
         // removed other assertion
@@ -3378,7 +3378,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"19",f.print(dt));
     }
 
-    public void testFormat_hourOfDay_4_oe() {
+public void testFormat_hourOfDay_4_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("H").withLocale(Locale.UK);
         // removed other assertion
@@ -3393,13 +3393,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"0",f.print(dt));
     }
 
-    public void testFormat_clockhourOfDay_1_oe() {
+public void testFormat_clockhourOfDay_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("k").withLocale(Locale.UK);
         assertEquals(dt.toString(),"10",f.print(dt));
     }
 
-    public void testFormat_clockhourOfDay_2_oe() {
+public void testFormat_clockhourOfDay_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("k").withLocale(Locale.UK);
         // removed other assertion
@@ -3408,7 +3408,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"6",f.print(dt));
     }
 
-    public void testFormat_clockhourOfDay_3_oe() {
+public void testFormat_clockhourOfDay_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("k").withLocale(Locale.UK);
         // removed other assertion
@@ -3420,7 +3420,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"19",f.print(dt));
     }
 
-    public void testFormat_clockhourOfDay_4_oe() {
+public void testFormat_clockhourOfDay_4_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("k").withLocale(Locale.UK);
         // removed other assertion
@@ -3435,13 +3435,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"24",f.print(dt));
     }
 
-    public void testFormat_minute_1_oe() {
+public void testFormat_minute_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("m").withLocale(Locale.UK);
         assertEquals(dt.toString(),"20",f.print(dt));
     }
 
-    public void testFormat_minute_2_oe() {
+public void testFormat_minute_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("m").withLocale(Locale.UK);
         // removed other assertion
@@ -3450,7 +3450,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"20",f.print(dt));
     }
 
-    public void testFormat_minute_3_oe() {
+public void testFormat_minute_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("m").withLocale(Locale.UK);
         // removed other assertion
@@ -3462,13 +3462,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"20",f.print(dt));
     }
 
-    public void testFormat_second_1_oe() {
+public void testFormat_second_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("s").withLocale(Locale.UK);
         assertEquals(dt.toString(),"30",f.print(dt));
     }
 
-    public void testFormat_second_2_oe() {
+public void testFormat_second_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("s").withLocale(Locale.UK);
         // removed other assertion
@@ -3477,7 +3477,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"30",f.print(dt));
     }
 
-    public void testFormat_second_3_oe() {
+public void testFormat_second_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("s").withLocale(Locale.UK);
         // removed other assertion
@@ -3489,13 +3489,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"30",f.print(dt));
     }
 
-    public void testFormat_fractionOfSecond_1_oe() {
+public void testFormat_fractionOfSecond_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("SSS").withLocale(Locale.UK);
         assertEquals(dt.toString(),"040",f.print(dt));
     }
 
-    public void testFormat_fractionOfSecond_2_oe() {
+public void testFormat_fractionOfSecond_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("SSS").withLocale(Locale.UK);
         // removed other assertion
@@ -3504,7 +3504,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"040",f.print(dt));
     }
 
-    public void testFormat_fractionOfSecond_3_oe() {
+public void testFormat_fractionOfSecond_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("SSS").withLocale(Locale.UK);
         // removed other assertion
@@ -3516,13 +3516,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"040",f.print(dt));
     }
 
-    public void testFormat_fractionOfSecondLong_1_oe() {
+public void testFormat_fractionOfSecondLong_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("SSSSSS").withLocale(Locale.UK);
         assertEquals(dt.toString(),"040000",f.print(dt));
     }
 
-    public void testFormat_fractionOfSecondLong_2_oe() {
+public void testFormat_fractionOfSecondLong_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("SSSSSS").withLocale(Locale.UK);
         // removed other assertion
@@ -3531,7 +3531,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"040000",f.print(dt));
     }
 
-    public void testFormat_fractionOfSecondLong_3_oe() {
+public void testFormat_fractionOfSecondLong_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("SSSSSS").withLocale(Locale.UK);
         // removed other assertion
@@ -3543,13 +3543,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"040000",f.print(dt));
     }
 
-    public void testFormat_zoneText_1_oe() {
+public void testFormat_zoneText_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("z").withLocale(Locale.ENGLISH);
         assertEquals(dt.toString(),"UTC",f.print(dt));
     }
 
-    public void testFormat_zoneText_2_oe() {
+public void testFormat_zoneText_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("z").withLocale(Locale.ENGLISH);
         // removed other assertion
@@ -3558,7 +3558,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"EDT",f.print(dt));
     }
 
-    public void testFormat_zoneText_3_oe() {
+public void testFormat_zoneText_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("z").withLocale(Locale.ENGLISH);
         // removed other assertion
@@ -3570,13 +3570,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"JST",f.print(dt));
     }
 
-    public void testFormat_zoneLongText_1_oe() {
+public void testFormat_zoneLongText_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("zzzz").withLocale(Locale.ENGLISH);
         assertEquals(dt.toString(),"Coordinated Universal Time",f.print(dt));
     }
 
-    public void testFormat_zoneLongText_2_oe() {
+public void testFormat_zoneLongText_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("zzzz").withLocale(Locale.ENGLISH);
         // removed other assertion
@@ -3585,7 +3585,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"Eastern Daylight Time",f.print(dt));
     }
 
-    public void testFormat_zoneLongText_3_oe() {
+public void testFormat_zoneLongText_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("zzzz").withLocale(Locale.ENGLISH);
         // removed other assertion
@@ -3597,13 +3597,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"Japan Standard Time",f.print(dt));
     }
 
-    public void testFormat_zoneAmount_1_oe() {
+public void testFormat_zoneAmount_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("Z").withLocale(Locale.UK);
         assertEquals(dt.toString(),"+0000",f.print(dt));
     }
 
-    public void testFormat_zoneAmount_2_oe() {
+public void testFormat_zoneAmount_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("Z").withLocale(Locale.UK);
         // removed other assertion
@@ -3612,7 +3612,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"-0400",f.print(dt));
     }
 
-    public void testFormat_zoneAmount_3_oe() {
+public void testFormat_zoneAmount_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("Z").withLocale(Locale.UK);
         // removed other assertion
@@ -3624,13 +3624,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"+0900",f.print(dt));
     }
 
-    public void testFormat_zoneAmountColon_1_oe() {
+public void testFormat_zoneAmountColon_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("ZZ").withLocale(Locale.UK);
         assertEquals(dt.toString(),"+00:00",f.print(dt));
     }
 
-    public void testFormat_zoneAmountColon_2_oe() {
+public void testFormat_zoneAmountColon_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("ZZ").withLocale(Locale.UK);
         // removed other assertion
@@ -3639,7 +3639,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"-04:00",f.print(dt));
     }
 
-    public void testFormat_zoneAmountColon_3_oe() {
+public void testFormat_zoneAmountColon_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("ZZ").withLocale(Locale.UK);
         // removed other assertion
@@ -3651,13 +3651,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"+09:00",f.print(dt));
     }
 
-    public void testFormat_zoneAmountID_1_oe() {
+public void testFormat_zoneAmountID_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("ZZZ").withLocale(Locale.UK);
         assertEquals(dt.toString(),"UTC",f.print(dt));
     }
 
-    public void testFormat_zoneAmountID_2_oe() {
+public void testFormat_zoneAmountID_2_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("ZZZ").withLocale(Locale.UK);
         // removed other assertion
@@ -3666,7 +3666,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"America/New_York",f.print(dt));
     }
 
-    public void testFormat_zoneAmountID_3_oe() {
+public void testFormat_zoneAmountID_3_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("ZZZ").withLocale(Locale.UK);
         // removed other assertion
@@ -3678,19 +3678,19 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt.toString(),"Asia/Tokyo",f.print(dt));
     }
 
-    public void testFormat_other_1_oe() {
+public void testFormat_other_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("'Hello' ''");
         assertEquals("Hello '",f.print(dt));
     }
 
-    public void testFormat_samples_1_oe() {
+public void testFormat_samples_1_oe() {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         DateTimeFormatter f = DateTimeFormat.forPattern("yyyy-MM-dd HH.mm.ss");
         assertEquals("2004-06-09 10.20.30",f.print(dt));
     }
 
-    public void testFormat_shortBasicParse_1_oe() {
+public void testFormat_shortBasicParse_1_oe() {
         // Tests special two digit parse to make sure it properly switches
         // between lenient and strict parsing.
 
@@ -3700,7 +3700,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt,f.parseDateTime("040309"));
     }
 
-    public void testFormat_shortBasicParse_4_oe() {
+public void testFormat_shortBasicParse_4_oe() {
         // Tests special two digit parse to make sure it properly switches
         // between lenient and strict parsing.
 
@@ -3717,7 +3717,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt,f.parseDateTime("04/03/09"));
     }
 
-    public void testFormat_shortBasicParse_5_oe() {
+public void testFormat_shortBasicParse_5_oe() {
         // Tests special two digit parse to make sure it properly switches
         // between lenient and strict parsing.
 
@@ -3735,14 +3735,14 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(dt,f.parseDateTime("2004/03/09"));
     }
 
-    public void testParse_pivotYear_1_oe() {
+public void testParse_pivotYear_1_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("dd.MM.yy").withPivotYear(2050).withZoneUTC();
         
         DateTime date = dateFormatter.parseDateTime("25.12.15");
         assertEquals(date.getYear(),2015);
     }
 
-    public void testParse_pivotYear_2_oe() {
+public void testParse_pivotYear_2_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("dd.MM.yy").withPivotYear(2050).withZoneUTC();
         
         DateTime date = dateFormatter.parseDateTime("25.12.15");
@@ -3752,7 +3752,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(date.getYear(),2000);
     }
 
-    public void testParse_pivotYear_3_oe() {
+public void testParse_pivotYear_3_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("dd.MM.yy").withPivotYear(2050).withZoneUTC();
         
         DateTime date = dateFormatter.parseDateTime("25.12.15");
@@ -3765,14 +3765,14 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(date.getYear(),2099);
     }
 
-    public void testParse_pivotYear_ignored4DigitYear_1_oe() {
+public void testParse_pivotYear_ignored4DigitYear_1_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("dd.MM.yyyy").withPivotYear(2050).withZoneUTC();
         
         DateTime date = dateFormatter.parseDateTime("25.12.15");
         assertEquals(date.getYear(),15);
     }
 
-    public void testParse_pivotYear_ignored4DigitYear_2_oe() {
+public void testParse_pivotYear_ignored4DigitYear_2_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("dd.MM.yyyy").withPivotYear(2050).withZoneUTC();
         
         DateTime date = dateFormatter.parseDateTime("25.12.15");
@@ -3782,7 +3782,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(date.getYear(),0);
     }
 
-    public void testParse_pivotYear_ignored4DigitYear_3_oe() {
+public void testParse_pivotYear_ignored4DigitYear_3_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("dd.MM.yyyy").withPivotYear(2050).withZoneUTC();
         
         DateTime date = dateFormatter.parseDateTime("25.12.15");
@@ -3795,7 +3795,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(date.getYear(),99);
     }
 
-    public void testFormatParse_textMonthJanShort_UK_1_oe() {
+public void testFormatParse_textMonthJanShort_UK_1_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("dd MMM yyyy")
             .withLocale(Locale.UK).withZoneUTC();
         
@@ -3803,7 +3803,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(str,"23 Jan 2007");
     }
 
-    public void testFormatParse_textMonthJanShort_France_1_oe() {
+public void testFormatParse_textMonthJanShort_France_1_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("dd MMM yyyy")
             .withLocale(Locale.FRANCE).withZoneUTC();
         
@@ -3811,7 +3811,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals("23 janv. 2007",str);
     }
 
-    public void testFormatParse_textMonthApr_France_1_oe() {
+public void testFormatParse_textMonthApr_France_1_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("dd MMM yyyy")
             .withLocale(Locale.FRANCE).withZoneUTC();
         
@@ -3819,7 +3819,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals("23 f\u00E9vr. 2007",str);// e acute;
     }
 
-    public void testFormatParse_textMonthAtEnd_France_1_oe() {
+public void testFormatParse_textMonthAtEnd_France_1_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("dd MMM")
             .withLocale(Locale.FRANCE).withZoneUTC();
         
@@ -3827,7 +3827,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals("23 juin",str);
     }
 
-    public void testFormatParse_textMonthAtEnd_France_withSpecifiedDefault_1_oe() {
+public void testFormatParse_textMonthAtEnd_France_withSpecifiedDefault_1_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("dd MMM")
             .withLocale(Locale.FRANCE).withZoneUTC().withDefaultYear(1980);
         
@@ -3835,7 +3835,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals("23 juin",str);
     }
 
-    public void testFormatParse_textMonthApr_Korean_1_oe() {
+public void testFormatParse_textMonthApr_Korean_1_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("EEEE, d MMMM yyyy HH:mm")
             .withLocale(Locale.KOREAN).withZoneUTC();
         
@@ -3844,7 +3844,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(new DateTime(2007,3,8,22,0,0,0,UTC),date);
     }
 
-    public void testFormatParse_textHalfdayAM_UK_1_oe() {
+public void testFormatParse_textHalfdayAM_UK_1_oe() {
         DateTimeFormatter dateFormatter = new DateTimeFormatterBuilder()
             .appendLiteral('$')
             .appendClockhourOfHalfday(2)
@@ -3859,7 +3859,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals("$06-PM-2007",str.toUpperCase(Locale.ENGLISH));
     }
 
-    public void testFormatParse_textHalfdayAM_France_1_oe() {
+public void testFormatParse_textHalfdayAM_France_1_oe() {
         DateTimeFormatter dateFormatter = new DateTimeFormatterBuilder()
             .appendLiteral('$')
             .appendClockhourOfHalfday(2)
@@ -3874,7 +3874,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals("$06-PM-2007",str);
     }
 
-    public void testFormatParse_textEraAD_UK_1_oe() {
+public void testFormatParse_textEraAD_UK_1_oe() {
         DateTimeFormatter dateFormatter = new DateTimeFormatterBuilder()
             .appendLiteral('$')
             .appendEraText()
@@ -3886,7 +3886,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals("$AD2007",str);
     }
 
-    public void testFormatParse_textEraAD_France_1_oe() {
+public void testFormatParse_textEraAD_France_1_oe() {
         DateTimeFormatter dateFormatter = new DateTimeFormatterBuilder()
             .appendLiteral('$')
             .appendEraText()
@@ -3898,7 +3898,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals("$ap. J.-C.2007",str);
     }
 
-    public void testFormatParse_textEraBC_France_1_oe() {
+public void testFormatParse_textEraBC_France_1_oe() {
         DateTimeFormatter dateFormatter = new DateTimeFormatterBuilder()
             .appendLiteral('$')
             .appendEraText()
@@ -3910,7 +3910,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertTrue(str.equals("$BC-0001")|| str.equals("$av. J.-C.-0001"));
     }
 
-    public void testFormatParse_textYear_UK_1_oe() {
+public void testFormatParse_textYear_UK_1_oe() {
         DateTimeFormatter dateFormatter = new DateTimeFormatterBuilder()
             .appendLiteral('$')
             .appendText(DateTimeFieldType.year())
@@ -3921,7 +3921,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals("$2007",str);
     }
 
-    public void testFormatParse_textYear_France_1_oe() {
+public void testFormatParse_textYear_France_1_oe() {
         DateTimeFormatter dateFormatter = new DateTimeFormatterBuilder()
             .appendLiteral('$')
             .appendText(DateTimeFieldType.year())
@@ -3932,7 +3932,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals("$2007",str);
     }
 
-    public void testFormatParse_textAdjoiningHelloWorld_UK_1_oe() {
+public void testFormatParse_textAdjoiningHelloWorld_UK_1_oe() {
         DateTimeFormatter dateFormatter = new DateTimeFormatterBuilder()
             .appendLiteral('$')
             .appendDayOfMonth(2)
@@ -3945,7 +3945,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals("$23JunHelloWorld",str);
     }
 
-    public void testFormatParse_textAdjoiningMonthDOW_UK_1_oe() {
+public void testFormatParse_textAdjoiningMonthDOW_UK_1_oe() {
         DateTimeFormatter dateFormatter = new DateTimeFormatterBuilder()
             .appendLiteral('$')
             .appendDayOfMonth(2)
@@ -3958,13 +3958,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals("$23JunSat",str);
     }
 
-    public void testFormatParse_zoneId_noColon_1_oe() {
+public void testFormatParse_zoneId_noColon_1_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("HH:mm Z").withZoneUTC();
         String str = new DateTime(2007, 6, 23, 1, 2, 0, 0, UTC).toString(dateFormatter);
         assertEquals("01:02 +0000",str);
     }
 
-    public void testFormatParse_zoneId_noColon_2_oe() {
+public void testFormatParse_zoneId_noColon_2_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("HH:mm Z").withZoneUTC();
         String str = new DateTime(2007, 6, 23, 1, 2, 0, 0, UTC).toString(dateFormatter);
         // removed other assertion
@@ -3972,7 +3972,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(1,parsed.getHourOfDay());
     }
 
-    public void testFormatParse_zoneId_noColon_3_oe() {
+public void testFormatParse_zoneId_noColon_3_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("HH:mm Z").withZoneUTC();
         String str = new DateTime(2007, 6, 23, 1, 2, 0, 0, UTC).toString(dateFormatter);
         // removed other assertion
@@ -3981,26 +3981,26 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(2,parsed.getMinuteOfHour());
     }
 
-    public void testFormatParse_zoneId_noColon_parseZ_1_oe() {
+public void testFormatParse_zoneId_noColon_parseZ_1_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("HH:mm Z").withZoneUTC();
         DateTime parsed = dateFormatter.parseDateTime("01:02 Z");
         assertEquals(1,parsed.getHourOfDay());
     }
 
-    public void testFormatParse_zoneId_noColon_parseZ_2_oe() {
+public void testFormatParse_zoneId_noColon_parseZ_2_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("HH:mm Z").withZoneUTC();
         DateTime parsed = dateFormatter.parseDateTime("01:02 Z");
         // removed other assertion
         assertEquals(2,parsed.getMinuteOfHour());
     }
 
-    public void testFormatParse_zoneId_colon_1_oe() {
+public void testFormatParse_zoneId_colon_1_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("HH:mm ZZ").withZoneUTC();
         String str = new DateTime(2007, 6, 23, 1, 2, 0, 0, UTC).toString(dateFormatter);
         assertEquals("01:02 +00:00",str);
     }
 
-    public void testFormatParse_zoneId_colon_2_oe() {
+public void testFormatParse_zoneId_colon_2_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("HH:mm ZZ").withZoneUTC();
         String str = new DateTime(2007, 6, 23, 1, 2, 0, 0, UTC).toString(dateFormatter);
         // removed other assertion
@@ -4008,7 +4008,7 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(1,parsed.getHourOfDay());
     }
 
-    public void testFormatParse_zoneId_colon_3_oe() {
+public void testFormatParse_zoneId_colon_3_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("HH:mm ZZ").withZoneUTC();
         String str = new DateTime(2007, 6, 23, 1, 2, 0, 0, UTC).toString(dateFormatter);
         // removed other assertion
@@ -4017,13 +4017,13 @@ public class TestDateTimeFormat_OE25Dev extends TestCase {
         assertEquals(2,parsed.getMinuteOfHour());
     }
 
-    public void testFormatParse_zoneId_colon_parseZ_1_oe() {
+public void testFormatParse_zoneId_colon_parseZ_1_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("HH:mm ZZ").withZoneUTC();
         DateTime parsed = dateFormatter.parseDateTime("01:02 Z");
         assertEquals(1,parsed.getHourOfDay());
     }
 
-    public void testFormatParse_zoneId_colon_parseZ_2_oe() {
+public void testFormatParse_zoneId_colon_parseZ_2_oe() {
         DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("HH:mm ZZ").withZoneUTC();
         DateTime parsed = dateFormatter.parseDateTime("01:02 Z");
         // removed other assertion

@@ -125,7 +125,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
      * preceed self form fields, except if we override the rules.
     */
 
-    public void testRequired_1_oe() throws ValidatorException {
+public void testRequired_1_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
 
@@ -148,7 +148,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("Results are null.", results);
     }
 
-    public void testRequired_2_oe() throws ValidatorException {
+public void testRequired_2_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
 
@@ -176,7 +176,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("First Name ValidatorResult should not be null.", firstNameResult);
     }
 
-    public void testRequired_3_oe() throws ValidatorException {
+public void testRequired_3_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
 
@@ -205,7 +205,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("First Name ValidatorResult should contain the '" + ACTION +"' action.", firstNameResult.containsAction(ACTION));
     }
 
-    public void testRequired_4_oe() throws ValidatorException {
+public void testRequired_4_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
 
@@ -235,7 +235,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("First Name ValidatorResult for the '" + ACTION +"' action should have failed.", !firstNameResult.isValid(ACTION));
     }
 
-    public void testRequired_5_oe() throws ValidatorException {
+public void testRequired_5_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
 
@@ -267,7 +267,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("First Name ValidatorResult should not be null.", lastNameResult);
     }
 
-    public void testRequired_6_oe() throws ValidatorException {
+public void testRequired_6_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
 
@@ -300,7 +300,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("Last Name ValidatorResult should contain the '" + ACTION +"' action.", lastNameResult.containsAction(ACTION));
     }
 
-    public void testRequired_7_oe() throws ValidatorException {
+public void testRequired_7_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
 
@@ -334,7 +334,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("Last Name ValidatorResult for the '" + ACTION +"' action should have failed.", !lastNameResult.isValid(ACTION));
     }
 
-    public void testRequiredFirstNameBlank_1_oe() throws ValidatorException {
+public void testRequiredFirstNameBlank_1_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("");
@@ -354,7 +354,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("Results are null.", results);
     }
 
-    public void testRequiredFirstNameBlank_2_oe() throws ValidatorException {
+public void testRequiredFirstNameBlank_2_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("");
@@ -379,7 +379,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("First Name ValidatorResult should not be null.", firstNameResult);
     }
 
-    public void testRequiredFirstNameBlank_3_oe() throws ValidatorException {
+public void testRequiredFirstNameBlank_3_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("");
@@ -405,7 +405,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("First Name ValidatorResult should contain the '" + ACTION +"' action.", firstNameResult.containsAction(ACTION));
     }
 
-    public void testRequiredFirstNameBlank_4_oe() throws ValidatorException {
+public void testRequiredFirstNameBlank_4_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("");
@@ -432,7 +432,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("First Name ValidatorResult for the '" + ACTION +"' action should have failed.", !firstNameResult.isValid(ACTION));
     }
 
-    public void testRequiredFirstNameBlank_5_oe() throws ValidatorException {
+public void testRequiredFirstNameBlank_5_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("");
@@ -461,7 +461,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("First Name ValidatorResult should not be null.", lastNameResult);
     }
 
-    public void testRequiredFirstNameBlank_6_oe() throws ValidatorException {
+public void testRequiredFirstNameBlank_6_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("");
@@ -491,7 +491,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("Last Name ValidatorResult should contain the '" + ACTION +"' action.", lastNameResult.containsAction(ACTION));
     }
 
-    public void testRequiredFirstNameBlank_7_oe() throws ValidatorException {
+public void testRequiredFirstNameBlank_7_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("");
@@ -522,7 +522,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("Last Name ValidatorResult for the '" + ACTION +"' action should have failed.", !lastNameResult.isValid(ACTION));
     }
 
-    public void testRequiredFirstName_1_oe() throws ValidatorException {
+public void testRequiredFirstName_1_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("Joe");
@@ -542,7 +542,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("Results are null.", results);
     }
 
-    public void testRequiredFirstName_2_oe() throws ValidatorException {
+public void testRequiredFirstName_2_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("Joe");
@@ -567,7 +567,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("First Name ValidatorResult should not be null.", firstNameResult);
     }
 
-    public void testRequiredFirstName_3_oe() throws ValidatorException {
+public void testRequiredFirstName_3_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("Joe");
@@ -593,7 +593,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("First Name ValidatorResult should contain the '" + ACTION +"' action.", firstNameResult.containsAction(ACTION));
     }
 
-    public void testRequiredFirstName_4_oe() throws ValidatorException {
+public void testRequiredFirstName_4_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("Joe");
@@ -620,7 +620,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("First Name ValidatorResult for the '" + ACTION +"' action should have passed.", firstNameResult.isValid(ACTION));
     }
 
-    public void testRequiredFirstName_5_oe() throws ValidatorException {
+public void testRequiredFirstName_5_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("Joe");
@@ -649,7 +649,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("First Name ValidatorResult should not be null.", lastNameResult);
     }
 
-    public void testRequiredFirstName_6_oe() throws ValidatorException {
+public void testRequiredFirstName_6_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("Joe");
@@ -679,7 +679,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("Last Name ValidatorResult should contain the '" + ACTION +"' action.", lastNameResult.containsAction(ACTION));
     }
 
-    public void testRequiredFirstName_7_oe() throws ValidatorException {
+public void testRequiredFirstName_7_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("Joe");
@@ -710,7 +710,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("Last Name ValidatorResult for the '" + ACTION +"' action should have failed.", !lastNameResult.isValid(ACTION));
     }
 
-    public void testRequiredLastNameBlank_1_oe() throws ValidatorException {
+public void testRequiredLastNameBlank_1_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setLastName("");
@@ -730,7 +730,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("Results are null.", results);
     }
 
-    public void testRequiredLastNameBlank_2_oe() throws ValidatorException {
+public void testRequiredLastNameBlank_2_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setLastName("");
@@ -755,7 +755,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("First Name ValidatorResult should not be null.", firstNameResult);
     }
 
-    public void testRequiredLastNameBlank_3_oe() throws ValidatorException {
+public void testRequiredLastNameBlank_3_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setLastName("");
@@ -781,7 +781,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("First Name ValidatorResult should contain the '" + ACTION +"' action.", firstNameResult.containsAction(ACTION));
     }
 
-    public void testRequiredLastNameBlank_4_oe() throws ValidatorException {
+public void testRequiredLastNameBlank_4_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setLastName("");
@@ -808,7 +808,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("First Name ValidatorResult for the '" + ACTION +"' action should have failed.", !firstNameResult.isValid(ACTION));
     }
 
-    public void testRequiredLastNameBlank_5_oe() throws ValidatorException {
+public void testRequiredLastNameBlank_5_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setLastName("");
@@ -837,7 +837,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("First Name ValidatorResult should not be null.", lastNameResult);
     }
 
-    public void testRequiredLastNameBlank_6_oe() throws ValidatorException {
+public void testRequiredLastNameBlank_6_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setLastName("");
@@ -867,7 +867,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("Last Name ValidatorResult should contain the '" + ACTION +"' action.", lastNameResult.containsAction(ACTION));
     }
 
-    public void testRequiredLastNameBlank_7_oe() throws ValidatorException {
+public void testRequiredLastNameBlank_7_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setLastName("");
@@ -898,7 +898,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("Last Name ValidatorResult for the '" + ACTION +"' action should have failed.", !lastNameResult.isValid(ACTION));
     }
 
-    public void testRequiredLastName_1_oe() throws ValidatorException {
+public void testRequiredLastName_1_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setLastName("Smith");
@@ -918,7 +918,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("Results are null.", results);
     }
 
-    public void testRequiredLastName_2_oe() throws ValidatorException {
+public void testRequiredLastName_2_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setLastName("Smith");
@@ -943,7 +943,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("First Name ValidatorResult should not be null.", firstNameResult);
     }
 
-    public void testRequiredLastName_3_oe() throws ValidatorException {
+public void testRequiredLastName_3_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setLastName("Smith");
@@ -969,7 +969,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("First Name ValidatorResult should contain the '" + ACTION +"' action.", firstNameResult.containsAction(ACTION));
     }
 
-    public void testRequiredLastName_4_oe() throws ValidatorException {
+public void testRequiredLastName_4_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setLastName("Smith");
@@ -996,7 +996,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("First Name ValidatorResult for the '" + ACTION +"' action should have failed.", !firstNameResult.isValid(ACTION));
     }
 
-    public void testRequiredLastName_5_oe() throws ValidatorException {
+public void testRequiredLastName_5_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setLastName("Smith");
@@ -1025,7 +1025,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("First Name ValidatorResult should not be null.", lastNameResult);
     }
 
-    public void testRequiredLastName_6_oe() throws ValidatorException {
+public void testRequiredLastName_6_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setLastName("Smith");
@@ -1055,7 +1055,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("Last Name ValidatorResult should contain the '" + ACTION +"' action.", lastNameResult.containsAction(ACTION));
     }
 
-    public void testRequiredLastName_7_oe() throws ValidatorException {
+public void testRequiredLastName_7_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setLastName("Smith");
@@ -1086,7 +1086,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("Last Name ValidatorResult for the '" + ACTION +"' action should have passed.", lastNameResult.isValid(ACTION));
     }
 
-    public void testRequiredName_1_oe() throws ValidatorException {
+public void testRequiredName_1_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("Joe");
@@ -1107,7 +1107,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("Results are null.", results);
     }
 
-    public void testRequiredName_2_oe() throws ValidatorException {
+public void testRequiredName_2_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("Joe");
@@ -1133,7 +1133,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("First Name ValidatorResult should not be null.", firstNameResult);
     }
 
-    public void testRequiredName_3_oe() throws ValidatorException {
+public void testRequiredName_3_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("Joe");
@@ -1160,7 +1160,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("First Name ValidatorResult should contain the '" + ACTION +"' action.", firstNameResult.containsAction(ACTION));
     }
 
-    public void testRequiredName_4_oe() throws ValidatorException {
+public void testRequiredName_4_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("Joe");
@@ -1188,7 +1188,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("First Name ValidatorResult for the '" + ACTION +"' action should have passed.", firstNameResult.isValid(ACTION));
     }
 
-    public void testRequiredName_5_oe() throws ValidatorException {
+public void testRequiredName_5_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("Joe");
@@ -1218,7 +1218,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("Last Name ValidatorResult should not be null.", lastNameResult);
     }
 
-    public void testRequiredName_6_oe() throws ValidatorException {
+public void testRequiredName_6_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("Joe");
@@ -1249,7 +1249,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("Last Name ValidatorResult should contain the '" + ACTION +"' action.", lastNameResult.containsAction(ACTION));
     }
 
-    public void testRequiredName_7_oe() throws ValidatorException {
+public void testRequiredName_7_oe() throws ValidatorException {
        // Create bean to run test on.
        NameBean name = new NameBean();
        name.setFirstName("Joe");
@@ -1281,7 +1281,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("Last Name ValidatorResult for the '" + ACTION +"' action should have passed.", lastNameResult.isValid(ACTION));
     }
 
-    public void testOverrideRule_1_oe() throws ValidatorException {
+public void testOverrideRule_1_oe() throws ValidatorException {
 
        // Create bean to run test on.
        NameBean name = new NameBean();
@@ -1302,7 +1302,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("Results are null.", results);
     }
 
-    public void testOverrideRule_2_oe() throws ValidatorException {
+public void testOverrideRule_2_oe() throws ValidatorException {
 
        // Create bean to run test on.
        NameBean name = new NameBean();
@@ -1327,7 +1327,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull("First Name ValidatorResult should not be null.", firstNameResult);
     }
 
-    public void testOverrideRule_3_oe() throws ValidatorException {
+public void testOverrideRule_3_oe() throws ValidatorException {
 
        // Create bean to run test on.
        NameBean name = new NameBean();
@@ -1353,7 +1353,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("First Name ValidatorResult for the '" + ACTION +"' action should have '" + CHECK_MSG_KEY + " as a key.", firstNameResult.field.getArg(0).getKey().equals(CHECK_MSG_KEY));
     }
 
-    public void testOverrideRule_4_oe() throws ValidatorException {
+public void testOverrideRule_4_oe() throws ValidatorException {
 
        // Create bean to run test on.
        NameBean name = new NameBean();
@@ -1381,7 +1381,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNull("Last Name ValidatorResult should be null.", lastNameResult);
     }
 
-    public void testOrder_1_oe() {
+public void testOrder_1_oe() {
 
        Form form = resources.getForm(ValidatorResources.defaultLocale, FORM_KEY);
        Form form2 = resources.getForm(ValidatorResources.defaultLocale, FORM_KEY2);
@@ -1389,7 +1389,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull(FORM_KEY + " is null.", form);
     }
 
-    public void testOrder_2_oe() {
+public void testOrder_2_oe() {
 
        Form form = resources.getForm(ValidatorResources.defaultLocale, FORM_KEY);
        Form form2 = resources.getForm(ValidatorResources.defaultLocale, FORM_KEY2);
@@ -1398,7 +1398,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("There should only be 2 fields in " + FORM_KEY, form.getFields().size() == 2);
     }
 
-    public void testOrder_3_oe() {
+public void testOrder_3_oe() {
 
        Form form = resources.getForm(ValidatorResources.defaultLocale, FORM_KEY);
        Form form2 = resources.getForm(ValidatorResources.defaultLocale, FORM_KEY2);
@@ -1409,7 +1409,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertNotNull(FORM_KEY2 + " is null.", form2);
     }
 
-    public void testOrder_4_oe() {
+public void testOrder_4_oe() {
 
        Form form = resources.getForm(ValidatorResources.defaultLocale, FORM_KEY);
        Form form2 = resources.getForm(ValidatorResources.defaultLocale, FORM_KEY2);
@@ -1421,7 +1421,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("There should only be 2 fields in " + FORM_KEY2, form2.getFields().size() == 2);
     }
 
-    public void testOrder_5_oe() {
+public void testOrder_5_oe() {
 
        Form form = resources.getForm(ValidatorResources.defaultLocale, FORM_KEY);
        Form form2 = resources.getForm(ValidatorResources.defaultLocale, FORM_KEY2);
@@ -1439,7 +1439,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("firstName in " + FORM_KEY + " should be the first in the list", fieldFirstName.getKey().equals("firstName"));
     }
 
-    public void testOrder_6_oe() {
+public void testOrder_6_oe() {
 
        Form form = resources.getForm(ValidatorResources.defaultLocale, FORM_KEY);
        Form form2 = resources.getForm(ValidatorResources.defaultLocale, FORM_KEY2);
@@ -1458,7 +1458,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
        assertTrue("lastName in " + FORM_KEY + " should be the first in the list", fieldLastName.getKey().equals("lastName"));
     }
 
-    public void testOrder_7_oe() {
+public void testOrder_7_oe() {
 
        Form form = resources.getForm(ValidatorResources.defaultLocale, FORM_KEY);
        Form form2 = resources.getForm(ValidatorResources.defaultLocale, FORM_KEY2);
@@ -1483,7 +1483,7 @@ public class ExtensionTest_OE25Dev extends TestCase {
         assertTrue("firstName in " + FORM_KEY2 + " should be the first in the list", fieldFirstName.getKey().equals("firstName"));
     }
 
-    public void testOrder_8_oe() {
+public void testOrder_8_oe() {
 
        Form form = resources.getForm(ValidatorResources.defaultLocale, FORM_KEY);
        Form form2 = resources.getForm(ValidatorResources.defaultLocale, FORM_KEY2);

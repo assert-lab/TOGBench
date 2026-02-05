@@ -34,7 +34,7 @@ public class MemoizerTest_OE25Dev {
         computable = EasyMock.mock(Computable.class);
     }
 
-    @Test
+@Test
     public void testOnlyCallComputableOnceIfDoesNotThrowException_1_oe() throws Exception {
         final Integer input = 1;
         final Memoizer<Integer, Integer> memoizer = new Memoizer<>(computable);
@@ -44,7 +44,7 @@ public class MemoizerTest_OE25Dev {
         assertEquals(input, memoizer.compute(input), "Should call computable first time");
     }
 
-    @Test
+@Test
     public void testOnlyCallComputableOnceIfDoesNotThrowException_2_oe() throws Exception {
         final Integer input = 1;
         final Memoizer<Integer, Integer> memoizer = new Memoizer<>(computable);
@@ -55,7 +55,7 @@ public class MemoizerTest_OE25Dev {
         assertEquals(input, memoizer.compute(input), "Should not call the computable the second time");
     }
 
-    @Test
+@Test
     public void testDefaultBehaviourNotToRecalculateExecutionExceptions_1_oe() throws Exception {
         final Integer input = 1;
         final Memoizer<Integer, Integer> memoizer = new Memoizer<>(computable);
@@ -66,7 +66,7 @@ public class MemoizerTest_OE25Dev {
         assertThrows(Throwable.class, () -> memoizer.compute(input));
     }
 
-    @Test
+@Test
     public void testDefaultBehaviourNotToRecalculateExecutionExceptions_2_oe() throws Exception {
         final Integer input = 1;
         final Memoizer<Integer, Integer> memoizer = new Memoizer<>(computable);
@@ -78,7 +78,7 @@ public class MemoizerTest_OE25Dev {
         assertThrows(IllegalStateException.class, () -> memoizer.compute(input));
     }
 
-    @Test
+@Test
     public void testDoesNotRecalculateWhenSetToFalse_1_oe() throws Exception {
         final Integer input = 1;
         final Memoizer<Integer, Integer> memoizer = new Memoizer<>(computable, false);
@@ -89,7 +89,7 @@ public class MemoizerTest_OE25Dev {
         assertThrows(Throwable.class, () -> memoizer.compute(input));
     }
 
-    @Test
+@Test
     public void testDoesNotRecalculateWhenSetToFalse_2_oe() throws Exception {
         final Integer input = 1;
         final Memoizer<Integer, Integer> memoizer = new Memoizer<>(computable, false);
@@ -101,7 +101,7 @@ public class MemoizerTest_OE25Dev {
         assertThrows(IllegalStateException.class, () -> memoizer.compute(input));
     }
 
-    @Test
+@Test
     public void testDoesRecalculateWhenSetToTrue_1_oe() throws Exception {
         final Integer input = 1;
         final Integer answer = 3;
@@ -113,7 +113,7 @@ public class MemoizerTest_OE25Dev {
         assertThrows(Throwable.class, () -> memoizer.compute(input));
     }
 
-    @Test
+@Test
     public void testDoesRecalculateWhenSetToTrue_2_oe() throws Exception {
         final Integer input = 1;
         final Integer answer = 3;
@@ -126,7 +126,7 @@ public class MemoizerTest_OE25Dev {
         assertEquals(answer, memoizer.compute(input));
     }
 
-    @Test
+@Test
     public void testWhenComputableThrowsRuntimeException_1_oe() throws Exception {
         final Integer input = 1;
         final Memoizer<Integer, Integer> memoizer = new Memoizer<>(computable);
@@ -137,7 +137,7 @@ public class MemoizerTest_OE25Dev {
         assertThrows(RuntimeException.class, () -> memoizer.compute(input));
     }
 
-    @Test
+@Test
     public void testWhenComputableThrowsError_1_oe() throws Exception {
         final Integer input = 1;
         final Memoizer<Integer, Integer> memoizer = new Memoizer<>(computable);

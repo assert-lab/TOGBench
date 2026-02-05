@@ -385,34 +385,34 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     }
 
 
-    @Test
+@Test
     public void testCallMixedVarArgMethod_1_oe() throws Exception {
         final VarArgs test = new VarArgs();
         asserter.setVariable("test", test);
         Assert.assertEquals("Mixed:1", test.callMixed(Integer.valueOf(1)));
     }
 
-    @Test
+@Test
     public void testCallJexlVarArgMethod_1_oe() throws Exception {
         final VarArgs test = new VarArgs();
         asserter.setVariable("test", test);
         Assert.assertEquals("jexl:0", test.callMixed("jexl"));
     }
 
-    @Test
+@Test
     public void testInvoke_1_oe() throws Exception {
         Functor func = new Functor();
         Assert.assertEquals(Integer.valueOf(10), JEXL.invokeMethod(func, "ten"));
     }
 
-    @Test
+@Test
     public void testInvoke_2_oe() throws Exception {
         Functor func = new Functor();
         // removed other assertion
         Assert.assertEquals(Integer.valueOf(42), JEXL.invokeMethod(func, "PLUS20", Integer.valueOf(22)));
     }
 
-    @Test
+@Test
     public void testInvoke_8_oe() throws Exception {
         Functor func = new Functor();
         // removed other assertion
@@ -456,7 +456,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testAmbiguousInvoke_1_oe() throws Exception {
         // JEXL-299
         final Functor func = new Functor();
@@ -468,7 +468,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("foo + 42", result);
     }
 
-    @Test
+@Test
     public void testAmbiguousInvoke_3_oe() throws Exception {
         // JEXL-299
         final Functor func = new Functor();
@@ -487,7 +487,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testAmbiguousInvoke_5_oe() throws Exception {
         // JEXL-299
         final Functor func = new Functor();
@@ -515,7 +515,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTryFailed_1_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -528,7 +528,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(method);
     }
 
-    @Test
+@Test
     public void testTryFailed_2_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -544,7 +544,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("foo + 42", result);
     }
 
-    @Test
+@Test
     public void testTryFailed_4_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -568,7 +568,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTryFailed_5_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -597,7 +597,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(setter.tryFailed(result));
     }
 
-    @Test
+@Test
     public void testTryFailed_6_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -627,7 +627,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("42", result);
     }
 
-    @Test
+@Test
     public void testTryFailed_7_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -661,7 +661,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(getter.tryFailed(result));
     }
 
-    @Test
+@Test
     public void testTryFailed_8_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -696,7 +696,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("42", result);
     }
 
-    @Test
+@Test
     public void testTryFailed_10_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -739,7 +739,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTryFailed_11_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -785,7 +785,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("-42", result);
     }
 
-    @Test
+@Test
     public void testTryFailed_13_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -839,7 +839,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTryFailed_14_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -897,7 +897,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(getter.tryFailed(result));
     }
 
-    @Test
+@Test
     public void testTryFailed_15_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -956,7 +956,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("-42", result);
     }
 
-    @Test
+@Test
     public void testTryFailedScript_1_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -970,7 +970,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(method);
     }
 
-    @Test
+@Test
     public void testTryFailedScript_2_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -987,7 +987,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("foo + 42", result);
     }
 
-    @Test
+@Test
     public void testTryFailedScript_4_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -1012,7 +1012,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTryFailedScript_5_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -1043,7 +1043,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("42", result);
     }
 
-    @Test
+@Test
     public void testTryFailedScript_6_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -1077,7 +1077,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("42", result);
     }
 
-    @Test
+@Test
     public void testTryFailedScript_8_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -1119,7 +1119,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTryFailedScript_9_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -1164,7 +1164,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("-42", result);
     }
 
-    @Test
+@Test
     public void testTryFailedScript_11_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -1217,7 +1217,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTryFailedScript_12_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -1274,7 +1274,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("-42", result);
     }
 
-    @Test
+@Test
     public void testTopLevelCall_1_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         funcs.put(null, new Functor());
@@ -1288,7 +1288,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
 
-    @Test
+@Test
     public void testTopLevelCall_2_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         funcs.put(null, new Functor());
@@ -1306,7 +1306,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 20", new Integer(20), o);
     }
 
-    @Test
+@Test
     public void testTopLevelCall_3_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         funcs.put(null, new Functor());
@@ -1328,7 +1328,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 20", new Integer(20), o);
     }
 
-    @Test
+@Test
     public void testTopLevelCall_4_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         funcs.put(null, new Functor());
@@ -1355,7 +1355,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Double.valueOf(-1), o);
     }
 
-    @Test
+@Test
     public void testTopLevelCall_5_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         funcs.put(null, new Functor());
@@ -1386,7 +1386,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Integer.valueOf(7), o);
     }
 
-    @Test
+@Test
     public void testNamespaceCall_1_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         funcs.put("func", new Functor());
@@ -1399,7 +1399,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 10", new Integer(10), o);
     }
 
-    @Test
+@Test
     public void testNamespaceCall_2_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         funcs.put("func", new Functor());
@@ -1416,7 +1416,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 20", new Integer(20), o);
     }
 
-    @Test
+@Test
     public void testNamespaceCall_3_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         funcs.put("func", new Functor());
@@ -1437,7 +1437,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 20", new Integer(20), o);
     }
 
-    @Test
+@Test
     public void testNamespaceCall_4_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         funcs.put("func", new Functor());
@@ -1462,7 +1462,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 30", new Integer(30), o);
     }
 
-    @Test
+@Test
     public void testNamespaceCall_5_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         funcs.put("func", new Functor());
@@ -1491,7 +1491,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 40", new Integer(40), o);
     }
 
-    @Test
+@Test
     public void testNamespaceCallEdge_14_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         final Edge func = new Edge();
@@ -1559,7 +1559,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testScriptCall_1_oe() throws Exception {
         JexlContext context = new MapContext();
         final JexlScript plus = JEXL.createScript("a + b", new String[]{"a", "b"});
@@ -1569,7 +1569,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 42", new Integer(42), o);
     }
 
-    @Test
+@Test
     public void testScriptCall_2_oe() throws Exception {
         JexlContext context = new MapContext();
         final JexlScript plus = JEXL.createScript("a + b", new String[]{"a", "b"});
@@ -1586,7 +1586,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 42", new Integer(42), o);
     }
 
-    @Test
+@Test
     public void testScriptCall_3_oe() throws Exception {
         JexlContext context = new MapContext();
         final JexlScript plus = JEXL.createScript("a + b", new String[]{"a", "b"});
@@ -1608,7 +1608,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 42", new Integer(42), o);
     }
 
-    @Test
+@Test
     public void testScriptCall_4_oe() throws Exception {
         JexlContext context = new MapContext();
         final JexlScript plus = JEXL.createScript("a + b", new String[]{"a", "b"});
@@ -1674,7 +1674,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 42", new Integer(42), o);
     }
 
-    @Test
+@Test
     public void testScriptCall_5_oe() throws Exception {
         JexlContext context = new MapContext();
         final JexlScript plus = JEXL.createScript("a + b", new String[]{"a", "b"});
@@ -1745,7 +1745,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 42", new Integer(42), o);
     }
 
-    @Test
+@Test
     public void testFizzCall_1_oe() throws Exception {
         final ScriptContext context = new ScriptContext(new HashMap<String, Object>());
 
@@ -1755,7 +1755,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Wrong choice", "champaign", o);
     }
 
-    @Test
+@Test
     public void testFizzCall_2_oe() throws Exception {
         final ScriptContext context = new ScriptContext(new HashMap<String, Object>());
 
@@ -1768,7 +1768,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Wrong choice", "gin fizz", o);
     }
 
-    @Test
+@Test
     public void testFizzCall_3_oe() throws Exception {
         final ScriptContext context = new ScriptContext(new HashMap<String, Object>());
 
@@ -1787,7 +1787,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Wrong choice", "champaign", o);
     }
 
-    @Test
+@Test
     public void testVariousFunctionLocation_1_oe() throws Exception {
         // see JEXL-190
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -1802,7 +1802,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(222, onovar);
     }
 
-    @Test
+@Test
     public void testVariousFunctionLocation_2_oe() throws Exception {
         // see JEXL-190
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -1823,7 +1823,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(282, oglobal);
     }
 
-    @Test
+@Test
     public void testVariousFunctionLocation_3_oe() throws Exception {
         // see JEXL-190
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -1848,7 +1848,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(222, onovar);
     }
 
-    @Test
+@Test
     public void testVariousFunctionLocation_4_oe() throws Exception {
         // see JEXL-190
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -1879,7 +1879,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(142, olocal);
     }
 
-    @Test
+@Test
     public void testVariousFunctionLocation_5_oe() throws Exception {
         // see JEXL-190
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -1913,7 +1913,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, jexl.createScript("zz(2)").execute(zjc));
     }
 
-    @Test
+@Test
     public void testVariousFunctionLocation_6_oe() throws Exception {
         // see JEXL-190
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -1948,7 +1948,7 @@ public class MethodTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, jexl.createScript("zzz(3)").execute(zjc));
     }
 
-    @Test
+@Test
     public void testVariousFunctionLocation_7_oe() throws Exception {
         // see JEXL-190
         final Map<String, Object> vars = new HashMap<String, Object>();

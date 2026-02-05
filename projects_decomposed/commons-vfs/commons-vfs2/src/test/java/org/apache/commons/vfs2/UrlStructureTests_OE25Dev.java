@@ -37,7 +37,7 @@ public class UrlStructureTests_OE25Dev extends AbstractProviderTestCase {
      * Tests that folders have no content.
      */
 
-    @Test
+@Test
     public void testFolderURL_1_oe() throws Exception {
         final FileObject folder = getReadFolder().resolveFile("dir1");
         if (folder.getFileSystem().hasCapability(Capability.DIRECTORY_READ_CONTENT)) {

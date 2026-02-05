@@ -251,301 +251,301 @@ public class TestMutableInterval_Updates_OE25Dev extends TestCase {
         } catch (IllegalArgumentException ex) {}
     }
 
-    public void testTest_1_oe() {
+public void testTest_1_oe() {
         assertEquals("2002-06-09T00:00:00.000Z",new Instant(TEST_TIME_NOW).toString());
     }
 
-    public void testTest_2_oe() {
+public void testTest_2_oe() {
         // removed other assertion
         assertEquals("2002-04-05T12:24:00.000Z",new Instant(TEST_TIME1).toString());
     }
 
-    public void testTest_3_oe() {
+public void testTest_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("2003-05-06T14:28:00.000Z",new Instant(TEST_TIME2).toString());
     }
 
-    public void testSetInterval_long_long1_1_oe() {
+public void testSetInterval_long_long1_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(TEST_TIME1 - 1, TEST_TIME2 + 1);
         assertEquals(TEST_TIME1 - 1,test.getStartMillis());
     }
 
-    public void testSetInterval_long_long1_2_oe() {
+public void testSetInterval_long_long1_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(TEST_TIME1 - 1, TEST_TIME2 + 1);
         // removed other assertion
         assertEquals(TEST_TIME2 + 1,test.getEndMillis());
     }
 
-    public void testSetInterval_RI_RI1_1_oe() {
+public void testSetInterval_RI_RI1_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(new Instant(TEST_TIME1 - 1), new Instant(TEST_TIME2 + 1));
         assertEquals(TEST_TIME1 - 1,test.getStartMillis());
     }
 
-    public void testSetInterval_RI_RI1_2_oe() {
+public void testSetInterval_RI_RI1_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(new Instant(TEST_TIME1 - 1), new Instant(TEST_TIME2 + 1));
         // removed other assertion
         assertEquals(TEST_TIME2 + 1,test.getEndMillis());
     }
 
-    public void testSetInterval_RI_RI3_1_oe() {
+public void testSetInterval_RI_RI3_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(null, new Instant(TEST_TIME2 + 1));
         assertEquals(TEST_TIME_NOW,test.getStartMillis());
     }
 
-    public void testSetInterval_RI_RI3_2_oe() {
+public void testSetInterval_RI_RI3_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(null, new Instant(TEST_TIME2 + 1));
         // removed other assertion
         assertEquals(TEST_TIME2 + 1,test.getEndMillis());
     }
 
-    public void testSetInterval_RI_RI4_1_oe() {
+public void testSetInterval_RI_RI4_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(new Instant(TEST_TIME1 - 1), null);
         assertEquals(TEST_TIME1 - 1,test.getStartMillis());
     }
 
-    public void testSetInterval_RI_RI4_2_oe() {
+public void testSetInterval_RI_RI4_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(new Instant(TEST_TIME1 - 1), null);
         // removed other assertion
         assertEquals(TEST_TIME_NOW,test.getEndMillis());
     }
 
-    public void testSetInterval_RI_RI5_1_oe() {
+public void testSetInterval_RI_RI5_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(null, null);
         assertEquals(TEST_TIME_NOW,test.getStartMillis());
     }
 
-    public void testSetInterval_RI_RI5_2_oe() {
+public void testSetInterval_RI_RI5_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(null, null);
         // removed other assertion
         assertEquals(TEST_TIME_NOW,test.getEndMillis());
     }
 
-    public void testSetInterval_RInterval1_1_oe() {
+public void testSetInterval_RInterval1_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(new Interval(TEST_TIME1 - 1, TEST_TIME2 + 1));
         assertEquals(TEST_TIME1 - 1,test.getStartMillis());
     }
 
-    public void testSetInterval_RInterval1_2_oe() {
+public void testSetInterval_RInterval1_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(new Interval(TEST_TIME1 - 1, TEST_TIME2 + 1));
         // removed other assertion
         assertEquals(TEST_TIME2 + 1,test.getEndMillis());
     }
 
-    public void testSetStartMillis_long1_1_oe() {
+public void testSetStartMillis_long1_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setStartMillis(TEST_TIME1 - 1);
         assertEquals(TEST_TIME1 - 1,test.getStartMillis());
     }
 
-    public void testSetStartMillis_long1_2_oe() {
+public void testSetStartMillis_long1_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setStartMillis(TEST_TIME1 - 1);
         // removed other assertion
         assertEquals(TEST_TIME2,test.getEndMillis());
     }
 
-    public void testSetStart_RI1_1_oe() {
+public void testSetStart_RI1_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setStart(new Instant(TEST_TIME1 - 1));
         assertEquals(TEST_TIME1 - 1,test.getStartMillis());
     }
 
-    public void testSetStart_RI1_2_oe() {
+public void testSetStart_RI1_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setStart(new Instant(TEST_TIME1 - 1));
         // removed other assertion
         assertEquals(TEST_TIME2,test.getEndMillis());
     }
 
-    public void testSetStart_RI3_1_oe() {
+public void testSetStart_RI3_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setStart(null);
         assertEquals(TEST_TIME_NOW,test.getStartMillis());
     }
 
-    public void testSetStart_RI3_2_oe() {
+public void testSetStart_RI3_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setStart(null);
         // removed other assertion
         assertEquals(TEST_TIME2,test.getEndMillis());
     }
 
-    public void testSetEndMillis_long1_1_oe() {
+public void testSetEndMillis_long1_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setEndMillis(TEST_TIME2 + 1);
         assertEquals(TEST_TIME1,test.getStartMillis());
     }
 
-    public void testSetEndMillis_long1_2_oe() {
+public void testSetEndMillis_long1_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setEndMillis(TEST_TIME2 + 1);
         // removed other assertion
         assertEquals(TEST_TIME2 + 1,test.getEndMillis());
     }
 
-    public void testSetEnd_RI1_1_oe() {
+public void testSetEnd_RI1_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setEnd(new Instant(TEST_TIME2 + 1));
         assertEquals(TEST_TIME1,test.getStartMillis());
     }
 
-    public void testSetEnd_RI1_2_oe() {
+public void testSetEnd_RI1_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setEnd(new Instant(TEST_TIME2 + 1));
         // removed other assertion
         assertEquals(TEST_TIME2 + 1,test.getEndMillis());
     }
 
-    public void testSetEnd_RI3_1_oe() {
+public void testSetEnd_RI3_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setEnd(null);
         assertEquals(TEST_TIME1,test.getStartMillis());
     }
 
-    public void testSetEnd_RI3_2_oe() {
+public void testSetEnd_RI3_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setEnd(null);
         // removed other assertion
         assertEquals(TEST_TIME_NOW,test.getEndMillis());
     }
 
-    public void testSetDurationAfterStart_long1_1_oe() {
+public void testSetDurationAfterStart_long1_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationAfterStart(123L);
         assertEquals(TEST_TIME1,test.getStartMillis());
     }
 
-    public void testSetDurationAfterStart_long1_2_oe() {
+public void testSetDurationAfterStart_long1_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationAfterStart(123L);
         // removed other assertion
         assertEquals(TEST_TIME1 + 123L,test.getEndMillis());
     }
 
-    public void testSetDurationAfterStart_RI1_1_oe() {
+public void testSetDurationAfterStart_RI1_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationAfterStart(new Duration(123L));
         assertEquals(TEST_TIME1,test.getStartMillis());
     }
 
-    public void testSetDurationAfterStart_RI1_2_oe() {
+public void testSetDurationAfterStart_RI1_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationAfterStart(new Duration(123L));
         // removed other assertion
         assertEquals(TEST_TIME1 + 123L,test.getEndMillis());
     }
 
-    public void testSetDurationAfterStart_RI3_1_oe() {
+public void testSetDurationAfterStart_RI3_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationAfterStart(null);
         assertEquals(TEST_TIME1,test.getStartMillis());
     }
 
-    public void testSetDurationAfterStart_RI3_2_oe() {
+public void testSetDurationAfterStart_RI3_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationAfterStart(null);
         // removed other assertion
         assertEquals(TEST_TIME1,test.getEndMillis());
     }
 
-    public void testSetDurationBeforeEnd_long1_1_oe() {
+public void testSetDurationBeforeEnd_long1_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationBeforeEnd(123L);
         assertEquals(TEST_TIME2 - 123L,test.getStartMillis());
     }
 
-    public void testSetDurationBeforeEnd_long1_2_oe() {
+public void testSetDurationBeforeEnd_long1_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationBeforeEnd(123L);
         // removed other assertion
         assertEquals(TEST_TIME2,test.getEndMillis());
     }
 
-    public void testSetDurationBeforeEnd_RI1_1_oe() {
+public void testSetDurationBeforeEnd_RI1_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationBeforeEnd(new Duration(123L));
         assertEquals(TEST_TIME2 - 123L,test.getStartMillis());
     }
 
-    public void testSetDurationBeforeEnd_RI1_2_oe() {
+public void testSetDurationBeforeEnd_RI1_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationBeforeEnd(new Duration(123L));
         // removed other assertion
         assertEquals(TEST_TIME2,test.getEndMillis());
     }
 
-    public void testSetDurationBeforeEnd_RI3_1_oe() {
+public void testSetDurationBeforeEnd_RI3_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationBeforeEnd(null);
         assertEquals(TEST_TIME2,test.getStartMillis());
     }
 
-    public void testSetDurationBeforeEnd_RI3_2_oe() {
+public void testSetDurationBeforeEnd_RI3_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationBeforeEnd(null);
         // removed other assertion
         assertEquals(TEST_TIME2,test.getEndMillis());
     }
 
-    public void testSetPeriodAfterStart_RI1_1_oe() {
+public void testSetPeriodAfterStart_RI1_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setPeriodAfterStart(new Period(123L));
         assertEquals(TEST_TIME1,test.getStartMillis());
     }
 
-    public void testSetPeriodAfterStart_RI1_2_oe() {
+public void testSetPeriodAfterStart_RI1_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setPeriodAfterStart(new Period(123L));
         // removed other assertion
         assertEquals(TEST_TIME1 + 123L,test.getEndMillis());
     }
 
-    public void testSetPeriodAfterStart_RI3_1_oe() {
+public void testSetPeriodAfterStart_RI3_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setPeriodAfterStart(null);
         assertEquals(TEST_TIME1,test.getStartMillis());
     }
 
-    public void testSetPeriodAfterStart_RI3_2_oe() {
+public void testSetPeriodAfterStart_RI3_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setPeriodAfterStart(null);
         // removed other assertion
         assertEquals(TEST_TIME1,test.getEndMillis());
     }
 
-    public void testSetPeriodBeforeEnd_RI1_1_oe() {
+public void testSetPeriodBeforeEnd_RI1_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setPeriodBeforeEnd(new Period(123L));
         assertEquals(TEST_TIME2 - 123L,test.getStartMillis());
     }
 
-    public void testSetPeriodBeforeEnd_RI1_2_oe() {
+public void testSetPeriodBeforeEnd_RI1_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setPeriodBeforeEnd(new Period(123L));
         // removed other assertion
         assertEquals(TEST_TIME2,test.getEndMillis());
     }
 
-    public void testSetPeriodBeforeEnd_RI3_1_oe() {
+public void testSetPeriodBeforeEnd_RI3_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setPeriodBeforeEnd(null);
         assertEquals(TEST_TIME2,test.getStartMillis());
     }
 
-    public void testSetPeriodBeforeEnd_RI3_2_oe() {
+public void testSetPeriodBeforeEnd_RI3_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setPeriodBeforeEnd(null);
         // removed other assertion

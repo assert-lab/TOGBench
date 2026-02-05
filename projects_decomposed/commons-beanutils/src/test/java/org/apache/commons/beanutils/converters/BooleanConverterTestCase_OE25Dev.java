@@ -115,14 +115,14 @@ public class BooleanConverterTestCase_OE25Dev extends TestCase {
         }
     }
 
-    public void testDefaultValue_1_oe() {
+public void testDefaultValue_1_oe() {
         final Object defaultValue = Boolean.TRUE;
         final BooleanConverter converter = new BooleanConverter(defaultValue);
 
         assertSame(defaultValue, converter.convert(Boolean.class, "bogus"));
     }
 
-    public void testPrimitiveTargetClass_1_oe() {
+public void testPrimitiveTargetClass_1_oe() {
         final BooleanConverter converter = new BooleanConverter();
         assertTrue("Wrong result", converter.convert(Boolean.TYPE, STANDARD_TRUES[0]));
     }

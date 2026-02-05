@@ -64,7 +64,7 @@ protected void tearDown() {
     * With nothing provided, we should fail both because both are required.
     */
 
-   public void testVars_1_oe() {
+public void testVars_1_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -73,7 +73,7 @@ protected void tearDown() {
        assertNotNull("field-1 is null.", field1);
    }
 
-   public void testVars_2_oe() {
+public void testVars_2_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -83,7 +83,7 @@ protected void tearDown() {
        assertEquals("field-1 property is wrong", "field-1", field1.getProperty());
    }
 
-   public void testVars_3_oe() {
+public void testVars_3_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -97,7 +97,7 @@ protected void tearDown() {
        assertNotNull("var-1-1 is null.", var11);
    }
 
-   public void testVars_4_oe() {
+public void testVars_4_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -112,7 +112,7 @@ protected void tearDown() {
        assertEquals("var-1-1 name is wrong", "var-1-1", var11.getName());
    }
 
-   public void testVars_5_oe() {
+public void testVars_5_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -128,7 +128,7 @@ protected void tearDown() {
        assertEquals("var-1-1 value is wrong", "value-1-1", var11.getValue());
    }
 
-   public void testVars_6_oe() {
+public void testVars_6_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -145,7 +145,7 @@ protected void tearDown() {
        assertEquals("var-1-1 jstype is wrong", "jstype-1-1", var11.getJsType());
    }
 
-   public void testVars_7_oe() {
+public void testVars_7_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -163,7 +163,7 @@ protected void tearDown() {
        assertFalse("var-1-1 resource is true", var11.isResource());
    }
 
-   public void testVars_8_oe() {
+public void testVars_8_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -182,7 +182,7 @@ protected void tearDown() {
        assertNull("var-1-1 bundle is not null.", var11.getBundle());
    }
 
-   public void testVars_9_oe() {
+public void testVars_9_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -205,7 +205,7 @@ protected void tearDown() {
        assertNotNull("field-2 is null.", field2);
    }
 
-   public void testVars_10_oe() {
+public void testVars_10_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -229,7 +229,7 @@ protected void tearDown() {
        assertEquals("field-2 property is wrong", "field-2", field2.getProperty());
    }
 
-   public void testVars_11_oe() {
+public void testVars_11_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -257,7 +257,7 @@ protected void tearDown() {
        assertNotNull("var-2-1 is null.", var21);
    }
 
-   public void testVars_12_oe() {
+public void testVars_12_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -286,7 +286,7 @@ protected void tearDown() {
        assertEquals("var-2-1 name is wrong", "var-2-1", var21.getName());
    }
 
-   public void testVars_13_oe() {
+public void testVars_13_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -316,7 +316,7 @@ protected void tearDown() {
        assertEquals("var-2-1 value is wrong", "value-2-1", var21.getValue());
    }
 
-   public void testVars_14_oe() {
+public void testVars_14_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -347,7 +347,7 @@ protected void tearDown() {
        assertEquals("var-2-1 jstype is wrong", "jstype-2-1", var21.getJsType());
    }
 
-   public void testVars_15_oe() {
+public void testVars_15_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -379,7 +379,7 @@ protected void tearDown() {
        assertTrue("var-2-1 resource is false", var21.isResource());
    }
 
-   public void testVars_16_oe() {
+public void testVars_16_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -412,7 +412,7 @@ protected void tearDown() {
        assertEquals("var-2-1 bundle is wrong", "bundle-2-1", var21.getBundle());
    }
 
-   public void testVars_17_oe() {
+public void testVars_17_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -449,7 +449,7 @@ protected void tearDown() {
        assertNotNull("var-2-2 is null.", var22);
    }
 
-   public void testVars_18_oe() {
+public void testVars_18_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -487,7 +487,7 @@ protected void tearDown() {
        assertEquals("var-2-2 name is wrong", "var-2-2", var22.getName());
    }
 
-   public void testVars_19_oe() {
+public void testVars_19_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -526,7 +526,7 @@ protected void tearDown() {
        assertEquals("var-2-2 value is wrong", "value-2-2", var22.getValue());
    }
 
-   public void testVars_20_oe() {
+public void testVars_20_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -566,7 +566,7 @@ protected void tearDown() {
        assertNull("var-2-2 jstype is not null", var22.getJsType());
    }
 
-   public void testVars_21_oe() {
+public void testVars_21_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 
@@ -607,7 +607,7 @@ protected void tearDown() {
        assertFalse("var-2-2 resource is true", var22.isResource());
    }
 
-   public void testVars_22_oe() {
+public void testVars_22_oe() {
 
        Form form = resources.getForm(Locale.getDefault(), FORM_KEY);
 

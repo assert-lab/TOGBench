@@ -88,7 +88,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         }
     }
 
-    @Test
+@Test
     @SuppressWarnings("AssertEqualsBetweenInconvertibleTypes")
     public void testPragmas_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
@@ -96,7 +96,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(script);
     }
 
-    @Test
+@Test
     @SuppressWarnings("AssertEqualsBetweenInconvertibleTypes")
     public void testPragmas_2_oe() throws Exception {
         final JexlContext jc = new MapContext();
@@ -106,7 +106,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(2, pragmas.size());
     }
 
-    @Test
+@Test
     @SuppressWarnings("AssertEqualsBetweenInconvertibleTypes")
     public void testPragmas_3_oe() throws Exception {
         final JexlContext jc = new MapContext();
@@ -117,7 +117,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, pragmas.get("one"));
     }
 
-    @Test
+@Test
     @SuppressWarnings("AssertEqualsBetweenInconvertibleTypes")
     public void testPragmas_4_oe() throws Exception {
         final JexlContext jc = new MapContext();
@@ -129,7 +129,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("truth", pragmas.get("the.very.hard"));
     }
 
-    @Test
+@Test
     @SuppressWarnings("AssertEqualsBetweenInconvertibleTypes")
     public void testJxltPragmas_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
@@ -138,7 +138,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(tscript);
     }
 
-    @Test
+@Test
     @SuppressWarnings("AssertEqualsBetweenInconvertibleTypes")
     public void testJxltPragmas_2_oe() throws Exception {
         final JexlContext jc = new MapContext();
@@ -149,7 +149,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(2, pragmas.size());
     }
 
-    @Test
+@Test
     @SuppressWarnings("AssertEqualsBetweenInconvertibleTypes")
     public void testJxltPragmas_3_oe() throws Exception {
         final JexlContext jc = new MapContext();
@@ -161,7 +161,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, pragmas.get("one"));
     }
 
-    @Test
+@Test
     @SuppressWarnings("AssertEqualsBetweenInconvertibleTypes")
     public void testJxltPragmas_4_oe() throws Exception {
         final JexlContext jc = new MapContext();
@@ -174,7 +174,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("truth", pragmas.get("the.very.hard"));
     }
 
-    @Test
+@Test
     @SuppressWarnings("AssertEqualsBetweenInconvertibleTypes")
     public void testSafePragma_1_oe() throws Exception {
         SafeContext jc = new SafeContext();
@@ -183,7 +183,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(script);
     }
 
-    @Test
+@Test
     @SuppressWarnings("AssertEqualsBetweenInconvertibleTypes")
     public void testSafePragma_2_oe() throws Exception {
         SafeContext jc = new SafeContext();
@@ -195,7 +195,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         Assert.assertNull(result);
     }
 
-    @Test
+@Test
     @SuppressWarnings("AssertEqualsBetweenInconvertibleTypes")
     public void testStaticNamespacePragma_1_oe() throws Exception {
         final SafeContext jc = new SafeContext();
@@ -207,7 +207,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     @SuppressWarnings("AssertEqualsBetweenInconvertibleTypes")
     public void testStatictNamespacePragmaCtl_1_oe() throws Exception {
         final Map<String, Object> ns = Collections.singletonMap("sleeper", StaticSleeper.class.getName());
@@ -220,7 +220,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     @SuppressWarnings("AssertEqualsBetweenInconvertibleTypes")
     public void testNamespacePragma_1_oe() throws Exception {
         final SafeContext jc = new SafeContext();
@@ -232,7 +232,7 @@ public class PragmaTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     @SuppressWarnings("AssertEqualsBetweenInconvertibleTypes")
     public void testNamespacePragmaCtl_1_oe() throws Exception {
         final Map<String, Object> ns = Collections.singletonMap("sleeper", Sleeper.class.getName());

@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 
 class GeometryInternalErrorTest_OE25Dev {
 
-    @Test
+@Test
     void testMessage_1_oe() {
         // act
         final GeometryInternalError err = new GeometryInternalError();

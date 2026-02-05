@@ -375,19 +375,19 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(res.toString(),expected,res.toString());
     }
 
-    public void test_MockGazaIsCorrect_1_oe() {
+public void test_MockGazaIsCorrect_1_oe() {
         DateTime pre = new DateTime(CUTOVER_GAZA - 1L, MOCK_GAZA);
         assertEquals("2007-03-31T23:59:59.999+02:00",pre.toString());
     }
 
-    public void test_MockGazaIsCorrect_2_oe() {
+public void test_MockGazaIsCorrect_2_oe() {
         DateTime pre = new DateTime(CUTOVER_GAZA - 1L, MOCK_GAZA);
         // removed other assertion
         DateTime at = new DateTime(CUTOVER_GAZA, MOCK_GAZA);
         assertEquals("2007-04-01T01:00:00.000+03:00",at.toString());
     }
 
-    public void test_MockGazaIsCorrect_3_oe() {
+public void test_MockGazaIsCorrect_3_oe() {
         DateTime pre = new DateTime(CUTOVER_GAZA - 1L, MOCK_GAZA);
         // removed other assertion
         DateTime at = new DateTime(CUTOVER_GAZA, MOCK_GAZA);
@@ -396,58 +396,58 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:00:00.001+03:00",post.toString());
     }
 
-    public void test_DateTime_roundFloor_Gaza_1_oe() {
+public void test_DateTime_roundFloor_Gaza_1_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 8, 0, 0, 0, MOCK_GAZA);
         assertEquals("2007-04-01T08:00:00.000+03:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_Gaza_2_oe() {
+public void test_DateTime_roundFloor_Gaza_2_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 8, 0, 0, 0, MOCK_GAZA);
         // removed other assertion
         DateTime rounded = dt.dayOfMonth().roundFloorCopy();
         assertEquals("2007-04-01T01:00:00.000+03:00",rounded.toString());
     }
 
-    public void test_DateTime_roundCeiling_Gaza_1_oe() {
+public void test_DateTime_roundCeiling_Gaza_1_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 20, 0, 0, 0, MOCK_GAZA);
         assertEquals("2007-03-31T20:00:00.000+02:00",dt.toString());
     }
 
-    public void test_DateTime_roundCeiling_Gaza_2_oe() {
+public void test_DateTime_roundCeiling_Gaza_2_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 20, 0, 0, 0, MOCK_GAZA);
         // removed other assertion
         DateTime rounded = dt.dayOfMonth().roundCeilingCopy();
         assertEquals("2007-04-01T01:00:00.000+03:00",rounded.toString());
     }
 
-    public void test_DateTime_setHourZero_Gaza_1_oe() {
+public void test_DateTime_setHourZero_Gaza_1_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 8, 0, 0, 0, MOCK_GAZA);
         assertEquals("2007-04-01T08:00:00.000+03:00",dt.toString());
     }
 
-    public void test_DateTime_withHourZero_Gaza_1_oe() {
+public void test_DateTime_withHourZero_Gaza_1_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 8, 0, 0, 0, MOCK_GAZA);
         assertEquals("2007-04-01T08:00:00.000+03:00",dt.toString());
     }
 
-    public void test_DateTime_withDay_Gaza_1_oe() {
+public void test_DateTime_withDay_Gaza_1_oe() {
         DateTime dt = new DateTime(2007, 4, 2, 0, 0, 0, 0, MOCK_GAZA);
         assertEquals("2007-04-02T00:00:00.000+03:00",dt.toString());
     }
 
-    public void test_DateTime_withDay_Gaza_2_oe() {
+public void test_DateTime_withDay_Gaza_2_oe() {
         DateTime dt = new DateTime(2007, 4, 2, 0, 0, 0, 0, MOCK_GAZA);
         // removed other assertion
         DateTime res = dt.withDayOfMonth(1);
         assertEquals("2007-04-01T01:00:00.000+03:00",res.toString());
     }
 
-    public void test_DateTime_minusHour_Gaza_1_oe() {
+public void test_DateTime_minusHour_Gaza_1_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 8, 0, 0, 0, MOCK_GAZA);
         assertEquals("2007-04-01T08:00:00.000+03:00",dt.toString());
     }
 
-    public void test_DateTime_minusHour_Gaza_2_oe() {
+public void test_DateTime_minusHour_Gaza_2_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 8, 0, 0, 0, MOCK_GAZA);
         // removed other assertion
         
@@ -455,7 +455,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:00:00.000+03:00",minus7.toString());
     }
 
-    public void test_DateTime_minusHour_Gaza_3_oe() {
+public void test_DateTime_minusHour_Gaza_3_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 8, 0, 0, 0, MOCK_GAZA);
         // removed other assertion
         
@@ -465,7 +465,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-03-31T23:00:00.000+02:00",minus8.toString());
     }
 
-    public void test_DateTime_minusHour_Gaza_4_oe() {
+public void test_DateTime_minusHour_Gaza_4_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 8, 0, 0, 0, MOCK_GAZA);
         // removed other assertion
         
@@ -477,12 +477,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-03-31T22:00:00.000+02:00",minus9.toString());
     }
 
-    public void test_DateTime_plusHour_Gaza_1_oe() {
+public void test_DateTime_plusHour_Gaza_1_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 16, 0, 0, 0, MOCK_GAZA);
         assertEquals("2007-03-31T16:00:00.000+02:00",dt.toString());
     }
 
-    public void test_DateTime_plusHour_Gaza_2_oe() {
+public void test_DateTime_plusHour_Gaza_2_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 16, 0, 0, 0, MOCK_GAZA);
         // removed other assertion
         
@@ -490,7 +490,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-03-31T23:00:00.000+02:00",plus7.toString());
     }
 
-    public void test_DateTime_plusHour_Gaza_3_oe() {
+public void test_DateTime_plusHour_Gaza_3_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 16, 0, 0, 0, MOCK_GAZA);
         // removed other assertion
         
@@ -500,7 +500,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:00:00.000+03:00",plus8.toString());
     }
 
-    public void test_DateTime_plusHour_Gaza_4_oe() {
+public void test_DateTime_plusHour_Gaza_4_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 16, 0, 0, 0, MOCK_GAZA);
         // removed other assertion
         
@@ -512,12 +512,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T02:00:00.000+03:00",plus9.toString());
     }
 
-    public void test_DateTime_minusDay_Gaza_1_oe() {
+public void test_DateTime_minusDay_Gaza_1_oe() {
         DateTime dt = new DateTime(2007, 4, 2, 0, 0, 0, 0, MOCK_GAZA);
         assertEquals("2007-04-02T00:00:00.000+03:00",dt.toString());
     }
 
-    public void test_DateTime_minusDay_Gaza_2_oe() {
+public void test_DateTime_minusDay_Gaza_2_oe() {
         DateTime dt = new DateTime(2007, 4, 2, 0, 0, 0, 0, MOCK_GAZA);
         // removed other assertion
         
@@ -525,7 +525,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:00:00.000+03:00",minus1.toString());
     }
 
-    public void test_DateTime_minusDay_Gaza_3_oe() {
+public void test_DateTime_minusDay_Gaza_3_oe() {
         DateTime dt = new DateTime(2007, 4, 2, 0, 0, 0, 0, MOCK_GAZA);
         // removed other assertion
         
@@ -535,12 +535,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-03-31T00:00:00.000+02:00",minus2.toString());
     }
 
-    public void test_DateTime_plusDay_Gaza_1_oe() {
+public void test_DateTime_plusDay_Gaza_1_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 0, 0, 0, 0, MOCK_GAZA);
         assertEquals("2007-03-31T00:00:00.000+02:00",dt.toString());
     }
 
-    public void test_DateTime_plusDay_Gaza_2_oe() {
+public void test_DateTime_plusDay_Gaza_2_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 0, 0, 0, 0, MOCK_GAZA);
         // removed other assertion
         
@@ -548,7 +548,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:00:00.000+03:00",plus1.toString());
     }
 
-    public void test_DateTime_plusDay_Gaza_3_oe() {
+public void test_DateTime_plusDay_Gaza_3_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 0, 0, 0, 0, MOCK_GAZA);
         // removed other assertion
         
@@ -558,12 +558,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-02T00:00:00.000+03:00",plus2.toString());
     }
 
-    public void test_DateTime_plusDayMidGap_Gaza_1_oe() {
+public void test_DateTime_plusDayMidGap_Gaza_1_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 0, 30, 0, 0, MOCK_GAZA);
         assertEquals("2007-03-31T00:30:00.000+02:00",dt.toString());
     }
 
-    public void test_DateTime_plusDayMidGap_Gaza_2_oe() {
+public void test_DateTime_plusDayMidGap_Gaza_2_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 0, 30, 0, 0, MOCK_GAZA);
         // removed other assertion
         
@@ -571,7 +571,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:30:00.000+03:00",plus1.toString());
     }
 
-    public void test_DateTime_plusDayMidGap_Gaza_3_oe() {
+public void test_DateTime_plusDayMidGap_Gaza_3_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 0, 30, 0, 0, MOCK_GAZA);
         // removed other assertion
         
@@ -581,12 +581,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-02T00:30:00.000+03:00",plus2.toString());
     }
 
-    public void test_DateTime_addWrapFieldDay_Gaza_1_oe() {
+public void test_DateTime_addWrapFieldDay_Gaza_1_oe() {
         DateTime dt = new DateTime(2007, 4, 30, 0, 0, 0, 0, MOCK_GAZA);
         assertEquals("2007-04-30T00:00:00.000+03:00",dt.toString());
     }
 
-    public void test_DateTime_addWrapFieldDay_Gaza_2_oe() {
+public void test_DateTime_addWrapFieldDay_Gaza_2_oe() {
         DateTime dt = new DateTime(2007, 4, 30, 0, 0, 0, 0, MOCK_GAZA);
         // removed other assertion
         
@@ -594,7 +594,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:00:00.000+03:00",plus1.toString());
     }
 
-    public void test_DateTime_addWrapFieldDay_Gaza_3_oe() {
+public void test_DateTime_addWrapFieldDay_Gaza_3_oe() {
         DateTime dt = new DateTime(2007, 4, 30, 0, 0, 0, 0, MOCK_GAZA);
         // removed other assertion
         
@@ -604,12 +604,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-02T00:00:00.000+03:00",plus2.toString());
     }
 
-    public void test_DateTime_withZoneRetainFields_Gaza_1_oe() {
+public void test_DateTime_withZoneRetainFields_Gaza_1_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 0, 0, 0, 0, DateTimeZone.UTC);
         assertEquals("2007-04-01T00:00:00.000Z",dt.toString());
     }
 
-    public void test_DateTime_withZoneRetainFields_Gaza_2_oe() {
+public void test_DateTime_withZoneRetainFields_Gaza_2_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 0, 0, 0, 0, DateTimeZone.UTC);
         // removed other assertion
         
@@ -617,12 +617,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:00:00.000+03:00",res.toString());
     }
 
-    public void test_MutableDateTime_withZoneRetainFields_Gaza_1_oe() {
+public void test_MutableDateTime_withZoneRetainFields_Gaza_1_oe() {
         MutableDateTime dt = new MutableDateTime(2007, 4, 1, 0, 0, 0, 0, DateTimeZone.UTC);
         assertEquals("2007-04-01T00:00:00.000Z",dt.toString());
     }
 
-    public void test_MutableDateTime_withZoneRetainFields_Gaza_2_oe() {
+public void test_MutableDateTime_withZoneRetainFields_Gaza_2_oe() {
         MutableDateTime dt = new MutableDateTime(2007, 4, 1, 0, 0, 0, 0, DateTimeZone.UTC);
         // removed other assertion
         
@@ -630,12 +630,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:00:00.000+03:00",dt.toString());
     }
 
-    public void test_LocalDate_new_Gaza_1_oe() {
+public void test_LocalDate_new_Gaza_1_oe() {
         LocalDate date1 = new LocalDate(CUTOVER_GAZA, MOCK_GAZA);
         assertEquals("2007-04-01",date1.toString());
     }
 
-    public void test_LocalDate_new_Gaza_2_oe() {
+public void test_LocalDate_new_Gaza_2_oe() {
         LocalDate date1 = new LocalDate(CUTOVER_GAZA, MOCK_GAZA);
         // removed other assertion
         
@@ -643,7 +643,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-03-31",date2.toString());
     }
 
-    public void test_LocalDate_toDateMidnight_Gaza_2_oe() {
+public void test_LocalDate_toDateMidnight_Gaza_2_oe() {
         LocalDate date = new LocalDate(2007, 4, 1);
         try {
             date.toDateMidnight(MOCK_GAZA);
@@ -653,7 +653,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
     }
     }
 
-    public void test_DateTime_new_Gaza_2_oe() {
+public void test_DateTime_new_Gaza_2_oe() {
         try {
             new DateTime(2007, 4, 1, 0, 0, 0, 0, MOCK_GAZA);
             // removed other assertion
@@ -662,7 +662,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
     }
     }
 
-    public void test_DateTime_parse_Gaza_2_oe() {
+public void test_DateTime_parse_Gaza_2_oe() {
         try {
             new DateTime("2007-04-01T00:00", MOCK_GAZA);
             // removed other assertion
@@ -671,19 +671,19 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
     }
     }
 
-    public void test_MockTurkIsCorrect_1_oe() {
+public void test_MockTurkIsCorrect_1_oe() {
         DateTime pre = new DateTime(CUTOVER_TURK - 1L, MOCK_TURK);
         assertEquals("2007-03-31T23:59:59.999-05:00",pre.toString());
     }
 
-    public void test_MockTurkIsCorrect_2_oe() {
+public void test_MockTurkIsCorrect_2_oe() {
         DateTime pre = new DateTime(CUTOVER_TURK - 1L, MOCK_TURK);
         // removed other assertion
         DateTime at = new DateTime(CUTOVER_TURK, MOCK_TURK);
         assertEquals("2007-04-01T01:00:00.000-04:00",at.toString());
     }
 
-    public void test_MockTurkIsCorrect_3_oe() {
+public void test_MockTurkIsCorrect_3_oe() {
         DateTime pre = new DateTime(CUTOVER_TURK - 1L, MOCK_TURK);
         // removed other assertion
         DateTime at = new DateTime(CUTOVER_TURK, MOCK_TURK);
@@ -692,70 +692,70 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:00:00.001-04:00",post.toString());
     }
 
-    public void test_DateTime_roundFloor_Turk_1_oe() {
+public void test_DateTime_roundFloor_Turk_1_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 8, 0, 0, 0, MOCK_TURK);
         assertEquals("2007-04-01T08:00:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_Turk_2_oe() {
+public void test_DateTime_roundFloor_Turk_2_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 8, 0, 0, 0, MOCK_TURK);
         // removed other assertion
         DateTime rounded = dt.dayOfMonth().roundFloorCopy();
         assertEquals("2007-04-01T01:00:00.000-04:00",rounded.toString());
     }
 
-    public void test_DateTime_roundFloorNotDST_Turk_1_oe() {
+public void test_DateTime_roundFloorNotDST_Turk_1_oe() {
         DateTime dt = new DateTime(2007, 4, 2, 8, 0, 0, 0, MOCK_TURK);
         assertEquals("2007-04-02T08:00:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloorNotDST_Turk_2_oe() {
+public void test_DateTime_roundFloorNotDST_Turk_2_oe() {
         DateTime dt = new DateTime(2007, 4, 2, 8, 0, 0, 0, MOCK_TURK);
         // removed other assertion
         DateTime rounded = dt.dayOfMonth().roundFloorCopy();
         assertEquals("2007-04-02T00:00:00.000-04:00",rounded.toString());
     }
 
-    public void test_DateTime_roundCeiling_Turk_1_oe() {
+public void test_DateTime_roundCeiling_Turk_1_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 20, 0, 0, 0, MOCK_TURK);
         assertEquals("2007-03-31T20:00:00.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_roundCeiling_Turk_2_oe() {
+public void test_DateTime_roundCeiling_Turk_2_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 20, 0, 0, 0, MOCK_TURK);
         // removed other assertion
         DateTime rounded = dt.dayOfMonth().roundCeilingCopy();
         assertEquals("2007-04-01T01:00:00.000-04:00",rounded.toString());
     }
 
-    public void test_DateTime_setHourZero_Turk_1_oe() {
+public void test_DateTime_setHourZero_Turk_1_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 8, 0, 0, 0, MOCK_TURK);
         assertEquals("2007-04-01T08:00:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_withHourZero_Turk_1_oe() {
+public void test_DateTime_withHourZero_Turk_1_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 8, 0, 0, 0, MOCK_TURK);
         assertEquals("2007-04-01T08:00:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_withDay_Turk_1_oe() {
+public void test_DateTime_withDay_Turk_1_oe() {
         DateTime dt = new DateTime(2007, 4, 2, 0, 0, 0, 0, MOCK_TURK);
         assertEquals("2007-04-02T00:00:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_withDay_Turk_2_oe() {
+public void test_DateTime_withDay_Turk_2_oe() {
         DateTime dt = new DateTime(2007, 4, 2, 0, 0, 0, 0, MOCK_TURK);
         // removed other assertion
         DateTime res = dt.withDayOfMonth(1);
         assertEquals("2007-04-01T01:00:00.000-04:00",res.toString());
     }
 
-    public void test_DateTime_minusHour_Turk_1_oe() {
+public void test_DateTime_minusHour_Turk_1_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 8, 0, 0, 0, MOCK_TURK);
         assertEquals("2007-04-01T08:00:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_minusHour_Turk_2_oe() {
+public void test_DateTime_minusHour_Turk_2_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 8, 0, 0, 0, MOCK_TURK);
         // removed other assertion
         
@@ -763,7 +763,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:00:00.000-04:00",minus7.toString());
     }
 
-    public void test_DateTime_minusHour_Turk_3_oe() {
+public void test_DateTime_minusHour_Turk_3_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 8, 0, 0, 0, MOCK_TURK);
         // removed other assertion
         
@@ -773,7 +773,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-03-31T23:00:00.000-05:00",minus8.toString());
     }
 
-    public void test_DateTime_minusHour_Turk_4_oe() {
+public void test_DateTime_minusHour_Turk_4_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 8, 0, 0, 0, MOCK_TURK);
         // removed other assertion
         
@@ -785,12 +785,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-03-31T22:00:00.000-05:00",minus9.toString());
     }
 
-    public void test_DateTime_plusHour_Turk_1_oe() {
+public void test_DateTime_plusHour_Turk_1_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 16, 0, 0, 0, MOCK_TURK);
         assertEquals("2007-03-31T16:00:00.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_plusHour_Turk_2_oe() {
+public void test_DateTime_plusHour_Turk_2_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 16, 0, 0, 0, MOCK_TURK);
         // removed other assertion
         
@@ -798,7 +798,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-03-31T23:00:00.000-05:00",plus7.toString());
     }
 
-    public void test_DateTime_plusHour_Turk_3_oe() {
+public void test_DateTime_plusHour_Turk_3_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 16, 0, 0, 0, MOCK_TURK);
         // removed other assertion
         
@@ -808,7 +808,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:00:00.000-04:00",plus8.toString());
     }
 
-    public void test_DateTime_plusHour_Turk_4_oe() {
+public void test_DateTime_plusHour_Turk_4_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 16, 0, 0, 0, MOCK_TURK);
         // removed other assertion
         
@@ -820,12 +820,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T02:00:00.000-04:00",plus9.toString());
     }
 
-    public void test_DateTime_minusDay_Turk_1_oe() {
+public void test_DateTime_minusDay_Turk_1_oe() {
         DateTime dt = new DateTime(2007, 4, 2, 0, 0, 0, 0, MOCK_TURK);
         assertEquals("2007-04-02T00:00:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_minusDay_Turk_2_oe() {
+public void test_DateTime_minusDay_Turk_2_oe() {
         DateTime dt = new DateTime(2007, 4, 2, 0, 0, 0, 0, MOCK_TURK);
         // removed other assertion
         
@@ -833,7 +833,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:00:00.000-04:00",minus1.toString());
     }
 
-    public void test_DateTime_minusDay_Turk_3_oe() {
+public void test_DateTime_minusDay_Turk_3_oe() {
         DateTime dt = new DateTime(2007, 4, 2, 0, 0, 0, 0, MOCK_TURK);
         // removed other assertion
         
@@ -843,12 +843,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-03-31T00:00:00.000-05:00",minus2.toString());
     }
 
-    public void test_DateTime_plusDay_Turk_1_oe() {
+public void test_DateTime_plusDay_Turk_1_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 0, 0, 0, 0, MOCK_TURK);
         assertEquals("2007-03-31T00:00:00.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_plusDay_Turk_2_oe() {
+public void test_DateTime_plusDay_Turk_2_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 0, 0, 0, 0, MOCK_TURK);
         // removed other assertion
         
@@ -856,7 +856,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:00:00.000-04:00",plus1.toString());
     }
 
-    public void test_DateTime_plusDay_Turk_3_oe() {
+public void test_DateTime_plusDay_Turk_3_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 0, 0, 0, 0, MOCK_TURK);
         // removed other assertion
         
@@ -866,12 +866,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-02T00:00:00.000-04:00",plus2.toString());
     }
 
-    public void test_DateTime_plusDayMidGap_Turk_1_oe() {
+public void test_DateTime_plusDayMidGap_Turk_1_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 0, 30, 0, 0, MOCK_TURK);
         assertEquals("2007-03-31T00:30:00.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_plusDayMidGap_Turk_2_oe() {
+public void test_DateTime_plusDayMidGap_Turk_2_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 0, 30, 0, 0, MOCK_TURK);
         // removed other assertion
         
@@ -879,7 +879,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:30:00.000-04:00",plus1.toString());
     }
 
-    public void test_DateTime_plusDayMidGap_Turk_3_oe() {
+public void test_DateTime_plusDayMidGap_Turk_3_oe() {
         DateTime dt = new DateTime(2007, 3, 31, 0, 30, 0, 0, MOCK_TURK);
         // removed other assertion
         
@@ -889,12 +889,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-02T00:30:00.000-04:00",plus2.toString());
     }
 
-    public void test_DateTime_addWrapFieldDay_Turk_1_oe() {
+public void test_DateTime_addWrapFieldDay_Turk_1_oe() {
         DateTime dt = new DateTime(2007, 4, 30, 0, 0, 0, 0, MOCK_TURK);
         assertEquals("2007-04-30T00:00:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_addWrapFieldDay_Turk_2_oe() {
+public void test_DateTime_addWrapFieldDay_Turk_2_oe() {
         DateTime dt = new DateTime(2007, 4, 30, 0, 0, 0, 0, MOCK_TURK);
         // removed other assertion
         
@@ -902,7 +902,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:00:00.000-04:00",plus1.toString());
     }
 
-    public void test_DateTime_addWrapFieldDay_Turk_3_oe() {
+public void test_DateTime_addWrapFieldDay_Turk_3_oe() {
         DateTime dt = new DateTime(2007, 4, 30, 0, 0, 0, 0, MOCK_TURK);
         // removed other assertion
         
@@ -912,12 +912,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-02T00:00:00.000-04:00",plus2.toString());
     }
 
-    public void test_DateTime_withZoneRetainFields_Turk_1_oe() {
+public void test_DateTime_withZoneRetainFields_Turk_1_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 0, 0, 0, 0, DateTimeZone.UTC);
         assertEquals("2007-04-01T00:00:00.000Z",dt.toString());
     }
 
-    public void test_DateTime_withZoneRetainFields_Turk_2_oe() {
+public void test_DateTime_withZoneRetainFields_Turk_2_oe() {
         DateTime dt = new DateTime(2007, 4, 1, 0, 0, 0, 0, DateTimeZone.UTC);
         // removed other assertion
         
@@ -925,12 +925,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:00:00.000-04:00",res.toString());
     }
 
-    public void test_MutableDateTime_setZoneRetainFields_Turk_1_oe() {
+public void test_MutableDateTime_setZoneRetainFields_Turk_1_oe() {
         MutableDateTime dt = new MutableDateTime(2007, 4, 1, 0, 0, 0, 0, DateTimeZone.UTC);
         assertEquals("2007-04-01T00:00:00.000Z",dt.toString());
     }
 
-    public void test_MutableDateTime_setZoneRetainFields_Turk_2_oe() {
+public void test_MutableDateTime_setZoneRetainFields_Turk_2_oe() {
         MutableDateTime dt = new MutableDateTime(2007, 4, 1, 0, 0, 0, 0, DateTimeZone.UTC);
         // removed other assertion
         
@@ -938,12 +938,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-04-01T01:00:00.000-04:00",dt.toString());
     }
 
-    public void test_LocalDate_new_Turk_1_oe() {
+public void test_LocalDate_new_Turk_1_oe() {
         LocalDate date1 = new LocalDate(CUTOVER_TURK, MOCK_TURK);
         assertEquals("2007-04-01",date1.toString());
     }
 
-    public void test_LocalDate_new_Turk_2_oe() {
+public void test_LocalDate_new_Turk_2_oe() {
         LocalDate date1 = new LocalDate(CUTOVER_TURK, MOCK_TURK);
         // removed other assertion
         
@@ -951,7 +951,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-03-31",date2.toString());
     }
 
-    public void test_LocalDate_toDateMidnight_Turk_2_oe() {
+public void test_LocalDate_toDateMidnight_Turk_2_oe() {
         LocalDate date = new LocalDate(2007, 4, 1);
         try {
             date.toDateMidnight(MOCK_TURK);
@@ -961,7 +961,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
     }
     }
 
-    public void test_DateTime_new_Turk_2_oe() {
+public void test_DateTime_new_Turk_2_oe() {
         try {
             new DateTime(2007, 4, 1, 0, 0, 0, 0, MOCK_TURK);
             // removed other assertion
@@ -970,7 +970,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
     }
     }
 
-    public void test_DateTime_parse_Turk_2_oe() {
+public void test_DateTime_parse_Turk_2_oe() {
         try {
             new DateTime("2007-04-01T00:00", MOCK_TURK);
             // removed other assertion
@@ -979,19 +979,19 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
     }
     }
 
-    public void test_NewYorkIsCorrect_Spring_1_oe() {
+public void test_NewYorkIsCorrect_Spring_1_oe() {
         DateTime pre = new DateTime(CUTOVER_NEW_YORK_SPRING - 1L, ZONE_NEW_YORK);
         assertEquals("2007-03-11T01:59:59.999-05:00",pre.toString());
     }
 
-    public void test_NewYorkIsCorrect_Spring_2_oe() {
+public void test_NewYorkIsCorrect_Spring_2_oe() {
         DateTime pre = new DateTime(CUTOVER_NEW_YORK_SPRING - 1L, ZONE_NEW_YORK);
         // removed other assertion
         DateTime at = new DateTime(CUTOVER_NEW_YORK_SPRING, ZONE_NEW_YORK);
         assertEquals("2007-03-11T03:00:00.000-04:00",at.toString());
     }
 
-    public void test_NewYorkIsCorrect_Spring_3_oe() {
+public void test_NewYorkIsCorrect_Spring_3_oe() {
         DateTime pre = new DateTime(CUTOVER_NEW_YORK_SPRING - 1L, ZONE_NEW_YORK);
         // removed other assertion
         DateTime at = new DateTime(CUTOVER_NEW_YORK_SPRING, ZONE_NEW_YORK);
@@ -1000,185 +1000,185 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-03-11T03:00:00.001-04:00",post.toString());
     }
 
-    public void test_DateTime_setHourAcross_NewYork_Spring_1_oe() {
+public void test_DateTime_setHourAcross_NewYork_Spring_1_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 0, 0, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-03-11T00:00:00.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_setHourAcross_NewYork_Spring_2_oe() {
+public void test_DateTime_setHourAcross_NewYork_Spring_2_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 0, 0, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime res = dt.hourOfDay().setCopy(4);
         assertEquals("2007-03-11T04:00:00.000-04:00",res.toString());
     }
 
-    public void test_DateTime_setHourForward_NewYork_Spring_1_oe() {
+public void test_DateTime_setHourForward_NewYork_Spring_1_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 0, 0, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-03-11T00:00:00.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_setHourBack_NewYork_Spring_1_oe() {
+public void test_DateTime_setHourBack_NewYork_Spring_1_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 8, 0, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-03-11T08:00:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_day_NewYork_Spring_preCutover_1_oe() {
+public void test_DateTime_roundFloor_day_NewYork_Spring_preCutover_1_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 1, 30, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-03-11T01:30:00.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_day_NewYork_Spring_preCutover_2_oe() {
+public void test_DateTime_roundFloor_day_NewYork_Spring_preCutover_2_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 1, 30, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.dayOfMonth().roundFloorCopy();
         assertEquals("2007-03-11T00:00:00.000-05:00",rounded.toString());
     }
 
-    public void test_DateTime_roundFloor_day_NewYork_Spring_postCutover_1_oe() {
+public void test_DateTime_roundFloor_day_NewYork_Spring_postCutover_1_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 3, 30, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-03-11T03:30:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_day_NewYork_Spring_postCutover_2_oe() {
+public void test_DateTime_roundFloor_day_NewYork_Spring_postCutover_2_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 3, 30, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.dayOfMonth().roundFloorCopy();
         assertEquals("2007-03-11T00:00:00.000-05:00",rounded.toString());
     }
 
-    public void test_DateTime_roundFloor_hour_NewYork_Spring_preCutover_1_oe() {
+public void test_DateTime_roundFloor_hour_NewYork_Spring_preCutover_1_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 1, 30, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-03-11T01:30:00.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_hour_NewYork_Spring_preCutover_2_oe() {
+public void test_DateTime_roundFloor_hour_NewYork_Spring_preCutover_2_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 1, 30, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.hourOfDay().roundFloorCopy();
         assertEquals("2007-03-11T01:00:00.000-05:00",rounded.toString());
     }
 
-    public void test_DateTime_roundFloor_hour_NewYork_Spring_postCutover_1_oe() {
+public void test_DateTime_roundFloor_hour_NewYork_Spring_postCutover_1_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 3, 30, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-03-11T03:30:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_hour_NewYork_Spring_postCutover_2_oe() {
+public void test_DateTime_roundFloor_hour_NewYork_Spring_postCutover_2_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 3, 30, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.hourOfDay().roundFloorCopy();
         assertEquals("2007-03-11T03:00:00.000-04:00",rounded.toString());
     }
 
-    public void test_DateTime_roundFloor_minute_NewYork_Spring_preCutover_1_oe() {
+public void test_DateTime_roundFloor_minute_NewYork_Spring_preCutover_1_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 1, 30, 40, 0, ZONE_NEW_YORK);
         assertEquals("2007-03-11T01:30:40.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_minute_NewYork_Spring_preCutover_2_oe() {
+public void test_DateTime_roundFloor_minute_NewYork_Spring_preCutover_2_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 1, 30, 40, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.minuteOfHour().roundFloorCopy();
         assertEquals("2007-03-11T01:30:00.000-05:00",rounded.toString());
     }
 
-    public void test_DateTime_roundFloor_minute_NewYork_Spring_postCutover_1_oe() {
+public void test_DateTime_roundFloor_minute_NewYork_Spring_postCutover_1_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 3, 30, 40, 0, ZONE_NEW_YORK);
         assertEquals("2007-03-11T03:30:40.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_minute_NewYork_Spring_postCutover_2_oe() {
+public void test_DateTime_roundFloor_minute_NewYork_Spring_postCutover_2_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 3, 30, 40, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.minuteOfHour().roundFloorCopy();
         assertEquals("2007-03-11T03:30:00.000-04:00",rounded.toString());
     }
 
-    public void test_DateTime_roundCeiling_day_NewYork_Spring_preCutover_1_oe() {
+public void test_DateTime_roundCeiling_day_NewYork_Spring_preCutover_1_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 1, 30, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-03-11T01:30:00.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_roundCeiling_day_NewYork_Spring_preCutover_2_oe() {
+public void test_DateTime_roundCeiling_day_NewYork_Spring_preCutover_2_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 1, 30, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.dayOfMonth().roundCeilingCopy();
         assertEquals("2007-03-12T00:00:00.000-04:00",rounded.toString());
     }
 
-    public void test_DateTime_roundCeiling_day_NewYork_Spring_postCutover_1_oe() {
+public void test_DateTime_roundCeiling_day_NewYork_Spring_postCutover_1_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 3, 30, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-03-11T03:30:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundCeiling_day_NewYork_Spring_postCutover_2_oe() {
+public void test_DateTime_roundCeiling_day_NewYork_Spring_postCutover_2_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 3, 30, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.dayOfMonth().roundCeilingCopy();
         assertEquals("2007-03-12T00:00:00.000-04:00",rounded.toString());
     }
 
-    public void test_DateTime_roundCeiling_hour_NewYork_Spring_preCutover_1_oe() {
+public void test_DateTime_roundCeiling_hour_NewYork_Spring_preCutover_1_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 1, 30, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-03-11T01:30:00.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_roundCeiling_hour_NewYork_Spring_preCutover_2_oe() {
+public void test_DateTime_roundCeiling_hour_NewYork_Spring_preCutover_2_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 1, 30, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.hourOfDay().roundCeilingCopy();
         assertEquals("2007-03-11T03:00:00.000-04:00",rounded.toString());
     }
 
-    public void test_DateTime_roundCeiling_hour_NewYork_Spring_postCutover_1_oe() {
+public void test_DateTime_roundCeiling_hour_NewYork_Spring_postCutover_1_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 3, 30, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-03-11T03:30:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundCeiling_hour_NewYork_Spring_postCutover_2_oe() {
+public void test_DateTime_roundCeiling_hour_NewYork_Spring_postCutover_2_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 3, 30, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.hourOfDay().roundCeilingCopy();
         assertEquals("2007-03-11T04:00:00.000-04:00",rounded.toString());
     }
 
-    public void test_DateTime_roundCeiling_minute_NewYork_Spring_preCutover_1_oe() {
+public void test_DateTime_roundCeiling_minute_NewYork_Spring_preCutover_1_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 1, 30, 40, 0, ZONE_NEW_YORK);
         assertEquals("2007-03-11T01:30:40.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_roundCeiling_minute_NewYork_Spring_preCutover_2_oe() {
+public void test_DateTime_roundCeiling_minute_NewYork_Spring_preCutover_2_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 1, 30, 40, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.minuteOfHour().roundCeilingCopy();
         assertEquals("2007-03-11T01:31:00.000-05:00",rounded.toString());
     }
 
-    public void test_DateTime_roundCeiling_minute_NewYork_Spring_postCutover_1_oe() {
+public void test_DateTime_roundCeiling_minute_NewYork_Spring_postCutover_1_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 3, 30, 40, 0, ZONE_NEW_YORK);
         assertEquals("2007-03-11T03:30:40.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundCeiling_minute_NewYork_Spring_postCutover_2_oe() {
+public void test_DateTime_roundCeiling_minute_NewYork_Spring_postCutover_2_oe() {
         DateTime dt = new DateTime(2007, 3, 11, 3, 30, 40, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.minuteOfHour().roundCeilingCopy();
         assertEquals("2007-03-11T03:31:00.000-04:00",rounded.toString());
     }
 
-    public void test_NewYorkIsCorrect_Autumn_1_oe() {
+public void test_NewYorkIsCorrect_Autumn_1_oe() {
         DateTime pre = new DateTime(CUTOVER_NEW_YORK_AUTUMN - 1L, ZONE_NEW_YORK);
         assertEquals("2007-11-04T01:59:59.999-04:00",pre.toString());
     }
 
-    public void test_NewYorkIsCorrect_Autumn_2_oe() {
+public void test_NewYorkIsCorrect_Autumn_2_oe() {
         DateTime pre = new DateTime(CUTOVER_NEW_YORK_AUTUMN - 1L, ZONE_NEW_YORK);
         // removed other assertion
         DateTime at = new DateTime(CUTOVER_NEW_YORK_AUTUMN, ZONE_NEW_YORK);
         assertEquals("2007-11-04T01:00:00.000-05:00",at.toString());
     }
 
-    public void test_NewYorkIsCorrect_Autumn_3_oe() {
+public void test_NewYorkIsCorrect_Autumn_3_oe() {
         DateTime pre = new DateTime(CUTOVER_NEW_YORK_AUTUMN - 1L, ZONE_NEW_YORK);
         // removed other assertion
         DateTime at = new DateTime(CUTOVER_NEW_YORK_AUTUMN, ZONE_NEW_YORK);
@@ -1187,17 +1187,17 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-11-04T01:00:00.001-05:00",post.toString());
     }
 
-    public void test_DateTime_constructor_NewYork_Autumn_1_oe() {
+public void test_DateTime_constructor_NewYork_Autumn_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, ZONE_NEW_YORK);
         assertEquals("2007-11-04T01:30:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_plusHour_NewYork_Autumn_1_oe() {
+public void test_DateTime_plusHour_NewYork_Autumn_1_oe() {
         DateTime dt = new DateTime(2007, 11, 3, 18, 0, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-11-03T18:00:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_plusHour_NewYork_Autumn_2_oe() {
+public void test_DateTime_plusHour_NewYork_Autumn_2_oe() {
         DateTime dt = new DateTime(2007, 11, 3, 18, 0, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         
@@ -1205,7 +1205,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-11-04T00:00:00.000-04:00",plus6.toString());
     }
 
-    public void test_DateTime_plusHour_NewYork_Autumn_3_oe() {
+public void test_DateTime_plusHour_NewYork_Autumn_3_oe() {
         DateTime dt = new DateTime(2007, 11, 3, 18, 0, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         
@@ -1215,7 +1215,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-11-04T01:00:00.000-04:00",plus7.toString());
     }
 
-    public void test_DateTime_plusHour_NewYork_Autumn_4_oe() {
+public void test_DateTime_plusHour_NewYork_Autumn_4_oe() {
         DateTime dt = new DateTime(2007, 11, 3, 18, 0, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         
@@ -1227,7 +1227,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-11-04T01:00:00.000-05:00",plus8.toString());
     }
 
-    public void test_DateTime_plusHour_NewYork_Autumn_5_oe() {
+public void test_DateTime_plusHour_NewYork_Autumn_5_oe() {
         DateTime dt = new DateTime(2007, 11, 3, 18, 0, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         
@@ -1241,12 +1241,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-11-04T02:00:00.000-05:00",plus9.toString());
     }
 
-    public void test_DateTime_minusHour_NewYork_Autumn_1_oe() {
+public void test_DateTime_minusHour_NewYork_Autumn_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 8, 0, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-11-04T08:00:00.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_minusHour_NewYork_Autumn_2_oe() {
+public void test_DateTime_minusHour_NewYork_Autumn_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 8, 0, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         
@@ -1254,7 +1254,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-11-04T02:00:00.000-05:00",minus6.toString());
     }
 
-    public void test_DateTime_minusHour_NewYork_Autumn_3_oe() {
+public void test_DateTime_minusHour_NewYork_Autumn_3_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 8, 0, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         
@@ -1264,7 +1264,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-11-04T01:00:00.000-05:00",minus7.toString());
     }
 
-    public void test_DateTime_minusHour_NewYork_Autumn_4_oe() {
+public void test_DateTime_minusHour_NewYork_Autumn_4_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 8, 0, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         
@@ -1276,7 +1276,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-11-04T01:00:00.000-04:00",minus8.toString());
     }
 
-    public void test_DateTime_minusHour_NewYork_Autumn_5_oe() {
+public void test_DateTime_minusHour_NewYork_Autumn_5_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 8, 0, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         
@@ -1290,199 +1290,199 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-11-04T00:00:00.000-04:00",minus9.toString());
     }
 
-    public void test_DateTime_roundFloor_day_NewYork_Autumn_preCutover_1_oe() {
+public void test_DateTime_roundFloor_day_NewYork_Autumn_preCutover_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-11-04T01:30:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_day_NewYork_Autumn_preCutover_2_oe() {
+public void test_DateTime_roundFloor_day_NewYork_Autumn_preCutover_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.dayOfMonth().roundFloorCopy();
         assertEquals("2007-11-04T00:00:00.000-04:00",rounded.toString());
     }
 
-    public void test_DateTime_roundFloor_day_NewYork_Autumn_postCutover_1_oe() {
+public void test_DateTime_roundFloor_day_NewYork_Autumn_postCutover_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 0, 0, ZONE_NEW_YORK).plusHours(1);
         assertEquals("2007-11-04T01:30:00.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_day_NewYork_Autumn_postCutover_2_oe() {
+public void test_DateTime_roundFloor_day_NewYork_Autumn_postCutover_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 0, 0, ZONE_NEW_YORK).plusHours(1);
         // removed other assertion
         DateTime rounded = dt.dayOfMonth().roundFloorCopy();
         assertEquals("2007-11-04T00:00:00.000-04:00",rounded.toString());
     }
 
-    public void test_DateTime_roundFloor_hourOfDay_NewYork_Autumn_preCutover_1_oe() {
+public void test_DateTime_roundFloor_hourOfDay_NewYork_Autumn_preCutover_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-11-04T01:30:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_hourOfDay_NewYork_Autumn_preCutover_2_oe() {
+public void test_DateTime_roundFloor_hourOfDay_NewYork_Autumn_preCutover_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.hourOfDay().roundFloorCopy();
         assertEquals("2007-11-04T01:00:00.000-04:00",rounded.toString());
     }
 
-    public void test_DateTime_roundFloor_hourOfDay_NewYork_Autumn_postCutover_1_oe() {
+public void test_DateTime_roundFloor_hourOfDay_NewYork_Autumn_postCutover_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 0, 0, ZONE_NEW_YORK).plusHours(1);
         assertEquals("2007-11-04T01:30:00.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_hourOfDay_NewYork_Autumn_postCutover_2_oe() {
+public void test_DateTime_roundFloor_hourOfDay_NewYork_Autumn_postCutover_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 0, 0, ZONE_NEW_YORK).plusHours(1);
         // removed other assertion
         DateTime rounded = dt.hourOfDay().roundFloorCopy();
         assertEquals("2007-11-04T01:00:00.000-05:00",rounded.toString());
     }
 
-    public void test_DateTime_roundFloor_minuteOfHour_NewYork_Autumn_preCutover_1_oe() {
+public void test_DateTime_roundFloor_minuteOfHour_NewYork_Autumn_preCutover_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 40, 0, ZONE_NEW_YORK);
         assertEquals("2007-11-04T01:30:40.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_minuteOfHour_NewYork_Autumn_preCutover_2_oe() {
+public void test_DateTime_roundFloor_minuteOfHour_NewYork_Autumn_preCutover_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 40, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.minuteOfHour().roundFloorCopy();
         assertEquals("2007-11-04T01:30:00.000-04:00",rounded.toString());
     }
 
-    public void test_DateTime_roundFloor_minuteOfHour_NewYork_Autumn_postCutover_1_oe() {
+public void test_DateTime_roundFloor_minuteOfHour_NewYork_Autumn_postCutover_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 40, 0, ZONE_NEW_YORK).plusHours(1);
         assertEquals("2007-11-04T01:30:40.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_minuteOfHour_NewYork_Autumn_postCutover_2_oe() {
+public void test_DateTime_roundFloor_minuteOfHour_NewYork_Autumn_postCutover_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 40, 0, ZONE_NEW_YORK).plusHours(1);
         // removed other assertion
         DateTime rounded = dt.minuteOfHour().roundFloorCopy();
         assertEquals("2007-11-04T01:30:00.000-05:00",rounded.toString());
     }
 
-    public void test_DateTime_roundFloor_secondOfMinute_NewYork_Autumn_preCutover_1_oe() {
+public void test_DateTime_roundFloor_secondOfMinute_NewYork_Autumn_preCutover_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 40, 500, ZONE_NEW_YORK);
         assertEquals("2007-11-04T01:30:40.500-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_secondOfMinute_NewYork_Autumn_preCutover_2_oe() {
+public void test_DateTime_roundFloor_secondOfMinute_NewYork_Autumn_preCutover_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 40, 500, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.secondOfMinute().roundFloorCopy();
         assertEquals("2007-11-04T01:30:40.000-04:00",rounded.toString());
     }
 
-    public void test_DateTime_roundFloor_secondOfMinute_NewYork_Autumn_postCutover_1_oe() {
+public void test_DateTime_roundFloor_secondOfMinute_NewYork_Autumn_postCutover_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 40, 500, ZONE_NEW_YORK).plusHours(1);
         assertEquals("2007-11-04T01:30:40.500-05:00",dt.toString());
     }
 
-    public void test_DateTime_roundFloor_secondOfMinute_NewYork_Autumn_postCutover_2_oe() {
+public void test_DateTime_roundFloor_secondOfMinute_NewYork_Autumn_postCutover_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 40, 500, ZONE_NEW_YORK).plusHours(1);
         // removed other assertion
         DateTime rounded = dt.secondOfMinute().roundFloorCopy();
         assertEquals("2007-11-04T01:30:40.000-05:00",rounded.toString());
     }
 
-    public void test_DateTime_roundCeiling_day_NewYork_Autumn_preCutover_1_oe() {
+public void test_DateTime_roundCeiling_day_NewYork_Autumn_preCutover_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-11-04T01:30:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundCeiling_day_NewYork_Autumn_preCutover_2_oe() {
+public void test_DateTime_roundCeiling_day_NewYork_Autumn_preCutover_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.dayOfMonth().roundCeilingCopy();
         assertEquals("2007-11-05T00:00:00.000-05:00",rounded.toString());
     }
 
-    public void test_DateTime_roundCeiling_day_NewYork_Autumn_postCutover_1_oe() {
+public void test_DateTime_roundCeiling_day_NewYork_Autumn_postCutover_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 0, 0, ZONE_NEW_YORK).plusHours(1);
         assertEquals("2007-11-04T01:30:00.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_roundCeiling_day_NewYork_Autumn_postCutover_2_oe() {
+public void test_DateTime_roundCeiling_day_NewYork_Autumn_postCutover_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 0, 0, ZONE_NEW_YORK).plusHours(1);
         // removed other assertion
         DateTime rounded = dt.dayOfMonth().roundCeilingCopy();
         assertEquals("2007-11-05T00:00:00.000-05:00",rounded.toString());
     }
 
-    public void test_DateTime_roundCeiling_hourOfDay_NewYork_Autumn_preCutover_1_oe() {
+public void test_DateTime_roundCeiling_hourOfDay_NewYork_Autumn_preCutover_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 0, 0, ZONE_NEW_YORK);
         assertEquals("2007-11-04T01:30:00.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundCeiling_hourOfDay_NewYork_Autumn_preCutover_2_oe() {
+public void test_DateTime_roundCeiling_hourOfDay_NewYork_Autumn_preCutover_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 0, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.hourOfDay().roundCeilingCopy();
         assertEquals("2007-11-04T01:00:00.000-05:00",rounded.toString());
     }
 
-    public void test_DateTime_roundCeiling_hourOfDay_NewYork_Autumn_postCutover_1_oe() {
+public void test_DateTime_roundCeiling_hourOfDay_NewYork_Autumn_postCutover_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 0, 0, ZONE_NEW_YORK).plusHours(1);
         assertEquals("2007-11-04T01:30:00.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_roundCeiling_hourOfDay_NewYork_Autumn_postCutover_2_oe() {
+public void test_DateTime_roundCeiling_hourOfDay_NewYork_Autumn_postCutover_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 0, 0, ZONE_NEW_YORK).plusHours(1);
         // removed other assertion
         DateTime rounded = dt.hourOfDay().roundCeilingCopy();
         assertEquals("2007-11-04T02:00:00.000-05:00",rounded.toString());
     }
 
-    public void test_DateTime_roundCeiling_minuteOfHour_NewYork_Autumn_preCutover_1_oe() {
+public void test_DateTime_roundCeiling_minuteOfHour_NewYork_Autumn_preCutover_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 40, 0, ZONE_NEW_YORK);
         assertEquals("2007-11-04T01:30:40.000-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundCeiling_minuteOfHour_NewYork_Autumn_preCutover_2_oe() {
+public void test_DateTime_roundCeiling_minuteOfHour_NewYork_Autumn_preCutover_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 40, 0, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.minuteOfHour().roundCeilingCopy();
         assertEquals("2007-11-04T01:31:00.000-04:00",rounded.toString());
     }
 
-    public void test_DateTime_roundCeiling_minuteOfHour_NewYork_Autumn_postCutover_1_oe() {
+public void test_DateTime_roundCeiling_minuteOfHour_NewYork_Autumn_postCutover_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 40, 0, ZONE_NEW_YORK).plusHours(1);
         assertEquals("2007-11-04T01:30:40.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_roundCeiling_minuteOfHour_NewYork_Autumn_postCutover_2_oe() {
+public void test_DateTime_roundCeiling_minuteOfHour_NewYork_Autumn_postCutover_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 40, 0, ZONE_NEW_YORK).plusHours(1);
         // removed other assertion
         DateTime rounded = dt.minuteOfHour().roundCeilingCopy();
         assertEquals("2007-11-04T01:31:00.000-05:00",rounded.toString());
     }
 
-    public void test_DateTime_roundCeiling_secondOfMinute_NewYork_Autumn_preCutover_1_oe() {
+public void test_DateTime_roundCeiling_secondOfMinute_NewYork_Autumn_preCutover_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 40, 500, ZONE_NEW_YORK);
         assertEquals("2007-11-04T01:30:40.500-04:00",dt.toString());
     }
 
-    public void test_DateTime_roundCeiling_secondOfMinute_NewYork_Autumn_preCutover_2_oe() {
+public void test_DateTime_roundCeiling_secondOfMinute_NewYork_Autumn_preCutover_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 40, 500, ZONE_NEW_YORK);
         // removed other assertion
         DateTime rounded = dt.secondOfMinute().roundCeilingCopy();
         assertEquals("2007-11-04T01:30:41.000-04:00",rounded.toString());
     }
 
-    public void test_DateTime_roundCeiling_secondOfMinute_NewYork_Autumn_postCutover_1_oe() {
+public void test_DateTime_roundCeiling_secondOfMinute_NewYork_Autumn_postCutover_1_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 40, 500, ZONE_NEW_YORK).plusHours(1);
         assertEquals("2007-11-04T01:30:40.500-05:00",dt.toString());
     }
 
-    public void test_DateTime_roundCeiling_secondOfMinute_NewYork_Autumn_postCutover_2_oe() {
+public void test_DateTime_roundCeiling_secondOfMinute_NewYork_Autumn_postCutover_2_oe() {
         DateTime dt = new DateTime(2007, 11, 4, 1, 30, 40, 500, ZONE_NEW_YORK).plusHours(1);
         // removed other assertion
         DateTime rounded = dt.secondOfMinute().roundCeilingCopy();
         assertEquals("2007-11-04T01:30:41.000-05:00",rounded.toString());
     }
 
-    public void test_MoscowIsCorrect_Spring_1_oe() {
+public void test_MoscowIsCorrect_Spring_1_oe() {
 //      DateTime x = new DateTime(2007, 7, 1, 0, 0, 0, 0, ZONE_MOSCOW);
 //      System.out.println(ZONE_MOSCOW.nextTransition(x.getMillis()));
 //      DateTime y = new DateTime(ZONE_MOSCOW.nextTransition(x.getMillis()), ZONE_MOSCOW);
@@ -1491,7 +1491,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-03-25T01:59:59.999+03:00",pre.toString());
     }
 
-    public void test_MoscowIsCorrect_Spring_2_oe() {
+public void test_MoscowIsCorrect_Spring_2_oe() {
 //      DateTime x = new DateTime(2007, 7, 1, 0, 0, 0, 0, ZONE_MOSCOW);
 //      System.out.println(ZONE_MOSCOW.nextTransition(x.getMillis()));
 //      DateTime y = new DateTime(ZONE_MOSCOW.nextTransition(x.getMillis()), ZONE_MOSCOW);
@@ -1502,7 +1502,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-03-25T03:00:00.000+04:00",at.toString());
     }
 
-    public void test_MoscowIsCorrect_Spring_3_oe() {
+public void test_MoscowIsCorrect_Spring_3_oe() {
 //      DateTime x = new DateTime(2007, 7, 1, 0, 0, 0, 0, ZONE_MOSCOW);
 //      System.out.println(ZONE_MOSCOW.nextTransition(x.getMillis()));
 //      DateTime y = new DateTime(ZONE_MOSCOW.nextTransition(x.getMillis()), ZONE_MOSCOW);
@@ -1515,41 +1515,41 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-03-25T03:00:00.001+04:00",post.toString());
     }
 
-    public void test_DateTime_setHourAcross_Moscow_Spring_1_oe() {
+public void test_DateTime_setHourAcross_Moscow_Spring_1_oe() {
         DateTime dt = new DateTime(2007, 3, 25, 0, 0, 0, 0, ZONE_MOSCOW);
         assertEquals("2007-03-25T00:00:00.000+03:00",dt.toString());
     }
 
-    public void test_DateTime_setHourAcross_Moscow_Spring_2_oe() {
+public void test_DateTime_setHourAcross_Moscow_Spring_2_oe() {
         DateTime dt = new DateTime(2007, 3, 25, 0, 0, 0, 0, ZONE_MOSCOW);
         // removed other assertion
         DateTime res = dt.hourOfDay().setCopy(4);
         assertEquals("2007-03-25T04:00:00.000+04:00",res.toString());
     }
 
-    public void test_DateTime_setHourForward_Moscow_Spring_1_oe() {
+public void test_DateTime_setHourForward_Moscow_Spring_1_oe() {
         DateTime dt = new DateTime(2007, 3, 25, 0, 0, 0, 0, ZONE_MOSCOW);
         assertEquals("2007-03-25T00:00:00.000+03:00",dt.toString());
     }
 
-    public void test_DateTime_setHourBack_Moscow_Spring_1_oe() {
+public void test_DateTime_setHourBack_Moscow_Spring_1_oe() {
         DateTime dt = new DateTime(2007, 3, 25, 8, 0, 0, 0, ZONE_MOSCOW);
         assertEquals("2007-03-25T08:00:00.000+04:00",dt.toString());
     }
 
-    public void test_MoscowIsCorrect_Autumn_1_oe() {
+public void test_MoscowIsCorrect_Autumn_1_oe() {
         DateTime pre = new DateTime(CUTOVER_MOSCOW_AUTUMN - 1L, ZONE_MOSCOW);
         assertEquals("2007-10-28T02:59:59.999+04:00",pre.toString());
     }
 
-    public void test_MoscowIsCorrect_Autumn_2_oe() {
+public void test_MoscowIsCorrect_Autumn_2_oe() {
         DateTime pre = new DateTime(CUTOVER_MOSCOW_AUTUMN - 1L, ZONE_MOSCOW);
         // removed other assertion
         DateTime at = new DateTime(CUTOVER_MOSCOW_AUTUMN, ZONE_MOSCOW);
         assertEquals("2007-10-28T02:00:00.000+03:00",at.toString());
     }
 
-    public void test_MoscowIsCorrect_Autumn_3_oe() {
+public void test_MoscowIsCorrect_Autumn_3_oe() {
         DateTime pre = new DateTime(CUTOVER_MOSCOW_AUTUMN - 1L, ZONE_MOSCOW);
         // removed other assertion
         DateTime at = new DateTime(CUTOVER_MOSCOW_AUTUMN, ZONE_MOSCOW);
@@ -1558,17 +1558,17 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-10-28T02:00:00.001+03:00",post.toString());
     }
 
-    public void test_DateTime_constructor_Moscow_Autumn_1_oe() {
+public void test_DateTime_constructor_Moscow_Autumn_1_oe() {
         DateTime dt = new DateTime(2007, 10, 28, 2, 30, ZONE_MOSCOW);
         assertEquals("2007-10-28T02:30:00.000+04:00",dt.toString());
     }
 
-    public void test_DateTime_plusHour_Moscow_Autumn_1_oe() {
+public void test_DateTime_plusHour_Moscow_Autumn_1_oe() {
         DateTime dt = new DateTime(2007, 10, 27, 19, 0, 0, 0, ZONE_MOSCOW);
         assertEquals("2007-10-27T19:00:00.000+04:00",dt.toString());
     }
 
-    public void test_DateTime_plusHour_Moscow_Autumn_2_oe() {
+public void test_DateTime_plusHour_Moscow_Autumn_2_oe() {
         DateTime dt = new DateTime(2007, 10, 27, 19, 0, 0, 0, ZONE_MOSCOW);
         // removed other assertion
         
@@ -1576,7 +1576,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-10-28T01:00:00.000+04:00",plus6.toString());
     }
 
-    public void test_DateTime_plusHour_Moscow_Autumn_3_oe() {
+public void test_DateTime_plusHour_Moscow_Autumn_3_oe() {
         DateTime dt = new DateTime(2007, 10, 27, 19, 0, 0, 0, ZONE_MOSCOW);
         // removed other assertion
         
@@ -1586,7 +1586,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-10-28T02:00:00.000+04:00",plus7.toString());
     }
 
-    public void test_DateTime_plusHour_Moscow_Autumn_4_oe() {
+public void test_DateTime_plusHour_Moscow_Autumn_4_oe() {
         DateTime dt = new DateTime(2007, 10, 27, 19, 0, 0, 0, ZONE_MOSCOW);
         // removed other assertion
         
@@ -1598,7 +1598,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-10-28T02:00:00.000+03:00",plus8.toString());
     }
 
-    public void test_DateTime_plusHour_Moscow_Autumn_5_oe() {
+public void test_DateTime_plusHour_Moscow_Autumn_5_oe() {
         DateTime dt = new DateTime(2007, 10, 27, 19, 0, 0, 0, ZONE_MOSCOW);
         // removed other assertion
         
@@ -1612,12 +1612,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-10-28T03:00:00.000+03:00",plus9.toString());
     }
 
-    public void test_DateTime_minusHour_Moscow_Autumn_1_oe() {
+public void test_DateTime_minusHour_Moscow_Autumn_1_oe() {
         DateTime dt = new DateTime(2007, 10, 28, 9, 0, 0, 0, ZONE_MOSCOW);
         assertEquals("2007-10-28T09:00:00.000+03:00",dt.toString());
     }
 
-    public void test_DateTime_minusHour_Moscow_Autumn_2_oe() {
+public void test_DateTime_minusHour_Moscow_Autumn_2_oe() {
         DateTime dt = new DateTime(2007, 10, 28, 9, 0, 0, 0, ZONE_MOSCOW);
         // removed other assertion
         
@@ -1625,7 +1625,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-10-28T03:00:00.000+03:00",minus6.toString());
     }
 
-    public void test_DateTime_minusHour_Moscow_Autumn_3_oe() {
+public void test_DateTime_minusHour_Moscow_Autumn_3_oe() {
         DateTime dt = new DateTime(2007, 10, 28, 9, 0, 0, 0, ZONE_MOSCOW);
         // removed other assertion
         
@@ -1635,7 +1635,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-10-28T02:00:00.000+03:00",minus7.toString());
     }
 
-    public void test_DateTime_minusHour_Moscow_Autumn_4_oe() {
+public void test_DateTime_minusHour_Moscow_Autumn_4_oe() {
         DateTime dt = new DateTime(2007, 10, 28, 9, 0, 0, 0, ZONE_MOSCOW);
         // removed other assertion
         
@@ -1647,7 +1647,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-10-28T02:00:00.000+04:00",minus8.toString());
     }
 
-    public void test_DateTime_minusHour_Moscow_Autumn_5_oe() {
+public void test_DateTime_minusHour_Moscow_Autumn_5_oe() {
         DateTime dt = new DateTime(2007, 10, 28, 9, 0, 0, 0, ZONE_MOSCOW);
         // removed other assertion
         
@@ -1661,19 +1661,19 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2007-10-28T01:00:00.000+04:00",minus9.toString());
     }
 
-    public void test_GuatemataIsCorrect_Autumn_1_oe() {
+public void test_GuatemataIsCorrect_Autumn_1_oe() {
         DateTime pre = new DateTime(CUTOVER_GUATEMALA_AUTUMN - 1L, ZONE_GUATEMALA);
         assertEquals("2006-09-30T23:59:59.999-05:00",pre.toString());
     }
 
-    public void test_GuatemataIsCorrect_Autumn_2_oe() {
+public void test_GuatemataIsCorrect_Autumn_2_oe() {
         DateTime pre = new DateTime(CUTOVER_GUATEMALA_AUTUMN - 1L, ZONE_GUATEMALA);
         // removed other assertion
         DateTime at = new DateTime(CUTOVER_GUATEMALA_AUTUMN, ZONE_GUATEMALA);
         assertEquals("2006-09-30T23:00:00.000-06:00",at.toString());
     }
 
-    public void test_GuatemataIsCorrect_Autumn_3_oe() {
+public void test_GuatemataIsCorrect_Autumn_3_oe() {
         DateTime pre = new DateTime(CUTOVER_GUATEMALA_AUTUMN - 1L, ZONE_GUATEMALA);
         // removed other assertion
         DateTime at = new DateTime(CUTOVER_GUATEMALA_AUTUMN, ZONE_GUATEMALA);
@@ -1682,12 +1682,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2006-09-30T23:00:00.001-06:00",post.toString());
     }
 
-    public void test_DateTime_plusHour_Guatemata_Autumn_1_oe() {
+public void test_DateTime_plusHour_Guatemata_Autumn_1_oe() {
         DateTime dt = new DateTime(2006, 9, 30, 20, 0, 0, 0, ZONE_GUATEMALA);
         assertEquals("2006-09-30T20:00:00.000-05:00",dt.toString());
     }
 
-    public void test_DateTime_plusHour_Guatemata_Autumn_2_oe() {
+public void test_DateTime_plusHour_Guatemata_Autumn_2_oe() {
         DateTime dt = new DateTime(2006, 9, 30, 20, 0, 0, 0, ZONE_GUATEMALA);
         // removed other assertion
         
@@ -1695,7 +1695,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2006-09-30T21:00:00.000-05:00",plus1.toString());
     }
 
-    public void test_DateTime_plusHour_Guatemata_Autumn_3_oe() {
+public void test_DateTime_plusHour_Guatemata_Autumn_3_oe() {
         DateTime dt = new DateTime(2006, 9, 30, 20, 0, 0, 0, ZONE_GUATEMALA);
         // removed other assertion
         
@@ -1705,7 +1705,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2006-09-30T22:00:00.000-05:00",plus2.toString());
     }
 
-    public void test_DateTime_plusHour_Guatemata_Autumn_4_oe() {
+public void test_DateTime_plusHour_Guatemata_Autumn_4_oe() {
         DateTime dt = new DateTime(2006, 9, 30, 20, 0, 0, 0, ZONE_GUATEMALA);
         // removed other assertion
         
@@ -1717,7 +1717,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2006-09-30T23:00:00.000-05:00",plus3.toString());
     }
 
-    public void test_DateTime_plusHour_Guatemata_Autumn_5_oe() {
+public void test_DateTime_plusHour_Guatemata_Autumn_5_oe() {
         DateTime dt = new DateTime(2006, 9, 30, 20, 0, 0, 0, ZONE_GUATEMALA);
         // removed other assertion
         
@@ -1731,7 +1731,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2006-09-30T23:00:00.000-06:00",plus4.toString());
     }
 
-    public void test_DateTime_plusHour_Guatemata_Autumn_6_oe() {
+public void test_DateTime_plusHour_Guatemata_Autumn_6_oe() {
         DateTime dt = new DateTime(2006, 9, 30, 20, 0, 0, 0, ZONE_GUATEMALA);
         // removed other assertion
         
@@ -1747,7 +1747,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2006-10-01T00:00:00.000-06:00",plus5.toString());
     }
 
-    public void test_DateTime_plusHour_Guatemata_Autumn_7_oe() {
+public void test_DateTime_plusHour_Guatemata_Autumn_7_oe() {
         DateTime dt = new DateTime(2006, 9, 30, 20, 0, 0, 0, ZONE_GUATEMALA);
         // removed other assertion
         
@@ -1765,7 +1765,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2006-10-01T01:00:00.000-06:00",plus6.toString());
     }
 
-    public void test_DateTime_plusHour_Guatemata_Autumn_8_oe() {
+public void test_DateTime_plusHour_Guatemata_Autumn_8_oe() {
         DateTime dt = new DateTime(2006, 9, 30, 20, 0, 0, 0, ZONE_GUATEMALA);
         // removed other assertion
         
@@ -1785,12 +1785,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2006-10-01T02:00:00.000-06:00",plus7.toString());
     }
 
-    public void test_DateTime_minusHour_Guatemata_Autumn_1_oe() {
+public void test_DateTime_minusHour_Guatemata_Autumn_1_oe() {
         DateTime dt = new DateTime(2006, 10, 1, 2, 0, 0, 0, ZONE_GUATEMALA);
         assertEquals("2006-10-01T02:00:00.000-06:00",dt.toString());
     }
 
-    public void test_DateTime_minusHour_Guatemata_Autumn_2_oe() {
+public void test_DateTime_minusHour_Guatemata_Autumn_2_oe() {
         DateTime dt = new DateTime(2006, 10, 1, 2, 0, 0, 0, ZONE_GUATEMALA);
         // removed other assertion
         
@@ -1798,7 +1798,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2006-10-01T01:00:00.000-06:00",minus1.toString());
     }
 
-    public void test_DateTime_minusHour_Guatemata_Autumn_3_oe() {
+public void test_DateTime_minusHour_Guatemata_Autumn_3_oe() {
         DateTime dt = new DateTime(2006, 10, 1, 2, 0, 0, 0, ZONE_GUATEMALA);
         // removed other assertion
         
@@ -1808,7 +1808,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2006-10-01T00:00:00.000-06:00",minus2.toString());
     }
 
-    public void test_DateTime_minusHour_Guatemata_Autumn_4_oe() {
+public void test_DateTime_minusHour_Guatemata_Autumn_4_oe() {
         DateTime dt = new DateTime(2006, 10, 1, 2, 0, 0, 0, ZONE_GUATEMALA);
         // removed other assertion
         
@@ -1820,7 +1820,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2006-09-30T23:00:00.000-06:00",minus3.toString());
     }
 
-    public void test_DateTime_minusHour_Guatemata_Autumn_5_oe() {
+public void test_DateTime_minusHour_Guatemata_Autumn_5_oe() {
         DateTime dt = new DateTime(2006, 10, 1, 2, 0, 0, 0, ZONE_GUATEMALA);
         // removed other assertion
         
@@ -1834,7 +1834,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2006-09-30T23:00:00.000-05:00",minus4.toString());
     }
 
-    public void test_DateTime_minusHour_Guatemata_Autumn_6_oe() {
+public void test_DateTime_minusHour_Guatemata_Autumn_6_oe() {
         DateTime dt = new DateTime(2006, 10, 1, 2, 0, 0, 0, ZONE_GUATEMALA);
         // removed other assertion
         
@@ -1850,7 +1850,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2006-09-30T22:00:00.000-05:00",minus5.toString());
     }
 
-    public void test_DateTime_minusHour_Guatemata_Autumn_7_oe() {
+public void test_DateTime_minusHour_Guatemata_Autumn_7_oe() {
         DateTime dt = new DateTime(2006, 10, 1, 2, 0, 0, 0, ZONE_GUATEMALA);
         // removed other assertion
         
@@ -1868,7 +1868,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2006-09-30T21:00:00.000-05:00",minus6.toString());
     }
 
-    public void test_DateTime_minusHour_Guatemata_Autumn_8_oe() {
+public void test_DateTime_minusHour_Guatemata_Autumn_8_oe() {
         DateTime dt = new DateTime(2006, 10, 1, 2, 0, 0, 0, ZONE_GUATEMALA);
         // removed other assertion
         
@@ -1888,19 +1888,19 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2006-09-30T20:00:00.000-05:00",minus7.toString());
     }
 
-    public void test_RioBrancoIsCorrect_Spring_1_oe() {
+public void test_RioBrancoIsCorrect_Spring_1_oe() {
         DateTime pre = new DateTime(CUTOVER_RIO_BRANCO_AUTUMN - 1L, ZONE_RIO_BRANCO);
         assertEquals("2008-06-23T23:59:59.999-05:00",pre.toString());
     }
 
-    public void test_RioBrancoIsCorrect_Spring_2_oe() {
+public void test_RioBrancoIsCorrect_Spring_2_oe() {
         DateTime pre = new DateTime(CUTOVER_RIO_BRANCO_AUTUMN - 1L, ZONE_RIO_BRANCO);
         // removed other assertion
         DateTime at = new DateTime(CUTOVER_RIO_BRANCO_AUTUMN, ZONE_RIO_BRANCO);
         assertEquals("2008-06-24T01:00:00.000-04:00",at.toString());
     }
 
-    public void test_RioBrancoIsCorrect_Spring_3_oe() {
+public void test_RioBrancoIsCorrect_Spring_3_oe() {
         DateTime pre = new DateTime(CUTOVER_RIO_BRANCO_AUTUMN - 1L, ZONE_RIO_BRANCO);
         // removed other assertion
         DateTime at = new DateTime(CUTOVER_RIO_BRANCO_AUTUMN, ZONE_RIO_BRANCO);
@@ -1909,7 +1909,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2008-06-24T01:00:00.001-04:00",post.toString());
     }
 
-    public void test_DateTime_JustAfterLastEverOverlap_1_oe() {
+public void test_DateTime_JustAfterLastEverOverlap_1_oe() {
         // based on America/Argentina/Catamarca in file 2009s
         DateTimeZone zone = new DateTimeZoneBuilder()
             .setStandardOffset(-3 * DateTimeConstants.MILLIS_PER_HOUR)
@@ -1923,7 +1923,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2008-08-10",date.toString());
     }
 
-    public void test_DateTime_JustAfterLastEverOverlap_2_oe() {
+public void test_DateTime_JustAfterLastEverOverlap_2_oe() {
         // based on America/Argentina/Catamarca in file 2009s
         DateTimeZone zone = new DateTimeZoneBuilder()
             .setStandardOffset(-3 * DateTimeConstants.MILLIS_PER_HOUR)
@@ -1940,12 +1940,12 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2008-08-10T00:00:00.000-03:00",dt.toString());
     }
 
-    public void testWithMinuteOfHourInDstChange_mockZone_1_oe() {
+public void testWithMinuteOfHourInDstChange_mockZone_1_oe() {
         DateTime cutover = new DateTime(2010, 10, 31, 1, 15, DateTimeZone.forOffsetHoursMinutes(0, 30));
         assertEquals("2010-10-31T01:15:00.000+00:30",cutover.toString());
     }
 
-    public void testWithMinuteOfHourInDstChange_mockZone_2_oe() {
+public void testWithMinuteOfHourInDstChange_mockZone_2_oe() {
         DateTime cutover = new DateTime(2010, 10, 31, 1, 15, DateTimeZone.forOffsetHoursMinutes(0, 30));
         // removed other assertion
         DateTimeZone halfHourZone = new MockZone(cutover.getMillis(), 3600000, -1800);
@@ -1953,7 +1953,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2010-10-31T01:00:00.000+01:00",pre.toString());
     }
 
-    public void testWithMinuteOfHourInDstChange_mockZone_3_oe() {
+public void testWithMinuteOfHourInDstChange_mockZone_3_oe() {
         DateTime cutover = new DateTime(2010, 10, 31, 1, 15, DateTimeZone.forOffsetHoursMinutes(0, 30));
         // removed other assertion
         DateTimeZone halfHourZone = new MockZone(cutover.getMillis(), 3600000, -1800);
@@ -1963,7 +1963,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2010-10-31T01:59:00.000+00:30",post.toString());
     }
 
-    public void testWithMinuteOfHourInDstChange_mockZone_4_oe() {
+public void testWithMinuteOfHourInDstChange_mockZone_4_oe() {
         DateTime cutover = new DateTime(2010, 10, 31, 1, 15, DateTimeZone.forOffsetHoursMinutes(0, 30));
         // removed other assertion
         DateTimeZone halfHourZone = new MockZone(cutover.getMillis(), 3600000, -1800);
@@ -1976,7 +1976,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2010-10-31T01:30:00.000+01:00",testPre1.toString());// retain offset;
     }
 
-    public void testWithMinuteOfHourInDstChange_mockZone_5_oe() {
+public void testWithMinuteOfHourInDstChange_mockZone_5_oe() {
         DateTime cutover = new DateTime(2010, 10, 31, 1, 15, DateTimeZone.forOffsetHoursMinutes(0, 30));
         // removed other assertion
         DateTimeZone halfHourZone = new MockZone(cutover.getMillis(), 3600000, -1800);
@@ -1991,7 +1991,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2010-10-31T01:50:00.000+00:30",testPre2.toString());
     }
 
-    public void testWithMinuteOfHourInDstChange_mockZone_6_oe() {
+public void testWithMinuteOfHourInDstChange_mockZone_6_oe() {
         DateTime cutover = new DateTime(2010, 10, 31, 1, 15, DateTimeZone.forOffsetHoursMinutes(0, 30));
         // removed other assertion
         DateTimeZone halfHourZone = new MockZone(cutover.getMillis(), 3600000, -1800);
@@ -2009,7 +2009,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2010-10-31T01:30:00.000+00:30",testPost1.toString());// retain offset;
     }
 
-    public void testWithMinuteOfHourInDstChange_mockZone_7_oe() {
+public void testWithMinuteOfHourInDstChange_mockZone_7_oe() {
         DateTime cutover = new DateTime(2010, 10, 31, 1, 15, DateTimeZone.forOffsetHoursMinutes(0, 30));
         // removed other assertion
         DateTimeZone halfHourZone = new MockZone(cutover.getMillis(), 3600000, -1800);
@@ -2029,127 +2029,127 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals("2010-10-31T01:10:00.000+01:00",testPost2.toString());
     }
 
-    public void testWithHourOfDayInDstChange_1_oe() {
+public void testWithHourOfDayInDstChange_1_oe() {
         DateTime dateTime = new DateTime("2010-10-31T02:30:10.123+02:00", ZONE_PARIS);
         assertEquals("2010-10-31T02:30:10.123+02:00",dateTime.toString());
     }
 
-    public void testWithHourOfDayInDstChange_2_oe() {
+public void testWithHourOfDayInDstChange_2_oe() {
         DateTime dateTime = new DateTime("2010-10-31T02:30:10.123+02:00", ZONE_PARIS);
         // removed other assertion
         DateTime test = dateTime.withHourOfDay(2);
         assertEquals("2010-10-31T02:30:10.123+02:00",test.toString());
     }
 
-    public void testWithMinuteOfHourInDstChange_1_oe() {
+public void testWithMinuteOfHourInDstChange_1_oe() {
         DateTime dateTime = new DateTime("2010-10-31T02:30:10.123+02:00", ZONE_PARIS);
         assertEquals("2010-10-31T02:30:10.123+02:00",dateTime.toString());
     }
 
-    public void testWithMinuteOfHourInDstChange_2_oe() {
+public void testWithMinuteOfHourInDstChange_2_oe() {
         DateTime dateTime = new DateTime("2010-10-31T02:30:10.123+02:00", ZONE_PARIS);
         // removed other assertion
         DateTime test = dateTime.withMinuteOfHour(0);
         assertEquals("2010-10-31T02:00:10.123+02:00",test.toString());
     }
 
-    public void testWithSecondOfMinuteInDstChange_1_oe() {
+public void testWithSecondOfMinuteInDstChange_1_oe() {
         DateTime dateTime = new DateTime("2010-10-31T02:30:10.123+02:00", ZONE_PARIS);
         assertEquals("2010-10-31T02:30:10.123+02:00",dateTime.toString());
     }
 
-    public void testWithSecondOfMinuteInDstChange_2_oe() {
+public void testWithSecondOfMinuteInDstChange_2_oe() {
         DateTime dateTime = new DateTime("2010-10-31T02:30:10.123+02:00", ZONE_PARIS);
         // removed other assertion
         DateTime test = dateTime.withSecondOfMinute(0);
         assertEquals("2010-10-31T02:30:00.123+02:00",test.toString());
     }
 
-    public void testWithMillisOfSecondInDstChange_Paris_summer_1_oe() {
+public void testWithMillisOfSecondInDstChange_Paris_summer_1_oe() {
         DateTime dateTime = new DateTime("2010-10-31T02:30:10.123+02:00", ZONE_PARIS);
         assertEquals("2010-10-31T02:30:10.123+02:00",dateTime.toString());
     }
 
-    public void testWithMillisOfSecondInDstChange_Paris_summer_2_oe() {
+public void testWithMillisOfSecondInDstChange_Paris_summer_2_oe() {
         DateTime dateTime = new DateTime("2010-10-31T02:30:10.123+02:00", ZONE_PARIS);
         // removed other assertion
         DateTime test = dateTime.withMillisOfSecond(0);
         assertEquals("2010-10-31T02:30:10.000+02:00",test.toString());
     }
 
-    public void testWithMillisOfSecondInDstChange_Paris_winter_1_oe() {
+public void testWithMillisOfSecondInDstChange_Paris_winter_1_oe() {
         DateTime dateTime = new DateTime("2010-10-31T02:30:10.123+01:00", ZONE_PARIS);
         assertEquals("2010-10-31T02:30:10.123+01:00",dateTime.toString());
     }
 
-    public void testWithMillisOfSecondInDstChange_Paris_winter_2_oe() {
+public void testWithMillisOfSecondInDstChange_Paris_winter_2_oe() {
         DateTime dateTime = new DateTime("2010-10-31T02:30:10.123+01:00", ZONE_PARIS);
         // removed other assertion
         DateTime test = dateTime.withMillisOfSecond(0);
         assertEquals("2010-10-31T02:30:10.000+01:00",test.toString());
     }
 
-    public void testWithMillisOfSecondInDstChange_NewYork_summer_1_oe() {
+public void testWithMillisOfSecondInDstChange_NewYork_summer_1_oe() {
         DateTime dateTime = new DateTime("2007-11-04T01:30:00.123-04:00", ZONE_NEW_YORK);
         assertEquals("2007-11-04T01:30:00.123-04:00",dateTime.toString());
     }
 
-    public void testWithMillisOfSecondInDstChange_NewYork_summer_2_oe() {
+public void testWithMillisOfSecondInDstChange_NewYork_summer_2_oe() {
         DateTime dateTime = new DateTime("2007-11-04T01:30:00.123-04:00", ZONE_NEW_YORK);
         // removed other assertion
         DateTime test = dateTime.withMillisOfSecond(0);
         assertEquals("2007-11-04T01:30:00.000-04:00",test.toString());
     }
 
-    public void testWithMillisOfSecondInDstChange_NewYork_winter_1_oe() {
+public void testWithMillisOfSecondInDstChange_NewYork_winter_1_oe() {
         DateTime dateTime = new DateTime("2007-11-04T01:30:00.123-05:00", ZONE_NEW_YORK);
         assertEquals("2007-11-04T01:30:00.123-05:00",dateTime.toString());
     }
 
-    public void testWithMillisOfSecondInDstChange_NewYork_winter_2_oe() {
+public void testWithMillisOfSecondInDstChange_NewYork_winter_2_oe() {
         DateTime dateTime = new DateTime("2007-11-04T01:30:00.123-05:00", ZONE_NEW_YORK);
         // removed other assertion
         DateTime test = dateTime.withMillisOfSecond(0);
         assertEquals("2007-11-04T01:30:00.000-05:00",test.toString());
     }
 
-    public void testPlusMinutesInDstChange_1_oe() {
+public void testPlusMinutesInDstChange_1_oe() {
         DateTime dateTime = new DateTime("2010-10-31T02:30:10.123+02:00", ZONE_PARIS);
         assertEquals("2010-10-31T02:30:10.123+02:00",dateTime.toString());
     }
 
-    public void testPlusMinutesInDstChange_2_oe() {
+public void testPlusMinutesInDstChange_2_oe() {
         DateTime dateTime = new DateTime("2010-10-31T02:30:10.123+02:00", ZONE_PARIS);
         // removed other assertion
         DateTime test = dateTime.plusMinutes(1);
         assertEquals("2010-10-31T02:31:10.123+02:00",test.toString());
     }
 
-    public void testPlusSecondsInDstChange_1_oe() {
+public void testPlusSecondsInDstChange_1_oe() {
         DateTime dateTime = new DateTime("2010-10-31T02:30:10.123+02:00", ZONE_PARIS);
         assertEquals("2010-10-31T02:30:10.123+02:00",dateTime.toString());
     }
 
-    public void testPlusSecondsInDstChange_2_oe() {
+public void testPlusSecondsInDstChange_2_oe() {
         DateTime dateTime = new DateTime("2010-10-31T02:30:10.123+02:00", ZONE_PARIS);
         // removed other assertion
         DateTime test = dateTime.plusSeconds(1);
         assertEquals("2010-10-31T02:30:11.123+02:00",test.toString());
     }
 
-    public void testPlusMillisInDstChange_1_oe() {
+public void testPlusMillisInDstChange_1_oe() {
         DateTime dateTime = new DateTime("2010-10-31T02:30:10.123+02:00", ZONE_PARIS);
         assertEquals("2010-10-31T02:30:10.123+02:00",dateTime.toString());
     }
 
-    public void testPlusMillisInDstChange_2_oe() {
+public void testPlusMillisInDstChange_2_oe() {
         DateTime dateTime = new DateTime("2010-10-31T02:30:10.123+02:00", ZONE_PARIS);
         // removed other assertion
         DateTime test = dateTime.plusMillis(1);
         assertEquals("2010-10-31T02:30:10.124+02:00",test.toString());
     }
 
-    public void testBug2182444_usCentral_1_oe() {
+public void testBug2182444_usCentral_1_oe() {
         Chronology chronUSCentral = GregorianChronology.getInstance(DateTimeZone.forID("US/Central"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime usCentralStandardInUTC = new DateTime(2008, 11, 2, 7, 0, 0, 0, chronUTC);
@@ -2157,7 +2157,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertTrue("Should be standard time",chronUSCentral.getZone().isStandardOffset(usCentralStandardInUTC.getMillis()));
     }
 
-    public void testBug2182444_usCentral_2_oe() {
+public void testBug2182444_usCentral_2_oe() {
         Chronology chronUSCentral = GregorianChronology.getInstance(DateTimeZone.forID("US/Central"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime usCentralStandardInUTC = new DateTime(2008, 11, 2, 7, 0, 0, 0, chronUTC);
@@ -2166,7 +2166,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertFalse("Should be daylight time",chronUSCentral.getZone().isStandardOffset(usCentralDaylightInUTC.getMillis()));
     }
 
-    public void testBug2182444_usCentral_3_oe() {
+public void testBug2182444_usCentral_3_oe() {
         Chronology chronUSCentral = GregorianChronology.getInstance(DateTimeZone.forID("US/Central"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime usCentralStandardInUTC = new DateTime(2008, 11, 2, 7, 0, 0, 0, chronUTC);
@@ -2179,7 +2179,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(1,usCentralStandardInUSCentral.getHourOfDay());
     }
 
-    public void testBug2182444_usCentral_4_oe() {
+public void testBug2182444_usCentral_4_oe() {
         Chronology chronUSCentral = GregorianChronology.getInstance(DateTimeZone.forID("US/Central"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime usCentralStandardInUTC = new DateTime(2008, 11, 2, 7, 0, 0, 0, chronUTC);
@@ -2193,7 +2193,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(usCentralStandardInUSCentral.getHourOfDay(),usCentralDaylightInUSCentral.getHourOfDay());
     }
 
-    public void testBug2182444_usCentral_5_oe() {
+public void testBug2182444_usCentral_5_oe() {
         Chronology chronUSCentral = GregorianChronology.getInstance(DateTimeZone.forID("US/Central"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime usCentralStandardInUTC = new DateTime(2008, 11, 2, 7, 0, 0, 0, chronUTC);
@@ -2208,7 +2208,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertTrue(usCentralStandardInUSCentral.getMillis()!= usCentralDaylightInUSCentral.getMillis());
     }
 
-    public void testBug2182444_usCentral_6_oe() {
+public void testBug2182444_usCentral_6_oe() {
         Chronology chronUSCentral = GregorianChronology.getInstance(DateTimeZone.forID("US/Central"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime usCentralStandardInUTC = new DateTime(2008, 11, 2, 7, 0, 0, 0, chronUTC);
@@ -2224,7 +2224,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(usCentralStandardInUSCentral,usCentralStandardInUSCentral.withHourOfDay(1));
     }
 
-    public void testBug2182444_usCentral_7_oe() {
+public void testBug2182444_usCentral_7_oe() {
         Chronology chronUSCentral = GregorianChronology.getInstance(DateTimeZone.forID("US/Central"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime usCentralStandardInUTC = new DateTime(2008, 11, 2, 7, 0, 0, 0, chronUTC);
@@ -2241,7 +2241,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(usCentralStandardInUSCentral.getMillis()+ 3,usCentralStandardInUSCentral.withMillisOfSecond(3).getMillis());
     }
 
-    public void testBug2182444_usCentral_8_oe() {
+public void testBug2182444_usCentral_8_oe() {
         Chronology chronUSCentral = GregorianChronology.getInstance(DateTimeZone.forID("US/Central"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime usCentralStandardInUTC = new DateTime(2008, 11, 2, 7, 0, 0, 0, chronUTC);
@@ -2259,7 +2259,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(usCentralDaylightInUSCentral,usCentralDaylightInUSCentral.withHourOfDay(1));
     }
 
-    public void testBug2182444_usCentral_9_oe() {
+public void testBug2182444_usCentral_9_oe() {
         Chronology chronUSCentral = GregorianChronology.getInstance(DateTimeZone.forID("US/Central"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime usCentralStandardInUTC = new DateTime(2008, 11, 2, 7, 0, 0, 0, chronUTC);
@@ -2278,7 +2278,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(usCentralDaylightInUSCentral.getMillis()+ 3,usCentralDaylightInUSCentral.withMillisOfSecond(3).getMillis());
     }
 
-    public void testBug2182444_ausNSW_1_oe() {
+public void testBug2182444_ausNSW_1_oe() {
         Chronology chronAusNSW = GregorianChronology.getInstance(DateTimeZone.forID("Australia/NSW"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime australiaNSWStandardInUTC = new DateTime(2008, 4, 5, 16, 0, 0, 0, chronUTC);
@@ -2286,7 +2286,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertTrue("Should be standard time",chronAusNSW.getZone().isStandardOffset(australiaNSWStandardInUTC.getMillis()));
     }
 
-    public void testBug2182444_ausNSW_2_oe() {
+public void testBug2182444_ausNSW_2_oe() {
         Chronology chronAusNSW = GregorianChronology.getInstance(DateTimeZone.forID("Australia/NSW"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime australiaNSWStandardInUTC = new DateTime(2008, 4, 5, 16, 0, 0, 0, chronUTC);
@@ -2295,7 +2295,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertFalse("Should be daylight time",chronAusNSW.getZone().isStandardOffset(australiaNSWDaylightInUTC.getMillis()));
     }
 
-    public void testBug2182444_ausNSW_3_oe() {
+public void testBug2182444_ausNSW_3_oe() {
         Chronology chronAusNSW = GregorianChronology.getInstance(DateTimeZone.forID("Australia/NSW"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime australiaNSWStandardInUTC = new DateTime(2008, 4, 5, 16, 0, 0, 0, chronUTC);
@@ -2308,7 +2308,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(2,australiaNSWStandardInAustraliaNSW.getHourOfDay());
     }
 
-    public void testBug2182444_ausNSW_4_oe() {
+public void testBug2182444_ausNSW_4_oe() {
         Chronology chronAusNSW = GregorianChronology.getInstance(DateTimeZone.forID("Australia/NSW"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime australiaNSWStandardInUTC = new DateTime(2008, 4, 5, 16, 0, 0, 0, chronUTC);
@@ -2322,7 +2322,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(australiaNSWStandardInAustraliaNSW.getHourOfDay(),australiaNSWDaylightInAusraliaNSW.getHourOfDay());
     }
 
-    public void testBug2182444_ausNSW_5_oe() {
+public void testBug2182444_ausNSW_5_oe() {
         Chronology chronAusNSW = GregorianChronology.getInstance(DateTimeZone.forID("Australia/NSW"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime australiaNSWStandardInUTC = new DateTime(2008, 4, 5, 16, 0, 0, 0, chronUTC);
@@ -2337,7 +2337,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertTrue(australiaNSWStandardInAustraliaNSW.getMillis()!= australiaNSWDaylightInAusraliaNSW.getMillis());
     }
 
-    public void testBug2182444_ausNSW_6_oe() {
+public void testBug2182444_ausNSW_6_oe() {
         Chronology chronAusNSW = GregorianChronology.getInstance(DateTimeZone.forID("Australia/NSW"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime australiaNSWStandardInUTC = new DateTime(2008, 4, 5, 16, 0, 0, 0, chronUTC);
@@ -2353,7 +2353,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(australiaNSWStandardInAustraliaNSW,australiaNSWStandardInAustraliaNSW.withHourOfDay(2));
     }
 
-    public void testBug2182444_ausNSW_7_oe() {
+public void testBug2182444_ausNSW_7_oe() {
         Chronology chronAusNSW = GregorianChronology.getInstance(DateTimeZone.forID("Australia/NSW"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime australiaNSWStandardInUTC = new DateTime(2008, 4, 5, 16, 0, 0, 0, chronUTC);
@@ -2370,7 +2370,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(australiaNSWStandardInAustraliaNSW.getMillis()+ 3,australiaNSWStandardInAustraliaNSW.withMillisOfSecond(3).getMillis());
     }
 
-    public void testBug2182444_ausNSW_8_oe() {
+public void testBug2182444_ausNSW_8_oe() {
         Chronology chronAusNSW = GregorianChronology.getInstance(DateTimeZone.forID("Australia/NSW"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime australiaNSWStandardInUTC = new DateTime(2008, 4, 5, 16, 0, 0, 0, chronUTC);
@@ -2388,7 +2388,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(australiaNSWDaylightInAusraliaNSW,australiaNSWDaylightInAusraliaNSW.withHourOfDay(2));
     }
 
-    public void testBug2182444_ausNSW_9_oe() {
+public void testBug2182444_ausNSW_9_oe() {
         Chronology chronAusNSW = GregorianChronology.getInstance(DateTimeZone.forID("Australia/NSW"));
         Chronology chronUTC = GregorianChronology.getInstance(DateTimeZone.UTC);
         DateTime australiaNSWStandardInUTC = new DateTime(2008, 4, 5, 16, 0, 0, 0, chronUTC);
@@ -2407,14 +2407,14 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(australiaNSWDaylightInAusraliaNSW.getMillis()+ 3,australiaNSWDaylightInAusraliaNSW.withMillisOfSecond(3).getMillis());
     }
 
-    public void testPeriod_1_oe() {
+public void testPeriod_1_oe() {
         DateTime a = new DateTime("2010-10-31T02:00:00.000+02:00", ZONE_PARIS);
         DateTime b = new DateTime("2010-10-31T02:01:00.000+02:00", ZONE_PARIS);
         Period period = new Period(a, b, PeriodType.standard());
         assertEquals("PT1M",period.toString());
     }
 
-    public void testForum4013394_retainOffsetWhenRetainFields_sameOffsetsDifferentZones_1_oe() {
+public void testForum4013394_retainOffsetWhenRetainFields_sameOffsetsDifferentZones_1_oe() {
         final DateTimeZone fromDTZ = DateTimeZone.forID("Europe/London");
         final DateTimeZone toDTZ = DateTimeZone.forID("Europe/Lisbon");
         DateTime baseBefore = new DateTime(2007, 10, 28, 1, 15, fromDTZ).minusHours(1);
@@ -2425,7 +2425,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(baseBefore.toString(),testBefore.toString());
     }
 
-    public void testForum4013394_retainOffsetWhenRetainFields_sameOffsetsDifferentZones_2_oe() {
+public void testForum4013394_retainOffsetWhenRetainFields_sameOffsetsDifferentZones_2_oe() {
         final DateTimeZone fromDTZ = DateTimeZone.forID("Europe/London");
         final DateTimeZone toDTZ = DateTimeZone.forID("Europe/Lisbon");
         DateTime baseBefore = new DateTime(2007, 10, 28, 1, 15, fromDTZ).minusHours(1);
@@ -2437,7 +2437,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(baseAfter.toString(),testAfter.toString());
     }
 
-    public void testBug3192457_adjustOffset_1_oe() {
+public void testBug3192457_adjustOffset_1_oe() {
         final DateTimeZone zone = DateTimeZone.forID("Europe/Paris");
         DateTime base = new DateTime(2007, 10, 28, 3, 15, zone);
         DateTime baseBefore = base.minusHours(2);
@@ -2446,7 +2446,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertSame(base,base.withEarlierOffsetAtOverlap());
     }
 
-    public void testBug3192457_adjustOffset_2_oe() {
+public void testBug3192457_adjustOffset_2_oe() {
         final DateTimeZone zone = DateTimeZone.forID("Europe/Paris");
         DateTime base = new DateTime(2007, 10, 28, 3, 15, zone);
         DateTime baseBefore = base.minusHours(2);
@@ -2456,7 +2456,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertSame(base,base.withLaterOffsetAtOverlap());
     }
 
-    public void testBug3192457_adjustOffset_3_oe() {
+public void testBug3192457_adjustOffset_3_oe() {
         final DateTimeZone zone = DateTimeZone.forID("Europe/Paris");
         DateTime base = new DateTime(2007, 10, 28, 3, 15, zone);
         DateTime baseBefore = base.minusHours(2);
@@ -2468,7 +2468,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertSame(baseBefore,baseBefore.withEarlierOffsetAtOverlap());
     }
 
-    public void testBug3192457_adjustOffset_4_oe() {
+public void testBug3192457_adjustOffset_4_oe() {
         final DateTimeZone zone = DateTimeZone.forID("Europe/Paris");
         DateTime base = new DateTime(2007, 10, 28, 3, 15, zone);
         DateTime baseBefore = base.minusHours(2);
@@ -2481,7 +2481,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(baseAfter,baseBefore.withLaterOffsetAtOverlap());
     }
 
-    public void testBug3192457_adjustOffset_5_oe() {
+public void testBug3192457_adjustOffset_5_oe() {
         final DateTimeZone zone = DateTimeZone.forID("Europe/Paris");
         DateTime base = new DateTime(2007, 10, 28, 3, 15, zone);
         DateTime baseBefore = base.minusHours(2);
@@ -2496,7 +2496,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertSame(baseAfter,baseAfter.withLaterOffsetAtOverlap());
     }
 
-    public void testBug3192457_adjustOffset_6_oe() {
+public void testBug3192457_adjustOffset_6_oe() {
         final DateTimeZone zone = DateTimeZone.forID("Europe/Paris");
         DateTime base = new DateTime(2007, 10, 28, 3, 15, zone);
         DateTime baseBefore = base.minusHours(2);
@@ -2512,7 +2512,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(baseBefore,baseAfter.withEarlierOffsetAtOverlap());
     }
 
-    public void testBug3476684_adjustOffset_1_oe() {
+public void testBug3476684_adjustOffset_1_oe() {
         final DateTimeZone zone = DateTimeZone.forID("America/Sao_Paulo");
         DateTime base = new DateTime(2012, 2, 25, 22, 15, zone);
         DateTime baseBefore = base.plusHours(1);  // 23:15 (first)
@@ -2521,7 +2521,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertSame(base,base.withEarlierOffsetAtOverlap());
     }
 
-    public void testBug3476684_adjustOffset_2_oe() {
+public void testBug3476684_adjustOffset_2_oe() {
         final DateTimeZone zone = DateTimeZone.forID("America/Sao_Paulo");
         DateTime base = new DateTime(2012, 2, 25, 22, 15, zone);
         DateTime baseBefore = base.plusHours(1);  // 23:15 (first)
@@ -2531,7 +2531,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertSame(base,base.withLaterOffsetAtOverlap());
     }
 
-    public void testBug3476684_adjustOffset_3_oe() {
+public void testBug3476684_adjustOffset_3_oe() {
         final DateTimeZone zone = DateTimeZone.forID("America/Sao_Paulo");
         DateTime base = new DateTime(2012, 2, 25, 22, 15, zone);
         DateTime baseBefore = base.plusHours(1);  // 23:15 (first)
@@ -2543,7 +2543,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertSame(baseBefore,baseBefore.withEarlierOffsetAtOverlap());
     }
 
-    public void testBug3476684_adjustOffset_4_oe() {
+public void testBug3476684_adjustOffset_4_oe() {
         final DateTimeZone zone = DateTimeZone.forID("America/Sao_Paulo");
         DateTime base = new DateTime(2012, 2, 25, 22, 15, zone);
         DateTime baseBefore = base.plusHours(1);  // 23:15 (first)
@@ -2556,7 +2556,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(baseAfter,baseBefore.withLaterOffsetAtOverlap());
     }
 
-    public void testBug3476684_adjustOffset_5_oe() {
+public void testBug3476684_adjustOffset_5_oe() {
         final DateTimeZone zone = DateTimeZone.forID("America/Sao_Paulo");
         DateTime base = new DateTime(2012, 2, 25, 22, 15, zone);
         DateTime baseBefore = base.plusHours(1);  // 23:15 (first)
@@ -2571,7 +2571,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertSame(baseAfter,baseAfter.withLaterOffsetAtOverlap());
     }
 
-    public void testBug3476684_adjustOffset_6_oe() {
+public void testBug3476684_adjustOffset_6_oe() {
         final DateTimeZone zone = DateTimeZone.forID("America/Sao_Paulo");
         DateTime base = new DateTime(2012, 2, 25, 22, 15, zone);
         DateTime baseBefore = base.plusHours(1);  // 23:15 (first)
@@ -2587,7 +2587,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         assertEquals(baseBefore,baseAfter.withEarlierOffsetAtOverlap());
     }
 
-    public void testBug3476684_adjustOffset_springGap_1_oe() {
+public void testBug3476684_adjustOffset_springGap_1_oe() {
       final DateTimeZone zone = DateTimeZone.forID("America/Sao_Paulo");
       DateTime base = new DateTime(2011, 10, 15, 22, 15, zone);
       DateTime baseBefore = base.plusHours(1);  // 23:15
@@ -2596,7 +2596,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
       assertSame(base,base.withEarlierOffsetAtOverlap());
     }
 
-    public void testBug3476684_adjustOffset_springGap_2_oe() {
+public void testBug3476684_adjustOffset_springGap_2_oe() {
       final DateTimeZone zone = DateTimeZone.forID("America/Sao_Paulo");
       DateTime base = new DateTime(2011, 10, 15, 22, 15, zone);
       DateTime baseBefore = base.plusHours(1);  // 23:15
@@ -2606,7 +2606,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
       assertSame(base,base.withLaterOffsetAtOverlap());
     }
 
-    public void testBug3476684_adjustOffset_springGap_3_oe() {
+public void testBug3476684_adjustOffset_springGap_3_oe() {
       final DateTimeZone zone = DateTimeZone.forID("America/Sao_Paulo");
       DateTime base = new DateTime(2011, 10, 15, 22, 15, zone);
       DateTime baseBefore = base.plusHours(1);  // 23:15
@@ -2618,7 +2618,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
       assertSame(baseBefore,baseBefore.withEarlierOffsetAtOverlap());
     }
 
-    public void testBug3476684_adjustOffset_springGap_4_oe() {
+public void testBug3476684_adjustOffset_springGap_4_oe() {
       final DateTimeZone zone = DateTimeZone.forID("America/Sao_Paulo");
       DateTime base = new DateTime(2011, 10, 15, 22, 15, zone);
       DateTime baseBefore = base.plusHours(1);  // 23:15
@@ -2631,7 +2631,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
       assertEquals(baseBefore,baseBefore.withLaterOffsetAtOverlap());
     }
 
-    public void testBug3476684_adjustOffset_springGap_5_oe() {
+public void testBug3476684_adjustOffset_springGap_5_oe() {
       final DateTimeZone zone = DateTimeZone.forID("America/Sao_Paulo");
       DateTime base = new DateTime(2011, 10, 15, 22, 15, zone);
       DateTime baseBefore = base.plusHours(1);  // 23:15
@@ -2646,7 +2646,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
       assertSame(baseAfter,baseAfter.withLaterOffsetAtOverlap());
     }
 
-    public void testBug3476684_adjustOffset_springGap_6_oe() {
+public void testBug3476684_adjustOffset_springGap_6_oe() {
       final DateTimeZone zone = DateTimeZone.forID("America/Sao_Paulo");
       DateTime base = new DateTime(2011, 10, 15, 22, 15, zone);
       DateTime baseBefore = base.plusHours(1);  // 23:15
@@ -2662,65 +2662,65 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
       assertEquals(baseAfter,baseAfter.withEarlierOffsetAtOverlap());
     }
 
-    public void testDateTimeCreation_athens_1_oe() {
+public void testDateTimeCreation_athens_1_oe() {
         DateTimeZone zone = DateTimeZone.forID("Europe/Athens");
         DateTime base = new DateTime(2011, 10, 30, 3, 15, zone);
         assertEquals("2011-10-30T03:15:00.000+03:00",base.toString());
     }
 
-    public void testDateTimeCreation_athens_2_oe() {
+public void testDateTimeCreation_athens_2_oe() {
         DateTimeZone zone = DateTimeZone.forID("Europe/Athens");
         DateTime base = new DateTime(2011, 10, 30, 3, 15, zone);
         // removed other assertion
         assertEquals("2011-10-30T03:15:00.000+02:00",base.plusHours(1).toString());
     }
 
-    public void testDateTimeCreation_paris_1_oe() {
+public void testDateTimeCreation_paris_1_oe() {
         DateTimeZone zone = DateTimeZone.forID("Europe/Paris");
         DateTime base = new DateTime(2011, 10, 30, 2, 15, zone);
         assertEquals("2011-10-30T02:15:00.000+02:00",base.toString());
     }
 
-    public void testDateTimeCreation_paris_2_oe() {
+public void testDateTimeCreation_paris_2_oe() {
         DateTimeZone zone = DateTimeZone.forID("Europe/Paris");
         DateTime base = new DateTime(2011, 10, 30, 2, 15, zone);
         // removed other assertion
         assertEquals("2011-10-30T02:15:00.000+01:00",base.plusHours(1).toString());
     }
 
-    public void testDateTimeCreation_london_1_oe() {
+public void testDateTimeCreation_london_1_oe() {
         DateTimeZone zone = DateTimeZone.forID("Europe/London");
         DateTime base = new DateTime(2011, 10, 30, 1, 15, zone);
         assertEquals("2011-10-30T01:15:00.000+01:00",base.toString());
     }
 
-    public void testDateTimeCreation_london_2_oe() {
+public void testDateTimeCreation_london_2_oe() {
         DateTimeZone zone = DateTimeZone.forID("Europe/London");
         DateTime base = new DateTime(2011, 10, 30, 1, 15, zone);
         // removed other assertion
         assertEquals("2011-10-30T01:15:00.000Z",base.plusHours(1).toString());
     }
 
-    public void testDateTimeCreation_newYork_1_oe() {
+public void testDateTimeCreation_newYork_1_oe() {
         DateTimeZone zone = DateTimeZone.forID("America/New_York");
         DateTime base = new DateTime(2010, 11, 7, 1, 15, zone);
         assertEquals("2010-11-07T01:15:00.000-04:00",base.toString());
     }
 
-    public void testDateTimeCreation_newYork_2_oe() {
+public void testDateTimeCreation_newYork_2_oe() {
         DateTimeZone zone = DateTimeZone.forID("America/New_York");
         DateTime base = new DateTime(2010, 11, 7, 1, 15, zone);
         // removed other assertion
         assertEquals("2010-11-07T01:15:00.000-05:00",base.plusHours(1).toString());
     }
 
-    public void testDateTimeCreation_losAngeles_1_oe() {
+public void testDateTimeCreation_losAngeles_1_oe() {
         DateTimeZone zone = DateTimeZone.forID("America/Los_Angeles");
         DateTime base = new DateTime(2010, 11, 7, 1, 15, zone);
         assertEquals("2010-11-07T01:15:00.000-07:00",base.toString());
     }
 
-    public void testDateTimeCreation_losAngeles_2_oe() {
+public void testDateTimeCreation_losAngeles_2_oe() {
         DateTimeZone zone = DateTimeZone.forID("America/Los_Angeles");
         DateTime base = new DateTime(2010, 11, 7, 1, 15, zone);
         // removed other assertion

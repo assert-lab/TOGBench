@@ -102,12 +102,12 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
 //        writeExternalFormToDisk((java.io.Serializable) multiset, "src/test/resources/data/test/PredicatedMultiSet.fullCollection.version4.1.obj");
 //    }
 
-    public void testLegalAddRemove_1_oe() {
+public void testLegalAddRemove_1_oe() {
         final MultiSet<T> multiset = makeTestMultiSet();
         assertEquals(0, multiset.size());
     }
 
-    public void testLegalAddRemove_2_oe() {
+public void testLegalAddRemove_2_oe() {
         final MultiSet<T> multiset = makeTestMultiSet();
         // removed other assertion
         final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
@@ -117,7 +117,7 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
     }
     }
 
-    public void testLegalAddRemove_3_oe() {
+public void testLegalAddRemove_3_oe() {
         final MultiSet<T> multiset = makeTestMultiSet();
         // removed other assertion
         final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
@@ -128,7 +128,7 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
     }
     }
 
-    public void testLegalAddRemove_4_oe() {
+public void testLegalAddRemove_4_oe() {
         final MultiSet<T> multiset = makeTestMultiSet();
         // removed other assertion
         final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
@@ -141,7 +141,7 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
         assertTrue("Unique set contains the first element",set.contains(els[0]));
     }
 
-    public void testLegalAddRemove_5_oe() {
+public void testLegalAddRemove_5_oe() {
         final MultiSet<T> multiset = makeTestMultiSet();
         // removed other assertion
         final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
@@ -155,7 +155,7 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
         assertEquals(true, multiset.remove(els[0]));
     }
 
-    public void testLegalAddRemove_6_oe() {
+public void testLegalAddRemove_6_oe() {
         final MultiSet<T> multiset = makeTestMultiSet();
         // removed other assertion
         final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
@@ -171,7 +171,7 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
         assertTrue("Unique set does not contain anymore the first element",set.contains(els[0]));
     }
 
-    public void testIllegalAdd_2_oe() {
+public void testIllegalAdd_2_oe() {
         final MultiSet<T> multiset = makeTestMultiSet();
         final Integer i = Integer.valueOf(3);
         try {

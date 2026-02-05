@@ -205,7 +205,7 @@ class LinePathTest_OE25Dev {
         EuclideanTestUtils.assertCoordinatesEqual(end, segment.getEndPoint(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFrom_empty_1_oe() {
         // act
         final LinePath path = LinePath.from(new ArrayList<>());
@@ -214,7 +214,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_empty_2_oe() {
         // act
         final LinePath path = LinePath.from(new ArrayList<>());
@@ -224,7 +224,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isInfinite());
     }
 
-    @Test
+@Test
     void testFrom_empty_3_oe() {
         // act
         final LinePath path = LinePath.from(new ArrayList<>());
@@ -235,7 +235,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isFinite());
     }
 
-    @Test
+@Test
     void testFrom_empty_4_oe() {
         // act
         final LinePath path = LinePath.from(new ArrayList<>());
@@ -247,7 +247,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testFrom_empty_5_oe() {
         // act
         final LinePath path = LinePath.from(new ArrayList<>());
@@ -261,7 +261,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(0, path.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFrom_empty_6_oe() {
         // act
         final LinePath path = LinePath.from(new ArrayList<>());
@@ -277,7 +277,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNull(path.getStart());
     }
 
-    @Test
+@Test
     void testFrom_empty_7_oe() {
         // act
         final LinePath path = LinePath.from(new ArrayList<>());
@@ -294,7 +294,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNull(path.getEnd());
     }
 
-    @Test
+@Test
     void testFrom_empty_8_oe() {
         // act
         final LinePath path = LinePath.from(new ArrayList<>());
@@ -313,7 +313,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(0, path.getElements().size());
     }
 
-    @Test
+@Test
     void testFrom_empty_9_oe() {
         // act
         final LinePath path = LinePath.from(new ArrayList<>());
@@ -334,7 +334,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(0, path.getVertexSequence().size());
     }
 
-    @Test
+@Test
     void testFrom_singleFiniteSegment_1_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -346,7 +346,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_singleFiniteSegment_2_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -359,7 +359,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isInfinite());
     }
 
-    @Test
+@Test
     void testFrom_singleFiniteSegment_3_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -373,7 +373,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isFinite());
     }
 
-    @Test
+@Test
     void testFrom_singleFiniteSegment_4_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -388,7 +388,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testFrom_singleFiniteSegment_5_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -405,7 +405,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(1, path.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFrom_singleFiniteSegment_6_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -424,7 +424,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, path.getStart());
     }
 
-    @Test
+@Test
     void testFrom_singleFiniteSegment_7_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -444,7 +444,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, path.getEnd());
     }
 
-    @Test
+@Test
     void testFrom_singleFiniteSegment_8_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -467,7 +467,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(1, segments.size());
     }
 
-    @Test
+@Test
     void testFrom_singleFiniteSegment_9_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -491,7 +491,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, segments.get(0));
     }
 
-    @Test
+@Test
     void testFrom_singleFiniteSegment_10_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -517,7 +517,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 0)), path.getVertexSequence());
     }
 
-    @Test
+@Test
     void testFrom_singleInfiniteSegment_1_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
@@ -529,7 +529,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_singleInfiniteSegment_2_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
@@ -542,7 +542,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isInfinite());
     }
 
-    @Test
+@Test
     void testFrom_singleInfiniteSegment_3_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
@@ -556,7 +556,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isFinite());
     }
 
-    @Test
+@Test
     void testFrom_singleInfiniteSegment_4_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
@@ -571,7 +571,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testFrom_singleInfiniteSegment_6_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
@@ -590,7 +590,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, path.getStart());
     }
 
-    @Test
+@Test
     void testFrom_singleInfiniteSegment_7_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
@@ -610,7 +610,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, path.getEnd());
     }
 
-    @Test
+@Test
     void testFrom_singleInfiniteSegment_8_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
@@ -633,7 +633,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(1, segments.size());
     }
 
-    @Test
+@Test
     void testFrom_singleInfiniteSegment_9_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
@@ -657,7 +657,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, segments.get(0));
     }
 
-    @Test
+@Test
     void testFrom_singleInfiniteSegment_10_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
@@ -683,7 +683,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(0, path.getVertexSequence().size());
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_notClosed_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -700,7 +700,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_notClosed_2_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -718,7 +718,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isInfinite());
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_notClosed_3_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -737,7 +737,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isFinite());
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_notClosed_4_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -757,7 +757,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_notClosed_5_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -779,7 +779,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(2, path.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_notClosed_6_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -803,7 +803,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, path.getStart());
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_notClosed_7_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -828,7 +828,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(b, path.getEnd());
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_notClosed_8_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -856,7 +856,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(2, segments.size());
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_notClosed_9_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -885,7 +885,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, segments.get(0));
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_notClosed_10_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -915,7 +915,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(b, segments.get(1));
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_notClosed_11_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -947,7 +947,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(p1, p2, p3), path.getVertexSequence());
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_closed_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -965,7 +965,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_closed_2_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -984,7 +984,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isInfinite());
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_closed_3_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -1004,7 +1004,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isFinite());
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_closed_4_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -1025,7 +1025,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isClosed());
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_closed_5_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -1048,7 +1048,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, path.getStart());
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_closed_6_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -1072,7 +1072,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(c, path.getEnd());
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_closed_7_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -1098,7 +1098,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(2 + Math.sqrt(2), path.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_closed_8_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -1127,7 +1127,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(3, segments.size());
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_closed_9_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -1157,7 +1157,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, segments.get(0));
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_closed_10_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -1188,7 +1188,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(b, segments.get(1));
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_closed_11_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -1220,7 +1220,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(c, segments.get(2));
     }
 
-    @Test
+@Test
     void testFrom_finiteSegments_closed_12_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -1254,7 +1254,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(p1, p2, p3, p1), path.getVertexSequence());
     }
 
-    @Test
+@Test
     void testFrom_infiniteSegments_1_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
@@ -1269,7 +1269,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_infiniteSegments_2_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
@@ -1285,7 +1285,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isInfinite());
     }
 
-    @Test
+@Test
     void testFrom_infiniteSegments_3_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
@@ -1302,7 +1302,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isFinite());
     }
 
-    @Test
+@Test
     void testFrom_infiniteSegments_4_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
@@ -1320,7 +1320,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testFrom_infiniteSegments_6_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
@@ -1342,7 +1342,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, path.getStart());
     }
 
-    @Test
+@Test
     void testFrom_infiniteSegments_7_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
@@ -1365,7 +1365,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(b, path.getEnd());
     }
 
-    @Test
+@Test
     void testFrom_infiniteSegments_8_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
@@ -1391,7 +1391,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(2, segments.size());
     }
 
-    @Test
+@Test
     void testFrom_infiniteSegments_9_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
@@ -1418,7 +1418,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, segments.get(0));
     }
 
-    @Test
+@Test
     void testFrom_infiniteSegments_10_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
@@ -1446,7 +1446,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(b, segments.get(1));
     }
 
-    @Test
+@Test
     void testFrom_infiniteSegments_11_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
@@ -1476,7 +1476,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(Collections.singletonList(Vector2D.of(1, 0)), path.getVertexSequence());
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_1_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
@@ -1489,7 +1489,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_2_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
@@ -1503,7 +1503,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isInfinite());
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_3_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
@@ -1518,7 +1518,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isFinite());
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_4_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
@@ -1534,7 +1534,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_5_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
@@ -1552,7 +1552,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, path.getStart());
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_6_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
@@ -1571,7 +1571,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(b, path.getEnd());
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_7_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
@@ -1593,7 +1593,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(2, segments.size());
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_8_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
@@ -1616,7 +1616,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, segments.get(0));
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_9_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
@@ -1640,7 +1640,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(b, segments.get(1));
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_startInfinite_10_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).reverseRayTo(1.0);
@@ -1666,7 +1666,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(Vector2D.of(1, 0), Vector2D.of(1, 1)), path.getVertexSequence());
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_1_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -1680,7 +1680,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_2_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -1695,7 +1695,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isInfinite());
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_3_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -1711,7 +1711,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isFinite());
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_4_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -1728,7 +1728,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_5_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -1747,7 +1747,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, path.getStart());
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_6_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -1767,7 +1767,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(b, path.getEnd());
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_7_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -1790,7 +1790,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(2, segments.size());
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_8_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -1814,7 +1814,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, segments.get(0));
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_9_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -1839,7 +1839,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(b, segments.get(1));
     }
 
-    @Test
+@Test
     void testFrom_finiteAndInfiniteSegments_endInfinite_10_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -1866,7 +1866,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 0)), path.getVertexSequence());
     }
 
-    @Test
+@Test
     void testFrom_segmentsNotConnected_1_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -1879,7 +1879,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertThrows(IllegalStateException.class, () -> LinePath.from(a, b));
     }
 
-    @Test
+@Test
     void testFrom_segmentsNotConnected_2_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -1893,7 +1893,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertThrows(IllegalStateException.class, () -> LinePath.from(c, b));
     }
 
-    @Test
+@Test
     void testFrom_segmentsNotConnected_3_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -1908,7 +1908,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertThrows(IllegalStateException.class, () -> LinePath.from(a, d));
     }
 
-    @Test
+@Test
     void testFromVertices_empty_1_oe() {
         // act
         final LinePath path = LinePath.fromVertices(new ArrayList<>(), TEST_PRECISION);
@@ -1917,7 +1917,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFromVertices_empty_2_oe() {
         // act
         final LinePath path = LinePath.fromVertices(new ArrayList<>(), TEST_PRECISION);
@@ -1927,7 +1927,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isInfinite());
     }
 
-    @Test
+@Test
     void testFromVertices_empty_3_oe() {
         // act
         final LinePath path = LinePath.fromVertices(new ArrayList<>(), TEST_PRECISION);
@@ -1938,7 +1938,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isFinite());
     }
 
-    @Test
+@Test
     void testFromVertices_empty_4_oe() {
         // act
         final LinePath path = LinePath.fromVertices(new ArrayList<>(), TEST_PRECISION);
@@ -1950,7 +1950,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testFromVertices_empty_5_oe() {
         // act
         final LinePath path = LinePath.fromVertices(new ArrayList<>(), TEST_PRECISION);
@@ -1964,7 +1964,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNull(path.getStart());
     }
 
-    @Test
+@Test
     void testFromVertices_empty_6_oe() {
         // act
         final LinePath path = LinePath.fromVertices(new ArrayList<>(), TEST_PRECISION);
@@ -1979,7 +1979,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNull(path.getEnd());
     }
 
-    @Test
+@Test
     void testFromVertices_empty_7_oe() {
         // act
         final LinePath path = LinePath.fromVertices(new ArrayList<>(), TEST_PRECISION);
@@ -1996,7 +1996,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(0, path.getElements().size());
     }
 
-    @Test
+@Test
     void testFromVertices_empty_8_oe() {
         // act
         final LinePath path = LinePath.fromVertices(new ArrayList<>(), TEST_PRECISION);
@@ -2015,13 +2015,13 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(0, path.getVertexSequence().size());
     }
 
-    @Test
+@Test
     void testFromVertices_singleVertex_failsToCreatePath_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalStateException.class, () -> LinePath.fromVertices(Collections.singletonList(Vector2D.ZERO), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFromVertices_twoVertices_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2034,7 +2034,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFromVertices_twoVertices_2_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2048,7 +2048,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isInfinite());
     }
 
-    @Test
+@Test
     void testFromVertices_twoVertices_3_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2063,7 +2063,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isFinite());
     }
 
-    @Test
+@Test
     void testFromVertices_twoVertices_4_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2079,7 +2079,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testFromVertices_twoVertices_6_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2098,7 +2098,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(path.getStart(), path.getEnd());
     }
 
-    @Test
+@Test
     void testFromVertices_twoVertices_7_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2120,7 +2120,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(1, segments.size());
     }
 
-    @Test
+@Test
     void testFromVertices_twoVertices_9_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2145,7 +2145,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(p1, p2), path.getVertexSequence());
     }
 
-    @Test
+@Test
     void testFromVertices_multipleVertices_notClosed_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2160,7 +2160,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFromVertices_multipleVertices_notClosed_2_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2176,7 +2176,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isInfinite());
     }
 
-    @Test
+@Test
     void testFromVertices_multipleVertices_notClosed_3_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2193,7 +2193,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isFinite());
     }
 
-    @Test
+@Test
     void testFromVertices_multipleVertices_notClosed_4_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2211,7 +2211,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testFromVertices_multipleVertices_notClosed_7_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2235,7 +2235,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(3, segments.size());
     }
 
-    @Test
+@Test
     void testFromVertices_multipleVertices_notClosed_11_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2264,7 +2264,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(p1, p2, p3, p4), path.getVertexSequence());
     }
 
-    @Test
+@Test
     void testFromVertices_multipleVertices_closed_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2279,7 +2279,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFromVertices_multipleVertices_closed_2_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2295,7 +2295,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isInfinite());
     }
 
-    @Test
+@Test
     void testFromVertices_multipleVertices_closed_3_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2312,7 +2312,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isFinite());
     }
 
-    @Test
+@Test
     void testFromVertices_multipleVertices_closed_4_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2330,7 +2330,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isClosed());
     }
 
-    @Test
+@Test
     void testFromVertices_multipleVertices_closed_7_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2354,7 +2354,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testFromVertices_multipleVertices_closed_12_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2384,7 +2384,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(p1, p2, p3, p4, p1), path.getVertexSequence());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_empty_1_oe() {
         // act
         final LinePath path = LinePath.fromVertexLoop(new ArrayList<>(), TEST_PRECISION);
@@ -2393,7 +2393,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_empty_2_oe() {
         // act
         final LinePath path = LinePath.fromVertexLoop(new ArrayList<>(), TEST_PRECISION);
@@ -2403,7 +2403,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isInfinite());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_empty_3_oe() {
         // act
         final LinePath path = LinePath.fromVertexLoop(new ArrayList<>(), TEST_PRECISION);
@@ -2414,7 +2414,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isFinite());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_empty_4_oe() {
         // act
         final LinePath path = LinePath.fromVertexLoop(new ArrayList<>(), TEST_PRECISION);
@@ -2426,7 +2426,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_empty_5_oe() {
         // act
         final LinePath path = LinePath.fromVertexLoop(new ArrayList<>(), TEST_PRECISION);
@@ -2440,7 +2440,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNull(path.getStart());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_empty_6_oe() {
         // act
         final LinePath path = LinePath.fromVertexLoop(new ArrayList<>(), TEST_PRECISION);
@@ -2455,7 +2455,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNull(path.getEnd());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_empty_7_oe() {
         // act
         final LinePath path = LinePath.fromVertexLoop(new ArrayList<>(), TEST_PRECISION);
@@ -2472,7 +2472,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(0, path.getElements().size());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_empty_8_oe() {
         // act
         final LinePath path = LinePath.fromVertexLoop(new ArrayList<>(), TEST_PRECISION);
@@ -2491,13 +2491,13 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(0, path.getVertexSequence().size());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_singleVertex_failsToCreatePath_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalStateException.class, () -> LinePath.fromVertexLoop(Collections.singletonList(Vector2D.ZERO), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFromVertexLoop_closeRequired_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2511,7 +2511,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_closeRequired_2_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2526,7 +2526,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isInfinite());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_closeRequired_3_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2542,7 +2542,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isFinite());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_closeRequired_4_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2559,7 +2559,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isClosed());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_closeRequired_5_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2579,7 +2579,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(3, segments.size());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_closeRequired_9_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2604,7 +2604,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(p1, p2, p3, p1), path.getVertexSequence());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_closeNotRequired_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2618,7 +2618,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_closeNotRequired_2_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2633,7 +2633,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(path.isInfinite());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_closeNotRequired_3_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2649,7 +2649,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isFinite());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_closeNotRequired_4_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2666,7 +2666,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(path.isClosed());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_closeNotRequired_5_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2686,7 +2686,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(3, segments.size());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_closeNotRequired_9_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2711,7 +2711,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(p1, p2, p3, p1), path.getVertexSequence());
     }
 
-    @Test
+@Test
     void testFromVertices_booleanArg_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2726,7 +2726,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(open.isClosed());
     }
 
-    @Test
+@Test
     void testFromVertices_booleanArg_2_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2744,7 +2744,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(2, openSegments.size());
     }
 
-    @Test
+@Test
     void testFromVertices_booleanArg_5_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2766,7 +2766,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(closed.isClosed());
     }
 
-    @Test
+@Test
     void testFromVertices_booleanArg_6_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2791,7 +2791,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(3, closedSegments.size());
     }
 
-    @Test
+@Test
     void testGetElements_listIsNotModifiable_1_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -2806,7 +2806,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNotSame(inputSegments, path.getElements());
     }
 
-    @Test
+@Test
     void testGetElements_listIsNotModifiable_2_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -2822,7 +2822,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(1, path.getElements().size());
     }
 
-    @Test
+@Test
     void testGetElements_listIsNotModifiable_3_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -2840,7 +2840,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertThrows(UnsupportedOperationException.class, () -> path.getElements().add(a));
     }
 
-    @Test
+@Test
     void testBoundaryStream_1_oe() {
         // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -2853,7 +2853,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(1, segments.size());
     }
 
-    @Test
+@Test
     void testBoundaryStream_2_oe() {
         // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -2867,7 +2867,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(seg, segments.get(0));
     }
 
-    @Test
+@Test
     void testBoundaryStream_empty_1_oe() {
         // arrange
         final LinePath path = LinePath.empty();
@@ -2879,7 +2879,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(0, segments.size());
     }
 
-    @Test
+@Test
     void testTransform_empty_1_oe() {
         // arrange
         final LinePath path = LinePath.empty();
@@ -2889,7 +2889,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(path, path.transform(t));
     }
 
-    @Test
+@Test
     void testTransform_finite_1_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -2908,7 +2908,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNotSame(path, result);
     }
 
-    @Test
+@Test
     void testTransform_finite_2_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -2928,7 +2928,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(result.isClosed());
     }
 
-    @Test
+@Test
     void testTransform_finite_3_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -2949,7 +2949,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(result.isFinite());
     }
 
-    @Test
+@Test
     void testTransform_finite_4_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -2974,7 +2974,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(3, segments.size());
     }
 
-    @Test
+@Test
     void testTransform_infinite_1_oe() {
         // arrange
         final LinePath path = LinePath.from(
@@ -2989,7 +2989,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNotSame(path, result);
     }
 
-    @Test
+@Test
     void testTransform_infinite_2_oe() {
         // arrange
         final LinePath path = LinePath.from(
@@ -3005,7 +3005,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(result.isClosed());
     }
 
-    @Test
+@Test
     void testTransform_infinite_3_oe() {
         // arrange
         final LinePath path = LinePath.from(
@@ -3022,7 +3022,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(result.isFinite());
     }
 
-    @Test
+@Test
     void testTransform_infinite_4_oe() {
         // arrange
         final LinePath path = LinePath.from(
@@ -3043,7 +3043,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(1, segments.size());
     }
 
-    @Test
+@Test
     void testTransform_infinite_5_oe() {
         // arrange
         final LinePath path = LinePath.from(
@@ -3066,7 +3066,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(segment.isInfinite());
     }
 
-    @Test
+@Test
     void testTransform_infinite_6_oe() {
         // arrange
         final LinePath path = LinePath.from(
@@ -3090,7 +3090,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNull(segment.getStartPoint());
     }
 
-    @Test
+@Test
     void testTransform_infinite_7_oe() {
         // arrange
         final LinePath path = LinePath.from(
@@ -3115,7 +3115,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNull(segment.getEndPoint());
     }
 
-    @Test
+@Test
     void testReverse_empty_1_oe() {
         // arrange
         final LinePath path = LinePath.empty();
@@ -3124,7 +3124,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(path, path.reverse());
     }
 
-    @Test
+@Test
     void testReverse_1_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -3140,7 +3140,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNotSame(path, result);
     }
 
-    @Test
+@Test
     void testReverse_2_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -3157,7 +3157,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(result.isClosed());
     }
 
-    @Test
+@Test
     void testReverse_3_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -3175,7 +3175,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(result.isFinite());
     }
 
-    @Test
+@Test
     void testReverse_4_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -3197,7 +3197,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(3, segments.size());
     }
 
-    @Test
+@Test
     void testReverse_singleInfinite_1_oe() {
         // arrange
         final LinePath path = LinePath.from(
@@ -3210,7 +3210,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNotSame(path, result);
     }
 
-    @Test
+@Test
     void testReverse_singleInfinite_2_oe() {
         // arrange
         final LinePath path = LinePath.from(
@@ -3224,7 +3224,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(result.isClosed());
     }
 
-    @Test
+@Test
     void testReverse_singleInfinite_3_oe() {
         // arrange
         final LinePath path = LinePath.from(
@@ -3239,7 +3239,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(result.isFinite());
     }
 
-    @Test
+@Test
     void testReverse_singleInfinite_4_oe() {
         // arrange
         final LinePath path = LinePath.from(
@@ -3258,7 +3258,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(1, segments.size());
     }
 
-    @Test
+@Test
     void testReverse_singleInfinite_5_oe() {
         // arrange
         final LinePath path = LinePath.from(
@@ -3279,7 +3279,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(segment.isInfinite());
     }
 
-    @Test
+@Test
     void testReverse_singleInfinite_6_oe() {
         // arrange
         final LinePath path = LinePath.from(
@@ -3301,7 +3301,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNull(segment.getStartPoint());
     }
 
-    @Test
+@Test
     void testReverse_singleInfinite_7_oe() {
         // arrange
         final LinePath path = LinePath.from(
@@ -3324,7 +3324,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNull(segment.getEndPoint());
     }
 
-    @Test
+@Test
     void testReverse_doubleInfinite_1_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
@@ -3339,7 +3339,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNotSame(path, result);
     }
 
-    @Test
+@Test
     void testReverse_doubleInfinite_2_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
@@ -3355,7 +3355,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(result.isClosed());
     }
 
-    @Test
+@Test
     void testReverse_doubleInfinite_3_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
@@ -3372,7 +3372,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(result.isFinite());
     }
 
-    @Test
+@Test
     void testReverse_doubleInfinite_4_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
@@ -3392,7 +3392,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(2, segments.size());
     }
 
-    @Test
+@Test
     void testReverse_doubleInfinite_5_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
@@ -3415,7 +3415,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(bResult.isInfinite());
     }
 
-    @Test
+@Test
     void testReverse_doubleInfinite_6_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
@@ -3439,7 +3439,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNull(bResult.getStartPoint());
     }
 
-    @Test
+@Test
     void testReverse_doubleInfinite_10_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
@@ -3469,7 +3469,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(aResult.isInfinite());
     }
 
-    @Test
+@Test
     void testReverse_doubleInfinite_12_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
@@ -3501,7 +3501,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNull(aResult.getEndPoint());
     }
 
-    @Test
+@Test
     void testToTree_1_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -3515,7 +3515,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(1, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToTree_2_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -3530,7 +3530,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(4, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToTree_3_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -3547,7 +3547,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(Vector2D.of(0.5, 0.5)));
     }
 
-    @Test
+@Test
     void testToTree_4_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -3566,7 +3566,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(Vector2D.of(0.5, -1)));
     }
 
-    @Test
+@Test
     void testToTree_5_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -3586,7 +3586,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(Vector2D.of(0.5, 2)));
     }
 
-    @Test
+@Test
     void testToTree_6_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -3607,7 +3607,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(Vector2D.of(-1, 0.5)));
     }
 
-    @Test
+@Test
     void testToTree_7_oe() {
         // arrange
         final LinePath path = LinePath.builder(TEST_PRECISION)
@@ -3629,7 +3629,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(Vector2D.of(2, 0.5)));
     }
 
-    @Test
+@Test
     void testSimplify_1_oe() {
         // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -3650,7 +3650,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(2, segments.size());
     }
 
-    @Test
+@Test
     void testSimplify_startAndEndCombined_1_oe() {
         // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -3669,7 +3669,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNotSame(path, result);
     }
 
-    @Test
+@Test
     void testSimplify_startAndEndCombined_2_oe() {
         // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -3689,7 +3689,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(result.isClosed());
     }
 
-    @Test
+@Test
     void testSimplify_startAndEndCombined_3_oe() {
         // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -3710,7 +3710,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(result.isInfinite());
     }
 
-    @Test
+@Test
     void testSimplify_startAndEndCombined_4_oe() {
         // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -3734,7 +3734,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(3, segments.size());
     }
 
-    @Test
+@Test
     void testSimplify_empty_1_oe() {
         // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -3748,7 +3748,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNotSame(path, result);
     }
 
-    @Test
+@Test
     void testSimplify_empty_2_oe() {
         // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -3763,7 +3763,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(result.isClosed());
     }
 
-    @Test
+@Test
     void testSimplify_empty_3_oe() {
         // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -3779,7 +3779,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(result.isInfinite());
     }
 
-    @Test
+@Test
     void testSimplify_empty_4_oe() {
         // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -3798,7 +3798,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(0, segments.size());
     }
 
-    @Test
+@Test
     void testSimplify_infiniteSegment_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -3815,7 +3815,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNotSame(path, result);
     }
 
-    @Test
+@Test
     void testSimplify_infiniteSegment_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -3833,7 +3833,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(result.isClosed());
     }
 
-    @Test
+@Test
     void testSimplify_infiniteSegment_3_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -3852,7 +3852,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(result.isInfinite());
     }
 
-    @Test
+@Test
     void testSimplify_infiniteSegment_4_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -3873,7 +3873,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNotNull(path.getStart());
     }
 
-    @Test
+@Test
     void testSimplify_infiniteSegment_5_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -3895,7 +3895,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNotNull(path.getEnd());
     }
 
-    @Test
+@Test
     void testSimplify_infiniteSegment_6_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -3918,7 +3918,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(path.getStart(), path.getEnd());
     }
 
-    @Test
+@Test
     void testSimplify_infiniteSegment_7_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -3944,7 +3944,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(1, segments.size());
     }
 
-    @Test
+@Test
     void testSimplify_infiniteSegment_8_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -3971,7 +3971,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(line, segments.get(0).getLine());
     }
 
-    @Test
+@Test
     void testSimplify_combinedInfiniteSegment_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -3991,7 +3991,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNotSame(path, result);
     }
 
-    @Test
+@Test
     void testSimplify_combinedInfiniteSegment_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -4012,7 +4012,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(result.isClosed());
     }
 
-    @Test
+@Test
     void testSimplify_combinedInfiniteSegment_3_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -4034,7 +4034,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertTrue(result.isInfinite());
     }
 
-    @Test
+@Test
     void testSimplify_combinedInfiniteSegment_4_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -4058,7 +4058,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNotNull(result.getStart());
     }
 
-    @Test
+@Test
     void testSimplify_combinedInfiniteSegment_5_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -4083,7 +4083,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNotNull(result.getEnd());
     }
 
-    @Test
+@Test
     void testSimplify_combinedInfiniteSegment_6_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -4109,7 +4109,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(result.getStart(), result.getEnd());
     }
 
-    @Test
+@Test
     void testSimplify_combinedInfiniteSegment_7_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -4138,7 +4138,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(1, segments.size());
     }
 
-    @Test
+@Test
     void testSimplify_combinedInfiniteSegment_8_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -4168,7 +4168,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(line, segments.get(0).getLine());
     }
 
-    @Test
+@Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_1_oe() {
         // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -4189,7 +4189,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNotSame(path, result);
     }
 
-    @Test
+@Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_2_oe() {
         // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -4211,7 +4211,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(result.isClosed());
     }
 
-    @Test
+@Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_3_oe() {
         // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -4234,7 +4234,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertFalse(result.isInfinite());
     }
 
-    @Test
+@Test
     void testSimplify_startAndEndNotCombinedWhenNotClosed_4_oe() {
         // arrange
         final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -4260,7 +4260,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testSimplify_subsequentCallsToReturnedObjectReturnSameObject_1_oe() {
         // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -4277,7 +4277,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertNotSame(path, result);
     }
 
-    @Test
+@Test
     void testSimplify_subsequentCallsToReturnedObjectReturnSameObject_2_oe() {
         // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -4295,7 +4295,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(result, result.simplify());
     }
 
-    @Test
+@Test
     void testBuilder_prependAndAppend_segments_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -4323,7 +4323,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testBuilder_prependAndAppend_segments_2_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -4352,7 +4352,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(a, segments.get(0));
     }
 
-    @Test
+@Test
     void testBuilder_prependAndAppend_segments_3_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -4382,7 +4382,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(b, segments.get(1));
     }
 
-    @Test
+@Test
     void testBuilder_prependAndAppend_segments_4_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -4413,7 +4413,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(c, segments.get(2));
     }
 
-    @Test
+@Test
     void testBuilder_prependAndAppend_segments_5_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -4445,7 +4445,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertSame(d, segments.get(3));
     }
 
-    @Test
+@Test
     void testBuilder_prependAndAppend_disconnectedSegments_1_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -4457,7 +4457,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertThrows(IllegalStateException.class, () -> builder.append(a));
     }
 
-    @Test
+@Test
     void testBuilder_prependAndAppend_disconnectedSegments_2_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
@@ -4470,7 +4470,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertThrows(IllegalStateException.class, () -> builder.prepend(a));
     }
 
-    @Test
+@Test
     void testBuilder_prependAndAppend_vertices_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -4494,7 +4494,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testBuilder_prependAndAppend_addingToInfinitePath_1_oe() {
         // arrange
         final Vector2D p = Vector2D.Unit.PLUS_X;
@@ -4506,7 +4506,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertThrows(IllegalStateException.class, () -> builder.prepend(p));
     }
 
-    @Test
+@Test
     void testBuilder_prependAndAppend_addingToInfinitePath_2_oe() {
         // arrange
         final Vector2D p = Vector2D.Unit.PLUS_X;
@@ -4519,7 +4519,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertThrows(IllegalStateException.class, () -> builder.append(p));
     }
 
-    @Test
+@Test
     void testBuilder_prependAndAppend_ignoresEquivalentVertices_1_oe() {
         // arrange
         final Vector2D p = Vector2D.ZERO;
@@ -4542,7 +4542,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(1, segments.size());
     }
 
-    @Test
+@Test
     void testBuilder_prependAndAppend_mixedVerticesAndSegments_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -4569,7 +4569,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testBuilder_appendVertices_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -4590,7 +4590,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testBuilder_prependVertices_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -4611,7 +4611,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testBuilder_close_notYetClosed_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -4632,7 +4632,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(3, segments.size());
     }
 
-    @Test
+@Test
     void testBuilder_close_alreadyClosed_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -4654,7 +4654,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(3, segments.size());
     }
 
-    @Test
+@Test
     void testBuilder_close_emptyPath_1_oe() {
         // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);
@@ -4666,7 +4666,7 @@ class LinePathTest_OE25Dev {
         Assertions.assertEquals(0, path.getElements().size());
     }
 
-    @Test
+@Test
     void testBuilder_close_obtuseTriangle_1_oe() {
         // arrange
         final Builder builder = LinePath.builder(TEST_PRECISION);

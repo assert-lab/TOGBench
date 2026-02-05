@@ -59,7 +59,7 @@ class Transform1STest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testIdentity_1_oe() {
         // act
         final Transform1S t = Transform1S.identity();
@@ -68,7 +68,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertTrue(t.preservesOrientation());
     }
 
-    @Test
+@Test
     void testIdentity_2_oe() {
         // act
         final Transform1S t = Transform1S.identity();
@@ -78,7 +78,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertFalse(t.isNegation());
     }
 
-    @Test
+@Test
     void testIdentity_3_oe() {
         // act
         final Transform1S t = Transform1S.identity();
@@ -89,7 +89,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertEquals(0, t.getRotation(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRotate_positive_1_oe() {
         // arrange
         final Transform1S t = Transform1S.createRotation(Angle.PI_OVER_TWO);
@@ -98,7 +98,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertTrue(t.preservesOrientation());
     }
 
-    @Test
+@Test
     void testRotate_positive_2_oe() {
         // arrange
         final Transform1S t = Transform1S.createRotation(Angle.PI_OVER_TWO);
@@ -108,7 +108,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertFalse(t.isNegation());
     }
 
-    @Test
+@Test
     void testRotate_positive_3_oe() {
         // arrange
         final Transform1S t = Transform1S.createRotation(Angle.PI_OVER_TWO);
@@ -119,7 +119,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, t.getRotation(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRotate_negative_1_oe() {
         // arrange
         final Transform1S t = Transform1S.createRotation(-Angle.PI_OVER_TWO);
@@ -128,7 +128,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertTrue(t.preservesOrientation());
     }
 
-    @Test
+@Test
     void testRotate_negative_2_oe() {
         // arrange
         final Transform1S t = Transform1S.createRotation(-Angle.PI_OVER_TWO);
@@ -138,7 +138,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertFalse(t.isNegation());
     }
 
-    @Test
+@Test
     void testRotate_negative_3_oe() {
         // arrange
         final Transform1S t = Transform1S.createRotation(-Angle.PI_OVER_TWO);
@@ -149,7 +149,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertEquals(-Angle.PI_OVER_TWO, t.getRotation(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testNegate_1_oe() {
         // arrange
         final Transform1S t = Transform1S.createNegation();
@@ -158,7 +158,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertFalse(t.preservesOrientation());
     }
 
-    @Test
+@Test
     void testNegate_2_oe() {
         // arrange
         final Transform1S t = Transform1S.createNegation();
@@ -168,7 +168,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertTrue(t.isNegation());
     }
 
-    @Test
+@Test
     void testNegate_3_oe() {
         // arrange
         final Transform1S t = Transform1S.createNegation();
@@ -179,7 +179,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertEquals(0, t.getRotation(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testNegateThenRotate_1_oe() {
         // arrange
         final Transform1S t = Transform1S.createNegation().rotate(Angle.PI_OVER_TWO);
@@ -188,7 +188,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertFalse(t.preservesOrientation());
     }
 
-    @Test
+@Test
     void testNegateThenRotate_2_oe() {
         // arrange
         final Transform1S t = Transform1S.createNegation().rotate(Angle.PI_OVER_TWO);
@@ -198,7 +198,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertTrue(t.isNegation());
     }
 
-    @Test
+@Test
     void testNegateThenRotate_3_oe() {
         // arrange
         final Transform1S t = Transform1S.createNegation().rotate(Angle.PI_OVER_TWO);
@@ -209,7 +209,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, t.getRotation(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRotateThenNegate_1_oe() {
         // arrange
         final Transform1S t = Transform1S.createRotation(Angle.PI_OVER_TWO).negate();
@@ -218,7 +218,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertFalse(t.preservesOrientation());
     }
 
-    @Test
+@Test
     void testRotateThenNegate_2_oe() {
         // arrange
         final Transform1S t = Transform1S.createRotation(Angle.PI_OVER_TWO).negate();
@@ -228,7 +228,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertTrue(t.isNegation());
     }
 
-    @Test
+@Test
     void testRotateThenNegate_3_oe() {
         // arrange
         final Transform1S t = Transform1S.createRotation(Angle.PI_OVER_TWO).negate();
@@ -239,7 +239,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertEquals(-Angle.PI_OVER_TWO, t.getRotation(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testMultiply_1_oe() {
         // arrange
         final Transform1S neg = Transform1S.identity().negate();
@@ -252,7 +252,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertFalse(t.preservesOrientation());
     }
 
-    @Test
+@Test
     void testMultiply_2_oe() {
         // arrange
         final Transform1S neg = Transform1S.identity().negate();
@@ -266,7 +266,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertTrue(t.isNegation());
     }
 
-    @Test
+@Test
     void testMultiply_3_oe() {
         // arrange
         final Transform1S neg = Transform1S.identity().negate();
@@ -281,7 +281,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, t.getRotation(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testPreultiply_1_oe() {
         // arrange
         final Transform1S neg = Transform1S.identity().negate();
@@ -294,7 +294,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertFalse(t.preservesOrientation());
     }
 
-    @Test
+@Test
     void testPreultiply_2_oe() {
         // arrange
         final Transform1S neg = Transform1S.identity().negate();
@@ -308,7 +308,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertTrue(t.isNegation());
     }
 
-    @Test
+@Test
     void testPreultiply_3_oe() {
         // arrange
         final Transform1S neg = Transform1S.identity().negate();
@@ -323,7 +323,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, t.getRotation(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testHashCode_1_oe() {
         // arrange
         final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
@@ -338,7 +338,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertEquals(hash, a.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_2_oe() {
         // arrange
         final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
@@ -355,7 +355,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertNotEquals(hash, b.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_3_oe() {
         // arrange
         final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
@@ -373,7 +373,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertNotEquals(hash, c.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_4_oe() {
         // arrange
         final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
@@ -393,7 +393,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertEquals(hash, d.hashCode());
     }
 
-    @Test
+@Test
     void testEquals_2_oe() {
         // arrange
         final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
@@ -407,7 +407,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertNotEquals(a, b);
     }
 
-    @Test
+@Test
     void testEquals_3_oe() {
         // arrange
         final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
@@ -422,7 +422,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertNotEquals(a, c);
     }
 
-    @Test
+@Test
     void testEquals_4_oe() {
         // arrange
         final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
@@ -439,7 +439,7 @@ class Transform1STest_OE25Dev {
         Assertions.assertEquals(a, d);
     }
 
-    @Test
+@Test
     void testEquals_5_oe() {
         // arrange
         final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);

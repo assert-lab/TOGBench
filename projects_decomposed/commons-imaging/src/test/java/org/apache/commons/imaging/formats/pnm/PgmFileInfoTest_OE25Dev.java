@@ -24,17 +24,17 @@ import org.junit.jupiter.api.Test;
 
 public class PgmFileInfoTest_OE25Dev {
 
-    @Test
+@Test
     public void testCreateThrowsImageReadExceptionOne_1_oe() {
         Assertions.assertThrows(ImageReadException.class, () -> new PgmFileInfo(16711680, 16711680, false, 16711680));
     }
 
-    @Test
+@Test
     public void testCreateThrowsImageReadExceptionTwo_1_oe() {
         Assertions.assertThrows(ImageReadException.class, () -> new PgmFileInfo(0, 0, true, 0));
     }
 
-    @Test
+@Test
     public void testGetBitDepth_1_oe() throws ImageReadException {
         final PgmFileInfo pgmFileInfo = new PgmFileInfo(65535, 65535, false, 65535);
 

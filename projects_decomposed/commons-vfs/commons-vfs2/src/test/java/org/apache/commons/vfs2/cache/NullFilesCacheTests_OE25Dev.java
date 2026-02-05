@@ -30,13 +30,13 @@ import org.junit.Test;
  */
 public class NullFilesCacheTests_OE25Dev extends AbstractFilesCacheTestsBase {
 
-    @Test
+@Test
     public void testBasicCacheOps_1_oe() throws Exception {
         final DefaultFileSystemManager manager = getManager();
         Assert.assertNotNull("This test should not have a null DefaultFileSystemManager", manager);
     }
 
-    @Test
+@Test
     public void testBasicCacheOps_2_oe() throws Exception {
         final DefaultFileSystemManager manager = getManager();
         // removed other assertion
@@ -50,7 +50,7 @@ public class NullFilesCacheTests_OE25Dev extends AbstractFilesCacheTestsBase {
         assertNull(cache.getFile(fs, fn));
     }
 
-    @Test
+@Test
     public void testBasicCacheOps_3_oe() throws Exception {
         final DefaultFileSystemManager manager = getManager();
         // removed other assertion
@@ -67,7 +67,7 @@ public class NullFilesCacheTests_OE25Dev extends AbstractFilesCacheTestsBase {
         assertNull(null, cache.getFile(fs, fn));
     }
 
-    @Test
+@Test
     public void testBasicCacheOps_4_oe() throws Exception {
         final DefaultFileSystemManager manager = getManager();
         // removed other assertion
@@ -86,7 +86,7 @@ public class NullFilesCacheTests_OE25Dev extends AbstractFilesCacheTestsBase {
         assertFalse(cache.putFileIfAbsent(fo));// hmmm? assertNull(null,cache.getFile(fs,fn));
     }
 
-    @Test
+@Test
     public void testBasicCacheOps_5_oe() throws Exception {
         final DefaultFileSystemManager manager = getManager();
         // removed other assertion
@@ -108,26 +108,26 @@ public class NullFilesCacheTests_OE25Dev extends AbstractFilesCacheTestsBase {
         assertNull(cache.getFile(fs, fn));
     }
 
-    @Test
+@Test
     public void testClass_1_oe() {
         final DefaultFileSystemManager manager = getManager();
         Assert.assertNotNull("This test should not have a null DefaultFileSystemManager", manager);
     }
 
-    @Test
+@Test
     public void testClass_2_oe() {
         final DefaultFileSystemManager manager = getManager();
         // removed other assertion
         assertTrue(manager.getFilesCache() instanceof NullFilesCache);
     }
 
-    @Test
+@Test
     public void testFilesCache_1_oe() throws Exception {
         final FileObject scratchFolder = getWriteFolder();
         Assert.assertNotNull("This test should not have a null FileObject scratch folder", scratchFolder);
     }
 
-    @Test
+@Test
     public void testFilesCache_2_oe() throws Exception {
         final FileObject scratchFolder = getWriteFolder();
         // removed other assertion

@@ -80,7 +80,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertEquals(POP3.TRANSACTION_STATE, pop3Client.getState());
     }
 
-    public void testNoopCommand_1_oe() throws Exception
+public void testNoopCommand_1_oe() throws Exception
     {
         reset();
         connect();
@@ -89,7 +89,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertFalse(pop3Client.noop());
     }
 
-    public void testNoopCommand_2_oe() throws Exception
+public void testNoopCommand_2_oe() throws Exception
     {
         reset();
         connect();
@@ -102,7 +102,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertTrue(pop3Client.noop());
     }
 
-    public void testNoopCommand_3_oe() throws Exception
+public void testNoopCommand_3_oe() throws Exception
     {
         reset();
         connect();
@@ -119,7 +119,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertFalse(pop3Client.noop());
     }
 
-    public void testStatus_1_oe() throws Exception
+public void testStatus_1_oe() throws Exception
     {
         reset();
         connect();
@@ -128,7 +128,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(pop3Client.status());
     }
 
-    public void testStatus_2_oe() throws Exception
+public void testStatus_2_oe() throws Exception
     {
         reset();
         connect();
@@ -142,7 +142,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertTrue(msg.number > 0);
     }
 
-    public void testStatus_3_oe() throws Exception
+public void testStatus_3_oe() throws Exception
     {
         reset();
         connect();
@@ -157,7 +157,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertTrue(msg.size > 0);
     }
 
-    public void testStatus_4_oe() throws Exception
+public void testStatus_4_oe() throws Exception
     {
         reset();
         connect();
@@ -173,7 +173,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg.identifier);
     }
 
-    public void testStatus_5_oe() throws Exception
+public void testStatus_5_oe() throws Exception
     {
         reset();
         connect();
@@ -195,7 +195,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertTrue(pop3Client.login(emptyUser, password));
     }
 
-    public void testStatus_6_oe() throws Exception
+public void testStatus_6_oe() throws Exception
     {
         reset();
         connect();
@@ -219,7 +219,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertEquals(0, msg2.number);
     }
 
-    public void testStatus_7_oe() throws Exception
+public void testStatus_7_oe() throws Exception
     {
         reset();
         connect();
@@ -244,7 +244,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertEquals(0, msg2.size);
     }
 
-    public void testStatus_8_oe() throws Exception
+public void testStatus_8_oe() throws Exception
     {
         reset();
         connect();
@@ -270,7 +270,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg2.identifier);
     }
 
-    public void testStatus_9_oe() throws Exception
+public void testStatus_9_oe() throws Exception
     {
         reset();
         connect();
@@ -304,7 +304,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(pop3Client.status());
     }
 
-    public void testListMessagesOnFullMailbox_1_oe() throws Exception
+public void testListMessagesOnFullMailbox_1_oe() throws Exception
     {
         reset();
         connect();
@@ -314,7 +314,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertTrue(msg.length > 0);
     }
 
-    public void testListMessagesOnFullMailbox_2_oe() throws Exception
+public void testListMessagesOnFullMailbox_2_oe() throws Exception
     {
         reset();
         connect();
@@ -329,7 +329,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
     }
     }
 
-    public void testListMessagesOnFullMailbox_3_oe() throws Exception
+public void testListMessagesOnFullMailbox_3_oe() throws Exception
     {
         reset();
         connect();
@@ -345,7 +345,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
     }
     }
 
-    public void testListMessagesOnFullMailbox_4_oe() throws Exception
+public void testListMessagesOnFullMailbox_4_oe() throws Exception
     {
         reset();
         connect();
@@ -362,7 +362,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
     }
     }
 
-    public void testListMessagesOnFullMailbox_5_oe() throws Exception
+public void testListMessagesOnFullMailbox_5_oe() throws Exception
     {
         reset();
         connect();
@@ -380,7 +380,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
     }
     }
 
-    public void testListMessagesOnFullMailbox_6_oe() throws Exception
+public void testListMessagesOnFullMailbox_6_oe() throws Exception
     {
         reset();
         connect();
@@ -403,7 +403,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg);
     }
 
-    public void testListMessageOnFullMailbox_1_oe() throws Exception
+public void testListMessageOnFullMailbox_1_oe() throws Exception
     {
         reset();
         connect();
@@ -414,7 +414,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNotNull(msg);
     }
 
-    public void testListMessageOnFullMailbox_2_oe() throws Exception
+public void testListMessageOnFullMailbox_2_oe() throws Exception
     {
         reset();
         connect();
@@ -426,7 +426,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertEquals(1, msg.number);
     }
 
-    public void testListMessageOnFullMailbox_3_oe() throws Exception
+public void testListMessageOnFullMailbox_3_oe() throws Exception
     {
         reset();
         connect();
@@ -439,7 +439,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertTrue(msg.size > 0);
     }
 
-    public void testListMessageOnFullMailbox_4_oe() throws Exception
+public void testListMessageOnFullMailbox_4_oe() throws Exception
     {
         reset();
         connect();
@@ -453,7 +453,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg.identifier);
     }
 
-    public void testListMessageOnFullMailbox_5_oe() throws Exception
+public void testListMessageOnFullMailbox_5_oe() throws Exception
     {
         reset();
         connect();
@@ -471,7 +471,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg);
     }
 
-    public void testListMessageOnFullMailbox_6_oe() throws Exception
+public void testListMessageOnFullMailbox_6_oe() throws Exception
     {
         reset();
         connect();
@@ -493,7 +493,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg);
     }
 
-    public void testListMessageOnFullMailbox_7_oe() throws Exception
+public void testListMessageOnFullMailbox_7_oe() throws Exception
     {
         reset();
         connect();
@@ -519,7 +519,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg);
     }
 
-    public void testListMessageOnFullMailbox_8_oe() throws Exception
+public void testListMessageOnFullMailbox_8_oe() throws Exception
     {
         reset();
         connect();
@@ -550,14 +550,14 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg);
     }
 
-    public void testListMessagesOnEmptyMailbox_1_oe() throws Exception
+public void testListMessagesOnEmptyMailbox_1_oe() throws Exception
     {
         reset();
         connect();
         assertTrue(pop3Client.login(emptyUser, password));
     }
 
-    public void testListMessagesOnEmptyMailbox_2_oe() throws Exception
+public void testListMessagesOnEmptyMailbox_2_oe() throws Exception
     {
         reset();
         connect();
@@ -567,7 +567,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertEquals(0, msg.length);
     }
 
-    public void testListMessagesOnEmptyMailbox_3_oe() throws Exception
+public void testListMessagesOnEmptyMailbox_3_oe() throws Exception
     {
         reset();
         connect();
@@ -582,14 +582,14 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg);
     }
 
-    public void testListMessageOnEmptyMailbox_1_oe() throws Exception
+public void testListMessageOnEmptyMailbox_1_oe() throws Exception
     {
         reset();
         connect();
         assertTrue(pop3Client.login(emptyUser, password));
     }
 
-    public void testListMessageOnEmptyMailbox_2_oe() throws Exception
+public void testListMessageOnEmptyMailbox_2_oe() throws Exception
     {
         reset();
         connect();
@@ -600,7 +600,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg);
     }
 
-    public void testListUniqueIDsOnFullMailbox_1_oe() throws Exception
+public void testListUniqueIDsOnFullMailbox_1_oe() throws Exception
     {
         reset();
         connect();
@@ -610,7 +610,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertTrue(msg.length > 0);
     }
 
-    public void testListUniqueIDsOnFullMailbox_2_oe() throws Exception
+public void testListUniqueIDsOnFullMailbox_2_oe() throws Exception
     {
         reset();
         connect();
@@ -625,7 +625,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
     }
     }
 
-    public void testListUniqueIDsOnFullMailbox_3_oe() throws Exception
+public void testListUniqueIDsOnFullMailbox_3_oe() throws Exception
     {
         reset();
         connect();
@@ -641,7 +641,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
     }
     }
 
-    public void testListUniqueIDsOnFullMailbox_4_oe() throws Exception
+public void testListUniqueIDsOnFullMailbox_4_oe() throws Exception
     {
         reset();
         connect();
@@ -658,7 +658,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
     }
     }
 
-    public void testListUniqueIDsOnFullMailbox_5_oe() throws Exception
+public void testListUniqueIDsOnFullMailbox_5_oe() throws Exception
     {
         reset();
         connect();
@@ -680,7 +680,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg);
     }
 
-    public void testListUniqueIDOnFullMailbox_1_oe() throws Exception
+public void testListUniqueIDOnFullMailbox_1_oe() throws Exception
     {
         reset();
         connect();
@@ -691,7 +691,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNotNull(msg);
     }
 
-    public void testListUniqueIDOnFullMailbox_2_oe() throws Exception
+public void testListUniqueIDOnFullMailbox_2_oe() throws Exception
     {
         reset();
         connect();
@@ -703,7 +703,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertEquals(1, msg.number);
     }
 
-    public void testListUniqueIDOnFullMailbox_3_oe() throws Exception
+public void testListUniqueIDOnFullMailbox_3_oe() throws Exception
     {
         reset();
         connect();
@@ -716,7 +716,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNotNull(msg.identifier);
     }
 
-    public void testListUniqueIDOnFullMailbox_4_oe() throws Exception
+public void testListUniqueIDOnFullMailbox_4_oe() throws Exception
     {
         reset();
         connect();
@@ -733,7 +733,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg);
     }
 
-    public void testListUniqueIDOnFullMailbox_5_oe() throws Exception
+public void testListUniqueIDOnFullMailbox_5_oe() throws Exception
     {
         reset();
         connect();
@@ -754,7 +754,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg);
     }
 
-    public void testListUniqueIDOnFullMailbox_6_oe() throws Exception
+public void testListUniqueIDOnFullMailbox_6_oe() throws Exception
     {
         reset();
         connect();
@@ -779,7 +779,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg);
     }
 
-    public void testListUniqueIDOnFullMailbox_7_oe() throws Exception
+public void testListUniqueIDOnFullMailbox_7_oe() throws Exception
     {
         reset();
         connect();
@@ -809,14 +809,14 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg);
     }
 
-    public void testListUniqueIDsOnEmptyMailbox_1_oe() throws Exception
+public void testListUniqueIDsOnEmptyMailbox_1_oe() throws Exception
     {
         reset();
         connect();
         assertTrue(pop3Client.login(emptyUser, password));
     }
 
-    public void testListUniqueIDsOnEmptyMailbox_2_oe() throws Exception
+public void testListUniqueIDsOnEmptyMailbox_2_oe() throws Exception
     {
         reset();
         connect();
@@ -826,7 +826,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertEquals(0, msg.length);
     }
 
-    public void testListUniqueIDsOnEmptyMailbox_3_oe() throws Exception
+public void testListUniqueIDsOnEmptyMailbox_3_oe() throws Exception
     {
         reset();
         connect();
@@ -841,14 +841,14 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg);
     }
 
-    public void testListUniqueIdentifierOnEmptyMailbox_1_oe() throws Exception
+public void testListUniqueIdentifierOnEmptyMailbox_1_oe() throws Exception
     {
         reset();
         connect();
         assertTrue(pop3Client.login(emptyUser, password));
     }
 
-    public void testListUniqueIdentifierOnEmptyMailbox_2_oe() throws Exception
+public void testListUniqueIdentifierOnEmptyMailbox_2_oe() throws Exception
     {
         reset();
         connect();
@@ -859,7 +859,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(msg);
     }
 
-    public void testRetrieveMessageOnFullMailbox_1_oe() throws Exception
+public void testRetrieveMessageOnFullMailbox_1_oe() throws Exception
     {
         reset();
         connect();
@@ -871,7 +871,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertTrue(msg.length > 0);
     }
 
-    public void testRetrieveMessageOnFullMailbox_2_oe() throws Exception
+public void testRetrieveMessageOnFullMailbox_2_oe() throws Exception
     {
         reset();
         connect();
@@ -890,7 +890,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
     }
     }
 
-    public void testRetrieveMessageOnFullMailbox_3_oe() throws Exception
+public void testRetrieveMessageOnFullMailbox_3_oe() throws Exception
     {
         reset();
         connect();
@@ -934,14 +934,14 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
     }
     }
 
-    public void testRetrieveMessageOnEmptyMailbox_1_oe() throws Exception
+public void testRetrieveMessageOnEmptyMailbox_1_oe() throws Exception
     {
         reset();
         connect();
         assertTrue(pop3Client.login(emptyUser, password));
     }
 
-    public void testRetrieveMessageOnEmptyMailbox_2_oe() throws Exception
+public void testRetrieveMessageOnEmptyMailbox_2_oe() throws Exception
     {
         reset();
         connect();
@@ -949,7 +949,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(pop3Client.retrieveMessage(1));
     }
 
-    public void testRetrieveMessageShouldFails_1_oe() throws Exception
+public void testRetrieveMessageShouldFails_1_oe() throws Exception
     {
         reset();
         connect();
@@ -959,7 +959,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(pop3Client.retrieveMessage(0));
     }
 
-    public void testRetrieveMessageShouldFails_2_oe() throws Exception
+public void testRetrieveMessageShouldFails_2_oe() throws Exception
     {
         reset();
         connect();
@@ -972,7 +972,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(pop3Client.retrieveMessage(-2));
     }
 
-    public void testRetrieveMessageShouldFails_3_oe() throws Exception
+public void testRetrieveMessageShouldFails_3_oe() throws Exception
     {
         reset();
         connect();
@@ -988,7 +988,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(pop3Client.retrieveMessage(100000));
     }
 
-    public void testRetrieveMessageShouldFails_4_oe() throws Exception
+public void testRetrieveMessageShouldFails_4_oe() throws Exception
     {
         reset();
         connect();
@@ -1008,7 +1008,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(pop3Client.retrieveMessage(1));
     }
 
-    public void testRetrieveMessageTopOnFullMailbox_1_oe() throws Exception
+public void testRetrieveMessageTopOnFullMailbox_1_oe() throws Exception
     {
         reset();
         connect();
@@ -1019,7 +1019,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertTrue(msg.length > 0);
     }
 
-    public void testRetrieveMessageTopOnFullMailbox_2_oe() throws Exception
+public void testRetrieveMessageTopOnFullMailbox_2_oe() throws Exception
     {
         reset();
         connect();
@@ -1036,7 +1036,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
     }
     }
 
-    public void testRetrieveOverSizedMessageTopOnFullMailbox_1_oe() throws Exception
+public void testRetrieveOverSizedMessageTopOnFullMailbox_1_oe() throws Exception
     {
         reset();
         connect();
@@ -1051,7 +1051,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNotNull(r);
     }
 
-    public void testRetrieveOverSizedMessageTopOnFullMailbox_2_oe() throws Exception
+public void testRetrieveOverSizedMessageTopOnFullMailbox_2_oe() throws Exception
     {
         reset();
         connect();
@@ -1091,14 +1091,14 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertTrue(actualSize >= reportedSize);
     }
 
-    public void testRetrieveMessageTopOnEmptyMailbox_1_oe() throws Exception
+public void testRetrieveMessageTopOnEmptyMailbox_1_oe() throws Exception
     {
         reset();
         connect();
         assertTrue(pop3Client.login(emptyUser, password));
     }
 
-    public void testRetrieveMessageTopOnEmptyMailbox_2_oe() throws Exception
+public void testRetrieveMessageTopOnEmptyMailbox_2_oe() throws Exception
     {
         reset();
         connect();
@@ -1106,7 +1106,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(pop3Client.retrieveMessageTop(1, 10));
     }
 
-    public void testRetrieveMessageTopShouldFails_1_oe() throws Exception
+public void testRetrieveMessageTopShouldFails_1_oe() throws Exception
     {
         reset();
         connect();
@@ -1116,7 +1116,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(pop3Client.retrieveMessageTop(0, 10));
     }
 
-    public void testRetrieveMessageTopShouldFails_2_oe() throws Exception
+public void testRetrieveMessageTopShouldFails_2_oe() throws Exception
     {
         reset();
         connect();
@@ -1129,7 +1129,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(pop3Client.retrieveMessageTop(-2, 10));
     }
 
-    public void testRetrieveMessageTopShouldFails_3_oe() throws Exception
+public void testRetrieveMessageTopShouldFails_3_oe() throws Exception
     {
         reset();
         connect();
@@ -1145,7 +1145,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(pop3Client.retrieveMessageTop(100000, 10));
     }
 
-    public void testRetrieveMessageTopShouldFails_4_oe() throws Exception
+public void testRetrieveMessageTopShouldFails_4_oe() throws Exception
     {
         reset();
         connect();
@@ -1165,7 +1165,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertNull(pop3Client.retrieveMessageTop(1, 10));
     }
 
-    public void testDeleteWithReset_1_oe() throws Exception
+public void testDeleteWithReset_1_oe() throws Exception
     {
         reset();
         connect();
@@ -1185,7 +1185,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertEquals(numMessages, numDeleted + 1);
     }
 
-    public void testDeleteWithReset_2_oe() throws Exception
+public void testDeleteWithReset_2_oe() throws Exception
     {
         reset();
         connect();
@@ -1219,7 +1219,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertEquals(numMessages, msg.length);
     }
 
-    public void testDelete_1_oe() throws Exception
+public void testDelete_1_oe() throws Exception
     {
         reset();
         connect();
@@ -1239,7 +1239,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertEquals(numMessages, numDeleted + 3);
     }
 
-    public void testDelete_2_oe() throws Exception
+public void testDelete_2_oe() throws Exception
     {
         reset();
         connect();
@@ -1270,7 +1270,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertEquals(numMessages - numDeleted, msg.length);
     }
 
-    public void testResetAndDeleteShouldFails_1_oe() throws Exception
+public void testResetAndDeleteShouldFails_1_oe() throws Exception
     {
         reset();
         connect();
@@ -1280,7 +1280,7 @@ public class POP3ClientCommandsTest_OE25Dev extends TestCase
         assertFalse(pop3Client.reset());
     }
 
-    public void testResetAndDeleteShouldFails_2_oe() throws Exception
+public void testResetAndDeleteShouldFails_2_oe() throws Exception
     {
         reset();
         connect();

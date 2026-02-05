@@ -281,7 +281,7 @@ public class ExifRewriteTest_OE25Dev extends ExifBaseTest {
         }
     }
 
-    @Test
+@Test
     public void testRemove_1_oe() throws Exception {
         final List<File> images = getImagesWithExifData();
         for (final File imageFile : images) {
@@ -304,7 +304,7 @@ public class ExifRewriteTest_OE25Dev extends ExifBaseTest {
     }
     }
 
-    @Test
+@Test
     public void testRemove_2_oe() throws Exception {
         final List<File> images = getImagesWithExifData();
         for (final File imageFile : images) {
@@ -341,7 +341,7 @@ public class ExifRewriteTest_OE25Dev extends ExifBaseTest {
     }
     }
 
-    @Test
+@Test
     public void testInsert_1_oe() throws Exception {
         final List<File> images = getImagesWithExifData();
         for (final File imageFile : images) {
@@ -362,7 +362,7 @@ public class ExifRewriteTest_OE25Dev extends ExifBaseTest {
     }
     }
 
-    @Test
+@Test
     public void testInsert_2_oe() throws Exception {
         final List<File> images = getImagesWithExifData();
         for (final File imageFile : images) {
@@ -386,7 +386,7 @@ public class ExifRewriteTest_OE25Dev extends ExifBaseTest {
     }
     }
 
-    @Test
+@Test
     public void testInsert_3_oe() throws Exception {
         final List<File> images = getImagesWithExifData();
         for (final File imageFile : images) {
@@ -426,7 +426,7 @@ public class ExifRewriteTest_OE25Dev extends ExifBaseTest {
     }
     }
 
-    @Test
+@Test
     public void testInsert_4_oe() throws Exception {
         final List<File> images = getImagesWithExifData();
         for (final File imageFile : images) {
@@ -489,7 +489,7 @@ public class ExifRewriteTest_OE25Dev extends ExifBaseTest {
     }
     }
 
-    @Test
+@Test
     public void testInsert_5_oe() throws Exception {
         final List<File> images = getImagesWithExifData();
         for (final File imageFile : images) {

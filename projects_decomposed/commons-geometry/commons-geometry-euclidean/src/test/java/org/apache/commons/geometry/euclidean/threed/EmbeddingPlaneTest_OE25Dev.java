@@ -259,7 +259,7 @@ class EmbeddingPlaneTest_OE25Dev {
         EuclideanTestUtils.assertCoordinatesEqual(origin, plane.getNormal().multiply(-offset), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPointAndPlaneVectors_illegalArguments_1_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -270,7 +270,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPointAndPlaneVectors(pt, Vector3D.of(0, 0, 1), Vector3D.of(0, 0, 1), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFromPointAndPlaneVectors_illegalArguments_2_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -283,7 +283,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPointAndPlaneVectors(pt, Vector3D.of(0, 0, 1), Vector3D.ZERO, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFromPointAndPlaneVectors_illegalArguments_3_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -298,7 +298,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPointAndPlaneVectors(pt, Vector3D.of(0, 0, 1), Vector3D.of(0, 0, 2), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFromPointAndPlaneVectors_illegalArguments_4_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -315,7 +315,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPointAndPlaneVectors(pt, Vector3D.of(0, 0, 1), Vector3D.of(0, 0, -2), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testGetEmbedding_1_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.ZERO,
@@ -325,7 +325,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertSame(plane, plane.getEmbedding());
     }
 
-    @Test
+@Test
     void testReverse_1_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(0, 0, 1);
@@ -341,7 +341,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(reversed.contains(Vector3D.of(1, 1, 1)));
     }
 
-    @Test
+@Test
     void testReverse_2_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(0, 0, 1);
@@ -358,7 +358,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(reversed.contains(Vector3D.of(-1, -1, 1)));
     }
 
-    @Test
+@Test
     void testReverse_3_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(0, 0, 1);
@@ -376,7 +376,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertFalse(reversed.contains(Vector3D.ZERO));
     }
 
-    @Test
+@Test
     void testReverse_4_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(0, 0, 1);
@@ -396,7 +396,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertEquals(1.0, reversed.offset(Vector3D.ZERO), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTransform_asymmetricScaling_1_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(0, 1, 0);
@@ -420,7 +420,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(result.contains(transformedPt));
     }
 
-    @Test
+@Test
     void testTransform_asymmetricScaling_2_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(0, 1, 0);
@@ -445,7 +445,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertFalse(plane.contains(transformedPt));
     }
 
-    @Test
+@Test
     void testRotate_1_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -459,7 +459,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(plane.contains(p1));
     }
 
-    @Test
+@Test
     void testRotate_2_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -474,7 +474,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(plane.contains(p2));
     }
 
-    @Test
+@Test
     void testRotate_3_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -490,7 +490,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertFalse(plane.contains(p3));
     }
 
-    @Test
+@Test
     void testRotate_4_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -509,7 +509,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertFalse(plane.contains(p1));
     }
 
-    @Test
+@Test
     void testRotate_5_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -529,7 +529,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(plane.contains(p2));
     }
 
-    @Test
+@Test
     void testRotate_6_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -550,7 +550,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertFalse(plane.contains(p3));
     }
 
-    @Test
+@Test
     void testRotate_7_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -574,7 +574,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertFalse(plane.contains(p1));
     }
 
-    @Test
+@Test
     void testRotate_8_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -599,7 +599,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertFalse(plane.contains(p2));
     }
 
-    @Test
+@Test
     void testRotate_9_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -625,7 +625,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertFalse(plane.contains(p3));
     }
 
-    @Test
+@Test
     void testTranslate_1_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -640,7 +640,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(plane.contains(p1));
     }
 
-    @Test
+@Test
     void testTranslate_2_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -656,7 +656,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(plane.contains(p2));
     }
 
-    @Test
+@Test
     void testTranslate_3_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -673,7 +673,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(plane.contains(p3));
     }
 
-    @Test
+@Test
     void testTranslate_4_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -693,7 +693,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertFalse(plane.contains(p1));
     }
 
-    @Test
+@Test
     void testTranslate_5_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -714,7 +714,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertFalse(plane.contains(p2));
     }
 
-    @Test
+@Test
     void testTranslate_6_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -736,7 +736,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertFalse(plane.contains(p3));
     }
 
-    @Test
+@Test
     void testTranslate_7_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -761,7 +761,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(plane.contains(p1));
     }
 
-    @Test
+@Test
     void testTranslate_8_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -787,7 +787,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(plane.contains(p2));
     }
 
-    @Test
+@Test
     void testTranslate_9_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
@@ -814,7 +814,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(plane.contains(p3));
     }
 
-    @Test
+@Test
     void testEq_stdAndEmbedding_1_oe() {
         // arrange
         final Plane stdPlane = Planes.fromPointAndNormal(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -828,7 +828,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(stdPlane.eq(embeddingPlane, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testEq_stdAndEmbedding_2_oe() {
         // arrange
         final Plane stdPlane = Planes.fromPointAndNormal(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -843,7 +843,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(embeddingPlane.eq(stdPlane, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testEq_stdAndEmbedding_3_oe() {
         // arrange
         final Plane stdPlane = Planes.fromPointAndNormal(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -860,7 +860,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertFalse(stdPlane.eq(nonEqEmbeddingPlane, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testEq_stdAndEmbedding_4_oe() {
         // arrange
         final Plane stdPlane = Planes.fromPointAndNormal(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -878,7 +878,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertFalse(nonEqEmbeddingPlane.eq(stdPlane, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_stdAndEmbedding_1_oe() {
         // arrange
         final Plane stdPlane = Planes.fromPointAndNormal(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -892,7 +892,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(stdPlane.similarOrientation(embeddingPlane));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_stdAndEmbedding_2_oe() {
         // arrange
         final Plane stdPlane = Planes.fromPointAndNormal(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -907,7 +907,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(embeddingPlane.similarOrientation(stdPlane));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_stdAndEmbedding_3_oe() {
         // arrange
         final Plane stdPlane = Planes.fromPointAndNormal(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -924,7 +924,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertFalse(stdPlane.similarOrientation(nonSimilarEmbeddingPlane));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_stdAndEmbedding_4_oe() {
         // arrange
         final Plane stdPlane = Planes.fromPointAndNormal(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -942,7 +942,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertFalse(nonSimilarEmbeddingPlane.similarOrientation(stdPlane));
     }
 
-    @Test
+@Test
     void testHashCode_1_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -962,7 +962,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertEquals(hash, a.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_2_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -984,7 +984,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertNotEquals(hash, b.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_3_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -1007,7 +1007,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertNotEquals(hash, c.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_4_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -1031,7 +1031,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertNotEquals(hash, d.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_5_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -1056,7 +1056,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertNotEquals(hash, e.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_6_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -1083,7 +1083,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertEquals(hash, f.hashCode());
     }
 
-    @Test
+@Test
     void testEquals_2_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -1105,7 +1105,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertNotEquals(a, b);
     }
 
-    @Test
+@Test
     void testEquals_3_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -1128,7 +1128,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertNotEquals(a, c);
     }
 
-    @Test
+@Test
     void testEquals_4_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -1152,7 +1152,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertNotEquals(a, d);
     }
 
-    @Test
+@Test
     void testEquals_5_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -1177,7 +1177,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertNotEquals(a, e);
     }
 
-    @Test
+@Test
     void testEquals_6_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -1204,7 +1204,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertEquals(a, f);
     }
 
-    @Test
+@Test
     void testEquals_7_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -1232,7 +1232,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertEquals(f, a);
     }
 
-    @Test
+@Test
     void testEquals_8_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -1262,7 +1262,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertNotEquals(a, stdPlane);
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.ZERO,
@@ -1275,7 +1275,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(str.startsWith("EmbeddingPlane["));
     }
 
-    @Test
+@Test
     void testToString_2_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.ZERO,
@@ -1289,7 +1289,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(str.matches(".*origin= \\(0(\\.0)?, 0(\\.0)?\\, 0(\\.0)?\\).*"));
     }
 
-    @Test
+@Test
     void testToString_3_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.ZERO,
@@ -1304,7 +1304,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(str.matches(".*u= \\(1(\\.0)?, 0(\\.0)?\\, 0(\\.0)?\\).*"));
     }
 
-    @Test
+@Test
     void testToString_4_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.ZERO,
@@ -1320,7 +1320,7 @@ class EmbeddingPlaneTest_OE25Dev {
         Assertions.assertTrue(str.matches(".*v= \\(0(\\.0)?, 1(\\.0)?\\, 0(\\.0)?\\).*"));
     }
 
-    @Test
+@Test
     void testToString_5_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.ZERO,

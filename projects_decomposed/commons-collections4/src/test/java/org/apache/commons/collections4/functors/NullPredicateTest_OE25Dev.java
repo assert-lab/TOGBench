@@ -29,18 +29,18 @@ public class NullPredicateTest_OE25Dev extends AbstractPredicateTest {
         return nullPredicate();
     }
 
-    @Test
+@Test
     public void testNullPredicate_1_oe() {
         assertSame(NullPredicate.nullPredicate(), NullPredicate.nullPredicate());
     }
 
-    @Test
+@Test
     public void testNullPredicate_2_oe() {
         // removed other assertion
         assertTrue(nullPredicate(), null);
     }
 
-    @Test
+@Test
     public void ensurePredicateCanBeTypedWithoutWarning_1_oe() throws Exception {
         final Predicate<String> predicate = NullPredicate.nullPredicate();
         assertFalse(predicate, cString);

@@ -9,22 +9,22 @@ public class CommentTest_OE25Dev {
     private Comment comment = new Comment(" This is one heck of a comment! ");
     private Comment decl = new Comment("?xml encoding='ISO-8859-1'?");
 
-    @Test
+@Test
     public void nodeName_1_oe() {
         assertEquals("#comment", comment.nodeName());
     }
 
-    @Test
+@Test
     public void getData_1_oe() {
         assertEquals(" This is one heck of a comment! ", comment.getData());
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         assertEquals("<!-- This is one heck of a comment! -->", comment.toString());
     }
 
-    @Test
+@Test
     public void testToString_2_oe() {
         // removed other assertion
 
@@ -32,7 +32,7 @@ public class CommentTest_OE25Dev {
         assertEquals("<div>\n <!-- comment-->\n</div>", doc.body().html());
     }
 
-    @Test
+@Test
     public void testToString_3_oe() {
         // removed other assertion
 
@@ -43,7 +43,7 @@ public class CommentTest_OE25Dev {
         assertEquals("<p>One<!-- comment -->Two</p>", doc.body().html());
     }
 
-    @Test
+@Test
     public void testToString_4_oe() {
         // removed other assertion
 
@@ -55,14 +55,14 @@ public class CommentTest_OE25Dev {
         assertEquals("OneTwo", doc.text());
     }
 
-    @Test
+@Test
     public void testHtmlNoPretty_1_oe() {
         Document doc = Jsoup.parse("<!-- a simple comment -->");
         doc.outputSettings().prettyPrint(false);
         assertEquals("<!-- a simple comment --><html><head></head><body></body></html>", doc.html());
     }
 
-    @Test
+@Test
     public void testHtmlNoPretty_2_oe() {
         Document doc = Jsoup.parse("<!-- a simple comment -->");
         doc.outputSettings().prettyPrint(false);
@@ -72,20 +72,20 @@ public class CommentTest_OE25Dev {
         assertEquals("<!-- a simple comment -->", c1.outerHtml());
     }
 
-    @Test
+@Test
     public void testClone_1_oe() {
         Comment c1 = comment.clone();
         assertNotSame(comment, c1);
     }
 
-    @Test
+@Test
     public void testClone_2_oe() {
         Comment c1 = comment.clone();
         // removed other assertion
         assertEquals(comment.getData(), comment.getData());
     }
 
-    @Test
+@Test
     public void testClone_3_oe() {
         Comment c1 = comment.clone();
         // removed other assertion
@@ -94,7 +94,7 @@ public class CommentTest_OE25Dev {
         assertEquals("New", c1.getData());
     }
 
-    @Test
+@Test
     public void testClone_4_oe() {
         Comment c1 = comment.clone();
         // removed other assertion
@@ -104,18 +104,18 @@ public class CommentTest_OE25Dev {
         assertNotEquals(c1.getData(), comment.getData());
     }
 
-    @Test
+@Test
     public void isXmlDeclaration_1_oe() {
         assertFalse(comment.isXmlDeclaration());
     }
 
-    @Test
+@Test
     public void isXmlDeclaration_2_oe() {
         // removed other assertion
         assertTrue(decl.isXmlDeclaration());
     }
 
-    @Test
+@Test
     public void asXmlDeclaration_1_oe() {
         XmlDeclaration xmlDeclaration = decl.asXmlDeclaration();
         assertNotNull(xmlDeclaration);

@@ -17,14 +17,14 @@ import org.springside.modules.metrics.metric.Timer;
 
 public class MetricRegistryTest_OE25Dev {
 
-	@Test
+@Test
 	public void counter_1_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 		Counter counter = metricRegistry.counter(MetricRegistry.name("UserService", "getUser.counter"));
 		assertThat(counter).isNotNull();
 	}
 
-	@Test
+@Test
 	public void counter_2_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 		Counter counter = metricRegistry.counter(MetricRegistry.name("UserService", "getUser.counter"));
@@ -36,7 +36,7 @@ public class MetricRegistryTest_OE25Dev {
 		assertThat(counter2).isNotNull().isSameAs(counter);
 	}
 
-	@Test
+@Test
 	public void counter_3_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 		Counter counter = metricRegistry.counter(MetricRegistry.name("UserService", "getUser.counter"));
@@ -51,14 +51,14 @@ public class MetricRegistryTest_OE25Dev {
 		assertThat(counter3).isNotNull().isSameAs(counter);
 	}
 
-	@Test
+@Test
 	public void histogram_1_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 		Histogram histogram = metricRegistry.histogram(MetricRegistry.name("UserService", "getUser.latency"));
 		assertThat(histogram).isNotNull();
 	}
 
-	@Test
+@Test
 	public void histogram_2_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 		Histogram histogram = metricRegistry.histogram(MetricRegistry.name("UserService", "getUser.latency"));
@@ -70,7 +70,7 @@ public class MetricRegistryTest_OE25Dev {
 		assertThat(histogram2).isNotNull().isSameAs(histogram);
 	}
 
-	@Test
+@Test
 	public void histogram_3_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 		Histogram histogram = metricRegistry.histogram(MetricRegistry.name("UserService", "getUser.latency"));
@@ -85,7 +85,7 @@ public class MetricRegistryTest_OE25Dev {
 		assertThat(histogram3).isNotNull().isSameAs(histogram);
 	}
 
-	@Test
+@Test
 	public void execution_1_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
@@ -93,7 +93,7 @@ public class MetricRegistryTest_OE25Dev {
 		assertThat(execution).isNotNull();
 	}
 
-	@Test
+@Test
 	public void execution_2_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
@@ -106,7 +106,7 @@ public class MetricRegistryTest_OE25Dev {
 		assertThat(execution2).isNotNull().isSameAs(execution);
 	}
 
-	@Test
+@Test
 	public void execution_3_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
@@ -122,7 +122,7 @@ public class MetricRegistryTest_OE25Dev {
 		assertThat(execution3).isNotNull().isSameAs(execution);
 	}
 
-	@Test
+@Test
 	public void defaultPcts_1_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
@@ -139,7 +139,7 @@ public class MetricRegistryTest_OE25Dev {
 		assertThat(metric.pcts.get(60d)).isEqualTo(60);
 	}
 
-	@Test
+@Test
 	public void defaultPcts_2_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
@@ -157,7 +157,7 @@ public class MetricRegistryTest_OE25Dev {
 		assertThat(metric.pcts.get(70d)).isEqualTo(70);
 	}
 
-	@Test
+@Test
 	public void defaultPcts_3_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
@@ -188,7 +188,7 @@ public class MetricRegistryTest_OE25Dev {
 		assertThat(metric.pcts.get(50d)).isEqualTo(50);
 	}
 
-	@Test
+@Test
 	public void defaultPcts_4_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 

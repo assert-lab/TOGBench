@@ -87,19 +87,19 @@ public class ListUtilsTest_OE25Dev {
         }
     };
 
-    @Test
+@Test
     public void testIntersectNonEmptyWithEmptyList_1_oe() {
         final List<String> empty = Collections.<String>emptyList();
         assertTrue("result not empty", ListUtils.intersection(empty, fullList).isEmpty());
     }
 
-    @Test
+@Test
     public void testIntersectEmptyWithEmptyList_1_oe() {
         final List<?> empty = Collections.EMPTY_LIST;
         assertTrue("result not empty", ListUtils.intersection(empty, empty).isEmpty());
     }
 
-    @Test
+@Test
     public void testIntersectNonEmptySubset_1_oe() {
         // create a copy
         final List<String> other = new ArrayList<>(fullList);
@@ -108,7 +108,7 @@ public class ListUtilsTest_OE25Dev {
         assertNotNull(other.remove(0));
     }
 
-    @Test
+@Test
     public void testIntersectNonEmptySubset_2_oe() {
         // create a copy
         final List<String> other = new ArrayList<>(fullList);
@@ -118,7 +118,7 @@ public class ListUtilsTest_OE25Dev {
         assertNotNull(other.remove(1));
     }
 
-    @Test
+@Test
     public void testIntersectNonEmptySubset_3_oe() {
         // create a copy
         final List<String> other = new ArrayList<>(fullList);
@@ -131,19 +131,19 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(other, ListUtils.intersection(fullList, other));
     }
 
-    @Test
+@Test
     public void testIntersectListWithNoOverlapAndDifferentTypes_1_oe() {
         @SuppressWarnings("boxing")
         final List<Integer> other = Arrays.asList(1, 23);
         assertTrue(ListUtils.intersection(fullList, other).isEmpty());
     }
 
-    @Test
+@Test
     public void testIntersectListWithSelf_1_oe() {
         assertEquals(fullList, ListUtils.intersection(fullList, fullList));
     }
 
-    @Test
+@Test
     public void testIntersectionOrderInsensitivity_1_oe() {
         final List<String> one = new ArrayList<>();
         final List<String> two = new ArrayList<>();
@@ -156,7 +156,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(ListUtils.intersection(one,two),ListUtils.intersection(two, one));
     }
 
-    @Test
+@Test
     public void testPredicatedList_1_oe() {
         final Predicate<Object> predicate = new Predicate<Object>() {
             @Override
@@ -168,7 +168,7 @@ public class ListUtilsTest_OE25Dev {
         assertTrue("returned object should be a PredicatedList", list instanceof PredicatedList);
     }
 
-    @Test
+@Test
     public void testLazyFactoryList_1_oe() {
         final List<Integer> list = ListUtils.lazyList(new ArrayList<Integer>(), new Factory<Integer>() {
 
@@ -184,7 +184,7 @@ public class ListUtilsTest_OE25Dev {
         assertNotNull(list.get(5));
     }
 
-    @Test
+@Test
     public void testLazyFactoryList_2_oe() {
         final List<Integer> list = ListUtils.lazyList(new ArrayList<Integer>(), new Factory<Integer>() {
 
@@ -201,7 +201,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(6, list.size());
     }
 
-    @Test
+@Test
     public void testLazyFactoryList_3_oe() {
         final List<Integer> list = ListUtils.lazyList(new ArrayList<Integer>(), new Factory<Integer>() {
 
@@ -220,7 +220,7 @@ public class ListUtilsTest_OE25Dev {
         assertNotNull(list.get(5));
     }
 
-    @Test
+@Test
     public void testLazyFactoryList_4_oe() {
         final List<Integer> list = ListUtils.lazyList(new ArrayList<Integer>(), new Factory<Integer>() {
 
@@ -240,7 +240,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(6, list.size());
     }
 
-    @Test
+@Test
     public void testLazyTransformerList_1_oe() {
         final List<Integer> offsets = Arrays.asList(3, 5, 1, 5, 3, 6);
         final List<Integer> list = ListUtils.lazyList(new ArrayList<>(), new Transformer<Integer, Integer>() {
@@ -257,7 +257,7 @@ public class ListUtilsTest_OE25Dev {
         assertNotNull(list.get(5));
     }
 
-    @Test
+@Test
     public void testLazyTransformerList_2_oe() {
         final List<Integer> offsets = Arrays.asList(3, 5, 1, 5, 3, 6);
         final List<Integer> list = ListUtils.lazyList(new ArrayList<>(), new Transformer<Integer, Integer>() {
@@ -275,7 +275,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(6, list.size());
     }
 
-    @Test
+@Test
     public void testLazyTransformerList_3_oe() {
         final List<Integer> offsets = Arrays.asList(3, 5, 1, 5, 3, 6);
         final List<Integer> list = ListUtils.lazyList(new ArrayList<>(), new Transformer<Integer, Integer>() {
@@ -295,7 +295,7 @@ public class ListUtilsTest_OE25Dev {
         assertNotNull(list.get(5));
     }
 
-    @Test
+@Test
     public void testLazyTransformerList_4_oe() {
         final List<Integer> offsets = Arrays.asList(3, 5, 1, 5, 3, 6);
         final List<Integer> list = ListUtils.lazyList(new ArrayList<>(), new Transformer<Integer, Integer>() {
@@ -316,12 +316,12 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(6, list.size());
     }
 
-    @Test
+@Test
     public void testEmptyIfNull_1_oe() {
         assertTrue(ListUtils.emptyIfNull(null).isEmpty());
     }
 
-    @Test
+@Test
     public void testEmptyIfNull_2_oe() {
         // removed other assertion
 
@@ -329,12 +329,12 @@ public class ListUtilsTest_OE25Dev {
         assertSame(list, ListUtils.emptyIfNull(list));
     }
 
-    @Test
+@Test
     public void testDefaultIfNull_1_oe() {
         assertTrue(ListUtils.defaultIfNull(null, Collections.emptyList()).isEmpty());
     }
 
-    @Test
+@Test
     public void testDefaultIfNull_2_oe() {
         // removed other assertion
 
@@ -342,7 +342,7 @@ public class ListUtilsTest_OE25Dev {
         assertSame(list, ListUtils.defaultIfNull(list, Collections.<Long>emptyList()));
     }
 
-    @Test
+@Test
     public void testEquals_1_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -352,7 +352,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(true, a.equals(b));
     }
 
-    @Test
+@Test
     public void testEquals_2_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -363,7 +363,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(true, ListUtils.isEqualList(a, b));
     }
 
-    @Test
+@Test
     public void testEquals_3_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -376,7 +376,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(false, ListUtils.isEqualList(a, b));
     }
 
-    @Test
+@Test
     public void testEquals_4_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -390,7 +390,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(false, ListUtils.isEqualList(a, null));
     }
 
-    @Test
+@Test
     public void testEquals_5_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -405,7 +405,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(false, ListUtils.isEqualList(null, b));
     }
 
-    @Test
+@Test
     public void testEquals_6_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -421,7 +421,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(true, ListUtils.isEqualList(null, null));
     }
 
-    @Test
+@Test
     public void testHashCode_1_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -431,7 +431,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(true, a.hashCode() == b.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_2_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -442,7 +442,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(true, a.hashCode() == ListUtils.hashCodeForList(a));
     }
 
-    @Test
+@Test
     public void testHashCode_3_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -454,7 +454,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(true, b.hashCode() == ListUtils.hashCodeForList(b));
     }
 
-    @Test
+@Test
     public void testHashCode_4_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -467,7 +467,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(true, ListUtils.hashCodeForList(a) == ListUtils.hashCodeForList(b));
     }
 
-    @Test
+@Test
     public void testHashCode_5_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -482,7 +482,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(false, ListUtils.hashCodeForList(a) == ListUtils.hashCodeForList(b));
     }
 
-    @Test
+@Test
     public void testHashCode_6_oe() {
         final Collection<String> data = Arrays.asList("a", "b", "c");
 
@@ -498,7 +498,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(0, ListUtils.hashCodeForList(null));
     }
 
-    @Test
+@Test
     public void testRetainAll_1_oe() {
         final List<String> sub = new ArrayList<>();
         sub.add(a);
@@ -509,7 +509,7 @@ public class ListUtilsTest_OE25Dev {
         assertTrue(retained.size() == 2);
     }
 
-    @Test
+@Test
     public void testRetainAll_2_oe() {
         final List<String> sub = new ArrayList<>();
         sub.add(a);
@@ -522,7 +522,7 @@ public class ListUtilsTest_OE25Dev {
         assertTrue(retained.equals(sub));
     }
 
-    @Test
+@Test
     public void testRetainAll_3_oe() {
         final List<String> sub = new ArrayList<>();
         sub.add(a);
@@ -537,7 +537,7 @@ public class ListUtilsTest_OE25Dev {
         assertTrue(retained.equals(fullList));
     }
 
-    @Test
+@Test
     public void testRemoveAll_1_oe() {
         final List<String> sub = new ArrayList<>();
         sub.add(a);
@@ -548,7 +548,7 @@ public class ListUtilsTest_OE25Dev {
         assertTrue(remainder.size() == 3);
     }
 
-    @Test
+@Test
     public void testRemoveAll_2_oe() {
         final List<String> sub = new ArrayList<>();
         sub.add(a);
@@ -561,7 +561,7 @@ public class ListUtilsTest_OE25Dev {
         assertTrue(remainder.equals(fullList));
     }
 
-    @Test
+@Test
     public void testSubtract_1_oe() {
         final List<String> list = new ArrayList<>();
         list.add(a);
@@ -576,7 +576,7 @@ public class ListUtilsTest_OE25Dev {
         assertTrue(result.size() == 3);
     }
 
-    @Test
+@Test
     public void testSubtract_2_oe() {
         final List<String> list = new ArrayList<>();
         list.add(a);
@@ -598,7 +598,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(expected, result);
     }
 
-    @Test
+@Test
     public void testSubtractNullElement_1_oe() {
         final List<String> list = new ArrayList<>();
         list.add(a);
@@ -613,7 +613,7 @@ public class ListUtilsTest_OE25Dev {
         assertTrue(result.size() == 3);
     }
 
-    @Test
+@Test
     public void testSubtractNullElement_2_oe() {
         final List<String> list = new ArrayList<>();
         list.add(a);
@@ -635,14 +635,14 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(expected, result);
     }
 
-    @Test
+@Test
     public void testIndexOf_1_oe() {
         Predicate<String> testPredicate = EqualPredicate.equalPredicate("d");
         int index = ListUtils.indexOf(fullList, testPredicate);
         assertEquals(d, fullList.get(index));
     }
 
-    @Test
+@Test
     public void testIndexOf_2_oe() {
         Predicate<String> testPredicate = EqualPredicate.equalPredicate("d");
         int index = ListUtils.indexOf(fullList, testPredicate);
@@ -653,7 +653,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(index, -1);
     }
 
-    @Test
+@Test
     public void testIndexOf_3_oe() {
         Predicate<String> testPredicate = EqualPredicate.equalPredicate("d");
         int index = ListUtils.indexOf(fullList, testPredicate);
@@ -666,7 +666,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(ListUtils.indexOf(null,testPredicate), -1);
     }
 
-    @Test
+@Test
     public void testIndexOf_4_oe() {
         Predicate<String> testPredicate = EqualPredicate.equalPredicate("d");
         int index = ListUtils.indexOf(fullList, testPredicate);
@@ -680,7 +680,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(ListUtils.indexOf(fullList, null), -1);
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testLongestCommonSubsequence_4_oe() {
 
@@ -704,7 +704,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(0, lcs.size());
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testLongestCommonSubsequence_5_oe() {
 
@@ -735,7 +735,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(expected, lcs);
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testLongestCommonSubsequence_6_oe() {
 
@@ -772,7 +772,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(expected, lcs);
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testLongestCommonSubsequence_7_oe() {
 
@@ -814,7 +814,7 @@ public class ListUtilsTest_OE25Dev {
         assertTrue(lcs.isEmpty());
     }
 
-    @Test
+@Test
     public void testLongestCommonSubsequenceWithString_4_oe() {
 
       try {
@@ -836,7 +836,7 @@ public class ListUtilsTest_OE25Dev {
       assertEquals(0, lcs.length());
     }
 
-    @Test
+@Test
     public void testLongestCommonSubsequenceWithString_5_oe() {
 
       try {
@@ -864,7 +864,7 @@ public class ListUtilsTest_OE25Dev {
       assertEquals("ANANA", lcs);
     }
 
-    @Test
+@Test
     public void testLongestCommonSubsequenceWithString_6_oe() {
 
       try {
@@ -897,7 +897,7 @@ public class ListUtilsTest_OE25Dev {
       assertEquals("AANA", lcs);
     }
 
-    @Test
+@Test
     public void testLongestCommonSubsequenceWithString_7_oe() {
 
       try {
@@ -935,7 +935,7 @@ public class ListUtilsTest_OE25Dev {
       assertEquals(0, lcs.length());
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testPartition_1_oe() {
         final List<Integer> strings = new ArrayList<>();
@@ -948,7 +948,7 @@ public class ListUtilsTest_OE25Dev {
         assertNotNull(partition);
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testPartition_2_oe() {
         final List<Integer> strings = new ArrayList<>();
@@ -962,7 +962,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(3, partition.size());
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testPartition_3_oe() {
         final List<Integer> strings = new ArrayList<>();
@@ -977,7 +977,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(1, partition.get(2).size());
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testPartition_7_oe() {
         final List<Integer> strings = new ArrayList<>();
@@ -1010,7 +1010,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(1, partitionMax.size());
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testPartition_8_oe() {
         final List<Integer> strings = new ArrayList<>();
@@ -1044,7 +1044,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(strings.size(), partitionMax.get(0).size());
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testPartition_9_oe() {
         final List<Integer> strings = new ArrayList<>();
@@ -1079,7 +1079,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(strings, partitionMax.get(0));
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testSelect_1_oe() {
         final List<Integer> list = new ArrayList<>();
@@ -1094,7 +1094,7 @@ public class ListUtilsTest_OE25Dev {
         assertTrue(CollectionUtils.isEqualCollection(output1, output3));
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testSelect_2_oe() {
         final List<Integer> list = new ArrayList<>();
@@ -1110,7 +1110,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(4, list.size());
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testSelect_3_oe() {
         final List<Integer> list = new ArrayList<>();
@@ -1127,7 +1127,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(1, output1.size());
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testSelect_4_oe() {
         final List<Integer> list = new ArrayList<>();
@@ -1145,7 +1145,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(2, output2.iterator().next());
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testSelectRejected_1_oe() {
         final List<Long> list = new ArrayList<>();
@@ -1159,7 +1159,7 @@ public class ListUtilsTest_OE25Dev {
         assertTrue(CollectionUtils.isEqualCollection(output1, output2));
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testSelectRejected_2_oe() {
         final List<Long> list = new ArrayList<>();
@@ -1174,7 +1174,7 @@ public class ListUtilsTest_OE25Dev {
         assertTrue(CollectionUtils.isEqualCollection(output1, output3));
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testSelectRejected_3_oe() {
         final List<Long> list = new ArrayList<>();
@@ -1190,7 +1190,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(4, list.size());
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testSelectRejected_4_oe() {
         final List<Long> list = new ArrayList<>();
@@ -1207,7 +1207,7 @@ public class ListUtilsTest_OE25Dev {
         assertEquals(3, output1.size());
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testSelectRejected_5_oe() {
         final List<Long> list = new ArrayList<>();
@@ -1225,7 +1225,7 @@ public class ListUtilsTest_OE25Dev {
         assertTrue(output1.contains(1L));
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testSelectRejected_6_oe() {
         final List<Long> list = new ArrayList<>();
@@ -1244,7 +1244,7 @@ public class ListUtilsTest_OE25Dev {
         assertTrue(output1.contains(3L));
     }
 
-    @Test
+@Test
     @SuppressWarnings("boxing") // OK in test code
     public void testSelectRejected_7_oe() {
         final List<Long> list = new ArrayList<>();

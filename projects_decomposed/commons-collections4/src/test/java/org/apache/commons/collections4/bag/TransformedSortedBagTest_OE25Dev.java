@@ -60,12 +60,12 @@ public class TransformedSortedBagTest_OE25Dev<T> extends AbstractSortedBagTest<T
 //        writeExternalFormToDisk((java.io.Serializable) bag, "src/test/resources/data/test/TransformedSortedBag.fullCollection.version4.obj");
 //    }
 
-    public void testTransformedBag_1_oe() {
+public void testTransformedBag_1_oe() {
         final SortedBag<T> bag = TransformedSortedBag.transformingSortedBag(new TreeBag<T>(), (Transformer<T, T>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         assertEquals(0, bag.size());
     }
 
-    public void testTransformedBag_2_oe() {
+public void testTransformedBag_2_oe() {
         final SortedBag<T> bag = TransformedSortedBag.transformingSortedBag(new TreeBag<T>(), (Transformer<T, T>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -75,7 +75,7 @@ public class TransformedSortedBagTest_OE25Dev<T> extends AbstractSortedBagTest<T
     }
     }
 
-    public void testTransformedBag_3_oe() {
+public void testTransformedBag_3_oe() {
         final SortedBag<T> bag = TransformedSortedBag.transformingSortedBag(new TreeBag<T>(), (Transformer<T, T>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -86,7 +86,7 @@ public class TransformedSortedBagTest_OE25Dev<T> extends AbstractSortedBagTest<T
     }
     }
 
-    public void testTransformedBag_4_oe() {
+public void testTransformedBag_4_oe() {
         final SortedBag<T> bag = TransformedSortedBag.transformingSortedBag(new TreeBag<T>(), (Transformer<T, T>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -99,7 +99,7 @@ public class TransformedSortedBagTest_OE25Dev<T> extends AbstractSortedBagTest<T
         assertEquals(true, bag.remove(Integer.valueOf((String) els[0])));
     }
 
-    public void testTransformedBag_decorateTransform_1_oe() {
+public void testTransformedBag_decorateTransform_1_oe() {
         final Bag<Object> originalBag = new TreeBag<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         for (final Object el : els) {
@@ -109,7 +109,7 @@ public class TransformedSortedBagTest_OE25Dev<T> extends AbstractSortedBagTest<T
         assertEquals(els.length, bag.size());
     }
 
-    public void testTransformedBag_decorateTransform_2_oe() {
+public void testTransformedBag_decorateTransform_2_oe() {
         final Bag<Object> originalBag = new TreeBag<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         for (final Object el : els) {
@@ -122,7 +122,7 @@ public class TransformedSortedBagTest_OE25Dev<T> extends AbstractSortedBagTest<T
     }
     }
 
-    public void testTransformedBag_decorateTransform_3_oe() {
+public void testTransformedBag_decorateTransform_3_oe() {
         final Bag<Object> originalBag = new TreeBag<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         for (final Object el : els) {

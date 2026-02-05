@@ -200,7 +200,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         }
     }
 
-    @Test
+@Test
     public void testOne_1_oe() throws Exception {
         // abort test if class creator can not run
         if (!ClassCreator.canRun) {
@@ -213,7 +213,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("foo1", foo1.getSimpleName());
     }
 
-    @Test
+@Test
     public void testFunctorOne_1_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -227,7 +227,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertSame(foo1.getClassLoader(), cctor.getClassLoader());
     }
 
-    @Test
+@Test
     public void testFunctorOne_2_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -242,7 +242,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("foo1", foo1.getSimpleName());
     }
 
-    @Test
+@Test
     public void testFunctorOne_3_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -259,7 +259,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo1, result.getClass());
     }
 
-    @Test
+@Test
     public void testFunctorOne_4_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -283,7 +283,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1010, result);
     }
 
-    @Test
+@Test
     public void testFunctorOne_5_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -309,7 +309,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1010, result);
     }
 
-    @Test
+@Test
     public void testFunctorOne_6_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -341,7 +341,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("foo1", foo1.getSimpleName());
     }
 
-    @Test
+@Test
     public void testFunctorOne_7_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -374,7 +374,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertNotSame(foo11, foo1);
     }
 
-    @Test
+@Test
     public void testFunctorOne_8_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -410,7 +410,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo1, result.getClass());
     }
 
-    @Test
+@Test
     public void testFunctorOne_9_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -451,7 +451,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1099, result);
     }
 
-    @Test
+@Test
     public void testFunctorOne_10_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -494,7 +494,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1099, result);
     }
 
-    @Test
+@Test
     public void testFunctorThree_1_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -506,7 +506,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertSame(foo1.getClassLoader(), cctor.getClassLoader());
     }
 
-    @Test
+@Test
     public void testFunctorThree_2_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -519,7 +519,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("foo2", foo1.getSimpleName());
     }
 
-    @Test
+@Test
     public void testFunctorThree_3_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -534,7 +534,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo1, result.getClass());
     }
 
-    @Test
+@Test
     public void testFunctorThree_4_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -559,7 +559,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1010, result);
     }
 
-    @Test
+@Test
     public void testFunctorThree_5_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -589,7 +589,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("foo2", foo1.getSimpleName());
     }
 
-    @Test
+@Test
     public void testFunctorThree_6_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -620,7 +620,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertNotSame(foo11, foo1);
     }
 
-    @Test
+@Test
     public void testFunctorThree_7_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -654,7 +654,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo1, result.getClass());
     }
 
-    @Test
+@Test
     public void testFunctorThree_8_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set("value", 1000);
@@ -693,7 +693,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1099, result);
     }
 
-    @Test
+@Test
     public void testMany_1_oe() throws Exception {
         // abort test if class creator can not run
         if (!ClassCreator.canRun) {
@@ -727,7 +727,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testMany_2_oe() throws Exception {
         // abort test if class creator can not run
         if (!ClassCreator.canRun) {
@@ -771,7 +771,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testMany_3_oe() throws Exception {
         // abort test if class creator can not run
         if (!ClassCreator.canRun) {
@@ -819,7 +819,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testMany_4_oe() throws Exception {
         // abort test if class creator can not run
         if (!ClassCreator.canRun) {
@@ -868,7 +868,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testMany_5_oe() throws Exception {
         // abort test if class creator can not run
         if (!ClassCreator.canRun) {
@@ -921,7 +921,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testMany_6_oe() throws Exception {
         // abort test if class creator can not run
         if (!ClassCreator.canRun) {
@@ -975,14 +975,14 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testBasicCtor_1_oe() throws Exception {
         final JexlScript s = jexl.createScript("(c, v)->{ var ct2 = new(c, v); ct2.value; }");
         Object r = s.execute(null, TwoCtors.class, 10);
         Assert.assertEquals(10, r);
     }
 
-    @Test
+@Test
     public void testBasicCtor_2_oe() throws Exception {
         final JexlScript s = jexl.createScript("(c, v)->{ var ct2 = new(c, v); ct2.value; }");
         Object r = s.execute(null, TwoCtors.class, 10);
@@ -991,7 +991,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(10, r);
     }
 
-    @Test
+@Test
     public void testBasicCtor_3_oe() throws Exception {
         final JexlScript s = jexl.createScript("(c, v)->{ var ct2 = new(c, v); ct2.value; }");
         Object r = s.execute(null, TwoCtors.class, 10);
@@ -1002,7 +1002,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(-10, r);
     }
 
-    @Test
+@Test
     public void testBasicCtor_4_oe() throws Exception {
         final JexlScript s = jexl.createScript("(c, v)->{ var ct2 = new(c, v); ct2.value; }");
         Object r = s.execute(null, TwoCtors.class, 10);
@@ -1015,7 +1015,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(-100, r);
     }
 
-    @Test
+@Test
     public void testContextualCtor_1_oe() throws Exception {
         final MapContext ctxt = new MapContext();
         ctxt.set("value", 42);
@@ -1024,7 +1024,7 @@ public class ClassCreatorTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, r);
     }
 
-    @Test
+@Test
     public void testContextualCtor_2_oe() throws Exception {
         final MapContext ctxt = new MapContext();
         ctxt.set("value", 42);

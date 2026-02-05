@@ -7,7 +7,7 @@ import static org.junit.Assert.assertArrayEquals;
 
 public class RequestTest_OE25Dev {
 
-    @Test
+@Test
     public void shouldGetQueryStringParameters_1_oe() {
         final OAuthRequest postRequest = new OAuthRequest(Verb.POST, "http://example.com");
         postRequest.addBodyParameter("param", "value");
@@ -19,7 +19,7 @@ public class RequestTest_OE25Dev {
         assertEquals(2, getRequest.getQueryStringParams().size());
     }
 
-    @Test
+@Test
     public void shouldGetQueryStringParameters_2_oe() {
         final OAuthRequest postRequest = new OAuthRequest(Verb.POST, "http://example.com");
         postRequest.addBodyParameter("param", "value");
@@ -32,7 +32,7 @@ public class RequestTest_OE25Dev {
         assertEquals(0, postRequest.getQueryStringParams().size());
     }
 
-    @Test
+@Test
     public void shouldGetQueryStringParameters_3_oe() {
         final OAuthRequest postRequest = new OAuthRequest(Verb.POST, "http://example.com");
         postRequest.addBodyParameter("param", "value");
@@ -46,7 +46,7 @@ public class RequestTest_OE25Dev {
         assertTrue(getRequest.getQueryStringParams().contains(new Parameter("qsparam", "value")));
     }
 
-    @Test
+@Test
     public void shouldSetBodyParamsAndAddContentLength_1_oe() {
         final OAuthRequest postRequest = new OAuthRequest(Verb.POST, "http://example.com");
         postRequest.addBodyParameter("param", "value");
@@ -55,7 +55,7 @@ public class RequestTest_OE25Dev {
         assertEquals("param=value&param%20with%20spaces=value%20with%20spaces",new String(postRequest.getByteArrayPayload()));
     }
 
-    @Test
+@Test
     public void shouldSetPayloadAndHeaders_1_oe() {
         final OAuthRequest postRequest = new OAuthRequest(Verb.POST, "http://example.com");
         postRequest.addBodyParameter("param", "value");
@@ -65,7 +65,7 @@ public class RequestTest_OE25Dev {
         assertEquals("PAYLOAD", postRequest.getStringPayload());
     }
 
-    @Test
+@Test
     public void shouldAllowAddingQuerystringParametersAfterCreation_1_oe() {
         final OAuthRequest request = new OAuthRequest(Verb.GET, "http://example.com?one=val");
         request.addQuerystringParameter("two", "other val");
@@ -73,7 +73,7 @@ public class RequestTest_OE25Dev {
         assertEquals(3, request.getQueryStringParams().size());
     }
 
-    @Test
+@Test
     public void shouldReturnTheCompleteUrl_1_oe() {
         final OAuthRequest request = new OAuthRequest(Verb.GET, "http://example.com?one=val");
         request.addQuerystringParameter("two", "other val");
@@ -81,7 +81,7 @@ public class RequestTest_OE25Dev {
         assertEquals("http://example.com?one=val&two=other%20val&more=params", request.getCompleteUrl());
     }
 
-    @Test
+@Test
     public void shouldHandleQueryStringSpaceEncodingProperly_1_oe() {
         final OAuthRequest getRequest
                 = new OAuthRequest(Verb.GET, "http://example.com?qsparam=value&other+param=value+with+spaces");
@@ -89,7 +89,7 @@ public class RequestTest_OE25Dev {
         assertTrue(getRequest.getQueryStringParams().contains(new Parameter("other param", "value with spaces")));
     }
 
-    @Test
+@Test
     public void shouldNotEncodeInStringPayload_1_oe() throws Exception {
         final String requestBody = "~/!@#$%^&*( )_+//\r\n%2F&amp;";
 
@@ -99,7 +99,7 @@ public class RequestTest_OE25Dev {
         assertEquals(requestBody, postRequest.getStringPayload());
     }
 
-    @Test
+@Test
     public void shouldNotEncodeInByteBodyPayload_1_oe() throws Exception {
         final byte[] requestBody = "~/!@#$%^&*( )_+//\r\n%2F&amp;".getBytes();
 
@@ -109,7 +109,7 @@ public class RequestTest_OE25Dev {
         assertArrayEquals(requestBody, postRequest.getByteArrayPayload());
     }
 
-    @Test
+@Test
     public void shouldEncodeInBodyParamsPayload_1_oe() throws Exception {
         final String expectedRequestBodyParamName = "~/!@#$%^&*( )_+//\r\n%2F&amp;name";
         final String expectedRequestBodyParamValue = "~/!@#$%^&*( )_+//\r\n%2F&amp;value";

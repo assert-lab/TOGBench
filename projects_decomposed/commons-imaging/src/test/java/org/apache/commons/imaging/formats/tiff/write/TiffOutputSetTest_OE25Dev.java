@@ -38,7 +38,7 @@ public class TiffOutputSetTest_OE25Dev {
      * https://issues.apache.org/jira/browse/IMAGING-144
      */
 
-    @Test
+@Test
     public void testImaging144_1_oe() throws Exception {
         tiffOutputSet.setGPSInDegrees(1.0, 1.0);
 
@@ -47,7 +47,7 @@ public class TiffOutputSetTest_OE25Dev {
         assertNotNull(gpsVersionId);
     }
 
-    @Test
+@Test
     public void testImaging144_2_oe() throws Exception {
         tiffOutputSet.setGPSInDegrees(1.0, 1.0);
 

@@ -52,7 +52,7 @@ public class JpegReadTest_OE25Dev extends JpegBaseTest {
      * <p>See Google OSS Fuzz issue 33458</p>
      */
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void test_1_oe(final File imageFile) throws Exception {
         JpegImageParser jpegImageParser = new JpegImageParser();
@@ -67,7 +67,7 @@ public class JpegReadTest_OE25Dev extends JpegBaseTest {
         assertNotNull(imageInfo);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void test_3_oe(final File imageFile) throws Exception {
         JpegImageParser jpegImageParser = new JpegImageParser();
@@ -89,7 +89,7 @@ public class JpegReadTest_OE25Dev extends JpegBaseTest {
     }
     }
 
-    @Test
+@Test
     public void testUncaughtExceptionOssFuzz33458_1_oe() {
         final String input = "/images/jpeg/oss-fuzz-33458/clusterfuzz-testcase-minimized-ImagingJpegFuzzer-4548690447564800";
         final String file = JpegReadTest.class.getResource(input).getFile();

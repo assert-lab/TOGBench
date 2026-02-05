@@ -42,3 +42,65 @@ dbut_33_1,"    @Test
     }
     }
 ",ResultSetIteratorTest::testRethrowThrowsRuntimeException_1_oe
+dbut_124_1,"@Test
+    public void testApplyType_1_oe() throws Exception {
+        when(rs.getDouble(1)).thenReturn(Double.MIN_VALUE);
+        assertEquals(Double.class, handler.apply(rs, 1).getClass());
+    }",DoubleColumnHandlerTest::testApplyType_1_oe
+dbut_125_1,"@Test
+    public void testApplyType_1_oe() throws Exception {
+        when(rs.getBoolean(1)).thenReturn(Boolean.TRUE);
+        assertEquals(Boolean.class, handler.apply(rs, 1).getClass());
+    }",BooleanColumnHandlerTest::testApplyType_1_oe
+dbut_126_1,"@Test
+    public void testApplyType_1_oe() throws Exception {
+        when(rs.getFloat(1)).thenReturn(Float.MIN_VALUE);
+        assertEquals(Float.class, handler.apply(rs, 1).getClass());
+    }",FloatColumnHandlerTest::testApplyType_1_oe
+dbut_127_1,"@Test
+    public void testApplyType_1_oe() throws Exception {
+        when(rs.getByte(1)).thenReturn(Byte.MIN_VALUE);
+        assertEquals(Byte.class, handler.apply(rs, 1).getClass());
+    }",ByteColumnHandlerTest::testApplyType_1_oe
+dbut_128_1,"@Test
+    public void testMatchNegative_1_oe() {
+        assertFalse(handler.match(Float.class));
+    }",IntegerColumnHandlerTest::testMatchNegative_1_oe
+dbut_129_1,"@Test
+    public void testApplyType_1_oe() throws Exception {
+        when(rs.getInt(1)).thenReturn(Integer.MIN_VALUE);
+        assertEquals(Integer.class, handler.apply(rs, 1).getClass());
+    }",IntegerColumnHandlerTest::testApplyType_1_oe
+dbut_130_1,"@Test
+    public void testApplyType_1_oe() throws Exception {
+        when(rs.getString(1)).thenReturn(""tester"");
+        assertEquals(String.class, handler.apply(rs, 1).getClass());
+    }",StringColumnHandlerTest::testApplyType_1_oe
+dbut_131_1,"@Test
+    public void testApplyType_1_oe() throws Exception {
+        when(rs.getSQLXML(1)).thenReturn(sqlxml);
+        assertTrue(SQLXML.class.isAssignableFrom(handler.apply(rs, 1).getClass()));
+    }",SQLXMLColumnHandlerTest::testApplyType_1_oe
+dbut_132_1,"@Test
+    public void testApplyType_1_oe() throws Exception {
+        when(rs.getTimestamp(1)).thenReturn(new Timestamp(new Date().getTime()));
+        assertEquals(Timestamp.class, handler.apply(rs, 1).getClass());
+    }",TimestampColumnHandlerTest::testApplyType_1_oe
+dbut_133_1,"@Test
+    public void testMatch_1_oe() {
+        assertTrue(handler.match(matchingType));
+    }",ColumnHandlerTestBase::testMatch_1_oe
+dbut_134_1,"@Test
+    public void testMatchNegative_1_oe() {
+        assertFalse(handler.match(Integer.class));
+    }",ColumnHandlerTestBase::testMatchNegative_1_oe
+dbut_135_1,"@Test
+    public void testApplyType_1_oe() throws Exception {
+        when(rs.getShort(1)).thenReturn(Short.MIN_VALUE);
+        assertEquals(Short.class, handler.apply(rs, 1).getClass());
+    }",ShortColumnHandlerTest::testApplyType_1_oe
+dbut_136_1,"@Test
+    public void testApplyType_1_oe() throws Exception {
+        when(rs.getLong(1)).thenReturn(Long.MIN_VALUE);
+        assertEquals(Long.class, handler.apply(rs, 1).getClass());
+    }",LongColumnHandlerTest::testApplyType_1_oe

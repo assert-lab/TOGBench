@@ -225,7 +225,7 @@ public class TestReadWriteSynchronizer_OE25Dev {
      * accounts. If everything goes well, the total amount of money stays constant over time.
      */
 
-    @Test
+@Test
     public void testSynchronizerInAction_1_oe() throws InterruptedException {
         final int numberOfUpdates = 10000;
         final int numberOfReads = numberOfUpdates / 2;
@@ -258,7 +258,7 @@ public class TestReadWriteSynchronizer_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSynchronizerInAction_2_oe() throws InterruptedException {
         final int numberOfUpdates = 10000;
         final int numberOfReads = numberOfUpdates / 2;

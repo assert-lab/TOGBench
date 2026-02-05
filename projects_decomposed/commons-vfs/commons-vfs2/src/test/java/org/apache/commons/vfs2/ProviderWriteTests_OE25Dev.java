@@ -236,7 +236,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
      * Tests file write to and from the same file system type
      */
 
-    @Test
+@Test
     public void testCopyFromOverwriteSameFileSystem_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -245,7 +245,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testCopySameFileSystem_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -254,7 +254,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testCreateDeleteCreateSameFileSystem_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -263,7 +263,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testDelete_1_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -278,7 +278,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testDelete_2_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -295,7 +295,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testDelete_3_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -316,7 +316,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testDelete_4_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -339,7 +339,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testDelete_5_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -366,7 +366,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testDelete_6_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -395,7 +395,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testDelete_7_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -429,7 +429,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testDelete_8_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -464,7 +464,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file2.exists());
     }
 
-    @Test
+@Test
     public void testDelete_9_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -501,7 +501,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testDelete_10_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -539,7 +539,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file2.exists());
     }
 
-    @Test
+@Test
     public void testDelete_11_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -581,7 +581,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testDelete_12_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -625,7 +625,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testDeleteAllDescendents_1_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -640,7 +640,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testDeleteAllDescendents_2_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -657,7 +657,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testDeleteAllDescendents_3_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -678,7 +678,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testDeleteAllDescendents_4_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -701,7 +701,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testDeleteAllDescendents_5_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -728,7 +728,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testDeleteAllDescendents_6_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -757,7 +757,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testDeleteAllDescendents_7_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -791,7 +791,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testDeleteAllDescendents_8_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -826,7 +826,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file2.exists());
     }
 
-    @Test
+@Test
     public void testDeleteAllDescendents_9_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -863,7 +863,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testDeleteAllDescendents_10_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -901,7 +901,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file2.exists());
     }
 
-    @Test
+@Test
     public void testDeleteAllDescendents_11_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -943,7 +943,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testDeleteAllDescendents_12_oe() throws Exception {
         // Set-up the test structure
         final FileObject folder = createScratchFolder();
@@ -987,7 +987,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testFileCreate_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -996,7 +996,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testFileCreate_2_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1007,7 +1007,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testFileCreate_3_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1019,7 +1019,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertSame(FileType.FILE, file.getType());
     }
 
-    @Test
+@Test
     public void testFileCreate_4_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1032,7 +1032,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isFile());
     }
 
-    @Test
+@Test
     public void testFileCreate_5_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1046,7 +1046,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(0, file.getContent().getSize());
     }
 
-    @Test
+@Test
     public void testFileCreate_6_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1061,7 +1061,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.getContent().isEmpty());
     }
 
-    @Test
+@Test
     public void testFileCreate_7_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1077,7 +1077,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.isHidden());
     }
 
-    @Test
+@Test
     public void testFileCreate_8_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1094,7 +1094,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.isSymbolicLink());
     }
 
-    @Test
+@Test
     public void testFileCreate_9_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1112,7 +1112,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isReadable());
     }
 
-    @Test
+@Test
     public void testFileCreate_10_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1131,7 +1131,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isWriteable());
     }
 
-    @Test
+@Test
     public void testFileCreate_11_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1154,7 +1154,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testFileCreate_12_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1179,7 +1179,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testFileCreate_13_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1205,7 +1205,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertSame(FileType.FILE, file.getType());
     }
 
-    @Test
+@Test
     public void testFileCreate_14_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1232,7 +1232,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isFile());
     }
 
-    @Test
+@Test
     public void testFileCreate_15_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1260,7 +1260,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(0, file.getContent().getSize());
     }
 
-    @Test
+@Test
     public void testFileCreate_16_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1289,7 +1289,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.isHidden());
     }
 
-    @Test
+@Test
     public void testFileCreate_17_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1319,7 +1319,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isReadable());
     }
 
-    @Test
+@Test
     public void testFileCreate_18_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1350,7 +1350,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isWriteable());
     }
 
-    @Test
+@Test
     public void testFileCreate_19_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1385,7 +1385,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testFileCreate_20_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1421,7 +1421,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.getParent().exists());
     }
 
-    @Test
+@Test
     public void testFileCreate_21_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1458,7 +1458,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.getParent().getParent().exists());
     }
 
-    @Test
+@Test
     public void testFileCreate_22_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1497,7 +1497,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testFileCreate_23_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1537,7 +1537,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertSame(FileType.FILE, file.getType());
     }
 
-    @Test
+@Test
     public void testFileCreate_24_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1578,7 +1578,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isFile());
     }
 
-    @Test
+@Test
     public void testFileCreate_25_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1620,7 +1620,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(0, file.getContent().getSize());
     }
 
-    @Test
+@Test
     public void testFileCreate_26_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1663,7 +1663,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.getParent().exists());
     }
 
-    @Test
+@Test
     public void testFileCreate_27_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1707,7 +1707,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.getParent().getParent().exists());
     }
 
-    @Test
+@Test
     public void testFileCreate_28_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1752,7 +1752,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.getParent().isHidden());
     }
 
-    @Test
+@Test
     public void testFileCreate_29_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1798,7 +1798,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.getParent().getParent().isHidden());
     }
 
-    @Test
+@Test
     public void testFileCreate_30_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1847,7 +1847,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testFileCreate_31_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1898,7 +1898,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testFileCreate_32_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -1950,7 +1950,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isReadable());
     }
 
-    @Test
+@Test
     public void testFileCreate_33_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2003,7 +2003,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isWriteable());
     }
 
-    @Test
+@Test
     public void testFileCreateMismatched_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2013,7 +2013,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(FileType.FILE, file.getType());
     }
 
-    @Test
+@Test
     public void testFileCreateMismatched_2_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2024,7 +2024,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isFile());
     }
 
-    @Test
+@Test
     public void testFileCreateMismatched_3_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2039,7 +2039,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(FileType.FOLDER, folder.getType());
     }
 
-    @Test
+@Test
     public void testFileCreateMismatched_4_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2055,7 +2055,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(folder.isFolder());
     }
 
-    @Test
+@Test
     public void testFolderCreate_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2064,7 +2064,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(folder.exists());
     }
 
-    @Test
+@Test
     public void testFolderCreate_2_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2075,7 +2075,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(folder.exists());
     }
 
-    @Test
+@Test
     public void testFolderCreate_3_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2087,7 +2087,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertSame(FileType.FOLDER, folder.getType());
     }
 
-    @Test
+@Test
     public void testFolderCreate_4_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2100,7 +2100,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(folder.isFolder());
     }
 
-    @Test
+@Test
     public void testFolderCreate_5_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2114,7 +2114,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(0, folder.getChildren().length);
     }
 
-    @Test
+@Test
     public void testFolderCreate_6_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2132,7 +2132,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(folder.exists());
     }
 
-    @Test
+@Test
     public void testFolderCreate_7_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2151,7 +2151,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(folder.getParent().exists());
     }
 
-    @Test
+@Test
     public void testFolderCreate_8_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2171,7 +2171,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(folder.getParent().getParent().exists());
     }
 
-    @Test
+@Test
     public void testFolderCreate_9_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2193,7 +2193,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(folder.exists());
     }
 
-    @Test
+@Test
     public void testFolderCreate_10_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2216,7 +2216,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertSame(FileType.FOLDER, folder.getType());
     }
 
-    @Test
+@Test
     public void testFolderCreate_11_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2240,7 +2240,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(folder.isFolder());
     }
 
-    @Test
+@Test
     public void testFolderCreate_12_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2265,7 +2265,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(0, folder.getChildren().length);
     }
 
-    @Test
+@Test
     public void testFolderCreate_13_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2291,7 +2291,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(folder.getParent().exists());
     }
 
-    @Test
+@Test
     public void testFolderCreate_14_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2318,7 +2318,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(folder.getParent().getParent().exists());
     }
 
-    @Test
+@Test
     public void testFolderCreate_15_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2348,25 +2348,25 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(folder.exists());
     }
 
-    @Test
+@Test
     public void testFolderIsHidden_1_oe() throws Exception {
         final FileObject folder = getReadFolderDir1();
         Assert.assertFalse(folder.isHidden());
     }
 
-    @Test
+@Test
     public void testFolderIsReadable_1_oe() throws Exception {
         final FileObject folder = getReadFolderDir1();
         Assert.assertTrue(folder.isReadable());
     }
 
-    @Test
+@Test
     public void testFolderIsWritable_1_oe() throws Exception {
         final FileObject folder = getWriteFolder().resolveFile("dir1");
         Assert.assertTrue(folder.isWriteable());
     }
 
-    @Test
+@Test
     public void testListChildren_1_oe() throws Exception {
         final FileObject folder = createScratchFolder();
         final HashSet<String> names = new HashSet<>();
@@ -2375,7 +2375,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(0, folder.getChildren().length);
     }
 
-    @Test
+@Test
     public void testListChildren_8_oe() throws Exception {
         final FileObject folder = createScratchFolder();
         final HashSet<String> names = new HashSet<>();
@@ -2420,7 +2420,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(0, folder.getChildren().length);
     }
 
-    @Test
+@Test
     public void testListener_1_oe() throws Exception {
         final FileObject baseFile = createScratchFolder();
 
@@ -2428,7 +2428,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(child.exists());
     }
 
-    @Test
+@Test
     public void testOverwriteSameFileSystem_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -2437,7 +2437,7 @@ public class ProviderWriteTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testWriteSameFileSystem_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 

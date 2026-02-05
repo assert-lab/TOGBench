@@ -376,7 +376,7 @@ public class LexicalTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testLexical1_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -408,7 +408,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testLexical3_1_oe() throws Exception {
         final String str = "var s = {}; for (var i : [1]) s.add(i); s";
         final JexlEngine jexl = new JexlBuilder().strict(true).lexical(true).create();
@@ -418,7 +418,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertTrue(((Set)o).contains(1));
     }
 
-    @Test
+@Test
     public void testLexical3_2_oe() throws Exception {
         final String str = "var s = {}; for (var i : [1]) s.add(i); s";
         final JexlEngine jexl = new JexlBuilder().strict(true).lexical(true).create();
@@ -432,7 +432,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertTrue(((Set)o).contains(1));
     }
 
-    @Test
+@Test
     public void testLexical4_1_oe() throws Exception {
         final JexlEngine Jexl = new JexlBuilder().silent(false).strict(true).lexical(true).create();
         final JxltEngine Jxlt = Jexl.createJxltEngine();
@@ -450,7 +450,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(ctl, output);
     }
 
-    @Test
+@Test
     public void testLexical5_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).lexical(true).create();
         final JexlContext ctxt = new DebugContext();
@@ -466,7 +466,7 @@ public class LexicalTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testLexical6a_1_oe() throws Exception {
         final String str = "i = 0; { var i = 32; }; i";
         final JexlEngine jexl = new JexlBuilder().strict(true).lexical(true).create();
@@ -476,7 +476,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(0, o);
     }
 
-    @Test
+@Test
     public void testLexical6b_2_oe() throws Exception {
         final String str = "i = 0; { var i = 32; }; i";
         final JexlEngine jexl = new JexlBuilder().strict(true).lexical(true).lexicalShade(true).create();
@@ -490,7 +490,7 @@ public class LexicalTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testLexical6c_1_oe() throws Exception {
         final String str = "i = 0; for (var i : [42]) i; i";
         final JexlEngine jexl = new JexlBuilder().strict(true).lexical(true).lexicalShade(false).create();
@@ -500,7 +500,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(0, o);
     }
 
-    @Test
+@Test
     public void testLexical6d_2_oe() throws Exception {
         final String str = "i = 0; for (var i : [42]) i; i";
         final JexlEngine jexl = new JexlBuilder().strict(true).lexical(true).lexicalShade(true).create();
@@ -514,7 +514,7 @@ public class LexicalTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testPragmaOptions_2_oe() throws Exception {
         // same as 6d but using a pragma
         final String str = "#pragma jexl.options '+strict +lexical +lexicalShade -safe'\n"
@@ -530,7 +530,7 @@ public class LexicalTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testPragmaNoop_1_oe() throws Exception {
         // unknow pragma
         final String str = "#pragma jexl.options 'no effect'\ni = -42; for (var i : [42]) i; i";
@@ -541,7 +541,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testScopeFrame_1_oe() throws Exception {
         final LexicalScope scope = new LexicalScope();
         for(int i = 0; i < 128; i += 2) {
@@ -549,7 +549,7 @@ public class LexicalTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testScopeFrame_2_oe() throws Exception {
         final LexicalScope scope = new LexicalScope();
         for(int i = 0; i < 128; i += 2) {
@@ -558,7 +558,7 @@ public class LexicalTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testScopeFrame_3_oe() throws Exception {
         final LexicalScope scope = new LexicalScope();
         for(int i = 0; i < 128; i += 2) {
@@ -570,7 +570,7 @@ public class LexicalTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testScopeFrame_4_oe() throws Exception {
         final LexicalScope scope = new LexicalScope();
         for(int i = 0; i < 128; i += 2) {
@@ -583,7 +583,7 @@ public class LexicalTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testContextualOptions0_2_oe() throws Exception {
         final JexlFeatures f= new JexlFeatures();
         final JexlEngine jexl = new JexlBuilder().features(f).strict(true).create();
@@ -602,7 +602,7 @@ public class LexicalTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testContextualOptions1_1_oe() throws Exception {
         final JexlFeatures f = new JexlFeatures();
         final JexlEngine jexl = new JexlBuilder().features(f).strict(true).create();
@@ -625,7 +625,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testContextualOptions1_2_oe() throws Exception {
         final JexlFeatures f = new JexlFeatures();
         final JexlEngine jexl = new JexlBuilder().features(f).strict(true).create();
@@ -652,7 +652,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertTrue(result instanceof JexlException.Variable);
     }
 
-    @Test
+@Test
     public void testParameter0_1_oe() throws Exception {
         final String str = "function(u) {}";
         final JexlEngine jexl = new JexlBuilder().create();
@@ -660,7 +660,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(1, e.getParameters().length);
     }
 
-    @Test
+@Test
     public void testParameter0_2_oe() throws Exception {
         final String str = "function(u) {}";
         final JexlEngine jexl = new JexlBuilder().create();
@@ -670,7 +670,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(1, e.getParameters().length);
     }
 
-    @Test
+@Test
     public void testParameter1_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).lexical(true).create();
         final JexlContext jc = new MapContext();
@@ -680,7 +680,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testInnerAccess0_1_oe() throws Exception {
         final JexlFeatures f = new JexlFeatures();
         f.lexical(true);
@@ -692,7 +692,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertNull(script.execute(null));
     }
 
-    @Test
+@Test
     public void testForVariable1_2_oe() throws Exception {
         final JexlFeatures f = new JexlFeatures();
         f.lexical(true);
@@ -707,7 +707,7 @@ public class LexicalTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testUndeclaredVariable_2_oe() throws Exception {
         final JexlFeatures f = new JexlFeatures();
         f.lexical(true);
@@ -722,7 +722,7 @@ public class LexicalTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testLexical6a1_1_oe() throws Exception {
         final String str = "i = 0; { var i = 32; }; i";
         final JexlFeatures f = new JexlFeatures();
@@ -734,7 +734,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(0, o);
     }
 
-    @Test
+@Test
     public void testInternalLexicalFeatures_1_oe() throws Exception {
         final String str = "42";
         final JexlFeatures f = new JexlFeatures();
@@ -751,7 +751,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertTrue(features.isLexical());
     }
 
-    @Test
+@Test
     public void testInternalLexicalFeatures_2_oe() throws Exception {
         final String str = "42";
         final JexlFeatures f = new JexlFeatures();
@@ -769,7 +769,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertTrue(features.isLexicalShade());
     }
 
-    @Test
+@Test
     public void testInternalLexicalFeatures_3_oe() throws Exception {
         final String str = "42";
         final JexlFeatures f = new JexlFeatures();
@@ -789,7 +789,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testInternalLexicalFeatures_4_oe() throws Exception {
         final String str = "42";
         final JexlFeatures f = new JexlFeatures();
@@ -810,7 +810,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertTrue(opts.isLexical());
     }
 
-    @Test
+@Test
     public void testInternalLexicalFeatures_5_oe() throws Exception {
         final String str = "42";
         final JexlFeatures f = new JexlFeatures();
@@ -832,7 +832,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertTrue(opts.isLexicalShade());
     }
 
-    @Test
+@Test
     public void testVarLoop0_1_oe() throws Exception {
         final String src0 = "var count = 10;\n"
                 + "for (var i : 0 .. count-1) {\n"
@@ -860,7 +860,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(ff0, ff1);
     }
 
-    @Test
+@Test
     public void testVarLoop0_2_oe() throws Exception {
         final String src0 = "var count = 10;\n"
                 + "for (var i : 0 .. count-1) {\n"
@@ -889,7 +889,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(ft0, ft1);
     }
 
-    @Test
+@Test
     public void testVarLoop0_3_oe() throws Exception {
         final String src0 = "var count = 10;\n"
                 + "for (var i : 0 .. count-1) {\n"
@@ -919,7 +919,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertNotEquals(ff0, ft0);
     }
 
-    @Test
+@Test
     public void testVarLoop0_4_oe() throws Exception {
         final String src0 = "var count = 10;\n"
                 + "for (var i : 0 .. count-1) {\n"
@@ -952,7 +952,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(sff0, sff1);
     }
 
-    @Test
+@Test
     public void testVarLoop0_5_oe() throws Exception {
         final String src0 = "var count = 10;\n"
                 + "for (var i : 0 .. count-1) {\n"
@@ -987,7 +987,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertNotEquals(sff0, sft1);
     }
 
-    @Test
+@Test
     public void testAnnotation_1_oe() throws Exception {
         final JexlFeatures f = new JexlFeatures();
         f.lexical(true);
@@ -998,7 +998,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testNamed_1_oe() throws Exception {
         final JexlFeatures f = new JexlFeatures();
         f.lexical(true);
@@ -1009,7 +1009,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void tesstCaptured0_1_oe() throws Exception {
         final JexlFeatures f = new JexlFeatures();
         f.lexical(true);
@@ -1021,7 +1021,7 @@ public class LexicalTest_OE25Dev {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testCaptured1_1_oe() throws Exception {
         final JexlFeatures f = new JexlFeatures();
         f.lexical(true);

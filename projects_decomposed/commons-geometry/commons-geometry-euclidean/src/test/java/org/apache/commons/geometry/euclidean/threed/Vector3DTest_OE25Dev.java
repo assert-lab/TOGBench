@@ -584,20 +584,20 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(z, v.getZ(), EPS);
     }
 
-    @Test
+@Test
     void testConstants_normalize_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, Vector3D.ZERO::normalize);
     }
 
-    @Test
+@Test
     void testConstants_normalize_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, Vector3D.NaN::normalize);
     }
 
-    @Test
+@Test
     void testConstants_normalize_3_oe() {
         // act/assert
         // removed other assertion
@@ -605,7 +605,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, Vector3D.POSITIVE_INFINITY::normalize);
     }
 
-    @Test
+@Test
     void testConstants_normalize_4_oe() {
         // act/assert
         // removed other assertion
@@ -614,7 +614,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, Vector3D.NEGATIVE_INFINITY::normalize);
     }
 
-    @Test
+@Test
     void testConstants_normalize_5_oe() {
         // act/assert
         // removed other assertion
@@ -625,7 +625,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertSame(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_X.normalize());
     }
 
-    @Test
+@Test
     void testConstants_normalize_6_oe() {
         // act/assert
         // removed other assertion
@@ -637,7 +637,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertSame(Vector3D.Unit.MINUS_X, Vector3D.Unit.MINUS_X.normalize());
     }
 
-    @Test
+@Test
     void testConstants_normalize_7_oe() {
         // act/assert
         // removed other assertion
@@ -651,7 +651,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertSame(Vector3D.Unit.PLUS_Y, Vector3D.Unit.PLUS_Y.normalize());
     }
 
-    @Test
+@Test
     void testConstants_normalize_8_oe() {
         // act/assert
         // removed other assertion
@@ -666,7 +666,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertSame(Vector3D.Unit.MINUS_Y, Vector3D.Unit.MINUS_Y.normalize());
     }
 
-    @Test
+@Test
     void testConstants_normalize_9_oe() {
         // act/assert
         // removed other assertion
@@ -683,7 +683,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertSame(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_Z.normalize());
     }
 
-    @Test
+@Test
     void testConstants_normalize_10_oe() {
         // act/assert
         // removed other assertion
@@ -701,7 +701,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertSame(Vector3D.Unit.MINUS_Z, Vector3D.Unit.MINUS_Z.normalize());
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrder_1_oe() {
         // arrange
         final Comparator<Vector3D> cmp = Vector3D.COORDINATE_ASCENDING_ORDER;
@@ -710,7 +710,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(0, cmp.compare(Vector3D.of(1, 2, 3), Vector3D.of(1, 2, 3)));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrder_2_oe() {
         // arrange
         final Comparator<Vector3D> cmp = Vector3D.COORDINATE_ASCENDING_ORDER;
@@ -721,7 +721,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(-1, cmp.compare(Vector3D.of(0, 2, 3), Vector3D.of(1, 2, 3)));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrder_3_oe() {
         // arrange
         final Comparator<Vector3D> cmp = Vector3D.COORDINATE_ASCENDING_ORDER;
@@ -733,7 +733,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(-1, cmp.compare(Vector3D.of(1, 1, 3), Vector3D.of(1, 2, 3)));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrder_4_oe() {
         // arrange
         final Comparator<Vector3D> cmp = Vector3D.COORDINATE_ASCENDING_ORDER;
@@ -746,7 +746,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(-1, cmp.compare(Vector3D.of(1, 2, 2), Vector3D.of(1, 2, 3)));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrder_5_oe() {
         // arrange
         final Comparator<Vector3D> cmp = Vector3D.COORDINATE_ASCENDING_ORDER;
@@ -761,7 +761,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(1, cmp.compare(Vector3D.of(2, 2, 3), Vector3D.of(1, 2, 3)));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrder_6_oe() {
         // arrange
         final Comparator<Vector3D> cmp = Vector3D.COORDINATE_ASCENDING_ORDER;
@@ -777,7 +777,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(1, cmp.compare(Vector3D.of(1, 3, 3), Vector3D.of(1, 2, 3)));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrder_7_oe() {
         // arrange
         final Comparator<Vector3D> cmp = Vector3D.COORDINATE_ASCENDING_ORDER;
@@ -794,7 +794,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(1, cmp.compare(Vector3D.of(1, 2, 4), Vector3D.of(1, 2, 3)));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrder_8_oe() {
         // arrange
         final Comparator<Vector3D> cmp = Vector3D.COORDINATE_ASCENDING_ORDER;
@@ -813,7 +813,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(-1, cmp.compare(Vector3D.of(1, 2, 3), null));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrder_9_oe() {
         // arrange
         final Comparator<Vector3D> cmp = Vector3D.COORDINATE_ASCENDING_ORDER;
@@ -833,7 +833,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(1, cmp.compare(null, Vector3D.of(1, 2, 3)));
     }
 
-    @Test
+@Test
     void testCoordinateAscendingOrder_10_oe() {
         // arrange
         final Comparator<Vector3D> cmp = Vector3D.COORDINATE_ASCENDING_ORDER;
@@ -854,7 +854,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(0, cmp.compare(null, null));
     }
 
-    @Test
+@Test
     void testCoordinates_1_oe() {
         // arrange
         final Vector3D c = Vector3D.of(1, 2, 3);
@@ -863,7 +863,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(1.0, c.getX(), EPS);
     }
 
-    @Test
+@Test
     void testCoordinates_2_oe() {
         // arrange
         final Vector3D c = Vector3D.of(1, 2, 3);
@@ -873,7 +873,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(2.0, c.getY(), EPS);
     }
 
-    @Test
+@Test
     void testCoordinates_3_oe() {
         // arrange
         final Vector3D c = Vector3D.of(1, 2, 3);
@@ -884,7 +884,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(3.0, c.getZ(), EPS);
     }
 
-    @Test
+@Test
     void testToArray_1_oe() {
         // arrange
         final Vector3D c = Vector3D.of(1, 2, 3);
@@ -896,7 +896,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(3, arr.length);
     }
 
-    @Test
+@Test
     void testToArray_2_oe() {
         // arrange
         final Vector3D c = Vector3D.of(1, 2, 3);
@@ -909,7 +909,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(1.0, arr[0], EPS);
     }
 
-    @Test
+@Test
     void testToArray_3_oe() {
         // arrange
         final Vector3D c = Vector3D.of(1, 2, 3);
@@ -923,7 +923,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(2.0, arr[1], EPS);
     }
 
-    @Test
+@Test
     void testToArray_4_oe() {
         // arrange
         final Vector3D c = Vector3D.of(1, 2, 3);
@@ -938,7 +938,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(3.0, arr[2], EPS);
     }
 
-    @Test
+@Test
     void testDimension_1_oe() {
         // arrange
         final Vector3D c = Vector3D.of(1, 2, 3);
@@ -947,20 +947,20 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(3, c.getDimension());
     }
 
-    @Test
+@Test
     void testNaN_1_oe() {
         // act/assert
         Assertions.assertTrue(Vector3D.of(0, 0, Double.NaN).isNaN());
     }
 
-    @Test
+@Test
     void testNaN_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertTrue(Vector3D.of(0, Double.NaN, 0).isNaN());
     }
 
-    @Test
+@Test
     void testNaN_3_oe() {
         // act/assert
         // removed other assertion
@@ -968,7 +968,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(Vector3D.of(Double.NaN, 0, 0).isNaN());
     }
 
-    @Test
+@Test
     void testNaN_4_oe() {
         // act/assert
         // removed other assertion
@@ -978,7 +978,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(1, 1, 1).isNaN());
     }
 
-    @Test
+@Test
     void testNaN_5_oe() {
         // act/assert
         // removed other assertion
@@ -989,7 +989,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(1, 1, Double.NEGATIVE_INFINITY).isNaN());
     }
 
-    @Test
+@Test
     void testNaN_6_oe() {
         // act/assert
         // removed other assertion
@@ -1001,7 +1001,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(1, Double.POSITIVE_INFINITY, 1).isNaN());
     }
 
-    @Test
+@Test
     void testNaN_7_oe() {
         // act/assert
         // removed other assertion
@@ -1014,20 +1014,20 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(Double.NEGATIVE_INFINITY, 1, 1).isNaN());
     }
 
-    @Test
+@Test
     void testInfinite_1_oe() {
         // act/assert
         Assertions.assertTrue(Vector3D.of(0, 0, Double.NEGATIVE_INFINITY).isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertTrue(Vector3D.of(0, Double.NEGATIVE_INFINITY, 0).isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_3_oe() {
         // act/assert
         // removed other assertion
@@ -1035,7 +1035,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(Vector3D.of(Double.NEGATIVE_INFINITY, 0, 0).isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_4_oe() {
         // act/assert
         // removed other assertion
@@ -1044,7 +1044,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(Vector3D.of(0, 0, Double.POSITIVE_INFINITY).isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_5_oe() {
         // act/assert
         // removed other assertion
@@ -1054,7 +1054,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(Vector3D.of(0, Double.POSITIVE_INFINITY, 0).isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_6_oe() {
         // act/assert
         // removed other assertion
@@ -1065,7 +1065,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(Vector3D.of(Double.POSITIVE_INFINITY, 0, 0).isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_7_oe() {
         // act/assert
         // removed other assertion
@@ -1078,7 +1078,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(1, 1, 1).isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_8_oe() {
         // act/assert
         // removed other assertion
@@ -1092,7 +1092,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0, 0, Double.NaN).isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_9_oe() {
         // act/assert
         // removed other assertion
@@ -1107,7 +1107,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0, Double.NEGATIVE_INFINITY, Double.NaN).isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_10_oe() {
         // act/assert
         // removed other assertion
@@ -1123,7 +1123,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(Double.NaN, 0, Double.NEGATIVE_INFINITY).isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_11_oe() {
         // act/assert
         // removed other assertion
@@ -1140,7 +1140,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(Double.POSITIVE_INFINITY, Double.NaN, 0).isInfinite());
     }
 
-    @Test
+@Test
     void testInfinite_12_oe() {
         // act/assert
         // removed other assertion
@@ -1158,20 +1158,20 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0, Double.NaN, Double.POSITIVE_INFINITY).isInfinite());
     }
 
-    @Test
+@Test
     void testFinite_1_oe() {
         // act/assert
         Assertions.assertTrue(Vector3D.ZERO.isFinite());
     }
 
-    @Test
+@Test
     void testFinite_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertTrue(Vector3D.of(1, 1, 1).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_3_oe() {
         // act/assert
         // removed other assertion
@@ -1180,7 +1180,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0, 0, Double.NEGATIVE_INFINITY).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_4_oe() {
         // act/assert
         // removed other assertion
@@ -1190,7 +1190,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0, Double.NEGATIVE_INFINITY, 0).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_5_oe() {
         // act/assert
         // removed other assertion
@@ -1201,7 +1201,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(Double.NEGATIVE_INFINITY, 0, 0).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_6_oe() {
         // act/assert
         // removed other assertion
@@ -1213,7 +1213,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0, 0, Double.POSITIVE_INFINITY).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_7_oe() {
         // act/assert
         // removed other assertion
@@ -1226,7 +1226,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0, Double.POSITIVE_INFINITY, 0).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_8_oe() {
         // act/assert
         // removed other assertion
@@ -1240,7 +1240,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(Double.POSITIVE_INFINITY, 0, 0).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_9_oe() {
         // act/assert
         // removed other assertion
@@ -1256,7 +1256,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0, 0, Double.NaN).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_10_oe() {
         // act/assert
         // removed other assertion
@@ -1273,7 +1273,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0, Double.NEGATIVE_INFINITY, Double.NaN).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_11_oe() {
         // act/assert
         // removed other assertion
@@ -1291,7 +1291,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(Double.NaN, 0, Double.NEGATIVE_INFINITY).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_12_oe() {
         // act/assert
         // removed other assertion
@@ -1310,7 +1310,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(Double.POSITIVE_INFINITY, Double.NaN, 0).isFinite());
     }
 
-    @Test
+@Test
     void testFinite_13_oe() {
         // act/assert
         // removed other assertion
@@ -1330,7 +1330,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0, Double.NaN, Double.POSITIVE_INFINITY).isFinite());
     }
 
-    @Test
+@Test
     void testZero_1_oe() {
         // act
         final Vector3D zero = Vector3D.of(1, 2, 3).getZero();
@@ -1340,20 +1340,20 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(0, zero.norm(), EPS);
     }
 
-    @Test
+@Test
     void testNorm_1_oe() {
         // act/assert
         Assertions.assertEquals(0.0, Vector3D.ZERO.norm(), 0);
     }
 
-    @Test
+@Test
     void testNorm_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals(Math.sqrt(29), Vector3D.of(2, 3, 4).norm(), EPS);
     }
 
-    @Test
+@Test
     void testNorm_3_oe() {
         // act/assert
         // removed other assertion
@@ -1361,7 +1361,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Math.sqrt(29), Vector3D.of(-2, -3, -4).norm(), EPS);
     }
 
-    @Test
+@Test
     void testNorm_unitVectors_1_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 2.0, 3.0).normalize();
@@ -1370,20 +1370,20 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(1.0, v.norm(), 0.0);
     }
 
-    @Test
+@Test
     void testNormSq_1_oe() {
         // act/assert
         Assertions.assertEquals(0.0, Vector3D.ZERO.normSq(), 0);
     }
 
-    @Test
+@Test
     void testNormSq_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals(29, Vector3D.of(2, 3, 4).normSq(), EPS);
     }
 
-    @Test
+@Test
     void testNormSq_3_oe() {
         // act/assert
         // removed other assertion
@@ -1391,7 +1391,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(29, Vector3D.of(-2, -3, -4).normSq(), EPS);
     }
 
-    @Test
+@Test
     void testNormSq_unitVectors_1_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 2.0, 3.0).normalize();
@@ -1400,7 +1400,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(1.0, v.normSq(), 0.0);
     }
 
-    @Test
+@Test
     void testWithNorm_1_oe() {
         // arrange
         final double x = 2;
@@ -1437,20 +1437,20 @@ class Vector3DTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testWithNorm_illegalNorm_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector3D.ZERO.withNorm(2.0));
     }
 
-    @Test
+@Test
     void testWithNorm_illegalNorm_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector3D.NaN.withNorm(2.0));
     }
 
-    @Test
+@Test
     void testWithNorm_illegalNorm_3_oe() {
         // act/assert
         // removed other assertion
@@ -1458,7 +1458,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector3D.POSITIVE_INFINITY.withNorm(2.0));
     }
 
-    @Test
+@Test
     void testWithNorm_illegalNorm_4_oe() {
         // act/assert
         // removed other assertion
@@ -1467,7 +1467,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector3D.NEGATIVE_INFINITY.withNorm(2.0));
     }
 
-    @Test
+@Test
     void testWithNorm_unitVectors_1_oe() {
         // arrange
         final Vector3D v = Vector3D.of(2.0, -3.0, 4.0).normalize();
@@ -1482,7 +1482,7 @@ class Vector3DTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testNormalize_1_oe() {
         // arrange
         final double invSqrt3 = 1 / Math.sqrt(3);
@@ -1520,7 +1520,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(1.0, Vector3D.of(5, -4, 2).normalize().norm(), EPS);
     }
 
-    @Test
+@Test
     void testNormalize_isIdempotent_1_oe() {
         // arrange
         final double invSqrt3 = 1 / Math.sqrt(3);
@@ -1530,7 +1530,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertSame(v, v.normalize());
     }
 
-    @Test
+@Test
     void testNormalizeOrNull_1_oe() {
         // arrange
         final double invSqrt3 = 1 / Math.sqrt(3);
@@ -1558,7 +1558,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertNull(Vector3D.ZERO.normalizeOrNull());
     }
 
-    @Test
+@Test
     void testNormalizeOrNull_2_oe() {
         // arrange
         final double invSqrt3 = 1 / Math.sqrt(3);
@@ -1587,7 +1587,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertNull(Vector3D.NaN.normalizeOrNull());
     }
 
-    @Test
+@Test
     void testNormalizeOrNull_3_oe() {
         // arrange
         final double invSqrt3 = 1 / Math.sqrt(3);
@@ -1617,7 +1617,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertNull(Vector3D.POSITIVE_INFINITY.normalizeOrNull());
     }
 
-    @Test
+@Test
     void testNormalizeOrNull_4_oe() {
         // arrange
         final double invSqrt3 = 1 / Math.sqrt(3);
@@ -1648,7 +1648,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertNull(Vector3D.NEGATIVE_INFINITY.normalizeOrNull());
     }
 
-    @Test
+@Test
     void testNormalizeOrNull_isIdempotent_1_oe() {
         // arrange
         final double invSqrt3 = 1 / Math.sqrt(3);
@@ -1658,7 +1658,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertSame(v, v.normalizeOrNull());
     }
 
-    @Test
+@Test
     void testOrthogonal_1_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(0.1, 2.5, 1.3);
@@ -1670,7 +1670,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(0.0, v1.dot(v1.orthogonal()), EPS);
     }
 
-    @Test
+@Test
     void testOrthogonal_2_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(0.1, 2.5, 1.3);
@@ -1683,7 +1683,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(0.0, v2.dot(v2.orthogonal()), EPS);
     }
 
-    @Test
+@Test
     void testOrthogonal_3_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(0.1, 2.5, 1.3);
@@ -1697,7 +1697,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(0.0, v3.dot(v3.orthogonal()), EPS);
     }
 
-    @Test
+@Test
     void testOrthogonal_4_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(0.1, 2.5, 1.3);
@@ -1712,20 +1712,20 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(0.0, v4.dot(v4.orthogonal()), EPS);
     }
 
-    @Test
+@Test
     void testOrthogonal_illegalNorm_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, Vector3D.ZERO::orthogonal);
     }
 
-    @Test
+@Test
     void testOrthogonal_illegalNorm_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, Vector3D.NaN::orthogonal);
     }
 
-    @Test
+@Test
     void testOrthogonal_illegalNorm_3_oe() {
         // act/assert
         // removed other assertion
@@ -1733,7 +1733,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, Vector3D.POSITIVE_INFINITY::orthogonal);
     }
 
-    @Test
+@Test
     void testOrthogonal_illegalNorm_4_oe() {
         // act/assert
         // removed other assertion
@@ -1742,14 +1742,14 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, Vector3D.NEGATIVE_INFINITY::orthogonal);
     }
 
-    @Test
+@Test
     void testOrthogonal_givenDirection_illegalNorm_1_oe() {
         // act/assert
 
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.ZERO.orthogonal(Vector3D.Unit.PLUS_X));
     }
 
-    @Test
+@Test
     void testOrthogonal_givenDirection_illegalNorm_2_oe() {
         // act/assert
 
@@ -1757,7 +1757,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.NaN.orthogonal(Vector3D.Unit.PLUS_X));
     }
 
-    @Test
+@Test
     void testOrthogonal_givenDirection_illegalNorm_3_oe() {
         // act/assert
 
@@ -1766,7 +1766,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.POSITIVE_INFINITY.orthogonal(Vector3D.Unit.PLUS_X));
     }
 
-    @Test
+@Test
     void testOrthogonal_givenDirection_illegalNorm_4_oe() {
         // act/assert
 
@@ -1776,7 +1776,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.NEGATIVE_INFINITY.orthogonal(Vector3D.Unit.PLUS_X));
     }
 
-    @Test
+@Test
     void testOrthogonal_givenDirection_illegalNorm_5_oe() {
         // act/assert
 
@@ -1787,7 +1787,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.PLUS_X.orthogonal(Vector3D.ZERO));
     }
 
-    @Test
+@Test
     void testOrthogonal_givenDirection_illegalNorm_6_oe() {
         // act/assert
 
@@ -1799,7 +1799,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.PLUS_X.orthogonal(Vector3D.NaN));
     }
 
-    @Test
+@Test
     void testOrthogonal_givenDirection_illegalNorm_7_oe() {
         // act/assert
 
@@ -1812,7 +1812,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.PLUS_X.orthogonal(Vector3D.POSITIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testOrthogonal_givenDirection_illegalNorm_8_oe() {
         // act/assert
 
@@ -1826,20 +1826,20 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.PLUS_X.orthogonal(Vector3D.NEGATIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testOrthogonal_givenDirection_directionIsCollinear_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.PLUS_X.orthogonal(Vector3D.Unit.PLUS_X));
     }
 
-    @Test
+@Test
     void testOrthogonal_givenDirection_directionIsCollinear_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.PLUS_X.orthogonal(Vector3D.Unit.MINUS_X));
     }
 
-    @Test
+@Test
     void testOrthogonal_givenDirection_directionIsCollinear_3_oe() {
         // act/assert
         // removed other assertion
@@ -1847,7 +1847,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.of(1.0, 1.0, 1.0).orthogonal(Vector3D.of(2.0, 2.0, 2.0)));
     }
 
-    @Test
+@Test
     void testOrthogonal_givenDirection_directionIsCollinear_4_oe() {
         // act/assert
         // removed other assertion
@@ -1856,7 +1856,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.of(-1.01, -1.01, -1.01).orthogonal(Vector3D.of(20.1, 20.1, 20.1)));
     }
 
-    @Test
+@Test
     void testAngle_1_oe() {
         // arrange
         final double tolerance = 1e-10;
@@ -1868,7 +1868,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(0.22572612855273393616, v1.angle(v2), tolerance);
     }
 
-    @Test
+@Test
     void testAngle_2_oe() {
         // arrange
         final double tolerance = 1e-10;
@@ -1881,7 +1881,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(7.98595620686106654517199e-8, v1.angle(Vector3D.of(2, 4, 6.000001)), tolerance);
     }
 
-    @Test
+@Test
     void testAngle_3_oe() {
         // arrange
         final double tolerance = 1e-10;
@@ -1895,7 +1895,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(3.14159257373023116985197793156, v1.angle(Vector3D.of(-2, -4, -6.000001)), tolerance);
     }
 
-    @Test
+@Test
     void testAngle_4_oe() {
         // arrange
         final double tolerance = 1e-10;
@@ -1911,7 +1911,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(0.0, Vector3D.Unit.PLUS_X.angle(Vector3D.Unit.PLUS_X), tolerance);
     }
 
-    @Test
+@Test
     void testAngle_5_oe() {
         // arrange
         final double tolerance = 1e-10;
@@ -1928,7 +1928,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Math.PI, Vector3D.Unit.PLUS_X.angle(Vector3D.Unit.MINUS_X), tolerance);
     }
 
-    @Test
+@Test
     void testAngle_6_oe() {
         // arrange
         final double tolerance = 1e-10;
@@ -1947,7 +1947,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, Vector3D.Unit.PLUS_X.angle(Vector3D.Unit.PLUS_Y), tolerance);
     }
 
-    @Test
+@Test
     void testAngle_7_oe() {
         // arrange
         final double tolerance = 1e-10;
@@ -1967,7 +1967,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, Vector3D.Unit.PLUS_X.angle(Vector3D.Unit.MINUS_Y), tolerance);
     }
 
-    @Test
+@Test
     void testAngle_8_oe() {
         // arrange
         final double tolerance = 1e-10;
@@ -1988,7 +1988,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, Vector3D.Unit.PLUS_X.angle(Vector3D.Unit.PLUS_Z), tolerance);
     }
 
-    @Test
+@Test
     void testAngle_9_oe() {
         // arrange
         final double tolerance = 1e-10;
@@ -2010,7 +2010,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, Vector3D.Unit.PLUS_X.angle(Vector3D.Unit.MINUS_Z), tolerance);
     }
 
-    @Test
+@Test
     void testAngle_illegalNorm_1_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
@@ -2020,7 +2020,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.ZERO.angle(v));
     }
 
-    @Test
+@Test
     void testAngle_illegalNorm_2_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
@@ -2031,7 +2031,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.NaN.angle(v));
     }
 
-    @Test
+@Test
     void testAngle_illegalNorm_3_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
@@ -2043,7 +2043,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.POSITIVE_INFINITY.angle(v));
     }
 
-    @Test
+@Test
     void testAngle_illegalNorm_4_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
@@ -2056,7 +2056,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.NEGATIVE_INFINITY.angle(v));
     }
 
-    @Test
+@Test
     void testAngle_illegalNorm_5_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
@@ -2070,7 +2070,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  v.angle(Vector3D.ZERO));
     }
 
-    @Test
+@Test
     void testAngle_illegalNorm_6_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
@@ -2085,7 +2085,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  v.angle(Vector3D.NaN));
     }
 
-    @Test
+@Test
     void testAngle_illegalNorm_7_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
@@ -2101,7 +2101,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  v.angle(Vector3D.POSITIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testAngle_illegalNorm_8_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
@@ -2118,7 +2118,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  v.angle(Vector3D.NEGATIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testAngle_angularSeparation_1_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(2, -1, 4);
@@ -2131,7 +2131,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(Math.abs(v1.angle(v2) - 1.2) < 1.0e-12);
     }
 
-    @Test
+@Test
     void testCrossProduct_nearlyAntiParallel_1_oe() {
         // the vectors u1 and u2 are nearly but not exactly anti-parallel
         // (7.31e-16 degrees from 180 degrees) naive cross product (i.e.
@@ -2160,7 +2160,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(u3.distance(cNaive) > 2.9 * u3.norm());
     }
 
-    @Test
+@Test
     void testCrossProduct_nearlyAntiParallel_2_oe() {
         // the vectors u1 and u2 are nearly but not exactly anti-parallel
         // (7.31e-16 degrees from 180 degrees) naive cross product (i.e.
@@ -2190,7 +2190,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(0.0, u3.distance(cAccurate), 1.0e-30 * cAccurate.norm());
     }
 
-    @Test
+@Test
     void testCrossProduct_accuracy_1_oe() {
         // we compare accurate versus naive cross product implementations
         // on regular vectors (i.e. not extreme cases like in the previous test)
@@ -2213,7 +2213,7 @@ class Vector3DTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testDistance_1_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2224,7 +2224,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(0.0, v1.distance(v1), EPS);
     }
 
-    @Test
+@Test
     void testDistance_2_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2236,7 +2236,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(0.0, v2.distance(v2), EPS);
     }
 
-    @Test
+@Test
     void testDistance_3_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2250,7 +2250,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Math.sqrt(50), v1.distance(v2), EPS);
     }
 
-    @Test
+@Test
     void testDistance_4_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2265,7 +2265,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Math.sqrt(50), v2.distance(v1), EPS);
     }
 
-    @Test
+@Test
     void testDistance_5_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2282,7 +2282,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(v1.subtract(v2).norm(), v1.distance(v2), EPS);
     }
 
-    @Test
+@Test
     void testDistance_6_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2301,7 +2301,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Math.sqrt(132), v1.distance(v3), EPS);
     }
 
-    @Test
+@Test
     void testDistance_7_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2321,7 +2321,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Math.sqrt(132), v3.distance(v1), EPS);
     }
 
-    @Test
+@Test
     void testDistanceSq_1_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2332,7 +2332,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(0.0, v1.distanceSq(v1), EPS);
     }
 
-    @Test
+@Test
     void testDistanceSq_2_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2344,7 +2344,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(0.0, v2.distanceSq(v2), EPS);
     }
 
-    @Test
+@Test
     void testDistanceSq_3_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2358,7 +2358,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(50, v1.distanceSq(v2), EPS);
     }
 
-    @Test
+@Test
     void testDistanceSq_4_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2373,7 +2373,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(50, v2.distanceSq(v1), EPS);
     }
 
-    @Test
+@Test
     void testDistanceSq_5_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2390,7 +2390,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(v1.subtract(v2).normSq(), v1.distanceSq(v2), EPS);
     }
 
-    @Test
+@Test
     void testDistanceSq_6_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2409,7 +2409,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(132, v1.distanceSq(v3), EPS);
     }
 
-    @Test
+@Test
     void testDistanceSq_7_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2429,7 +2429,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(132, v3.distanceSq(v1), EPS);
     }
 
-    @Test
+@Test
     void testDotProduct_1_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2440,7 +2440,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(14, v1.dot(v1), EPS);
     }
 
-    @Test
+@Test
     void testDotProduct_2_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2453,7 +2453,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(-32, v1.dot(v2), EPS);
     }
 
-    @Test
+@Test
     void testDotProduct_3_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2467,7 +2467,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(-32, v2.dot(v1), EPS);
     }
 
-    @Test
+@Test
     void testDotProduct_4_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2483,7 +2483,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(18, v1.dot(v3), EPS);
     }
 
-    @Test
+@Test
     void testDotProduct_5_oe() {
         // arrange
         final Vector3D v1 = Vector3D.of(1, -2, 3);
@@ -2500,7 +2500,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(18, v3.dot(v1), EPS);
     }
 
-    @Test
+@Test
     void testDotProduct_nearlyOrthogonal_1_oe() {
         // the following two vectors are nearly but not exactly orthogonal
         // naive dot product (i.e. computing u1.x * u2.x + u1.y * u2.y + u1.z * u2.z
@@ -2522,7 +2522,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(0.0, sNaive, 1.0e-30);
     }
 
-    @Test
+@Test
     void testDotProduct_nearlyOrthogonal_2_oe() {
         // the following two vectors are nearly but not exactly orthogonal
         // naive dot product (i.e. computing u1.x * u2.x + u1.y * u2.y + u1.z * u2.z
@@ -2545,7 +2545,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(-2088690039198397.0 / 1125899906842624.0, sAccurate, 1.0e-15);
     }
 
-    @Test
+@Test
     void testDotProduct_accuracy_1_oe() {
         // we compare accurate versus naive dot product implementations
         // on regular vectors (i.e. not extreme cases like in the previous test)
@@ -2568,7 +2568,7 @@ class Vector3DTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testProject_baseHasIllegalNorm_1_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
@@ -2577,7 +2577,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> v.project(Vector3D.ZERO));
     }
 
-    @Test
+@Test
     void testProject_baseHasIllegalNorm_2_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
@@ -2587,7 +2587,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> v.project(Vector3D.NaN));
     }
 
-    @Test
+@Test
     void testProject_baseHasIllegalNorm_3_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
@@ -2598,7 +2598,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> v.project(Vector3D.POSITIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testProject_baseHasIllegalNorm_4_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
@@ -2610,7 +2610,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  v.project(Vector3D.NEGATIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testReject_baseHasIllegalNorm_1_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
@@ -2620,7 +2620,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> v.reject(Vector3D.ZERO));
     }
 
-    @Test
+@Test
     void testReject_baseHasIllegalNorm_2_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
@@ -2631,7 +2631,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> v.reject(Vector3D.NaN));
     }
 
-    @Test
+@Test
     void testReject_baseHasIllegalNorm_3_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
@@ -2643,7 +2643,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> v.reject(Vector3D.POSITIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testReject_baseHasIllegalNorm_4_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
@@ -2656,7 +2656,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> v.reject(Vector3D.NEGATIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testDirectionTo_illegalNorm_1_oe() {
         // arrange
         final Vector3D p = Vector3D.of(1, 2, 3);
@@ -2665,7 +2665,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.ZERO.directionTo(Vector3D.ZERO));
     }
 
-    @Test
+@Test
     void testDirectionTo_illegalNorm_2_oe() {
         // arrange
         final Vector3D p = Vector3D.of(1, 2, 3);
@@ -2675,7 +2675,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  p.directionTo(p));
     }
 
-    @Test
+@Test
     void testDirectionTo_illegalNorm_3_oe() {
         // arrange
         final Vector3D p = Vector3D.of(1, 2, 3);
@@ -2686,7 +2686,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.NEGATIVE_INFINITY.directionTo(p));
     }
 
-    @Test
+@Test
     void testDirectionTo_illegalNorm_4_oe() {
         // arrange
         final Vector3D p = Vector3D.of(1, 2, 3);
@@ -2698,7 +2698,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  p.directionTo(Vector3D.POSITIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_1_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -2710,7 +2710,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(vec.eq(vec, smallEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_2_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -2723,7 +2723,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(vec.eq(vec, largeEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_3_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -2738,7 +2738,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(vec.eq(Vector3D.of(1.0000007, -2.0000009, 3.0000009), smallEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_4_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -2754,7 +2754,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(vec.eq(Vector3D.of(1.0000007, -2.0000009, 3.0000009), largeEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_5_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -2772,7 +2772,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(vec.eq(Vector3D.of(1.004, -2, 3), smallEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_6_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -2791,7 +2791,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(vec.eq(Vector3D.of(1, -2.004, 3), smallEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_7_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -2811,7 +2811,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(vec.eq(Vector3D.of(1, -2, 2.999), smallEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_8_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -2832,7 +2832,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(vec.eq(Vector3D.of(1.004, -2.004, 2.999), largeEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_9_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -2855,7 +2855,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(vec.eq(Vector3D.of(2, -2, 3), smallEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_10_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -2879,7 +2879,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(vec.eq(Vector3D.of(1, -3, 3), smallEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_11_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -2904,7 +2904,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(vec.eq(Vector3D.of(1, -2, 4), smallEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_12_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -2930,7 +2930,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(vec.eq(Vector3D.of(2, -3, 4), smallEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_13_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -2958,7 +2958,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(vec.eq(Vector3D.of(2, -2, 3), largeEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_14_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -2987,7 +2987,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(vec.eq(Vector3D.of(1, -3, 3), largeEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_15_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3017,7 +3017,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(vec.eq(Vector3D.of(1, -2, 4), largeEps));
     }
 
-    @Test
+@Test
     void testPrecisionEquals_16_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3048,7 +3048,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(vec.eq(Vector3D.of(2, -3, 4), largeEps));
     }
 
-    @Test
+@Test
     void testIsZero_1_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3058,7 +3058,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(Vector3D.of(0.0, -0.0, 0.0).isZero(smallEps));
     }
 
-    @Test
+@Test
     void testIsZero_2_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3069,7 +3069,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(Vector3D.of(-0.0, 0.0, -0.0).isZero(largeEps));
     }
 
-    @Test
+@Test
     void testIsZero_3_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3082,7 +3082,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(Vector3D.of(-1e-7, 1e-7, -1e-8).isZero(smallEps));
     }
 
-    @Test
+@Test
     void testIsZero_4_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3096,7 +3096,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(Vector3D.of(1e-7, -1e-7, 1e-8).isZero(largeEps));
     }
 
-    @Test
+@Test
     void testIsZero_5_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3112,7 +3112,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(1e-2, 0.0, 0.0).isZero(smallEps));
     }
 
-    @Test
+@Test
     void testIsZero_6_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3129,7 +3129,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0.0, 1e-2, 0.0).isZero(smallEps));
     }
 
-    @Test
+@Test
     void testIsZero_7_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3147,7 +3147,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0.0, 0.0, 1e-2).isZero(smallEps));
     }
 
-    @Test
+@Test
     void testIsZero_8_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3166,7 +3166,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(Vector3D.of(1e-2, -1e-2, 1e-2).isZero(largeEps));
     }
 
-    @Test
+@Test
     void testIsZero_9_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3187,7 +3187,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0.2, 0.0, 0.0).isZero(smallEps));
     }
 
-    @Test
+@Test
     void testIsZero_10_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3209,7 +3209,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0.0, 0.2, 0.0).isZero(smallEps));
     }
 
-    @Test
+@Test
     void testIsZero_11_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3232,7 +3232,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0.0, 0.0, 0.2).isZero(smallEps));
     }
 
-    @Test
+@Test
     void testIsZero_12_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3256,7 +3256,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0.2, 0.2, 0.2).isZero(smallEps));
     }
 
-    @Test
+@Test
     void testIsZero_13_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3282,7 +3282,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0.2, 0.0, 0.0).isZero(largeEps));
     }
 
-    @Test
+@Test
     void testIsZero_14_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3309,7 +3309,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0.0, 0.2, 0.0).isZero(largeEps));
     }
 
-    @Test
+@Test
     void testIsZero_15_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3337,7 +3337,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0.0, 0.0, 0.2).isZero(largeEps));
     }
 
-    @Test
+@Test
     void testIsZero_16_oe() {
         // arrange
         final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
@@ -3366,7 +3366,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(Vector3D.of(0.2, 0.2, 0.2).isZero(largeEps));
     }
 
-    @Test
+@Test
     void testHashCode_1_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3378,7 +3378,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(u.hashCode() != v.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_2_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3391,7 +3391,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(u.hashCode(), w.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_3_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3406,7 +3406,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Vector3D.of(0, 0, Double.NaN).hashCode(), Vector3D.NaN.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_4_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3422,7 +3422,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Vector3D.of(0, Double.NaN, 0).hashCode(), Vector3D.NaN.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_5_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3439,7 +3439,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Vector3D.of(Double.NaN, 0, 0).hashCode(), Vector3D.NaN.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_6_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3457,7 +3457,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Vector3D.of(0, 0, Double.NaN).hashCode(), Vector3D.of(Double.NaN, 0, 0).hashCode());
     }
 
-    @Test
+@Test
     void testEquals_2_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3469,7 +3469,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(u1, u2);
     }
 
-    @Test
+@Test
     void testEquals_3_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3483,7 +3483,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertNotEquals(u1, Vector3D.of(-1, -2, -3));
     }
 
-    @Test
+@Test
     void testEquals_4_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3498,7 +3498,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertNotEquals(u1, Vector3D.of(1 + delta, 2, 3));
     }
 
-    @Test
+@Test
     void testEquals_5_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3514,7 +3514,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertNotEquals(u1, Vector3D.of(1, 2 + delta, 3));
     }
 
-    @Test
+@Test
     void testEquals_6_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3531,7 +3531,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertNotEquals(u1, Vector3D.of(1, 2, 3 + delta));
     }
 
-    @Test
+@Test
     void testEquals_7_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3550,7 +3550,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Vector3D.of(0, Double.NaN, 0), Vector3D.of(Double.NaN, 0, 0));
     }
 
-    @Test
+@Test
     void testEquals_8_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3571,7 +3571,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Vector3D.of(0, 0, Double.POSITIVE_INFINITY), Vector3D.of(0, 0, Double.POSITIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testEquals_9_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3593,7 +3593,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertNotEquals(Vector3D.of(0, Double.POSITIVE_INFINITY, 0), Vector3D.of(0, 0, Double.POSITIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testEquals_10_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3616,7 +3616,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertNotEquals(Vector3D.of(Double.POSITIVE_INFINITY, 0, 0), Vector3D.of(0, 0, Double.POSITIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testEquals_11_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3641,7 +3641,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(Vector3D.of(Double.NEGATIVE_INFINITY, 0, 0), Vector3D.of(Double.NEGATIVE_INFINITY, 0, 0));
     }
 
-    @Test
+@Test
     void testEquals_12_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3667,7 +3667,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertNotEquals(Vector3D.of(0, Double.NEGATIVE_INFINITY, 0), Vector3D.of(Double.NEGATIVE_INFINITY, 0, 0));
     }
 
-    @Test
+@Test
     void testEquals_13_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3694,7 +3694,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertNotEquals(Vector3D.of(0, 0, Double.NEGATIVE_INFINITY), Vector3D.of(Double.NEGATIVE_INFINITY, 0, 0));
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_1_oe() {
         // arrange
         final Vector3D a = Vector3D.of(0.0, -0.0, 0.0);
@@ -3706,7 +3706,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertFalse(a.equals(b));
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_2_oe() {
         // arrange
         final Vector3D a = Vector3D.of(0.0, -0.0, 0.0);
@@ -3720,7 +3720,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(a.equals(c));
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_3_oe() {
         // arrange
         final Vector3D a = Vector3D.of(0.0, -0.0, 0.0);
@@ -3735,7 +3735,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(a.hashCode(), c.hashCode());
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_4_oe() {
         // arrange
         final Vector3D a = Vector3D.of(0.0, -0.0, 0.0);
@@ -3752,7 +3752,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(b.equals(d));
     }
 
-    @Test
+@Test
     void testEqualsAndHashCode_signedZeroConsistency_5_oe() {
         // arrange
         final Vector3D a = Vector3D.of(0.0, -0.0, 0.0);
@@ -3770,7 +3770,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertEquals(b.hashCode(), d.hashCode());
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // arrange
         final Vector3D v = Vector3D.of(1, 2, 3);
@@ -3783,19 +3783,19 @@ class Vector3DTest_OE25Dev {
         Assertions.assertTrue(pattern.matcher(str).matches(),"Expected string " + str + " to match regex " + pattern);
     }
 
-    @Test
+@Test
     void testParse_failure_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector3D.parse("abc"));
     }
 
-    @Test
+@Test
     void testOf_arrayArg_invalidDimensions_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> Vector3D.of(new double[] {0.0, 0.0}));
     }
 
-    @Test
+@Test
     void testUnitFrom_vector_1_oe() {
         // arrange
         final double invSqrt3 = 1.0 / Math.sqrt(3.0);
@@ -3807,25 +3807,25 @@ class Vector3DTest_OE25Dev {
         Assertions.assertSame(unitVec, Vector3D.Unit.from(unitVec));
     }
 
-    @Test
+@Test
     void testUnitFrom_static_illegalNorm_1_oe() {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.from(0.0, 0.0, 0.0));
     }
 
-    @Test
+@Test
     void testUnitFrom_static_illegalNorm_2_oe() {
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.from(Double.NaN, 1.0, 1.0));
     }
 
-    @Test
+@Test
     void testUnitFrom_static_illegalNorm_3_oe() {
         // removed other assertion
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.from(1.0, Double.NEGATIVE_INFINITY, 1.0));
     }
 
-    @Test
+@Test
     void testUnitFrom_static_illegalNorm_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -3833,7 +3833,7 @@ class Vector3DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.from(1.0, 1.0, Double.POSITIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testUnitFactoryOptimization_1_oe() {
         // An already normalized vector will avoid unnecessary creation.
         final Vector3D v = Vector3D.of(3, 4, 5).normalize();

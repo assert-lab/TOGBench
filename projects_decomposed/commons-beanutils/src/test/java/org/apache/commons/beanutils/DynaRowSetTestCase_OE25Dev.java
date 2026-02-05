@@ -190,12 +190,12 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         }
     }
 
-    public void testGetName_1_oe() {
+public void testGetName_1_oe() {
 
         assertEquals("DynaClass name","org.apache.commons.beanutils.RowSetDynaClass",dynaClass.getName());
     }
 
-    public void testGetDynaProperty_2_oe() {
+public void testGetDynaProperty_2_oe() {
 
         // Invalid argument test
         try {
@@ -210,7 +210,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertTrue("unknown property returns null",(dynaProp == null));
     }
 
-    public void testGetDynaProperty_3_oe() {
+public void testGetDynaProperty_3_oe() {
 
         // Invalid argument test
         try {
@@ -229,7 +229,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertNotNull("string property exists", dynaProp);
     }
 
-    public void testGetDynaProperty_4_oe() {
+public void testGetDynaProperty_4_oe() {
 
         // Invalid argument test
         try {
@@ -249,7 +249,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("string property name","stringproperty",dynaProp.getName());
     }
 
-    public void testGetDynaProperty_5_oe() {
+public void testGetDynaProperty_5_oe() {
 
         // Invalid argument test
         try {
@@ -270,20 +270,20 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("string property class",String.class,dynaProp.getType());
     }
 
-    public void testGetDynaProperties_1_oe() {
+public void testGetDynaProperties_1_oe() {
 
         final DynaProperty dynaProps[] = dynaClass.getDynaProperties();
         assertNotNull("dynaProps exists", dynaProps);
     }
 
-    public void testGetDynaProperties_2_oe() {
+public void testGetDynaProperties_2_oe() {
 
         final DynaProperty dynaProps[] = dynaClass.getDynaProperties();
         // removed other assertion
         assertEquals("dynaProps length", columns.length, dynaProps.length);
     }
 
-    public void testGetDynaProperties_3_oe() {
+public void testGetDynaProperties_3_oe() {
 
         final DynaProperty dynaProps[] = dynaClass.getDynaProperties();
         // removed other assertion
@@ -293,7 +293,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testNewInstance_2_oe() {
+public void testNewInstance_2_oe() {
 
         try {
             dynaClass.newInstance();
@@ -305,20 +305,20 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testListCount_1_oe() {
+public void testListCount_1_oe() {
 
         final List<DynaBean> rows = dynaClass.getRows();
         assertNotNull("list exists", rows);
     }
 
-    public void testListCount_2_oe() {
+public void testListCount_2_oe() {
 
         final List<DynaBean> rows = dynaClass.getRows();
         // removed other assertion
         assertEquals("list row count", 5, rows.size());
     }
 
-    public void testListResults_2_oe() {
+public void testListResults_2_oe() {
 
         // Grab the third row
         final List<DynaBean> rows = dynaClass.getRows();
@@ -338,7 +338,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertNotNull("bigDecimalProperty exists", bigDecimalProperty);
     }
 
-    public void testListResults_3_oe() {
+public void testListResults_3_oe() {
 
         // Grab the third row
         final List<DynaBean> rows = dynaClass.getRows();
@@ -359,7 +359,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertTrue("bigDecimalProperty type",bigDecimalProperty instanceof BigDecimal);
     }
 
-    public void testListResults_4_oe() {
+public void testListResults_4_oe() {
 
         // Grab the third row
         final List<DynaBean> rows = dynaClass.getRows();
@@ -381,7 +381,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("bigDecimalProperty value",123.45,((BigDecimal)bigDecimalProperty).doubleValue(),0.005);
     }
 
-    public void testListResults_5_oe() {
+public void testListResults_5_oe() {
 
         // Grab the third row
         final List<DynaBean> rows = dynaClass.getRows();
@@ -406,7 +406,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertNotNull("intProperty exists", intProperty);
     }
 
-    public void testListResults_6_oe() {
+public void testListResults_6_oe() {
 
         // Grab the third row
         final List<DynaBean> rows = dynaClass.getRows();
@@ -432,7 +432,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertTrue("intProperty type",intProperty instanceof Integer);
     }
 
-    public void testListResults_7_oe() {
+public void testListResults_7_oe() {
 
         // Grab the third row
         final List<DynaBean> rows = dynaClass.getRows();
@@ -459,7 +459,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("intProperty value",103,((Integer)intProperty).intValue());
     }
 
-    public void testListResults_8_oe() {
+public void testListResults_8_oe() {
 
         // Grab the third row
         final List<DynaBean> rows = dynaClass.getRows();
@@ -489,7 +489,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertNull("nullProperty null", nullProperty);
     }
 
-    public void testListResults_9_oe() {
+public void testListResults_9_oe() {
 
         // Grab the third row
         final List<DynaBean> rows = dynaClass.getRows();
@@ -522,7 +522,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertNotNull("stringProperty exists", stringProperty);
     }
 
-    public void testListResults_10_oe() {
+public void testListResults_10_oe() {
 
         // Grab the third row
         final List<DynaBean> rows = dynaClass.getRows();
@@ -556,7 +556,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertTrue("stringProperty type",stringProperty instanceof String);
     }
 
-    public void testListResults_11_oe() {
+public void testListResults_11_oe() {
 
         // Grab the third row
         final List<DynaBean> rows = dynaClass.getRows();
@@ -591,7 +591,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("stringProperty value","This is a string",(String)stringProperty);
     }
 
-    public void testListResultsNormalCase_1_oe() {
+public void testListResultsNormalCase_1_oe() {
         RowSetDynaClass dynaClass = null;
         try {
             dynaClass = new RowSetDynaClass(TestResultSet.createProxy(), false);
@@ -600,7 +600,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testListResultsNormalCase_3_oe() {
+public void testListResultsNormalCase_3_oe() {
         RowSetDynaClass dynaClass = null;
         try {
             dynaClass = new RowSetDynaClass(TestResultSet.createProxy(), false);
@@ -626,7 +626,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertNotNull("bigDecimalProperty exists", bigDecimalProperty);
     }
 
-    public void testListResultsNormalCase_4_oe() {
+public void testListResultsNormalCase_4_oe() {
         RowSetDynaClass dynaClass = null;
         try {
             dynaClass = new RowSetDynaClass(TestResultSet.createProxy(), false);
@@ -653,7 +653,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertTrue("bigDecimalProperty type",bigDecimalProperty instanceof BigDecimal);
     }
 
-    public void testListResultsNormalCase_5_oe() {
+public void testListResultsNormalCase_5_oe() {
         RowSetDynaClass dynaClass = null;
         try {
             dynaClass = new RowSetDynaClass(TestResultSet.createProxy(), false);
@@ -681,7 +681,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("bigDecimalProperty value",123.45,((BigDecimal)bigDecimalProperty).doubleValue(),0.005);
     }
 
-    public void testListResultsNormalCase_6_oe() {
+public void testListResultsNormalCase_6_oe() {
         RowSetDynaClass dynaClass = null;
         try {
             dynaClass = new RowSetDynaClass(TestResultSet.createProxy(), false);
@@ -712,7 +712,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertNotNull("intProperty exists", intProperty);
     }
 
-    public void testListResultsNormalCase_7_oe() {
+public void testListResultsNormalCase_7_oe() {
         RowSetDynaClass dynaClass = null;
         try {
             dynaClass = new RowSetDynaClass(TestResultSet.createProxy(), false);
@@ -744,7 +744,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertTrue("intProperty type",intProperty instanceof Integer);
     }
 
-    public void testListResultsNormalCase_8_oe() {
+public void testListResultsNormalCase_8_oe() {
         RowSetDynaClass dynaClass = null;
         try {
             dynaClass = new RowSetDynaClass(TestResultSet.createProxy(), false);
@@ -777,7 +777,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("intProperty value",103,((Integer)intProperty).intValue());
     }
 
-    public void testListResultsNormalCase_9_oe() {
+public void testListResultsNormalCase_9_oe() {
         RowSetDynaClass dynaClass = null;
         try {
             dynaClass = new RowSetDynaClass(TestResultSet.createProxy(), false);
@@ -813,7 +813,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertNull("nullProperty null", nullProperty);
     }
 
-    public void testListResultsNormalCase_10_oe() {
+public void testListResultsNormalCase_10_oe() {
         RowSetDynaClass dynaClass = null;
         try {
             dynaClass = new RowSetDynaClass(TestResultSet.createProxy(), false);
@@ -852,7 +852,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertNotNull("stringProperty exists", stringProperty);
     }
 
-    public void testListResultsNormalCase_11_oe() {
+public void testListResultsNormalCase_11_oe() {
         RowSetDynaClass dynaClass = null;
         try {
             dynaClass = new RowSetDynaClass(TestResultSet.createProxy(), false);
@@ -892,7 +892,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertTrue("stringProperty type",stringProperty instanceof String);
     }
 
-    public void testListResultsNormalCase_12_oe() {
+public void testListResultsNormalCase_12_oe() {
         RowSetDynaClass dynaClass = null;
         try {
             dynaClass = new RowSetDynaClass(TestResultSet.createProxy(), false);
@@ -933,7 +933,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("stringProperty value","This is a string",(String)stringProperty);
     }
 
-    public void testLimitedRows_1_oe() throws Exception {
+public void testLimitedRows_1_oe() throws Exception {
 
         // created one with low limit
         final RowSetDynaClass limitedDynaClass = new RowSetDynaClass(TestResultSet.createProxy(), 3);
@@ -941,7 +941,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertNotNull("list exists", rows);
     }
 
-    public void testLimitedRows_2_oe() throws Exception {
+public void testLimitedRows_2_oe() throws Exception {
 
         // created one with low limit
         final RowSetDynaClass limitedDynaClass = new RowSetDynaClass(TestResultSet.createProxy(), 3);
@@ -950,7 +950,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("limited row count", 3, rows.size());
     }
 
-    public void testInconsistentOracleDriver_1_oe() throws Exception {
+public void testInconsistentOracleDriver_1_oe() throws Exception {
 
         final ResultSetMetaData metaData = TestResultSetMetaData.createProxy(new TestResultSetMetaDataInconsistent());
         final ResultSet resultSet = TestResultSet.createProxy(new TestResultSetInconsistent(metaData));
@@ -961,7 +961,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("Date Meta Name",       "dateProperty",       metaData.getColumnName(dateColIdx));
     }
 
-    public void testInconsistentOracleDriver_2_oe() throws Exception {
+public void testInconsistentOracleDriver_2_oe() throws Exception {
 
         final ResultSetMetaData metaData = TestResultSetMetaData.createProxy(new TestResultSetMetaDataInconsistent());
         final ResultSet resultSet = TestResultSet.createProxy(new TestResultSetInconsistent(metaData));
@@ -973,7 +973,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("Date Meta Class",      "java.sql.Timestamp", metaData.getColumnClassName(dateColIdx));
     }
 
-    public void testInconsistentOracleDriver_3_oe() throws Exception {
+public void testInconsistentOracleDriver_3_oe() throws Exception {
 
         final ResultSetMetaData metaData = TestResultSetMetaData.createProxy(new TestResultSetMetaDataInconsistent());
         final ResultSet resultSet = TestResultSet.createProxy(new TestResultSetInconsistent(metaData));
@@ -986,7 +986,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("Date Meta Type",       java.sql.Types.DATE,  metaData.getColumnType(dateColIdx));
     }
 
-    public void testInconsistentOracleDriver_4_oe() throws Exception {
+public void testInconsistentOracleDriver_4_oe() throws Exception {
 
         final ResultSetMetaData metaData = TestResultSetMetaData.createProxy(new TestResultSetMetaDataInconsistent());
         final ResultSet resultSet = TestResultSet.createProxy(new TestResultSetInconsistent(metaData));
@@ -1000,7 +1000,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("Date ResultSet Value", java.sql.Date.class,  resultSet.getObject("dateProperty").getClass());
     }
 
-    public void testInconsistentOracleDriver_5_oe() throws Exception {
+public void testInconsistentOracleDriver_5_oe() throws Exception {
 
         final ResultSetMetaData metaData = TestResultSetMetaData.createProxy(new TestResultSetMetaDataInconsistent());
         final ResultSet resultSet = TestResultSet.createProxy(new TestResultSetInconsistent(metaData));
@@ -1018,7 +1018,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("Timestamp Meta Name",       "timestampProperty",             metaData.getColumnName(timestampColIdx));
     }
 
-    public void testInconsistentOracleDriver_6_oe() throws Exception {
+public void testInconsistentOracleDriver_6_oe() throws Exception {
 
         final ResultSetMetaData metaData = TestResultSetMetaData.createProxy(new TestResultSetMetaDataInconsistent());
         final ResultSet resultSet = TestResultSet.createProxy(new TestResultSetInconsistent(metaData));
@@ -1037,7 +1037,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("Timestamp Meta Class",      CustomTimestamp.class.getName(), metaData.getColumnClassName(timestampColIdx));
     }
 
-    public void testInconsistentOracleDriver_7_oe() throws Exception {
+public void testInconsistentOracleDriver_7_oe() throws Exception {
 
         final ResultSetMetaData metaData = TestResultSetMetaData.createProxy(new TestResultSetMetaDataInconsistent());
         final ResultSet resultSet = TestResultSet.createProxy(new TestResultSetInconsistent(metaData));
@@ -1057,7 +1057,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("Timestamp Meta Type",       java.sql.Types.TIMESTAMP,        metaData.getColumnType(timestampColIdx));
     }
 
-    public void testInconsistentOracleDriver_8_oe() throws Exception {
+public void testInconsistentOracleDriver_8_oe() throws Exception {
 
         final ResultSetMetaData metaData = TestResultSetMetaData.createProxy(new TestResultSetMetaDataInconsistent());
         final ResultSet resultSet = TestResultSet.createProxy(new TestResultSetInconsistent(metaData));
@@ -1078,7 +1078,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("Timestamp ResultSet Value", CustomTimestamp.class,           resultSet.getObject("timestampProperty").getClass());
     }
 
-    public void testInconsistentOracleDriver_9_oe() throws Exception {
+public void testInconsistentOracleDriver_9_oe() throws Exception {
 
         final ResultSetMetaData metaData = TestResultSetMetaData.createProxy(new TestResultSetMetaDataInconsistent());
         final ResultSet resultSet = TestResultSet.createProxy(new TestResultSetInconsistent(metaData));
@@ -1109,7 +1109,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("Date Class", expectedType, property.getType());
     }
 
-    public void testInconsistentOracleDriver_10_oe() throws Exception {
+public void testInconsistentOracleDriver_10_oe() throws Exception {
 
         final ResultSetMetaData metaData = TestResultSetMetaData.createProxy(new TestResultSetMetaDataInconsistent());
         final ResultSet resultSet = TestResultSet.createProxy(new TestResultSetInconsistent(metaData));
@@ -1141,7 +1141,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("Date Value", expectedType, firstRow.get(property.getName()).getClass());
     }
 
-    public void testInconsistentOracleDriver_11_oe() throws Exception {
+public void testInconsistentOracleDriver_11_oe() throws Exception {
 
         final ResultSetMetaData metaData = TestResultSetMetaData.createProxy(new TestResultSetMetaDataInconsistent());
         final ResultSet resultSet = TestResultSet.createProxy(new TestResultSetInconsistent(metaData));
@@ -1178,7 +1178,7 @@ public class DynaRowSetTestCase_OE25Dev extends TestCase {
         assertEquals("Timestamp Class", expectedType, property.getType());
     }
 
-    public void testInconsistentOracleDriver_12_oe() throws Exception {
+public void testInconsistentOracleDriver_12_oe() throws Exception {
 
         final ResultSetMetaData metaData = TestResultSetMetaData.createProxy(new TestResultSetMetaDataInconsistent());
         final ResultSet resultSet = TestResultSet.createProxy(new TestResultSetInconsistent(metaData));

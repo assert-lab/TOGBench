@@ -84,7 +84,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
 //        out.writeObject( map );
 //    }
 
-    public void testTransformedMap_1_oe() {
+public void testTransformedMap_1_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -95,7 +95,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
         assertEquals(0, map.size());
     }
 
-    public void testTransformedMap_2_oe() {
+public void testTransformedMap_2_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -110,7 +110,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
     }
     }
 
-    public void testTransformedMap_3_oe() {
+public void testTransformedMap_3_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -126,7 +126,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
     }
     }
 
-    public void testTransformedMap_4_oe() {
+public void testTransformedMap_4_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -143,7 +143,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
     }
     }
 
-    public void testTransformedMap_5_oe() {
+public void testTransformedMap_5_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -161,7 +161,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
     }
     }
 
-    public void testTransformedMap_6_oe() {
+public void testTransformedMap_6_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -180,7 +180,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
     }
     }
 
-    public void testTransformedMap_7_oe() {
+public void testTransformedMap_7_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -200,7 +200,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
     }
     }
 
-    public void testTransformedMap_8_oe() {
+public void testTransformedMap_8_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -223,7 +223,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
         assertEquals(null, map.remove(k[0]));
     }
 
-    public void testTransformedMap_9_oe() {
+public void testTransformedMap_9_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -247,7 +247,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
         assertEquals(sz, map.size());
     }
 
-    public void testTransformedMap_10_oe() {
+public void testTransformedMap_10_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -272,7 +272,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
         assertEquals(objectToClass.transform(v[0]), map.remove(intToString.transform(k[0])));
     }
 
-    public void testTransformedMap_11_oe() {
+public void testTransformedMap_11_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -298,7 +298,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
         assertEquals(--sz, map.size());
     }
 
-    public void testTransformedMap_12_oe() {
+public void testTransformedMap_12_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -328,7 +328,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
         assertEquals(0, map2.size());
     }
 
-    public void testTransformedMap_13_oe() {
+public void testTransformedMap_13_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -362,7 +362,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
     }
     }
 
-    public void testTransformedMap_14_oe() {
+public void testTransformedMap_14_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -397,7 +397,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
     }
     }
 
-    public void testTransformedMap_15_oe() {
+public void testTransformedMap_15_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -433,7 +433,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
     }
     }
 
-    public void testTransformedMap_16_oe() {
+public void testTransformedMap_16_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -470,7 +470,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
     }
     }
 
-    public void testTransformedMap_17_oe() {
+public void testTransformedMap_17_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -508,7 +508,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
     }
     }
 
-    public void testTransformedMap_18_oe() {
+public void testTransformedMap_18_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -549,7 +549,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
         assertEquals(Integer.valueOf(0), map2.remove("0"));
     }
 
-    public void testTransformedMap_19_oe() {
+public void testTransformedMap_19_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
 
@@ -591,14 +591,14 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
         assertEquals(--sz2, map2.size());
     }
 
-    public void testMapIterator_1_oe() {
+public void testMapIterator_1_oe() {
         final TransformedSplitMap<String, String, String, Integer> map =
                 TransformedSplitMap.transformingMap(new HashMap<String, Integer>(),
                                                     NOPTransformer.<String> nopTransformer(), stringToInt);
         assertEquals(0, map.size());
     }
 
-    public void testMapIterator_2_oe() {
+public void testMapIterator_2_oe() {
         final TransformedSplitMap<String, String, String, Integer> map =
                 TransformedSplitMap.transformingMap(new HashMap<String, Integer>(),
                                                     NOPTransformer.<String> nopTransformer(), stringToInt);
@@ -613,7 +613,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
     }
     }
 
-    public void testMapIterator_3_oe() {
+public void testMapIterator_3_oe() {
         final TransformedSplitMap<String, String, String, Integer> map =
                 TransformedSplitMap.transformingMap(new HashMap<String, Integer>(),
                                                     NOPTransformer.<String> nopTransformer(), stringToInt);
@@ -629,7 +629,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
     }
     }
 
-    public void testEmptyMap_1_oe() throws IOException, ClassNotFoundException {
+public void testEmptyMap_1_oe() throws IOException, ClassNotFoundException {
         final TransformedSplitMap<String, String, String, String> map =
                 TransformedSplitMap.transformingMap(new HashMap<String, String>(),
                                                     NOPTransformer.<String>nopTransformer(),
@@ -644,7 +644,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
         assertTrue( "Map should be empty", readMap.size() == 0 );
     }
 
-    public void testEmptyMap_2_oe() throws IOException, ClassNotFoundException {
+public void testEmptyMap_2_oe() throws IOException, ClassNotFoundException {
         final TransformedSplitMap<String, String, String, String> map =
                 TransformedSplitMap.transformingMap(new HashMap<String, String>(),
                                                     NOPTransformer.<String>nopTransformer(),
@@ -660,7 +660,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
         assertEquals( map.entrySet(), readMap.entrySet() );
     }
 
-    public void testFullMap_1_oe() throws IOException, ClassNotFoundException {
+public void testFullMap_1_oe() throws IOException, ClassNotFoundException {
         final TransformedSplitMap<String, String, String, String> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, String>(),
                 NOPTransformer.<String>nopTransformer(),
@@ -679,7 +679,7 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
         assertFalse( "Map should not be empty", readMap.size() == 0 );
     }
 
-    public void testFullMap_2_oe() throws IOException, ClassNotFoundException {
+public void testFullMap_2_oe() throws IOException, ClassNotFoundException {
         final TransformedSplitMap<String, String, String, String> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, String>(),
                 NOPTransformer.<String>nopTransformer(),

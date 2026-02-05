@@ -247,40 +247,40 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(day,test.getDayOfMonth());
     }
 
-    public void testTest_1_oe() {
+public void testTest_1_oe() {
         assertEquals("2002-06-09T00:00:00.000Z",new Instant(TEST_TIME_NOW_UTC).toString());
     }
 
-    public void testTest_2_oe() {
+public void testTest_2_oe() {
         // removed other assertion
         assertEquals("2002-04-05T12:24:00.000Z",new Instant(TEST_TIME1_UTC).toString());
     }
 
-    public void testTest_3_oe() {
+public void testTest_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("2003-05-06T14:28:00.000Z",new Instant(TEST_TIME2_UTC).toString());
     }
 
-    public void testGet_DateTimeField_1_oe() {
+public void testGet_DateTimeField_1_oe() {
         DateMidnight test = new DateMidnight();
         assertEquals(1,test.get(ISO_DEFAULT.era()));
     }
 
-    public void testGet_DateTimeField_2_oe() {
+public void testGet_DateTimeField_2_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         assertEquals(20,test.get(ISO_DEFAULT.centuryOfEra()));
     }
 
-    public void testGet_DateTimeField_3_oe() {
+public void testGet_DateTimeField_3_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
         assertEquals(2,test.get(ISO_DEFAULT.yearOfCentury()));
     }
 
-    public void testGet_DateTimeField_4_oe() {
+public void testGet_DateTimeField_4_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -288,7 +288,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(2002,test.get(ISO_DEFAULT.yearOfEra()));
     }
 
-    public void testGet_DateTimeField_5_oe() {
+public void testGet_DateTimeField_5_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -297,7 +297,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(2002,test.get(ISO_DEFAULT.year()));
     }
 
-    public void testGet_DateTimeField_6_oe() {
+public void testGet_DateTimeField_6_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -307,7 +307,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(6,test.get(ISO_DEFAULT.monthOfYear()));
     }
 
-    public void testGet_DateTimeField_7_oe() {
+public void testGet_DateTimeField_7_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -318,7 +318,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(9,test.get(ISO_DEFAULT.dayOfMonth()));
     }
 
-    public void testGet_DateTimeField_8_oe() {
+public void testGet_DateTimeField_8_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -330,7 +330,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(2002,test.get(ISO_DEFAULT.weekyear()));
     }
 
-    public void testGet_DateTimeField_9_oe() {
+public void testGet_DateTimeField_9_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -343,7 +343,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(23,test.get(ISO_DEFAULT.weekOfWeekyear()));
     }
 
-    public void testGet_DateTimeField_10_oe() {
+public void testGet_DateTimeField_10_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -357,7 +357,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(7,test.get(ISO_DEFAULT.dayOfWeek()));
     }
 
-    public void testGet_DateTimeField_11_oe() {
+public void testGet_DateTimeField_11_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -372,7 +372,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(160,test.get(ISO_DEFAULT.dayOfYear()));
     }
 
-    public void testGet_DateTimeField_12_oe() {
+public void testGet_DateTimeField_12_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -388,7 +388,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(ISO_DEFAULT.halfdayOfDay()));
     }
 
-    public void testGet_DateTimeField_13_oe() {
+public void testGet_DateTimeField_13_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -405,7 +405,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(ISO_DEFAULT.hourOfHalfday()));
     }
 
-    public void testGet_DateTimeField_14_oe() {
+public void testGet_DateTimeField_14_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -423,7 +423,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(24,test.get(ISO_DEFAULT.clockhourOfDay()));
     }
 
-    public void testGet_DateTimeField_15_oe() {
+public void testGet_DateTimeField_15_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -442,7 +442,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(12,test.get(ISO_DEFAULT.clockhourOfHalfday()));
     }
 
-    public void testGet_DateTimeField_16_oe() {
+public void testGet_DateTimeField_16_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -462,7 +462,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(ISO_DEFAULT.hourOfDay()));
     }
 
-    public void testGet_DateTimeField_17_oe() {
+public void testGet_DateTimeField_17_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -483,7 +483,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(ISO_DEFAULT.minuteOfHour()));
     }
 
-    public void testGet_DateTimeField_18_oe() {
+public void testGet_DateTimeField_18_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -505,7 +505,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(ISO_DEFAULT.minuteOfDay()));
     }
 
-    public void testGet_DateTimeField_19_oe() {
+public void testGet_DateTimeField_19_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -528,7 +528,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(ISO_DEFAULT.secondOfMinute()));
     }
 
-    public void testGet_DateTimeField_20_oe() {
+public void testGet_DateTimeField_20_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -552,7 +552,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(ISO_DEFAULT.secondOfDay()));
     }
 
-    public void testGet_DateTimeField_21_oe() {
+public void testGet_DateTimeField_21_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -577,7 +577,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(ISO_DEFAULT.millisOfSecond()));
     }
 
-    public void testGet_DateTimeField_22_oe() {
+public void testGet_DateTimeField_22_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -603,25 +603,25 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(ISO_DEFAULT.millisOfDay()));
     }
 
-    public void testGet_DateTimeFieldType_1_oe() {
+public void testGet_DateTimeFieldType_1_oe() {
         DateMidnight test = new DateMidnight();
         assertEquals(1,test.get(DateTimeFieldType.era()));
     }
 
-    public void testGet_DateTimeFieldType_2_oe() {
+public void testGet_DateTimeFieldType_2_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         assertEquals(20,test.get(DateTimeFieldType.centuryOfEra()));
     }
 
-    public void testGet_DateTimeFieldType_3_oe() {
+public void testGet_DateTimeFieldType_3_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
         assertEquals(2,test.get(DateTimeFieldType.yearOfCentury()));
     }
 
-    public void testGet_DateTimeFieldType_4_oe() {
+public void testGet_DateTimeFieldType_4_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -629,7 +629,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(2002,test.get(DateTimeFieldType.yearOfEra()));
     }
 
-    public void testGet_DateTimeFieldType_5_oe() {
+public void testGet_DateTimeFieldType_5_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -638,7 +638,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(2002,test.get(DateTimeFieldType.year()));
     }
 
-    public void testGet_DateTimeFieldType_6_oe() {
+public void testGet_DateTimeFieldType_6_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -648,7 +648,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(6,test.get(DateTimeFieldType.monthOfYear()));
     }
 
-    public void testGet_DateTimeFieldType_7_oe() {
+public void testGet_DateTimeFieldType_7_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -659,7 +659,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(9,test.get(DateTimeFieldType.dayOfMonth()));
     }
 
-    public void testGet_DateTimeFieldType_8_oe() {
+public void testGet_DateTimeFieldType_8_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -671,7 +671,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(2002,test.get(DateTimeFieldType.weekyear()));
     }
 
-    public void testGet_DateTimeFieldType_9_oe() {
+public void testGet_DateTimeFieldType_9_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -684,7 +684,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(23,test.get(DateTimeFieldType.weekOfWeekyear()));
     }
 
-    public void testGet_DateTimeFieldType_10_oe() {
+public void testGet_DateTimeFieldType_10_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -698,7 +698,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(7,test.get(DateTimeFieldType.dayOfWeek()));
     }
 
-    public void testGet_DateTimeFieldType_11_oe() {
+public void testGet_DateTimeFieldType_11_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -713,7 +713,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(160,test.get(DateTimeFieldType.dayOfYear()));
     }
 
-    public void testGet_DateTimeFieldType_12_oe() {
+public void testGet_DateTimeFieldType_12_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -729,7 +729,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(DateTimeFieldType.halfdayOfDay()));
     }
 
-    public void testGet_DateTimeFieldType_13_oe() {
+public void testGet_DateTimeFieldType_13_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -746,7 +746,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(DateTimeFieldType.hourOfHalfday()));
     }
 
-    public void testGet_DateTimeFieldType_14_oe() {
+public void testGet_DateTimeFieldType_14_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -764,7 +764,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(24,test.get(DateTimeFieldType.clockhourOfDay()));
     }
 
-    public void testGet_DateTimeFieldType_15_oe() {
+public void testGet_DateTimeFieldType_15_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -783,7 +783,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(12,test.get(DateTimeFieldType.clockhourOfHalfday()));
     }
 
-    public void testGet_DateTimeFieldType_16_oe() {
+public void testGet_DateTimeFieldType_16_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -803,7 +803,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(DateTimeFieldType.hourOfDay()));
     }
 
-    public void testGet_DateTimeFieldType_17_oe() {
+public void testGet_DateTimeFieldType_17_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -824,7 +824,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(DateTimeFieldType.minuteOfHour()));
     }
 
-    public void testGet_DateTimeFieldType_18_oe() {
+public void testGet_DateTimeFieldType_18_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -846,7 +846,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(DateTimeFieldType.minuteOfDay()));
     }
 
-    public void testGet_DateTimeFieldType_19_oe() {
+public void testGet_DateTimeFieldType_19_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -869,7 +869,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(DateTimeFieldType.secondOfMinute()));
     }
 
-    public void testGet_DateTimeFieldType_20_oe() {
+public void testGet_DateTimeFieldType_20_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -893,7 +893,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(DateTimeFieldType.secondOfDay()));
     }
 
-    public void testGet_DateTimeFieldType_21_oe() {
+public void testGet_DateTimeFieldType_21_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -918,7 +918,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(DateTimeFieldType.millisOfSecond()));
     }
 
-    public void testGet_DateTimeFieldType_22_oe() {
+public void testGet_DateTimeFieldType_22_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
@@ -944,20 +944,20 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.get(DateTimeFieldType.millisOfDay()));
     }
 
-    public void testGetters_1_oe() {
+public void testGetters_1_oe() {
         DateMidnight test = new DateMidnight();
         
         assertEquals(ISO_DEFAULT,test.getChronology());
     }
 
-    public void testGetters_2_oe() {
+public void testGetters_2_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
         assertEquals(LONDON,test.getZone());
     }
 
-    public void testGetters_3_oe() {
+public void testGetters_3_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -965,7 +965,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(TEST_TIME_NOW_LONDON,test.getMillis());
     }
 
-    public void testGetters_4_oe() {
+public void testGetters_4_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -975,7 +975,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(1,test.getEra());
     }
 
-    public void testGetters_5_oe() {
+public void testGetters_5_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -986,7 +986,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(20,test.getCenturyOfEra());
     }
 
-    public void testGetters_6_oe() {
+public void testGetters_6_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -998,7 +998,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(2,test.getYearOfCentury());
     }
 
-    public void testGetters_7_oe() {
+public void testGetters_7_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -1011,7 +1011,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(2002,test.getYearOfEra());
     }
 
-    public void testGetters_8_oe() {
+public void testGetters_8_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -1025,7 +1025,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(2002,test.getYear());
     }
 
-    public void testGetters_9_oe() {
+public void testGetters_9_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -1040,7 +1040,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testGetters_10_oe() {
+public void testGetters_10_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -1056,7 +1056,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testGetters_11_oe() {
+public void testGetters_11_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -1073,7 +1073,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(2002,test.getWeekyear());
     }
 
-    public void testGetters_12_oe() {
+public void testGetters_12_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -1091,7 +1091,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(23,test.getWeekOfWeekyear());
     }
 
-    public void testGetters_13_oe() {
+public void testGetters_13_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -1110,7 +1110,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(7,test.getDayOfWeek());
     }
 
-    public void testGetters_14_oe() {
+public void testGetters_14_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -1130,7 +1130,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(160,test.getDayOfYear());
     }
 
-    public void testGetters_15_oe() {
+public void testGetters_15_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -1151,7 +1151,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getHourOfDay());
     }
 
-    public void testGetters_16_oe() {
+public void testGetters_16_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -1173,7 +1173,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMinuteOfHour());
     }
 
-    public void testGetters_17_oe() {
+public void testGetters_17_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -1196,7 +1196,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMinuteOfDay());
     }
 
-    public void testGetters_18_oe() {
+public void testGetters_18_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -1220,7 +1220,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getSecondOfMinute());
     }
 
-    public void testGetters_19_oe() {
+public void testGetters_19_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -1245,7 +1245,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getSecondOfDay());
     }
 
-    public void testGetters_20_oe() {
+public void testGetters_20_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -1271,7 +1271,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMillisOfSecond());
     }
 
-    public void testGetters_21_oe() {
+public void testGetters_21_oe() {
         DateMidnight test = new DateMidnight();
         
         // removed other assertion
@@ -1298,20 +1298,20 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMillisOfDay());
     }
 
-    public void testEqualsHashCode_1_oe() {
+public void testEqualsHashCode_1_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test2 = new DateMidnight(TEST_TIME1_UTC);
         assertEquals(true,test1.equals(test2));
     }
 
-    public void testEqualsHashCode_2_oe() {
+public void testEqualsHashCode_2_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test2 = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
         assertEquals(true,test2.equals(test1));
     }
 
-    public void testEqualsHashCode_3_oe() {
+public void testEqualsHashCode_3_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test2 = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1319,7 +1319,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.equals(test1));
     }
 
-    public void testEqualsHashCode_4_oe() {
+public void testEqualsHashCode_4_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test2 = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1328,7 +1328,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.equals(test2));
     }
 
-    public void testEqualsHashCode_5_oe() {
+public void testEqualsHashCode_5_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test2 = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1338,7 +1338,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test2.hashCode());
     }
 
-    public void testEqualsHashCode_6_oe() {
+public void testEqualsHashCode_6_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test2 = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1349,7 +1349,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test1.hashCode());
     }
 
-    public void testEqualsHashCode_7_oe() {
+public void testEqualsHashCode_7_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test2 = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1361,7 +1361,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.hashCode()== test2.hashCode());
     }
 
-    public void testEqualsHashCode_8_oe() {
+public void testEqualsHashCode_8_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test2 = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1376,7 +1376,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals(test3));
     }
 
-    public void testEqualsHashCode_9_oe() {
+public void testEqualsHashCode_9_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test2 = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1392,7 +1392,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.equals(test3));
     }
 
-    public void testEqualsHashCode_10_oe() {
+public void testEqualsHashCode_10_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test2 = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1409,7 +1409,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.equals(test1));
     }
 
-    public void testEqualsHashCode_11_oe() {
+public void testEqualsHashCode_11_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test2 = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1427,7 +1427,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.equals(test2));
     }
 
-    public void testEqualsHashCode_12_oe() {
+public void testEqualsHashCode_12_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test2 = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1446,7 +1446,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.hashCode()== test3.hashCode());
     }
 
-    public void testEqualsHashCode_13_oe() {
+public void testEqualsHashCode_13_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test2 = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1466,7 +1466,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.hashCode()== test3.hashCode());
     }
 
-    public void testEqualsHashCode_14_oe() {
+public void testEqualsHashCode_14_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test2 = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1488,7 +1488,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals("Hello"));
     }
 
-    public void testEqualsHashCode_15_oe() {
+public void testEqualsHashCode_15_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test2 = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1511,7 +1511,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.equals(new MockInstant()));
     }
 
-    public void testEqualsHashCode_16_oe() {
+public void testEqualsHashCode_16_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test2 = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1535,20 +1535,20 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals(new DateMidnight(TEST_TIME1_UTC,GREGORIAN_DEFAULT)));
     }
 
-    public void testCompareTo_1_oe() {
+public void testCompareTo_1_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         assertEquals(0,test1.compareTo(test1a));
     }
 
-    public void testCompareTo_2_oe() {
+public void testCompareTo_2_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
         assertEquals(0,test1a.compareTo(test1));
     }
 
-    public void testCompareTo_3_oe() {
+public void testCompareTo_3_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1556,7 +1556,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test1.compareTo(test1));
     }
 
-    public void testCompareTo_4_oe() {
+public void testCompareTo_4_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1565,7 +1565,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test1a.compareTo(test1a));
     }
 
-    public void testCompareTo_5_oe() {
+public void testCompareTo_5_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1577,7 +1577,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(-1,test1.compareTo(test2));
     }
 
-    public void testCompareTo_6_oe() {
+public void testCompareTo_6_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1590,7 +1590,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(+1,test2.compareTo(test1));
     }
 
-    public void testCompareTo_7_oe() {
+public void testCompareTo_7_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1606,7 +1606,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(-1,test1.compareTo(test3));
     }
 
-    public void testCompareTo_8_oe() {
+public void testCompareTo_8_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1623,7 +1623,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(+1,test3.compareTo(test1));
     }
 
-    public void testCompareTo_9_oe() {
+public void testCompareTo_9_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1641,7 +1641,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(-1,test3.compareTo(test2));// midnight paris before london assertEquals(+1,test2.compareTo(new MockInstant()));
     }
 
-    public void testCompareTo_10_oe() {
+public void testCompareTo_10_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1660,20 +1660,20 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(0,test1.compareTo(new MockInstant()));
     }
 
-    public void testIsEqual_1_oe() {
+public void testIsEqual_1_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         assertEquals(true,test1.isEqual(test1a));
     }
 
-    public void testIsEqual_2_oe() {
+public void testIsEqual_2_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
         assertEquals(true,test1a.isEqual(test1));
     }
 
-    public void testIsEqual_3_oe() {
+public void testIsEqual_3_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1681,7 +1681,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.isEqual(test1));
     }
 
-    public void testIsEqual_4_oe() {
+public void testIsEqual_4_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1690,7 +1690,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1a.isEqual(test1a));
     }
 
-    public void testIsEqual_5_oe() {
+public void testIsEqual_5_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1702,7 +1702,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isEqual(test2));
     }
 
-    public void testIsEqual_6_oe() {
+public void testIsEqual_6_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1715,7 +1715,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.isEqual(test1));
     }
 
-    public void testIsEqual_7_oe() {
+public void testIsEqual_7_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1731,7 +1731,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isEqual(test3));
     }
 
-    public void testIsEqual_8_oe() {
+public void testIsEqual_8_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1748,7 +1748,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.isEqual(test1));
     }
 
-    public void testIsEqual_9_oe() {
+public void testIsEqual_9_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1766,7 +1766,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.isEqual(test2));// midnight paris before london assertEquals(false,test2.isEqual(new MockInstant()));
     }
 
-    public void testIsEqual_10_oe() {
+public void testIsEqual_10_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1785,7 +1785,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.isEqual(new MockInstant()));
     }
 
-    public void testIsEqual_11_oe() {
+public void testIsEqual_11_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1806,7 +1806,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,new DateMidnight(TEST_TIME_NOW_UTC + DateTimeConstants.MILLIS_PER_DAY,DateTimeZone.UTC).isEqual(null));
     }
 
-    public void testIsEqual_12_oe() {
+public void testIsEqual_12_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1828,7 +1828,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,new DateMidnight(TEST_TIME_NOW_UTC,DateTimeZone.UTC).isEqual(null));
     }
 
-    public void testIsEqual_13_oe() {
+public void testIsEqual_13_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1851,7 +1851,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,new DateMidnight(TEST_TIME_NOW_UTC - DateTimeConstants.MILLIS_PER_DAY,DateTimeZone.UTC).isEqual(null));
     }
 
-    public void testIsEqual_14_oe() {
+public void testIsEqual_14_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1876,7 +1876,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,new DateMidnight(2004,6,9).isEqual(new DateTime(2004,6,8,23,59,59,999)));
     }
 
-    public void testIsEqual_15_oe() {
+public void testIsEqual_15_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1902,7 +1902,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,new DateMidnight(2004,6,9).isEqual(new DateTime(2004,6,9,0,0,0,0)));
     }
 
-    public void testIsEqual_16_oe() {
+public void testIsEqual_16_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1929,20 +1929,20 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,new DateMidnight(2004,6,9).isEqual(new DateTime(2004,6,9,0,0,0,1)));
     }
 
-    public void testIsBefore_1_oe() {
+public void testIsBefore_1_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         assertEquals(false,test1.isBefore(test1a));
     }
 
-    public void testIsBefore_2_oe() {
+public void testIsBefore_2_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
         assertEquals(false,test1a.isBefore(test1));
     }
 
-    public void testIsBefore_3_oe() {
+public void testIsBefore_3_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1950,7 +1950,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isBefore(test1));
     }
 
-    public void testIsBefore_4_oe() {
+public void testIsBefore_4_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1959,7 +1959,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1a.isBefore(test1a));
     }
 
-    public void testIsBefore_5_oe() {
+public void testIsBefore_5_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1971,7 +1971,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.isBefore(test2));
     }
 
-    public void testIsBefore_6_oe() {
+public void testIsBefore_6_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -1984,7 +1984,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.isBefore(test1));
     }
 
-    public void testIsBefore_7_oe() {
+public void testIsBefore_7_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2000,7 +2000,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.isBefore(test3));
     }
 
-    public void testIsBefore_8_oe() {
+public void testIsBefore_8_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2017,7 +2017,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.isBefore(test1));
     }
 
-    public void testIsBefore_9_oe() {
+public void testIsBefore_9_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2035,7 +2035,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,test3.isBefore(test2));// midnight paris before london assertEquals(false,test2.isBefore(new MockInstant()));
     }
 
-    public void testIsBefore_10_oe() {
+public void testIsBefore_10_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2054,7 +2054,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isBefore(new MockInstant()));
     }
 
-    public void testIsBefore_11_oe() {
+public void testIsBefore_11_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2075,7 +2075,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,new DateMidnight(TEST_TIME_NOW_UTC + DateTimeConstants.MILLIS_PER_DAY,DateTimeZone.UTC).isBefore(null));
     }
 
-    public void testIsBefore_12_oe() {
+public void testIsBefore_12_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2097,7 +2097,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,new DateMidnight(TEST_TIME_NOW_UTC,DateTimeZone.UTC).isBefore(null));
     }
 
-    public void testIsBefore_13_oe() {
+public void testIsBefore_13_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2120,7 +2120,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,new DateMidnight(TEST_TIME_NOW_UTC - DateTimeConstants.MILLIS_PER_DAY,DateTimeZone.UTC).isBefore(null));
     }
 
-    public void testIsBefore_14_oe() {
+public void testIsBefore_14_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2145,7 +2145,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,new DateMidnight(2004,6,9).isBefore(new DateTime(2004,6,8,23,59,59,999)));
     }
 
-    public void testIsBefore_15_oe() {
+public void testIsBefore_15_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2171,7 +2171,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,new DateMidnight(2004,6,9).isBefore(new DateTime(2004,6,9,0,0,0,0)));
     }
 
-    public void testIsBefore_16_oe() {
+public void testIsBefore_16_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2198,20 +2198,20 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,new DateMidnight(2004,6,9).isBefore(new DateTime(2004,6,9,0,0,0,1)));
     }
 
-    public void testIsAfter_1_oe() {
+public void testIsAfter_1_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         assertEquals(false,test1.isAfter(test1a));
     }
 
-    public void testIsAfter_2_oe() {
+public void testIsAfter_2_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
         assertEquals(false,test1a.isAfter(test1));
     }
 
-    public void testIsAfter_3_oe() {
+public void testIsAfter_3_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2219,7 +2219,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isAfter(test1));
     }
 
-    public void testIsAfter_4_oe() {
+public void testIsAfter_4_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2228,7 +2228,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1a.isAfter(test1a));
     }
 
-    public void testIsAfter_5_oe() {
+public void testIsAfter_5_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2240,7 +2240,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isAfter(test2));
     }
 
-    public void testIsAfter_6_oe() {
+public void testIsAfter_6_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2253,7 +2253,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.isAfter(test1));
     }
 
-    public void testIsAfter_7_oe() {
+public void testIsAfter_7_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2269,7 +2269,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isAfter(test3));
     }
 
-    public void testIsAfter_8_oe() {
+public void testIsAfter_8_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2286,7 +2286,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,test3.isAfter(test1));
     }
 
-    public void testIsAfter_9_oe() {
+public void testIsAfter_9_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2304,7 +2304,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.isAfter(test2));// midnight paris before london assertEquals(true,test2.isAfter(new MockInstant()));
     }
 
-    public void testIsAfter_10_oe() {
+public void testIsAfter_10_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2323,7 +2323,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.isAfter(new MockInstant()));
     }
 
-    public void testIsAfter_11_oe() {
+public void testIsAfter_11_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2344,7 +2344,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,new DateMidnight(TEST_TIME_NOW_UTC + DateTimeConstants.MILLIS_PER_DAY,DateTimeZone.UTC).isAfter(null));
     }
 
-    public void testIsAfter_12_oe() {
+public void testIsAfter_12_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2366,7 +2366,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,new DateMidnight(TEST_TIME_NOW_UTC,DateTimeZone.UTC).isAfter(null));
     }
 
-    public void testIsAfter_13_oe() {
+public void testIsAfter_13_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2389,7 +2389,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,new DateMidnight(TEST_TIME_NOW_UTC - DateTimeConstants.MILLIS_PER_DAY,DateTimeZone.UTC).isAfter(null));
     }
 
-    public void testIsAfter_14_oe() {
+public void testIsAfter_14_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2414,7 +2414,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(true,new DateMidnight(2004,6,9).isAfter(new DateTime(2004,6,8,23,59,59,999)));
     }
 
-    public void testIsAfter_15_oe() {
+public void testIsAfter_15_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2440,7 +2440,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,new DateMidnight(2004,6,9).isAfter(new DateTime(2004,6,9,0,0,0,0)));
     }
 
-    public void testIsAfter_16_oe() {
+public void testIsAfter_16_oe() {
         DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
         // removed other assertion
@@ -2467,7 +2467,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(false,new DateMidnight(2004,6,9).isAfter(new DateTime(2004,6,9,0,0,0,1)));
     }
 
-    public void testSerialization_1_oe() throws Exception {
+public void testSerialization_1_oe() throws Exception {
         DateMidnight test = new DateMidnight(TEST_TIME_NOW_UTC);
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -2484,12 +2484,12 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test,result);
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME_NOW_UTC);
         assertEquals("2002-06-09T00:00:00.000+01:00",test.toString());
     }
 
-    public void testToString_2_oe() {
+public void testToString_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME_NOW_UTC);
         // removed other assertion
         
@@ -2497,7 +2497,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals("2002-06-09T00:00:00.000+02:00",test.toString());
     }
 
-    public void testToString_3_oe() {
+public void testToString_3_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME_NOW_UTC);
         // removed other assertion
         
@@ -2508,36 +2508,36 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals("2002-06-08T00:00:00.000-04:00",test.toString());  // the 8th;
     }
 
-    public void testToString_String_1_oe() {
+public void testToString_String_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME_NOW_UTC);
         assertEquals("2002 00",test.toString("yyyy HH"));
     }
 
-    public void testToString_String_2_oe() {
+public void testToString_String_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME_NOW_UTC);
         // removed other assertion
         assertEquals("2002-06-09T00:00:00.000+01:00",test.toString((String)null));
     }
 
-    public void testToString_String_String_1_oe() {
+public void testToString_String_String_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME_NOW_UTC);
         assertEquals("Sun 9/6",test.toString("EEE d/M",Locale.ENGLISH));
     }
 
-    public void testToString_String_String_2_oe() {
+public void testToString_String_String_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME_NOW_UTC);
         // removed other assertion
         assertEquals("dim. 9/6",test.toString("EEE d/M",Locale.FRENCH));
     }
 
-    public void testToString_String_String_3_oe() {
+public void testToString_String_String_3_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME_NOW_UTC);
         // removed other assertion
         // removed other assertion
         assertEquals("2002-06-09T00:00:00.000+01:00",test.toString(null,Locale.ENGLISH));
     }
 
-    public void testToString_String_String_4_oe() {
+public void testToString_String_String_4_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME_NOW_UTC);
         // removed other assertion
         // removed other assertion
@@ -2545,7 +2545,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals("Sun 9/6",test.toString("EEE d/M",null));
     }
 
-    public void testToString_String_String_5_oe() {
+public void testToString_String_String_5_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME_NOW_UTC);
         // removed other assertion
         // removed other assertion
@@ -2554,37 +2554,37 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals("2002-06-09T00:00:00.000+01:00",test.toString(null,null));
     }
 
-    public void testToString_DTFormatter_1_oe() {
+public void testToString_DTFormatter_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME_NOW_UTC);
         assertEquals("2002 00",test.toString(DateTimeFormat.forPattern("yyyy HH")));
     }
 
-    public void testToString_DTFormatter_2_oe() {
+public void testToString_DTFormatter_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME_NOW_UTC);
         // removed other assertion
         assertEquals("2002-06-09T00:00:00.000+01:00",test.toString((DateTimeFormatter)null));
     }
 
-    public void testToInstant_1_oe() {
+public void testToInstant_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         Instant result = test.toInstant();
         assertEquals(TEST_TIME1_LONDON,result.getMillis());
     }
 
-    public void testToDateTime_1_oe() {
+public void testToDateTime_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, PARIS);
         DateTime result = test.toDateTime();
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToDateTime_2_oe() {
+public void testToDateTime_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, PARIS);
         DateTime result = test.toDateTime();
         // removed other assertion
         assertEquals(TEST_TIME1_PARIS,result.getMillis());
     }
 
-    public void testToDateTime_3_oe() {
+public void testToDateTime_3_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, PARIS);
         DateTime result = test.toDateTime();
         // removed other assertion
@@ -2592,20 +2592,20 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(PARIS,result.getZone());
     }
 
-    public void testToDateTimeISO_1_oe() {
+public void testToDateTimeISO_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, PARIS);
         DateTime result = test.toDateTimeISO();
         assertSame(DateTime.class,result.getClass());
     }
 
-    public void testToDateTimeISO_2_oe() {
+public void testToDateTimeISO_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, PARIS);
         DateTime result = test.toDateTimeISO();
         // removed other assertion
         assertSame(ISOChronology.class,result.getChronology().getClass());
     }
 
-    public void testToDateTimeISO_3_oe() {
+public void testToDateTimeISO_3_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, PARIS);
         DateTime result = test.toDateTimeISO();
         // removed other assertion
@@ -2613,7 +2613,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToDateTimeISO_4_oe() {
+public void testToDateTimeISO_4_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, PARIS);
         DateTime result = test.toDateTimeISO();
         // removed other assertion
@@ -2622,14 +2622,14 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(ISO_PARIS,result.getChronology());
     }
 
-    public void testToDateTime_DateTimeZone_2_oe() {
+public void testToDateTime_DateTimeZone_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(LONDON);
         // removed other assertion
         assertEquals(TEST_TIME1_LONDON,result.getMillis());
     }
 
-    public void testToDateTime_DateTimeZone_3_oe() {
+public void testToDateTime_DateTimeZone_3_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(LONDON);
         // removed other assertion
@@ -2637,7 +2637,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(LONDON,result.getZone());
     }
 
-    public void testToDateTime_DateTimeZone_4_oe() {
+public void testToDateTime_DateTimeZone_4_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(LONDON);
         // removed other assertion
@@ -2649,7 +2649,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToDateTime_DateTimeZone_5_oe() {
+public void testToDateTime_DateTimeZone_5_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(LONDON);
         // removed other assertion
@@ -2662,7 +2662,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(TEST_TIME1_LONDON,result.getMillis());
     }
 
-    public void testToDateTime_DateTimeZone_7_oe() {
+public void testToDateTime_DateTimeZone_7_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(LONDON);
         // removed other assertion
@@ -2680,7 +2680,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToDateTime_DateTimeZone_8_oe() {
+public void testToDateTime_DateTimeZone_8_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(LONDON);
         // removed other assertion
@@ -2699,7 +2699,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(TEST_TIME1_PARIS,result.getMillis());
     }
 
-    public void testToDateTime_DateTimeZone_9_oe() {
+public void testToDateTime_DateTimeZone_9_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(LONDON);
         // removed other assertion
@@ -2719,7 +2719,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(LONDON,result.getZone());
     }
 
-    public void testToDateTime_DateTimeZone_10_oe() {
+public void testToDateTime_DateTimeZone_10_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(LONDON);
         // removed other assertion
@@ -2743,7 +2743,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToDateTime_DateTimeZone_11_oe() {
+public void testToDateTime_DateTimeZone_11_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(LONDON);
         // removed other assertion
@@ -2768,7 +2768,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(TEST_TIME1_LONDON,result.getMillis());
     }
 
-    public void testToDateTime_DateTimeZone_12_oe() {
+public void testToDateTime_DateTimeZone_12_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(LONDON);
         // removed other assertion
@@ -2794,20 +2794,20 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(LONDON,result.getZone());
     }
 
-    public void testToDateTime_Chronology_1_oe() {
+public void testToDateTime_Chronology_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(ISO_DEFAULT);
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToDateTime_Chronology_2_oe() {
+public void testToDateTime_Chronology_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(ISO_DEFAULT);
         // removed other assertion
         assertEquals(TEST_TIME1_LONDON,result.getMillis());
     }
 
-    public void testToDateTime_Chronology_3_oe() {
+public void testToDateTime_Chronology_3_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(ISO_DEFAULT);
         // removed other assertion
@@ -2815,7 +2815,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(LONDON,result.getZone());
     }
 
-    public void testToDateTime_Chronology_4_oe() {
+public void testToDateTime_Chronology_4_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(ISO_DEFAULT);
         // removed other assertion
@@ -2827,7 +2827,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToDateTime_Chronology_5_oe() {
+public void testToDateTime_Chronology_5_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(ISO_DEFAULT);
         // removed other assertion
@@ -2840,7 +2840,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(TEST_TIME1_LONDON,result.getMillis());
     }
 
-    public void testToDateTime_Chronology_6_oe() {
+public void testToDateTime_Chronology_6_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(ISO_DEFAULT);
         // removed other assertion
@@ -2854,7 +2854,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(GREGORIAN_PARIS,result.getChronology());
     }
 
-    public void testToDateTime_Chronology_7_oe() {
+public void testToDateTime_Chronology_7_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(ISO_DEFAULT);
         // removed other assertion
@@ -2872,7 +2872,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToDateTime_Chronology_8_oe() {
+public void testToDateTime_Chronology_8_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(ISO_DEFAULT);
         // removed other assertion
@@ -2891,7 +2891,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(TEST_TIME1_PARIS,result.getMillis());
     }
 
-    public void testToDateTime_Chronology_9_oe() {
+public void testToDateTime_Chronology_9_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(ISO_DEFAULT);
         // removed other assertion
@@ -2911,7 +2911,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(ISO_DEFAULT,result.getChronology());
     }
 
-    public void testToDateTime_Chronology_10_oe() {
+public void testToDateTime_Chronology_10_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(ISO_DEFAULT);
         // removed other assertion
@@ -2935,7 +2935,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToDateTime_Chronology_11_oe() {
+public void testToDateTime_Chronology_11_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(ISO_DEFAULT);
         // removed other assertion
@@ -2960,7 +2960,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(TEST_TIME1_LONDON,result.getMillis());
     }
 
-    public void testToDateTime_Chronology_12_oe() {
+public void testToDateTime_Chronology_12_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(ISO_DEFAULT);
         // removed other assertion
@@ -2986,33 +2986,33 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(ISO_DEFAULT,result.getChronology());
     }
 
-    public void testToMutableDateTime_1_oe() {
+public void testToMutableDateTime_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, PARIS);
         MutableDateTime result = test.toMutableDateTime();
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToMutableDateTime_2_oe() {
+public void testToMutableDateTime_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, PARIS);
         MutableDateTime result = test.toMutableDateTime();
         // removed other assertion
         assertEquals(ISO_PARIS,result.getChronology());
     }
 
-    public void testToMutableDateTimeISO_1_oe() {
+public void testToMutableDateTimeISO_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, PARIS);
         MutableDateTime result = test.toMutableDateTimeISO();
         assertSame(MutableDateTime.class,result.getClass());
     }
 
-    public void testToMutableDateTimeISO_2_oe() {
+public void testToMutableDateTimeISO_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, PARIS);
         MutableDateTime result = test.toMutableDateTimeISO();
         // removed other assertion
         assertSame(ISOChronology.class,result.getChronology().getClass());
     }
 
-    public void testToMutableDateTimeISO_3_oe() {
+public void testToMutableDateTimeISO_3_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, PARIS);
         MutableDateTime result = test.toMutableDateTimeISO();
         // removed other assertion
@@ -3020,7 +3020,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToMutableDateTimeISO_4_oe() {
+public void testToMutableDateTimeISO_4_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, PARIS);
         MutableDateTime result = test.toMutableDateTimeISO();
         // removed other assertion
@@ -3029,20 +3029,20 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(ISO_PARIS,result.getChronology());
     }
 
-    public void testToMutableDateTime_DateTimeZone_1_oe() {
+public void testToMutableDateTime_DateTimeZone_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         MutableDateTime result = test.toMutableDateTime(LONDON);
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToMutableDateTime_DateTimeZone_2_oe() {
+public void testToMutableDateTime_DateTimeZone_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         MutableDateTime result = test.toMutableDateTime(LONDON);
         // removed other assertion
         assertEquals(ISO_DEFAULT,result.getChronology());
     }
 
-    public void testToMutableDateTime_DateTimeZone_3_oe() {
+public void testToMutableDateTime_DateTimeZone_3_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         MutableDateTime result = test.toMutableDateTime(LONDON);
         // removed other assertion
@@ -3053,7 +3053,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToMutableDateTime_DateTimeZone_4_oe() {
+public void testToMutableDateTime_DateTimeZone_4_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         MutableDateTime result = test.toMutableDateTime(LONDON);
         // removed other assertion
@@ -3065,7 +3065,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(ISO_PARIS,result.getChronology());
     }
 
-    public void testToMutableDateTime_DateTimeZone_5_oe() {
+public void testToMutableDateTime_DateTimeZone_5_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         MutableDateTime result = test.toMutableDateTime(LONDON);
         // removed other assertion
@@ -3081,7 +3081,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToMutableDateTime_DateTimeZone_6_oe() {
+public void testToMutableDateTime_DateTimeZone_6_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         MutableDateTime result = test.toMutableDateTime(LONDON);
         // removed other assertion
@@ -3098,7 +3098,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(ISO_DEFAULT,result.getChronology());
     }
 
-    public void testToMutableDateTime_DateTimeZone_7_oe() {
+public void testToMutableDateTime_DateTimeZone_7_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         MutableDateTime result = test.toMutableDateTime(LONDON);
         // removed other assertion
@@ -3119,7 +3119,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToMutableDateTime_DateTimeZone_8_oe() {
+public void testToMutableDateTime_DateTimeZone_8_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         MutableDateTime result = test.toMutableDateTime(LONDON);
         // removed other assertion
@@ -3141,20 +3141,20 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(ISO_DEFAULT,result.getChronology());
     }
 
-    public void testToMutableDateTime_Chronology_1_oe() {
+public void testToMutableDateTime_Chronology_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         MutableDateTime result = test.toMutableDateTime(ISO_DEFAULT);
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToMutableDateTime_Chronology_2_oe() {
+public void testToMutableDateTime_Chronology_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         MutableDateTime result = test.toMutableDateTime(ISO_DEFAULT);
         // removed other assertion
         assertEquals(ISO_DEFAULT,result.getChronology());
     }
 
-    public void testToMutableDateTime_Chronology_3_oe() {
+public void testToMutableDateTime_Chronology_3_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         MutableDateTime result = test.toMutableDateTime(ISO_DEFAULT);
         // removed other assertion
@@ -3165,7 +3165,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToMutableDateTime_Chronology_4_oe() {
+public void testToMutableDateTime_Chronology_4_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         MutableDateTime result = test.toMutableDateTime(ISO_DEFAULT);
         // removed other assertion
@@ -3177,7 +3177,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(GREGORIAN_PARIS,result.getChronology());
     }
 
-    public void testToMutableDateTime_Chronology_5_oe() {
+public void testToMutableDateTime_Chronology_5_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         MutableDateTime result = test.toMutableDateTime(ISO_DEFAULT);
         // removed other assertion
@@ -3193,7 +3193,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToMutableDateTime_Chronology_6_oe() {
+public void testToMutableDateTime_Chronology_6_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         MutableDateTime result = test.toMutableDateTime(ISO_DEFAULT);
         // removed other assertion
@@ -3210,7 +3210,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(ISO_DEFAULT,result.getChronology());
     }
 
-    public void testToMutableDateTime_Chronology_7_oe() {
+public void testToMutableDateTime_Chronology_7_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         MutableDateTime result = test.toMutableDateTime(ISO_DEFAULT);
         // removed other assertion
@@ -3231,7 +3231,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testToMutableDateTime_Chronology_8_oe() {
+public void testToMutableDateTime_Chronology_8_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         MutableDateTime result = test.toMutableDateTime(ISO_DEFAULT);
         // removed other assertion
@@ -3253,26 +3253,26 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(ISO_DEFAULT,result.getChronology());
     }
 
-    public void testToDate_1_oe() {
+public void testToDate_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         Date result = test.toDate();
         assertEquals(test.getMillis(),result.getTime());
     }
 
-    public void testToCalendar_Locale_1_oe() {
+public void testToCalendar_Locale_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         Calendar result = test.toCalendar(null);
         assertEquals(test.getMillis(),result.getTime().getTime());
     }
 
-    public void testToCalendar_Locale_2_oe() {
+public void testToCalendar_Locale_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         Calendar result = test.toCalendar(null);
         // removed other assertion
         assertEquals(TimeZone.getTimeZone("Europe/London"),result.getTimeZone());
     }
 
-    public void testToCalendar_Locale_3_oe() {
+public void testToCalendar_Locale_3_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         Calendar result = test.toCalendar(null);
         // removed other assertion
@@ -3283,7 +3283,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getTime().getTime());
     }
 
-    public void testToCalendar_Locale_4_oe() {
+public void testToCalendar_Locale_4_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         Calendar result = test.toCalendar(null);
         // removed other assertion
@@ -3295,7 +3295,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(TimeZone.getTimeZone("Europe/Paris"),result.getTimeZone());
     }
 
-    public void testToCalendar_Locale_5_oe() {
+public void testToCalendar_Locale_5_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         Calendar result = test.toCalendar(null);
         // removed other assertion
@@ -3311,7 +3311,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getTime().getTime());
     }
 
-    public void testToCalendar_Locale_6_oe() {
+public void testToCalendar_Locale_6_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         Calendar result = test.toCalendar(null);
         // removed other assertion
@@ -3328,20 +3328,20 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(TimeZone.getTimeZone("Europe/Paris"),result.getTimeZone());
     }
 
-    public void testToGregorianCalendar_1_oe() {
+public void testToGregorianCalendar_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         GregorianCalendar result = test.toGregorianCalendar();
         assertEquals(test.getMillis(),result.getTime().getTime());
     }
 
-    public void testToGregorianCalendar_2_oe() {
+public void testToGregorianCalendar_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         GregorianCalendar result = test.toGregorianCalendar();
         // removed other assertion
         assertEquals(TimeZone.getTimeZone("Europe/London"),result.getTimeZone());
     }
 
-    public void testToGregorianCalendar_3_oe() {
+public void testToGregorianCalendar_3_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         GregorianCalendar result = test.toGregorianCalendar();
         // removed other assertion
@@ -3352,7 +3352,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getTime().getTime());
     }
 
-    public void testToGregorianCalendar_4_oe() {
+public void testToGregorianCalendar_4_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         GregorianCalendar result = test.toGregorianCalendar();
         // removed other assertion
@@ -3364,39 +3364,39 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(TimeZone.getTimeZone("Europe/Paris"),result.getTimeZone());
     }
 
-    public void testToYearMonthDay_1_oe() {
+public void testToYearMonthDay_1_oe() {
         DateMidnight base = new DateMidnight(TEST_TIME1_UTC, COPTIC_DEFAULT);
         YearMonthDay test = base.toYearMonthDay();
         assertEquals(new YearMonthDay(TEST_TIME1_UTC,COPTIC_DEFAULT),test);
     }
 
-    public void testToLocalDate_1_oe() {
+public void testToLocalDate_1_oe() {
         DateMidnight base = new DateMidnight(TEST_TIME1_UTC, COPTIC_DEFAULT);
         LocalDate test = base.toLocalDate();
         assertEquals(new LocalDate(TEST_TIME1_UTC,COPTIC_DEFAULT),test);
     }
 
-    public void testToInterval_1_oe() {
+public void testToInterval_1_oe() {
         DateMidnight base = new DateMidnight(TEST_TIME1_UTC, COPTIC_DEFAULT);
         Interval test = base.toInterval();
         DateMidnight end = base.plus(Period.days(1));
         assertEquals(new Interval(base,end),test);
     }
 
-    public void testWithMillis_long_1_oe() {
+public void testWithMillis_long_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withMillis(TEST_TIME2_UTC);
         assertEquals(TEST_TIME2_LONDON,result.getMillis());
     }
 
-    public void testWithMillis_long_2_oe() {
+public void testWithMillis_long_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withMillis(TEST_TIME2_UTC);
         // removed other assertion
         assertEquals(test.getChronology(),result.getChronology());
     }
 
-    public void testWithMillis_long_3_oe() {
+public void testWithMillis_long_3_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withMillis(TEST_TIME2_UTC);
         // removed other assertion
@@ -3407,7 +3407,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(TEST_TIME2_PARIS,result.getMillis());
     }
 
-    public void testWithMillis_long_4_oe() {
+public void testWithMillis_long_4_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withMillis(TEST_TIME2_UTC);
         // removed other assertion
@@ -3419,7 +3419,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getChronology(),result.getChronology());
     }
 
-    public void testWithMillis_long_5_oe() {
+public void testWithMillis_long_5_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withMillis(TEST_TIME2_UTC);
         // removed other assertion
@@ -3435,20 +3435,20 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testWithChronology_Chronology_1_oe() {
+public void testWithChronology_Chronology_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withChronology(GREGORIAN_PARIS);
         assertEquals(TEST_TIME1_LONDON,test.getMillis());
     }
 
-    public void testWithChronology_Chronology_2_oe() {
+public void testWithChronology_Chronology_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withChronology(GREGORIAN_PARIS);
         // removed other assertion
         assertEquals(TEST_TIME1_PARIS,result.getMillis());
     }
 
-    public void testWithChronology_Chronology_3_oe() {
+public void testWithChronology_Chronology_3_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withChronology(GREGORIAN_PARIS);
         // removed other assertion
@@ -3456,7 +3456,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(GREGORIAN_PARIS,result.getChronology());
     }
 
-    public void testWithChronology_Chronology_4_oe() {
+public void testWithChronology_Chronology_4_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withChronology(GREGORIAN_PARIS);
         // removed other assertion
@@ -3468,7 +3468,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(TEST_TIME1_PARIS,test.getMillis());
     }
 
-    public void testWithChronology_Chronology_5_oe() {
+public void testWithChronology_Chronology_5_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withChronology(GREGORIAN_PARIS);
         // removed other assertion
@@ -3482,7 +3482,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(TEST_TIME1_LONDON - DateTimeConstants.MILLIS_PER_DAY,result.getMillis());
     }
 
-    public void testWithChronology_Chronology_6_oe() {
+public void testWithChronology_Chronology_6_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withChronology(GREGORIAN_PARIS);
         // removed other assertion
@@ -3497,7 +3497,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(ISO_DEFAULT,result.getChronology());
     }
 
-    public void testWithChronology_Chronology_7_oe() {
+public void testWithChronology_Chronology_7_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withChronology(GREGORIAN_PARIS);
         // removed other assertion
@@ -3516,7 +3516,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(test.getMillis(),result.getMillis());
     }
 
-    public void testWithChronology_Chronology_8_oe() {
+public void testWithChronology_Chronology_8_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withChronology(GREGORIAN_PARIS);
         // removed other assertion
@@ -3536,7 +3536,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(ISO_DEFAULT,result.getChronology());
     }
 
-    public void testWithChronology_Chronology_9_oe() {
+public void testWithChronology_Chronology_9_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withChronology(GREGORIAN_PARIS);
         // removed other assertion
@@ -3560,20 +3560,20 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testWithZoneRetainFields_DateTimeZone_1_oe() {
+public void testWithZoneRetainFields_DateTimeZone_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withZoneRetainFields(PARIS);
         assertEquals(TEST_TIME1_LONDON,test.getMillis());
     }
 
-    public void testWithZoneRetainFields_DateTimeZone_2_oe() {
+public void testWithZoneRetainFields_DateTimeZone_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withZoneRetainFields(PARIS);
         // removed other assertion
         assertEquals(TEST_TIME1_PARIS,result.getMillis());
     }
 
-    public void testWithZoneRetainFields_DateTimeZone_5_oe() {
+public void testWithZoneRetainFields_DateTimeZone_5_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withZoneRetainFields(PARIS);
         // removed other assertion
@@ -3586,7 +3586,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(TEST_TIME1_LONDON,result.getMillis());
     }
 
-    public void testWithZoneRetainFields_DateTimeZone_6_oe() {
+public void testWithZoneRetainFields_DateTimeZone_6_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withZoneRetainFields(PARIS);
         // removed other assertion
@@ -3600,7 +3600,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(GREGORIAN_DEFAULT,result.getChronology());
     }
 
-    public void testWithZoneRetainFields_DateTimeZone_9_oe() {
+public void testWithZoneRetainFields_DateTimeZone_9_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withZoneRetainFields(PARIS);
         // removed other assertion
@@ -3626,14 +3626,14 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testWithFields_RPartial_1_oe() {
+public void testWithFields_RPartial_1_oe() {
         DateMidnight test = new DateMidnight(2004, 5, 6);
         DateMidnight result = test.withFields(new YearMonthDay(2003, 4, 5));
         DateMidnight expected = new DateMidnight(2003, 4, 5);
         assertEquals(expected,result);
     }
 
-    public void testWithFields_RPartial_2_oe() {
+public void testWithFields_RPartial_2_oe() {
         DateMidnight test = new DateMidnight(2004, 5, 6);
         DateMidnight result = test.withFields(new YearMonthDay(2003, 4, 5));
         DateMidnight expected = new DateMidnight(2003, 4, 5);
@@ -3644,14 +3644,14 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testWithField1_1_oe() {
+public void testWithField1_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
         DateMidnight result = test.withField(DateTimeFieldType.year(), 2006);
         
         assertEquals(new DateMidnight(2004,6,9),test);
     }
 
-    public void testWithField1_2_oe() {
+public void testWithField1_2_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
         DateMidnight result = test.withField(DateTimeFieldType.year(), 2006);
         
@@ -3659,14 +3659,14 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(new DateMidnight(2006,6,9),result);
     }
 
-    public void testWithFieldAdded1_1_oe() {
+public void testWithFieldAdded1_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
         DateMidnight result = test.withFieldAdded(DurationFieldType.years(), 6);
         
         assertEquals(new DateMidnight(2004,6,9),test);
     }
 
-    public void testWithFieldAdded1_2_oe() {
+public void testWithFieldAdded1_2_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
         DateMidnight result = test.withFieldAdded(DurationFieldType.years(), 6);
         
@@ -3674,20 +3674,20 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(new DateMidnight(2010,6,9),result);
     }
 
-    public void testWithFieldAdded4_1_oe() {
+public void testWithFieldAdded4_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
         DateMidnight result = test.withFieldAdded(DurationFieldType.years(), 0);
         assertSame(test,result);
     }
 
-    public void testWithDurationAdded_long_int_1_oe() {
+public void testWithDurationAdded_long_int_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, BUDDHIST_DEFAULT);
         DateMidnight result = test.withDurationAdded(123456789L, 1);
         DateMidnight expected = new DateMidnight(test.getMillis() + 123456789L, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testWithDurationAdded_long_int_2_oe() {
+public void testWithDurationAdded_long_int_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, BUDDHIST_DEFAULT);
         DateMidnight result = test.withDurationAdded(123456789L, 1);
         DateMidnight expected = new DateMidnight(test.getMillis() + 123456789L, BUDDHIST_DEFAULT);
@@ -3697,7 +3697,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testWithDurationAdded_long_int_3_oe() {
+public void testWithDurationAdded_long_int_3_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, BUDDHIST_DEFAULT);
         DateMidnight result = test.withDurationAdded(123456789L, 1);
         DateMidnight expected = new DateMidnight(test.getMillis() + 123456789L, BUDDHIST_DEFAULT);
@@ -3711,7 +3711,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(expected,result);
     }
 
-    public void testWithDurationAdded_long_int_4_oe() {
+public void testWithDurationAdded_long_int_4_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, BUDDHIST_DEFAULT);
         DateMidnight result = test.withDurationAdded(123456789L, 1);
         DateMidnight expected = new DateMidnight(test.getMillis() + 123456789L, BUDDHIST_DEFAULT);
@@ -3729,14 +3729,14 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(expected,result);
     }
 
-    public void testWithDurationAdded_RD_int_1_oe() {
+public void testWithDurationAdded_RD_int_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, BUDDHIST_DEFAULT);
         DateMidnight result = test.withDurationAdded(new Duration(123456789L), 1);
         DateMidnight expected = new DateMidnight(test.getMillis() + 123456789L, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testWithDurationAdded_RD_int_2_oe() {
+public void testWithDurationAdded_RD_int_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, BUDDHIST_DEFAULT);
         DateMidnight result = test.withDurationAdded(new Duration(123456789L), 1);
         DateMidnight expected = new DateMidnight(test.getMillis() + 123456789L, BUDDHIST_DEFAULT);
@@ -3746,7 +3746,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testWithDurationAdded_RD_int_3_oe() {
+public void testWithDurationAdded_RD_int_3_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, BUDDHIST_DEFAULT);
         DateMidnight result = test.withDurationAdded(new Duration(123456789L), 1);
         DateMidnight expected = new DateMidnight(test.getMillis() + 123456789L, BUDDHIST_DEFAULT);
@@ -3759,7 +3759,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testWithDurationAdded_RD_int_4_oe() {
+public void testWithDurationAdded_RD_int_4_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, BUDDHIST_DEFAULT);
         DateMidnight result = test.withDurationAdded(new Duration(123456789L), 1);
         DateMidnight expected = new DateMidnight(test.getMillis() + 123456789L, BUDDHIST_DEFAULT);
@@ -3776,7 +3776,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(expected,result);
     }
 
-    public void testWithDurationAdded_RD_int_5_oe() {
+public void testWithDurationAdded_RD_int_5_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, BUDDHIST_DEFAULT);
         DateMidnight result = test.withDurationAdded(new Duration(123456789L), 1);
         DateMidnight expected = new DateMidnight(test.getMillis() + 123456789L, BUDDHIST_DEFAULT);
@@ -3797,14 +3797,14 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(expected,result);
     }
 
-    public void testWithDurationAdded_RP_int_1_oe() {
+public void testWithDurationAdded_RP_int_1_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.withPeriodAdded(new Period(1, 2, 3, 4, 5, 6, 7, 8), 1);
         DateMidnight expected = new DateMidnight(2003, 7, 28, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testWithDurationAdded_RP_int_2_oe() {
+public void testWithDurationAdded_RP_int_2_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.withPeriodAdded(new Period(1, 2, 3, 4, 5, 6, 7, 8), 1);
         DateMidnight expected = new DateMidnight(2003, 7, 28, BUDDHIST_DEFAULT);
@@ -3814,7 +3814,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testWithDurationAdded_RP_int_3_oe() {
+public void testWithDurationAdded_RP_int_3_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.withPeriodAdded(new Period(1, 2, 3, 4, 5, 6, 7, 8), 1);
         DateMidnight expected = new DateMidnight(2003, 7, 28, BUDDHIST_DEFAULT);
@@ -3827,7 +3827,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testWithDurationAdded_RP_int_4_oe() {
+public void testWithDurationAdded_RP_int_4_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.withPeriodAdded(new Period(1, 2, 3, 4, 5, 6, 7, 8), 1);
         DateMidnight expected = new DateMidnight(2003, 7, 28, BUDDHIST_DEFAULT);
@@ -3844,7 +3844,7 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(expected,result);
     }
 
-    public void testWithDurationAdded_RP_int_5_oe() {
+public void testWithDurationAdded_RP_int_5_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.withPeriodAdded(new Period(1, 2, 3, 4, 5, 6, 7, 8), 1);
         DateMidnight expected = new DateMidnight(2003, 7, 28, BUDDHIST_DEFAULT);
@@ -3865,21 +3865,21 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(expected,result);
     }
 
-    public void testPlus_long_1_oe() {
+public void testPlus_long_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, BUDDHIST_DEFAULT);
         DateMidnight result = test.plus(123456789L);
         DateMidnight expected = new DateMidnight(test.getMillis() + 123456789L, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testPlus_RD_1_oe() {
+public void testPlus_RD_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, BUDDHIST_DEFAULT);
         DateMidnight result = test.plus(new Duration(123456789L));
         DateMidnight expected = new DateMidnight(test.getMillis() + 123456789L, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testPlus_RD_2_oe() {
+public void testPlus_RD_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, BUDDHIST_DEFAULT);
         DateMidnight result = test.plus(new Duration(123456789L));
         DateMidnight expected = new DateMidnight(test.getMillis() + 123456789L, BUDDHIST_DEFAULT);
@@ -3889,14 +3889,14 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testPlus_RP_1_oe() {
+public void testPlus_RP_1_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.plus(new Period(1, 2, 3, 4, 5, 6, 7, 8));
         DateMidnight expected = new DateMidnight(2003, 7, 28, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testPlus_RP_2_oe() {
+public void testPlus_RP_2_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.plus(new Period(1, 2, 3, 4, 5, 6, 7, 8));
         DateMidnight expected = new DateMidnight(2003, 7, 28, BUDDHIST_DEFAULT);
@@ -3906,14 +3906,14 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testPlusYears_int_1_oe() {
+public void testPlusYears_int_1_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.plusYears(1);
         DateMidnight expected = new DateMidnight(2003, 5, 3, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testPlusYears_int_2_oe() {
+public void testPlusYears_int_2_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.plusYears(1);
         DateMidnight expected = new DateMidnight(2003, 5, 3, BUDDHIST_DEFAULT);
@@ -3923,14 +3923,14 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testPlusMonths_int_1_oe() {
+public void testPlusMonths_int_1_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.plusMonths(1);
         DateMidnight expected = new DateMidnight(2002, 6, 3, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testPlusMonths_int_2_oe() {
+public void testPlusMonths_int_2_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.plusMonths(1);
         DateMidnight expected = new DateMidnight(2002, 6, 3, BUDDHIST_DEFAULT);
@@ -3940,14 +3940,14 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testPlusWeeks_int_1_oe() {
+public void testPlusWeeks_int_1_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.plusWeeks(1);
         DateMidnight expected = new DateMidnight(2002, 5, 10, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testPlusWeeks_int_2_oe() {
+public void testPlusWeeks_int_2_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.plusWeeks(1);
         DateMidnight expected = new DateMidnight(2002, 5, 10, BUDDHIST_DEFAULT);
@@ -3957,14 +3957,14 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testPlusDays_int_1_oe() {
+public void testPlusDays_int_1_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.plusDays(1);
         DateMidnight expected = new DateMidnight(2002, 5, 4, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testPlusDays_int_2_oe() {
+public void testPlusDays_int_2_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.plusDays(1);
         DateMidnight expected = new DateMidnight(2002, 5, 4, BUDDHIST_DEFAULT);
@@ -3974,21 +3974,21 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testMinus_long_1_oe() {
+public void testMinus_long_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, BUDDHIST_DEFAULT);
         DateMidnight result = test.minus(123456789L);
         DateMidnight expected = new DateMidnight(test.getMillis() - 123456789L, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testMinus_RD_1_oe() {
+public void testMinus_RD_1_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, BUDDHIST_DEFAULT);
         DateMidnight result = test.minus(new Duration(123456789L));
         DateMidnight expected = new DateMidnight(test.getMillis() - 123456789L, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testMinus_RD_2_oe() {
+public void testMinus_RD_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, BUDDHIST_DEFAULT);
         DateMidnight result = test.minus(new Duration(123456789L));
         DateMidnight expected = new DateMidnight(test.getMillis() - 123456789L, BUDDHIST_DEFAULT);
@@ -3998,14 +3998,14 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testMinus_RP_1_oe() {
+public void testMinus_RP_1_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.minus(new Period(1, 1, 1, 1, 1, 1, 1, 1));
         DateMidnight expected = new DateMidnight(2001, 3, 25, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testMinus_RP_2_oe() {
+public void testMinus_RP_2_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.minus(new Period(1, 1, 1, 1, 1, 1, 1, 1));
         DateMidnight expected = new DateMidnight(2001, 3, 25, BUDDHIST_DEFAULT);
@@ -4015,14 +4015,14 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testMinusYears_int_1_oe() {
+public void testMinusYears_int_1_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.minusYears(1);
         DateMidnight expected = new DateMidnight(2001, 5, 3, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testMinusYears_int_2_oe() {
+public void testMinusYears_int_2_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.minusYears(1);
         DateMidnight expected = new DateMidnight(2001, 5, 3, BUDDHIST_DEFAULT);
@@ -4032,14 +4032,14 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testMinusMonths_int_1_oe() {
+public void testMinusMonths_int_1_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.minusMonths(1);
         DateMidnight expected = new DateMidnight(2002, 4, 3, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testMinusMonths_int_2_oe() {
+public void testMinusMonths_int_2_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.minusMonths(1);
         DateMidnight expected = new DateMidnight(2002, 4, 3, BUDDHIST_DEFAULT);
@@ -4049,14 +4049,14 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testMinusWeeks_int_1_oe() {
+public void testMinusWeeks_int_1_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.minusWeeks(1);
         DateMidnight expected = new DateMidnight(2002, 4, 26, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testMinusWeeks_int_2_oe() {
+public void testMinusWeeks_int_2_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.minusWeeks(1);
         DateMidnight expected = new DateMidnight(2002, 4, 26, BUDDHIST_DEFAULT);
@@ -4066,14 +4066,14 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testMinusDays_int_1_oe() {
+public void testMinusDays_int_1_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.minusDays(1);
         DateMidnight expected = new DateMidnight(2002, 5, 2, BUDDHIST_DEFAULT);
         assertEquals(expected,result);
     }
 
-    public void testMinusDays_int_2_oe() {
+public void testMinusDays_int_2_oe() {
         DateMidnight test = new DateMidnight(2002, 5, 3, BUDDHIST_DEFAULT);
         DateMidnight result = test.minusDays(1);
         DateMidnight expected = new DateMidnight(2002, 5, 2, BUDDHIST_DEFAULT);
@@ -4083,25 +4083,25 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testProperty_1_oe() {
+public void testProperty_1_oe() {
         DateMidnight test = new DateMidnight();
         assertEquals(test.year(),test.property(DateTimeFieldType.year()));
     }
 
-    public void testProperty_2_oe() {
+public void testProperty_2_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         assertEquals(test.dayOfWeek(),test.property(DateTimeFieldType.dayOfWeek()));
     }
 
-    public void testProperty_3_oe() {
+public void testProperty_3_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion
         assertEquals(test.weekOfWeekyear(),test.property(DateTimeFieldType.weekOfWeekyear()));
     }
 
-    public void testProperty_4_oe() {
+public void testProperty_4_oe() {
         DateMidnight test = new DateMidnight();
         // removed other assertion
         // removed other assertion

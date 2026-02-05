@@ -55,20 +55,20 @@ public class DomainValidatorStartupTest_OE25Dev {
         DomainValidator.updateTLDOverride(ArrayType.LOCAL_RO, new String[]{"com"});
     }
 
-    @Test
+@Test
     public void testUpdateCountryCode1a_1_oe() {
         DomainValidator validator = DomainValidator.getInstance();
         assertFalse(validator.isValidCountryCodeTld("com")); // cannot be valid;
     }
 
-    @Test
+@Test
     public void testUpdateCountryCode1b_1_oe() {
         DomainValidator.updateTLDOverride(ArrayType.COUNTRY_CODE_PLUS, new String[]{"com"});
         DomainValidator validator = DomainValidator.getInstance();
         assertTrue(validator.isValidCountryCodeTld("com")); // it is now!;
     }
 
-    @Test
+@Test
     public void testUpdateCountryCode2_1_oe() {
         DomainValidator.updateTLDOverride(ArrayType.COUNTRY_CODE_PLUS, new String[]{"com"});
         DomainValidator.updateTLDOverride(ArrayType.COUNTRY_CODE_MINUS, new String[]{"com"});
@@ -76,20 +76,20 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertFalse(validator.isValidCountryCodeTld("com")); // show that minus overrides the rest;
     }
 
-    @Test
+@Test
     public void testUpdateCountryCode3a_1_oe() { // show ch is valid
         DomainValidator validator = DomainValidator.getInstance();
         assertTrue(validator.isValidCountryCodeTld("ch"));
     }
 
-    @Test
+@Test
     public void testUpdateCountryCode3b_1_oe() { // show ch can be made invalid
         DomainValidator.updateTLDOverride(ArrayType.COUNTRY_CODE_MINUS, new String[]{"ch"});
         DomainValidator validator = DomainValidator.getInstance();
         assertFalse(validator.isValidCountryCodeTld("ch"));
     }
 
-    @Test
+@Test
     public void testUpdateCountryCode3c_1_oe() { // show ch can be made valid again by replacing the CC array
         DomainValidator.updateTLDOverride(ArrayType.COUNTRY_CODE_MINUS, new String[]{"ch"});
         DomainValidator.updateTLDOverride(ArrayType.COUNTRY_CODE_MINUS, new String[]{"xx"});
@@ -97,20 +97,20 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertTrue(validator.isValidCountryCodeTld("ch"));
     }
 
-    @Test
+@Test
     public void testUpdateGeneric1_1_oe() {
         DomainValidator validator = DomainValidator.getInstance();
         assertFalse(validator.isValidGenericTld("ch")); // cannot be valid;
     }
 
-    @Test
+@Test
     public void testUpdateGeneric2_1_oe() {
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"ch"});
         DomainValidator validator = DomainValidator.getInstance();
         assertTrue(validator.isValidGenericTld("ch")); // it is now!;
     }
 
-    @Test
+@Test
     public void testUpdateGeneric3_1_oe() {
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"ch"});
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"ch"});
@@ -118,7 +118,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertFalse(validator.isValidGenericTld("ch"));// show that minus overrides the rest assertTrue(validator.isValidGenericTld("com"));
     }
 
-    @Test
+@Test
     public void testUpdateGeneric4_1_oe() {
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"ch"});
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"ch"});
@@ -127,7 +127,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertFalse(validator.isValidGenericTld("com"));
     }
 
-    @Test
+@Test
     public void testUpdateGeneric5_1_oe() {
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"ch"});
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"ch"});
@@ -137,20 +137,20 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertTrue(validator.isValidGenericTld("com"));
     }
 
-    @Test
+@Test
     public void testVALIDATOR_412a_1_oe() {
         DomainValidator validator = DomainValidator.getInstance();
         assertFalse(validator.isValidGenericTld("local"));
     }
 
-    @Test
+@Test
     public void testVALIDATOR_412a_2_oe() {
         DomainValidator validator = DomainValidator.getInstance();
         // removed other assertion
         assertFalse(validator.isValid("abc.local"));
     }
 
-    @Test
+@Test
     public void testVALIDATOR_412a_3_oe() {
         DomainValidator validator = DomainValidator.getInstance();
         // removed other assertion
@@ -158,7 +158,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertFalse(validator.isValidGenericTld("pvt"));
     }
 
-    @Test
+@Test
     public void testVALIDATOR_412a_4_oe() {
         DomainValidator validator = DomainValidator.getInstance();
         // removed other assertion
@@ -167,14 +167,14 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertFalse(validator.isValid("abc.pvt"));
     }
 
-    @Test
+@Test
     public void testVALIDATOR_412b_1_oe() {
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"local", "pvt"});
         DomainValidator validator = DomainValidator.getInstance();
         assertTrue(validator.isValidGenericTld("local"));
     }
 
-    @Test
+@Test
     public void testVALIDATOR_412b_2_oe() {
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"local", "pvt"});
         DomainValidator validator = DomainValidator.getInstance();
@@ -182,7 +182,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertTrue(validator.isValid("abc.local"));
     }
 
-    @Test
+@Test
     public void testVALIDATOR_412b_3_oe() {
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"local", "pvt"});
         DomainValidator validator = DomainValidator.getInstance();
@@ -191,7 +191,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertTrue(validator.isValidGenericTld("pvt"));
     }
 
-    @Test
+@Test
     public void testVALIDATOR_412b_4_oe() {
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"local", "pvt"});
         DomainValidator validator = DomainValidator.getInstance();
@@ -201,20 +201,20 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertTrue(validator.isValid("abc.pvt"));
     }
 
-    @Test
+@Test
     public void testVALIDATOR_412c_1_oe() {
         DomainValidator validator = DomainValidator.getInstance(true);
         assertFalse(validator.isValidLocalTld("local"));
     }
 
-    @Test
+@Test
     public void testVALIDATOR_412c_2_oe() {
         DomainValidator validator = DomainValidator.getInstance(true);
         // removed other assertion
         assertFalse(validator.isValid("abc.local"));
     }
 
-    @Test
+@Test
     public void testVALIDATOR_412c_3_oe() {
         DomainValidator validator = DomainValidator.getInstance(true);
         // removed other assertion
@@ -222,7 +222,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertFalse(validator.isValidLocalTld("pvt"));
     }
 
-    @Test
+@Test
     public void testVALIDATOR_412c_4_oe() {
         DomainValidator validator = DomainValidator.getInstance(true);
         // removed other assertion
@@ -231,14 +231,14 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertFalse(validator.isValid("abc.pvt"));
     }
 
-    @Test
+@Test
     public void testVALIDATOR_412d_1_oe() {
         DomainValidator.updateTLDOverride(ArrayType.LOCAL_PLUS, new String[]{"local", "pvt"});
         DomainValidator validator = DomainValidator.getInstance(true);
         assertTrue(validator.isValidLocalTld("local"));
     }
 
-    @Test
+@Test
     public void testVALIDATOR_412d_2_oe() {
         DomainValidator.updateTLDOverride(ArrayType.LOCAL_PLUS, new String[]{"local", "pvt"});
         DomainValidator validator = DomainValidator.getInstance(true);
@@ -246,7 +246,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertTrue(validator.isValidLocalTld("pvt"));
     }
 
-    @Test
+@Test
     public void testVALIDATOR_412d_3_oe() {
         DomainValidator.updateTLDOverride(ArrayType.LOCAL_PLUS, new String[]{"local", "pvt"});
         DomainValidator validator = DomainValidator.getInstance(true);
@@ -255,7 +255,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertTrue(validator.isValid("abc.local"));
     }
 
-    @Test
+@Test
     public void testVALIDATOR_412d_4_oe() {
         DomainValidator.updateTLDOverride(ArrayType.LOCAL_PLUS, new String[]{"local", "pvt"});
         DomainValidator validator = DomainValidator.getInstance(true);
@@ -265,14 +265,14 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertTrue(validator.isValid("abc.pvt"));
     }
 
-    @Test
+@Test
     public void testCannotUpdate_1_oe() {
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"ch"}); // OK
         DomainValidator dv = DomainValidator.getInstance();
         assertNotNull(dv);
     }
 
-    @Test
+@Test
     public void testInstanceOverride_1_oe() { // Show that the instance picks up static values
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"gp"});
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"com"});
@@ -282,7 +282,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertTrue(validator.isValidGenericTld("gp"));
     }
 
-    @Test
+@Test
     public void testInstanceOverride_2_oe() { // Show that the instance picks up static values
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"gp"});
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"com"});
@@ -293,7 +293,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertFalse(validator.isValidGenericTld("com"));
     }
 
-    @Test
+@Test
     public void testInstanceOverride_3_oe() { // Show that the instance picks up static values
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"gp"});
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"com"});
@@ -305,7 +305,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertTrue(validator.isValidCountryCodeTld("cp"));
     }
 
-    @Test
+@Test
     public void testInstanceOverride_4_oe() { // Show that the instance picks up static values
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"gp"});
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"com"});
@@ -318,7 +318,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertFalse(validator.isValidCountryCodeTld("ch"));
     }
 
-    @Test
+@Test
     public void testInstanceOverride_5_oe() { // Show that the instance picks up static values
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"gp"});
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"com"});
@@ -338,7 +338,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertTrue(validator.isValidGenericTld("gp"));
     }
 
-    @Test
+@Test
     public void testInstanceOverride_6_oe() { // Show that the instance picks up static values
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"gp"});
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"com"});
@@ -359,7 +359,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertTrue(validator.isValidGenericTld("com"));// Should be true again assertTrue(validator.isValidCountryCodeTld("cp"));
     }
 
-    @Test
+@Test
     public void testInstanceOverride_7_oe() { // Show that the instance picks up static values
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"gp"});
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"com"});
@@ -381,7 +381,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertTrue(validator.isValidCountryCodeTld("ch"));// Should be true again validator = DomainValidator.getInstance(false);
     }
 
-    @Test
+@Test
     public void testInstanceOverride_8_oe() { // Show that the instance picks up static values
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"gp"});
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"com"});
@@ -404,7 +404,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertTrue(validator.isValidGenericTld("gp"));
     }
 
-    @Test
+@Test
     public void testInstanceOverride_9_oe() { // Show that the instance picks up static values
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"gp"});
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"com"});
@@ -428,7 +428,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertFalse(validator.isValidGenericTld("com"));
     }
 
-    @Test
+@Test
     public void testInstanceOverride_10_oe() { // Show that the instance picks up static values
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"gp"});
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"com"});
@@ -453,7 +453,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         assertTrue(validator.isValidCountryCodeTld("cp"));
     }
 
-    @Test
+@Test
     public void testInstanceOverride_11_oe() { // Show that the instance picks up static values
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"gp"});
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"com"});

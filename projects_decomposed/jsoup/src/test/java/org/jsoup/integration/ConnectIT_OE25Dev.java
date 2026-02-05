@@ -86,7 +86,7 @@ public class ConnectIT_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void canInterruptBodyStringRead_1_oe() throws InterruptedException {
         // todo - implement in interruptable channels, so it's immediate
         final String[] body = new String[1];
@@ -108,7 +108,7 @@ public class ConnectIT_OE25Dev {
         assertTrue(runner.isInterrupted());
     }
 
-    @Test
+@Test
     public void canInterruptBodyStringRead_2_oe() throws InterruptedException {
         // todo - implement in interruptable channels, so it's immediate
         final String[] body = new String[1];
@@ -133,7 +133,7 @@ public class ConnectIT_OE25Dev {
         assertTrue(body[0].length() > 0);
     }
 
-    @Test
+@Test
     public void canInterruptBodyStringRead_3_oe() throws InterruptedException {
         // todo - implement in interruptable channels, so it's immediate
         final String[] body = new String[1];
@@ -159,7 +159,7 @@ public class ConnectIT_OE25Dev {
         assertTrue(body[0].contains("<p>Are you still there?"));
     }
 
-    @Test
+@Test
     public void canInterruptDocumentRead_1_oe() throws InterruptedException {
         // todo - implement in interruptable channels, so it's immediate
         final String[] body = new String[1];
@@ -181,7 +181,7 @@ public class ConnectIT_OE25Dev {
         assertTrue(runner.isInterrupted());
     }
 
-    @Test
+@Test
     public void canInterruptDocumentRead_2_oe() throws InterruptedException {
         // todo - implement in interruptable channels, so it's immediate
         final String[] body = new String[1];
@@ -206,7 +206,7 @@ public class ConnectIT_OE25Dev {
         assertEquals(0, body[0].length()); // doesn't ready a failed doc;
     }
 
-    @Test
+@Test
     public void totalTimeout_1_oe() throws IOException {
         int timeout = 3 * 1000;
         long start = System.currentTimeMillis();
@@ -220,7 +220,7 @@ public class ConnectIT_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void totalTimeout_2_oe() throws IOException {
         int timeout = 3 * 1000;
         long start = System.currentTimeMillis();
@@ -235,7 +235,7 @@ public class ConnectIT_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void totalTimeout_3_oe() throws IOException {
         int timeout = 3 * 1000;
         long start = System.currentTimeMillis();
@@ -253,7 +253,7 @@ public class ConnectIT_OE25Dev {
         assertTrue(threw);
     }
 
-    @Test
+@Test
     public void slowReadOk_1_oe() throws IOException {
         // make sure that a slow read that is under the request timeout is still OK
         Document doc = Jsoup.connect(SlowRider.Url)
@@ -264,7 +264,7 @@ public class ConnectIT_OE25Dev {
         assertEquals("outatime", h1.text());
     }
 
-    @Test
+@Test
     public void infiniteReadSupported_1_oe() throws IOException {
         Document doc = Jsoup.connect(SlowRider.Url)
             .timeout(0)

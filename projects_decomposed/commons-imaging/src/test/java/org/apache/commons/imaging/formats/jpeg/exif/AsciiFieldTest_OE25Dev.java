@@ -36,7 +36,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AsciiFieldTest_OE25Dev extends ExifBaseTest {
 
-    @Test
+@Test
     public void testSingleImage_1_oe() throws Exception {
         final File imageFile = getTestImageByName("Canon Powershot SD750 - 2007.12.26.n.IMG_3704.JPG");
 
@@ -44,7 +44,7 @@ public class AsciiFieldTest_OE25Dev extends ExifBaseTest {
         assertNotNull(metadata);
     }
 
-    @Test
+@Test
     public void testSingleImage_2_oe() throws Exception {
         final File imageFile = getTestImageByName("Canon Powershot SD750 - 2007.12.26.n.IMG_3704.JPG");
 
@@ -78,7 +78,7 @@ public class AsciiFieldTest_OE25Dev extends ExifBaseTest {
     }
     }
 
-    @Test
+@Test
     public void testSingleImage_3_oe() throws Exception {
         final File imageFile = getTestImageByName("Canon Powershot SD750 - 2007.12.26.n.IMG_3704.JPG");
 
@@ -114,7 +114,7 @@ public class AsciiFieldTest_OE25Dev extends ExifBaseTest {
     }
     }
 
-    @Test
+@Test
     public void testSingleImage_4_oe() throws Exception {
         final File imageFile = getTestImageByName("Canon Powershot SD750 - 2007.12.26.n.IMG_3704.JPG");
 
@@ -152,7 +152,7 @@ public class AsciiFieldTest_OE25Dev extends ExifBaseTest {
     }
     }
 
-    @Test
+@Test
     public void testSingleImage_5_oe() throws Exception {
         final File imageFile = getTestImageByName("Canon Powershot SD750 - 2007.12.26.n.IMG_3704.JPG");
 

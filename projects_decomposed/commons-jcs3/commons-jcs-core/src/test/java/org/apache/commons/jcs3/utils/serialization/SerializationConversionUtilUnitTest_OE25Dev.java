@@ -94,7 +94,7 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         }
     }
 
-    public void testgGetSerializedCacheElement_null_1_oe()
+public void testgGetSerializedCacheElement_null_1_oe()
         throws IOException
     {
         // SETUP
@@ -109,7 +109,7 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         assertNull( "Should get null for null", result );
     }
 
-    public void testgGetDeSerializedCacheElement_null_1_oe()
+public void testgGetDeSerializedCacheElement_null_1_oe()
         throws Exception
     {
         // SETUP
@@ -124,7 +124,7 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         assertNull( "Should get null for null", result );
     }
 
-    public void testSimpleConversion_1_oe()
+public void testSimpleConversion_1_oe()
         throws Exception
     {
         // SETUP
@@ -148,7 +148,7 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         assertNotNull( "Should have a serialized object.", serialized );
     }
 
-    public void testSimpleConversion_2_oe()
+public void testSimpleConversion_2_oe()
         throws Exception
     {
         // SETUP
@@ -179,7 +179,7 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         assertNotNull( "Should have a deserialized object.", after );
     }
 
-    public void testSimpleConversion_3_oe()
+public void testSimpleConversion_3_oe()
         throws Exception
     {
         // SETUP
@@ -211,7 +211,7 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         assertEquals( "Values should be the same.", before.getVal(), after.getVal() );
     }
 
-    public void testSimpleConversion_4_oe()
+public void testSimpleConversion_4_oe()
         throws Exception
     {
         // SETUP
@@ -244,7 +244,7 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         assertEquals("Attributes should be the same.",before.getElementAttributes().getMaxLife(),after .getElementAttributes().getMaxLife());
     }
 
-    public void testSimpleConversion_5_oe()
+public void testSimpleConversion_5_oe()
         throws Exception
     {
         // SETUP
@@ -278,7 +278,7 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         assertEquals( "Keys should be the same.", before.getKey(), after.getKey() );
     }
 
-    public void testSimpleConversion_6_oe()
+public void testSimpleConversion_6_oe()
         throws Exception
     {
         // SETUP
@@ -313,7 +313,7 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         assertEquals( "Cache name should be the same.", before.getCacheName(), after.getCacheName() );
     }
 
-    public void testAccidentalDoubleConversion_1_oe()
+public void testAccidentalDoubleConversion_1_oe()
         throws Exception
     {
         // SETUP
@@ -339,7 +339,7 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         assertNotNull( "Should have a serialized object.", serialized );
     }
 
-    public void testAccidentalDoubleConversion_2_oe()
+public void testAccidentalDoubleConversion_2_oe()
         throws Exception
     {
         // SETUP
@@ -372,7 +372,7 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         assertNotNull( "Should have a deserialized object.", after );
     }
 
-    public void testAccidentalDoubleConversion_3_oe()
+public void testAccidentalDoubleConversion_3_oe()
         throws Exception
     {
         // SETUP
@@ -406,7 +406,7 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         assertEquals( "Values should be the same.", before.getVal(), after.getVal() );
     }
 
-    public void testAccidentalDoubleConversion_4_oe()
+public void testAccidentalDoubleConversion_4_oe()
         throws Exception
     {
         // SETUP
@@ -441,7 +441,7 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         assertEquals("Attributes should be the same.",before.getElementAttributes().getMaxLife(),after .getElementAttributes().getMaxLife());
     }
 
-    public void testAccidentalDoubleConversion_5_oe()
+public void testAccidentalDoubleConversion_5_oe()
         throws Exception
     {
         // SETUP
@@ -477,7 +477,7 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         assertEquals( "Keys should be the same.", before.getKey(), after.getKey() );
     }
 
-    public void testAccidentalDoubleConversion_6_oe()
+public void testAccidentalDoubleConversion_6_oe()
         throws Exception
     {
         // SETUP

@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Test;
 @Deprecated
 public class UnicodeEscaperTest_OE25Dev  {
 
-    @Test
+@Test
     public void testBelow_1_oe() {
         final UnicodeEscaper ue = UnicodeEscaper.below('F');
 
@@ -36,7 +36,7 @@ public class UnicodeEscaperTest_OE25Dev  {
         assertEquals("\\u0041\\u0044FGZ", result, "Failed to escape Unicode characters via the below method");
     }
 
-    @Test
+@Test
     public void testBetween_1_oe() {
         final UnicodeEscaper ue = UnicodeEscaper.between('F', 'L');
 
@@ -45,7 +45,7 @@ public class UnicodeEscaperTest_OE25Dev  {
         assertEquals("AD\\u0046\\u0047Z", result, "Failed to escape Unicode characters via the between method");
     }
 
-    @Test
+@Test
     public void testAbove_1_oe() {
         final UnicodeEscaper ue = UnicodeEscaper.above('F');
 

@@ -79,29 +79,29 @@ public class TestDays_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testConstants_1_oe() {
+public void testConstants_1_oe() {
         assertEquals(0,Days.ZERO.getDays());
     }
 
-    public void testConstants_2_oe() {
+public void testConstants_2_oe() {
         // removed other assertion
         assertEquals(1,Days.ONE.getDays());
     }
 
-    public void testConstants_3_oe() {
+public void testConstants_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(2,Days.TWO.getDays());
     }
 
-    public void testConstants_4_oe() {
+public void testConstants_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(3,Days.THREE.getDays());
     }
 
-    public void testConstants_5_oe() {
+public void testConstants_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -109,7 +109,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(4,Days.FOUR.getDays());
     }
 
-    public void testConstants_6_oe() {
+public void testConstants_6_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -118,7 +118,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(5,Days.FIVE.getDays());
     }
 
-    public void testConstants_7_oe() {
+public void testConstants_7_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -128,7 +128,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(6,Days.SIX.getDays());
     }
 
-    public void testConstants_8_oe() {
+public void testConstants_8_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -139,7 +139,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(7,Days.SEVEN.getDays());
     }
 
-    public void testConstants_9_oe() {
+public void testConstants_9_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -151,7 +151,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(Integer.MAX_VALUE,Days.MAX_VALUE.getDays());
     }
 
-    public void testConstants_10_oe() {
+public void testConstants_10_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -164,29 +164,29 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(Integer.MIN_VALUE,Days.MIN_VALUE.getDays());
     }
 
-    public void testFactory_days_int_1_oe() {
+public void testFactory_days_int_1_oe() {
         assertSame(Days.ZERO,Days.days(0));
     }
 
-    public void testFactory_days_int_2_oe() {
+public void testFactory_days_int_2_oe() {
         // removed other assertion
         assertSame(Days.ONE,Days.days(1));
     }
 
-    public void testFactory_days_int_3_oe() {
+public void testFactory_days_int_3_oe() {
         // removed other assertion
         // removed other assertion
         assertSame(Days.TWO,Days.days(2));
     }
 
-    public void testFactory_days_int_4_oe() {
+public void testFactory_days_int_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertSame(Days.THREE,Days.days(3));
     }
 
-    public void testFactory_days_int_5_oe() {
+public void testFactory_days_int_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -194,7 +194,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertSame(Days.FOUR,Days.days(4));
     }
 
-    public void testFactory_days_int_6_oe() {
+public void testFactory_days_int_6_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -203,7 +203,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertSame(Days.FIVE,Days.days(5));
     }
 
-    public void testFactory_days_int_7_oe() {
+public void testFactory_days_int_7_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -213,7 +213,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertSame(Days.SIX,Days.days(6));
     }
 
-    public void testFactory_days_int_8_oe() {
+public void testFactory_days_int_8_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -224,7 +224,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertSame(Days.SEVEN,Days.days(7));
     }
 
-    public void testFactory_days_int_9_oe() {
+public void testFactory_days_int_9_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -236,7 +236,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertSame(Days.MAX_VALUE,Days.days(Integer.MAX_VALUE));
     }
 
-    public void testFactory_days_int_10_oe() {
+public void testFactory_days_int_10_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -249,7 +249,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertSame(Days.MIN_VALUE,Days.days(Integer.MIN_VALUE));
     }
 
-    public void testFactory_days_int_11_oe() {
+public void testFactory_days_int_11_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -263,7 +263,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(-1,Days.days(-1).getDays());
     }
 
-    public void testFactory_days_int_12_oe() {
+public void testFactory_days_int_12_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -278,7 +278,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(8,Days.days(8).getDays());
     }
 
-    public void testFactory_daysBetween_RInstant_1_oe() {
+public void testFactory_daysBetween_RInstant_1_oe() {
         DateTime start = new DateTime(2006, 6, 9, 12, 0, 0, 0, PARIS);
         DateTime end1 = new DateTime(2006, 6, 12, 12, 0, 0, 0, PARIS);
         DateTime end2 = new DateTime(2006, 6, 15, 18, 0, 0, 0, PARIS);
@@ -286,7 +286,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(3,Days.daysBetween(start,end1).getDays());
     }
 
-    public void testFactory_daysBetween_RInstant_2_oe() {
+public void testFactory_daysBetween_RInstant_2_oe() {
         DateTime start = new DateTime(2006, 6, 9, 12, 0, 0, 0, PARIS);
         DateTime end1 = new DateTime(2006, 6, 12, 12, 0, 0, 0, PARIS);
         DateTime end2 = new DateTime(2006, 6, 15, 18, 0, 0, 0, PARIS);
@@ -295,7 +295,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(0,Days.daysBetween(start,start).getDays());
     }
 
-    public void testFactory_daysBetween_RInstant_3_oe() {
+public void testFactory_daysBetween_RInstant_3_oe() {
         DateTime start = new DateTime(2006, 6, 9, 12, 0, 0, 0, PARIS);
         DateTime end1 = new DateTime(2006, 6, 12, 12, 0, 0, 0, PARIS);
         DateTime end2 = new DateTime(2006, 6, 15, 18, 0, 0, 0, PARIS);
@@ -305,7 +305,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(0,Days.daysBetween(end1,end1).getDays());
     }
 
-    public void testFactory_daysBetween_RInstant_4_oe() {
+public void testFactory_daysBetween_RInstant_4_oe() {
         DateTime start = new DateTime(2006, 6, 9, 12, 0, 0, 0, PARIS);
         DateTime end1 = new DateTime(2006, 6, 12, 12, 0, 0, 0, PARIS);
         DateTime end2 = new DateTime(2006, 6, 15, 18, 0, 0, 0, PARIS);
@@ -316,7 +316,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(-3,Days.daysBetween(end1,start).getDays());
     }
 
-    public void testFactory_daysBetween_RInstant_5_oe() {
+public void testFactory_daysBetween_RInstant_5_oe() {
         DateTime start = new DateTime(2006, 6, 9, 12, 0, 0, 0, PARIS);
         DateTime end1 = new DateTime(2006, 6, 12, 12, 0, 0, 0, PARIS);
         DateTime end2 = new DateTime(2006, 6, 15, 18, 0, 0, 0, PARIS);
@@ -328,7 +328,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(6,Days.daysBetween(start,end2).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_LocalDate_1_oe() {
+public void testFactory_daysBetween_RPartial_LocalDate_1_oe() {
         LocalDate start = new LocalDate(2006, 6, 9);
         LocalDate end1 = new LocalDate(2006, 6, 12);
         YearMonthDay end2 = new YearMonthDay(2006, 6, 15);
@@ -336,7 +336,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(3,Days.daysBetween(start,end1).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_LocalDate_2_oe() {
+public void testFactory_daysBetween_RPartial_LocalDate_2_oe() {
         LocalDate start = new LocalDate(2006, 6, 9);
         LocalDate end1 = new LocalDate(2006, 6, 12);
         YearMonthDay end2 = new YearMonthDay(2006, 6, 15);
@@ -345,7 +345,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(0,Days.daysBetween(start,start).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_LocalDate_3_oe() {
+public void testFactory_daysBetween_RPartial_LocalDate_3_oe() {
         LocalDate start = new LocalDate(2006, 6, 9);
         LocalDate end1 = new LocalDate(2006, 6, 12);
         YearMonthDay end2 = new YearMonthDay(2006, 6, 15);
@@ -355,7 +355,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(0,Days.daysBetween(end1,end1).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_LocalDate_4_oe() {
+public void testFactory_daysBetween_RPartial_LocalDate_4_oe() {
         LocalDate start = new LocalDate(2006, 6, 9);
         LocalDate end1 = new LocalDate(2006, 6, 12);
         YearMonthDay end2 = new YearMonthDay(2006, 6, 15);
@@ -366,7 +366,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(-3,Days.daysBetween(end1,start).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_LocalDate_5_oe() {
+public void testFactory_daysBetween_RPartial_LocalDate_5_oe() {
         LocalDate start = new LocalDate(2006, 6, 9);
         LocalDate end1 = new LocalDate(2006, 6, 12);
         YearMonthDay end2 = new YearMonthDay(2006, 6, 15);
@@ -378,7 +378,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(6,Days.daysBetween(start,end2).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_YearMonth_1_oe() {
+public void testFactory_daysBetween_RPartial_YearMonth_1_oe() {
         YearMonth start1 = new YearMonth(2011, 1);
         YearMonth start2 = new YearMonth(2012, 1);
         YearMonth end1 = new YearMonth(2011, 3);
@@ -387,7 +387,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(59,Days.daysBetween(start1,end1).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_YearMonth_2_oe() {
+public void testFactory_daysBetween_RPartial_YearMonth_2_oe() {
         YearMonth start1 = new YearMonth(2011, 1);
         YearMonth start2 = new YearMonth(2012, 1);
         YearMonth end1 = new YearMonth(2011, 3);
@@ -397,7 +397,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(60,Days.daysBetween(start2,end2).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_YearMonth_3_oe() {
+public void testFactory_daysBetween_RPartial_YearMonth_3_oe() {
         YearMonth start1 = new YearMonth(2011, 1);
         YearMonth start2 = new YearMonth(2012, 1);
         YearMonth end1 = new YearMonth(2011, 3);
@@ -409,7 +409,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(-59,Days.daysBetween(end1,start1).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_YearMonth_4_oe() {
+public void testFactory_daysBetween_RPartial_YearMonth_4_oe() {
         YearMonth start1 = new YearMonth(2011, 1);
         YearMonth start2 = new YearMonth(2012, 1);
         YearMonth end1 = new YearMonth(2011, 3);
@@ -422,7 +422,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(-60,Days.daysBetween(end2,start2).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_MonthDay_1_oe() {
+public void testFactory_daysBetween_RPartial_MonthDay_1_oe() {
         MonthDay start1 = new MonthDay(2, 1);
         MonthDay start2 = new MonthDay(2, 28);
         MonthDay end1 = new MonthDay(2, 28);
@@ -431,7 +431,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(27,Days.daysBetween(start1,end1).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_MonthDay_2_oe() {
+public void testFactory_daysBetween_RPartial_MonthDay_2_oe() {
         MonthDay start1 = new MonthDay(2, 1);
         MonthDay start2 = new MonthDay(2, 28);
         MonthDay end1 = new MonthDay(2, 28);
@@ -441,7 +441,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(28,Days.daysBetween(start1,end2).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_MonthDay_3_oe() {
+public void testFactory_daysBetween_RPartial_MonthDay_3_oe() {
         MonthDay start1 = new MonthDay(2, 1);
         MonthDay start2 = new MonthDay(2, 28);
         MonthDay end1 = new MonthDay(2, 28);
@@ -452,7 +452,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(0,Days.daysBetween(start2,end1).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_MonthDay_4_oe() {
+public void testFactory_daysBetween_RPartial_MonthDay_4_oe() {
         MonthDay start1 = new MonthDay(2, 1);
         MonthDay start2 = new MonthDay(2, 28);
         MonthDay end1 = new MonthDay(2, 28);
@@ -464,7 +464,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(1,Days.daysBetween(start2,end2).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_MonthDay_5_oe() {
+public void testFactory_daysBetween_RPartial_MonthDay_5_oe() {
         MonthDay start1 = new MonthDay(2, 1);
         MonthDay start2 = new MonthDay(2, 28);
         MonthDay end1 = new MonthDay(2, 28);
@@ -478,7 +478,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(-27,Days.daysBetween(end1,start1).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_MonthDay_6_oe() {
+public void testFactory_daysBetween_RPartial_MonthDay_6_oe() {
         MonthDay start1 = new MonthDay(2, 1);
         MonthDay start2 = new MonthDay(2, 28);
         MonthDay end1 = new MonthDay(2, 28);
@@ -493,7 +493,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(-28,Days.daysBetween(end2,start1).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_MonthDay_7_oe() {
+public void testFactory_daysBetween_RPartial_MonthDay_7_oe() {
         MonthDay start1 = new MonthDay(2, 1);
         MonthDay start2 = new MonthDay(2, 28);
         MonthDay end1 = new MonthDay(2, 28);
@@ -509,7 +509,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(0,Days.daysBetween(end1,start2).getDays());
     }
 
-    public void testFactory_daysBetween_RPartial_MonthDay_8_oe() {
+public void testFactory_daysBetween_RPartial_MonthDay_8_oe() {
         MonthDay start1 = new MonthDay(2, 1);
         MonthDay start2 = new MonthDay(2, 28);
         MonthDay end1 = new MonthDay(2, 28);
@@ -526,7 +526,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(-1,Days.daysBetween(end2,start2).getDays());
     }
 
-    public void testFactory_daysIn_RInterval_1_oe() {
+public void testFactory_daysIn_RInterval_1_oe() {
         DateTime start = new DateTime(2006, 6, 9, 12, 0, 0, 0, PARIS);
         DateTime end1 = new DateTime(2006, 6, 12, 12, 0, 0, 0, PARIS);
         DateTime end2 = new DateTime(2006, 6, 15, 18, 0, 0, 0, PARIS);
@@ -534,7 +534,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(0,Days.daysIn((ReadableInterval)null).getDays());
     }
 
-    public void testFactory_daysIn_RInterval_2_oe() {
+public void testFactory_daysIn_RInterval_2_oe() {
         DateTime start = new DateTime(2006, 6, 9, 12, 0, 0, 0, PARIS);
         DateTime end1 = new DateTime(2006, 6, 12, 12, 0, 0, 0, PARIS);
         DateTime end2 = new DateTime(2006, 6, 15, 18, 0, 0, 0, PARIS);
@@ -543,7 +543,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(3,Days.daysIn(new Interval(start,end1)).getDays());
     }
 
-    public void testFactory_daysIn_RInterval_3_oe() {
+public void testFactory_daysIn_RInterval_3_oe() {
         DateTime start = new DateTime(2006, 6, 9, 12, 0, 0, 0, PARIS);
         DateTime end1 = new DateTime(2006, 6, 12, 12, 0, 0, 0, PARIS);
         DateTime end2 = new DateTime(2006, 6, 15, 18, 0, 0, 0, PARIS);
@@ -553,7 +553,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(0,Days.daysIn(new Interval(start,start)).getDays());
     }
 
-    public void testFactory_daysIn_RInterval_4_oe() {
+public void testFactory_daysIn_RInterval_4_oe() {
         DateTime start = new DateTime(2006, 6, 9, 12, 0, 0, 0, PARIS);
         DateTime end1 = new DateTime(2006, 6, 12, 12, 0, 0, 0, PARIS);
         DateTime end2 = new DateTime(2006, 6, 15, 18, 0, 0, 0, PARIS);
@@ -564,7 +564,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(0,Days.daysIn(new Interval(end1,end1)).getDays());
     }
 
-    public void testFactory_daysIn_RInterval_5_oe() {
+public void testFactory_daysIn_RInterval_5_oe() {
         DateTime start = new DateTime(2006, 6, 9, 12, 0, 0, 0, PARIS);
         DateTime end1 = new DateTime(2006, 6, 12, 12, 0, 0, 0, PARIS);
         DateTime end2 = new DateTime(2006, 6, 15, 18, 0, 0, 0, PARIS);
@@ -576,29 +576,29 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(6,Days.daysIn(new Interval(start,end2)).getDays());
     }
 
-    public void testFactory_standardDaysIn_RPeriod_1_oe() {
+public void testFactory_standardDaysIn_RPeriod_1_oe() {
         assertEquals(0,Days.standardDaysIn((ReadablePeriod)null).getDays());
     }
 
-    public void testFactory_standardDaysIn_RPeriod_2_oe() {
+public void testFactory_standardDaysIn_RPeriod_2_oe() {
         // removed other assertion
         assertEquals(0,Days.standardDaysIn(Period.ZERO).getDays());
     }
 
-    public void testFactory_standardDaysIn_RPeriod_3_oe() {
+public void testFactory_standardDaysIn_RPeriod_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(1,Days.standardDaysIn(new Period(0,0,0,1,0,0,0,0)).getDays());
     }
 
-    public void testFactory_standardDaysIn_RPeriod_4_oe() {
+public void testFactory_standardDaysIn_RPeriod_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(123,Days.standardDaysIn(Period.days(123)).getDays());
     }
 
-    public void testFactory_standardDaysIn_RPeriod_5_oe() {
+public void testFactory_standardDaysIn_RPeriod_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -606,7 +606,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(-987,Days.standardDaysIn(Period.days(-987)).getDays());
     }
 
-    public void testFactory_standardDaysIn_RPeriod_6_oe() {
+public void testFactory_standardDaysIn_RPeriod_6_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -615,7 +615,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(1,Days.standardDaysIn(Period.hours(47)).getDays());
     }
 
-    public void testFactory_standardDaysIn_RPeriod_7_oe() {
+public void testFactory_standardDaysIn_RPeriod_7_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -625,7 +625,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(2,Days.standardDaysIn(Period.hours(48)).getDays());
     }
 
-    public void testFactory_standardDaysIn_RPeriod_8_oe() {
+public void testFactory_standardDaysIn_RPeriod_8_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -636,7 +636,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(2,Days.standardDaysIn(Period.hours(49)).getDays());
     }
 
-    public void testFactory_standardDaysIn_RPeriod_9_oe() {
+public void testFactory_standardDaysIn_RPeriod_9_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -648,29 +648,29 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(14,Days.standardDaysIn(Period.weeks(2)).getDays());
     }
 
-    public void testFactory_parseDays_String_1_oe() {
+public void testFactory_parseDays_String_1_oe() {
         assertEquals(0,Days.parseDays((String)null).getDays());
     }
 
-    public void testFactory_parseDays_String_2_oe() {
+public void testFactory_parseDays_String_2_oe() {
         // removed other assertion
         assertEquals(0,Days.parseDays("P0D").getDays());
     }
 
-    public void testFactory_parseDays_String_3_oe() {
+public void testFactory_parseDays_String_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(1,Days.parseDays("P1D").getDays());
     }
 
-    public void testFactory_parseDays_String_4_oe() {
+public void testFactory_parseDays_String_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(-3,Days.parseDays("P-3D").getDays());
     }
 
-    public void testFactory_parseDays_String_5_oe() {
+public void testFactory_parseDays_String_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -678,7 +678,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(2,Days.parseDays("P0Y0M2D").getDays());
     }
 
-    public void testFactory_parseDays_String_6_oe() {
+public void testFactory_parseDays_String_6_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -687,44 +687,44 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(2,Days.parseDays("P2DT0H0M").getDays());
     }
 
-    public void testGetMethods_1_oe() {
+public void testGetMethods_1_oe() {
         Days test = Days.days(20);
         assertEquals(20,test.getDays());
     }
 
-    public void testGetFieldType_1_oe() {
+public void testGetFieldType_1_oe() {
         Days test = Days.days(20);
         assertEquals(DurationFieldType.days(),test.getFieldType());
     }
 
-    public void testGetPeriodType_1_oe() {
+public void testGetPeriodType_1_oe() {
         Days test = Days.days(20);
         assertEquals(PeriodType.days(),test.getPeriodType());
     }
 
-    public void testIsGreaterThan_1_oe() {
+public void testIsGreaterThan_1_oe() {
         assertEquals(true,Days.THREE.isGreaterThan(Days.TWO));
     }
 
-    public void testIsGreaterThan_2_oe() {
+public void testIsGreaterThan_2_oe() {
         // removed other assertion
         assertEquals(false,Days.THREE.isGreaterThan(Days.THREE));
     }
 
-    public void testIsGreaterThan_3_oe() {
+public void testIsGreaterThan_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(false,Days.TWO.isGreaterThan(Days.THREE));
     }
 
-    public void testIsGreaterThan_4_oe() {
+public void testIsGreaterThan_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(true,Days.ONE.isGreaterThan(null));
     }
 
-    public void testIsGreaterThan_5_oe() {
+public void testIsGreaterThan_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -732,29 +732,29 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(false,Days.days(-1).isGreaterThan(null));
     }
 
-    public void testIsLessThan_1_oe() {
+public void testIsLessThan_1_oe() {
         assertEquals(false,Days.THREE.isLessThan(Days.TWO));
     }
 
-    public void testIsLessThan_2_oe() {
+public void testIsLessThan_2_oe() {
         // removed other assertion
         assertEquals(false,Days.THREE.isLessThan(Days.THREE));
     }
 
-    public void testIsLessThan_3_oe() {
+public void testIsLessThan_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(true,Days.TWO.isLessThan(Days.THREE));
     }
 
-    public void testIsLessThan_4_oe() {
+public void testIsLessThan_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(false,Days.ONE.isLessThan(null));
     }
 
-    public void testIsLessThan_5_oe() {
+public void testIsLessThan_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -762,12 +762,12 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(true,Days.days(-1).isLessThan(null));
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         Days test = Days.days(20);
         assertEquals("P20D",test.toString());
     }
 
-    public void testToString_2_oe() {
+public void testToString_2_oe() {
         Days test = Days.days(20);
         // removed other assertion
         
@@ -775,7 +775,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals("P-20D",test.toString());
     }
 
-    public void testSerialization_1_oe() throws Exception {
+public void testSerialization_1_oe() throws Exception {
         Days test = Days.SEVEN;
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -792,37 +792,37 @@ public class TestDays_OE25Dev extends TestCase {
         assertSame(test,result);
     }
 
-    public void testToStandardWeeks_1_oe() {
+public void testToStandardWeeks_1_oe() {
         Days test = Days.days(14);
         Weeks expected = Weeks.weeks(2);
         assertEquals(expected,test.toStandardWeeks());
     }
 
-    public void testToStandardHours_1_oe() {
+public void testToStandardHours_1_oe() {
         Days test = Days.days(2);
         Hours expected = Hours.hours(2 * 24);
         assertEquals(expected,test.toStandardHours());
     }
 
-    public void testToStandardMinutes_1_oe() {
+public void testToStandardMinutes_1_oe() {
         Days test = Days.days(2);
         Minutes expected = Minutes.minutes(2 * 24 * 60);
         assertEquals(expected,test.toStandardMinutes());
     }
 
-    public void testToStandardSeconds_1_oe() {
+public void testToStandardSeconds_1_oe() {
         Days test = Days.days(2);
         Seconds expected = Seconds.seconds(2 * 24 * 60 * 60);
         assertEquals(expected,test.toStandardSeconds());
     }
 
-    public void testToStandardDuration_1_oe() {
+public void testToStandardDuration_1_oe() {
         Days test = Days.days(20);
         Duration expected = new Duration(20L * DateTimeConstants.MILLIS_PER_DAY);
         assertEquals(expected,test.toStandardDuration());
     }
 
-    public void testToStandardDuration_2_oe() {
+public void testToStandardDuration_2_oe() {
         Days test = Days.days(20);
         Duration expected = new Duration(20L * DateTimeConstants.MILLIS_PER_DAY);
         // removed other assertion
@@ -831,20 +831,20 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(expected,Days.MAX_VALUE.toStandardDuration());
     }
 
-    public void testPlus_int_1_oe() {
+public void testPlus_int_1_oe() {
         Days test2 = Days.days(2);
         Days result = test2.plus(3);
         assertEquals(2,test2.getDays());
     }
 
-    public void testPlus_int_2_oe() {
+public void testPlus_int_2_oe() {
         Days test2 = Days.days(2);
         Days result = test2.plus(3);
         // removed other assertion
         assertEquals(5,result.getDays());
     }
 
-    public void testPlus_int_3_oe() {
+public void testPlus_int_3_oe() {
         Days test2 = Days.days(2);
         Days result = test2.plus(3);
         // removed other assertion
@@ -853,14 +853,14 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(1,Days.ONE.plus(0).getDays());
     }
 
-    public void testPlus_Days_1_oe() {
+public void testPlus_Days_1_oe() {
         Days test2 = Days.days(2);
         Days test3 = Days.days(3);
         Days result = test2.plus(test3);
         assertEquals(2,test2.getDays());
     }
 
-    public void testPlus_Days_2_oe() {
+public void testPlus_Days_2_oe() {
         Days test2 = Days.days(2);
         Days test3 = Days.days(3);
         Days result = test2.plus(test3);
@@ -868,7 +868,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(3,test3.getDays());
     }
 
-    public void testPlus_Days_3_oe() {
+public void testPlus_Days_3_oe() {
         Days test2 = Days.days(2);
         Days test3 = Days.days(3);
         Days result = test2.plus(test3);
@@ -877,7 +877,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(5,result.getDays());
     }
 
-    public void testPlus_Days_4_oe() {
+public void testPlus_Days_4_oe() {
         Days test2 = Days.days(2);
         Days test3 = Days.days(3);
         Days result = test2.plus(test3);
@@ -888,7 +888,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(1,Days.ONE.plus(Days.ZERO).getDays());
     }
 
-    public void testPlus_Days_5_oe() {
+public void testPlus_Days_5_oe() {
         Days test2 = Days.days(2);
         Days test3 = Days.days(3);
         Days result = test2.plus(test3);
@@ -900,20 +900,20 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(1,Days.ONE.plus((Days)null).getDays());
     }
 
-    public void testMinus_int_1_oe() {
+public void testMinus_int_1_oe() {
         Days test2 = Days.days(2);
         Days result = test2.minus(3);
         assertEquals(2,test2.getDays());
     }
 
-    public void testMinus_int_2_oe() {
+public void testMinus_int_2_oe() {
         Days test2 = Days.days(2);
         Days result = test2.minus(3);
         // removed other assertion
         assertEquals(-1,result.getDays());
     }
 
-    public void testMinus_int_3_oe() {
+public void testMinus_int_3_oe() {
         Days test2 = Days.days(2);
         Days result = test2.minus(3);
         // removed other assertion
@@ -922,14 +922,14 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(1,Days.ONE.minus(0).getDays());
     }
 
-    public void testMinus_Days_1_oe() {
+public void testMinus_Days_1_oe() {
         Days test2 = Days.days(2);
         Days test3 = Days.days(3);
         Days result = test2.minus(test3);
         assertEquals(2,test2.getDays());
     }
 
-    public void testMinus_Days_2_oe() {
+public void testMinus_Days_2_oe() {
         Days test2 = Days.days(2);
         Days test3 = Days.days(3);
         Days result = test2.minus(test3);
@@ -937,7 +937,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(3,test3.getDays());
     }
 
-    public void testMinus_Days_3_oe() {
+public void testMinus_Days_3_oe() {
         Days test2 = Days.days(2);
         Days test3 = Days.days(3);
         Days result = test2.minus(test3);
@@ -946,7 +946,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(-1,result.getDays());
     }
 
-    public void testMinus_Days_4_oe() {
+public void testMinus_Days_4_oe() {
         Days test2 = Days.days(2);
         Days test3 = Days.days(3);
         Days result = test2.minus(test3);
@@ -957,7 +957,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(1,Days.ONE.minus(Days.ZERO).getDays());
     }
 
-    public void testMinus_Days_5_oe() {
+public void testMinus_Days_5_oe() {
         Days test2 = Days.days(2);
         Days test3 = Days.days(3);
         Days result = test2.minus(test3);
@@ -969,25 +969,25 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(1,Days.ONE.minus((Days)null).getDays());
     }
 
-    public void testMultipliedBy_int_1_oe() {
+public void testMultipliedBy_int_1_oe() {
         Days test = Days.days(2);
         assertEquals(6,test.multipliedBy(3).getDays());
     }
 
-    public void testMultipliedBy_int_2_oe() {
+public void testMultipliedBy_int_2_oe() {
         Days test = Days.days(2);
         // removed other assertion
         assertEquals(2,test.getDays());
     }
 
-    public void testMultipliedBy_int_3_oe() {
+public void testMultipliedBy_int_3_oe() {
         Days test = Days.days(2);
         // removed other assertion
         // removed other assertion
         assertEquals(-6,test.multipliedBy(-3).getDays());
     }
 
-    public void testMultipliedBy_int_4_oe() {
+public void testMultipliedBy_int_4_oe() {
         Days test = Days.days(2);
         // removed other assertion
         // removed other assertion
@@ -995,25 +995,25 @@ public class TestDays_OE25Dev extends TestCase {
         assertSame(test,test.multipliedBy(1));
     }
 
-    public void testDividedBy_int_1_oe() {
+public void testDividedBy_int_1_oe() {
         Days test = Days.days(12);
         assertEquals(6,test.dividedBy(2).getDays());
     }
 
-    public void testDividedBy_int_2_oe() {
+public void testDividedBy_int_2_oe() {
         Days test = Days.days(12);
         // removed other assertion
         assertEquals(12,test.getDays());
     }
 
-    public void testDividedBy_int_3_oe() {
+public void testDividedBy_int_3_oe() {
         Days test = Days.days(12);
         // removed other assertion
         // removed other assertion
         assertEquals(4,test.dividedBy(3).getDays());
     }
 
-    public void testDividedBy_int_4_oe() {
+public void testDividedBy_int_4_oe() {
         Days test = Days.days(12);
         // removed other assertion
         // removed other assertion
@@ -1021,7 +1021,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(3,test.dividedBy(4).getDays());
     }
 
-    public void testDividedBy_int_5_oe() {
+public void testDividedBy_int_5_oe() {
         Days test = Days.days(12);
         // removed other assertion
         // removed other assertion
@@ -1030,7 +1030,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(2,test.dividedBy(5).getDays());
     }
 
-    public void testDividedBy_int_6_oe() {
+public void testDividedBy_int_6_oe() {
         Days test = Days.days(12);
         // removed other assertion
         // removed other assertion
@@ -1040,7 +1040,7 @@ public class TestDays_OE25Dev extends TestCase {
         assertEquals(2,test.dividedBy(6).getDays());
     }
 
-    public void testDividedBy_int_7_oe() {
+public void testDividedBy_int_7_oe() {
         Days test = Days.days(12);
         // removed other assertion
         // removed other assertion
@@ -1051,18 +1051,18 @@ public class TestDays_OE25Dev extends TestCase {
         assertSame(test,test.dividedBy(1));
     }
 
-    public void testNegated_1_oe() {
+public void testNegated_1_oe() {
         Days test = Days.days(12);
         assertEquals(-12,test.negated().getDays());
     }
 
-    public void testNegated_2_oe() {
+public void testNegated_2_oe() {
         Days test = Days.days(12);
         // removed other assertion
         assertEquals(12,test.getDays());
     }
 
-    public void testAddToLocalDate_1_oe() {
+public void testAddToLocalDate_1_oe() {
         Days test = Days.days(20);
         LocalDate date = new LocalDate(2006, 6, 1);
         LocalDate expected = new LocalDate(2006, 6, 21);

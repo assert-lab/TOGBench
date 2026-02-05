@@ -293,7 +293,7 @@ class OrientedPointTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testOffset_positiveFacing_1_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
@@ -302,7 +302,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(-98.0, pt.offset(Vector1D.of(-100)), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testOffset_positiveFacing_2_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
@@ -312,7 +312,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(-0.1, pt.offset(Vector1D.of(-2.1)), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testOffset_positiveFacing_3_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
@@ -323,7 +323,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(0.0, pt.offset(Vector1D.of(-2)), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testOffset_positiveFacing_4_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
@@ -335,7 +335,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(0.99, pt.offset(Vector1D.of(-1.01)), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testOffset_positiveFacing_5_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
@@ -348,7 +348,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(1.0, pt.offset(Vector1D.of(-1.0)), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testOffset_positiveFacing_6_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
@@ -362,7 +362,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(1.01, pt.offset(Vector1D.of(-0.99)), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testOffset_positiveFacing_7_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
@@ -377,7 +377,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(2.0, pt.offset(Vector1D.of(0)), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testOffset_positiveFacing_8_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
@@ -393,7 +393,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(102, pt.offset(Vector1D.of(100)), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testOffset_negativeFacing_1_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), false, TEST_PRECISION);
@@ -402,7 +402,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(98.0, pt.offset(Vector1D.of(-100)), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testOffset_negativeFacing_2_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), false, TEST_PRECISION);
@@ -412,7 +412,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(0.1, pt.offset(Vector1D.of(-2.1)), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testOffset_negativeFacing_3_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), false, TEST_PRECISION);
@@ -423,7 +423,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(0.0, pt.offset(Vector1D.of(-2)), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testOffset_negativeFacing_4_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), false, TEST_PRECISION);
@@ -435,7 +435,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(-0.99, pt.offset(Vector1D.of(-1.01)), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testOffset_negativeFacing_5_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), false, TEST_PRECISION);
@@ -448,7 +448,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(-1.0, pt.offset(Vector1D.of(-1.0)), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testOffset_negativeFacing_6_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), false, TEST_PRECISION);
@@ -462,7 +462,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(-1.01, pt.offset(Vector1D.of(-0.99)), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testOffset_negativeFacing_7_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), false, TEST_PRECISION);
@@ -477,7 +477,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(-2, pt.offset(Vector1D.of(0)), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testOffset_negativeFacing_8_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), false, TEST_PRECISION);
@@ -493,7 +493,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(-102, pt.offset(Vector1D.of(100)), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testOffset_infinityLocation_1_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(Double.POSITIVE_INFINITY), true, TEST_PRECISION);
@@ -502,7 +502,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(Double.isNaN(pt.offset(Vector1D.of(Double.POSITIVE_INFINITY))));
     }
 
-    @Test
+@Test
     void testSpan_1_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
@@ -514,7 +514,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertSame(pt, result.getHyperplane());
     }
 
-    @Test
+@Test
     void testSimilarOrientation_1_oe() {
         // arrange
         final OrientedPoint negativeDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
@@ -526,7 +526,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(negativeDir1.similarOrientation(negativeDir1));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_2_oe() {
         // arrange
         final OrientedPoint negativeDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
@@ -539,7 +539,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(negativeDir1.similarOrientation(negativeDir2));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_3_oe() {
         // arrange
         final OrientedPoint negativeDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
@@ -553,7 +553,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(negativeDir2.similarOrientation(negativeDir1));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_4_oe() {
         // arrange
         final OrientedPoint negativeDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
@@ -569,7 +569,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(positiveDir1.similarOrientation(positiveDir1));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_5_oe() {
         // arrange
         final OrientedPoint negativeDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
@@ -586,7 +586,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(positiveDir1.similarOrientation(positiveDir2));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_6_oe() {
         // arrange
         final OrientedPoint negativeDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
@@ -604,7 +604,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(positiveDir2.similarOrientation(positiveDir1));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_7_oe() {
         // arrange
         final OrientedPoint negativeDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
@@ -624,7 +624,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertFalse(negativeDir1.similarOrientation(positiveDir1));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_8_oe() {
         // arrange
         final OrientedPoint negativeDir1 = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), false, TEST_PRECISION);
@@ -645,7 +645,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertFalse(positiveDir1.similarOrientation(negativeDir1));
     }
 
-    @Test
+@Test
     void testProject_1_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, TEST_PRECISION);
@@ -654,7 +654,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(1.0, pt.project(Vector1D.of(-1.0)).getX(), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testProject_2_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, TEST_PRECISION);
@@ -664,7 +664,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(1.0, pt.project(Vector1D.of(0.0)).getX(), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testProject_3_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, TEST_PRECISION);
@@ -675,7 +675,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(1.0, pt.project(Vector1D.of(1.0)).getX(), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testProject_4_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, TEST_PRECISION);
@@ -687,7 +687,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(1.0, pt.project(Vector1D.of(100.0)).getX(), Precision.EPSILON);
     }
 
-    @Test
+@Test
     void testEq_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -703,7 +703,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(a.eq(a, precision));
     }
 
-    @Test
+@Test
     void testEq_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -720,7 +720,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(a.eq(b, precision));
     }
 
-    @Test
+@Test
     void testEq_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -739,7 +739,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertFalse(a.eq(c, precision));
     }
 
-    @Test
+@Test
     void testEq_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -759,7 +759,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertFalse(a.eq(d, precision));
     }
 
-    @Test
+@Test
     void testEq_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -781,7 +781,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(a.eq(e, precision));
     }
 
-    @Test
+@Test
     void testEq_6_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -804,7 +804,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(e.eq(a, precision));
     }
 
-    @Test
+@Test
     void testHashCode_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -822,7 +822,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertNotEquals(a.hashCode(), b.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -841,7 +841,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertNotEquals(b.hashCode(), c.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -861,7 +861,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertNotEquals(c.hashCode(), a.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -883,7 +883,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(a.hashCode(), d.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -906,7 +906,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(b.hashCode(), e.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_6_oe() {
         // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -930,7 +930,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(c.hashCode(), f.hashCode());
     }
 
-    @Test
+@Test
     void testEquals_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -953,7 +953,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertNotEquals(a, b);
     }
 
-    @Test
+@Test
     void testEquals_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -977,7 +977,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertNotEquals(c, d);
     }
 
-    @Test
+@Test
     void testEquals_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -1002,7 +1002,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertNotEquals(e, f);
     }
 
-    @Test
+@Test
     void testEquals_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -1029,7 +1029,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(a, g);
     }
 
-    @Test
+@Test
     void testEquals_6_oe() {
         // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -1057,7 +1057,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(g, a);
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, TEST_PRECISION);
@@ -1069,7 +1069,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(str.contains("OrientedPoint"));
     }
 
-    @Test
+@Test
     void testToString_2_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, TEST_PRECISION);
@@ -1082,7 +1082,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(str.contains("point= (2.0)"));
     }
 
-    @Test
+@Test
     void testToString_3_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, TEST_PRECISION);
@@ -1096,7 +1096,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(str.contains("direction= (1.0)"));
     }
 
-    @Test
+@Test
     void testSubset_simpleMethods_1_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
@@ -1106,7 +1106,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertSame(pt, sub.getHyperplane());
     }
 
-    @Test
+@Test
     void testSubset_simpleMethods_2_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
@@ -1117,7 +1117,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertFalse(sub.isFull());
     }
 
-    @Test
+@Test
     void testSubset_simpleMethods_3_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
@@ -1129,7 +1129,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertFalse(sub.isEmpty());
     }
 
-    @Test
+@Test
     void testSubset_simpleMethods_4_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
@@ -1142,7 +1142,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertFalse(sub.isInfinite());
     }
 
-    @Test
+@Test
     void testSubset_simpleMethods_5_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
@@ -1156,7 +1156,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(sub.isFinite());
     }
 
-    @Test
+@Test
     void testSubset_simpleMethods_6_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
@@ -1171,7 +1171,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(0.0, sub.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSubset_simpleMethods_8_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
@@ -1190,7 +1190,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(1, list.size());
     }
 
-    @Test
+@Test
     void testSubset_simpleMethods_9_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
@@ -1210,7 +1210,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertSame(sub, list.get(0));
     }
 
-    @Test
+@Test
     void testSubset_classify_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1221,7 +1221,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, sub.classify(Vector1D.of(0.95)));
     }
 
-    @Test
+@Test
     void testSubset_classify_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1233,7 +1233,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, sub.classify(Vector1D.of(1)));
     }
 
-    @Test
+@Test
     void testSubset_classify_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1246,7 +1246,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, sub.classify(Vector1D.of(1.05)));
     }
 
-    @Test
+@Test
     void testSubset_classify_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1261,7 +1261,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Vector1D.of(1.11)));
     }
 
-    @Test
+@Test
     void testSubset_classify_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1277,7 +1277,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Vector1D.of(0.89)));
     }
 
-    @Test
+@Test
     void testSubset_classify_6_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1295,7 +1295,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Vector1D.of(-3)));
     }
 
-    @Test
+@Test
     void testSubset_classify_7_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1314,7 +1314,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Vector1D.of(10)));
     }
 
-    @Test
+@Test
     void testSubset_classify_8_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1335,7 +1335,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Vector1D.NEGATIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testSubset_classify_9_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1357,7 +1357,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Vector1D.POSITIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testSubset_contains_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1368,7 +1368,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(sub.contains(Vector1D.of(0.95)));
     }
 
-    @Test
+@Test
     void testSubset_contains_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1380,7 +1380,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(sub.contains(Vector1D.of(1)));
     }
 
-    @Test
+@Test
     void testSubset_contains_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1393,7 +1393,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(sub.contains(Vector1D.of(1.05)));
     }
 
-    @Test
+@Test
     void testSubset_contains_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1408,7 +1408,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertFalse(sub.contains(Vector1D.of(1.11)));
     }
 
-    @Test
+@Test
     void testSubset_contains_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1424,7 +1424,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertFalse(sub.contains(Vector1D.of(0.89)));
     }
 
-    @Test
+@Test
     void testSubset_contains_6_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1442,7 +1442,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertFalse(sub.contains(Vector1D.of(-3)));
     }
 
-    @Test
+@Test
     void testSubset_contains_7_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1461,7 +1461,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertFalse(sub.contains(Vector1D.of(10)));
     }
 
-    @Test
+@Test
     void testSubset_contains_8_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1482,7 +1482,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertFalse(sub.contains(Vector1D.NEGATIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testSubset_contains_9_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1504,7 +1504,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertFalse(sub.contains(Vector1D.POSITIVE_INFINITY));
     }
 
-    @Test
+@Test
     void testSubset_reverse_1_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2.0, TEST_PRECISION);
@@ -1517,7 +1517,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(2.0, ((OrientedPoint) result.getHyperplane()).getLocation(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSubset_reverse_2_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2.0, TEST_PRECISION);
@@ -1531,7 +1531,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertFalse(((OrientedPoint) result.getHyperplane()).isPositiveFacing());
     }
 
-    @Test
+@Test
     void testSubset_reverse_3_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2.0, TEST_PRECISION);
@@ -1547,7 +1547,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertEquals(sub.getHyperplane(), result.reverse().getHyperplane());
     }
 
-    @Test
+@Test
     void testSubset_toString_1_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
@@ -1560,7 +1560,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(str.contains("OrientedPointConvexSubset"));
     }
 
-    @Test
+@Test
     void testSubset_toString_2_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
@@ -1574,7 +1574,7 @@ class OrientedPointTest_OE25Dev {
         Assertions.assertTrue(str.contains("point= (2.0)"));
     }
 
-    @Test
+@Test
     void testSubset_toString_3_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);

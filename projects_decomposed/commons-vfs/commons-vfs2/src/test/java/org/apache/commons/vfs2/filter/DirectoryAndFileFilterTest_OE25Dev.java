@@ -104,7 +104,7 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
 
     }
 
-    @Test
+@Test
     public void testAcceptZipFile_2_oe() throws FileSystemException {
 
         FileObject[] files;
@@ -125,7 +125,7 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertEquals(1, files.length);
     }
 
-    @Test
+@Test
     public void testAcceptZipFile_4_oe() throws FileSystemException {
 
         FileObject[] files;
@@ -151,7 +151,7 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertEquals(1, files.length);
     }
 
-    @Test
+@Test
     public void testDirectoryFileFilter_1_oe() throws FileSystemException {
 
         final FileFilter testee = DirectoryFileFilter.DIRECTORY;
@@ -159,7 +159,7 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(dirInfo));
     }
 
-    @Test
+@Test
     public void testDirectoryFileFilter_2_oe() throws FileSystemException {
 
         final FileFilter testee = DirectoryFileFilter.DIRECTORY;
@@ -168,7 +168,7 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(fileInfo));
     }
 
-    @Test
+@Test
     public void testDirectoryFileFilter_3_oe() throws FileSystemException {
 
         final FileFilter testee = DirectoryFileFilter.DIRECTORY;
@@ -178,7 +178,7 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(notExistingFileInfo));
     }
 
-    @Test
+@Test
     public void testFileFileFilter_1_oe() throws FileSystemException {
 
         final FileFilter testee = FileFileFilter.FILE;
@@ -186,7 +186,7 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(fileInfo));
     }
 
-    @Test
+@Test
     public void testFileFileFilter_2_oe() throws FileSystemException {
 
         final FileFilter testee = FileFileFilter.FILE;
@@ -195,7 +195,7 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(dirInfo));
     }
 
-    @Test
+@Test
     public void testFileFileFilter_3_oe() throws FileSystemException {
 
         final FileFilter testee = FileFileFilter.FILE;

@@ -35,7 +35,7 @@ public class JarAttributesTestCase_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testAttributes_1_oe() throws Exception {
         final FileObject file = JarProviderTestCase.getTestJar(VFS.getManager(), "test.jar");
 
@@ -43,7 +43,7 @@ public class JarAttributesTestCase_OE25Dev {
         Assert.assertEquals("1.0", attributes.get("Manifest-Version"));
     }
 
-    @Test
+@Test
     public void testNestedAttributes_1_oe() throws Exception {
         final FileObject nested = JarProviderTestCase.getTestJar(VFS.getManager(), "nested.jar");
         final FileObject file = nested.resolveFile("test.jar");

@@ -141,7 +141,7 @@ class GreatArcPathTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testEmpty_1_oe() {
         // act
         final GreatArcPath path = GreatArcPath.empty();
@@ -150,7 +150,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertTrue(path.isEmpty());
     }
 
-    @Test
+@Test
     void testEmpty_2_oe() {
         // act
         final GreatArcPath path = GreatArcPath.empty();
@@ -160,7 +160,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testEmpty_3_oe() {
         // act
         final GreatArcPath path = GreatArcPath.empty();
@@ -172,7 +172,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertNull(path.getStartVertex());
     }
 
-    @Test
+@Test
     void testEmpty_4_oe() {
         // act
         final GreatArcPath path = GreatArcPath.empty();
@@ -185,7 +185,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertNull(path.getEndVertex());
     }
 
-    @Test
+@Test
     void testEmpty_5_oe() {
         // act
         final GreatArcPath path = GreatArcPath.empty();
@@ -200,7 +200,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertNull(path.getStartArc());
     }
 
-    @Test
+@Test
     void testEmpty_6_oe() {
         // act
         final GreatArcPath path = GreatArcPath.empty();
@@ -216,7 +216,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertNull(path.getEndArc());
     }
 
-    @Test
+@Test
     void testEmpty_7_oe() {
         // act
         final GreatArcPath path = GreatArcPath.empty();
@@ -234,7 +234,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(0, path.getArcs().size());
     }
 
-    @Test
+@Test
     void testEmpty_8_oe() {
         // act
         final GreatArcPath path = GreatArcPath.empty();
@@ -253,7 +253,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(0, path.getVertices().size());
     }
 
-    @Test
+@Test
     void testFromVertices_boolean_empty_1_oe() {
         // act
         final GreatArcPath path = GreatArcPath.fromVertices(Collections.emptyList(), true, TEST_PRECISION);
@@ -262,7 +262,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertTrue(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFromVertices_boolean_empty_2_oe() {
         // act
         final GreatArcPath path = GreatArcPath.fromVertices(Collections.emptyList(), true, TEST_PRECISION);
@@ -273,7 +273,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertNull(path.getStartVertex());
     }
 
-    @Test
+@Test
     void testFromVertices_boolean_empty_3_oe() {
         // act
         final GreatArcPath path = GreatArcPath.fromVertices(Collections.emptyList(), true, TEST_PRECISION);
@@ -285,7 +285,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertNull(path.getEndVertex());
     }
 
-    @Test
+@Test
     void testFromVertices_boolean_empty_4_oe() {
         // act
         final GreatArcPath path = GreatArcPath.fromVertices(Collections.emptyList(), true, TEST_PRECISION);
@@ -299,7 +299,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertNull(path.getStartArc());
     }
 
-    @Test
+@Test
     void testFromVertices_boolean_empty_5_oe() {
         // act
         final GreatArcPath path = GreatArcPath.fromVertices(Collections.emptyList(), true, TEST_PRECISION);
@@ -314,7 +314,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertNull(path.getEndArc());
     }
 
-    @Test
+@Test
     void testFromVertices_boolean_empty_6_oe() {
         // act
         final GreatArcPath path = GreatArcPath.fromVertices(Collections.emptyList(), true, TEST_PRECISION);
@@ -331,7 +331,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(0, path.getArcs().size());
     }
 
-    @Test
+@Test
     void testFromVertices_boolean_empty_7_oe() {
         // act
         final GreatArcPath path = GreatArcPath.fromVertices(Collections.emptyList(), true, TEST_PRECISION);
@@ -349,7 +349,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(0, path.getVertices().size());
     }
 
-    @Test
+@Test
     void testFromVertices_boolean_notClosed_1_oe() {
         // arrange
         final List<Point2S> points = Arrays.asList(
@@ -364,7 +364,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFromVertices_boolean_notClosed_2_oe() {
         // arrange
         final List<Point2S> points = Arrays.asList(
@@ -380,7 +380,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testFromVertices_boolean_notClosed_5_oe() {
         // arrange
         final List<Point2S> points = Arrays.asList(
@@ -402,7 +402,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(2, arcs.size());
     }
 
-    @Test
+@Test
     void testFromVertices_boolean_closed_1_oe() {
         // arrange
         final List<Point2S> points = Arrays.asList(
@@ -417,7 +417,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFromVertices_boolean_closed_2_oe() {
         // arrange
         final List<Point2S> points = Arrays.asList(
@@ -433,7 +433,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertTrue(path.isClosed());
     }
 
-    @Test
+@Test
     void testFromVertices_boolean_closed_5_oe() {
         // arrange
         final List<Point2S> points = Arrays.asList(
@@ -455,7 +455,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(3, arcs.size());
     }
 
-    @Test
+@Test
     void testFromVertices_boolean_closed_pointsConsideredEqual_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -475,7 +475,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFromVertices_boolean_closed_pointsConsideredEqual_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -496,7 +496,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertTrue(path.isClosed());
     }
 
-    @Test
+@Test
     void testFromVertices_boolean_closed_pointsConsideredEqual_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -523,7 +523,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(3, arcs.size());
     }
 
-    @Test
+@Test
     void testFromVertices_1_oe() {
         // arrange
         final List<Point2S> points = Arrays.asList(
@@ -538,7 +538,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFromVertices_2_oe() {
         // arrange
         final List<Point2S> points = Arrays.asList(
@@ -554,7 +554,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testFromVertices_5_oe() {
         // arrange
         final List<Point2S> points = Arrays.asList(
@@ -576,7 +576,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(2, arcs.size());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_1_oe() {
         // arrange
         final List<Point2S> points = Arrays.asList(
@@ -591,7 +591,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_2_oe() {
         // arrange
         final List<Point2S> points = Arrays.asList(
@@ -607,7 +607,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertTrue(path.isClosed());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_5_oe() {
         // arrange
         final List<Point2S> points = Arrays.asList(
@@ -629,7 +629,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(3, arcs.size());
     }
 
-    @Test
+@Test
     void testFromArcs_1_oe() {
         // arrange
         final Point2S ptA = Point2S.PLUS_I;
@@ -648,7 +648,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFromArcs_2_oe() {
         // arrange
         final Point2S ptA = Point2S.PLUS_I;
@@ -668,7 +668,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testFromArcs_5_oe() {
         // arrange
         final Point2S ptA = Point2S.PLUS_I;
@@ -694,7 +694,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(3, arcs.size());
     }
 
-    @Test
+@Test
     void testFromArcs_full_1_oe() {
         // arrange
         final GreatArc fullArc = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION).span();
@@ -706,7 +706,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testFromArcs_full_2_oe() {
         // arrange
         final GreatArc fullArc = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION).span();
@@ -719,7 +719,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testFromArcs_full_3_oe() {
         // arrange
         final GreatArc fullArc = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION).span();
@@ -734,7 +734,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertSame(fullArc, path.getStartArc());
     }
 
-    @Test
+@Test
     void testFromArcs_full_4_oe() {
         // arrange
         final GreatArc fullArc = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION).span();
@@ -750,7 +750,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertSame(fullArc, path.getEndArc());
     }
 
-    @Test
+@Test
     void testFromArcs_full_5_oe() {
         // arrange
         final GreatArc fullArc = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION).span();
@@ -768,7 +768,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertNull(path.getStartVertex());
     }
 
-    @Test
+@Test
     void testFromArcs_full_6_oe() {
         // arrange
         final GreatArc fullArc = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION).span();
@@ -787,7 +787,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertNull(path.getEndVertex());
     }
 
-    @Test
+@Test
     void testFromArcs_full_7_oe() {
         // arrange
         final GreatArc fullArc = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION).span();
@@ -809,7 +809,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(1, arcs.size());
     }
 
-    @Test
+@Test
     void testFromArcs_full_8_oe() {
         // arrange
         final GreatArc fullArc = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION).span();
@@ -833,7 +833,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertSame(fullArc, arcs.get(0));
     }
 
-    @Test
+@Test
     void testBoundaryStream_1_oe() {
         // arrange
         final GreatArc fullArc = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION).span();
@@ -846,7 +846,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(1, arcs.size());
     }
 
-    @Test
+@Test
     void testBoundaryStream_2_oe() {
         // arrange
         final GreatArc fullArc = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION).span();
@@ -860,7 +860,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertSame(fullArc, arcs.get(0));
     }
 
-    @Test
+@Test
     void testBoundaryStream_noBoundaries_1_oe() {
         // arrange
         final GreatArcPath path = GreatArcPath.empty();
@@ -872,7 +872,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(0, arcs.size());
     }
 
-    @Test
+@Test
     void testToTree_empty_1_oe() {
         // act
         final RegionBSPTree2S tree = GreatArcPath.empty().toTree();
@@ -881,7 +881,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_empty_2_oe() {
         // act
         final RegionBSPTree2S tree = GreatArcPath.empty().toTree();
@@ -891,7 +891,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testToTree_halfSpace_1_oe() {
         // arrange
         final GreatArcPath path = GreatArcPath.builder(TEST_PRECISION)
@@ -906,7 +906,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_halfSpace_2_oe() {
         // arrange
         final GreatArcPath path = GreatArcPath.builder(TEST_PRECISION)
@@ -922,7 +922,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testToTree_halfSpace_3_oe() {
         // arrange
         final GreatArcPath path = GreatArcPath.builder(TEST_PRECISION)
@@ -940,7 +940,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(Angle.TWO_PI, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToTree_triangle_1_oe() {
         // arrange
         final GreatArcPath path = GreatArcPath.builder(TEST_PRECISION)
@@ -956,7 +956,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_triangle_2_oe() {
         // arrange
         final GreatArcPath path = GreatArcPath.builder(TEST_PRECISION)
@@ -973,7 +973,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testToTree_triangle_3_oe() {
         // arrange
         final GreatArcPath path = GreatArcPath.builder(TEST_PRECISION)
@@ -992,7 +992,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBuilder_append_1_oe() {
         // arrange
         final Point2S a = Point2S.PLUS_I;
@@ -1014,7 +1014,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testBuilder_append_2_oe() {
         // arrange
         final Point2S a = Point2S.PLUS_I;
@@ -1037,7 +1037,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertTrue(path.isClosed());
     }
 
-    @Test
+@Test
     void testBuilder_append_5_oe() {
         // arrange
         final Point2S a = Point2S.PLUS_I;
@@ -1066,7 +1066,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(5, arcs.size());
     }
 
-    @Test
+@Test
     void testBuilder_prepend_1_oe() {
         // arrange
         final Point2S a = Point2S.PLUS_I;
@@ -1088,7 +1088,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testBuilder_prepend_2_oe() {
         // arrange
         final Point2S a = Point2S.PLUS_I;
@@ -1111,7 +1111,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertTrue(path.isClosed());
     }
 
-    @Test
+@Test
     void testBuilder_prepend_5_oe() {
         // arrange
         final Point2S a = Point2S.PLUS_I;
@@ -1140,7 +1140,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(5, arcs.size());
     }
 
-    @Test
+@Test
     void testBuilder_appendAndPrepend_points_1_oe() {
         // arrange
         final Point2S a = Point2S.PLUS_I;
@@ -1163,7 +1163,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testBuilder_appendAndPrepend_points_2_oe() {
         // arrange
         final Point2S a = Point2S.PLUS_I;
@@ -1187,7 +1187,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isClosed());
     }
 
-    @Test
+@Test
     void testBuilder_appendAndPrepend_points_5_oe() {
         // arrange
         final Point2S a = Point2S.PLUS_I;
@@ -1217,7 +1217,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(4, arcs.size());
     }
 
-    @Test
+@Test
     void testBuilder_appendAndPrepend_mixedArguments_1_oe() {
         // arrange
         final Point2S a = Point2S.PLUS_I;
@@ -1240,7 +1240,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertFalse(path.isEmpty());
     }
 
-    @Test
+@Test
     void testBuilder_appendAndPrepend_mixedArguments_2_oe() {
         // arrange
         final Point2S a = Point2S.PLUS_I;
@@ -1264,7 +1264,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertTrue(path.isClosed());
     }
 
-    @Test
+@Test
     void testBuilder_appendAndPrepend_mixedArguments_5_oe() {
         // arrange
         final Point2S a = Point2S.PLUS_I;
@@ -1294,7 +1294,7 @@ class GreatArcPathTest_OE25Dev {
         Assertions.assertEquals(5, arcs.size());
     }
 
-    @Test
+@Test
     void testToString_empty_1_oe() {
         // arrange
         final GreatArcPath path = GreatArcPath.empty();

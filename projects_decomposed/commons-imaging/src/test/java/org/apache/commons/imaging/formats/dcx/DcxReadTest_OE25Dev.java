@@ -42,13 +42,13 @@ public class DcxReadTest_OE25Dev extends DcxBaseTest {
         Imaging.getImageInfo(imageFile);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testImageMetadata_1_oe(final File imageFile) {
         Assertions.assertThrows(UnsupportedOperationException.class, () -> Imaging.getMetadata(imageFile));
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testBufferedImage_1_oe(final File imageFile) throws Exception {
         final BufferedImage image = Imaging.getBufferedImage(imageFile);

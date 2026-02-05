@@ -24,7 +24,7 @@ import org.junit.Test;
 
 public class UserAuthenticationDataTestCase_OE25Dev {
 
-    @Test
+@Test
     public void testCharacterBasedData_1_oe() {
         final UserAuthenticationData data = new UserAuthenticationData();
         final char[] array = "PMC".toCharArray();
@@ -33,7 +33,7 @@ public class UserAuthenticationDataTestCase_OE25Dev {
         assertSame(array, data.getData(UserAuthenticationData.USERNAME));
     }
 
-    @Test
+@Test
     public void testCharacterBasedData_2_oe() {
         final UserAuthenticationData data = new UserAuthenticationData();
         final char[] array = "PMC".toCharArray();
@@ -43,7 +43,7 @@ public class UserAuthenticationDataTestCase_OE25Dev {
         assertArrayEquals("Apache".toCharArray(), data.getData(UserAuthenticationData.DOMAIN));
     }
 
-    @Test
+@Test
     public void testCharacterBasedData_3_oe() {
         final UserAuthenticationData data = new UserAuthenticationData();
         final char[] array = "PMC".toCharArray();
@@ -55,7 +55,7 @@ public class UserAuthenticationDataTestCase_OE25Dev {
         assertArrayEquals("Apache Commons".toCharArray(), data.getData(UserAuthenticationData.DOMAIN));
     }
 
-    @Test
+@Test
     public void testCharacterBasedData_4_oe() {
         final UserAuthenticationData data = new UserAuthenticationData();
         final char[] array = "PMC".toCharArray();
@@ -68,7 +68,7 @@ public class UserAuthenticationDataTestCase_OE25Dev {
         assertNull(data.getData(UserAuthenticationData.PASSWORD));
     }
 
-    @Test
+@Test
     public void testCharacterBasedData_5_oe() {
         final UserAuthenticationData data = new UserAuthenticationData();
         final char[] array = "PMC".toCharArray();
@@ -84,7 +84,7 @@ public class UserAuthenticationDataTestCase_OE25Dev {
         assertNull(data.getData(UserAuthenticationData.USERNAME));
     }
 
-    @Test
+@Test
     public void testCharacterBasedData_6_oe() {
         final UserAuthenticationData data = new UserAuthenticationData();
         final char[] array = "PMC".toCharArray();
@@ -101,7 +101,7 @@ public class UserAuthenticationDataTestCase_OE25Dev {
         assertNull(data.getData(UserAuthenticationData.DOMAIN));
     }
 
-    @Test
+@Test
     public void testCharacterBasedData_7_oe() {
         final UserAuthenticationData data = new UserAuthenticationData();
         final char[] array = "PMC".toCharArray();
@@ -120,7 +120,7 @@ public class UserAuthenticationDataTestCase_OE25Dev {
         assertArrayEquals(nulls, array);
     }
 
-    @Test
+@Test
     public void testCustomType_1_oe() {
         final UserAuthenticationData.Type type = new UserAuthenticationData.Type("JUNIT");
         final UserAuthenticationData data = new UserAuthenticationData();

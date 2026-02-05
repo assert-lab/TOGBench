@@ -171,12 +171,12 @@ public class TestConverterManager_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testSingleton_1_oe() throws Exception {
+public void testSingleton_1_oe() throws Exception {
         Class cls = ConverterManager.class;
         assertEquals(true,Modifier.isPublic(cls.getModifiers()));
     }
 
-    public void testSingleton_2_oe() throws Exception {
+public void testSingleton_2_oe() throws Exception {
         Class cls = ConverterManager.class;
         // removed other assertion
         
@@ -184,7 +184,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(1,cls.getDeclaredConstructors().length);
     }
 
-    public void testSingleton_3_oe() throws Exception {
+public void testSingleton_3_oe() throws Exception {
         Class cls = ConverterManager.class;
         // removed other assertion
         
@@ -193,7 +193,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(true,Modifier.isProtected(con.getModifiers()));
     }
 
-    public void testSingleton_4_oe() throws Exception {
+public void testSingleton_4_oe() throws Exception {
         Class cls = ConverterManager.class;
         // removed other assertion
         
@@ -205,12 +205,12 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(true,Modifier.isPrivate(fld.getModifiers()));
     }
 
-    public void testGetInstantConverter_1_oe() {
+public void testGetInstantConverter_1_oe() {
         InstantConverter c = ConverterManager.getInstance().getInstantConverter(new Long(0L));
         assertEquals(Long.class,c.getSupportedType());
     }
 
-    public void testGetInstantConverter_2_oe() {
+public void testGetInstantConverter_2_oe() {
         InstantConverter c = ConverterManager.getInstance().getInstantConverter(new Long(0L));
         // removed other assertion
         
@@ -218,7 +218,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(ReadableInstant.class,c.getSupportedType());
     }
 
-    public void testGetInstantConverter_3_oe() {
+public void testGetInstantConverter_3_oe() {
         InstantConverter c = ConverterManager.getInstance().getInstantConverter(new Long(0L));
         // removed other assertion
         
@@ -229,7 +229,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(String.class,c.getSupportedType());
     }
 
-    public void testGetInstantConverter_4_oe() {
+public void testGetInstantConverter_4_oe() {
         InstantConverter c = ConverterManager.getInstance().getInstantConverter(new Long(0L));
         // removed other assertion
         
@@ -243,7 +243,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(Date.class,c.getSupportedType());
     }
 
-    public void testGetInstantConverter_5_oe() {
+public void testGetInstantConverter_5_oe() {
         InstantConverter c = ConverterManager.getInstance().getInstantConverter(new Long(0L));
         // removed other assertion
         
@@ -260,7 +260,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(Calendar.class,c.getSupportedType());
     }
 
-    public void testGetInstantConverter_6_oe() {
+public void testGetInstantConverter_6_oe() {
         InstantConverter c = ConverterManager.getInstance().getInstantConverter(new Long(0L));
         // removed other assertion
         
@@ -280,7 +280,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(null,c.getSupportedType());
     }
 
-    public void testGetInstantConverterRemovedNull_2_oe() {
+public void testGetInstantConverterRemovedNull_2_oe() {
         try {
             ConverterManager.getInstance().removeInstantConverter(NullConverter.INSTANCE);
             try {
@@ -293,7 +293,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(6,ConverterManager.getInstance().getInstantConverters().length);
     }
 
-    public void testGetInstantConverterOKMultipleMatches_2_oe() {
+public void testGetInstantConverterOKMultipleMatches_2_oe() {
         InstantConverter c = new InstantConverter() {
             public long getInstantMillis(Object object, Chronology chrono) {return 0;}
             public Chronology getChronology(Object object, DateTimeZone zone) {return null;}
@@ -311,7 +311,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(6,ConverterManager.getInstance().getInstantConverters().length);
     }
 
-    public void testGetInstantConverterBadMultipleMatches_2_oe() {
+public void testGetInstantConverterBadMultipleMatches_2_oe() {
         InstantConverter c = new InstantConverter() {
             public long getInstantMillis(Object object, Chronology chrono) {return 0;}
             public Chronology getChronology(Object object, DateTimeZone zone) {return null;}
@@ -332,12 +332,12 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(6,ConverterManager.getInstance().getInstantConverters().length);
     }
 
-    public void testGetInstantConverters_1_oe() {
+public void testGetInstantConverters_1_oe() {
         InstantConverter[] array = ConverterManager.getInstance().getInstantConverters();
         assertEquals(6,array.length);
     }
 
-    public void testAddInstantConverter1_4_oe() {
+public void testAddInstantConverter1_4_oe() {
         InstantConverter c = new InstantConverter() {
             public long getInstantMillis(Object object, Chronology chrono) {return 0;}
             public Chronology getChronology(Object object, DateTimeZone zone) {return null;}
@@ -355,7 +355,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(6,ConverterManager.getInstance().getInstantConverters().length);
     }
 
-    public void testAddInstantConverter2_4_oe() {
+public void testAddInstantConverter2_4_oe() {
         InstantConverter c = new InstantConverter() {
             public long getInstantMillis(Object object, Chronology chrono) {return 0;}
             public Chronology getChronology(Object object, DateTimeZone zone) {return null;}
@@ -373,29 +373,29 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(6,ConverterManager.getInstance().getInstantConverters().length);
     }
 
-    public void testAddInstantConverter3_1_oe() {
+public void testAddInstantConverter3_1_oe() {
         InstantConverter removed = ConverterManager.getInstance().addInstantConverter(StringConverter.INSTANCE);
         assertEquals(null,removed);
     }
 
-    public void testAddInstantConverter3_2_oe() {
+public void testAddInstantConverter3_2_oe() {
         InstantConverter removed = ConverterManager.getInstance().addInstantConverter(StringConverter.INSTANCE);
         // removed other assertion
         assertEquals(6,ConverterManager.getInstance().getInstantConverters().length);
     }
 
-    public void testAddInstantConverter4_1_oe() {
+public void testAddInstantConverter4_1_oe() {
         InstantConverter removed = ConverterManager.getInstance().addInstantConverter(null);
         assertEquals(null,removed);
     }
 
-    public void testAddInstantConverter4_2_oe() {
+public void testAddInstantConverter4_2_oe() {
         InstantConverter removed = ConverterManager.getInstance().addInstantConverter(null);
         // removed other assertion
         assertEquals(6,ConverterManager.getInstance().getInstantConverters().length);
     }
 
-    public void testAddInstantConverterSecurity_2_oe() {
+public void testAddInstantConverterSecurity_2_oe() {
         if (OLD_JDK) {
             return;
         }
@@ -413,7 +413,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(6,ConverterManager.getInstance().getInstantConverters().length);
     }
 
-    public void testRemoveInstantConverter1_3_oe() {
+public void testRemoveInstantConverter1_3_oe() {
         try {
             InstantConverter removed = ConverterManager.getInstance().removeInstantConverter(StringConverter.INSTANCE);
             // removed other assertion
@@ -424,7 +424,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(6,ConverterManager.getInstance().getInstantConverters().length);
     }
 
-    public void testRemoveInstantConverter2_1_oe() {
+public void testRemoveInstantConverter2_1_oe() {
         InstantConverter c = new InstantConverter() {
             public long getInstantMillis(Object object, Chronology chrono) {return 0;}
             public Chronology getChronology(Object object, DateTimeZone zone) {return null;}
@@ -435,7 +435,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(null,removed);
     }
 
-    public void testRemoveInstantConverter2_2_oe() {
+public void testRemoveInstantConverter2_2_oe() {
         InstantConverter c = new InstantConverter() {
             public long getInstantMillis(Object object, Chronology chrono) {return 0;}
             public Chronology getChronology(Object object, DateTimeZone zone) {return null;}
@@ -447,18 +447,18 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(6,ConverterManager.getInstance().getInstantConverters().length);
     }
 
-    public void testRemoveInstantConverter3_1_oe() {
+public void testRemoveInstantConverter3_1_oe() {
         InstantConverter removed = ConverterManager.getInstance().removeInstantConverter(null);
         assertEquals(null,removed);
     }
 
-    public void testRemoveInstantConverter3_2_oe() {
+public void testRemoveInstantConverter3_2_oe() {
         InstantConverter removed = ConverterManager.getInstance().removeInstantConverter(null);
         // removed other assertion
         assertEquals(6,ConverterManager.getInstance().getInstantConverters().length);
     }
 
-    public void testRemoveInstantConverterSecurity_2_oe() {
+public void testRemoveInstantConverterSecurity_2_oe() {
         if (OLD_JDK) {
             return;
         }
@@ -476,12 +476,12 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(6,ConverterManager.getInstance().getInstantConverters().length);
     }
 
-    public void testGetPartialConverter_1_oe() {
+public void testGetPartialConverter_1_oe() {
         PartialConverter c = ConverterManager.getInstance().getPartialConverter(new Long(0L));
         assertEquals(Long.class,c.getSupportedType());
     }
 
-    public void testGetPartialConverter_2_oe() {
+public void testGetPartialConverter_2_oe() {
         PartialConverter c = ConverterManager.getInstance().getPartialConverter(new Long(0L));
         // removed other assertion
         
@@ -489,7 +489,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(ReadablePartial.class,c.getSupportedType());
     }
 
-    public void testGetPartialConverter_3_oe() {
+public void testGetPartialConverter_3_oe() {
         PartialConverter c = ConverterManager.getInstance().getPartialConverter(new Long(0L));
         // removed other assertion
         
@@ -500,7 +500,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(ReadableInstant.class,c.getSupportedType());
     }
 
-    public void testGetPartialConverter_4_oe() {
+public void testGetPartialConverter_4_oe() {
         PartialConverter c = ConverterManager.getInstance().getPartialConverter(new Long(0L));
         // removed other assertion
         
@@ -514,7 +514,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(String.class,c.getSupportedType());
     }
 
-    public void testGetPartialConverter_5_oe() {
+public void testGetPartialConverter_5_oe() {
         PartialConverter c = ConverterManager.getInstance().getPartialConverter(new Long(0L));
         // removed other assertion
         
@@ -531,7 +531,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(Date.class,c.getSupportedType());
     }
 
-    public void testGetPartialConverter_6_oe() {
+public void testGetPartialConverter_6_oe() {
         PartialConverter c = ConverterManager.getInstance().getPartialConverter(new Long(0L));
         // removed other assertion
         
@@ -551,7 +551,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(Calendar.class,c.getSupportedType());
     }
 
-    public void testGetPartialConverter_7_oe() {
+public void testGetPartialConverter_7_oe() {
         PartialConverter c = ConverterManager.getInstance().getPartialConverter(new Long(0L));
         // removed other assertion
         
@@ -574,7 +574,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(null,c.getSupportedType());
     }
 
-    public void testGetPartialConverterRemovedNull_2_oe() {
+public void testGetPartialConverterRemovedNull_2_oe() {
         try {
             ConverterManager.getInstance().removePartialConverter(NullConverter.INSTANCE);
             try {
@@ -587,7 +587,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(PARTIAL_SIZE,ConverterManager.getInstance().getPartialConverters().length);
     }
 
-    public void testGetPartialConverterOKMultipleMatches_2_oe() {
+public void testGetPartialConverterOKMultipleMatches_2_oe() {
         PartialConverter c = new PartialConverter() {
             public int[] getPartialValues(ReadablePartial partial, Object object, Chronology chrono) {return null;}
             public int[] getPartialValues(ReadablePartial partial, Object object, Chronology chrono, DateTimeFormatter parser) {return null;}
@@ -606,7 +606,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(PARTIAL_SIZE,ConverterManager.getInstance().getPartialConverters().length);
     }
 
-    public void testGetPartialConverterBadMultipleMatches_2_oe() {
+public void testGetPartialConverterBadMultipleMatches_2_oe() {
         PartialConverter c = new PartialConverter() {
             public int[] getPartialValues(ReadablePartial partial, Object object, Chronology chrono) {return null;}
             public int[] getPartialValues(ReadablePartial partial, Object object, Chronology chrono, DateTimeFormatter parser) {return null;}
@@ -628,12 +628,12 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(PARTIAL_SIZE,ConverterManager.getInstance().getPartialConverters().length);
     }
 
-    public void testGetPartialConverters_1_oe() {
+public void testGetPartialConverters_1_oe() {
         PartialConverter[] array = ConverterManager.getInstance().getPartialConverters();
         assertEquals(PARTIAL_SIZE,array.length);
     }
 
-    public void testAddPartialConverter1_4_oe() {
+public void testAddPartialConverter1_4_oe() {
         PartialConverter c = new PartialConverter() {
             public int[] getPartialValues(ReadablePartial partial, Object object, Chronology chrono) {return null;}
             public int[] getPartialValues(ReadablePartial partial, Object object, Chronology chrono, DateTimeFormatter parser) {return null;}
@@ -652,7 +652,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(PARTIAL_SIZE,ConverterManager.getInstance().getPartialConverters().length);
     }
 
-    public void testAddPartialConverter2_4_oe() {
+public void testAddPartialConverter2_4_oe() {
         PartialConverter c = new PartialConverter() {
             public int[] getPartialValues(ReadablePartial partial, Object object, Chronology chrono) {return null;}
             public int[] getPartialValues(ReadablePartial partial, Object object, Chronology chrono, DateTimeFormatter parser) {return null;}
@@ -671,29 +671,29 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(PARTIAL_SIZE,ConverterManager.getInstance().getPartialConverters().length);
     }
 
-    public void testAddPartialConverter3_1_oe() {
+public void testAddPartialConverter3_1_oe() {
         PartialConverter removed = ConverterManager.getInstance().addPartialConverter(StringConverter.INSTANCE);
         assertEquals(null,removed);
     }
 
-    public void testAddPartialConverter3_2_oe() {
+public void testAddPartialConverter3_2_oe() {
         PartialConverter removed = ConverterManager.getInstance().addPartialConverter(StringConverter.INSTANCE);
         // removed other assertion
         assertEquals(PARTIAL_SIZE,ConverterManager.getInstance().getPartialConverters().length);
     }
 
-    public void testAddPartialConverter4_1_oe() {
+public void testAddPartialConverter4_1_oe() {
         PartialConverter removed = ConverterManager.getInstance().addPartialConverter(null);
         assertEquals(null,removed);
     }
 
-    public void testAddPartialConverter4_2_oe() {
+public void testAddPartialConverter4_2_oe() {
         PartialConverter removed = ConverterManager.getInstance().addPartialConverter(null);
         // removed other assertion
         assertEquals(PARTIAL_SIZE,ConverterManager.getInstance().getPartialConverters().length);
     }
 
-    public void testAddPartialConverterSecurity_2_oe() {
+public void testAddPartialConverterSecurity_2_oe() {
         if (OLD_JDK) {
             return;
         }
@@ -711,7 +711,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(PARTIAL_SIZE,ConverterManager.getInstance().getPartialConverters().length);
     }
 
-    public void testRemovePartialConverter1_3_oe() {
+public void testRemovePartialConverter1_3_oe() {
         try {
             PartialConverter removed = ConverterManager.getInstance().removePartialConverter(StringConverter.INSTANCE);
             // removed other assertion
@@ -722,7 +722,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(PARTIAL_SIZE,ConverterManager.getInstance().getPartialConverters().length);
     }
 
-    public void testRemovePartialConverter2_1_oe() {
+public void testRemovePartialConverter2_1_oe() {
         PartialConverter c = new PartialConverter() {
             public int[] getPartialValues(ReadablePartial partial, Object object, Chronology chrono) {return null;}
             public int[] getPartialValues(ReadablePartial partial, Object object, Chronology chrono, DateTimeFormatter parser) {return null;}
@@ -734,7 +734,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(null,removed);
     }
 
-    public void testRemovePartialConverter2_2_oe() {
+public void testRemovePartialConverter2_2_oe() {
         PartialConverter c = new PartialConverter() {
             public int[] getPartialValues(ReadablePartial partial, Object object, Chronology chrono) {return null;}
             public int[] getPartialValues(ReadablePartial partial, Object object, Chronology chrono, DateTimeFormatter parser) {return null;}
@@ -747,18 +747,18 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(PARTIAL_SIZE,ConverterManager.getInstance().getPartialConverters().length);
     }
 
-    public void testRemovePartialConverter3_1_oe() {
+public void testRemovePartialConverter3_1_oe() {
         PartialConverter removed = ConverterManager.getInstance().removePartialConverter(null);
         assertEquals(null,removed);
     }
 
-    public void testRemovePartialConverter3_2_oe() {
+public void testRemovePartialConverter3_2_oe() {
         PartialConverter removed = ConverterManager.getInstance().removePartialConverter(null);
         // removed other assertion
         assertEquals(PARTIAL_SIZE,ConverterManager.getInstance().getPartialConverters().length);
     }
 
-    public void testRemovePartialConverterSecurity_2_oe() {
+public void testRemovePartialConverterSecurity_2_oe() {
         if (OLD_JDK) {
             return;
         }
@@ -776,12 +776,12 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(PARTIAL_SIZE,ConverterManager.getInstance().getPartialConverters().length);
     }
 
-    public void testGetDurationConverter_1_oe() {
+public void testGetDurationConverter_1_oe() {
         DurationConverter c = ConverterManager.getInstance().getDurationConverter(new Long(0L));
         assertEquals(Long.class,c.getSupportedType());
     }
 
-    public void testGetDurationConverter_2_oe() {
+public void testGetDurationConverter_2_oe() {
         DurationConverter c = ConverterManager.getInstance().getDurationConverter(new Long(0L));
         // removed other assertion
         
@@ -789,7 +789,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(ReadableDuration.class,c.getSupportedType());
     }
 
-    public void testGetDurationConverter_3_oe() {
+public void testGetDurationConverter_3_oe() {
         DurationConverter c = ConverterManager.getInstance().getDurationConverter(new Long(0L));
         // removed other assertion
         
@@ -800,7 +800,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(ReadableInterval.class,c.getSupportedType());
     }
 
-    public void testGetDurationConverter_4_oe() {
+public void testGetDurationConverter_4_oe() {
         DurationConverter c = ConverterManager.getInstance().getDurationConverter(new Long(0L));
         // removed other assertion
         
@@ -814,7 +814,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(String.class,c.getSupportedType());
     }
 
-    public void testGetDurationConverter_5_oe() {
+public void testGetDurationConverter_5_oe() {
         DurationConverter c = ConverterManager.getInstance().getDurationConverter(new Long(0L));
         // removed other assertion
         
@@ -831,7 +831,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(null,c.getSupportedType());
     }
 
-    public void testGetDurationConverterRemovedNull_2_oe() {
+public void testGetDurationConverterRemovedNull_2_oe() {
         try {
             ConverterManager.getInstance().removeDurationConverter(NullConverter.INSTANCE);
             try {
@@ -844,12 +844,12 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(DURATION_SIZE,ConverterManager.getInstance().getDurationConverters().length);
     }
 
-    public void testGetDurationConverters_1_oe() {
+public void testGetDurationConverters_1_oe() {
         DurationConverter[] array = ConverterManager.getInstance().getDurationConverters();
         assertEquals(DURATION_SIZE,array.length);
     }
 
-    public void testAddDurationConverter1_4_oe() {
+public void testAddDurationConverter1_4_oe() {
         DurationConverter c = new DurationConverter() {
             public long getDurationMillis(Object object) {return 0;}
             public Class getSupportedType() {return Boolean.class;}
@@ -865,7 +865,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(DURATION_SIZE,ConverterManager.getInstance().getDurationConverters().length);
     }
 
-    public void testAddDurationConverter2_4_oe() {
+public void testAddDurationConverter2_4_oe() {
         DurationConverter c = new DurationConverter() {
             public long getDurationMillis(Object object) {return 0;}
             public Class getSupportedType() {return String.class;}
@@ -881,18 +881,18 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(DURATION_SIZE,ConverterManager.getInstance().getDurationConverters().length);
     }
 
-    public void testAddDurationConverter3_1_oe() {
+public void testAddDurationConverter3_1_oe() {
         DurationConverter removed = ConverterManager.getInstance().addDurationConverter(null);
         assertEquals(null,removed);
     }
 
-    public void testAddDurationConverter3_2_oe() {
+public void testAddDurationConverter3_2_oe() {
         DurationConverter removed = ConverterManager.getInstance().addDurationConverter(null);
         // removed other assertion
         assertEquals(DURATION_SIZE,ConverterManager.getInstance().getDurationConverters().length);
     }
 
-    public void testAddDurationConverterSecurity_2_oe() {
+public void testAddDurationConverterSecurity_2_oe() {
         if (OLD_JDK) {
             return;
         }
@@ -910,7 +910,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(DURATION_SIZE,ConverterManager.getInstance().getDurationConverters().length);
     }
 
-    public void testRemoveDurationConverter1_3_oe() {
+public void testRemoveDurationConverter1_3_oe() {
         try {
             DurationConverter removed = ConverterManager.getInstance().removeDurationConverter(StringConverter.INSTANCE);
             // removed other assertion
@@ -921,7 +921,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(DURATION_SIZE,ConverterManager.getInstance().getDurationConverters().length);
     }
 
-    public void testRemoveDurationConverter2_1_oe() {
+public void testRemoveDurationConverter2_1_oe() {
         DurationConverter c = new DurationConverter() {
             public long getDurationMillis(Object object) {return 0;}
             public Class getSupportedType() {return Boolean.class;}
@@ -930,7 +930,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(null,removed);
     }
 
-    public void testRemoveDurationConverter2_2_oe() {
+public void testRemoveDurationConverter2_2_oe() {
         DurationConverter c = new DurationConverter() {
             public long getDurationMillis(Object object) {return 0;}
             public Class getSupportedType() {return Boolean.class;}
@@ -940,18 +940,18 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(DURATION_SIZE,ConverterManager.getInstance().getDurationConverters().length);
     }
 
-    public void testRemoveDurationConverter3_1_oe() {
+public void testRemoveDurationConverter3_1_oe() {
         DurationConverter removed = ConverterManager.getInstance().removeDurationConverter(null);
         assertEquals(null,removed);
     }
 
-    public void testRemoveDurationConverter3_2_oe() {
+public void testRemoveDurationConverter3_2_oe() {
         DurationConverter removed = ConverterManager.getInstance().removeDurationConverter(null);
         // removed other assertion
         assertEquals(DURATION_SIZE,ConverterManager.getInstance().getDurationConverters().length);
     }
 
-    public void testRemoveDurationConverterSecurity_2_oe() {
+public void testRemoveDurationConverterSecurity_2_oe() {
         if (OLD_JDK) {
             return;
         }
@@ -969,12 +969,12 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(DURATION_SIZE,ConverterManager.getInstance().getDurationConverters().length);
     }
 
-    public void testGetPeriodConverter_1_oe() {
+public void testGetPeriodConverter_1_oe() {
         PeriodConverter c = ConverterManager.getInstance().getPeriodConverter(new Period(1, 2, 3, 4, 5, 6, 7, 8));
         assertEquals(ReadablePeriod.class,c.getSupportedType());
     }
 
-    public void testGetPeriodConverter_2_oe() {
+public void testGetPeriodConverter_2_oe() {
         PeriodConverter c = ConverterManager.getInstance().getPeriodConverter(new Period(1, 2, 3, 4, 5, 6, 7, 8));
         // removed other assertion
         
@@ -982,7 +982,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(ReadableDuration.class,c.getSupportedType());
     }
 
-    public void testGetPeriodConverter_3_oe() {
+public void testGetPeriodConverter_3_oe() {
         PeriodConverter c = ConverterManager.getInstance().getPeriodConverter(new Period(1, 2, 3, 4, 5, 6, 7, 8));
         // removed other assertion
         
@@ -993,7 +993,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(ReadableInterval.class,c.getSupportedType());
     }
 
-    public void testGetPeriodConverter_4_oe() {
+public void testGetPeriodConverter_4_oe() {
         PeriodConverter c = ConverterManager.getInstance().getPeriodConverter(new Period(1, 2, 3, 4, 5, 6, 7, 8));
         // removed other assertion
         
@@ -1007,7 +1007,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(String.class,c.getSupportedType());
     }
 
-    public void testGetPeriodConverter_5_oe() {
+public void testGetPeriodConverter_5_oe() {
         PeriodConverter c = ConverterManager.getInstance().getPeriodConverter(new Period(1, 2, 3, 4, 5, 6, 7, 8));
         // removed other assertion
         
@@ -1024,7 +1024,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(null,c.getSupportedType());
     }
 
-    public void testGetPeriodConverterRemovedNull_2_oe() {
+public void testGetPeriodConverterRemovedNull_2_oe() {
         try {
             ConverterManager.getInstance().removePeriodConverter(NullConverter.INSTANCE);
             try {
@@ -1037,12 +1037,12 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(PERIOD_SIZE,ConverterManager.getInstance().getPeriodConverters().length);
     }
 
-    public void testGetPeriodConverters_1_oe() {
+public void testGetPeriodConverters_1_oe() {
         PeriodConverter[] array = ConverterManager.getInstance().getPeriodConverters();
         assertEquals(PERIOD_SIZE,array.length);
     }
 
-    public void testAddPeriodConverter1_4_oe() {
+public void testAddPeriodConverter1_4_oe() {
         PeriodConverter c = new PeriodConverter() {
             public void setInto(ReadWritablePeriod duration, Object object, Chronology c) {}
             public PeriodType getPeriodType(Object object) {return null;}
@@ -1059,7 +1059,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(PERIOD_SIZE,ConverterManager.getInstance().getPeriodConverters().length);
     }
 
-    public void testAddPeriodConverter2_4_oe() {
+public void testAddPeriodConverter2_4_oe() {
         PeriodConverter c = new PeriodConverter() {
             public void setInto(ReadWritablePeriod duration, Object object, Chronology c) {}
             public PeriodType getPeriodType(Object object) {return null;}
@@ -1076,18 +1076,18 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(PERIOD_SIZE,ConverterManager.getInstance().getPeriodConverters().length);
     }
 
-    public void testAddPeriodConverter3_1_oe() {
+public void testAddPeriodConverter3_1_oe() {
         PeriodConverter removed = ConverterManager.getInstance().addPeriodConverter(null);
         assertEquals(null,removed);
     }
 
-    public void testAddPeriodConverter3_2_oe() {
+public void testAddPeriodConverter3_2_oe() {
         PeriodConverter removed = ConverterManager.getInstance().addPeriodConverter(null);
         // removed other assertion
         assertEquals(PERIOD_SIZE,ConverterManager.getInstance().getPeriodConverters().length);
     }
 
-    public void testAddPeriodConverterSecurity_2_oe() {
+public void testAddPeriodConverterSecurity_2_oe() {
         if (OLD_JDK) {
             return;
         }
@@ -1105,7 +1105,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(PERIOD_SIZE,ConverterManager.getInstance().getPeriodConverters().length);
     }
 
-    public void testRemovePeriodConverter1_3_oe() {
+public void testRemovePeriodConverter1_3_oe() {
         try {
             PeriodConverter removed = ConverterManager.getInstance().removePeriodConverter(StringConverter.INSTANCE);
             // removed other assertion
@@ -1116,7 +1116,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(PERIOD_SIZE,ConverterManager.getInstance().getPeriodConverters().length);
     }
 
-    public void testRemovePeriodConverter2_1_oe() {
+public void testRemovePeriodConverter2_1_oe() {
         PeriodConverter c = new PeriodConverter() {
             public void setInto(ReadWritablePeriod duration, Object object, Chronology c) {}
             public PeriodType getPeriodType(Object object) {return null;}
@@ -1126,7 +1126,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(null,removed);
     }
 
-    public void testRemovePeriodConverter2_2_oe() {
+public void testRemovePeriodConverter2_2_oe() {
         PeriodConverter c = new PeriodConverter() {
             public void setInto(ReadWritablePeriod duration, Object object, Chronology c) {}
             public PeriodType getPeriodType(Object object) {return null;}
@@ -1137,18 +1137,18 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(PERIOD_SIZE,ConverterManager.getInstance().getPeriodConverters().length);
     }
 
-    public void testRemovePeriodConverter3_1_oe() {
+public void testRemovePeriodConverter3_1_oe() {
         PeriodConverter removed = ConverterManager.getInstance().removePeriodConverter(null);
         assertEquals(null,removed);
     }
 
-    public void testRemovePeriodConverter3_2_oe() {
+public void testRemovePeriodConverter3_2_oe() {
         PeriodConverter removed = ConverterManager.getInstance().removePeriodConverter(null);
         // removed other assertion
         assertEquals(PERIOD_SIZE,ConverterManager.getInstance().getPeriodConverters().length);
     }
 
-    public void testRemovePeriodConverterSecurity_2_oe() {
+public void testRemovePeriodConverterSecurity_2_oe() {
         if (OLD_JDK) {
             return;
         }
@@ -1166,12 +1166,12 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(PERIOD_SIZE,ConverterManager.getInstance().getPeriodConverters().length);
     }
 
-    public void testGetIntervalConverter_1_oe() {
+public void testGetIntervalConverter_1_oe() {
         IntervalConverter c = ConverterManager.getInstance().getIntervalConverter(new Interval(0L, 1000L));
         assertEquals(ReadableInterval.class,c.getSupportedType());
     }
 
-    public void testGetIntervalConverter_2_oe() {
+public void testGetIntervalConverter_2_oe() {
         IntervalConverter c = ConverterManager.getInstance().getIntervalConverter(new Interval(0L, 1000L));
         // removed other assertion
         
@@ -1179,7 +1179,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(String.class,c.getSupportedType());
     }
 
-    public void testGetIntervalConverter_3_oe() {
+public void testGetIntervalConverter_3_oe() {
         IntervalConverter c = ConverterManager.getInstance().getIntervalConverter(new Interval(0L, 1000L));
         // removed other assertion
         
@@ -1190,7 +1190,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(null,c.getSupportedType());
     }
 
-    public void testGetIntervalConverterRemovedNull_2_oe() {
+public void testGetIntervalConverterRemovedNull_2_oe() {
         try {
             ConverterManager.getInstance().removeIntervalConverter(NullConverter.INSTANCE);
             try {
@@ -1203,12 +1203,12 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(INTERVAL_SIZE,ConverterManager.getInstance().getIntervalConverters().length);
     }
 
-    public void testGetIntervalConverters_1_oe() {
+public void testGetIntervalConverters_1_oe() {
         IntervalConverter[] array = ConverterManager.getInstance().getIntervalConverters();
         assertEquals(INTERVAL_SIZE,array.length);
     }
 
-    public void testAddIntervalConverter1_4_oe() {
+public void testAddIntervalConverter1_4_oe() {
         IntervalConverter c = new IntervalConverter() {
             public boolean isReadableInterval(Object object, Chronology chrono) {return false;}
             public void setInto(ReadWritableInterval interval, Object object, Chronology chrono) {}
@@ -1225,7 +1225,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(INTERVAL_SIZE,ConverterManager.getInstance().getIntervalConverters().length);
     }
 
-    public void testAddIntervalConverter2_4_oe() {
+public void testAddIntervalConverter2_4_oe() {
         IntervalConverter c = new IntervalConverter() {
             public boolean isReadableInterval(Object object, Chronology chrono) {return false;}
             public void setInto(ReadWritableInterval interval, Object object, Chronology chrono) {}
@@ -1242,18 +1242,18 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(INTERVAL_SIZE,ConverterManager.getInstance().getIntervalConverters().length);
     }
 
-    public void testAddIntervalConverter3_1_oe() {
+public void testAddIntervalConverter3_1_oe() {
         IntervalConverter removed = ConverterManager.getInstance().addIntervalConverter(null);
         assertEquals(null,removed);
     }
 
-    public void testAddIntervalConverter3_2_oe() {
+public void testAddIntervalConverter3_2_oe() {
         IntervalConverter removed = ConverterManager.getInstance().addIntervalConverter(null);
         // removed other assertion
         assertEquals(INTERVAL_SIZE,ConverterManager.getInstance().getIntervalConverters().length);
     }
 
-    public void testAddIntervalConverterSecurity_2_oe() {
+public void testAddIntervalConverterSecurity_2_oe() {
         if (OLD_JDK) {
             return;
         }
@@ -1271,7 +1271,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(INTERVAL_SIZE,ConverterManager.getInstance().getIntervalConverters().length);
     }
 
-    public void testRemoveIntervalConverter1_3_oe() {
+public void testRemoveIntervalConverter1_3_oe() {
         try {
             IntervalConverter removed = ConverterManager.getInstance().removeIntervalConverter(StringConverter.INSTANCE);
             // removed other assertion
@@ -1282,7 +1282,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(INTERVAL_SIZE,ConverterManager.getInstance().getIntervalConverters().length);
     }
 
-    public void testRemoveIntervalConverter2_1_oe() {
+public void testRemoveIntervalConverter2_1_oe() {
         IntervalConverter c = new IntervalConverter() {
             public boolean isReadableInterval(Object object, Chronology chrono) {return false;}
             public void setInto(ReadWritableInterval interval, Object object, Chronology chrono) {}
@@ -1292,7 +1292,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(null,removed);
     }
 
-    public void testRemoveIntervalConverter2_2_oe() {
+public void testRemoveIntervalConverter2_2_oe() {
         IntervalConverter c = new IntervalConverter() {
             public boolean isReadableInterval(Object object, Chronology chrono) {return false;}
             public void setInto(ReadWritableInterval interval, Object object, Chronology chrono) {}
@@ -1303,18 +1303,18 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(INTERVAL_SIZE,ConverterManager.getInstance().getIntervalConverters().length);
     }
 
-    public void testRemoveIntervalConverter3_1_oe() {
+public void testRemoveIntervalConverter3_1_oe() {
         IntervalConverter removed = ConverterManager.getInstance().removeIntervalConverter(null);
         assertEquals(null,removed);
     }
 
-    public void testRemoveIntervalConverter3_2_oe() {
+public void testRemoveIntervalConverter3_2_oe() {
         IntervalConverter removed = ConverterManager.getInstance().removeIntervalConverter(null);
         // removed other assertion
         assertEquals(INTERVAL_SIZE,ConverterManager.getInstance().getIntervalConverters().length);
     }
 
-    public void testRemoveIntervalConverterSecurity_2_oe() {
+public void testRemoveIntervalConverterSecurity_2_oe() {
         if (OLD_JDK) {
             return;
         }
@@ -1332,7 +1332,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
         assertEquals(INTERVAL_SIZE,ConverterManager.getInstance().getIntervalConverters().length);
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         assertEquals("ConverterManager[6 instant,7 partial,5 duration,5 period,3 interval]",ConverterManager.getInstance().toString());
     }
 

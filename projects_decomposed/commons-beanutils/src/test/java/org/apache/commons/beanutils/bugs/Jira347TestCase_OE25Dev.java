@@ -118,7 +118,7 @@ public class Jira347TestCase_OE25Dev extends TestCase {
         return theLoader;
     }
 
-    public void testMappedPropertyDescriptor_AnyArgsProperty_1_oe() throws Exception {
+public void testMappedPropertyDescriptor_AnyArgsProperty_1_oe() throws Exception {
         final String className = "org.apache.commons.beanutils.MappedPropertyTestBean";
         final ClassLoader loader = newClassLoader();
         final Class<?> beanClass    = loader.loadClass(className);
@@ -129,7 +129,7 @@ public class Jira347TestCase_OE25Dev extends TestCase {
         assertNotNull("ClassLoader is null", loader);
     }
 
-    public void testMappedPropertyDescriptor_AnyArgsProperty_2_oe() throws Exception {
+public void testMappedPropertyDescriptor_AnyArgsProperty_2_oe() throws Exception {
         final String className = "org.apache.commons.beanutils.MappedPropertyTestBean";
         final ClassLoader loader = newClassLoader();
         final Class<?> beanClass    = loader.loadClass(className);
@@ -141,7 +141,7 @@ public class Jira347TestCase_OE25Dev extends TestCase {
         assertNotNull("BeanClass is null", beanClass);
     }
 
-    public void testMappedPropertyDescriptor_AnyArgsProperty_3_oe() throws Exception {
+public void testMappedPropertyDescriptor_AnyArgsProperty_3_oe() throws Exception {
         final String className = "org.apache.commons.beanutils.MappedPropertyTestBean";
         final ClassLoader loader = newClassLoader();
         final Class<?> beanClass    = loader.loadClass(className);
@@ -154,7 +154,7 @@ public class Jira347TestCase_OE25Dev extends TestCase {
         assertNotSame("ClassLoaders should be different..", getClass().getClassLoader(), beanClass.getClassLoader());
     }
 
-    public void testMappedPropertyDescriptor_AnyArgsProperty_4_oe() throws Exception {
+public void testMappedPropertyDescriptor_AnyArgsProperty_4_oe() throws Exception {
         final String className = "org.apache.commons.beanutils.MappedPropertyTestBean";
         final ClassLoader loader = newClassLoader();
         final Class<?> beanClass    = loader.loadClass(className);
@@ -168,7 +168,7 @@ public class Jira347TestCase_OE25Dev extends TestCase {
         assertSame("BeanClass ClassLoader incorrect", beanClass.getClassLoader(), loader);
     }
 
-    public void testMappedPropertyDescriptor_AnyArgsProperty_6_oe() throws Exception {
+public void testMappedPropertyDescriptor_AnyArgsProperty_6_oe() throws Exception {
         final String className = "org.apache.commons.beanutils.MappedPropertyTestBean";
         final ClassLoader loader = newClassLoader();
         final Class<?> beanClass    = loader.loadClass(className);

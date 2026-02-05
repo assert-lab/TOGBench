@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ConvertPngToGifTest_OE25Dev extends PngBaseTest {
 
-    @Test
+@Test
     public void test_1_oe() throws Exception {
 
         final List<File> images = getPngImages();

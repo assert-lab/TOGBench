@@ -56,7 +56,7 @@ public class TestTrackedNodeHandler_OE25Dev {
      * Tests whether the correct root node is returned.
      */
 
-    @Test
+@Test
     public void testGetParent_1_oe() {
         final ImmutableNode node = new ImmutableNode.Builder().name("node").create();
         final ImmutableNode parent = new ImmutableNode.Builder().name("parent").create();
@@ -66,7 +66,7 @@ public class TestTrackedNodeHandler_OE25Dev {
         assertSame("Wrong parent node", parent, handler.getParent(node));
     }
 
-    @Test
+@Test
     public void testGetRootNode_1_oe() {
         assertSame("Wrong root node", root, handler.getRootNode());
     }

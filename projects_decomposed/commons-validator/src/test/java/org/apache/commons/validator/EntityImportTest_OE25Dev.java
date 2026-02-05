@@ -39,13 +39,13 @@ public class EntityImportTest_OE25Dev extends AbstractCommonTest {
      * Tests loading ValidatorResources from a URL
      */
 
-    public void testEntityImport_1_oe() throws Exception {
+public void testEntityImport_1_oe() throws Exception {
         URL url = getClass().getResource("EntityImportTest-config.xml");
         ValidatorResources resources = new ValidatorResources(url.toExternalForm());
         assertNotNull("Form should be found", resources.getForm(Locale.getDefault(), "byteForm"));
     }
 
-    public void testParseURL_1_oe() throws Exception {
+public void testParseURL_1_oe() throws Exception {
         URL url = getClass().getResource("EntityImportTest-config.xml");
         ValidatorResources resources = new ValidatorResources(url);
         assertNotNull("Form should be found", resources.getForm(Locale.getDefault(), "byteForm"));

@@ -104,24 +104,24 @@ public class TestConstantLookup_OE25Dev {
         return getClass().getName() + '.' + field;
     }
 
-    @Test
+@Test
     public void testLookupInvalidSyntax_1_oe() {
         assertNull("Non null return value for invalid variable name", lookup.lookup("InvalidVariableName"));
     }
 
-    @Test
+@Test
     public void testLookupNonExisting_1_oe() {
         assertNull("Non null return value for non existing constant", lookup.lookup(variable("NO_FIELD")));
     }
 
-    @Test
+@Test
     public void testLookupNonStringFromCache_1_oe() {
         final String var = KeyEvent.class.getName() + ".VK_ESCAPE";
         final Object expected = KeyEvent.VK_ESCAPE;
         assertEquals("Wrong result of first lookup", expected, lookup.lookup(var));
     }
 
-    @Test
+@Test
     public void testLookupNonStringFromCache_2_oe() {
         final String var = KeyEvent.class.getName() + ".VK_ESCAPE";
         final Object expected = KeyEvent.VK_ESCAPE;
@@ -129,17 +129,17 @@ public class TestConstantLookup_OE25Dev {
         assertEquals("Wrong result of 2nd lookup", expected, lookup.lookup(var));
     }
 
-    @Test
+@Test
     public void testLookupNull_1_oe() {
         assertNull("Non null return value for null variable", lookup.lookup(null));
     }
 
-    @Test
+@Test
     public void testLookupPrivate_1_oe() {
         assertNull("Non null return value for non accessible field", lookup.lookup(variable("PRIVATE_FIELD")));
     }
 
-    @Test
+@Test
     public void testLookupUnknownClass_1_oe() {
         assertNull("Non null return value for unknown class", lookup.lookup("org.apache.commons.configuration.NonExistingConfig." + FIELD));
     }

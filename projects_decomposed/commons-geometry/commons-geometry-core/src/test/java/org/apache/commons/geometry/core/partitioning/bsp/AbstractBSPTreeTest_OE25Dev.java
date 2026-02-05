@@ -159,7 +159,7 @@ class AbstractBSPTreeTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testInitialization_1_oe() {
         // act
         final TestBSPTree tree = new TestBSPTree();
@@ -170,7 +170,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNotNull(root);
     }
 
-    @Test
+@Test
     void testInitialization_2_oe() {
         // act
         final TestBSPTree tree = new TestBSPTree();
@@ -182,7 +182,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNull(root.getParent());
     }
 
-    @Test
+@Test
     void testInitialization_4_oe() {
         // act
         final TestBSPTree tree = new TestBSPTree();
@@ -197,7 +197,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(root.isPlus());
     }
 
-    @Test
+@Test
     void testInitialization_5_oe() {
         // act
         final TestBSPTree tree = new TestBSPTree();
@@ -213,7 +213,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(root.isMinus());
     }
 
-    @Test
+@Test
     void testInitialization_6_oe() {
         // act
         final TestBSPTree tree = new TestBSPTree();
@@ -231,7 +231,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(tree, root.getTree());
     }
 
-    @Test
+@Test
     void testNodeStateGetters_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -246,7 +246,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(root.isLeaf());
     }
 
-    @Test
+@Test
     void testNodeStateGetters_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -262,7 +262,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(root.isInternal());
     }
 
-    @Test
+@Test
     void testNodeStateGetters_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -279,7 +279,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(root.isPlus());
     }
 
-    @Test
+@Test
     void testNodeStateGetters_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -297,7 +297,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(root.isMinus());
     }
 
-    @Test
+@Test
     void testNodeStateGetters_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -317,7 +317,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(plus.isLeaf());
     }
 
-    @Test
+@Test
     void testNodeStateGetters_6_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -338,7 +338,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(plus.isInternal());
     }
 
-    @Test
+@Test
     void testNodeStateGetters_7_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -360,7 +360,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(plus.isPlus());
     }
 
-    @Test
+@Test
     void testNodeStateGetters_8_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -383,7 +383,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(plus.isMinus());
     }
 
-    @Test
+@Test
     void testNodeStateGetters_9_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -408,7 +408,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(minus.isLeaf());
     }
 
-    @Test
+@Test
     void testNodeStateGetters_10_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -434,7 +434,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(minus.isInternal());
     }
 
-    @Test
+@Test
     void testNodeStateGetters_11_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -461,7 +461,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(minus.isPlus());
     }
 
-    @Test
+@Test
     void testNodeStateGetters_12_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -489,7 +489,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(minus.isMinus());
     }
 
-    @Test
+@Test
     void testInsertCut_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -502,7 +502,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(result);
     }
 
-    @Test
+@Test
     void testInsertCut_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -520,7 +520,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(line, root.getCut().getHyperplane());
     }
 
-    @Test
+@Test
     void testInsertCut_fitsCutterToCell_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -538,7 +538,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(result);
     }
 
-    @Test
+@Test
     void testInsertCut_doesNotPassThroughCell_intersects_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -556,7 +556,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(result);
     }
 
-    @Test
+@Test
     void testInsertCut_doesNotPassThroughCell_parallel_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -572,7 +572,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(result);
     }
 
-    @Test
+@Test
     void testInsertCut_doesNotPassThroughCell_removesExistingChildren_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -591,7 +591,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(result);
     }
 
-    @Test
+@Test
     void testInsertCut_cutExistsInTree_sameOrientation_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -610,7 +610,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(result);
     }
 
-    @Test
+@Test
     void testInsertCut_cutExistsInTree_oppositeOrientation_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -629,7 +629,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(result);
     }
 
-    @Test
+@Test
     void testInsertCut_createRegionWithThicknessOfHyperplane_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -645,7 +645,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(result);
     }
 
-    @Test
+@Test
     void testInsertCut_createRegionWithThicknessOfHyperplane_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -663,7 +663,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(tree.getRoot().getPlus(), tree.findNode(new TestPoint2D(0, -1e-2)));
     }
 
-    @Test
+@Test
     void testInsertCut_createRegionWithThicknessOfHyperplane_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -682,7 +682,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(node.getMinus(), tree.findNode(new TestPoint2D(0, 0)));
     }
 
-    @Test
+@Test
     void testInsertCut_createRegionWithThicknessOfHyperplane_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -702,7 +702,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(node.getPlus(), tree.findNode(new TestPoint2D(0, 1e-2)));
     }
 
-    @Test
+@Test
     void testClearCut_cutExists_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -719,7 +719,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(result);
     }
 
-    @Test
+@Test
     void testClearCut_cutExists_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -737,7 +737,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(node.isLeaf());
     }
 
-    @Test
+@Test
     void testClearCut_cutExists_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -756,7 +756,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNull(node.getPlus());
     }
 
-    @Test
+@Test
     void testClearCut_cutExists_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -776,7 +776,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNull(node.getMinus());
     }
 
-    @Test
+@Test
     void testClearCut_cutDoesNotExist_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -794,7 +794,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(result);
     }
 
-    @Test
+@Test
     void testClearCut_cutDoesNotExist_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -813,7 +813,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(node.isLeaf());
     }
 
-    @Test
+@Test
     void testClearCut_cutDoesNotExist_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -833,7 +833,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNull(node.getPlus());
     }
 
-    @Test
+@Test
     void testClearCut_cutDoesNotExist_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -854,7 +854,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNull(node.getMinus());
     }
 
-    @Test
+@Test
     void testClearCut_root_fullTree_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -872,7 +872,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(result);
     }
 
-    @Test
+@Test
     void testClearCut_root_fullTree_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -891,7 +891,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(node.isLeaf());
     }
 
-    @Test
+@Test
     void testClearCut_root_fullTree_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -911,7 +911,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNull(node.getPlus());
     }
 
-    @Test
+@Test
     void testClearCut_root_fullTree_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -932,7 +932,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNull(node.getMinus());
     }
 
-    @Test
+@Test
     void testClearCut_root_fullTree_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -955,7 +955,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testClearCut_root_emptyTree_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -968,7 +968,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(result);
     }
 
-    @Test
+@Test
     void testClearCut_root_emptyTree_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -982,7 +982,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(node.isLeaf());
     }
 
-    @Test
+@Test
     void testClearCut_root_emptyTree_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -997,7 +997,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNull(node.getPlus());
     }
 
-    @Test
+@Test
     void testClearCut_root_emptyTree_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1013,7 +1013,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNull(node.getMinus());
     }
 
-    @Test
+@Test
     void testClearCut_root_emptyTree_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1031,7 +1031,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testFindNode_emptyTree_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1055,7 +1055,7 @@ class AbstractBSPTreeTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testFindNode_emptyTree_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1083,7 +1083,7 @@ class AbstractBSPTreeTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testFindNode_emptyTree_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1115,7 +1115,7 @@ class AbstractBSPTreeTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testFindNode_emptyTree_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1151,7 +1151,7 @@ class AbstractBSPTreeTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testFindNode_singleArg_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1177,7 +1177,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusXPlusY, tree.findNode(new TestPoint2D(0, 0)));
     }
 
-    @Test
+@Test
     void testFindNode_singleArg_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1205,7 +1205,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(underDiagonal, tree.findNode(new TestPoint2D(1, 0)));
     }
 
-    @Test
+@Test
     void testFindNode_singleArg_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1234,7 +1234,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(aboveDiagonal, tree.findNode(new TestPoint2D(1, 1)));
     }
 
-    @Test
+@Test
     void testFindNode_singleArg_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1264,7 +1264,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusXPlusY, tree.findNode(new TestPoint2D(0, 1)));
     }
 
-    @Test
+@Test
     void testFindNode_singleArg_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1295,7 +1295,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusXPlusY, tree.findNode(new TestPoint2D(-1, 1)));
     }
 
-    @Test
+@Test
     void testFindNode_singleArg_6_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1327,7 +1327,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusXPlusY, tree.findNode(new TestPoint2D(-1, 0)));
     }
 
-    @Test
+@Test
     void testFindNode_singleArg_7_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1360,7 +1360,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusY, tree.findNode(new TestPoint2D(-1, -1)));
     }
 
-    @Test
+@Test
     void testFindNode_singleArg_8_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1394,7 +1394,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusY, tree.findNode(new TestPoint2D(0, -1)));
     }
 
-    @Test
+@Test
     void testFindNode_singleArg_9_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1429,7 +1429,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusY, tree.findNode(new TestPoint2D(1, -1)));
     }
 
-    @Test
+@Test
     void testFindNode_singleArg_10_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1466,7 +1466,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(underDiagonal, tree.findNode(new TestPoint2D(0.5, 0.5)));
     }
 
-    @Test
+@Test
     void testFindNode_singleArg_11_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1504,7 +1504,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(aboveDiagonal, tree.findNode(new TestPoint2D(3, 3)));
     }
 
-    @Test
+@Test
     void testFindNode_nodeCutBehavior_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1532,7 +1532,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(root, tree.findNode(new TestPoint2D(0, 0), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_nodeCutBehavior_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1562,7 +1562,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(root, tree.findNode(new TestPoint2D(1, 0), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_nodeCutBehavior_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1593,7 +1593,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(diagonalCut, tree.findNode(new TestPoint2D(1, 1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_nodeCutBehavior_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1625,7 +1625,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(yCut, tree.findNode(new TestPoint2D(0, 1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_nodeCutBehavior_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1658,7 +1658,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusXPlusY, tree.findNode(new TestPoint2D(-1, 1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_nodeCutBehavior_6_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1692,7 +1692,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(root, tree.findNode(new TestPoint2D(-1, 0), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_nodeCutBehavior_7_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1727,7 +1727,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusY, tree.findNode(new TestPoint2D(-1, -1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_nodeCutBehavior_8_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1763,7 +1763,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusY, tree.findNode(new TestPoint2D(0, -1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_nodeCutBehavior_9_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1800,7 +1800,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusY, tree.findNode(new TestPoint2D(1, -1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_nodeCutBehavior_10_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1839,7 +1839,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(underDiagonal, tree.findNode(new TestPoint2D(0.5, 0.5), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_nodeCutBehavior_11_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1879,7 +1879,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(aboveDiagonal, tree.findNode(new TestPoint2D(3, 3), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_minusCutBehavior_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1907,7 +1907,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusXPlusY, tree.findNode(new TestPoint2D(0, 0), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_minusCutBehavior_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1937,7 +1937,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(underDiagonal, tree.findNode(new TestPoint2D(1, 0), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_minusCutBehavior_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -1968,7 +1968,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(aboveDiagonal, tree.findNode(new TestPoint2D(1, 1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_minusCutBehavior_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2000,7 +2000,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusXPlusY, tree.findNode(new TestPoint2D(0, 1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_minusCutBehavior_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2033,7 +2033,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusXPlusY, tree.findNode(new TestPoint2D(-1, 1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_minusCutBehavior_6_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2067,7 +2067,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusXPlusY, tree.findNode(new TestPoint2D(-1, 0), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_minusCutBehavior_7_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2102,7 +2102,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusY, tree.findNode(new TestPoint2D(-1, -1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_minusCutBehavior_8_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2138,7 +2138,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusY, tree.findNode(new TestPoint2D(0, -1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_minusCutBehavior_9_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2175,7 +2175,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusY, tree.findNode(new TestPoint2D(1, -1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_minusCutBehavior_10_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2214,7 +2214,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(underDiagonal, tree.findNode(new TestPoint2D(0.5, 0.5), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_minusCutBehavior_11_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2254,7 +2254,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(aboveDiagonal, tree.findNode(new TestPoint2D(3, 3), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_plusCutBehavior_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2282,7 +2282,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusY, tree.findNode(new TestPoint2D(0, 0), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_plusCutBehavior_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2312,7 +2312,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusY, tree.findNode(new TestPoint2D(1, 0), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_plusCutBehavior_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2343,7 +2343,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(underDiagonal, tree.findNode(new TestPoint2D(1, 1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_plusCutBehavior_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2375,7 +2375,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(underDiagonal, tree.findNode(new TestPoint2D(0, 1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_plusCutBehavior_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2408,7 +2408,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusXPlusY, tree.findNode(new TestPoint2D(-1, 1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_plusCutBehavior_6_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2442,7 +2442,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusY, tree.findNode(new TestPoint2D(-1, 0), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_plusCutBehavior_7_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2477,7 +2477,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusY, tree.findNode(new TestPoint2D(-1, -1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_plusCutBehavior_8_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2513,7 +2513,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusY, tree.findNode(new TestPoint2D(0, -1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_plusCutBehavior_9_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2550,7 +2550,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(minusY, tree.findNode(new TestPoint2D(1, -1), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_plusCutBehavior_10_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2589,7 +2589,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(underDiagonal, tree.findNode(new TestPoint2D(0.5, 0.5), cutBehavior));
     }
 
-    @Test
+@Test
     void testFindNode_plusCutBehavior_11_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2629,7 +2629,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(aboveDiagonal, tree.findNode(new TestPoint2D(3, 3), cutBehavior));
     }
 
-    @Test
+@Test
     void testInsert_convex_emptyTree_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2642,7 +2642,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(root.isLeaf());
     }
 
-    @Test
+@Test
     void testInsert_convex_emptyTree_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2656,7 +2656,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(root.getMinus().isLeaf());
     }
 
-    @Test
+@Test
     void testInsert_convex_emptyTree_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2671,7 +2671,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(root.getPlus().isLeaf());
     }
 
-    @Test
+@Test
     void testInsert_convex_noSplit_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2688,7 +2688,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(root.isLeaf());
     }
 
-    @Test
+@Test
     void testInsert_convex_noSplit_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2713,7 +2713,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.getRoot().getPlus().isLeaf());
     }
 
-    @Test
+@Test
     void testInsert_convex_noSplit_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2739,7 +2739,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.getRoot().getMinus().getMinus().isLeaf());
     }
 
-    @Test
+@Test
     void testInsert_convex_split_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2756,7 +2756,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertFalse(root.isLeaf());
     }
 
-    @Test
+@Test
     void testInsert_convexList_convexRegion_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2774,7 +2774,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, segments.size());
     }
 
-    @Test
+@Test
     void testInsert_convexList_concaveRegion_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2794,7 +2794,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(5, segments.size());
     }
 
-    @Test
+@Test
     void testInsert_hyperplaneSubset_concaveRegion_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2817,7 +2817,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(5, segments.size());
     }
 
-    @Test
+@Test
     void testInsert_boundarySource_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2839,7 +2839,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(5, segments.size());
     }
 
-    @Test
+@Test
     void testInsert_boundarySource_emptySource_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2853,7 +2853,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testCount_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2862,7 +2862,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testCount_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2872,7 +2872,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.getRoot().count());
     }
 
-    @Test
+@Test
     void testCount_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2885,7 +2885,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.getRoot().getMinus().count());
     }
 
-    @Test
+@Test
     void testCount_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2899,7 +2899,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.getRoot().getPlus().count());
     }
 
-    @Test
+@Test
     void testCount_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2914,7 +2914,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, tree.count());
     }
 
-    @Test
+@Test
     void testCount_6_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2932,7 +2932,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.getRoot().getMinus().count());
     }
 
-    @Test
+@Test
     void testCount_7_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2951,7 +2951,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, tree.getRoot().getPlus().count());
     }
 
-    @Test
+@Test
     void testCount_8_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2971,7 +2971,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(5, tree.count());
     }
 
-    @Test
+@Test
     void testCount_9_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -2994,7 +2994,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, tree.getRoot().getMinus().count());
     }
 
-    @Test
+@Test
     void testCount_10_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3018,7 +3018,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, tree.getRoot().getPlus().count());
     }
 
-    @Test
+@Test
     void testCount_11_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3043,7 +3043,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(7, tree.count());
     }
 
-    @Test
+@Test
     void testCount_12_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3071,7 +3071,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.getRoot().getMinus().count());
     }
 
-    @Test
+@Test
     void testCount_13_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3100,7 +3100,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, tree.getRoot().getPlus().count());
     }
 
-    @Test
+@Test
     void testCount_14_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3130,7 +3130,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(5, tree.count());
     }
 
-    @Test
+@Test
     void testHeight_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3139,7 +3139,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(0, tree.height());
     }
 
-    @Test
+@Test
     void testHeight_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3149,7 +3149,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(0, tree.getRoot().height());
     }
 
-    @Test
+@Test
     void testHeight_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3162,7 +3162,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(0, tree.getRoot().getMinus().height());
     }
 
-    @Test
+@Test
     void testHeight_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3176,7 +3176,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(0, tree.getRoot().getPlus().height());
     }
 
-    @Test
+@Test
     void testHeight_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3191,7 +3191,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.height());
     }
 
-    @Test
+@Test
     void testHeight_6_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3209,7 +3209,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(0, tree.getRoot().getMinus().height());
     }
 
-    @Test
+@Test
     void testHeight_7_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3228,7 +3228,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.getRoot().getPlus().height());
     }
 
-    @Test
+@Test
     void testHeight_8_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3248,7 +3248,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(2, tree.height());
     }
 
-    @Test
+@Test
     void testHeight_9_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3271,7 +3271,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.getRoot().getMinus().height());
     }
 
-    @Test
+@Test
     void testHeight_10_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3295,7 +3295,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.getRoot().getPlus().height());
     }
 
-    @Test
+@Test
     void testHeight_11_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3320,7 +3320,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(2, tree.height());
     }
 
-    @Test
+@Test
     void testHeight_12_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3348,7 +3348,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(0, tree.getRoot().getMinus().height());
     }
 
-    @Test
+@Test
     void testHeight_13_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3377,7 +3377,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.getRoot().getPlus().height());
     }
 
-    @Test
+@Test
     void testHeight_14_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3407,7 +3407,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(2, tree.height());
     }
 
-    @Test
+@Test
     void testHeight_15_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3442,7 +3442,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(0, tree.getRoot().getMinus().height());
     }
 
-    @Test
+@Test
     void testHeight_16_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3478,7 +3478,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(2, tree.getRoot().getPlus().height());
     }
 
-    @Test
+@Test
     void testHeight_17_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3515,7 +3515,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, tree.height());
     }
 
-    @Test
+@Test
     void testDepth_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3529,7 +3529,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(0, root.depth());
     }
 
-    @Test
+@Test
     void testDepth_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3545,7 +3545,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, root.getPlus().depth());
     }
 
-    @Test
+@Test
     void testDepth_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3563,7 +3563,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, root.getMinus().depth());
     }
 
-    @Test
+@Test
     void testDepth_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3582,7 +3582,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(2, root.getMinus().getPlus().depth());
     }
 
-    @Test
+@Test
     void testDepth_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3602,7 +3602,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(2, root.getMinus().getMinus().depth());
     }
 
-    @Test
+@Test
     void testDepth_detachedNodes_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3616,7 +3616,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(-1, detached.depth());
     }
 
-    @Test
+@Test
     void testDepth_detachedNodes_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3632,7 +3632,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(-1, detached.getPlus().depth());
     }
 
-    @Test
+@Test
     void testDepth_detachedNodes_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3650,7 +3650,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(-1, detached.getMinus().depth());
     }
 
-    @Test
+@Test
     void testDepth_detachedNodes_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3669,7 +3669,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(-1, detached.getMinus().getPlus().depth());
     }
 
-    @Test
+@Test
     void testDepth_detachedNodes_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3689,7 +3689,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(-1, detached.getMinus().getMinus().depth());
     }
 
-    @Test
+@Test
     void testVisit_defaultOrder_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3714,7 +3714,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(root,minus,minusMinus,minusPlus,plus),nodes);
     }
 
-    @Test
+@Test
     void testVisit_specifiedOrder_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3733,7 +3733,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(plus,minusPlus,minusMinus,minus,root),plusMinusNode.getVisited());
     }
 
-    @Test
+@Test
     void testVisit_specifiedOrder_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3756,7 +3756,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(plus,root,minusPlus,minus,minusMinus),plusNodeMinus.getVisited());
     }
 
-    @Test
+@Test
     void testVisit_specifiedOrder_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3783,7 +3783,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(minusMinus,minusPlus,minus,plus,root),minusPlusNode.getVisited());
     }
 
-    @Test
+@Test
     void testVisit_specifiedOrder_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3814,7 +3814,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(minusMinus,minus,minusPlus,root,plus),minusNodePlus.getVisited());
     }
 
-    @Test
+@Test
     void testVisit_specifiedOrder_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3849,7 +3849,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(root,minus,minusMinus,minusPlus,plus),nodeMinusPlus.getVisited());
     }
 
-    @Test
+@Test
     void testVisit_specifiedOrder_6_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3888,7 +3888,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(root,plus,minus,minusPlus,minusMinus),nodePlusMinus.getVisited());
     }
 
-    @Test
+@Test
     void testVisit_nullVisitOrderSkipsSubtree_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3916,7 +3916,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(root,plus),visitor.getVisited());
     }
 
-    @Test
+@Test
     void testVisit_noneVisitOrderSkipsSubtree_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3944,7 +3944,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(root,plus),visitor.getVisited());
     }
 
-    @Test
+@Test
     void testVisit_visitorReturnsNull_terminatesEarly_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -3975,7 +3975,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(minusMinus,minusPlus,minus),visitor.getVisited());
     }
 
-    @Test
+@Test
     void testVisit_visitorReturnsTerminate_terminatesEarly_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4006,7 +4006,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(minusMinus,minusPlus,minus),visitor.getVisited());
     }
 
-    @Test
+@Test
     void testVisit_earlyTerminationPermutations_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4025,7 +4025,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(plus,minusPlus,minusMinus,minus),plusMinusNode.getVisited());
     }
 
-    @Test
+@Test
     void testVisit_earlyTerminationPermutations_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4048,7 +4048,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(plus,root,minusPlus,minus),plusNodeMinus.getVisited());
     }
 
-    @Test
+@Test
     void testVisit_earlyTerminationPermutations_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4075,7 +4075,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(minusMinus,minusPlus,minus),minusPlusNode.getVisited());
     }
 
-    @Test
+@Test
     void testVisit_earlyTerminationPermutations_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4106,7 +4106,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(minusMinus,minus),minusNodePlus.getVisited());
     }
 
-    @Test
+@Test
     void testVisit_earlyTerminationPermutations_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4141,7 +4141,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(root,minus),nodeMinusPlus.getVisited());
     }
 
-    @Test
+@Test
     void testVisit_earlyTerminationPermutations_6_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4180,7 +4180,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(root,plus,minus),nodePlusMinus.getVisited());
     }
 
-    @Test
+@Test
     void testVisit_visitNode_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4204,7 +4204,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(minus,minusMinus,minusPlus),nodes);
     }
 
-    @Test
+@Test
     void testNodesIterable_emptyTree_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4219,7 +4219,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, nodes.size());
     }
 
-    @Test
+@Test
     void testNodesIterable_emptyTree_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4235,7 +4235,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(tree.getRoot(), nodes.get(0));
     }
 
-    @Test
+@Test
     void testNodesIterable_multipleNodes_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4259,7 +4259,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(7, nodes.size());
     }
 
-    @Test
+@Test
     void testNodesIterable_multipleNodes_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4284,7 +4284,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(root, nodes.get(0));
     }
 
-    @Test
+@Test
     void testNodesIterable_multipleNodes_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4311,7 +4311,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(root.getMinus(), nodes.get(1));
     }
 
-    @Test
+@Test
     void testNodesIterable_multipleNodes_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4339,7 +4339,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(root.getMinus().getMinus(), nodes.get(2));
     }
 
-    @Test
+@Test
     void testNodesIterable_multipleNodes_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4368,7 +4368,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(root.getMinus().getPlus(), nodes.get(3));
     }
 
-    @Test
+@Test
     void testNodesIterable_multipleNodes_6_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4399,7 +4399,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(root.getPlus(), nodes.get(4));
     }
 
-    @Test
+@Test
     void testNodesIterable_multipleNodes_7_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4431,7 +4431,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(root.getPlus().getMinus(), nodes.get(5));
     }
 
-    @Test
+@Test
     void testNodesIterable_multipleNodes_8_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4464,7 +4464,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(root.getPlus().getPlus(), nodes.get(6));
     }
 
-    @Test
+@Test
     void testSubtreeNodesIterable_singleNodeSubtree_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4483,7 +4483,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, nodes.size());
     }
 
-    @Test
+@Test
     void testSubtreeNodesIterable_singleNodeSubtree_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4503,7 +4503,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(node, nodes.get(0));
     }
 
-    @Test
+@Test
     void testSubtreeNodesIterable_multipleNodeSubtree_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4521,7 +4521,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, nodes.size());
     }
 
-    @Test
+@Test
     void testSubtreeNodesIterable_multipleNodeSubtree_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4540,7 +4540,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(node, nodes.get(0));
     }
 
-    @Test
+@Test
     void testSubtreeNodesIterable_multipleNodeSubtree_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4560,7 +4560,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(node.getMinus(), nodes.get(1));
     }
 
-    @Test
+@Test
     void testSubtreeNodesIterable_multipleNodeSubtree_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4581,7 +4581,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(node.getPlus(), nodes.get(2));
     }
 
-    @Test
+@Test
     void testNodeTrim_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4603,7 +4603,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(xAxisSeg, root.trim(xAxisSeg));
     }
 
-    @Test
+@Test
     void testNodeTrim_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4626,7 +4626,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(shortSeg, root.trim(shortSeg));
     }
 
-    @Test
+@Test
     void testNodeTrim_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4652,7 +4652,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(shortSeg, plus.trim(shortSeg));
     }
 
-    @Test
+@Test
     void testNodeTrim_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4680,7 +4680,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNull(plusMinus.trim(xAxisSeg));
     }
 
-    @Test
+@Test
     void testNodeTrim_6_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4709,7 +4709,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNull(plusMinus.trim(shortSeg));
     }
 
-    @Test
+@Test
     void testCopy_rootOnly_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4722,7 +4722,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNotSame(tree, copy);
     }
 
-    @Test
+@Test
     void testCopy_rootOnly_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4736,7 +4736,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNotSame(tree.getRoot(), copy.getRoot());
     }
 
-    @Test
+@Test
     void testCopy_rootOnly_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4752,7 +4752,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(tree.count(), copy.count());
     }
 
-    @Test
+@Test
     void testCopy_withCuts_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4769,7 +4769,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNotSame(tree, copy);
     }
 
-    @Test
+@Test
     void testCopy_withCuts_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4788,7 +4788,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(tree.count(), copy.count());
     }
 
-    @Test
+@Test
     void testCopy_changesToOneTreeDoNotAffectCopy_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4806,7 +4806,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testCopy_changesToOneTreeDoNotAffectCopy_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4825,7 +4825,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(5, copy.count());
     }
 
-    @Test
+@Test
     void testCopy_instancePassedAsArgument_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4841,7 +4841,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(5, tree.count());
     }
 
-    @Test
+@Test
     void testExtract_singleNodeTree_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4856,7 +4856,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNotSame(tree.getRoot(), result.getRoot());
     }
 
-    @Test
+@Test
     void testExtract_singleNodeTree_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4872,7 +4872,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testExtract_singleNodeTree_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4889,7 +4889,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, result.count());
     }
 
-    @Test
+@Test
     void testExtract_clearsExistingNodesInCallingTree_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4905,7 +4905,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNotSame(tree.getRoot(), result.getRoot());
     }
 
-    @Test
+@Test
     void testExtract_clearsExistingNodesInCallingTree_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4922,7 +4922,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testExtract_clearsExistingNodesInCallingTree_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4940,7 +4940,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, result.count());
     }
 
-    @Test
+@Test
     void testExtract_internalNode_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4961,7 +4961,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(7, result.count());
     }
 
-    @Test
+@Test
     void testExtract_internalNode_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4985,7 +4985,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, resultSegments.size());
     }
 
-    @Test
+@Test
     void testExtract_internalNode_6_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5015,7 +5015,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(13, tree.count());
     }
 
-    @Test
+@Test
     void testExtract_internalNode_7_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5048,7 +5048,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(6, inputSegment.size());
     }
 
-    @Test
+@Test
     void testExtract_leafNode_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5073,7 +5073,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNotNull(resultNode);
     }
 
-    @Test
+@Test
     void testExtract_leafNode_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5099,7 +5099,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNotSame(node, resultNode);
     }
 
-    @Test
+@Test
     void testExtract_leafNode_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5127,7 +5127,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(7, result.count());
     }
 
-    @Test
+@Test
     void testExtract_leafNode_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5158,7 +5158,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, resultSegments.size());
     }
 
-    @Test
+@Test
     void testExtract_leafNode_8_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5195,7 +5195,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(13, tree.count());
     }
 
-    @Test
+@Test
     void testExtract_leafNode_9_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5235,7 +5235,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(6, inputSegment.size());
     }
 
-    @Test
+@Test
     void testExtract_extractFromSameTree_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5259,7 +5259,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertNotNull(resultNode);
     }
 
-    @Test
+@Test
     void testExtract_extractFromSameTree_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5284,7 +5284,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertSame(node, resultNode);
     }
 
-    @Test
+@Test
     void testExtract_extractFromSameTree_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5311,7 +5311,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(7, tree.count());
     }
 
-    @Test
+@Test
     void testExtract_extractFromSameTree_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5341,7 +5341,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, resultSegments.size());
     }
 
-    @Test
+@Test
     void testTransform_singleNodeTree_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5355,7 +5355,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testTransform_singleNodeTree_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5370,7 +5370,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.getRoot().isLeaf());
     }
 
-    @Test
+@Test
     void testTransform_singleCut_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5385,7 +5385,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, tree.count());
     }
 
-    @Test
+@Test
     void testTransform_singleCut_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5403,7 +5403,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, segments.size());
     }
 
-    @Test
+@Test
     void testTransform_multipleCuts_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5422,7 +5422,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(9, tree.count());
     }
 
-    @Test
+@Test
     void testTransform_multipleCuts_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5444,7 +5444,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testTransform_xAxisReflection_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5468,7 +5468,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testTransform_yAxisReflection_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5492,7 +5492,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testTransform_xAndYAxisReflection_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5516,7 +5516,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testTreeString_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5531,7 +5531,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(5, lines.length);
     }
 
-    @Test
+@Test
     void testTreeString_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5547,7 +5547,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(lines[0].startsWith("TestNode[cut= TestLineSegment"));
     }
 
-    @Test
+@Test
     void testTreeString_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5564,7 +5564,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(lines[1].startsWith("    [-] TestNode[cut= TestLineSegment"));
     }
 
-    @Test
+@Test
     void testTreeString_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5582,7 +5582,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals("        [-] TestNode[cut= null]", lines[2]);
     }
 
-    @Test
+@Test
     void testTreeString_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5601,7 +5601,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals("        [+] TestNode[cut= null]", lines[3]);
     }
 
-    @Test
+@Test
     void testTreeString_6_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5621,7 +5621,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals("    [+] TestNode[cut= null]", lines[4]);
     }
 
-    @Test
+@Test
     void testTreeString_emptyTree_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5633,7 +5633,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals("TestNode[cut= null]", str);
     }
 
-    @Test
+@Test
     void testTreeString_reachesMaxDepth_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5649,7 +5649,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(4, lines.length);
     }
 
-    @Test
+@Test
     void testTreeString_reachesMaxDepth_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5666,7 +5666,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(lines[0].startsWith("TestNode[cut= TestLineSegment"));
     }
 
-    @Test
+@Test
     void testTreeString_reachesMaxDepth_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5684,7 +5684,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(lines[1].startsWith("    [-] TestNode[cut= TestLineSegment"));
     }
 
-    @Test
+@Test
     void testTreeString_reachesMaxDepth_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5703,7 +5703,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals("        ...", lines[2]);
     }
 
-    @Test
+@Test
     void testTreeString_reachesMaxDepth_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5723,7 +5723,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals("    [+] TestNode[cut= null]", lines[3]);
     }
 
-    @Test
+@Test
     void testTreeString_zeroMaxDepth_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5739,7 +5739,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(2, lines.length);
     }
 
-    @Test
+@Test
     void testTreeString_zeroMaxDepth_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5756,7 +5756,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(lines[0].startsWith("TestNode[cut= TestLineSegment"));
     }
 
-    @Test
+@Test
     void testTreeString_zeroMaxDepth_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5774,7 +5774,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(lines[1].startsWith("    ..."));
     }
 
-    @Test
+@Test
     void testTreeString_negativeMaxDepth_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5789,7 +5789,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals("", str);
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5804,7 +5804,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(str.contains("TestBSPTree"), msg);
     }
 
-    @Test
+@Test
     void testToString_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5820,7 +5820,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(str.contains("count= 3"), msg);
     }
 
-    @Test
+@Test
     void testToString_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5837,7 +5837,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(str.contains("height= 1"), msg);
     }
 
-    @Test
+@Test
     void testNodeToString_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5850,7 +5850,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(str.contains("TestNode"));
     }
 
-    @Test
+@Test
     void testNodeToString_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5864,7 +5864,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertTrue(str.contains("cut= TestLineSegment"));
     }
 
-    @Test
+@Test
     void testSplitIntoTree_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5888,7 +5888,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(5, tree.count());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5913,7 +5913,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(2, tree.height());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5940,7 +5940,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(5, minus.count());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5968,7 +5968,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(2, minus.height());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -5999,7 +5999,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(2, minusSegments.size());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_8_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -6034,7 +6034,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(7, plus.count());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_9_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -6070,7 +6070,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, plus.height());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_10_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -6109,7 +6109,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, plusSegments.size());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_minusOnly_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -6132,7 +6132,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(5, tree.count());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_minusOnly_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -6156,7 +6156,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(2, tree.height());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_minusOnly_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -6182,7 +6182,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(5, minus.count());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_minusOnly_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -6209,7 +6209,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(2, minus.height());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_minusOnly_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -6239,7 +6239,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(2, minusSegments.size());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_plusOnly_1_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -6262,7 +6262,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(5, tree.count());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_plusOnly_2_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -6286,7 +6286,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(2, tree.height());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_plusOnly_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -6312,7 +6312,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(7, plus.count());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_plusOnly_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -6339,7 +6339,7 @@ class AbstractBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, plus.height());
     }
 
-    @Test
+@Test
     void testSplitIntoTree_plusOnly_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();

@@ -31,7 +31,7 @@ public class SftpFileSystemConfigBuilderTestCase_OE25Dev {
 
     private static final Duration ONE_MINUTE = Duration.ofMinutes(1);
 
-    @Test
+@Test
     public void testConnectTimeout_1_oe() {
         final FileSystemOptions options = new FileSystemOptions();
         final SftpFileSystemConfigBuilder builder = SftpFileSystemConfigBuilder.getInstance();
@@ -39,7 +39,7 @@ public class SftpFileSystemConfigBuilderTestCase_OE25Dev {
         assertEquals(ONE_MINUTE, builder.getConnectTimeout(options));
     }
 
-    @Test
+@Test
     public void testConnectTimeout_2_oe() {
         final FileSystemOptions options = new FileSystemOptions();
         final SftpFileSystemConfigBuilder builder = SftpFileSystemConfigBuilder.getInstance();
@@ -48,7 +48,7 @@ public class SftpFileSystemConfigBuilderTestCase_OE25Dev {
         assertEquals(ONE_MINUTE.toMillis(), (long) builder.getConnectTimeoutMillis(options));
     }
 
-    @Test
+@Test
     public void testConnectTimeout_3_oe() {
         final FileSystemOptions options = new FileSystemOptions();
         final SftpFileSystemConfigBuilder builder = SftpFileSystemConfigBuilder.getInstance();
@@ -60,7 +60,7 @@ public class SftpFileSystemConfigBuilderTestCase_OE25Dev {
         assertEquals(ONE_MINUTE, builder.getConnectTimeout(options));
     }
 
-    @Test
+@Test
     public void testConnectTimeout_4_oe() {
         final FileSystemOptions options = new FileSystemOptions();
         final SftpFileSystemConfigBuilder builder = SftpFileSystemConfigBuilder.getInstance();
@@ -73,7 +73,7 @@ public class SftpFileSystemConfigBuilderTestCase_OE25Dev {
         assertEquals(ONE_MINUTE.toMillis(), (long) builder.getConnectTimeoutMillis(options));
     }
 
-    @Test
+@Test
     public void testSessionTimeout_1_oe() {
         final FileSystemOptions options = new FileSystemOptions();
         final SftpFileSystemConfigBuilder builder = SftpFileSystemConfigBuilder.getInstance();
@@ -81,7 +81,7 @@ public class SftpFileSystemConfigBuilderTestCase_OE25Dev {
         assertEquals(ONE_MINUTE, builder.getSessionTimeout(options));
     }
 
-    @Test
+@Test
     public void testSessionTimeout_2_oe() {
         final FileSystemOptions options = new FileSystemOptions();
         final SftpFileSystemConfigBuilder builder = SftpFileSystemConfigBuilder.getInstance();
@@ -90,7 +90,7 @@ public class SftpFileSystemConfigBuilderTestCase_OE25Dev {
         assertEquals(ONE_MINUTE.toMillis(), (long) builder.getSessionTimeoutMillis(options));
     }
 
-    @Test
+@Test
     public void testSessionTimeout_3_oe() {
         final FileSystemOptions options = new FileSystemOptions();
         final SftpFileSystemConfigBuilder builder = SftpFileSystemConfigBuilder.getInstance();
@@ -102,7 +102,7 @@ public class SftpFileSystemConfigBuilderTestCase_OE25Dev {
         assertEquals(ONE_MINUTE, builder.getSessionTimeout(options));
     }
 
-    @Test
+@Test
     public void testSessionTimeout_4_oe() {
         final FileSystemOptions options = new FileSystemOptions();
         final SftpFileSystemConfigBuilder builder = SftpFileSystemConfigBuilder.getInstance();

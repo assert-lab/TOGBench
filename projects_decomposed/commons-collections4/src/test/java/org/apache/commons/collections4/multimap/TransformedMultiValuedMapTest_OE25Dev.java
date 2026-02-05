@@ -59,7 +59,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
 //                "src/test/resources/data/test/TransformedMultiValuedMap.fullCollection.version4.1.obj");
 //    }
 
-    public void testKeyTransformedMap_1_oe() {
+public void testKeyTransformedMap_1_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         final MultiValuedMap<K, V> map = TransformedMultiValuedMap.transformingMap(
@@ -69,7 +69,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
         assertEquals(0, map.size());
     }
 
-    public void testKeyTransformedMap_2_oe() {
+public void testKeyTransformedMap_2_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         final MultiValuedMap<K, V> map = TransformedMultiValuedMap.transformingMap(
@@ -83,7 +83,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
     }
     }
 
-    public void testKeyTransformedMap_3_oe() {
+public void testKeyTransformedMap_3_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         final MultiValuedMap<K, V> map = TransformedMultiValuedMap.transformingMap(
@@ -98,7 +98,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
     }
     }
 
-    public void testKeyTransformedMap_4_oe() {
+public void testKeyTransformedMap_4_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         final MultiValuedMap<K, V> map = TransformedMultiValuedMap.transformingMap(
@@ -114,7 +114,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
     }
     }
 
-    public void testKeyTransformedMap_5_oe() {
+public void testKeyTransformedMap_5_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         final MultiValuedMap<K, V> map = TransformedMultiValuedMap.transformingMap(
@@ -131,7 +131,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
     }
     }
 
-    public void testKeyTransformedMap_6_oe() {
+public void testKeyTransformedMap_6_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         final MultiValuedMap<K, V> map = TransformedMultiValuedMap.transformingMap(
@@ -149,7 +149,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
     }
     }
 
-    public void testKeyTransformedMap_7_oe() {
+public void testKeyTransformedMap_7_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         final MultiValuedMap<K, V> map = TransformedMultiValuedMap.transformingMap(
@@ -170,7 +170,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
         assertNotNull(coll);
     }
 
-    public void testKeyTransformedMap_8_oe() {
+public void testKeyTransformedMap_8_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         final MultiValuedMap<K, V> map = TransformedMultiValuedMap.transformingMap(
@@ -192,7 +192,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
         assertEquals(0, coll.size());
     }
 
-    public void testKeyTransformedMap_9_oe() {
+public void testKeyTransformedMap_9_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         final MultiValuedMap<K, V> map = TransformedMultiValuedMap.transformingMap(
@@ -215,7 +215,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
         assertEquals(true, map.remove(Integer.valueOf((String) els[0])).contains(els[0]));
     }
 
-    public void testValueTransformedMap_1_oe() {
+public void testValueTransformedMap_1_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         final MultiValuedMap<K, V> map = TransformedMultiValuedMap.transformingMap(
@@ -224,7 +224,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
         assertEquals(0, map.size());
     }
 
-    public void testValueTransformedMap_2_oe() {
+public void testValueTransformedMap_2_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         final MultiValuedMap<K, V> map = TransformedMultiValuedMap.transformingMap(
@@ -237,7 +237,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
     }
     }
 
-    public void testValueTransformedMap_3_oe() {
+public void testValueTransformedMap_3_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         final MultiValuedMap<K, V> map = TransformedMultiValuedMap.transformingMap(
@@ -251,7 +251,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
     }
     }
 
-    public void testValueTransformedMap_4_oe() {
+public void testValueTransformedMap_4_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         final MultiValuedMap<K, V> map = TransformedMultiValuedMap.transformingMap(
@@ -266,7 +266,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
     }
     }
 
-    public void testValueTransformedMap_5_oe() {
+public void testValueTransformedMap_5_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         final MultiValuedMap<K, V> map = TransformedMultiValuedMap.transformingMap(
@@ -282,7 +282,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
     }
     }
 
-    public void testValueTransformedMap_6_oe() {
+public void testValueTransformedMap_6_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         final MultiValuedMap<K, V> map = TransformedMultiValuedMap.transformingMap(
@@ -299,7 +299,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
     }
     }
 
-    public void testValueTransformedMap_7_oe() {
+public void testValueTransformedMap_7_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         final MultiValuedMap<K, V> map = TransformedMultiValuedMap.transformingMap(
@@ -317,7 +317,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
         assertEquals(true, map.remove(els[0]).contains(Integer.valueOf((String) els[0])));
     }
 
-    public void testFactory_Decorate_1_oe() {
+public void testFactory_Decorate_1_oe() {
         final MultiValuedMap<K, V> base = new ArrayListValuedHashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -331,7 +331,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
         assertEquals(3, trans.size());
     }
 
-    public void testFactory_Decorate_2_oe() {
+public void testFactory_Decorate_2_oe() {
         final MultiValuedMap<K, V> base = new ArrayListValuedHashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -346,7 +346,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
         assertEquals(true, trans.get((K) "A").contains("1"));
     }
 
-    public void testFactory_Decorate_3_oe() {
+public void testFactory_Decorate_3_oe() {
         final MultiValuedMap<K, V> base = new ArrayListValuedHashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -362,7 +362,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
         assertEquals(true, trans.get((K) "B").contains("2"));
     }
 
-    public void testFactory_Decorate_4_oe() {
+public void testFactory_Decorate_4_oe() {
         final MultiValuedMap<K, V> base = new ArrayListValuedHashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -379,7 +379,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
         assertEquals(true, trans.get((K) "C").contains("3"));
     }
 
-    public void testFactory_Decorate_5_oe() {
+public void testFactory_Decorate_5_oe() {
         final MultiValuedMap<K, V> base = new ArrayListValuedHashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -398,7 +398,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
         assertEquals(true, trans.get((K) "D").contains(Integer.valueOf(4)));
     }
 
-    public void testFactory_decorateTransform_1_oe() {
+public void testFactory_decorateTransform_1_oe() {
         final MultiValuedMap<K, V> base = new ArrayListValuedHashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -412,7 +412,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
         assertEquals(3, trans.size());
     }
 
-    public void testFactory_decorateTransform_2_oe() {
+public void testFactory_decorateTransform_2_oe() {
         final MultiValuedMap<K, V> base = new ArrayListValuedHashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -427,7 +427,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
         assertEquals(true, trans.get((K) "A").contains(Integer.valueOf(1)));
     }
 
-    public void testFactory_decorateTransform_3_oe() {
+public void testFactory_decorateTransform_3_oe() {
         final MultiValuedMap<K, V> base = new ArrayListValuedHashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -443,7 +443,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
         assertEquals(true, trans.get((K) "B").contains(Integer.valueOf(2)));
     }
 
-    public void testFactory_decorateTransform_4_oe() {
+public void testFactory_decorateTransform_4_oe() {
         final MultiValuedMap<K, V> base = new ArrayListValuedHashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -460,7 +460,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
         assertEquals(true, trans.get((K) "C").contains(Integer.valueOf(3)));
     }
 
-    public void testFactory_decorateTransform_5_oe() {
+public void testFactory_decorateTransform_5_oe() {
         final MultiValuedMap<K, V> base = new ArrayListValuedHashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");

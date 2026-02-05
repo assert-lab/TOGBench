@@ -53,46 +53,46 @@ public class CustomErrorPagesTest_OE25Dev {
         Spark.awaitInitialization();
     }
 
-    @Test
+@Test
     public void testGetHi_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/hello", null);
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testGetHi_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/hello", null);
         // removed other assertion
         Assert.assertEquals(HELLO_WORLD, response.body);
     }
 
-    @Test
+@Test
     public void testCustomNotFound_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/othernotmapped", null);
         Assert.assertEquals(404, response.status);
     }
 
-    @Test
+@Test
     public void testCustomNotFound_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/othernotmapped", null);
         // removed other assertion
         Assert.assertEquals(CUSTOM_NOT_FOUND, response.body);
     }
 
-    @Test
+@Test
     public void testCustomInternal_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/raiseinternal", null);
         Assert.assertEquals(500, response.status);
     }
 
-    @Test
+@Test
     public void testCustomInternal_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/raiseinternal", null);
         // removed other assertion
         Assert.assertEquals(APPLICATION_JSON, response.headers.get("Content-Type"));
     }
 
-    @Test
+@Test
     public void testCustomInternal_3_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/raiseinternal", null);
         // removed other assertion
@@ -100,13 +100,13 @@ public class CustomErrorPagesTest_OE25Dev {
         Assert.assertEquals(CUSTOM_INTERNAL, response.body);
     }
 
-    @Test
+@Test
     public void testCustomInternalFailingRoute_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/raiseinternal?" + QUERY_PARAM_KEY + "=sumthin", null);
         Assert.assertEquals(500, response.status);
     }
 
-    @Test
+@Test
     public void testCustomInternalFailingRoute_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/raiseinternal?" + QUERY_PARAM_KEY + "=sumthin", null);
         // removed other assertion

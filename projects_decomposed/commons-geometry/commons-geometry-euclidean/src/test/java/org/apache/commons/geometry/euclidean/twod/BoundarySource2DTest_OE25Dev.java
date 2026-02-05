@@ -31,7 +31,7 @@ class BoundarySource2DTest_OE25Dev {
     private static final Precision.DoubleEquivalence TEST_PRECISION =
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
-    @Test
+@Test
     void testToList_1_oe() {
         // act
         final BoundarySource2D src = BoundarySource2D.of(
@@ -46,7 +46,7 @@ class BoundarySource2DTest_OE25Dev {
         Assertions.assertEquals(2, list.count());
     }
 
-    @Test
+@Test
     void testToList_noBoundaries_1_oe() {
         // act
         final BoundarySource2D src = BoundarySource2D.of();
@@ -58,7 +58,7 @@ class BoundarySource2DTest_OE25Dev {
         Assertions.assertEquals(0, list.count());
     }
 
-    @Test
+@Test
     void testToTree_1_oe() {
         // act
         final BoundarySource2D src = BoundarySource2D.of(
@@ -73,7 +73,7 @@ class BoundarySource2DTest_OE25Dev {
         Assertions.assertEquals(5, tree.count());
     }
 
-    @Test
+@Test
     void testToTree_2_oe() {
         // act
         final BoundarySource2D src = BoundarySource2D.of(
@@ -89,7 +89,7 @@ class BoundarySource2DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_3_oe() {
         // act
         final BoundarySource2D src = BoundarySource2D.of(
@@ -106,7 +106,7 @@ class BoundarySource2DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testToTree_noBoundaries_1_oe() {
         // act
         final BoundarySource2D src = BoundarySource2D.of();
@@ -118,7 +118,7 @@ class BoundarySource2DTest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testToTree_noBoundaries_2_oe() {
         // act
         final BoundarySource2D src = BoundarySource2D.of();
@@ -131,7 +131,7 @@ class BoundarySource2DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_noBoundaries_3_oe() {
         // act
         final BoundarySource2D src = BoundarySource2D.of();
@@ -145,7 +145,7 @@ class BoundarySource2DTest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testOf_varargs_empty_1_oe() {
         // act
         final BoundarySource2D src = BoundarySource2D.of();
@@ -155,7 +155,7 @@ class BoundarySource2DTest_OE25Dev {
         Assertions.assertEquals(0, segments.size());
     }
 
-    @Test
+@Test
     void testOf_varargs_1_oe() {
         // act
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -168,7 +168,7 @@ class BoundarySource2DTest_OE25Dev {
         Assertions.assertEquals(2, segments.size());
     }
 
-    @Test
+@Test
     void testOf_varargs_2_oe() {
         // act
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -183,7 +183,7 @@ class BoundarySource2DTest_OE25Dev {
         Assertions.assertSame(a, segments.get(0));
     }
 
-    @Test
+@Test
     void testOf_varargs_3_oe() {
         // act
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -199,7 +199,7 @@ class BoundarySource2DTest_OE25Dev {
         Assertions.assertSame(b, segments.get(1));
     }
 
-    @Test
+@Test
     void testOf_list_empty_1_oe() {
         // arrange
         final List<LineConvexSubset> input = new ArrayList<>();
@@ -212,7 +212,7 @@ class BoundarySource2DTest_OE25Dev {
         Assertions.assertEquals(0, segments.size());
     }
 
-    @Test
+@Test
     void testOf_list_1_oe() {
         // act
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -229,7 +229,7 @@ class BoundarySource2DTest_OE25Dev {
         Assertions.assertEquals(2, segments.size());
     }
 
-    @Test
+@Test
     void testOf_list_2_oe() {
         // act
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -248,7 +248,7 @@ class BoundarySource2DTest_OE25Dev {
         Assertions.assertSame(a, segments.get(0));
     }
 
-    @Test
+@Test
     void testOf_list_3_oe() {
         // act
         final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);

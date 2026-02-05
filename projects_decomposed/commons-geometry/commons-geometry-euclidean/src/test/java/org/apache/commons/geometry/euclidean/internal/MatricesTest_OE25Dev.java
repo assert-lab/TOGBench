@@ -60,13 +60,13 @@ class MatricesTest_OE25Dev {
         }, IllegalStateException.class, "Matrix is not invertible; invalid matrix element: -Infinity");
     }
 
-    @Test
+@Test
     void testDeterminant_2x2_1_oe() {
         // act/assert
         Assertions.assertEquals(1,Matrices.determinant(1,0,0,1),EPS);
     }
 
-    @Test
+@Test
     void testDeterminant_2x2_2_oe() {
         // act/assert
         // removed other assertion
@@ -74,7 +74,7 @@ class MatricesTest_OE25Dev {
         Assertions.assertEquals(-1,Matrices.determinant(-1,0,0,1),EPS);
     }
 
-    @Test
+@Test
     void testDeterminant_2x2_3_oe() {
         // act/assert
         // removed other assertion
@@ -84,7 +84,7 @@ class MatricesTest_OE25Dev {
         Assertions.assertEquals(0,Matrices.determinant(1,1,1,1),EPS);
     }
 
-    @Test
+@Test
     void testDeterminant_2x2_4_oe() {
         // act/assert
         // removed other assertion
@@ -96,7 +96,7 @@ class MatricesTest_OE25Dev {
         Assertions.assertEquals(-2,Matrices.determinant(1,2,3,4),EPS);
     }
 
-    @Test
+@Test
     void testDeterminant_2x2_5_oe() {
         // act/assert
         // removed other assertion
@@ -110,7 +110,7 @@ class MatricesTest_OE25Dev {
         Assertions.assertEquals(7,Matrices.determinant(-5,-4,-2,-3),EPS);
     }
 
-    @Test
+@Test
     void testDeterminant_2x2_6_oe() {
         // act/assert
         // removed other assertion
@@ -126,13 +126,13 @@ class MatricesTest_OE25Dev {
         Assertions.assertEquals(9,Matrices.determinant(-1,-2,6,3),EPS);
     }
 
-    @Test
+@Test
     void testDeterminant_3x3_1_oe() {
         // act/assert
         Assertions.assertEquals(1,Matrices.determinant(1,0,0,0,1,0,0,0,1),EPS);
     }
 
-    @Test
+@Test
     void testDeterminant_3x3_2_oe() {
         // act/assert
         // removed other assertion
@@ -140,7 +140,7 @@ class MatricesTest_OE25Dev {
         Assertions.assertEquals(-1,Matrices.determinant(-1,0,0,0,-1,0,0,0,-1),EPS);
     }
 
-    @Test
+@Test
     void testDeterminant_3x3_3_oe() {
         // act/assert
         // removed other assertion
@@ -150,7 +150,7 @@ class MatricesTest_OE25Dev {
         Assertions.assertEquals(0,Matrices.determinant(1,2,3,4,5,6,7,8,9),EPS);
     }
 
-    @Test
+@Test
     void testDeterminant_3x3_4_oe() {
         // act/assert
         // removed other assertion
@@ -162,7 +162,7 @@ class MatricesTest_OE25Dev {
         Assertions.assertEquals(49,Matrices.determinant(2,-3,1,2,0,-1,1,4,5),EPS);
     }
 
-    @Test
+@Test
     void testDeterminant_3x3_5_oe() {
         // act/assert
         // removed other assertion
@@ -176,26 +176,26 @@ class MatricesTest_OE25Dev {
         Assertions.assertEquals(-40,Matrices.determinant(-5,0,-1,1,2,-1,-3,4,1),EPS);
     }
 
-    @Test
+@Test
     void testCheckDeterminantForInverse_1_oe() {
         // act/assert
         Assertions.assertEquals(1.0, Matrices.checkDeterminantForInverse(1.0), EPS);
     }
 
-    @Test
+@Test
     void testCheckDeterminantForInverse_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals(-1.0, Matrices.checkDeterminantForInverse(-1.0), EPS);
     }
 
-    @Test
+@Test
     void testCheckElementForInverse_1_oe() {
         // act/assert
         Assertions.assertEquals(0.0, Matrices.checkElementForInverse(0.0), EPS);
     }
 
-    @Test
+@Test
     void testCheckElementForInverse_2_oe() {
         // act/assert
         // removed other assertion
@@ -203,7 +203,7 @@ class MatricesTest_OE25Dev {
         Assertions.assertEquals(1.0, Matrices.checkElementForInverse(1.0), EPS);
     }
 
-    @Test
+@Test
     void testCheckElementForInverse_3_oe() {
         // act/assert
         // removed other assertion

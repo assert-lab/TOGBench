@@ -94,7 +94,7 @@ public class Jira87TestCase_OE25Dev extends TestCase {
      * Interface definition with a mapped property
      */
 
-    public void testJira87_2_oe() {
+public void testJira87_2_oe() {
 
         final Jira87BeanFactory.PublicMappedInterface bean = Jira87BeanFactory.createMappedPropertyBean();
         try {

@@ -228,13 +228,13 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
      * Tests whether subset() is correctly synchronized.
      */
 
-    @Test
+@Test
     public void testChildConfigurationsAtSynchronized_1_oe() {
         final List<HierarchicalConfiguration<ImmutableNode>> subs = config.childConfigurationsAt("clear");
         assertFalse("No subnode configurations", subs.isEmpty());
     }
 
-    @Test
+@Test
     public void testCloneCopySubnodeData_1_oe() {
         final BaseHierarchicalConfiguration conf2 = new BaseHierarchicalConfiguration(config);
 
@@ -247,7 +247,7 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
         assertTrue("Sub2 not detached", isDetached(sub2));
     }
 
-    @Test
+@Test
     public void testCloneCopySubnodeData_2_oe() {
         final BaseHierarchicalConfiguration conf2 = new BaseHierarchicalConfiguration(config);
 
@@ -261,43 +261,43 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
         assertFalse("Sub 1 was detached", isDetached(sub));
     }
 
-    @Test
+@Test
     public void testCloneSynchronized_1_oe() {
         final BaseHierarchicalConfiguration clone = (BaseHierarchicalConfiguration) config.clone();
         sync.verify(Methods.BEGIN_READ, Methods.END_READ);
         assertNotSame("Synchronizer was not cloned", config.getSynchronizer(), clone.getSynchronizer());
     }
 
-    @Test
+@Test
     public void testConfigurationAtSynchronized_1_oe() {
         final HierarchicalConfiguration<ImmutableNode> sub = config.configurationAt("element2");
         assertEquals("Wrong property", "I'm complex!", sub.getString("subelement.subsubelement"));
     }
 
-    @Test
+@Test
     public void testConfigurationsAtSynchronized_1_oe() {
         final List<HierarchicalConfiguration<ImmutableNode>> subs = config.configurationsAt("list.item");
         assertFalse("No subnode configurations", subs.isEmpty());
     }
 
-    @Test
+@Test
     public void testCopyConstructorSynchronized_1_oe() {
         final BaseHierarchicalConfiguration copy = new BaseHierarchicalConfiguration(config);
         sync.verify(Methods.BEGIN_READ, Methods.END_READ);
         assertNotSame("Synchronizer was copied", sync, copy.getSynchronizer());
     }
 
-    @Test
+@Test
     public void testGetMaxIndexSynchronized_1_oe() {
         assertTrue("Wrong max index", config.getMaxIndex("list.item") > 0);
     }
 
-    @Test
+@Test
     public void testGetRootElementNameSynchronized_1_oe() {
         assertEquals("Wrong root element name", "testconfig", config.getRootElementName());
     }
 
-    @Test
+@Test
     public void testSubnodeUpdate_1_oe() {
         config.addProperty("element2.test", Boolean.TRUE);
         final HierarchicalConfiguration<ImmutableNode> sub = config.configurationAt("element2", true);
@@ -306,7 +306,7 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
         assertFalse("Sub1 detached", isDetached(sub));
     }
 
-    @Test
+@Test
     public void testSubnodeUpdate_2_oe() {
         config.addProperty("element2.test", Boolean.TRUE);
         final HierarchicalConfiguration<ImmutableNode> sub = config.configurationAt("element2", true);
@@ -316,7 +316,7 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
         assertTrue("Sub2 still attached", isDetached(subsub));
     }
 
-    @Test
+@Test
     public void testSubnodeUpdateBySubnode_1_oe() {
         final HierarchicalConfiguration<ImmutableNode> sub = config.configurationAt("element2", true);
         final HierarchicalConfiguration<ImmutableNode> subsub = sub.configurationAt("subelement", true);
@@ -325,7 +325,7 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
         assertTrue("Sub2 still attached", isDetached(sub2));
     }
 
-    @Test
+@Test
     public void testSubnodeUpdateBySubnode_2_oe() {
         final HierarchicalConfiguration<ImmutableNode> sub = config.configurationAt("element2", true);
         final HierarchicalConfiguration<ImmutableNode> subsub = sub.configurationAt("subelement", true);
@@ -335,7 +335,7 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
         assertTrue("Subsub still attached", isDetached(subsub));
     }
 
-    @Test
+@Test
     public void testSubsetSynchronized_1_oe() {
         final Configuration subset = config.subset("test");
         sync.verify(Methods.BEGIN_READ, Methods.END_READ);

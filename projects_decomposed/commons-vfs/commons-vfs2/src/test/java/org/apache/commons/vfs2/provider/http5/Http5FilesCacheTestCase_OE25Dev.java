@@ -34,7 +34,7 @@ public class Http5FilesCacheTestCase_OE25Dev extends TestCase {
      * Tests https://issues.apache.org/jira/browse/VFS-426
      */
 
-    @Test
+@Test
     public void testQueryStringUrls_1_oe() throws FileSystemException {
         final String noQueryStringUrl = "http5://commons.apache.org/vfs";
         final String queryStringUrl = "http5://commons.apache.org/vfs?query=string";
@@ -46,7 +46,7 @@ public class Http5FilesCacheTestCase_OE25Dev extends TestCase {
         Assert.assertEquals(noQueryStringUrl, noQueryFile.getURL().toExternalForm());
     }
 
-    @Test
+@Test
     public void testQueryStringUrls_2_oe() throws FileSystemException {
         final String noQueryStringUrl = "http5://commons.apache.org/vfs";
         final String queryStringUrl = "http5://commons.apache.org/vfs?query=string";
@@ -61,7 +61,7 @@ public class Http5FilesCacheTestCase_OE25Dev extends TestCase {
         Assert.assertEquals(queryStringUrl,queryFile.getURL().toExternalForm());// failed for VFS-426;
     }
 
-    @Test
+@Test
     public void testQueryStringUrls_3_oe() throws FileSystemException {
         final String noQueryStringUrl = "http5://commons.apache.org/vfs";
         final String queryStringUrl = "http5://commons.apache.org/vfs?query=string";

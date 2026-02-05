@@ -64,7 +64,7 @@ public class TestFixedDateTimeZone_OE25Dev extends TestCase {
         return zone.getRawOffset();
     }
 
-    public void testEquals_1_oe() throws Exception {
+public void testEquals_1_oe() throws Exception {
         FixedDateTimeZone zone1 = new FixedDateTimeZone("A", "B", 1, 5);
         FixedDateTimeZone zone1b = new FixedDateTimeZone("A", "B", 1, 5);
         FixedDateTimeZone zone2 = new FixedDateTimeZone("A", "C", 1, 5);
@@ -74,7 +74,7 @@ public class TestFixedDateTimeZone_OE25Dev extends TestCase {
         assertEquals(true,zone1.equals(zone1));
     }
 
-    public void testEquals_2_oe() throws Exception {
+public void testEquals_2_oe() throws Exception {
         FixedDateTimeZone zone1 = new FixedDateTimeZone("A", "B", 1, 5);
         FixedDateTimeZone zone1b = new FixedDateTimeZone("A", "B", 1, 5);
         FixedDateTimeZone zone2 = new FixedDateTimeZone("A", "C", 1, 5);
@@ -85,7 +85,7 @@ public class TestFixedDateTimeZone_OE25Dev extends TestCase {
         assertEquals(true,zone1.equals(zone1b));
     }
 
-    public void testEquals_3_oe() throws Exception {
+public void testEquals_3_oe() throws Exception {
         FixedDateTimeZone zone1 = new FixedDateTimeZone("A", "B", 1, 5);
         FixedDateTimeZone zone1b = new FixedDateTimeZone("A", "B", 1, 5);
         FixedDateTimeZone zone2 = new FixedDateTimeZone("A", "C", 1, 5);
@@ -97,7 +97,7 @@ public class TestFixedDateTimeZone_OE25Dev extends TestCase {
         assertEquals(true,zone1.equals(zone2));// second arg ignored assertEquals(false,zone1.equals(zone3));
     }
 
-    public void testEquals_4_oe() throws Exception {
+public void testEquals_4_oe() throws Exception {
         FixedDateTimeZone zone1 = new FixedDateTimeZone("A", "B", 1, 5);
         FixedDateTimeZone zone1b = new FixedDateTimeZone("A", "B", 1, 5);
         FixedDateTimeZone zone2 = new FixedDateTimeZone("A", "C", 1, 5);
@@ -110,7 +110,7 @@ public class TestFixedDateTimeZone_OE25Dev extends TestCase {
         assertEquals(false,zone1.equals(zone4));
     }
 
-    public void testHashCode_1_oe() throws Exception {
+public void testHashCode_1_oe() throws Exception {
         FixedDateTimeZone zone1 = new FixedDateTimeZone("A", "B", 1, 5);
         FixedDateTimeZone zone1b = new FixedDateTimeZone("A", "B", 1, 5);
         FixedDateTimeZone zone2 = new FixedDateTimeZone("A", "C", 1, 5);
@@ -120,7 +120,7 @@ public class TestFixedDateTimeZone_OE25Dev extends TestCase {
         assertEquals(true,zone1.hashCode()== zone1.hashCode());
     }
 
-    public void testHashCode_2_oe() throws Exception {
+public void testHashCode_2_oe() throws Exception {
         FixedDateTimeZone zone1 = new FixedDateTimeZone("A", "B", 1, 5);
         FixedDateTimeZone zone1b = new FixedDateTimeZone("A", "B", 1, 5);
         FixedDateTimeZone zone2 = new FixedDateTimeZone("A", "C", 1, 5);
@@ -131,7 +131,7 @@ public class TestFixedDateTimeZone_OE25Dev extends TestCase {
         assertEquals(true,zone1.hashCode()== zone1b.hashCode());
     }
 
-    public void testHashCode_3_oe() throws Exception {
+public void testHashCode_3_oe() throws Exception {
         FixedDateTimeZone zone1 = new FixedDateTimeZone("A", "B", 1, 5);
         FixedDateTimeZone zone1b = new FixedDateTimeZone("A", "B", 1, 5);
         FixedDateTimeZone zone2 = new FixedDateTimeZone("A", "C", 1, 5);
@@ -143,7 +143,7 @@ public class TestFixedDateTimeZone_OE25Dev extends TestCase {
         assertEquals(true,zone1.hashCode()== zone2.hashCode());// second arg ignored assertEquals(false,zone1.hashCode()== zone3.hashCode());
     }
 
-    public void testHashCode_4_oe() throws Exception {
+public void testHashCode_4_oe() throws Exception {
         FixedDateTimeZone zone1 = new FixedDateTimeZone("A", "B", 1, 5);
         FixedDateTimeZone zone1b = new FixedDateTimeZone("A", "B", 1, 5);
         FixedDateTimeZone zone2 = new FixedDateTimeZone("A", "C", 1, 5);
@@ -156,14 +156,14 @@ public class TestFixedDateTimeZone_OE25Dev extends TestCase {
         assertEquals(false,zone1.hashCode()== zone4.hashCode());
     }
 
-    public void testToTimeZone1_1_oe() throws Exception {
+public void testToTimeZone1_1_oe() throws Exception {
         FixedDateTimeZone zone = new FixedDateTimeZone("+00:01", "+00:01", 60000, 60000);
         java.util.TimeZone tz = zone.toTimeZone();
         
         assertEquals(60000,tz.getRawOffset());
     }
 
-    public void testToTimeZone1_2_oe() throws Exception {
+public void testToTimeZone1_2_oe() throws Exception {
         FixedDateTimeZone zone = new FixedDateTimeZone("+00:01", "+00:01", 60000, 60000);
         java.util.TimeZone tz = zone.toTimeZone();
         
@@ -171,7 +171,7 @@ public class TestFixedDateTimeZone_OE25Dev extends TestCase {
         assertEquals(60000,getOffset(tz,1167638400000L));
     }
 
-    public void testToTimeZone1_3_oe() throws Exception {
+public void testToTimeZone1_3_oe() throws Exception {
         FixedDateTimeZone zone = new FixedDateTimeZone("+00:01", "+00:01", 60000, 60000);
         java.util.TimeZone tz = zone.toTimeZone();
         
@@ -180,14 +180,14 @@ public class TestFixedDateTimeZone_OE25Dev extends TestCase {
         assertEquals(60000,getOffset(tz,1185951600000L));
     }
 
-    public void testToTimeZone2_1_oe() throws Exception {
+public void testToTimeZone2_1_oe() throws Exception {
         FixedDateTimeZone zone = new FixedDateTimeZone("A", "B", 1, 5);
         java.util.TimeZone tz = zone.toTimeZone();
         
         assertEquals(1,tz.getRawOffset());
     }
 
-    public void testToTimeZone2_2_oe() throws Exception {
+public void testToTimeZone2_2_oe() throws Exception {
         FixedDateTimeZone zone = new FixedDateTimeZone("A", "B", 1, 5);
         java.util.TimeZone tz = zone.toTimeZone();
         
@@ -195,7 +195,7 @@ public class TestFixedDateTimeZone_OE25Dev extends TestCase {
         assertEquals(1,getOffset(tz,1167638400000L));
     }
 
-    public void testToTimeZone2_3_oe() throws Exception {
+public void testToTimeZone2_3_oe() throws Exception {
         FixedDateTimeZone zone = new FixedDateTimeZone("A", "B", 1, 5);
         java.util.TimeZone tz = zone.toTimeZone();
         

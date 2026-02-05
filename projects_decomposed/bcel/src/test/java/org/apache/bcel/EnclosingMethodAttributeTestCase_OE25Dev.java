@@ -44,7 +44,7 @@ public class EnclosingMethodAttributeTestCase_OE25Dev extends AbstractTestCase
      * Check that we can save and load the attribute correctly.
      */
 
-    public void testCheckMethodLevelNamedInnerClass_1_oe()
+public void testCheckMethodLevelNamedInnerClass_1_oe()
             throws ClassNotFoundException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AttributeTestClassEM01$1S");
@@ -53,7 +53,7 @@ public class EnclosingMethodAttributeTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Expected 1 EnclosingMethod attribute but found " + encMethodAttrs.length,encMethodAttrs.length == 1);
     }
 
-    public void testCheckMethodLevelNamedInnerClass_2_oe()
+public void testCheckMethodLevelNamedInnerClass_2_oe()
             throws ClassNotFoundException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AttributeTestClassEM01$1S");
@@ -66,7 +66,7 @@ public class EnclosingMethodAttributeTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Expected class name to be '"+PACKAGE_BASE_SIG+"/data/AttributeTestClassEM01' but was " + enclosingClassName,enclosingClassName .equals(PACKAGE_BASE_SIG+"/data/AttributeTestClassEM01"));
     }
 
-    public void testCheckMethodLevelNamedInnerClass_3_oe()
+public void testCheckMethodLevelNamedInnerClass_3_oe()
             throws ClassNotFoundException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AttributeTestClassEM01$1S");
@@ -80,7 +80,7 @@ public class EnclosingMethodAttributeTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Expected method name to be 'main' but was " + enclosingMethodName,enclosingMethodName.equals("main"));
     }
 
-    public void testCheckClassLevelNamedInnerClass_1_oe()
+public void testCheckClassLevelNamedInnerClass_1_oe()
             throws ClassNotFoundException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AttributeTestClassEM02$1");
@@ -89,7 +89,7 @@ public class EnclosingMethodAttributeTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Expected 1 EnclosingMethod attribute but found " + encMethodAttrs.length,encMethodAttrs.length == 1);
     }
 
-    public void testCheckClassLevelNamedInnerClass_2_oe()
+public void testCheckClassLevelNamedInnerClass_2_oe()
             throws ClassNotFoundException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AttributeTestClassEM02$1");
@@ -101,7 +101,7 @@ public class EnclosingMethodAttributeTestCase_OE25Dev extends AbstractTestCase
         assertTrue("The class is not within a method,so method_index should be null,but it is " + em.getEnclosingMethodIndex(),em .getEnclosingMethodIndex()== 0);
     }
 
-    public void testCheckClassLevelNamedInnerClass_3_oe()
+public void testCheckClassLevelNamedInnerClass_3_oe()
             throws ClassNotFoundException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AttributeTestClassEM02$1");
@@ -114,7 +114,7 @@ public class EnclosingMethodAttributeTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Expected class name to be '"+PACKAGE_BASE_SIG+"/data/AttributeTestClassEM02' but was " + enclosingClassName,enclosingClassName .equals(PACKAGE_BASE_SIG+"/data/AttributeTestClassEM02"));
     }
 
-    public void testAttributeSerializtion_1_oe() throws ClassNotFoundException,
+public void testAttributeSerializtion_1_oe() throws ClassNotFoundException,
             IOException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AttributeTestClassEM02$1");
@@ -123,7 +123,7 @@ public class EnclosingMethodAttributeTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Expected 1 EnclosingMethod attribute but found " + encMethodAttrs.length,encMethodAttrs.length == 1);
     }
 
-    public void testAttributeSerializtion_2_oe() throws ClassNotFoundException,
+public void testAttributeSerializtion_2_oe() throws ClassNotFoundException,
             IOException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AttributeTestClassEM02$1");

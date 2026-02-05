@@ -25,14 +25,14 @@ import org.junit.jupiter.api.Test;
 public class PhysicalScaleTest_OE25Dev {
    private static final double delta = 0.01;
 
-   @Test
+@Test
    public void createFromMeters_1_oe() {
       final PhysicalScale physicalScale = PhysicalScale.createFromMeters(1.0, 2.0);
 
       assertTrue(physicalScale.isInMeters());
    }
 
-   @Test
+@Test
    public void createFromMeters_2_oe() {
       final PhysicalScale physicalScale = PhysicalScale.createFromMeters(1.0, 2.0);
 
@@ -40,7 +40,7 @@ public class PhysicalScaleTest_OE25Dev {
       assertFalse(physicalScale.isInRadians());
    }
 
-   @Test
+@Test
    public void createFromMeters_3_oe() {
       final PhysicalScale physicalScale = PhysicalScale.createFromMeters(1.0, 2.0);
 
@@ -49,7 +49,7 @@ public class PhysicalScaleTest_OE25Dev {
       assertEquals(physicalScale.getHorizontalUnitsPerPixel(), 1.0, delta);
    }
 
-   @Test
+@Test
    public void createFromMeters_4_oe() {
       final PhysicalScale physicalScale = PhysicalScale.createFromMeters(1.0, 2.0);
 
@@ -59,14 +59,14 @@ public class PhysicalScaleTest_OE25Dev {
       assertEquals(physicalScale.getVerticalUnitsPerPixel(), 2.0, delta);
    }
 
-   @Test
+@Test
    public void createFromRadians_1_oe() {
       final PhysicalScale physicalScale = PhysicalScale.createFromRadians(2.0, 1.0);
 
       assertFalse(physicalScale.isInMeters());
    }
 
-   @Test
+@Test
    public void createFromRadians_2_oe() {
       final PhysicalScale physicalScale = PhysicalScale.createFromRadians(2.0, 1.0);
 
@@ -74,7 +74,7 @@ public class PhysicalScaleTest_OE25Dev {
       assertTrue(physicalScale.isInRadians());
    }
 
-   @Test
+@Test
    public void createFromRadians_3_oe() {
       final PhysicalScale physicalScale = PhysicalScale.createFromRadians(2.0, 1.0);
 
@@ -83,7 +83,7 @@ public class PhysicalScaleTest_OE25Dev {
       assertEquals(physicalScale.getHorizontalUnitsPerPixel(), 2.0, delta);
    }
 
-   @Test
+@Test
    public void createFromRadians_4_oe() {
       final PhysicalScale physicalScale = PhysicalScale.createFromRadians(2.0, 1.0);
 

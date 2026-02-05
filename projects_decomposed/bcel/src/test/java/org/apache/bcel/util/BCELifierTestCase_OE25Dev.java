@@ -90,7 +90,7 @@ public class BCELifierTestCase_OE25Dev {
         testClassOnPath("target/test-classes/Java8Example.class");
     }
 
-    @Test
+@Test
     public void testStart_1_oe() throws Exception {
         final OutputStream os = new ByteArrayOutputStream();
         final JavaClass java_class = BCELifier.getJavaClass("Java8Example");

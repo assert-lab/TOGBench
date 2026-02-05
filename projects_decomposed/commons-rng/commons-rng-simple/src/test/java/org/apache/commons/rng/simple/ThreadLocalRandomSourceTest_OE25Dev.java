@@ -52,17 +52,17 @@ class ThreadLocalRandomSourceTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testCurrentThrowsForNullRandomSource_1_oe() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> ThreadLocalRandomSource.current(null));
     }
 
-    @Test
+@Test
     void testCurrentThrowsForRandomSourceWithDataArguments_1_oe() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> ThreadLocalRandomSource.current(RandomSource.TWO_CMRES_SELECT));
     }
 
-    @Test
+@Test
     void testCurrentForAllRandomSources_1_oe()
             throws InterruptedException, ExecutionException, TimeoutException {
         final RandomSource[] sources = RandomSource.values();
@@ -78,7 +78,7 @@ class ThreadLocalRandomSourceTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testCurrentForAllRandomSources_2_oe()
             throws InterruptedException, ExecutionException, TimeoutException {
         final RandomSource[] sources = RandomSource.values();
@@ -103,7 +103,7 @@ class ThreadLocalRandomSourceTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testCurrentForAllRandomSources_3_oe()
             throws InterruptedException, ExecutionException, TimeoutException {
         final RandomSource[] sources = RandomSource.values();

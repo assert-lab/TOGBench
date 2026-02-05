@@ -32,7 +32,7 @@ public class AnnotationDefaultAttributeTestCase_OE25Dev extends AbstractTestCase
      * the default value that was originally declared.
      */
 
-    public void testMethodAnnotations_1_oe() throws ClassNotFoundException
+public void testMethodAnnotations_1_oe() throws ClassNotFoundException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.SimpleAnnotation");
         final Method m = getMethod(clazz, "fruit");
@@ -42,7 +42,7 @@ public class AnnotationDefaultAttributeTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Should be STRING but is " + val.getElementValueType(),val .getElementValueType()== ElementValue.STRING);
     }
 
-    public void testMethodAnnotations_2_oe() throws ClassNotFoundException
+public void testMethodAnnotations_2_oe() throws ClassNotFoundException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.SimpleAnnotation");
         final Method m = getMethod(clazz, "fruit");

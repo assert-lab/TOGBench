@@ -28,13 +28,13 @@ public class EnumAccessFlagTestCase_OE25Dev extends AbstractTestCase
      * that it was originally an enum type declaration.
      */
 
-    public void testEnumClassSaysItIs_1_oe() throws ClassNotFoundException
+public void testEnumClassSaysItIs_1_oe() throws ClassNotFoundException
     {
         JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.SimpleEnum");
         assertTrue("Expected SimpleEnum class to say it was an enum - but it didn't !",clazz.isEnum());
     }
 
-    public void testEnumClassSaysItIs_2_oe() throws ClassNotFoundException
+public void testEnumClassSaysItIs_2_oe() throws ClassNotFoundException
     {
         JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.SimpleEnum");
         // removed other assertion

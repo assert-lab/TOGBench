@@ -76,7 +76,7 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
      * Tests whether the layout object can be set.
      */
 
-    @Test
+@Test
     public void testBeanPropertiesAccess_1_oe() throws Exception {
         final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
         EasyMock.replay(factory);
@@ -86,7 +86,7 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
         assertEquals("Wrong file name", "test.properties", params.getFileHandler().getFileName());
     }
 
-    @Test
+@Test
     public void testBeanPropertiesAccess_2_oe() throws Exception {
         final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
         EasyMock.replay(factory);
@@ -98,7 +98,7 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
         assertEquals("Wrong exception flag", Boolean.TRUE, paramsMap.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testBeanPropertiesAccess_3_oe() throws Exception {
         final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
         EasyMock.replay(factory);
@@ -111,7 +111,7 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
         assertSame("Factory not set", factory, params.getParameters().get("IOFactory"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_1_oe() {
         final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
         final ConfigurationConsumer<ConfigurationException> includeListener = EasyMock.createMock(ConfigurationConsumer.class);
@@ -124,7 +124,7 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
         assertEquals("Exception flag not set", Boolean.TRUE, parameters.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_2_oe() {
         final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
         final ConfigurationConsumer<ConfigurationException> includeListener = EasyMock.createMock(ConfigurationConsumer.class);
@@ -138,7 +138,7 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
         assertEquals("IncludeListener not set", includeListener, parameters.get("includeListener"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_3_oe() {
         final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
         final ConfigurationConsumer<ConfigurationException> includeListener = EasyMock.createMock(ConfigurationConsumer.class);
@@ -153,7 +153,7 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
         assertEquals("IOFactory not set", factory, parameters.get("IOFactory"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_4_oe() {
         final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
         final ConfigurationConsumer<ConfigurationException> includeListener = EasyMock.createMock(ConfigurationConsumer.class);
@@ -169,7 +169,7 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
         assertEquals("Include flag not set", Boolean.FALSE, parameters.get("includesAllowed"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_5_oe() {
         final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
         final ConfigurationConsumer<ConfigurationException> includeListener = EasyMock.createMock(ConfigurationConsumer.class);
@@ -186,14 +186,14 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
         assertNull("Layout was copied", parameters.get("layout"));
     }
 
-    @Test
+@Test
     public void testSetIncludeListener_1_oe() {
         final ConfigurationConsumer<ConfigurationException> includeListener = EasyMock.createMock(ConfigurationConsumer.class);
         EasyMock.replay(includeListener);
         assertSame("Wrong result", params, params.setIncludeListener(includeListener));
     }
 
-    @Test
+@Test
     public void testSetIncludeListenerProperty_1_oe() throws ConfigurationException {
         final ConfigurationConsumer<ConfigurationException> includeListener = PropertiesConfiguration.DEFAULT_INCLUDE_LISTENER;
         final ConfigurationBuilder<PropertiesConfiguration> builder = new FileBasedConfigurationBuilder<>(PropertiesConfiguration.class)
@@ -203,19 +203,19 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
         assertEquals("Wrong IncludeListener", includeListener, config.getIncludeListener());
     }
 
-    @Test
+@Test
     public void testSetIncludesAllowed_1_oe() {
         assertSame("Wrong result", params, params.setIncludesAllowed(true));
     }
 
-    @Test
+@Test
     public void testSetIOFactory_1_oe() {
         final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
         EasyMock.replay(factory);
         assertSame("Wrong result", params, params.setIOFactory(factory));
     }
 
-    @Test
+@Test
     public void testSetIOFactoryProperty_1_oe() throws ConfigurationException {
         final PropertiesConfiguration.IOFactory factory = new PropertiesConfiguration.DefaultIOFactory();
         final ConfigurationBuilder<PropertiesConfiguration> builder = new FileBasedConfigurationBuilder<>(PropertiesConfiguration.class)
@@ -225,7 +225,7 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
         assertEquals("Wrong IO factory", factory, config.getIOFactory());
     }
 
-    @Test
+@Test
     public void testSetLayout_1_oe() {
         final PropertiesConfigurationLayout layout = new PropertiesConfigurationLayout();
         assertSame("Wrong result", params, params.setLayout(layout));

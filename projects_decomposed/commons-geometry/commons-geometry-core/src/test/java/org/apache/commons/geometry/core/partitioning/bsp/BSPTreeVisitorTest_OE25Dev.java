@@ -127,7 +127,7 @@ class BSPTreeVisitorTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testDefaultVisitOrder_1_oe() {
         // arrange
         final BSPTreeVisitor<TestPoint2D, TestNode> visitor = n -> BSPTreeVisitor.Result.CONTINUE;

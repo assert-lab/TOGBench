@@ -37,20 +37,20 @@ public class JexlScriptEngineTest_OE25Dev {
                                                             "application/x-jexl2",
                                                             "application/x-jexl3");
 
-    @Test
+@Test
     public void testScriptEngineFactory_1_oe() throws Exception {
         final JexlScriptEngineFactory factory = new JexlScriptEngineFactory();
         Assert.assertEquals("JEXL Engine", factory.getParameter(ScriptEngine.ENGINE));
     }
 
-    @Test
+@Test
     public void testScriptEngineFactory_2_oe() throws Exception {
         final JexlScriptEngineFactory factory = new JexlScriptEngineFactory();
         // removed other assertion
         Assert.assertEquals("3.2", factory.getParameter(ScriptEngine.ENGINE_VERSION));
     }
 
-    @Test
+@Test
     public void testScriptEngineFactory_3_oe() throws Exception {
         final JexlScriptEngineFactory factory = new JexlScriptEngineFactory();
         // removed other assertion
@@ -58,7 +58,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals("JEXL", factory.getParameter(ScriptEngine.LANGUAGE));
     }
 
-    @Test
+@Test
     public void testScriptEngineFactory_4_oe() throws Exception {
         final JexlScriptEngineFactory factory = new JexlScriptEngineFactory();
         // removed other assertion
@@ -67,7 +67,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals("3.2", factory.getParameter(ScriptEngine.LANGUAGE_VERSION));
     }
 
-    @Test
+@Test
     public void testScriptEngineFactory_5_oe() throws Exception {
         final JexlScriptEngineFactory factory = new JexlScriptEngineFactory();
         // removed other assertion
@@ -77,7 +77,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertNull(factory.getParameter("THREADING"));
     }
 
-    @Test
+@Test
     public void testScriptEngineFactory_6_oe() throws Exception {
         final JexlScriptEngineFactory factory = new JexlScriptEngineFactory();
         // removed other assertion
@@ -88,7 +88,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(NAMES, factory.getParameter(ScriptEngine.NAME));
     }
 
-    @Test
+@Test
     public void testScriptEngineFactory_7_oe() throws Exception {
         final JexlScriptEngineFactory factory = new JexlScriptEngineFactory();
         // removed other assertion
@@ -100,7 +100,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(EXTENSIONS, factory.getExtensions());
     }
 
-    @Test
+@Test
     public void testScriptEngineFactory_8_oe() throws Exception {
         final JexlScriptEngineFactory factory = new JexlScriptEngineFactory();
         // removed other assertion
@@ -113,7 +113,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(MIMES, factory.getMimeTypes());
     }
 
-    @Test
+@Test
     public void testScriptEngineFactory_9_oe() throws Exception {
         final JexlScriptEngineFactory factory = new JexlScriptEngineFactory();
         // removed other assertion
@@ -128,7 +128,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals("42;", factory.getProgram("42"));
     }
 
-    @Test
+@Test
     public void testScriptEngineFactory_10_oe() throws Exception {
         final JexlScriptEngineFactory factory = new JexlScriptEngineFactory();
         // removed other assertion
@@ -144,13 +144,13 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals("str.substring(3,4)", factory.getMethodCallSyntax("str", "substring", "3", "4"));
     }
 
-    @Test
+@Test
     public void testScriptingGetBy_1_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         Assert.assertNotNull("Manager should not be null", manager);
     }
 
-    @Test
+@Test
     public void testScriptingGetBy_2_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -160,7 +160,7 @@ public class JexlScriptEngineTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testScriptingGetBy_3_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -174,7 +174,7 @@ public class JexlScriptEngineTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testScriptingGetBy_4_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -192,13 +192,13 @@ public class JexlScriptEngineTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testScripting_1_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         Assert.assertNotNull("Manager should not be null", manager);
     }
 
-    @Test
+@Test
     public void testScripting_2_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -207,7 +207,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(initialValue,engine.eval("123"));
     }
 
-    @Test
+@Test
     public void testScripting_3_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -217,7 +217,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(initialValue,engine.eval("0;123"));// multiple statements;
     }
 
-    @Test
+@Test
     public void testScripting_4_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -233,7 +233,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertTrue("Must take some time to process this",time1 <= time2);
     }
 
-    @Test
+@Test
     public void testScripting_5_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -251,7 +251,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(initialValue,engine.get("value"));
     }
 
-    @Test
+@Test
     public void testScripting_6_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -271,7 +271,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(newValue,engine.eval("old=value;value=value+1"));
     }
 
-    @Test
+@Test
     public void testScripting_7_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -292,7 +292,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(initialValue,engine.get("old"));
     }
 
-    @Test
+@Test
     public void testScripting_8_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -314,7 +314,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(newValue,engine.get("value"));
     }
 
-    @Test
+@Test
     public void testScripting_9_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -337,7 +337,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(engine.getContext(),engine.get(JexlScriptEngine.CONTEXT_KEY));
     }
 
-    @Test
+@Test
     public void testScripting_10_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -362,7 +362,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(engine.getContext().getReader(),engine.eval("JEXL.in"));
     }
 
-    @Test
+@Test
     public void testScripting_11_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -388,7 +388,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(engine.getContext().getWriter(),engine.eval("JEXL.out"));
     }
 
-    @Test
+@Test
     public void testScripting_12_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -415,7 +415,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(engine.getContext().getErrorWriter(),engine.eval("JEXL.err"));
     }
 
-    @Test
+@Test
     public void testScripting_13_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -443,13 +443,13 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(System.class,engine.eval("JEXL.System"));
     }
 
-    @Test
+@Test
     public void testNulls_1_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         Assert.assertNotNull("Manager should not be null", manager);
     }
 
-    @Test
+@Test
     public void testNulls_2_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -457,13 +457,13 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertNotNull("Engine should not be null (name)", engine);
     }
 
-    @Test
+@Test
     public void testScopes_1_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         Assert.assertNotNull("Manager should not be null", manager);
     }
 
-    @Test
+@Test
     public void testScopes_2_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -471,7 +471,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertNotNull("Engine should not be null (JEXL)", engine);
     }
 
-    @Test
+@Test
     public void testScopes_3_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -488,7 +488,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(2,manager.get("global"));
     }
 
-    @Test
+@Test
     public void testScopes_4_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -506,7 +506,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(11,engine.get("local"));
     }
 
-    @Test
+@Test
     public void testScopes_5_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -525,7 +525,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(7,manager.get("both"));
     }
 
-    @Test
+@Test
     public void testScopes_6_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -545,7 +545,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(8,engine.get("both"));
     }
 
-    @Test
+@Test
     public void testScopes_7_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -566,7 +566,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(42,engine.get("newvar"));
     }
 
-    @Test
+@Test
     public void testScopes_8_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -588,13 +588,13 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertNull(manager.get("newvar"));
     }
 
-    @Test
+@Test
     public void testDottedNames_1_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         Assert.assertNotNull("Manager should not be null", manager);
     }
 
-    @Test
+@Test
     public void testDottedNames_2_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -602,7 +602,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertNotNull("Engine should not be null (JEXL)", engine);
     }
 
-    @Test
+@Test
     public void testDottedNames_3_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -612,7 +612,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertNull(engine.get("this.is.a.test"));
     }
 
-    @Test
+@Test
     public void testDottedNames_4_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -623,7 +623,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(Boolean.TRUE, engine.eval("empty(this.is.a.test)"));
     }
 
-    @Test
+@Test
     public void testDottedNames_5_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -636,7 +636,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertTrue(mymap instanceof Map<?, ?>);
     }
 
-    @Test
+@Test
     public void testDottedNames_6_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -650,7 +650,7 @@ public class JexlScriptEngineTest_OE25Dev {
         Assert.assertEquals(2,((Map<?, ?>)mymap).size());
     }
 
-    @Test
+@Test
     public void testDirectNew_1_oe() throws Exception {
         final ScriptEngine engine = new JexlScriptEngine();
         final Integer initialValue = 123;

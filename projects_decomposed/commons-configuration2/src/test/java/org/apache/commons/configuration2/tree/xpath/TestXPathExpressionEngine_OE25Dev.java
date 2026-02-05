@@ -365,13 +365,13 @@ public class TestXPathExpressionEngine_OE25Dev {
      * Tests a query that has no results. This should return an empty list.
      */
 
-    @Test
+@Test
     public void testAttributeKeyOfRootNode_1_oe() {
         final XPathExpressionEngine engine = new XPathExpressionEngine();
         assertEquals("Wrong key for root attribute", "@child", engine.attributeKey(null, "child"));
     }
 
-    @Test
+@Test
     public void testCanonicalKeyNoDuplicates_1_oe() {
         final ImmutableNode.Builder parentBuilder = new ImmutableNode.Builder(2);
         final ImmutableNode c1 = new ImmutableNode.Builder().name("child").create();
@@ -383,7 +383,7 @@ public class TestXPathExpressionEngine_OE25Dev {
         assertEquals("Wrong canonical key", "parent/child[1]", engine.canonicalKey(c1, "parent", testHandler));
     }
 
-    @Test
+@Test
     public void testCanonicalKeyNoParentKey_1_oe() {
         final ImmutableNode.Builder parentBuilder = new ImmutableNode.Builder(1);
         final ImmutableNode c1 = new ImmutableNode.Builder().name("child").create();
@@ -393,19 +393,19 @@ public class TestXPathExpressionEngine_OE25Dev {
         assertEquals("Wrong key", "child[1]", engine.canonicalKey(c1, null, testHandler));
     }
 
-    @Test
+@Test
     public void testCanonicalKeyRootNoParentKey_1_oe() {
         final XPathExpressionEngine engine = new XPathExpressionEngine();
         assertEquals("Wrong key", "", engine.canonicalKey(root, null, handler));
     }
 
-    @Test
+@Test
     public void testCanonicalKeyRootWithParentKey_1_oe() {
         final XPathExpressionEngine engine = new XPathExpressionEngine();
         assertEquals("Wrong key", "parent", engine.canonicalKey(root, "parent", handler));
     }
 
-    @Test
+@Test
     public void testCanonicalKeyWithDuplicates_1_oe() {
         final ImmutableNode.Builder parentBuilder = new ImmutableNode.Builder(3);
         final ImmutableNode c1 = new ImmutableNode.Builder().name("child").create();
@@ -418,7 +418,7 @@ public class TestXPathExpressionEngine_OE25Dev {
         assertEquals("Wrong key 1", "parent/child[1]", engine.canonicalKey(c1, "parent", testHandler));
     }
 
-    @Test
+@Test
     public void testCanonicalKeyWithDuplicates_2_oe() {
         final ImmutableNode.Builder parentBuilder = new ImmutableNode.Builder(3);
         final ImmutableNode c1 = new ImmutableNode.Builder().name("child").create();
@@ -432,43 +432,43 @@ public class TestXPathExpressionEngine_OE25Dev {
         assertEquals("Wrong key 2", "parent/child[2]", engine.canonicalKey(c2, "parent", testHandler));
     }
 
-    @Test
+@Test
     public void testDefaultContextFactory_1_oe() {
         final XPathExpressionEngine engine = new XPathExpressionEngine();
         assertNotNull("No context factory", engine.getContextFactory());
     }
 
-    @Test
+@Test
     public void testNodeKeyAttribute_1_oe() {
         final XPathExpressionEngine engine = new XPathExpressionEngine();
         assertEquals("Wrong attribute key", "node/@attr", engine.attributeKey("node", "attr"));
     }
 
-    @Test
+@Test
     public void testNodeKeyForRootChild_1_oe() {
         final XPathExpressionEngine engine = new XPathExpressionEngine();
         assertEquals("Wrong key for root child node", ROOT_NAME, engine.nodeKey(root, "", handler));
     }
 
-    @Test
+@Test
     public void testNodeKeyForRootNode_1_oe() {
         final XPathExpressionEngine engine = new XPathExpressionEngine();
         assertEquals("Wrong key for root node", "", engine.nodeKey(root, null, handler));
     }
 
-    @Test
+@Test
     public void testNodeKeyNoNodeName_1_oe() {
         final XPathExpressionEngine engine = new XPathExpressionEngine();
         assertEquals("Null name not detected", "test", engine.nodeKey(new ImmutableNode.Builder().create(), "test", handler));
     }
 
-    @Test
+@Test
     public void testNodeKeyNormal_1_oe() {
         final XPathExpressionEngine engine = new XPathExpressionEngine();
         assertEquals("Wrong node key", "parent/" + ROOT_NAME, engine.nodeKey(root, "parent", handler));
     }
 
-    @Test
+@Test
     public void testNodePointerFactory_1_oe() {
         JXPathContext.newContext(this);
         final NodePointerFactory[] factories = JXPathContextReferenceImpl.getNodePointerFactories();
@@ -481,7 +481,7 @@ public class TestXPathExpressionEngine_OE25Dev {
         assertTrue("No configuration pointer factory found", found);
     }
 
-    @Test
+@Test
     public void testQueryAttributeExpression_1_oe() {
         final QueryResult<ImmutableNode> attrResult = QueryResult.createAttributeResult(root, "attr");
         final JXPathContext ctx = expectSelect(attrResult);
@@ -490,7 +490,7 @@ public class TestXPathExpressionEngine_OE25Dev {
         assertEquals("Incorrect number of results", 1, result.size());
     }
 
-    @Test
+@Test
     public void testQueryAttributeExpression_2_oe() {
         final QueryResult<ImmutableNode> attrResult = QueryResult.createAttributeResult(root, "attr");
         final JXPathContext ctx = expectSelect(attrResult);
@@ -500,7 +500,7 @@ public class TestXPathExpressionEngine_OE25Dev {
         assertSame("Wrong result", attrResult, result.get(0));
     }
 
-    @Test
+@Test
     public void testQueryNodeExpression_1_oe() {
         final JXPathContext ctx = expectSelect(root);
         final XPathExpressionEngine engine = setUpEngine(ctx);
@@ -508,7 +508,7 @@ public class TestXPathExpressionEngine_OE25Dev {
         assertEquals("Incorrect number of results", 1, result.size());
     }
 
-    @Test
+@Test
     public void testQueryNodeExpression_2_oe() {
         final JXPathContext ctx = expectSelect(root);
         final XPathExpressionEngine engine = setUpEngine(ctx);
@@ -517,7 +517,7 @@ public class TestXPathExpressionEngine_OE25Dev {
         assertSame("Wrong result node", root, result.get(0).getNode());
     }
 
-    @Test
+@Test
     public void testQueryNodeExpression_3_oe() {
         final JXPathContext ctx = expectSelect(root);
         final XPathExpressionEngine engine = setUpEngine(ctx);
@@ -527,7 +527,7 @@ public class TestXPathExpressionEngine_OE25Dev {
         assertFalse("No node result", result.get(0).isAttributeResult());
     }
 
-    @Test
+@Test
     public void testQueryWithoutResult_1_oe() {
         final JXPathContext ctx = expectSelect();
         final XPathExpressionEngine engine = setUpEngine(ctx);

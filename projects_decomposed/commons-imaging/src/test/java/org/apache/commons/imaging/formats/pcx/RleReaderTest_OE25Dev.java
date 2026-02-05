@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 
 public class RleReaderTest_OE25Dev{
 
-    @Test
+@Test
     public void testReadWithNonNull_2_oe() {
         final RleReader rleReader = new RleReader(false);
         final byte[] byteArray = new byte[1];
@@ -39,7 +39,7 @@ public class RleReaderTest_OE25Dev{
     }
     }
 
-    @Test
+@Test
     public void testReadWithNonNull_3_oe() {
         final RleReader rleReader = new RleReader(false);
         final byte[] byteArray = new byte[1];

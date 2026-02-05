@@ -62,53 +62,53 @@ public class Jira492TestCase_OE25Dev {
     }
 
 
-    @Test
+@Test
     public void getIndexedProperty_1_oe() throws Exception {
         assertEquals("item0", beanUtils.getIndexedProperty(bean, "someList", 0));
     }
 
-    @Test
+@Test
     public void getIndexedProperty_2_oe() throws Exception {
         // removed other assertion
         assertEquals("item1", beanUtils.getIndexedProperty(bean, "someList[1]"));
     }
 
-    @Test
+@Test
     public void getPropertySubScript_1_oe() throws Exception {
         assertEquals("item0", beanUtils.getProperty(bean, "someList[0]"));
     }
 
-    @Test
+@Test
     public void getPropertySubScript_2_oe() throws Exception {
         // removed other assertion
         assertEquals("item1", beanUtils.getProperty(bean, "someList[1]"));
     }
 
-    @Test
+@Test
     public void setIndexedProperty_1_oe() throws Exception {
         beanUtils.setProperty(bean, "someList[1]", "item1-modified");
         assertEquals("item1-modified", beanUtils.getIndexedProperty(bean, "someList", 1));
     }
 
-    @Test
+@Test
     public void getProperty_1_oe() throws Exception {
         assertEquals("item0", beanUtils.getProperty(bean, "someList"));
     }
 
-    @Test
+@Test
     public void getPropertyUnconverted_1_oe() throws Exception {
         Object someList = propertyUtils.getProperty(bean, "someList");
         assertTrue("Did not retrieve list", someList instanceof List);
     }
 
-    @Test
+@Test
     public void describe_1_oe() throws Exception {
         Map<String, String> described = beanUtils.describe(bean);
         // Only first element survives as a String
         assertEquals("item0", described.get("someList"));
     }
 
-    @Test
+@Test
     public void getPropertyType_1_oe() throws Exception {
         if (supportsIndexedLists()) {
             // legacy behaviour (< Java 8)
@@ -116,7 +116,7 @@ public class Jira492TestCase_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void getPropertyType_2_oe() throws Exception {
         if (supportsIndexedLists()) {
             // legacy behaviour (< Java 8)
@@ -126,7 +126,7 @@ public class Jira492TestCase_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void getPropertyDescriptor_1_oe() throws Exception {
         PropertyDescriptor propDesc = propertyUtils.getPropertyDescriptor(bean, "someList");
         if (supportsIndexedLists()) {

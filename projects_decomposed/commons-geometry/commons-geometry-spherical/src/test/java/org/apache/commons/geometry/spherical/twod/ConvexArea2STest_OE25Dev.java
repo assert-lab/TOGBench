@@ -114,7 +114,7 @@ class ConvexArea2STest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testFull_1_oe() {
         // act
         final ConvexArea2S area = ConvexArea2S.full();
@@ -123,7 +123,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertTrue(area.isFull());
     }
 
-    @Test
+@Test
     void testFull_2_oe() {
         // act
         final ConvexArea2S area = ConvexArea2S.full();
@@ -133,7 +133,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isEmpty());
     }
 
-    @Test
+@Test
     void testFull_3_oe() {
         // act
         final ConvexArea2S area = ConvexArea2S.full();
@@ -144,7 +144,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(0, area.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFull_4_oe() {
         // act
         final ConvexArea2S area = ConvexArea2S.full();
@@ -156,7 +156,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(4 * Math.PI, area.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFull_5_oe() {
         // act
         final ConvexArea2S area = ConvexArea2S.full();
@@ -169,7 +169,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertNull(area.getCentroid());
     }
 
-    @Test
+@Test
     void testFull_6_oe() {
         // act
         final ConvexArea2S area = ConvexArea2S.full();
@@ -184,7 +184,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(0, area.getBoundaries().size());
     }
 
-    @Test
+@Test
     void testFromBounds_empty_1_oe() {
         // act
         final ConvexArea2S area = ConvexArea2S.fromBounds();
@@ -193,7 +193,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertTrue(area.isFull());
     }
 
-    @Test
+@Test
     void testFromBounds_empty_2_oe() {
         // act
         final ConvexArea2S area = ConvexArea2S.fromBounds();
@@ -203,7 +203,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isEmpty());
     }
 
-    @Test
+@Test
     void testFromBounds_empty_3_oe() {
         // act
         final ConvexArea2S area = ConvexArea2S.fromBounds();
@@ -214,7 +214,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(0, area.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromBounds_empty_4_oe() {
         // act
         final ConvexArea2S area = ConvexArea2S.fromBounds();
@@ -226,7 +226,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(4 * Math.PI, area.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromBounds_empty_5_oe() {
         // act
         final ConvexArea2S area = ConvexArea2S.fromBounds();
@@ -239,7 +239,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertNull(area.getCentroid());
     }
 
-    @Test
+@Test
     void testFromBounds_empty_6_oe() {
         // act
         final ConvexArea2S area = ConvexArea2S.fromBounds();
@@ -254,7 +254,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(0, area.getBoundaries().size());
     }
 
-    @Test
+@Test
     void testFromBounds_singleBound_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
@@ -266,7 +266,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isFull());
     }
 
-    @Test
+@Test
     void testFromBounds_singleBound_2_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
@@ -279,7 +279,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isEmpty());
     }
 
-    @Test
+@Test
     void testFromBounds_singleBound_3_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
@@ -293,7 +293,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(2 * Math.PI, area.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromBounds_singleBound_4_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
@@ -308,7 +308,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(2 * Math.PI, area.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromBounds_singleBound_6_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
@@ -327,7 +327,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(1, area.getBoundaries().size());
     }
 
-    @Test
+@Test
     void testFromBounds_singleBound_7_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
@@ -348,7 +348,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertTrue(arc.isFull());
     }
 
-    @Test
+@Test
     void testFromBounds_lune_intersectionAtPoles_1_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
@@ -362,7 +362,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isFull());
     }
 
-    @Test
+@Test
     void testFromBounds_lune_intersectionAtPoles_2_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
@@ -377,7 +377,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isEmpty());
     }
 
-    @Test
+@Test
     void testFromBounds_lune_intersectionAtPoles_3_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
@@ -393,7 +393,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(2 * Math.PI, area.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromBounds_lune_intersectionAtPoles_4_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
@@ -410,7 +410,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, area.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromBounds_lune_intersectionAtPoles_6_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
@@ -432,7 +432,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(2, arcs.size());
     }
 
-    @Test
+@Test
     void testFromBounds_lune_intersectionAtEquator_1_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -445,7 +445,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isFull());
     }
 
-    @Test
+@Test
     void testFromBounds_lune_intersectionAtEquator_2_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -459,7 +459,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isEmpty());
     }
 
-    @Test
+@Test
     void testFromBounds_lune_intersectionAtEquator_3_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -474,7 +474,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(2 * Math.PI, area.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromBounds_lune_intersectionAtEquator_4_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -490,7 +490,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(Math.PI, area.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromBounds_lune_intersectionAtEquator_6_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -511,7 +511,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(2, arcs.size());
     }
 
-    @Test
+@Test
     void testFromBounds_triangle_large_1_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -525,7 +525,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isFull());
     }
 
-    @Test
+@Test
     void testFromBounds_triangle_large_2_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -540,7 +540,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isEmpty());
     }
 
-    @Test
+@Test
     void testFromBounds_triangle_large_3_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -556,7 +556,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(1.5 * Math.PI, area.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromBounds_triangle_large_4_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -573,7 +573,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, area.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromBounds_triangle_large_6_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -598,7 +598,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(3, arcs.size());
     }
 
-    @Test
+@Test
     void testFromBounds_triangle_small_1_oe() {
         // arrange
         final double azMin = 1.12 * Math.PI;
@@ -622,7 +622,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isFull());
     }
 
-    @Test
+@Test
     void testFromBounds_triangle_small_2_oe() {
         // arrange
         final double azMin = 1.12 * Math.PI;
@@ -647,7 +647,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isEmpty());
     }
 
-    @Test
+@Test
     void testFromBounds_triangle_small_3_oe() {
         // arrange
         final double azMin = 1.12 * Math.PI;
@@ -673,7 +673,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(p1.distance(p2)+ p2.distance(p3)+ p3.distance(p1),area.getBoundarySize(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromBounds_triangle_small_4_oe() {
         // arrange
         final double azMin = 1.12 * Math.PI;
@@ -701,7 +701,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(size, area.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromBounds_triangle_small_6_oe() {
         // arrange
         final double azMin = 1.12 * Math.PI;
@@ -737,7 +737,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(3, arcs.size());
     }
 
-    @Test
+@Test
     void testFromBounds_quad_1_oe() {
         // arrange
         final Point2S p1 = Point2S.of(0.2, 0.1);
@@ -757,7 +757,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isFull());
     }
 
-    @Test
+@Test
     void testFromBounds_quad_2_oe() {
         // arrange
         final Point2S p1 = Point2S.of(0.2, 0.1);
@@ -778,7 +778,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isEmpty());
     }
 
-    @Test
+@Test
     void testFromBounds_quad_3_oe() {
         // arrange
         final Point2S p1 = Point2S.of(0.2, 0.1);
@@ -800,7 +800,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(p1.distance(p2)+ p2.distance(p3)+ p3.distance(p4)+ p4.distance(p1),area.getBoundarySize(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromBounds_quad_4_oe() {
         // arrange
         final Point2S p1 = Point2S.of(0.2, 0.1);
@@ -825,7 +825,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(size, area.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromBounds_quad_5_oe() {
         // arrange
         final Point2S p1 = Point2S.of(0.2, 0.1);
@@ -855,7 +855,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(4, arcs.size());
     }
 
-    @Test
+@Test
     void testFromPath_empty_1_oe() {
         // act
         final ConvexArea2S area = ConvexArea2S.fromPath(GreatArcPath.empty());
@@ -864,7 +864,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertSame(ConvexArea2S.full(), area);
     }
 
-    @Test
+@Test
     void testFromPath_1_oe() {
         // arrange
         final GreatArcPath path = GreatArcPath.builder(TEST_PRECISION)
@@ -880,7 +880,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isFull());
     }
 
-    @Test
+@Test
     void testFromPath_2_oe() {
         // arrange
         final GreatArcPath path = GreatArcPath.builder(TEST_PRECISION)
@@ -897,7 +897,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isEmpty());
     }
 
-    @Test
+@Test
     void testFromPath_3_oe() {
         // arrange
         final GreatArcPath path = GreatArcPath.builder(TEST_PRECISION)
@@ -915,7 +915,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(1.5 * Math.PI, area.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPath_4_oe() {
         // arrange
         final GreatArcPath path = GreatArcPath.builder(TEST_PRECISION)
@@ -934,7 +934,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, area.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPath_6_oe() {
         // arrange
         final GreatArcPath path = GreatArcPath.builder(TEST_PRECISION)
@@ -961,7 +961,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(3, arcs.size());
     }
 
-    @Test
+@Test
     void testFromVertices_empty_1_oe() {
         // act
         final ConvexArea2S area = ConvexArea2S.fromVertices(Collections.emptyList(), TEST_PRECISION);
@@ -970,7 +970,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertSame(ConvexArea2S.full(), area);
     }
 
-    @Test
+@Test
     void testFromVertices_1_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -984,7 +984,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isFull());
     }
 
-    @Test
+@Test
     void testFromVertices_2_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -999,7 +999,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isEmpty());
     }
 
-    @Test
+@Test
     void testFromVertices_3_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -1015,7 +1015,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(2 * Math.PI, area.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromVertices_4_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -1032,7 +1032,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(Math.PI, area.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromVertices_6_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -1054,7 +1054,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(2, arcs.size());
     }
 
-    @Test
+@Test
     void testFromVertices_lastVertexRepeated_1_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -1068,7 +1068,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isFull());
     }
 
-    @Test
+@Test
     void testFromVertices_lastVertexRepeated_2_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -1083,7 +1083,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isEmpty());
     }
 
-    @Test
+@Test
     void testFromVertices_lastVertexRepeated_3_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -1099,7 +1099,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(1.5 * Math.PI, area.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromVertices_lastVertexRepeated_4_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -1116,7 +1116,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, area.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromVertices_lastVertexRepeated_6_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -1141,7 +1141,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(3, arcs.size());
     }
 
-    @Test
+@Test
     void testFromVertices_verticesRepeated_1_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -1156,7 +1156,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, area.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromVertices_verticesRepeated_3_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -1177,20 +1177,20 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(4, vertices.size());
     }
 
-    @Test
+@Test
     void testFromVertices_invalidArguments_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalStateException.class, () -> ConvexArea2S.fromVertices(Collections.singletonList(Point2S.PLUS_I), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFromVertices_invalidArguments_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalStateException.class, () -> ConvexArea2S.fromVertices(Arrays.asList(Point2S.PLUS_I, Point2S.of(1e-16, Angle.PI_OVER_TWO)), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFromVertexLoop_1_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -1204,7 +1204,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isFull());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_2_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -1219,7 +1219,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isEmpty());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_3_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -1235,7 +1235,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(1.5 * Math.PI, area.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromVertexLoop_4_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -1252,7 +1252,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, area.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromVertexLoop_6_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
@@ -1277,7 +1277,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(3, arcs.size());
     }
 
-    @Test
+@Test
     void testFromVertexLoop_empty_1_oe() {
         // act
         final ConvexArea2S area = ConvexArea2S.fromVertexLoop(Collections.emptyList(), TEST_PRECISION);
@@ -1286,7 +1286,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertSame(ConvexArea2S.full(), area);
     }
 
-    @Test
+@Test
     void testGetCentroid_diminishingLunes_1_oe() {
         // arrange
         final double eps = 1e-14;
@@ -1320,7 +1320,7 @@ class ConvexArea2STest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testGetCentroid_diminishingSquares_1_oe() {
         // arrange
         final double eps = 1e-14;
@@ -1354,7 +1354,7 @@ class ConvexArea2STest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testBoundaryStream_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -1367,7 +1367,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(1, arcs.size());
     }
 
-    @Test
+@Test
     void testBoundaryStream_2_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -1381,7 +1381,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertSame(circle, arcs.get(0).getCircle());
     }
 
-    @Test
+@Test
     void testBoundaryStream_noBoundaries_1_oe() {
         // arrange
         final ConvexArea2S area = ConvexArea2S.full();
@@ -1393,20 +1393,20 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(0, arcs.size());
     }
 
-    @Test
+@Test
     void testGetInteriorAngles_noAngles_1_oe() {
         // act/assert
         Assertions.assertEquals(0, ConvexArea2S.full().getInteriorAngles().length);
     }
 
-    @Test
+@Test
     void testGetInteriorAngles_noAngles_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals(0,ConvexArea2S.fromBounds(GreatCircles.fromPole(Vector3D.Unit.PLUS_X,TEST_PRECISION)).getInteriorAngles().length);
     }
 
-    @Test
+@Test
     void testGetInteriorAngles_1_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_K;
@@ -1427,7 +1427,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(4, angles.length);
     }
 
-    @Test
+@Test
     void testGetInteriorAngles_2_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_K;
@@ -1449,7 +1449,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO + 0.2, angles[0], TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetInteriorAngles_3_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_K;
@@ -1472,7 +1472,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(Math.PI - c1.angle(c2), angles[1], TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetInteriorAngles_4_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_K;
@@ -1496,7 +1496,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO + 0.1, angles[2], TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetInteriorAngles_5_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_K;
@@ -1521,7 +1521,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, angles[3], TEST_EPS);
     }
 
-    @Test
+@Test
     void testTransform_1_oe() {
         // arrange
         final Transform2S t = Transform2S.createReflection(Point2S.PLUS_J);
@@ -1535,7 +1535,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isFull());
     }
 
-    @Test
+@Test
     void testTransform_2_oe() {
         // arrange
         final Transform2S t = Transform2S.createReflection(Point2S.PLUS_J);
@@ -1550,7 +1550,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(area.isEmpty());
     }
 
-    @Test
+@Test
     void testTransform_3_oe() {
         // arrange
         final Transform2S t = Transform2S.createReflection(Point2S.PLUS_J);
@@ -1566,7 +1566,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(1.5 * Math.PI, area.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTransform_4_oe() {
         // arrange
         final Transform2S t = Transform2S.createReflection(Point2S.PLUS_J);
@@ -1583,7 +1583,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, area.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTransform_6_oe() {
         // arrange
         final Transform2S t = Transform2S.createReflection(Point2S.PLUS_J);
@@ -1608,7 +1608,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(3, arcs.size());
     }
 
-    @Test
+@Test
     void testTrim_1_oe() {
         // arrange
         final GreatCircle c1 = GreatCircles.fromPole(Vector3D.Unit.MINUS_X, TEST_PRECISION);
@@ -1631,7 +1631,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertNull(area.trim(GreatCircles.arcFromPoints(Point2S.MINUS_I, Point2S.MINUS_J, TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testSplit_both_1_oe() {
         // arrange
         final GreatCircle c1 = GreatCircles.fromPole(Vector3D.Unit.MINUS_X, TEST_PRECISION);
@@ -1648,7 +1648,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_both_4_oe() {
         // arrange
         final GreatCircle c1 = GreatCircles.fromPole(Vector3D.Unit.MINUS_X, TEST_PRECISION);
@@ -1676,7 +1676,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(area.getSize(), minus.getSize() + plus.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSplit_minus_1_oe() {
         // arrange
         final ConvexArea2S area = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1692,7 +1692,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_minus_2_oe() {
         // arrange
         final ConvexArea2S area = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1710,7 +1710,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertSame(area, split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_minus_3_oe() {
         // arrange
         final ConvexArea2S area = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1729,7 +1729,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_plus_1_oe() {
         // arrange
         final ConvexArea2S area = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1745,7 +1745,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_plus_2_oe() {
         // arrange
         final ConvexArea2S area = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1763,7 +1763,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_plus_3_oe() {
         // arrange
         final ConvexArea2S area = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1782,7 +1782,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertSame(area, split.getPlus());
     }
 
-    @Test
+@Test
     void testToList_full_1_oe() {
         // arrange
         final ConvexArea2S area = ConvexArea2S.full();
@@ -1794,7 +1794,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(0, list.count());
     }
 
-    @Test
+@Test
     void testToList_1_oe() {
         // arrange
         final ConvexArea2S area = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1810,7 +1810,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(4, list.count());
     }
 
-    @Test
+@Test
     void testToList_2_oe() {
         // arrange
         final ConvexArea2S area = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1827,7 +1827,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(area.getSize(), list.toTree().getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToTree_full_1_oe() {
         // arrange
         final ConvexArea2S area = ConvexArea2S.full();
@@ -1839,7 +1839,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_full_2_oe() {
         // arrange
         final ConvexArea2S area = ConvexArea2S.full();
@@ -1852,7 +1852,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testToTree_1_oe() {
         // arrange
         final ConvexArea2S area = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1868,7 +1868,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_2_oe() {
         // arrange
         final ConvexArea2S area = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1885,7 +1885,7 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testToTree_3_oe() {
         // arrange
         final ConvexArea2S area = ConvexArea2S.fromVertexLoop(Arrays.asList(

@@ -67,7 +67,7 @@ public class TiffSubImageTest_OE25Dev extends TiffBaseTest {
     }
 
 
-    @Test
+@Test
     public void testBadSubImage_1_oe()  throws ImageReadException, IOException {
         final TiffImageParser tiffImageParser = new TiffImageParser();
         final File target = imageFileList.get(0);
@@ -82,7 +82,7 @@ public class TiffSubImageTest_OE25Dev extends TiffBaseTest {
         assertEquals(image.getWidth(), width, "Improper width when sub-imaging entire image");
     }
 
-    @Test
+@Test
     public void testBadSubImage_2_oe()  throws ImageReadException, IOException {
         final TiffImageParser tiffImageParser = new TiffImageParser();
         final File target = imageFileList.get(0);
@@ -98,7 +98,7 @@ public class TiffSubImageTest_OE25Dev extends TiffBaseTest {
         assertEquals(image.getHeight(), height, "Improper height when sub-imaging entire image");
     }
 
-    @Test
+@Test
     public void testSubImageCorrectness_1_oe() throws ImageReadException, IOException {
         final TiffImageParser tiffImageParser = new TiffImageParser();
         for(final File target: imageFileList) {
@@ -119,7 +119,7 @@ public class TiffSubImageTest_OE25Dev extends TiffBaseTest {
     }
     }
 
-    @Test
+@Test
     public void testSubImageCorrectness_2_oe() throws ImageReadException, IOException {
         final TiffImageParser tiffImageParser = new TiffImageParser();
         for(final File target: imageFileList) {
@@ -141,7 +141,7 @@ public class TiffSubImageTest_OE25Dev extends TiffBaseTest {
     }
     }
 
-    @Test
+@Test
     public void testSubImageCorrectness_3_oe() throws ImageReadException, IOException {
         final TiffImageParser tiffImageParser = new TiffImageParser();
         for(final File target: imageFileList) {

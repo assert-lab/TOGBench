@@ -38,7 +38,7 @@ public class Class2HTMLTestCase_OE25Dev extends TestCase {
         short referenceToConstant = Class2HTML.AALOAD;
     }
 
-    public void testConvertJavaUtil_1_oe() throws Exception {
+public void testConvertJavaUtil_1_oe() throws Exception {
         final File outputDir = new File("target/test-output/html");
         if (!outputDir.mkdirs()) { // either was not created or already existed
             Assert.assertTrue(outputDir.isDirectory()); // fail if missing;

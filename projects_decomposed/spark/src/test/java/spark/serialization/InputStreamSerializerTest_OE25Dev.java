@@ -24,7 +24,7 @@ public class InputStreamSerializerTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testProcess_copiesData_1_oe() throws IOException {
         byte[] bytes = "Hello, Spark!".getBytes();
         ByteArrayInputStream input = new ByteArrayInputStream(bytes);
@@ -35,7 +35,7 @@ public class InputStreamSerializerTest_OE25Dev {
         Assert.assertArrayEquals(bytes, output.toByteArray());
     }
 
-    @Test
+@Test
     public void testProcess_closesStream_1_oe() throws IOException {
         MockInputStream input = new MockInputStream(new ByteArrayInputStream(new byte[0]));
         ByteArrayOutputStream output = new ByteArrayOutputStream();

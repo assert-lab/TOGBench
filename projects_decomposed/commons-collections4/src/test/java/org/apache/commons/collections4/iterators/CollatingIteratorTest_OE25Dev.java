@@ -85,19 +85,19 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
 
     //------------------------------------------------------------------- Tests
 
-    public void testGetSetComparator_1_oe() {
+public void testGetSetComparator_1_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>();
         assertNull(iter.getComparator());
     }
 
-    public void testGetSetComparator_2_oe() {
+public void testGetSetComparator_2_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>();
         // removed other assertion
         iter.setComparator(comparator);
         assertSame(comparator, iter.getComparator());
     }
 
-    public void testGetSetComparator_3_oe() {
+public void testGetSetComparator_3_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>();
         // removed other assertion
         iter.setComparator(comparator);
@@ -106,7 +106,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertNull(iter.getComparator());
     }
 
-    public void testIterateEven_1_oe() {
+public void testIterateEven_1_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(evens.iterator());
         for (int i = 0; i < evens.size(); i++) {
@@ -114,7 +114,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
     }
     }
 
-    public void testIterateEven_2_oe() {
+public void testIterateEven_2_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(evens.iterator());
         for (int i = 0; i < evens.size(); i++) {
@@ -123,7 +123,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
     }
     }
 
-    public void testIterateEven_3_oe() {
+public void testIterateEven_3_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(evens.iterator());
         for (int i = 0; i < evens.size(); i++) {
@@ -133,7 +133,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
     }
     }
 
-    public void testIterateEven_4_oe() {
+public void testIterateEven_4_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(evens.iterator());
         for (int i = 0; i < evens.size(); i++) {
@@ -144,14 +144,14 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertTrue(!iter.hasNext());
     }
 
-    public void testIterateEvenOdd_1_oe() {
+public void testIterateEvenOdd_1_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator, evens.iterator(), odds.iterator());
         for (int i = 0; i < 20; i++) {
             assertTrue(iter.hasNext());
     }
     }
 
-    public void testIterateEvenOdd_2_oe() {
+public void testIterateEvenOdd_2_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator, evens.iterator(), odds.iterator());
         for (int i = 0; i < 20; i++) {
             // removed other assertion
@@ -159,7 +159,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
     }
     }
 
-    public void testIterateEvenOdd_3_oe() {
+public void testIterateEvenOdd_3_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator, evens.iterator(), odds.iterator());
         for (int i = 0; i < 20; i++) {
             // removed other assertion
@@ -168,7 +168,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
     }
     }
 
-    public void testIterateEvenOdd_4_oe() {
+public void testIterateEvenOdd_4_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator, evens.iterator(), odds.iterator());
         for (int i = 0; i < 20; i++) {
             // removed other assertion
@@ -178,14 +178,14 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertTrue(!iter.hasNext());
     }
 
-    public void testIterateOddEven_1_oe() {
+public void testIterateOddEven_1_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator, odds.iterator(), evens.iterator());
         for (int i = 0; i < 20; i++) {
             assertTrue(iter.hasNext());
     }
     }
 
-    public void testIterateOddEven_2_oe() {
+public void testIterateOddEven_2_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator, odds.iterator(), evens.iterator());
         for (int i = 0; i < 20; i++) {
             // removed other assertion
@@ -193,7 +193,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
     }
     }
 
-    public void testIterateOddEven_3_oe() {
+public void testIterateOddEven_3_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator, odds.iterator(), evens.iterator());
         for (int i = 0; i < 20; i++) {
             // removed other assertion
@@ -202,7 +202,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
     }
     }
 
-    public void testIterateOddEven_4_oe() {
+public void testIterateOddEven_4_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator, odds.iterator(), evens.iterator());
         for (int i = 0; i < 20; i++) {
             // removed other assertion
@@ -212,7 +212,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertTrue(!iter.hasNext());
     }
 
-    public void testIterateEvenEven_1_oe() {
+public void testIterateEvenEven_1_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(evens.iterator());
         iter.addIterator(evens.iterator());
@@ -221,7 +221,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
     }
     }
 
-    public void testIterateEvenEven_2_oe() {
+public void testIterateEvenEven_2_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(evens.iterator());
         iter.addIterator(evens.iterator());
@@ -231,7 +231,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
     }
     }
 
-    public void testIterateEvenEven_3_oe() {
+public void testIterateEvenEven_3_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(evens.iterator());
         iter.addIterator(evens.iterator());
@@ -242,7 +242,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
     }
     }
 
-    public void testIterateEvenEven_4_oe() {
+public void testIterateEvenEven_4_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(evens.iterator());
         iter.addIterator(evens.iterator());
@@ -254,7 +254,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
     }
     }
 
-    public void testIterateEvenEven_5_oe() {
+public void testIterateEvenEven_5_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(evens.iterator());
         iter.addIterator(evens.iterator());
@@ -267,7 +267,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
     }
     }
 
-    public void testIterateEvenEven_6_oe() {
+public void testIterateEvenEven_6_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(evens.iterator());
         iter.addIterator(evens.iterator());
@@ -281,7 +281,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
     }
     }
 
-    public void testIterateEvenEven_7_oe() {
+public void testIterateEvenEven_7_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(evens.iterator());
         iter.addIterator(evens.iterator());
@@ -296,7 +296,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertTrue(!iter.hasNext());
     }
 
-    public void testIterateFibEvenOdd_1_oe() {
+public void testIterateFibEvenOdd_1_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -305,7 +305,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(0),iter.next());// even 0 assertEquals(1,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_2_oe() {
+public void testIterateFibEvenOdd_2_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -315,7 +315,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(1),iter.next());// fib 1 assertEquals(0,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_3_oe() {
+public void testIterateFibEvenOdd_3_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -326,7 +326,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(1),iter.next());// fib 1 assertEquals(0,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_4_oe() {
+public void testIterateFibEvenOdd_4_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -338,7 +338,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(1),iter.next());// odd 1 assertEquals(2,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_5_oe() {
+public void testIterateFibEvenOdd_5_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -351,7 +351,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(2),iter.next());// fib 2 assertEquals(0,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_6_oe() {
+public void testIterateFibEvenOdd_6_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -365,7 +365,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(2),iter.next());// even 2 assertEquals(1,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_7_oe() {
+public void testIterateFibEvenOdd_7_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -380,7 +380,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(3),iter.next());// fib 3 assertEquals(0,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_8_oe() {
+public void testIterateFibEvenOdd_8_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -396,7 +396,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(3),iter.next());// odd 3 assertEquals(2,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_9_oe() {
+public void testIterateFibEvenOdd_9_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -413,7 +413,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(4),iter.next());// even 4 assertEquals(1,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_10_oe() {
+public void testIterateFibEvenOdd_10_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -431,7 +431,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(5),iter.next());// fib 5 assertEquals(0,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_11_oe() {
+public void testIterateFibEvenOdd_11_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -450,7 +450,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(5),iter.next());// odd 5 assertEquals(2,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_12_oe() {
+public void testIterateFibEvenOdd_12_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -470,7 +470,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(6),iter.next());// even 6 assertEquals(1,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_13_oe() {
+public void testIterateFibEvenOdd_13_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -491,7 +491,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(7),iter.next());// odd 7 assertEquals(2,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_14_oe() {
+public void testIterateFibEvenOdd_14_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -513,7 +513,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(8),iter.next());// fib 8 assertEquals(0,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_15_oe() {
+public void testIterateFibEvenOdd_15_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -536,7 +536,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(8),iter.next());// even 8 assertEquals(1,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_16_oe() {
+public void testIterateFibEvenOdd_16_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -560,7 +560,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(9),iter.next());// odd 9 assertEquals(2,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_17_oe() {
+public void testIterateFibEvenOdd_17_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -585,7 +585,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(10),iter.next());// even 10 assertEquals(1,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_18_oe() {
+public void testIterateFibEvenOdd_18_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -611,7 +611,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(11),iter.next());// odd 11 assertEquals(2,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_19_oe() {
+public void testIterateFibEvenOdd_19_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -638,7 +638,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(12),iter.next());// even 12 assertEquals(1,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_20_oe() {
+public void testIterateFibEvenOdd_20_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -666,7 +666,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(13),iter.next());// fib 13 assertEquals(0,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_21_oe() {
+public void testIterateFibEvenOdd_21_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -695,7 +695,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(13),iter.next());// odd 13 assertEquals(2,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_22_oe() {
+public void testIterateFibEvenOdd_22_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -725,7 +725,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(14),iter.next());// even 14 assertEquals(1,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_23_oe() {
+public void testIterateFibEvenOdd_23_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -756,7 +756,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(15),iter.next());// odd 15 assertEquals(2,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_24_oe() {
+public void testIterateFibEvenOdd_24_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -788,7 +788,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(16),iter.next());// even 16 assertEquals(1,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_25_oe() {
+public void testIterateFibEvenOdd_25_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -821,7 +821,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(17),iter.next());// odd 17 assertEquals(2,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_26_oe() {
+public void testIterateFibEvenOdd_26_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -855,7 +855,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(18),iter.next());// even 18 assertEquals(1,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_27_oe() {
+public void testIterateFibEvenOdd_27_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -890,7 +890,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(19),iter.next());// odd 19 assertEquals(2,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_28_oe() {
+public void testIterateFibEvenOdd_28_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -926,7 +926,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(Integer.valueOf(21),iter.next());// fib 21 assertEquals(0,iter.getIteratorIndex());
     }
 
-    public void testIterateFibEvenOdd_29_oe() {
+public void testIterateFibEvenOdd_29_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(fib.iterator());
         iter.addIterator(evens.iterator());
@@ -964,7 +964,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertTrue(!iter.hasNext());
     }
 
-    public void testRemoveFromSingle_1_oe() {
+public void testRemoveFromSingle_1_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(evens.iterator());
         int expectedSize = evens.size();
@@ -979,7 +979,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(expectedSize,evens.size());
     }
 
-    public void testRemoveFromDouble_1_oe() {
+public void testRemoveFromDouble_1_oe() {
         final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
         iter.addIterator(evens.iterator());
         iter.addIterator(odds.iterator());
@@ -995,7 +995,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         assertEquals(expectedSize, evens.size() + odds.size());
     }
 
-    public void testNullComparator_1_oe() {
+public void testNullComparator_1_oe() {
        final List<Integer> l1 = Arrays.asList(1, 3, 5);
        final List<Integer> l2 = Arrays.asList(2, 4, 6);
 
@@ -1007,7 +1007,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
     }
     }
 
-    public void testNullComparator_2_oe() {
+public void testNullComparator_2_oe() {
        final List<Integer> l1 = Arrays.asList(1, 3, 5);
        final List<Integer> l2 = Arrays.asList(2, 4, 6);
 
@@ -1027,7 +1027,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
     }
     }
 
-    public void testNullComparator_3_oe() {
+public void testNullComparator_3_oe() {
        final List<Integer> l1 = Arrays.asList(1, 3, 5);
        final List<Integer> l2 = Arrays.asList(2, 4, 6);
 

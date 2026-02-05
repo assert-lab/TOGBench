@@ -116,7 +116,7 @@ public class EmptyFileFilterTest_OE25Dev extends BaseFilterTest {
 
     }
 
-    @Test
+@Test
     public void testAcceptEmpty_1_oe() throws FileSystemException {
 
         final FileFilter testee = EmptyFileFilter.EMPTY;
@@ -124,7 +124,7 @@ public class EmptyFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(notEmptyFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptEmpty_2_oe() throws FileSystemException {
 
         final FileFilter testee = EmptyFileFilter.EMPTY;
@@ -133,7 +133,7 @@ public class EmptyFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(emptyFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptEmpty_3_oe() throws FileSystemException {
 
         final FileFilter testee = EmptyFileFilter.EMPTY;
@@ -143,7 +143,7 @@ public class EmptyFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(notEmptyDirInfo));
     }
 
-    @Test
+@Test
     public void testAcceptEmpty_4_oe() throws FileSystemException {
 
         final FileFilter testee = EmptyFileFilter.EMPTY;
@@ -154,7 +154,7 @@ public class EmptyFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(emptyDirInfo));
     }
 
-    @Test
+@Test
     public void testAcceptEmpty_5_oe() throws FileSystemException {
 
         final FileFilter testee = EmptyFileFilter.EMPTY;
@@ -166,7 +166,7 @@ public class EmptyFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(notExistingFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptNotEmpty_1_oe() throws FileSystemException {
 
         final FileFilter testee = EmptyFileFilter.NOT_EMPTY;
@@ -174,7 +174,7 @@ public class EmptyFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(notEmptyFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptNotEmpty_2_oe() throws FileSystemException {
 
         final FileFilter testee = EmptyFileFilter.NOT_EMPTY;
@@ -183,7 +183,7 @@ public class EmptyFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(emptyFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptNotEmpty_3_oe() throws FileSystemException {
 
         final FileFilter testee = EmptyFileFilter.NOT_EMPTY;
@@ -193,7 +193,7 @@ public class EmptyFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(notEmptyDirInfo));
     }
 
-    @Test
+@Test
     public void testAcceptNotEmpty_4_oe() throws FileSystemException {
 
         final FileFilter testee = EmptyFileFilter.NOT_EMPTY;
@@ -204,7 +204,7 @@ public class EmptyFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(emptyDirInfo));
     }
 
-    @Test
+@Test
     public void testAcceptNotEmpty_5_oe() throws FileSystemException {
 
         final FileFilter testee = EmptyFileFilter.NOT_EMPTY;
@@ -216,7 +216,7 @@ public class EmptyFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(notExistingFileInfo));
     }
 
-    @Test
+@Test
     public void testZipFile_2_oe() throws FileSystemException {
 
         // Same test with ZIP file
@@ -227,7 +227,7 @@ public class EmptyFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertEquals(1, files.length);
     }
 
-    @Test
+@Test
     public void testZipFile_4_oe() throws FileSystemException {
 
         // Same test with ZIP file

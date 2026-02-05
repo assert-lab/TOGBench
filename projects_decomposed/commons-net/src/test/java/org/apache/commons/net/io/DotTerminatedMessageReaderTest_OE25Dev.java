@@ -31,7 +31,7 @@ public class DotTerminatedMessageReaderTest_OE25Dev extends TestCase {
     private static final String DOT = ".";
     private static final String EOM = CRLF+DOT+CRLF;
 
-    public void testReadSimpleStringCrLfLineEnding_1_oe() throws IOException {
+public void testReadSimpleStringCrLfLineEnding_1_oe() throws IOException {
         final String test = "Hello World!"+EOM;
         reader = new DotTerminatedMessageReader(new StringReader(test));
 
@@ -43,7 +43,7 @@ public class DotTerminatedMessageReaderTest_OE25Dev extends TestCase {
         assertEquals("Hello World!"+CRLF, str.toString());
     }
 
-    public void testReadSimpleStringLfLineEnding_1_oe() throws IOException {
+public void testReadSimpleStringLfLineEnding_1_oe() throws IOException {
         final String test = "Hello World!"+EOM;
         reader = new DotTerminatedMessageReader(new StringReader(test));
 
@@ -55,7 +55,7 @@ public class DotTerminatedMessageReaderTest_OE25Dev extends TestCase {
         assertEquals("Hello World!"+CRLF, str.toString());
     }
 
-    public void testEmbeddedNewlines_1_oe() throws IOException {
+public void testEmbeddedNewlines_1_oe() throws IOException {
         final String test = "Hello"+CRLF+"World\nA\rB"+EOM;
         reader = new DotTerminatedMessageReader(new StringReader(test));
 
@@ -67,7 +67,7 @@ public class DotTerminatedMessageReaderTest_OE25Dev extends TestCase {
         assertEquals(str.toString(), "Hello" + CRLF  +"World\nA\rB" + CRLF);
     }
 
-    public void testDoubleCrBeforeDot_1_oe() throws IOException {
+public void testDoubleCrBeforeDot_1_oe() throws IOException {
         final String test = "Hello World!\r"+EOM;
         reader = new DotTerminatedMessageReader(new StringReader(test));
 
@@ -79,7 +79,7 @@ public class DotTerminatedMessageReaderTest_OE25Dev extends TestCase {
         assertEquals("Hello World!\r" + CRLF,str.toString());
     }
 
-    public void testLeadingDot_1_oe() throws IOException {
+public void testLeadingDot_1_oe() throws IOException {
         final String test = "Hello World!"+CRLF+"..text"+EOM;
         reader = new DotTerminatedMessageReader(new StringReader(test));
 
@@ -91,7 +91,7 @@ public class DotTerminatedMessageReaderTest_OE25Dev extends TestCase {
         assertEquals("Hello World!" + CRLF+".text"+CRLF,str.toString());
     }
 
-    public void testEmbeddedDot1_1_oe() throws IOException {
+public void testEmbeddedDot1_1_oe() throws IOException {
         final String test = "Hello . World!"+EOM;
         reader = new DotTerminatedMessageReader(new StringReader(test));
 
@@ -103,7 +103,7 @@ public class DotTerminatedMessageReaderTest_OE25Dev extends TestCase {
         assertEquals("Hello . World!" + CRLF,str.toString());
     }
 
-    public void testEmbeddedDot2_1_oe() throws IOException {
+public void testEmbeddedDot2_1_oe() throws IOException {
         final String test = "Hello .. World!"+EOM;
         reader = new DotTerminatedMessageReader(new StringReader(test));
 
@@ -115,7 +115,7 @@ public class DotTerminatedMessageReaderTest_OE25Dev extends TestCase {
         assertEquals("Hello .. World!" + CRLF,str.toString());
     }
 
-    public void testEmbeddedDot3_1_oe() throws IOException {
+public void testEmbeddedDot3_1_oe() throws IOException {
         final String test = "Hello World."+CRLF+"more"+EOM;
         reader = new DotTerminatedMessageReader(new StringReader(test));
 
@@ -127,7 +127,7 @@ public class DotTerminatedMessageReaderTest_OE25Dev extends TestCase {
         assertEquals("Hello World." + CRLF+"more"+CRLF,str.toString());
     }
 
-    public void testEmbeddedDot4_1_oe() throws IOException {
+public void testEmbeddedDot4_1_oe() throws IOException {
         final String test = "Hello World\r.\nmore"+EOM;
         reader = new DotTerminatedMessageReader(new StringReader(test));
 
@@ -139,7 +139,7 @@ public class DotTerminatedMessageReaderTest_OE25Dev extends TestCase {
         assertEquals("Hello World\r.\nmore" + CRLF,str.toString());
     }
 
-    public void testReadLine1_1_oe() throws Exception {
+public void testReadLine1_1_oe() throws Exception {
         final String test = "Hello World"+CRLF+"more"+EOM;
         reader = new DotTerminatedMessageReader(new StringReader(test));
 
@@ -152,7 +152,7 @@ public class DotTerminatedMessageReaderTest_OE25Dev extends TestCase {
         assertEquals("Hello World#more#",str.toString());
     }
 
-    public void testReadLine2_1_oe() throws Exception {
+public void testReadLine2_1_oe() throws Exception {
         final String test = "Hello World\r.\nmore"+EOM;
         reader = new DotTerminatedMessageReader(new StringReader(test));
 
@@ -165,7 +165,7 @@ public class DotTerminatedMessageReaderTest_OE25Dev extends TestCase {
         assertEquals("Hello World\r.\nmore#",str.toString());
     }
 
-    public void testSingleDotWithTrailingText_1_oe() throws IOException {
+public void testSingleDotWithTrailingText_1_oe() throws IOException {
         final String test = "Hello World!"+CRLF+".text"+EOM;
         reader = new DotTerminatedMessageReader(new StringReader(test));
 

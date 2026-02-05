@@ -55,7 +55,7 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
      * @throws IOException if it fails to read the test image
      */
 
-    @Test
+@Test
     public void test_1_oe() throws Exception {
         Debug.debug("start");
 
@@ -69,7 +69,7 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_2_oe() throws Exception {
         Debug.debug("start");
 
@@ -85,7 +85,7 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_3_oe() throws Exception {
         Debug.debug("start");
 
@@ -103,7 +103,7 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_4_oe() throws Exception {
         Debug.debug("start");
 
@@ -124,7 +124,7 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_5_oe() throws Exception {
         Debug.debug("start");
 
@@ -147,7 +147,7 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_6_oe() throws Exception {
         Debug.debug("start");
 
@@ -175,7 +175,7 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
     }
     }
 
-    @Test
+@Test
     public void testUncaughtExceptionOssFuzz33691_1_oe() throws IOException {
         final String input = "/images/png/oss-fuzz-33691/clusterfuzz-testcase-minimized-ImagingPngFuzzer-6177282101215232";
         final String file = PngReadTest.class.getResource(input).getFile();
@@ -183,7 +183,7 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
         assertThrows(ImageReadException.class, () -> parser.getBufferedImage(new ByteSourceFile(new File(file)), new PngImagingParameters()));
     }
 
-    @Test
+@Test
     public void testUncaughtExceptionOssFuzz37607_1_oe() throws IOException {
         final String input = "/images/png/IMAGING-317/clusterfuzz-testcase-minimized-ImagingPngFuzzer-6242400830357504";
         final String file = PngReadTest.class.getResource(input).getFile();

@@ -57,7 +57,7 @@ class BoundarySourceBoundsBuilder2DTest_OE25Dev {
         EuclideanTestUtils.assertCoordinatesEqual(max, b.getMax(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetBounds_noBoundaries_1_oe() {
         // arrange
         final BoundarySource2D src = BoundarySource2D.of(new ArrayList<>());
@@ -70,7 +70,7 @@ class BoundarySourceBoundsBuilder2DTest_OE25Dev {
         Assertions.assertNull(b);
     }
 
-    @Test
+@Test
     void testGetBounds_singleFiniteBoundary_1_oe() {
         // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.of(1, -2), Vector2D.of(-3, 4), TEST_PRECISION);
@@ -86,7 +86,7 @@ class BoundarySourceBoundsBuilder2DTest_OE25Dev {
         Assertions.assertTrue(b.contains(seg.getStartPoint()));
     }
 
-    @Test
+@Test
     void testGetBounds_singleFiniteBoundary_2_oe() {
         // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.of(1, -2), Vector2D.of(-3, 4), TEST_PRECISION);
@@ -103,7 +103,7 @@ class BoundarySourceBoundsBuilder2DTest_OE25Dev {
         Assertions.assertTrue(b.contains(seg.getEndPoint()));
     }
 
-    @Test
+@Test
     void testGetBounds_singleInfiniteBoundary_1_oe() {
         // arrange
         final LineConvexSubset boundary = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION)
@@ -118,7 +118,7 @@ class BoundarySourceBoundsBuilder2DTest_OE25Dev {
         Assertions.assertNull(b);
     }
 
-    @Test
+@Test
     void testGetBounds_mixedFiniteAndInfiniteBoundaries_1_oe() {
         // arrange
         final LineConvexSubset inf = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION)

@@ -48,7 +48,7 @@ public class ClassReloaderTestCase_OE25Dev extends TestCase {
      * Test basic operation of the ClassReloader.
      */
 
-    public void testBasicOperation_1_oe() throws Exception {
+public void testBasicOperation_1_oe() throws Exception {
         final ClassLoader sharedLoader = this.getClass().getClassLoader();
         final ClassReloader componentLoader = new ClassReloader(sharedLoader);
 
@@ -59,7 +59,7 @@ public class ClassReloaderTestCase_OE25Dev extends TestCase {
         assertTrue(sharedClass != componentClass);
     }
 
-    public void testBasicOperation_2_oe() throws Exception {
+public void testBasicOperation_2_oe() throws Exception {
         final ClassLoader sharedLoader = this.getClass().getClassLoader();
         final ClassReloader componentLoader = new ClassReloader(sharedLoader);
 
@@ -73,7 +73,7 @@ public class ClassReloaderTestCase_OE25Dev extends TestCase {
         assertSame(sharedLoader, sharedClass.getClassLoader());
     }
 
-    public void testBasicOperation_3_oe() throws Exception {
+public void testBasicOperation_3_oe() throws Exception {
         final ClassLoader sharedLoader = this.getClass().getClassLoader();
         final ClassReloader componentLoader = new ClassReloader(sharedLoader);
 
@@ -88,7 +88,7 @@ public class ClassReloaderTestCase_OE25Dev extends TestCase {
         assertSame(componentLoader, componentClass.getClassLoader());
     }
 
-    public void testBasicOperation_4_oe() throws Exception {
+public void testBasicOperation_4_oe() throws Exception {
         final ClassLoader sharedLoader = this.getClass().getClassLoader();
         final ClassReloader componentLoader = new ClassReloader(sharedLoader);
 
@@ -104,7 +104,7 @@ public class ClassReloaderTestCase_OE25Dev extends TestCase {
         assertTrue(sharedLoader != componentLoader);
     }
 
-    public void testBasicOperation_5_oe() throws Exception {
+public void testBasicOperation_5_oe() throws Exception {
         final ClassLoader sharedLoader = this.getClass().getClassLoader();
         final ClassReloader componentLoader = new ClassReloader(sharedLoader);
 
@@ -126,7 +126,7 @@ public class ClassReloaderTestCase_OE25Dev extends TestCase {
         assertTrue("Obj1 class incorrect", sharedClass.isInstance(obj1));
     }
 
-    public void testBasicOperation_6_oe() throws Exception {
+public void testBasicOperation_6_oe() throws Exception {
         final ClassLoader sharedLoader = this.getClass().getClassLoader();
         final ClassReloader componentLoader = new ClassReloader(sharedLoader);
 
@@ -149,7 +149,7 @@ public class ClassReloaderTestCase_OE25Dev extends TestCase {
         assertFalse("Obj1 class incorrect", componentClass.isInstance(obj1));
     }
 
-    public void testBasicOperation_7_oe() throws Exception {
+public void testBasicOperation_7_oe() throws Exception {
         final ClassLoader sharedLoader = this.getClass().getClassLoader();
         final ClassReloader componentLoader = new ClassReloader(sharedLoader);
 
@@ -173,7 +173,7 @@ public class ClassReloaderTestCase_OE25Dev extends TestCase {
         assertFalse("Obj2 class incorrect", sharedClass.isInstance(obj2));
     }
 
-    public void testBasicOperation_8_oe() throws Exception {
+public void testBasicOperation_8_oe() throws Exception {
         final ClassLoader sharedLoader = this.getClass().getClassLoader();
         final ClassReloader componentLoader = new ClassReloader(sharedLoader);
 

@@ -137,7 +137,7 @@ public class CollectionSortedBagTest_OE25Dev<T> extends AbstractCollectionTest<T
      * against the canonical version in SVN.
      */
 
-    public void testEmptyBagCompatibility_1_oe() throws IOException, ClassNotFoundException {
+public void testEmptyBagCompatibility_1_oe() throws IOException, ClassNotFoundException {
         // test to make sure the canonical form has been preserved
         final Bag<T> bag = makeObject();
         if (bag instanceof Serializable && !skipSerializedCanonicalTests() && isTestSerialization()) {
@@ -146,7 +146,7 @@ public class CollectionSortedBagTest_OE25Dev<T> extends AbstractCollectionTest<T
     }
     }
 
-    public void testEmptyBagCompatibility_2_oe() throws IOException, ClassNotFoundException {
+public void testEmptyBagCompatibility_2_oe() throws IOException, ClassNotFoundException {
         // test to make sure the canonical form has been preserved
         final Bag<T> bag = makeObject();
         if (bag instanceof Serializable && !skipSerializedCanonicalTests() && isTestSerialization()) {
@@ -156,7 +156,7 @@ public class CollectionSortedBagTest_OE25Dev<T> extends AbstractCollectionTest<T
     }
     }
 
-    public void testFullBagCompatibility_1_oe() throws IOException, ClassNotFoundException {
+public void testFullBagCompatibility_1_oe() throws IOException, ClassNotFoundException {
         // test to make sure the canonical form has been preserved
         final SortedBag<T> bag = (SortedBag<T>) makeFullCollection();
         if (bag instanceof Serializable && !skipSerializedCanonicalTests() && isTestSerialization()) {
@@ -165,7 +165,7 @@ public class CollectionSortedBagTest_OE25Dev<T> extends AbstractCollectionTest<T
     }
     }
 
-    public void testFullBagCompatibility_2_oe() throws IOException, ClassNotFoundException {
+public void testFullBagCompatibility_2_oe() throws IOException, ClassNotFoundException {
         // test to make sure the canonical form has been preserved
         final SortedBag<T> bag = (SortedBag<T>) makeFullCollection();
         if (bag instanceof Serializable && !skipSerializedCanonicalTests() && isTestSerialization()) {

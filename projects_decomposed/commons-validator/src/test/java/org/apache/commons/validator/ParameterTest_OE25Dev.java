@@ -85,7 +85,7 @@ public class ParameterTest_OE25Dev extends AbstractCommonTest {
         return name;
     }
 
-    public void testAllValid_1_oe() {
+public void testAllValid_1_oe() {
 
         // Create bean to run test on.
         NameBean bean = createNameBean();

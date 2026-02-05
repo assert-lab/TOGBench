@@ -68,226 +68,226 @@ public class TestMillisDurationField_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void test_getType_1_oe() {
+public void test_getType_1_oe() {
         assertEquals(DurationFieldType.millis(),MillisDurationField.INSTANCE.getType());
     }
 
-    public void test_getName_1_oe() {
+public void test_getName_1_oe() {
         assertEquals("millis",MillisDurationField.INSTANCE.getName());
     }
 
-    public void test_isSupported_1_oe() {
+public void test_isSupported_1_oe() {
         assertEquals(true,MillisDurationField.INSTANCE.isSupported());
     }
 
-    public void test_isPrecise_1_oe() {
+public void test_isPrecise_1_oe() {
         assertEquals(true,MillisDurationField.INSTANCE.isPrecise());
     }
 
-    public void test_getUnitMillis_1_oe() {
+public void test_getUnitMillis_1_oe() {
         assertEquals(1,MillisDurationField.INSTANCE.getUnitMillis());
     }
 
-    public void test_toString_1_oe() {
+public void test_toString_1_oe() {
         assertEquals("DurationField[millis]",MillisDurationField.INSTANCE.toString());
     }
 
-    public void test_getValue_long_1_oe() {
+public void test_getValue_long_1_oe() {
         assertEquals(0,MillisDurationField.INSTANCE.getValue(0L));
     }
 
-    public void test_getValue_long_2_oe() {
+public void test_getValue_long_2_oe() {
         // removed other assertion
         assertEquals(1234,MillisDurationField.INSTANCE.getValue(1234L));
     }
 
-    public void test_getValue_long_3_oe() {
+public void test_getValue_long_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(-1234,MillisDurationField.INSTANCE.getValue(-1234L));
     }
 
-    public void test_getValueAsLong_long_1_oe() {
+public void test_getValueAsLong_long_1_oe() {
         assertEquals(0L,MillisDurationField.INSTANCE.getValueAsLong(0L));
     }
 
-    public void test_getValueAsLong_long_2_oe() {
+public void test_getValueAsLong_long_2_oe() {
         // removed other assertion
         assertEquals(1234L,MillisDurationField.INSTANCE.getValueAsLong(1234L));
     }
 
-    public void test_getValueAsLong_long_3_oe() {
+public void test_getValueAsLong_long_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(-1234L,MillisDurationField.INSTANCE.getValueAsLong(-1234L));
     }
 
-    public void test_getValueAsLong_long_4_oe() {
+public void test_getValueAsLong_long_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(((long)(Integer.MAX_VALUE))+ 1L,MillisDurationField.INSTANCE.getValueAsLong(((long)(Integer.MAX_VALUE))+ 1L));
     }
 
-    public void test_getValue_long_long_1_oe() {
+public void test_getValue_long_long_1_oe() {
         assertEquals(0,MillisDurationField.INSTANCE.getValue(0L,567L));
     }
 
-    public void test_getValue_long_long_2_oe() {
+public void test_getValue_long_long_2_oe() {
         // removed other assertion
         assertEquals(1234,MillisDurationField.INSTANCE.getValue(1234L,567L));
     }
 
-    public void test_getValue_long_long_3_oe() {
+public void test_getValue_long_long_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(-1234,MillisDurationField.INSTANCE.getValue(-1234L,567L));
     }
 
-    public void test_getValueAsLong_long_long_1_oe() {
+public void test_getValueAsLong_long_long_1_oe() {
         assertEquals(0L,MillisDurationField.INSTANCE.getValueAsLong(0L,567L));
     }
 
-    public void test_getValueAsLong_long_long_2_oe() {
+public void test_getValueAsLong_long_long_2_oe() {
         // removed other assertion
         assertEquals(1234L,MillisDurationField.INSTANCE.getValueAsLong(1234L,567L));
     }
 
-    public void test_getValueAsLong_long_long_3_oe() {
+public void test_getValueAsLong_long_long_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(-1234L,MillisDurationField.INSTANCE.getValueAsLong(-1234L,567L));
     }
 
-    public void test_getValueAsLong_long_long_4_oe() {
+public void test_getValueAsLong_long_long_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(((long)(Integer.MAX_VALUE))+ 1L,MillisDurationField.INSTANCE.getValueAsLong(((long)(Integer.MAX_VALUE))+ 1L,567L));
     }
 
-    public void test_getMillis_int_1_oe() {
+public void test_getMillis_int_1_oe() {
         assertEquals(0,MillisDurationField.INSTANCE.getMillis(0));
     }
 
-    public void test_getMillis_int_2_oe() {
+public void test_getMillis_int_2_oe() {
         // removed other assertion
         assertEquals(1234,MillisDurationField.INSTANCE.getMillis(1234));
     }
 
-    public void test_getMillis_int_3_oe() {
+public void test_getMillis_int_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(-1234,MillisDurationField.INSTANCE.getMillis(-1234));
     }
 
-    public void test_getMillis_long_1_oe() {
+public void test_getMillis_long_1_oe() {
         assertEquals(0L,MillisDurationField.INSTANCE.getMillis(0L));
     }
 
-    public void test_getMillis_long_2_oe() {
+public void test_getMillis_long_2_oe() {
         // removed other assertion
         assertEquals(1234L,MillisDurationField.INSTANCE.getMillis(1234L));
     }
 
-    public void test_getMillis_long_3_oe() {
+public void test_getMillis_long_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(-1234L,MillisDurationField.INSTANCE.getMillis(-1234L));
     }
 
-    public void test_getMillis_int_long_1_oe() {
+public void test_getMillis_int_long_1_oe() {
         assertEquals(0,MillisDurationField.INSTANCE.getMillis(0,567L));
     }
 
-    public void test_getMillis_int_long_2_oe() {
+public void test_getMillis_int_long_2_oe() {
         // removed other assertion
         assertEquals(1234,MillisDurationField.INSTANCE.getMillis(1234,567L));
     }
 
-    public void test_getMillis_int_long_3_oe() {
+public void test_getMillis_int_long_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(-1234,MillisDurationField.INSTANCE.getMillis(-1234,567L));
     }
 
-    public void test_getMillis_long_long_1_oe() {
+public void test_getMillis_long_long_1_oe() {
         assertEquals(0L,MillisDurationField.INSTANCE.getMillis(0L,567L));
     }
 
-    public void test_getMillis_long_long_2_oe() {
+public void test_getMillis_long_long_2_oe() {
         // removed other assertion
         assertEquals(1234L,MillisDurationField.INSTANCE.getMillis(1234L,567L));
     }
 
-    public void test_getMillis_long_long_3_oe() {
+public void test_getMillis_long_long_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(-1234L,MillisDurationField.INSTANCE.getMillis(-1234L,567L));
     }
 
-    public void test_add_long_int_1_oe() {
+public void test_add_long_int_1_oe() {
         assertEquals(567L,MillisDurationField.INSTANCE.add(567L,0));
     }
 
-    public void test_add_long_int_3_oe() {
+public void test_add_long_int_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(567L - 1234L,MillisDurationField.INSTANCE.add(567L,-1234));
     }
 
-    public void test_add_long_long_1_oe() {
+public void test_add_long_long_1_oe() {
         assertEquals(567L,MillisDurationField.INSTANCE.add(567L,0L));
     }
 
-    public void test_add_long_long_3_oe() {
+public void test_add_long_long_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(567L - 1234L,MillisDurationField.INSTANCE.add(567L,-1234L));
     }
 
-    public void test_getDifference_long_int_1_oe() {
+public void test_getDifference_long_int_1_oe() {
         assertEquals(567,MillisDurationField.INSTANCE.getDifference(567L,0L));
     }
 
-    public void test_getDifference_long_int_2_oe() {
+public void test_getDifference_long_int_2_oe() {
         // removed other assertion
         assertEquals(567 - 1234,MillisDurationField.INSTANCE.getDifference(567L,1234L));
     }
 
-    public void test_getDifference_long_int_3_oe() {
+public void test_getDifference_long_int_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(567 + 1234,MillisDurationField.INSTANCE.getDifference(567L,-1234L));
     }
 
-    public void test_getDifferenceAsLong_long_long_1_oe() {
+public void test_getDifferenceAsLong_long_long_1_oe() {
         assertEquals(567L,MillisDurationField.INSTANCE.getDifferenceAsLong(567L,0L));
     }
 
-    public void test_getDifferenceAsLong_long_long_3_oe() {
+public void test_getDifferenceAsLong_long_long_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(567L + 1234L,MillisDurationField.INSTANCE.getDifferenceAsLong(567L,-1234L));
     }
 
-    public void test_compareTo_1_oe() {
+public void test_compareTo_1_oe() {
         assertEquals(0,MillisDurationField.INSTANCE.compareTo(MillisDurationField.INSTANCE));
     }
 
-    public void test_compareTo_2_oe() {
+public void test_compareTo_2_oe() {
         // removed other assertion
         assertEquals(-1,MillisDurationField.INSTANCE.compareTo(ISOChronology.getInstance().seconds()));
     }
 
-    public void test_compareTo_3_oe() {
+public void test_compareTo_3_oe() {
         // removed other assertion
         // removed other assertion
         DurationField dummy = new PreciseDurationField(DurationFieldType.seconds(), 0);
         assertEquals(1,MillisDurationField.INSTANCE.compareTo(dummy));
     }
 
-    public void testSerialization_1_oe() throws Exception {
+public void testSerialization_1_oe() throws Exception {
         DurationField test = MillisDurationField.INSTANCE;
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

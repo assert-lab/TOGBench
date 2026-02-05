@@ -58,7 +58,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
      * Subclasses should override this method to test their own constructors.
      */
 
-    @Test
+@Test
     public void testAccessorsAndMutators_1_oe() {
         final DefaultKeyValue<K, V> kv = makeDefaultKeyValue();
 
@@ -66,7 +66,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(kv.getKey() == key);
     }
 
-    @Test
+@Test
     public void testAccessorsAndMutators_2_oe() {
         final DefaultKeyValue<K, V> kv = makeDefaultKeyValue();
 
@@ -77,7 +77,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(kv.getValue() == value);
     }
 
-    @Test
+@Test
     public void testAccessorsAndMutators_3_oe() {
         final DefaultKeyValue<K, V> kv = makeDefaultKeyValue();
 
@@ -92,7 +92,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(kv.getKey() == null);
     }
 
-    @Test
+@Test
     public void testAccessorsAndMutators_4_oe() {
         final DefaultKeyValue<K, V> kv = makeDefaultKeyValue();
 
@@ -110,7 +110,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(kv.getValue() == null);
     }
 
-    @Test
+@Test
     public void testSelfReferenceHandling_2_oe() {
         // test that #setKey and #setValue do not permit
         //  the KVP to contain itself (and thus cause infinite recursion
@@ -129,7 +129,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
     }
     }
 
-    @Test
+@Test
     public void testSelfReferenceHandling_4_oe() {
         // test that #setKey and #setValue do not permit
         //  the KVP to contain itself (and thus cause infinite recursion
@@ -158,14 +158,14 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
     }
     }
 
-    @Test
+@Test
     public void testConstructors_1_oe() {
         // 1. test default constructor
         DefaultKeyValue<K, V> kv = new DefaultKeyValue<>();
         assertTrue(kv.getKey() == null && kv.getValue() == null);
     }
 
-    @Test
+@Test
     public void testConstructors_2_oe() {
         // 1. test default constructor
         DefaultKeyValue<K, V> kv = new DefaultKeyValue<>();
@@ -176,7 +176,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(kv.getKey() == key && kv.getValue() == value);
     }
 
-    @Test
+@Test
     public void testConstructors_3_oe() {
         // 1. test default constructor
         DefaultKeyValue<K, V> kv = new DefaultKeyValue<>();
@@ -191,7 +191,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(kv2.getKey() == key && kv2.getValue() == value);
     }
 
-    @Test
+@Test
     public void testConstructors_4_oe() {
         // 1. test default constructor
         DefaultKeyValue<K, V> kv = new DefaultKeyValue<>();
@@ -212,7 +212,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(kv2.getKey() == key && kv2.getValue() == value);
     }
 
-    @Test
+@Test
     public void testConstructors_5_oe() {
         // 1. test default constructor
         DefaultKeyValue<K, V> kv = new DefaultKeyValue<>();
@@ -241,7 +241,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(kv.getKey() == key && kv.getValue() == value);
     }
 
-    @Test
+@Test
     public void testConstructors_6_oe() {
         // 1. test default constructor
         DefaultKeyValue<K, V> kv = new DefaultKeyValue<>();
@@ -274,7 +274,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(kv.getValue() == value);
     }
 
-    @Test
+@Test
     public void testEqualsAndHashCode_1_oe() {
         // 1. test with object data
         DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
@@ -283,7 +283,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(kv.equals(kv));
     }
 
-    @Test
+@Test
     public void testEqualsAndHashCode_2_oe() {
         // 1. test with object data
         DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
@@ -293,7 +293,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(kv.equals(kv2));
     }
 
-    @Test
+@Test
     public void testEqualsAndHashCode_3_oe() {
         // 1. test with object data
         DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
@@ -304,7 +304,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(kv.hashCode() == kv2.hashCode());
     }
 
-    @Test
+@Test
     public void testEqualsAndHashCode_4_oe() {
         // 1. test with object data
         DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
@@ -321,7 +321,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(kv.equals(kv));
     }
 
-    @Test
+@Test
     public void testEqualsAndHashCode_5_oe() {
         // 1. test with object data
         DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
@@ -339,7 +339,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(kv.equals(kv2));
     }
 
-    @Test
+@Test
     public void testEqualsAndHashCode_6_oe() {
         // 1. test with object data
         DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
@@ -358,13 +358,13 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(kv.hashCode() == kv2.hashCode());
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
         assertTrue(kv.toString().equals(kv.getKey() + "=" + kv.getValue()));
     }
 
-    @Test
+@Test
     public void testToString_2_oe() {
         DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
         // removed other assertion
@@ -374,7 +374,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(kv.toString().equals(kv.getKey() + "=" + kv.getValue()));
     }
 
-    @Test
+@Test
     public void testToMapEntry_1_oe() {
         final DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
 
@@ -385,7 +385,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         assertTrue(entry.equals(kv.toMapEntry()));
     }
 
-    @Test
+@Test
     public void testToMapEntry_2_oe() {
         final DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
 

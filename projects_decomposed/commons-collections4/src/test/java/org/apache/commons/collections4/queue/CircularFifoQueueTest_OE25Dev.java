@@ -151,7 +151,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         return (CircularFifoQueue<E>) super.getCollection();
     }
 
-    public void testCircularFifoQueueCircular_1_oe() {
+public void testCircularFifoQueueCircular_1_oe() {
         final List<E> list = new ArrayList<>();
         list.add((E) "A");
         list.add((E) "B");
@@ -161,7 +161,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(true, queue.contains("A"));
     }
 
-    public void testCircularFifoQueueCircular_2_oe() {
+public void testCircularFifoQueueCircular_2_oe() {
         final List<E> list = new ArrayList<>();
         list.add((E) "A");
         list.add((E) "B");
@@ -172,7 +172,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(true, queue.contains("B"));
     }
 
-    public void testCircularFifoQueueCircular_3_oe() {
+public void testCircularFifoQueueCircular_3_oe() {
         final List<E> list = new ArrayList<>();
         list.add((E) "A");
         list.add((E) "B");
@@ -184,7 +184,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(true, queue.contains("C"));
     }
 
-    public void testCircularFifoQueueCircular_4_oe() {
+public void testCircularFifoQueueCircular_4_oe() {
         final List<E> list = new ArrayList<>();
         list.add((E) "A");
         list.add((E) "B");
@@ -200,7 +200,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(false, queue.contains("A"));
     }
 
-    public void testCircularFifoQueueCircular_5_oe() {
+public void testCircularFifoQueueCircular_5_oe() {
         final List<E> list = new ArrayList<>();
         list.add((E) "A");
         list.add((E) "B");
@@ -217,7 +217,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(true, queue.contains("B"));
     }
 
-    public void testCircularFifoQueueCircular_6_oe() {
+public void testCircularFifoQueueCircular_6_oe() {
         final List<E> list = new ArrayList<>();
         list.add((E) "A");
         list.add((E) "B");
@@ -235,7 +235,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(true, queue.contains("C"));
     }
 
-    public void testCircularFifoQueueCircular_7_oe() {
+public void testCircularFifoQueueCircular_7_oe() {
         final List<E> list = new ArrayList<>();
         list.add((E) "A");
         list.add((E) "B");
@@ -254,7 +254,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(true, queue.contains("D"));
     }
 
-    public void testCircularFifoQueueCircular_8_oe() {
+public void testCircularFifoQueueCircular_8_oe() {
         final List<E> list = new ArrayList<>();
         list.add((E) "A");
         list.add((E) "B");
@@ -275,7 +275,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("B", queue.peek());
     }
 
-    public void testCircularFifoQueueCircular_9_oe() {
+public void testCircularFifoQueueCircular_9_oe() {
         final List<E> list = new ArrayList<>();
         list.add((E) "A");
         list.add((E) "B");
@@ -297,7 +297,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("B", queue.remove());
     }
 
-    public void testCircularFifoQueueCircular_10_oe() {
+public void testCircularFifoQueueCircular_10_oe() {
         final List<E> list = new ArrayList<>();
         list.add((E) "A");
         list.add((E) "B");
@@ -320,7 +320,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("C", queue.remove());
     }
 
-    public void testCircularFifoQueueCircular_11_oe() {
+public void testCircularFifoQueueCircular_11_oe() {
         final List<E> list = new ArrayList<>();
         list.add((E) "A");
         list.add((E) "B");
@@ -344,7 +344,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("D", queue.remove());
     }
 
-    public void testCircularFifoQueueRemove_1_oe() {
+public void testCircularFifoQueueRemove_1_oe() {
         resetFull();
         final int size = getConfirmed().size();
         for (int i = 0; i < size; i++) {
@@ -354,7 +354,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
     }
     }
 
-    public void testConstructorException1_1_oe() {
+public void testConstructorException1_1_oe() {
         try {
             new CircularFifoQueue<E>(0);
         } catch (final IllegalArgumentException ex) {
@@ -363,7 +363,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         fail();
     }
 
-    public void testConstructorException2_1_oe() {
+public void testConstructorException2_1_oe() {
         try {
             new CircularFifoQueue<E>(-20);
         } catch (final IllegalArgumentException ex) {
@@ -372,7 +372,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         fail();
     }
 
-    public void testConstructorException3_1_oe() {
+public void testConstructorException3_1_oe() {
         try {
             new CircularFifoQueue<E>(null);
         } catch (final NullPointerException ex) {
@@ -381,7 +381,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         fail();
     }
 
-    public void testRemoveError1_1_oe() throws Exception {
+public void testRemoveError1_1_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -393,7 +393,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[1, 2, 3, 4, 5]", fifo.toString());
     }
 
-    public void testRemoveError1_2_oe() throws Exception {
+public void testRemoveError1_2_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -408,7 +408,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[1, 2, 4, 5]", fifo.toString());
     }
 
-    public void testRemoveError1_3_oe() throws Exception {
+public void testRemoveError1_3_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -426,7 +426,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[1, 2, 5]", fifo.toString());
     }
 
-    public void testRemoveError2_1_oe() throws Exception {
+public void testRemoveError2_1_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -439,7 +439,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(5, fifo.size());
     }
 
-    public void testRemoveError2_2_oe() throws Exception {
+public void testRemoveError2_2_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -453,7 +453,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[2, 3, 4, 5, 6]", fifo.toString());
     }
 
-    public void testRemoveError2_3_oe() throws Exception {
+public void testRemoveError2_3_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -470,7 +470,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[2, 4, 5, 6]", fifo.toString());
     }
 
-    public void testRemoveError2_4_oe() throws Exception {
+public void testRemoveError2_4_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -490,7 +490,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[2, 5, 6]", fifo.toString());
     }
 
-    public void testRemoveError3_1_oe() throws Exception {
+public void testRemoveError3_1_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -502,7 +502,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[1, 2, 3, 4, 5]", fifo.toString());
     }
 
-    public void testRemoveError3_2_oe() throws Exception {
+public void testRemoveError3_2_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -517,7 +517,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[1, 2, 4, 5]", fifo.toString());
     }
 
-    public void testRemoveError3_3_oe() throws Exception {
+public void testRemoveError3_3_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -536,7 +536,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[2, 4, 5, 6, 7]", fifo.toString());
     }
 
-    public void testRemoveError3_4_oe() throws Exception {
+public void testRemoveError3_4_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -558,7 +558,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[2, 5, 6, 7]", fifo.toString());
     }
 
-    public void testRemoveError4_1_oe() throws Exception {
+public void testRemoveError4_1_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -572,7 +572,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[3, 4, 5, 6, 7]", fifo.toString());
     }
 
-    public void testRemoveError4_2_oe() throws Exception {
+public void testRemoveError4_2_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -589,7 +589,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[3, 5, 6, 7]", fifo.toString());
     }
 
-    public void testRemoveError5_1_oe() throws Exception {
+public void testRemoveError5_1_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -603,7 +603,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[3, 4, 5, 6, 7]", fifo.toString());
     }
 
-    public void testRemoveError5_2_oe() throws Exception {
+public void testRemoveError5_2_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -620,7 +620,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[3, 4, 6, 7]", fifo.toString());
     }
 
-    public void testRemoveError6_1_oe() throws Exception {
+public void testRemoveError6_1_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -634,7 +634,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[3, 4, 5, 6, 7]", fifo.toString());
     }
 
-    public void testRemoveError6_2_oe() throws Exception {
+public void testRemoveError6_2_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -651,7 +651,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[3, 4, 5, 7]", fifo.toString());
     }
 
-    public void testRemoveError7_1_oe() throws Exception {
+public void testRemoveError7_1_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -665,7 +665,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[3, 4, 5, 6, 7]", fifo.toString());
     }
 
-    public void testRemoveError7_2_oe() throws Exception {
+public void testRemoveError7_2_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -682,7 +682,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[3, 4, 5, 6]", fifo.toString());
     }
 
-    public void testRemoveError8_1_oe() throws Exception {
+public void testRemoveError8_1_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -697,7 +697,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[4, 5, 6, 7, 8]", fifo.toString());
     }
 
-    public void testRemoveError8_2_oe() throws Exception {
+public void testRemoveError8_2_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -715,7 +715,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[4, 5, 6, 8]", fifo.toString());
     }
 
-    public void testRemoveError9_1_oe() throws Exception {
+public void testRemoveError9_1_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -730,7 +730,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[4, 5, 6, 7, 8]", fifo.toString());
     }
 
-    public void testRemoveError9_2_oe() throws Exception {
+public void testRemoveError9_2_oe() throws Exception {
         // based on bug 33071
         final CircularFifoQueue<E> fifo = new CircularFifoQueue<>(5);
         fifo.add((E) "1");
@@ -748,14 +748,14 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("[4, 5, 6, 7]", fifo.toString());
     }
 
-    public void testRepeatedSerialization_1_oe() throws Exception {
+public void testRepeatedSerialization_1_oe() throws Exception {
         // bug 31433
         final CircularFifoQueue<E> b = new CircularFifoQueue<>(2);
         b.add((E) "a");
         assertEquals(1, b.size());
     }
 
-    public void testRepeatedSerialization_2_oe() throws Exception {
+public void testRepeatedSerialization_2_oe() throws Exception {
         // bug 31433
         final CircularFifoQueue<E> b = new CircularFifoQueue<>(2);
         b.add((E) "a");
@@ -763,7 +763,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(true, b.contains("a"));
     }
 
-    public void testRepeatedSerialization_3_oe() throws Exception {
+public void testRepeatedSerialization_3_oe() throws Exception {
         // bug 31433
         final CircularFifoQueue<E> b = new CircularFifoQueue<>(2);
         b.add((E) "a");
@@ -779,7 +779,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(1, b2.size());
     }
 
-    public void testRepeatedSerialization_4_oe() throws Exception {
+public void testRepeatedSerialization_4_oe() throws Exception {
         // bug 31433
         final CircularFifoQueue<E> b = new CircularFifoQueue<>(2);
         b.add((E) "a");
@@ -796,7 +796,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(true, b2.contains("a"));
     }
 
-    public void testRepeatedSerialization_5_oe() throws Exception {
+public void testRepeatedSerialization_5_oe() throws Exception {
         // bug 31433
         final CircularFifoQueue<E> b = new CircularFifoQueue<>(2);
         b.add((E) "a");
@@ -815,7 +815,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(2, b2.size());
     }
 
-    public void testRepeatedSerialization_6_oe() throws Exception {
+public void testRepeatedSerialization_6_oe() throws Exception {
         // bug 31433
         final CircularFifoQueue<E> b = new CircularFifoQueue<>(2);
         b.add((E) "a");
@@ -835,7 +835,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(true, b2.contains("a"));
     }
 
-    public void testRepeatedSerialization_7_oe() throws Exception {
+public void testRepeatedSerialization_7_oe() throws Exception {
         // bug 31433
         final CircularFifoQueue<E> b = new CircularFifoQueue<>(2);
         b.add((E) "a");
@@ -856,7 +856,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(true, b2.contains("b"));
     }
 
-    public void testRepeatedSerialization_8_oe() throws Exception {
+public void testRepeatedSerialization_8_oe() throws Exception {
         // bug 31433
         final CircularFifoQueue<E> b = new CircularFifoQueue<>(2);
         b.add((E) "a");
@@ -885,7 +885,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(2, b3.size());
     }
 
-    public void testRepeatedSerialization_9_oe() throws Exception {
+public void testRepeatedSerialization_9_oe() throws Exception {
         // bug 31433
         final CircularFifoQueue<E> b = new CircularFifoQueue<>(2);
         b.add((E) "a");
@@ -915,7 +915,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(true, b3.contains("a"));
     }
 
-    public void testRepeatedSerialization_10_oe() throws Exception {
+public void testRepeatedSerialization_10_oe() throws Exception {
         // bug 31433
         final CircularFifoQueue<E> b = new CircularFifoQueue<>(2);
         b.add((E) "a");
@@ -946,7 +946,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(true, b3.contains("b"));
     }
 
-    public void testRepeatedSerialization_11_oe() throws Exception {
+public void testRepeatedSerialization_11_oe() throws Exception {
         // bug 31433
         final CircularFifoQueue<E> b = new CircularFifoQueue<>(2);
         b.add((E) "a");
@@ -979,7 +979,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(2, b3.size());
     }
 
-    public void testRepeatedSerialization_12_oe() throws Exception {
+public void testRepeatedSerialization_12_oe() throws Exception {
         // bug 31433
         final CircularFifoQueue<E> b = new CircularFifoQueue<>(2);
         b.add((E) "a");
@@ -1013,7 +1013,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(true, b3.contains("b"));
     }
 
-    public void testRepeatedSerialization_13_oe() throws Exception {
+public void testRepeatedSerialization_13_oe() throws Exception {
         // bug 31433
         final CircularFifoQueue<E> b = new CircularFifoQueue<>(2);
         b.add((E) "a");
@@ -1048,7 +1048,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(true, b3.contains("c"));
     }
 
-    public void testGetIndex_1_oe() {
+public void testGetIndex_1_oe() {
         resetFull();
 
         final CircularFifoQueue<E> queue = getCollection();
@@ -1058,7 +1058,7 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
     }
     }
 
-    public void testGetIndex_2_oe() {
+public void testGetIndex_2_oe() {
         resetFull();
 
         final CircularFifoQueue<E> queue = getCollection();

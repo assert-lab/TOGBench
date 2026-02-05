@@ -127,16 +127,16 @@ public class BaseTestCase_OE25Dev extends TestCase {
     // Test which allows Eclipse to be run on full project (avoids no tests found)
     // check that the rows are valid for the column definition
 
-    public void testCheckDataSizes_1_oe() {
+public void testCheckDataSizes_1_oe() {
         assertEquals("Row 1 must contain correct number of columns", columnNames.length, row1.length);
     }
 
-    public void testCheckDataSizes_2_oe() {
+public void testCheckDataSizes_2_oe() {
         // removed other assertion
         assertEquals("Row 1 must contain correct number of columns", columnNames.length, row2.length);
     }
 
-    public void testResultSets_1_oe() throws Exception {
+public void testResultSets_1_oe() throws Exception {
         assertFalse("emptyResultSet should be empty", emptyResultSet.next());
     }
 

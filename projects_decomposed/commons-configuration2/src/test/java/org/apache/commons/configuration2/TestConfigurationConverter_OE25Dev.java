@@ -67,7 +67,7 @@ public class TestConfigurationConverter_OE25Dev {
      * CONFIGURATION-432.
      */
 
-    @Test
+@Test
     public void testConfigurationToMap_1_oe() {
         final Configuration config = new BaseConfiguration();
         config.addProperty("string", "teststring");
@@ -77,7 +77,7 @@ public class TestConfigurationConverter_OE25Dev {
         assertNotNull("null map", map);
     }
 
-    @Test
+@Test
     public void testConfigurationToMap_2_oe() {
         final Configuration config = new BaseConfiguration();
         config.addProperty("string", "teststring");
@@ -88,7 +88,7 @@ public class TestConfigurationConverter_OE25Dev {
         assertEquals("'string' property", "teststring", map.get("string"));
     }
 
-    @Test
+@Test
     public void testConfigurationToPropertiesDefaultListHandling_1_oe() {
         final BaseConfiguration config = createTestConfiguration();
         final Properties props = ConfigurationConverter.getProperties(config);
@@ -96,7 +96,7 @@ public class TestConfigurationConverter_OE25Dev {
         assertNotNull("null properties", props);
     }
 
-    @Test
+@Test
     public void testConfigurationToPropertiesDefaultListHandling_2_oe() {
         final BaseConfiguration config = createTestConfiguration();
         final Properties props = ConfigurationConverter.getProperties(config);
@@ -105,7 +105,7 @@ public class TestConfigurationConverter_OE25Dev {
         assertEquals("'string' property", "teststring", props.getProperty("string"));
     }
 
-    @Test
+@Test
     public void testConfigurationToPropertiesDefaultListHandling_3_oe() {
         final BaseConfiguration config = createTestConfiguration();
         final Properties props = ConfigurationConverter.getProperties(config);
@@ -115,7 +115,7 @@ public class TestConfigurationConverter_OE25Dev {
         assertEquals("'interpolated' property", "teststring", props.getProperty("interpolated"));
     }
 
-    @Test
+@Test
     public void testConfigurationToPropertiesDefaultListHandling_4_oe() {
         final BaseConfiguration config = createTestConfiguration();
         final Properties props = ConfigurationConverter.getProperties(config);
@@ -126,7 +126,7 @@ public class TestConfigurationConverter_OE25Dev {
         assertEquals("'array' property", "item 1,item 2", props.getProperty("array"));
     }
 
-    @Test
+@Test
     public void testConfigurationToPropertiesDefaultListHandling_5_oe() {
         final BaseConfiguration config = createTestConfiguration();
         final Properties props = ConfigurationConverter.getProperties(config);
@@ -138,7 +138,7 @@ public class TestConfigurationConverter_OE25Dev {
         assertEquals("'interpolated-array' property", "teststring,teststring", props.getProperty("interpolated-array"));
     }
 
-    @Test
+@Test
     public void testConfigurationToPropertiesListDelimiterHandler_1_oe() {
         final BaseConfiguration config = createTestConfiguration();
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(';'));
@@ -146,7 +146,7 @@ public class TestConfigurationConverter_OE25Dev {
         assertEquals("'array' property", "item 1;item 2", props.getProperty("array"));
     }
 
-    @Test
+@Test
     public void testConfigurationToPropertiesNoAbstractConfiguration_1_oe() {
         final Configuration src = EasyMock.createMock(Configuration.class);
         final BaseConfiguration config = createTestConfiguration();
@@ -161,7 +161,7 @@ public class TestConfigurationConverter_OE25Dev {
         assertEquals("'array' property", "item 1,item 2", props.getProperty("array"));
     }
 
-    @Test
+@Test
     public void testConfigurationToPropertiesScalarValue_1_oe() {
         final BaseConfiguration config = new BaseConfiguration();
         config.addProperty("scalar", Integer.valueOf(42));
@@ -169,7 +169,7 @@ public class TestConfigurationConverter_OE25Dev {
         assertEquals("Wrong value", "42", props.getProperty("scalar"));
     }
 
-    @Test
+@Test
     public void testPropertiesToConfiguration_1_oe() {
         final Properties props = new Properties();
         props.setProperty("string", "teststring");
@@ -182,7 +182,7 @@ public class TestConfigurationConverter_OE25Dev {
         assertEquals("This returns 'teststring'", "teststring", config.getString("string"));
     }
 
-    @Test
+@Test
     public void testPropertiesToConfiguration_2_oe() {
         final Properties props = new Properties();
         props.setProperty("string", "teststring");
@@ -197,7 +197,7 @@ public class TestConfigurationConverter_OE25Dev {
         assertEquals("This returns 'item 1'", "item 1", item1.get(0));
     }
 
-    @Test
+@Test
     public void testPropertiesToConfiguration_3_oe() {
         final Properties props = new Properties();
         props.setProperty("string", "teststring");

@@ -33,7 +33,7 @@ public class BlockTest_OE25Dev extends JexlTestCase {
         super("BlockTest_OE25Dev");
     }
 
-    @Test
+@Test
     public void testBlockSimple_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("if (true) { 'hello'; }");
         final JexlContext jc = new MapContext();
@@ -41,7 +41,7 @@ public class BlockTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is wrong", "hello", o);
     }
 
-    @Test
+@Test
     public void testBlockExecutesAll_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("if (true) { x = 'Hello'; y = 'World';}");
         final JexlContext jc = new MapContext();
@@ -49,7 +49,7 @@ public class BlockTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("First result is wrong", "Hello", jc.get("x"));
     }
 
-    @Test
+@Test
     public void testBlockExecutesAll_2_oe() throws Exception {
         final JexlScript e = JEXL.createScript("if (true) { x = 'Hello'; y = 'World';}");
         final JexlContext jc = new MapContext();
@@ -58,7 +58,7 @@ public class BlockTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Second result is wrong", "World", jc.get("y"));
     }
 
-    @Test
+@Test
     public void testBlockExecutesAll_3_oe() throws Exception {
         final JexlScript e = JEXL.createScript("if (true) { x = 'Hello'; y = 'World';}");
         final JexlContext jc = new MapContext();
@@ -68,7 +68,7 @@ public class BlockTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Block result is wrong", "World", o);
     }
 
-    @Test
+@Test
     public void testEmptyBlock_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("");
         final JexlContext jc = new MapContext();
@@ -76,7 +76,7 @@ public class BlockTest_OE25Dev extends JexlTestCase {
         Assert.assertNull("Result is wrong", o);
     }
 
-    @Test
+@Test
     public void testBlockLastExecuted01_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("if (true) { x = 1; } else { x = 2; }");
         final JexlContext jc = new MapContext();
@@ -84,7 +84,7 @@ public class BlockTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Block result is wrong", new Integer(1), o);
     }
 
-    @Test
+@Test
     public void testBlockLastExecuted02_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("if (false) { x = 1; } else { x = 2; }");
         final JexlContext jc = new MapContext();
@@ -92,7 +92,7 @@ public class BlockTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Block result is wrong", new Integer(2), o);
     }
 
-    @Test
+@Test
     public void testNestedBlock_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("if (true) { x = 'hello'; y = 'world';" + " if (true) { x; } y; }");
         final JexlContext jc = new MapContext();

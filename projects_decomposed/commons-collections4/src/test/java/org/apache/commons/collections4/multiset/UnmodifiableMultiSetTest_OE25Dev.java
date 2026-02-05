@@ -89,16 +89,16 @@ public class UnmodifiableMultiSetTest_OE25Dev<E> extends AbstractMultiSetTest<E>
 //        writeExternalFormToDisk((java.io.Serializable) multiset, "src/test/resources/data/test/UnmodifiableMultiSet.fullCollection.version4.1.obj");
 //    }
 
-    public void testUnmodifiable_1_oe() {
+public void testUnmodifiable_1_oe() {
         assertTrue(makeObject() instanceof Unmodifiable);
     }
 
-    public void testUnmodifiable_2_oe() {
+public void testUnmodifiable_2_oe() {
         // removed other assertion
         assertTrue(makeFullCollection() instanceof Unmodifiable);
     }
 
-    public void testDecorateFactory_1_oe() {
+public void testDecorateFactory_1_oe() {
         final MultiSet<E> multiset = makeFullCollection();
         assertSame(multiset, UnmodifiableMultiSet.unmodifiableMultiSet(multiset));
     }

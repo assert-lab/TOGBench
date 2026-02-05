@@ -201,7 +201,7 @@ public class TestDefaultParametersManager_OE25Dev {
         checkNoDefaultValues(paramsProps.getParameters());
     }
 
-    @Test
+@Test
     public void testApplyDefaultsMultipleHandlers_1_oe() {
         final ExpressionEngine engine = EasyMock.createMock(ExpressionEngine.class);
         manager.registerDefaultsHandler(XMLBuilderParameters.class, parameters -> parameters.setThrowExceptionOnMissing(false)

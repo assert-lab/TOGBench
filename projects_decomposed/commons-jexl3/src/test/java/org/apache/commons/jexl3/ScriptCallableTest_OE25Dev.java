@@ -271,7 +271,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
 
     }
 
-    @Test
+@Test
     public void testFuture_2_oe() throws Exception {
         final JexlScript e = JEXL.createScript("while(true);");
         final FutureTask<Object> future = new FutureTask<Object>(e.callable(null));
@@ -292,7 +292,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(future.isCancelled());
     }
 
-    @Test
+@Test
     public void testFuture_3_oe() throws Exception {
         final JexlScript e = JEXL.createScript("while(true);");
         final FutureTask<Object> future = new FutureTask<Object>(e.callable(null));
@@ -314,7 +314,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, t);
     }
 
-    @Test
+@Test
     public void testCallableCancel_3_oe() throws Exception {
         final Semaphore latch = new Semaphore(0);
         final JexlContext ctxt = new MapContext();
@@ -341,7 +341,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testCallableCancel_4_oe() throws Exception {
         final Semaphore latch = new Semaphore(0);
         final JexlContext ctxt = new MapContext();
@@ -371,7 +371,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(c.isCancelled());
     }
 
-    @Test
+@Test
     public void testCallableCancel_5_oe() throws Exception {
         final Semaphore latch = new Semaphore(0);
         final JexlContext ctxt = new MapContext();
@@ -402,7 +402,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(lr == null || lr.isEmpty());
     }
 
-    @Test
+@Test
     public void testCallableCancellation_3_oe() throws Exception {
         final Semaphore latch = new Semaphore(0);
         final AtomicBoolean cancel = new AtomicBoolean(false);
@@ -430,7 +430,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testCallableCancellation_4_oe() throws Exception {
         final Semaphore latch = new Semaphore(0);
         final AtomicBoolean cancel = new AtomicBoolean(false);
@@ -461,7 +461,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(c.isCancelled());
     }
 
-    @Test
+@Test
     public void testCallableCancellation_5_oe() throws Exception {
         final Semaphore latch = new Semaphore(0);
         final AtomicBoolean cancel = new AtomicBoolean(false);
@@ -493,7 +493,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(lr == null || lr.isEmpty());
     }
 
-    @Test
+@Test
     public void testCallableTimeout_2_oe() throws Exception {
         List<Runnable> lr = null;
         final Semaphore latch = new Semaphore(0);
@@ -519,7 +519,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(future.isCancelled());
     }
 
-    @Test
+@Test
     public void testCallableTimeout_3_oe() throws Exception {
         List<Runnable> lr = null;
         final Semaphore latch = new Semaphore(0);
@@ -546,7 +546,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, t);
     }
 
-    @Test
+@Test
     public void testCallableTimeout_4_oe() throws Exception {
         List<Runnable> lr = null;
         final Semaphore latch = new Semaphore(0);
@@ -574,7 +574,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(lr.isEmpty());
     }
 
-    @Test
+@Test
     public void testCallableClosure_2_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript("function(t) {while(t);}");
@@ -595,7 +595,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(future.isCancelled());
     }
 
-    @Test
+@Test
     public void testCallableClosure_3_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript("function(t) {while(t);}");
@@ -617,7 +617,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, t);
     }
 
-    @Test
+@Test
     public void testCallableClosure_4_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript("function(t) {while(t);}");
@@ -640,7 +640,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(lr.isEmpty());
     }
 
-    @Test
+@Test
     public void testNoWait_3_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript("wait(0)");
@@ -658,7 +658,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(lr.isEmpty());
     }
 
-    @Test
+@Test
     public void testWait_2_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript("wait(1)");
@@ -675,7 +675,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(lr.isEmpty());
     }
 
-    @Test
+@Test
     public void testCancelWait_4_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript("wait(10)");
@@ -700,7 +700,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(lr.isEmpty());
     }
 
-    @Test
+@Test
     public void testCancelWaitInterrupt_2_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript("waitInterrupt(42)");
@@ -722,7 +722,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(future.isCancelled());
     }
 
-    @Test
+@Test
     public void testCancelWaitInterrupt_3_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript("waitInterrupt(42)");
@@ -745,7 +745,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, t);
     }
 
-    @Test
+@Test
     public void testCancelWaitInterrupt_4_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript("waitInterrupt(42)");
@@ -769,7 +769,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(lr.isEmpty());
     }
 
-    @Test
+@Test
     public void testCancelForever_2_oe() throws Exception {
         List<Runnable> lr = null;
         final Semaphore latch = new Semaphore(0);
@@ -796,7 +796,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(future.isCancelled());
     }
 
-    @Test
+@Test
     public void testCancelForever_3_oe() throws Exception {
         List<Runnable> lr = null;
         final Semaphore latch = new Semaphore(0);
@@ -824,7 +824,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, t);
     }
 
-    @Test
+@Test
     public void testCancelForever_4_oe() throws Exception {
         List<Runnable> lr = null;
         final Semaphore latch = new Semaphore(0);
@@ -853,7 +853,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(lr.isEmpty());
     }
 
-    @Test
+@Test
     public void testCancelLoopWait_2_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript("while (true) { wait(10) }");
@@ -874,7 +874,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(future.isCancelled());
     }
 
-    @Test
+@Test
     public void testCancelLoopWait_3_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript("while (true) { wait(10) }");
@@ -896,7 +896,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, t);
     }
 
-    @Test
+@Test
     public void testCancelLoopWait_4_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript("while (true) { wait(10) }");
@@ -919,7 +919,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(lr.isEmpty());
     }
 
-    @Test
+@Test
     public void testHangs_2_oe() throws Exception {
         final JexlScript e = JEXL.createScript("hangs()");
         final Callable<Object> c = e.callable(new TestContext());
@@ -934,7 +934,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTimeout_1_oe() throws Exception {
         JexlScript script = JEXL.createScript("(flag)->{ @timeout(100) { while(flag); return 42 }; 'cancelled' }");
         final JexlContext ctxt = new AnnotationContext();
@@ -946,7 +946,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTimeout_2_oe() throws Exception {
         JexlScript script = JEXL.createScript("(flag)->{ @timeout(100) { while(flag); return 42 }; 'cancelled' }");
         final JexlContext ctxt = new AnnotationContext();
@@ -959,7 +959,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("cancelled", result);
     }
 
-    @Test
+@Test
     public void testTimeout_3_oe() throws Exception {
         JexlScript script = JEXL.createScript("(flag)->{ @timeout(100) { while(flag); return 42 }; 'cancelled' }");
         final JexlContext ctxt = new AnnotationContext();
@@ -975,7 +975,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testTimeout_4_oe() throws Exception {
         JexlScript script = JEXL.createScript("(flag)->{ @timeout(100) { while(flag); return 42 }; 'cancelled' }");
         final JexlContext ctxt = new AnnotationContext();
@@ -997,7 +997,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTimeout_5_oe() throws Exception {
         JexlScript script = JEXL.createScript("(flag)->{ @timeout(100) { while(flag); return 42 }; 'cancelled' }");
         final JexlContext ctxt = new AnnotationContext();
@@ -1020,7 +1020,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("cancelled", result);
     }
 
-    @Test
+@Test
     public void testTimeout_6_oe() throws Exception {
         JexlScript script = JEXL.createScript("(flag)->{ @timeout(100) { while(flag); return 42 }; 'cancelled' }");
         final JexlContext ctxt = new AnnotationContext();
@@ -1046,7 +1046,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testTimeout_7_oe() throws Exception {
         JexlScript script = JEXL.createScript("(flag)->{ @timeout(100) { while(flag); return 42 }; 'cancelled' }");
         final JexlContext ctxt = new AnnotationContext();
@@ -1078,7 +1078,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTimeout_8_oe() throws Exception {
         JexlScript script = JEXL.createScript("(flag)->{ @timeout(100) { while(flag); return 42 }; 'cancelled' }");
         final JexlContext ctxt = new AnnotationContext();
@@ -1111,7 +1111,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(-42, result);
     }
 
-    @Test
+@Test
     public void testTimeout_9_oe() throws Exception {
         JexlScript script = JEXL.createScript("(flag)->{ @timeout(100) { while(flag); return 42 }; 'cancelled' }");
         final JexlContext ctxt = new AnnotationContext();
@@ -1151,7 +1151,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTimeout_10_oe() throws Exception {
         JexlScript script = JEXL.createScript("(flag)->{ @timeout(100) { while(flag); return 42 }; 'cancelled' }");
         final JexlContext ctxt = new AnnotationContext();
@@ -1192,7 +1192,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(-42, result);
     }
 
-    @Test
+@Test
     public void testTimeout_11_oe() throws Exception {
         JexlScript script = JEXL.createScript("(flag)->{ @timeout(100) { while(flag); return 42 }; 'cancelled' }");
         final JexlContext ctxt = new AnnotationContext();
@@ -1239,7 +1239,7 @@ public class ScriptCallableTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTimeout_12_oe() throws Exception {
         JexlScript script = JEXL.createScript("(flag)->{ @timeout(100) { while(flag); return 42 }; 'cancelled' }");
         final JexlContext ctxt = new AnnotationContext();

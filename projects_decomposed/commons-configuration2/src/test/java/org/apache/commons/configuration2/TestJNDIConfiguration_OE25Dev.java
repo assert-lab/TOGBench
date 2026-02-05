@@ -257,18 +257,18 @@ public class TestJNDIConfiguration_OE25Dev {
         nonStringTestHolder.testSubset();
     }
 
-    @Test
+@Test
     public void testChangePrefix_1_oe() {
         assertEquals("'test.boolean' property", "true", conf.getString("test.boolean"));
     }
 
-    @Test
+@Test
     public void testChangePrefix_2_oe() {
         // removed other assertion
         assertNull("'boolean' property", conf.getString("boolean"));
     }
 
-    @Test
+@Test
     public void testChangePrefix_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -278,7 +278,7 @@ public class TestJNDIConfiguration_OE25Dev {
         assertNull("'test.boolean' property", conf.getString("test.boolean"));
     }
 
-    @Test
+@Test
     public void testChangePrefix_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -289,7 +289,7 @@ public class TestJNDIConfiguration_OE25Dev {
         assertEquals("'boolean' property", "true", conf.getString("boolean"));
     }
 
-    @Test
+@Test
     public void testConstructor_1_oe() throws Exception {
         // test the constructor accepting a context
         JNDIConfiguration c = new JNDIConfiguration(new InitialContext());
@@ -297,7 +297,7 @@ public class TestJNDIConfiguration_OE25Dev {
         assertEquals("'test.boolean' property", "true", c.getString("test.boolean"));
     }
 
-    @Test
+@Test
     public void testConstructor_2_oe() throws Exception {
         // test the constructor accepting a context
         JNDIConfiguration c = new JNDIConfiguration(new InitialContext());
@@ -310,13 +310,13 @@ public class TestJNDIConfiguration_OE25Dev {
         assertEquals("'boolean' property", "true", c.getString("boolean"));
     }
 
-    @Test
+@Test
     public void testContainsKey_1_oe() {
         final String key = "test.boolean";
         assertTrue("'" + key + "' not found", conf.containsKey(key));
     }
 
-    @Test
+@Test
     public void testContainsKey_2_oe() {
         final String key = "test.boolean";
         // removed other assertion
@@ -325,57 +325,57 @@ public class TestJNDIConfiguration_OE25Dev {
         assertFalse("'" + key + "' still found", conf.containsKey(key));
     }
 
-    @Test
+@Test
     public void testContainsKeyError_1_oe() {
         assertFalse("Key contained after error", setUpErrorConfig().containsKey("key"));
     }
 
-    @Test
+@Test
     public void testGetKeysError_1_oe() {
         assertFalse("Iteration not empty", setUpErrorConfig().getKeys().hasNext());
     }
 
-    @Test
+@Test
     public void testGetKeysNoData_1_oe() {
         conf.installException(new NameNotFoundException("Test exception"));
         assertFalse("Got keys", conf.getKeys().hasNext());
     }
 
-    @Test
+@Test
     public void testGetPropertyError_1_oe() {
         assertNull("Wrong property value after error", setUpErrorConfig().getProperty("key"));
     }
 
-    @Test
+@Test
     public void testIsEmptyError_1_oe() throws Exception {
         assertTrue("Error config not empty", setUpErrorConfig().isEmpty());
     }
 
-    @Test
+@Test
     public void testLogListener_1_oe() throws NamingException {
         final JNDIConfiguration c = new JNDIConfiguration();
         assertEquals("No error log listener registered", 1, c.getEventListeners(ConfigurationErrorEvent.ANY).size());
     }
 
-    @Test
+@Test
     public void testProperties_1_oe() throws Exception {
         final Object o = conf.getProperty("test.boolean");
         assertNotNull(o);
     }
 
-    @Test
+@Test
     public void testProperties_2_oe() throws Exception {
         final Object o = conf.getProperty("test.boolean");
         // removed other assertion
         assertEquals("true", o.toString());
     }
 
-    @Test
+@Test
     public void testResetRemovedProperties_1_oe() throws Exception {
         assertEquals("'test.boolean' property", "true", conf.getString("test.boolean"));
     }
 
-    @Test
+@Test
     public void testResetRemovedProperties_2_oe() throws Exception {
         // removed other assertion
 
@@ -384,7 +384,7 @@ public class TestJNDIConfiguration_OE25Dev {
         assertNull("'test.boolean' property", conf.getString("test.boolean"));
     }
 
-    @Test
+@Test
     public void testResetRemovedProperties_3_oe() throws Exception {
         // removed other assertion
 

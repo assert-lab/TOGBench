@@ -32,13 +32,13 @@ public class JexlScriptEngineOptionalTest_OE25Dev {
     private final ScriptEngineManager manager = new ScriptEngineManager();
     private final ScriptEngine engine = manager.getEngineByName("jexl");
 
-    @Test
+@Test
     public void testOutput_1_oe() throws Exception {
         final String output = factory.getOutputStatement("foo\u00a9bar");
         Assert.assertEquals("JEXL.out.print('foo\\u00a9bar')", output);
     }
 
-    @Test
+@Test
     public void testOutput_2_oe() throws Exception {
         final String output = factory.getOutputStatement("foo\u00a9bar");
         // removed other assertion
@@ -49,7 +49,7 @@ public class JexlScriptEngineOptionalTest_OE25Dev {
         Assert.assertEquals("foo\u00a9bar", outContent.toString());
     }
 
-    @Test
+@Test
     public void testError_1_oe() throws Exception {
         final String error = "JEXL.err.print('ERROR')";
         // redirect error to capture evaluation result
@@ -59,12 +59,12 @@ public class JexlScriptEngineOptionalTest_OE25Dev {
         Assert.assertEquals("ERROR", outContent.toString());
     }
 
-    @Test
+@Test
     public void testCompilable_1_oe() throws Exception {
         Assert.assertTrue("Engine should implement Compilable", engine instanceof Compilable);
     }
 
-    @Test
+@Test
     public void testCompilable_2_oe() throws Exception {
         // removed other assertion
         final Compilable cengine = (Compilable) engine;
@@ -72,7 +72,7 @@ public class JexlScriptEngineOptionalTest_OE25Dev {
         Assert.assertEquals(42, script.eval());
     }
 
-    @Test
+@Test
     public void testCompilable_3_oe() throws Exception {
         // removed other assertion
         final Compilable cengine = (Compilable) engine;

@@ -96,7 +96,7 @@ public class PredicatedSortedBagTest_OE25Dev<T> extends AbstractSortedBagTest<T>
 //        writeExternalFormToDisk((java.io.Serializable) bag, "src/test/resources/data/test/PredicatedSortedBag.fullCollection.version4.obj");
 //    }
 
-    public void testSortOrder_1_oe() {
+public void testSortOrder_1_oe() {
         final SortedBag<T> bag = decorateBag(new TreeBag<T>(), stringPredicate());
         final String one = "one";
         final String two = "two";
@@ -107,7 +107,7 @@ public class PredicatedSortedBagTest_OE25Dev<T> extends AbstractSortedBagTest<T>
         assertEquals("first element", bag.first(), one);
     }
 
-    public void testSortOrder_2_oe() {
+public void testSortOrder_2_oe() {
         final SortedBag<T> bag = decorateBag(new TreeBag<T>(), stringPredicate());
         final String one = "one";
         final String two = "two";
@@ -119,7 +119,7 @@ public class PredicatedSortedBagTest_OE25Dev<T> extends AbstractSortedBagTest<T>
         assertEquals("last element", bag.last(), two);
     }
 
-    public void testSortOrder_3_oe() {
+public void testSortOrder_3_oe() {
         final SortedBag<T> bag = decorateBag(new TreeBag<T>(), stringPredicate());
         final String one = "one";
         final String two = "two";

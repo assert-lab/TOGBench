@@ -116,25 +116,25 @@ public class TestDefaultExpressionEngineSymbols_OE25Dev {
      * Tests the string representation.
      */
 
-    @Test
+@Test
     public void testDefaultSymbols_1_oe() {
         assertEquals("Wrong delimiter", ".", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getPropertyDelimiter());
     }
 
-    @Test
+@Test
     public void testDefaultSymbols_2_oe() {
         // removed other assertion
         assertEquals("Wrong escaped delimiter", "..", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getEscapedDelimiter());
     }
 
-    @Test
+@Test
     public void testDefaultSymbols_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("Wrong index start", "(", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getIndexStart());
     }
 
-    @Test
+@Test
     public void testDefaultSymbols_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -142,7 +142,7 @@ public class TestDefaultExpressionEngineSymbols_OE25Dev {
         assertEquals("Wrong index end", ")", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getIndexEnd());
     }
 
-    @Test
+@Test
     public void testDefaultSymbols_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -151,7 +151,7 @@ public class TestDefaultExpressionEngineSymbols_OE25Dev {
         assertEquals("Wrong attribute start", "[@", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getAttributeStart());
     }
 
-    @Test
+@Test
     public void testDefaultSymbols_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -161,14 +161,14 @@ public class TestDefaultExpressionEngineSymbols_OE25Dev {
         assertEquals("Wrong attribute end", "]", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getAttributeEnd());
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         final DefaultExpressionEngineSymbols symbols = builder().create();
         final String s = symbols.toString();
         assertThat(s, containsString("propertyDelimiter=" + symbols.getPropertyDelimiter()));
     }
 
-    @Test
+@Test
     public void testToString_2_oe() {
         final DefaultExpressionEngineSymbols symbols = builder().create();
         final String s = symbols.toString();
@@ -176,7 +176,7 @@ public class TestDefaultExpressionEngineSymbols_OE25Dev {
         assertThat(s, containsString("escapedDelimiter=" + symbols.getEscapedDelimiter()));
     }
 
-    @Test
+@Test
     public void testToString_3_oe() {
         final DefaultExpressionEngineSymbols symbols = builder().create();
         final String s = symbols.toString();
@@ -185,7 +185,7 @@ public class TestDefaultExpressionEngineSymbols_OE25Dev {
         assertThat(s, containsString("indexStart=" + symbols.getIndexStart()));
     }
 
-    @Test
+@Test
     public void testToString_4_oe() {
         final DefaultExpressionEngineSymbols symbols = builder().create();
         final String s = symbols.toString();
@@ -195,7 +195,7 @@ public class TestDefaultExpressionEngineSymbols_OE25Dev {
         assertThat(s, containsString("indexEnd=" + symbols.getIndexEnd()));
     }
 
-    @Test
+@Test
     public void testToString_5_oe() {
         final DefaultExpressionEngineSymbols symbols = builder().create();
         final String s = symbols.toString();
@@ -206,7 +206,7 @@ public class TestDefaultExpressionEngineSymbols_OE25Dev {
         assertThat(s, containsString("attributeStart=" + symbols.getAttributeStart()));
     }
 
-    @Test
+@Test
     public void testToString_6_oe() {
         final DefaultExpressionEngineSymbols symbols = builder().create();
         final String s = symbols.toString();

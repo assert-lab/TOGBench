@@ -166,26 +166,26 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         }
     }
 
-    public void testZERO_1_oe() throws Throwable {
+public void testZERO_1_oe() throws Throwable {
         Duration test = Duration.ZERO;
         assertEquals(0,test.getMillis());
     }
 
-    public void testParse_noFormatter_1_oe() throws Throwable {
+public void testParse_noFormatter_1_oe() throws Throwable {
         assertEquals(new Duration(3200),Duration.parse("PT3.2S"));
     }
 
-    public void testParse_noFormatter_2_oe() throws Throwable {
+public void testParse_noFormatter_2_oe() throws Throwable {
         // removed other assertion
         assertEquals(new Duration(6000),Duration.parse("PT6S"));
     }
 
-    public void testFactory_standardDays_long_1_oe() throws Throwable {
+public void testFactory_standardDays_long_1_oe() throws Throwable {
         Duration test = Duration.standardDays(1);
         assertEquals(24L * 60L * 60L * 1000L,test.getMillis());
     }
 
-    public void testFactory_standardDays_long_2_oe() throws Throwable {
+public void testFactory_standardDays_long_2_oe() throws Throwable {
         Duration test = Duration.standardDays(1);
         // removed other assertion
         
@@ -193,7 +193,7 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         assertEquals(2L * 24L * 60L * 60L * 1000L,test.getMillis());
     }
 
-    public void testFactory_standardDays_long_3_oe() throws Throwable {
+public void testFactory_standardDays_long_3_oe() throws Throwable {
         Duration test = Duration.standardDays(1);
         // removed other assertion
         
@@ -204,12 +204,12 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         assertSame(Duration.ZERO,test);
     }
 
-    public void testFactory_standardHours_long_1_oe() throws Throwable {
+public void testFactory_standardHours_long_1_oe() throws Throwable {
         Duration test = Duration.standardHours(1);
         assertEquals(60L * 60L * 1000L,test.getMillis());
     }
 
-    public void testFactory_standardHours_long_2_oe() throws Throwable {
+public void testFactory_standardHours_long_2_oe() throws Throwable {
         Duration test = Duration.standardHours(1);
         // removed other assertion
         
@@ -217,7 +217,7 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         assertEquals(2L * 60L * 60L * 1000L,test.getMillis());
     }
 
-    public void testFactory_standardHours_long_3_oe() throws Throwable {
+public void testFactory_standardHours_long_3_oe() throws Throwable {
         Duration test = Duration.standardHours(1);
         // removed other assertion
         
@@ -228,12 +228,12 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         assertSame(Duration.ZERO,test);
     }
 
-    public void testFactory_standardMinutes_long_1_oe() throws Throwable {
+public void testFactory_standardMinutes_long_1_oe() throws Throwable {
         Duration test = Duration.standardMinutes(1);
         assertEquals(60L * 1000L,test.getMillis());
     }
 
-    public void testFactory_standardMinutes_long_2_oe() throws Throwable {
+public void testFactory_standardMinutes_long_2_oe() throws Throwable {
         Duration test = Duration.standardMinutes(1);
         // removed other assertion
         
@@ -241,7 +241,7 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         assertEquals(2L * 60L * 1000L,test.getMillis());
     }
 
-    public void testFactory_standardMinutes_long_3_oe() throws Throwable {
+public void testFactory_standardMinutes_long_3_oe() throws Throwable {
         Duration test = Duration.standardMinutes(1);
         // removed other assertion
         
@@ -252,12 +252,12 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         assertSame(Duration.ZERO,test);
     }
 
-    public void testFactory_standardSeconds_long_1_oe() throws Throwable {
+public void testFactory_standardSeconds_long_1_oe() throws Throwable {
         Duration test = Duration.standardSeconds(1);
         assertEquals(1000L,test.getMillis());
     }
 
-    public void testFactory_standardSeconds_long_2_oe() throws Throwable {
+public void testFactory_standardSeconds_long_2_oe() throws Throwable {
         Duration test = Duration.standardSeconds(1);
         // removed other assertion
         
@@ -265,7 +265,7 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         assertEquals(2L * 1000L,test.getMillis());
     }
 
-    public void testFactory_standardSeconds_long_3_oe() throws Throwable {
+public void testFactory_standardSeconds_long_3_oe() throws Throwable {
         Duration test = Duration.standardSeconds(1);
         // removed other assertion
         
@@ -276,12 +276,12 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         assertSame(Duration.ZERO,test);
     }
 
-    public void testFactory_millis_long_1_oe() throws Throwable {
+public void testFactory_millis_long_1_oe() throws Throwable {
         Duration test = Duration.millis(1);
         assertEquals(1L,test.getMillis());
     }
 
-    public void testFactory_millis_long_2_oe() throws Throwable {
+public void testFactory_millis_long_2_oe() throws Throwable {
         Duration test = Duration.millis(1);
         // removed other assertion
         
@@ -289,7 +289,7 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         assertEquals(2L,test.getMillis());
     }
 
-    public void testFactory_millis_long_3_oe() throws Throwable {
+public void testFactory_millis_long_3_oe() throws Throwable {
         Duration test = Duration.millis(1);
         // removed other assertion
         
@@ -300,7 +300,7 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         assertSame(Duration.ZERO,test);
     }
 
-    public void testConstructor_long1_1_oe() throws Throwable {
+public void testConstructor_long1_1_oe() throws Throwable {
         long length = 4 * DateTimeConstants.MILLIS_PER_DAY +
                 5 * DateTimeConstants.MILLIS_PER_HOUR +
                 6 * DateTimeConstants.MILLIS_PER_MINUTE +
@@ -309,52 +309,52 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         assertEquals(length,test.getMillis());
     }
 
-    public void testConstructor_long_long1_1_oe() throws Throwable {
+public void testConstructor_long_long1_1_oe() throws Throwable {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Duration test = new Duration(dt1.getMillis(), dt2.getMillis());
         assertEquals(dt2.getMillis()- dt1.getMillis(),test.getMillis());
     }
 
-    public void testConstructor_RI_RI1_1_oe() throws Throwable {
+public void testConstructor_RI_RI1_1_oe() throws Throwable {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Duration test = new Duration(dt1, dt2);
         assertEquals(dt2.getMillis()- dt1.getMillis(),test.getMillis());
     }
 
-    public void testConstructor_RI_RI2_1_oe() throws Throwable {
+public void testConstructor_RI_RI2_1_oe() throws Throwable {
         DateTime dt1 = null;  // 2002-06-09T01:00+01:00
         DateTime dt2 = new DateTime(2005, 7, 17, 1, 1, 1, 1);
         Duration test = new Duration(dt1, dt2);
         assertEquals(dt2.getMillis()- TEST_TIME_NOW,test.getMillis());
     }
 
-    public void testConstructor_RI_RI3_1_oe() throws Throwable {
+public void testConstructor_RI_RI3_1_oe() throws Throwable {
         DateTime dt1 = new DateTime(2005, 7, 17, 1, 1, 1, 1);
         DateTime dt2 = null;  // 2002-06-09T01:00+01:00
         Duration test = new Duration(dt1, dt2);
         assertEquals(TEST_TIME_NOW - dt1.getMillis(),test.getMillis());
     }
 
-    public void testConstructor_RI_RI4_1_oe() throws Throwable {
+public void testConstructor_RI_RI4_1_oe() throws Throwable {
         DateTime dt1 = null;  // 2002-06-09T01:00+01:00
         DateTime dt2 = null;  // 2002-06-09T01:00+01:00
         Duration test = new Duration(dt1, dt2);
         assertEquals(0L,test.getMillis());
     }
 
-    public void testConstructor_Object1_1_oe() throws Throwable {
+public void testConstructor_Object1_1_oe() throws Throwable {
         Duration test = new Duration("PT72.345S");
         assertEquals(72345,test.getMillis());
     }
 
-    public void testConstructor_Object2_1_oe() throws Throwable {
+public void testConstructor_Object2_1_oe() throws Throwable {
         Duration test = new Duration((Object) null);
         assertEquals(0L,test.getMillis());
     }
 
-    public void testConstructor_Object3_1_oe() throws Throwable {
+public void testConstructor_Object3_1_oe() throws Throwable {
         long length = 4 * DateTimeConstants.MILLIS_PER_DAY +
                 5 * DateTimeConstants.MILLIS_PER_HOUR +
                 6 * DateTimeConstants.MILLIS_PER_MINUTE +
@@ -364,7 +364,7 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         assertEquals(length,test.getMillis());
     }
 
-    public void testConstructor_Object4_1_oe() throws Throwable {
+public void testConstructor_Object4_1_oe() throws Throwable {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Duration base = new Duration(dt1, dt2);
@@ -372,7 +372,7 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         assertEquals(dt2.getMillis()- dt1.getMillis(),test.getMillis());
     }
 
-    public void testConstructor_Object5_1_oe() throws Throwable {
+public void testConstructor_Object5_1_oe() throws Throwable {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Interval base = new Interval(dt1, dt2);

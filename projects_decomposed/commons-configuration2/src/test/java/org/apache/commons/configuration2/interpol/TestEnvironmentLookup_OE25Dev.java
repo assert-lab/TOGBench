@@ -44,14 +44,14 @@ public class TestEnvironmentLookup_OE25Dev {
      * Tries to lookup a non existing property.
      */
 
-    @Test
+@Test
     public void testLookup_1_oe() {
         for (final Map.Entry<String, String> e : System.getenv().entrySet()) {
             assertEquals("Wrong value for " + e.getKey(), e.getValue(), lookup.lookup(e.getKey()));
     }
     }
 
-    @Test
+@Test
     public void testLookupNonExisting_1_oe() {
         assertNull("Got result for non existing environment variable", lookup.lookup("a non existing variable!"));
     }

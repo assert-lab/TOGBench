@@ -301,9 +301,6 @@ spark_176_1,spark,ServletTest,testStaticWelcomeResource_1_oe,src/test/java/spark
 spark_176_2,spark,ServletTest,testStaticWelcomeResource_2_oe,src/test/java/spark/servlet/ServletTest.java,,,,assert,unknown,standard,assertTrue
 spark_177_1,spark,ServletTest,testExternalStaticFile_1_oe,src/test/java/spark/servlet/ServletTest.java,,,,assert,unknown,standard,assertEquals
 spark_177_2,spark,ServletTest,testExternalStaticFile_2_oe,src/test/java/spark/servlet/ServletTest.java,,,,assert,unknown,standard,assertEquals
-spark_178_1,spark,EmbeddedServersTest,testAddAndCreate_whenCreate_createsCustomServer_1_oe,src/test/java/spark/embeddedserver/EmbeddedServersTest.java,,,,assert,unknown,standard,assertNotNull
-spark_178_2,spark,EmbeddedServersTest,testAddAndCreate_whenCreate_createsCustomServer_2_oe,src/test/java/spark/embeddedserver/EmbeddedServersTest.java,,,,assert,unknown,standard,assertTrue
-spark_179_1,spark,EmbeddedServersTest,testAdd_whenConfigureRoutes_createsCustomServer_1_oe,src/test/java/spark/embeddedserver/EmbeddedServersTest.java,,,,assert,unknown,standard,assertTrue
 spark_180_2,spark,SocketConnectorFactoryTest,testCreateSocketConnector_whenServerIsNull_thenThrowException_2_oe,src/test/java/spark/embeddedserver/jetty/SocketConnectorFactoryTest.java,,,,assert,unknown,standard,assertEquals
 spark_181_2,spark,SocketConnectorFactoryTest,testCreateSocketConnector_whenHostIsNull_thenThrowException_2_oe,src/test/java/spark/embeddedserver/jetty/SocketConnectorFactoryTest.java,,,,assert,unknown,standard,assertEquals
 spark_182_1,spark,SocketConnectorFactoryTest,testCreateSocketConnector_1_oe,src/test/java/spark/embeddedserver/jetty/SocketConnectorFactoryTest.java,,,,assert,unknown,standard,assertEquals

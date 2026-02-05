@@ -81,13 +81,13 @@ public class LocaleBeanUtilsTestCase_OE25Dev extends TestCase {
      * Test setting a nested indexed property
      */
 
-    public void testSetNestedPropertySimple_1_oe() {
+public void testSetNestedPropertySimple_1_oe() {
         final TestBean bean = new TestBean();
         bean.getNested().setIntProperty(5);
         assertEquals("Initial value 5", 5, bean.getNested().getIntProperty());
     }
 
-    public void testSetNestedPropertySimple_2_oe() {
+public void testSetNestedPropertySimple_2_oe() {
         final TestBean bean = new TestBean();
         bean.getNested().setIntProperty(5);
         // removed other assertion
@@ -99,7 +99,7 @@ public class LocaleBeanUtilsTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testSetNestedPropertySimple_3_oe() {
+public void testSetNestedPropertySimple_3_oe() {
         final TestBean bean = new TestBean();
         bean.getNested().setIntProperty(5);
         // removed other assertion
@@ -112,13 +112,13 @@ public class LocaleBeanUtilsTestCase_OE25Dev extends TestCase {
         assertEquals("Check Set Value", 123, bean.getNested().getIntProperty());
     }
 
-    public void testSetNestedPropertyIndexed_1_oe() {
+public void testSetNestedPropertyIndexed_1_oe() {
         final TestBean bean = new TestBean();
         bean.getNested().setIntIndexed(1, 51);
         assertEquals("Initial value[1] 51", 51, bean.getNested().getIntIndexed(1));
     }
 
-    public void testSetNestedPropertyIndexed_2_oe() {
+public void testSetNestedPropertyIndexed_2_oe() {
         final TestBean bean = new TestBean();
         bean.getNested().setIntIndexed(1, 51);
         // removed other assertion
@@ -130,7 +130,7 @@ public class LocaleBeanUtilsTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testSetNestedPropertyIndexed_3_oe() {
+public void testSetNestedPropertyIndexed_3_oe() {
         final TestBean bean = new TestBean();
         bean.getNested().setIntIndexed(1, 51);
         // removed other assertion

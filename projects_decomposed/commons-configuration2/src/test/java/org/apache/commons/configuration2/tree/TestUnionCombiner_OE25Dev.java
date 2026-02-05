@@ -59,33 +59,33 @@ public class TestUnionCombiner_OE25Dev extends AbstractCombinerTest {
      * elements, the resulting tree should contain two table nodes.
      */
 
-    @Test
+@Test
     public void testAttributes_1_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         assertEquals("Wrong number of attributes", 0, config.getMaxIndex("database.tables.table(0)[@id]"));
     }
 
-    @Test
+@Test
     public void testAttributes_2_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         // removed other assertion
         assertEquals("Wrong value of attribute", 1, config.getInt("database.tables.table(0)[@id](0)"));
     }
 
-    @Test
+@Test
     public void testLists_1_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         assertEquals("Too few list elements", 2, config.getMaxIndex("net.service.url"));
     }
 
-    @Test
+@Test
     public void testLists_2_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         // removed other assertion
         assertEquals("Wrong first service", "http://service1.org", config.getString("net.service.url(0)"));
     }
 
-    @Test
+@Test
     public void testLists_3_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         // removed other assertion
@@ -93,7 +93,7 @@ public class TestUnionCombiner_OE25Dev extends AbstractCombinerTest {
         assertEquals("Wrong second service", "http://service2.org", config.getString("net.service.url(1)"));
     }
 
-    @Test
+@Test
     public void testLists_4_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         // removed other assertion
@@ -102,7 +102,7 @@ public class TestUnionCombiner_OE25Dev extends AbstractCombinerTest {
         assertEquals("Wrong service attribute", 2, config.getInt("net.service.url(2)[@type]"));
     }
 
-    @Test
+@Test
     public void testLists_5_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         // removed other assertion
@@ -112,20 +112,20 @@ public class TestUnionCombiner_OE25Dev extends AbstractCombinerTest {
         assertEquals("Wrong number of server elements", 3, config.getMaxIndex("net.server.url"));
     }
 
-    @Test
+@Test
     public void testSimpleValues_1_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         assertEquals("Too few bgcolors", 1, config.getMaxIndex("gui.bgcolor"));
     }
 
-    @Test
+@Test
     public void testSimpleValues_2_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         // removed other assertion
         assertEquals("Wrong first color", "green", config.getString("gui.bgcolor(0)"));
     }
 
-    @Test
+@Test
     public void testSimpleValues_3_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         // removed other assertion
@@ -133,7 +133,7 @@ public class TestUnionCombiner_OE25Dev extends AbstractCombinerTest {
         assertEquals("Wrong second color", "black", config.getString("gui.bgcolor(1)"));
     }
 
-    @Test
+@Test
     public void testSimpleValues_4_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         // removed other assertion
@@ -142,7 +142,7 @@ public class TestUnionCombiner_OE25Dev extends AbstractCombinerTest {
         assertEquals("Wrong number of selcolors", 0, config.getMaxIndex("gui.selcolor"));
     }
 
-    @Test
+@Test
     public void testSimpleValues_5_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         // removed other assertion
@@ -152,20 +152,20 @@ public class TestUnionCombiner_OE25Dev extends AbstractCombinerTest {
         assertEquals("Wrong selcolor", "yellow", config.getString("gui.selcolor"));
     }
 
-    @Test
+@Test
     public void testSimpleValuesWithAttributes_1_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         assertEquals("Too few level elements", 1, config.getMaxIndex("gui.level"));
     }
 
-    @Test
+@Test
     public void testSimpleValuesWithAttributes_2_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         // removed other assertion
         assertEquals("Wrong value of first element", 1, config.getInt("gui.level(0)"));
     }
 
-    @Test
+@Test
     public void testSimpleValuesWithAttributes_3_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         // removed other assertion
@@ -173,7 +173,7 @@ public class TestUnionCombiner_OE25Dev extends AbstractCombinerTest {
         assertEquals("Wrong value of second element", 4, config.getInt("gui.level(1)"));
     }
 
-    @Test
+@Test
     public void testSimpleValuesWithAttributes_4_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         // removed other assertion
@@ -182,7 +182,7 @@ public class TestUnionCombiner_OE25Dev extends AbstractCombinerTest {
         assertEquals("Wrong value of first attribute", 2, config.getInt("gui.level(0)[@default]"));
     }
 
-    @Test
+@Test
     public void testSimpleValuesWithAttributes_5_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         // removed other assertion
@@ -192,7 +192,7 @@ public class TestUnionCombiner_OE25Dev extends AbstractCombinerTest {
         assertFalse("Found wrong attribute", config.containsKey("gui.level(0)[@min]"));
     }
 
-    @Test
+@Test
     public void testSimpleValuesWithAttributes_6_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         // removed other assertion
@@ -203,14 +203,14 @@ public class TestUnionCombiner_OE25Dev extends AbstractCombinerTest {
         assertEquals("Wrong value of second attribute", 1, config.getInt("gui.level(1)[@min]"));
     }
 
-    @Test
+@Test
     public void testTableList_1_oe() throws ConfigurationException {
         combiner.addListNode("table");
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         assertEquals("Wrong name of first table", "documents", config.getString("database.tables.table(0).name"));
     }
 
-    @Test
+@Test
     public void testTableList_2_oe() throws ConfigurationException {
         combiner.addListNode("table");
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
@@ -218,7 +218,7 @@ public class TestUnionCombiner_OE25Dev extends AbstractCombinerTest {
         assertEquals("Wrong id of first table", 1, config.getInt("database.tables.table(0)[@id]"));
     }
 
-    @Test
+@Test
     public void testTableList_3_oe() throws ConfigurationException {
         combiner.addListNode("table");
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
@@ -227,7 +227,7 @@ public class TestUnionCombiner_OE25Dev extends AbstractCombinerTest {
         assertEquals("Wrong name of second table", "tasks", config.getString("database.tables.table(1).name"));
     }
 
-    @Test
+@Test
     public void testTableList_4_oe() throws ConfigurationException {
         combiner.addListNode("table");
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();

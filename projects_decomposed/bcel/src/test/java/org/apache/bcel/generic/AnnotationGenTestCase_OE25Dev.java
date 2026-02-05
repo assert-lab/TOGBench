@@ -86,7 +86,7 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
         }
     }
 
-    public void testConstructMutableAnnotation_1_oe()
+public void testConstructMutableAnnotation_1_oe()
     {
         // Create the containing class
         final ClassGen cg = createClassGen("HelloWorld");
@@ -101,7 +101,7 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Should include string 'id=4' but says: " + nvGen.toString(),nvGen.toString().contains("id=4"));
     }
 
-    public void testVisibleInvisibleAnnotationGen_1_oe()
+public void testVisibleInvisibleAnnotationGen_1_oe()
     {
         // Create the containing class
         final ClassGen cg = createClassGen("HelloWorld");
@@ -116,7 +116,7 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Should include string 'id=4' but says: " + nvGen.toString(),nvGen.toString().contains("id=4"));
     }
 
-    public void testVisibleInvisibleAnnotationGen_2_oe()
+public void testVisibleInvisibleAnnotationGen_2_oe()
     {
         // Create the containing class
         final ClassGen cg = createClassGen("HelloWorld");
@@ -147,7 +147,7 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
     }
     }
 
-    public void testVisibleInvisibleAnnotationGen_3_oe()
+public void testVisibleInvisibleAnnotationGen_3_oe()
     {
         // Create the containing class
         final ClassGen cg = createClassGen("HelloWorld");
@@ -180,7 +180,7 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Should have seen a RuntimeVisibleAnnotation", foundRV);
     }
 
-    public void testVisibleInvisibleAnnotationGen_4_oe()
+public void testVisibleInvisibleAnnotationGen_4_oe()
     {
         // Create the containing class
         final ClassGen cg = createClassGen("HelloWorld");
@@ -226,7 +226,7 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
     }
     }
 
-    public void testVisibleInvisibleAnnotationGen_5_oe()
+public void testVisibleInvisibleAnnotationGen_5_oe()
     {
         // Create the containing class
         final ClassGen cg = createClassGen("HelloWorld");

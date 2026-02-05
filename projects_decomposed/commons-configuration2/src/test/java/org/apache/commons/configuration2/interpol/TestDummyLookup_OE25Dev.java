@@ -29,12 +29,12 @@ public class TestDummyLookup_OE25Dev {
      * Tests the lookup() method.
      */
 
-    @Test
+@Test
     public void testLookup_1_oe() {
         assertNull("Got a result (1)", DummyLookup.INSTANCE.lookup("someVariable"));
     }
 
-    @Test
+@Test
     public void testLookup_2_oe() {
         // removed other assertion
         assertNull("Got a result (2)", DummyLookup.INSTANCE.lookup(null));

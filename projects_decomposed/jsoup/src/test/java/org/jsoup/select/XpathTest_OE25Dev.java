@@ -219,7 +219,7 @@ public class XpathTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void supportsXpath_1_oe() {
         String html = "<body><div><p>One</div><div><p>Two</div><div>Three</div>";
         Document doc = Jsoup.parse(html);
@@ -228,7 +228,7 @@ public class XpathTest_OE25Dev {
         assertEquals(2, els.size());
     }
 
-    @Test
+@Test
     public void supportsXpath_2_oe() {
         String html = "<body><div><p>One</div><div><p>Two</div><div>Three</div>";
         Document doc = Jsoup.parse(html);
@@ -238,7 +238,7 @@ public class XpathTest_OE25Dev {
         assertEquals("One", els.get(0).text());
     }
 
-    @Test
+@Test
     public void supportsXpath_3_oe() {
         String html = "<body><div><p>One</div><div><p>Two</div><div>Three</div>";
         Document doc = Jsoup.parse(html);
@@ -249,7 +249,7 @@ public class XpathTest_OE25Dev {
         assertEquals("Two", els.get(1).text());
     }
 
-    @Test public void supportsXpathFromElement_1_oe() {
+@Test public void supportsXpathFromElement_1_oe() {
         String html = "<body><div><p>One</div><div><p>Two</div><div>Three</div>";
         Document doc = Jsoup.parse(html);
 
@@ -257,7 +257,7 @@ public class XpathTest_OE25Dev {
         assertNotNull(div);
         }
 
-    @Test public void supportsXpathFromElement_2_oe() {
+@Test public void supportsXpathFromElement_2_oe() {
         String html = "<body><div><p>One</div><div><p>Two</div><div>Three</div>";
         Document doc = Jsoup.parse(html);
 
@@ -267,7 +267,7 @@ public class XpathTest_OE25Dev {
         assertSame(div, w3cDiv);
         }
 
-    @Test public void supportsXpathFromElement_3_oe() {
+@Test public void supportsXpathFromElement_3_oe() {
         String html = "<body><div><p>One</div><div><p>Two</div><div>Three</div>";
         Document doc = Jsoup.parse(html);
 
@@ -280,7 +280,7 @@ public class XpathTest_OE25Dev {
         assertEquals(1, els.size());
         }
 
-    @Test public void supportsXpathFromElement_4_oe() {
+@Test public void supportsXpathFromElement_4_oe() {
         String html = "<body><div><p>One</div><div><p>Two</div><div>Three</div>";
         Document doc = Jsoup.parse(html);
 
@@ -294,7 +294,7 @@ public class XpathTest_OE25Dev {
         assertEquals("One", els.get(0).text());
         }
 
-    @Test public void supportsXpathFromElement_5_oe() {
+@Test public void supportsXpathFromElement_5_oe() {
         String html = "<body><div><p>One</div><div><p>Two</div><div>Three</div>";
         Document doc = Jsoup.parse(html);
 
@@ -309,7 +309,7 @@ public class XpathTest_OE25Dev {
         assertEquals("p", els.get(0).tagName());
         }
 
-    @Test public void supportsXpathFromElement_6_oe() {
+@Test public void supportsXpathFromElement_6_oe() {
         String html = "<body><div><p>One</div><div><p>Two</div><div>Three</div>";
         Document doc = Jsoup.parse(html);
 
@@ -326,12 +326,12 @@ public class XpathTest_OE25Dev {
         assertEquals(1,div.selectXpath("//body").size());// the whole document is visible on the div context assertEquals(1,doc.selectXpath("//body").size());
         }
 
-    @Test public void emptyElementsIfNoResults_1_oe() {
+@Test public void emptyElementsIfNoResults_1_oe() {
         Document doc = Jsoup.parse("<p>One<p>Two");
         assertEquals(0, doc.selectXpath("//div").size());
         }
 
-    @Test
+@Test
     public void throwsSelectException_1_oe() {
         Document doc = Jsoup.parse("<p>One<p>Two");
         boolean threw = false;
@@ -345,7 +345,7 @@ public class XpathTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void throwsSelectException_2_oe() {
         Document doc = Jsoup.parse("<p>One<p>Two");
         boolean threw = false;

@@ -43,21 +43,21 @@ public class TestThreesomeConfiguration_OE25Dev {
         conf = c;
     }
 
-    @Test
+@Test
     public void testList1_1_oe() throws Exception {
         final List<Object> packages = conf.getList("test.threesome.one");
         // we should get 3 packages here
         assertEquals(3, packages.size());
     }
 
-    @Test
+@Test
     public void testList2_1_oe() throws Exception {
         final List<Object> packages = conf.getList("test.threesome.two");
         // we should get 3 packages here
         assertEquals(3, packages.size());
     }
 
-    @Test
+@Test
     public void testList3_1_oe() throws Exception {
         final List<Object> packages = conf.getList("test.threesome.three");
         // we should get 3 packages here

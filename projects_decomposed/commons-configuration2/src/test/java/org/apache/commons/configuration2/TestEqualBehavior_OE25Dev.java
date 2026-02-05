@@ -124,7 +124,7 @@ public class TestEqualBehavior_OE25Dev {
      * If we set a key, does it work? How about an existing key? Can we change it?
      */
 
-    @Test
+@Test
     public void testAddingSet_1_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -135,7 +135,7 @@ public class TestEqualBehavior_OE25Dev {
         assertTrue(simple.containsKey(key));
     }
 
-    @Test
+@Test
     public void testAddingSet_2_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -147,7 +147,7 @@ public class TestEqualBehavior_OE25Dev {
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
-    @Test
+@Test
     public void testAddingSet_3_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -164,7 +164,7 @@ public class TestEqualBehavior_OE25Dev {
         assertTrue(simple.containsKey(key));
     }
 
-    @Test
+@Test
     public void testAddingSet_4_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -182,7 +182,7 @@ public class TestEqualBehavior_OE25Dev {
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
-    @Test
+@Test
     public void testAddingUnset_1_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -193,7 +193,7 @@ public class TestEqualBehavior_OE25Dev {
         assertFalse(simple.containsKey(key));
     }
 
-    @Test
+@Test
     public void testAddingUnset_2_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -205,7 +205,7 @@ public class TestEqualBehavior_OE25Dev {
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
-    @Test
+@Test
     public void testDeletingExisting_1_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -215,7 +215,7 @@ public class TestEqualBehavior_OE25Dev {
         assertTrue(simple.containsKey(key));
     }
 
-    @Test
+@Test
     public void testDeletingExisting_2_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -226,7 +226,7 @@ public class TestEqualBehavior_OE25Dev {
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
-    @Test
+@Test
     public void testDeletingExisting_3_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -242,7 +242,7 @@ public class TestEqualBehavior_OE25Dev {
         assertFalse(simple.containsKey(key));
     }
 
-    @Test
+@Test
     public void testDeletingExisting_4_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -259,7 +259,7 @@ public class TestEqualBehavior_OE25Dev {
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
-    @Test
+@Test
     public void testDeletingNonExisting_1_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -269,7 +269,7 @@ public class TestEqualBehavior_OE25Dev {
         assertFalse(simple.containsKey(key));
     }
 
-    @Test
+@Test
     public void testDeletingNonExisting_2_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -280,7 +280,7 @@ public class TestEqualBehavior_OE25Dev {
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
-    @Test
+@Test
     public void testDeletingNonExisting_3_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -296,7 +296,7 @@ public class TestEqualBehavior_OE25Dev {
         assertFalse(simple.containsKey(key));
     }
 
-    @Test
+@Test
     public void testDeletingNonExisting_4_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -313,7 +313,7 @@ public class TestEqualBehavior_OE25Dev {
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
-    @Test
+@Test
     public void testSettingExisting_1_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -324,7 +324,7 @@ public class TestEqualBehavior_OE25Dev {
         assertTrue(simple.containsKey(key));
     }
 
-    @Test
+@Test
     public void testSettingExisting_2_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -336,7 +336,7 @@ public class TestEqualBehavior_OE25Dev {
         assertNotEquals(value, simple.getString(key));
     }
 
-    @Test
+@Test
     public void testSettingExisting_3_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -349,7 +349,7 @@ public class TestEqualBehavior_OE25Dev {
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
-    @Test
+@Test
     public void testSettingExisting_4_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -367,7 +367,7 @@ public class TestEqualBehavior_OE25Dev {
         assertTrue(simple.containsKey(key));
     }
 
-    @Test
+@Test
     public void testSettingExisting_5_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -386,7 +386,7 @@ public class TestEqualBehavior_OE25Dev {
         assertEquals(simple.getString(key), value);
     }
 
-    @Test
+@Test
     public void testSettingExisting_6_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -406,7 +406,7 @@ public class TestEqualBehavior_OE25Dev {
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
-    @Test
+@Test
     public void testSettingNonExisting_1_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -417,7 +417,7 @@ public class TestEqualBehavior_OE25Dev {
         assertFalse(simple.containsKey(key));
     }
 
-    @Test
+@Test
     public void testSettingNonExisting_2_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -429,7 +429,7 @@ public class TestEqualBehavior_OE25Dev {
         assertEquals(simple.containsKey(key), composite.containsKey(key));
     }
 
-    @Test
+@Test
     public void testSettingNonExisting_3_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();
@@ -446,7 +446,7 @@ public class TestEqualBehavior_OE25Dev {
         assertTrue(simple.containsKey(key));
     }
 
-    @Test
+@Test
     public void testSettingNonExisting_4_oe() throws Exception {
         final Configuration simple = setupSimpleConfiguration();
         final Configuration composite = setupCompositeConfiguration();

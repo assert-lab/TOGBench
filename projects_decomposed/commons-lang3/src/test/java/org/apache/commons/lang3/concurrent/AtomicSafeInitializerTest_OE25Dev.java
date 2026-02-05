@@ -70,7 +70,7 @@ public class AtomicSafeInitializerTest_OE25Dev extends
         }
     }
 
-    @Test
+@Test
     public void testNumberOfInitializeInvocations_1_oe() throws ConcurrentException,
             InterruptedException {
         testGetConcurrent();

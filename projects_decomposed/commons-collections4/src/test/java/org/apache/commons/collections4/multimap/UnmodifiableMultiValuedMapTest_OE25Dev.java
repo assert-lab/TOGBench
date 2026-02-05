@@ -259,16 +259,16 @@ public class UnmodifiableMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiV
 //                "src/test/resources/data/test/UnmodifiableMultiValuedMap.fullCollection.version4.1.obj");
 //    }
 
-    public void testUnmodifiable_1_oe() {
+public void testUnmodifiable_1_oe() {
         assertTrue(makeObject() instanceof Unmodifiable);
     }
 
-    public void testUnmodifiable_2_oe() {
+public void testUnmodifiable_2_oe() {
         // removed other assertion
         assertTrue(makeFullMap() instanceof Unmodifiable);
     }
 
-    public void testDecorateFactory_1_oe() {
+public void testDecorateFactory_1_oe() {
         final MultiValuedMap<K, V> map = makeFullMap();
         assertSame(map, UnmodifiableMultiValuedMap.unmodifiableMultiValuedMap(map));
     }

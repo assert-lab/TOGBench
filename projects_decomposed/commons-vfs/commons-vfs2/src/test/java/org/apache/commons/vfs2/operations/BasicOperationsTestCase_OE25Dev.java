@@ -147,13 +147,13 @@ public class BasicOperationsTestCase_OE25Dev {
      * @throws FileSystemException for runtime problems
      */
 
-    @Test
+@Test
     public void testLifecycleComp_1_oe() throws FileSystemException {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderComp();
         assertEquals(0, myop.ops);
     }
 
-    @Test
+@Test
     public void testLifecycleComp_2_oe() throws FileSystemException {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderComp();
         // removed other assertion
@@ -161,7 +161,7 @@ public class BasicOperationsTestCase_OE25Dev {
         assertEquals(7, myop.ops);
     }
 
-    @Test
+@Test
     public void testLifecycleComp_3_oe() throws FileSystemException {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderComp();
         // removed other assertion
@@ -171,7 +171,7 @@ public class BasicOperationsTestCase_OE25Dev {
         assertEquals("close() not called", 15, myop.ops); // VFS-577;
     }
 
-    @Test
+@Test
     public void testLifecycleNoncomp_1_oe() throws FileSystemException {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderNoncomp();
         manager.addOperationProvider("file", myop);
@@ -179,7 +179,7 @@ public class BasicOperationsTestCase_OE25Dev {
         assertSame("exactly one provider registered", 1, ops.length);
     }
 
-    @Test
+@Test
     public void testLifecycleNoncomp_2_oe() throws FileSystemException {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderNoncomp();
         manager.addOperationProvider("file", myop);
@@ -188,7 +188,7 @@ public class BasicOperationsTestCase_OE25Dev {
         assertSame(myop, ops[0]);
     }
 
-    @Test
+@Test
     public void testLifecycleNoncomp_3_oe() throws FileSystemException {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderNoncomp();
         manager.addOperationProvider("file", myop);
@@ -198,7 +198,7 @@ public class BasicOperationsTestCase_OE25Dev {
         assertEquals(0, myop.ops); // collect not invoked;
     }
 
-    @Test
+@Test
     public void testNotFoundAny_1_oe() throws FileSystemException {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderNoncomp();
         manager.addOperationProvider("file", myop);
@@ -208,7 +208,7 @@ public class BasicOperationsTestCase_OE25Dev {
         assertNotNull(ops);
     }
 
-    @Test
+@Test
     public void testNotFoundAny_2_oe() throws FileSystemException {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderNoncomp();
         manager.addOperationProvider("file", myop);
@@ -221,7 +221,7 @@ public class BasicOperationsTestCase_OE25Dev {
         assertSame("no ops should be found", 0, oparray.length);
     }
 
-    @Test
+@Test
     public void testNotFoundAny_3_oe() throws FileSystemException {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderNoncomp();
         manager.addOperationProvider("file", myop);
@@ -235,7 +235,7 @@ public class BasicOperationsTestCase_OE25Dev {
         assertSame(16, myop.ops); // collect;
     }
 
-    @Test
+@Test
     public void testNotFoundOperation_1_oe() throws FileSystemException {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderNoncomp();
         manager.addOperationProvider("file", myop);
@@ -245,7 +245,7 @@ public class BasicOperationsTestCase_OE25Dev {
         assertNotNull(ops);
     }
 
-    @Test
+@Test
     public void testNotFoundOperation_3_oe() throws FileSystemException {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderNoncomp();
         manager.addOperationProvider("file", myop);
@@ -262,7 +262,7 @@ public class BasicOperationsTestCase_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testNotFoundOperation_4_oe() throws FileSystemException {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderNoncomp();
         manager.addOperationProvider("file", myop);

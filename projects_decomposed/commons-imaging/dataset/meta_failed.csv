@@ -78,3 +78,16 @@ imag_272_1,commons-imaging,PngChunkIccpTest,testParsingIccpChunk_1_oe,src/test/j
 imag_273_1,commons-imaging,PngChunkTextTest,testCreatesPngChunkText_1_oe,src/test/java/org/apache/commons/imaging/formats/png/chunks/PngChunkTextTest.java,,,,assert,unknown,standard,fail
 imag_274_1,commons-imaging,TransparencyFilterIndexedColorTest,testFilterWithNegativeAndNegative_1_oe,src/test/java/org/apache/commons/imaging/formats/png/transparencyfilters/TransparencyFilterIndexedColorTest.java,,,,assert,unknown,standard,fail
 imag_309_1,commons-imaging,DataParserIndexedTest,testFailsToCreateDataParserIndexedThrowsArrayIndexOutOfBoundsException_1_oe,src/test/java/org/apache/commons/imaging/formats/psd/dataparsers/DataParserIndexedTest.java,,,,assert,unknown,standard,fail
+imag_82_1,commons-imaging,ByteSourceTest,testGetInputStreamThrowsNullPointerException_1_oe,src/test/java/org/apache/commons/imaging/common/bytesource/ByteSourceTest.java,,,,assert,unknown,standard,assertThrows
+imag_191_3,commons-imaging,TiffCcittTest,testAll5x2Compressions_3_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
+imag_191_6,commons-imaging,TiffCcittTest,testAll5x2Compressions_6_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
+imag_191_9,commons-imaging,TiffCcittTest,testAll5x2Compressions_9_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
+imag_191_12,commons-imaging,TiffCcittTest,testAll5x2Compressions_12_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
+imag_191_15,commons-imaging,TiffCcittTest,testAll5x2Compressions_15_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
+imag_191_18,commons-imaging,TiffCcittTest,testAll5x2Compressions_18_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
+imag_192_1,commons-imaging,TiffCcittTest,testAll5x2Images_1_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
+imag_192_2,commons-imaging,TiffCcittTest,testAll5x2Images_2_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
+imag_192_3,commons-imaging,TiffCcittTest,testAll5x2Images_3_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
+imag_192_4,commons-imaging,TiffCcittTest,testAll5x2Images_4_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
+imag_192_5,commons-imaging,TiffCcittTest,testAll5x2Images_5_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail
+imag_192_6,commons-imaging,TiffCcittTest,testAll5x2Images_6_oe,src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest.java,,,,assert,unknown,standard,fail

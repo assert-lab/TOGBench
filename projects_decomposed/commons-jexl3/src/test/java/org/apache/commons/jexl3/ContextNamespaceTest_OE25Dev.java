@@ -231,7 +231,7 @@ public class ContextNamespaceTest_OE25Dev extends JexlTestCase {
         }
     }
 
-    @Test
+@Test
     public void testThreadedContext_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final TaxesContext context = new TaxesContext(18.6);
@@ -241,7 +241,7 @@ public class ContextNamespaceTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(186., result);
     }
 
-    @Test
+@Test
     public void testNamespacePragma_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext context = new TaxesContext(18.6);
@@ -254,7 +254,7 @@ public class ContextNamespaceTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(372., result);
     }
 
-    @Test
+@Test
     public void testNamespace346a_1_oe() throws Exception {
         JexlContext ctxt = new Context346();
         final JexlEngine jexl = new JexlBuilder().safe(false).create();
@@ -264,7 +264,7 @@ public class ContextNamespaceTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testNamespace346a_2_oe() throws Exception {
         JexlContext ctxt = new Context346();
         final JexlEngine jexl = new JexlBuilder().safe(false).create();
@@ -276,7 +276,7 @@ public class ContextNamespaceTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(169, result);
     }
 
-    @Test
+@Test
     public void testNamespace346b_1_oe() throws Exception {
         JexlContext ctxt = new MapContext();
         Map<String, Object> ns = new HashMap<String, Object>();
@@ -289,7 +289,7 @@ public class ContextNamespaceTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testNamespace346b_2_oe() throws Exception {
         JexlContext ctxt = new MapContext();
         Map<String, Object> ns = new HashMap<String, Object>();
@@ -304,7 +304,7 @@ public class ContextNamespaceTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(169, result);
     }
 
-    @Test
+@Test
     public void testNamespacePragmaString_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final JexlContext context = new MapContext();
@@ -317,7 +317,7 @@ public class ContextNamespaceTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("0042", result);
     }
 
-    @Test
+@Test
     public void testObjectContext_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).silent(false).create();
         final Vat vat = new Vat(18.6);
@@ -325,7 +325,7 @@ public class ContextNamespaceTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(18.6d, (Double) ctxt.get("VAT"), 0.0001d);
     }
 
-    @Test
+@Test
     public void testObjectContext_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).silent(false).create();
         final Vat vat = new Vat(18.6);

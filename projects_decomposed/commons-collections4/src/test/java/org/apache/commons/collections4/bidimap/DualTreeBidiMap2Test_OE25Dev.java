@@ -91,20 +91,20 @@ public class DualTreeBidiMap2Test_OE25Dev<K extends Comparable<K>, V extends Com
 //        writeExternalFormToDisk((java.io.Serializable) map, "src/test/resources/data/test/DualTreeBidiMap.fullCollection.version4.Test2.obj");
 //    }
 
-    public void testComparator_1_oe() {
+public void testComparator_1_oe() {
         resetEmpty();
         final SortedBidiMap<K, V> bidi = (SortedBidiMap<K, V>) map;
         assertNotNull(bidi.comparator());
     }
 
-    public void testComparator_2_oe() {
+public void testComparator_2_oe() {
         resetEmpty();
         final SortedBidiMap<K, V> bidi = (SortedBidiMap<K, V>) map;
         // removed other assertion
         assertTrue(bidi.comparator() instanceof ReverseComparator);
     }
 
-    public void testComparator2_1_oe() {
+public void testComparator2_1_oe() {
         final DualTreeBidiMap<String, Integer> dtbm = new DualTreeBidiMap<>(
                 String.CASE_INSENSITIVE_ORDER, null);
         dtbm.put("two", 0);
@@ -112,7 +112,7 @@ public class DualTreeBidiMap2Test_OE25Dev<K extends Comparable<K>, V extends Com
         assertEquals("one", dtbm.firstKey());
     }
 
-    public void testComparator2_2_oe() {
+public void testComparator2_2_oe() {
         final DualTreeBidiMap<String, Integer> dtbm = new DualTreeBidiMap<>(
                 String.CASE_INSENSITIVE_ORDER, null);
         dtbm.put("two", 0);
@@ -121,7 +121,7 @@ public class DualTreeBidiMap2Test_OE25Dev<K extends Comparable<K>, V extends Com
         assertEquals("two", dtbm.lastKey());
     }
 
-    public void testSerializeDeserializeCheckComparator_1_oe() throws Exception {
+public void testSerializeDeserializeCheckComparator_1_oe() throws Exception {
         final SortedBidiMap<?, ?> obj = makeObject();
         if (obj instanceof Serializable && isTestSerialization()) {
             final ByteArrayOutputStream buffer = new ByteArrayOutputStream();
@@ -138,7 +138,7 @@ public class DualTreeBidiMap2Test_OE25Dev<K extends Comparable<K>, V extends Com
     }
     }
 
-    public void testSerializeDeserializeCheckComparator_2_oe() throws Exception {
+public void testSerializeDeserializeCheckComparator_2_oe() throws Exception {
         final SortedBidiMap<?, ?> obj = makeObject();
         if (obj instanceof Serializable && isTestSerialization()) {
             final ByteArrayOutputStream buffer = new ByteArrayOutputStream();
@@ -156,7 +156,7 @@ public class DualTreeBidiMap2Test_OE25Dev<K extends Comparable<K>, V extends Com
     }
     }
 
-    public void testSerializeDeserializeCheckComparator_3_oe() throws Exception {
+public void testSerializeDeserializeCheckComparator_3_oe() throws Exception {
         final SortedBidiMap<?, ?> obj = makeObject();
         if (obj instanceof Serializable && isTestSerialization()) {
             final ByteArrayOutputStream buffer = new ByteArrayOutputStream();
@@ -175,7 +175,7 @@ public class DualTreeBidiMap2Test_OE25Dev<K extends Comparable<K>, V extends Com
     }
     }
 
-    public void testCollections364_1_oe() throws Exception {
+public void testCollections364_1_oe() throws Exception {
         final DualTreeBidiMap<String, Integer> original = new DualTreeBidiMap<>(
                 String.CASE_INSENSITIVE_ORDER, new IntegerComparator());
         final ByteArrayOutputStream buffer = new ByteArrayOutputStream();
@@ -191,7 +191,7 @@ public class DualTreeBidiMap2Test_OE25Dev<K extends Comparable<K>, V extends Com
         assertNotNull(original.comparator());
     }
 
-    public void testCollections364_2_oe() throws Exception {
+public void testCollections364_2_oe() throws Exception {
         final DualTreeBidiMap<String, Integer> original = new DualTreeBidiMap<>(
                 String.CASE_INSENSITIVE_ORDER, new IntegerComparator());
         final ByteArrayOutputStream buffer = new ByteArrayOutputStream();
@@ -208,7 +208,7 @@ public class DualTreeBidiMap2Test_OE25Dev<K extends Comparable<K>, V extends Com
         assertNotNull(deserialised.comparator());
     }
 
-    public void testCollections364_3_oe() throws Exception {
+public void testCollections364_3_oe() throws Exception {
         final DualTreeBidiMap<String, Integer> original = new DualTreeBidiMap<>(
                 String.CASE_INSENSITIVE_ORDER, new IntegerComparator());
         final ByteArrayOutputStream buffer = new ByteArrayOutputStream();
@@ -226,7 +226,7 @@ public class DualTreeBidiMap2Test_OE25Dev<K extends Comparable<K>, V extends Com
         assertEquals(original.comparator().getClass(), deserialised.comparator().getClass());
     }
 
-    public void testCollections364_4_oe() throws Exception {
+public void testCollections364_4_oe() throws Exception {
         final DualTreeBidiMap<String, Integer> original = new DualTreeBidiMap<>(
                 String.CASE_INSENSITIVE_ORDER, new IntegerComparator());
         final ByteArrayOutputStream buffer = new ByteArrayOutputStream();
@@ -245,7 +245,7 @@ public class DualTreeBidiMap2Test_OE25Dev<K extends Comparable<K>, V extends Com
         assertEquals(original.valueComparator().getClass(), deserialised.valueComparator().getClass());
     }
 
-    public void testSortOrder_1_oe() throws Exception {
+public void testSortOrder_1_oe() throws Exception {
         final SortedBidiMap<K, V> sm = makeFullMap();
 
         // Sort by the comparator used in the makeEmptyBidiMap() method
@@ -262,7 +262,7 @@ public class DualTreeBidiMap2Test_OE25Dev<K extends Comparable<K>, V extends Com
     }
     }
 
-    public void testSortOrder_2_oe() throws Exception {
+public void testSortOrder_2_oe() throws Exception {
         final SortedBidiMap<K, V> sm = makeFullMap();
 
         // Sort by the comparator used in the makeEmptyBidiMap() method
@@ -280,7 +280,7 @@ public class DualTreeBidiMap2Test_OE25Dev<K extends Comparable<K>, V extends Com
     }
     }
 
-    public void testSortOrder_3_oe() throws Exception {
+public void testSortOrder_3_oe() throws Exception {
         final SortedBidiMap<K, V> sm = makeFullMap();
 
         // Sort by the comparator used in the makeEmptyBidiMap() method

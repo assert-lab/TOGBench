@@ -118,7 +118,7 @@ public class Jira339TestCase_OE25Dev extends TestCase {
 
     }
 
-    public void testIssue_BEANUTILS_339_BeanUtilsBean_setProperty_1_oe() {
+public void testIssue_BEANUTILS_339_BeanUtilsBean_setProperty_1_oe() {
 
         final TestBean bean = new TestBean();
         try {
@@ -129,7 +129,7 @@ public class Jira339TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_339_BeanUtilsBean_setProperty_2_oe() {
+public void testIssue_BEANUTILS_339_BeanUtilsBean_setProperty_2_oe() {
 
         final TestBean bean = new TestBean();
         try {
@@ -141,7 +141,7 @@ public class Jira339TestCase_OE25Dev extends TestCase {
         assertNull("TestBean comparator should be null", bean.getComparator());
     }
 
-    public void testIssue_BEANUTILS_331_BeanUtilsBean_populate_1_oe() {
+public void testIssue_BEANUTILS_331_BeanUtilsBean_populate_1_oe() {
 
         final TestBean bean = new TestBean();
         try {
@@ -154,7 +154,7 @@ public class Jira339TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_331_BeanUtilsBean_populate_2_oe() {
+public void testIssue_BEANUTILS_331_BeanUtilsBean_populate_2_oe() {
 
         final TestBean bean = new TestBean();
         try {

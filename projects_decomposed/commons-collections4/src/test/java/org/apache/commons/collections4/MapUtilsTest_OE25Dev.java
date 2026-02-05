@@ -118,21 +118,21 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
     }
 
 
-    @Test
+@Test
     public void testPredicatedMap_1_oe() {
         final Predicate<Object> p = getPredicate();
         final Map<Object, Object> map = MapUtils.predicatedMap(new HashMap<>(), p, p);
         assertTrue("returned object should be a PredicatedMap", map instanceof PredicatedMap);
     }
 
-    @Test
+@Test
     public void testLazyMapFactory_1_oe() {
         final Factory<Integer> factory = FactoryUtils.constantFactory(Integer.valueOf(5));
         Map<Object, Object> map = MapUtils.lazyMap(new HashMap<>(), factory);
         assertTrue(map instanceof LazyMap);
     }
 
-    @Test
+@Test
     public void testLazyMapFactory_4_oe() {
         final Factory<Integer> factory = FactoryUtils.constantFactory(Integer.valueOf(5));
         Map<Object, Object> map = MapUtils.lazyMap(new HashMap<>(), factory);
@@ -154,7 +154,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertTrue(map instanceof LazyMap);
     }
 
-    @Test
+@Test
     public void testLazyMapTransformer_1_oe() {
         final Map<Object, Object> map = MapUtils.lazyMap(new HashMap<>(), new Transformer<Object, Object>() {
             @Override
@@ -169,7 +169,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(0, map.size());
     }
 
-    @Test
+@Test
     public void testLazyMapTransformer_2_oe() {
         final Map<Object, Object> map = MapUtils.lazyMap(new HashMap<>(), new Transformer<Object, Object>() {
             @Override
@@ -186,7 +186,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(Integer.valueOf(5), i1);
     }
 
-    @Test
+@Test
     public void testLazyMapTransformer_3_oe() {
         final Map<Object, Object> map = MapUtils.lazyMap(new HashMap<>(), new Transformer<Object, Object>() {
             @Override
@@ -204,7 +204,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(1, map.size());
     }
 
-    @Test
+@Test
     public void testLazyMapTransformer_4_oe() {
         final Map<Object, Object> map = MapUtils.lazyMap(new HashMap<>(), new Transformer<Object, Object>() {
             @Override
@@ -224,7 +224,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(Integer.valueOf(5), i2);
     }
 
-    @Test
+@Test
     public void testLazyMapTransformer_5_oe() {
         final Map<Object, Object> map = MapUtils.lazyMap(new HashMap<>(), new Transformer<Object, Object>() {
             @Override
@@ -245,7 +245,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(1, map.size());
     }
 
-    @Test
+@Test
     public void testLazyMapTransformer_6_oe() {
         final Map<Object, Object> map = MapUtils.lazyMap(new HashMap<>(), new Transformer<Object, Object>() {
             @Override
@@ -267,7 +267,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertSame(i1, i2);
     }
 
-    @Test
+@Test
     public void testInvertMap_1_oe() {
         final Map<String, String> in = new HashMap<>(5, 1);
         in.put("1", "A");
@@ -287,7 +287,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertTrue( inKeySet.equals( outValSet ));
     }
 
-    @Test
+@Test
     public void testInvertMap_2_oe() {
         final Map<String, String> in = new HashMap<>(5, 1);
         in.put("1", "A");
@@ -308,7 +308,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertTrue( inValSet.equals( outKeySet ));
     }
 
-    @Test
+@Test
     public void testInvertMap_3_oe() {
         final Map<String, String> in = new HashMap<>(5, 1);
         in.put("1", "A");
@@ -331,7 +331,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals( "1", out.get("A"));
     }
 
-    @Test
+@Test
     public void testInvertMap_4_oe() {
         final Map<String, String> in = new HashMap<>(5, 1);
         in.put("1", "A");
@@ -355,7 +355,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals( "2", out.get("B"));
     }
 
-    @Test
+@Test
     public void testInvertMap_5_oe() {
         final Map<String, String> in = new HashMap<>(5, 1);
         in.put("1", "A");
@@ -380,7 +380,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals( "3", out.get("C"));
     }
 
-    @Test
+@Test
     public void testInvertMap_6_oe() {
         final Map<String, String> in = new HashMap<>(5, 1);
         in.put("1", "A");
@@ -406,7 +406,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals( "4", out.get("D"));
     }
 
-    @Test
+@Test
     public void testInvertMap_7_oe() {
         final Map<String, String> in = new HashMap<>(5, 1);
         in.put("1", "A");
@@ -433,7 +433,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals( "5", out.get("E"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_3_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -448,7 +448,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(0, test.size());
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_4_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -471,7 +471,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(true, test.containsKey("RED"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_5_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -495,7 +495,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("#FF0000", test.get("RED"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_6_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -520,7 +520,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(true, test.containsKey("GREEN"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_7_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -546,7 +546,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("#00FF00", test.get("GREEN"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_8_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -573,7 +573,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(true, test.containsKey("BLUE"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_9_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -601,7 +601,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("#0000FF", test.get("BLUE"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_10_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -630,7 +630,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(3, test.size());
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_14_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -694,7 +694,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(true, test.containsKey("RED"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_15_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -759,7 +759,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("#FF0000", test.get("RED"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_16_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -825,7 +825,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(true, test.containsKey("GREEN"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_17_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -892,7 +892,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("#00FF00", test.get("GREEN"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_18_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -960,7 +960,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(true, test.containsKey("BLUE"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_19_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -1029,7 +1029,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("#0000FF", test.get("BLUE"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_20_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -1099,7 +1099,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(3, test.size());
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_21_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -1177,7 +1177,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(true, test.containsKey("RED"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_22_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -1256,7 +1256,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("#FF0000", test.get("RED"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_23_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -1336,7 +1336,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(true, test.containsKey("GREEN"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_24_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -1417,7 +1417,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("#00FF00", test.get("GREEN"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_25_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -1499,7 +1499,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(true, test.containsKey("BLUE"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_26_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -1582,7 +1582,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("#0000FF", test.get("BLUE"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_27_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -1666,7 +1666,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(3, test.size());
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_28_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -1753,7 +1753,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(0, test.size());
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_29_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -1848,7 +1848,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(true, test.containsKey("RED"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_30_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -1944,7 +1944,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("#FF0000", test.get("RED"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_31_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -2041,7 +2041,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(true, test.containsKey("GREEN"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_32_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -2139,7 +2139,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("#00FF00", test.get("GREEN"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_33_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -2238,7 +2238,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(true, test.containsKey("BLUE"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_34_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -2338,7 +2338,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("#0000FF", test.get("BLUE"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_35_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -2439,7 +2439,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(3, test.size());
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_36_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -2548,7 +2548,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(true, test.containsKey("RED"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_37_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -2658,7 +2658,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("#FF0000", test.get("RED"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_38_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -2769,7 +2769,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(true, test.containsKey("GREEN"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_39_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -2881,7 +2881,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("#00FF00", test.get("GREEN"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_40_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -2994,7 +2994,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(true, test.containsKey("BLUE"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_41_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -3108,7 +3108,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("#0000FF", test.get("BLUE"));
     }
 
-    @Test
+@Test
     public void testPutAll_Map_array_42_oe() {
         try {
             MapUtils.putAll(null, null);
@@ -3223,7 +3223,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(3, test.size());
     }
 
-    @Test
+@Test
     public void testConvertResourceBundle_1_oe() {
         final Map<String, String> in = new HashMap<>( 5 , 1 );
         in.put("1", "A");
@@ -3254,7 +3254,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertTrue( in.equals(out));
     }
 
-    @Test
+@Test
     public void testDebugAndVerbosePrintCasting_1_oe() {
         final Map<Integer, String> inner = new HashMap<>(2, 1);
         inner.put(2, "B");
@@ -3274,7 +3274,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
     }
     }
 
-    @Test
+@Test
     public void testDebugAndVerbosePrintNullMap_1_oe() {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream outPrint = new PrintStream(out);
@@ -3289,7 +3289,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(EXPECTED_OUT, out.toString());
     }
 
-    @Test
+@Test
     public void testDebugAndVerbosePrintNullMap_2_oe() {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream outPrint = new PrintStream(out);
@@ -3309,7 +3309,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(EXPECTED_OUT, out.toString());
     }
 
-    @Test
+@Test
     public void testVerbosePrintNullLabel_1_oe() {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream outPrint = new PrintStream(out);
@@ -3333,7 +3333,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(EXPECTED_OUT, out.toString());
     }
 
-    @Test
+@Test
     public void testDebugPrintNullLabel_1_oe() {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream outPrint = new PrintStream(out);
@@ -3357,7 +3357,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(EXPECTED_OUT, out.toString());
     }
 
-    @Test
+@Test
     public void testVerbosePrintNullLabelAndMap_1_oe() {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream outPrint = new PrintStream(out);
@@ -3370,7 +3370,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(EXPECTED_OUT, out.toString());
     }
 
-    @Test
+@Test
     public void testDebugPrintNullLabelAndMap_1_oe() {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream outPrint = new PrintStream(out);
@@ -3383,7 +3383,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(EXPECTED_OUT, out.toString());
     }
 
-    @Test
+@Test
     public void testDebugPrintNullKey_1_oe() {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream outPrint = new PrintStream(out);
@@ -3403,7 +3403,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(EXPECTED_OUT, out.toString());
     }
 
-    @Test
+@Test
     public void testVerbosePrintNullKey_1_oe() {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream outPrint = new PrintStream(out);
@@ -3423,7 +3423,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(EXPECTED_OUT, out.toString());
     }
 
-    @Test
+@Test
     public void testDebugPrintNullKeyToMap1_1_oe() {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream outPrint = new PrintStream(out);
@@ -3443,7 +3443,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(EXPECTED_OUT, out.toString());
     }
 
-    @Test
+@Test
     public void testVerbosePrintNullKeyToMap1_1_oe() {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream outPrint = new PrintStream(out);
@@ -3463,7 +3463,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(EXPECTED_OUT, out.toString());
     }
 
-    @Test
+@Test
     public void testDebugPrintNullKeyToMap2_1_oe() {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream outPrint = new PrintStream(out);
@@ -3488,7 +3488,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(EXPECTED_OUT, out.toString());
     }
 
-    @Test
+@Test
     public void testVerbosePrintNullKeyToMap2_1_oe() {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream outPrint = new PrintStream(out);
@@ -3513,7 +3513,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(EXPECTED_OUT, out.toString());
     }
 
-    @Test
+@Test
     public void testVerbosePrint_1_oe() {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream outPrint = new PrintStream(out);
@@ -3549,7 +3549,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(EXPECTED_OUT, out.toString());
     }
 
-    @Test
+@Test
     public void testDebugPrint_1_oe() {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream outPrint = new PrintStream(out);
@@ -3585,7 +3585,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(EXPECTED_OUT, out.toString());
     }
 
-    @Test
+@Test
     public void testVerbosePrintSelfReference_1_oe() {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream outPrint = new PrintStream(out);
@@ -3632,7 +3632,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(EXPECTED_OUT, out.toString());
     }
 
-    @Test
+@Test
     public void testDebugPrintSelfReference_1_oe() {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream outPrint = new PrintStream(out);
@@ -3679,12 +3679,12 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(EXPECTED_OUT, out.toString());
     }
 
-    @Test
+@Test
     public void testEmptyIfNull_1_oe() {
         assertTrue(MapUtils.emptyIfNull(null).isEmpty());
     }
 
-    @Test
+@Test
     public void testEmptyIfNull_2_oe() {
         // removed other assertion
 
@@ -3692,45 +3692,45 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertSame(map, MapUtils.emptyIfNull(map));
     }
 
-    @Test
+@Test
     public void testIsEmptyWithEmptyMap_1_oe() {
         final Map<Object, Object> map = new HashMap<>();
         assertEquals(true, MapUtils.isEmpty(map));
     }
 
-    @Test
+@Test
     public void testIsEmptyWithNonEmptyMap_1_oe() {
         final Map<String, String> map = new HashMap<>();
         map.put("item", "value");
         assertEquals(false, MapUtils.isEmpty(map));
     }
 
-    @Test
+@Test
     public void testIsEmptyWithNull_1_oe() {
         final Map<Object, Object> map = null;
         assertEquals(true, MapUtils.isEmpty(map));
     }
 
-    @Test
+@Test
     public void testIsNotEmptyWithEmptyMap_1_oe() {
         final Map<Object, Object> map = new HashMap<>();
         assertEquals(false, MapUtils.isNotEmpty(map));
     }
 
-    @Test
+@Test
     public void testIsNotEmptyWithNonEmptyMap_1_oe() {
         final Map<String, String> map = new HashMap<>();
         map.put("item", "value");
         assertEquals(true, MapUtils.isNotEmpty(map));
     }
 
-    @Test
+@Test
     public void testIsNotEmptyWithNull_1_oe() {
         final Map<Object, Object> map = null;
         assertEquals(false, MapUtils.isNotEmpty(map));
     }
 
-    @Test
+@Test
     public void testPopulateMap_1_oe() {
         // Setup Test Data
         final List<String> list = new ArrayList<>();
@@ -3748,7 +3748,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(list.size(), map.size());
     }
 
-    @Test
+@Test
     public void testPopulateMap_2_oe() {
         // Setup Test Data
         final List<String> list = new ArrayList<>();
@@ -3770,7 +3770,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
     }
     }
 
-    @Test
+@Test
     public void testPopulateMap_3_oe() {
         // Setup Test Data
         final List<String> list = new ArrayList<>();
@@ -3793,7 +3793,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
     }
     }
 
-    @Test
+@Test
     public void testPopulateMap_4_oe() {
         // Setup Test Data
         final List<String> list = new ArrayList<>();
@@ -3817,7 +3817,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
     }
     }
 
-    @Test
+@Test
     public void testPopulateMap_5_oe() {
         // Setup Test Data
         final List<String> list = new ArrayList<>();
@@ -3842,7 +3842,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
     }
     }
 
-    @Test
+@Test
     public void testPopulateMap_6_oe() {
         // Setup Test Data
         final List<String> list = new ArrayList<>();
@@ -3873,7 +3873,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(list.size(), map.size());
     }
 
-    @Test
+@Test
     public void testPopulateMap_7_oe() {
         // Setup Test Data
         final List<String> list = new ArrayList<>();
@@ -3907,7 +3907,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
     }
     }
 
-    @Test
+@Test
     public void testPopulateMap_8_oe() {
         // Setup Test Data
         final List<String> list = new ArrayList<>();
@@ -3942,7 +3942,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
     }
     }
 
-    @Test
+@Test
     public void testPopulateMap_9_oe() {
         // Setup Test Data
         final List<String> list = new ArrayList<>();
@@ -3978,7 +3978,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
     }
     }
 
-    @Test
+@Test
     public void testPopulateMap_10_oe() {
         // Setup Test Data
         final List<String> list = new ArrayList<>();
@@ -4015,7 +4015,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
     }
     }
 
-    @Test
+@Test
     public void testPopulateMultiMap_1_oe() {
         // Setup Test Data
         final List<X> list = new ArrayList<>();
@@ -4036,7 +4036,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(list.size(), map.totalSize());
     }
 
-    @Test
+@Test
     public void testPopulateMultiMap_2_oe() {
         // Setup Test Data
         final List<X> list = new ArrayList<>();
@@ -4061,7 +4061,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
     }
     }
 
-    @Test
+@Test
     public void testPopulateMultiMap_3_oe() {
         // Setup Test Data
         final List<X> list = new ArrayList<>();
@@ -4087,7 +4087,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
     }
     }
 
-    @Test
+@Test
     public void testIterableMap_2_oe() {
         try {
             MapUtils.iterableMap(null);
@@ -4102,7 +4102,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(map, iMap);
     }
 
-    @Test
+@Test
     public void testIterableMap_3_oe() {
         try {
             MapUtils.iterableMap(null);
@@ -4118,7 +4118,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertNotSame(map, iMap);
     }
 
-    @Test
+@Test
     public void testIterableMap_4_oe() {
         try {
             MapUtils.iterableMap(null);
@@ -4136,7 +4136,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertSame(hMap, MapUtils.iterableMap(hMap));
     }
 
-    @Test
+@Test
     public void testIterableSortedMap_2_oe() {
         try {
             MapUtils.iterableSortedMap(null);
@@ -4151,7 +4151,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(map, iMap);
     }
 
-    @Test
+@Test
     public void testIterableSortedMap_3_oe() {
         try {
             MapUtils.iterableSortedMap(null);
@@ -4167,7 +4167,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertNotSame(map, iMap);
     }
 
-    @Test
+@Test
     public void testIterableSortedMap_4_oe() {
         try {
             MapUtils.iterableSortedMap(null);
@@ -4184,17 +4184,17 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertSame(iMap, MapUtils.iterableMap(iMap));
     }
 
-    @Test
+@Test
     public void testSize0_1_oe() {
         assertEquals(0, MapUtils.size(new HashMap<>()));
     }
 
-    @Test
+@Test
     public void testSizeNull_1_oe() {
         assertEquals(0, MapUtils.size(null));
     }
 
-    @Test
+@Test
     public void testSize_1_oe() {
         final HashMap<Object, Object> map = new HashMap<>();
         map.put("A", "1");
@@ -4202,7 +4202,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(2, MapUtils.size(map));
     }
 
-    @Test
+@Test
     public void testToProperties_1_oe() {
         final Map<String, String> in = new HashMap<>();
         in.put("key1", "A");
@@ -4214,7 +4214,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(in.get("key1"), out.get("key1"));
     }
 
-    @Test
+@Test
     public void testToProperties_2_oe() {
         final Map<String, String> in = new HashMap<>();
         in.put("key1", "A");
@@ -4227,7 +4227,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(in.get("key2"), out.get("key2"));
     }
 
-    @Test
+@Test
     public void testToProperties_3_oe() {
         final Map<String, String> in = new HashMap<>();
         in.put("key1", "A");
@@ -4241,7 +4241,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(in.get("key3"), out.get("key3"));
     }
 
-    @Test
+@Test
     public void testToPropertiesEmpty_1_oe() {
         final Map<String, String> in = null;
         final Properties out =  MapUtils.toProperties(in);
@@ -4249,7 +4249,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(out.size(), 0);
     }
 
-    @Test
+@Test
     public void testgetDoubleValue_1_oe() {
         final Map<String, Double> in = new HashMap<>();
         in.put("key", 2.0);
@@ -4257,7 +4257,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(2.0, MapUtils.getDoubleValue(in,"key", 0.0), 0);
     }
 
-    @Test
+@Test
     public void testgetDoubleValue_2_oe() {
         final Map<String, Double> in = new HashMap<>();
         in.put("key", 2.0);
@@ -4266,7 +4266,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(2.0, MapUtils.getDoubleValue(in,"key"), 0);
     }
 
-    @Test
+@Test
     public void testgetDoubleValue_3_oe() {
         final Map<String, Double> in = new HashMap<>();
         in.put("key", 2.0);
@@ -4276,7 +4276,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(1.0, MapUtils.getDoubleValue(in,"noKey", 1.0), 0);
     }
 
-    @Test
+@Test
     public void testgetDoubleValue_4_oe() {
         final Map<String, Double> in = new HashMap<>();
         in.put("key", 2.0);
@@ -4287,7 +4287,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(0, MapUtils.getDoubleValue(in,"noKey"), 0);
     }
 
-    @Test
+@Test
     public void testgetDoubleValue_5_oe() {
         final Map<String, Double> in = new HashMap<>();
         in.put("key", 2.0);
@@ -4299,7 +4299,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(2.0, MapUtils.getDouble(in,"key", 0.0), 0);
     }
 
-    @Test
+@Test
     public void testgetDoubleValue_6_oe() {
         final Map<String, Double> in = new HashMap<>();
         in.put("key", 2.0);
@@ -4312,7 +4312,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(1.0, MapUtils.getDouble(in,"noKey", 1.0), 0);
     }
 
-    @Test
+@Test
     public void testgetDoubleValue_7_oe() {
         final Map<String, Double> in = new HashMap<>();
         in.put("key", 2.0);
@@ -4332,7 +4332,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(MapUtils.getDoubleValue(inStr,"str1", 0.0), 2.0, 0);
     }
 
-    @Test
+@Test
     public void testgetFloatValue_1_oe() {
         final Map<String, Float> in = new HashMap<>();
         in.put("key", 2.0f);
@@ -4340,7 +4340,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(2.0, MapUtils.getFloatValue(in,"key", 0.0f), 0);
     }
 
-    @Test
+@Test
     public void testgetFloatValue_2_oe() {
         final Map<String, Float> in = new HashMap<>();
         in.put("key", 2.0f);
@@ -4349,7 +4349,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(2.0, MapUtils.getFloatValue(in,"key"), 0);
     }
 
-    @Test
+@Test
     public void testgetFloatValue_3_oe() {
         final Map<String, Float> in = new HashMap<>();
         in.put("key", 2.0f);
@@ -4359,7 +4359,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(1.0, MapUtils.getFloatValue(in,"noKey", 1.0f), 0);
     }
 
-    @Test
+@Test
     public void testgetFloatValue_4_oe() {
         final Map<String, Float> in = new HashMap<>();
         in.put("key", 2.0f);
@@ -4370,7 +4370,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(0, MapUtils.getFloatValue(in,"noKey"), 0);
     }
 
-    @Test
+@Test
     public void testgetFloatValue_5_oe() {
         final Map<String, Float> in = new HashMap<>();
         in.put("key", 2.0f);
@@ -4382,7 +4382,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(2.0, MapUtils.getFloat(in,"key", 0.0f), 0);
     }
 
-    @Test
+@Test
     public void testgetFloatValue_6_oe() {
         final Map<String, Float> in = new HashMap<>();
         in.put("key", 2.0f);
@@ -4395,7 +4395,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(1.0, MapUtils.getFloat(in,"noKey", 1.0f), 0);
     }
 
-    @Test
+@Test
     public void testgetFloatValue_7_oe() {
         final Map<String, Float> in = new HashMap<>();
         in.put("key", 2.0f);
@@ -4414,7 +4414,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(MapUtils.getFloatValue(inStr,"str1", 0.0f), 2.0, 0);
     }
 
-    @Test
+@Test
     public void testgetLongValue_1_oe() {
         final Map<String, Long> in = new HashMap<>();
         in.put("key", 2L);
@@ -4422,7 +4422,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(2.0, MapUtils.getLongValue(in,"key", 0L), 0);
     }
 
-    @Test
+@Test
     public void testgetLongValue_2_oe() {
         final Map<String, Long> in = new HashMap<>();
         in.put("key", 2L);
@@ -4431,7 +4431,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(2.0, MapUtils.getLongValue(in,"key"), 0);
     }
 
-    @Test
+@Test
     public void testgetLongValue_3_oe() {
         final Map<String, Long> in = new HashMap<>();
         in.put("key", 2L);
@@ -4441,7 +4441,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(1, MapUtils.getLongValue(in,"noKey", 1L), 0);
     }
 
-    @Test
+@Test
     public void testgetLongValue_4_oe() {
         final Map<String, Long> in = new HashMap<>();
         in.put("key", 2L);
@@ -4452,7 +4452,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(0, MapUtils.getLongValue(in,"noKey"), 0);
     }
 
-    @Test
+@Test
     public void testgetLongValue_5_oe() {
         final Map<String, Long> in = new HashMap<>();
         in.put("key", 2L);
@@ -4464,7 +4464,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(2.0, MapUtils.getLong(in,"key", 0L), 0);
     }
 
-    @Test
+@Test
     public void testgetLongValue_6_oe() {
         final Map<String, Long> in = new HashMap<>();
         in.put("key", 2L);
@@ -4477,7 +4477,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(1, MapUtils.getLong(in,"noKey", 1L), 0);
     }
 
-    @Test
+@Test
     public void testgetLongValue_7_oe() {
         final Map<String, Long> in = new HashMap<>();
         in.put("key", 2L);
@@ -4495,7 +4495,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(MapUtils.getLongValue(inStr,"str1", 0L), 2, 0);
     }
 
-    @Test
+@Test
     public void testgetLongValue_8_oe() {
         final Map<String, Long> in = new HashMap<>();
         in.put("key", 2L);
@@ -4514,7 +4514,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(MapUtils.getLong(inStr, "str1", 1L), 2, 0);
     }
 
-    @Test
+@Test
     public void testgetIntValue_1_oe() {
         final Map<String, Integer> in = new HashMap<>();
         in.put("key", 2);
@@ -4522,7 +4522,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(2, MapUtils.getIntValue(in,"key", 0), 0);
     }
 
-    @Test
+@Test
     public void testgetIntValue_2_oe() {
         final Map<String, Integer> in = new HashMap<>();
         in.put("key", 2);
@@ -4531,7 +4531,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(2, MapUtils.getIntValue(in,"key"), 0);
     }
 
-    @Test
+@Test
     public void testgetIntValue_3_oe() {
         final Map<String, Integer> in = new HashMap<>();
         in.put("key", 2);
@@ -4541,7 +4541,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(0, MapUtils.getIntValue(in,"noKey", 0), 0);
     }
 
-    @Test
+@Test
     public void testgetIntValue_4_oe() {
         final Map<String, Integer> in = new HashMap<>();
         in.put("key", 2);
@@ -4552,7 +4552,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(0, MapUtils.getIntValue(in,"noKey"), 0);
     }
 
-    @Test
+@Test
     public void testgetIntValue_5_oe() {
         final Map<String, Integer> in = new HashMap<>();
         in.put("key", 2);
@@ -4564,7 +4564,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(2, MapUtils.getInteger(in,"key", 0), 0);
     }
 
-    @Test
+@Test
     public void testgetIntValue_6_oe() {
         final Map<String, Integer> in = new HashMap<>();
         in.put("key", 2);
@@ -4577,7 +4577,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(0, MapUtils.getInteger(in,"noKey", 0), 0);
     }
 
-    @Test
+@Test
     public void testgetIntValue_7_oe() {
         final Map<String, Integer> in = new HashMap<>();
         in.put("key", 2);
@@ -4595,7 +4595,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(MapUtils.getIntValue(inStr,"str1", 0), 2, 0);
     }
 
-    @Test
+@Test
     public void testgetShortValue_1_oe() {
         final Map<String, Short> in = new HashMap<>();
         final short val = 10;
@@ -4604,7 +4604,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(val, MapUtils.getShortValue(in,"key", val), 0);
     }
 
-    @Test
+@Test
     public void testgetShortValue_2_oe() {
         final Map<String, Short> in = new HashMap<>();
         final short val = 10;
@@ -4614,7 +4614,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(val, MapUtils.getShortValue(in,"key"), 0);
     }
 
-    @Test
+@Test
     public void testgetShortValue_3_oe() {
         final Map<String, Short> in = new HashMap<>();
         final short val = 10;
@@ -4625,7 +4625,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(val, MapUtils.getShortValue(in,"noKey", val), 0);
     }
 
-    @Test
+@Test
     public void testgetShortValue_4_oe() {
         final Map<String, Short> in = new HashMap<>();
         final short val = 10;
@@ -4637,7 +4637,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(0, MapUtils.getShortValue(in,"noKey"), 0);
     }
 
-    @Test
+@Test
     public void testgetShortValue_5_oe() {
         final Map<String, Short> in = new HashMap<>();
         final short val = 10;
@@ -4650,7 +4650,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(val, MapUtils.getShort(in,"key", val), 0);
     }
 
-    @Test
+@Test
     public void testgetShortValue_6_oe() {
         final Map<String, Short> in = new HashMap<>();
         final short val = 10;
@@ -4664,7 +4664,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(val,MapUtils.getShort(in,"noKey", val), 0);
     }
 
-    @Test
+@Test
     public void testgetShortValue_7_oe() {
         final Map<String, Short> in = new HashMap<>();
         final short val = 10;
@@ -4683,7 +4683,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(MapUtils.getShortValue(inStr,"str1", val), val, 0);
     }
 
-    @Test
+@Test
     public void testgetByteValue_1_oe() {
         final Map<String, Byte> in = new HashMap<>();
         final byte val = 100;
@@ -4692,7 +4692,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(val, MapUtils.getByteValue(in,"key", val), 0);
     }
 
-    @Test
+@Test
     public void testgetByteValue_2_oe() {
         final Map<String, Byte> in = new HashMap<>();
         final byte val = 100;
@@ -4702,7 +4702,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(val, MapUtils.getByteValue(in,"key"), 0);
     }
 
-    @Test
+@Test
     public void testgetByteValue_3_oe() {
         final Map<String, Byte> in = new HashMap<>();
         final byte val = 100;
@@ -4713,7 +4713,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(val, MapUtils.getByteValue(in,"noKey", val), 0);
     }
 
-    @Test
+@Test
     public void testgetByteValue_4_oe() {
         final Map<String, Byte> in = new HashMap<>();
         final byte val = 100;
@@ -4725,7 +4725,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(0, MapUtils.getByteValue(in,"noKey"), 0);
     }
 
-    @Test
+@Test
     public void testgetByteValue_5_oe() {
         final Map<String, Byte> in = new HashMap<>();
         final byte val = 100;
@@ -4738,7 +4738,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(val, MapUtils.getByte(in,"key", val), 0);
     }
 
-    @Test
+@Test
     public void testgetByteValue_6_oe() {
         final Map<String, Byte> in = new HashMap<>();
         final byte val = 100;
@@ -4752,7 +4752,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(val, MapUtils.getByte(in,"noKey", val), 0);
     }
 
-    @Test
+@Test
     public void testgetByteValue_7_oe() {
         final Map<String, Byte> in = new HashMap<>();
         final byte val = 100;
@@ -4772,7 +4772,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(MapUtils.getByteValue(inStr,"str1", val), val, 0);
     }
 
-    @Test
+@Test
     public void testgetNumber_1_oe() {
         final Map<String, Number> in = new HashMap<>();
         final Number val = 1000;
@@ -4781,7 +4781,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(val.intValue(), MapUtils.getNumber(in,"key", val).intValue(), 0);
     }
 
-    @Test
+@Test
     public void testgetNumber_2_oe() {
         final Map<String, Number> in = new HashMap<>();
         final Number val = 1000;
@@ -4791,7 +4791,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(val.intValue(), MapUtils.getNumber(in,"noKey", val).intValue(), 0);
     }
 
-    @Test
+@Test
     public void testgetString_1_oe() {
         final Map<String, String> in = new HashMap<>();
         in.put("key", "str");
@@ -4799,7 +4799,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("str", MapUtils.getString(in,"key", "defualt"));
     }
 
-    @Test
+@Test
     public void testgetString_2_oe() {
         final Map<String, String> in = new HashMap<>();
         in.put("key", "str");
@@ -4808,7 +4808,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("str", MapUtils.getString(in,"key"));
     }
 
-    @Test
+@Test
     public void testgetString_3_oe() {
         final Map<String, String> in = new HashMap<>();
         in.put("key", "str");
@@ -4818,7 +4818,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(null, MapUtils.getString(null,"key"));
     }
 
-    @Test
+@Test
     public void testgetString_4_oe() {
         final Map<String, String> in = new HashMap<>();
         in.put("key", "str");
@@ -4829,7 +4829,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("default", MapUtils.getString(in,"noKey", "default"));
     }
 
-    @Test
+@Test
     public void testgetString_5_oe() {
         final Map<String, String> in = new HashMap<>();
         in.put("key", "str");
@@ -4841,7 +4841,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("default", MapUtils.getString(null,"noKey", "default"));
     }
 
-    @Test
+@Test
     public void testgetObject_1_oe() {
         final Map<String, Object> in = new HashMap<>();
         in.put("key", "str");
@@ -4849,7 +4849,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("str", MapUtils.getObject(in,"key", "defualt"));
     }
 
-    @Test
+@Test
     public void testgetObject_2_oe() {
         final Map<String, Object> in = new HashMap<>();
         in.put("key", "str");
@@ -4858,7 +4858,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("str", MapUtils.getObject(in,"key"));
     }
 
-    @Test
+@Test
     public void testgetObject_3_oe() {
         final Map<String, Object> in = new HashMap<>();
         in.put("key", "str");
@@ -4868,7 +4868,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(null, MapUtils.getObject(null,"key"));
     }
 
-    @Test
+@Test
     public void testgetObject_4_oe() {
         final Map<String, Object> in = new HashMap<>();
         in.put("key", "str");
@@ -4879,7 +4879,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("default", MapUtils.getObject(in,"noKey", "default"));
     }
 
-    @Test
+@Test
     public void testgetObject_5_oe() {
         final Map<String, Object> in = new HashMap<>();
         in.put("key", "str");
@@ -4891,7 +4891,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("default", MapUtils.getObject(null,"noKey", "default"));
     }
 
-    @Test
+@Test
     public void testgetBooleanValue_1_oe() {
         final Map<String, Boolean> in = new HashMap<>();
         in.put("key", true);
@@ -4899,7 +4899,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertTrue(MapUtils.getBooleanValue(in,"key", true));
     }
 
-    @Test
+@Test
     public void testgetBooleanValue_2_oe() {
         final Map<String, Boolean> in = new HashMap<>();
         in.put("key", true);
@@ -4908,7 +4908,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertTrue(MapUtils.getBooleanValue(in,"key"));
     }
 
-    @Test
+@Test
     public void testgetBooleanValue_3_oe() {
         final Map<String, Boolean> in = new HashMap<>();
         in.put("key", true);
@@ -4918,7 +4918,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertTrue(MapUtils.getBooleanValue(in,"noKey", true));
     }
 
-    @Test
+@Test
     public void testgetBooleanValue_4_oe() {
         final Map<String, Boolean> in = new HashMap<>();
         in.put("key", true);
@@ -4929,7 +4929,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertTrue(!MapUtils.getBooleanValue(in,"noKey"));
     }
 
-    @Test
+@Test
     public void testgetBooleanValue_5_oe() {
         final Map<String, Boolean> in = new HashMap<>();
         in.put("key", true);
@@ -4941,7 +4941,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertTrue(MapUtils.getBoolean(in,"key", true));
     }
 
-    @Test
+@Test
     public void testgetBooleanValue_6_oe() {
         final Map<String, Boolean> in = new HashMap<>();
         in.put("key", true);
@@ -4954,7 +4954,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertTrue(MapUtils.getBoolean(in,"noKey", true));
     }
 
-    @Test
+@Test
     public void testgetBooleanValue_7_oe() {
         final Map<String, Boolean> in = new HashMap<>();
         in.put("key", true);
@@ -4968,7 +4968,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(null, MapUtils.getBoolean(null,"noKey"));
     }
 
-    @Test
+@Test
     public void testgetBooleanValue_8_oe() {
         final Map<String, Boolean> in = new HashMap<>();
         in.put("key", true);
@@ -4989,7 +4989,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertTrue(MapUtils.getBooleanValue(inStr,"str1", true));
     }
 
-    @Test
+@Test
     public void testgetBooleanValue_9_oe() {
         final Map<String, Boolean> in = new HashMap<>();
         in.put("key", true);
@@ -5011,7 +5011,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertTrue(MapUtils.getBoolean(inStr,"str1", true));
     }
 
-    @Test
+@Test
     public void testgetMap_1_oe() {
         final Map<String, Map<String,String>> in = new HashMap<>();
         final Map<String, String> valMap = new HashMap<>();
@@ -5022,7 +5022,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("value1", outValue.get("key1"));
     }
 
-    @Test
+@Test
     public void testgetMap_2_oe() {
         final Map<String, Map<String,String>> in = new HashMap<>();
         final Map<String, String> valMap = new HashMap<>();
@@ -5034,7 +5034,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(null, outValue.get("key2"));
     }
 
-    @Test
+@Test
     public void testgetMap_3_oe() {
         final Map<String, Map<String,String>> in = new HashMap<>();
         final Map<String, String> valMap = new HashMap<>();
@@ -5047,7 +5047,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(null, MapUtils.getMap(in,"key2", null));
     }
 
-    @Test
+@Test
     public void testgetMap_4_oe() {
         final Map<String, Map<String,String>> in = new HashMap<>();
         final Map<String, String> valMap = new HashMap<>();
@@ -5061,7 +5061,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals(null, MapUtils.getMap(null,"key2", null));
     }
 
-    @Test
+@Test
     public void testSafeAddToMap_1_oe() {
 
         final Map<String, Object> inMap = new HashMap<>();
@@ -5071,7 +5071,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("value1", inMap.get("key1"));
     }
 
-    @Test
+@Test
     public void testSafeAddToMap_2_oe() {
 
         final Map<String, Object> inMap = new HashMap<>();
@@ -5082,7 +5082,7 @@ public class MapUtilsTest_OE25Dev extends AbstractAvailableLocalesTest {
         assertEquals("", inMap.get("key2"));
     }
 
-    @Test
+@Test
     public void testOrderedMap_1_oe() {
     	final Map<String, String> inMap = new HashMap<>();
     	inMap.put("key1", "value1");

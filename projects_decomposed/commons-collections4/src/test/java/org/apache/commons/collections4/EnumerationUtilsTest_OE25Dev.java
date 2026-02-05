@@ -37,7 +37,7 @@ public class EnumerationUtilsTest_OE25Dev {
 
     public static final String TO_LIST_FIXTURE = "this is a test";
 
-    @Test
+@Test
     public void testToListWithStringTokenizer_1_oe() {
         final List<String> expectedList1 = new ArrayList<>();
         final StringTokenizer st = new StringTokenizer(TO_LIST_FIXTURE);
@@ -53,7 +53,7 @@ public class EnumerationUtilsTest_OE25Dev {
         assertEquals(expectedList1, expectedList2);
     }
 
-    @Test
+@Test
     public void testToListWithStringTokenizer_2_oe() {
         final List<String> expectedList1 = new ArrayList<>();
         final StringTokenizer st = new StringTokenizer(TO_LIST_FIXTURE);
@@ -70,7 +70,7 @@ public class EnumerationUtilsTest_OE25Dev {
         assertEquals(expectedList1, actualList);
     }
 
-    @Test
+@Test
     public void testToListWithStringTokenizer_3_oe() {
         final List<String> expectedList1 = new ArrayList<>();
         final StringTokenizer st = new StringTokenizer(TO_LIST_FIXTURE);
@@ -88,7 +88,7 @@ public class EnumerationUtilsTest_OE25Dev {
         assertEquals(expectedList2, actualList);
     }
 
-    @Test
+@Test
     public void testToListWithHashtable_1_oe() {
         final Hashtable<String, Integer> expected = new Hashtable<>();
         expected.put("one", Integer.valueOf(1));
@@ -99,7 +99,7 @@ public class EnumerationUtilsTest_OE25Dev {
         assertEquals(expected.size(), actualEltList.size());
     }
 
-    @Test
+@Test
     public void testToListWithHashtable_2_oe() {
         final Hashtable<String, Integer> expected = new Hashtable<>();
         expected.put("one", Integer.valueOf(1));
@@ -111,7 +111,7 @@ public class EnumerationUtilsTest_OE25Dev {
         assertTrue(actualEltList.contains(Integer.valueOf(1)));
     }
 
-    @Test
+@Test
     public void testToListWithHashtable_3_oe() {
         final Hashtable<String, Integer> expected = new Hashtable<>();
         expected.put("one", Integer.valueOf(1));
@@ -124,7 +124,7 @@ public class EnumerationUtilsTest_OE25Dev {
         assertTrue(actualEltList.contains(Integer.valueOf(2)));
     }
 
-    @Test
+@Test
     public void testToListWithHashtable_4_oe() {
         final Hashtable<String, Integer> expected = new Hashtable<>();
         expected.put("one", Integer.valueOf(1));
@@ -138,7 +138,7 @@ public class EnumerationUtilsTest_OE25Dev {
         assertTrue(actualEltList.contains(Integer.valueOf(3)));
     }
 
-    @Test
+@Test
     public void testToListWithHashtable_5_oe() {
         final Hashtable<String, Integer> expected = new Hashtable<>();
         expected.put("one", Integer.valueOf(1));
@@ -157,7 +157,7 @@ public class EnumerationUtilsTest_OE25Dev {
         assertTrue(actualEltList.containsAll(expectedEltList));
     }
 
-    @Test
+@Test
     public void testToListWithHashtable_6_oe() {
         final Hashtable<String, Integer> expected = new Hashtable<>();
         expected.put("one", Integer.valueOf(1));
@@ -180,7 +180,7 @@ public class EnumerationUtilsTest_OE25Dev {
         assertEquals(expected.size(), actualEltList.size());
     }
 
-    @Test
+@Test
     public void testToListWithHashtable_7_oe() {
         final Hashtable<String, Integer> expected = new Hashtable<>();
         expected.put("one", Integer.valueOf(1));
@@ -204,7 +204,7 @@ public class EnumerationUtilsTest_OE25Dev {
         assertTrue(actualKeyList.contains("one"));
     }
 
-    @Test
+@Test
     public void testToListWithHashtable_8_oe() {
         final Hashtable<String, Integer> expected = new Hashtable<>();
         expected.put("one", Integer.valueOf(1));
@@ -229,7 +229,7 @@ public class EnumerationUtilsTest_OE25Dev {
         assertTrue(actualKeyList.contains("two"));
     }
 
-    @Test
+@Test
     public void testToListWithHashtable_9_oe() {
         final Hashtable<String, Integer> expected = new Hashtable<>();
         expected.put("one", Integer.valueOf(1));
@@ -255,7 +255,7 @@ public class EnumerationUtilsTest_OE25Dev {
         assertTrue(actualKeyList.contains("three"));
     }
 
-    @Test
+@Test
     public void testToListWithHashtable_10_oe() {
         final Hashtable<String, Integer> expected = new Hashtable<>();
         expected.put("one", Integer.valueOf(1));
@@ -286,7 +286,7 @@ public class EnumerationUtilsTest_OE25Dev {
         assertTrue(actualKeyList.containsAll(expectedKeyList));
     }
 
-    @Test
+@Test
     public void getFromEnumeration_1_oe() throws Exception {
         // Enumeration, entry exists
         final Vector<String> vector = new Vector<>();
@@ -296,7 +296,7 @@ public class EnumerationUtilsTest_OE25Dev {
         assertEquals("zero", EnumerationUtils.get(en, 0));
     }
 
-    @Test
+@Test
     public void getFromEnumeration_2_oe() throws Exception {
         // Enumeration, entry exists
         final Vector<String> vector = new Vector<>();
@@ -308,7 +308,7 @@ public class EnumerationUtilsTest_OE25Dev {
         assertEquals("one", EnumerationUtils.get(en, 1));
     }
 
-    @Test
+@Test
     public void getFromEnumeration_4_oe() throws Exception {
         // Enumeration, entry exists
         final Vector<String> vector = new Vector<>();

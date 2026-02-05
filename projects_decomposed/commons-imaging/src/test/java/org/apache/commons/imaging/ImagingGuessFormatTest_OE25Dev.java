@@ -66,7 +66,7 @@ public class ImagingGuessFormatTest_OE25Dev extends ImagingTest {
         ).stream();
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testGuessFormat_1_oe(final ImageFormats expectedFormat, final String pathToFile) throws Exception {
         final String imagePath = FilenameUtils.separatorsToSystem(pathToFile);

@@ -69,13 +69,13 @@ public class LazyMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
 //            "src/test/resources/data/test/LazyMap.fullCollection.version4.obj");
 //    }
 
-    @Test
+@Test
     public void mapGetWithFactory_1_oe() {
         Map<Integer, Number> map = lazyMap(new HashMap<Integer,Number>(), oneFactory);
         assertEquals(0, map.size());
     }
 
-    @Test
+@Test
     public void mapGetWithFactory_2_oe() {
         Map<Integer, Number> map = lazyMap(new HashMap<Integer,Number>(), oneFactory);
         // removed other assertion
@@ -83,7 +83,7 @@ public class LazyMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
         assertEquals(1, i1);
     }
 
-    @Test
+@Test
     public void mapGetWithFactory_3_oe() {
         Map<Integer, Number> map = lazyMap(new HashMap<Integer,Number>(), oneFactory);
         // removed other assertion
@@ -92,7 +92,7 @@ public class LazyMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
         assertEquals(1, map.size());
     }
 
-    @Test
+@Test
     public void mapGetWithFactory_4_oe() {
         Map<Integer, Number> map = lazyMap(new HashMap<Integer,Number>(), oneFactory);
         // removed other assertion
@@ -103,7 +103,7 @@ public class LazyMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
         assertEquals(1, i2);
     }
 
-    @Test
+@Test
     public void mapGetWithFactory_5_oe() {
         Map<Integer, Number> map = lazyMap(new HashMap<Integer,Number>(), oneFactory);
         // removed other assertion
@@ -115,7 +115,7 @@ public class LazyMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
         assertEquals(1, map.size());
     }
 
-    @Test
+@Test
     public void mapGetWithFactory_6_oe() {
         Map<Integer, Number> map = lazyMap(new HashMap<Integer,Number>(), oneFactory);
         // removed other assertion
@@ -128,7 +128,7 @@ public class LazyMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
         assertSame(i1, i2);
     }
 
-    @Test
+@Test
     public void mapGetWithFactory_7_oe() {
         Map<Integer, Number> map = lazyMap(new HashMap<Integer,Number>(), oneFactory);
         // removed other assertion
@@ -145,7 +145,7 @@ public class LazyMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
         assertEquals(null,o);
     }
 
-    @Test
+@Test
     public void mapGetWithFactory_8_oe() {
         Map<Integer, Number> map = lazyMap(new HashMap<Integer,Number>(), oneFactory);
         // removed other assertion
@@ -163,7 +163,7 @@ public class LazyMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
         assertEquals(1, map.size());
     }
 
-    @Test
+@Test
     public void mapGetWithTransformer_1_oe() {
         final Transformer<Number, Integer> intConverter = new Transformer<Number, Integer>(){
             @Override
@@ -175,7 +175,7 @@ public class LazyMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
         assertEquals(0, map.size());
     }
 
-    @Test
+@Test
     public void mapGetWithTransformer_2_oe() {
         final Transformer<Number, Integer> intConverter = new Transformer<Number, Integer>(){
             @Override
@@ -189,7 +189,7 @@ public class LazyMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
         assertEquals(123, i1);
     }
 
-    @Test
+@Test
     public void mapGetWithTransformer_3_oe() {
         final Transformer<Number, Integer> intConverter = new Transformer<Number, Integer>(){
             @Override

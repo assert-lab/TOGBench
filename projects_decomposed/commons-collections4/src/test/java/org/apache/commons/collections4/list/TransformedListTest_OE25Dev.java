@@ -74,12 +74,12 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/TransformedList.fullCollection.version4.obj");
 //    }
 
-    public void testTransformedList_1_oe() {
+public void testTransformedList_1_oe() {
         final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         assertEquals(0, list.size());
     }
 
-    public void testTransformedList_2_oe() {
+public void testTransformedList_2_oe() {
         final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -89,7 +89,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
     }
     }
 
-    public void testTransformedList_3_oe() {
+public void testTransformedList_3_oe() {
         final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -100,7 +100,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
     }
     }
 
-    public void testTransformedList_4_oe() {
+public void testTransformedList_4_oe() {
         final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -112,7 +112,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
     }
     }
 
-    public void testTransformedList_5_oe() {
+public void testTransformedList_5_oe() {
         final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -126,7 +126,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(false, list.remove(els[0]));
     }
 
-    public void testTransformedList_6_oe() {
+public void testTransformedList_6_oe() {
         final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -141,7 +141,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(true, list.remove(Integer.valueOf((String) els[0])));
     }
 
-    public void testTransformedList_7_oe() {
+public void testTransformedList_7_oe() {
         final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -162,7 +162,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
     }
     }
 
-    public void testTransformedList_8_oe() {
+public void testTransformedList_8_oe() {
         final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -184,7 +184,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
     }
     }
 
-    public void testTransformedList_9_oe() {
+public void testTransformedList_9_oe() {
         final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -209,7 +209,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(22), list.get(0));
     }
 
-    public void testTransformedList_10_oe() {
+public void testTransformedList_10_oe() {
         final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -239,7 +239,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(33), list.get(0));
     }
 
-    public void testTransformedList_11_oe() {
+public void testTransformedList_11_oe() {
         final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -271,7 +271,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(44), list.get(1));
     }
 
-    public void testTransformedList_12_oe() {
+public void testTransformedList_12_oe() {
         final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -310,7 +310,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(1), list.get(0));
     }
 
-    public void testTransformedList_13_oe() {
+public void testTransformedList_13_oe() {
         final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -350,7 +350,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(2), list.get(1));
     }
 
-    public void testTransformedList_14_oe() {
+public void testTransformedList_14_oe() {
         final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -395,7 +395,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(1), list.get(0));
     }
 
-    public void testTransformedList_15_oe() {
+public void testTransformedList_15_oe() {
         final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -441,7 +441,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(3), list.get(1));
     }
 
-    public void testTransformedList_16_oe() {
+public void testTransformedList_16_oe() {
         final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
@@ -488,7 +488,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(2), list.get(2));
     }
 
-    public void testTransformedList_decorateTransform_1_oe() {
+public void testTransformedList_decorateTransform_1_oe() {
         final List<Object> originalList = new ArrayList<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         for (final Object el : els) {
@@ -498,7 +498,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(els.length, list.size());
     }
 
-    public void testTransformedList_decorateTransform_2_oe() {
+public void testTransformedList_decorateTransform_2_oe() {
         final List<Object> originalList = new ArrayList<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         for (final Object el : els) {
@@ -511,7 +511,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
     }
     }
 
-    public void testTransformedList_decorateTransform_3_oe() {
+public void testTransformedList_decorateTransform_3_oe() {
         final List<Object> originalList = new ArrayList<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         for (final Object el : els) {
@@ -525,7 +525,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
     }
     }
 
-    public void testTransformedList_decorateTransform_4_oe() {
+public void testTransformedList_decorateTransform_4_oe() {
         final List<Object> originalList = new ArrayList<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         for (final Object el : els) {
@@ -541,7 +541,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(false, list.remove(els[0]));
     }
 
-    public void testTransformedList_decorateTransform_5_oe() {
+public void testTransformedList_decorateTransform_5_oe() {
         final List<Object> originalList = new ArrayList<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         for (final Object el : els) {

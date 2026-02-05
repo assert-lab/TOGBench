@@ -30,14 +30,14 @@ import org.junit.Test;
  */
 public class Jira422bTestCase_OE25Dev {
 
-    @Test
+@Test
     public void testRootBean_1_oe() throws Exception {
         final RootBeanB bean = new FirstChildBeanB();
         final Class<?> propertyType = PropertyUtils.getPropertyType(bean, "file[0]");
         assertEquals(String.class.getName(), propertyType.getName());
     }
 
-    @Test
+@Test
     public void testSecondChildBean_1_oe() throws Exception {
         final RootBeanB bean = new SecondChildBeanB();
         final Class<?> propertyType = PropertyUtils.getPropertyType(bean, "file[0]");

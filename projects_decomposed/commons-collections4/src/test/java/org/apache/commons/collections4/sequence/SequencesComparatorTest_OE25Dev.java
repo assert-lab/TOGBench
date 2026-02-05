@@ -121,7 +121,7 @@ public class SequencesComparatorTest_OE25Dev {
         length = null;
     }
 
-    @Test
+@Test
     public void testLength_1_oe() {
         for (int i = 0; i < before.size(); ++i) {
             final SequencesComparator<Character> comparator =
@@ -131,7 +131,7 @@ public class SequencesComparatorTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testExecution_1_oe() {
         final ExecutionVisitor<Character> ev = new ExecutionVisitor<>();
         for (int i = 0; i < before.size(); ++i) {
@@ -142,7 +142,7 @@ public class SequencesComparatorTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testMinimal_1_oe() {
         final String[] shadokAlph = new String[] {
             new String("GA"),
@@ -193,7 +193,7 @@ public class SequencesComparatorTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testShadok_1_oe() {
         final int lgMax = 5;
         final String[] shadokAlph = new String[] {

@@ -270,25 +270,25 @@ public class ReferenceMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         }
     }
 
-    public void testNullHandling_1_oe() {
+public void testNullHandling_1_oe() {
         resetFull();
         assertEquals(null, map.get(null));
     }
 
-    public void testNullHandling_2_oe() {
+public void testNullHandling_2_oe() {
         resetFull();
         // removed other assertion
         assertEquals(false, map.containsKey(null));
     }
 
-    public void testNullHandling_3_oe() {
+public void testNullHandling_3_oe() {
         resetFull();
         // removed other assertion
         // removed other assertion
         assertEquals(false, map.containsValue(null));
     }
 
-    public void testNullHandling_4_oe() {
+public void testNullHandling_4_oe() {
         resetFull();
         // removed other assertion
         // removed other assertion
@@ -296,7 +296,7 @@ public class ReferenceMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         assertEquals(null, map.remove(null));
     }
 
-    public void testNullHandling_5_oe() {
+public void testNullHandling_5_oe() {
         resetFull();
         // removed other assertion
         // removed other assertion
@@ -305,7 +305,7 @@ public class ReferenceMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         assertEquals(false, map.entrySet().contains(null));
     }
 
-    public void testNullHandling_6_oe() {
+public void testNullHandling_6_oe() {
         resetFull();
         // removed other assertion
         // removed other assertion
@@ -315,7 +315,7 @@ public class ReferenceMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         assertEquals(false, map.keySet().contains(null));
     }
 
-    public void testNullHandling_7_oe() {
+public void testNullHandling_7_oe() {
         resetFull();
         // removed other assertion
         // removed other assertion
@@ -326,7 +326,7 @@ public class ReferenceMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         assertEquals(false, map.values().contains(null));
     }
 
-    public void testPurgeValues_1_oe() throws Exception {
+public void testPurgeValues_1_oe() throws Exception {
         // many thanks to Juozas Baliuka for suggesting this method
         final Map<K, V> testMap = buildRefMap();
 
@@ -340,7 +340,7 @@ public class ReferenceMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
     }
     }
 
-    public void testCustomPurge_1_oe() {
+public void testCustomPurge_1_oe() {
         List<Integer> expiredValues = new ArrayList<>();
         @SuppressWarnings("unchecked")
         final Consumer<Integer> consumer = (Consumer<Integer> & Serializable) v -> expiredValues.add(v);
@@ -365,7 +365,7 @@ public class ReferenceMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
     }
     }
 
-    public void testCustomPurge_2_oe() {
+public void testCustomPurge_2_oe() {
         List<Integer> expiredValues = new ArrayList<>();
         @SuppressWarnings("unchecked")
         final Consumer<Integer> consumer = (Consumer<Integer> & Serializable) v -> expiredValues.add(v);

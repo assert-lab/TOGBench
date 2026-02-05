@@ -39,14 +39,14 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
 
     public static class SubTestBean extends TestBean implements SubTestBeanInterface { }
 
-    public void testHandle_1_oe() throws SQLException {
+public void testHandle_1_oe() throws SQLException {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(TestBean.class);
         TestBean results = h.handle(this.rs);
 
         assertNotNull(results);
     }
 
-    public void testHandle_2_oe() throws SQLException {
+public void testHandle_2_oe() throws SQLException {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(TestBean.class);
         TestBean results = h.handle(this.rs);
 
@@ -54,7 +54,7 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("1", results.getOne());
     }
 
-    public void testHandle_3_oe() throws SQLException {
+public void testHandle_3_oe() throws SQLException {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(TestBean.class);
         TestBean results = h.handle(this.rs);
 
@@ -63,7 +63,7 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("2", results.getTwo());
     }
 
-    public void testHandle_4_oe() throws SQLException {
+public void testHandle_4_oe() throws SQLException {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(TestBean.class);
         TestBean results = h.handle(this.rs);
 
@@ -73,7 +73,7 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals(TestBean.Ordinal.THREE, results.getThree());
     }
 
-    public void testHandle_5_oe() throws SQLException {
+public void testHandle_5_oe() throws SQLException {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(TestBean.class);
         TestBean results = h.handle(this.rs);
 
@@ -84,21 +84,21 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("not set", results.getDoNotSet());
     }
 
-    public void testEmptyResultSetHandle_1_oe() throws SQLException {
+public void testEmptyResultSetHandle_1_oe() throws SQLException {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(TestBean.class);
         TestBean results = h.handle(this.emptyResultSet);
 
         assertNull(results);
     }
 
-    public void testHandleToSuperClass_1_oe() throws SQLException {
+public void testHandleToSuperClass_1_oe() throws SQLException {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(SubTestBean.class);
         TestBean results = h.handle(this.rs);
 
         assertNotNull(results);
     }
 
-    public void testHandleToSuperClass_2_oe() throws SQLException {
+public void testHandleToSuperClass_2_oe() throws SQLException {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(SubTestBean.class);
         TestBean results = h.handle(this.rs);
 
@@ -106,7 +106,7 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("1", results.getOne());
     }
 
-    public void testHandleToSuperClass_3_oe() throws SQLException {
+public void testHandleToSuperClass_3_oe() throws SQLException {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(SubTestBean.class);
         TestBean results = h.handle(this.rs);
 
@@ -115,7 +115,7 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("2", results.getTwo());
     }
 
-    public void testHandleToSuperClass_4_oe() throws SQLException {
+public void testHandleToSuperClass_4_oe() throws SQLException {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(SubTestBean.class);
         TestBean results = h.handle(this.rs);
 
@@ -125,7 +125,7 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals(TestBean.Ordinal.THREE, results.getThree());
     }
 
-    public void testHandleToSuperClass_5_oe() throws SQLException {
+public void testHandleToSuperClass_5_oe() throws SQLException {
         ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(SubTestBean.class);
         TestBean results = h.handle(this.rs);
 
@@ -136,14 +136,14 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("not set", results.getDoNotSet());
     }
 
-    public void testHandleToInterface_1_oe() throws SQLException {
+public void testHandleToInterface_1_oe() throws SQLException {
         ResultSetHandler<SubTestBeanInterface> h = new BeanHandler<SubTestBeanInterface>(SubTestBean.class);
         SubTestBeanInterface results = h.handle(this.rs);
 
         assertNotNull(results);
     }
 
-    public void testHandleToInterface_2_oe() throws SQLException {
+public void testHandleToInterface_2_oe() throws SQLException {
         ResultSetHandler<SubTestBeanInterface> h = new BeanHandler<SubTestBeanInterface>(SubTestBean.class);
         SubTestBeanInterface results = h.handle(this.rs);
 
@@ -151,7 +151,7 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("1", results.getOne());
     }
 
-    public void testHandleToInterface_3_oe() throws SQLException {
+public void testHandleToInterface_3_oe() throws SQLException {
         ResultSetHandler<SubTestBeanInterface> h = new BeanHandler<SubTestBeanInterface>(SubTestBean.class);
         SubTestBeanInterface results = h.handle(this.rs);
 
@@ -160,7 +160,7 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("2", results.getTwo());
     }
 
-    public void testHandleToInterface_4_oe() throws SQLException {
+public void testHandleToInterface_4_oe() throws SQLException {
         ResultSetHandler<SubTestBeanInterface> h = new BeanHandler<SubTestBeanInterface>(SubTestBean.class);
         SubTestBeanInterface results = h.handle(this.rs);
 
@@ -170,7 +170,7 @@ public class BeanHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals(TestBean.Ordinal.THREE, results.getThree());
     }
 
-    public void testHandleToInterface_5_oe() throws SQLException {
+public void testHandleToInterface_5_oe() throws SQLException {
         ResultSetHandler<SubTestBeanInterface> h = new BeanHandler<SubTestBeanInterface>(SubTestBean.class);
         SubTestBeanInterface results = h.handle(this.rs);
 

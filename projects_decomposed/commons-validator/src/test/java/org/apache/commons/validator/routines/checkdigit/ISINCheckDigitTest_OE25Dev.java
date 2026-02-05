@@ -72,7 +72,7 @@ public class ISINCheckDigitTest_OE25Dev extends AbstractCheckDigitTest {
         }
     }
 
-    public void testVALIDATOR_345_1_oe() {
+public void testVALIDATOR_345_1_oe() {
         for (int i = 0; i < invalidCheckDigits.length; i++) {
             String invalidCheckDigit = invalidCheckDigits[i];
             assertFalse("Should fail: " + invalidCheckDigit, routine.isValid(invalidCheckDigit));

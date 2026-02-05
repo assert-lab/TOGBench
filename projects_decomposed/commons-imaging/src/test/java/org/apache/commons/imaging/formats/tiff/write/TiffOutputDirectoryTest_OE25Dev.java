@@ -35,7 +35,7 @@ public class TiffOutputDirectoryTest_OE25Dev {
         directory = new TiffOutputDirectory(TiffDirectoryConstants.DIRECTORY_TYPE_ROOT, TiffConstants.DEFAULT_TIFF_BYTE_ORDER);
     }
 
-    @Test
+@Test
     public void testFindField_1_oe() throws Exception {
         directory.add(TIFF_TAG_DOCUMENT_NAME, "Test.tiff");
 
@@ -44,7 +44,7 @@ public class TiffOutputDirectoryTest_OE25Dev {
         assertNotNull(field);
     }
 
-    @Test
+@Test
     public void testFindField_2_oe() throws Exception {
         directory.add(TIFF_TAG_DOCUMENT_NAME, "Test.tiff");
 
@@ -54,7 +54,7 @@ public class TiffOutputDirectoryTest_OE25Dev {
         assertEquals(TIFF_TAG_DOCUMENT_NAME, field.tagInfo);
     }
 
-    @Test
+@Test
     public void testFindField_3_oe() throws Exception {
         directory.add(TIFF_TAG_DOCUMENT_NAME, "Test.tiff");
 

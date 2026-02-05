@@ -33,53 +33,53 @@ public class BeanPredicateTestCase_OE25Dev extends TestCase {
         super(name);
     }
 
-    public void testEqual_1_oe() {
+public void testEqual_1_oe() {
         final BeanPredicate predicate =
             new BeanPredicate("stringProperty",new EqualPredicate("foo"));
         assertTrue(predicate.evaluate(new TestBean("foo")));
     }
 
-    public void testEqual_2_oe() {
+public void testEqual_2_oe() {
         final BeanPredicate predicate =
             new BeanPredicate("stringProperty",new EqualPredicate("foo"));
         // removed other assertion
         assertTrue(!predicate.evaluate(new TestBean("bar")));
     }
 
-    public void testNotEqual_1_oe() {
+public void testNotEqual_1_oe() {
         final BeanPredicate predicate =
             new BeanPredicate("stringProperty",new NotPredicate( new EqualPredicate("foo")));
         assertTrue(!predicate.evaluate(new TestBean("foo")));
     }
 
-    public void testNotEqual_2_oe() {
+public void testNotEqual_2_oe() {
         final BeanPredicate predicate =
             new BeanPredicate("stringProperty",new NotPredicate( new EqualPredicate("foo")));
         // removed other assertion
         assertTrue(predicate.evaluate(new TestBean("bar")));
     }
 
-    public void testInstanceOf_1_oe() {
+public void testInstanceOf_1_oe() {
         final BeanPredicate predicate =
             new BeanPredicate("stringProperty",new InstanceofPredicate( String.class ));
         assertTrue(predicate.evaluate(new TestBean("foo")));
     }
 
-    public void testInstanceOf_2_oe() {
+public void testInstanceOf_2_oe() {
         final BeanPredicate predicate =
             new BeanPredicate("stringProperty",new InstanceofPredicate( String.class ));
         // removed other assertion
         assertTrue(predicate.evaluate(new TestBean("bar")));
     }
 
-    public void testNull_1_oe() {
+public void testNull_1_oe() {
         final BeanPredicate predicate =
             new BeanPredicate("stringProperty", NullPredicate.INSTANCE);
         final String nullString = null;
         assertTrue(predicate.evaluate(new TestBean(nullString)));
     }
 
-    public void testNull_2_oe() {
+public void testNull_2_oe() {
         final BeanPredicate predicate =
             new BeanPredicate("stringProperty", NullPredicate.INSTANCE);
         final String nullString = null;

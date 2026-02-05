@@ -49,7 +49,7 @@ public class ThreadPoolManagerUnitTest_OE25Dev
      *
      */
 
-    public void testDefaultConfig_1_oe()
+public void testDefaultConfig_1_oe()
     {
         final Properties props = PropertyLoader.loadProperties( "thread_pool.properties" );
         ThreadPoolManager.setProps( props );
@@ -57,7 +57,7 @@ public class ThreadPoolManagerUnitTest_OE25Dev
         assertNotNull( mgr );
     }
 
-    public void testDefaultConfig_2_oe()
+public void testDefaultConfig_2_oe()
     {
         final Properties props = PropertyLoader.loadProperties( "thread_pool.properties" );
         ThreadPoolManager.setProps( props );
@@ -68,7 +68,7 @@ public class ThreadPoolManagerUnitTest_OE25Dev
         assertNotNull( pool );
     }
 
-    public void testSpecialConfig_1_oe()
+public void testSpecialConfig_1_oe()
     {
         final Properties props = PropertyLoader.loadProperties( "thread_pool.properties" );
         ThreadPoolManager.setProps( props );
@@ -76,7 +76,7 @@ public class ThreadPoolManagerUnitTest_OE25Dev
         assertNotNull( mgr );
     }
 
-    public void testSpecialConfig_2_oe()
+public void testSpecialConfig_2_oe()
     {
         final Properties props = PropertyLoader.loadProperties( "thread_pool.properties" );
         ThreadPoolManager.setProps( props );
@@ -87,13 +87,13 @@ public class ThreadPoolManagerUnitTest_OE25Dev
         assertNotNull( pool );
     }
 
-    public void testGetPoolNames_1_oe()
+public void testGetPoolNames_1_oe()
     {
         final ThreadPoolManager mgr = ThreadPoolManager.getInstance();
         assertNotNull( mgr );
     }
 
-    public void testGetPoolNames_2_oe()
+public void testGetPoolNames_2_oe()
     {
         final ThreadPoolManager mgr = ThreadPoolManager.getInstance();
         // removed other assertion
@@ -108,7 +108,7 @@ public class ThreadPoolManagerUnitTest_OE25Dev
         assertTrue( "Should have name in list.", names.contains( poolName1 ) );
     }
 
-    public void testGetPoolNames_3_oe()
+public void testGetPoolNames_3_oe()
     {
         final ThreadPoolManager mgr = ThreadPoolManager.getInstance();
         // removed other assertion

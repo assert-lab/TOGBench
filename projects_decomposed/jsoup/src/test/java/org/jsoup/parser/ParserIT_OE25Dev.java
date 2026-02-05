@@ -27,7 +27,7 @@ public class ParserIT_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void handlesDeepStack_1_oe() {
         // inspired by http://sv.stargate.wikia.com/wiki/M2J and https://github.com/jhy/jsoup/issues/955
         // I didn't put it in the integration tests, because explorer and intellij kept dieing trying to preview/index it
@@ -49,7 +49,7 @@ public class ParserIT_OE25Dev {
         assertEquals(2, doc.body().childNodeSize());
     }
 
-    @Test
+@Test
     public void handlesDeepStack_2_oe() {
         // inspired by http://sv.stargate.wikia.com/wiki/M2J and https://github.com/jhy/jsoup/issues/955
         // I didn't put it in the integration tests, because explorer and intellij kept dieing trying to preview/index it
@@ -72,7 +72,7 @@ public class ParserIT_OE25Dev {
         assertEquals(25000, doc.select("dd").size());
     }
 
-    @Test
+@Test
     public void handlesDeepStack_3_oe() {
         // inspired by http://sv.stargate.wikia.com/wiki/M2J and https://github.com/jhy/jsoup/issues/955
         // I didn't put it in the integration tests, because explorer and intellij kept dieing trying to preview/index it

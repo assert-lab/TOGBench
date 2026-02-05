@@ -70,19 +70,19 @@ public class ISINValidatorTest_OE25Dev extends TestCase {
         super(name);
     }
 
-    public void testIsValidTrue_1_oe() {
+public void testIsValidTrue_1_oe() {
         for(String f : validFormat) {
             assertTrue(f, VALIDATOR_TRUE.isValid(f));
     }
     }
 
-    public void testInvalidTrue_1_oe() {
+public void testInvalidTrue_1_oe() {
         for(String f : invalidFormat) {
             assertFalse(f, VALIDATOR_TRUE.isValid(f));
     }
     }
 
-    public void testInvalidTrue_2_oe() {
+public void testInvalidTrue_2_oe() {
         for(String f : invalidFormat) {
             // removed other assertion
         }
@@ -91,13 +91,13 @@ public class ISINValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testIsValidFalse_1_oe() {
+public void testIsValidFalse_1_oe() {
         for(String f : validFormat) {
             assertTrue(f, VALIDATOR_FALSE.isValid(f));
     }
     }
 
-    public void testInvalidFalse_1_oe() {
+public void testInvalidFalse_1_oe() {
         for(String f : invalidFormat) {
             assertFalse(f, VALIDATOR_FALSE.isValid(f));
     }

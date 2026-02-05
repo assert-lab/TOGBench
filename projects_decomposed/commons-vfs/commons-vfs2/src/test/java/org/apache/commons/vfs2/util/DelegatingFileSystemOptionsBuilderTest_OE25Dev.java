@@ -59,14 +59,14 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testConfiguration_1_oe() throws Exception {
         for (final String scheme : schemes) {
             assertTrue("Missing " + scheme + " provider", fsm.hasProvider(scheme));
     }
     }
 
-    @Test
+@Test
     public void testDelegatingBad_2_oe() throws Throwable {
         final FileSystemOptions opts = new FileSystemOptions();
         final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
@@ -79,7 +79,7 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testDelegatingBad_3_oe() throws Throwable {
         final FileSystemOptions opts = new FileSystemOptions();
         final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
@@ -93,7 +93,7 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testDelegatingBad_5_oe() throws Throwable {
         final FileSystemOptions opts = new FileSystemOptions();
         final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
@@ -114,7 +114,7 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testDelegatingGood_1_oe() throws Throwable {
         final String[] identityPaths = new String[] { "/file1", "/file2", };
 
@@ -129,7 +129,7 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
         assertEquals("http.proxyHost", HttpFileSystemConfigBuilder.getInstance().getProxyHost(opts), "proxy");
     }
 
-    @Test
+@Test
     public void testDelegatingGood_2_oe() throws Throwable {
         final String[] identityPaths = new String[] { "/file1", "/file2", };
 
@@ -145,7 +145,7 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
         assertEquals("http.proxyPort", HttpFileSystemConfigBuilder.getInstance().getProxyPort(opts), 8080);
     }
 
-    @Test
+@Test
     public void testDelegatingGood_3_oe() throws Throwable {
         final String[] identityPaths = new String[] { "/file1", "/file2", };
 
@@ -162,7 +162,7 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
         assertSame("sftp.userInfo",SftpFileSystemConfigBuilder.getInstance().getUserInfo(opts).getClass(),TrustEveryoneUserInfo.class);
     }
 
-    @Test
+@Test
     public void testDelegatingGood_4_oe() throws Throwable {
         final String[] identityPaths = new String[] { "/file1", "/file2", };
 
@@ -182,7 +182,7 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
         assertNotNull("sftp.identities", identities);
     }
 
-    @Test
+@Test
     public void testDelegatingGood_5_oe() throws Throwable {
         final String[] identityPaths = new String[] { "/file1", "/file2", };
 
@@ -203,7 +203,7 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
         assertEquals("sftp.identities size", identities.length, identityPaths.length);
     }
 
-    @Test
+@Test
     public void testDelegatingGood_6_oe() throws Throwable {
         final String[] identityPaths = new String[] { "/file1", "/file2", };
 

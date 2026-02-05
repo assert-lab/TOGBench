@@ -180,7 +180,7 @@ public class CookieTest_OE25Dev {
      * This test confirms that behavior. 
      */
 
-    @Test
+@Test
     public void malFormedNameValueException_2_oe() {
         String cookieStr = "thisCookieHasNoEqualsChar";
         try {
@@ -191,14 +191,14 @@ public class CookieTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void booleanAttribute_1_oe() {
         String cookieStr = "this=Cookie;myAttribute";
             JSONObject jo = Cookie.toJSONObject(cookieStr);
             assertTrue("has key 'name'", jo.has("name"));
     }
 
-    @Test
+@Test
     public void booleanAttribute_2_oe() {
         String cookieStr = "this=Cookie;myAttribute";
             JSONObject jo = Cookie.toJSONObject(cookieStr);
@@ -206,7 +206,7 @@ public class CookieTest_OE25Dev {
             assertTrue("has key 'value'", jo.has("value"));
     }
 
-    @Test
+@Test
     public void booleanAttribute_3_oe() {
         String cookieStr = "this=Cookie;myAttribute";
             JSONObject jo = Cookie.toJSONObject(cookieStr);
@@ -215,7 +215,7 @@ public class CookieTest_OE25Dev {
             assertTrue("has key 'myAttribute'", jo.has("myattribute"));
     }
 
-    @Test
+@Test
     public void emptyStringCookieException_2_oe() {
         String cookieStr = "";
         try {
@@ -226,7 +226,7 @@ public class CookieTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void emptyNameCookieException_2_oe() {
         String cookieStr = " = value ";
         try {
@@ -237,7 +237,7 @@ public class CookieTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void escapeString_1_oe() {
         String str = "   +%\r\n\t\b%=;;;   ";
         String expectedStr = "%2b%25%0d%0a%09%08%25%3d%3b%3b%3b";
@@ -245,7 +245,7 @@ public class CookieTest_OE25Dev {
         assertTrue("expect escape()to encode correctly. Actual: " +actualStr+ " expected: " +expectedStr,expectedStr.equals(actualStr));
     }
 
-    @Test
+@Test
     public void unescapeString_1_oe() {
         String str = " +%2b%25%0d%0a%09%08%25%3d%3b%3b%3b+ ";
         String expectedStr = "  +%\r\n\t\b%=;;;  ";

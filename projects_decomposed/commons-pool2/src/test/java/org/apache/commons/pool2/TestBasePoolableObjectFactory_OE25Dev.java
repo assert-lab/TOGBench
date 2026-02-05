@@ -53,7 +53,7 @@ public class TestBasePoolableObjectFactory_OE25Dev {
      * @throws Exception May occur in some failure modes
      */
 
-    @Test
+@Test
     public void testDefaultMethods_1_oe() throws Exception {
         final PooledObjectFactory<AtomicInteger> factory = new TestFactory();
 
@@ -63,7 +63,7 @@ public class TestBasePoolableObjectFactory_OE25Dev {
         assertTrue(factory.validateObject(null)); // constant true;
     }
 
-    @Test
+@Test
     public void testDestroyModes_1_oe() throws Exception {
         final PooledObjectFactory<AtomicInteger> factory = new TestFactory();
         final PooledObject<AtomicInteger> pooledObj = factory.makeObject();
@@ -72,7 +72,7 @@ public class TestBasePoolableObjectFactory_OE25Dev {
         assertEquals(0, obj.get());
     }
 
-    @Test
+@Test
     public void testDestroyModes_2_oe() throws Exception {
         final PooledObjectFactory<AtomicInteger> factory = new TestFactory();
         final PooledObject<AtomicInteger> pooledObj = factory.makeObject();

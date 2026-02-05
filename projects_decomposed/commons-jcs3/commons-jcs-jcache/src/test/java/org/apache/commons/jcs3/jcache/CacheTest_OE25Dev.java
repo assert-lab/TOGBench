@@ -86,7 +86,7 @@ public class CacheTest_OE25Dev
         }
     }
 
-    @Test
+@Test
     public void getPut_1_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -95,7 +95,7 @@ public class CacheTest_OE25Dev
         assertFalse(cache.containsKey("foo"));
     }
 
-    @Test
+@Test
     public void getPut_2_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -106,7 +106,7 @@ public class CacheTest_OE25Dev
         assertTrue(cache.containsKey("foo"));
     }
 
-    @Test
+@Test
     public void getPut_3_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -118,7 +118,7 @@ public class CacheTest_OE25Dev
         assertEquals("bar", cache.get("foo"));
     }
 
-    @Test
+@Test
     public void getPut_4_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -132,7 +132,7 @@ public class CacheTest_OE25Dev
         assertFalse(cache.containsKey("foo"));
     }
 
-    @Test
+@Test
     public void listeners_1_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -238,7 +238,7 @@ public class CacheTest_OE25Dev
         assertEquals(1, event.size());
     }
 
-    @Test
+@Test
     public void listeners_2_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -345,7 +345,7 @@ public class CacheTest_OE25Dev
         assertEquals("foo", event.iterator().next());
     }
 
-    @Test
+@Test
     public void listeners_3_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -455,7 +455,7 @@ public class CacheTest_OE25Dev
         assertEquals(1, event.size());
     }
 
-    @Test
+@Test
     public void listeners_4_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -566,7 +566,7 @@ public class CacheTest_OE25Dev
         assertEquals("foo", event.iterator().next());
     }
 
-    @Test
+@Test
     public void listeners_5_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -680,7 +680,7 @@ public class CacheTest_OE25Dev
         assertEquals(1, event.size());
     }
 
-    @Test
+@Test
     public void listeners_6_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -795,7 +795,7 @@ public class CacheTest_OE25Dev
         assertEquals("foo", event.iterator().next());
     }
 
-    @Test
+@Test
     public void loader_1_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();

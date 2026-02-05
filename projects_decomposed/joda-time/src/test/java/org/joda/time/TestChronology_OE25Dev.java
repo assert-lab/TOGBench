@@ -123,22 +123,22 @@ public class TestChronology_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testTest_1_oe() {
+public void testTest_1_oe() {
         assertEquals("2002-06-09T00:00:00.000Z",new Instant(TEST_TIME_NOW).toString());
     }
 
-    public void testTest_2_oe() {
+public void testTest_2_oe() {
         // removed other assertion
         assertEquals("2002-04-05T12:24:00.000Z",new Instant(TEST_TIME1).toString());
     }
 
-    public void testTest_3_oe() {
+public void testTest_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("2003-05-06T14:28:00.000Z",new Instant(TEST_TIME2).toString());
     }
 
-    public void testEqualsHashCode_ISO_1_oe() {
+public void testEqualsHashCode_ISO_1_oe() {
         Chronology chrono1 = ISOChronology.getInstanceUTC();
         Chronology chrono2 = ISOChronology.getInstanceUTC();
         Chronology chrono3 = ISOChronology.getInstance();
@@ -146,7 +146,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(true,chrono1.equals(chrono2));
     }
 
-    public void testEqualsHashCode_ISO_2_oe() {
+public void testEqualsHashCode_ISO_2_oe() {
         Chronology chrono1 = ISOChronology.getInstanceUTC();
         Chronology chrono2 = ISOChronology.getInstanceUTC();
         Chronology chrono3 = ISOChronology.getInstance();
@@ -155,7 +155,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,chrono1.equals(chrono3));
     }
 
-    public void testEqualsHashCode_ISO_3_oe() {
+public void testEqualsHashCode_ISO_3_oe() {
         Chronology chrono1 = ISOChronology.getInstanceUTC();
         Chronology chrono2 = ISOChronology.getInstanceUTC();
         Chronology chrono3 = ISOChronology.getInstance();
@@ -170,7 +170,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(true,dt1.equals(dt2));
     }
 
-    public void testEqualsHashCode_ISO_4_oe() {
+public void testEqualsHashCode_ISO_4_oe() {
         Chronology chrono1 = ISOChronology.getInstanceUTC();
         Chronology chrono2 = ISOChronology.getInstanceUTC();
         Chronology chrono3 = ISOChronology.getInstance();
@@ -186,7 +186,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,dt1.equals(dt3));
     }
 
-    public void testEqualsHashCode_ISO_5_oe() {
+public void testEqualsHashCode_ISO_5_oe() {
         Chronology chrono1 = ISOChronology.getInstanceUTC();
         Chronology chrono2 = ISOChronology.getInstanceUTC();
         Chronology chrono3 = ISOChronology.getInstance();
@@ -204,7 +204,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(true,chrono1.hashCode()== chrono2.hashCode());
     }
 
-    public void testEqualsHashCode_ISO_6_oe() {
+public void testEqualsHashCode_ISO_6_oe() {
         Chronology chrono1 = ISOChronology.getInstanceUTC();
         Chronology chrono2 = ISOChronology.getInstanceUTC();
         Chronology chrono3 = ISOChronology.getInstance();
@@ -223,7 +223,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,chrono1.hashCode()== chrono3.hashCode());
     }
 
-    public void testEqualsHashCode_Lenient_1_oe() {
+public void testEqualsHashCode_Lenient_1_oe() {
         Chronology chrono1 = LenientChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono2 = LenientChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono3 = LenientChronology.getInstance(ISOChronology.getInstance());
@@ -231,7 +231,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(true,chrono1.equals(chrono2));
     }
 
-    public void testEqualsHashCode_Lenient_2_oe() {
+public void testEqualsHashCode_Lenient_2_oe() {
         Chronology chrono1 = LenientChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono2 = LenientChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono3 = LenientChronology.getInstance(ISOChronology.getInstance());
@@ -240,7 +240,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,chrono1.equals(chrono3));
     }
 
-    public void testEqualsHashCode_Lenient_3_oe() {
+public void testEqualsHashCode_Lenient_3_oe() {
         Chronology chrono1 = LenientChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono2 = LenientChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono3 = LenientChronology.getInstance(ISOChronology.getInstance());
@@ -255,7 +255,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(true,dt1.equals(dt2));
     }
 
-    public void testEqualsHashCode_Lenient_4_oe() {
+public void testEqualsHashCode_Lenient_4_oe() {
         Chronology chrono1 = LenientChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono2 = LenientChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono3 = LenientChronology.getInstance(ISOChronology.getInstance());
@@ -271,7 +271,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,dt1.equals(dt3));
     }
 
-    public void testEqualsHashCode_Lenient_5_oe() {
+public void testEqualsHashCode_Lenient_5_oe() {
         Chronology chrono1 = LenientChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono2 = LenientChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono3 = LenientChronology.getInstance(ISOChronology.getInstance());
@@ -289,7 +289,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(true,chrono1.hashCode()== chrono2.hashCode());
     }
 
-    public void testEqualsHashCode_Lenient_6_oe() {
+public void testEqualsHashCode_Lenient_6_oe() {
         Chronology chrono1 = LenientChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono2 = LenientChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono3 = LenientChronology.getInstance(ISOChronology.getInstance());
@@ -308,7 +308,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,chrono1.hashCode()== chrono3.hashCode());
     }
 
-    public void testEqualsHashCode_Strict_1_oe() {
+public void testEqualsHashCode_Strict_1_oe() {
         Chronology chrono1 = StrictChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono2 = StrictChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono3 = StrictChronology.getInstance(ISOChronology.getInstance());
@@ -316,7 +316,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(true,chrono1.equals(chrono2));
     }
 
-    public void testEqualsHashCode_Strict_2_oe() {
+public void testEqualsHashCode_Strict_2_oe() {
         Chronology chrono1 = StrictChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono2 = StrictChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono3 = StrictChronology.getInstance(ISOChronology.getInstance());
@@ -325,7 +325,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,chrono1.equals(chrono3));
     }
 
-    public void testEqualsHashCode_Strict_3_oe() {
+public void testEqualsHashCode_Strict_3_oe() {
         Chronology chrono1 = StrictChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono2 = StrictChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono3 = StrictChronology.getInstance(ISOChronology.getInstance());
@@ -340,7 +340,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(true,dt1.equals(dt2));
     }
 
-    public void testEqualsHashCode_Strict_4_oe() {
+public void testEqualsHashCode_Strict_4_oe() {
         Chronology chrono1 = StrictChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono2 = StrictChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono3 = StrictChronology.getInstance(ISOChronology.getInstance());
@@ -356,7 +356,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,dt1.equals(dt3));
     }
 
-    public void testEqualsHashCode_Strict_5_oe() {
+public void testEqualsHashCode_Strict_5_oe() {
         Chronology chrono1 = StrictChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono2 = StrictChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono3 = StrictChronology.getInstance(ISOChronology.getInstance());
@@ -374,7 +374,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(true,chrono1.hashCode()== chrono2.hashCode());
     }
 
-    public void testEqualsHashCode_Strict_6_oe() {
+public void testEqualsHashCode_Strict_6_oe() {
         Chronology chrono1 = StrictChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono2 = StrictChronology.getInstance(ISOChronology.getInstanceUTC());
         Chronology chrono3 = StrictChronology.getInstance(ISOChronology.getInstance());
@@ -393,7 +393,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,chrono1.hashCode()== chrono3.hashCode());
     }
 
-    public void testEqualsHashCode_Limit_1_oe() {
+public void testEqualsHashCode_Limit_1_oe() {
         DateTime lower = new DateTime(0L);
         DateTime higherA = new DateTime(1000000L);
         DateTime higherB = new DateTime(2000000L);
@@ -406,7 +406,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(true,chrono1.equals(chrono2A));
     }
 
-    public void testEqualsHashCode_Limit_2_oe() {
+public void testEqualsHashCode_Limit_2_oe() {
         DateTime lower = new DateTime(0L);
         DateTime higherA = new DateTime(1000000L);
         DateTime higherB = new DateTime(2000000L);
@@ -420,7 +420,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,chrono1.equals(chrono2B));
     }
 
-    public void testEqualsHashCode_Limit_3_oe() {
+public void testEqualsHashCode_Limit_3_oe() {
         DateTime lower = new DateTime(0L);
         DateTime higherA = new DateTime(1000000L);
         DateTime higherB = new DateTime(2000000L);
@@ -435,7 +435,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,chrono1.equals(chrono3));
     }
 
-    public void testEqualsHashCode_Limit_4_oe() {
+public void testEqualsHashCode_Limit_4_oe() {
         DateTime lower = new DateTime(0L);
         DateTime higherA = new DateTime(1000000L);
         DateTime higherB = new DateTime(2000000L);
@@ -457,7 +457,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(true,dt1.equals(dt2A));
     }
 
-    public void testEqualsHashCode_Limit_5_oe() {
+public void testEqualsHashCode_Limit_5_oe() {
         DateTime lower = new DateTime(0L);
         DateTime higherA = new DateTime(1000000L);
         DateTime higherB = new DateTime(2000000L);
@@ -480,7 +480,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,dt1.equals(dt2B));
     }
 
-    public void testEqualsHashCode_Limit_6_oe() {
+public void testEqualsHashCode_Limit_6_oe() {
         DateTime lower = new DateTime(0L);
         DateTime higherA = new DateTime(1000000L);
         DateTime higherB = new DateTime(2000000L);
@@ -504,7 +504,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,dt1.equals(dt3));
     }
 
-    public void testEqualsHashCode_Limit_7_oe() {
+public void testEqualsHashCode_Limit_7_oe() {
         DateTime lower = new DateTime(0L);
         DateTime higherA = new DateTime(1000000L);
         DateTime higherB = new DateTime(2000000L);
@@ -530,7 +530,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(true,chrono1.hashCode()== chrono2A.hashCode());
     }
 
-    public void testEqualsHashCode_Limit_8_oe() {
+public void testEqualsHashCode_Limit_8_oe() {
         DateTime lower = new DateTime(0L);
         DateTime higherA = new DateTime(1000000L);
         DateTime higherB = new DateTime(2000000L);
@@ -557,7 +557,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,chrono1.hashCode()== chrono2B.hashCode());
     }
 
-    public void testEqualsHashCode_Limit_9_oe() {
+public void testEqualsHashCode_Limit_9_oe() {
         DateTime lower = new DateTime(0L);
         DateTime higherA = new DateTime(1000000L);
         DateTime higherB = new DateTime(2000000L);
@@ -585,7 +585,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,chrono1.hashCode()== chrono3.hashCode());
     }
 
-    public void testEqualsHashCode_Zoned_1_oe() {
+public void testEqualsHashCode_Zoned_1_oe() {
         DateTimeZone zoneA = DateTimeZone.forID("Europe/Paris");
         DateTimeZone zoneB = DateTimeZone.forID("Asia/Tokyo");
         
@@ -596,7 +596,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(true,chrono1.equals(chrono2));
     }
 
-    public void testEqualsHashCode_Zoned_2_oe() {
+public void testEqualsHashCode_Zoned_2_oe() {
         DateTimeZone zoneA = DateTimeZone.forID("Europe/Paris");
         DateTimeZone zoneB = DateTimeZone.forID("Asia/Tokyo");
         
@@ -608,7 +608,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,chrono1.equals(chrono3));
     }
 
-    public void testEqualsHashCode_Zoned_3_oe() {
+public void testEqualsHashCode_Zoned_3_oe() {
         DateTimeZone zoneA = DateTimeZone.forID("Europe/Paris");
         DateTimeZone zoneB = DateTimeZone.forID("Asia/Tokyo");
         
@@ -626,7 +626,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(true,dt1.equals(dt2));
     }
 
-    public void testEqualsHashCode_Zoned_4_oe() {
+public void testEqualsHashCode_Zoned_4_oe() {
         DateTimeZone zoneA = DateTimeZone.forID("Europe/Paris");
         DateTimeZone zoneB = DateTimeZone.forID("Asia/Tokyo");
         
@@ -645,7 +645,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,dt1.equals(dt3));
     }
 
-    public void testEqualsHashCode_Zoned_5_oe() {
+public void testEqualsHashCode_Zoned_5_oe() {
         DateTimeZone zoneA = DateTimeZone.forID("Europe/Paris");
         DateTimeZone zoneB = DateTimeZone.forID("Asia/Tokyo");
         
@@ -666,7 +666,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(true,chrono1.hashCode()== chrono2.hashCode());
     }
 
-    public void testEqualsHashCode_Zoned_6_oe() {
+public void testEqualsHashCode_Zoned_6_oe() {
         DateTimeZone zoneA = DateTimeZone.forID("Europe/Paris");
         DateTimeZone zoneB = DateTimeZone.forID("Asia/Tokyo");
         
@@ -688,14 +688,14 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals(false,chrono1.hashCode()== chrono3.hashCode());
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         DateTimeZone paris = DateTimeZone.forID("Europe/Paris");
         ISOChronology isoParis = ISOChronology.getInstance(paris);
         
         assertEquals("ISOChronology[Europe/Paris]",isoParis.toString());
     }
 
-    public void testToString_2_oe() {
+public void testToString_2_oe() {
         DateTimeZone paris = DateTimeZone.forID("Europe/Paris");
         ISOChronology isoParis = ISOChronology.getInstance(paris);
         
@@ -703,7 +703,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals("GJChronology[Europe/Paris]",GJChronology.getInstance(paris).toString());
     }
 
-    public void testToString_3_oe() {
+public void testToString_3_oe() {
         DateTimeZone paris = DateTimeZone.forID("Europe/Paris");
         ISOChronology isoParis = ISOChronology.getInstance(paris);
         
@@ -712,7 +712,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals("GregorianChronology[Europe/Paris]",GregorianChronology.getInstance(paris).toString());
     }
 
-    public void testToString_4_oe() {
+public void testToString_4_oe() {
         DateTimeZone paris = DateTimeZone.forID("Europe/Paris");
         ISOChronology isoParis = ISOChronology.getInstance(paris);
         
@@ -722,7 +722,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals("JulianChronology[Europe/Paris]",JulianChronology.getInstance(paris).toString());
     }
 
-    public void testToString_5_oe() {
+public void testToString_5_oe() {
         DateTimeZone paris = DateTimeZone.forID("Europe/Paris");
         ISOChronology isoParis = ISOChronology.getInstance(paris);
         
@@ -733,7 +733,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals("BuddhistChronology[Europe/Paris]",BuddhistChronology.getInstance(paris).toString());
     }
 
-    public void testToString_6_oe() {
+public void testToString_6_oe() {
         DateTimeZone paris = DateTimeZone.forID("Europe/Paris");
         ISOChronology isoParis = ISOChronology.getInstance(paris);
         
@@ -745,7 +745,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals("CopticChronology[Europe/Paris]",CopticChronology.getInstance(paris).toString());
     }
 
-    public void testToString_7_oe() {
+public void testToString_7_oe() {
         DateTimeZone paris = DateTimeZone.forID("Europe/Paris");
         ISOChronology isoParis = ISOChronology.getInstance(paris);
         
@@ -758,7 +758,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals("EthiopicChronology[Europe/Paris]",EthiopicChronology.getInstance(paris).toString());
     }
 
-    public void testToString_8_oe() {
+public void testToString_8_oe() {
         DateTimeZone paris = DateTimeZone.forID("Europe/Paris");
         ISOChronology isoParis = ISOChronology.getInstance(paris);
         
@@ -772,7 +772,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals("IslamicChronology[Europe/Paris]",IslamicChronology.getInstance(paris).toString());
     }
 
-    public void testToString_9_oe() {
+public void testToString_9_oe() {
         DateTimeZone paris = DateTimeZone.forID("Europe/Paris");
         ISOChronology isoParis = ISOChronology.getInstance(paris);
         
@@ -788,7 +788,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals("LenientChronology[ISOChronology[Europe/Paris]]",LenientChronology.getInstance(isoParis).toString());
     }
 
-    public void testToString_10_oe() {
+public void testToString_10_oe() {
         DateTimeZone paris = DateTimeZone.forID("Europe/Paris");
         ISOChronology isoParis = ISOChronology.getInstance(paris);
         
@@ -805,7 +805,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals("StrictChronology[ISOChronology[Europe/Paris]]",StrictChronology.getInstance(isoParis).toString());
     }
 
-    public void testToString_11_oe() {
+public void testToString_11_oe() {
         DateTimeZone paris = DateTimeZone.forID("Europe/Paris");
         ISOChronology isoParis = ISOChronology.getInstance(paris);
         
@@ -823,7 +823,7 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals("LimitChronology[ISOChronology[Europe/Paris],NoLimit,NoLimit]",LimitChronology.getInstance(isoParis,null,null).toString());
     }
 
-    public void testToString_12_oe() {
+public void testToString_12_oe() {
         DateTimeZone paris = DateTimeZone.forID("Europe/Paris");
         ISOChronology isoParis = ISOChronology.getInstance(paris);
         

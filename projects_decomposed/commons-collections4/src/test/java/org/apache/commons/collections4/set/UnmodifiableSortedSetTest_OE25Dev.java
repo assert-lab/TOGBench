@@ -145,12 +145,12 @@ public class UnmodifiableSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/UnmodifiableSortedSet.fullCollection.version4.obj");
 //    }
 
-    public void testDecorateFactory_1_oe() {
+public void testDecorateFactory_1_oe() {
         final SortedSet<E> set = makeFullCollection();
         assertSame(set, UnmodifiableSortedSet.unmodifiableSortedSet(set));
     }
 
-    public void testComparator_1_oe() {
+public void testComparator_1_oe() {
         setupSet();
         final Comparator<? super E> c = set.comparator();
         assertTrue("natural order, so comparator should be null", c == null);

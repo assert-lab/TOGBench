@@ -128,7 +128,7 @@ public class StrategyTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse((Boolean) result);
     }
 
-    @Test
+@Test
     public void testRawResolvers_1_oe() throws Exception {
         final Object map  = new HashMap<String, Object>();
         final JexlEngine jexl = new JexlBuilder().create();
@@ -138,7 +138,7 @@ public class StrategyTest_OE25Dev extends JexlTestCase {
         Assert.assertNull(fget);
     }
 
-    @Test
+@Test
     public void testRawResolvers_2_oe() throws Exception {
         final Object map  = new HashMap<String, Object>();
         final JexlEngine jexl = new JexlBuilder().create();
@@ -150,7 +150,7 @@ public class StrategyTest_OE25Dev extends JexlTestCase {
         Assert.assertNull(fset);
     }
 
-    @Test
+@Test
     public void testRawResolvers_3_oe() throws Exception {
         final Object map  = new HashMap<String, Object>();
         final JexlEngine jexl = new JexlBuilder().create();
@@ -165,7 +165,7 @@ public class StrategyTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(mget);
     }
 
-    @Test
+@Test
     public void testRawResolvers_4_oe() throws Exception {
         final Object map  = new HashMap<String, Object>();
         final JexlEngine jexl = new JexlBuilder().create();

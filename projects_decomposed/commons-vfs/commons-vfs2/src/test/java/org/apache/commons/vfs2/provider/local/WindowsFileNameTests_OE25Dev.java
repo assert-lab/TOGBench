@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class WindowsFileNameTests_OE25Dev extends AbstractProviderTestCase {
 
-    @Test
+@Test
     public void testWindowsFilenameParserError_3_oe() throws Exception {
         // check VFS-338 with 2+4 slashes we want a dedicated error
         try {
@@ -45,7 +45,7 @@ public class WindowsFileNameTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWindowsFilenameParserError_4_oe() throws Exception {
         // check VFS-338 with 2+4 slashes we want a dedicated error
         try {
@@ -61,7 +61,7 @@ public class WindowsFileNameTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWindowsFilenameUNCStartError_3_oe() throws Exception {
         try {
             final String FILE = "file://///";
@@ -74,7 +74,7 @@ public class WindowsFileNameTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWindowsFilenameUNCStartError_4_oe() throws Exception {
         try {
             final String FILE = "file://///";
@@ -89,7 +89,7 @@ public class WindowsFileNameTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWindowsRoots_1_oe() throws Exception {
         // valid URI forms of the filesystem root
         final String[] tests = new String[] { "file:///C:/", "file://C:/", "file:/C:/", "file:C:/" };
@@ -100,7 +100,7 @@ public class WindowsFileNameTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWindowsRoots_2_oe() throws Exception {
         // valid URI forms of the filesystem root
         final String[] tests = new String[] { "file:///C:/", "file://C:/", "file:/C:/", "file:C:/" };
@@ -115,7 +115,7 @@ public class WindowsFileNameTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWindowsRoots_3_oe() throws Exception {
         // valid URI forms of the filesystem root
         final String[] tests = new String[] { "file:///C:/", "file://C:/", "file:/C:/", "file:C:/" };
@@ -133,7 +133,7 @@ public class WindowsFileNameTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWindowsRoots_4_oe() throws Exception {
         // valid URI forms of the filesystem root
         final String[] tests = new String[] { "file:///C:/", "file://C:/", "file:/C:/", "file:C:/" };
@@ -152,7 +152,7 @@ public class WindowsFileNameTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWindowsRoots_5_oe() throws Exception {
         // valid URI forms of the filesystem root
         final String[] tests = new String[] { "file:///C:/", "file://C:/", "file:/C:/", "file:C:/" };
@@ -172,7 +172,7 @@ public class WindowsFileNameTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWindowsRoots_6_oe() throws Exception {
         // valid URI forms of the filesystem root
         final String[] tests = new String[] { "file:///C:/", "file://C:/", "file:/C:/", "file:C:/" };
@@ -193,7 +193,7 @@ public class WindowsFileNameTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWindowsRoots_7_oe() throws Exception {
         // valid URI forms of the filesystem root
         final String[] tests = new String[] { "file:///C:/", "file://C:/", "file:/C:/", "file:C:/" };
@@ -215,7 +215,7 @@ public class WindowsFileNameTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWindowsRoots_8_oe() throws Exception {
         // valid URI forms of the filesystem root
         final String[] tests = new String[] { "file:///C:/", "file://C:/", "file:/C:/", "file:C:/" };
@@ -239,7 +239,7 @@ public class WindowsFileNameTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWindowsRoots_9_oe() throws Exception {
         // valid URI forms of the filesystem root
         final String[] tests = new String[] { "file:///C:/", "file://C:/", "file:/C:/", "file:C:/" };
@@ -265,7 +265,7 @@ public class WindowsFileNameTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWindowsRoots_10_oe() throws Exception {
         // valid URI forms of the filesystem root
         final String[] tests = new String[] { "file:///C:/", "file://C:/", "file:/C:/", "file:C:/" };
@@ -292,7 +292,7 @@ public class WindowsFileNameTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWindowsWrongRoots_3_oe() throws Exception {
         final String[] tests = new String[] { "file:///C:", "file://C:", "file:/C:", "file:C:" };
 
@@ -308,7 +308,7 @@ public class WindowsFileNameTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWindowsWrongRoots_4_oe() throws Exception {
         final String[] tests = new String[] { "file:///C:", "file://C:", "file:/C:", "file:C:" };
 

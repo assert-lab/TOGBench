@@ -26,7 +26,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-fraction ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction
-[INFO] Storing buildNumber: 4e96f64c167c9f400b8bc7340bf57241aa8435a5 at timestamp: 1770255692873
+[INFO] Storing buildNumber: e4cf1dbede35d5b995b6d81363d313f167d9b312 at timestamp: 1770279546019
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-fraction ---
@@ -50,52 +50,19 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-numbers-fraction ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 9 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/test-classes
+[INFO] Compiling 5 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/test-classes
 [INFO] 
 [INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-fraction ---
 [INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/jacoco.exec
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-numbers-fraction ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.numbers.fraction.FractionTest_OE25Dev
-[ERROR] Tests run: 129, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.233 s <<< FAILURE! - in org.apache.commons.numbers.fraction.FractionTest_OE25Dev
-[ERROR] testParse_1_oe  Time elapsed: 0.021 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <-1 / 2> but was: <1 / 2>
-	at org.apache.commons.numbers.fraction.FractionTest_OE25Dev.testParse_1_oe(FractionTest_OE25Dev.java:2308)
-
-[INFO] Running org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
-[ERROR] Tests run: 139, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.518 s <<< FAILURE! - in org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
-[ERROR] testParse_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <-1 / 2> but was: <1 / 2>
-	at org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev.testParse_1_oe(BigFractionTest_OE25Dev.java:2172)
-
-[INFO] Running org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
-[INFO] Tests run: 251, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.123 s - in org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[ERROR] Failures: 
-[ERROR]   BigFractionTest_OE25Dev.testParse_1_oe:2172 expected: <-1 / 2> but was: <1 / 2>
-[ERROR]   FractionTest_OE25Dev.testParse_1_oe:2308 expected: <-1 / 2> but was: <1 / 2>
-[INFO] 
-[ERROR] Tests run: 526, Failures: 2, Errors: 0, Skipped: 0
-[INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.899 s
-[INFO] Finished at: 2026-02-04T19:41:42-06:00
+[INFO] Total time:  8.838 s
+[INFO] Finished at: 2026-02-05T02:19:12-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-numbers-fraction: There are test failures.
-[ERROR] 
-[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/surefire-reports for the individual test results.
-[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
-[ERROR] -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-numbers-fraction: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

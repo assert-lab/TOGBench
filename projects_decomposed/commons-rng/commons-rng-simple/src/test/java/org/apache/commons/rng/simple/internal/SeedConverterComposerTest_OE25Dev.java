@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
  */
 class SeedConverterComposerTest_OE25Dev {
 
-    @Test
+@Test
     void testComposedCoversion_1_oe() {
         final Int2Long int2Long = new Int2Long();
         final Long2LongArray long2LongArray = new Long2LongArray(3);
@@ -35,7 +35,7 @@ class SeedConverterComposerTest_OE25Dev {
         Assertions.assertTrue(out instanceof long[], "Bad type conversion");
     }
 
-    @Test
+@Test
     void testComposedCoversion_2_oe() {
         final Int2Long int2Long = new Int2Long();
         final Long2LongArray long2LongArray = new Long2LongArray(3);

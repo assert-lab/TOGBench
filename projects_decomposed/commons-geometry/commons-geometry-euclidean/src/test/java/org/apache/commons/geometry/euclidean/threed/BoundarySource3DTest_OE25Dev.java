@@ -32,7 +32,7 @@ class BoundarySource3DTest_OE25Dev {
     private static final Precision.DoubleEquivalence TEST_PRECISION =
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
-    @Test
+@Test
     void testToList_1_oe() {
         // act
         final BoundarySource3D src = BoundarySource3D.of(
@@ -47,7 +47,7 @@ class BoundarySource3DTest_OE25Dev {
         Assertions.assertEquals(1, list.count());
     }
 
-    @Test
+@Test
     void testToList_noBoundaries_1_oe() {
         // act
         final BoundarySource3D src = BoundarySource3D.of();
@@ -59,7 +59,7 @@ class BoundarySource3DTest_OE25Dev {
         Assertions.assertEquals(0, list.count());
     }
 
-    @Test
+@Test
     void testToTree_1_oe() {
         // act
         final PlaneConvexSubset a = Planes.convexPolygonFromVertices(
@@ -76,7 +76,7 @@ class BoundarySource3DTest_OE25Dev {
         Assertions.assertEquals(5, tree.count());
     }
 
-    @Test
+@Test
     void testToTree_2_oe() {
         // act
         final PlaneConvexSubset a = Planes.convexPolygonFromVertices(
@@ -94,7 +94,7 @@ class BoundarySource3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_3_oe() {
         // act
         final PlaneConvexSubset a = Planes.convexPolygonFromVertices(
@@ -113,7 +113,7 @@ class BoundarySource3DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testToTree_noBoundaries_1_oe() {
         // act
         final BoundarySource3D src = BoundarySource3D.of();
@@ -125,7 +125,7 @@ class BoundarySource3DTest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testToTree_noBoundaries_2_oe() {
         // act
         final BoundarySource3D src = BoundarySource3D.of();
@@ -138,7 +138,7 @@ class BoundarySource3DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_noBoundaries_3_oe() {
         // act
         final BoundarySource3D src = BoundarySource3D.of();
@@ -152,7 +152,7 @@ class BoundarySource3DTest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testOf_varargs_empty_1_oe() {
         // act
         final BoundarySource3D src = BoundarySource3D.of();
@@ -162,7 +162,7 @@ class BoundarySource3DTest_OE25Dev {
         Assertions.assertEquals(0, segments.size());
     }
 
-    @Test
+@Test
     void testOf_varargs_1_oe() {
         // act
         final PlaneConvexSubset a = Planes.convexPolygonFromVertices(
@@ -177,7 +177,7 @@ class BoundarySource3DTest_OE25Dev {
         Assertions.assertEquals(2, boundaries.size());
     }
 
-    @Test
+@Test
     void testOf_varargs_2_oe() {
         // act
         final PlaneConvexSubset a = Planes.convexPolygonFromVertices(
@@ -194,7 +194,7 @@ class BoundarySource3DTest_OE25Dev {
         Assertions.assertSame(a, boundaries.get(0));
     }
 
-    @Test
+@Test
     void testOf_varargs_3_oe() {
         // act
         final PlaneConvexSubset a = Planes.convexPolygonFromVertices(
@@ -212,7 +212,7 @@ class BoundarySource3DTest_OE25Dev {
         Assertions.assertSame(b, boundaries.get(1));
     }
 
-    @Test
+@Test
     void testOf_list_empty_1_oe() {
         // arrange
         final List<PlaneConvexSubset> input = new ArrayList<>();
@@ -225,7 +225,7 @@ class BoundarySource3DTest_OE25Dev {
         Assertions.assertEquals(0, segments.size());
     }
 
-    @Test
+@Test
     void testOf_list_1_oe() {
         // act
         final PlaneConvexSubset a = Planes.convexPolygonFromVertices(
@@ -244,7 +244,7 @@ class BoundarySource3DTest_OE25Dev {
         Assertions.assertEquals(2, segments.size());
     }
 
-    @Test
+@Test
     void testOf_list_2_oe() {
         // act
         final PlaneConvexSubset a = Planes.convexPolygonFromVertices(
@@ -265,7 +265,7 @@ class BoundarySource3DTest_OE25Dev {
         Assertions.assertSame(a, segments.get(0));
     }
 
-    @Test
+@Test
     void testOf_list_3_oe() {
         // act
         final PlaneConvexSubset a = Planes.convexPolygonFromVertices(

@@ -24,7 +24,7 @@ import org.junit.Test;
 
 public class SortedPropertiesTest_OE25Dev {
 
-    @Test
+@Test
     public void testKeys_1_oe() {
         final SortedProperties sortedProperties = new SortedProperties();
         for (char ch = 'Z'; ch >= 'A'; ch--) {

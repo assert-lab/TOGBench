@@ -66,7 +66,7 @@ public class EmbeddedJettyFactoryTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void create_1_oe() throws Exception {
         final JettyServerFactory jettyServerFactory = mock(JettyServerFactory.class);
         final StaticFilesConfiguration staticFilesConfiguration = mock(StaticFilesConfiguration.class);
@@ -86,7 +86,7 @@ public class EmbeddedJettyFactoryTest_OE25Dev {
         assertTrue(((JettyHandler) server.getHandler()).getSessionCookieConfig().isHttpOnly());
     }
 
-    @Test
+@Test
     public void create_withoutHttpOnly_1_oe() throws Exception {
         final JettyServerFactory jettyServerFactory = mock(JettyServerFactory.class);
         final StaticFilesConfiguration staticFilesConfiguration = mock(StaticFilesConfiguration.class);

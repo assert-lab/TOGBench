@@ -70,14 +70,14 @@ public class Jira456TestCase_OE25Dev extends TestCase {
      * write method was freed.
      */
 
-    public void testWriteMethodRecover_1_oe() throws Exception {
+public void testWriteMethodRecover_1_oe() throws Exception {
         final FluentIntrospectionTestBean bean = clearWriteMethodRef();
         final String value = "Test value";
         pub.setProperty(bean, TEST_PROP, value);
         assertEquals("Property not set", value, bean.getFluentGetProperty());
     }
 
-    public void testPropertyIsWritable_1_oe() throws Exception {
+public void testPropertyIsWritable_1_oe() throws Exception {
         final FluentIntrospectionTestBean bean = clearWriteMethodRef();
         assertTrue("Not writable", pub.isWriteable(bean, TEST_PROP));
     }

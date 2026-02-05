@@ -117,29 +117,29 @@ public class DefaultIntrospectionContextTestCase_OE25Dev extends TestCase {
      * Tests whether a descriptor can be removed.
      */
 
-    public void testInit_1_oe() {
+public void testInit_1_oe() {
         assertEquals("Wrong current class",getClass(),context.getTargetClass());
     }
 
-    public void testInit_2_oe() {
+public void testInit_2_oe() {
         // removed other assertion
         assertTrue("Got property names", context.propertyNames().isEmpty());
     }
 
-    public void testAddPropertyDescriptor_1_oe() {
+public void testAddPropertyDescriptor_1_oe() {
         final PropertyDescriptor desc = createDescriptor(PROP);
         context.addPropertyDescriptor(desc);
         assertTrue("Property not found", context.hasProperty(PROP));
     }
 
-    public void testAddPropertyDescriptor_2_oe() {
+public void testAddPropertyDescriptor_2_oe() {
         final PropertyDescriptor desc = createDescriptor(PROP);
         context.addPropertyDescriptor(desc);
         // removed other assertion
         assertSame("Wrong descriptor",desc,context.getPropertyDescriptor(PROP));
     }
 
-    public void testAddPropertyDescriptors_1_oe() {
+public void testAddPropertyDescriptors_1_oe() {
         final int count = 4;
         final PropertyDescriptor[] descs = new PropertyDescriptor[count];
         final Set<PropertyDescriptor> descSet = new HashSet<PropertyDescriptor>();
@@ -155,7 +155,7 @@ public class DefaultIntrospectionContextTestCase_OE25Dev extends TestCase {
         assertEquals("Wrong number of property names", count + 1, names.size());
     }
 
-    public void testAddPropertyDescriptors_2_oe() {
+public void testAddPropertyDescriptors_2_oe() {
         final int count = 4;
         final PropertyDescriptor[] descs = new PropertyDescriptor[count];
         final Set<PropertyDescriptor> descSet = new HashSet<PropertyDescriptor>();
@@ -172,7 +172,7 @@ public class DefaultIntrospectionContextTestCase_OE25Dev extends TestCase {
         assertTrue("Property not found: " + PROP, names.contains(PROP));
     }
 
-    public void testAddPropertyDescriptors_3_oe() {
+public void testAddPropertyDescriptors_3_oe() {
         final int count = 4;
         final PropertyDescriptor[] descs = new PropertyDescriptor[count];
         final Set<PropertyDescriptor> descSet = new HashSet<PropertyDescriptor>();
@@ -192,7 +192,7 @@ public class DefaultIntrospectionContextTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testAddPropertyDescriptors_4_oe() {
+public void testAddPropertyDescriptors_4_oe() {
         final int count = 4;
         final PropertyDescriptor[] descs = new PropertyDescriptor[count];
         final Set<PropertyDescriptor> descSet = new HashSet<PropertyDescriptor>();
@@ -214,7 +214,7 @@ public class DefaultIntrospectionContextTestCase_OE25Dev extends TestCase {
         assertEquals("Wrong number of added descriptors",count + 1,addedDescs.length);
     }
 
-    public void testAddPropertyDescriptors_5_oe() {
+public void testAddPropertyDescriptors_5_oe() {
         final int count = 4;
         final PropertyDescriptor[] descs = new PropertyDescriptor[count];
         final Set<PropertyDescriptor> descSet = new HashSet<PropertyDescriptor>();
@@ -239,33 +239,33 @@ public class DefaultIntrospectionContextTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testHasPropertyFalse_1_oe() {
+public void testHasPropertyFalse_1_oe() {
         assertFalse("Wrong result (1)", context.hasProperty(PROP));
     }
 
-    public void testHasPropertyFalse_2_oe() {
+public void testHasPropertyFalse_2_oe() {
         // removed other assertion
         context.addPropertyDescriptor(createDescriptor(PROP));
         assertFalse("Wrong result (2)", context.hasProperty("other"));
     }
 
-    public void testGetPropertyDescriptorUnknown_1_oe() {
+public void testGetPropertyDescriptorUnknown_1_oe() {
         assertNull("Got a property (1)", context.getPropertyDescriptor(PROP));
     }
 
-    public void testGetPropertyDescriptorUnknown_2_oe() {
+public void testGetPropertyDescriptorUnknown_2_oe() {
         // removed other assertion
         context.addPropertyDescriptor(createDescriptor(PROP));
         assertNull("Got a property (2)", context.getPropertyDescriptor("other"));
     }
 
-    public void testRemovePropertyDescriptor_1_oe() {
+public void testRemovePropertyDescriptor_1_oe() {
         context.addPropertyDescriptor(createDescriptor(PROP));
         context.removePropertyDescriptor(PROP);
         assertTrue("Got property names", context.propertyNames().isEmpty());
     }
 
-    public void testRemovePropertyDescriptor_2_oe() {
+public void testRemovePropertyDescriptor_2_oe() {
         context.addPropertyDescriptor(createDescriptor(PROP));
         context.removePropertyDescriptor(PROP);
         // removed other assertion

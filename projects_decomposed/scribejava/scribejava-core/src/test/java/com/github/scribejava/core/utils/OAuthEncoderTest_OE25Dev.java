@@ -25,28 +25,28 @@ public class OAuthEncoderTest_OE25Dev {
         });
     }
 
-    @Test
+@Test
     public void shouldPercentEncodeString_1_oe() {
         final String plain = "this is a test &^";
         final String encoded = "this%20is%20a%20test%20%26%5E";
         assertEquals(encoded, OAuthEncoder.encode(plain));
     }
 
-    @Test
+@Test
     public void shouldFormURLDecodeString_1_oe() {
         final String encoded = "this+is+a+test+%26%5E";
         final String plain = "this is a test &^";
         assertEquals(plain, OAuthEncoder.decode(encoded));
     }
 
-    @Test
+@Test
     public void shouldPercentEncodeAllSpecialCharacters_1_oe() {
         final String plain = "!*'();:@&=+$,/?#[]";
         final String encoded = "%21%2A%27%28%29%3B%3A%40%26%3D%2B%24%2C%2F%3F%23%5B%5D";
         assertEquals(encoded, OAuthEncoder.encode(plain));
     }
 
-    @Test
+@Test
     public void shouldPercentEncodeAllSpecialCharacters_2_oe() {
         final String plain = "!*'();:@&=+$,/?#[]";
         final String encoded = "%21%2A%27%28%29%3B%3A%40%26%3D%2B%24%2C%2F%3F%23%5B%5D";
@@ -54,14 +54,14 @@ public class OAuthEncoderTest_OE25Dev {
         assertEquals(plain, OAuthEncoder.decode(encoded));
     }
 
-    @Test
+@Test
     public void shouldNotPercentEncodeReservedCharacters_1_oe() {
         final String plain = "abcde123456-._~";
         final String encoded = plain;
         assertEquals(encoded, OAuthEncoder.encode(plain));
     }
 
-    @Test
+@Test
     public void shouldPercentEncodeCorrectlyTwitterCodingExamples_1_oe() {
         // These tests are part of the Twitter dev examples here
         // -> https://dev.twitter.com/docs/auth/percent-encoding-parameters

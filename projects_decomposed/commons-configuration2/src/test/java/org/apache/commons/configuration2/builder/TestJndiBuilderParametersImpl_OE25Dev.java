@@ -57,7 +57,7 @@ public class TestJndiBuilderParametersImpl_OE25Dev {
      * Tests whether a prefix can be set.
      */
 
-    @Test
+@Test
     public void testGetParametersBaseProperties_1_oe() {
         params.setPrefix("somePrefix");
         params.setThrowExceptionOnMissing(true);
@@ -65,7 +65,7 @@ public class TestJndiBuilderParametersImpl_OE25Dev {
         assertEquals("Wrong exception flag", Boolean.TRUE, paramsMap.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testSetBeanProperties_1_oe() throws Exception {
         final Context ctx = EasyMock.createMock(Context.class);
         EasyMock.replay(ctx);
@@ -76,7 +76,7 @@ public class TestJndiBuilderParametersImpl_OE25Dev {
         assertSame("Context not in map", ctx, paramsMap.get("context"));
     }
 
-    @Test
+@Test
     public void testSetBeanProperties_2_oe() throws Exception {
         final Context ctx = EasyMock.createMock(Context.class);
         EasyMock.replay(ctx);
@@ -88,14 +88,14 @@ public class TestJndiBuilderParametersImpl_OE25Dev {
         assertEquals("Prefix not in map", prefix, paramsMap.get("prefix"));
     }
 
-    @Test
+@Test
     public void testSetContext_1_oe() {
         final Context ctx = EasyMock.createMock(Context.class);
         EasyMock.replay(ctx);
         assertSame("Wrong result", params, params.setContext(ctx));
     }
 
-    @Test
+@Test
     public void testSetPrefix_1_oe() {
         final String prefix = "testJndiPrefix";
         assertSame("Wrong result", params, params.setPrefix(prefix));

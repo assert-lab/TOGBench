@@ -190,7 +190,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         return calendar.getTime();
     }
 
-    public void testPatternValid_1_oe() {
+public void testPatternValid_1_oe() {
         for (int i = 0; i < patternValid.length; i++) {
             String text = i + " value=[" +patternValid[i]+"] failed ";
             Calendar calendar = validator.validate(patternValid[i], "HH-mm-ss");
@@ -198,7 +198,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testPatternValid_2_oe() {
+public void testPatternValid_2_oe() {
         for (int i = 0; i < patternValid.length; i++) {
             String text = i + " value=[" +patternValid[i]+"] failed ";
             Calendar calendar = validator.validate(patternValid[i], "HH-mm-ss");
@@ -208,7 +208,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testPatternValid_3_oe() {
+public void testPatternValid_3_oe() {
         for (int i = 0; i < patternValid.length; i++) {
             String text = i + " value=[" +patternValid[i]+"] failed ";
             Calendar calendar = validator.validate(patternValid[i], "HH-mm-ss");
@@ -219,7 +219,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testPatternInvalid_1_oe() {
+public void testPatternInvalid_1_oe() {
         for (int i = 0; i < patternInvalid.length; i++) {
             String text = i + " value=[" +patternInvalid[i]+"] passed ";
             Object date = validator.validate(patternInvalid[i], "HH-mm-ss");
@@ -227,7 +227,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testPatternInvalid_2_oe() {
+public void testPatternInvalid_2_oe() {
         for (int i = 0; i < patternInvalid.length; i++) {
             String text = i + " value=[" +patternInvalid[i]+"] passed ";
             Object date = validator.validate(patternInvalid[i], "HH-mm-ss");
@@ -236,7 +236,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testLocaleValid_1_oe() {
+public void testLocaleValid_1_oe() {
         for (int i = 0; i < localeValid.length; i++) {
             String text = i + " value=[" +localeValid[i]+"] failed ";
             Calendar calendar = validator.validate(localeValid[i], Locale.UK);
@@ -244,7 +244,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testLocaleValid_2_oe() {
+public void testLocaleValid_2_oe() {
         for (int i = 0; i < localeValid.length; i++) {
             String text = i + " value=[" +localeValid[i]+"] failed ";
             Calendar calendar = validator.validate(localeValid[i], Locale.UK);
@@ -254,7 +254,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testLocaleValid_3_oe() {
+public void testLocaleValid_3_oe() {
         for (int i = 0; i < localeValid.length; i++) {
             String text = i + " value=[" +localeValid[i]+"] failed ";
             Calendar calendar = validator.validate(localeValid[i], Locale.UK);
@@ -265,7 +265,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testLocaleInvalid_1_oe() {
+public void testLocaleInvalid_1_oe() {
         for (int i = 0; i < localeInvalid.length; i++) {
             String text = i + " value=[" +localeInvalid[i]+"] passed ";
             Object date = validator.validate(localeInvalid[i], Locale.US);
@@ -273,7 +273,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testLocaleInvalid_2_oe() {
+public void testLocaleInvalid_2_oe() {
         for (int i = 0; i < localeInvalid.length; i++) {
             String text = i + " value=[" +localeInvalid[i]+"] passed ";
             Object date = validator.validate(localeInvalid[i], Locale.US);
@@ -282,7 +282,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testTimeZone_1_oe() {
+public void testTimeZone_1_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -294,7 +294,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertNotNull("default result", result);
     }
 
-    public void testTimeZone_2_oe() {
+public void testTimeZone_2_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -307,7 +307,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("default zone",  GMT, result.getTimeZone());
     }
 
-    public void testTimeZone_3_oe() {
+public void testTimeZone_3_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -321,7 +321,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("default hour",   18, result.get(Calendar.HOUR_OF_DAY));
     }
 
-    public void testTimeZone_4_oe() {
+public void testTimeZone_4_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -336,7 +336,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("default minute", 01, result.get(Calendar.MINUTE));
     }
 
-    public void testTimeZone_5_oe() {
+public void testTimeZone_5_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -356,7 +356,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertNotNull("zone result", result);
     }
 
-    public void testTimeZone_6_oe() {
+public void testTimeZone_6_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -377,7 +377,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("zone zone",  EST, result.getTimeZone());
     }
 
-    public void testTimeZone_7_oe() {
+public void testTimeZone_7_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -399,7 +399,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("zone hour",   16, result.get(Calendar.HOUR_OF_DAY));
     }
 
-    public void testTimeZone_8_oe() {
+public void testTimeZone_8_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -422,7 +422,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("zone minute", 49, result.get(Calendar.MINUTE));
     }
 
-    public void testTimeZone_9_oe() {
+public void testTimeZone_9_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -450,7 +450,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertNotNull("pattern result", result);
     }
 
-    public void testTimeZone_10_oe() {
+public void testTimeZone_10_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -479,7 +479,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("pattern zone",  EST, result.getTimeZone());
     }
 
-    public void testTimeZone_11_oe() {
+public void testTimeZone_11_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -509,7 +509,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("pattern hour",   14, result.get(Calendar.HOUR_OF_DAY));
     }
 
-    public void testTimeZone_12_oe() {
+public void testTimeZone_12_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -540,7 +540,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("pattern minute", 34, result.get(Calendar.MINUTE));
     }
 
-    public void testTimeZone_13_oe() {
+public void testTimeZone_13_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -576,7 +576,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertNotNull("locale result", result);
     }
 
-    public void testTimeZone_14_oe() {
+public void testTimeZone_14_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -613,7 +613,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("locale zone",  EST, result.getTimeZone());
     }
 
-    public void testTimeZone_15_oe() {
+public void testTimeZone_15_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -651,7 +651,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("locale hour",   19, result.get(Calendar.HOUR_OF_DAY));
     }
 
-    public void testTimeZone_16_oe() {
+public void testTimeZone_16_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -690,7 +690,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("locale minute", 18, result.get(Calendar.MINUTE));
     }
 
-    public void testTimeZone_17_oe() {
+public void testTimeZone_17_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -734,7 +734,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertNotNull("pattern result", result);
     }
 
-    public void testTimeZone_18_oe() {
+public void testTimeZone_18_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -779,7 +779,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("pattern zone",  EST, result.getTimeZone());
     }
 
-    public void testTimeZone_19_oe() {
+public void testTimeZone_19_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -825,7 +825,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("pattern day",  2005, result.get(Calendar.YEAR));
     }
 
-    public void testTimeZone_20_oe() {
+public void testTimeZone_20_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -872,7 +872,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("pattern day",11,result.get(Calendar.MONTH));// months are 0-11 assertEquals("pattern day",31,result.get(Calendar.DATE));
     }
 
-    public void testTimeZone_21_oe() {
+public void testTimeZone_21_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -920,7 +920,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("pattern hour",   21, result.get(Calendar.HOUR_OF_DAY));
     }
 
-    public void testTimeZone_22_oe() {
+public void testTimeZone_22_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -969,7 +969,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("pattern minute", 05, result.get(Calendar.MINUTE));
     }
 
-    public void testTimeZone_23_oe() {
+public void testTimeZone_23_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -1023,7 +1023,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertNotNull("pattern result", result);
     }
 
-    public void testTimeZone_24_oe() {
+public void testTimeZone_24_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -1078,7 +1078,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("pattern zone",  GMT, result.getTimeZone());
     }
 
-    public void testTimeZone_25_oe() {
+public void testTimeZone_25_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -1134,7 +1134,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("pattern day",  2005, result.get(Calendar.YEAR));
     }
 
-    public void testTimeZone_26_oe() {
+public void testTimeZone_26_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -1191,7 +1191,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("pattern day",11,result.get(Calendar.MONTH));// months are 0-11 assertEquals("pattern day",31,result.get(Calendar.DATE));
     }
 
-    public void testTimeZone_27_oe() {
+public void testTimeZone_27_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -1249,7 +1249,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("pattern hour",   21, result.get(Calendar.HOUR_OF_DAY));
     }
 
-    public void testTimeZone_28_oe() {
+public void testTimeZone_28_oe() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);
@@ -1308,7 +1308,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("pattern minute", 05, result.get(Calendar.MINUTE));
     }
 
-    public void testFormat_1_oe() {
+public void testFormat_1_oe() {
         // Set the default Locale
         Locale.setDefault(Locale.UK);
 
@@ -1316,7 +1316,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertNotNull("Test Date ", test);
     }
 
-    public void testFormat_2_oe() {
+public void testFormat_2_oe() {
         // Set the default Locale
         Locale.setDefault(Locale.UK);
 
@@ -1325,7 +1325,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("Format pattern", "16-49-23", validator.format(test, "HH-mm-ss"));
     }
 
-    public void testFormat_3_oe() {
+public void testFormat_3_oe() {
         // Set the default Locale
         Locale.setDefault(Locale.UK);
 
@@ -1335,7 +1335,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("Format locale",  "4:49 PM",  validator.format(test, Locale.US));
     }
 
-    public void testFormat_4_oe() {
+public void testFormat_4_oe() {
         // Set the default Locale
         Locale.setDefault(Locale.UK);
 
@@ -1346,7 +1346,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("Format default", "16:49",  validator.format(test));
     }
 
-    public void testCompare_1_oe() {
+public void testCompare_1_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1367,7 +1367,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("mili LT", -1, validator.compareTime(value, milliGreater)); // > milli;
     }
 
-    public void testCompare_2_oe() {
+public void testCompare_2_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1389,7 +1389,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("mili EQ", 0,  validator.compareTime(value, value));        // same time;
     }
 
-    public void testCompare_3_oe() {
+public void testCompare_3_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1412,7 +1412,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("mili GT", 1,  validator.compareTime(value, milliLess));    // < milli;
     }
 
-    public void testCompare_4_oe() {
+public void testCompare_4_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1437,7 +1437,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("secs LT", -1, validator.compareSeconds(value, secGreater));   // +1 sec;
     }
 
-    public void testCompare_5_oe() {
+public void testCompare_5_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1463,7 +1463,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("secs =1", 0,  validator.compareSeconds(value, milliGreater)); // > milli;
     }
 
-    public void testCompare_6_oe() {
+public void testCompare_6_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1490,7 +1490,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("secs =2", 0,  validator.compareSeconds(value, value));        // same time;
     }
 
-    public void testCompare_7_oe() {
+public void testCompare_7_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1518,7 +1518,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("secs =3", 0,  validator.compareSeconds(value, milliLess));    // < milli;
     }
 
-    public void testCompare_8_oe() {
+public void testCompare_8_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1547,7 +1547,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("secs GT", 1,  validator.compareSeconds(value, secLess));      // -1 sec;
     }
 
-    public void testCompare_9_oe() {
+public void testCompare_9_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1578,7 +1578,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("mins LT", -1, validator.compareMinutes(value, minGreater));   // +1 min;
     }
 
-    public void testCompare_10_oe() {
+public void testCompare_10_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1610,7 +1610,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("mins =1", 0,  validator.compareMinutes(value, secGreater));   // +1 sec;
     }
 
-    public void testCompare_11_oe() {
+public void testCompare_11_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1643,7 +1643,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("mins =2", 0,  validator.compareMinutes(value, value));        // same time;
     }
 
-    public void testCompare_12_oe() {
+public void testCompare_12_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1677,7 +1677,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("mins =3", 0,  validator.compareMinutes(value, secLess));      // -1 sec;
     }
 
-    public void testCompare_13_oe() {
+public void testCompare_13_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1712,7 +1712,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("mins GT", 1,  validator.compareMinutes(value, minLess));      // -1 min;
     }
 
-    public void testCompare_14_oe() {
+public void testCompare_14_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1749,7 +1749,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("hour LT", -1, validator.compareHours(value, hourGreater));   // +1 hour;
     }
 
-    public void testCompare_15_oe() {
+public void testCompare_15_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1787,7 +1787,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("hour =1", 0,  validator.compareHours(value, minGreater));   // +1 min;
     }
 
-    public void testCompare_16_oe() {
+public void testCompare_16_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1826,7 +1826,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("hour =2", 0,  validator.compareHours(value, value));        // same time;
     }
 
-    public void testCompare_17_oe() {
+public void testCompare_17_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;
@@ -1866,7 +1866,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         assertEquals("hour =3", 0,  validator.compareHours(value, minLess));      // -1 min;
     }
 
-    public void testCompare_18_oe() {
+public void testCompare_18_oe() {
         int testTime = 154523;
         int min = 100;
         int hour = 10000;

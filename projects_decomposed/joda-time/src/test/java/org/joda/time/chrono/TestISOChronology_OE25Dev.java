@@ -154,69 +154,69 @@ public class TestISOChronology_OE25Dev extends TestCase {
         }
     }
 
-    public void testFactoryUTC_1_oe() {
+public void testFactoryUTC_1_oe() {
         assertEquals(DateTimeZone.UTC,ISOChronology.getInstanceUTC().getZone());
     }
 
-    public void testFactoryUTC_2_oe() {
+public void testFactoryUTC_2_oe() {
         // removed other assertion
         assertSame(ISOChronology.class,ISOChronology.getInstanceUTC().getClass());
     }
 
-    public void testFactory_1_oe() {
+public void testFactory_1_oe() {
         assertEquals(LONDON,ISOChronology.getInstance().getZone());
     }
 
-    public void testFactory_2_oe() {
+public void testFactory_2_oe() {
         // removed other assertion
         assertSame(ISOChronology.class,ISOChronology.getInstance().getClass());
     }
 
-    public void testFactory_Zone_1_oe() {
+public void testFactory_Zone_1_oe() {
         assertEquals(TOKYO,ISOChronology.getInstance(TOKYO).getZone());
     }
 
-    public void testFactory_Zone_2_oe() {
+public void testFactory_Zone_2_oe() {
         // removed other assertion
         assertEquals(PARIS,ISOChronology.getInstance(PARIS).getZone());
     }
 
-    public void testFactory_Zone_3_oe() {
+public void testFactory_Zone_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(LONDON,ISOChronology.getInstance(null).getZone());
     }
 
-    public void testFactory_Zone_4_oe() {
+public void testFactory_Zone_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertSame(ISOChronology.class,ISOChronology.getInstance(TOKYO).getClass());
     }
 
-    public void testEquality_1_oe() {
+public void testEquality_1_oe() {
         assertSame(ISOChronology.getInstance(TOKYO),ISOChronology.getInstance(TOKYO));
     }
 
-    public void testEquality_2_oe() {
+public void testEquality_2_oe() {
         // removed other assertion
         assertSame(ISOChronology.getInstance(LONDON),ISOChronology.getInstance(LONDON));
     }
 
-    public void testEquality_3_oe() {
+public void testEquality_3_oe() {
         // removed other assertion
         // removed other assertion
         assertSame(ISOChronology.getInstance(PARIS),ISOChronology.getInstance(PARIS));
     }
 
-    public void testEquality_4_oe() {
+public void testEquality_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertSame(ISOChronology.getInstanceUTC(),ISOChronology.getInstanceUTC());
     }
 
-    public void testEquality_5_oe() {
+public void testEquality_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -224,51 +224,51 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertSame(ISOChronology.getInstance(),ISOChronology.getInstance(LONDON));
     }
 
-    public void testWithUTC_1_oe() {
+public void testWithUTC_1_oe() {
         assertSame(ISOChronology.getInstanceUTC(),ISOChronology.getInstance(LONDON).withUTC());
     }
 
-    public void testWithUTC_2_oe() {
+public void testWithUTC_2_oe() {
         // removed other assertion
         assertSame(ISOChronology.getInstanceUTC(),ISOChronology.getInstance(TOKYO).withUTC());
     }
 
-    public void testWithUTC_3_oe() {
+public void testWithUTC_3_oe() {
         // removed other assertion
         // removed other assertion
         assertSame(ISOChronology.getInstanceUTC(),ISOChronology.getInstanceUTC().withUTC());
     }
 
-    public void testWithUTC_4_oe() {
+public void testWithUTC_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertSame(ISOChronology.getInstanceUTC(),ISOChronology.getInstance().withUTC());
     }
 
-    public void testWithZone_1_oe() {
+public void testWithZone_1_oe() {
         assertSame(ISOChronology.getInstance(TOKYO),ISOChronology.getInstance(TOKYO).withZone(TOKYO));
     }
 
-    public void testWithZone_2_oe() {
+public void testWithZone_2_oe() {
         // removed other assertion
         assertSame(ISOChronology.getInstance(LONDON),ISOChronology.getInstance(TOKYO).withZone(LONDON));
     }
 
-    public void testWithZone_3_oe() {
+public void testWithZone_3_oe() {
         // removed other assertion
         // removed other assertion
         assertSame(ISOChronology.getInstance(PARIS),ISOChronology.getInstance(TOKYO).withZone(PARIS));
     }
 
-    public void testWithZone_4_oe() {
+public void testWithZone_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertSame(ISOChronology.getInstance(LONDON),ISOChronology.getInstance(TOKYO).withZone(null));
     }
 
-    public void testWithZone_5_oe() {
+public void testWithZone_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -276,7 +276,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertSame(ISOChronology.getInstance(PARIS),ISOChronology.getInstance().withZone(PARIS));
     }
 
-    public void testWithZone_6_oe() {
+public void testWithZone_6_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -285,47 +285,47 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertSame(ISOChronology.getInstance(PARIS),ISOChronology.getInstanceUTC().withZone(PARIS));
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         assertEquals("ISOChronology[Europe/London]",ISOChronology.getInstance(LONDON).toString());
     }
 
-    public void testToString_2_oe() {
+public void testToString_2_oe() {
         // removed other assertion
         assertEquals("ISOChronology[Asia/Tokyo]",ISOChronology.getInstance(TOKYO).toString());
     }
 
-    public void testToString_3_oe() {
+public void testToString_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("ISOChronology[Europe/London]",ISOChronology.getInstance().toString());
     }
 
-    public void testToString_4_oe() {
+public void testToString_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals("ISOChronology[UTC]",ISOChronology.getInstanceUTC().toString());
     }
 
-    public void testDurationFields_1_oe() {
+public void testDurationFields_1_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         assertEquals("eras",iso.eras().getName());
     }
 
-    public void testDurationFields_2_oe() {
+public void testDurationFields_2_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         assertEquals("centuries",iso.centuries().getName());
     }
 
-    public void testDurationFields_3_oe() {
+public void testDurationFields_3_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
         assertEquals("years",iso.years().getName());
     }
 
-    public void testDurationFields_4_oe() {
+public void testDurationFields_4_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -333,7 +333,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("weekyears",iso.weekyears().getName());
     }
 
-    public void testDurationFields_5_oe() {
+public void testDurationFields_5_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -342,7 +342,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("months",iso.months().getName());
     }
 
-    public void testDurationFields_6_oe() {
+public void testDurationFields_6_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -352,7 +352,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("weeks",iso.weeks().getName());
     }
 
-    public void testDurationFields_7_oe() {
+public void testDurationFields_7_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -363,7 +363,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("days",iso.days().getName());
     }
 
-    public void testDurationFields_8_oe() {
+public void testDurationFields_8_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -375,7 +375,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("halfdays",iso.halfdays().getName());
     }
 
-    public void testDurationFields_9_oe() {
+public void testDurationFields_9_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -388,7 +388,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("hours",iso.hours().getName());
     }
 
-    public void testDurationFields_10_oe() {
+public void testDurationFields_10_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -402,7 +402,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("minutes",iso.minutes().getName());
     }
 
-    public void testDurationFields_11_oe() {
+public void testDurationFields_11_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -417,7 +417,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("seconds",iso.seconds().getName());
     }
 
-    public void testDurationFields_12_oe() {
+public void testDurationFields_12_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -433,7 +433,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("millis",iso.millis().getName());
     }
 
-    public void testDurationFields_13_oe() {
+public void testDurationFields_13_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -451,7 +451,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,iso.eras().isSupported());
     }
 
-    public void testDurationFields_14_oe() {
+public void testDurationFields_14_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -470,7 +470,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.centuries().isSupported());
     }
 
-    public void testDurationFields_15_oe() {
+public void testDurationFields_15_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -490,7 +490,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.years().isSupported());
     }
 
-    public void testDurationFields_16_oe() {
+public void testDurationFields_16_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -511,7 +511,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.weekyears().isSupported());
     }
 
-    public void testDurationFields_17_oe() {
+public void testDurationFields_17_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -533,7 +533,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.months().isSupported());
     }
 
-    public void testDurationFields_18_oe() {
+public void testDurationFields_18_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -556,7 +556,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.weeks().isSupported());
     }
 
-    public void testDurationFields_19_oe() {
+public void testDurationFields_19_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -580,7 +580,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.days().isSupported());
     }
 
-    public void testDurationFields_20_oe() {
+public void testDurationFields_20_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -605,7 +605,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.halfdays().isSupported());
     }
 
-    public void testDurationFields_21_oe() {
+public void testDurationFields_21_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -631,7 +631,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.hours().isSupported());
     }
 
-    public void testDurationFields_22_oe() {
+public void testDurationFields_22_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -658,7 +658,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.minutes().isSupported());
     }
 
-    public void testDurationFields_23_oe() {
+public void testDurationFields_23_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -686,7 +686,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.seconds().isSupported());
     }
 
-    public void testDurationFields_24_oe() {
+public void testDurationFields_24_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -715,7 +715,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.millis().isSupported());
     }
 
-    public void testDurationFields_25_oe() {
+public void testDurationFields_25_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -746,7 +746,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,iso.centuries().isPrecise());
     }
 
-    public void testDurationFields_26_oe() {
+public void testDurationFields_26_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -778,7 +778,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,iso.years().isPrecise());
     }
 
-    public void testDurationFields_27_oe() {
+public void testDurationFields_27_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -811,7 +811,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,iso.weekyears().isPrecise());
     }
 
-    public void testDurationFields_28_oe() {
+public void testDurationFields_28_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -845,7 +845,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,iso.months().isPrecise());
     }
 
-    public void testDurationFields_29_oe() {
+public void testDurationFields_29_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -880,7 +880,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,iso.weeks().isPrecise());
     }
 
-    public void testDurationFields_30_oe() {
+public void testDurationFields_30_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -916,7 +916,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,iso.days().isPrecise());
     }
 
-    public void testDurationFields_31_oe() {
+public void testDurationFields_31_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -953,7 +953,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,iso.halfdays().isPrecise());
     }
 
-    public void testDurationFields_32_oe() {
+public void testDurationFields_32_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -991,7 +991,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.hours().isPrecise());
     }
 
-    public void testDurationFields_33_oe() {
+public void testDurationFields_33_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1030,7 +1030,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.minutes().isPrecise());
     }
 
-    public void testDurationFields_34_oe() {
+public void testDurationFields_34_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1070,7 +1070,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.seconds().isPrecise());
     }
 
-    public void testDurationFields_35_oe() {
+public void testDurationFields_35_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1111,7 +1111,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.millis().isPrecise());
     }
 
-    public void testDurationFields_36_oe() {
+public void testDurationFields_36_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1155,7 +1155,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,isoUTC.centuries().isPrecise());
     }
 
-    public void testDurationFields_37_oe() {
+public void testDurationFields_37_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1200,7 +1200,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,isoUTC.years().isPrecise());
     }
 
-    public void testDurationFields_38_oe() {
+public void testDurationFields_38_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1246,7 +1246,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,isoUTC.weekyears().isPrecise());
     }
 
-    public void testDurationFields_39_oe() {
+public void testDurationFields_39_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1293,7 +1293,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,isoUTC.months().isPrecise());
     }
 
-    public void testDurationFields_40_oe() {
+public void testDurationFields_40_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1341,7 +1341,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoUTC.weeks().isPrecise());
     }
 
-    public void testDurationFields_41_oe() {
+public void testDurationFields_41_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1390,7 +1390,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoUTC.days().isPrecise());
     }
 
-    public void testDurationFields_42_oe() {
+public void testDurationFields_42_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1440,7 +1440,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoUTC.halfdays().isPrecise());
     }
 
-    public void testDurationFields_43_oe() {
+public void testDurationFields_43_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1491,7 +1491,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoUTC.hours().isPrecise());
     }
 
-    public void testDurationFields_44_oe() {
+public void testDurationFields_44_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1543,7 +1543,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoUTC.minutes().isPrecise());
     }
 
-    public void testDurationFields_45_oe() {
+public void testDurationFields_45_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1596,7 +1596,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoUTC.seconds().isPrecise());
     }
 
-    public void testDurationFields_46_oe() {
+public void testDurationFields_46_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1650,7 +1650,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoUTC.millis().isPrecise());
     }
 
-    public void testDurationFields_47_oe() {
+public void testDurationFields_47_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1708,7 +1708,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,isoGMT.centuries().isPrecise());
     }
 
-    public void testDurationFields_48_oe() {
+public void testDurationFields_48_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1767,7 +1767,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,isoGMT.years().isPrecise());
     }
 
-    public void testDurationFields_49_oe() {
+public void testDurationFields_49_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1827,7 +1827,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,isoGMT.weekyears().isPrecise());
     }
 
-    public void testDurationFields_50_oe() {
+public void testDurationFields_50_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1888,7 +1888,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,isoGMT.months().isPrecise());
     }
 
-    public void testDurationFields_51_oe() {
+public void testDurationFields_51_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1950,7 +1950,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoGMT.weeks().isPrecise());
     }
 
-    public void testDurationFields_52_oe() {
+public void testDurationFields_52_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2013,7 +2013,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoGMT.days().isPrecise());
     }
 
-    public void testDurationFields_53_oe() {
+public void testDurationFields_53_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2077,7 +2077,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoGMT.halfdays().isPrecise());
     }
 
-    public void testDurationFields_54_oe() {
+public void testDurationFields_54_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2142,7 +2142,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoGMT.hours().isPrecise());
     }
 
-    public void testDurationFields_55_oe() {
+public void testDurationFields_55_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2208,7 +2208,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoGMT.minutes().isPrecise());
     }
 
-    public void testDurationFields_56_oe() {
+public void testDurationFields_56_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2275,7 +2275,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoGMT.seconds().isPrecise());
     }
 
-    public void testDurationFields_57_oe() {
+public void testDurationFields_57_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2343,7 +2343,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoGMT.millis().isPrecise());
     }
 
-    public void testDurationFields_58_oe() {
+public void testDurationFields_58_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2415,7 +2415,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,isoOffset1.centuries().isPrecise());
     }
 
-    public void testDurationFields_59_oe() {
+public void testDurationFields_59_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2488,7 +2488,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,isoOffset1.years().isPrecise());
     }
 
-    public void testDurationFields_60_oe() {
+public void testDurationFields_60_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2562,7 +2562,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,isoOffset1.weekyears().isPrecise());
     }
 
-    public void testDurationFields_61_oe() {
+public void testDurationFields_61_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2637,7 +2637,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,isoOffset1.months().isPrecise());
     }
 
-    public void testDurationFields_62_oe() {
+public void testDurationFields_62_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2713,7 +2713,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoOffset1.weeks().isPrecise());
     }
 
-    public void testDurationFields_63_oe() {
+public void testDurationFields_63_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2790,7 +2790,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoOffset1.days().isPrecise());
     }
 
-    public void testDurationFields_64_oe() {
+public void testDurationFields_64_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2868,7 +2868,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoOffset1.halfdays().isPrecise());
     }
 
-    public void testDurationFields_65_oe() {
+public void testDurationFields_65_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2947,7 +2947,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoOffset1.hours().isPrecise());
     }
 
-    public void testDurationFields_66_oe() {
+public void testDurationFields_66_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3027,7 +3027,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoOffset1.minutes().isPrecise());
     }
 
-    public void testDurationFields_67_oe() {
+public void testDurationFields_67_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3108,7 +3108,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoOffset1.seconds().isPrecise());
     }
 
-    public void testDurationFields_68_oe() {
+public void testDurationFields_68_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3190,25 +3190,25 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,isoOffset1.millis().isPrecise());
     }
 
-    public void testDateFields_1_oe() {
+public void testDateFields_1_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         assertEquals("era",iso.era().getName());
     }
 
-    public void testDateFields_2_oe() {
+public void testDateFields_2_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         assertEquals("centuryOfEra",iso.centuryOfEra().getName());
     }
 
-    public void testDateFields_3_oe() {
+public void testDateFields_3_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
         assertEquals("yearOfCentury",iso.yearOfCentury().getName());
     }
 
-    public void testDateFields_4_oe() {
+public void testDateFields_4_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3216,7 +3216,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("yearOfEra",iso.yearOfEra().getName());
     }
 
-    public void testDateFields_5_oe() {
+public void testDateFields_5_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3225,7 +3225,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("year",iso.year().getName());
     }
 
-    public void testDateFields_6_oe() {
+public void testDateFields_6_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3235,7 +3235,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("monthOfYear",iso.monthOfYear().getName());
     }
 
-    public void testDateFields_7_oe() {
+public void testDateFields_7_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3246,7 +3246,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("weekyearOfCentury",iso.weekyearOfCentury().getName());
     }
 
-    public void testDateFields_8_oe() {
+public void testDateFields_8_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3258,7 +3258,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("weekyear",iso.weekyear().getName());
     }
 
-    public void testDateFields_9_oe() {
+public void testDateFields_9_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3271,7 +3271,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("weekOfWeekyear",iso.weekOfWeekyear().getName());
     }
 
-    public void testDateFields_10_oe() {
+public void testDateFields_10_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3285,7 +3285,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("dayOfYear",iso.dayOfYear().getName());
     }
 
-    public void testDateFields_11_oe() {
+public void testDateFields_11_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3300,7 +3300,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("dayOfMonth",iso.dayOfMonth().getName());
     }
 
-    public void testDateFields_12_oe() {
+public void testDateFields_12_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3316,7 +3316,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("dayOfWeek",iso.dayOfWeek().getName());
     }
 
-    public void testDateFields_13_oe() {
+public void testDateFields_13_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3334,7 +3334,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.era().isSupported());
     }
 
-    public void testDateFields_14_oe() {
+public void testDateFields_14_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3353,7 +3353,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.centuryOfEra().isSupported());
     }
 
-    public void testDateFields_15_oe() {
+public void testDateFields_15_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3373,7 +3373,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.yearOfCentury().isSupported());
     }
 
-    public void testDateFields_16_oe() {
+public void testDateFields_16_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3394,7 +3394,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.yearOfEra().isSupported());
     }
 
-    public void testDateFields_17_oe() {
+public void testDateFields_17_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3416,7 +3416,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.year().isSupported());
     }
 
-    public void testDateFields_18_oe() {
+public void testDateFields_18_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3439,7 +3439,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.monthOfYear().isSupported());
     }
 
-    public void testDateFields_19_oe() {
+public void testDateFields_19_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3463,7 +3463,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.weekyearOfCentury().isSupported());
     }
 
-    public void testDateFields_20_oe() {
+public void testDateFields_20_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3488,7 +3488,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.weekyear().isSupported());
     }
 
-    public void testDateFields_21_oe() {
+public void testDateFields_21_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3514,7 +3514,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.weekOfWeekyear().isSupported());
     }
 
-    public void testDateFields_22_oe() {
+public void testDateFields_22_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3541,7 +3541,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.dayOfYear().isSupported());
     }
 
-    public void testDateFields_23_oe() {
+public void testDateFields_23_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3569,7 +3569,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.dayOfMonth().isSupported());
     }
 
-    public void testDateFields_24_oe() {
+public void testDateFields_24_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3598,7 +3598,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.dayOfWeek().isSupported());
     }
 
-    public void testDateFields_25_oe() {
+public void testDateFields_25_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3629,7 +3629,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.eras(),iso.era().getDurationField());
     }
 
-    public void testDateFields_26_oe() {
+public void testDateFields_26_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3661,7 +3661,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.centuries(),iso.centuryOfEra().getDurationField());
     }
 
-    public void testDateFields_27_oe() {
+public void testDateFields_27_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3694,7 +3694,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.years(),iso.yearOfCentury().getDurationField());
     }
 
-    public void testDateFields_28_oe() {
+public void testDateFields_28_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3728,7 +3728,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.years(),iso.yearOfEra().getDurationField());
     }
 
-    public void testDateFields_29_oe() {
+public void testDateFields_29_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3763,7 +3763,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.years(),iso.year().getDurationField());
     }
 
-    public void testDateFields_30_oe() {
+public void testDateFields_30_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3799,7 +3799,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.months(),iso.monthOfYear().getDurationField());
     }
 
-    public void testDateFields_31_oe() {
+public void testDateFields_31_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3836,7 +3836,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.weekyears(),iso.weekyearOfCentury().getDurationField());
     }
 
-    public void testDateFields_32_oe() {
+public void testDateFields_32_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3874,7 +3874,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.weekyears(),iso.weekyear().getDurationField());
     }
 
-    public void testDateFields_33_oe() {
+public void testDateFields_33_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3913,7 +3913,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.weeks(),iso.weekOfWeekyear().getDurationField());
     }
 
-    public void testDateFields_34_oe() {
+public void testDateFields_34_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3953,7 +3953,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.days(),iso.dayOfYear().getDurationField());
     }
 
-    public void testDateFields_35_oe() {
+public void testDateFields_35_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3994,7 +3994,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.days(),iso.dayOfMonth().getDurationField());
     }
 
-    public void testDateFields_36_oe() {
+public void testDateFields_36_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4036,7 +4036,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.days(),iso.dayOfWeek().getDurationField());
     }
 
-    public void testDateFields_37_oe() {
+public void testDateFields_37_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4080,7 +4080,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(null,iso.era().getRangeDurationField());
     }
 
-    public void testDateFields_38_oe() {
+public void testDateFields_38_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4125,7 +4125,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.eras(),iso.centuryOfEra().getRangeDurationField());
     }
 
-    public void testDateFields_39_oe() {
+public void testDateFields_39_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4171,7 +4171,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.centuries(),iso.yearOfCentury().getRangeDurationField());
     }
 
-    public void testDateFields_40_oe() {
+public void testDateFields_40_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4218,7 +4218,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.eras(),iso.yearOfEra().getRangeDurationField());
     }
 
-    public void testDateFields_41_oe() {
+public void testDateFields_41_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4266,7 +4266,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(null,iso.year().getRangeDurationField());
     }
 
-    public void testDateFields_42_oe() {
+public void testDateFields_42_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4315,7 +4315,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.years(),iso.monthOfYear().getRangeDurationField());
     }
 
-    public void testDateFields_43_oe() {
+public void testDateFields_43_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4365,7 +4365,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.centuries(),iso.weekyearOfCentury().getRangeDurationField());
     }
 
-    public void testDateFields_44_oe() {
+public void testDateFields_44_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4416,7 +4416,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(null,iso.weekyear().getRangeDurationField());
     }
 
-    public void testDateFields_45_oe() {
+public void testDateFields_45_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4468,7 +4468,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.weekyears(),iso.weekOfWeekyear().getRangeDurationField());
     }
 
-    public void testDateFields_46_oe() {
+public void testDateFields_46_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4521,7 +4521,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.years(),iso.dayOfYear().getRangeDurationField());
     }
 
-    public void testDateFields_47_oe() {
+public void testDateFields_47_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4575,7 +4575,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.months(),iso.dayOfMonth().getRangeDurationField());
     }
 
-    public void testDateFields_48_oe() {
+public void testDateFields_48_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4630,25 +4630,25 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(iso.weeks(),iso.dayOfWeek().getRangeDurationField());
     }
 
-    public void testTimeFields_1_oe() {
+public void testTimeFields_1_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         assertEquals("halfdayOfDay",iso.halfdayOfDay().getName());
     }
 
-    public void testTimeFields_2_oe() {
+public void testTimeFields_2_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         assertEquals("clockhourOfHalfday",iso.clockhourOfHalfday().getName());
     }
 
-    public void testTimeFields_3_oe() {
+public void testTimeFields_3_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
         assertEquals("hourOfHalfday",iso.hourOfHalfday().getName());
     }
 
-    public void testTimeFields_4_oe() {
+public void testTimeFields_4_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4656,7 +4656,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("clockhourOfDay",iso.clockhourOfDay().getName());
     }
 
-    public void testTimeFields_5_oe() {
+public void testTimeFields_5_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4665,7 +4665,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("hourOfDay",iso.hourOfDay().getName());
     }
 
-    public void testTimeFields_6_oe() {
+public void testTimeFields_6_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4675,7 +4675,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("minuteOfDay",iso.minuteOfDay().getName());
     }
 
-    public void testTimeFields_7_oe() {
+public void testTimeFields_7_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4686,7 +4686,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("minuteOfHour",iso.minuteOfHour().getName());
     }
 
-    public void testTimeFields_8_oe() {
+public void testTimeFields_8_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4698,7 +4698,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("secondOfDay",iso.secondOfDay().getName());
     }
 
-    public void testTimeFields_9_oe() {
+public void testTimeFields_9_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4711,7 +4711,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("secondOfMinute",iso.secondOfMinute().getName());
     }
 
-    public void testTimeFields_10_oe() {
+public void testTimeFields_10_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4725,7 +4725,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("millisOfDay",iso.millisOfDay().getName());
     }
 
-    public void testTimeFields_11_oe() {
+public void testTimeFields_11_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4740,7 +4740,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals("millisOfSecond",iso.millisOfSecond().getName());
     }
 
-    public void testTimeFields_12_oe() {
+public void testTimeFields_12_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4757,7 +4757,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.halfdayOfDay().isSupported());
     }
 
-    public void testTimeFields_13_oe() {
+public void testTimeFields_13_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4775,7 +4775,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.clockhourOfHalfday().isSupported());
     }
 
-    public void testTimeFields_14_oe() {
+public void testTimeFields_14_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4794,7 +4794,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.hourOfHalfday().isSupported());
     }
 
-    public void testTimeFields_15_oe() {
+public void testTimeFields_15_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4814,7 +4814,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.clockhourOfDay().isSupported());
     }
 
-    public void testTimeFields_16_oe() {
+public void testTimeFields_16_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4835,7 +4835,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.hourOfDay().isSupported());
     }
 
-    public void testTimeFields_17_oe() {
+public void testTimeFields_17_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4857,7 +4857,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.minuteOfDay().isSupported());
     }
 
-    public void testTimeFields_18_oe() {
+public void testTimeFields_18_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4880,7 +4880,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.minuteOfHour().isSupported());
     }
 
-    public void testTimeFields_19_oe() {
+public void testTimeFields_19_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4904,7 +4904,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.secondOfDay().isSupported());
     }
 
-    public void testTimeFields_20_oe() {
+public void testTimeFields_20_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4929,7 +4929,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.secondOfMinute().isSupported());
     }
 
-    public void testTimeFields_21_oe() {
+public void testTimeFields_21_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4955,7 +4955,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.millisOfDay().isSupported());
     }
 
-    public void testTimeFields_22_oe() {
+public void testTimeFields_22_oe() {
         final ISOChronology iso = ISOChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4982,7 +4982,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,iso.millisOfSecond().isSupported());
     }
 
-    public void testMaxYear_1_oe() {
+public void testMaxYear_1_oe() {
         final ISOChronology chrono = ISOChronology.getInstanceUTC();
         final int maxYear = chrono.year().getMaximumValue();
 
@@ -4991,7 +4991,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertTrue(start.getMillis()> 0);
     }
 
-    public void testMaxYear_2_oe() {
+public void testMaxYear_2_oe() {
         final ISOChronology chrono = ISOChronology.getInstanceUTC();
         final int maxYear = chrono.year().getMaximumValue();
 
@@ -5001,7 +5001,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertTrue(end.getMillis()> start.getMillis());
     }
 
-    public void testMaxYear_3_oe() {
+public void testMaxYear_3_oe() {
         final ISOChronology chrono = ISOChronology.getInstanceUTC();
         final int maxYear = chrono.year().getMaximumValue();
 
@@ -5012,7 +5012,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(maxYear,start.getYear());
     }
 
-    public void testMaxYear_4_oe() {
+public void testMaxYear_4_oe() {
         final ISOChronology chrono = ISOChronology.getInstanceUTC();
         final int maxYear = chrono.year().getMaximumValue();
 
@@ -5024,7 +5024,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(maxYear,end.getYear());
     }
 
-    public void testMaxYear_5_oe() {
+public void testMaxYear_5_oe() {
         final ISOChronology chrono = ISOChronology.getInstanceUTC();
         final int maxYear = chrono.year().getMaximumValue();
 
@@ -5040,7 +5040,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(expectedDelta,delta);
     }
 
-    public void testMaxYear_6_oe() {
+public void testMaxYear_6_oe() {
         final ISOChronology chrono = ISOChronology.getInstanceUTC();
         final int maxYear = chrono.year().getMaximumValue();
 
@@ -5058,7 +5058,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(start,new DateTime(maxYear + "-01-01T00:00:00.000Z",chrono));
     }
 
-    public void testMaxYear_7_oe() {
+public void testMaxYear_7_oe() {
         final ISOChronology chrono = ISOChronology.getInstanceUTC();
         final int maxYear = chrono.year().getMaximumValue();
 
@@ -5077,7 +5077,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(end,new DateTime(maxYear + "-12-31T23:59:59.999Z",chrono));
     }
 
-    public void testMaxYear_10_oe() {
+public void testMaxYear_10_oe() {
         final ISOChronology chrono = ISOChronology.getInstanceUTC();
         final int maxYear = chrono.year().getMaximumValue();
 
@@ -5110,7 +5110,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(maxYear + 1,chrono.year().get(Long.MAX_VALUE));
     }
 
-    public void testMinYear_1_oe() {
+public void testMinYear_1_oe() {
         final ISOChronology chrono = ISOChronology.getInstanceUTC();
         final int minYear = chrono.year().getMinimumValue();
 
@@ -5119,7 +5119,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertTrue(start.getMillis()< 0);
     }
 
-    public void testMinYear_2_oe() {
+public void testMinYear_2_oe() {
         final ISOChronology chrono = ISOChronology.getInstanceUTC();
         final int minYear = chrono.year().getMinimumValue();
 
@@ -5129,7 +5129,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertTrue(end.getMillis()> start.getMillis());
     }
 
-    public void testMinYear_3_oe() {
+public void testMinYear_3_oe() {
         final ISOChronology chrono = ISOChronology.getInstanceUTC();
         final int minYear = chrono.year().getMinimumValue();
 
@@ -5140,7 +5140,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(minYear,start.getYear());
     }
 
-    public void testMinYear_4_oe() {
+public void testMinYear_4_oe() {
         final ISOChronology chrono = ISOChronology.getInstanceUTC();
         final int minYear = chrono.year().getMinimumValue();
 
@@ -5152,7 +5152,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(minYear,end.getYear());
     }
 
-    public void testMinYear_5_oe() {
+public void testMinYear_5_oe() {
         final ISOChronology chrono = ISOChronology.getInstanceUTC();
         final int minYear = chrono.year().getMinimumValue();
 
@@ -5168,7 +5168,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(expectedDelta,delta);
     }
 
-    public void testMinYear_6_oe() {
+public void testMinYear_6_oe() {
         final ISOChronology chrono = ISOChronology.getInstanceUTC();
         final int minYear = chrono.year().getMinimumValue();
 
@@ -5186,7 +5186,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(start,new DateTime(minYear + "-01-01T00:00:00.000Z",chrono));
     }
 
-    public void testMinYear_7_oe() {
+public void testMinYear_7_oe() {
         final ISOChronology chrono = ISOChronology.getInstanceUTC();
         final int minYear = chrono.year().getMinimumValue();
 
@@ -5205,7 +5205,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(end,new DateTime(minYear + "-12-31T23:59:59.999Z",chrono));
     }
 
-    public void testMinYear_10_oe() {
+public void testMinYear_10_oe() {
         final ISOChronology chrono = ISOChronology.getInstanceUTC();
         final int minYear = chrono.year().getMinimumValue();
 
@@ -5238,20 +5238,20 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(minYear - 1,chrono.year().get(Long.MIN_VALUE));
     }
 
-    public void testTimeOfDayAdd_1_oe() {
+public void testTimeOfDayAdd_1_oe() {
         TimeOfDay start = new TimeOfDay(12, 30);
         TimeOfDay end = new TimeOfDay(10, 30);
         assertEquals(end,start.plusHours(22));
     }
 
-    public void testTimeOfDayAdd_2_oe() {
+public void testTimeOfDayAdd_2_oe() {
         TimeOfDay start = new TimeOfDay(12, 30);
         TimeOfDay end = new TimeOfDay(10, 30);
         // removed other assertion
         assertEquals(start,end.minusHours(22));
     }
 
-    public void testTimeOfDayAdd_3_oe() {
+public void testTimeOfDayAdd_3_oe() {
         TimeOfDay start = new TimeOfDay(12, 30);
         TimeOfDay end = new TimeOfDay(10, 30);
         // removed other assertion
@@ -5259,7 +5259,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(end,start.plusMinutes(22 * 60));
     }
 
-    public void testTimeOfDayAdd_4_oe() {
+public void testTimeOfDayAdd_4_oe() {
         TimeOfDay start = new TimeOfDay(12, 30);
         TimeOfDay end = new TimeOfDay(10, 30);
         // removed other assertion
@@ -5268,20 +5268,20 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(start,end.minusMinutes(22 * 60));
     }
 
-    public void testPartialDayOfYearAdd_1_oe() {
+public void testPartialDayOfYearAdd_1_oe() {
         Partial start = new Partial().with(DateTimeFieldType.year(), 2000).with(DateTimeFieldType.dayOfYear(), 366);
         Partial end = new Partial().with(DateTimeFieldType.year(), 2004).with(DateTimeFieldType.dayOfYear(), 366);
         assertEquals(end,start.withFieldAdded(DurationFieldType.days(),365 + 365 + 365 + 366));
     }
 
-    public void testPartialDayOfYearAdd_2_oe() {
+public void testPartialDayOfYearAdd_2_oe() {
         Partial start = new Partial().with(DateTimeFieldType.year(), 2000).with(DateTimeFieldType.dayOfYear(), 366);
         Partial end = new Partial().with(DateTimeFieldType.year(), 2004).with(DateTimeFieldType.dayOfYear(), 366);
         // removed other assertion
         assertEquals(start,end.withFieldAdded(DurationFieldType.days(),-(365 + 365 + 365 + 366)));
     }
 
-    public void testMaximumValue_1_oe() {
+public void testMaximumValue_1_oe() {
         DateMidnight dt = new DateMidnight(1570, 1, 1);
         while (dt.getYear() < 1590) {
             dt = dt.plusDays(1);
@@ -5290,7 +5290,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
     }
     }
 
-    public void testMaximumValue_2_oe() {
+public void testMaximumValue_2_oe() {
         DateMidnight dt = new DateMidnight(1570, 1, 1);
         while (dt.getYear() < 1590) {
             dt = dt.plusDays(1);
@@ -5300,7 +5300,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
     }
     }
 
-    public void testMaximumValue_3_oe() {
+public void testMaximumValue_3_oe() {
         DateMidnight dt = new DateMidnight(1570, 1, 1);
         while (dt.getYear() < 1590) {
             dt = dt.plusDays(1);
@@ -5311,20 +5311,20 @@ public class TestISOChronology_OE25Dev extends TestCase {
     }
     }
 
-    public void testLeap_28feb_1_oe() {
+public void testLeap_28feb_1_oe() {
         Chronology chrono = ISOChronology.getInstance();
         DateTime dt = new DateTime(2012, 2, 28, 0, 0, chrono);
         assertEquals(true,dt.year().isLeap());
     }
 
-    public void testLeap_28feb_2_oe() {
+public void testLeap_28feb_2_oe() {
         Chronology chrono = ISOChronology.getInstance();
         DateTime dt = new DateTime(2012, 2, 28, 0, 0, chrono);
         // removed other assertion
         assertEquals(true,dt.monthOfYear().isLeap());
     }
 
-    public void testLeap_28feb_3_oe() {
+public void testLeap_28feb_3_oe() {
         Chronology chrono = ISOChronology.getInstance();
         DateTime dt = new DateTime(2012, 2, 28, 0, 0, chrono);
         // removed other assertion
@@ -5332,7 +5332,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,dt.dayOfMonth().isLeap());
     }
 
-    public void testLeap_28feb_4_oe() {
+public void testLeap_28feb_4_oe() {
         Chronology chrono = ISOChronology.getInstance();
         DateTime dt = new DateTime(2012, 2, 28, 0, 0, chrono);
         // removed other assertion
@@ -5341,20 +5341,20 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(false,dt.dayOfYear().isLeap());
     }
 
-    public void testLeap_29feb_1_oe() {
+public void testLeap_29feb_1_oe() {
         Chronology chrono = ISOChronology.getInstance();
         DateTime dt = new DateTime(2012, 2, 29, 0, 0, chrono);
         assertEquals(true,dt.year().isLeap());
     }
 
-    public void testLeap_29feb_2_oe() {
+public void testLeap_29feb_2_oe() {
         Chronology chrono = ISOChronology.getInstance();
         DateTime dt = new DateTime(2012, 2, 29, 0, 0, chrono);
         // removed other assertion
         assertEquals(true,dt.monthOfYear().isLeap());
     }
 
-    public void testLeap_29feb_3_oe() {
+public void testLeap_29feb_3_oe() {
         Chronology chrono = ISOChronology.getInstance();
         DateTime dt = new DateTime(2012, 2, 29, 0, 0, chrono);
         // removed other assertion
@@ -5362,7 +5362,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         assertEquals(true,dt.dayOfMonth().isLeap());
     }
 
-    public void testLeap_29feb_4_oe() {
+public void testLeap_29feb_4_oe() {
         Chronology chrono = ISOChronology.getInstance();
         DateTime dt = new DateTime(2012, 2, 29, 0, 0, chrono);
         // removed other assertion

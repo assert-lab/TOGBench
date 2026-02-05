@@ -52,20 +52,20 @@ class ObjBoundaryWriteHandler3DTest_OE25Dev {
 
     private final ObjBoundaryWriteHandler3D handler = new ObjBoundaryWriteHandler3D();
 
-    @Test
+@Test
     void testProperties_1_oe() {
         // act/assert
         Assertions.assertEquals(GeometryFormat3D.OBJ, handler.getFormat());
     }
 
-    @Test
+@Test
     void testProperties_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals(StandardCharsets.UTF_8, handler.getDefaultCharset());
     }
 
-    @Test
+@Test
     void testProperties_3_oe() {
         // act/assert
         // removed other assertion
@@ -73,7 +73,7 @@ class ObjBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals("\n", handler.getLineSeparator());
     }
 
-    @Test
+@Test
     void testProperties_4_oe() {
         // act/assert
         // removed other assertion
@@ -82,7 +82,7 @@ class ObjBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertNotNull(handler.getDoubleFormat());
     }
 
-    @Test
+@Test
     void testProperties_5_oe() {
         // act/assert
         // removed other assertion
@@ -92,7 +92,7 @@ class ObjBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals(-1, handler.getMeshBufferBatchSize());
     }
 
-    @Test
+@Test
     void testWriteFacets_1_oe() {
         // arrange
         final DecimalFormat fmt =
@@ -106,7 +106,7 @@ class ObjBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 0.333333 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 -1.0 0.0\n" + "f 1 2 3 4\n" + "f 1 5 2\n",new String(out.toByteArray(),StandardCharsets.UTF_8));
     }
 
-    @Test
+@Test
     void testWriteFacets_usesOutputCharset_1_oe() {
         // arrange
         final DecimalFormat fmt =
@@ -120,7 +120,7 @@ class ObjBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 0.333333 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 -1.0 0.0\n" + "f 1 2 3 4\n" + "f 1 5 2\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
     }
 
-    @Test
+@Test
     void testWriteFacets_customConfig_1_oe() {
         // arrange
         // arrange
@@ -139,7 +139,7 @@ class ObjBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals("v 0.0 0.0 0.0\r\n" + "v 0.3 0.0 0.0\r\n" + "v 1.0 1.0 0.0\r\n" + "v 0.0 1.0 0.0\r\n" + "f 1 2 3 4\r\n" + "v 0.0 0.0 0.0\r\n" + "v 0.0 -1.0 0.0\r\n" + "v 0.3 0.0 0.0\r\n" + "f 5 6 7\r\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
     }
 
-    @Test
+@Test
     void testWrite_1_oe() {
         // arrange
         final BoundarySource3D src = BoundarySource3D.of(FACETS.stream()
@@ -153,7 +153,7 @@ class ObjBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 0.3333333333333333 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 -1.0 0.0\n" + "f 1 2 3 4\n" + "f 1 5 2\n",new String(out.toByteArray(),StandardCharsets.UTF_8));
     }
 
-    @Test
+@Test
     void testWrite_customConfig_1_oe() {
         // arrange
         final BoundarySource3D src = BoundarySource3D.of(FACETS.stream()
@@ -176,7 +176,7 @@ class ObjBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals("v 0.0 0.0 0.0\r\n" + "v 0.3 0.0 0.0\r\n" + "v 1.0 1.0 0.0\r\n" + "v 0.0 1.0 0.0\r\n" + "f 1 2 3 4\r\n" + "v 0.0 0.0 0.0\r\n" + "v 0.0 -1.0 0.0\r\n" + "v 0.3 0.0 0.0\r\n" + "f 5 6 7\r\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
     }
 
-    @Test
+@Test
     void testWrite_mesh_1_oe() {
         // arrange
         final SimpleTriangleMesh.Builder builder = SimpleTriangleMesh.builder(TEST_PRECISION);

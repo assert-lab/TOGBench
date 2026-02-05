@@ -93,7 +93,7 @@ class HyperplaneSubsetsTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testClassify_1_oe() {
         // arrange
         final TestLine line = TestLine.X_AXIS;
@@ -103,7 +103,7 @@ class HyperplaneSubsetsTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE,HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(-1,0),line,region));
     }
 
-    @Test
+@Test
     void testClassify_2_oe() {
         // arrange
         final TestLine line = TestLine.X_AXIS;
@@ -114,7 +114,7 @@ class HyperplaneSubsetsTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY,HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(0,0),line,region));
     }
 
-    @Test
+@Test
     void testClassify_3_oe() {
         // arrange
         final TestLine line = TestLine.X_AXIS;
@@ -127,7 +127,7 @@ class HyperplaneSubsetsTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE,HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(0,1),line,region));
     }
 
-    @Test
+@Test
     void testClassify_4_oe() {
         // arrange
         final TestLine line = TestLine.X_AXIS;
@@ -141,7 +141,7 @@ class HyperplaneSubsetsTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE,HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(-1,1),line,region));
     }
 
-    @Test
+@Test
     void testClassify_5_oe() {
         // arrange
         final TestLine line = TestLine.X_AXIS;
@@ -156,7 +156,7 @@ class HyperplaneSubsetsTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE,HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(-1,-1),line,region));
     }
 
-    @Test
+@Test
     void testClosest_8_oe() {
         // arrange
         final TestLine line = TestLine.X_AXIS;

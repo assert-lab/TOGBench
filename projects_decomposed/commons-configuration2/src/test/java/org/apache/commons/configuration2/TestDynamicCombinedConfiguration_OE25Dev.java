@@ -279,7 +279,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertEquals(config.getInt("rowsPerPage"), rows);
     }
 
-    @Test
+@Test
     public void testConcurrentGetAndReload_1_oe() throws Exception {
         System.getProperties().remove("Id");
         final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
@@ -289,7 +289,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertEquals("Wrong value", "50", config.getString("rowsPerPage"));
     }
 
-    @Test
+@Test
     public void testConcurrentGetAndReload_2_oe() throws Exception {
         System.getProperties().remove("Id");
         final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
@@ -313,7 +313,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertEquals(totalFailures + " failures Occurred", 0, totalFailures);
     }
 
-    @Test
+@Test
     public void testConcurrentGetAndReload2_1_oe() throws Exception {
         System.getProperties().remove("Id");
         final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
@@ -323,7 +323,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertEquals(config.getString("rowsPerPage"), "50");
     }
 
-    @Test
+@Test
     public void testConcurrentGetAndReload2_2_oe() throws Exception {
         System.getProperties().remove("Id");
         final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
@@ -338,7 +338,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertEquals("Wrong value", "25", config.getString("rowsPerPage"));
     }
 
-    @Test
+@Test
     public void testConcurrentGetAndReload2_3_oe() throws Exception {
         System.getProperties().remove("Id");
         final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
@@ -365,7 +365,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertEquals(totalFailures + " failures Occurred", 0, totalFailures);
     }
 
-    @Test
+@Test
     public void testConcurrentGetAndReloadFile_1_oe() throws Exception {
         final int threadCount = 25;
         System.getProperties().remove("Id");
@@ -385,7 +385,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertEquals("Wrong property value (1)", "ID0001", config.getString("Product/FIIndex/FI[@id='123456781']"));
     }
 
-    @Test
+@Test
     public void testConcurrentGetAndReloadFile_2_oe() throws Exception {
         final int threadCount = 25;
         System.getProperties().remove("Id");
@@ -420,7 +420,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertTrue("Changed file not detected", builder.getReloadingController().checkForReloading(null));
     }
 
-    @Test
+@Test
     public void testConcurrentGetAndReloadFile_5_oe() throws Exception {
         final int threadCount = 25;
         System.getProperties().remove("Id");
@@ -468,7 +468,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testConcurrentGetAndReloadMultipleClients_1_oe() throws Exception {
         System.getProperties().remove("Id");
         final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
@@ -478,7 +478,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertEquals(config.getString("rowsPerPage"), "50");
     }
 
-    @Test
+@Test
     public void testConfiguration_1_oe() throws Exception {
         final DynamicCombinedConfiguration config = new DynamicCombinedConfiguration();
         final DefaultListDelimiterHandler listHandler = new DefaultListDelimiterHandler(',');
@@ -505,7 +505,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertEquals("a,b,c", config.getString("split/list3/@values"));
     }
 
-    @Test
+@Test
     public void testConfiguration_2_oe() throws Exception {
         final DynamicCombinedConfiguration config = new DynamicCombinedConfiguration();
         final DefaultListDelimiterHandler listHandler = new DefaultListDelimiterHandler(',');
@@ -533,7 +533,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertEquals(0, config.getMaxIndex("split/list3/@values"));
     }
 
-    @Test
+@Test
     public void testConfiguration_3_oe() throws Exception {
         final DynamicCombinedConfiguration config = new DynamicCombinedConfiguration();
         final DefaultListDelimiterHandler listHandler = new DefaultListDelimiterHandler(',');
@@ -562,7 +562,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertEquals("a\\,b\\,c", config.getString("split/list4/@values"));
     }
 
-    @Test
+@Test
     public void testConfiguration_4_oe() throws Exception {
         final DynamicCombinedConfiguration config = new DynamicCombinedConfiguration();
         final DefaultListDelimiterHandler listHandler = new DefaultListDelimiterHandler(',');
@@ -592,7 +592,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertEquals("OK-1", config.getString("buttons/name"));
     }
 
-    @Test
+@Test
     public void testConfiguration_5_oe() throws Exception {
         final DynamicCombinedConfiguration config = new DynamicCombinedConfiguration();
         final DefaultListDelimiterHandler listHandler = new DefaultListDelimiterHandler(',');
@@ -623,7 +623,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertEquals(3, config.getMaxIndex("buttons/name"));
     }
 
-    @Test
+@Test
     public void testConfiguration_6_oe() throws Exception {
         final DynamicCombinedConfiguration config = new DynamicCombinedConfiguration();
         final DefaultListDelimiterHandler listHandler = new DefaultListDelimiterHandler(',');
@@ -655,7 +655,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertEquals("a\\,b\\,c", config.getString("split/list2"));
     }
 
-    @Test
+@Test
     public void testConfiguration_7_oe() throws Exception {
         final DynamicCombinedConfiguration config = new DynamicCombinedConfiguration();
         final DefaultListDelimiterHandler listHandler = new DefaultListDelimiterHandler(',');
@@ -688,7 +688,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertEquals("Wrong size", 18, config.size());
     }
 
-    @Test
+@Test
     public void testConfiguration_8_oe() throws Exception {
         final DynamicCombinedConfiguration config = new DynamicCombinedConfiguration();
         final DefaultListDelimiterHandler listHandler = new DefaultListDelimiterHandler(',');
@@ -723,7 +723,7 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertEquals("List delimiter not detected", "1", config.getString("listDelimiterTest"));
     }
 
-    @Test
+@Test
     public void testGetConfigurationByIdxSynchronized_1_oe() {
         final DynamicCombinedConfiguration config = new DynamicCombinedConfiguration();
         final Configuration child = new PropertiesConfiguration();
@@ -732,14 +732,14 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         assertSame("Wrong configuration", child, config.getConfiguration(0));
     }
 
-    @Test
+@Test
     public void testGetConfigurationByNameSynchronized_1_oe() {
         final DynamicCombinedConfiguration config = new DynamicCombinedConfiguration();
         final SynchronizerTestImpl sync = prepareSynchronizerTest(config);
         assertNull("Wrong result", config.getConfiguration("unknown config"));
     }
 
-    @Test
+@Test
     public void testUpdateConfiguration_1_oe() throws ConfigurationException {
         System.getProperties().remove("Id");
         final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();

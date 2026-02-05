@@ -157,18 +157,18 @@ public class TestPeriodicReloadingTrigger_OE25Dev {
         createTrigger().stop();
     }
 
-    @Test
+@Test
     public void testDefaultExecutor_1_oe() {
         final PeriodicReloadingTrigger trigger = new PeriodicReloadingTrigger(controller, CTRL_PARAM, PERIOD, UNIT);
         assertNotNull("No executor service", trigger.getExecutorService());
     }
 
-    @Test
+@Test
     public void testIsRunningAfterInit_1_oe() {
         assertFalse("Running", createTrigger().isRunning());
     }
 
-    @Test
+@Test
     public void testStart_1_oe() {
         final ScheduledFuture<Void> future = createFutureMock();
         final MutableObject<Runnable> refTask = new MutableObject<>();
@@ -184,7 +184,7 @@ public class TestPeriodicReloadingTrigger_OE25Dev {
         assertTrue("Not started", trigger.isRunning());
     }
 
-    @Test
+@Test
     public void testStop_1_oe() {
         final ScheduledFuture<Void> future = createFutureMock();
         expectSchedule(future);

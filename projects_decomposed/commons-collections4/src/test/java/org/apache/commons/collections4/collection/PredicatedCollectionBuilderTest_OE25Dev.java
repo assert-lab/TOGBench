@@ -122,21 +122,21 @@ public class PredicatedCollectionBuilderTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void addPass_1_oe() {
         final PredicatedCollection.Builder<String> builder = PredicatedCollection.notNullBuilder();
         builder.add("test");
         Assert.assertEquals(builder.createPredicatedList().size(), 1);
     }
 
-    @Test
+@Test
     public void addFail_1_oe() {
         final PredicatedCollection.Builder<String> builder = PredicatedCollection.notNullBuilder();
         builder.add((String) null);
         Assert.assertTrue(builder.createPredicatedList().isEmpty());
     }
 
-    @Test
+@Test
     public void addFail_2_oe() {
         final PredicatedCollection.Builder<String> builder = PredicatedCollection.notNullBuilder();
         builder.add((String) null);
@@ -145,7 +145,7 @@ public class PredicatedCollectionBuilderTest_OE25Dev {
         Assert.assertEquals(1, builder.rejectedElements().size());
     }
 
-    @Test
+@Test
     public void addAllPass_1_oe() {
         final PredicatedCollection.Builder<String> builder = PredicatedCollection.notNullBuilder();
         builder.addAll(Arrays.asList("test1", null, "test2"));

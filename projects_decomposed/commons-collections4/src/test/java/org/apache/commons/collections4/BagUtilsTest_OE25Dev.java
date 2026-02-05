@@ -42,19 +42,19 @@ public class BagUtilsTest_OE25Dev {
 
     //----------------------------------------------------------------------
 
-    @Test
+@Test
     public void testSynchronizedBag_1_oe() {
         final Bag<Object> bag = BagUtils.synchronizedBag(new HashBag<>());
         assertTrue("Returned object should be a SynchronizedBag.",bag instanceof SynchronizedBag);
     }
 
-    @Test
+@Test
     public void testUnmodifiableBag_1_oe() {
         final Bag<Object> bag = BagUtils.unmodifiableBag(new HashBag<>());
         assertTrue("Returned object should be an UnmodifiableBag.",bag instanceof UnmodifiableBag);
     }
 
-    @Test
+@Test
     public void testUnmodifiableBag_3_oe() {
         final Bag<Object> bag = BagUtils.unmodifiableBag(new HashBag<>());
         // removed other assertion
@@ -68,31 +68,31 @@ public class BagUtilsTest_OE25Dev {
         assertSame("UnmodifiableBag shall not be decorated", bag, BagUtils.unmodifiableBag(bag));
     }
 
-    @Test
+@Test
     public void testPredicatedBag_1_oe() {
         final Bag<Object> bag = BagUtils.predicatedBag(new HashBag<>(), truePredicate);
         assertTrue("Returned object should be a PredicatedBag.",bag instanceof PredicatedBag);
     }
 
-    @Test
+@Test
     public void testTransformedBag_1_oe() {
         final Bag<Object> bag = BagUtils.transformingBag(new HashBag<>(), nopTransformer);
         assertTrue("Returned object should be an TransformedBag.",bag instanceof TransformedBag);
     }
 
-    @Test
+@Test
     public void testSynchronizedSortedBag_1_oe() {
         final Bag<Object> bag = BagUtils.synchronizedSortedBag(new TreeBag<>());
         assertTrue("Returned object should be a SynchronizedSortedBag.",bag instanceof SynchronizedSortedBag);
     }
 
-    @Test
+@Test
     public void testUnmodifiableSortedBag_1_oe() {
         final SortedBag<Object> bag = BagUtils.unmodifiableSortedBag(new TreeBag<>());
         assertTrue("Returned object should be an UnmodifiableSortedBag.",bag instanceof UnmodifiableSortedBag);
     }
 
-    @Test
+@Test
     public void testUnmodifiableSortedBag_3_oe() {
         final SortedBag<Object> bag = BagUtils.unmodifiableSortedBag(new TreeBag<>());
         // removed other assertion
@@ -106,13 +106,13 @@ public class BagUtilsTest_OE25Dev {
         assertSame("UnmodifiableSortedBag shall not be decorated", bag, BagUtils.unmodifiableSortedBag(bag));
     }
 
-    @Test
+@Test
     public void testPredicatedSortedBag_1_oe() {
         final Bag<Object> bag = BagUtils.predicatedSortedBag(new TreeBag<>(), truePredicate);
         assertTrue("Returned object should be a PredicatedSortedBag.",bag instanceof PredicatedSortedBag);
     }
 
-    @Test
+@Test
     public void testTransformedSortedBag_1_oe() {
         final Bag<Object> bag = BagUtils.transformingSortedBag(new TreeBag<>(), nopTransformer);
         assertTrue("Returned object should be an TransformedSortedBag",bag instanceof TransformedSortedBag);

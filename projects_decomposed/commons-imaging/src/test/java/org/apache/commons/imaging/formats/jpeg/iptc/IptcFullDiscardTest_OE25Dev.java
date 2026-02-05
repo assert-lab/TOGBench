@@ -52,7 +52,7 @@ public class IptcFullDiscardTest_OE25Dev {
         return byteArrayOutputStream.toByteArray();
     }
 
-    @Test
+@Test
     public void leaveApp13Segment_1_oe() throws Exception {
         final byte[] originalImage = generateImage();
         final byte[] taggedImage = addMetaData(originalImage);
@@ -60,7 +60,7 @@ public class IptcFullDiscardTest_OE25Dev {
         Assertions.assertEquals(18, untaggedImage.length - originalImage.length);
     }
 
-    @Test
+@Test
     public void removeApp13Segment_1_oe() throws Exception {
         final byte[] originalImage = generateImage();
         final byte[] taggedImage = addMetaData(originalImage);

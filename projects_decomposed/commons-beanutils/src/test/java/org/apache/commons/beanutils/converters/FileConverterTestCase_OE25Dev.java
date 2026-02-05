@@ -82,7 +82,7 @@ public class FileConverterTestCase_OE25Dev extends TestCase {
         }
     }
 
-    public void testSimpleConversion_1_oe() throws Exception {
+public void testSimpleConversion_1_oe() throws Exception {
         final String[] message= {
             "from String",
             "from String",
@@ -106,7 +106,7 @@ public class FileConverterTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testSimpleConversion_2_oe() throws Exception {
+public void testSimpleConversion_2_oe() throws Exception {
         final String[] message= {
             "from String",
             "from String",

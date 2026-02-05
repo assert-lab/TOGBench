@@ -72,25 +72,25 @@ public class TestReadablePeriodConverter_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testSingleton_1_oe() throws Exception {
+public void testSingleton_1_oe() throws Exception {
         Class cls = ReadablePeriodConverter.class;
         assertEquals(false,Modifier.isPublic(cls.getModifiers()));
     }
 
-    public void testSingleton_2_oe() throws Exception {
+public void testSingleton_2_oe() throws Exception {
         Class cls = ReadablePeriodConverter.class;
         // removed other assertion
         assertEquals(false,Modifier.isProtected(cls.getModifiers()));
     }
 
-    public void testSingleton_3_oe() throws Exception {
+public void testSingleton_3_oe() throws Exception {
         Class cls = ReadablePeriodConverter.class;
         // removed other assertion
         // removed other assertion
         assertEquals(false,Modifier.isPrivate(cls.getModifiers()));
     }
 
-    public void testSingleton_4_oe() throws Exception {
+public void testSingleton_4_oe() throws Exception {
         Class cls = ReadablePeriodConverter.class;
         // removed other assertion
         // removed other assertion
@@ -100,7 +100,7 @@ public class TestReadablePeriodConverter_OE25Dev extends TestCase {
         assertEquals(1,cls.getDeclaredConstructors().length);
     }
 
-    public void testSingleton_5_oe() throws Exception {
+public void testSingleton_5_oe() throws Exception {
         Class cls = ReadablePeriodConverter.class;
         // removed other assertion
         // removed other assertion
@@ -111,7 +111,7 @@ public class TestReadablePeriodConverter_OE25Dev extends TestCase {
         assertEquals(true,Modifier.isProtected(con.getModifiers()));
     }
 
-    public void testSingleton_6_oe() throws Exception {
+public void testSingleton_6_oe() throws Exception {
         Class cls = ReadablePeriodConverter.class;
         // removed other assertion
         // removed other assertion
@@ -125,7 +125,7 @@ public class TestReadablePeriodConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPublic(fld.getModifiers()));
     }
 
-    public void testSingleton_7_oe() throws Exception {
+public void testSingleton_7_oe() throws Exception {
         Class cls = ReadablePeriodConverter.class;
         // removed other assertion
         // removed other assertion
@@ -140,7 +140,7 @@ public class TestReadablePeriodConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isProtected(fld.getModifiers()));
     }
 
-    public void testSingleton_8_oe() throws Exception {
+public void testSingleton_8_oe() throws Exception {
         Class cls = ReadablePeriodConverter.class;
         // removed other assertion
         // removed other assertion
@@ -156,33 +156,33 @@ public class TestReadablePeriodConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPrivate(fld.getModifiers()));
     }
 
-    public void testSupportedType_1_oe() throws Exception {
+public void testSupportedType_1_oe() throws Exception {
         assertEquals(ReadablePeriod.class,ReadablePeriodConverter.INSTANCE.getSupportedType());
     }
 
-    public void testGetPeriodType_Object_1_oe() throws Exception {
+public void testGetPeriodType_Object_1_oe() throws Exception {
         assertEquals(PeriodType.standard(),ReadablePeriodConverter.INSTANCE.getPeriodType(new Period(123L,PeriodType.standard())));
     }
 
-    public void testGetPeriodType_Object_2_oe() throws Exception {
+public void testGetPeriodType_Object_2_oe() throws Exception {
         // removed other assertion
         assertEquals(PeriodType.yearMonthDayTime(),ReadablePeriodConverter.INSTANCE.getPeriodType(new Period(123L,PeriodType.yearMonthDayTime())));
     }
 
-    public void testSetInto_Object_1_oe() throws Exception {
+public void testSetInto_Object_1_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearMonthDayTime());
         ReadablePeriodConverter.INSTANCE.setInto(m, new Period(0, 0, 0, 3, 0, 4, 0, 5), null);
         assertEquals(0,m.getYears());
     }
 
-    public void testSetInto_Object_2_oe() throws Exception {
+public void testSetInto_Object_2_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearMonthDayTime());
         ReadablePeriodConverter.INSTANCE.setInto(m, new Period(0, 0, 0, 3, 0, 4, 0, 5), null);
         // removed other assertion
         assertEquals(0,m.getMonths());
     }
 
-    public void testSetInto_Object_3_oe() throws Exception {
+public void testSetInto_Object_3_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearMonthDayTime());
         ReadablePeriodConverter.INSTANCE.setInto(m, new Period(0, 0, 0, 3, 0, 4, 0, 5), null);
         // removed other assertion
@@ -190,7 +190,7 @@ public class TestReadablePeriodConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getWeeks());
     }
 
-    public void testSetInto_Object_4_oe() throws Exception {
+public void testSetInto_Object_4_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearMonthDayTime());
         ReadablePeriodConverter.INSTANCE.setInto(m, new Period(0, 0, 0, 3, 0, 4, 0, 5), null);
         // removed other assertion
@@ -199,7 +199,7 @@ public class TestReadablePeriodConverter_OE25Dev extends TestCase {
         assertEquals(3,m.getDays());
     }
 
-    public void testSetInto_Object_5_oe() throws Exception {
+public void testSetInto_Object_5_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearMonthDayTime());
         ReadablePeriodConverter.INSTANCE.setInto(m, new Period(0, 0, 0, 3, 0, 4, 0, 5), null);
         // removed other assertion
@@ -209,7 +209,7 @@ public class TestReadablePeriodConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getHours());
     }
 
-    public void testSetInto_Object_6_oe() throws Exception {
+public void testSetInto_Object_6_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearMonthDayTime());
         ReadablePeriodConverter.INSTANCE.setInto(m, new Period(0, 0, 0, 3, 0, 4, 0, 5), null);
         // removed other assertion
@@ -220,7 +220,7 @@ public class TestReadablePeriodConverter_OE25Dev extends TestCase {
         assertEquals(4,m.getMinutes());
     }
 
-    public void testSetInto_Object_7_oe() throws Exception {
+public void testSetInto_Object_7_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearMonthDayTime());
         ReadablePeriodConverter.INSTANCE.setInto(m, new Period(0, 0, 0, 3, 0, 4, 0, 5), null);
         // removed other assertion
@@ -232,7 +232,7 @@ public class TestReadablePeriodConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getSeconds());
     }
 
-    public void testSetInto_Object_8_oe() throws Exception {
+public void testSetInto_Object_8_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearMonthDayTime());
         ReadablePeriodConverter.INSTANCE.setInto(m, new Period(0, 0, 0, 3, 0, 4, 0, 5), null);
         // removed other assertion
@@ -245,7 +245,7 @@ public class TestReadablePeriodConverter_OE25Dev extends TestCase {
         assertEquals(5,m.getMillis());
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         assertEquals("Converter[org.joda.time.ReadablePeriod]",ReadablePeriodConverter.INSTANCE.toString());
     }
 

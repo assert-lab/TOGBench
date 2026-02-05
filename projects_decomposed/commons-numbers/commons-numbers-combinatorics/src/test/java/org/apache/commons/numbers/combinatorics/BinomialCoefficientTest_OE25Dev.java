@@ -80,12 +80,12 @@ class BinomialCoefficientTest_OE25Dev {
         return result;
     }
 
-    @Test
+@Test
     void test0Choose0_1_oe() {
         Assertions.assertEquals(1, BinomialCoefficient.value(0, 0));
     }
 
-    @Test
+@Test
     void testBinomialCoefficient_1_oe() {
         final long[] bcoef5 = {1, 5, 10, 10, 5, 1};
         final long[] bcoef6 = {1, 6, 15, 20, 15, 6, 1};
@@ -95,7 +95,7 @@ class BinomialCoefficientTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testBinomialCoefficient_2_oe() {
         final long[] bcoef5 = {1, 5, 10, 10, 5, 1};
         final long[] bcoef6 = {1, 6, 15, 20, 15, 6, 1};
@@ -108,7 +108,7 @@ class BinomialCoefficientTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testBinomialCoefficient_3_oe() {
         final long[] bcoef5 = {1, 5, 10, 10, 5, 1};
         final long[] bcoef6 = {1, 6, 15, 20, 15, 6, 1};
@@ -127,7 +127,7 @@ class BinomialCoefficientTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testBinomialCoefficient_4_oe() {
         final long[] bcoef5 = {1, 5, 10, 10, 5, 1};
         final long[] bcoef6 = {1, 6, 15, 20, 15, 6, 1};
@@ -153,27 +153,27 @@ class BinomialCoefficientTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testBinomialCoefficientKLargerThanN_1_oe() {
         Assertions.assertThrows(CombinatoricsException.class, () -> BinomialCoefficient.value(4, 5) );
     }
 
-    @Test
+@Test
     void testBinomialCoefficientNegativeN_1_oe() {
         Assertions.assertThrows(CombinatoricsException.class, () -> BinomialCoefficient.value(-1, 1) );
     }
 
-    @Test
+@Test
     void testBinomialCoefficientNegativeK_1_oe() {
         Assertions.assertThrows(CombinatoricsException.class, () -> BinomialCoefficient.value(10, -1) );
     }
 
-    @Test
+@Test
     void testBinomialCoefficientNAbove66ResultOverflow_1_oe() {
         Assertions.assertThrows(ArithmeticException.class, () -> BinomialCoefficient.value(67, 30) );
     }
 
-    @Test
+@Test
     void testBinomialCoefficientLarge_1_oe() throws Exception {
         // This tests all legal and illegal values for n <= 200.
         for (int n = 0; n <= 200; n++) {
@@ -197,7 +197,7 @@ class BinomialCoefficientTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testBinomialCoefficientLarge_2_oe() throws Exception {
         // This tests all legal and illegal values for n <= 200.
         for (int n = 0; n <= 200; n++) {
@@ -222,7 +222,7 @@ class BinomialCoefficientTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testBinomialCoefficientLarge_3_oe() throws Exception {
         // This tests all legal and illegal values for n <= 200.
         for (int n = 0; n <= 200; n++) {
@@ -248,7 +248,7 @@ class BinomialCoefficientTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testBinomialCoefficientLarge_4_oe() throws Exception {
         // This tests all legal and illegal values for n <= 200.
         for (int n = 0; n <= 200; n++) {
@@ -278,7 +278,7 @@ class BinomialCoefficientTest_OE25Dev {
         Assertions.assertEquals(exactResult, ourResult);
     }
 
-    @Test
+@Test
     void testBinomialCoefficientLarge_5_oe() throws Exception {
         // This tests all legal and illegal values for n <= 200.
         for (int n = 0; n <= 200; n++) {
@@ -312,7 +312,7 @@ class BinomialCoefficientTest_OE25Dev {
         Assertions.assertEquals(exactResult, ourResult);
     }
 
-    @Test
+@Test
     void testBinomialCoefficientLarge_6_oe() throws Exception {
         // This tests all legal and illegal values for n <= 200.
         for (int n = 0; n <= 200; n++) {
@@ -351,12 +351,12 @@ class BinomialCoefficientTest_OE25Dev {
         Assertions.assertEquals(exactResult, ourResult);
     }
 
-    @Test
+@Test
     void checkNLessThanOne_1_oe() {
         Assertions.assertThrows(CombinatoricsException.class, () -> BinomialCoefficient.checkBinomial(-1, -2) );
     }
 
-    @Test
+@Test
     void checkKGreaterThanN_1_oe() {
         Assertions.assertThrows(CombinatoricsException.class, () -> BinomialCoefficient.checkBinomial(4, 5) );
     }

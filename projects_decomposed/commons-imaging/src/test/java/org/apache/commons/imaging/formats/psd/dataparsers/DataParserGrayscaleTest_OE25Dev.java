@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 
 public class DataParserGrayscaleTest_OE25Dev{
 
-  @Test
+@Test
   public void testGetBasicChannelsCount_1_oe() {
       final DataParserGrayscale dataParserGrayscale = new DataParserGrayscale();
 

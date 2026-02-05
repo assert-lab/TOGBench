@@ -96,7 +96,7 @@ public class Jira298TestCase_OE25Dev extends TestCase {
      * Test {@link MethodUtils#getAccessibleMethod(Class, Method)}
      */
 
-    public void testIssue_BEANUTILS_298_PropertyUtils_getProperty_1_oe() {
+public void testIssue_BEANUTILS_298_PropertyUtils_getProperty_1_oe() {
         final Object bean = Jira298BeanFactory.createImplX();
         Object result = null;
         try {
@@ -107,7 +107,7 @@ public class Jira298TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_298_PropertyUtils_getProperty_2_oe() {
+public void testIssue_BEANUTILS_298_PropertyUtils_getProperty_2_oe() {
         final Object bean = Jira298BeanFactory.createImplX();
         Object result = null;
         try {
@@ -119,12 +119,12 @@ public class Jira298TestCase_OE25Dev extends TestCase {
         assertEquals("BaseX name value", result);
     }
 
-    public void testIssue_BEANUTILS_298_PropertyUtils_setProperty_1_oe() {
+public void testIssue_BEANUTILS_298_PropertyUtils_setProperty_1_oe() {
         final Object bean = Jira298BeanFactory.createImplX();
         assertEquals("BaseX name value", ((IX)bean).getName());
     }
 
-    public void testIssue_BEANUTILS_298_PropertyUtils_setProperty_2_oe() {
+public void testIssue_BEANUTILS_298_PropertyUtils_setProperty_2_oe() {
         final Object bean = Jira298BeanFactory.createImplX();
         // removed other assertion
         try {
@@ -135,7 +135,7 @@ public class Jira298TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_298_PropertyUtils_setProperty_3_oe() {
+public void testIssue_BEANUTILS_298_PropertyUtils_setProperty_3_oe() {
         final Object bean = Jira298BeanFactory.createImplX();
         // removed other assertion
         try {
@@ -147,7 +147,7 @@ public class Jira298TestCase_OE25Dev extends TestCase {
         assertEquals("new name", ((IX)bean).getName());
     }
 
-    public void testIssue_BEANUTILS_298_MethodUtils_getAccessibleMethod_1_oe() {
+public void testIssue_BEANUTILS_298_MethodUtils_getAccessibleMethod_1_oe() {
         final Object bean = Jira298BeanFactory.createImplX();
         Object result = null;
         try {
@@ -159,7 +159,7 @@ public class Jira298TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_298_MethodUtils_getAccessibleMethod_2_oe() {
+public void testIssue_BEANUTILS_298_MethodUtils_getAccessibleMethod_2_oe() {
         final Object bean = Jira298BeanFactory.createImplX();
         Object result = null;
         try {

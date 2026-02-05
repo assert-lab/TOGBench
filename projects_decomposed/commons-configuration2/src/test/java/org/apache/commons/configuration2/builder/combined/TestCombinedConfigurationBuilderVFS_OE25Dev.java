@@ -52,7 +52,7 @@ public class TestCombinedConfigurationBuilderVFS_OE25Dev extends TestCombinedCon
      * Tests if the base path is correctly evaluated.
      */
 
-    @Test
+@Test
     public void testSetConfigurationBasePath_1_oe() throws ConfigurationException {
         final File deepDir = new File(ConfigurationAssert.TEST_DIR, "config/deep");
         final Map<String, Object> params = new HashMap<>();

@@ -90,7 +90,7 @@ public class PredicatedListTest_OE25Dev<E> extends AbstractListTest<E> {
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/PredicatedList.fullCollection.version4.obj");
 //    }
 
-    public void testIllegalAdd_2_oe() {
+public void testIllegalAdd_2_oe() {
         final List<E> list = makeTestList();
         final Integer i = Integer.valueOf(3);
         try {
@@ -102,7 +102,7 @@ public class PredicatedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertTrue("Collection shouldn't contain illegal element",!list.contains(i));
     }
 
-    public void testIllegalAddAll_2_oe() {
+public void testIllegalAddAll_2_oe() {
         final List<E> list = makeTestList();
         final List<E> elements = new ArrayList<>();
         elements.add((E) "one");
@@ -118,7 +118,7 @@ public class PredicatedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertTrue("List shouldn't contain illegal element",!list.contains("one"));
     }
 
-    public void testIllegalAddAll_3_oe() {
+public void testIllegalAddAll_3_oe() {
         final List<E> list = makeTestList();
         final List<E> elements = new ArrayList<>();
         elements.add((E) "one");
@@ -135,7 +135,7 @@ public class PredicatedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertTrue("List shouldn't contain illegal element",!list.contains("two"));
     }
 
-    public void testIllegalAddAll_4_oe() {
+public void testIllegalAddAll_4_oe() {
         final List<E> list = makeTestList();
         final List<E> elements = new ArrayList<>();
         elements.add((E) "one");
@@ -153,7 +153,7 @@ public class PredicatedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertTrue("List shouldn't contain illegal element",!list.contains(Integer.valueOf(3)));
     }
 
-    public void testIllegalAddAll_5_oe() {
+public void testIllegalAddAll_5_oe() {
         final List<E> list = makeTestList();
         final List<E> elements = new ArrayList<>();
         elements.add((E) "one");
@@ -172,7 +172,7 @@ public class PredicatedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertTrue("List shouldn't contain illegal element",!list.contains("four"));
     }
 
-    public void testLegalAddAll_1_oe() {
+public void testLegalAddAll_1_oe() {
         final List<E> list = makeTestList();
         list.add((E) "zero");
         final List<E> elements = new ArrayList<>();
@@ -183,7 +183,7 @@ public class PredicatedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertTrue("List should contain legal element",list.contains("zero"));
     }
 
-    public void testLegalAddAll_2_oe() {
+public void testLegalAddAll_2_oe() {
         final List<E> list = makeTestList();
         list.add((E) "zero");
         final List<E> elements = new ArrayList<>();
@@ -195,7 +195,7 @@ public class PredicatedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertTrue("List should contain legal element",list.contains("one"));
     }
 
-    public void testLegalAddAll_3_oe() {
+public void testLegalAddAll_3_oe() {
         final List<E> list = makeTestList();
         list.add((E) "zero");
         final List<E> elements = new ArrayList<>();
@@ -208,7 +208,7 @@ public class PredicatedListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertTrue("List should contain legal element",list.contains("two"));
     }
 
-    public void testLegalAddAll_4_oe() {
+public void testLegalAddAll_4_oe() {
         final List<E> list = makeTestList();
         list.add((E) "zero");
         final List<E> elements = new ArrayList<>();

@@ -265,7 +265,7 @@ class CutAngleTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testContains_1_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -274,7 +274,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertFalse(pt.contains(Point1S.ZERO));
     }
 
-    @Test
+@Test
     void testContains_2_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -284,7 +284,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertFalse(pt.contains(Point1S.of(Angle.TWO_PI)));
     }
 
-    @Test
+@Test
     void testContains_3_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -296,7 +296,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertFalse(pt.contains(Point1S.of(Math.PI)));
     }
 
-    @Test
+@Test
     void testContains_4_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -309,7 +309,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertFalse(pt.contains(Point1S.of(0.25 * Math.PI)));
     }
 
-    @Test
+@Test
     void testContains_5_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -323,7 +323,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertFalse(pt.contains(Point1S.of(-0.25 * Math.PI)));
     }
 
-    @Test
+@Test
     void testContains_6_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -339,7 +339,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(pt.contains(Point1S.of(Angle.PI_OVER_TWO)));
     }
 
-    @Test
+@Test
     void testContains_7_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -356,7 +356,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(pt.contains(Point1S.of(Angle.PI_OVER_TWO + 1e-11)));
     }
 
-    @Test
+@Test
     void testContains_8_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -374,7 +374,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(pt.contains(Point1S.of(2.5 * Math.PI)));
     }
 
-    @Test
+@Test
     void testContains_9_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -393,7 +393,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(pt.contains(Point1S.of(-3.5 * Math.PI)));
     }
 
-    @Test
+@Test
     void testReverse_1_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -406,7 +406,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, result.getPrecision());
     }
 
-    @Test
+@Test
     void testProject_1_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -417,7 +417,7 @@ class CutAngleTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testSimilarOrientation_1_oe() {
         // arrange
         final CutAngle a = CutAngles.createPositiveFacing(0.0, TEST_PRECISION);
@@ -428,7 +428,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(a.similarOrientation(a));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_2_oe() {
         // arrange
         final CutAngle a = CutAngles.createPositiveFacing(0.0, TEST_PRECISION);
@@ -440,7 +440,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertFalse(a.similarOrientation(b));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_3_oe() {
         // arrange
         final CutAngle a = CutAngles.createPositiveFacing(0.0, TEST_PRECISION);
@@ -453,7 +453,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(a.similarOrientation(c));
     }
 
-    @Test
+@Test
     void testSpan_1_oe() {
         // arrange
         final CutAngle pt = CutAngles.fromPointAndDirection(Point1S.of(1.0), false, TEST_PRECISION);
@@ -465,7 +465,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertSame(pt, result.getHyperplane());
     }
 
-    @Test
+@Test
     void testEq_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -485,7 +485,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(a.eq(a, precision));
     }
 
-    @Test
+@Test
     void testEq_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -507,7 +507,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertFalse(a.eq(b, precision));
     }
 
-    @Test
+@Test
     void testEq_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -530,7 +530,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertFalse(a.eq(c, precision));
     }
 
-    @Test
+@Test
     void testEq_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -555,7 +555,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(a.eq(d, precision));
     }
 
-    @Test
+@Test
     void testEq_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -581,7 +581,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(a.eq(e, precision));
     }
 
-    @Test
+@Test
     void testEq_6_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -608,7 +608,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(a.eq(f, precision));
     }
 
-    @Test
+@Test
     void testEq_7_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -636,7 +636,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(a.eq(g, precision));
     }
 
-    @Test
+@Test
     void testEq_8_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -665,7 +665,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(a.eq(h, precision));
     }
 
-    @Test
+@Test
     void testHashCode_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -682,7 +682,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(hash, a.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -701,7 +701,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertNotEquals(hash, b.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -721,7 +721,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertNotEquals(hash, c.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -742,7 +742,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertNotEquals(hash, d.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -765,7 +765,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(hash, e.hashCode());
     }
 
-    @Test
+@Test
     void testEquals_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -782,7 +782,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertNotEquals(a, b);
     }
 
-    @Test
+@Test
     void testEquals_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -800,7 +800,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertNotEquals(a, c);
     }
 
-    @Test
+@Test
     void testEquals_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -819,7 +819,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertNotEquals(a, d);
     }
 
-    @Test
+@Test
     void testEquals_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -840,7 +840,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(a, e);
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(0.0, TEST_PRECISION);
@@ -852,7 +852,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(str.startsWith("CutAngle["));
     }
 
-    @Test
+@Test
     void testToString_2_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(0.0, TEST_PRECISION);
@@ -865,7 +865,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(str.contains("point= ") && str.contains("positiveFacing= "));
     }
 
-    @Test
+@Test
     void testSubset_simpleMethods_1_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(1, TEST_PRECISION);
@@ -875,7 +875,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertSame(pt, sub.getHyperplane());
     }
 
-    @Test
+@Test
     void testSubset_simpleMethods_2_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(1, TEST_PRECISION);
@@ -886,7 +886,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertFalse(sub.isFull());
     }
 
-    @Test
+@Test
     void testSubset_simpleMethods_3_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(1, TEST_PRECISION);
@@ -898,7 +898,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertFalse(sub.isEmpty());
     }
 
-    @Test
+@Test
     void testSubset_simpleMethods_4_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(1, TEST_PRECISION);
@@ -911,7 +911,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertFalse(sub.isInfinite());
     }
 
-    @Test
+@Test
     void testSubset_simpleMethods_5_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(1, TEST_PRECISION);
@@ -925,7 +925,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(sub.isFinite());
     }
 
-    @Test
+@Test
     void testSubset_simpleMethods_6_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(1, TEST_PRECISION);
@@ -940,7 +940,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(0.0, sub.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSubset_simpleMethods_8_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(1, TEST_PRECISION);
@@ -959,7 +959,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(1, list.size());
     }
 
-    @Test
+@Test
     void testSubset_simpleMethods_9_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(1, TEST_PRECISION);
@@ -979,7 +979,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertSame(sub, list.get(0));
     }
 
-    @Test
+@Test
     void testSubset_classify_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -990,7 +990,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, sub.classify(Point1S.of(0.95)));
     }
 
-    @Test
+@Test
     void testSubset_classify_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1002,7 +1002,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, sub.classify(Point1S.of(1)));
     }
 
-    @Test
+@Test
     void testSubset_classify_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1015,7 +1015,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, sub.classify(Point1S.of(1.05)));
     }
 
-    @Test
+@Test
     void testSubset_classify_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1030,7 +1030,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Point1S.of(1.11)));
     }
 
-    @Test
+@Test
     void testSubset_classify_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1046,7 +1046,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Point1S.of(0.89)));
     }
 
-    @Test
+@Test
     void testSubset_classify_6_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1064,7 +1064,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Point1S.of(-3)));
     }
 
-    @Test
+@Test
     void testSubset_classify_7_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1083,7 +1083,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Point1S.of(10)));
     }
 
-    @Test
+@Test
     void testSubset_contains_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1094,7 +1094,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(sub.contains(Point1S.of(0.95)));
     }
 
-    @Test
+@Test
     void testSubset_contains_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1106,7 +1106,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(sub.contains(Point1S.of(1)));
     }
 
-    @Test
+@Test
     void testSubset_contains_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1119,7 +1119,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(sub.contains(Point1S.of(1.05)));
     }
 
-    @Test
+@Test
     void testSubset_contains_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1134,7 +1134,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertFalse(sub.contains(Point1S.of(1.11)));
     }
 
-    @Test
+@Test
     void testSubset_contains_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1150,7 +1150,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertFalse(sub.contains(Point1S.of(0.89)));
     }
 
-    @Test
+@Test
     void testSubset_contains_6_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1168,7 +1168,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertFalse(sub.contains(Point1S.of(-3)));
     }
 
-    @Test
+@Test
     void testSubset_contains_7_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1187,7 +1187,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertFalse(sub.contains(Point1S.of(10)));
     }
 
-    @Test
+@Test
     void testSubset_closestContained_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1200,7 +1200,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(expected, sub.closest(Point1S.ZERO));
     }
 
-    @Test
+@Test
     void testSubset_closestContained_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1214,7 +1214,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(expected, sub.closest(Point1S.of(Angle.PI_OVER_TWO)));
     }
 
-    @Test
+@Test
     void testSubset_closestContained_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1229,7 +1229,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(expected, sub.closest(Point1S.PI));
     }
 
-    @Test
+@Test
     void testSubset_closestContained_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1245,7 +1245,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(expected, sub.closest(Point1S.of(-Angle.PI_OVER_TWO)));
     }
 
-    @Test
+@Test
     void testSubset_closestContained_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1262,7 +1262,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(expected, sub.closest(Point1S.of(Angle.TWO_PI)));
     }
 
-    @Test
+@Test
     void testSubset_reverse_1_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(2.0, TEST_PRECISION);
@@ -1275,7 +1275,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(2.0, ((CutAngle) result.getHyperplane()).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSubset_reverse_2_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(2.0, TEST_PRECISION);
@@ -1289,7 +1289,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertFalse(((CutAngle) result.getHyperplane()).isPositiveFacing());
     }
 
-    @Test
+@Test
     void testSubset_reverse_3_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(2.0, TEST_PRECISION);
@@ -1305,7 +1305,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertEquals(sub.getHyperplane(), result.reverse().getHyperplane());
     }
 
-    @Test
+@Test
     void testSubset_toString_1_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(2, TEST_PRECISION);
@@ -1318,7 +1318,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(str.contains("CutAngleConvexSubset["));
     }
 
-    @Test
+@Test
     void testSubset_toString_2_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(2, TEST_PRECISION);
@@ -1332,7 +1332,7 @@ class CutAngleTest_OE25Dev {
         Assertions.assertTrue(str.contains("point= "));
     }
 
-    @Test
+@Test
     void testSubset_toString_3_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(2, TEST_PRECISION);

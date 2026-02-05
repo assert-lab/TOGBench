@@ -33,12 +33,12 @@ public class MutableObjectTest_OE25Dev {
 
     // ----------------------------------------------------------------
 
-    @Test
+@Test
     public void testConstructors_1_oe() {
         assertNull(new MutableObject<String>().getValue());
     }
 
-    @Test
+@Test
     public void testConstructors_2_oe() {
         // removed other assertion
 
@@ -46,7 +46,7 @@ public class MutableObjectTest_OE25Dev {
         assertSame(i, new MutableObject<>(i).getValue());
     }
 
-    @Test
+@Test
     public void testConstructors_3_oe() {
         // removed other assertion
 
@@ -55,7 +55,7 @@ public class MutableObjectTest_OE25Dev {
         assertSame("HI", new MutableObject<>("HI").getValue());
     }
 
-    @Test
+@Test
     public void testConstructors_4_oe() {
         // removed other assertion
 
@@ -65,7 +65,7 @@ public class MutableObjectTest_OE25Dev {
         assertSame(null, new MutableObject<>(null).getValue());
     }
 
-    @Test
+@Test
     public void testEquals_1_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -75,7 +75,7 @@ public class MutableObjectTest_OE25Dev {
         assertEquals(mutNumA, mutNumA);
     }
 
-    @Test
+@Test
     public void testEquals_2_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -86,7 +86,7 @@ public class MutableObjectTest_OE25Dev {
         assertEquals(mutNumA, mutNumB);
     }
 
-    @Test
+@Test
     public void testEquals_3_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -98,7 +98,7 @@ public class MutableObjectTest_OE25Dev {
         assertEquals(mutNumB, mutNumA);
     }
 
-    @Test
+@Test
     public void testEquals_4_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -111,7 +111,7 @@ public class MutableObjectTest_OE25Dev {
         assertEquals(mutNumB, mutNumB);
     }
 
-    @Test
+@Test
     public void testEquals_5_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -125,7 +125,7 @@ public class MutableObjectTest_OE25Dev {
         assertNotEquals(mutNumA, mutNumC);
     }
 
-    @Test
+@Test
     public void testEquals_6_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -140,7 +140,7 @@ public class MutableObjectTest_OE25Dev {
         assertNotEquals(mutNumB, mutNumC);
     }
 
-    @Test
+@Test
     public void testEquals_7_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -156,7 +156,7 @@ public class MutableObjectTest_OE25Dev {
         assertEquals(mutNumC, mutNumC);
     }
 
-    @Test
+@Test
     public void testEquals_8_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -173,7 +173,7 @@ public class MutableObjectTest_OE25Dev {
         assertNotEquals(mutNumA, mutNumD);
     }
 
-    @Test
+@Test
     public void testEquals_9_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -191,7 +191,7 @@ public class MutableObjectTest_OE25Dev {
         assertEquals(mutNumD, mutNumD);
     }
 
-    @Test
+@Test
     public void testEquals_10_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -211,7 +211,7 @@ public class MutableObjectTest_OE25Dev {
         assertNotEquals(null, mutNumA);
     }
 
-    @Test
+@Test
     public void testEquals_11_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -232,7 +232,7 @@ public class MutableObjectTest_OE25Dev {
         assertNotEquals(mutNumA, new Object());
     }
 
-    @Test
+@Test
     public void testEquals_12_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -254,13 +254,13 @@ public class MutableObjectTest_OE25Dev {
         assertNotEquals("0", mutNumA);
     }
 
-    @Test
+@Test
     public void testGetSet_1_oe() {
         final MutableObject<String> mutNum = new MutableObject<>();
         assertNull(new MutableObject<>().getValue());
     }
 
-    @Test
+@Test
     public void testGetSet_2_oe() {
         final MutableObject<String> mutNum = new MutableObject<>();
         // removed other assertion
@@ -269,7 +269,7 @@ public class MutableObjectTest_OE25Dev {
         assertSame("HELLO", mutNum.getValue());
     }
 
-    @Test
+@Test
     public void testGetSet_3_oe() {
         final MutableObject<String> mutNum = new MutableObject<>();
         // removed other assertion
@@ -281,7 +281,7 @@ public class MutableObjectTest_OE25Dev {
         assertSame(null, mutNum.getValue());
     }
 
-    @Test
+@Test
     public void testHashCode_1_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -291,7 +291,7 @@ public class MutableObjectTest_OE25Dev {
         assertEquals(mutNumA.hashCode(), mutNumA.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_2_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -302,7 +302,7 @@ public class MutableObjectTest_OE25Dev {
         assertEquals(mutNumA.hashCode(), mutNumB.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_3_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -314,7 +314,7 @@ public class MutableObjectTest_OE25Dev {
         assertNotEquals(mutNumA.hashCode(), mutNumC.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_4_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -327,7 +327,7 @@ public class MutableObjectTest_OE25Dev {
         assertNotEquals(mutNumA.hashCode(), mutNumD.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_5_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -341,7 +341,7 @@ public class MutableObjectTest_OE25Dev {
         assertEquals(mutNumA.hashCode(), "ALPHA".hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_6_oe() {
         final MutableObject<String> mutNumA = new MutableObject<>("ALPHA");
         final MutableObject<String> mutNumB = new MutableObject<>("ALPHA");
@@ -356,18 +356,18 @@ public class MutableObjectTest_OE25Dev {
         assertEquals(0, mutNumD.hashCode());
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         assertEquals("HI", new MutableObject<>("HI").toString());
     }
 
-    @Test
+@Test
     public void testToString_2_oe() {
         // removed other assertion
         assertEquals("10.0", new MutableObject<>(Double.valueOf(10)).toString());
     }
 
-    @Test
+@Test
     public void testToString_3_oe() {
         // removed other assertion
         // removed other assertion

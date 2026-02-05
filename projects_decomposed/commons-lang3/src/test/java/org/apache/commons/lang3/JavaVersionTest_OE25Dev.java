@@ -50,25 +50,25 @@ import org.junit.jupiter.api.Test;
  */
 public class JavaVersionTest_OE25Dev {
 
-    @Test
+@Test
     public void testGetJavaVersion_1_oe() {
         assertEquals(JAVA_0_9, get("0.9"), "0.9 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_2_oe() {
         // removed other assertion
         assertEquals(JAVA_1_1, get("1.1"), "1.1 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(JAVA_1_2, get("1.2"), "1.2 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -76,7 +76,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_1_3, get("1.3"), "1.3 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -85,7 +85,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_1_4, get("1.4"), "1.4 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -95,7 +95,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_1_5, get("1.5"), "1.5 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -106,7 +106,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_1_6, get("1.6"), "1.6 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -118,7 +118,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_1_7, get("1.7"), "1.7 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -131,7 +131,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_1_8, get("1.8"), "1.8 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -145,7 +145,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_9, get("9"), "9 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -160,7 +160,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_10, get("10"), "10 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -176,7 +176,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_11, get("11"), "11 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -193,7 +193,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_12, get("12"), "12 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -211,7 +211,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_13, get("13"), "13 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_15_oe() {
         // removed other assertion
         // removed other assertion
@@ -230,7 +230,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_14, get("14"), "14 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_16_oe() {
         // removed other assertion
         // removed other assertion
@@ -250,7 +250,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_15, get("15"), "15 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_17_oe() {
         // removed other assertion
         // removed other assertion
@@ -271,7 +271,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_16, get("16"), "16 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_18_oe() {
         // removed other assertion
         // removed other assertion
@@ -293,7 +293,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_17, get("17"), "17 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_19_oe() {
         // removed other assertion
         // removed other assertion
@@ -316,7 +316,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_RECENT, get("1.10"), "1.10 failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_20_oe() {
         // removed other assertion
         // removed other assertion
@@ -341,7 +341,7 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(get("1.5"), getJavaVersion("1.5"), "Wrapper method failed");
     }
 
-    @Test
+@Test
     public void testGetJavaVersion_21_oe() {
         // removed other assertion
         // removed other assertion
@@ -367,25 +367,25 @@ public class JavaVersionTest_OE25Dev {
         assertEquals(JAVA_RECENT, get("18"), "Unhandled"); // LANG-1384;
     }
 
-    @Test
+@Test
     public void testAtLeast_1_oe() {
         assertFalse(JAVA_1_2.atLeast(JAVA_1_5), "1.2 at least 1.5 passed");
     }
 
-    @Test
+@Test
     public void testAtLeast_2_oe() {
         // removed other assertion
         assertTrue(JAVA_1_5.atLeast(JAVA_1_2), "1.5 at least 1.2 failed");
     }
 
-    @Test
+@Test
     public void testAtLeast_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(JAVA_1_6.atLeast(JAVA_1_7), "1.6 at least 1.7 passed");
     }
 
-    @Test
+@Test
     public void testAtLeast_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -394,7 +394,7 @@ public class JavaVersionTest_OE25Dev {
         assertTrue(JAVA_0_9.atLeast(JAVA_1_5), "0.9 at least 1.5 failed");
     }
 
-    @Test
+@Test
     public void testAtLeast_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -404,7 +404,7 @@ public class JavaVersionTest_OE25Dev {
         assertFalse(JAVA_0_9.atLeast(JAVA_1_6), "0.9 at least 1.6 passed");
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         assertEquals("1.2", JAVA_1_2.toString());
     }

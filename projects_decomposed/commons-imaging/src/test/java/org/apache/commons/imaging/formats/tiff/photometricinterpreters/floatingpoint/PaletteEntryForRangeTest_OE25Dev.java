@@ -100,7 +100,7 @@ public class PaletteEntryForRangeTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testIsCovered_1_oe() {
         final Color c0 = new Color(0xff0000ff);
         final Color c1 = new Color(0xff00ff00);
@@ -108,7 +108,7 @@ public class PaletteEntryForRangeTest_OE25Dev {
         assertTrue(instance.isCovered(0.0f), "Zero value must be covered");
     }
 
-    @Test
+@Test
     public void testIsCovered_2_oe() {
         final Color c0 = new Color(0xff0000ff);
         final Color c1 = new Color(0xff00ff00);
@@ -117,7 +117,7 @@ public class PaletteEntryForRangeTest_OE25Dev {
         assertFalse(instance.isCovered(1.0f), "Value 1.0 must not be covered");
     }
 
-    @Test
+@Test
     public void testGetARGB_1_oe() {
         final Color c0 = new Color(0xff0000ff);
         final Color c1 = new Color(0xff00ff00);
@@ -127,7 +127,7 @@ public class PaletteEntryForRangeTest_OE25Dev {
         assertEquals(0xff0000ff, a0, "Invalid value for 0.0f");
     }
 
-    @Test
+@Test
     public void testGetARGB_2_oe() {
         final Color c0 = new Color(0xff0000ff);
         final Color c1 = new Color(0xff00ff00);
@@ -138,7 +138,7 @@ public class PaletteEntryForRangeTest_OE25Dev {
         assertEquals(0xff008080, a1, "Invalid interpolated values");
     }
 
-    @Test
+@Test
     public void testGetColor_1_oe() {
         Color c0 = new Color(0xff0000ff);
         Color c1 = new Color(0xff00ff00);
@@ -150,7 +150,7 @@ public class PaletteEntryForRangeTest_OE25Dev {
         assertEquals(0xff0000ff, a0, "Invalid value for 0.0f");
     }
 
-    @Test
+@Test
     public void testGetColor_2_oe() {
         Color c0 = new Color(0xff0000ff);
         Color c1 = new Color(0xff00ff00);
@@ -163,7 +163,7 @@ public class PaletteEntryForRangeTest_OE25Dev {
         assertEquals(0xff008080, a1, "Invalid interpolated values");
     }
 
-    @Test
+@Test
     public void testCoversSingleEntry_1_oe() {
         final Color c0 = new Color(0xff0000ff);
         final Color c1 = new Color(0xff00ff00);
@@ -171,7 +171,7 @@ public class PaletteEntryForRangeTest_OE25Dev {
         assertFalse(instance.coversSingleEntry());
     }
 
-    @Test
+@Test
     public void testGetLowerBound_1_oe() {
         final Color c0 = new Color(0xff0000ff);
         final Color c1 = new Color(0xff00ff00);
@@ -179,7 +179,7 @@ public class PaletteEntryForRangeTest_OE25Dev {
         assertEquals(0.0f, instance.getLowerBound());
     }
 
-    @Test
+@Test
     public void testGetUpperBound_1_oe() {
         final Color c0 = new Color(0xff0000ff);
         final Color c1 = new Color(0xff00ff00);

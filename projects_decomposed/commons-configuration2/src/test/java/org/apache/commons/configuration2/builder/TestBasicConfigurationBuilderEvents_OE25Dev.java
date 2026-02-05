@@ -83,13 +83,13 @@ public class TestBasicConfigurationBuilderEvents_OE25Dev {
      * Tests whether the type of a result created event is correctly configured.
      */
 
-    @Test
+@Test
     public void testBuilderEventType_1_oe() {
         final EventType<ConfigurationBuilderEvent> builderEventType = ConfigurationBuilderEvent.ANY;
         assertEquals("Wrong super type", Event.ANY, builderEventType.getSuperType());
     }
 
-    @Test
+@Test
     public void testBuilderResetEvent_1_oe() {
         final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
@@ -101,7 +101,7 @@ public class TestBasicConfigurationBuilderEvents_OE25Dev {
         assertSame("Wrong builder (1)", builder, event.getSource());
     }
 
-    @Test
+@Test
     public void testBuilderResetEvent_2_oe() {
         final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
@@ -115,13 +115,13 @@ public class TestBasicConfigurationBuilderEvents_OE25Dev {
         assertSame("Wrong builder (2)", builder, event.getSource());
     }
 
-    @Test
+@Test
     public void testBuilderResetEventType_1_oe() {
         final EventType<ConfigurationBuilderEvent> builderResetType = ConfigurationBuilderEvent.RESET;
         assertEquals("Wrong super type", ConfigurationBuilderEvent.ANY, builderResetType.getSuperType());
     }
 
-    @Test
+@Test
     public void testConfigurationRequestEvent_1_oe() throws ConfigurationException {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
         builder.getConfiguration();
@@ -133,13 +133,13 @@ public class TestBasicConfigurationBuilderEvents_OE25Dev {
         assertSame("Wrong builder", builder, event.getSource());
     }
 
-    @Test
+@Test
     public void testConfigurationRequestEventType_1_oe() {
         final EventType<ConfigurationBuilderEvent> eventType = ConfigurationBuilderEvent.CONFIGURATION_REQUEST;
         assertEquals("Wrong super type", ConfigurationBuilderEvent.ANY, eventType.getSuperType());
     }
 
-    @Test
+@Test
     public void testRemoveEventListener_1_oe() {
         final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
@@ -149,7 +149,7 @@ public class TestBasicConfigurationBuilderEvents_OE25Dev {
         assertTrue("Wrong result", builder.removeEventListener(ConfigurationBuilderEvent.RESET, listener));
     }
 
-    @Test
+@Test
     public void testRemoveEventListenerNotExisting_1_oe() {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
         final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
@@ -157,7 +157,7 @@ public class TestBasicConfigurationBuilderEvents_OE25Dev {
         assertFalse("Wrong result", builder.removeEventListener(ConfigurationBuilderEvent.CONFIGURATION_REQUEST, listener));
     }
 
-    @Test
+@Test
     public void testResetOnConfigurationRequestEvent_1_oe() throws ConfigurationException {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
         final PropertiesConfiguration configuration = builder.getConfiguration();
@@ -169,7 +169,7 @@ public class TestBasicConfigurationBuilderEvents_OE25Dev {
         assertNotSame("Configuration not reset", configuration, configuration2);
     }
 
-    @Test
+@Test
     public void testResultCreatedEvent_1_oe() throws ConfigurationException {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
         final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
@@ -181,7 +181,7 @@ public class TestBasicConfigurationBuilderEvents_OE25Dev {
         assertSame("Wrong builder", builder, event.getSource());
     }
 
-    @Test
+@Test
     public void testResultCreatedEvent_2_oe() throws ConfigurationException {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
         final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
@@ -194,7 +194,7 @@ public class TestBasicConfigurationBuilderEvents_OE25Dev {
         assertSame("Wrong configuration", configuration, event.getConfiguration());
     }
 
-    @Test
+@Test
     public void testResultCreatedEventType_1_oe() {
         assertEquals("Wrong super type", ConfigurationBuilderEvent.ANY, ConfigurationBuilderResultCreatedEvent.RESULT_CREATED.getSuperType());
     }

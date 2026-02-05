@@ -77,7 +77,7 @@ class ReverseRay3DTest_OE25Dev {
         GeometryTestUtils.assertContains(", endPoint= (0", str);
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_1_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 1, 2);
@@ -89,7 +89,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertTrue(revRay.isInfinite());
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_2_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 1, 2);
@@ -102,7 +102,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertFalse(revRay.isFinite());
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_3_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 1, 2);
@@ -117,7 +117,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertNull(revRay.getStartPoint());
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_7_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 1, 2);
@@ -138,7 +138,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertEquals(2, revRay.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_9_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 1, 2);
@@ -163,7 +163,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertNull(revRay.getCentroid());
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_10_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 1, 2);
@@ -189,7 +189,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertNull(revRay.getBounds());
     }
 
-    @Test
+@Test
     void testFromPoint_1_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(-2, -1, 2);
@@ -203,7 +203,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertTrue(revRay.isInfinite());
     }
 
-    @Test
+@Test
     void testFromPoint_2_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(-2, -1, 2);
@@ -218,7 +218,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertFalse(revRay.isFinite());
     }
 
-    @Test
+@Test
     void testFromPoint_3_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(-2, -1, 2);
@@ -235,7 +235,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertNull(revRay.getStartPoint());
     }
 
-    @Test
+@Test
     void testFromPoint_6_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(-2, -1, 2);
@@ -256,7 +256,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertEquals(-1, revRay.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoint_8_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(-2, -1, 2);
@@ -281,7 +281,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertNull(revRay.getCentroid());
     }
 
-    @Test
+@Test
     void testFromPoint_9_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(-2, -1, 2);
@@ -307,7 +307,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertNull(revRay.getBounds());
     }
 
-    @Test
+@Test
     void testFromLocation_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -319,7 +319,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertTrue(revRay.isInfinite());
     }
 
-    @Test
+@Test
     void testFromLocation_2_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -332,7 +332,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertFalse(revRay.isFinite());
     }
 
-    @Test
+@Test
     void testFromLocation_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -347,7 +347,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertNull(revRay.getStartPoint());
     }
 
-    @Test
+@Test
     void testFromLocation_6_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -366,7 +366,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertEquals(-1, revRay.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromLocation_8_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -389,7 +389,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertNull(revRay.getCentroid());
     }
 
-    @Test
+@Test
     void testFromLocation_9_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -413,7 +413,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertNull(revRay.getBounds());
     }
 
-    @Test
+@Test
     void testTransform_1_oe() {
         // arrange
         final AffineTransformMatrix3D t = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, 0.5 * Math.PI)
@@ -429,7 +429,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertNull(result.getStartPoint());
     }
 
-    @Test
+@Test
     void testTransform_reflection_1_oe() {
         // arrange
         final AffineTransformMatrix3D t = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, 0.5 * Math.PI)
@@ -446,7 +446,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertNull(result.getStartPoint());
     }
 
-    @Test
+@Test
     void testContains_1_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -459,7 +459,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertFalse(revRay.contains(Vector3D.of(2, 2, 2)));
     }
 
-    @Test
+@Test
     void testContains_2_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -473,7 +473,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertFalse(revRay.contains(Vector3D.of(1.1, 1, 1)));
     }
 
-    @Test
+@Test
     void testContains_3_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -488,7 +488,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertFalse(revRay.contains(Vector3D.of(100, 1, 1)));
     }
 
-    @Test
+@Test
     void testContains_4_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -505,7 +505,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertTrue(revRay.contains(p0));
     }
 
-    @Test
+@Test
     void testContains_5_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -523,7 +523,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertTrue(revRay.contains(p0.add(delta)));
     }
 
-    @Test
+@Test
     void testContains_6_oe() {
         // arrange
         final Vector3D p0 = Vector3D.of(1, 1, 1);
@@ -543,7 +543,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertTrue(revRay.contains(Vector3D.of(-1000, 1, 1)));
     }
 
-    @Test
+@Test
     void testGetInterval_2_oe() {
         // arrange
         final ReverseRay3D revRay = Lines3D.reverseRayFromPointAndDirection(Vector3D.of(2, -1, 3), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
@@ -556,7 +556,7 @@ class ReverseRay3DTest_OE25Dev {
         Assertions.assertEquals(-1, interval.getMax(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetInterval_3_oe() {
         // arrange
         final ReverseRay3D revRay = Lines3D.reverseRayFromPointAndDirection(Vector3D.of(2, -1, 3), Vector3D.Unit.PLUS_Y, TEST_PRECISION);

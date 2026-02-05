@@ -224,7 +224,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
      * Tests removing trailing delimiters.
      */
 
-    @Test
+@Test
     public void testAppend_1_oe() {
         key.append("tables").append("table(0).");
         key.append("fields.").append("field(1)");
@@ -232,13 +232,13 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong key", TESTKEY, key.toString());
     }
 
-    @Test
+@Test
     public void testAppendAttribute_1_oe() {
         key.appendAttribute("dataType");
         assertEquals("Attribute key not correctly appended", TESTATTR, key.toString());
     }
 
-    @Test
+@Test
     public void testAppendComplexKey_1_oe() {
         key.append("tables").append("table.").appendIndex(0);
         key.append("fields.").append("field").appendIndex(1);
@@ -246,20 +246,20 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong complex key", TESTKEY, key.toString());
     }
 
-    @Test
+@Test
     public void testAppendDecoratedAttributeKey_1_oe() {
         key.appendAttribute(TESTATTR);
         assertEquals("Decorated attribute key not correctly appended", TESTATTR, key.toString());
     }
 
-    @Test
+@Test
     public void testAppendDelimiters_1_oe() {
         key.append("key..").append("test").append(".");
         key.append(".more").append("..tests");
         assertEquals("Wrong key", "key...test.more...tests", key.toString());
     }
 
-    @Test
+@Test
     public void testAppendDelimitersWithoutEscaping_1_oe() {
         expressionEngine = new DefaultExpressionEngine(symbols().setEscapedDelimiter(null).create());
         key = new DefaultConfigurationKey(expressionEngine);
@@ -268,33 +268,33 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong constructed key", "key.test.more.tests", key.toString());
     }
 
-    @Test
+@Test
     public void testAppendIndex_1_oe() {
         key.append("test").appendIndex(42);
         assertEquals("Index was not correctly appended", "test(42)", key.toString());
     }
 
-    @Test
+@Test
     public void testAppendNullAttributeKey_1_oe() {
         key.appendAttribute(null);
         assertEquals("Null attribute key not correctly appended", "", key.toString());
     }
 
-    @Test
+@Test
     public void testAppendWithEscapeFlag_1_oe() {
         key.append(".key.test.", true);
         key.append(".more").append(".tests", true);
         assertEquals("Wrong constructed key", "..key..test...more...tests", key.toString());
     }
 
-    @Test
+@Test
     public void testAttributeKeyWithIndex_1_oe() {
         key.append(TESTATTR);
         key.appendIndex(0);
         assertEquals("Wrong attribute key with index", TESTATTR + "(0)", key.toString());
     }
 
-    @Test
+@Test
     public void testAttributeKeyWithIndex_2_oe() {
         key.append(TESTATTR);
         key.appendIndex(0);
@@ -304,7 +304,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertTrue("No first element", it.hasNext());
     }
 
-    @Test
+@Test
     public void testAttributeKeyWithIndex_3_oe() {
         key.append(TESTATTR);
         key.appendIndex(0);
@@ -316,7 +316,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertTrue("Index not found", it.hasIndex());
     }
 
-    @Test
+@Test
     public void testAttributeKeyWithIndex_4_oe() {
         key.append(TESTATTR);
         key.appendIndex(0);
@@ -329,7 +329,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Incorrect index", 0, it.getIndex());
     }
 
-    @Test
+@Test
     public void testAttributeKeyWithIndex_5_oe() {
         key.append(TESTATTR);
         key.appendIndex(0);
@@ -343,7 +343,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertTrue("Attribute not found", it.isAttribute());
     }
 
-    @Test
+@Test
     public void testAttributeKeyWithIndex_6_oe() {
         key.append(TESTATTR);
         key.appendIndex(0);
@@ -358,7 +358,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong plain key", "dataType", it.currentKey(false));
     }
 
-    @Test
+@Test
     public void testAttributeKeyWithIndex_7_oe() {
         key.append(TESTATTR);
         key.appendIndex(0);
@@ -374,25 +374,25 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong decorated key", TESTATTR, it.currentKey(true));
     }
 
-    @Test
+@Test
     public void testAttributeName_1_oe() {
         assertEquals("Plain key not detected", "test", key.attributeName("test"));
     }
 
-    @Test
+@Test
     public void testAttributeName_2_oe() {
         // removed other assertion
         assertEquals("Attribute markers not stripped", "dataType", key.attributeName(TESTATTR));
     }
 
-    @Test
+@Test
     public void testAttributeName_3_oe() {
         // removed other assertion
         // removed other assertion
         assertNull("Null key not processed", key.attributeName(null));
     }
 
-    @Test
+@Test
     public void testCommonKey_1_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         DefaultConfigurationKey k2 = key("tables.table(0).name");
@@ -400,7 +400,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong common key (1)", key("tables.table(0)"), kc);
     }
 
-    @Test
+@Test
     public void testCommonKey_2_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         DefaultConfigurationKey k2 = key("tables.table(0).name");
@@ -409,7 +409,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Not symmetric", kc, k2.commonKey(k1));
     }
 
-    @Test
+@Test
     public void testCommonKey_3_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         DefaultConfigurationKey k2 = key("tables.table(0).name");
@@ -422,7 +422,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong common key (2)", key("tables"), kc);
     }
 
-    @Test
+@Test
     public void testCommonKey_4_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         DefaultConfigurationKey k2 = key("tables.table(0).name");
@@ -439,7 +439,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Got a common key for different keys", 0, kc.length());
     }
 
-    @Test
+@Test
     public void testCommonKey_5_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         DefaultConfigurationKey k2 = key("tables.table(0).name");
@@ -459,7 +459,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Got a common key for empty key", 0, kc.length());
     }
 
-    @Test
+@Test
     public void testCommonKey_6_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         DefaultConfigurationKey k2 = key("tables.table(0).name");
@@ -482,25 +482,25 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong result for reflexiv invocation", kc, k1);
     }
 
-    @Test
+@Test
     public void testConstructAttributeKey_1_oe() {
         assertEquals("Wrong attribute key", TESTATTR, key.constructAttributeKey("dataType"));
     }
 
-    @Test
+@Test
     public void testConstructAttributeKey_2_oe() {
         // removed other assertion
         assertEquals("Attribute key was incorrectly converted", TESTATTR, key.constructAttributeKey(TESTATTR));
     }
 
-    @Test
+@Test
     public void testConstructAttributeKey_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("Null key could not be processed", "", key.constructAttributeKey(null));
     }
 
-    @Test
+@Test
     public void testConstructAttributeKeyWithoutEndMarkers_1_oe() {
         final DefaultExpressionEngineSymbols symbols = symbols().setAttributeEnd(null).setAttributeStart(expressionEngine.getSymbols().getPropertyDelimiter())
             .create();
@@ -509,7 +509,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong attribute key", ".test", key.constructAttributeKey("test"));
     }
 
-    @Test
+@Test
     public void testConstructAttributeKeyWithoutEndMarkers_2_oe() {
         final DefaultExpressionEngineSymbols symbols = symbols().setAttributeEnd(null).setAttributeStart(expressionEngine.getSymbols().getPropertyDelimiter())
             .create();
@@ -519,7 +519,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Attribute key was incorrectly converted", ".test", key.constructAttributeKey(".test"));
     }
 
-    @Test
+@Test
     public void testDifferenceKey_1_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         DefaultConfigurationKey k2 = key("tables.table(0).name");
@@ -527,7 +527,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong difference (1)", "name", kd.toString());
     }
 
-    @Test
+@Test
     public void testDifferenceKey_2_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         DefaultConfigurationKey k2 = key("tables.table(0).name");
@@ -539,7 +539,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong difference (2)", "table(1).fields.field(1)", kd.toString());
     }
 
-    @Test
+@Test
     public void testDifferenceKey_3_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         DefaultConfigurationKey k2 = key("tables.table(0).name");
@@ -555,20 +555,20 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong difference (3)", k2, kd);
     }
 
-    @Test
+@Test
     public void testDifferenceKeySame_1_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         final DefaultConfigurationKey kd = k1.differenceKey(k1);
         assertEquals("Got difference for same keys", 0, kd.length());
     }
 
-    @Test
+@Test
     public void testEquals_1_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         assertEquals("Key not equal to itself", k1, k1);
     }
 
-    @Test
+@Test
     public void testEquals_2_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         // removed other assertion
@@ -576,7 +576,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Keys are not equal", k1, k2);
     }
 
-    @Test
+@Test
     public void testEquals_3_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         // removed other assertion
@@ -585,7 +585,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Not reflexiv", k2, k1);
     }
 
-    @Test
+@Test
     public void testEquals_4_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         // removed other assertion
@@ -595,7 +595,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Hash codes not equal", k1.hashCode(), k2.hashCode());
     }
 
-    @Test
+@Test
     public void testEquals_5_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         // removed other assertion
@@ -607,7 +607,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertNotEquals("Keys considered equal", k1, k2);
     }
 
-    @Test
+@Test
     public void testEquals_6_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         // removed other assertion
@@ -620,7 +620,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertNotEquals("Keys considered equal (2)", k2, k1);
     }
 
-    @Test
+@Test
     public void testEquals_7_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         // removed other assertion
@@ -634,7 +634,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertNotEquals("Key equals null key", null, k1);
     }
 
-    @Test
+@Test
     public void testEquals_8_oe() {
         final DefaultConfigurationKey k1 = key(TESTKEY);
         // removed other assertion
@@ -649,25 +649,25 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertNotEquals("Equal with string", TESTKEY, k1);
     }
 
-    @Test
+@Test
     public void testIsAttributeKey_1_oe() {
         assertTrue("Attribute key not detected", key.isAttributeKey(TESTATTR));
     }
 
-    @Test
+@Test
     public void testIsAttributeKey_2_oe() {
         // removed other assertion
         assertFalse("Property key considered as attribute", key.isAttributeKey(TESTPROPS));
     }
 
-    @Test
+@Test
     public void testIsAttributeKey_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse("Null key considered as attribute", key.isAttributeKey(null));
     }
 
-    @Test
+@Test
     public void testIsAttributeKeyWithoutEndMarkers_1_oe() {
         final DefaultExpressionEngineSymbols symbols = symbols().setAttributeEnd(null)
             .setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create();
@@ -676,7 +676,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertTrue("Attribute key not detected", key.isAttributeKey(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER + "test"));
     }
 
-    @Test
+@Test
     public void testIsAttributeKeyWithoutEndMarkers_2_oe() {
         final DefaultExpressionEngineSymbols symbols = symbols().setAttributeEnd(null)
             .setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create();
@@ -686,14 +686,14 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertFalse("Property key considered as attribute key", key.isAttributeKey(TESTATTR));
     }
 
-    @Test
+@Test
     public void testIterate_1_oe() {
         key.append(TESTKEY);
         final DefaultConfigurationKey.KeyIterator it = key.iterator();
         assertTrue("No key parts", it.hasNext());
     }
 
-    @Test
+@Test
     public void testIterate_2_oe() {
         key.append(TESTKEY);
         final DefaultConfigurationKey.KeyIterator it = key.iterator();
@@ -701,7 +701,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong key part", "tables", it.nextKey());
     }
 
-    @Test
+@Test
     public void testIterate_5_oe() {
         key.append(TESTKEY);
         final DefaultConfigurationKey.KeyIterator it = key.iterator();
@@ -712,7 +712,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong index", 0, it.getIndex());
     }
 
-    @Test
+@Test
     public void testIterate_7_oe() {
         key.append(TESTKEY);
         final DefaultConfigurationKey.KeyIterator it = key.iterator();
@@ -725,7 +725,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertFalse("Found an index", it.hasIndex());
     }
 
-    @Test
+@Test
     public void testIterate_10_oe() {
         key.append(TESTKEY);
         final DefaultConfigurationKey.KeyIterator it = key.iterator();
@@ -741,7 +741,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertFalse("Found an attribute", it.isAttribute());
     }
 
-    @Test
+@Test
     public void testIterateAlternativeEscapeDelimiter_1_oe() {
         expressionEngine = new DefaultExpressionEngine(symbols().setEscapedDelimiter("\\.").create());
         key = new DefaultConfigurationKey(expressionEngine);
@@ -751,7 +751,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("\\.my\\.elem.trailing\\.dot\\..strange", key.toString());
     }
 
-    @Test
+@Test
     public void testIterateAlternativeEscapeDelimiter_2_oe() {
         expressionEngine = new DefaultExpressionEngine(symbols().setEscapedDelimiter("\\.").create());
         key = new DefaultConfigurationKey(expressionEngine);
@@ -763,7 +763,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong first part", ".my.elem", kit.nextKey());
     }
 
-    @Test
+@Test
     public void testIterateAttributeEqualsPropertyDelimiter_1_oe() {
         expressionEngine = new DefaultExpressionEngine(
             symbols().setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create());
@@ -773,7 +773,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong first key part", "this", kit.next());
     }
 
-    @Test
+@Test
     public void testIterateAttributeEqualsPropertyDelimiter_2_oe() {
         expressionEngine = new DefaultExpressionEngine(
             symbols().setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create());
@@ -784,7 +784,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertFalse("First part is an attribute", kit.isAttribute());
     }
 
-    @Test
+@Test
     public void testIterateAttributeEqualsPropertyDelimiter_3_oe() {
         expressionEngine = new DefaultExpressionEngine(
             symbols().setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create());
@@ -796,7 +796,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertTrue("First part is not a property key", kit.isPropertyKey());
     }
 
-    @Test
+@Test
     public void testIterateAttributeEqualsPropertyDelimiter_5_oe() {
         expressionEngine = new DefaultExpressionEngine(
             symbols().setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create());
@@ -810,7 +810,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertFalse("Second part is an attribute", kit.isAttribute());
     }
 
-    @Test
+@Test
     public void testIterateAttributeEqualsPropertyDelimiter_6_oe() {
         expressionEngine = new DefaultExpressionEngine(
             symbols().setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create());
@@ -825,7 +825,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertTrue("Second part is not a property key", kit.isPropertyKey());
     }
 
-    @Test
+@Test
     public void testIterateAttributeEqualsPropertyDelimiter_9_oe() {
         expressionEngine = new DefaultExpressionEngine(
             symbols().setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create());
@@ -843,7 +843,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertTrue("Third part is not a property key", kit.isPropertyKey());
     }
 
-    @Test
+@Test
     public void testIterateEscapedDelimiters_1_oe() {
         key.append("my..elem");
         key.append("trailing..dot..");
@@ -851,7 +851,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("my..elem.trailing..dot...strange", key.toString());
     }
 
-    @Test
+@Test
     public void testIterateEscapedDelimiters_2_oe() {
         key.append("my..elem");
         key.append("trailing..dot..");
@@ -861,14 +861,14 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong first part", "my.elem", kit.nextKey());
     }
 
-    @Test
+@Test
     public void testIterateStrangeKeys_1_oe() {
         key = new DefaultConfigurationKey(expressionEngine, "key.");
         DefaultConfigurationKey.KeyIterator it = key.iterator();
         assertTrue("Too few key parts", it.hasNext());
     }
 
-    @Test
+@Test
     public void testIterateStrangeKeys_2_oe() {
         key = new DefaultConfigurationKey(expressionEngine, "key.");
         DefaultConfigurationKey.KeyIterator it = key.iterator();
@@ -876,7 +876,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong key part", "key", it.next());
     }
 
-    @Test
+@Test
     public void testIterateStrangeKeys_4_oe() {
         key = new DefaultConfigurationKey(expressionEngine, "key.");
         DefaultConfigurationKey.KeyIterator it = key.iterator();
@@ -889,7 +889,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertFalse("Simple delimiter key has more parts", it.hasNext());
     }
 
-    @Test
+@Test
     public void testIterateStrangeKeys_5_oe() {
         key = new DefaultConfigurationKey(expressionEngine, "key.");
         DefaultConfigurationKey.KeyIterator it = key.iterator();
@@ -906,7 +906,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong first part", "key()", it.next());
     }
 
-    @Test
+@Test
     public void testIterateStrangeKeys_6_oe() {
         key = new DefaultConfigurationKey(expressionEngine, "key.");
         DefaultConfigurationKey.KeyIterator it = key.iterator();
@@ -924,7 +924,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertFalse("Index detected in first part", it.hasIndex());
     }
 
-    @Test
+@Test
     public void testIterateStrangeKeys_9_oe() {
         key = new DefaultConfigurationKey(expressionEngine, "key.");
         DefaultConfigurationKey.KeyIterator it = key.iterator();
@@ -945,7 +945,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong index value", 0, it.getIndex());
     }
 
-    @Test
+@Test
     public void testIterateWithBrackets_1_oe() {
         key.append("directory.platform(x86).path");
         final DefaultConfigurationKey.KeyIterator kit = key.iterator();
@@ -953,7 +953,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong part 1", "directory", part);
     }
 
-    @Test
+@Test
     public void testIterateWithBrackets_2_oe() {
         key.append("directory.platform(x86).path");
         final DefaultConfigurationKey.KeyIterator kit = key.iterator();
@@ -962,7 +962,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertFalse("Has index 1", kit.hasIndex());
     }
 
-    @Test
+@Test
     public void testIterateWithBrackets_3_oe() {
         key.append("directory.platform(x86).path");
         final DefaultConfigurationKey.KeyIterator kit = key.iterator();
@@ -973,7 +973,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong part 2", "platform(x86)", part);
     }
 
-    @Test
+@Test
     public void testIterateWithBrackets_4_oe() {
         key.append("directory.platform(x86).path");
         final DefaultConfigurationKey.KeyIterator kit = key.iterator();
@@ -985,7 +985,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertFalse("Has index 2", kit.hasIndex());
     }
 
-    @Test
+@Test
     public void testIterateWithBrackets_5_oe() {
         key.append("directory.platform(x86).path");
         final DefaultConfigurationKey.KeyIterator kit = key.iterator();
@@ -999,7 +999,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong part 3", "path", part);
     }
 
-    @Test
+@Test
     public void testIterateWithBrackets_6_oe() {
         key.append("directory.platform(x86).path");
         final DefaultConfigurationKey.KeyIterator kit = key.iterator();
@@ -1014,7 +1014,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertFalse("Has index 3", kit.hasIndex());
     }
 
-    @Test
+@Test
     public void testIterateWithBrackets_7_oe() {
         key.append("directory.platform(x86).path");
         final DefaultConfigurationKey.KeyIterator kit = key.iterator();
@@ -1030,7 +1030,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertFalse("Too many elements", kit.hasNext());
     }
 
-    @Test
+@Test
     public void testIterateWithoutEscapeDelimiter_1_oe() {
         expressionEngine = new DefaultExpressionEngine(symbols().setEscapedDelimiter(null).create());
         key = new DefaultConfigurationKey(expressionEngine);
@@ -1038,7 +1038,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong key", "my..elem.trailing..dot...strange", key.toString());
     }
 
-    @Test
+@Test
     public void testIterateWithoutEscapeDelimiter_2_oe() {
         expressionEngine = new DefaultExpressionEngine(symbols().setEscapedDelimiter(null).create());
         key = new DefaultConfigurationKey(expressionEngine);
@@ -1051,13 +1051,13 @@ public class TestDefaultConfigurationKey_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testLength_1_oe() {
         key.append(TESTPROPS);
         assertEquals("Wrong length", TESTPROPS.length(), key.length());
     }
 
-    @Test
+@Test
     public void testLength_2_oe() {
         key.append(TESTPROPS);
         // removed other assertion
@@ -1065,7 +1065,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong length", TESTKEY.length(), key.length());
     }
 
-    @Test
+@Test
     public void testLength_3_oe() {
         key.append(TESTPROPS);
         // removed other assertion
@@ -1075,7 +1075,7 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong length after shortening", TESTPROPS.length(), key.length());
     }
 
-    @Test
+@Test
     public void testLength_4_oe() {
         key.append(TESTPROPS);
         // removed other assertion
@@ -1086,41 +1086,41 @@ public class TestDefaultConfigurationKey_OE25Dev {
         assertEquals("Wrong resulting key", TESTPROPS, key.toString());
     }
 
-    @Test
+@Test
     public void testTrim_1_oe() {
         assertEquals("Key was not trimmed", "test", key.trim(".test."));
     }
 
-    @Test
+@Test
     public void testTrim_2_oe() {
         // removed other assertion
         assertEquals("Null key could not be processed", "", key.trim(null));
     }
 
-    @Test
+@Test
     public void testTrim_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("Delimiter could not be processed", "", key.trim(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER));
     }
 
-    @Test
+@Test
     public void testTrimLeft_1_oe() {
         assertEquals("Key was not left trimmed", "test.", key.trimLeft(".test."));
     }
 
-    @Test
+@Test
     public void testTrimLeft_2_oe() {
         // removed other assertion
         assertEquals("Too much left trimming", "..test.", key.trimLeft("..test."));
     }
 
-    @Test
+@Test
     public void testTrimRight_1_oe() {
         assertEquals("Key was not right trimmed", ".test", key.trimRight(".test."));
     }
 
-    @Test
+@Test
     public void testTrimRight_2_oe() {
         // removed other assertion
         assertEquals("Too much right trimming", ".test..", key.trimRight(".test.."));

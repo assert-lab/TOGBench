@@ -49,7 +49,7 @@ public class StandardSerializerUnitTest_OE25Dev
      * @throws Exception
      */
 
-    public void testSimpleBackAndForth_1_oe()
+public void testSimpleBackAndForth_1_oe()
         throws Exception
     {
         // SETUP
@@ -64,7 +64,7 @@ public class StandardSerializerUnitTest_OE25Dev
         assertEquals( "Before and after should be the same.", before, after );
     }
 
-    public void testNullInput_1_oe()
+public void testNullInput_1_oe()
         throws Exception
     {
         // SETUP
@@ -83,7 +83,7 @@ public class StandardSerializerUnitTest_OE25Dev
         assertNull( "Should have nothing.", after );
     }
 
-    public void testBigStringBackAndForth_1_oe()
+public void testBigStringBackAndForth_1_oe()
         throws Exception
     {
         // SETUP

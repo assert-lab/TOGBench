@@ -154,19 +154,19 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
      * Ensure various node types are correctly processed in config.
      */
 
-    @Test
+@Test
     public void testRootElement_1_oe() throws Exception {
         assertEquals("configuration", config.getRootElementName());
     }
 
-    @Test
+@Test
     public void testRootElement_2_oe() throws Exception {
         // removed other assertion
         config.setRootElementName("newRootName");
         assertEquals("newRootName", config.getRootElementName());
     }
 
-    @Test
+@Test
     public void testSave_1_oe() throws Exception {
         final FileHandler handler = new FileHandler(config);
         handler.setFileName(TEST_FILE3);
@@ -180,7 +180,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("value", config.getProperty("element"));
     }
 
-    @Test
+@Test
     public void testSave_2_oe() throws Exception {
         final FileHandler handler = new FileHandler(config);
         handler.setFileName(TEST_FILE3);
@@ -195,7 +195,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("I'm complex!", config.getProperty("element2.subelement.subsubelement"));
     }
 
-    @Test
+@Test
     public void testSave_3_oe() throws Exception {
         final FileHandler handler = new FileHandler(config);
         handler.setFileName(TEST_FILE3);
@@ -211,7 +211,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals(8, config.getInt("test.short"));
     }
 
-    @Test
+@Test
     public void testSave_4_oe() throws Exception {
         final FileHandler handler = new FileHandler(config);
         handler.setFileName(TEST_FILE3);
@@ -228,7 +228,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("one", config.getString("list(0).item(0)[@name]"));
     }
 
-    @Test
+@Test
     public void testSave_5_oe() throws Exception {
         final FileHandler handler = new FileHandler(config);
         handler.setFileName(TEST_FILE3);
@@ -246,7 +246,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("two", config.getString("list(0).item(1)"));
     }
 
-    @Test
+@Test
     public void testSave_6_oe() throws Exception {
         final FileHandler handler = new FileHandler(config);
         handler.setFileName(TEST_FILE3);
@@ -265,7 +265,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("six", config.getString("list(1).sublist.item(1)"));
     }
 
-    @Test
+@Test
     public void testSaveModified_1_oe() throws Exception {
         FileHandler handler = new FileHandler(config);
         handler.setFile(new File(TEST_FILE3));
@@ -274,7 +274,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertTrue(config.getString("mean").startsWith("This is\n A long story..."));
     }
 
-    @Test
+@Test
     public void testSaveModified_2_oe() throws Exception {
         FileHandler handler = new FileHandler(config);
         handler.setFile(new File(TEST_FILE3));
@@ -284,7 +284,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertTrue(config.getString("mean").indexOf("And even longer") > 0);
     }
 
-    @Test
+@Test
     public void testSaveModified_3_oe() throws Exception {
         FileHandler handler = new FileHandler(config);
         handler.setFile(new File(TEST_FILE3));
@@ -310,7 +310,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertFalse(config.containsKey("test.entity[@name]"));
     }
 
-    @Test
+@Test
     public void testSaveModified_4_oe() throws Exception {
         FileHandler handler = new FileHandler(config);
         handler.setFile(new File(TEST_FILE3));
@@ -337,7 +337,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("1<2", config.getProperty("test.entity"));
     }
 
-    @Test
+@Test
     public void testSaveModified_5_oe() throws Exception {
         FileHandler handler = new FileHandler(config);
         handler.setFile(new File(TEST_FILE3));
@@ -365,7 +365,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("new value", config.getString("element"));
     }
 
-    @Test
+@Test
     public void testSaveModified_6_oe() throws Exception {
         FileHandler handler = new FileHandler(config);
         handler.setFile(new File(TEST_FILE3));
@@ -394,7 +394,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("A <new> value", config.getProperty("test(0)"));
     }
 
-    @Test
+@Test
     public void testSaveModified_7_oe() throws Exception {
         FileHandler handler = new FileHandler(config);
         handler.setFile(new File(TEST_FILE3));
@@ -424,7 +424,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals((short) 8, config.getShort("test(1).short"));
     }
 
-    @Test
+@Test
     public void testSaveModified_8_oe() throws Exception {
         FileHandler handler = new FileHandler(config);
         handler.setFile(new File(TEST_FILE3));
@@ -455,7 +455,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals(9, config.getInt("test(1).int"));
     }
 
-    @Test
+@Test
     public void testSaveModified_9_oe() throws Exception {
         FileHandler handler = new FileHandler(config);
         handler.setFile(new File(TEST_FILE3));
@@ -487,7 +487,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("six", config.getProperty("list(1).sublist.item(1)"));
     }
 
-    @Test
+@Test
     public void testSaveModified_10_oe() throws Exception {
         FileHandler handler = new FileHandler(config);
         handler.setFile(new File(TEST_FILE3));
@@ -520,7 +520,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("seven", config.getProperty("list(1).sublist.item(2)"));
     }
 
-    @Test
+@Test
     public void testSaveModified_11_oe() throws Exception {
         FileHandler handler = new FileHandler(config);
         handler.setFile(new File(TEST_FILE3));
@@ -554,7 +554,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("yes", config.getProperty("clear"));
     }
 
-    @Test
+@Test
     public void testSaveModified_12_oe() throws Exception {
         FileHandler handler = new FileHandler(config);
         handler.setFile(new File(TEST_FILE3));
@@ -589,7 +589,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("now it's simple", config.getString("mean"));
     }
 
-    @Test
+@Test
     public void testSaveModified_13_oe() throws Exception {
         FileHandler handler = new FileHandler(config);
         handler.setFile(new File(TEST_FILE3));
@@ -625,7 +625,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("available", config.getString("[@topattr](0)"));
     }
 
-    @Test
+@Test
     public void testSaveModified_14_oe() throws Exception {
         FileHandler handler = new FileHandler(config);
         handler.setFile(new File(TEST_FILE3));
@@ -662,7 +662,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("successfull", config.getString("[@topattr_other]"));
     }
 
-    @Test
+@Test
     public void testSaveNew_1_oe() throws Exception {
         config.addProperty("connection.url", "jdbc://mydb:1234");
         config.addProperty("connection.user", "scott");
@@ -690,7 +690,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals(1, config.getMaxIndex("tables.table.name"));
     }
 
-    @Test
+@Test
     public void testSaveNew_2_oe() throws Exception {
         config.addProperty("connection.url", "jdbc://mydb:1234");
         config.addProperty("connection.user", "scott");
@@ -719,7 +719,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("tests", config.getString("tables.table(0).name"));
     }
 
-    @Test
+@Test
     public void testSaveNew_3_oe() throws Exception {
         config.addProperty("connection.url", "jdbc://mydb:1234");
         config.addProperty("connection.user", "scott");
@@ -749,7 +749,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("test_name", config.getString("tables.table(0).fields.field(1).name"));
     }
 
-    @Test
+@Test
     public void testSaveNew_4_oe() throws Exception {
         config.addProperty("connection.url", "jdbc://mydb:1234");
         config.addProperty("connection.user", "scott");
@@ -780,7 +780,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("int", config.getString("tables.table(1).fields.field(0).type"));
     }
 
-    @Test
+@Test
     public void testSaveNew_5_oe() throws Exception {
         config.addProperty("connection.url", "jdbc://mydb:1234");
         config.addProperty("connection.user", "scott");
@@ -812,7 +812,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertTrue(config.getBoolean("tables.table(1).fields.field(1)[@null]"));
     }
 
-    @Test
+@Test
     public void testSaveNew_6_oe() throws Exception {
         config.addProperty("connection.url", "jdbc://mydb:1234");
         config.addProperty("connection.user", "scott");
@@ -845,7 +845,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("tiger", config.getString("connection.passwd"));
     }
 
-    @Test
+@Test
     public void testSaveNew_7_oe() throws Exception {
         config.addProperty("connection.url", "jdbc://mydb:1234");
         config.addProperty("connection.user", "scott");
@@ -879,7 +879,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("system", config.getProperty("connection[@type]"));
     }
 
-    @Test
+@Test
     public void testSaveNew_8_oe() throws Exception {
         config.addProperty("connection.url", "jdbc://mydb:1234");
         config.addProperty("connection.user", "scott");
@@ -914,7 +914,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("myconfig", config.getRootElementName());
     }
 
-    @Test
+@Test
     public void testXmlNodeTypes_1_oe() throws Exception {
         // Number of keys expected from test configuration file
         final int KEY_COUNT = 5;
@@ -927,7 +927,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("Comment in element must not change element value.", "Case1Text", config.getString("case1"));
     }
 
-    @Test
+@Test
     public void testXmlNodeTypes_2_oe() throws Exception {
         // Number of keys expected from test configuration file
         final int KEY_COUNT = 5;
@@ -943,7 +943,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("Comment as sibling must not change element value.", "Case2Text", config.getString("case2.child"));
     }
 
-    @Test
+@Test
     public void testXmlNodeTypes_3_oe() throws Exception {
         // Number of keys expected from test configuration file
         final int KEY_COUNT = 5;
@@ -962,7 +962,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("Comment and use of CDATA must not change element value.", "Case3Text", config.getString("case3"));
     }
 
-    @Test
+@Test
     public void testXmlNodeTypes_4_oe() throws Exception {
         // Number of keys expected from test configuration file
         final int KEY_COUNT = 5;
@@ -984,7 +984,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("Comment and use of PI must not change element value.", "Case4Text", config.getString("case4"));
     }
 
-    @Test
+@Test
     public void testXmlNodeTypes_5_oe() throws Exception {
         // Number of keys expected from test configuration file
         final int KEY_COUNT = 5;
@@ -1009,7 +1009,7 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         assertEquals("Comment must not change attribute node value.", "Case5Text", config.getString("case5[@attr]"));
     }
 
-    @Test
+@Test
     public void testXmlNodeTypes_6_oe() throws Exception {
         // Number of keys expected from test configuration file
         final int KEY_COUNT = 5;

@@ -128,7 +128,7 @@ public class ExceptionTest_OE25Dev extends AbstractCommonTest {
 //        }
     }
 
-    public void testValidatorException_2_oe() {
+public void testValidatorException_2_oe() {
         // Create bean to run test on.
         ValueBean info = new ValueBean();
         info.setValue("VALIDATOR");

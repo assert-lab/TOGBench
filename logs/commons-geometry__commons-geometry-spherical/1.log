@@ -34,7 +34,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-spherical ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical
-[INFO] Storing buildNumber: 4e96f64c167c9f400b8bc7340bf57241aa8435a5 at timestamp: 1770255601049
+[INFO] Storing buildNumber: e4cf1dbede35d5b995b6d81363d313f167d9b312 at timestamp: 1770279477523
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-geometry-spherical ---
@@ -70,41 +70,41 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.geometry.spherical.DocumentationExamplesTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.285 s - in org.apache.commons.geometry.spherical.DocumentationExamplesTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.409 s - in org.apache.commons.geometry.spherical.DocumentationExamplesTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.InteriorAngleGreatArcConnectorTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in org.apache.commons.geometry.spherical.twod.InteriorAngleGreatArcConnectorTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in org.apache.commons.geometry.spherical.twod.InteriorAngleGreatArcConnectorTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.GreatArcPathTest_OE25Dev
-[INFO] Tests run: 65, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.205 s - in org.apache.commons.geometry.spherical.twod.GreatArcPathTest_OE25Dev
+[INFO] Tests run: 65, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.25 s - in org.apache.commons.geometry.spherical.twod.GreatArcPathTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.Point2STest_OE25Dev
-[INFO] Tests run: 69, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.211 s - in org.apache.commons.geometry.spherical.twod.Point2STest_OE25Dev
+[INFO] Tests run: 69, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.281 s - in org.apache.commons.geometry.spherical.twod.Point2STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.BoundaryList2STest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.geometry.spherical.twod.BoundaryList2STest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.geometry.spherical.twod.BoundaryList2STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.AbstractGreatArcPathConnectorTest_OE25Dev
-[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.114 s - in org.apache.commons.geometry.spherical.twod.AbstractGreatArcPathConnectorTest_OE25Dev
+[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s - in org.apache.commons.geometry.spherical.twod.AbstractGreatArcPathConnectorTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.RegionBSPTree2STest_OE25Dev
-[INFO] Tests run: 118, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.182 s - in org.apache.commons.geometry.spherical.twod.RegionBSPTree2STest_OE25Dev
+[INFO] Tests run: 118, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.438 s - in org.apache.commons.geometry.spherical.twod.RegionBSPTree2STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.EmbeddedTreeSubGreatCircleTest_OE25Dev
-[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 s - in org.apache.commons.geometry.spherical.twod.EmbeddedTreeSubGreatCircleTest_OE25Dev
+[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s - in org.apache.commons.geometry.spherical.twod.EmbeddedTreeSubGreatCircleTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.Transform2STest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.geometry.spherical.twod.Transform2STest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 s - in org.apache.commons.geometry.spherical.twod.Transform2STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev
-[INFO] Tests run: 125, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.111 s - in org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev
+[INFO] Tests run: 125, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s - in org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev
-[INFO] Tests run: 104, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.167 s - in org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev
+[INFO] Tests run: 104, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.193 s - in org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.GreatArcTest_OE25Dev
-[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 s - in org.apache.commons.geometry.spherical.twod.GreatArcTest_OE25Dev
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in org.apache.commons.geometry.spherical.twod.GreatArcTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.BoundarySource2STest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.geometry.spherical.twod.BoundarySource2STest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.geometry.spherical.twod.BoundarySource2STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.oned.Transform1STest_OE25Dev
-[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.geometry.spherical.oned.Transform1STest_OE25Dev
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.apache.commons.geometry.spherical.oned.Transform1STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev
-[INFO] Tests run: 84, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.184 s - in org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev
+[INFO] Tests run: 84, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.158 s - in org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.oned.RegionBSPTree1STest_OE25Dev
-[INFO] Tests run: 133, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.151 s - in org.apache.commons.geometry.spherical.oned.RegionBSPTree1STest_OE25Dev
+[INFO] Tests run: 133, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.165 s - in org.apache.commons.geometry.spherical.oned.RegionBSPTree1STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.oned.Point1STest_OE25Dev
-[INFO] Tests run: 86, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in org.apache.commons.geometry.spherical.oned.Point1STest_OE25Dev
+[INFO] Tests run: 86, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.152 s - in org.apache.commons.geometry.spherical.oned.Point1STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev
-[INFO] Tests run: 67, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev
+[INFO] Tests run: 67, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -113,6 +113,6 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  24.914 s
-[INFO] Finished at: 2026-02-04T19:40:21-06:00
+[INFO] Total time:  26.477 s
+[INFO] Finished at: 2026-02-05T02:18:19-06:00
 [INFO] ------------------------------------------------------------------------

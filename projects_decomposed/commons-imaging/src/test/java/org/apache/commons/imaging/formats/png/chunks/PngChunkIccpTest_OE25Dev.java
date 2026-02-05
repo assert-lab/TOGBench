@@ -75,7 +75,7 @@ public class PngChunkIccpTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testErrorOnNoProfileName_1_oe() {
         final byte[] data = ImagingConstants.EMPTY_BYTE_ARRAY;
         Assertions.assertThrows(ImageReadException.class, () -> new PngChunkIccp(0, chunkType, 0, data));

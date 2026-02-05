@@ -116,7 +116,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         SphericalTestUtils.assertPointsEq(end, arc.getEndPoint(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testCtor_default_1_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE);
@@ -125,7 +125,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertSame(XY_CIRCLE, sub.getHyperplane());
     }
 
-    @Test
+@Test
     void testCtor_default_2_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE);
@@ -135,7 +135,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, sub.getPrecision());
     }
 
-    @Test
+@Test
     void testCtor_default_3_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE);
@@ -146,7 +146,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertFalse(sub.isFull());
     }
 
-    @Test
+@Test
     void testCtor_default_4_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE);
@@ -158,7 +158,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertTrue(sub.isEmpty());
     }
 
-    @Test
+@Test
     void testCtor_default_5_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE);
@@ -171,7 +171,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertTrue(sub.isFinite());
     }
 
-    @Test
+@Test
     void testCtor_default_6_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE);
@@ -185,7 +185,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertFalse(sub.isInfinite());
     }
 
-    @Test
+@Test
     void testCtor_default_7_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE);
@@ -201,7 +201,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(0, sub.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testCtor_default_8_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE);
@@ -218,7 +218,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertNull(sub.getCentroid());
     }
 
-    @Test
+@Test
     void testCtor_boolean_true_1_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, true);
@@ -227,7 +227,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertTrue(sub.isFull());
     }
 
-    @Test
+@Test
     void testCtor_boolean_true_2_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, true);
@@ -237,7 +237,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertFalse(sub.isEmpty());
     }
 
-    @Test
+@Test
     void testCtor_boolean_true_3_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, true);
@@ -248,7 +248,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertTrue(sub.isFinite());
     }
 
-    @Test
+@Test
     void testCtor_boolean_true_4_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, true);
@@ -260,7 +260,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertFalse(sub.isInfinite());
     }
 
-    @Test
+@Test
     void testCtor_boolean_true_5_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, true);
@@ -274,7 +274,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.TWO_PI, sub.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testCtor_boolean_true_6_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, true);
@@ -289,7 +289,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertNull(sub.getCentroid());
     }
 
-    @Test
+@Test
     void testCtor_boolean_false_1_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, false);
@@ -298,7 +298,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertFalse(sub.isFull());
     }
 
-    @Test
+@Test
     void testCtor_boolean_false_2_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, false);
@@ -308,7 +308,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertTrue(sub.isEmpty());
     }
 
-    @Test
+@Test
     void testCtor_boolean_false_3_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, false);
@@ -319,7 +319,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertTrue(sub.isFinite());
     }
 
-    @Test
+@Test
     void testCtor_boolean_false_4_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, false);
@@ -331,7 +331,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertFalse(sub.isInfinite());
     }
 
-    @Test
+@Test
     void testCtor_boolean_false_5_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, false);
@@ -345,7 +345,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(0, sub.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testCtor_boolean_false_6_oe() {
         // act
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(XY_CIRCLE, false);
@@ -360,7 +360,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertNull(sub.getCentroid());
     }
 
-    @Test
+@Test
     void testCtor_tree_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.fromInterval(AngularInterval.of(1, 2, TEST_PRECISION));
@@ -372,7 +372,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertFalse(sub.isFull());
     }
 
-    @Test
+@Test
     void testCtor_tree_2_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.fromInterval(AngularInterval.of(1, 2, TEST_PRECISION));
@@ -385,7 +385,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertFalse(sub.isEmpty());
     }
 
-    @Test
+@Test
     void testCtor_tree_3_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.fromInterval(AngularInterval.of(1, 2, TEST_PRECISION));
@@ -399,7 +399,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertTrue(sub.isFinite());
     }
 
-    @Test
+@Test
     void testCtor_tree_4_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.fromInterval(AngularInterval.of(1, 2, TEST_PRECISION));
@@ -414,7 +414,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertFalse(sub.isInfinite());
     }
 
-    @Test
+@Test
     void testCtor_tree_5_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.fromInterval(AngularInterval.of(1, 2, TEST_PRECISION));
@@ -431,7 +431,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(1, sub.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTransform_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.MINUS_I, TEST_PRECISION);
@@ -452,7 +452,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(2, arcs.size());
     }
 
-    @Test
+@Test
     void testSplit_full_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -467,7 +467,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_full_2_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -485,7 +485,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertSame(sub.getCircle(), minus.getCircle());
     }
 
-    @Test
+@Test
     void testSplit_full_3_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -506,7 +506,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(1, minusArcs.size());
     }
 
-    @Test
+@Test
     void testSplit_full_4_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -534,7 +534,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertSame(sub.getCircle(), plus.getCircle());
     }
 
-    @Test
+@Test
     void testSplit_full_5_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -565,7 +565,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(1, plusArcs.size());
     }
 
-    @Test
+@Test
     void testSplit_empty_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -580,7 +580,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_empty_2_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -598,7 +598,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertNull(minus);
     }
 
-    @Test
+@Test
     void testSplit_empty_3_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -619,7 +619,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertNull(plus);
     }
 
-    @Test
+@Test
     void testSplit_both_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
@@ -640,7 +640,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_both_2_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
@@ -664,7 +664,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertSame(sub.getCircle(), minus.getCircle());
     }
 
-    @Test
+@Test
     void testSplit_both_3_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
@@ -690,7 +690,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(2, minusArcs.size());
     }
 
-    @Test
+@Test
     void testSplit_both_4_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
@@ -722,7 +722,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertSame(sub.getCircle(), plus.getCircle());
     }
 
-    @Test
+@Test
     void testSplit_both_5_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
@@ -756,7 +756,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(2, plusArcs.size());
     }
 
-    @Test
+@Test
     void testSplit_minus_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
@@ -773,7 +773,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_minus_2_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
@@ -793,7 +793,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertSame(sub, minus);
     }
 
-    @Test
+@Test
     void testSplit_minus_3_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
@@ -816,7 +816,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertNull(plus);
     }
 
-    @Test
+@Test
     void testSplit_plus_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
@@ -833,7 +833,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_plus_2_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
@@ -853,7 +853,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertNull(minus);
     }
 
-    @Test
+@Test
     void testSplit_plus_3_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
@@ -876,7 +876,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertSame(sub, plus);
     }
 
-    @Test
+@Test
     void testSplit_parallelAndAntiparallel_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -888,7 +888,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER,sub.split(GreatCircles.fromPole(Vector3D.Unit.PLUS_Z,TEST_PRECISION)).getLocation());
     }
 
-    @Test
+@Test
     void testSplit_parallelAndAntiparallel_2_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -901,7 +901,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER,sub.split(GreatCircles.fromPole(Vector3D.Unit.MINUS_Z,TEST_PRECISION)).getLocation());
     }
 
-    @Test
+@Test
     void testAdd_arc_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.MINUS_K, Point2S.MINUS_J, TEST_PRECISION);
@@ -920,7 +920,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(1, arcs.size());
     }
 
-    @Test
+@Test
     void testAdd_arc_differentCircle_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.MINUS_K, Point2S.MINUS_J, TEST_PRECISION);
@@ -932,7 +932,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () ->  sub.add(otherCircle.arc(Point2S.PLUS_J, Point2S.of(1.5 * Math.PI, 0.75 * Math.PI))));
     }
 
-    @Test
+@Test
     void testAdd_subGreatCircle_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.MINUS_K, Point2S.MINUS_J, TEST_PRECISION);
@@ -958,7 +958,7 @@ class EmbeddedTreeSubGreatCircleTest_OE25Dev {
         Assertions.assertEquals(2, arcs.size());
     }
 
-    @Test
+@Test
     void testAdd_subGreatCircle_otherCircle_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.MINUS_K, Point2S.MINUS_J, TEST_PRECISION);

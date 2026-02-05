@@ -64,7 +64,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
 
-    @Test
+@Test
     public void testDOMLoad_1_oe() throws Exception {
         final URL location = ConfigurationAssert.getTestURL(TEST_PROPERTIES_FILE);
         final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -77,7 +77,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertEquals("header", "Description of the property list", conf.getHeader());
     }
 
-    @Test
+@Test
     public void testDOMLoad_2_oe() throws Exception {
         final URL location = ConfigurationAssert.getTestURL(TEST_PROPERTIES_FILE);
         final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -92,7 +92,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertFalse("The configuration is empty", conf.isEmpty());
     }
 
-    @Test
+@Test
     public void testDOMLoad_3_oe() throws Exception {
         final URL location = ConfigurationAssert.getTestURL(TEST_PROPERTIES_FILE);
         final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -108,7 +108,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertEquals("'key1' property", "value1", conf.getProperty("key1"));
     }
 
-    @Test
+@Test
     public void testDOMLoad_4_oe() throws Exception {
         final URL location = ConfigurationAssert.getTestURL(TEST_PROPERTIES_FILE);
         final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -125,7 +125,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertEquals("'key2' property", "value2", conf.getProperty("key2"));
     }
 
-    @Test
+@Test
     public void testDOMLoad_5_oe() throws Exception {
         final URL location = ConfigurationAssert.getTestURL(TEST_PROPERTIES_FILE);
         final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -143,7 +143,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertEquals("'key3' property", "value3", conf.getProperty("key3"));
     }
 
-    @Test
+@Test
     public void testDOMSave_1_oe() throws Exception {
         // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
@@ -174,7 +174,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertEquals("header", "Description of the new property list", conf2.getHeader());
     }
 
-    @Test
+@Test
     public void testDOMSave_2_oe() throws Exception {
         // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
@@ -207,7 +207,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertFalse("The configuration is empty", conf2.isEmpty());
     }
 
-    @Test
+@Test
     public void testDOMSave_3_oe() throws Exception {
         // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
@@ -241,7 +241,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertEquals("'key1' property", "value1", conf2.getProperty("key1"));
     }
 
-    @Test
+@Test
     public void testDOMSave_4_oe() throws Exception {
         // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
@@ -276,7 +276,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertEquals("'key3' property", "value3", conf2.getProperty("key3"));
     }
 
-    @Test
+@Test
     public void testDOMSave_5_oe() throws Exception {
         // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
@@ -312,13 +312,13 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertEquals("'key4' property", "value4", conf2.getProperty("key4"));
     }
 
-    @Test
+@Test
     public void testLoad_1_oe() throws Exception {
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
         assertEquals("header", "Description of the property list", conf.getHeader());
     }
 
-    @Test
+@Test
     public void testLoad_2_oe() throws Exception {
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
         // removed other assertion
@@ -326,7 +326,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertFalse("The configuration is empty", conf.isEmpty());
     }
 
-    @Test
+@Test
     public void testLoad_3_oe() throws Exception {
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
         // removed other assertion
@@ -335,7 +335,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertEquals("'key1' property", "value1", conf.getProperty("key1"));
     }
 
-    @Test
+@Test
     public void testLoad_4_oe() throws Exception {
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
         // removed other assertion
@@ -345,7 +345,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertEquals("'key2' property", "value2", conf.getProperty("key2"));
     }
 
-    @Test
+@Test
     public void testLoad_5_oe() throws Exception {
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
         // removed other assertion
@@ -356,7 +356,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertEquals("'key3' property", "value3", conf.getProperty("key3"));
     }
 
-    @Test
+@Test
     public void testSave_1_oe() throws Exception {
         // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
@@ -378,7 +378,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertEquals("header", "Description of the new property list", conf2.getHeader());
     }
 
-    @Test
+@Test
     public void testSave_2_oe() throws Exception {
         // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
@@ -402,7 +402,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertFalse("The configuration is empty", conf2.isEmpty());
     }
 
-    @Test
+@Test
     public void testSave_3_oe() throws Exception {
         // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
@@ -427,7 +427,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertEquals("'key1' property", "value1", conf2.getProperty("key1"));
     }
 
-    @Test
+@Test
     public void testSave_4_oe() throws Exception {
         // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);
@@ -453,7 +453,7 @@ public class TestXMLPropertiesConfiguration_OE25Dev {
         assertEquals("'key3' property", "value3", conf2.getProperty("key3"));
     }
 
-    @Test
+@Test
     public void testSave_5_oe() throws Exception {
         // load the configuration
         final XMLPropertiesConfiguration conf = load(TEST_PROPERTIES_FILE);

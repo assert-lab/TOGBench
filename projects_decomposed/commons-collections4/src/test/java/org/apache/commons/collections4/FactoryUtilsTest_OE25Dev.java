@@ -148,18 +148,18 @@ public class FactoryUtilsTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testExceptionFactory_1_oe() {
         assertNotNull(FactoryUtils.exceptionFactory());
     }
 
-    @Test
+@Test
     public void testExceptionFactory_2_oe() {
         // removed other assertion
         assertSame(FactoryUtils.exceptionFactory(), FactoryUtils.exceptionFactory());
     }
 
-    @Test
+@Test
     public void testExceptionFactory_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -175,13 +175,13 @@ public class FactoryUtilsTest_OE25Dev {
         fail();
     }
 
-    @Test
+@Test
     public void testNullFactory_1_oe() {
         final Factory<Object> factory = FactoryUtils.nullFactory();
         assertNotNull(factory);
     }
 
-    @Test
+@Test
     public void testNullFactory_2_oe() {
         final Factory<Object> factory = FactoryUtils.nullFactory();
         // removed other assertion
@@ -189,13 +189,13 @@ public class FactoryUtilsTest_OE25Dev {
         assertNull(created);
     }
 
-    @Test
+@Test
     public void testConstantFactoryNull_1_oe() {
         final Factory<Object> factory = FactoryUtils.constantFactory(null);
         assertNotNull(factory);
     }
 
-    @Test
+@Test
     public void testConstantFactoryNull_2_oe() {
         final Factory<Object> factory = FactoryUtils.constantFactory(null);
         // removed other assertion
@@ -203,14 +203,14 @@ public class FactoryUtilsTest_OE25Dev {
         assertNull(created);
     }
 
-    @Test
+@Test
     public void testConstantFactoryConstant_1_oe() {
         final Integer constant = Integer.valueOf(9);
         final Factory<Integer> factory = FactoryUtils.constantFactory(constant);
         assertNotNull(factory);
     }
 
-    @Test
+@Test
     public void testConstantFactoryConstant_2_oe() {
         final Integer constant = Integer.valueOf(9);
         final Factory<Integer> factory = FactoryUtils.constantFactory(constant);
@@ -219,19 +219,19 @@ public class FactoryUtilsTest_OE25Dev {
         assertSame(constant, created);
     }
 
-    @Test
+@Test
     public void testPrototypeFactoryNull_1_oe() {
         assertSame(ConstantFactory.NULL_INSTANCE, FactoryUtils.prototypeFactory(null));
     }
 
-    @Test
+@Test
     public void testPrototypeFactoryPublicCloneMethod_1_oe() throws Exception {
         final Date proto = new Date();
         final Factory<Date> factory = FactoryUtils.prototypeFactory(proto);
         assertNotNull(factory);
     }
 
-    @Test
+@Test
     public void testPrototypeFactoryPublicCloneMethod_2_oe() throws Exception {
         final Date proto = new Date();
         final Factory<Date> factory = FactoryUtils.prototypeFactory(proto);
@@ -240,7 +240,7 @@ public class FactoryUtilsTest_OE25Dev {
         assertTrue(proto != created);
     }
 
-    @Test
+@Test
     public void testPrototypeFactoryPublicCloneMethod_3_oe() throws Exception {
         final Date proto = new Date();
         final Factory<Date> factory = FactoryUtils.prototypeFactory(proto);
@@ -250,14 +250,14 @@ public class FactoryUtilsTest_OE25Dev {
         assertEquals(proto, created);
     }
 
-    @Test
+@Test
     public void testPrototypeFactoryPublicCopyConstructor_1_oe() throws Exception {
         final Mock1 proto = new Mock1(6);
         final Factory<Object> factory = FactoryUtils.<Object>prototypeFactory(proto);
         assertNotNull(factory);
     }
 
-    @Test
+@Test
     public void testPrototypeFactoryPublicCopyConstructor_2_oe() throws Exception {
         final Mock1 proto = new Mock1(6);
         final Factory<Object> factory = FactoryUtils.<Object>prototypeFactory(proto);
@@ -266,7 +266,7 @@ public class FactoryUtilsTest_OE25Dev {
         assertTrue(proto != created);
     }
 
-    @Test
+@Test
     public void testPrototypeFactoryPublicCopyConstructor_3_oe() throws Exception {
         final Mock1 proto = new Mock1(6);
         final Factory<Object> factory = FactoryUtils.<Object>prototypeFactory(proto);
@@ -276,14 +276,14 @@ public class FactoryUtilsTest_OE25Dev {
         assertEquals(proto, created);
     }
 
-    @Test
+@Test
     public void testPrototypeFactoryPublicSerialization_1_oe() throws Exception {
         final Integer proto = Integer.valueOf(9);
         final Factory<Integer> factory = FactoryUtils.prototypeFactory(proto);
         assertNotNull(factory);
     }
 
-    @Test
+@Test
     public void testPrototypeFactoryPublicSerialization_2_oe() throws Exception {
         final Integer proto = Integer.valueOf(9);
         final Factory<Integer> factory = FactoryUtils.prototypeFactory(proto);
@@ -292,7 +292,7 @@ public class FactoryUtilsTest_OE25Dev {
         assertTrue(proto != created);
     }
 
-    @Test
+@Test
     public void testPrototypeFactoryPublicSerialization_3_oe() throws Exception {
         final Integer proto = Integer.valueOf(9);
         final Factory<Integer> factory = FactoryUtils.prototypeFactory(proto);
@@ -302,14 +302,14 @@ public class FactoryUtilsTest_OE25Dev {
         assertEquals(proto, created);
     }
 
-    @Test
+@Test
     public void testPrototypeFactoryPublicSerializationError_1_oe() {
         final Mock2 proto = new Mock2(new Object());
         final Factory<Object> factory = FactoryUtils.<Object>prototypeFactory(proto);
         assertNotNull(factory);
     }
 
-    @Test
+@Test
     public void testPrototypeFactoryPublicSerializationError_2_oe() {
         final Mock2 proto = new Mock2(new Object());
         final Factory<Object> factory = FactoryUtils.<Object>prototypeFactory(proto);
@@ -321,7 +321,7 @@ public class FactoryUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testPrototypeFactoryPublicSerializationError_3_oe() {
         final Mock2 proto = new Mock2(new Object());
         final Factory<Object> factory = FactoryUtils.<Object>prototypeFactory(proto);
@@ -335,7 +335,7 @@ public class FactoryUtilsTest_OE25Dev {
         fail();
     }
 
-    @Test
+@Test
     public void testPrototypeFactoryPublicBad_1_oe() {
         final Object proto = new Object();
         try {
@@ -346,13 +346,13 @@ public class FactoryUtilsTest_OE25Dev {
         fail();
     }
 
-    @Test
+@Test
     public void instantiateFactorySimple_1_oe() {
         final Factory<Mock3> factory = FactoryUtils.instantiateFactory(Mock3.class);
         assertNotNull(factory);
     }
 
-    @Test
+@Test
     public void instantiateFactorySimple_2_oe() {
         final Factory<Mock3> factory = FactoryUtils.instantiateFactory(Mock3.class);
         // removed other assertion
@@ -360,7 +360,7 @@ public class FactoryUtilsTest_OE25Dev {
         assertEquals(0, created.getValue());
     }
 
-    @Test
+@Test
     public void instantiateFactorySimple_3_oe() {
         final Factory<Mock3> factory = FactoryUtils.instantiateFactory(Mock3.class);
         // removed other assertion
@@ -370,7 +370,7 @@ public class FactoryUtilsTest_OE25Dev {
         assertEquals(1, created.getValue());
     }
 
-    @Test
+@Test
     public void instantiateFactoryComplex_1_oe() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         // 2nd Jan 1970
@@ -380,7 +380,7 @@ public class FactoryUtilsTest_OE25Dev {
         assertNotNull(factory);
     }
 
-    @Test
+@Test
     public void instantiateFactoryComplex_2_oe() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         // 2nd Jan 1970

@@ -30,7 +30,7 @@ public class TestThreader_OE25Dev {
 
     private static final Threadable[] EMPTY_THREADABLE_ARRAY = new Threadable[0];
 
-    @Test
+@Test
     @SuppressWarnings("deprecation") // test of deprecated method
     public void testNullArray_1_oe() { // NET-539
         final Threader t = new Threader();
@@ -38,28 +38,28 @@ public class TestThreader_OE25Dev {
         Assert.assertNull(t.thread(messages));
     }
 
-    @Test
+@Test
     public void testNullList_1_oe() {
         final Threader t = new Threader();
         final List<Threadable> messages = null;
         Assert.assertNull(t.thread(messages));
     }
 
-    @Test
+@Test
     public void testNullIterable_1_oe() {
         final Threader t = new Threader();
         final Iterable<Threadable> messages = null;
         Assert.assertNull(t.thread(messages));
     }
 
-    @Test
+@Test
     public void testEmptyArray_1_oe() { // NET-539
         final Threader t = new Threader();
         final Threadable[] messages = EMPTY_THREADABLE_ARRAY;
         Assert.assertNull(t.thread(messages));
     }
 
-    @Test
+@Test
     public void testEmptyList_1_oe() { // NET-539
         final Threader t = new Threader();
         final Threadable[] messages = EMPTY_THREADABLE_ARRAY;
@@ -67,7 +67,7 @@ public class TestThreader_OE25Dev {
         Assert.assertNull(t.thread(asList));
     }
 
-    @Test
+@Test
     public void testEmptyIterable_1_oe() { // NET-539
         final Threader t = new Threader();
         final Threadable[] messages = EMPTY_THREADABLE_ARRAY;

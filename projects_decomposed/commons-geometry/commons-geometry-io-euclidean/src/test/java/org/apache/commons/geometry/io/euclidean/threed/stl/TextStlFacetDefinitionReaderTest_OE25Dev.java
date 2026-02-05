@@ -69,20 +69,20 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
                 Pattern.compile("^Parsing failed.*"));
     }
 
-    @Test
+@Test
     void testGetSolidName_1_oe() {
         // act/assert
         Assertions.assertEquals("Test Name", facetReader("solid    Test Name  \r\n").getSolidName());
     }
 
-    @Test
+@Test
     void testGetSolidName_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals("Test", facetReader("solid    Test  ").getSolidName());
     }
 
-    @Test
+@Test
     void testGetSolidName_3_oe() {
         // act/assert
         // removed other assertion
@@ -90,7 +90,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertNull(facetReader("solid    ").getSolidName());
     }
 
-    @Test
+@Test
     void testGetSolidName_4_oe() {
         // act/assert
         // removed other assertion
@@ -99,7 +99,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertNull(facetReader("solid").getSolidName());
     }
 
-    @Test
+@Test
     void testClose_1_oe() {
         // arrange
         final CloseCountReader countReader = new CloseCountReader(new StringReader(""));
@@ -112,7 +112,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals(1, countReader.getCloseCount());
     }
 
-    @Test
+@Test
     void testEmpty_1_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
@@ -126,7 +126,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertNull(reader.getSolidName());
     }
 
-    @Test
+@Test
     void testEmpty_2_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
@@ -142,7 +142,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals(0, facets.size());
     }
 
-    @Test
+@Test
     void testEmpty_3_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
@@ -159,7 +159,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertNull(reader.readFacet());
     }
 
-    @Test
+@Test
     void testSingleFacet_1_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
@@ -180,7 +180,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals("test", reader.getSolidName());
     }
 
-    @Test
+@Test
     void testSingleFacet_2_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
@@ -203,7 +203,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals(1, facets.size());
     }
 
-    @Test
+@Test
     void testSingleFacet_4_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
@@ -230,7 +230,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertNull(reader.readFacet());
     }
 
-    @Test
+@Test
     void testMultipleFacets_1_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
@@ -265,7 +265,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals("test solid", reader.getSolidName());
     }
 
-    @Test
+@Test
     void testMultipleFacets_2_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
@@ -302,7 +302,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals(3, facets.size());
     }
 
-    @Test
+@Test
     void testMultipleFacets_6_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
@@ -347,7 +347,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertNull(reader.readFacet());
     }
 
-    @Test
+@Test
     void testNoName_1_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
@@ -368,7 +368,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertNull(reader.getSolidName());
     }
 
-    @Test
+@Test
     void testNoName_2_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
@@ -391,7 +391,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals(1, facets.size());
     }
 
-    @Test
+@Test
     void testNoName_4_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
@@ -418,7 +418,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertNull(reader.readFacet());
     }
 
-    @Test
+@Test
     void testContentEndsEarly_1_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
@@ -438,7 +438,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals("test", reader.getSolidName());
     }
 
-    @Test
+@Test
     void testContentEndsEarly_2_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
@@ -460,7 +460,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
         Assertions.assertEquals(1, facets.size());
     }
 
-    @Test
+@Test
     void testContentEndsEarly_4_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(

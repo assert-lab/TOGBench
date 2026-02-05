@@ -449,7 +449,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(max, interval.getMax(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testCopy_1_oe() {
         // arrange
         final RegionBSPTree1D tree = new RegionBSPTree1D(true);
@@ -462,7 +462,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNotSame(tree, copy);
     }
 
-    @Test
+@Test
     void testCopy_2_oe() {
         // arrange
         final RegionBSPTree1D tree = new RegionBSPTree1D(true);
@@ -476,20 +476,20 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(3, copy.count());
     }
 
-    @Test
+@Test
     void testGetBoundarySize_alwaysReturnsZero_1_oe() {
         // act/assert
         Assertions.assertEquals(0.0, RegionBSPTree1D.full().getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetBoundarySize_alwaysReturnsZero_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals(0.0, RegionBSPTree1D.empty().getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetBoundarySize_alwaysReturnsZero_3_oe() {
         // act/assert
         // removed other assertion
@@ -497,7 +497,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(0.0,RegionBSPTree1D.from(Interval.of(1,2,TEST_PRECISION),Interval.of(4,5,TEST_PRECISION)).getBoundarySize(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_full_1_oe() {
         // arrange
         final RegionBSPTree1D full = RegionBSPTree1D.full();
@@ -506,7 +506,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(full.project(Vector1D.of(Double.NEGATIVE_INFINITY)));
     }
 
-    @Test
+@Test
     void testProject_full_2_oe() {
         // arrange
         final RegionBSPTree1D full = RegionBSPTree1D.full();
@@ -516,7 +516,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(full.project(Vector1D.of(0)));
     }
 
-    @Test
+@Test
     void testProject_full_3_oe() {
         // arrange
         final RegionBSPTree1D full = RegionBSPTree1D.full();
@@ -527,7 +527,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(full.project(Vector1D.of(Double.POSITIVE_INFINITY)));
     }
 
-    @Test
+@Test
     void testProject_empty_1_oe() {
         // arrange
         final RegionBSPTree1D empty = RegionBSPTree1D.empty();
@@ -536,7 +536,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(empty.project(Vector1D.of(Double.NEGATIVE_INFINITY)));
     }
 
-    @Test
+@Test
     void testProject_empty_2_oe() {
         // arrange
         final RegionBSPTree1D empty = RegionBSPTree1D.empty();
@@ -546,7 +546,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(empty.project(Vector1D.of(0)));
     }
 
-    @Test
+@Test
     void testProject_empty_3_oe() {
         // arrange
         final RegionBSPTree1D empty = RegionBSPTree1D.empty();
@@ -557,7 +557,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(empty.project(Vector1D.of(Double.POSITIVE_INFINITY)));
     }
 
-    @Test
+@Test
     void testAdd_addFullInterval_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -570,7 +570,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testAdd_addFullInterval_2_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -584,7 +584,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testToIntervals_fullRegion_1_oe() {
         // arrange
         final RegionBSPTree1D tree = new RegionBSPTree1D(true);
@@ -596,7 +596,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_emptyRegion_1_oe() {
         // arrange
         final RegionBSPTree1D tree = new RegionBSPTree1D(false);
@@ -608,7 +608,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(0, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_halfOpen_negative_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -623,7 +623,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_halfOpen_positive_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -638,7 +638,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_singleClosedInterval_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -653,7 +653,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_singleClosedInterval_complement_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -669,7 +669,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(2, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_openAndClosedIntervals_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -686,7 +686,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(3, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_singlePoint_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -701,7 +701,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_singlePoint_complement_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -717,7 +717,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(2, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_multiplePoints_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -733,7 +733,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(2, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_multiplePoints_complement_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -750,7 +750,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(3, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_adjacentIntervals_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -765,7 +765,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_multipleAdjacentIntervals_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -784,7 +784,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(3, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -799,7 +799,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, intervals.size());
     }
 
-    @Test
+@Test
     void testTransform_full_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
@@ -813,7 +813,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testTransform_noReflection_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.from(
@@ -833,7 +833,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(2, intervals.size());
     }
 
-    @Test
+@Test
     void testTransform_withReflection_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.from(
@@ -853,7 +853,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(2, intervals.size());
     }
 
-    @Test
+@Test
     void testTransform_withReflection_functionBasedTransform_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.from(
@@ -872,7 +872,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(2, intervals.size());
     }
 
-    @Test
+@Test
     void testSplit_full_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
@@ -885,7 +885,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_full_2_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
@@ -901,7 +901,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, minusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplit_full_3_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
@@ -921,7 +921,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, plusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplit_empty_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -934,7 +934,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_empty_2_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -949,7 +949,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_empty_3_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -965,7 +965,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_bothSides_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -981,7 +981,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_bothSides_2_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -1000,7 +1000,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, minusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplit_bothSides_3_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -1023,7 +1023,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(2, plusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplit_splitterOnBoundary_minus_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -1038,7 +1038,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_splitterOnBoundary_minus_2_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -1056,7 +1056,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, minusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplit_splitterOnBoundary_minus_3_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -1077,7 +1077,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_splitterOnBoundary_plus_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -1092,7 +1092,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_splitterOnBoundary_plus_2_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -1109,7 +1109,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_splitterOnBoundary_plus_3_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -1129,7 +1129,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, plusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplit_point_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Interval.point(1.0, TEST_PRECISION));
@@ -1143,7 +1143,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_point_2_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Interval.point(1.0, TEST_PRECISION));
@@ -1159,7 +1159,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_point_3_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Interval.point(1.0, TEST_PRECISION));
@@ -1178,7 +1178,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, plusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplit_point_splitOnPoint_positiveFacingSplitter_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Interval.point(1, TEST_PRECISION));
@@ -1192,7 +1192,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_point_splitOnPoint_positiveFacingSplitter_2_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Interval.point(1, TEST_PRECISION));
@@ -1208,7 +1208,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_point_splitOnPoint_positiveFacingSplitter_3_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Interval.point(1, TEST_PRECISION));
@@ -1227,7 +1227,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, plusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplit_point_splitOnPoint_negativeFacingSplitter_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Interval.point(1, TEST_PRECISION));
@@ -1241,7 +1241,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_point_splitOnPoint_negativeFacingSplitter_2_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Interval.point(1, TEST_PRECISION));
@@ -1258,7 +1258,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, minusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplit_point_splitOnPoint_negativeFacingSplitter_3_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Interval.point(1, TEST_PRECISION));
@@ -1278,7 +1278,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testGetSize_infinite_1_oe() {
         // arrange
         final RegionBSPTree1D full = RegionBSPTree1D.full();
@@ -1293,7 +1293,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(Double.POSITIVE_INFINITY, full.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_infinite_2_oe() {
         // arrange
         final RegionBSPTree1D full = RegionBSPTree1D.full();
@@ -1309,7 +1309,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(Double.POSITIVE_INFINITY, posHalfSpace.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_infinite_3_oe() {
         // arrange
         final RegionBSPTree1D full = RegionBSPTree1D.full();
@@ -1326,7 +1326,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(Double.POSITIVE_INFINITY, negHalfSpace.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_empty_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -1335,7 +1335,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(0, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_exactPoints_1_oe() {
         // arrange
         final RegionBSPTree1D singlePoint = RegionBSPTree1D.empty();
@@ -1350,7 +1350,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(0, singlePoint.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_exactPoints_2_oe() {
         // arrange
         final RegionBSPTree1D singlePoint = RegionBSPTree1D.empty();
@@ -1366,7 +1366,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(0, multiplePoints.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_pointsWithinPrecision_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1383,7 +1383,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(0.02, singlePoint.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_pointsWithinPrecision_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -1401,7 +1401,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(0.06, multiplePoints.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_nonEmptyIntervals_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -1412,7 +1412,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(3, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_intervalWithPoints_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -1424,7 +1424,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(1, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_complementedRegion_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -1437,7 +1437,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(2, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetCentroid_infinite_1_oe() {
         // arrange
         final RegionBSPTree1D full = RegionBSPTree1D.full();
@@ -1452,7 +1452,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(full.getCentroid());
     }
 
-    @Test
+@Test
     void testGetCentroid_infinite_2_oe() {
         // arrange
         final RegionBSPTree1D full = RegionBSPTree1D.full();
@@ -1468,7 +1468,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(posHalfSpace.getCentroid());
     }
 
-    @Test
+@Test
     void testGetCentroid_infinite_3_oe() {
         // arrange
         final RegionBSPTree1D full = RegionBSPTree1D.full();
@@ -1485,7 +1485,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(negHalfSpace.getCentroid());
     }
 
-    @Test
+@Test
     void testGetCentroid_empty_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -1494,7 +1494,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNull(tree.getCentroid());
     }
 
-    @Test
+@Test
     void testGetMinMax_halfSpaces_1_oe() {
         // arrange
         final RegionBSPTree1D posHalfSpace = RegionBSPTree1D.empty();
@@ -1507,7 +1507,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(-2, posHalfSpace.getMin(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetMinMax_halfSpaces_4_oe() {
         // arrange
         final RegionBSPTree1D posHalfSpace = RegionBSPTree1D.empty();
@@ -1524,7 +1524,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(3, negHalfSpace.getMax(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetMinMax_multipleIntervals_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Arrays.asList(
@@ -1537,7 +1537,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(-4, tree.getMin(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetMinMax_multipleIntervals_2_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Arrays.asList(
@@ -1551,7 +1551,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(5, tree.getMax(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetMinMax_pointsAtMinAndMax_1_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Arrays.asList(
@@ -1564,7 +1564,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(-4, tree.getMin(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetMinMax_pointsAtMinAndMax_2_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Arrays.asList(
@@ -1578,7 +1578,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(5, tree.getMax(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFull_factoryMethod_1_oe() {
         // act
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
@@ -1587,7 +1587,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testFull_factoryMethod_2_oe() {
         // act
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
@@ -1597,7 +1597,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testFull_factoryMethod_3_oe() {
         // act
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
@@ -1608,7 +1608,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNotSame(tree, RegionBSPTree1D.full());
     }
 
-    @Test
+@Test
     void testEmpty_factoryMethod_1_oe() {
         // act
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -1617,7 +1617,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testEmpty_factoryMethod_2_oe() {
         // act
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -1627,7 +1627,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testEmpty_factoryMethod_3_oe() {
         // act
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
@@ -1638,7 +1638,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertNotSame(tree, RegionBSPTree1D.full());
     }
 
-    @Test
+@Test
     void testFromIntervals_iterable_1_oe() {
         // act
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Arrays.asList(
@@ -1650,7 +1650,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testFromIntervals_iterable_2_oe() {
         // act
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Arrays.asList(
@@ -1663,7 +1663,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testFromIntervals_iterable_3_oe() {
         // act
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Arrays.asList(
@@ -1682,7 +1682,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(2, tree.toIntervals().size());
     }
 
-    @Test
+@Test
     void testFromIntervals_iterable_noItervals_1_oe() {
         // act
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Collections.emptyList());
@@ -1691,7 +1691,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testFromIntervals_iterable_noItervals_2_oe() {
         // act
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Collections.emptyList());
@@ -1701,7 +1701,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testFromIntervals_iterable_noItervals_3_oe() {
         // act
         final RegionBSPTree1D tree = RegionBSPTree1D.from(Collections.emptyList());
@@ -1713,7 +1713,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertEquals(0, tree.toIntervals().size());
     }
 
-    @Test
+@Test
     void testFromIntervals_varargs_1_oe() {
         // act
         final RegionBSPTree1D tree = RegionBSPTree1D.from(
@@ -1725,7 +1725,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testFromIntervals_varargs_2_oe() {
         // act
         final RegionBSPTree1D tree = RegionBSPTree1D.from(
@@ -1738,7 +1738,7 @@ class RegionBSPTree1DTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testFromIntervals_varargs_3_oe() {
         // act
         final RegionBSPTree1D tree = RegionBSPTree1D.from(

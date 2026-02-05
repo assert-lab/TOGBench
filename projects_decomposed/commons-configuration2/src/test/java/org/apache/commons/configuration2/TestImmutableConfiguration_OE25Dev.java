@@ -123,7 +123,7 @@ public class TestImmutableConfiguration_OE25Dev {
      * Tests whether an unmodifiable hierarchical configuration can be created.
      */
 
-    @Test
+@Test
     public void testExceptionHandling_2_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final String property = "nonExistingProperty";
@@ -137,14 +137,14 @@ public class TestImmutableConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testImmutableSubset_1_oe() throws ConfigurationException {
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
         final ImmutableConfiguration subset = conf.immutableSubset("test");
         assertFalse("No content", subset.isEmpty());
     }
 
-    @Test
+@Test
     public void testImmutableSubset_2_oe() throws ConfigurationException {
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
         final ImmutableConfiguration subset = conf.immutableSubset("test");
@@ -152,14 +152,14 @@ public class TestImmutableConfiguration_OE25Dev {
         assertEquals("Wrong value", 1000000, subset.getLong("long"));
     }
 
-    @Test
+@Test
     public void testUnmodifiableConfigurationAccess_1_oe() throws ConfigurationException {
         final Configuration confOrg = createTestConfig();
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(confOrg);
         assertFalse("Empty", conf.isEmpty());
     }
 
-    @Test
+@Test
     public void testUnmodifiableConfigurationAccess_2_oe() throws ConfigurationException {
         final Configuration confOrg = createTestConfig();
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(confOrg);
@@ -170,7 +170,7 @@ public class TestImmutableConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testUnmodifiableConfigurationAccess_3_oe() throws ConfigurationException {
         final Configuration confOrg = createTestConfig();
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(confOrg);
@@ -182,14 +182,14 @@ public class TestImmutableConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testUnmodifiableConfigurationIterate_1_oe() throws ConfigurationException {
         final Configuration confOrg = createTestConfig();
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(confOrg);
         assertEquals("Different keys", fetchKeys(confOrg.getKeys()), fetchKeys(conf.getKeys()));
     }
 
-    @Test
+@Test
     public void testUnmodifiableConfigurationLiveUpdate_1_oe() throws ConfigurationException {
         final Configuration confOrg = createTestConfig();
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(confOrg);
@@ -199,20 +199,20 @@ public class TestImmutableConfiguration_OE25Dev {
         assertEquals("Value not set", value, conf.getString(key));
     }
 
-    @Test
+@Test
     public void testUnmodifiableConfigurationOtherTypes_1_oe() throws ConfigurationException {
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
         assertEquals("Wrong byte", (byte) 10, conf.getByte("test.byte"));
     }
 
-    @Test
+@Test
     public void testUnmodifiableConfigurationOtherTypes_2_oe() throws ConfigurationException {
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
         // removed other assertion
         assertTrue("Wrong boolean", conf.getBoolean("test.boolean"));
     }
 
-    @Test
+@Test
     public void testUnmodifiableConfigurationOtherTypes_3_oe() throws ConfigurationException {
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
         // removed other assertion
@@ -220,7 +220,7 @@ public class TestImmutableConfiguration_OE25Dev {
         assertEquals("Wrong double", 10.25, conf.getDouble("test.double"), .05);
     }
 
-    @Test
+@Test
     public void testUnmodifiableConfigurationOtherTypes_4_oe() throws ConfigurationException {
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
         // removed other assertion
@@ -229,7 +229,7 @@ public class TestImmutableConfiguration_OE25Dev {
         assertEquals("Wrong float", 20.25f, conf.getFloat("test.float"), .05);
     }
 
-    @Test
+@Test
     public void testUnmodifiableConfigurationOtherTypes_5_oe() throws ConfigurationException {
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
         // removed other assertion
@@ -239,7 +239,7 @@ public class TestImmutableConfiguration_OE25Dev {
         assertEquals("Wrong int", 10, conf.getInt("test.integer"));
     }
 
-    @Test
+@Test
     public void testUnmodifiableConfigurationOtherTypes_6_oe() throws ConfigurationException {
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
         // removed other assertion
@@ -250,7 +250,7 @@ public class TestImmutableConfiguration_OE25Dev {
         assertEquals("Wrong long", 1000000L, conf.getLong("test.long"));
     }
 
-    @Test
+@Test
     public void testUnmodifiableConfigurationOtherTypes_7_oe() throws ConfigurationException {
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
         // removed other assertion
@@ -262,7 +262,7 @@ public class TestImmutableConfiguration_OE25Dev {
         assertEquals("Wrong short", (short) 1, conf.getShort("test.short"));
     }
 
-    @Test
+@Test
     public void testUnmodifiableHierarchicalConfiguration_1_oe() {
         final HierarchicalConfiguration<?> conf = new BaseHierarchicalConfiguration();
         final String key = "test";
@@ -271,7 +271,7 @@ public class TestImmutableConfiguration_OE25Dev {
         assertTrue("Property not found", ihc.getBoolean(key));
     }
 
-    @Test
+@Test
     public void testUnmodifiableHierarchicalConfiguration_2_oe() {
         final HierarchicalConfiguration<?> conf = new BaseHierarchicalConfiguration();
         final String key = "test";

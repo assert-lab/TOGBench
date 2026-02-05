@@ -29,7 +29,7 @@ import org.junit.Test;
 // CHECKSTYLE:OFF Test code
 public class NotFileFilterTest_OE25Dev extends BaseFilterTest {
 
-    @Test
+@Test
     public void testAccept_1_oe() throws FileSystemException {
 
         final FileSelectInfo any = createFileSelectInfo(new File("test1.txt"));
@@ -37,7 +37,7 @@ public class NotFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(new NotFileFilter(TrueFileFilter.TRUE).accept(any));
     }
 
-    @Test
+@Test
     public void testAccept_2_oe() throws FileSystemException {
 
         final FileSelectInfo any = createFileSelectInfo(new File("test1.txt"));

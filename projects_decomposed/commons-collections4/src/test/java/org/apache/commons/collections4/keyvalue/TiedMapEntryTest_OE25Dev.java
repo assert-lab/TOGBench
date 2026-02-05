@@ -54,7 +54,7 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
      * Tests the constructors.
      */
 
-    @Test
+@Test
     public void testSetValue_1_oe() {
         final Map<K, V> map = new HashMap<>();
         map.put((K) "A", (V) "a");
@@ -64,7 +64,7 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
         assertSame("A", entry.getKey());
     }
 
-    @Test
+@Test
     public void testSetValue_2_oe() {
         final Map<K, V> map = new HashMap<>();
         map.put((K) "A", (V) "a");
@@ -75,7 +75,7 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
         assertSame("a", entry.getValue());
     }
 
-    @Test
+@Test
     public void testSetValue_3_oe() {
         final Map<K, V> map = new HashMap<>();
         map.put((K) "A", (V) "a");
@@ -87,7 +87,7 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
         assertSame("a", entry.setValue((V) "x"));
     }
 
-    @Test
+@Test
     public void testSetValue_4_oe() {
         final Map<K, V> map = new HashMap<>();
         map.put((K) "A", (V) "a");
@@ -100,7 +100,7 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
         assertSame("A", entry.getKey());
     }
 
-    @Test
+@Test
     public void testSetValue_5_oe() {
         final Map<K, V> map = new HashMap<>();
         map.put((K) "A", (V) "a");
@@ -114,7 +114,7 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
         assertSame("x", entry.getValue());
     }
 
-    @Test
+@Test
     public void testSetValue_6_oe() {
         final Map<K, V> map = new HashMap<>();
         map.put((K) "A", (V) "a");
@@ -131,7 +131,7 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
         assertSame("B", entry.getKey());
     }
 
-    @Test
+@Test
     public void testSetValue_7_oe() {
         final Map<K, V> map = new HashMap<>();
         map.put((K) "A", (V) "a");
@@ -149,7 +149,7 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
         assertSame("b", entry.getValue());
     }
 
-    @Test
+@Test
     public void testSetValue_8_oe() {
         final Map<K, V> map = new HashMap<>();
         map.put((K) "A", (V) "a");
@@ -168,7 +168,7 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
         assertSame("b", entry.setValue((V) "y"));
     }
 
-    @Test
+@Test
     public void testSetValue_9_oe() {
         final Map<K, V> map = new HashMap<>();
         map.put((K) "A", (V) "a");
@@ -188,7 +188,7 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
         assertSame("B", entry.getKey());
     }
 
-    @Test
+@Test
     public void testSetValue_10_oe() {
         final Map<K, V> map = new HashMap<>();
         map.put((K) "A", (V) "a");
@@ -209,7 +209,7 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
         assertSame("y", entry.getValue());
     }
 
-    @Test
+@Test
     public void testSetValue_11_oe() {
         final Map<K, V> map = new HashMap<>();
         map.put((K) "A", (V) "a");
@@ -233,7 +233,7 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
         assertSame("C", entry.getKey());
     }
 
-    @Test
+@Test
     public void testSetValue_12_oe() {
         final Map<K, V> map = new HashMap<>();
         map.put((K) "A", (V) "a");
@@ -258,7 +258,7 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
         assertSame("c", entry.getValue());
     }
 
-    @Test
+@Test
     public void testSetValue_13_oe() {
         final Map<K, V> map = new HashMap<>();
         map.put((K) "A", (V) "a");
@@ -284,7 +284,7 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
         assertSame("c", entry.setValue((V) "z"));
     }
 
-    @Test
+@Test
     public void testSetValue_14_oe() {
         final Map<K, V> map = new HashMap<>();
         map.put((K) "A", (V) "a");
@@ -311,7 +311,7 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
         assertSame("C", entry.getKey());
     }
 
-    @Test
+@Test
     public void testSetValue_15_oe() {
         final Map<K, V> map = new HashMap<>();
         map.put((K) "A", (V) "a");

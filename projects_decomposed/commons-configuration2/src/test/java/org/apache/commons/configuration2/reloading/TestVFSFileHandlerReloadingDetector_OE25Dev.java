@@ -101,14 +101,14 @@ public class TestVFSFileHandlerReloadingDetector_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testGetRefreshDelay_1_oe() throws Exception {
         final long delay = 20130325L;
         final VFSFileHandlerReloadingDetector strategy = new VFSFileHandlerReloadingDetector(null, delay);
         assertNotNull("No file handler was created", strategy.getFileHandler());
     }
 
-    @Test
+@Test
     public void testGetRefreshDelay_2_oe() throws Exception {
         final long delay = 20130325L;
         final VFSFileHandlerReloadingDetector strategy = new VFSFileHandlerReloadingDetector(null, delay);
@@ -116,7 +116,7 @@ public class TestVFSFileHandlerReloadingDetector_OE25Dev {
         assertEquals("Wrong refresh delay", delay, strategy.getRefreshDelay());
     }
 
-    @Test
+@Test
     public void testLastModificationDateExisting_1_oe() throws IOException {
         final File file = folder.newFile();
         writeTestFile(file, "value1");
@@ -130,7 +130,7 @@ public class TestVFSFileHandlerReloadingDetector_OE25Dev {
         assertEquals("Wrong modification date", expectedMillis, modificationDate);
     }
 
-    @Test
+@Test
     public void testLastModificationDateFileSystemEx_1_oe() throws FileSystemException {
         final FileObject fo = EasyMock.createMock(FileObject.class);
         final FileName name = EasyMock.createMock(FileName.class);
@@ -148,7 +148,7 @@ public class TestVFSFileHandlerReloadingDetector_OE25Dev {
         assertEquals("Got a modification date", 0, strategy.getLastModificationDate());
     }
 
-    @Test
+@Test
     public void testLastModificationDateNonExisting_1_oe() {
         final File file = ConfigurationAssert.getOutFile("NonExistingFile.xml");
         final FileHandler handler = new FileHandler();
@@ -158,7 +158,7 @@ public class TestVFSFileHandlerReloadingDetector_OE25Dev {
         assertEquals("Got a modification date", 0, strategy.getLastModificationDate());
     }
 
-    @Test
+@Test
     public void testLastModificationDateUndefinedHandler_1_oe() {
         final VFSFileHandlerReloadingDetector strategy = new VFSFileHandlerReloadingDetector();
         assertEquals("Got a modification date", 0, strategy.getLastModificationDate());

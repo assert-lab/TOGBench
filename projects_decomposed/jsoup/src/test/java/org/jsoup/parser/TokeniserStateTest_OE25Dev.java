@@ -31,7 +31,7 @@ public class TokeniserStateTest_OE25Dev {
         // just asserting we don't get a WTF on unconsume
     }
 
-    @Test
+@Test
     public void ensureSearchArraysAreSorted_1_oe() {
         char[][] arrays = {
             TokeniserState.attributeNameCharsSorted,
@@ -45,7 +45,7 @@ public class TokeniserStateTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testCharacterReferenceInRcdata_1_oe() {
         String body = "<textarea>You&I</textarea>";
         Document doc = Jsoup.parse(body);
@@ -53,7 +53,7 @@ public class TokeniserStateTest_OE25Dev {
         assertEquals("You&I", els.text());
     }
 
-    @Test
+@Test
     public void testBeforeTagName_1_oe() {
         for (char c : whiteSpace) {
             String body = String.format("<div%c>test</div>", c);
@@ -63,7 +63,7 @@ public class TokeniserStateTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testEndTagOpen_1_oe() {
         String body;
         Document doc;
@@ -75,7 +75,7 @@ public class TokeniserStateTest_OE25Dev {
         assertEquals("hello world</", els.text());
     }
 
-    @Test
+@Test
     public void testEndTagOpen_2_oe() {
         String body;
         Document doc;
@@ -92,7 +92,7 @@ public class TokeniserStateTest_OE25Dev {
         assertEquals("hello world", els.text());
     }
 
-    @Test
+@Test
     public void testEndTagOpen_3_oe() {
         String body;
         Document doc;
@@ -114,7 +114,7 @@ public class TokeniserStateTest_OE25Dev {
         assertEquals("fake", els.text());
     }
 
-    @Test
+@Test
     public void testEndTagOpen_4_oe() {
         String body;
         Document doc;
@@ -141,7 +141,7 @@ public class TokeniserStateTest_OE25Dev {
         assertEquals("fake", els.text());
     }
 
-    @Test
+@Test
     public void testRcdataLessthanSign_1_oe() {
         String body;
         Document doc;
@@ -153,7 +153,7 @@ public class TokeniserStateTest_OE25Dev {
         assertEquals("<fake>", els.text());
     }
 
-    @Test
+@Test
     public void testRcdataLessthanSign_2_oe() {
         String body;
         Document doc;
@@ -170,7 +170,7 @@ public class TokeniserStateTest_OE25Dev {
         assertEquals("", els.text());
     }
 
-    @Test
+@Test
     public void testRcdataLessthanSign_3_oe() {
         String body;
         Document doc;
@@ -192,7 +192,7 @@ public class TokeniserStateTest_OE25Dev {
         assertEquals("hello world</?fake", els.text());
     }
 
-    @Test
+@Test
     public void testRCDATAEndTagName_1_oe() {
         for (char c : whiteSpace) {
             String body = String.format("<textarea>data</textarea%c>", c);
@@ -202,7 +202,7 @@ public class TokeniserStateTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testCommentEndCoverage_1_oe() {
         String html = "<html><head></head><body><img src=foo><!-- <table><tr><td></table> --! --- --><p>Hello</p></body></html>";
         Document doc = Jsoup.parse(html);
@@ -212,7 +212,7 @@ public class TokeniserStateTest_OE25Dev {
         assertEquals(" <table><tr><td></table> --! --- ", comment.getData());
     }
 
-    @Test
+@Test
     public void testCommentEndCoverage_2_oe() {
         String html = "<html><head></head><body><img src=foo><!-- <table><tr><td></table> --! --- --><p>Hello</p></body></html>";
         Document doc = Jsoup.parse(html);
@@ -225,7 +225,7 @@ public class TokeniserStateTest_OE25Dev {
         assertEquals("Hello", text.getWholeText());
     }
 
-    @Test
+@Test
     public void testCommentEndBangCoverage_1_oe() {
         String html = "<html><head></head><body><img src=foo><!-- <table><tr><td></table> --!---!>--><p>Hello</p></body></html>";
         Document doc = Jsoup.parse(html);
@@ -235,7 +235,7 @@ public class TokeniserStateTest_OE25Dev {
         assertEquals(" <table><tr><td></table> --!-", comment.getData());
     }
 
-    @Test
+@Test
     public void testCommentEndBangCoverage_2_oe() {
         String html = "<html><head></head><body><img src=foo><!-- <table><tr><td></table> --!---!>--><p>Hello</p></body></html>";
         Document doc = Jsoup.parse(html);
@@ -248,7 +248,7 @@ public class TokeniserStateTest_OE25Dev {
         assertEquals("Hello", text.getWholeText());
     }
 
-    @Test
+@Test
     public void testPublicIdentifiersWithWhitespace_1_oe() {
         String expectedOutput = "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0//EN\">";
         for (char q : quote) {
@@ -269,7 +269,7 @@ public class TokeniserStateTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSystemIdentifiersWithWhitespace_1_oe() {
         String expectedOutput = "<!DOCTYPE html SYSTEM \"http://www.w3.org/TR/REC-html40/strict.dtd\">";
         for (char q : quote) {
@@ -290,7 +290,7 @@ public class TokeniserStateTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testPublicAndSystemIdentifiersWithWhitespace_1_oe() {
         String expectedOutput = "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0//EN\""
                 + " \"http://www.w3.org/TR/REC-html40/strict.dtd\">";
@@ -310,14 +310,14 @@ public class TokeniserStateTest_OE25Dev {
     }
     }
 
-    @Test public void handlesLessInTagThanAsNewTag_1_oe() {
+@Test public void handlesLessInTagThanAsNewTag_1_oe() {
         // out of spec, but clear author intent
         String html = "<p\n<p<div id=one <span>Two";
         Document doc = Jsoup.parse(html);
         assertEquals("<p></p><p></p><div id=\"one\"><span>Two</span></div>", TextUtil.stripNewlines(doc.body().html()));
         }
 
-    @Test
+@Test
     public void testUnconsumeAtBufferBoundary_1_oe() {
         String triggeringSnippet = "<a href=\"\"foo";
         char[] padding = new char[CharacterReader.readAheadLimit - triggeringSnippet.length() + 2]; // The "foo" part must be just at the limit.
@@ -330,7 +330,7 @@ public class TokeniserStateTest_OE25Dev {
         assertEquals(CharacterReader.readAheadLimit - 1, errorList.get(0).getPosition());
     }
 
-    @Test
+@Test
     public void testOpeningAngleBracketInsteadOfAttribute_1_oe() {
         String triggeringSnippet = "<html <";
         ParseErrorList errorList = ParseErrorList.tracking(1);
@@ -340,7 +340,7 @@ public class TokeniserStateTest_OE25Dev {
         assertEquals(6, errorList.get(0).getPosition());
     }
 
-    @Test
+@Test
     public void testMalformedSelfClosingTag_1_oe() {
         String triggeringSnippet = "<html /ouch";
         ParseErrorList errorList = ParseErrorList.tracking(1);
@@ -350,7 +350,7 @@ public class TokeniserStateTest_OE25Dev {
         assertEquals(7, errorList.get(0).getPosition());
     }
 
-    @Test
+@Test
     public void testOpeningAngleBracketInTagName_1_oe() {
         String triggeringSnippet = "<html<";
         ParseErrorList errorList = ParseErrorList.tracking(1);
@@ -360,32 +360,32 @@ public class TokeniserStateTest_OE25Dev {
         assertEquals(5, errorList.get(0).getPosition());
     }
 
-    @Test
+@Test
     public void rcData_1_oe() {
         Document doc = Jsoup.parse("<title>One \0Two</title>");
         assertEquals("One �Two", doc.title());
     }
 
-    @Test
+@Test
     public void plaintext_1_oe() {
         Document doc = Jsoup.parse("<div>One<plaintext><div>Two</plaintext>\0no < Return");
         assertEquals("<html><head></head><body><div>One<plaintext>&lt;div&gt;Two&lt;/plaintext&gt;�no &lt; Return</plaintext></div></body></html>", TextUtil.stripNewlines(doc.html()));
     }
 
-    @Test
+@Test
     public void nullInTag_1_oe() {
         Document doc = Jsoup.parse("<di\0v>One</di\0v>Two");
         assertEquals("<di�v>\n One\n</di�v>Two", doc.body().html());
     }
 
-    @Test
+@Test
     public void attributeValUnquoted_1_oe() {
         Document doc = Jsoup.parse("<p name=foo&lt;bar>");
         Element p = doc.selectFirst("p");
         assertEquals("foo<bar", p.attr("name"));
     }
 
-    @Test
+@Test
     public void attributeValUnquoted_2_oe() {
         Document doc = Jsoup.parse("<p name=foo&lt;bar>");
         Element p = doc.selectFirst("p");

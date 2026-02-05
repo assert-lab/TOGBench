@@ -142,7 +142,7 @@ public class TestNodeSelector_OE25Dev {
      * Tests the string representation.
      */
 
-    @Test
+@Test
     public void testSelectIgnoreAttributeResults_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolverMock = NodeStructureHelper.createResolverMock();
         final List<QueryResult<ImmutableNode>> results = new LinkedList<>();
@@ -157,13 +157,13 @@ public class TestNodeSelector_OE25Dev {
         assertSame("Wrong target", target, selector.select(root, resolverMock, handler));
     }
 
-    @Test
+@Test
     public void testSelectMultipleTargets_1_oe() {
         final NodeSelector selector = new NodeSelector("tables.table.name");
         assertNull("Got a result", selector.select(root, resolver, handler));
     }
 
-    @Test
+@Test
     public void testSelectSingleAttributeKey_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolverMock = NodeStructureHelper.createResolverMock();
         EasyMock.expect(resolverMock.resolveKey(root, KEY, handler)).andReturn(Collections.singletonList(QueryResult.createAttributeResult(root, KEY)));
@@ -173,14 +173,14 @@ public class TestNodeSelector_OE25Dev {
         assertNull("Got a result", selector.select(root, resolverMock, handler));
     }
 
-    @Test
+@Test
     public void testSelectSingleKeySuccess_1_oe() {
         final NodeSelector selector = new NodeSelector("tables.table(0).name");
         final ImmutableNode target = selector.select(root, resolver, handler);
         assertEquals("Wrong name", "name", target.getNodeName());
     }
 
-    @Test
+@Test
     public void testSelectSingleKeySuccess_2_oe() {
         final NodeSelector selector = new NodeSelector("tables.table(0).name");
         final ImmutableNode target = selector.select(root, resolver, handler);
@@ -188,7 +188,7 @@ public class TestNodeSelector_OE25Dev {
         assertEquals("Wrong value", NodeStructureHelper.table(0), target.getValue());
     }
 
-    @Test
+@Test
     public void testSelectSubKey_1_oe() {
         final NodeSelector selectorParent = new NodeSelector("tables.table(0)");
         final NodeSelector selector = selectorParent.subSelector("fields.field(1).name");
@@ -196,7 +196,7 @@ public class TestNodeSelector_OE25Dev {
         assertEquals("Wrong node selected", NodeStructureHelper.field(0, 1), target.getValue());
     }
 
-    @Test
+@Test
     public void testSelectSubKeyComplexEvaluation_1_oe() {
         final NodeSelector first = new NodeSelector("tables.table");
         final NodeSelector second = first.subSelector("fields");
@@ -206,21 +206,21 @@ public class TestNodeSelector_OE25Dev {
         assertEquals("Wrong target node", NodeStructureHelper.field(1, fldIdx), target.getValue());
     }
 
-    @Test
+@Test
     public void testSelectSubKeyMultipleResults_1_oe() {
         final NodeSelector selectorParent = new NodeSelector("tables.table");
         final NodeSelector selector = selectorParent.subSelector("fields.field(1).name");
         assertNull("Got a result", selector.select(root, resolver, handler));
     }
 
-    @Test
+@Test
     public void testSelectSubKeyUnknown_1_oe() {
         final NodeSelector selectorParent = new NodeSelector("tables.unknown");
         final NodeSelector selector = selectorParent.subSelector("fields.field(1).name");
         assertNull("Got a result", selector.select(root, resolver, handler));
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         final String key2 = "anotherSelectionKey";
         final NodeSelector selector = new NodeSelector(KEY).subSelector(key2);
@@ -228,7 +228,7 @@ public class TestNodeSelector_OE25Dev {
         assertThat(s, containsString(KEY));
     }
 
-    @Test
+@Test
     public void testToString_2_oe() {
         final String key2 = "anotherSelectionKey";
         final NodeSelector selector = new NodeSelector(KEY).subSelector(key2);

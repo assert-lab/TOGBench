@@ -173,13 +173,13 @@ public class TestXMLListHandling_OE25Dev {
         checkCommaSeparated(xml, KEY_VALUES, "a", "b", "c");
     }
 
-    @Test
+@Test
     public void testMixedList_1_oe() throws ConfigurationException {
         final List<String> expected = Arrays.asList("foo", "blah", "bar", "baz");
         assertEquals("Wrong list value (1)", expected, config.getList("mixed.values"));
     }
 
-    @Test
+@Test
     public void testMixedList_2_oe() throws ConfigurationException {
         final List<String> expected = Arrays.asList("foo", "blah", "bar", "baz");
         // removed other assertion

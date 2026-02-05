@@ -42,7 +42,7 @@ public class Jira454TestCase_OE25Dev extends TestCase {
         }
     }
 
-    public void testCopyProperties_1_oe() throws Exception {
+public void testCopyProperties_1_oe() throws Exception {
         final TestBean bean = new TestBean();
         final TestBean b2 = new TestBean();
         BeanUtils.copyProperties(b2, bean);

@@ -51,7 +51,7 @@ public class SocketClientFunctionalTest_OE25Dev extends TestCase
      * @throws Exception in case of connection errors
      */
 
-    public void testProxySettings_1_oe() throws Exception
+public void testProxySettings_1_oe() throws Exception
     {
         // NOTE: HTTP Proxies seem to be invalid for raw sockets
         final Proxy proxy = new Proxy(Proxy.Type.SOCKS, new InetSocketAddress(PROXY_HOST, PROXY_PORT));

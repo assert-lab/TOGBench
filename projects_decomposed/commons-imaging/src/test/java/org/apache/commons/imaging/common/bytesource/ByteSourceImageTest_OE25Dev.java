@@ -174,14 +174,14 @@ public class ByteSourceImageTest_OE25Dev extends ByteSourceTest {
 
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void test_1_oe(final File imageFile) throws Exception {
         Debug.debug("imageFile", imageFile);
         assertNotNull(imageFile);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void test_2_oe(final File imageFile) throws Exception {
         Debug.debug("imageFile", imageFile);
@@ -191,7 +191,7 @@ public class ByteSourceImageTest_OE25Dev extends ByteSourceTest {
         assertNotNull(imageFileBytes);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void test_3_oe(final File imageFile) throws Exception {
         Debug.debug("imageFile", imageFile);

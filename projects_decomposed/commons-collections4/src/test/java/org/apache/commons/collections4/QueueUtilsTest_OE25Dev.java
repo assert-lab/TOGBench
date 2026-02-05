@@ -41,19 +41,19 @@ public class QueueUtilsTest_OE25Dev {
 
     // ----------------------------------------------------------------------
 
-    @Test
+@Test
     public void testSynchronizedQueue_1_oe() {
         final Queue<Object> queue = QueueUtils.synchronizedQueue(new LinkedList<>());
         assertTrue("Returned object should be a SynchronizedQueue.", queue instanceof SynchronizedQueue);
     }
 
-    @Test
+@Test
     public void testUnmodifiableQueue_1_oe() {
         final Queue<Object> queue = QueueUtils.unmodifiableQueue(new LinkedList<>());
         assertTrue("Returned object should be an UnmodifiableQueue.", queue instanceof UnmodifiableQueue);
     }
 
-    @Test
+@Test
     public void testUnmodifiableQueue_3_oe() {
         final Queue<Object> queue = QueueUtils.unmodifiableQueue(new LinkedList<>());
         // removed other assertion
@@ -67,25 +67,25 @@ public class QueueUtilsTest_OE25Dev {
         assertSame("UnmodifiableQueue shall not be decorated", queue, QueueUtils.unmodifiableQueue(queue));
     }
 
-    @Test
+@Test
     public void testPredicatedQueue_1_oe() {
         final Queue<Object> queue = QueueUtils.predicatedQueue(new LinkedList<>(), truePredicate);
         assertTrue("Returned object should be a PredicatedQueue.", queue instanceof PredicatedQueue);
     }
 
-    @Test
+@Test
     public void testTransformedQueue_1_oe() {
         final Queue<Object> queue = QueueUtils.transformingQueue(new LinkedList<>(), nopTransformer);
         assertTrue("Returned object should be an TransformedQueue.", queue instanceof TransformedQueue);
     }
 
-    @Test
+@Test
     public void testEmptyQueue_1_oe() {
         final Queue<Object> queue = QueueUtils.emptyQueue();
         assertTrue("Returned object should be an UnmodifiableQueue.", queue instanceof UnmodifiableQueue);
     }
 
-    @Test
+@Test
     public void testEmptyQueue_2_oe() {
         final Queue<Object> queue = QueueUtils.emptyQueue();
         // removed other assertion

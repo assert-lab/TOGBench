@@ -104,20 +104,20 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
 
     }
 
-    @Test
+@Test
     public void testAcceptCannotRead_1_oe() throws FileSystemException {
 
         Assert.assertFalse(CanReadFileFilter.CANNOT_READ.accept(writableFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptCannotRead_2_oe() throws FileSystemException {
 
         // removed other assertion
         Assert.assertFalse(CanReadFileFilter.CANNOT_READ.accept(readOnlyFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptCannotRead_3_oe() throws FileSystemException {
 
         // removed other assertion
@@ -125,20 +125,20 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(CanReadFileFilter.CANNOT_READ.accept(notExistingFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptCanRead_1_oe() throws FileSystemException {
 
         Assert.assertTrue(CanReadFileFilter.CAN_READ.accept(writableFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptCanRead_2_oe() throws FileSystemException {
 
         // removed other assertion
         Assert.assertTrue(CanReadFileFilter.CAN_READ.accept(readOnlyFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptCanRead_3_oe() throws FileSystemException {
 
         // removed other assertion
@@ -146,20 +146,20 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(CanReadFileFilter.CAN_READ.accept(notExistingFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptReadOnly_1_oe() throws FileSystemException {
 
         Assert.assertFalse(CanReadFileFilter.READ_ONLY.accept(writableFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptReadOnly_2_oe() throws FileSystemException {
 
         // removed other assertion
         Assert.assertTrue(CanReadFileFilter.READ_ONLY.accept(readOnlyFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptReadOnly_3_oe() throws FileSystemException {
 
         // removed other assertion
@@ -167,7 +167,7 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(CanReadFileFilter.READ_ONLY.accept(notExistingFileInfo));
     }
 
-    @Test
+@Test
     public void testAcceptZipFile_2_oe() throws FileSystemException {
 
         FileObject[] files;
@@ -178,7 +178,7 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertEquals(2, files.length);
     }
 
-    @Test
+@Test
     public void testAcceptZipFile_3_oe() throws FileSystemException {
 
         FileObject[] files;
@@ -193,7 +193,7 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(files == null || files.length == 0);
     }
 
-    @Test
+@Test
     public void testAcceptZipFile_5_oe() throws FileSystemException {
 
         FileObject[] files;

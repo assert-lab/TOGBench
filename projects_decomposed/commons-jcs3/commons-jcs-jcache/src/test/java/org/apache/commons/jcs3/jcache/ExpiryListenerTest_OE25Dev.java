@@ -62,7 +62,7 @@ public class ExpiryListenerTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void listener_1_oe() throws InterruptedException {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
         final CacheManager cacheManager = cachingProvider.getCacheManager();
@@ -78,7 +78,7 @@ public class ExpiryListenerTest_OE25Dev {
         assertFalse(cache.containsKey("foo"));
     }
 
-    @Test
+@Test
     public void listener_2_oe() throws InterruptedException {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
         final CacheManager cacheManager = cachingProvider.getCacheManager();
@@ -97,7 +97,7 @@ public class ExpiryListenerTest_OE25Dev {
         assertFalse(cache.containsKey("foo"));
     }
 
-    @Test
+@Test
     public void listener_3_oe() throws InterruptedException {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
         final CacheManager cacheManager = cachingProvider.getCacheManager();

@@ -28,13 +28,13 @@ public class AnnotationAccessFlagTestCase_OE25Dev extends AbstractTestCase
      * BCEL.
      */
 
-    public void testAnnotationClassSaysItIs_1_oe() throws ClassNotFoundException
+public void testAnnotationClassSaysItIs_1_oe() throws ClassNotFoundException
     {
         JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.SimpleAnnotation");
         assertTrue("Expected SimpleAnnotation class to say it was an annotation - but it didn't !",clazz.isAnnotation());
     }
 
-    public void testAnnotationClassSaysItIs_2_oe() throws ClassNotFoundException
+public void testAnnotationClassSaysItIs_2_oe() throws ClassNotFoundException
     {
         JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.SimpleAnnotation");
         // removed other assertion

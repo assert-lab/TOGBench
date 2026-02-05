@@ -109,7 +109,7 @@ public class CDIJCacheHelperTest_OE25Dev
     {
     }
 
-    @Test
+@Test
     public void proxyCacheDefaults_1_oe()
     {
         final CDIJCacheHelper helper = new CDIJCacheHelper();
@@ -120,7 +120,7 @@ public class CDIJCacheHelperTest_OE25Dev
         assertEquals("child", meta1.getCacheResultCacheName());
     }
 
-    @Test
+@Test
     public void proxyCacheDefaults_2_oe()
     {
         final CDIJCacheHelper helper = new CDIJCacheHelper();

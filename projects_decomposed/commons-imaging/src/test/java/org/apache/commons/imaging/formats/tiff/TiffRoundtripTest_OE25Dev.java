@@ -33,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class TiffRoundtripTest_OE25Dev extends TiffBaseTest {
 
-    @Test
+@Test
     public void test_1_oe() throws Exception {
         final List<File> images = getTiffImages();
         for (final File imageFile : images) {
@@ -45,7 +45,7 @@ public class TiffRoundtripTest_OE25Dev extends TiffBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_2_oe() throws Exception {
         final List<File> images = getTiffImages();
         for (final File imageFile : images) {
@@ -60,7 +60,7 @@ public class TiffRoundtripTest_OE25Dev extends TiffBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_3_oe() throws Exception {
         final List<File> images = getTiffImages();
         for (final File imageFile : images) {

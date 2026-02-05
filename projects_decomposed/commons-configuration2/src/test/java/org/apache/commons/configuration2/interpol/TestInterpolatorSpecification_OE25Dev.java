@@ -175,7 +175,7 @@ public class TestInterpolatorSpecification_OE25Dev {
      * Tests whether a null map with prefix lookups is accepted.
      */
 
-    @Test
+@Test
     public void testBuilderReuse_1_oe() {
         builder
             .withDefaultLookup(createLookup())
@@ -200,7 +200,7 @@ public class TestInterpolatorSpecification_OE25Dev {
         assertNull("Got an interpolator", spec.getInterpolator());
     }
 
-    @Test
+@Test
     public void testBuilderReuse_2_oe() {
         builder
             .withDefaultLookup(createLookup())
@@ -226,7 +226,7 @@ public class TestInterpolatorSpecification_OE25Dev {
         assertSame("Wrong parent interpolator", parent, spec.getParentInterpolator());
     }
 
-    @Test
+@Test
     public void testBuilderReuse_3_oe() {
         builder
             .withDefaultLookup(createLookup())
@@ -253,7 +253,7 @@ public class TestInterpolatorSpecification_OE25Dev {
         assertSame("Wrong string converter", stringConverter, spec.getStringConverter());
     }
 
-    @Test
+@Test
     public void testCreateInstance_1_oe() {
         final Lookup prefLook1 = createLookup();
         final Lookup prefLook2 = createLookup();
@@ -274,7 +274,7 @@ public class TestInterpolatorSpecification_OE25Dev {
         assertSame("Wrong interpolator", interpolator, spec.getInterpolator());
     }
 
-    @Test
+@Test
     public void testCreateInstance_2_oe() {
         final Lookup prefLook1 = createLookup();
         final Lookup prefLook2 = createLookup();
@@ -296,7 +296,7 @@ public class TestInterpolatorSpecification_OE25Dev {
         assertSame("Wrong parent interpolator", parent, spec.getParentInterpolator());
     }
 
-    @Test
+@Test
     public void testCreateInstance_3_oe() {
         final Lookup prefLook1 = createLookup();
         final Lookup prefLook2 = createLookup();
@@ -319,13 +319,13 @@ public class TestInterpolatorSpecification_OE25Dev {
         assertSame("Wrong string converter", stringConverter, spec.getStringConverter());
     }
 
-    @Test
+@Test
     public void testWithDefaultLookupsNull_1_oe() {
         final InterpolatorSpecification spec = builder.withDefaultLookups(null).create();
         assertTrue("No empty default lookups collection", spec.getDefaultLookups().isEmpty());
     }
 
-    @Test
+@Test
     public void testWithPrefixLookupsNull_1_oe() {
         final InterpolatorSpecification spec = builder.withPrefixLookups(null).create();
         assertTrue("No empty map with prefix lookups", spec.getPrefixLookups().isEmpty());

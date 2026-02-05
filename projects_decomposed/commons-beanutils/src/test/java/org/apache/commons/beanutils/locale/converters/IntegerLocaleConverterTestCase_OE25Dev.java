@@ -267,7 +267,7 @@ public class IntegerLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterT
      * Tests whether a conversion to a primitive type can be performed.
      */
 
-    public void testNumber_1_oe() {
+public void testNumber_1_oe() {
 
         // ------------- Construct using specified Locale --------
         converter = new IntegerLocaleConverter(localizedLocale);
@@ -276,7 +276,7 @@ public class IntegerLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterT
         assertEquals("Convert Integer", value, converter.convert(value));
     }
 
-    public void testNumber_2_oe() {
+public void testNumber_2_oe() {
 
         // ------------- Construct using specified Locale --------
         converter = new IntegerLocaleConverter(localizedLocale);
@@ -286,7 +286,7 @@ public class IntegerLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterT
         assertEquals("Convert Long",    value, converter.convert(new Long(value.intValue())));
     }
 
-    public void testToPrimitiveType_1_oe() {
+public void testToPrimitiveType_1_oe() {
         converter = new IntegerLocaleConverter();
         final Integer value = 20131028;
         final Class<Integer> target = Integer.TYPE;

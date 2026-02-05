@@ -104,25 +104,25 @@ public class TreeBagTest_OE25Dev<T> extends AbstractSortedBagTest<T> {
 //        writeExternalFormToDisk((java.io.Serializable) bag, "src/test/resources/data/test/TreeBag.fullCollection.version4.obj");
 //    }
 
-    public void testOrdering_1_oe() {
+public void testOrdering_1_oe() {
         final Bag<T> bag = setupBag();
         assertEquals("Should get elements in correct order", "A", bag.toArray()[0]);
     }
 
-    public void testOrdering_2_oe() {
+public void testOrdering_2_oe() {
         final Bag<T> bag = setupBag();
         // removed other assertion
         assertEquals("Should get elements in correct order", "B", bag.toArray()[1]);
     }
 
-    public void testOrdering_3_oe() {
+public void testOrdering_3_oe() {
         final Bag<T> bag = setupBag();
         // removed other assertion
         // removed other assertion
         assertEquals("Should get elements in correct order", "C", bag.toArray()[2]);
     }
 
-    public void testOrdering_4_oe() {
+public void testOrdering_4_oe() {
         final Bag<T> bag = setupBag();
         // removed other assertion
         // removed other assertion
@@ -130,7 +130,7 @@ public class TreeBagTest_OE25Dev<T> extends AbstractSortedBagTest<T> {
         assertEquals("Should get first key", "A", ((SortedBag<T>) bag).first());
     }
 
-    public void testOrdering_5_oe() {
+public void testOrdering_5_oe() {
         final Bag<T> bag = setupBag();
         // removed other assertion
         // removed other assertion

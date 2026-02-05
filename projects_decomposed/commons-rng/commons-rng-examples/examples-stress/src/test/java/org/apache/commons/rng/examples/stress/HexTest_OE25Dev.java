@@ -107,12 +107,12 @@ class HexTest_OE25Dev {
         Assertions.assertArrayEquals(text.toLowerCase(Locale.US).toCharArray(), Hex.encodeHex(decoded));
     }
 
-    @Test
+@Test
     void testHexThrowsWithOddNumberOfCharacters_1_oe() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Hex.decodeHex("0"));
     }
 
-    @Test
+@Test
     void testHexThrowsWithIllegalHexCharacters_1_oe() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Hex.decodeHex("0g"));
     }

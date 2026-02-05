@@ -111,7 +111,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
      * Tests subsets and still can resolve elements
      */
 
-    @Test
+@Test
     public void testAddingProperty_1_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -121,7 +121,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("Number of values before add is wrong!", 1, values.length);
     }
 
-    @Test
+@Test
     public void testAddingProperty_2_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -132,7 +132,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("First Value before add is wrong", "1", values[0]);
     }
 
-    @Test
+@Test
     public void testAddingProperty_3_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -149,7 +149,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("Number of values is wrong!", 2, values.length);
     }
 
-    @Test
+@Test
     public void testAddingProperty_4_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -167,7 +167,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("First Value is wrong", "1", values[0]);
     }
 
-    @Test
+@Test
     public void testAddingProperty_5_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -186,13 +186,13 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("Third Value is wrong", "88", values[1]);
     }
 
-    @Test
+@Test
     public void testAddRemoveConfigurations_1_oe() throws Exception {
         cc.addConfiguration(conf1);
         assertEquals(2, cc.getNumberOfConfigurations());
     }
 
-    @Test
+@Test
     public void testAddRemoveConfigurations_2_oe() throws Exception {
         cc.addConfiguration(conf1);
         // removed other assertion
@@ -200,7 +200,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals(2, cc.getNumberOfConfigurations());
     }
 
-    @Test
+@Test
     public void testAddRemoveConfigurations_3_oe() throws Exception {
         cc.addConfiguration(conf1);
         // removed other assertion
@@ -210,7 +210,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals(3, cc.getNumberOfConfigurations());
     }
 
-    @Test
+@Test
     public void testAddRemoveConfigurations_4_oe() throws Exception {
         cc.addConfiguration(conf1);
         // removed other assertion
@@ -222,7 +222,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals(2, cc.getNumberOfConfigurations());
     }
 
-    @Test
+@Test
     public void testAddRemoveConfigurations_5_oe() throws Exception {
         cc.addConfiguration(conf1);
         // removed other assertion
@@ -236,13 +236,13 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals(1, cc.getNumberOfConfigurations());
     }
 
-    @Test
+@Test
     public void testCantRemoveMemoryConfig_1_oe() throws Exception {
         cc.clear();
         assertEquals(1, cc.getNumberOfConfigurations());
     }
 
-    @Test
+@Test
     public void testCantRemoveMemoryConfig_2_oe() throws Exception {
         cc.clear();
         // removed other assertion
@@ -253,7 +253,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals(1, cc.getNumberOfConfigurations());
     }
 
-    @Test
+@Test
     public void testCheckingInMemoryConfiguration_1_oe() throws Exception {
         final String TEST_KEY = "testKey";
         final Configuration defaults = new PropertiesConfiguration();
@@ -262,7 +262,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertTrue(testConfiguration.containsKey(TEST_KEY));
     }
 
-    @Test
+@Test
     public void testCheckingInMemoryConfiguration_2_oe() throws Exception {
         final String TEST_KEY = "testKey";
         final Configuration defaults = new PropertiesConfiguration();
@@ -272,7 +272,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertFalse(testConfiguration.isEmpty());
     }
 
-    @Test
+@Test
     public void testCheckingInMemoryConfiguration_3_oe() throws Exception {
         final String TEST_KEY = "testKey";
         final Configuration defaults = new PropertiesConfiguration();
@@ -291,7 +291,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertTrue(foundTestKey);
     }
 
-    @Test
+@Test
     public void testCheckingInMemoryConfiguration_4_oe() throws Exception {
         final String TEST_KEY = "testKey";
         final Configuration defaults = new PropertiesConfiguration();
@@ -312,7 +312,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertFalse(testConfiguration.containsKey(TEST_KEY));
     }
 
-    @Test
+@Test
     public void testClearingProperty_1_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -320,14 +320,14 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertFalse("Make sure test.short is gone!", cc.containsKey("test.short"));
     }
 
-    @Test
+@Test
     public void testDefaultValueWhenKeyMissing_1_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
         assertEquals("default", cc.getString("bogus", "default"));
     }
 
-    @Test
+@Test
     public void testDefaultValueWhenKeyMissing_2_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -335,7 +335,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals(1.4, cc.getDouble("bogus", 1.4), 0.0);
     }
 
-    @Test
+@Test
     public void testDefaultValueWhenKeyMissing_3_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -344,7 +344,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals(1.4, cc.getDouble("bogus", 1.4), 0.0);
     }
 
-    @Test
+@Test
     public void testGetKeys2PreservesOrder_1_oe() throws Exception {
         cc.addConfiguration(conf1);
         final List<String> orderedList = new ArrayList<>();
@@ -358,7 +358,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals(orderedList.size(), iteratedList.size());
     }
 
-    @Test
+@Test
     public void testGetKeys2PreservesOrder_2_oe() throws Exception {
         cc.addConfiguration(conf1);
         final List<String> orderedList = new ArrayList<>();
@@ -375,7 +375,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetKeysPreservesOrder_1_oe() throws Exception {
         cc.addConfiguration(conf1);
         final List<String> orderedList = new ArrayList<>();
@@ -389,7 +389,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals(orderedList.size(), iteratedList.size());
     }
 
-    @Test
+@Test
     public void testGetKeysPreservesOrder_2_oe() throws Exception {
         cc.addConfiguration(conf1);
         final List<String> orderedList = new ArrayList<>();
@@ -406,7 +406,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetList_1_oe() {
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("array", "value1");
@@ -424,7 +424,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertNotNull("null list", list);
     }
 
-    @Test
+@Test
     public void testGetList_2_oe() {
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("array", "value1");
@@ -443,7 +443,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("list size", 2, list.size());
     }
 
-    @Test
+@Test
     public void testGetList_3_oe() {
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("array", "value1");
@@ -463,7 +463,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertTrue("'value1' not found in the list", list.contains("value1"));
     }
 
-    @Test
+@Test
     public void testGetList_4_oe() {
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("array", "value1");
@@ -484,7 +484,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertTrue("'value2' not found in the list", list.contains("value2"));
     }
 
-    @Test
+@Test
     public void testGetList_5_oe() {
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("array", "value1");
@@ -512,7 +512,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertNotNull("null list", list);
     }
 
-    @Test
+@Test
     public void testGetList_6_oe() {
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("array", "value1");
@@ -541,7 +541,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("list size", 3, list.size());
     }
 
-    @Test
+@Test
     public void testGetList_7_oe() {
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("array", "value1");
@@ -571,7 +571,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertTrue("'value1' not found in the list", list.contains("value1"));
     }
 
-    @Test
+@Test
     public void testGetList_8_oe() {
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("array", "value1");
@@ -602,7 +602,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertTrue("'value2' not found in the list", list.contains("value2"));
     }
 
-    @Test
+@Test
     public void testGetList_9_oe() {
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("array", "value1");
@@ -634,14 +634,14 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertTrue("'value5' not found in the list", list.contains("value5"));
     }
 
-    @Test
+@Test
     public void testGetProperty_1_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
         assertEquals("Make sure we get the property from conf1 first", "test.properties", cc.getString("propertyInOrder"));
     }
 
-    @Test
+@Test
     public void testGetProperty_2_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
@@ -653,7 +653,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("Make sure we get the property from conf2 first", "test2.properties", cc.getString("propertyInOrder"));
     }
 
-    @Test
+@Test
     public void testGetPropertyMissing_1_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
@@ -661,7 +661,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertNull("Bogus property is not null!", cc.getString("bogus.property"));
     }
 
-    @Test
+@Test
     public void testGetPropertyMissing_2_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
@@ -671,7 +671,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertFalse("Should be false", cc.getBoolean("test.missing.boolean", false));
     }
 
-    @Test
+@Test
     public void testGetPropertyMissing_3_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
@@ -682,7 +682,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertTrue("Should be true", cc.getBoolean("test.missing.boolean.true", true));
     }
 
-    @Test
+@Test
     public void testGetPropertyWIncludes_1_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(conf2);
@@ -690,7 +690,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertTrue(l.contains("packagea"));
     }
 
-    @Test
+@Test
     public void testGetStringWithDefaults_1_oe() {
         final BaseConfiguration defaults = new BaseConfiguration();
         defaults.addProperty("default", "default string");
@@ -702,7 +702,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("test string", c.getString("string"));
     }
 
-    @Test
+@Test
     public void testGetStringWithDefaults_2_oe() {
         final BaseConfiguration defaults = new BaseConfiguration();
         defaults.addProperty("default", "default string");
@@ -716,7 +716,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertNull("XXX should have been null!", c.getString("XXX"));
     }
 
-    @Test
+@Test
     public void testGetStringWithDefaults_3_oe() {
         final BaseConfiguration defaults = new BaseConfiguration();
         defaults.addProperty("default", "default string");
@@ -733,7 +733,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("test string", c.getString("string", "some default value"));
     }
 
-    @Test
+@Test
     public void testGetStringWithDefaults_4_oe() {
         final BaseConfiguration defaults = new BaseConfiguration();
         defaults.addProperty("default", "default string");
@@ -751,7 +751,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("default string", c.getString("default"));
     }
 
-    @Test
+@Test
     public void testGetStringWithDefaults_5_oe() {
         final BaseConfiguration defaults = new BaseConfiguration();
         defaults.addProperty("default", "default string");
@@ -770,7 +770,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("default string", c.getString("default", "some default value"));
     }
 
-    @Test
+@Test
     public void testGetStringWithDefaults_6_oe() {
         final BaseConfiguration defaults = new BaseConfiguration();
         defaults.addProperty("default", "default string");
@@ -790,14 +790,14 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("some default value", c.getString("XXX", "some default value"));
     }
 
-    @Test
+@Test
     public void testGettingConfiguration_1_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
         assertEquals(PropertiesConfiguration.class, cc.getConfiguration(0).getClass());
     }
 
-    @Test
+@Test
     public void testGettingConfiguration_2_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -805,7 +805,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals(XMLConfiguration.class, cc.getConfiguration(1).getClass());
     }
 
-    @Test
+@Test
     public void testGettingSubset_1_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -814,7 +814,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertNotNull(subset);
     }
 
-    @Test
+@Test
     public void testGettingSubset_2_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -824,7 +824,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertFalse("Shouldn't be empty", subset.isEmpty());
     }
 
-    @Test
+@Test
     public void testGettingSubset_3_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -835,7 +835,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("Make sure the initial loaded configs subset overrides any later add configs subset", "1", subset.getString("short"));
     }
 
-    @Test
+@Test
     public void testGettingSubset_4_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -850,7 +850,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("Make sure the initial loaded configs subset overrides any later add configs subset", "43", subset.getString("short"));
     }
 
-    @Test
+@Test
     public void testGetVector_1_oe() {
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("array", "value1");
@@ -870,7 +870,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("Wrong number of elements", 3, list.size());
     }
 
-    @Test
+@Test
     public void testGetVector_2_oe() {
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("array", "value1");
@@ -891,7 +891,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("Wrong element 1", "value1", list.get(0));
     }
 
-    @Test
+@Test
     public void testGetVector_3_oe() {
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("array", "value1");
@@ -913,7 +913,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("Wrong element 2", "value2", list.get(1));
     }
 
-    @Test
+@Test
     public void testGetVector_4_oe() {
         final Configuration conf1 = new BaseConfiguration();
         conf1.addProperty("array", "value1");
@@ -936,7 +936,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("Wrong element 3", "value5", list.get(2));
     }
 
-    @Test
+@Test
     public void testList_1_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -946,7 +946,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals(3, packages.size());
     }
 
-    @Test
+@Test
     public void testList_2_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -964,14 +964,14 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals(2, packages.size());
     }
 
-    @Test
+@Test
     public void testMultipleTypesOfConfigs_1_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
         assertEquals("Make sure we get the property from conf1 first", 1, cc.getInt("test.short"));
     }
 
-    @Test
+@Test
     public void testMultipleTypesOfConfigs_2_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -983,14 +983,14 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("Make sure we get the property from xml", 8, cc.getInt("test.short"));
     }
 
-    @Test
+@Test
     public void testPropertyExistsInOnlyOneConfig_1_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
         assertEquals("value", cc.getString("element"));
     }
 
-    @Test
+@Test
     public void testSettingMissingProperty_1_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -998,7 +998,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals("supernew", cc.getString("my.new.property"));
     }
 
-    @Test
+@Test
     public void testStringArray_1_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -1008,7 +1008,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals(3, packages.length);
     }
 
-    @Test
+@Test
     public void testStringArray_2_oe() throws Exception {
         cc.addConfiguration(conf1);
         cc.addConfiguration(xmlConf);
@@ -1022,7 +1022,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals(0, packages.length);
     }
 
-    @Test
+@Test
     public void testSubsetCanResolve_1_oe() throws Exception {
         cc = new CompositeConfiguration();
         final BaseConfiguration config = new BaseConfiguration();
@@ -1034,7 +1034,7 @@ public class TestNullCompositeConfiguration_OE25Dev {
         assertEquals(System.getProperty("java.io.tmpdir") + "/file.tmp", subset.getString("tempfile"));
     }
 
-    @Test
+@Test
     public void testThrowExceptionOnMissing_1_oe() {
         assertFalse("Throw Exception Property is set!", cc.isThrowExceptionOnMissing());
     }

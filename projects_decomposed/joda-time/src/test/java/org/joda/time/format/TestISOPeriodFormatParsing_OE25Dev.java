@@ -148,67 +148,67 @@ public class TestISOPeriodFormatParsing_OE25Dev extends TestCase {
         } catch (IllegalArgumentException ex) {}
     }
 
-    public void testParseStandard1_1_oe() {
+public void testParseStandard1_1_oe() {
         PeriodFormatter parser = ISOPeriodFormat.standard();
         Period p = parser.parsePeriod("P1Y2M3W4DT5H6M7.008S");
         assertEquals(new Period(1,2,3,4,5,6,7,8),p);
     }
 
-    public void testParseStandard2_1_oe() {
+public void testParseStandard2_1_oe() {
         PeriodFormatter parser = ISOPeriodFormat.standard();
         Period p = parser.parsePeriod("P0Y0M0W0DT5H6M7.008S");
         assertEquals(new Period(0,0,0,0,5,6,7,8),p);
     }
 
-    public void testParseStandard3_1_oe() {
+public void testParseStandard3_1_oe() {
         PeriodFormatter parser = ISOPeriodFormat.standard();
         Period p = parser.parsePeriod("P0DT5H6M7.008S");
         assertEquals(new Period(0,0,0,0,5,6,7,8),p);
     }
 
-    public void testParseStandard4_1_oe() {
+public void testParseStandard4_1_oe() {
         PeriodFormatter parser = ISOPeriodFormat.standard();
         Period p = parser.parsePeriod("P2Y3DT5H6M7.008S");
         assertEquals(new Period(2,0,0,3,5,6,7,8),p);
     }
 
-    public void testParseStandard5_1_oe() {
+public void testParseStandard5_1_oe() {
         PeriodFormatter parser = ISOPeriodFormat.standard();
         Period p = parser.parsePeriod("P2YT5H6M7.008S");
         assertEquals(new Period(2,0,0,0,5,6,7,8),p);
     }
 
-    public void testParseStandard6_1_oe() {
+public void testParseStandard6_1_oe() {
         PeriodFormatter parser = ISOPeriodFormat.standard();
         Period p = parser.parsePeriod("PT5H6M7.008S");
         assertEquals(new Period(0,0,0,0,5,6,7,8),p);
     }
 
-    public void testParseStandard7_1_oe() {
+public void testParseStandard7_1_oe() {
         PeriodFormatter parser = ISOPeriodFormat.standard();
         Period p = parser.parsePeriod("P1Y2M3W4D");
         assertEquals(new Period(1,2,3,4,0,0,0,0),p);
     }
 
-    public void testParseStandard8_1_oe() {
+public void testParseStandard8_1_oe() {
         PeriodFormatter parser = ISOPeriodFormat.standard();
         Period p = parser.parsePeriod("PT5H6M7S");
         assertEquals(new Period(0,0,0,0,5,6,7,0),p);
     }
 
-    public void testParseStandard9_1_oe() {
+public void testParseStandard9_1_oe() {
         PeriodFormatter parser = ISOPeriodFormat.standard();
         Period p = parser.parsePeriod("PT0S");
         assertEquals(new Period(0,0,0,0,0,0,0,0),p);
     }
 
-    public void testParseStandard10_1_oe() {
+public void testParseStandard10_1_oe() {
         PeriodFormatter parser = ISOPeriodFormat.standard();
         Period p = parser.parsePeriod("P0D");
         assertEquals(new Period(0,0,0,0,0,0,0,0),p);
     }
 
-    public void testParseStandard11_1_oe() {
+public void testParseStandard11_1_oe() {
         PeriodFormatter parser = ISOPeriodFormat.standard();
         Period p = parser.parsePeriod("P0Y");
         assertEquals(new Period(0,0,0,0,0,0,0,0),p);

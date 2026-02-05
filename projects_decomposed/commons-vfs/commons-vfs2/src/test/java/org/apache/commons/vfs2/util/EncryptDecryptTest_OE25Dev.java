@@ -32,7 +32,7 @@ public class EncryptDecryptTest_OE25Dev {
         /* ignored */ cryptor.decrypt(broken);
     }
 
-    @Test
+@Test
     public void testEncryptDecrypt_1_oe() throws Exception {
         final String source = "Qryp2!t&tpR59";
         final String expected = "914589F049CE3E8E3BB1A41BEAE12A9C";
@@ -42,7 +42,7 @@ public class EncryptDecryptTest_OE25Dev {
         assertEquals(expected, encrypted);
     }
 
-    @Test
+@Test
     public void testEncryptDecrypt_2_oe() throws Exception {
         final String source = "Qryp2!t&tpR59";
         final String expected = "914589F049CE3E8E3BB1A41BEAE12A9C";

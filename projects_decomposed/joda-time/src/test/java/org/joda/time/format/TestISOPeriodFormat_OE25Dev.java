@@ -103,26 +103,26 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testSubclassableConstructor_1_oe() {
+public void testSubclassableConstructor_1_oe() {
         ISOPeriodFormat f = new ISOPeriodFormat() {
             // test constructor is protected
         };
         assertNotNull(f);
     }
 
-    public void testFormatStandard_1_oe() {
+public void testFormatStandard_1_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         assertEquals("P1Y2M3W4DT5H6M7.008S",ISOPeriodFormat.standard().print(p));
     }
 
-    public void testFormatStandard_2_oe() {
+public void testFormatStandard_2_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
         assertEquals("P1Y2M3W4DT5H6M7S",ISOPeriodFormat.standard().print(p));
     }
 
-    public void testFormatStandard_3_oe() {
+public void testFormatStandard_3_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -132,7 +132,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("PT0S",ISOPeriodFormat.standard().print(p));
     }
 
-    public void testFormatStandard_4_oe() {
+public void testFormatStandard_4_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -144,7 +144,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("PT0M",ISOPeriodFormat.standard().print(p));
     }
 
-    public void testFormatStandard_5_oe() {
+public void testFormatStandard_5_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -158,7 +158,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P1Y4DT5H6M7.008S",ISOPeriodFormat.standard().print(YEAR_DAY_PERIOD));
     }
 
-    public void testFormatStandard_6_oe() {
+public void testFormatStandard_6_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -173,7 +173,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("PT0S",ISOPeriodFormat.standard().print(EMPTY_YEAR_DAY_PERIOD));
     }
 
-    public void testFormatStandard_7_oe() {
+public void testFormatStandard_7_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -189,7 +189,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P1Y2M3W4D",ISOPeriodFormat.standard().print(DATE_PERIOD));
     }
 
-    public void testFormatStandard_8_oe() {
+public void testFormatStandard_8_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -206,12 +206,12 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("PT5H6M7.008S",ISOPeriodFormat.standard().print(TIME_PERIOD));
     }
 
-    public void testFormatStandard_negative_1_oe() {
+public void testFormatStandard_negative_1_oe() {
         Period p = new Period(-1, -2, -3, -4, -5, -6, -7, -8);
         assertEquals("P-1Y-2M-3W-4DT-5H-6M-7.008S",ISOPeriodFormat.standard().print(p));
     }
 
-    public void testFormatStandard_negative_2_oe() {
+public void testFormatStandard_negative_2_oe() {
         Period p = new Period(-1, -2, -3, -4, -5, -6, -7, -8);
         // removed other assertion
         
@@ -219,7 +219,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P-54Y",ISOPeriodFormat.standard().print(p));
     }
 
-    public void testFormatStandard_negative_3_oe() {
+public void testFormatStandard_negative_3_oe() {
         Period p = new Period(-1, -2, -3, -4, -5, -6, -7, -8);
         // removed other assertion
         
@@ -230,7 +230,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("PT3.992S",ISOPeriodFormat.standard().print(p));
     }
 
-    public void testFormatStandard_negative_4_oe() {
+public void testFormatStandard_negative_4_oe() {
         Period p = new Period(-1, -2, -3, -4, -5, -6, -7, -8);
         // removed other assertion
         
@@ -244,7 +244,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("PT-3.992S",ISOPeriodFormat.standard().print(p));
     }
 
-    public void testFormatStandard_negative_5_oe() {
+public void testFormatStandard_negative_5_oe() {
         Period p = new Period(-1, -2, -3, -4, -5, -6, -7, -8);
         // removed other assertion
         
@@ -261,7 +261,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("PT-23S",ISOPeriodFormat.standard().print(p));
     }
 
-    public void testFormatStandard_negative_6_oe() {
+public void testFormatStandard_negative_6_oe() {
         Period p = new Period(-1, -2, -3, -4, -5, -6, -7, -8);
         // removed other assertion
         
@@ -281,19 +281,19 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("PT-0.008S",ISOPeriodFormat.standard().print(p));
     }
 
-    public void testFormatAlternate_1_oe() {
+public void testFormatAlternate_1_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         assertEquals("P00010204T050607.008",ISOPeriodFormat.alternate().print(p));
     }
 
-    public void testFormatAlternate_2_oe() {
+public void testFormatAlternate_2_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
         assertEquals("P00010204T050607",ISOPeriodFormat.alternate().print(p));
     }
 
-    public void testFormatAlternate_3_oe() {
+public void testFormatAlternate_3_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -303,7 +303,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P00000000T000000",ISOPeriodFormat.alternate().print(p));
     }
 
-    public void testFormatAlternate_4_oe() {
+public void testFormatAlternate_4_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -315,7 +315,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P00000000T000000",ISOPeriodFormat.alternate().print(p));
     }
 
-    public void testFormatAlternate_5_oe() {
+public void testFormatAlternate_5_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -329,7 +329,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P00010004T050607.008",ISOPeriodFormat.alternate().print(YEAR_DAY_PERIOD));
     }
 
-    public void testFormatAlternate_6_oe() {
+public void testFormatAlternate_6_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -344,7 +344,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P00000000T000000",ISOPeriodFormat.alternate().print(EMPTY_YEAR_DAY_PERIOD));
     }
 
-    public void testFormatAlternate_7_oe() {
+public void testFormatAlternate_7_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -360,7 +360,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P00010204T000000",ISOPeriodFormat.alternate().print(DATE_PERIOD));
     }
 
-    public void testFormatAlternate_8_oe() {
+public void testFormatAlternate_8_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -377,19 +377,19 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P00000000T050607.008",ISOPeriodFormat.alternate().print(TIME_PERIOD));
     }
 
-    public void testFormatAlternateExtended_1_oe() {
+public void testFormatAlternateExtended_1_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         assertEquals("P0001-02-04T05:06:07.008",ISOPeriodFormat.alternateExtended().print(p));
     }
 
-    public void testFormatAlternateExtended_2_oe() {
+public void testFormatAlternateExtended_2_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
         assertEquals("P0001-02-04T05:06:07",ISOPeriodFormat.alternateExtended().print(p));
     }
 
-    public void testFormatAlternateExtended_3_oe() {
+public void testFormatAlternateExtended_3_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -399,7 +399,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0000-00-00T00:00:00",ISOPeriodFormat.alternateExtended().print(p));
     }
 
-    public void testFormatAlternateExtended_4_oe() {
+public void testFormatAlternateExtended_4_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -411,7 +411,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0000-00-00T00:00:00",ISOPeriodFormat.alternateExtended().print(p));
     }
 
-    public void testFormatAlternateExtended_5_oe() {
+public void testFormatAlternateExtended_5_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -425,7 +425,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0001-00-04T05:06:07.008",ISOPeriodFormat.alternateExtended().print(YEAR_DAY_PERIOD));
     }
 
-    public void testFormatAlternateExtended_6_oe() {
+public void testFormatAlternateExtended_6_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -440,7 +440,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0000-00-00T00:00:00",ISOPeriodFormat.alternateExtended().print(EMPTY_YEAR_DAY_PERIOD));
     }
 
-    public void testFormatAlternateExtended_7_oe() {
+public void testFormatAlternateExtended_7_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -456,7 +456,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0001-02-04T00:00:00",ISOPeriodFormat.alternateExtended().print(DATE_PERIOD));
     }
 
-    public void testFormatAlternateExtended_8_oe() {
+public void testFormatAlternateExtended_8_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -473,19 +473,19 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0000-00-00T05:06:07.008",ISOPeriodFormat.alternateExtended().print(TIME_PERIOD));
     }
 
-    public void testFormatAlternateWithWeeks_1_oe() {
+public void testFormatAlternateWithWeeks_1_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         assertEquals("P0001W0304T050607.008",ISOPeriodFormat.alternateWithWeeks().print(p));
     }
 
-    public void testFormatAlternateWithWeeks_2_oe() {
+public void testFormatAlternateWithWeeks_2_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
         assertEquals("P0001W0304T050607",ISOPeriodFormat.alternateWithWeeks().print(p));
     }
 
-    public void testFormatAlternateWithWeeks_3_oe() {
+public void testFormatAlternateWithWeeks_3_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -495,7 +495,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0000W0000T000000",ISOPeriodFormat.alternateWithWeeks().print(p));
     }
 
-    public void testFormatAlternateWithWeeks_4_oe() {
+public void testFormatAlternateWithWeeks_4_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -507,7 +507,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0000W0000T000000",ISOPeriodFormat.alternateWithWeeks().print(p));
     }
 
-    public void testFormatAlternateWithWeeks_5_oe() {
+public void testFormatAlternateWithWeeks_5_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -521,7 +521,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0001W0004T050607.008",ISOPeriodFormat.alternateWithWeeks().print(YEAR_DAY_PERIOD));
     }
 
-    public void testFormatAlternateWithWeeks_6_oe() {
+public void testFormatAlternateWithWeeks_6_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -536,7 +536,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0000W0000T000000",ISOPeriodFormat.alternateWithWeeks().print(EMPTY_YEAR_DAY_PERIOD));
     }
 
-    public void testFormatAlternateWithWeeks_7_oe() {
+public void testFormatAlternateWithWeeks_7_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -552,7 +552,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0001W0304T000000",ISOPeriodFormat.alternateWithWeeks().print(DATE_PERIOD));
     }
 
-    public void testFormatAlternateWithWeeks_8_oe() {
+public void testFormatAlternateWithWeeks_8_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -569,19 +569,19 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0000W0000T050607.008",ISOPeriodFormat.alternateWithWeeks().print(TIME_PERIOD));
     }
 
-    public void testFormatAlternateExtendedWithWeeks_1_oe() {
+public void testFormatAlternateExtendedWithWeeks_1_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         assertEquals("P0001-W03-04T05:06:07.008",ISOPeriodFormat.alternateExtendedWithWeeks().print(p));
     }
 
-    public void testFormatAlternateExtendedWithWeeks_2_oe() {
+public void testFormatAlternateExtendedWithWeeks_2_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
         assertEquals("P0001-W03-04T05:06:07",ISOPeriodFormat.alternateExtendedWithWeeks().print(p));
     }
 
-    public void testFormatAlternateExtendedWithWeeks_3_oe() {
+public void testFormatAlternateExtendedWithWeeks_3_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -591,7 +591,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0000-W00-00T00:00:00",ISOPeriodFormat.alternateExtendedWithWeeks().print(p));
     }
 
-    public void testFormatAlternateExtendedWithWeeks_4_oe() {
+public void testFormatAlternateExtendedWithWeeks_4_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -603,7 +603,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0000-W00-00T00:00:00",ISOPeriodFormat.alternateExtendedWithWeeks().print(p));
     }
 
-    public void testFormatAlternateExtendedWithWeeks_5_oe() {
+public void testFormatAlternateExtendedWithWeeks_5_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -617,7 +617,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0001-W00-04T05:06:07.008",ISOPeriodFormat.alternateExtendedWithWeeks().print(YEAR_DAY_PERIOD));
     }
 
-    public void testFormatAlternateExtendedWithWeeks_6_oe() {
+public void testFormatAlternateExtendedWithWeeks_6_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -632,7 +632,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0000-W00-00T00:00:00",ISOPeriodFormat.alternateExtendedWithWeeks().print(EMPTY_YEAR_DAY_PERIOD));
     }
 
-    public void testFormatAlternateExtendedWithWeeks_7_oe() {
+public void testFormatAlternateExtendedWithWeeks_7_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);
@@ -648,7 +648,7 @@ public class TestISOPeriodFormat_OE25Dev extends TestCase {
         assertEquals("P0001-W03-04T00:00:00",ISOPeriodFormat.alternateExtendedWithWeeks().print(DATE_PERIOD));
     }
 
-    public void testFormatAlternateExtendedWithWeeks_8_oe() {
+public void testFormatAlternateExtendedWithWeeks_8_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6 ,7, 8);
         // removed other assertion
         p = new Period(1, 2, 3, 4, 5, 6 ,7, 0);

@@ -155,7 +155,7 @@ class GreatArcTest_OE25Dev {
         SphericalTestUtils.assertVectorsEqual(pole.cross(x), circle.getV(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromInterval_full_1_oe() {
         // act
         final GreatArc arc = GreatCircles.arcFromInterval(
@@ -166,7 +166,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertTrue(arc.isFull());
     }
 
-    @Test
+@Test
     void testFromInterval_full_2_oe() {
         // act
         final GreatArc arc = GreatCircles.arcFromInterval(
@@ -178,7 +178,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertFalse(arc.isEmpty());
     }
 
-    @Test
+@Test
     void testFromInterval_full_3_oe() {
         // act
         final GreatArc arc = GreatCircles.arcFromInterval(
@@ -191,7 +191,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertTrue(arc.isFinite());
     }
 
-    @Test
+@Test
     void testFromInterval_full_4_oe() {
         // act
         final GreatArc arc = GreatCircles.arcFromInterval(
@@ -205,7 +205,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertFalse(arc.isInfinite());
     }
 
-    @Test
+@Test
     void testFromInterval_full_5_oe() {
         // act
         final GreatArc arc = GreatCircles.arcFromInterval(
@@ -221,7 +221,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertNull(arc.getStartPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_full_6_oe() {
         // act
         final GreatArc arc = GreatCircles.arcFromInterval(
@@ -238,7 +238,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertNull(arc.getEndPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_full_7_oe() {
         // act
         final GreatArc arc = GreatCircles.arcFromInterval(
@@ -257,7 +257,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertEquals(Angle.TWO_PI, arc.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromInterval_full_8_oe() {
         // act
         final GreatArc arc = GreatCircles.arcFromInterval(
@@ -277,7 +277,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertNull(arc.getCentroid());
     }
 
-    @Test
+@Test
     void testFromInterval_partial_1_oe() {
         // arrange
         final GreatArc arc = GreatCircles.arcFromInterval(
@@ -288,7 +288,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertFalse(arc.isFull());
     }
 
-    @Test
+@Test
     void testFromInterval_partial_2_oe() {
         // arrange
         final GreatArc arc = GreatCircles.arcFromInterval(
@@ -300,7 +300,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertFalse(arc.isEmpty());
     }
 
-    @Test
+@Test
     void testFromInterval_partial_3_oe() {
         // arrange
         final GreatArc arc = GreatCircles.arcFromInterval(
@@ -313,7 +313,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertTrue(arc.isFinite());
     }
 
-    @Test
+@Test
     void testFromInterval_partial_4_oe() {
         // arrange
         final GreatArc arc = GreatCircles.arcFromInterval(
@@ -327,7 +327,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertFalse(arc.isInfinite());
     }
 
-    @Test
+@Test
     void testFromPoints_1_oe() {
         // arrange
         final Point2S start = Point2S.PLUS_I;
@@ -340,7 +340,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertFalse(arc.isFull());
     }
 
-    @Test
+@Test
     void testFromPoints_2_oe() {
         // arrange
         final Point2S start = Point2S.PLUS_I;
@@ -354,7 +354,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertFalse(arc.isEmpty());
     }
 
-    @Test
+@Test
     void testFromPoints_3_oe() {
         // arrange
         final Point2S start = Point2S.PLUS_I;
@@ -369,7 +369,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertTrue(arc.isFinite());
     }
 
-    @Test
+@Test
     void testFromPoints_4_oe() {
         // arrange
         final Point2S start = Point2S.PLUS_I;
@@ -385,7 +385,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertFalse(arc.isInfinite());
     }
 
-    @Test
+@Test
     void testFromPoints_almostPi_1_oe() {
         // arrange
         final Point2S start = Point2S.PLUS_J;
@@ -398,7 +398,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertFalse(arc.isFull());
     }
 
-    @Test
+@Test
     void testFromPoints_almostPi_2_oe() {
         // arrange
         final Point2S start = Point2S.PLUS_J;
@@ -412,7 +412,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertFalse(arc.isEmpty());
     }
 
-    @Test
+@Test
     void testFromPoints_almostPi_3_oe() {
         // arrange
         final Point2S start = Point2S.PLUS_J;
@@ -427,7 +427,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertTrue(arc.isFinite());
     }
 
-    @Test
+@Test
     void testFromPoints_almostPi_4_oe() {
         // arrange
         final Point2S start = Point2S.PLUS_J;
@@ -443,20 +443,20 @@ class GreatArcTest_OE25Dev {
         Assertions.assertFalse(arc.isInfinite());
     }
 
-    @Test
+@Test
     void testFromPoints_invalidPoints_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.of(1e-12, Angle.PI_OVER_TWO), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFromPoints_invalidPoints_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.MINUS_I, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testToConvex_1_oe() {
         // arrange
         final GreatArc arc = GreatCircles.arcFromInterval(
@@ -470,7 +470,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertEquals(1, result.size());
     }
 
-    @Test
+@Test
     void testToConvex_2_oe() {
         // arrange
         final GreatArc arc = GreatCircles.arcFromInterval(
@@ -485,7 +485,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertSame(arc, result.get(0));
     }
 
-    @Test
+@Test
     void testGetMidPoint_full_1_oe() {
         // arrange
         final GreatArc arc = GreatCircles.arcFromInterval(
@@ -496,7 +496,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertNull(arc.getMidPoint());
     }
 
-    @Test
+@Test
     void testReverse_full_1_oe() {
         // arrange
         final GreatArc arc = GreatCircles.arcFromInterval(
@@ -512,7 +512,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertTrue(result.isFull());
     }
 
-    @Test
+@Test
     void testSplit_full_1_oe() {
         // arrange
         final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION).span();
@@ -525,7 +525,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_full_2_oe() {
         // arrange
         final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION).span();
@@ -541,7 +541,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertSame(arc.getCircle(), minus.getCircle());
     }
 
-    @Test
+@Test
     void testSplit_full_3_oe() {
         // arrange
         final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION).span();
@@ -563,7 +563,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertSame(arc.getCircle(), plus.getCircle());
     }
 
-    @Test
+@Test
     void testSplit_both_1_oe() {
         // arrange
         final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
@@ -577,7 +577,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_both_2_oe() {
         // arrange
         final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
@@ -594,7 +594,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertSame(arc.getCircle(), minus.getCircle());
     }
 
-    @Test
+@Test
     void testSplit_both_3_oe() {
         // arrange
         final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
@@ -615,7 +615,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertSame(arc.getCircle(), plus.getCircle());
     }
 
-    @Test
+@Test
     void testSplit_minus_1_oe() {
         // arrange
         final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
@@ -630,7 +630,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_minus_2_oe() {
         // arrange
         final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
@@ -648,7 +648,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertSame(arc, minus);
     }
 
-    @Test
+@Test
     void testSplit_minus_3_oe() {
         // arrange
         final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
@@ -669,7 +669,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertNull(plus);
     }
 
-    @Test
+@Test
     void testSplit_plus_1_oe() {
         // arrange
         final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
@@ -683,7 +683,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_plus_2_oe() {
         // arrange
         final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
@@ -700,7 +700,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertNull(minus);
     }
 
-    @Test
+@Test
     void testSplit_plus_3_oe() {
         // arrange
         final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
@@ -720,7 +720,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertSame(arc, plus);
     }
 
-    @Test
+@Test
     void testSplit_parallelAndAntiparallel_1_oe() {
         // arrange
         final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION).span();
@@ -729,7 +729,7 @@ class GreatArcTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER,arc.split(GreatCircles.fromPole(Vector3D.Unit.PLUS_Z,TEST_PRECISION)).getLocation());
     }
 
-    @Test
+@Test
     void testSplit_parallelAndAntiparallel_2_oe() {
         // arrange
         final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION).span();

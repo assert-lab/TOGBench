@@ -84,7 +84,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testConnectAll_emptyCollection_1_oe() {
         // act
         final List<LinePath> paths = connector.connectAll(Collections.emptyList());
@@ -93,7 +93,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(0, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_singleInfiniteLine_1_oe() {
         // arrange
         final LineConvexSubset segment = Y_AXIS.span();
@@ -105,7 +105,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_singleInfiniteLine_2_oe() {
         // arrange
         final LineConvexSubset segment = Y_AXIS.span();
@@ -120,7 +120,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, path.getElements().size());
     }
 
-    @Test
+@Test
     void testConnectAll_singleInfiniteLine_3_oe() {
         // arrange
         final LineConvexSubset segment = Y_AXIS.span();
@@ -136,7 +136,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(segment, path.getStart());
     }
 
-    @Test
+@Test
     void testConnectAll_singleHalfInfiniteLine_noEndPoint_1_oe() {
         // arrange
         final LineConvexSubset segment = Y_AXIS.rayFrom(Vector2D.ZERO);
@@ -148,7 +148,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_singleHalfInfiniteLine_noEndPoint_2_oe() {
         // arrange
         final LineConvexSubset segment = Y_AXIS.rayFrom(Vector2D.ZERO);
@@ -163,7 +163,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, path.getElements().size());
     }
 
-    @Test
+@Test
     void testConnectAll_singleHalfInfiniteLine_noEndPoint_3_oe() {
         // arrange
         final LineConvexSubset segment = Y_AXIS.rayFrom(Vector2D.ZERO);
@@ -179,7 +179,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(segment, path.getStart());
     }
 
-    @Test
+@Test
     void testConnectAll_singleHalfInfiniteLine_noStartPoint_1_oe() {
         // arrange
         final LineConvexSubset segment = Y_AXIS.reverseRayTo(Vector2D.ZERO);
@@ -191,7 +191,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_singleHalfInfiniteLine_noStartPoint_2_oe() {
         // arrange
         final LineConvexSubset segment = Y_AXIS.reverseRayTo(Vector2D.ZERO);
@@ -206,7 +206,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, path.getElements().size());
     }
 
-    @Test
+@Test
     void testConnectAll_singleHalfInfiniteLine_noStartPoint_3_oe() {
         // arrange
         final LineConvexSubset segment = Y_AXIS.reverseRayTo(Vector2D.ZERO);
@@ -222,7 +222,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(segment, path.getStart());
     }
 
-    @Test
+@Test
     void testConnectAll_disjointSegments_1_oe() {
         // arrange
         final LineConvexSubset a = Y_AXIS.segment(Vector2D.of(0, 1), Vector2D.of(0, 2));
@@ -237,7 +237,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(2, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_singleClosedPath_1_oe() {
         // arrange
         final LinePath input = LinePath.builder(TEST_PRECISION)
@@ -254,7 +254,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_multipleClosedPaths_1_oe() {
         // arrange
         final LinePath a = LinePath.builder(TEST_PRECISION)
@@ -283,7 +283,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(3, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_singleOpenPath_1_oe() {
         // arrange
         final LinePath input = LinePath.builder(TEST_PRECISION)
@@ -300,7 +300,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_mixOfOpenConnectedAndInfinite_1_oe() {
         // arrange
         final LineConvexSubset inputYInf = Y_AXIS.reverseRayTo(Vector2D.ZERO);
@@ -330,7 +330,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(3, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_mixOfOpenConnectedAndInfinite_3_oe() {
         // arrange
         final LineConvexSubset inputYInf = Y_AXIS.reverseRayTo(Vector2D.ZERO);
@@ -365,7 +365,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertTrue(infPath.isInfinite());
     }
 
-    @Test
+@Test
     void testConnectAll_mixOfOpenConnectedAndInfinite_4_oe() {
         // arrange
         final LineConvexSubset inputYInf = Y_AXIS.reverseRayTo(Vector2D.ZERO);
@@ -401,7 +401,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(2, infPath.getElements().size());
     }
 
-    @Test
+@Test
     void testConnectAll_mixOfOpenConnectedAndInfinite_5_oe() {
         // arrange
         final LineConvexSubset inputYInf = Y_AXIS.reverseRayTo(Vector2D.ZERO);
@@ -438,7 +438,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(inputYInf, infPath.getElements().get(0));
     }
 
-    @Test
+@Test
     void testConnectAll_mixOfOpenConnectedAndInfinite_6_oe() {
         // arrange
         final LineConvexSubset inputYInf = Y_AXIS.reverseRayTo(Vector2D.ZERO);
@@ -476,7 +476,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(inputXInf, infPath.getElements().get(1));
     }
 
-    @Test
+@Test
     void testConnectAll_pathWithSinglePoint_1_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -490,7 +490,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_pathWithPointLikeConnectedSegments_1_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -520,7 +520,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_flatLineRegion_1_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -541,7 +541,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_flatLineRegion_2_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -565,7 +565,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(seg0, path.getElements().get(0));
     }
 
-    @Test
+@Test
     void testConnectAll_flatLineRegion_3_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -590,7 +590,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(seg2, path.getElements().get(1));
     }
 
-    @Test
+@Test
     void testConnectAll_flatLineRegion_4_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -616,7 +616,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(seg1, path.getElements().get(2));
     }
 
-    @Test
+@Test
     void testConnectAll_flatLineRegion_5_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -643,7 +643,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(seg3, path.getElements().get(3));
     }
 
-    @Test
+@Test
     void testConnectAll_singlePointRegion_1_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 0);
@@ -663,7 +663,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_singlePointRegion_2_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 0);
@@ -686,7 +686,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(seg2, path.getElements().get(0));
     }
 
-    @Test
+@Test
     void testConnectAll_singlePointRegion_3_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 0);
@@ -710,7 +710,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(seg3, path.getElements().get(1));
     }
 
-    @Test
+@Test
     void testConnectAll_singlePointRegion_4_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 0);
@@ -735,7 +735,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(seg0, path.getElements().get(2));
     }
 
-    @Test
+@Test
     void testConnectAll_singlePointRegion_5_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 0);
@@ -761,7 +761,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(seg1, path.getElements().get(3));
     }
 
-    @Test
+@Test
     void testConnectAll_pathWithPointLikeUnconnectedSegments_1_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -782,7 +782,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(2, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_pathWithPointLikeUnconnectedSegments_2_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -806,7 +806,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, path0.getElements().size());
     }
 
-    @Test
+@Test
     void testConnectAll_pathWithPointLikeUnconnectedSegments_3_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -831,7 +831,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(seg2, path0.getElements().get(0));
     }
 
-    @Test
+@Test
     void testConnectAll_pathWithPointLikeUnconnectedSegments_4_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -859,7 +859,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(2, path1.getElements().size());
     }
 
-    @Test
+@Test
     void testConnectAll_pathWithPointLikeUnconnectedSegments_5_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -888,7 +888,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(seg0, path1.getElements().get(0));
     }
 
-    @Test
+@Test
     void testConnectAll_pathWithPointLikeUnconnectedSegments_6_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -918,7 +918,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(seg1, path1.getElements().get(1));
     }
 
-    @Test
+@Test
     void testConnectAll_pathStartingWithPoint_1_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -940,7 +940,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_pathStartingWithPoint_2_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -965,7 +965,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(seg0, path.getElements().get(0));
     }
 
-    @Test
+@Test
     void testConnectAll_pathStartingWithPoint_3_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -991,7 +991,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(seg1, path.getElements().get(1));
     }
 
-    @Test
+@Test
     void testConnectAll_pathStartingWithPoint_4_oe() {
         // arrange
         final Vector2D p0 = Vector2D.ZERO;
@@ -1018,7 +1018,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(seg2, path.getElements().get(2));
     }
 
-    @Test
+@Test
     void testConnectAll_intersectingPaths_1_oe() {
         // arrange
         final LinePath a = LinePath.builder(TEST_PRECISION)
@@ -1042,7 +1042,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(2, paths.size());
     }
 
-    @Test
+@Test
     void testInstancesCanBeReused_1_oe() {
         // arrange
         final LineConvexSubset a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1056,7 +1056,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, firstPaths.size());
     }
 
-    @Test
+@Test
     void testInstancesCanBeReused_2_oe() {
         // arrange
         final LineConvexSubset a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1071,7 +1071,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, secondPaths.size());
     }
 
-    @Test
+@Test
     void testInstancesCanBeReused_3_oe() {
         // arrange
         final LineConvexSubset a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1088,7 +1088,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(a, firstPaths.get(0).getElements().get(0));
     }
 
-    @Test
+@Test
     void testInstancesCanBeReused_4_oe() {
         // arrange
         final LineConvexSubset a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1106,7 +1106,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertSame(b, secondPaths.get(0).getElements().get(0));
     }
 
-    @Test
+@Test
     void testAdd_1_oe() {
         // arrange
         final LineConvexSubset a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1123,7 +1123,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(2, paths.size());
     }
 
-    @Test
+@Test
     void testConnect_1_oe() {
         // arrange
         final LineConvexSubset a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1140,7 +1140,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(2, paths.size());
     }
 
-    @Test
+@Test
     void testConnectableSegment_hashCode_1_oe() {
         // arrange
         final LineConvexSubset segA = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1155,7 +1155,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(hash, a.hashCode());
     }
 
-    @Test
+@Test
     void testConnectableSegment_hashCode_2_oe() {
         // arrange
         final LineConvexSubset segA = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1172,7 +1172,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertNotEquals(hash, new ConnectableLineSubset(segB).hashCode());
     }
 
-    @Test
+@Test
     void testConnectableSegment_hashCode_3_oe() {
         // arrange
         final LineConvexSubset segA = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1190,7 +1190,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertNotEquals(hash, new ConnectableLineSubset(Vector2D.Unit.PLUS_X).hashCode());
     }
 
-    @Test
+@Test
     void testConnectableSegment_hashCode_4_oe() {
         // arrange
         final LineConvexSubset segA = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1210,7 +1210,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(hash, new ConnectableLineSubset(segA).hashCode());
     }
 
-    @Test
+@Test
     void testConnectableSegment_equals_1_oe() {
         // arrange
         final LineConvexSubset segA = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1222,7 +1222,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(a, a);
     }
 
-    @Test
+@Test
     void testConnectableSegment_equals_2_oe() {
         // arrange
         final LineConvexSubset segA = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1236,7 +1236,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertFalse(a.equals(null));
     }
 
-    @Test
+@Test
     void testConnectableSegment_equals_3_oe() {
         // arrange
         final LineConvexSubset segA = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1251,7 +1251,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertFalse(a.equals(new Object()));
     }
 
-    @Test
+@Test
     void testConnectableSegment_equals_4_oe() {
         // arrange
         final LineConvexSubset segA = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1268,7 +1268,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertNotEquals(a, new ConnectableLineSubset(segB));
     }
 
-    @Test
+@Test
     void testConnectableSegment_equals_5_oe() {
         // arrange
         final LineConvexSubset segA = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1286,7 +1286,7 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertNotEquals(a, new ConnectableLineSubset(Vector2D.Unit.PLUS_X));
     }
 
-    @Test
+@Test
     void testConnectableSegment_equals_6_oe() {
         // arrange
         final LineConvexSubset segA = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);

@@ -25,7 +25,7 @@ public class TokenQueueTest_OE25Dev {
         assertEquals("#identifier", Jsoup.parse(html).select(selector).first().cssSelector());
     }
 
-    @Test public void chompBalanced_1_oe() {
+@Test public void chompBalanced_1_oe() {
         TokenQueue tq = new TokenQueue(":contains(one (two) three) four");
         String pre = tq.consumeTo("(");
         String guts = tq.chompBalanced('(', ')');
@@ -34,7 +34,7 @@ public class TokenQueueTest_OE25Dev {
         assertEquals(":contains", pre);
         }
 
-    @Test public void chompBalanced_2_oe() {
+@Test public void chompBalanced_2_oe() {
         TokenQueue tq = new TokenQueue(":contains(one (two) three) four");
         String pre = tq.consumeTo("(");
         String guts = tq.chompBalanced('(', ')');
@@ -44,7 +44,7 @@ public class TokenQueueTest_OE25Dev {
         assertEquals("one (two) three", guts);
         }
 
-    @Test public void chompBalanced_3_oe() {
+@Test public void chompBalanced_3_oe() {
         TokenQueue tq = new TokenQueue(":contains(one (two) three) four");
         String pre = tq.consumeTo("(");
         String guts = tq.chompBalanced('(', ')');
@@ -55,7 +55,7 @@ public class TokenQueueTest_OE25Dev {
         assertEquals(" four", remainder);
         }
 
-    @Test public void chompEscapedBalanced_1_oe() {
+@Test public void chompEscapedBalanced_1_oe() {
         TokenQueue tq = new TokenQueue(":contains(one (two) \\( \\) \\) three) four");
         String pre = tq.consumeTo("(");
         String guts = tq.chompBalanced('(', ')');
@@ -64,7 +64,7 @@ public class TokenQueueTest_OE25Dev {
         assertEquals(":contains", pre);
         }
 
-    @Test public void chompEscapedBalanced_2_oe() {
+@Test public void chompEscapedBalanced_2_oe() {
         TokenQueue tq = new TokenQueue(":contains(one (two) \\( \\) \\) three) four");
         String pre = tq.consumeTo("(");
         String guts = tq.chompBalanced('(', ')');
@@ -74,7 +74,7 @@ public class TokenQueueTest_OE25Dev {
         assertEquals("one (two) \\( \\) \\) three", guts);
         }
 
-    @Test public void chompEscapedBalanced_3_oe() {
+@Test public void chompEscapedBalanced_3_oe() {
         TokenQueue tq = new TokenQueue(":contains(one (two) \\( \\) \\) three) four");
         String pre = tq.consumeTo("(");
         String guts = tq.chompBalanced('(', ')');
@@ -85,7 +85,7 @@ public class TokenQueueTest_OE25Dev {
         assertEquals("one (two) ( ) ) three", TokenQueue.unescape(guts));
         }
 
-    @Test public void chompEscapedBalanced_4_oe() {
+@Test public void chompEscapedBalanced_4_oe() {
         TokenQueue tq = new TokenQueue(":contains(one (two) \\( \\) \\) three) four");
         String pre = tq.consumeTo("(");
         String guts = tq.chompBalanced('(', ')');
@@ -97,25 +97,25 @@ public class TokenQueueTest_OE25Dev {
         assertEquals(" four", remainder);
         }
 
-    @Test public void chompBalancedMatchesAsMuchAsPossible_1_oe() {
+@Test public void chompBalancedMatchesAsMuchAsPossible_1_oe() {
         TokenQueue tq = new TokenQueue("unbalanced(something(or another)) else");
         tq.consumeTo("(");
         String match = tq.chompBalanced('(', ')');
         assertEquals("something(or another)", match);
         }
 
-    @Test public void unescape_1_oe() {
+@Test public void unescape_1_oe() {
         assertEquals("one ( ) \\", TokenQueue.unescape("one \\( \\) \\\\"));
         }
 
-    @Test public void chompToIgnoreCase_1_oe() {
+@Test public void chompToIgnoreCase_1_oe() {
         String t = "<textarea>one < two </TEXTarea>";
         TokenQueue tq = new TokenQueue(t);
         String data = tq.chompToIgnoreCase("</textarea");
         assertEquals("<textarea>one < two ", data);
         }
 
-    @Test public void chompToIgnoreCase_2_oe() {
+@Test public void chompToIgnoreCase_2_oe() {
         String t = "<textarea>one < two </TEXTarea>";
         TokenQueue tq = new TokenQueue(t);
         String data = tq.chompToIgnoreCase("</textarea");
@@ -126,21 +126,21 @@ public class TokenQueueTest_OE25Dev {
         assertEquals("<textarea> one two < three </oops>", data);
         }
 
-    @Test public void addFirst_1_oe() {
+@Test public void addFirst_1_oe() {
         TokenQueue tq = new TokenQueue("One Two");
         tq.consumeWord();
         tq.addFirst("Three");
         assertEquals("Three Two", tq.remainder());
         }
 
-    @Test public void consumeToIgnoreSecondCallTest_1_oe() {
+@Test public void consumeToIgnoreSecondCallTest_1_oe() {
         String t = "<textarea>one < two </TEXTarea> third </TEXTarea>";
         TokenQueue tq = new TokenQueue(t);
         String data = tq.chompToIgnoreCase("</textarea>");
         assertEquals("<textarea>one < two ", data);
         }
 
-    @Test public void consumeToIgnoreSecondCallTest_2_oe() {
+@Test public void consumeToIgnoreSecondCallTest_2_oe() {
         String t = "<textarea>one < two </TEXTarea> third </TEXTarea>";
         TokenQueue tq = new TokenQueue(t);
         String data = tq.chompToIgnoreCase("</textarea>");
@@ -150,7 +150,7 @@ public class TokenQueueTest_OE25Dev {
         assertEquals(" third ", data);
         }
 
-    @Test
+@Test
     public void chompBalancedThrowIllegalArgumentException_2_oe() {
         try {
             TokenQueue tq = new TokenQueue("unbalanced(something(or another)) else");
@@ -162,20 +162,20 @@ public class TokenQueueTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testQuotedPattern_1_oe() {
         final Document doc = Jsoup.parse("<div>\\) foo1</div><div>( foo2</div><div>1) foo3</div>");
         assertEquals("\n\\) foo1",doc.select("div:matches(" + Pattern.quote("\\)") + ")").get(0).childNode(0).toString());
     }
 
-    @Test
+@Test
     public void testQuotedPattern_2_oe() {
         final Document doc = Jsoup.parse("<div>\\) foo1</div><div>( foo2</div><div>1) foo3</div>");
         // removed other assertion
         assertEquals("\n( foo2",doc.select("div:matches(" + Pattern.quote("(") + ")").get(0).childNode(0).toString());
     }
 
-    @Test
+@Test
     public void testQuotedPattern_3_oe() {
         final Document doc = Jsoup.parse("<div>\\) foo1</div><div>( foo2</div><div>1) foo3</div>");
         // removed other assertion

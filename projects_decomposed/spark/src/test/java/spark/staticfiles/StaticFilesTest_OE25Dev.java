@@ -170,14 +170,14 @@ public class StaticFilesTest_OE25Dev {
         return testUtil.doMethod("GET", fileName, null);
     }
 
-    @Test
+@Test
     public void testExceptionMapping404_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet("/filethatdoesntexist.html");
 
         Assert.assertEquals(404, response.status);
     }
 
-    @Test
+@Test
     public void testExceptionMapping404_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet("/filethatdoesntexist.html");
 

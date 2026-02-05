@@ -254,34 +254,34 @@ public class DynaBeanMapDecoratorTestCase_OE25Dev extends TestCase {
         }
     }
 
-    public void testIsReadOnly_1_oe() {
+public void testIsReadOnly_1_oe() {
         assertTrue("decoratedMap true",   ((DynaBeanMapDecorator)decoratedMap).isReadOnly());
     }
 
-    public void testIsReadOnly_2_oe() {
+public void testIsReadOnly_2_oe() {
         // removed other assertion
         assertFalse("modifiableMap false", ((DynaBeanMapDecorator)modifiableMap).isReadOnly());
     }
 
-    public void testContainsKey_1_oe() {
+public void testContainsKey_1_oe() {
         assertTrue("decoratedMap true",   decoratedMap.containsKey(stringProp.getName()));
     }
 
-    public void testContainsKey_2_oe() {
+public void testContainsKey_2_oe() {
         // removed other assertion
         assertFalse("decoratedMap false", decoratedMap.containsKey("xyz"));
     }
 
-    public void testContainsValue_1_oe() {
+public void testContainsValue_1_oe() {
         assertTrue("decoratedMap true",   decoratedMap.containsValue(stringVal));
     }
 
-    public void testContainsValue_2_oe() {
+public void testContainsValue_2_oe() {
         // removed other assertion
         assertFalse("decoratedMap false", decoratedMap.containsValue("xyz"));
     }
 
-    public void testEntrySet_1_oe() {
+public void testEntrySet_1_oe() {
         final Set<Map.Entry<Object, Object>> set = modifiableMap.entrySet();
 
         // Check the Set can't be modified
@@ -292,7 +292,7 @@ public class DynaBeanMapDecoratorTestCase_OE25Dev extends TestCase {
         assertEquals("entrySet size", properties.length, set.size());
     }
 
-    public void testEntrySet_2_oe() {
+public void testEntrySet_2_oe() {
         final Set<Map.Entry<Object, Object>> set = modifiableMap.entrySet();
 
         // Check the Set can't be modified
@@ -314,7 +314,7 @@ public class DynaBeanMapDecoratorTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testEntrySet_3_oe() {
+public void testEntrySet_3_oe() {
         final Set<Map.Entry<Object, Object>> set = modifiableMap.entrySet();
 
         // Check the Set can't be modified
@@ -341,22 +341,22 @@ public class DynaBeanMapDecoratorTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGet_1_oe() {
+public void testGet_1_oe() {
 
         // valid property name
         assertEquals("decoratedMap valid", stringVal, decoratedMap.get(stringProp.getName()));
     }
 
-    public void testIsEmpty_1_oe() {
+public void testIsEmpty_1_oe() {
         assertTrue("Empty",      emptyMap.isEmpty());
     }
 
-    public void testIsEmpty_2_oe() {
+public void testIsEmpty_2_oe() {
         // removed other assertion
         assertFalse("Not Empty", decoratedMap.isEmpty());
     }
 
-    public void testKeySet_1_oe() {
+public void testKeySet_1_oe() {
         final Set<Object> set = modifiableMap.keySet();
 
         // Check the Set can't be modified
@@ -365,7 +365,7 @@ public class DynaBeanMapDecoratorTestCase_OE25Dev extends TestCase {
         assertEquals("keySet size", properties.length, set.size());
     }
 
-    public void testKeySet_2_oe() {
+public void testKeySet_2_oe() {
         final Set<Object> set = modifiableMap.keySet();
 
         // Check the Set can't be modified
@@ -379,7 +379,7 @@ public class DynaBeanMapDecoratorTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testPut_2_oe() {
+public void testPut_2_oe() {
 
         final String newValue = "ABC";
 
@@ -395,7 +395,7 @@ public class DynaBeanMapDecoratorTestCase_OE25Dev extends TestCase {
         assertEquals("modifiableMap put", stringVal, modifiableMap.put(stringProp.getName(), newValue));
     }
 
-    public void testPut_3_oe() {
+public void testPut_3_oe() {
 
         final String newValue = "ABC";
 
@@ -412,7 +412,7 @@ public class DynaBeanMapDecoratorTestCase_OE25Dev extends TestCase {
         assertEquals("dynaBean get", newValue, dynaBean.get(stringProp.getName()));
     }
 
-    public void testPut_4_oe() {
+public void testPut_4_oe() {
 
         final String newValue = "ABC";
 
@@ -430,7 +430,7 @@ public class DynaBeanMapDecoratorTestCase_OE25Dev extends TestCase {
         assertEquals("modifiableMap get", newValue, modifiableMap.get(stringProp.getName()));
     }
 
-    public void testPutAll_2_oe() {
+public void testPutAll_2_oe() {
 
         final String newValue = "ABC";
         final Map<Object, Object> newMap = new HashMap<Object, Object>();
@@ -448,7 +448,7 @@ public class DynaBeanMapDecoratorTestCase_OE25Dev extends TestCase {
         assertEquals("before putAll", stringVal, dynaBean.get(stringProp.getName()));
     }
 
-    public void testPutAll_3_oe() {
+public void testPutAll_3_oe() {
 
         final String newValue = "ABC";
         final Map<Object, Object> newMap = new HashMap<Object, Object>();
@@ -468,16 +468,16 @@ public class DynaBeanMapDecoratorTestCase_OE25Dev extends TestCase {
         assertEquals("after putAll",  newValue,  dynaBean.get(stringProp.getName()));
     }
 
-    public void testSize_1_oe() {
+public void testSize_1_oe() {
         assertEquals("Empty", 0, emptyMap.size());
     }
 
-    public void testSize_2_oe() {
+public void testSize_2_oe() {
         // removed other assertion
         assertEquals("Not Empty", properties.length, decoratedMap.size());
     }
 
-    public void testValues_1_oe() {
+public void testValues_1_oe() {
         final Collection<Object> collection = modifiableMap.values();
 
         // Check the Collection can't be modified
@@ -486,7 +486,7 @@ public class DynaBeanMapDecoratorTestCase_OE25Dev extends TestCase {
         assertEquals("values size", values.length, collection.size());
     }
 
-    public void testValues_2_oe() {
+public void testValues_2_oe() {
         final Collection<Object> collection = modifiableMap.values();
 
         // Check the Collection can't be modified

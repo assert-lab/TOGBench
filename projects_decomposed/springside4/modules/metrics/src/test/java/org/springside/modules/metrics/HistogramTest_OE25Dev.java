@@ -13,7 +13,7 @@ import org.springside.modules.metrics.metric.HistogramMetric;
 
 public class HistogramTest_OE25Dev {
 
-	@Test
+@Test
 	public void normal_1_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -26,7 +26,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.min).isEqualTo(1);
 	}
 
-	@Test
+@Test
 	public void normal_2_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -40,7 +40,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.max).isEqualTo(100);
 	}
 
-	@Test
+@Test
 	public void normal_3_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -55,7 +55,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.avg).isEqualTo(50.5);
 	}
 
-	@Test
+@Test
 	public void normal_4_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -71,7 +71,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.pcts.get(90d)).isEqualTo(90);
 	}
 
-	@Test
+@Test
 	public void normal_5_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -88,7 +88,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.pcts.get(95d)).isEqualTo(95);
 	}
 
-	@Test
+@Test
 	public void normal_6_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -113,7 +113,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.min).isEqualTo(2);
 	}
 
-	@Test
+@Test
 	public void normal_7_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -139,7 +139,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.max).isEqualTo(200);
 	}
 
-	@Test
+@Test
 	public void normal_8_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -166,7 +166,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.avg).isEqualTo(101);
 	}
 
-	@Test
+@Test
 	public void normal_9_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -194,7 +194,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.pcts.get(90d)).isEqualTo(180);
 	}
 
-	@Test
+@Test
 	public void normal_10_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -223,7 +223,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.pcts.get(95d)).isEqualTo(190);
 	}
 
-	@Test
+@Test
 	public void fewData_1_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -232,7 +232,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.pcts.get(90d)).isEqualTo(1);
 	}
 
-	@Test
+@Test
 	public void fewData_2_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -242,7 +242,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.pcts.get(95d)).isEqualTo(1);
 	}
 
-	@Test
+@Test
 	public void fewData_3_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -259,7 +259,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.min).isEqualTo(1);
 	}
 
-	@Test
+@Test
 	public void fewData_4_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -277,7 +277,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.max).isEqualTo(3);
 	}
 
-	@Test
+@Test
 	public void fewData_5_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -296,7 +296,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.avg).isEqualTo(2);
 	}
 
-	@Test
+@Test
 	public void fewData_6_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -316,7 +316,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.pcts.get(90d)).isEqualTo(3);
 	}
 
-	@Test
+@Test
 	public void fewData_7_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -337,7 +337,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.pcts.get(95d)).isEqualTo(3);
 	}
 
-	@Test
+@Test
 	public void emptyMesures_1_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -346,7 +346,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.min).isZero();
 	}
 
-	@Test
+@Test
 	public void emptyMesures_2_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -356,7 +356,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.max).isZero();
 	}
 
-	@Test
+@Test
 	public void emptyMesures_3_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -367,7 +367,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.avg).isZero();
 	}
 
-	@Test
+@Test
 	public void emptyMesures_4_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -379,7 +379,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.pcts.get(90d)).isZero();
 	}
 
-	@Test()
+@Test()
 	public void emptyPcts_1_oe() {
 		Histogram histogram = new Histogram();
 		for (int i = 1; i <= 3; i++) {
@@ -390,7 +390,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.max).isEqualTo(3);
 	}
 
-	@Test()
+@Test()
 	public void emptyPcts_2_oe() {
 		Histogram histogram = new Histogram();
 		for (int i = 1; i <= 3; i++) {
@@ -402,7 +402,7 @@ public class HistogramTest_OE25Dev {
 		assertThat(metric.pcts).isEmpty();
 	}
 
-	@Test()
+@Test()
 	public void emptyPcts_3_oe() {
 		Histogram histogram = new Histogram();
 		for (int i = 1; i <= 3; i++) {

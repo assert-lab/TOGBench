@@ -321,7 +321,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
      * file-based parameters are part of the initialization parameters.
      */
 
-    @Test
+@Test
     public void testAutoSave_1_oe() throws ConfigurationException
     {
         final File file = createTestFile(0);
@@ -333,7 +333,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertFalse("Wrong auto save flag", builder.isAutoSave());
     }
 
-    @Test
+@Test
     public void testAutoSave_2_oe() throws ConfigurationException
     {
         final File file = createTestFile(0);
@@ -347,7 +347,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertTrue("Auto save not enabled", builder.isAutoSave());
     }
 
-    @Test
+@Test
     public void testAutoSaveWithReset_1_oe() throws ConfigurationException
     {
         final File file = createTestFile(0);
@@ -363,7 +363,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertNotSame("No new configuration created", config1, config2);
     }
 
-    @Test
+@Test
     public void testChangeLocationAfterCreation_1_oe() throws ConfigurationException
     {
         final File file1 = createTestFile(1);
@@ -380,7 +380,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertEquals("Not read from file 2", 2, config.getInt(PROP));
     }
 
-    @Test
+@Test
     public void testChangeLocationAfterReset_1_oe() throws ConfigurationException
     {
         final File file1 = createTestFile(1);
@@ -398,7 +398,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertEquals("Not read from file 1", 1, config.getInt(PROP));
     }
 
-    @Test
+@Test
     public void testChangeLocationAfterReset_2_oe() throws ConfigurationException
     {
         final File file1 = createTestFile(1);
@@ -420,7 +420,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertEquals("Not read from file 2", 2, config.getInt(PROP));
     }
 
-    @Test
+@Test
     public void testCreateConfigurationNonExistingFileAndThenSave_1_oe()
             throws ConfigurationException {
         final File outFile = ConfigurationAssert.getOutFile("save.properties");
@@ -435,7 +435,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertTrue("Could not remove test file", outFile.delete());
     }
 
-    @Test
+@Test
     public void testGetConfigurationLoadFromFile_1_oe() throws ConfigurationException {
         final File file = createTestFile(1);
         final FileBasedConfigurationBuilder<PropertiesConfiguration> builder = new FileBasedConfigurationBuilder<>(PropertiesConfiguration.class)
@@ -444,7 +444,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertEquals("Not read from file", 1, config.getInt(PROP));
     }
 
-    @Test
+@Test
     public void testGetConfigurationLoadFromFile_2_oe() throws ConfigurationException {
         final File file = createTestFile(1);
         final FileBasedConfigurationBuilder<PropertiesConfiguration> builder = new FileBasedConfigurationBuilder<>(PropertiesConfiguration.class)
@@ -454,13 +454,13 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertSame("FileHandler not initialized", config, builder.getFileHandler().getContent());
     }
 
-    @Test
+@Test
     public void testGetConfigurationLoadFromJarFile_1_oe() throws ConfigurationException, IOException {
         final URL jarResourceUrl = getClass().getClassLoader().getResource("org/apache/commons/configuration2/test.jar");
         assertNotNull(jarResourceUrl);
     }
 
-    @Test
+@Test
     public void testGetConfigurationNoLocation_1_oe() throws ConfigurationException {
         final Map<String, Object> params = new HashMap<>();
         params.put("throwExceptionOnMissing", Boolean.TRUE);
@@ -469,7 +469,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertTrue("Property not set", conf.isThrowExceptionOnMissing());
     }
 
-    @Test
+@Test
     public void testGetConfigurationNoLocation_2_oe() throws ConfigurationException {
         final Map<String, Object> params = new HashMap<>();
         params.put("throwExceptionOnMissing", Boolean.TRUE);
@@ -479,7 +479,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertTrue("Not empty", conf.isEmpty());
     }
 
-    @Test
+@Test
     public void testGetDefaultEncodingInterface_1_oe()
     {
         final String encoding = "testEncoding";
@@ -488,7 +488,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong default encoding",encoding,FileBasedConfigurationBuilder .getDefaultEncoding(XMLConfiguration.class));
     }
 
-    @Test
+@Test
     public void testGetDefaultEncodingInterface_2_oe()
     {
         final String encoding = "testEncoding";
@@ -500,13 +500,13 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertNull("Default encoding not removed",FileBasedConfigurationBuilder .getDefaultEncoding(XMLConfiguration.class));
     }
 
-    @Test
+@Test
     public void testGetDefaultEncodingProperties_1_oe()
     {
         assertEquals("Wrong default encoding",PropertiesConfiguration.DEFAULT_ENCODING,FileBasedConfigurationBuilder .getDefaultEncoding(PropertiesConfiguration.class));
     }
 
-    @Test
+@Test
     public void testGetDefaultEncodingSubClass_1_oe()
     {
         final PropertiesConfiguration conf = new PropertiesConfiguration()
@@ -515,13 +515,13 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong default encodng",PropertiesConfiguration.DEFAULT_ENCODING,FileBasedConfigurationBuilder.getDefaultEncoding(conf .getClass()));
     }
 
-    @Test
+@Test
     public void testGetDefaultEncodingXmlProperties_1_oe()
     {
         assertEquals("Wrong default encoding",XMLPropertiesConfiguration.DEFAULT_ENCODING,FileBasedConfigurationBuilder .getDefaultEncoding(XMLPropertiesConfiguration.class));
     }
 
-    @Test
+@Test
     public void testInitAllowFailOnInitFlag_1_oe()
     {
         final FileBasedConfigurationBuilder<PropertiesConfiguration> builder =
@@ -530,7 +530,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertTrue("Flag not set", builder.isAllowFailOnInit());
     }
 
-    @Test
+@Test
     public void testInitFileHandlerOverrideDefaultEncoding_1_oe()
             throws ConfigurationException
     {
@@ -544,7 +544,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertEquals("Encoding was changed", encoding, handler.getEncoding());
     }
 
-    @Test
+@Test
     public void testInitFileHandlerSetDefaultEncoding_1_oe()
             throws ConfigurationException
     {
@@ -556,7 +556,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong encoding",PropertiesConfiguration.DEFAULT_ENCODING,handler.getEncoding());
     }
 
-    @Test
+@Test
     public void testLocationIsFullyDefined_1_oe() throws ConfigurationException
     {
         final File file = createTestFile(1);
@@ -570,7 +570,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertTrue("Not fully defined: " + locator,FileLocatorUtils.isFullyInitialized(locator));
     }
 
-    @Test
+@Test
     public void testLocationSurvivesResetResult_1_oe() throws ConfigurationException
     {
         final File file = createTestFile(1);
@@ -585,7 +585,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertNotSame("Same configuration", config, config2);
     }
 
-    @Test
+@Test
     public void testLocationSurvivesResetResult_2_oe() throws ConfigurationException
     {
         final File file = createTestFile(1);
@@ -601,7 +601,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertEquals("Not read from file", 1, config2.getInt(PROP));
     }
 
-    @Test
+@Test
     public void testResetLocation_1_oe() throws ConfigurationException
     {
         final File file = createTestFile(1);
@@ -616,7 +616,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertTrue("Configuration was read from file", config.isEmpty());
     }
 
-    @Test
+@Test
     public void testResetLocation_2_oe() throws ConfigurationException
     {
         final File file = createTestFile(1);
@@ -632,7 +632,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         assertFalse("FileHandler has location",builder.getFileHandler().isLocationDefined());
     }
 
-    @Test
+@Test
     public void testSetLocationNoFileHandler_1_oe() throws ConfigurationException
     {
         final File file = createTestFile(1);

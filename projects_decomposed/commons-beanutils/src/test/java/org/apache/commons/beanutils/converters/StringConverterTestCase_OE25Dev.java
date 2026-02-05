@@ -55,11 +55,11 @@ public class StringConverterTestCase_OE25Dev extends TestCase {
         }
     }
 
-    public void testDefaultType_1_oe() {
+public void testDefaultType_1_oe() {
         assertEquals("Wrong default type", String.class, converter.getDefaultType());
     }
 
-    public void testConvertToTypeString_1_oe() {
+public void testConvertToTypeString_1_oe() {
         final Object value = new Object();
         final String strVal = converter.convert(String.class, value);
         assertEquals("Wrong conversion result", value.toString(), strVal);

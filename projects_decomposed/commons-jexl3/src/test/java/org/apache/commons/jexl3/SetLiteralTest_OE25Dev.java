@@ -38,7 +38,7 @@ public class SetLiteralTest_OE25Dev extends JexlTestCase {
         return new HashSet<Object>(Arrays.asList(args));
     }
 
-    @Test
+@Test
     public void testSetLiteralWithStrings_1_oe() throws Exception {
         final JexlExpression e = JEXL.createExpression("{ 'foo' , 'bar' }");
         final JexlContext jc = new MapContext();
@@ -48,7 +48,7 @@ public class SetLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(check, o);
     }
 
-    @Test
+@Test
     public void testLiteralWithOneEntry_1_oe() throws Exception {
         final JexlExpression e = JEXL.createExpression("{ 'foo' }");
         final JexlContext jc = new MapContext();
@@ -58,7 +58,7 @@ public class SetLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(check, o);
     }
 
-    @Test
+@Test
     public void testSetLiteralWithStringsScript_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("{ 'foo' , 'bar' }");
         final JexlContext jc = new MapContext();
@@ -68,7 +68,7 @@ public class SetLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(check, o);
     }
 
-    @Test
+@Test
     public void testSetLiteralWithOneEntryScript_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("{ 'foo' }");
         final JexlContext jc = new MapContext();
@@ -78,7 +78,7 @@ public class SetLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(check, o);
     }
 
-    @Test
+@Test
     public void testSetLiteralWithOneEntryBlock_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("{ { 'foo' }; }");
         final JexlContext jc = new MapContext();
@@ -88,7 +88,7 @@ public class SetLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(check, o);
     }
 
-    @Test
+@Test
     public void testSetLiteralWithOneNestedSet_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("{ { 'foo' } }");
         final JexlContext jc = new MapContext();
@@ -98,7 +98,7 @@ public class SetLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(check, o);
     }
 
-    @Test
+@Test
     public void testSetLiteralWithNumbers_1_oe() throws Exception {
         final JexlExpression e = JEXL.createExpression("{ 5.0 , 10 }");
         final JexlContext jc = new MapContext();
@@ -108,7 +108,7 @@ public class SetLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(check, o);
     }
 
-    @Test
+@Test
     public void testSetLiteralWithNulls_1_oe() throws Exception {
         final String[] exprs = {
             "{  }",
@@ -134,7 +134,7 @@ public class SetLiteralTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testSizeOfSimpleSetLiteral_1_oe() throws Exception {
         final JexlExpression e = JEXL.createExpression("size({ 'foo' , 'bar'})");
         final JexlContext jc = new MapContext();
@@ -143,7 +143,7 @@ public class SetLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(new Integer(2), o);
     }
 
-    @Test
+@Test
     public void testNotEmptySimpleSetLiteral_1_oe() throws Exception {
         final JexlExpression e = JEXL.createExpression("empty({ 'foo' , 'bar' })");
         final JexlContext jc = new MapContext();

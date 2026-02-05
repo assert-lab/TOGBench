@@ -167,7 +167,7 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testRead_1_oe() {
         // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
@@ -182,7 +182,7 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
         Assertions.assertSame(in, handler.inArg);
     }
 
-    @Test
+@Test
     void testRead_2_oe() {
         // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
@@ -199,7 +199,7 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
         Assertions.assertEquals(BoundaryList3D.class, result.getClass());
     }
 
-    @Test
+@Test
     void testRead_3_oe() {
         // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
@@ -217,7 +217,7 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
         Assertions.assertEquals(2, result.toList().getBoundaries().size());
     }
 
-    @Test
+@Test
     void testReadTriangleMesh_1_oe() {
         // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
@@ -232,7 +232,7 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
         Assertions.assertSame(in, handler.inArg);
     }
 
-    @Test
+@Test
     void testReadTriangleMesh_2_oe() {
         // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
@@ -249,7 +249,7 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
         Assertions.assertEquals(SimpleTriangleMesh.class, result.getClass());
     }
 
-    @Test
+@Test
     void testReadTriangleMesh_3_oe() {
         // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
@@ -267,7 +267,7 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
         Assertions.assertEquals(6, result.getVertexCount());
     }
 
-    @Test
+@Test
     void testReadTriangleMesh_4_oe() {
         // arrange
         final List<FacetDefinition> facets = Arrays.asList(FACET_1, FACET_2);
@@ -286,7 +286,7 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
         Assertions.assertEquals(4, result.getFaceCount());
     }
 
-    @Test
+@Test
     void testFacetIterator_1_oe() {
         // arrange
         final StubFacetDefinitionReader reader = new StubFacetDefinitionReader(Arrays.asList(FACET_1, FACET_2));
@@ -296,7 +296,7 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
         Assertions.assertTrue(it.hasNext());
     }
 
-    @Test
+@Test
     void testFacetIterator_2_oe() {
         // arrange
         final StubFacetDefinitionReader reader = new StubFacetDefinitionReader(Arrays.asList(FACET_1, FACET_2));
@@ -307,7 +307,7 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
         Assertions.assertSame(FACET_1, it.next());
     }
 
-    @Test
+@Test
     void testFacetIterator_3_oe() {
         // arrange
         final StubFacetDefinitionReader reader = new StubFacetDefinitionReader(Arrays.asList(FACET_1, FACET_2));
@@ -320,7 +320,7 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
         Assertions.assertTrue(it.hasNext());
     }
 
-    @Test
+@Test
     void testFacetIterator_4_oe() {
         // arrange
         final StubFacetDefinitionReader reader = new StubFacetDefinitionReader(Arrays.asList(FACET_1, FACET_2));
@@ -334,7 +334,7 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
         Assertions.assertSame(FACET_2, it.next());
     }
 
-    @Test
+@Test
     void testFacetIterator_5_oe() {
         // arrange
         final StubFacetDefinitionReader reader = new StubFacetDefinitionReader(Arrays.asList(FACET_1, FACET_2));
@@ -350,7 +350,7 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
         Assertions.assertFalse(it.hasNext());
     }
 
-    @Test
+@Test
     void testFacetIterator_6_oe() {
         // arrange
         final StubFacetDefinitionReader reader = new StubFacetDefinitionReader(Arrays.asList(FACET_1, FACET_2));

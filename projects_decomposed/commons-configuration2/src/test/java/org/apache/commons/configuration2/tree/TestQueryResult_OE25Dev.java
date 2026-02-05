@@ -118,32 +118,32 @@ public class TestQueryResult_OE25Dev {
      * Tests the string representation of a node result.
      */
 
-    @Test
+@Test
     public void testGetAttributeValue_1_oe() {
         final QueryResult<ImmutableNode> result = QueryResult.createAttributeResult(attributeNode, ATTR);
         assertEquals("Wrong value", VALUE, result.getAttributeValue(new InMemoryNodeModel().getNodeHandler()));
     }
 
-    @Test
+@Test
     public void testIsAttributeResultFalse_1_oe() {
         final QueryResult<ImmutableNode> result = QueryResult.createNodeResult(resultNode);
         assertFalse("An attribute result", result.isAttributeResult());
     }
 
-    @Test
+@Test
     public void testIsAttributeResultTrue_1_oe() {
         final QueryResult<ImmutableNode> result = QueryResult.createAttributeResult(attributeNode, ATTR);
         assertTrue("Not an attribute result", result.isAttributeResult());
     }
 
-    @Test
+@Test
     public void testToStringAttributeResult_1_oe() {
         final QueryResult<ImmutableNode> result = QueryResult.createAttributeResult(attributeNode, ATTR);
         final String s = result.toString();
         assertThat(s, containsString("attribute=" + ATTR));
     }
 
-    @Test
+@Test
     public void testToStringAttributeResult_2_oe() {
         final QueryResult<ImmutableNode> result = QueryResult.createAttributeResult(attributeNode, ATTR);
         final String s = result.toString();
@@ -151,7 +151,7 @@ public class TestQueryResult_OE25Dev {
         assertThat(s, containsString("parentNode=" + attributeNode));
     }
 
-    @Test
+@Test
     public void testToStringNodeResult_1_oe() {
         final QueryResult<ImmutableNode> result = QueryResult.createNodeResult(resultNode);
         assertThat(result.toString(), containsString("resultNode=" + resultNode));

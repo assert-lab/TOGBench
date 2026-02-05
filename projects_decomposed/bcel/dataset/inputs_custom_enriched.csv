@@ -1,0 +1,559 @@
+id,test_prefix,test_name,custom_assert_name,custom_assert_method,custom_assert_file
+bcel_69_8,"public void test_standard_8_oe()
+        throws ClassNotFoundException
+{
+    final JavaClass jc = getTestClass(PACKAGE_BASE_NAME + "".data.AnnotatedWithCombinedAnnotation"");
+    final ClassGen cgen = new ClassGen(jc);
+
+    // Check annotations are correctly preserved
+    final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+    // removed other assertion
+    final AnnotationEntryGen a = annotations[0];
+    // removed other assertion
+    final ElementValuePairGen nvp = a.getValues().get(0);
+    final ElementValueGen value = nvp.getValue();
+    // removed other assertion
+    final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+    // removed other assertion
+    final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+    // removed other assertion
+    final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+    // removed other assertion
+
+    // check the three methods
+    final Method[] methods = cgen.getMethods();
+    // removed other assertion
+    for (final Method method : methods)
+    {
+        final String methodName = method.getName();
+        if (methodName.equals(""<init>""))
+        {
+            assertMethodAnnotations(method, 0, 1);
+}
+}
+}
+",GeneratingAnnotatedClassesTestCase::test_standard_8_oe,assertMethodAnnotations,"    private void assertMethodAnnotations(final Method method, final int expectedNumberAnnotations, final int nExpectedArrayValues)
+    {
+        final String methodName= method.getName();
+        final AnnotationEntry[] annos= method.getAnnotationEntries();
+        assertEquals(""For ""+methodName, expectedNumberAnnotations, annos.length);
+        if(expectedNumberAnnotations!=0)
+        {
+            assertArrayElementValue(nExpectedArrayValues, annos[0]);
+        }
+    }
+",src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase.java
+bcel_69_12,"public void test_standard_12_oe()
+        throws ClassNotFoundException
+{
+    final JavaClass jc = getTestClass(PACKAGE_BASE_NAME + "".data.AnnotatedWithCombinedAnnotation"");
+    final ClassGen cgen = new ClassGen(jc);
+
+    // Check annotations are correctly preserved
+    final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+    // removed other assertion
+    final AnnotationEntryGen a = annotations[0];
+    // removed other assertion
+    final ElementValuePairGen nvp = a.getValues().get(0);
+    final ElementValueGen value = nvp.getValue();
+    // removed other assertion
+    final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+    // removed other assertion
+    final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+    // removed other assertion
+    final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+    // removed other assertion
+
+    // check the three methods
+    final Method[] methods = cgen.getMethods();
+    // removed other assertion
+    for (final Method method : methods)
+    {
+        final String methodName = method.getName();
+        if (methodName.equals(""<init>""))
+        {
+            // removed other assertion
+
+            // --- inlined assertParameterAnnotations(method, 0, 1) ---
+            final String msgBase = ""For "" + method.getName();
+            final ParameterAnnotationEntry[] parameterAnnotations = method.getParameterAnnotationEntries();
+
+            // expectedNumberOfParmeterAnnotations.length == 2 (0, 1)
+            // removed other assertion
+
+            // first parameter expected 0 annotations
+            final AnnotationEntry[] annos0 = parameterAnnotations[0].getAnnotationEntries();
+            // removed other assertion
+
+            // second parameter expected 1 annotation
+            final AnnotationEntry[] annos1 = parameterAnnotations[1].getAnnotationEntries();
+            // removed other assertion
+            // original helper called assertSimpleElementValue when expectedLength != 0
+            assertSimpleElementValue(annos1[0]);
+}
+}
+}
+",GeneratingAnnotatedClassesTestCase::test_standard_12_oe,assertSimpleElementValue,"    private void assertSimpleElementValue(final AnnotationEntry anno)
+    {
+        final ElementValuePair elementValuePair = anno.getElementValuePairs()[0];
+        assertEquals(""id"", elementValuePair.getNameString());
+        final SimpleElementValue ev = (SimpleElementValue)elementValuePair.getValue();
+        assertEquals(42, ev.getValueInt());
+    }
+",src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase.java
+bcel_69_13,"public void test_standard_13_oe()
+        throws ClassNotFoundException
+{
+    final JavaClass jc = getTestClass(PACKAGE_BASE_NAME + "".data.AnnotatedWithCombinedAnnotation"");
+    final ClassGen cgen = new ClassGen(jc);
+
+    // Check annotations are correctly preserved
+    final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+    // removed other assertion
+    final AnnotationEntryGen a = annotations[0];
+    // removed other assertion
+    final ElementValuePairGen nvp = a.getValues().get(0);
+    final ElementValueGen value = nvp.getValue();
+    // removed other assertion
+    final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+    // removed other assertion
+    final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+    // removed other assertion
+    final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+    // removed other assertion
+
+    // check the three methods
+    final Method[] methods = cgen.getMethods();
+    // removed other assertion
+    for (final Method method : methods)
+    {
+        final String methodName = method.getName();
+        if (methodName.equals(""<init>""))
+        {
+            // removed other assertion
+
+            // --- inlined assertParameterAnnotations(method, 0, 1) ---
+            final String msgBase = ""For "" + method.getName();
+            final ParameterAnnotationEntry[] parameterAnnotations = method.getParameterAnnotationEntries();
+
+            // expectedNumberOfParmeterAnnotations.length == 2 (0, 1)
+            // removed other assertion
+
+            // first parameter expected 0 annotations
+            final AnnotationEntry[] annos0 = parameterAnnotations[0].getAnnotationEntries();
+            // removed other assertion
+
+            // second parameter expected 1 annotation
+            final AnnotationEntry[] annos1 = parameterAnnotations[1].getAnnotationEntries();
+            // removed other assertion
+            // original helper called assertSimpleElementValue when expectedLength != 0
+            // removed other assertion
+            // --- end inlined assertParameterAnnotations ---
+        }
+        else if (methodName.equals(""methodWithArrayOfZeroAnnotations""))
+        {
+            assertMethodAnnotations(method, 1, 0);
+}
+}
+}
+",GeneratingAnnotatedClassesTestCase::test_standard_13_oe,assertMethodAnnotations,"    private void assertMethodAnnotations(final Method method, final int expectedNumberAnnotations, final int nExpectedArrayValues)
+    {
+        final String methodName= method.getName();
+        final AnnotationEntry[] annos= method.getAnnotationEntries();
+        assertEquals(""For ""+methodName, expectedNumberAnnotations, annos.length);
+        if(expectedNumberAnnotations!=0)
+        {
+            assertArrayElementValue(nExpectedArrayValues, annos[0]);
+        }
+    }
+",src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase.java
+bcel_69_14,"public void test_standard_14_oe()
+        throws ClassNotFoundException
+{
+    final JavaClass jc = getTestClass(PACKAGE_BASE_NAME + "".data.AnnotatedWithCombinedAnnotation"");
+    final ClassGen cgen = new ClassGen(jc);
+
+    // Check annotations are correctly preserved
+    final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+    // removed other assertion
+    final AnnotationEntryGen a = annotations[0];
+    // removed other assertion
+    final ElementValuePairGen nvp = a.getValues().get(0);
+    final ElementValueGen value = nvp.getValue();
+    // removed other assertion
+    final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+    // removed other assertion
+    final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+    // removed other assertion
+    final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+    // removed other assertion
+
+    // check the three methods
+    final Method[] methods = cgen.getMethods();
+    // removed other assertion
+    for (final Method method : methods)
+    {
+        final String methodName = method.getName();
+        if (methodName.equals(""<init>""))
+        {
+            // removed other assertion
+
+            // --- inlined assertParameterAnnotations(method, 0, 1) ---
+            final String msgBase = ""For "" + method.getName();
+            final ParameterAnnotationEntry[] parameterAnnotations = method.getParameterAnnotationEntries();
+
+            // expectedNumberOfParmeterAnnotations.length == 2 (0, 1)
+            // removed other assertion
+
+            // first parameter expected 0 annotations
+            final AnnotationEntry[] annos0 = parameterAnnotations[0].getAnnotationEntries();
+            // removed other assertion
+
+            // second parameter expected 1 annotation
+            final AnnotationEntry[] annos1 = parameterAnnotations[1].getAnnotationEntries();
+            // removed other assertion
+            // original helper called assertSimpleElementValue when expectedLength != 0
+            // removed other assertion
+            // --- end inlined assertParameterAnnotations ---
+        }
+        else if (methodName.equals(""methodWithArrayOfZeroAnnotations""))
+        {
+            // removed other assertion
+        }
+        else if (methodName.equals(""methodWithArrayOfTwoAnnotations""))
+        {
+            assertMethodAnnotations(method, 1, 2);
+}
+}
+}
+",GeneratingAnnotatedClassesTestCase::test_standard_14_oe,assertMethodAnnotations,"    private void assertMethodAnnotations(final Method method, final int expectedNumberAnnotations, final int nExpectedArrayValues)
+    {
+        final String methodName= method.getName();
+        final AnnotationEntry[] annos= method.getAnnotationEntries();
+        assertEquals(""For ""+methodName, expectedNumberAnnotations, annos.length);
+        if(expectedNumberAnnotations!=0)
+        {
+            assertArrayElementValue(nExpectedArrayValues, annos[0]);
+        }
+    }
+",src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase.java
+bcel_85_8,"    public void testTransformClassToClassGen_ArrayAndAnnotationTypes_8_oe()
+            throws ClassNotFoundException
+    {
+        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.AnnotatedWithCombinedAnnotation"");
+        final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
+        final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
+        final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
+        final ElementValuePairGen nvp = a.getValues().get(0);
+        final ElementValueGen value = nvp.getValue();
+        // removed other assertion
+        final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        // removed other assertion
+        final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        // removed other assertion
+        final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+        // removed other assertion
+
+        // check the three methods
+        final Method[] methods = cgen.getMethods();
+        // removed other assertion
+        for (final Method method : methods)
+        {
+            final String methodName= method.getName();
+            if(methodName.equals(""<init>""))
+            {
+                assertMethodAnnotations(method, 0, 1);
+    }
+    }
+    }
+",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_8_oe,assertMethodAnnotations,"    private void assertMethodAnnotations(final Method method, final int expectedNumberAnnotations, final int nExpectedArrayValues)
+    {
+        final String methodName= method.getName();
+        final AnnotationEntry[] annos= method.getAnnotationEntries();
+        assertEquals(""For ""+methodName, expectedNumberAnnotations, annos.length);
+        if(expectedNumberAnnotations!=0)
+        {
+            assertArrayElementValue(nExpectedArrayValues, annos[0]);
+        }
+    }
+",src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase.java
+bcel_85_9,"    public void testTransformClassToClassGen_ArrayAndAnnotationTypes_9_oe()
+            throws ClassNotFoundException
+    {
+        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.AnnotatedWithCombinedAnnotation"");
+        final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
+        final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
+        final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
+        final ElementValuePairGen nvp = a.getValues().get(0);
+        final ElementValueGen value = nvp.getValue();
+        // removed other assertion
+        final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        // removed other assertion
+        final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        // removed other assertion
+        final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+        // removed other assertion
+
+        // check the three methods
+        final Method[] methods = cgen.getMethods();
+        // removed other assertion
+        for (final Method method : methods)
+        {
+            final String methodName= method.getName();
+            if(methodName.equals(""<init>""))
+            {
+                // removed other assertion
+                assertParameterAnnotations(method, 0, 1);
+    }
+    }
+    }
+",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_9_oe,assertParameterAnnotations,"    private void assertParameterAnnotations(final Method method, final int... expectedNumberOfParmeterAnnotations)
+    {
+        final String methodName= ""For ""+method.getName();
+        final ParameterAnnotationEntry[] parameterAnnotations= method.getParameterAnnotationEntries();
+        assertEquals(methodName, expectedNumberOfParmeterAnnotations.length, parameterAnnotations.length);
+
+        int i= 0;
+        for (final ParameterAnnotationEntry parameterAnnotation : parameterAnnotations)
+        {
+            final AnnotationEntry[] annos= parameterAnnotation.getAnnotationEntries();
+            final int expectedLength = expectedNumberOfParmeterAnnotations[i++];
+            assertEquals(methodName+"" parameter ""+i, expectedLength, annos.length);
+            if(expectedLength!=0)
+            {
+                assertSimpleElementValue(annos[0]);
+            }
+        }
+    }
+",src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase.java
+bcel_85_10,"    public void testTransformClassToClassGen_ArrayAndAnnotationTypes_10_oe()
+            throws ClassNotFoundException
+    {
+        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.AnnotatedWithCombinedAnnotation"");
+        final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
+        final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
+        final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
+        final ElementValuePairGen nvp = a.getValues().get(0);
+        final ElementValueGen value = nvp.getValue();
+        // removed other assertion
+        final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        // removed other assertion
+        final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        // removed other assertion
+        final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+        // removed other assertion
+
+        // check the three methods
+        final Method[] methods = cgen.getMethods();
+        // removed other assertion
+        for (final Method method : methods)
+        {
+            final String methodName= method.getName();
+            if(methodName.equals(""<init>""))
+            {
+                // removed other assertion
+                // removed other assertion
+            }
+            else if(methodName.equals(""methodWithArrayOfZeroAnnotations""))
+            {
+                assertMethodAnnotations(method, 1, 0);
+    }
+    }
+    }
+",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_10_oe,assertMethodAnnotations,"    private void assertMethodAnnotations(final Method method, final int expectedNumberAnnotations, final int nExpectedArrayValues)
+    {
+        final String methodName= method.getName();
+        final AnnotationEntry[] annos= method.getAnnotationEntries();
+        assertEquals(""For ""+methodName, expectedNumberAnnotations, annos.length);
+        if(expectedNumberAnnotations!=0)
+        {
+            assertArrayElementValue(nExpectedArrayValues, annos[0]);
+        }
+    }
+",src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase.java
+bcel_85_11,"    public void testTransformClassToClassGen_ArrayAndAnnotationTypes_11_oe()
+            throws ClassNotFoundException
+    {
+        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.AnnotatedWithCombinedAnnotation"");
+        final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
+        final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
+        final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
+        final ElementValuePairGen nvp = a.getValues().get(0);
+        final ElementValueGen value = nvp.getValue();
+        // removed other assertion
+        final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        // removed other assertion
+        final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        // removed other assertion
+        final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+        // removed other assertion
+
+        // check the three methods
+        final Method[] methods = cgen.getMethods();
+        // removed other assertion
+        for (final Method method : methods)
+        {
+            final String methodName= method.getName();
+            if(methodName.equals(""<init>""))
+            {
+                // removed other assertion
+                // removed other assertion
+            }
+            else if(methodName.equals(""methodWithArrayOfZeroAnnotations""))
+            {
+                // removed other assertion
+            }
+            else if(methodName.equals(""methodWithArrayOfTwoAnnotations""))
+            {
+                assertMethodAnnotations(method, 1, 2);
+    }
+    }
+    }
+",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_11_oe,assertMethodAnnotations,"    private void assertMethodAnnotations(final Method method, final int expectedNumberAnnotations, final int nExpectedArrayValues)
+    {
+        final String methodName= method.getName();
+        final AnnotationEntry[] annos= method.getAnnotationEntries();
+        assertEquals(""For ""+methodName, expectedNumberAnnotations, annos.length);
+        if(expectedNumberAnnotations!=0)
+        {
+            assertArrayElementValue(nExpectedArrayValues, annos[0]);
+        }
+    }
+",src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase.java
+bcel_116_1,"    public void testInvalidReturn_1_oe() throws IOException {
+        new TestReturn01Creator().create();
+        assertVerifyRejected(""TestReturn01"", ""Verification of a void method that returns an object must fail."");
+    }
+",VerifierReturnTestCase::testInvalidReturn_1_oe,assertVerifyRejected,"    public void assertVerifyRejected(final String classname, final String message) {
+        final String testClassname = TEST_PACKAGE + classname;
+        assertFalse(message, doAllPasses(testClassname));
+    }
+",src/test/java/org/apache/bcel/verifier/AbstractVerifierTestCase.java
+bcel_116_2,"    public void testInvalidReturn_2_oe() throws IOException {
+        new TestReturn01Creator().create();
+        // removed other assertion
+        new TestReturn03Creator().create();
+        assertVerifyRejected(""TestReturn03"", ""Verification of an int method that returns null must fail."");
+    }
+",VerifierReturnTestCase::testInvalidReturn_2_oe,assertVerifyRejected,"    public void assertVerifyRejected(final String classname, final String message) {
+        final String testClassname = TEST_PACKAGE + classname;
+        assertFalse(message, doAllPasses(testClassname));
+    }
+",src/test/java/org/apache/bcel/verifier/AbstractVerifierTestCase.java
+bcel_117_1,"    public void testValidReturn_1_oe() {
+        assertVerifyOK(""TestReturn02"", ""Verification of a method that returns a newly created object must pass."");
+    }
+",VerifierReturnTestCase::testValidReturn_1_oe,assertVerifyOK,"    public void assertVerifyOK(final String classname, final String message) {
+        final String testClassname = TEST_PACKAGE + classname;
+        assertTrue(message, doAllPasses(testClassname));
+    }
+",src/test/java/org/apache/bcel/verifier/AbstractVerifierTestCase.java
+bcel_117_2,"    public void testValidReturn_2_oe() {
+        // removed other assertion
+        assertVerifyOK(""TestArray01"", ""Verification of a method that returns an array must pass."");
+    }
+",VerifierReturnTestCase::testValidReturn_2_oe,assertVerifyOK,"    public void assertVerifyOK(final String classname, final String message) {
+        final String testClassname = TEST_PACKAGE + classname;
+        assertTrue(message, doAllPasses(testClassname));
+    }
+",src/test/java/org/apache/bcel/verifier/AbstractVerifierTestCase.java
+bcel_119_1,"    public void testLegalInvokeVirtual_1_oe() {
+        assertVerifyOK(""TestLegalInvokeVirtual01"", ""Verification of invokevirtual on method defined in superclass must pass."");
+    }
+",VerifierInvokeTestCase::testLegalInvokeVirtual_1_oe,assertVerifyOK,"    public void assertVerifyOK(final String classname, final String message) {
+        final String testClassname = TEST_PACKAGE + classname;
+        assertTrue(message, doAllPasses(testClassname));
+    }
+",src/test/java/org/apache/bcel/verifier/AbstractVerifierTestCase.java
+bcel_119_2,"    public void testLegalInvokeVirtual_2_oe() {
+        // removed other assertion
+        assertVerifyOK(""TestLegalInvokeVirtual02"", ""Verification of invokevirtual on method defined in superinterface must pass."");
+    }
+",VerifierInvokeTestCase::testLegalInvokeVirtual_2_oe,assertVerifyOK,"    public void assertVerifyOK(final String classname, final String message) {
+        final String testClassname = TEST_PACKAGE + classname;
+        assertTrue(message, doAllPasses(testClassname));
+    }
+",src/test/java/org/apache/bcel/verifier/AbstractVerifierTestCase.java
+bcel_120_1,"    public void testLegalInvokeStatic_1_oe() {
+        assertVerifyOK(""TestLegalInvokeStatic01"", ""Verification of invokestatic on method defined in superclass must pass."");
+    }
+",VerifierInvokeTestCase::testLegalInvokeStatic_1_oe,assertVerifyOK,"    public void assertVerifyOK(final String classname, final String message) {
+        final String testClassname = TEST_PACKAGE + classname;
+        assertTrue(message, doAllPasses(testClassname));
+    }
+",src/test/java/org/apache/bcel/verifier/AbstractVerifierTestCase.java
+bcel_121_1,"    public void testLegalInvokeInterface_1_oe() {
+        assertVerifyOK(""TestLegalInvokeInterface01"", ""Verification of invokeinterface on method defined in superinterface must pass."");
+    }
+",VerifierInvokeTestCase::testLegalInvokeInterface_1_oe,assertVerifyOK,"    public void assertVerifyOK(final String classname, final String message) {
+        final String testClassname = TEST_PACKAGE + classname;
+        assertTrue(message, doAllPasses(testClassname));
+    }
+",src/test/java/org/apache/bcel/verifier/AbstractVerifierTestCase.java
+bcel_122_1,"    public void testLegalInvokeSpecial_1_oe() {
+        assertVerifyOK(""TestLegalInvokeSpecial01"", ""Verification of invokespecial on method defined in superclass must pass."");
+    }
+",VerifierInvokeTestCase::testLegalInvokeSpecial_1_oe,assertVerifyOK,"    public void assertVerifyOK(final String classname, final String message) {
+        final String testClassname = TEST_PACKAGE + classname;
+        assertTrue(message, doAllPasses(testClassname));
+    }
+",src/test/java/org/apache/bcel/verifier/AbstractVerifierTestCase.java
+bcel_122_2,"    public void testLegalInvokeSpecial_2_oe() {
+        // removed other assertion
+        assertVerifyOK(""TestLegalInvokeSpecial02"", ""Verification of invokespecial on method defined in superclass must pass."");
+    }
+",VerifierInvokeTestCase::testLegalInvokeSpecial_2_oe,assertVerifyOK,"    public void assertVerifyOK(final String classname, final String message) {
+        final String testClassname = TEST_PACKAGE + classname;
+        assertTrue(message, doAllPasses(testClassname));
+    }
+",src/test/java/org/apache/bcel/verifier/AbstractVerifierTestCase.java
+bcel_123_1,"    public void testInvalidArrayAccess_1_oe() throws IOException {
+        new TestArrayAccess03Creator().create();
+        assertVerifyRejected(""TestArrayAccess03"", ""Verification of an arraystore instruction on an object must fail."");
+    }
+",VerifierArrayAccessTestCase::testInvalidArrayAccess_1_oe,assertVerifyRejected,"    public void assertVerifyRejected(final String classname, final String message) {
+        final String testClassname = TEST_PACKAGE + classname;
+        assertFalse(message, doAllPasses(testClassname));
+    }
+",src/test/java/org/apache/bcel/verifier/AbstractVerifierTestCase.java
+bcel_123_2,"    public void testInvalidArrayAccess_2_oe() throws IOException {
+        new TestArrayAccess03Creator().create();
+        // removed other assertion
+        new TestArrayAccess04Creator().create();
+        assertVerifyRejected(""TestArrayAccess04"", ""Verification of an arraystore instruction of an int on an array of references must fail."");
+    }
+",VerifierArrayAccessTestCase::testInvalidArrayAccess_2_oe,assertVerifyRejected,"    public void assertVerifyRejected(final String classname, final String message) {
+        final String testClassname = TEST_PACKAGE + classname;
+        assertFalse(message, doAllPasses(testClassname));
+    }
+",src/test/java/org/apache/bcel/verifier/AbstractVerifierTestCase.java
+bcel_124_1,"    public void testValidArrayAccess_1_oe() throws IOException {
+        assertVerifyOK(""TestArrayAccess01"", ""Verification of an arraystore instruction on an array that is not compatible with the stored element must pass."");
+    }
+",VerifierArrayAccessTestCase::testValidArrayAccess_1_oe,assertVerifyOK,"    public void assertVerifyOK(final String classname, final String message) {
+        final String testClassname = TEST_PACKAGE + classname;
+        assertTrue(message, doAllPasses(testClassname));
+    }
+",src/test/java/org/apache/bcel/verifier/AbstractVerifierTestCase.java
+bcel_124_2,"    public void testValidArrayAccess_2_oe() throws IOException {
+        // removed other assertion
+        new TestArrayAccess02Creator().create();
+        assertVerifyOK(""TestArrayAccess02"", ""Verification of an arraystore instruction on an array that is not compatible with the stored element must pass."");
+    }
+",VerifierArrayAccessTestCase::testValidArrayAccess_2_oe,assertVerifyOK,"    public void assertVerifyOK(final String classname, final String message) {
+        final String testClassname = TEST_PACKAGE + classname;
+        assertTrue(message, doAllPasses(testClassname));
+    }
+",src/test/java/org/apache/bcel/verifier/AbstractVerifierTestCase.java

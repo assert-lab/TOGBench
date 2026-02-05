@@ -33,7 +33,7 @@ public class NullParametersRoundtripTest_OE25Dev extends RoundtripBase {
         return Stream.of(FormatInfo.READ_WRITE_FORMATS);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testNullParametersRoundtrip_1_oe(final FormatInfo formatInfo) throws Exception {
         final BufferedImage testImage = TestImages.createFullColorImage(1, 1);

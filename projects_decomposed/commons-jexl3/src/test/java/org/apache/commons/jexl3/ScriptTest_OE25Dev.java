@@ -59,14 +59,14 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
      * Test creating a script from a string.
      */
 
-    @Test
+@Test
     public void testSpacesScript_1_oe() throws Exception {
         final String code = " ";
         final JexlScript s = JEXL.createScript(code);
         Assert.assertNotNull(s);
     }
 
-    @Test
+@Test
     public void testSimpleScript_1_oe() throws Exception {
         final String code = "while (x < 10) x = x + 1;";
         final JexlScript s = JEXL.createScript(code);
@@ -77,7 +77,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is wrong", new Integer(10), o);
     }
 
-    @Test
+@Test
     public void testSimpleScript_2_oe() throws Exception {
         final String code = "while (x < 10) x = x + 1;";
         final JexlScript s = JEXL.createScript(code);
@@ -89,7 +89,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("getText is wrong", code, s.getSourceText());
     }
 
-    @Test
+@Test
     public void testScriptFromFile_1_oe() throws Exception {
         final File testScript = new File(TEST1);
         final JexlScript s = JEXL.createScript(testScript);
@@ -99,7 +99,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull("No result", result);
     }
 
-    @Test
+@Test
     public void testScriptFromFile_2_oe() throws Exception {
         final File testScript = new File(TEST1);
         final JexlScript s = JEXL.createScript(testScript);
@@ -110,7 +110,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Wrong result", new Integer(7), result);
     }
 
-    @Test
+@Test
     public void testArgScriptFromFile_1_oe() throws Exception {
         final File testScript = new File(TEST_ADD);
         final JexlScript s = JEXL.createScript(testScript,"x", "y");
@@ -120,7 +120,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull("No result", result);
     }
 
-    @Test
+@Test
     public void testArgScriptFromFile_2_oe() throws Exception {
         final File testScript = new File(TEST_ADD);
         final JexlScript s = JEXL.createScript(testScript,"x", "y");
@@ -131,7 +131,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Wrong result", new Integer(42), result);
     }
 
-    @Test
+@Test
     public void testScriptFromURL_1_oe() throws Exception {
         final URL testUrl = new File(TEST1).toURI().toURL();
         final JexlScript s = JEXL.createScript(testUrl);
@@ -141,7 +141,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull("No result", result);
     }
 
-    @Test
+@Test
     public void testScriptFromURL_2_oe() throws Exception {
         final URL testUrl = new File(TEST1).toURI().toURL();
         final JexlScript s = JEXL.createScript(testUrl);
@@ -152,7 +152,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Wrong result", new Integer(7), result);
     }
 
-    @Test
+@Test
     public void testArgScriptFromURL_1_oe() throws Exception {
         final URL testUrl = new File(TEST_ADD).toURI().toURL();
         final JexlScript s = JEXL.createScript(testUrl,"x", "y");
@@ -162,7 +162,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull("No result", result);
     }
 
-    @Test
+@Test
     public void testArgScriptFromURL_2_oe() throws Exception {
         final URL testUrl = new File(TEST_ADD).toURI().toURL();
         final JexlScript s = JEXL.createScript(testUrl,"x", "y");
@@ -173,7 +173,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Wrong result", new Integer(42), result);
     }
 
-    @Test
+@Test
     public void testScriptUpdatesContext_1_oe() throws Exception {
         final String jexlCode = "resultat.setCode('OK')";
         final JexlExpression e = JEXL.createExpression(jexlCode);
@@ -188,7 +188,7 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("OK", resultatJexl.getCode());
     }
 
-    @Test
+@Test
     public void testScriptUpdatesContext_2_oe() throws Exception {
         final String jexlCode = "resultat.setCode('OK')";
         final JexlExpression e = JEXL.createExpression(jexlCode);

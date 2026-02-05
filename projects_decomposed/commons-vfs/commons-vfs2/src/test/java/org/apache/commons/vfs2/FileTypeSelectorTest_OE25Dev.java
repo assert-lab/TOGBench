@@ -59,7 +59,7 @@ public class FileTypeSelectorTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testFileOrFolders_1_oe() throws Exception {
         final FileSelector selector = new FileTypeSelector(FileType.FILE_OR_FOLDER);
         final FileObject[] foList = BaseFolder.findFiles(selector);
@@ -67,14 +67,14 @@ public class FileTypeSelectorTest_OE25Dev {
         Assert.assertEquals(0, foList.length);
     }
 
-    @Test
+@Test
     public void testFiles_1_oe() throws Exception {
         final FileSelector selector = new FileTypeSelector(FileType.FILE);
         final FileObject[] foList = BaseFolder.findFiles(selector);
         Assert.assertEquals(5, foList.length);
     }
 
-    @Test
+@Test
     public void testFolders_1_oe() throws Exception {
         final FileSelector selector = new FileTypeSelector(FileType.FOLDER);
         final FileObject[] foList = BaseFolder.findFiles(selector);

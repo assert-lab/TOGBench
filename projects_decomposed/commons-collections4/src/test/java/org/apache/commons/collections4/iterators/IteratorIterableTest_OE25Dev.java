@@ -65,7 +65,7 @@ public static Test suite() {
         assertTrue(expected > 0);
     }
 
-    public void testIterator_1_oe() {
+public void testIterator_1_oe() {
         final Iterator<Integer> iter = createIterator();
         final Iterable<Number> iterable = new IteratorIterable<>(iter);
 

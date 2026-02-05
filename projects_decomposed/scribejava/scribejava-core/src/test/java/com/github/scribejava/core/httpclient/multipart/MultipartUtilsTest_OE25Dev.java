@@ -57,7 +57,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertTrue(thrown.getMessage().startsWith("{'boundary'='" + boundary + "'} has invalid syntax. Should be '"));
     }
 
-    @Test
+@Test
     public void testEmptyMultipartPayload_1_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload();
 
@@ -72,7 +72,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("Content-Type: multipart/form-data;boundary=\"" + mP.getBoundary()+ "\"\r\n",headersString.toString());
     }
 
-    @Test
+@Test
     public void testEmptyMultipartPayload_2_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload();
 
@@ -89,7 +89,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("", MultipartUtils.getPayload(mP).toString());
     }
 
-    @Test
+@Test
     public void testSimpleMultipartPayload_1_oe() throws IOException {
         final Map<String, String> headers = new LinkedHashMap<>();
         headers.put("X-Header", "X-Value");
@@ -121,7 +121,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("X-Header: X-Value\r\n" + "Content-Disposition: Content-Disposition-Value\r\n" + "Content-Type: multipart/mixed;boundary=\"simple boundary\"\r\n",headersString.toString());
     }
 
-    @Test
+@Test
     public void testSimpleMultipartPayload_2_oe() throws IOException {
         final Map<String, String> headers = new LinkedHashMap<>();
         headers.put("X-Header", "X-Value");
@@ -155,7 +155,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("This is the preamble. It is to be ignored,though it\n" + "is a handy place for composition agents to include an\n" + "explanatory note to non-MIME conformant readers." + "\r\n--simple boundary\r\n" + "\r\n" + "This is implicitly typed plain US-ASCII text.\n" + "It does NOT end with a linebreak." + "\r\n--simple boundary\r\n" + "Content-Type: text/plain;charset=us-ascii\r\n" + "\r\n" + "This is explicitly typed plain US-ASCII text.\n" + "It DOES end with a linebreak.\n" + "\r\n--simple boundary--" + "\r\nThis is the epilogue. It is also to be ignored.",MultipartUtils.getPayload(mP).toString());
     }
 
-    @Test
+@Test
     public void testCRLFMultipartPayload_1_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload("simple-boundary");
         mP.addBodyPart(new ByteArrayBodyPartPayload("It does NOT end with a linebreak.".getBytes()));
@@ -175,7 +175,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("Content-Type: multipart/form-data; boundary=\"simple-boundary\"\r\n", headersString.toString());
     }
 
-    @Test
+@Test
     public void testCRLFMultipartPayload_2_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload("simple-boundary");
         mP.addBodyPart(new ByteArrayBodyPartPayload("It does NOT end with a linebreak.".getBytes()));
@@ -197,7 +197,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("--simple-boundary\r\n" + "\r\n" + "It does NOT end with a linebreak." + "\r\n--simple-boundary\r\n" + "\r\n" + "It does end with a \\r linebreak.\r" + "\r\n--simple-boundary\r\n" + "\r\n" + "It does end with a \\n linebreak.\n" + "\r\n--simple-boundary\r\n" + "\r\n" + "It does end with a \\r\\n linebreak.\r\n" + "\r\n--simple-boundary\r\n" + "\r\n" + "the last one" + "\r\n--simple-boundary--",MultipartUtils.getPayload(mP).toString());
     }
 
-    @Test
+@Test
     public void testFileByteArrayBodyPartPayloadMultipartPayload_1_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload("testFileByteArrayBodyPartPayloadMultipartPayload boundary");
         mP.addBodyPart(new FileByteArrayBodyPartPayload("fileContent".getBytes(), "name", "filename.ext"));
@@ -213,7 +213,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("Content-Type: multipart/form-data;" + "boundary=\"testFileByteArrayBodyPartPayloadMultipartPayload boundary\"\r\n",headersString.toString());
     }
 
-    @Test
+@Test
     public void testFileByteArrayBodyPartPayloadMultipartPayload_2_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload("testFileByteArrayBodyPartPayloadMultipartPayload boundary");
         mP.addBodyPart(new FileByteArrayBodyPartPayload("fileContent".getBytes(), "name", "filename.ext"));
@@ -231,7 +231,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("--testFileByteArrayBodyPartPayloadMultipartPayload boundary\r\n" + "Content-Disposition: form-data;name=\"name\";filename=\"filename.ext\"\r\n" + "\r\n" + "fileContent" + "\r\n--testFileByteArrayBodyPartPayloadMultipartPayload boundary--",MultipartUtils.getPayload(mP).toString());
     }
 
-    @Test
+@Test
     public void testComplexMultipartPayload_1_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload("mixed", "unique-boundary-1");
 
@@ -288,7 +288,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("Content-Type: multipart/mixed; boundary=\"unique-boundary-1\"\r\n", headersString.toString());
     }
 
-    @Test
+@Test
     public void testComplexMultipartPayload_2_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload("mixed", "unique-boundary-1");
 
@@ -347,19 +347,19 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("This is the preamble area of a multipart message.\n" + "Mail readers that understand multipart format\n" + "should ignore this preamble.\n" + "\n" + "If you are reading this text,you might want to\n" + "consider changing to a mail reader that understands\n" + "how to properly display multipart messages.\n" + "\r\n--unique-boundary-1\r\n" + "\r\n" + "... Some text appears here ..." + "\r\n--unique-boundary-1\r\n" + "Content-Type: text/plain;charset=US-ASCII\r\n" + "\r\n" + "This could have been part of the previous part,but\n" + "illustrates explicit versus implicit typing of body\n" + "parts.\n" + "\r\n--unique-boundary-1\r\n" + "Content-Type: multipart/parallel;boundary=\"unique-boundary-2\"\r\n" + "\r\n--unique-boundary-2\r\n" + "Content-Type: audio/basic\r\n" + "Content-Transfer-Encoding: base64\r\n" + "\r\n" + "... base64-encoded 8000 Hz single-channel\n" + " mu-law-format audio data goes here ..." + "\r\n--unique-boundary-2\r\n" + "Content-Type: image/jpeg\r\n" + "Content-Transfer-Encoding: base64\r\n" + "\r\n" + "... base64-encoded image data goes here ..." + "\r\n--unique-boundary-2--" + "\r\n--unique-boundary-1\r\n" + "Content-Type: text/enriched\r\n" + "\r\n" + "This is <bold><italic>enriched.</italic></bold>\n" + "<smaller>as defined in RFC 1896</smaller>\n" + "\n" + "Isn't it\n" + "<bigger><bigger>cool?</bigger></bigger>\n" + "\r\n--unique-boundary-1\r\n" + "Content-Type: message/rfc822\r\n" + "\r\n" + "From:(mailbox in US-ASCII)\n" + "To:(address in US-ASCII)\n" + "Subject:(subject in US-ASCII)\n" + "Content-Type: Text/plain;charset=ISO-8859-1\n" + "Content-Transfer-Encoding: Quoted-printable\n" + "\n" + "... Additional text in ISO-8859-1 goes here ...\n" + "\r\n--unique-boundary-1--",MultipartUtils.getPayload(mP).toString());
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_1_oe() {
         assertNull(MultipartUtils.parseBoundaryFromHeader(null));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_2_oe() {
         // removed other assertion
 
         assertEquals("0aA'()+_,-./:=?",MultipartUtils.parseBoundaryFromHeader("multipart/subtype;boundary=\"0aA'()+_,-./:=?\""));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_3_oe() {
         // removed other assertion
 
@@ -368,7 +368,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("0aA'()+_,-./:=?",MultipartUtils.parseBoundaryFromHeader("multipart/subtype;boundary=\"0aA'()+_,-./:=?\""));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_4_oe() {
         // removed other assertion
 
@@ -379,7 +379,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("0aA'()+_,-./:=?",MultipartUtils.parseBoundaryFromHeader("multipart/subtype;boundary=\"0aA'()+_,-./:=? \""));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_5_oe() {
         // removed other assertion
 
@@ -392,7 +392,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("0aA'()+_,-./:=?",MultipartUtils.parseBoundaryFromHeader("multipart/subtype;boundary=0aA'()+_,-./:=?"));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_6_oe() {
         // removed other assertion
 
@@ -407,7 +407,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("0aA'()+_,-./:=?",MultipartUtils.parseBoundaryFromHeader("multipart/subtype;boundary=0aA'()+_,-./:=?"));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_7_oe() {
         // removed other assertion
 
@@ -424,7 +424,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("0aA'()+_,-./:=?",MultipartUtils.parseBoundaryFromHeader("multipart/subtype;boundary=0aA'()+_,-./:=? "));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_8_oe() {
         // removed other assertion
 
@@ -443,7 +443,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals(" 0aA'()+_,-./:=?",MultipartUtils.parseBoundaryFromHeader("multipart/subtype;boundary= 0aA'()+_,-./:=?"));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_9_oe() {
         // removed other assertion
 
@@ -464,7 +464,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype; boundar=0aA'()+_, -./:=? "));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_10_oe() {
         // removed other assertion
 
@@ -486,7 +486,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype; "));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_11_oe() {
         // removed other assertion
 
@@ -509,7 +509,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype;"));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_12_oe() {
         // removed other assertion
 
@@ -533,7 +533,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype"));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_13_oe() {
         // removed other assertion
 
@@ -558,7 +558,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype; boundary="));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_14_oe() {
         // removed other assertion
 
@@ -585,7 +585,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("0aA'()+_,",MultipartUtils.parseBoundaryFromHeader("multipart/subtype;boundary=0aA'()+_,;-./:=? "));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_15_oe() {
         // removed other assertion
 
@@ -614,7 +614,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("0aA'()+_,-./:=?",MultipartUtils.parseBoundaryFromHeader("multipart/subtype;boundary=\"0aA'()+_,-./:=?"));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_16_oe() {
         // removed other assertion
 
@@ -645,7 +645,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("0aA'()+_,-./:=?",MultipartUtils.parseBoundaryFromHeader("multipart/subtype;boundary=0aA'()+_,-./:=?\""));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_17_oe() {
         // removed other assertion
 
@@ -678,7 +678,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("1234567890123456789012345678901234567890123456789012345678901234567890",MultipartUtils.parseBoundaryFromHeader("multipart/subtype;" + "boundary=1234567890123456789012345678901234567890123456789012345678901234567890"));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_18_oe() {
         // removed other assertion
 
@@ -713,7 +713,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertEquals("1234567890123456789012345678901234567890123456789012345678901234567890",MultipartUtils.parseBoundaryFromHeader("multipart/subtype;" + "boundary=12345678901234567890123456789012345678901234567890123456789012345678901"));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_19_oe() {
         // removed other assertion
 
@@ -750,7 +750,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype; boundary="));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_20_oe() {
         // removed other assertion
 
@@ -788,7 +788,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype; boundary=\"\""));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_21_oe() {
         // removed other assertion
 
@@ -827,7 +827,7 @@ public class MultipartUtilsTest_OE25Dev {
         assertNull(MultipartUtils.parseBoundaryFromHeader("multipart/subtype; boundary=;123"));
     }
 
-    @Test
+@Test
     public void testParseBoundaryFromHeader_22_oe() {
         // removed other assertion
 

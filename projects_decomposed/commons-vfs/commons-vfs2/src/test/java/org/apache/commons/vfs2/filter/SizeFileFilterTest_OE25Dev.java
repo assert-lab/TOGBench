@@ -99,14 +99,14 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
 
     }
 
-    @Test
+@Test
     public void testSizeFileFilterLong_1_oe() throws FileSystemException {
 
         final SizeFileFilter testee = new SizeFileFilter(4);
         Assert.assertFalse(testee.accept(minFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeFileFilterLong_2_oe() throws FileSystemException {
 
         final SizeFileFilter testee = new SizeFileFilter(4);
@@ -114,7 +114,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(optFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeFileFilterLong_3_oe() throws FileSystemException {
 
         final SizeFileFilter testee = new SizeFileFilter(4);
@@ -123,7 +123,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(maxFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeFileFilterLongBoolean_1_oe() throws FileSystemException {
 
         SizeFileFilter testee;
@@ -132,7 +132,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(minFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeFileFilterLongBoolean_2_oe() throws FileSystemException {
 
         SizeFileFilter testee;
@@ -142,7 +142,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(optFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeFileFilterLongBoolean_3_oe() throws FileSystemException {
 
         SizeFileFilter testee;
@@ -153,7 +153,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(maxFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeFileFilterLongBoolean_4_oe() throws FileSystemException {
 
         SizeFileFilter testee;
@@ -167,7 +167,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(minFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeFileFilterLongBoolean_5_oe() throws FileSystemException {
 
         SizeFileFilter testee;
@@ -182,7 +182,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(optFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeFileFilterLongBoolean_6_oe() throws FileSystemException {
 
         SizeFileFilter testee;
@@ -198,7 +198,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(maxFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeFileFilterZipDir_2_oe() throws FileSystemException {
 
         // Same test with ZIP file
@@ -209,7 +209,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertEquals(2, files.length);
     }
 
-    @Test
+@Test
     public void testSizeFileFilterZipDir_4_oe() throws FileSystemException {
 
         // Same test with ZIP file
@@ -224,7 +224,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertEquals(1, files.length);
     }
 
-    @Test
+@Test
     public void testSizeFileFilterZipDir_6_oe() throws FileSystemException {
 
         // Same test with ZIP file
@@ -243,7 +243,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertEquals(3, files.length);
     }
 
-    @Test
+@Test
     public void testSizeFileFilterZipDir_8_oe() throws FileSystemException {
 
         // Same test with ZIP file
@@ -266,7 +266,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertEquals(2, files.length);
     }
 
-    @Test
+@Test
     public void testSizeFileFilterZipDir_10_oe() throws FileSystemException {
 
         // Same test with ZIP file
@@ -293,7 +293,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertEquals(2, files.length);
     }
 
-    @Test
+@Test
     public void testSizeFileFilterZipDir_12_oe() throws FileSystemException {
 
         // Same test with ZIP file
@@ -324,7 +324,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertEquals(1, files.length);
     }
 
-    @Test
+@Test
     public void testSizeFileFilterZipDir_14_oe() throws FileSystemException {
 
         // Same test with ZIP file
@@ -359,7 +359,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertEquals(1, files.length);
     }
 
-    @Test
+@Test
     public void testSizeRangeFileFilter_1_oe() throws FileSystemException {
 
         SizeRangeFileFilter testee;
@@ -368,7 +368,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(minFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeRangeFileFilter_2_oe() throws FileSystemException {
 
         SizeRangeFileFilter testee;
@@ -378,7 +378,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(optFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeRangeFileFilter_3_oe() throws FileSystemException {
 
         SizeRangeFileFilter testee;
@@ -389,7 +389,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(maxFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeRangeFileFilter_4_oe() throws FileSystemException {
 
         SizeRangeFileFilter testee;
@@ -403,7 +403,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(minFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeRangeFileFilter_5_oe() throws FileSystemException {
 
         SizeRangeFileFilter testee;
@@ -418,7 +418,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(optFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeRangeFileFilter_6_oe() throws FileSystemException {
 
         SizeRangeFileFilter testee;
@@ -434,7 +434,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(maxFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeRangeFileFilter_7_oe() throws FileSystemException {
 
         SizeRangeFileFilter testee;
@@ -453,7 +453,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(minFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeRangeFileFilter_8_oe() throws FileSystemException {
 
         SizeRangeFileFilter testee;
@@ -473,7 +473,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(optFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeRangeFileFilter_9_oe() throws FileSystemException {
 
         SizeRangeFileFilter testee;
@@ -494,7 +494,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(maxFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeRangeFileFilter_10_oe() throws FileSystemException {
 
         SizeRangeFileFilter testee;
@@ -518,7 +518,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(minFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeRangeFileFilter_11_oe() throws FileSystemException {
 
         SizeRangeFileFilter testee;
@@ -543,7 +543,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(optFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeRangeFileFilter_12_oe() throws FileSystemException {
 
         SizeRangeFileFilter testee;
@@ -569,7 +569,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(maxFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeRangeFileFilter_13_oe() throws FileSystemException {
 
         SizeRangeFileFilter testee;
@@ -598,7 +598,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(testee.accept(minFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeRangeFileFilter_14_oe() throws FileSystemException {
 
         SizeRangeFileFilter testee;
@@ -628,7 +628,7 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(testee.accept(optFileInfo));
     }
 
-    @Test
+@Test
     public void testSizeRangeFileFilter_15_oe() throws FileSystemException {
 
         SizeRangeFileFilter testee;

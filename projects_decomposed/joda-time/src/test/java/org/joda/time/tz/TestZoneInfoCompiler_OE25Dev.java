@@ -48,36 +48,36 @@ public class TestZoneInfoCompiler_OE25Dev extends TestCase {
     zoneInfoCompiler.parseDataFile(bufferedReader, false);
   }
 
-  public void testTestOne_1_oe() {
+public void testTestOne_1_oe() {
     DateTimeZone dateTimeZone = DateTimeZone.forOffsetMillis(8);
 
     assertTrue(ZoneInfoCompiler.test("+02:15",dateTimeZone));
   }
 
-  public void testTestTwo_1_oe() {
+public void testTestTwo_1_oe() {
     DateTimeZoneBuilder dateTimeZoneBuilder = new DateTimeZoneBuilder();
     DateTimeZone dateTimeZone = dateTimeZoneBuilder.toDateTimeZone("7M6 _n'63", true);
 
     assertTrue(ZoneInfoCompiler.test("7M6 _n'63",dateTimeZone));
   }
 
-  public void testParseZoneCharFive_1_oe() {
+public void testParseZoneCharFive_1_oe() {
     assertEquals('s',ZoneInfoCompiler.parseZoneChar('s'));
   }
 
-  public void testParseYearAndParseYearReturningPositiveAndParseYearWithNegative_1_oe() {
+public void testParseYearAndParseYearReturningPositiveAndParseYearWithNegative_1_oe() {
     assertEquals(Integer.MAX_VALUE,ZoneInfoCompiler.parseYear("maximum",(-2512)));
   }
 
-  public void testParseYearAndParseYearReturningNegativeOne_1_oe() {
+public void testParseYearAndParseYearReturningNegativeOne_1_oe() {
     assertEquals(Integer.MIN_VALUE,ZoneInfoCompiler.parseYear("min",(-1881443201)));
   }
 
-  public void testParseYearAndParseYearReturningNegativeTwo_1_oe() {
+public void testParseYearAndParseYearReturningNegativeTwo_1_oe() {
     assertEquals(Integer.MIN_VALUE,ZoneInfoCompiler.parseYear("minimum",(-1971487955)));
   }
 
-  public void testWriteZoneInfoMapThrowsIllegalArgumentException_2_oe() throws IOException {
+public void testWriteZoneInfoMapThrowsIllegalArgumentException_2_oe() throws IOException {
     Map<String, MockZone> hashMap = new HashMap<String, MockZone>();
     MockZone mockZone = new MockZone(0L, 3022, 90);
     hashMap.put("     - ", mockZone);

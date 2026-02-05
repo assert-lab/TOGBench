@@ -58,153 +58,153 @@ public class RedirectTest_OE25Dev {
         Spark.awaitInitialization();
     }
 
-    @Test
+@Test
     public void testRedirectGet_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/hi", null);
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testRedirectGet_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/hi", null);
         // removed other assertion
         Assert.assertEquals(REDIRECTED, response.body);
     }
 
-    @Test
+@Test
     public void testRedirectPost_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/hi", "");
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testRedirectPost_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/hi", "");
         // removed other assertion
         Assert.assertEquals(REDIRECTED, response.body);
     }
 
-    @Test
+@Test
     public void testRedirectPut_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("PUT", "/hi", "");
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testRedirectPut_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("PUT", "/hi", "");
         // removed other assertion
         Assert.assertEquals(REDIRECTED, response.body);
     }
 
-    @Test
+@Test
     public void testRedirectDelete_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("DELETE", "/hi", null);
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testRedirectDelete_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("DELETE", "/hi", null);
         // removed other assertion
         Assert.assertEquals(REDIRECTED, response.body);
     }
 
-    @Test
+@Test
     public void testRedirectAnyGet_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/any", null);
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testRedirectAnyGet_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/any", null);
         // removed other assertion
         Assert.assertEquals(REDIRECTED, response.body);
     }
 
-    @Test
+@Test
     public void testRedirectAnyPut_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("PUT", "/any", "");
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testRedirectAnyPut_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("PUT", "/any", "");
         // removed other assertion
         Assert.assertEquals(REDIRECTED, response.body);
     }
 
-    @Test
+@Test
     public void testRedirectAnyPost_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/any", "");
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testRedirectAnyPost_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/any", "");
         // removed other assertion
         Assert.assertEquals(REDIRECTED, response.body);
     }
 
-    @Test
+@Test
     public void testRedirectAnyDelete_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("DELETE", "/any", "");
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testRedirectAnyDelete_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("DELETE", "/any", "");
         // removed other assertion
         Assert.assertEquals(REDIRECTED, response.body);
     }
 
-    @Test
+@Test
     public void testRedirectGetWithSpecificCode_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/hiagain", null);
         Assert.assertEquals(Redirect.Status.USE_PROXY.intValue(), response.status);
     }
 
-    @Test
+@Test
     public void testRedirectPostWithSpecificCode_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/hiagain", "");
         Assert.assertEquals(Redirect.Status.USE_PROXY.intValue(), response.status);
     }
 
-    @Test
+@Test
     public void testRedirectPutWithSpecificCode_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("PUT", "/hiagain", "");
         Assert.assertEquals(Redirect.Status.USE_PROXY.intValue(), response.status);
     }
 
-    @Test
+@Test
     public void testRedirectDeleteWithSpecificCode_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("DELETE", "/hiagain", null);
         Assert.assertEquals(Redirect.Status.USE_PROXY.intValue(), response.status);
     }
 
-    @Test
+@Test
     public void testRedirectAnyGetWithSpecificCode_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/anyagain", null);
         Assert.assertEquals(Redirect.Status.USE_PROXY.intValue(), response.status);
     }
 
-    @Test
+@Test
     public void testRedirectAnyPostWithSpecificCode_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/anyagain", "");
         Assert.assertEquals(Redirect.Status.USE_PROXY.intValue(), response.status);
     }
 
-    @Test
+@Test
     public void testRedirectAnyPutWithSpecificCode_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("PUT", "/anyagain", "");
         Assert.assertEquals(Redirect.Status.USE_PROXY.intValue(), response.status);
     }
 
-    @Test
+@Test
     public void testRedirectAnyDeleteWithSpecificCode_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("DELETE", "/anyagain", null);
         Assert.assertEquals(Redirect.Status.USE_PROXY.intValue(), response.status);

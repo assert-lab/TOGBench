@@ -128,7 +128,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testCtor_plane_1_oe() {
         // act
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE);
@@ -137,7 +137,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertFalse(ps.isFull());
     }
 
-    @Test
+@Test
     void testCtor_plane_2_oe() {
         // act
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE);
@@ -147,7 +147,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertTrue(ps.isEmpty());
     }
 
-    @Test
+@Test
     void testCtor_plane_3_oe() {
         // act
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE);
@@ -159,7 +159,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(0, ps.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testCtor_plane_booleanFalse_1_oe() {
         // act
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -168,7 +168,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertFalse(ps.isFull());
     }
 
-    @Test
+@Test
     void testCtor_plane_booleanFalse_2_oe() {
         // act
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -178,7 +178,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertTrue(ps.isEmpty());
     }
 
-    @Test
+@Test
     void testCtor_plane_booleanFalse_3_oe() {
         // act
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -190,7 +190,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(0, ps.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testCtor_plane_booleanTrue_1_oe() {
         // act
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, true);
@@ -199,7 +199,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertTrue(ps.isFull());
     }
 
-    @Test
+@Test
     void testCtor_plane_booleanTrue_2_oe() {
         // act
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, true);
@@ -209,7 +209,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertFalse(ps.isEmpty());
     }
 
-    @Test
+@Test
     void testToConvex_full_1_oe() {
         // act
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, true);
@@ -221,7 +221,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(1, convex.size());
     }
 
-    @Test
+@Test
     void testToConvex_full_2_oe() {
         // act
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, true);
@@ -234,7 +234,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertTrue(convex.get(0).isFull());
     }
 
-    @Test
+@Test
     void testToConvex_empty_1_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -246,7 +246,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(0, convex.size());
     }
 
-    @Test
+@Test
     void testToConvex_nonConvexRegion_1_oe() {
         // act
         final ConvexArea a = ConvexArea.convexPolygonFromVertices(Arrays.asList(
@@ -269,7 +269,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(2, convex.size());
     }
 
-    @Test
+@Test
     void testToConvex_nonConvexRegion_2_oe() {
         // act
         final ConvexArea a = ConvexArea.convexPolygonFromVertices(Arrays.asList(
@@ -293,7 +293,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(1, convex.get(0).getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToConvex_nonConvexRegion_3_oe() {
         // act
         final ConvexArea a = ConvexArea.convexPolygonFromVertices(Arrays.asList(
@@ -318,7 +318,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(1, convex.get(1).getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToTriangles_empty_1_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -330,7 +330,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(0, tris.size());
     }
 
-    @Test
+@Test
     void testToTriangles_finite_1_oe() {
         // arrange
         final Vector3D p1 = Vector3D.ZERO;
@@ -350,7 +350,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(2, tris.size());
     }
 
-    @Test
+@Test
     void testToTriangles_finite_disjoint_1_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE);
@@ -370,7 +370,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(3, tris.size());
     }
 
-    @Test
+@Test
     void testGetBounds_noBounds_1_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
@@ -386,7 +386,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertNull(full.getBounds());
     }
 
-    @Test
+@Test
     void testGetBounds_noBounds_2_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
@@ -403,7 +403,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertNull(empty.getBounds());
     }
 
-    @Test
+@Test
     void testGetBounds_noBounds_3_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
@@ -421,7 +421,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertNull(halfPlane.getBounds());
     }
 
-    @Test
+@Test
     void testSplit_empty_1_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -435,7 +435,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_empty_2_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -451,7 +451,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_empty_3_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -468,7 +468,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_halfSpace_1_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -484,7 +484,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_both_1_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -500,7 +500,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_intersects_plusOnly_1_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -516,7 +516,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_intersects_plusOnly_2_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -534,7 +534,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertSame(ps, split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_intersects_plusOnly_3_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -553,7 +553,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_intersects_minusOnly_1_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -569,7 +569,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_intersects_minusOnly_2_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -587,7 +587,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_intersects_minusOnly_3_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -606,7 +606,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertSame(ps, split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_parallel_plusOnly_1_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -622,7 +622,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_parallel_plusOnly_2_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -640,7 +640,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertSame(ps, split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_parallel_plusOnly_3_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -659,7 +659,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_parallel_minusOnly_1_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -675,7 +675,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_parallel_minusOnly_2_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -693,7 +693,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_parallel_minusOnly_3_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -712,7 +712,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertSame(ps, split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_coincident_1_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -726,7 +726,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_coincident_2_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -742,7 +742,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_coincident_3_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -759,7 +759,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testTransform_empty_1_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -773,7 +773,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertNotSame(ps, result);
     }
 
-    @Test
+@Test
     void testTransform_empty_4_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -793,7 +793,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertFalse(result.isFull());
     }
 
-    @Test
+@Test
     void testTransform_empty_5_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -814,7 +814,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertTrue(result.isEmpty());
     }
 
-    @Test
+@Test
     void testTransform_full_1_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, true);
@@ -828,7 +828,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertNotSame(ps, result);
     }
 
-    @Test
+@Test
     void testTransform_full_4_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, true);
@@ -848,7 +848,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertTrue(result.isFull());
     }
 
-    @Test
+@Test
     void testTransform_full_5_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, true);
@@ -869,7 +869,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertFalse(result.isEmpty());
     }
 
-    @Test
+@Test
     void testTransform_1_oe() {
         // arrange
         final ConvexArea area = ConvexArea.convexPolygonFromVertices(
@@ -889,7 +889,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertNotSame(ps, result);
     }
 
-    @Test
+@Test
     void testTransform_reflection_1_oe() {
         // arrange
         final ConvexArea area = ConvexArea.convexPolygonFromVertices(
@@ -907,7 +907,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertNotSame(ps, result);
     }
 
-    @Test
+@Test
     void testAddMethods_1_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(
@@ -929,7 +929,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertFalse(ps.isFull());
     }
 
-    @Test
+@Test
     void testAddMethods_2_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(
@@ -952,7 +952,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertFalse(ps.isEmpty());
     }
 
-    @Test
+@Test
     void testAddMethods_3_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(
@@ -976,7 +976,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertTrue(ps.isFinite());
     }
 
-    @Test
+@Test
     void testAddMethods_4_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(
@@ -1001,7 +1001,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertFalse(ps.isInfinite());
     }
 
-    @Test
+@Test
     void testAddMethods_5_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(
@@ -1028,7 +1028,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(1, ps.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAddMethods_rotatesEquivalentPlanesWithDifferentUAndV_1_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(
@@ -1055,7 +1055,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(4, ps.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAddMethods_rotatesEquivalentPlanesWithDifferentUAndV_singleConvexArea_1_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(
@@ -1077,7 +1077,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(2, ps.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAddMethods_rotatesEquivalentPlanesWithDifferentUAndV_singleTree_1_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(
@@ -1099,7 +1099,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertEquals(2, ps.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAddMethods_validatesPlane_1_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -1108,7 +1108,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> ps.add(Planes.subsetFromConvexArea( Planes.fromPointAndPlaneVectors(Vector3D.ZERO, Vector3D.Unit.PLUS_X, Vector3D.Unit.MINUS_Z, TEST_PRECISION), ConvexArea.full())));
     }
 
-    @Test
+@Test
     void testAddMethods_validatesPlane_2_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);

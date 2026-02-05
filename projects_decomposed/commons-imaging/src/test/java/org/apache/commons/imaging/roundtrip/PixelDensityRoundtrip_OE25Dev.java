@@ -38,7 +38,7 @@ public class PixelDensityRoundtrip_OE25Dev extends RoundtripBase {
         return Stream.of(FormatInfo.PRESERVING_RESOLUTION_FORMATS);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource
     public void testPixelDensityRoundtrip_1_oe(final FormatInfo formatInfo) throws Exception {
         final BufferedImage testImage = TestImages.createFullColorImage(2, 2);
@@ -60,7 +60,7 @@ public class PixelDensityRoundtrip_OE25Dev extends RoundtripBase {
     }
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource
     public void testPixelDensityRoundtrip_2_oe(final FormatInfo formatInfo) throws Exception {
         final BufferedImage testImage = TestImages.createFullColorImage(2, 2);

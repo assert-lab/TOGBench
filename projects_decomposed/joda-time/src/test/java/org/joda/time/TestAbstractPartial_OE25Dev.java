@@ -167,31 +167,31 @@ public class TestAbstractPartial_OE25Dev extends TestCase {
         }
     }
 
-    public void testGetValue_1_oe() throws Throwable {
+public void testGetValue_1_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         assertEquals(1970,mock.getValue(0));
     }
 
-    public void testGetValue_2_oe() throws Throwable {
+public void testGetValue_2_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         // removed other assertion
         assertEquals(1,mock.getValue(1));
     }
 
-    public void testGetValues_1_oe() throws Throwable {
+public void testGetValues_1_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         int[] vals = mock.getValues();
         assertEquals(2,vals.length);
     }
 
-    public void testGetValues_2_oe() throws Throwable {
+public void testGetValues_2_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         int[] vals = mock.getValues();
         // removed other assertion
         assertEquals(1970,vals[0]);
     }
 
-    public void testGetValues_3_oe() throws Throwable {
+public void testGetValues_3_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         int[] vals = mock.getValues();
         // removed other assertion
@@ -199,42 +199,42 @@ public class TestAbstractPartial_OE25Dev extends TestCase {
         assertEquals(1,vals[1]);
     }
 
-    public void testGetField_1_oe() throws Throwable {
+public void testGetField_1_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         assertEquals(BuddhistChronology.getInstanceUTC().year(),mock.getField(0));
     }
 
-    public void testGetField_2_oe() throws Throwable {
+public void testGetField_2_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         // removed other assertion
         assertEquals(BuddhistChronology.getInstanceUTC().monthOfYear(),mock.getField(1));
     }
 
-    public void testGetFieldType_1_oe() throws Throwable {
+public void testGetFieldType_1_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         assertEquals(DateTimeFieldType.year(),mock.getFieldType(0));
     }
 
-    public void testGetFieldType_2_oe() throws Throwable {
+public void testGetFieldType_2_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         // removed other assertion
         assertEquals(DateTimeFieldType.monthOfYear(),mock.getFieldType(1));
     }
 
-    public void testGetFieldTypes_1_oe() throws Throwable {
+public void testGetFieldTypes_1_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         DateTimeFieldType[] vals = mock.getFieldTypes();
         assertEquals(2,vals.length);
     }
 
-    public void testGetFieldTypes_2_oe() throws Throwable {
+public void testGetFieldTypes_2_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         DateTimeFieldType[] vals = mock.getFieldTypes();
         // removed other assertion
         assertEquals(DateTimeFieldType.year(),vals[0]);
     }
 
-    public void testGetFieldTypes_3_oe() throws Throwable {
+public void testGetFieldTypes_3_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         DateTimeFieldType[] vals = mock.getFieldTypes();
         // removed other assertion
@@ -242,25 +242,25 @@ public class TestAbstractPartial_OE25Dev extends TestCase {
         assertEquals(DateTimeFieldType.monthOfYear(),vals[1]);
     }
 
-    public void testGetPropertyEquals_1_oe() throws Throwable {
+public void testGetPropertyEquals_1_oe() throws Throwable {
         MockProperty0 prop0 = new MockProperty0();
         assertEquals(true,prop0.equals(prop0));
     }
 
-    public void testGetPropertyEquals_2_oe() throws Throwable {
+public void testGetPropertyEquals_2_oe() throws Throwable {
         MockProperty0 prop0 = new MockProperty0();
         // removed other assertion
         assertEquals(true,prop0.equals(new MockProperty0()));
     }
 
-    public void testGetPropertyEquals_3_oe() throws Throwable {
+public void testGetPropertyEquals_3_oe() throws Throwable {
         MockProperty0 prop0 = new MockProperty0();
         // removed other assertion
         // removed other assertion
         assertEquals(false,prop0.equals(new MockProperty1()));
     }
 
-    public void testGetPropertyEquals_4_oe() throws Throwable {
+public void testGetPropertyEquals_4_oe() throws Throwable {
         MockProperty0 prop0 = new MockProperty0();
         // removed other assertion
         // removed other assertion
@@ -268,7 +268,7 @@ public class TestAbstractPartial_OE25Dev extends TestCase {
         assertEquals(false,prop0.equals(new MockProperty0Val()));
     }
 
-    public void testGetPropertyEquals_5_oe() throws Throwable {
+public void testGetPropertyEquals_5_oe() throws Throwable {
         MockProperty0 prop0 = new MockProperty0();
         // removed other assertion
         // removed other assertion
@@ -277,7 +277,7 @@ public class TestAbstractPartial_OE25Dev extends TestCase {
         assertEquals(false,prop0.equals(new MockProperty0Field()));
     }
 
-    public void testGetPropertyEquals_6_oe() throws Throwable {
+public void testGetPropertyEquals_6_oe() throws Throwable {
         MockProperty0 prop0 = new MockProperty0();
         // removed other assertion
         // removed other assertion
@@ -287,7 +287,7 @@ public class TestAbstractPartial_OE25Dev extends TestCase {
         assertEquals(false,prop0.equals(new MockProperty0Chrono()));
     }
 
-    public void testGetPropertyEquals_7_oe() throws Throwable {
+public void testGetPropertyEquals_7_oe() throws Throwable {
         MockProperty0 prop0 = new MockProperty0();
         // removed other assertion
         // removed other assertion
@@ -298,7 +298,7 @@ public class TestAbstractPartial_OE25Dev extends TestCase {
         assertEquals(false,prop0.equals(""));
     }
 
-    public void testGetPropertyEquals_8_oe() throws Throwable {
+public void testGetPropertyEquals_8_oe() throws Throwable {
         MockProperty0 prop0 = new MockProperty0();
         // removed other assertion
         // removed other assertion

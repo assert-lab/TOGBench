@@ -206,37 +206,37 @@ public class TestDefaultConversionHandler_OE25Dev {
         checkSingleValue(result);
     }
 
-    @Test
+@Test
     public void testGetDateFormatNotSet_1_oe() {
         assertEquals("Wrong date format", DefaultConversionHandler.DEFAULT_DATE_FORMAT, handler.getDateFormat());
     }
 
-    @Test
+@Test
     public void testSetDateFormat_1_oe() {
         final String dateFormat = "dd.MM.yyyy";
         handler.setDateFormat(dateFormat);
         assertEquals("Date format not changed", dateFormat, handler.getDateFormat());
     }
 
-    @Test
+@Test
     public void testToArrayEmptyString_1_oe() {
         final int[] array = (int[]) handler.toArray("", Integer.TYPE, null);
         assertEquals("Got elements", 0, array.length);
     }
 
-    @Test
+@Test
     public void testToArrayNullInput_1_oe() {
         assertNull("Wrong result", handler.toArray(null, Integer.class, null));
     }
 
-    @Test
+@Test
     public void testToArrayObject_1_oe() {
         final List<String> src = Arrays.asList(VAR, "100");
         final Integer[] array = (Integer[]) handler.toArray(src, Integer.class, createInterpolator());
         assertEquals("Wrong number of elements", src.size(), array.length);
     }
 
-    @Test
+@Test
     public void testToArrayObject_2_oe() {
         final List<String> src = Arrays.asList(VAR, "100");
         final Integer[] array = (Integer[]) handler.toArray(src, Integer.class, createInterpolator());
@@ -244,7 +244,7 @@ public class TestDefaultConversionHandler_OE25Dev {
         assertEquals("Wrong element (1)", Integer.valueOf(REPLACEMENT), array[0]);
     }
 
-    @Test
+@Test
     public void testToArrayObject_3_oe() {
         final List<String> src = Arrays.asList(VAR, "100");
         final Integer[] array = (Integer[]) handler.toArray(src, Integer.class, createInterpolator());
@@ -253,14 +253,14 @@ public class TestDefaultConversionHandler_OE25Dev {
         assertEquals("Wrong element (2)", Integer.valueOf(src.get(1)), array[1]);
     }
 
-    @Test
+@Test
     public void testToArrayPrimitiveOtherType_1_oe() {
         final List<String> src = Arrays.asList(VAR, "100");
         final int[] array = (int[]) handler.toArray(src, Integer.TYPE, createInterpolator());
         assertEquals("Wrong element (1)", Integer.parseInt(REPLACEMENT), array[0]);
     }
 
-    @Test
+@Test
     public void testToArrayPrimitiveOtherType_2_oe() {
         final List<String> src = Arrays.asList(VAR, "100");
         final int[] array = (int[]) handler.toArray(src, Integer.TYPE, createInterpolator());
@@ -268,21 +268,21 @@ public class TestDefaultConversionHandler_OE25Dev {
         assertEquals("Wrong element (2)", Integer.parseInt(src.get(1)), array[1]);
     }
 
-    @Test
+@Test
     public void testToArrayPrimitiveSameType_1_oe() {
         final int[] src = {1, 2, 3, 4, 5, 6};
         final int[] array = (int[]) handler.toArray(src, Integer.TYPE, createInterpolator());
         Assert.assertArrayEquals("Wrong array result", src, array);
     }
 
-    @Test
+@Test
     public void testToArrayPrimitiveWrapperType_1_oe() {
         final Integer[] src = {0, 1, 2, 4, 8, 16, 32, 64, 128};
         final int[] array = (int[]) handler.toArray(src, Integer.TYPE, createInterpolator());
         assertEquals("Wrong array length", src.length, array.length);
     }
 
-    @Test
+@Test
     public void testToArrayPrimitiveWrapperType_2_oe() {
         final Integer[] src = {0, 1, 2, 4, 8, 16, 32, 64, 128};
         final int[] array = (int[]) handler.toArray(src, Integer.TYPE, createInterpolator());
@@ -292,20 +292,20 @@ public class TestDefaultConversionHandler_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToCalendarWithDefaultFormat_1_oe() {
         final Calendar cal = handler.to("2013-08-19 21:17:22", Calendar.class, null);
         assertEquals("Wrong day", 19, cal.get(Calendar.DATE));
     }
 
-    @Test
+@Test
     public void testToCalendarWithDefaultFormat_2_oe() {
         final Calendar cal = handler.to("2013-08-19 21:17:22", Calendar.class, null);
         // removed other assertion
         assertEquals("Wrong month", Calendar.AUGUST, cal.get(Calendar.MONTH));
     }
 
-    @Test
+@Test
     public void testToCalendarWithDefaultFormat_3_oe() {
         final Calendar cal = handler.to("2013-08-19 21:17:22", Calendar.class, null);
         // removed other assertion
@@ -313,7 +313,7 @@ public class TestDefaultConversionHandler_OE25Dev {
         assertEquals("Wrong year", 2013, cal.get(Calendar.YEAR));
     }
 
-    @Test
+@Test
     public void testToCalendarWithDefaultFormat_4_oe() {
         final Calendar cal = handler.to("2013-08-19 21:17:22", Calendar.class, null);
         // removed other assertion
@@ -322,7 +322,7 @@ public class TestDefaultConversionHandler_OE25Dev {
         assertEquals("Wrong hour", 21, cal.get(Calendar.HOUR_OF_DAY));
     }
 
-    @Test
+@Test
     public void testToCalendarWithDefaultFormat_5_oe() {
         final Calendar cal = handler.to("2013-08-19 21:17:22", Calendar.class, null);
         // removed other assertion
@@ -332,7 +332,7 @@ public class TestDefaultConversionHandler_OE25Dev {
         assertEquals("Wrong minute", 17, cal.get(Calendar.MINUTE));
     }
 
-    @Test
+@Test
     public void testToCalendarWithDefaultFormat_6_oe() {
         final Calendar cal = handler.to("2013-08-19 21:17:22", Calendar.class, null);
         // removed other assertion
@@ -343,21 +343,21 @@ public class TestDefaultConversionHandler_OE25Dev {
         assertEquals("Wrong second", 22, cal.get(Calendar.SECOND));
     }
 
-    @Test
+@Test
     public void testToCollectionEmptyString_1_oe() {
         final List<Integer> col = new ArrayList<>(1);
         handler.toCollection("", Integer.class, null, col);
         assertTrue("Got elements", col.isEmpty());
     }
 
-    @Test
+@Test
     public void testToCollectionNullInput_1_oe() {
         final ArrayList<Integer> col = new ArrayList<>();
         handler.toCollection(null, Integer.class, null, col);
         assertTrue("Got elements", col.isEmpty());
     }
 
-    @Test
+@Test
     public void testToCollectionSuccess_1_oe() {
         final Object[] src = {VAR, "100"};
         final List<Integer> col = new ArrayList<>(src.length);
@@ -365,7 +365,7 @@ public class TestDefaultConversionHandler_OE25Dev {
         assertEquals("Wrong number of elements", src.length, col.size());
     }
 
-    @Test
+@Test
     public void testToCollectionSuccess_2_oe() {
         final Object[] src = {VAR, "100"};
         final List<Integer> col = new ArrayList<>(src.length);
@@ -374,7 +374,7 @@ public class TestDefaultConversionHandler_OE25Dev {
         assertEquals("Wrong element (1)", Integer.parseInt(REPLACEMENT), col.get(0).intValue());
     }
 
-    @Test
+@Test
     public void testToCollectionSuccess_3_oe() {
         final Object[] src = {VAR, "100"};
         final List<Integer> col = new ArrayList<>(src.length);
@@ -384,7 +384,7 @@ public class TestDefaultConversionHandler_OE25Dev {
         assertEquals("Wrong element (2)", Integer.parseInt(src[1].toString()), col.get(1).intValue());
     }
 
-    @Test
+@Test
     public void testToDateWithFormat_1_oe() {
         handler.setDateFormat("dd.MM.yyyy");
         final Date dt = handler.to("19.08.2013", Date.class, null);
@@ -393,7 +393,7 @@ public class TestDefaultConversionHandler_OE25Dev {
         assertEquals("Wrong day", 19, cal.get(Calendar.DATE));
     }
 
-    @Test
+@Test
     public void testToDateWithFormat_2_oe() {
         handler.setDateFormat("dd.MM.yyyy");
         final Date dt = handler.to("19.08.2013", Date.class, null);
@@ -403,7 +403,7 @@ public class TestDefaultConversionHandler_OE25Dev {
         assertEquals("Wrong month", Calendar.AUGUST, cal.get(Calendar.MONTH));
     }
 
-    @Test
+@Test
     public void testToDateWithFormat_3_oe() {
         handler.setDateFormat("dd.MM.yyyy");
         final Date dt = handler.to("19.08.2013", Date.class, null);
@@ -414,17 +414,17 @@ public class TestDefaultConversionHandler_OE25Dev {
         assertEquals("Wrong year", 2013, cal.get(Calendar.YEAR));
     }
 
-    @Test
+@Test
     public void testToFromEmptyCollection_1_oe() {
         assertNull("Wrong result", handler.to(new ArrayList<>(), Integer.class, createInterpolator()));
     }
 
-    @Test
+@Test
     public void testToNull_1_oe() {
         assertNull("Wrong result", handler.to(null, Integer.class, null));
     }
 
-    @Test
+@Test
     public void testToPrimitive_1_oe() {
         final Long value = 20130819214935L;
         final Object result = handler.to(value.toString(), Long.TYPE, null);

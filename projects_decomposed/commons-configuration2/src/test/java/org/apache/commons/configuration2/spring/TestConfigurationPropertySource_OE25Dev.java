@@ -65,7 +65,7 @@ public class TestConfigurationPropertySource_OE25Dev {
     @Value("${" + TEST_PROPERTY + "}")
     private String value;
 
-    @Test
+@Test
     public void testValueInjection_1_oe() {
         Assert.assertEquals(TEST_VALUE, value);
     }

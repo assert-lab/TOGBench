@@ -273,7 +273,7 @@ public class TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev {
         return file;
     }
 
-    @Test
+@Test
     public void testConcurrentGetAndReload_1_oe() throws Exception {
         final int threadCount = 4;
         final int loopCount = 100;
@@ -292,7 +292,7 @@ public class TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev {
         assertEquals("Wrong initial value", "100", builder.getConfiguration().getString("/property[@name='config']/@value"));
     }
 
-    @Test
+@Test
     public void testReloadFromFile_1_oe() throws ConfigurationException, IOException {
         final File xmlConf1 = writeReloadFile(null, 1, 0);
         final File xmlConf2 = writeReloadFile(null, 2, 0);
@@ -306,7 +306,7 @@ public class TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev {
         assertEquals("Wrong initial value (1)", 0, config.getInt(testProperty(1)));
     }
 
-    @Test
+@Test
     public void testReloadFromFile_2_oe() throws ConfigurationException, IOException {
         final File xmlConf1 = writeReloadFile(null, 1, 0);
         final File xmlConf2 = writeReloadFile(null, 2, 0);
@@ -321,7 +321,7 @@ public class TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev {
         assertEquals("Wrong initial value (2)", 0, config.getInt(testProperty(2)));
     }
 
-    @Test
+@Test
     public void testReloadFromFile_3_oe() throws ConfigurationException, IOException {
         final File xmlConf1 = writeReloadFile(null, 1, 0);
         final File xmlConf2 = writeReloadFile(null, 2, 0);
@@ -341,7 +341,7 @@ public class TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev {
         assertEquals("Updated value not reloaded (1)", 1, config.getInt(testProperty(1)));
     }
 
-    @Test
+@Test
     public void testReloadFromFile_4_oe() throws ConfigurationException, IOException {
         final File xmlConf1 = writeReloadFile(null, 1, 0);
         final File xmlConf2 = writeReloadFile(null, 2, 0);
@@ -362,7 +362,7 @@ public class TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev {
         assertEquals("Value modified", 0, config.getInt(testProperty(2)));
     }
 
-    @Test
+@Test
     public void testReloadFromFile_5_oe() throws ConfigurationException, IOException {
         final File xmlConf1 = writeReloadFile(null, 1, 0);
         final File xmlConf2 = writeReloadFile(null, 2, 0);
@@ -388,7 +388,7 @@ public class TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev {
         assertEquals("Wrong value for config 1", 1, config.getInt(testProperty(1)));
     }
 
-    @Test
+@Test
     public void testReloadFromFile_6_oe() throws ConfigurationException, IOException {
         final File xmlConf1 = writeReloadFile(null, 1, 0);
         final File xmlConf2 = writeReloadFile(null, 2, 0);

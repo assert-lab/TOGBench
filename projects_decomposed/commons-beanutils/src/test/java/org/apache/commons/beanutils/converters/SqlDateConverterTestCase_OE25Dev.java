@@ -112,7 +112,7 @@ public class SqlDateConverterTestCase_OE25Dev extends DateConverterTestBase {
         return new java.sql.Date(getTimeInMillis(value));
     }
 
-    public void testDefaultTypeToStringConvert_1_oe() {
+public void testDefaultTypeToStringConvert_1_oe() {
 
         // Create & Configure the Converter
         final DateTimeConverter converter = makeConverter();

@@ -41,13 +41,13 @@ public class TestStrictConfigurationComparator_OE25Dev {
      * Tests the comparator.
      */
 
-    @Test
+@Test
     public void testCompare_1_oe() {
         // Identity comparison for empty configuration
         assertTrue("Compare an empty configuration with itself", comparator.compare(configuration, configuration));
     }
 
-    @Test
+@Test
     public void testCompare_2_oe() {
         // Identity comparison for empty configuration
         // removed other assertion
@@ -60,7 +60,7 @@ public class TestStrictConfigurationComparator_OE25Dev {
         assertTrue("Compare a configuration with itself", comparator.compare(configuration, configuration));
     }
 
-    @Test
+@Test
     public void testCompare_3_oe() {
         // Identity comparison for empty configuration
         // removed other assertion
@@ -77,7 +77,7 @@ public class TestStrictConfigurationComparator_OE25Dev {
         assertFalse("Compare a configuration with an empty one", comparator.compare(configuration, other));
     }
 
-    @Test
+@Test
     public void testCompare_4_oe() {
         // Identity comparison for empty configuration
         // removed other assertion
@@ -101,7 +101,7 @@ public class TestStrictConfigurationComparator_OE25Dev {
         assertTrue("Compare a configuration with an identical one", comparator.compare(configuration, other));
     }
 
-    @Test
+@Test
     public void testCompare_5_oe() {
         // Identity comparison for empty configuration
         // removed other assertion
@@ -128,7 +128,7 @@ public class TestStrictConfigurationComparator_OE25Dev {
         assertFalse("Compare our configuration with another that has an additional key mapping", comparator.compare(configuration, other));
     }
 
-    @Test
+@Test
     public void testCompare_6_oe() {
         // Identity comparison for empty configuration
         // removed other assertion
@@ -158,18 +158,18 @@ public class TestStrictConfigurationComparator_OE25Dev {
         assertTrue("Compare our configuration with another that is identical", comparator.compare(configuration, other));
     }
 
-    @Test
+@Test
     public void testCompareNull_1_oe() {
         assertTrue(comparator.compare(null, null));
     }
 
-    @Test
+@Test
     public void testCompareNull_2_oe() {
         // removed other assertion
         assertFalse(comparator.compare(configuration, null));
     }
 
-    @Test
+@Test
     public void testCompareNull_3_oe() {
         // removed other assertion
         // removed other assertion

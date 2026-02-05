@@ -105,16 +105,16 @@ public class UnmodifiableQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/UnmodifiableQueue.fullCollection.version4.obj");
 //    }
 
-    public void testUnmodifiable_1_oe() {
+public void testUnmodifiable_1_oe() {
         assertTrue(makeObject() instanceof Unmodifiable);
     }
 
-    public void testUnmodifiable_2_oe() {
+public void testUnmodifiable_2_oe() {
         // removed other assertion
         assertTrue(makeFullCollection() instanceof Unmodifiable);
     }
 
-    public void testDecorateFactory_1_oe() {
+public void testDecorateFactory_1_oe() {
         final Queue<E> queue = makeFullCollection();
         assertSame(queue, UnmodifiableQueue.unmodifiableQueue(queue));
     }

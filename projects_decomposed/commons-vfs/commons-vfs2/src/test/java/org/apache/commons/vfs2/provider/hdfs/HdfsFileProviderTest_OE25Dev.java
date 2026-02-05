@@ -157,26 +157,26 @@ public class HdfsFileProviderTest_OE25Dev {
         return f;
     }
 
-    @Test
+@Test
     public void testCanRenameTo_1_oe() throws Exception {
         final FileObject fo = createTestFile(hdfs);
         Assert.assertNotNull(fo);
     }
 
-    @Test
+@Test
     public void testDoListChildren_1_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         Assert.assertNotNull(fo);
     }
 
-    @Test
+@Test
     public void testDoListChildren_2_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
         Assert.assertFalse(fo.exists());
     }
 
-    @Test
+@Test
     public void testDoListChildren_3_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -187,7 +187,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(fo.exists());
     }
 
-    @Test
+@Test
     public void testDoListChildren_4_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -202,7 +202,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertEquals(1, children.length);
     }
 
-    @Test
+@Test
     public void testDoListChildren_5_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -218,14 +218,14 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertEquals(children[0].getName(), file.getName());
     }
 
-    @Test
+@Test
     public void testEquals_1_oe() throws Exception {
         // Create test file (and check parent was created)
         final FileObject dir = manager.resolveFile(TEST_DIR1);
         Assert.assertNotNull(dir);
     }
 
-    @Test
+@Test
     public void testEquals_2_oe() throws Exception {
         // Create test file (and check parent was created)
         final FileObject dir = manager.resolveFile(TEST_DIR1);
@@ -233,7 +233,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertFalse(dir.exists());
     }
 
-    @Test
+@Test
     public void testEquals_3_oe() throws Exception {
         // Create test file (and check parent was created)
         final FileObject dir = manager.resolveFile(TEST_DIR1);
@@ -243,7 +243,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(file1.exists());
     }
 
-    @Test
+@Test
     public void testEquals_4_oe() throws Exception {
         // Create test file (and check parent was created)
         final FileObject dir = manager.resolveFile(TEST_DIR1);
@@ -254,7 +254,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(dir.exists());
     }
 
-    @Test
+@Test
     public void testEquals_5_oe() throws Exception {
         // Create test file (and check parent was created)
         final FileObject dir = manager.resolveFile(TEST_DIR1);
@@ -269,7 +269,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertEquals(file1, file2);
     }
 
-    @Test
+@Test
     public void testEquals_6_oe() throws Exception {
         // Create test file (and check parent was created)
         final FileObject dir = manager.resolveFile(TEST_DIR1);
@@ -287,7 +287,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertNotEquals(dir, file1);
     }
 
-    @Test
+@Test
     public void testEquals_7_oe() throws Exception {
         // Create test file (and check parent was created)
         final FileObject dir = manager.resolveFile(TEST_DIR1);
@@ -306,20 +306,20 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertNotEquals(dir, file2);
     }
 
-    @Test
+@Test
     public void testGetAttributes_1_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         Assert.assertNotNull(fo);
     }
 
-    @Test
+@Test
     public void testGetAttributes_2_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
         Assert.assertFalse(fo.exists());
     }
 
-    @Test
+@Test
     public void testGetAttributes_3_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -330,7 +330,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(fo.exists());
     }
 
-    @Test
+@Test
     public void testGetAttributes_4_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -343,7 +343,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(attributes.containsKey(HdfsFileAttributes.BLOCK_SIZE.toString()));
     }
 
-    @Test
+@Test
     public void testGetAttributes_5_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -357,7 +357,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(attributes.containsKey(HdfsFileAttributes.GROUP.toString()));
     }
 
-    @Test
+@Test
     public void testGetAttributes_6_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -372,7 +372,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(attributes.containsKey(HdfsFileAttributes.LAST_ACCESS_TIME.toString()));
     }
 
-    @Test
+@Test
     public void testGetAttributes_7_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -388,7 +388,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(attributes.containsKey(HdfsFileAttributes.LENGTH.toString()));
     }
 
-    @Test
+@Test
     public void testGetAttributes_8_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -405,7 +405,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(attributes.containsKey(HdfsFileAttributes.MODIFICATION_TIME.toString()));
     }
 
-    @Test
+@Test
     public void testGetAttributes_9_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -423,7 +423,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(attributes.containsKey(HdfsFileAttributes.OWNER.toString()));
     }
 
-    @Test
+@Test
     public void testGetAttributes_10_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -442,20 +442,20 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(attributes.containsKey(HdfsFileAttributes.PERMISSIONS.toString()));
     }
 
-    @Test
+@Test
     public void testGetContentSize_1_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         Assert.assertNotNull(fo);
     }
 
-    @Test
+@Test
     public void testGetContentSize_2_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
         Assert.assertFalse(fo.exists());
     }
 
-    @Test
+@Test
     public void testGetContentSize_3_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -466,7 +466,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(fo.exists());
     }
 
-    @Test
+@Test
     public void testGetContentSize_4_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -478,7 +478,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertEquals(0, file.getContent().getSize());
     }
 
-    @Test
+@Test
     public void testGetContentSize_5_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -491,20 +491,20 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(file.getContent().isEmpty());
     }
 
-    @Test
+@Test
     public void testGetInputStream_1_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         Assert.assertNotNull(fo);
     }
 
-    @Test
+@Test
     public void testGetInputStream_2_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
         Assert.assertFalse(fo.exists());
     }
 
-    @Test
+@Test
     public void testGetInputStream_3_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -515,33 +515,33 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(fo.exists());
     }
 
-    @Test
+@Test
     public void testInit_1_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_FILE1);
         Assert.assertNotNull(fo);
     }
 
-    @Test
+@Test
     public void testInit_2_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_FILE1);
         // removed other assertion
         Assert.assertFalse(fo.exists());
     }
 
-    @Test
+@Test
     public void testIsHidden_1_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         Assert.assertNotNull(fo);
     }
 
-    @Test
+@Test
     public void testIsHidden_2_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
         Assert.assertFalse(fo.exists());
     }
 
-    @Test
+@Test
     public void testIsHidden_3_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -552,7 +552,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(fo.exists());
     }
 
-    @Test
+@Test
     public void testIsHidden_4_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -564,20 +564,20 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertFalse(file.isHidden());
     }
 
-    @Test
+@Test
     public void testIsReadable_1_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         Assert.assertNotNull(fo);
     }
 
-    @Test
+@Test
     public void testIsReadable_2_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
         Assert.assertFalse(fo.exists());
     }
 
-    @Test
+@Test
     public void testIsReadable_3_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -588,7 +588,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(fo.exists());
     }
 
-    @Test
+@Test
     public void testIsReadable_4_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -600,20 +600,20 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(file.isReadable());
     }
 
-    @Test
+@Test
     public void testIsWritable_1_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         Assert.assertNotNull(fo);
     }
 
-    @Test
+@Test
     public void testIsWritable_2_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
         Assert.assertFalse(fo.exists());
     }
 
-    @Test
+@Test
     public void testIsWritable_3_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -624,7 +624,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(fo.exists());
     }
 
-    @Test
+@Test
     public void testIsWritable_4_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -636,20 +636,20 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(file.isWriteable());
     }
 
-    @Test
+@Test
     public void testLastModificationTime_1_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         Assert.assertNotNull(fo);
     }
 
-    @Test
+@Test
     public void testLastModificationTime_2_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
         Assert.assertFalse(fo.exists());
     }
 
-    @Test
+@Test
     public void testLastModificationTime_3_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -660,7 +660,7 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(fo.exists());
     }
 
-    @Test
+@Test
     public void testLastModificationTime_4_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -672,20 +672,20 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertNotEquals(-1, file.getContent().getLastModifiedTime());
     }
 
-    @Test(expected = FileSystemException.class)
+@Test(expected = FileSystemException.class)
     public void testRandomAccessContent_1_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         Assert.assertNotNull(fo);
     }
 
-    @Test(expected = FileSystemException.class)
+@Test(expected = FileSystemException.class)
     public void testRandomAccessContent_2_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
         Assert.assertFalse(fo.exists());
     }
 
-    @Test(expected = FileSystemException.class)
+@Test(expected = FileSystemException.class)
     public void testRandomAccessContent_3_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
@@ -696,20 +696,20 @@ public class HdfsFileProviderTest_OE25Dev {
         Assert.assertTrue(fo.exists());
     }
 
-    @Test
+@Test
     public void testRandomAccessContent2_1_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         Assert.assertNotNull(fo);
     }
 
-    @Test
+@Test
     public void testRandomAccessContent2_2_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion
         Assert.assertFalse(fo.exists());
     }
 
-    @Test
+@Test
     public void testRandomAccessContent2_3_oe() throws Exception {
         final FileObject fo = manager.resolveFile(TEST_DIR1);
         // removed other assertion

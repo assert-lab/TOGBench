@@ -109,17 +109,17 @@ public class ConstantInitializerTest_OE25Dev {
      * Tests the string representation if the managed object is null.
      */
 
-    @Test
+@Test
     public void testGetObject_1_oe() {
         assertEquals(VALUE, init.getObject(), "Wrong object");
     }
 
-    @Test
+@Test
     public void testGet_1_oe() throws ConcurrentException {
         assertEquals(VALUE, init.get(), "Wrong object");
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         final String s = init.toString();
         final Pattern pattern = Pattern
@@ -128,7 +128,7 @@ public class ConstantInitializerTest_OE25Dev {
         assertTrue(pattern.matcher(s).matches(), "Wrong string: " + s);
     }
 
-    @Test
+@Test
     public void testToStringNull_1_oe() {
         final String s = new ConstantInitializer<>(null).toString();
         assertTrue(s.indexOf("object = null") > 0, "Object not found: " + s);

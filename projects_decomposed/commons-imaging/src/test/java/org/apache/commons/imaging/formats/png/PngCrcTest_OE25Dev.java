@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
 public class PngCrcTest_OE25Dev{
 
 
-    @Test
+@Test
     public void testCrc_1_oe() {
 
         final PngCrc pngCrc = new PngCrc();
@@ -39,7 +39,7 @@ public class PngCrcTest_OE25Dev{
         assertEquals(558161692, pngCrc.crc(byteArray, (byte)32));
     }
 
-    @Test
+@Test
     public void testCrc_2_oe() {
 
         final PngCrc pngCrc = new PngCrc();

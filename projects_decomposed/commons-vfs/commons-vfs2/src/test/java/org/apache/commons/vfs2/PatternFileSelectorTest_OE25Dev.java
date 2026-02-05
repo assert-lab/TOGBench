@@ -116,13 +116,13 @@ public class PatternFileSelectorTest_OE25Dev {
         new PatternFileSelector((String) null);
     }
 
-    @Test
+@Test
     public void testFileExtensions_1_oe() throws Exception {
         final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
         Assert.assertTrue(foArray.length > 0);
     }
 
-    @Test
+@Test
     public void testFileExtensions_2_oe() throws Exception {
         final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
         // removed other assertion
@@ -137,7 +137,7 @@ public class PatternFileSelectorTest_OE25Dev {
         assertEquals(message, ExtensionCount, extensionSet.size());
     }
 
-    @Test
+@Test
     public void testFileExtensions_3_oe() throws Exception {
         final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
         // removed other assertion
@@ -158,7 +158,7 @@ public class PatternFileSelectorTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testFileExtensions_4_oe() throws Exception {
         final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
         // removed other assertion
@@ -185,32 +185,32 @@ public class PatternFileSelectorTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testMatchAll_1_oe() throws Exception {
         final FileObject[] list = BaseFolder.findFiles(new PatternFileSelector(".*"));
         assertEquals(EntryCount, list.length);
     }
 
-    @Test
+@Test
     public void testMatchPartial_1_oe() throws Exception {
         final FileObject[] list = BaseFolder.findFiles(new PatternFileSelector(".*a.htm"));
         assertEquals(1, list.length);
     }
 
-    @Test
+@Test
     public void testMatchPartial_2_oe() throws Exception {
         final FileObject[] list = BaseFolder.findFiles(new PatternFileSelector(".*a.htm"));
         // removed other assertion
         assertEquals("aa.htm", list[0].getName().getBaseName());
     }
 
-    @Test
+@Test
     public void testMatchPartialDelimited_1_oe() throws Exception {
         final FileObject[] list = BaseFolder.findFiles(new PatternFileSelector("^.*\\/b.htm$"));
         assertEquals(1, list.length);
     }
 
-    @Test
+@Test
     public void testMatchPartialDelimited_2_oe() throws Exception {
         final FileObject[] list = BaseFolder.findFiles(new PatternFileSelector("^.*\\/b.htm$"));
         // removed other assertion

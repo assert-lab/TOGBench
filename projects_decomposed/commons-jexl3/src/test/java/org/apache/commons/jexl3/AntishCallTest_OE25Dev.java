@@ -173,7 +173,7 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
 
     // JEXL-300
 
-    @Test
+@Test
     public void testSafeAnt_1_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -186,7 +186,7 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testSafeAnt_2_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -200,7 +200,7 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, ctxt.get("x.y.z"));
     }
 
-    @Test
+@Test
     public void testSafeAnt_4_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -222,7 +222,7 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testSafeAnt_5_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -246,7 +246,7 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testSafeAnt_6_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -277,7 +277,7 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
         Assert.assertNull(result);// safe navigation,null result = null;
     }
 
-    @Test
+@Test
     public void testSafeAnt_8_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -315,7 +315,7 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testSafeAnt_10_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -362,7 +362,7 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testSafeAnt_12_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -418,7 +418,7 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testSafeAnt_14_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();

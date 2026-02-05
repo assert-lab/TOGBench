@@ -80,25 +80,25 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testSingleton_1_oe() throws Exception {
+public void testSingleton_1_oe() throws Exception {
         Class cls = ReadableIntervalConverter.class;
         assertEquals(false,Modifier.isPublic(cls.getModifiers()));
     }
 
-    public void testSingleton_2_oe() throws Exception {
+public void testSingleton_2_oe() throws Exception {
         Class cls = ReadableIntervalConverter.class;
         // removed other assertion
         assertEquals(false,Modifier.isProtected(cls.getModifiers()));
     }
 
-    public void testSingleton_3_oe() throws Exception {
+public void testSingleton_3_oe() throws Exception {
         Class cls = ReadableIntervalConverter.class;
         // removed other assertion
         // removed other assertion
         assertEquals(false,Modifier.isPrivate(cls.getModifiers()));
     }
 
-    public void testSingleton_4_oe() throws Exception {
+public void testSingleton_4_oe() throws Exception {
         Class cls = ReadableIntervalConverter.class;
         // removed other assertion
         // removed other assertion
@@ -108,7 +108,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(1,cls.getDeclaredConstructors().length);
     }
 
-    public void testSingleton_5_oe() throws Exception {
+public void testSingleton_5_oe() throws Exception {
         Class cls = ReadableIntervalConverter.class;
         // removed other assertion
         // removed other assertion
@@ -119,7 +119,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(true,Modifier.isProtected(con.getModifiers()));
     }
 
-    public void testSingleton_6_oe() throws Exception {
+public void testSingleton_6_oe() throws Exception {
         Class cls = ReadableIntervalConverter.class;
         // removed other assertion
         // removed other assertion
@@ -133,7 +133,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPublic(fld.getModifiers()));
     }
 
-    public void testSingleton_7_oe() throws Exception {
+public void testSingleton_7_oe() throws Exception {
         Class cls = ReadableIntervalConverter.class;
         // removed other assertion
         // removed other assertion
@@ -148,7 +148,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isProtected(fld.getModifiers()));
     }
 
-    public void testSingleton_8_oe() throws Exception {
+public void testSingleton_8_oe() throws Exception {
         Class cls = ReadableIntervalConverter.class;
         // removed other assertion
         // removed other assertion
@@ -164,28 +164,28 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPrivate(fld.getModifiers()));
     }
 
-    public void testSupportedType_1_oe() throws Exception {
+public void testSupportedType_1_oe() throws Exception {
         assertEquals(ReadableInterval.class,ReadableIntervalConverter.INSTANCE.getSupportedType());
     }
 
-    public void testGetDurationMillis_Object_1_oe() throws Exception {
+public void testGetDurationMillis_Object_1_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         assertEquals(123L,ReadableIntervalConverter.INSTANCE.getDurationMillis(i));
     }
 
-    public void testGetPeriodType_Object_1_oe() throws Exception {
+public void testGetPeriodType_Object_1_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         assertEquals(PeriodType.standard(),ReadableIntervalConverter.INSTANCE.getPeriodType(i));
     }
 
-    public void testSetIntoPeriod_Object1_1_oe() throws Exception {
+public void testSetIntoPeriod_Object1_1_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, null);
         assertEquals(0,m.getYears());
     }
 
-    public void testSetIntoPeriod_Object1_2_oe() throws Exception {
+public void testSetIntoPeriod_Object1_2_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, null);
@@ -193,7 +193,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getMonths());
     }
 
-    public void testSetIntoPeriod_Object1_3_oe() throws Exception {
+public void testSetIntoPeriod_Object1_3_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, null);
@@ -202,7 +202,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getWeeks());
     }
 
-    public void testSetIntoPeriod_Object1_4_oe() throws Exception {
+public void testSetIntoPeriod_Object1_4_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, null);
@@ -212,7 +212,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getDays());
     }
 
-    public void testSetIntoPeriod_Object1_5_oe() throws Exception {
+public void testSetIntoPeriod_Object1_5_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, null);
@@ -223,7 +223,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getHours());
     }
 
-    public void testSetIntoPeriod_Object1_6_oe() throws Exception {
+public void testSetIntoPeriod_Object1_6_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, null);
@@ -235,7 +235,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getMinutes());
     }
 
-    public void testSetIntoPeriod_Object1_7_oe() throws Exception {
+public void testSetIntoPeriod_Object1_7_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, null);
@@ -248,7 +248,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getSeconds());
     }
 
-    public void testSetIntoPeriod_Object1_8_oe() throws Exception {
+public void testSetIntoPeriod_Object1_8_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, null);
@@ -262,14 +262,14 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(123,m.getMillis());
     }
 
-    public void testSetIntoPeriod_Object2_1_oe() throws Exception {
+public void testSetIntoPeriod_Object2_1_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, CopticChronology.getInstance());
         assertEquals(0,m.getYears());
     }
 
-    public void testSetIntoPeriod_Object2_2_oe() throws Exception {
+public void testSetIntoPeriod_Object2_2_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, CopticChronology.getInstance());
@@ -277,7 +277,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getMonths());
     }
 
-    public void testSetIntoPeriod_Object2_3_oe() throws Exception {
+public void testSetIntoPeriod_Object2_3_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, CopticChronology.getInstance());
@@ -286,7 +286,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getWeeks());
     }
 
-    public void testSetIntoPeriod_Object2_4_oe() throws Exception {
+public void testSetIntoPeriod_Object2_4_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, CopticChronology.getInstance());
@@ -296,7 +296,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getDays());
     }
 
-    public void testSetIntoPeriod_Object2_5_oe() throws Exception {
+public void testSetIntoPeriod_Object2_5_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, CopticChronology.getInstance());
@@ -307,7 +307,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getHours());
     }
 
-    public void testSetIntoPeriod_Object2_6_oe() throws Exception {
+public void testSetIntoPeriod_Object2_6_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, CopticChronology.getInstance());
@@ -319,7 +319,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getMinutes());
     }
 
-    public void testSetIntoPeriod_Object2_7_oe() throws Exception {
+public void testSetIntoPeriod_Object2_7_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, CopticChronology.getInstance());
@@ -332,7 +332,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getSeconds());
     }
 
-    public void testSetIntoPeriod_Object2_8_oe() throws Exception {
+public void testSetIntoPeriod_Object2_8_oe() throws Exception {
         Interval i = new Interval(100L, 223L);
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, CopticChronology.getInstance());
@@ -346,19 +346,19 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(123,m.getMillis());
     }
 
-    public void testIsReadableInterval_Object_Chronology_1_oe() throws Exception {
+public void testIsReadableInterval_Object_Chronology_1_oe() throws Exception {
         Interval i = new Interval(1234L, 5678L);
         assertEquals(true,ReadableIntervalConverter.INSTANCE.isReadableInterval(i,null));
     }
 
-    public void testSetIntoInterval_Object1_1_oe() throws Exception {
+public void testSetIntoInterval_Object1_1_oe() throws Exception {
         Interval i = new Interval(0L, 123L, CopticChronology.getInstance());
         MutableInterval m = new MutableInterval(-1000L, 1000L, BuddhistChronology.getInstance());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, null);
         assertEquals(0L,m.getStartMillis());
     }
 
-    public void testSetIntoInterval_Object1_2_oe() throws Exception {
+public void testSetIntoInterval_Object1_2_oe() throws Exception {
         Interval i = new Interval(0L, 123L, CopticChronology.getInstance());
         MutableInterval m = new MutableInterval(-1000L, 1000L, BuddhistChronology.getInstance());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, null);
@@ -366,7 +366,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(123L,m.getEndMillis());
     }
 
-    public void testSetIntoInterval_Object1_3_oe() throws Exception {
+public void testSetIntoInterval_Object1_3_oe() throws Exception {
         Interval i = new Interval(0L, 123L, CopticChronology.getInstance());
         MutableInterval m = new MutableInterval(-1000L, 1000L, BuddhistChronology.getInstance());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, null);
@@ -375,14 +375,14 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(CopticChronology.getInstance(),m.getChronology());
     }
 
-    public void testSetIntoInterval_Object2_1_oe() throws Exception {
+public void testSetIntoInterval_Object2_1_oe() throws Exception {
         Interval i = new Interval(0L, 123L, CopticChronology.getInstance());
         MutableInterval m = new MutableInterval(-1000L, 1000L, BuddhistChronology.getInstance());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, GJChronology.getInstance());
         assertEquals(0L,m.getStartMillis());
     }
 
-    public void testSetIntoInterval_Object2_2_oe() throws Exception {
+public void testSetIntoInterval_Object2_2_oe() throws Exception {
         Interval i = new Interval(0L, 123L, CopticChronology.getInstance());
         MutableInterval m = new MutableInterval(-1000L, 1000L, BuddhistChronology.getInstance());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, GJChronology.getInstance());
@@ -390,7 +390,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(123L,m.getEndMillis());
     }
 
-    public void testSetIntoInterval_Object2_3_oe() throws Exception {
+public void testSetIntoInterval_Object2_3_oe() throws Exception {
         Interval i = new Interval(0L, 123L, CopticChronology.getInstance());
         MutableInterval m = new MutableInterval(-1000L, 1000L, BuddhistChronology.getInstance());
         ReadableIntervalConverter.INSTANCE.setInto(m, i, GJChronology.getInstance());
@@ -399,7 +399,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(GJChronology.getInstance(),m.getChronology());
     }
 
-    public void testSetIntoInterval_Object3_1_oe() throws Exception {
+public void testSetIntoInterval_Object3_1_oe() throws Exception {
         MutableInterval i = new MutableInterval(0L, 123L) {
             @Override
             public Chronology getChronology() {
@@ -411,7 +411,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(0L,m.getStartMillis());
     }
 
-    public void testSetIntoInterval_Object3_2_oe() throws Exception {
+public void testSetIntoInterval_Object3_2_oe() throws Exception {
         MutableInterval i = new MutableInterval(0L, 123L) {
             @Override
             public Chronology getChronology() {
@@ -424,7 +424,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(123L,m.getEndMillis());
     }
 
-    public void testSetIntoInterval_Object3_3_oe() throws Exception {
+public void testSetIntoInterval_Object3_3_oe() throws Exception {
         MutableInterval i = new MutableInterval(0L, 123L) {
             @Override
             public Chronology getChronology() {
@@ -438,7 +438,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(GJChronology.getInstance(),m.getChronology());
     }
 
-    public void testSetIntoInterval_Object4_1_oe() throws Exception {
+public void testSetIntoInterval_Object4_1_oe() throws Exception {
         MutableInterval i = new MutableInterval(0L, 123L) {
             @Override
             public Chronology getChronology() {
@@ -450,7 +450,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(0L,m.getStartMillis());
     }
 
-    public void testSetIntoInterval_Object4_2_oe() throws Exception {
+public void testSetIntoInterval_Object4_2_oe() throws Exception {
         MutableInterval i = new MutableInterval(0L, 123L) {
             @Override
             public Chronology getChronology() {
@@ -463,7 +463,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(123L,m.getEndMillis());
     }
 
-    public void testSetIntoInterval_Object4_3_oe() throws Exception {
+public void testSetIntoInterval_Object4_3_oe() throws Exception {
         MutableInterval i = new MutableInterval(0L, 123L) {
             @Override
             public Chronology getChronology() {
@@ -477,7 +477,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
         assertEquals(ISOChronology.getInstance(),m.getChronology());
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         assertEquals("Converter[org.joda.time.ReadableInterval]",ReadableIntervalConverter.INSTANCE.toString());
     }
 

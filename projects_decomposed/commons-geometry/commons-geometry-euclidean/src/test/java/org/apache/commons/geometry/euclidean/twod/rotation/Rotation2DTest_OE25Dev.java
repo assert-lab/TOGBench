@@ -180,7 +180,7 @@ class Rotation2DTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testIdentity_1_oe() {
         // act
         final Rotation2D r = Rotation2D.identity();
@@ -189,7 +189,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertEquals(0.0, r.getAngle(), 0.0);
     }
 
-    @Test
+@Test
     void testIdentity_2_oe() {
         // act
         final Rotation2D r = Rotation2D.identity();
@@ -199,7 +199,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertTrue(r.preservesOrientation());
     }
 
-    @Test
+@Test
     void testProperties_1_oe() {
         // act
         final Rotation2D r = Rotation2D.of(100.0);
@@ -208,7 +208,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertEquals(100.0, r.getAngle(), 0.0);
     }
 
-    @Test
+@Test
     void testProperties_2_oe() {
         // act
         final Rotation2D r = Rotation2D.of(100.0);
@@ -218,7 +218,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertTrue(r.preservesOrientation());
     }
 
-    @Test
+@Test
     void testInverse_properties_1_oe() {
         // arrange
         final Rotation2D orig = Rotation2D.of(100.0);
@@ -230,7 +230,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertEquals(-100.0, r.getAngle(), 0.0);
     }
 
-    @Test
+@Test
     void testInverse_properties_2_oe() {
         // arrange
         final Rotation2D orig = Rotation2D.of(100.0);
@@ -243,7 +243,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertTrue(r.preservesOrientation());
     }
 
-    @Test
+@Test
     void testToMatrix_1_oe() {
         // arrange
         final double angle = 0.1 * Math.PI;
@@ -262,7 +262,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertArrayEquals(expected, m.toArray(), 0.0);
     }
 
-    @Test
+@Test
     void testCreateRotationVector_invalidVectors_1_oe() {
         // arrange
         final Vector2D vec = Vector2D.of(1, 1);
@@ -276,7 +276,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(zero, vec));
     }
 
-    @Test
+@Test
     void testCreateRotationVector_invalidVectors_2_oe() {
         // arrange
         final Vector2D vec = Vector2D.of(1, 1);
@@ -291,7 +291,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(vec, zero));
     }
 
-    @Test
+@Test
     void testCreateRotationVector_invalidVectors_3_oe() {
         // arrange
         final Vector2D vec = Vector2D.of(1, 1);
@@ -307,7 +307,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(nan, vec));
     }
 
-    @Test
+@Test
     void testCreateRotationVector_invalidVectors_4_oe() {
         // arrange
         final Vector2D vec = Vector2D.of(1, 1);
@@ -324,7 +324,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(vec, nan));
     }
 
-    @Test
+@Test
     void testCreateRotationVector_invalidVectors_5_oe() {
         // arrange
         final Vector2D vec = Vector2D.of(1, 1);
@@ -342,7 +342,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(posInf, vec));
     }
 
-    @Test
+@Test
     void testCreateRotationVector_invalidVectors_6_oe() {
         // arrange
         final Vector2D vec = Vector2D.of(1, 1);
@@ -361,7 +361,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(vec, negInf));
     }
 
-    @Test
+@Test
     void testCreateRotationVector_invalidVectors_7_oe() {
         // arrange
         final Vector2D vec = Vector2D.of(1, 1);
@@ -381,7 +381,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(zero, nan));
     }
 
-    @Test
+@Test
     void testCreateRotationVector_invalidVectors_8_oe() {
         // arrange
         final Vector2D vec = Vector2D.of(1, 1);
@@ -402,7 +402,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(negInf, posInf));
     }
 
-    @Test
+@Test
     void testHashCode_1_oe() {
         // arrange
         final Rotation2D a = Rotation2D.of(1.0);
@@ -416,7 +416,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertEquals(hash, a.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_2_oe() {
         // arrange
         final Rotation2D a = Rotation2D.of(1.0);
@@ -432,7 +432,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertNotEquals(hash, b.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_3_oe() {
         // arrange
         final Rotation2D a = Rotation2D.of(1.0);
@@ -449,7 +449,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertNotEquals(hash, c.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_4_oe() {
         // arrange
         final Rotation2D a = Rotation2D.of(1.0);
@@ -468,7 +468,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertEquals(hash, d.hashCode());
     }
 
-    @Test
+@Test
     void testEquals_2_oe() {
         // arrange
         final Rotation2D a = Rotation2D.of(1.0);
@@ -482,7 +482,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertNotEquals(a, b);
     }
 
-    @Test
+@Test
     void testEquals_3_oe() {
         // arrange
         final Rotation2D a = Rotation2D.of(1.0);
@@ -497,7 +497,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertNotEquals(a, c);
     }
 
-    @Test
+@Test
     void testEquals_4_oe() {
         // arrange
         final Rotation2D a = Rotation2D.of(1.0);
@@ -514,7 +514,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertEquals(a, d);
     }
 
-    @Test
+@Test
     void testEquals_5_oe() {
         // arrange
         final Rotation2D a = Rotation2D.of(1.0);
@@ -532,7 +532,7 @@ class Rotation2DTest_OE25Dev {
         Assertions.assertEquals(d, a);
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // arrange
         final Rotation2D r = Rotation2D.of(1.0);

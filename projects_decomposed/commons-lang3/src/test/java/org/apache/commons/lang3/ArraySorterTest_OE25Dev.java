@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 
 public class ArraySorterTest_OE25Dev {
 
-    @Test
+@Test
     public void testSortByteArray_1_oe() {
         final byte[] array1 = {2, 1};
         final byte[] array2 = array1.clone();
@@ -33,7 +33,7 @@ public class ArraySorterTest_OE25Dev {
         assertArrayEquals(array1, ArraySorter.sort(array2));
     }
 
-    @Test
+@Test
     public void testSortCharArray_1_oe() {
         final char[] array1 = {2, 1};
         final char[] array2 = array1.clone();
@@ -41,7 +41,7 @@ public class ArraySorterTest_OE25Dev {
         assertArrayEquals(array1, ArraySorter.sort(array2));
     }
 
-    @Test
+@Test
     public void testSortComparable_1_oe() {
         final String[] array1 = ArrayUtils.toArray("foo", "bar");
         final String[] array2 = array1.clone();
@@ -49,7 +49,7 @@ public class ArraySorterTest_OE25Dev {
         assertArrayEquals(array1, ArraySorter.sort(array2, String::compareTo));
     }
 
-    @Test
+@Test
     public void testSortDoubleArray_1_oe() {
         final double[] array1 = {2, 1};
         final double[] array2 = array1.clone();
@@ -57,7 +57,7 @@ public class ArraySorterTest_OE25Dev {
         assertArrayEquals(array1, ArraySorter.sort(array2));
     }
 
-    @Test
+@Test
     public void testSortFloatArray_1_oe() {
         final float[] array1 = {2, 1};
         final float[] array2 = array1.clone();
@@ -65,7 +65,7 @@ public class ArraySorterTest_OE25Dev {
         assertArrayEquals(array1, ArraySorter.sort(array2));
     }
 
-    @Test
+@Test
     public void testSortIntArray_1_oe() {
         final int[] array1 = {2, 1};
         final int[] array2 = array1.clone();
@@ -73,7 +73,7 @@ public class ArraySorterTest_OE25Dev {
         assertArrayEquals(array1, ArraySorter.sort(array2));
     }
 
-    @Test
+@Test
     public void testSortLongArray_1_oe() {
         final long[] array1 = {2, 1};
         final long[] array2 = array1.clone();
@@ -81,7 +81,7 @@ public class ArraySorterTest_OE25Dev {
         assertArrayEquals(array1, ArraySorter.sort(array2));
     }
 
-    @Test
+@Test
     public void testSortObjects_1_oe() {
         final String[] array1 = ArrayUtils.toArray("foo", "bar");
         final String[] array2 = array1.clone();
@@ -89,7 +89,7 @@ public class ArraySorterTest_OE25Dev {
         assertArrayEquals(array1, ArraySorter.sort(array2));
     }
 
-    @Test
+@Test
     public void testSortShortArray_1_oe() {
         final short[] array1 = {2, 1};
         final short[] array2 = array1.clone();

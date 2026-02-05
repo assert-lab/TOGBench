@@ -76,13 +76,13 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/TransformedSet.fullCollection.version4.obj");
 //    }
 
-    public void testTransformedSet_1_oe() {
+public void testTransformedSet_1_oe() {
         final Set<E> set = TransformedSet.transformingSet(new HashSet<E>(),
                 (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         assertEquals(0, set.size());
     }
 
-    public void testTransformedSet_2_oe() {
+public void testTransformedSet_2_oe() {
         final Set<E> set = TransformedSet.transformingSet(new HashSet<E>(),
                 (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
@@ -93,7 +93,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
     }
     }
 
-    public void testTransformedSet_3_oe() {
+public void testTransformedSet_3_oe() {
         final Set<E> set = TransformedSet.transformingSet(new HashSet<E>(),
                 (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
@@ -105,7 +105,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
     }
     }
 
-    public void testTransformedSet_4_oe() {
+public void testTransformedSet_4_oe() {
         final Set<E> set = TransformedSet.transformingSet(new HashSet<E>(),
                 (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
@@ -118,7 +118,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
     }
     }
 
-    public void testTransformedSet_5_oe() {
+public void testTransformedSet_5_oe() {
         final Set<E> set = TransformedSet.transformingSet(new HashSet<E>(),
                 (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
@@ -133,7 +133,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals(false, set.remove(els[0]));
     }
 
-    public void testTransformedSet_6_oe() {
+public void testTransformedSet_6_oe() {
         final Set<E> set = TransformedSet.transformingSet(new HashSet<E>(),
                 (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
@@ -149,7 +149,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals(true, set.remove(Integer.valueOf((String) els[0])));
     }
 
-    public void testTransformedSet_decorateTransform_1_oe() {
+public void testTransformedSet_decorateTransform_1_oe() {
         final Set<Object> originalSet = new HashSet<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         Collections.addAll(originalSet, els);
@@ -157,7 +157,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals(els.length, set.size());
     }
 
-    public void testTransformedSet_decorateTransform_2_oe() {
+public void testTransformedSet_decorateTransform_2_oe() {
         final Set<Object> originalSet = new HashSet<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         Collections.addAll(originalSet, els);
@@ -168,7 +168,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
     }
     }
 
-    public void testTransformedSet_decorateTransform_3_oe() {
+public void testTransformedSet_decorateTransform_3_oe() {
         final Set<Object> originalSet = new HashSet<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         Collections.addAll(originalSet, els);
@@ -180,7 +180,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
     }
     }
 
-    public void testTransformedSet_decorateTransform_4_oe() {
+public void testTransformedSet_decorateTransform_4_oe() {
         final Set<Object> originalSet = new HashSet<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         Collections.addAll(originalSet, els);
@@ -194,7 +194,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         assertEquals(false, set.remove(els[0]));
     }
 
-    public void testTransformedSet_decorateTransform_5_oe() {
+public void testTransformedSet_decorateTransform_5_oe() {
         final Set<Object> originalSet = new HashSet<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         Collections.addAll(originalSet, els);

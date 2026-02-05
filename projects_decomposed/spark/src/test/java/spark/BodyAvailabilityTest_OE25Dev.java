@@ -65,14 +65,14 @@ public class BodyAvailabilityTest_OE25Dev {
         Spark.awaitInitialization();
     }
 
-    @Test
+@Test
     public void testPost_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/hello", BODY_CONTENT);
         LOGGER.info(response.body);
         Assert.assertEquals(HTTP_OK, response.status);
     }
 
-    @Test
+@Test
     public void testPost_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/hello", BODY_CONTENT);
         LOGGER.info(response.body);
@@ -80,7 +80,7 @@ public class BodyAvailabilityTest_OE25Dev {
         Assert.assertTrue(response.body.contains(BODY_CONTENT));
     }
 
-    @Test
+@Test
     public void testPost_3_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/hello", BODY_CONTENT);
         LOGGER.info(response.body);
@@ -90,7 +90,7 @@ public class BodyAvailabilityTest_OE25Dev {
         Assert.assertEquals(BODY_CONTENT, beforeBody);
     }
 
-    @Test
+@Test
     public void testPost_4_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/hello", BODY_CONTENT);
         LOGGER.info(response.body);
@@ -101,7 +101,7 @@ public class BodyAvailabilityTest_OE25Dev {
         Assert.assertEquals(BODY_CONTENT, routeBody);
     }
 
-    @Test
+@Test
     public void testPost_5_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/hello", BODY_CONTENT);
         LOGGER.info(response.body);

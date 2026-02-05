@@ -69,19 +69,19 @@ public class BeanProcessorTest_OE25Dev extends BaseTestCase {
         }
     }
 
-    public void testProcessWithToBean_1_oe() throws SQLException {
+public void testProcessWithToBean_1_oe() throws SQLException {
         TestBean b = null;
         assertTrue(this.rs.next());
     }
 
-    public void testProcessWithToBean_2_oe() throws SQLException {
+public void testProcessWithToBean_2_oe() throws SQLException {
         TestBean b = null;
         // removed other assertion
         b = beanProc.toBean(this.rs, TestBean.class);
         assertEquals(13.0, b.getColumnProcessorDoubleTest(), 0);
     }
 
-    public void testProcessWithToBean_3_oe() throws SQLException {
+public void testProcessWithToBean_3_oe() throws SQLException {
         TestBean b = null;
         // removed other assertion
         b = beanProc.toBean(this.rs, TestBean.class);
@@ -89,7 +89,7 @@ public class BeanProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(b.getThree(), TestBean.Ordinal.THREE);
     }
 
-    public void testProcessWithToBean_4_oe() throws SQLException {
+public void testProcessWithToBean_4_oe() throws SQLException {
         TestBean b = null;
         // removed other assertion
         b = beanProc.toBean(this.rs, TestBean.class);
@@ -99,7 +99,7 @@ public class BeanProcessorTest_OE25Dev extends BaseTestCase {
         assertTrue(this.rs.next());
     }
 
-    public void testProcessWithToBean_5_oe() throws SQLException {
+public void testProcessWithToBean_5_oe() throws SQLException {
         TestBean b = null;
         // removed other assertion
         b = beanProc.toBean(this.rs, TestBean.class);
@@ -111,7 +111,7 @@ public class BeanProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(13.0, b.getColumnProcessorDoubleTest(), 0);
     }
 
-    public void testProcessWithToBean_6_oe() throws SQLException {
+public void testProcessWithToBean_6_oe() throws SQLException {
         TestBean b = null;
         // removed other assertion
         b = beanProc.toBean(this.rs, TestBean.class);
@@ -124,7 +124,7 @@ public class BeanProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(b.getThree(), TestBean.Ordinal.SIX);
     }
 
-    public void testProcessWithToBean_7_oe() throws SQLException {
+public void testProcessWithToBean_7_oe() throws SQLException {
         TestBean b = null;
         // removed other assertion
         b = beanProc.toBean(this.rs, TestBean.class);
@@ -139,13 +139,13 @@ public class BeanProcessorTest_OE25Dev extends BaseTestCase {
         assertFalse(this.rs.next());
     }
 
-    public void testProcessWithPopulateBean_1_oe() throws SQLException {
+public void testProcessWithPopulateBean_1_oe() throws SQLException {
         TestBean b = new TestBean();
 
         assertTrue(this.rs.next());
     }
 
-    public void testProcessWithPopulateBean_2_oe() throws SQLException {
+public void testProcessWithPopulateBean_2_oe() throws SQLException {
         TestBean b = new TestBean();
 
         // removed other assertion
@@ -153,7 +153,7 @@ public class BeanProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(13.0, b.getColumnProcessorDoubleTest(), 0);
     }
 
-    public void testProcessWithPopulateBean_3_oe() throws SQLException {
+public void testProcessWithPopulateBean_3_oe() throws SQLException {
         TestBean b = new TestBean();
 
         // removed other assertion
@@ -162,7 +162,7 @@ public class BeanProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(b.getThree(), TestBean.Ordinal.THREE);
     }
 
-    public void testProcessWithPopulateBean_4_oe() throws SQLException {
+public void testProcessWithPopulateBean_4_oe() throws SQLException {
         TestBean b = new TestBean();
 
         // removed other assertion
@@ -173,7 +173,7 @@ public class BeanProcessorTest_OE25Dev extends BaseTestCase {
         assertTrue(this.rs.next());
     }
 
-    public void testProcessWithPopulateBean_5_oe() throws SQLException {
+public void testProcessWithPopulateBean_5_oe() throws SQLException {
         TestBean b = new TestBean();
 
         // removed other assertion
@@ -186,7 +186,7 @@ public class BeanProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(13.0, b.getColumnProcessorDoubleTest(), 0);
     }
 
-    public void testProcessWithPopulateBean_6_oe() throws SQLException {
+public void testProcessWithPopulateBean_6_oe() throws SQLException {
         TestBean b = new TestBean();
 
         // removed other assertion
@@ -200,7 +200,7 @@ public class BeanProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(b.getThree(), TestBean.Ordinal.SIX);
     }
 
-    public void testProcessWithPopulateBean_7_oe() throws SQLException {
+public void testProcessWithPopulateBean_7_oe() throws SQLException {
         TestBean b = new TestBean();
 
         // removed other assertion
@@ -216,7 +216,7 @@ public class BeanProcessorTest_OE25Dev extends BaseTestCase {
         assertFalse(this.rs.next());
     }
 
-    public void testMapColumnToProperties_1_oe() throws Exception {
+public void testMapColumnToProperties_1_oe() throws Exception {
         String[] columnNames = { "test", "test", "three" };
         String[] columnLabels = { "one", "two", null };
         ResultSetMetaData rsmd = ProxyFactory.instance().createResultSetMetaData(
@@ -229,7 +229,7 @@ public class BeanProcessorTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testMapColumnToPropertiesWithOverrides_1_oe() throws Exception {
+public void testMapColumnToPropertiesWithOverrides_1_oe() throws Exception {
         Map<String, String> columnToPropertyOverrides = new HashMap<String, String>();
         columnToPropertyOverrides.put("five", "four");
         BeanProcessor beanProc = new BeanProcessor(columnToPropertyOverrides);

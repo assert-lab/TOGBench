@@ -82,7 +82,7 @@ public class TestSubsetConfiguration_OE25Dev {
      * list delimiter handler.
      */
 
-    @Test
+@Test
     public void testClear_1_oe() {
         final Configuration config = new BaseConfiguration();
         config.setProperty("test.key1", "value1");
@@ -94,7 +94,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertTrue("the subset is not empty", subset.isEmpty());
     }
 
-    @Test
+@Test
     public void testClear_2_oe() {
         final Configuration config = new BaseConfiguration();
         config.setProperty("test.key1", "value1");
@@ -107,7 +107,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertFalse("the parent configuration is empty", config.isEmpty());
     }
 
-    @Test
+@Test
     public void testGetChildKey_1_oe() {
         final Configuration conf = new BaseConfiguration();
         // subset with delimiter
@@ -115,7 +115,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("parent key for \"prefixkey\"", "key", subset.getChildKey("prefix.key"));
     }
 
-    @Test
+@Test
     public void testGetChildKey_2_oe() {
         final Configuration conf = new BaseConfiguration();
         // subset with delimiter
@@ -124,7 +124,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("parent key for \"prefix\"", "", subset.getChildKey("prefix"));
     }
 
-    @Test
+@Test
     public void testGetChildKey_3_oe() {
         final Configuration conf = new BaseConfiguration();
         // subset with delimiter
@@ -137,7 +137,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("parent key for \"prefixkey\"", "key", subset.getChildKey("prefixkey"));
     }
 
-    @Test
+@Test
     public void testGetChildKey_4_oe() {
         final Configuration conf = new BaseConfiguration();
         // subset with delimiter
@@ -151,7 +151,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("parent key for \"prefix\"", "", subset.getChildKey("prefix"));
     }
 
-    @Test
+@Test
     public void testGetKeys_1_oe() {
         final Configuration conf = new BaseConfiguration();
         conf.setProperty("test", "value0");
@@ -164,7 +164,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("1st key", "", it.next());
     }
 
-    @Test
+@Test
     public void testGetKeysWithPrefix_1_oe() {
         final Configuration conf = new BaseConfiguration();
         conf.setProperty("test.abc", "value0");
@@ -177,7 +177,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("1st key", "abc", it.next());
     }
 
-    @Test
+@Test
     public void testGetList_1_oe() {
         final BaseConfiguration conf = new BaseConfiguration();
         conf.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
@@ -189,7 +189,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals(3, list.size());
     }
 
-    @Test
+@Test
     public void testGetListDelimiterHandlerFromParent_1_oe() {
         final BaseConfiguration config = new BaseConfiguration();
         final AbstractConfiguration subset = (AbstractConfiguration) config.subset("prefix");
@@ -198,7 +198,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertSame("Not list handler from parent", listHandler, subset.getListDelimiterHandler());
     }
 
-    @Test
+@Test
     public void testGetParent_1_oe() {
         final Configuration conf = new BaseConfiguration();
         final SubsetConfiguration subset = new SubsetConfiguration(conf, "prefix", ".");
@@ -206,7 +206,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("parent", conf, subset.getParent());
     }
 
-    @Test
+@Test
     public void testGetParentKey_1_oe() {
         final Configuration conf = new BaseConfiguration();
         // subset with delimiter
@@ -214,7 +214,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("parent key for \"key\"", "prefix.key", subset.getParentKey("key"));
     }
 
-    @Test
+@Test
     public void testGetParentKey_2_oe() {
         final Configuration conf = new BaseConfiguration();
         // subset with delimiter
@@ -223,7 +223,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("parent key for \"\"", "prefix", subset.getParentKey(""));
     }
 
-    @Test
+@Test
     public void testGetParentKey_3_oe() {
         final Configuration conf = new BaseConfiguration();
         // subset with delimiter
@@ -236,7 +236,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("parent key for \"key\"", "prefixkey", subset.getParentKey("key"));
     }
 
-    @Test
+@Test
     public void testGetParentKey_4_oe() {
         final Configuration conf = new BaseConfiguration();
         // subset with delimiter
@@ -250,7 +250,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("parent key for \"\"", "prefix", subset.getParentKey(""));
     }
 
-    @Test
+@Test
     public void testGetPrefix_1_oe() {
         final Configuration conf = new BaseConfiguration();
         final SubsetConfiguration subset = new SubsetConfiguration(conf, "prefix", ".");
@@ -258,7 +258,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("prefix", "prefix", subset.getPrefix());
     }
 
-    @Test
+@Test
     public void testGetProperty_1_oe() {
         final Configuration conf = new BaseConfiguration();
         conf.setProperty("test.key1", "value1");
@@ -268,7 +268,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertFalse("the subset is empty", subset.isEmpty());
     }
 
-    @Test
+@Test
     public void testGetProperty_2_oe() {
         final Configuration conf = new BaseConfiguration();
         conf.setProperty("test.key1", "value1");
@@ -279,7 +279,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertTrue("'key1' not found in the subset", subset.containsKey("key1"));
     }
 
-    @Test
+@Test
     public void testGetProperty_3_oe() {
         final Configuration conf = new BaseConfiguration();
         conf.setProperty("test.key1", "value1");
@@ -291,7 +291,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertFalse("'ng.key2' found in the subset", subset.containsKey("ng.key2"));
     }
 
-    @Test
+@Test
     public void testInterpolationForKeysOfTheParent_1_oe() {
         final BaseConfiguration config = new BaseConfiguration();
         config.setProperty("test", "junit");
@@ -300,7 +300,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("Interpolation does not resolve parent keys", "junit", subset.getString("key", ""));
     }
 
-    @Test
+@Test
     public void testListDelimiterHandling_1_oe() {
         final BaseConfiguration config = new BaseConfiguration();
         final Configuration subset = config.subset("prefix");
@@ -309,7 +309,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("Wrong size of list", 3, config.getList("prefix.list").size());
     }
 
-    @Test
+@Test
     public void testListDelimiterHandling_2_oe() {
         final BaseConfiguration config = new BaseConfiguration();
         final Configuration subset = config.subset("prefix");
@@ -322,7 +322,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("Wrong size of list2", 3, config.getList("prefix.list2").size());
     }
 
-    @Test
+@Test
     public void testLocalLookupsInInterpolatorAreInherited_1_oe() {
         final BaseConfiguration config = new BaseConfiguration();
         final ConfigurationInterpolator interpolator = config.getInterpolator();
@@ -332,7 +332,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("Local lookup was not inherited", "(x)", subset.getString("var", ""));
     }
 
-    @Test
+@Test
     public void testNested_1_oe() throws Exception {
         final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
         builder.configure(new FileBasedBuilderParametersImpl().setFile(ConfigurationAssert.getTestFile(TEST_FILE)));
@@ -341,7 +341,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertTrue(subConf.getKeys().hasNext());
     }
 
-    @Test
+@Test
     public void testNested_2_oe() throws Exception {
         final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
         builder.configure(new FileBasedBuilderParametersImpl().setFile(ConfigurationAssert.getTestFile(TEST_FILE)));
@@ -359,7 +359,7 @@ public class TestSubsetConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testNested_3_oe() throws Exception {
         final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
         builder.configure(new FileBasedBuilderParametersImpl().setFile(ConfigurationAssert.getTestFile(TEST_FILE)));
@@ -379,7 +379,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertTrue(keys.isEmpty());
     }
 
-    @Test
+@Test
     public void testSetListDelimiterHandlerInParent_1_oe() {
         final BaseConfiguration config = new BaseConfiguration();
         final AbstractConfiguration subset = (AbstractConfiguration) config.subset("prefix");
@@ -388,7 +388,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertSame("Handler not passed to parent", listHandler, config.getListDelimiterHandler());
     }
 
-    @Test
+@Test
     public void testSetListDelimiterHandlerParentNotSupported_1_oe() {
         final Configuration config = EasyMock.createNiceMock(Configuration.class);
         EasyMock.replay(config);
@@ -398,7 +398,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertSame("List delimiter handler not set", listHandler, subset.getListDelimiterHandler());
     }
 
-    @Test
+@Test
     public void testSetPrefix_1_oe() {
         final Configuration conf = new BaseConfiguration();
         final SubsetConfiguration subset = new SubsetConfiguration(conf, null, ".");
@@ -407,7 +407,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("prefix", "prefix", subset.getPrefix());
     }
 
-    @Test
+@Test
     public void testSetProperty_1_oe() {
         final Configuration conf = new BaseConfiguration();
         final Configuration subset = new SubsetConfiguration(conf, "test", ".");
@@ -417,7 +417,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("key1 in the subset configuration", "value1", subset.getProperty("key1"));
     }
 
-    @Test
+@Test
     public void testSetProperty_2_oe() {
         final Configuration conf = new BaseConfiguration();
         final Configuration subset = new SubsetConfiguration(conf, "test", ".");
@@ -428,7 +428,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("test.key1 in the parent configuration", "value1", conf.getProperty("test.key1"));
     }
 
-    @Test
+@Test
     public void testSetProperty_3_oe() {
         final Configuration conf = new BaseConfiguration();
         final Configuration subset = new SubsetConfiguration(conf, "test", ".");
@@ -443,7 +443,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("test.key2 in the parent configuration", "value2", conf.getProperty("test.key2"));
     }
 
-    @Test
+@Test
     public void testSetProperty_4_oe() {
         final Configuration conf = new BaseConfiguration();
         final Configuration subset = new SubsetConfiguration(conf, "test", ".");
@@ -459,7 +459,7 @@ public class TestSubsetConfiguration_OE25Dev {
         assertEquals("key2 in the subset configuration", "value2", subset.getProperty("key2"));
     }
 
-    @Test
+@Test
     public void testThrowExceptionOnMissing_2_oe() {
         final BaseConfiguration config = new BaseConfiguration();
         config.setThrowExceptionOnMissing(true);

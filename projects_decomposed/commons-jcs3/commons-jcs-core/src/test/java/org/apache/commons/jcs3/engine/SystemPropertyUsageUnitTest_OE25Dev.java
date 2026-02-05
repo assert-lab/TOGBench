@@ -76,7 +76,7 @@ public class SystemPropertyUsageUnitTest_OE25Dev
      *
      */
 
-    public void testSystemPropertyUsage_1_oe()
+public void testSystemPropertyUsage_1_oe()
         throws Exception
     {
         System.setProperty( JCS_DEFAULT_CACHEATTRIBUTES_MAX_OBJECTS, String.valueOf(testValue) );
@@ -90,7 +90,7 @@ public class SystemPropertyUsageUnitTest_OE25Dev
         assertEquals( "System property value is not reflected.", testValue, jcs.getCacheAttributes().getMaxObjects());
     }
 
-    public void testSystemPropertyUsage_inactive_1_oe()
+public void testSystemPropertyUsage_inactive_1_oe()
         throws Exception
     {
         System.setProperty( JCS_DEFAULT_CACHEATTRIBUTES_MAX_OBJECTS, String.valueOf(testValue) );

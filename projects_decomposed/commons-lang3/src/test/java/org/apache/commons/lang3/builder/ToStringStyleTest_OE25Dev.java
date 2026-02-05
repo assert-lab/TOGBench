@@ -53,84 +53,84 @@ public class ToStringStyleTest_OE25Dev {
         boolean smoker;
     }
 
-    @Test
+@Test
     public void testSetArrayStart_1_oe() {
         final ToStringStyle style = new ToStringStyleImpl();
         style.setArrayStart(null);
         assertEquals("", style.getArrayStart());
     }
 
-    @Test
+@Test
     public void testSetArrayEnd_1_oe() {
         final ToStringStyle style = new ToStringStyleImpl();
         style.setArrayEnd(null);
         assertEquals("", style.getArrayEnd());
     }
 
-    @Test
+@Test
     public void testSetArraySeparator_1_oe() {
         final ToStringStyle style = new ToStringStyleImpl();
         style.setArraySeparator(null);
         assertEquals("", style.getArraySeparator());
     }
 
-    @Test
+@Test
     public void testSetContentStart_1_oe() {
         final ToStringStyle style = new ToStringStyleImpl();
         style.setContentStart(null);
         assertEquals("", style.getContentStart());
     }
 
-    @Test
+@Test
     public void testSetContentEnd_1_oe() {
         final ToStringStyle style = new ToStringStyleImpl();
         style.setContentEnd(null);
         assertEquals("", style.getContentEnd());
     }
 
-    @Test
+@Test
     public void testSetFieldNameValueSeparator_1_oe() {
         final ToStringStyle style = new ToStringStyleImpl();
         style.setFieldNameValueSeparator(null);
         assertEquals("", style.getFieldNameValueSeparator());
     }
 
-    @Test
+@Test
     public void testSetFieldSeparator_1_oe() {
         final ToStringStyle style = new ToStringStyleImpl();
         style.setFieldSeparator(null);
         assertEquals("", style.getFieldSeparator());
     }
 
-    @Test
+@Test
     public void testSetNullText_1_oe() {
         final ToStringStyle style = new ToStringStyleImpl();
         style.setNullText(null);
         assertEquals("", style.getNullText());
     }
 
-    @Test
+@Test
     public void testSetSizeStartText_1_oe() {
         final ToStringStyle style = new ToStringStyleImpl();
         style.setSizeStartText(null);
         assertEquals("", style.getSizeStartText());
     }
 
-    @Test
+@Test
     public void testSetSizeEndText_1_oe() {
         final ToStringStyle style = new ToStringStyleImpl();
         style.setSizeEndText(null);
         assertEquals("", style.getSizeEndText());
     }
 
-    @Test
+@Test
     public void testSetSummaryObjectStartText_1_oe() {
         final ToStringStyle style = new ToStringStyleImpl();
         style.setSummaryObjectStartText(null);
         assertEquals("", style.getSummaryObjectStartText());
     }
 
-    @Test
+@Test
     public void testSetSummaryObjectEndText_1_oe() {
         final ToStringStyle style = new ToStringStyleImpl();
         style.setSummaryObjectEndText(null);

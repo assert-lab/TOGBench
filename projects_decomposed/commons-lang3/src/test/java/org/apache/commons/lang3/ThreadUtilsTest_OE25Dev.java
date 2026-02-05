@@ -253,29 +253,29 @@ public class ThreadUtilsTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testAtLeastOneThreadExists_1_oe() {
         assertFalse(ThreadUtils.getAllThreads().isEmpty());
     }
 
-    @Test
+@Test
     public void testAtLeastOneThreadGroupsExists_1_oe() {
         assertFalse(ThreadUtils.getAllThreadGroups().isEmpty());
     }
 
-    @Test
+@Test
     public void testConstructor_1_oe() {
         assertNotNull(new ThreadUtils());
     }
 
-    @Test
+@Test
     public void testConstructor_2_oe() {
         // removed other assertion
         final Constructor<?>[] cons = ThreadUtils.class.getDeclaredConstructors();
         assertEquals(1, cons.length);
     }
 
-    @Test
+@Test
     public void testConstructor_3_oe() {
         // removed other assertion
         final Constructor<?>[] cons = ThreadUtils.class.getDeclaredConstructors();
@@ -283,7 +283,7 @@ public class ThreadUtilsTest_OE25Dev {
         assertTrue(Modifier.isPublic(cons[0].getModifiers()));
     }
 
-    @Test
+@Test
     public void testConstructor_4_oe() {
         // removed other assertion
         final Constructor<?>[] cons = ThreadUtils.class.getDeclaredConstructors();
@@ -292,7 +292,7 @@ public class ThreadUtilsTest_OE25Dev {
         assertTrue(Modifier.isPublic(ThreadUtils.class.getModifiers()));
     }
 
-    @Test
+@Test
     public void testConstructor_5_oe() {
         // removed other assertion
         final Constructor<?>[] cons = ThreadUtils.class.getDeclaredConstructors();
@@ -302,75 +302,75 @@ public class ThreadUtilsTest_OE25Dev {
         assertFalse(Modifier.isFinal(ThreadUtils.class.getModifiers()));
     }
 
-    @Test
+@Test
     public void testInvalidThreadId_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> ThreadUtils.findThreadById(-5L));
     }
 
-    @Test
+@Test
     public void testNoThread_1_oe() {
         assertEquals(0, ThreadUtils.findThreadsByName("some_thread_which_does_not_exist_18762ZucTT").size());
     }
 
-    @Test
+@Test
     public void testNoThreadGroup_1_oe() {
         assertEquals(0, ThreadUtils.findThreadGroupsByName("some_thread_group_which_does_not_exist_18762ZucTTII").size());
     }
 
-    @Test
+@Test
     public void testNullThreadGroupName_1_oe() {
         assertThrows(NullPointerException.class, () -> ThreadUtils.findThreadGroupsByName(null));
     }
 
-    @Test
+@Test
     public void testNullThreadName_1_oe() {
         assertThrows(NullPointerException.class, () -> ThreadUtils.findThreadsByName(null));
     }
 
-    @Test
+@Test
     public void testNullThreadThreadGroup1_1_oe() {
         assertThrows(NullPointerException.class, () -> ThreadUtils.findThreadsByName("tname", (ThreadGroup) null));
     }
 
-    @Test
+@Test
     public void testNullThreadThreadGroup2_1_oe() {
         assertThrows(NullPointerException.class, () -> ThreadUtils.findThreadById(1L, (ThreadGroup) null));
     }
 
-    @Test
+@Test
     public void testNullThreadThreadGroup3_1_oe() {
         assertThrows(NullPointerException.class, () -> ThreadUtils.findThreadsByName(null, (ThreadGroup) null));
     }
 
-    @Test
+@Test
     public void testNullThreadThreadGroupName1_1_oe() {
         assertThrows(NullPointerException.class, () -> ThreadUtils.findThreadsByName(null, "tgname"));
     }
 
-    @Test
+@Test
     public void testNullThreadThreadGroupName2_1_oe() {
         assertThrows(NullPointerException.class, () -> ThreadUtils.findThreadsByName("tname", (String) null));
     }
 
-    @Test
+@Test
     public void testNullThreadThreadGroupName3_1_oe() {
         assertThrows(NullPointerException.class, () -> ThreadUtils.findThreadsByName(null, (String) null));
     }
 
-    @Test
+@Test
     public void testSystemThreadGroupExists_1_oe() {
         final ThreadGroup systemThreadGroup = ThreadUtils.getSystemThreadGroup();
         assertNotNull(systemThreadGroup);
     }
 
-    @Test
+@Test
     public void testSystemThreadGroupExists_2_oe() {
         final ThreadGroup systemThreadGroup = ThreadUtils.getSystemThreadGroup();
         // removed other assertion
         assertNull(systemThreadGroup.getParent());
     }
 
-    @Test
+@Test
     public void testSystemThreadGroupExists_3_oe() {
         final ThreadGroup systemThreadGroup = ThreadUtils.getSystemThreadGroup();
         // removed other assertion
@@ -378,22 +378,22 @@ public class ThreadUtilsTest_OE25Dev {
         assertEquals("system", systemThreadGroup.getName());
     }
 
-    @Test
+@Test
     public void testThreadGroupsByIdFail_1_oe() {
         assertThrows(NullPointerException.class, () -> ThreadUtils.findThreadById(Thread.currentThread().getId(), (String) null));
     }
 
-    @Test
+@Test
     public void testThreadgroupsNullParent_1_oe() {
         assertThrows(NullPointerException.class, () -> ThreadUtils.findThreadGroups(null, true, ThreadUtils.ALWAYS_TRUE_PREDICATE));
     }
 
-    @Test
+@Test
     public void testThreadgroupsNullPredicate_1_oe() {
         assertThrows(NullPointerException.class, () -> ThreadUtils.findThreadGroups(null));
     }
 
-    @Test
+@Test
     public void testThreadGroupsRef_5_oe() throws InterruptedException {
         final ThreadGroup threadGroup = new ThreadGroup("thread_group_DDZZ99__");
         final ThreadGroup deadThreadGroup = new ThreadGroup("dead_thread_group_MMQQSS__");
@@ -418,7 +418,7 @@ public class ThreadUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testThreadsNullPredicate_1_oe() {
         assertThrows(NullPointerException.class, () -> ThreadUtils.findThreads(null));
     }

@@ -48,14 +48,14 @@ public class VFSTest_OE25Dev {
         VFS.close();
     }
 
-    @Test
+@Test
     public void test_setManager_1_oe() throws FileSystemException {
         final StandardFileSystemManager fileSystemManager = new StandardFileSystemManager();
         VFS.setManager(fileSystemManager);
         Assert.assertEquals(fileSystemManager, VFS.getManager());
     }
 
-    @Test
+@Test
     public void test_setManager_2_oe() throws FileSystemException {
         final StandardFileSystemManager fileSystemManager = new StandardFileSystemManager();
         VFS.setManager(fileSystemManager);
@@ -65,7 +65,7 @@ public class VFSTest_OE25Dev {
         Assert.assertNotNull(VFS.getManager());
     }
 
-    @Test
+@Test
     public void test_setManager_3_oe() throws FileSystemException {
         final StandardFileSystemManager fileSystemManager = new StandardFileSystemManager();
         VFS.setManager(fileSystemManager);
@@ -76,7 +76,7 @@ public class VFSTest_OE25Dev {
         Assert.assertNotEquals(fileSystemManager, VFS.getManager());
     }
 
-    @Test
+@Test
     public void testStaticClose_1_oe() throws FileSystemException {
         final FileSystemManager manager = VFS.getManager();
         VFS.close();

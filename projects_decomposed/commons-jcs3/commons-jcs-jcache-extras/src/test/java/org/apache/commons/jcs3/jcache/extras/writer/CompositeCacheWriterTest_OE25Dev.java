@@ -75,14 +75,14 @@ public class CompositeCacheWriterTest_OE25Dev
             .setCacheWriterFactory(new CompositeCacheWriter<>(writer1, writer2));
     private Cache<String, String> cache;
 
-    @Test
+@Test
     public void checkComposite_1_oe()
     {
         cache.put("a", "b");
         assertEquals("b", copy1.get("a"));
     }
 
-    @Test
+@Test
     public void checkComposite_2_oe()
     {
         cache.put("a", "b");
@@ -90,7 +90,7 @@ public class CompositeCacheWriterTest_OE25Dev
         assertEquals("b", copy2.get("a"));
     }
 
-    @Test
+@Test
     public void checkComposite_3_oe()
     {
         cache.put("a", "b");
@@ -99,7 +99,7 @@ public class CompositeCacheWriterTest_OE25Dev
         assertEquals(1, copy1.size());
     }
 
-    @Test
+@Test
     public void checkComposite_4_oe()
     {
         cache.put("a", "b");
@@ -109,7 +109,7 @@ public class CompositeCacheWriterTest_OE25Dev
         assertEquals(1, copy2.size());
     }
 
-    @Test
+@Test
     public void checkComposite_5_oe()
     {
         cache.put("a", "b");
@@ -121,7 +121,7 @@ public class CompositeCacheWriterTest_OE25Dev
         assertTrue(copy1.isEmpty());
     }
 
-    @Test
+@Test
     public void checkComposite_6_oe()
     {
         cache.put("a", "b");

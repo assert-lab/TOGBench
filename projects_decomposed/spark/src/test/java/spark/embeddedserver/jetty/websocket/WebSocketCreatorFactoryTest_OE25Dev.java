@@ -31,14 +31,14 @@ public class WebSocketCreatorFactoryTest_OE25Dev {
 
     }
 
-    @Test
+@Test
     public void testCreateWebSocketHandler_1_oe() {
         WebSocketCreator annotated =
                 WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(AnnotatedHandler.class));
         assertTrue(annotated instanceof SparkWebSocketCreator);
     }
 
-    @Test
+@Test
     public void testCreateWebSocketHandler_2_oe() {
         WebSocketCreator annotated =
                 WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(AnnotatedHandler.class));
@@ -46,7 +46,7 @@ public class WebSocketCreatorFactoryTest_OE25Dev {
         assertTrue(SparkWebSocketCreator.class.cast(annotated).getHandler() instanceof AnnotatedHandler);
     }
 
-    @Test
+@Test
     public void testCreateWebSocketHandler_3_oe() {
         WebSocketCreator annotated =
                 WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(AnnotatedHandler.class));
@@ -58,7 +58,7 @@ public class WebSocketCreatorFactoryTest_OE25Dev {
         assertTrue(listener instanceof SparkWebSocketCreator);
     }
 
-    @Test
+@Test
     public void testCreateWebSocketHandler_4_oe() {
         WebSocketCreator annotated =
                 WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(AnnotatedHandler.class));
@@ -71,7 +71,7 @@ public class WebSocketCreatorFactoryTest_OE25Dev {
         assertTrue(SparkWebSocketCreator.class.cast(listener).getHandler() instanceof ListenerHandler);
     }
 
-    @Test
+@Test
     public void testCannotCreateInvalidHandlers_2_oe() {
         try {
             WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(InvalidHandler.class));
@@ -81,7 +81,7 @@ public class WebSocketCreatorFactoryTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testCreate_whenInstantiationException_2_oe() throws Exception {
         try {
             WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(FailingHandler.class));

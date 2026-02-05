@@ -59,20 +59,20 @@ public class CacheWriterAdapterTest_OE25Dev
             });
     private Cache<String, String> cache;
 
-    @Test
+@Test
     public void checkWriteAllAndDeleteAll_1_oe()
     {
         assertTrue(copy.isEmpty());
     }
 
-    @Test
+@Test
     public void checkWriteAllAndDeleteAll_2_oe()
     {
         // removed other assertion
         assertFalse(cache.iterator().hasNext());
     }
 
-    @Test
+@Test
     public void checkWriteAllAndDeleteAll_3_oe()
     {
         // removed other assertion
@@ -81,7 +81,7 @@ public class CacheWriterAdapterTest_OE25Dev
         assertEquals(1, copy.size());
     }
 
-    @Test
+@Test
     public void checkWriteAllAndDeleteAll_4_oe()
     {
         // removed other assertion
@@ -92,7 +92,7 @@ public class CacheWriterAdapterTest_OE25Dev
         assertTrue(copy.isEmpty());
     }
 
-    @Test
+@Test
     public void checkWriteAllAndDeleteAll_5_oe()
     {
         // removed other assertion
@@ -109,7 +109,7 @@ public class CacheWriterAdapterTest_OE25Dev
         assertEquals(2, copy.size());
     }
 
-    @Test
+@Test
     public void checkWriteAllAndDeleteAll_6_oe()
     {
         // removed other assertion

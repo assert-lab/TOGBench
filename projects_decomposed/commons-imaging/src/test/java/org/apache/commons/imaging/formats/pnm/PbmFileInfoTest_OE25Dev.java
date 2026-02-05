@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Test;
 
 public class PbmFileInfoTest_OE25Dev{
 
-  @Test
+@Test
   public void testGetRGBThrowsIOException_2_oe() throws IOException {
       final PbmFileInfo pbmFileInfo = new PbmFileInfo(2764, 354, true);
       final byte[] byteArray = new byte[2];
@@ -42,7 +42,7 @@ public class PbmFileInfoTest_OE25Dev{
   }
   }
 
-  @Test
+@Test
   public void testGetRGBThrowsIOException_3_oe() throws IOException {
       final PbmFileInfo pbmFileInfo = new PbmFileInfo(2764, 354, true);
       final byte[] byteArray = new byte[2];

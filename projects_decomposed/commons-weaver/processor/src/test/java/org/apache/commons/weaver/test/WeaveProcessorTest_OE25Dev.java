@@ -34,7 +34,7 @@ import org.junit.Test;
  */
 public class WeaveProcessorTest_OE25Dev extends WeaverTestBase {
 
-    @Test
+@Test
     public void testWeaveVisiting_1_oe() throws Exception {
         addClassForScanning(TestBeanWithMethodAnnotation.class);
         addClassForScanning(TestBeanWithClassAnnotation.class);
@@ -52,7 +52,7 @@ public class WeaveProcessorTest_OE25Dev extends WeaverTestBase {
         Assert.assertEquals(1, TestWeaver.wovenClasses.size());
     }
 
-    @Test
+@Test
     public void testWeaveVisiting_2_oe() throws Exception {
         addClassForScanning(TestBeanWithMethodAnnotation.class);
         addClassForScanning(TestBeanWithClassAnnotation.class);
@@ -71,7 +71,7 @@ public class WeaveProcessorTest_OE25Dev extends WeaverTestBase {
         Assert.assertEquals(TestBeanWithClassAnnotation.class, TestWeaver.wovenClasses.get(0));
     }
 
-    @Test
+@Test
     public void testWeaveVisiting_3_oe() throws Exception {
         addClassForScanning(TestBeanWithMethodAnnotation.class);
         addClassForScanning(TestBeanWithClassAnnotation.class);
@@ -92,7 +92,7 @@ public class WeaveProcessorTest_OE25Dev extends WeaverTestBase {
         Assert.assertEquals(1, TestWeaver.wovenMethods.size());
     }
 
-    @Test
+@Test
     public void testWeaveVisiting_4_oe() throws Exception {
         addClassForScanning(TestBeanWithMethodAnnotation.class);
         addClassForScanning(TestBeanWithClassAnnotation.class);
@@ -114,7 +114,7 @@ public class WeaveProcessorTest_OE25Dev extends WeaverTestBase {
         Assert.assertEquals(TestBeanWithMethodAnnotation.class, TestWeaver.wovenMethods.get(0).getDeclaringClass());
     }
 
-    @Test
+@Test
     public void testWeaveVisiting_5_oe() throws Exception {
         addClassForScanning(TestBeanWithMethodAnnotation.class);
         addClassForScanning(TestBeanWithClassAnnotation.class);
@@ -138,7 +138,7 @@ public class WeaveProcessorTest_OE25Dev extends WeaverTestBase {
         Assert.assertEquals(1, TestWeaver.implementors.size());
     }
 
-    @Test
+@Test
     public void testWeaveVisiting_6_oe() throws Exception {
         addClassForScanning(TestBeanWithMethodAnnotation.class);
         addClassForScanning(TestBeanWithClassAnnotation.class);
@@ -163,7 +163,7 @@ public class WeaveProcessorTest_OE25Dev extends WeaverTestBase {
         Assert.assertEquals(TestBeanWithClassAnnotation.class, TestWeaver.implementors.get(0));
     }
 
-    @Test
+@Test
     public void testWeaveVisiting_7_oe() throws Exception {
         addClassForScanning(TestBeanWithMethodAnnotation.class);
         addClassForScanning(TestBeanWithClassAnnotation.class);
@@ -190,7 +190,7 @@ public class WeaveProcessorTest_OE25Dev extends WeaverTestBase {
         Assert.assertEquals(2, TestWeaver.subclasses.size());
     }
 
-    @Test
+@Test
     public void testWeaveVisiting_8_oe() throws Exception {
         addClassForScanning(TestBeanWithMethodAnnotation.class);
         addClassForScanning(TestBeanWithClassAnnotation.class);

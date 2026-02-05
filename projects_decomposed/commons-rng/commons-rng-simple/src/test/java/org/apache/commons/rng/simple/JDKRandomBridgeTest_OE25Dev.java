@@ -93,7 +93,7 @@ class JDKRandomBridgeTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testJDKRandomEquivalence_1_oe() {
         // Initialize.
         final long seed = RandomSource.createLong();

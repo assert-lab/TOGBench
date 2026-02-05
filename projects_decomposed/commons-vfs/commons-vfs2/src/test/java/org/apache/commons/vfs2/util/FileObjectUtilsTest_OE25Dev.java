@@ -48,42 +48,42 @@ public class FileObjectUtilsTest_OE25Dev {
             .readProperties(VFS.getManager().toFileObject(new File("src/test/resources/test.properties"))));
     }
 
-    @Test
+@Test
     public void testExistsNotNull_1_oe() throws FileSystemException {
         Assert.assertTrue(FileObjectUtils.exists(VFS.getManager().toFileObject(SystemUtils.getJavaIoTmpDir())));
     }
 
-    @Test
+@Test
     public void testgetContentAsString_Charset_1_oe() throws FileSystemException, IOException {
         Assert.assertEquals("This is a test file.",FileObjectUtils.getContentAsString(VFS.getManager().toFileObject(new File("src/test/resources/test-data/read-tests/file1.txt")),StandardCharsets.UTF_8));
     }
 
-    @Test
+@Test
     public void testgetContentAsString_CharsetNull_1_oe() throws FileSystemException, IOException {
         Assert.assertEquals("This is a test file.",FileObjectUtils.getContentAsString(VFS.getManager().toFileObject(new File("src/test/resources/test-data/read-tests/file1.txt")),(Charset)null));
     }
 
-    @Test
+@Test
     public void testgetContentAsString_String_1_oe() throws FileSystemException, IOException {
         Assert.assertEquals("This is a test file.",FileObjectUtils.getContentAsString(VFS.getManager().toFileObject(new File("src/test/resources/test-data/read-tests/file1.txt")),"UTF-8"));
     }
 
-    @Test
+@Test
     public void testgetContentAsString_StringNull_1_oe() throws FileSystemException, IOException {
         Assert.assertEquals("This is a test file.",FileObjectUtils.getContentAsString(VFS.getManager().toFileObject(new File("src/test/resources/test-data/read-tests/file1.txt")),(String)null));
     }
 
-    @Test
+@Test
     public void testNotExistsNotNull_1_oe() throws FileSystemException {
         Assert.assertFalse(FileObjectUtils.exists(VFS.getManager().toFileObject(new File("This file can't possibly exist,right?"))));
     }
 
-    @Test
+@Test
     public void testNotExistsNull_1_oe() throws FileSystemException {
         Assert.assertFalse(FileObjectUtils.exists(null));
     }
 
-    @Test
+@Test
     public void testReadPropertiesInto_2_oe() throws FileSystemException, IOException {
         final Properties p = new Properties();
         p.setProperty("extraKey", "extraValue");

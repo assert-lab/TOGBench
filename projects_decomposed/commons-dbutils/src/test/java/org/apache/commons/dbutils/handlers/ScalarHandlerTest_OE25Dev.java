@@ -23,46 +23,46 @@ import org.apache.commons.dbutils.ResultSetHandler;
 
 public class ScalarHandlerTest_OE25Dev extends BaseTestCase {
 
-    public void testHandle_1_oe() throws SQLException {
+public void testHandle_1_oe() throws SQLException {
         ResultSetHandler<String> h = new ScalarHandler<String>();
         Object results = h.handle(this.rs);
         assertNotNull(results);
     }
 
-    public void testHandle_2_oe() throws SQLException {
+public void testHandle_2_oe() throws SQLException {
         ResultSetHandler<String> h = new ScalarHandler<String>();
         Object results = h.handle(this.rs);
         // removed other assertion
         assertEquals("1", results);
     }
 
-    public void testColumnIndexHandle_1_oe() throws SQLException {
+public void testColumnIndexHandle_1_oe() throws SQLException {
         ResultSetHandler<String> h = new ScalarHandler<String>(2);
         Object results = h.handle(this.rs);
         assertNotNull(results);
     }
 
-    public void testColumnIndexHandle_2_oe() throws SQLException {
+public void testColumnIndexHandle_2_oe() throws SQLException {
         ResultSetHandler<String> h = new ScalarHandler<String>(2);
         Object results = h.handle(this.rs);
         // removed other assertion
         assertEquals("2", results);
     }
 
-    public void testColumnNameHandle_1_oe() throws SQLException {
+public void testColumnNameHandle_1_oe() throws SQLException {
         ResultSetHandler<Integer> h = new ScalarHandler<Integer>("intTest");
         Object results = h.handle(this.rs);
         assertNotNull(results);
     }
 
-    public void testColumnNameHandle_2_oe() throws SQLException {
+public void testColumnNameHandle_2_oe() throws SQLException {
         ResultSetHandler<Integer> h = new ScalarHandler<Integer>("intTest");
         Object results = h.handle(this.rs);
         // removed other assertion
         assertEquals(Integer.valueOf(1), results);
     }
 
-    public void testEmptyResultSetHandle_1_oe() throws SQLException {
+public void testEmptyResultSetHandle_1_oe() throws SQLException {
         ResultSetHandler<String> h = new ScalarHandler<String>();
         Object results = h.handle(this.emptyResultSet);
         assertNull(results);

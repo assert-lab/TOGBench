@@ -121,7 +121,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(precision, line.getPrecision());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_finite_1_oe() {
         // arrange
         final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -139,7 +139,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, segment.getPrecision());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_full_3_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
@@ -154,7 +154,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(span.getStartPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_full_4_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
@@ -170,7 +170,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(span.getEndPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_full_5_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
@@ -188,7 +188,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(Interval.full(), span.getInterval());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_full_6_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
@@ -207,7 +207,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, span.getPrecision());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_positiveHalfSpace_1_oe() {
         // arrange
         final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -222,7 +222,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(-1.0, ray.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_positiveHalfSpace_4_oe() {
         // arrange
         final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -243,7 +243,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(ray.getEndPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_positiveHalfSpace_5_oe() {
         // arrange
         final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -267,7 +267,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, ray.getPrecision());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_negativeHalfSpace_2_oe() {
         // arrange
         final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -283,7 +283,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(2, halfLine.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_negativeHalfSpace_3_oe() {
         // arrange
         final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -303,7 +303,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(halfLine.getStartPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_intervalArg_negativeHalfSpace_5_oe() {
         // arrange
         final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -327,7 +327,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, halfLine.getPrecision());
     }
 
-    @Test
+@Test
     void testFromInterval_doubleArgs_finite_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
@@ -342,7 +342,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, segment.getPrecision());
     }
 
-    @Test
+@Test
     void testFromInterval_doubleArgs_full_3_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
@@ -357,7 +357,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(span.getStartPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_doubleArgs_full_4_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
@@ -373,7 +373,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(span.getEndPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_doubleArgs_full_5_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
@@ -391,7 +391,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, span.getPrecision());
     }
 
-    @Test
+@Test
     void testFromInterval_doubleArgs_positiveHalfSpace_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
@@ -403,7 +403,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(-1.0, ray.getSubspaceStart(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromInterval_doubleArgs_positiveHalfSpace_4_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
@@ -421,7 +421,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(ray.getEndPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_doubleArgs_positiveHalfSpace_5_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
@@ -441,7 +441,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, ray.getPrecision());
     }
 
-    @Test
+@Test
     void testFromInterval_doubleArgs_negativeHalfSpace_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
@@ -454,7 +454,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(2, halfLine.getSubspaceEnd(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromInterval_doubleArgs_negativeHalfSpace_3_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
@@ -471,7 +471,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(halfLine.getStartPoint());
     }
 
-    @Test
+@Test
     void testFromInterval_doubleArgs_negativeHalfSpace_5_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
@@ -491,7 +491,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, halfLine.getPrecision());
     }
 
-    @Test
+@Test
     void testToConvex_1_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(4, 5), TEST_PRECISION);
@@ -504,7 +504,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(1, segments.size());
     }
 
-    @Test
+@Test
     void testToConvex_2_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(4, 5), TEST_PRECISION);
@@ -518,7 +518,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(sub, segments.get(0));
     }
 
-    @Test
+@Test
     void testIntersection_line_1_oe() {
         // arrange
         final Segment aSeg = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(2, 0), TEST_PRECISION);
@@ -532,7 +532,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(aSeg.intersection(xAxis));
     }
 
-    @Test
+@Test
     void testIntersection_line_2_oe() {
         // arrange
         final Segment aSeg = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(2, 0), TEST_PRECISION);
@@ -547,7 +547,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(aSeg.intersection(yAxis));
     }
 
-    @Test
+@Test
     void testIntersection_lineSegment_1_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(2, 0), TEST_PRECISION);
@@ -559,7 +559,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(a.intersection(a));
     }
 
-    @Test
+@Test
     void testIntersection_lineSegment_2_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(2, 0), TEST_PRECISION);
@@ -572,7 +572,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(a.intersection(c));
     }
 
-    @Test
+@Test
     void testIntersection_lineSegment_3_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(2, 0), TEST_PRECISION);
@@ -586,7 +586,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(a.intersection(b));
     }
 
-    @Test
+@Test
     void testIntersection_lineSegment_5_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(2, 0), TEST_PRECISION);
@@ -604,7 +604,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(b.intersection(d));
     }
 
-    @Test
+@Test
     void testIntersection_lineSegment_6_oe() {
         // arrange
         final Segment a = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(2, 0), TEST_PRECISION);
@@ -623,7 +623,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(d.intersection(b));
     }
 
-    @Test
+@Test
     void testSplit_finite_1_oe() {
         // arrange
         final Vector2D start = Vector2D.of(1, 1);
@@ -645,7 +645,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(sub, minusOnlyOrthogonal.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_finite_2_oe() {
         // arrange
         final Vector2D start = Vector2D.of(1, 1);
@@ -668,7 +668,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(minusOnlyOrthogonal.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_finite_3_oe() {
         // arrange
         final Vector2D start = Vector2D.of(1, 1);
@@ -694,7 +694,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(sub, minusOnlyParallel.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_finite_4_oe() {
         // arrange
         final Vector2D start = Vector2D.of(1, 1);
@@ -721,7 +721,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(minusOnlyParallel.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_finite_5_oe() {
         // arrange
         final Vector2D start = Vector2D.of(1, 1);
@@ -751,7 +751,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(plusOnlyOrthogonal.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_finite_6_oe() {
         // arrange
         final Vector2D start = Vector2D.of(1, 1);
@@ -782,7 +782,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(sub, plusOnlyOrthogonal.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_finite_7_oe() {
         // arrange
         final Vector2D start = Vector2D.of(1, 1);
@@ -816,7 +816,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(plusOnlyParallel.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_finite_8_oe() {
         // arrange
         final Vector2D start = Vector2D.of(1, 1);
@@ -851,7 +851,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(sub, plusOnlyParallel.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_finite_9_oe() {
         // arrange
         final Vector2D start = Vector2D.of(1, 1);
@@ -889,7 +889,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(hyper.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_finite_10_oe() {
         // arrange
         final Vector2D start = Vector2D.of(1, 1);
@@ -928,7 +928,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(hyper.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_full_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -952,7 +952,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(seg, minusOnlyParallel.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_full_2_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -977,7 +977,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(minusOnlyParallel.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_full_3_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1005,7 +1005,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(plusOnlyParallel.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_full_4_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1034,7 +1034,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(seg, plusOnlyParallel.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_full_5_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1066,7 +1066,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(hyper.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_full_6_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1099,7 +1099,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(hyper.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_positiveHalfSpace_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1123,7 +1123,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(sub, minusOnlyParallel.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_positiveHalfSpace_2_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1148,7 +1148,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(minusOnlyParallel.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_positiveHalfSpace_3_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1176,7 +1176,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(sub, minusOnlyOrthogonal.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_positiveHalfSpace_4_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1205,7 +1205,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(minusOnlyOrthogonal.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_positiveHalfSpace_5_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1237,7 +1237,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(plusOnlyParallel.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_positiveHalfSpace_6_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1270,7 +1270,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(sub, plusOnlyParallel.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_positiveHalfSpace_7_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1306,7 +1306,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(hyper.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_positiveHalfSpace_8_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1343,7 +1343,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(hyper.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_negativeHalfSpace_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1367,7 +1367,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(seg, minusOnlyParallel.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_negativeHalfSpace_2_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1392,7 +1392,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(minusOnlyParallel.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_negativeHalfSpace_3_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1420,7 +1420,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(plusOnlyParallel.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_negativeHalfSpace_4_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1449,7 +1449,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(seg, plusOnlyParallel.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_negativeHalfSpace_5_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1481,7 +1481,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(plusOnlyOrthogonal.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_negativeHalfSpace_6_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1514,7 +1514,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(seg, plusOnlyOrthogonal.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_negativeHalfSpace_7_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);
@@ -1550,7 +1550,7 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertNull(hyper.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_negativeHalfSpace_8_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 1);

@@ -32,7 +32,7 @@ import org.junit.Test;
  */
 public class CleanProcessorTest_OE25Dev extends WeaverTestBase {
 
-    @Test
+@Test
     public void testWeaveVisiting_1_oe() throws Exception {
         addClassForScanning(TestBeanWithMethodAnnotation.class);
         addClassForScanning(TestBeanWithClassAnnotation.class);
@@ -46,7 +46,7 @@ public class CleanProcessorTest_OE25Dev extends WeaverTestBase {
         Assert.assertFalse(new File(getTargetFolder(),TestBeanWithMethodAnnotation.class.getName().replace('.',File.separatorChar)+ ".class").exists());
     }
 
-    @Test
+@Test
     public void testWeaveVisiting_2_oe() throws Exception {
         addClassForScanning(TestBeanWithMethodAnnotation.class);
         addClassForScanning(TestBeanWithClassAnnotation.class);

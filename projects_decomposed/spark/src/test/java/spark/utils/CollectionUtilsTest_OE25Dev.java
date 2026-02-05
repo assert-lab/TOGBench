@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 
 public class CollectionUtilsTest_OE25Dev {
 
-    @Test
+@Test
     public void testIsEmpty_whenCollectionIsEmpty_thenReturnTrue_1_oe() {
 
         Collection<Object> testCollection = new ArrayList<>();
@@ -17,7 +17,7 @@ public class CollectionUtilsTest_OE25Dev {
         assertTrue("Should return true because collection is empty", CollectionUtils.isEmpty(testCollection));
     }
 
-    @Test
+@Test
     public void testIsEmpty_whenCollectionIsNotEmpty_thenReturnFalse_1_oe() {
 
         Collection<Integer> testCollection = new ArrayList<>();
@@ -27,7 +27,7 @@ public class CollectionUtilsTest_OE25Dev {
         assertFalse("Should return false because collection is not empty", CollectionUtils.isEmpty(testCollection));
     }
 
-    @Test
+@Test
     public void testIsEmpty_whenCollectionIsNull_thenReturnTrue_1_oe() {
 
         Collection<Integer> testCollection = null;
@@ -35,7 +35,7 @@ public class CollectionUtilsTest_OE25Dev {
         assertTrue("Should return true because collection is null", CollectionUtils.isEmpty(testCollection));
     }
 
-    @Test
+@Test
     public void testIsNotEmpty_whenCollectionIsEmpty_thenReturnFalse_1_oe() {
 
         Collection<Object> testCollection = new ArrayList<>();
@@ -43,7 +43,7 @@ public class CollectionUtilsTest_OE25Dev {
         assertFalse("Should return false because collection is empty", CollectionUtils.isNotEmpty(testCollection));
     }
 
-    @Test
+@Test
     public void testIsNotEmpty_whenCollectionIsNotEmpty_thenReturnTrue_1_oe() {
 
         Collection<Integer> testCollection = new ArrayList<>();
@@ -53,7 +53,7 @@ public class CollectionUtilsTest_OE25Dev {
         assertTrue("Should return true because collection is not empty", CollectionUtils.isNotEmpty(testCollection));
     }
 
-    @Test
+@Test
     public void testIsNotEmpty_whenCollectionIsNull_thenReturnFalse_1_oe() {
 
         Collection<Object> testCollection = null;

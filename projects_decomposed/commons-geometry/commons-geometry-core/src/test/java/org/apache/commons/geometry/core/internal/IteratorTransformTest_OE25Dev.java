@@ -65,7 +65,7 @@ class IteratorTransformTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testIteration_1_oe() {
         // arrange
         final List<Integer> input = Arrays.asList(1, 2, 3, 4, 12, 13);
@@ -77,7 +77,7 @@ class IteratorTransformTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList("2", "4", "1", "2"), result);
     }
 
-    @Test
+@Test
     void testThrowsNoSuchElement_1_oe() {
         // arrange
         final List<Integer> input = Collections.emptyList();
@@ -87,7 +87,7 @@ class IteratorTransformTest_OE25Dev {
         Assertions.assertFalse(it.hasNext());
     }
 
-    @Test
+@Test
     void testThrowsNoSuchElement_2_oe() {
         // arrange
         final List<Integer> input = Collections.emptyList();

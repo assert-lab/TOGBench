@@ -35,7 +35,7 @@ public class JpegXmpDumpTest_OE25Dev extends JpegXmpBaseTest {
         return getImagesWithXmpData().stream();
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void test_1_oe(final File imageFile) throws Exception {
         final ByteSource byteSource = new ByteSourceFile(imageFile);

@@ -41,12 +41,12 @@ public class PhotometricInterpreterRgbTest_OE25Dev {
         samplesPerPixel, bitsPerSample, predictor, width, height);
     }
 
-    @Test
+@Test
     public void testConstructor_1_oe() {
         assertEquals(samplesPerPixel, p.samplesPerPixel);
     }
 
-    @Test
+@Test
     public void testConstructor_2_oe() {
         // removed other assertion
         for (int i = 0; i < bitsPerSample.length; i++) {
@@ -54,7 +54,7 @@ public class PhotometricInterpreterRgbTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testConstructor_3_oe() {
         // removed other assertion
         for (int i = 0; i < bitsPerSample.length; i++) {
@@ -63,7 +63,7 @@ public class PhotometricInterpreterRgbTest_OE25Dev {
         assertEquals(predictor, p.predictor);
     }
 
-    @Test
+@Test
     public void testConstructor_4_oe() {
         // removed other assertion
         for (int i = 0; i < bitsPerSample.length; i++) {
@@ -73,7 +73,7 @@ public class PhotometricInterpreterRgbTest_OE25Dev {
         assertEquals(width, p.width);
     }
 
-    @Test
+@Test
     public void testConstructor_5_oe() {
         // removed other assertion
         for (int i = 0; i < bitsPerSample.length; i++) {
@@ -84,7 +84,7 @@ public class PhotometricInterpreterRgbTest_OE25Dev {
         assertEquals(height, p.height);
     }
 
-    @Test
+@Test
     public void testInterpretPixel_1_oe() throws ImageReadException, IOException {
         final ImageBuilder imgBuilder = new ImageBuilder(600, 400, /*alpha*/ true);
         final int x = 10;

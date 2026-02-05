@@ -57,13 +57,13 @@ public class GzipTest_OE25Dev {
         Assert.assertTrue(response.body.contains(GzipExample.FO_SHIZZY));
     }
 
-    @Test
+@Test
     public void checkGzipCompression_1_oe() throws Exception {
         String decompressed = GzipExample.getAndDecompress();
         assertEquals(GzipExample.CONTENT, decompressed);
     }
 
-    @Test
+@Test
     public void testStaticFileCssStyleCss_1_oe() throws Exception {
         String decompressed = GzipClient.getAndDecompress("http://localhost:4567/css/style.css");
         Assert.assertEquals("Content of css file", decompressed);

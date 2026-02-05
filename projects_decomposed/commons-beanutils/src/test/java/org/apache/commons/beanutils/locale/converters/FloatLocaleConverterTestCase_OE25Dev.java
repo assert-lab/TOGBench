@@ -273,7 +273,7 @@ public class FloatLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTes
      */
 
 
-    public void testFloatLimits_1_oe() {
+public void testFloatLimits_1_oe() {
 
         converter = new FloatLocaleConverter(defaultLocale, defaultDecimalPattern);
         final DecimalFormat fmt = new DecimalFormat("#.#############################################################");
@@ -281,7 +281,7 @@ public class FloatLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTes
         assertEquals(new Float(-0.12), converter.convert("-0.12"));
     }
 
-    public void testFloatLimits_2_oe() {
+public void testFloatLimits_2_oe() {
 
         converter = new FloatLocaleConverter(defaultLocale, defaultDecimalPattern);
         final DecimalFormat fmt = new DecimalFormat("#.#############################################################");
@@ -290,7 +290,7 @@ public class FloatLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTes
         assertEquals("Positive Float.MAX_VALUE", new Float(Float.MAX_VALUE), converter.convert(fmt.format(Float.MAX_VALUE)));
     }
 
-    public void testFloatLimits_3_oe() {
+public void testFloatLimits_3_oe() {
 
         converter = new FloatLocaleConverter(defaultLocale, defaultDecimalPattern);
         final DecimalFormat fmt = new DecimalFormat("#.#############################################################");
@@ -300,7 +300,7 @@ public class FloatLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTes
         assertEquals("Positive Float.MIN_VALUE", new Float(Float.MIN_VALUE), converter.convert(fmt.format(Float.MIN_VALUE)));
     }
 
-    public void testFloatLimits_4_oe() {
+public void testFloatLimits_4_oe() {
 
         converter = new FloatLocaleConverter(defaultLocale, defaultDecimalPattern);
         final DecimalFormat fmt = new DecimalFormat("#.#############################################################");
@@ -312,7 +312,7 @@ public class FloatLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTes
         assertEquals("Negative Float.MAX_VALUE", new Float(Float.MAX_VALUE * -1), converter.convert(fmt.format(Float.MAX_VALUE * -1)));
     }
 
-    public void testFloatLimits_5_oe() {
+public void testFloatLimits_5_oe() {
 
         converter = new FloatLocaleConverter(defaultLocale, defaultDecimalPattern);
         final DecimalFormat fmt = new DecimalFormat("#.#############################################################");
@@ -325,7 +325,7 @@ public class FloatLocaleConverterTestCase_OE25Dev extends BaseLocaleConverterTes
         assertEquals("Negative Float.MIN_VALUE", new Float(Float.MIN_VALUE * -1), converter.convert(fmt.format(Float.MIN_VALUE * -1)));
     }
 
-    public void testParseZero_2_oe() {
+public void testParseZero_2_oe() {
         try {
             final Object result = LocaleConvertUtils.convert("0", Float.class, Locale.US, null);
             // removed other assertion

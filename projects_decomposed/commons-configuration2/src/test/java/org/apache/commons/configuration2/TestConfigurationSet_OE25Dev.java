@@ -62,7 +62,7 @@ public class TestConfigurationSet_OE25Dev {
      * Class under test for Iterator iterator()
      */
 
-    @Test
+@Test
     public void testIterator_1_oe() {
         final Iterator<Map.Entry<Object, Object>> iterator = set.iterator();
         while (iterator.hasNext()) {
@@ -76,7 +76,7 @@ public class TestConfigurationSet_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIterator_2_oe() {
         final Iterator<Map.Entry<Object, Object>> iterator = set.iterator();
         while (iterator.hasNext()) {
@@ -92,7 +92,7 @@ public class TestConfigurationSet_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIterator_3_oe() {
         final Iterator<Map.Entry<Object, Object>> iterator = set.iterator();
         while (iterator.hasNext()) {
@@ -110,7 +110,7 @@ public class TestConfigurationSet_OE25Dev {
         assertTrue("Iterator failed to remove all properties.", set.isEmpty());
     }
 
-    @Test
+@Test
     public void testSize_1_oe() {
         assertEquals("Entry set does not match properties size.", properties.length, set.size());
     }

@@ -93,7 +93,7 @@ class InteriorAngleGreatArcConnectorTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testConnectAll_maximize_instance_1_oe() {
         // arrange
         final GreatArc a1 = GreatCircles.arcFromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
@@ -113,7 +113,7 @@ class InteriorAngleGreatArcConnectorTest_OE25Dev {
         Assertions.assertEquals(1, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_maximize_method_1_oe() {
         // arrange
         final GreatArc a1 = GreatCircles.arcFromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
@@ -132,7 +132,7 @@ class InteriorAngleGreatArcConnectorTest_OE25Dev {
         Assertions.assertEquals(1, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_minimize_instance_1_oe() {
         // arrange
         final GreatArc a1 = GreatCircles.arcFromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
@@ -152,7 +152,7 @@ class InteriorAngleGreatArcConnectorTest_OE25Dev {
         Assertions.assertEquals(2, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_minimize_method_1_oe() {
         // arrange
         final GreatArc a1 = GreatCircles.arcFromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);

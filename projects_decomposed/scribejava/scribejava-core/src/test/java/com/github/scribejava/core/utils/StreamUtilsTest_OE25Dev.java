@@ -39,7 +39,7 @@ public class StreamUtilsTest_OE25Dev {
         });
     }
 
-    @Test
+@Test
     public void shouldCorrectlyDecodeAStream_1_oe() throws IOException {
         final String value = "expected";
         final InputStream is = new ByteArrayInputStream(value.getBytes());

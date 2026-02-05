@@ -55,12 +55,12 @@ public class TestDefaultFileSystem_OE25Dev {
      * Tests whether the logger can be changed.
      */
 
-    @Test
+@Test
     public void testDefaultLogger_1_oe() {
         assertNotNull("No default logger", fileSystem.getLogger());
     }
 
-    @Test
+@Test
     public void testSetLogger_1_oe() {
         final ConfigurationLogger log = new ConfigurationLogger(getClass());
         fileSystem.setLogger(log);

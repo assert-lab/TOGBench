@@ -217,7 +217,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         }, IllegalStateException.class, msg);
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_1_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -236,7 +236,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(4, mesh.getVertexCount());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_2_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -256,7 +256,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(vertices), mesh.getVertices());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_3_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -278,7 +278,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(2, mesh.getFaceCount());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_4_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -303,7 +303,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(2, faces.size());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_5_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -331,7 +331,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(0, f1.getIndex());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_6_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -360,7 +360,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertArrayEquals(new int[] {0, 1, 2}, f1.getVertexIndices());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_7_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -390,7 +390,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices[0], f1.getPoint1());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_8_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -421,7 +421,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices[1], f1.getPoint2());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_9_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -453,7 +453,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices[2], f1.getPoint3());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_10_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -486,7 +486,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(vertices[0], vertices[1], vertices[2]), f1.getVertices());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_11_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -520,7 +520,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertTrue(f1.definesPolygon());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_12_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -557,7 +557,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(vertices[0], vertices[1], vertices[2]), t1.getVertices());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_13_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -597,7 +597,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(1, f2.getIndex());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_14_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -638,7 +638,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertArrayEquals(new int[] {0, 2, 3}, f2.getVertexIndices());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_15_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -680,7 +680,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices[0], f2.getPoint1());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_16_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -723,7 +723,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices[2], f2.getPoint2());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_17_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -767,7 +767,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices[3], f2.getPoint3());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_18_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -812,7 +812,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(vertices[0], vertices[2], vertices[3]), f2.getVertices());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_19_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -858,7 +858,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertTrue(f2.definesPolygon());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_20_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -907,7 +907,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(vertices[0], vertices[2], vertices[3]), t2.getVertices());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_23_oe() {
         // arrange
         final Vector3D[] vertices = {
@@ -962,7 +962,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, mesh.getPrecision());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_empty_1_oe() {
         // arrange
         final Vector3D[] vertices = {};
@@ -976,7 +976,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(0, mesh.getVertexCount());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_empty_2_oe() {
         // arrange
         final Vector3D[] vertices = {};
@@ -991,7 +991,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(0, mesh.getVertices().size());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_empty_3_oe() {
         // arrange
         final Vector3D[] vertices = {};
@@ -1008,7 +1008,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(0, mesh.getFaceCount());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_empty_4_oe() {
         // arrange
         final Vector3D[] vertices = {};
@@ -1026,7 +1026,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(0, mesh.getFaces().size());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_empty_5_oe() {
         // arrange
         final Vector3D[] vertices = {};
@@ -1046,7 +1046,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertNull(mesh.getBounds());
     }
 
-    @Test
+@Test
     void testFrom_verticesAndFaces_empty_6_oe() {
         // arrange
         final Vector3D[] vertices = {};
@@ -1068,7 +1068,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertTrue(mesh.toTree().isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_1_oe() {
         // arrange
         final BoundarySource3D src = Parallelepiped.axisAligned(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -1080,7 +1080,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(8, mesh.getVertexCount());
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_2_oe() {
         // arrange
         final BoundarySource3D src = Parallelepiped.axisAligned(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -1105,7 +1105,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(8, vertices.size());
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_3_oe() {
         // arrange
         final BoundarySource3D src = Parallelepiped.axisAligned(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -1132,7 +1132,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertTrue(vertices.contains(p1));
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_4_oe() {
         // arrange
         final BoundarySource3D src = Parallelepiped.axisAligned(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -1160,7 +1160,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertTrue(vertices.contains(p2));
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_5_oe() {
         // arrange
         final BoundarySource3D src = Parallelepiped.axisAligned(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -1189,7 +1189,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertTrue(vertices.contains(p3));
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_6_oe() {
         // arrange
         final BoundarySource3D src = Parallelepiped.axisAligned(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -1219,7 +1219,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertTrue(vertices.contains(p4));
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_7_oe() {
         // arrange
         final BoundarySource3D src = Parallelepiped.axisAligned(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -1250,7 +1250,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertTrue(vertices.contains(p5));
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_8_oe() {
         // arrange
         final BoundarySource3D src = Parallelepiped.axisAligned(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -1282,7 +1282,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertTrue(vertices.contains(p6));
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_9_oe() {
         // arrange
         final BoundarySource3D src = Parallelepiped.axisAligned(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -1315,7 +1315,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertTrue(vertices.contains(p7));
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_10_oe() {
         // arrange
         final BoundarySource3D src = Parallelepiped.axisAligned(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -1349,7 +1349,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertTrue(vertices.contains(p8));
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_11_oe() {
         // arrange
         final BoundarySource3D src = Parallelepiped.axisAligned(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -1385,7 +1385,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(12, mesh.getFaceCount());
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_12_oe() {
         // arrange
         final BoundarySource3D src = Parallelepiped.axisAligned(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -1425,7 +1425,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(1, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_14_oe() {
         // arrange
         final BoundarySource3D src = Parallelepiped.axisAligned(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -1468,7 +1468,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, mesh.getPrecision());
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_empty_1_oe() {
         // act
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(BoundarySource3D.of(Collections.emptyList()),
@@ -1478,7 +1478,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(0, mesh.getVertexCount());
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_empty_2_oe() {
         // act
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(BoundarySource3D.of(Collections.emptyList()),
@@ -1489,7 +1489,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(0, mesh.getVertices().size());
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_empty_3_oe() {
         // act
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(BoundarySource3D.of(Collections.emptyList()),
@@ -1502,7 +1502,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(0, mesh.getFaceCount());
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_empty_4_oe() {
         // act
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(BoundarySource3D.of(Collections.emptyList()),
@@ -1516,7 +1516,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(0, mesh.getFaces().size());
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_empty_5_oe() {
         // act
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(BoundarySource3D.of(Collections.emptyList()),
@@ -1532,7 +1532,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertNull(mesh.getBounds());
     }
 
-    @Test
+@Test
     void testFrom_boundarySource_empty_6_oe() {
         // act
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(BoundarySource3D.of(Collections.emptyList()),
@@ -1550,7 +1550,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertTrue(mesh.toTree().isEmpty());
     }
 
-    @Test
+@Test
     void testVertices_iterable_1_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -1571,7 +1571,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(vertices, result);
     }
 
-    @Test
+@Test
     void testFaces_iterable_1_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -1596,7 +1596,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(2, result.size());
     }
 
-    @Test
+@Test
     void testFaces_iterable_2_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -1624,7 +1624,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(0, f1.getIndex());
     }
 
-    @Test
+@Test
     void testFaces_iterable_3_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -1653,7 +1653,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertArrayEquals(new int[] {0, 1, 2}, f1.getVertexIndices());
     }
 
-    @Test
+@Test
     void testFaces_iterable_4_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -1683,7 +1683,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices.get(0), f1.getPoint1());
     }
 
-    @Test
+@Test
     void testFaces_iterable_5_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -1714,7 +1714,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices.get(1), f1.getPoint2());
     }
 
-    @Test
+@Test
     void testFaces_iterable_6_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -1746,7 +1746,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices.get(2), f1.getPoint3());
     }
 
-    @Test
+@Test
     void testFaces_iterable_7_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -1779,7 +1779,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(vertices.get(0), vertices.get(1), vertices.get(2)), f1.getVertices());
     }
 
-    @Test
+@Test
     void testFaces_iterable_8_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -1813,7 +1813,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertTrue(f1.definesPolygon());
     }
 
-    @Test
+@Test
     void testFaces_iterable_9_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -1850,7 +1850,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(1, f2.getIndex());
     }
 
-    @Test
+@Test
     void testFaces_iterable_10_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -1888,7 +1888,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertArrayEquals(new int[] {0, 2, 3}, f2.getVertexIndices());
     }
 
-    @Test
+@Test
     void testFaces_iterable_11_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -1927,7 +1927,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices.get(0), f2.getPoint1());
     }
 
-    @Test
+@Test
     void testFaces_iterable_12_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -1967,7 +1967,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices.get(2), f2.getPoint2());
     }
 
-    @Test
+@Test
     void testFaces_iterable_13_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -2008,7 +2008,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices.get(3), f2.getPoint3());
     }
 
-    @Test
+@Test
     void testFaces_iterable_14_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -2050,7 +2050,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(vertices.get(0), vertices.get(2), vertices.get(3)), f2.getVertices());
     }
 
-    @Test
+@Test
     void testFaces_iterable_15_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -2093,7 +2093,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertTrue(f2.definesPolygon());
     }
 
-    @Test
+@Test
     void testFaces_iterator_1_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -2113,7 +2113,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertTrue(it.hasNext());
     }
 
-    @Test
+@Test
     void testFaces_iterator_2_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -2134,7 +2134,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(0, it.next().getIndex());
     }
 
-    @Test
+@Test
     void testFaces_iterator_3_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -2156,7 +2156,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertFalse(it.hasNext());
     }
 
-    @Test
+@Test
     void testFaces_iterator_4_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -2180,7 +2180,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertThrows(NoSuchElementException.class, it::next);
     }
 
-    @Test
+@Test
     void testTriangleStream_1_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -2204,7 +2204,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(2, tris.size());
     }
 
-    @Test
+@Test
     void testTriangleStream_2_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -2231,7 +2231,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices.get(0), t1.getPoint1());
     }
 
-    @Test
+@Test
     void testTriangleStream_3_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -2259,7 +2259,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices.get(1), t1.getPoint2());
     }
 
-    @Test
+@Test
     void testTriangleStream_4_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -2288,7 +2288,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices.get(2), t1.getPoint3());
     }
 
-    @Test
+@Test
     void testTriangleStream_5_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -2320,7 +2320,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices.get(0), t2.getPoint1());
     }
 
-    @Test
+@Test
     void testTriangleStream_6_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -2353,7 +2353,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices.get(2), t2.getPoint2());
     }
 
-    @Test
+@Test
     void testTriangleStream_7_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(
@@ -2387,7 +2387,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(vertices.get(3), t2.getPoint3());
     }
 
-    @Test
+@Test
     void testToTriangleMesh_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -2399,7 +2399,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(mesh, mesh.toTriangleMesh(precision1));
     }
 
-    @Test
+@Test
     void testToTriangleMesh_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -2414,7 +2414,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(precision2, other.getPrecision());
     }
 
-    @Test
+@Test
     void testToTriangleMesh_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -2430,7 +2430,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(mesh.getVertices(), other.getVertices());
     }
 
-    @Test
+@Test
     void testToTriangleMesh_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -2447,7 +2447,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(12, other.getFaceCount());
     }
 
-    @Test
+@Test
     void testToTriangleMesh_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -2467,7 +2467,7 @@ class SimpleTriangleMeshTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testToTriangleMesh_6_oe() {
         // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -2489,7 +2489,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertSame(mesh, mesh.toTriangleMesh(precision1));
     }
 
-    @Test
+@Test
     void testFace_doesNotDefineTriangle_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -2509,7 +2509,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertFalse(mesh.getFace(0).definesPolygon());
     }
 
-    @Test
+@Test
     void testFace_doesNotDefineTriangle_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -2532,7 +2532,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertFalse(mesh.getFace(1).definesPolygon());
     }
 
-    @Test
+@Test
     void testToTree_smallNumberOfFaces_1_oe() {
         // arrange
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(Parallelepiped.unitCube(TEST_PRECISION), TEST_PRECISION);
@@ -2544,7 +2544,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_smallNumberOfFaces_2_oe() {
         // arrange
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(Parallelepiped.unitCube(TEST_PRECISION), TEST_PRECISION);
@@ -2557,7 +2557,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testToTree_smallNumberOfFaces_3_oe() {
         // arrange
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(Parallelepiped.unitCube(TEST_PRECISION), TEST_PRECISION);
@@ -2571,7 +2571,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertFalse(tree.isInfinite());
     }
 
-    @Test
+@Test
     void testToTree_smallNumberOfFaces_4_oe() {
         // arrange
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(Parallelepiped.unitCube(TEST_PRECISION), TEST_PRECISION);
@@ -2586,7 +2586,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertTrue(tree.isFinite());
     }
 
-    @Test
+@Test
     void testToTree_smallNumberOfFaces_5_oe() {
         // arrange
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(Parallelepiped.unitCube(TEST_PRECISION), TEST_PRECISION);
@@ -2603,7 +2603,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(1, tree.getSize(), 1);
     }
 
-    @Test
+@Test
     void testToTree_smallNumberOfFaces_6_oe() {
         // arrange
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(Parallelepiped.unitCube(TEST_PRECISION), TEST_PRECISION);
@@ -2621,7 +2621,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(6, tree.getBoundarySize(), 1);
     }
 
-    @Test
+@Test
     void testToTree_smallNumberOfFaces_7_oe() {
         // arrange
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(Parallelepiped.unitCube(TEST_PRECISION), TEST_PRECISION);
@@ -2641,7 +2641,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(6, tree.getRoot().height());
     }
 
-    @Test
+@Test
     void testTransform_1_oe() {
         // arrange
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(Parallelepiped.unitCube(TEST_PRECISION), TEST_PRECISION);
@@ -2656,7 +2656,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertNotSame(mesh, result);
     }
 
-    @Test
+@Test
     void testTransform_2_oe() {
         // arrange
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(Parallelepiped.unitCube(TEST_PRECISION), TEST_PRECISION);
@@ -2673,7 +2673,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(8, result.getVertexCount());
     }
 
-    @Test
+@Test
     void testTransform_3_oe() {
         // arrange
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(Parallelepiped.unitCube(TEST_PRECISION), TEST_PRECISION);
@@ -2691,7 +2691,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(12, result.getFaceCount());
     }
 
-    @Test
+@Test
     void testTransform_empty_1_oe() {
         // arrange
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.builder(TEST_PRECISION).build();
@@ -2705,7 +2705,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(0, result.getVertexCount());
     }
 
-    @Test
+@Test
     void testTransform_empty_2_oe() {
         // arrange
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.builder(TEST_PRECISION).build();
@@ -2720,7 +2720,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(0, result.getFaceCount());
     }
 
-    @Test
+@Test
     void testTransform_empty_3_oe() {
         // arrange
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.builder(TEST_PRECISION).build();
@@ -2737,7 +2737,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertNull(result.getBounds());
     }
 
-    @Test
+@Test
     void testBuilder_mixedBuildMethods_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -2759,7 +2759,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(6, mesh.getVertexCount());
     }
 
-    @Test
+@Test
     void testBuilder_mixedBuildMethods_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -2782,7 +2782,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(3, mesh.getFaceCount());
     }
 
-    @Test
+@Test
     void testBuilder_mixedBuildMethods_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -2808,7 +2808,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(3, faces.size());
     }
 
-    @Test
+@Test
     void testBuilder_mixedBuildMethods_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -2836,7 +2836,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertArrayEquals(new int[] {0, 2, 1},  faces.get(0).getVertexIndices());
     }
 
-    @Test
+@Test
     void testBuilder_mixedBuildMethods_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -2865,7 +2865,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertArrayEquals(new int[] {1, 2, 3},  faces.get(1).getVertexIndices());
     }
 
-    @Test
+@Test
     void testBuilder_mixedBuildMethods_6_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
@@ -2895,7 +2895,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertArrayEquals(new int[] {5, 1, 4},  faces.get(2).getVertexIndices());
     }
 
-    @Test
+@Test
     void testBuilder_addVerticesAndFaces_1_oe() {
         // act
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.builder(TEST_PRECISION)
@@ -2915,7 +2915,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(4, mesh.getVertexCount());
     }
 
-    @Test
+@Test
     void testBuilder_addVerticesAndFaces_2_oe() {
         // act
         final SimpleTriangleMesh mesh = SimpleTriangleMesh.builder(TEST_PRECISION)
@@ -2936,7 +2936,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(2, mesh.getFaceCount());
     }
 
-    @Test
+@Test
     void testBuilder_addFaceAndVertices_vs_addFaceUsingVertices_1_oe() {
         // arrange
         final SimpleTriangleMesh.Builder builder = SimpleTriangleMesh.builder(TEST_PRECISION);
@@ -2953,7 +2953,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(6, builder.getVertexCount());
     }
 
-    @Test
+@Test
     void testBuilder_addFaceAndVertices_vs_addFaceUsingVertices_2_oe() {
         // arrange
         final SimpleTriangleMesh.Builder builder = SimpleTriangleMesh.builder(TEST_PRECISION);
@@ -2971,7 +2971,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(3, builder.getFaceCount());
     }
 
-    @Test
+@Test
     void testBuilder_addFaceAndVertices_vs_addFaceUsingVertices_3_oe() {
         // arrange
         final SimpleTriangleMesh.Builder builder = SimpleTriangleMesh.builder(TEST_PRECISION);
@@ -2990,7 +2990,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(p1, builder.getVertex(0));
     }
 
-    @Test
+@Test
     void testBuilder_addFaceAndVertices_vs_addFaceUsingVertices_4_oe() {
         // arrange
         final SimpleTriangleMesh.Builder builder = SimpleTriangleMesh.builder(TEST_PRECISION);
@@ -3010,7 +3010,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(p1, builder.getVertex(3));
     }
 
-    @Test
+@Test
     void testBuilder_addFaceAndVertices_vs_addFaceUsingVertices_5_oe() {
         // arrange
         final SimpleTriangleMesh.Builder builder = SimpleTriangleMesh.builder(TEST_PRECISION);
@@ -3034,7 +3034,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(6, mesh.getVertexCount());
     }
 
-    @Test
+@Test
     void testBuilder_addFaceAndVertices_vs_addFaceUsingVertices_6_oe() {
         // arrange
         final SimpleTriangleMesh.Builder builder = SimpleTriangleMesh.builder(TEST_PRECISION);
@@ -3059,7 +3059,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertEquals(3, mesh.getFaceCount());
     }
 
-    @Test
+@Test
     void testBuilder_addFaceAndVertices_vs_addFaceUsingVertices_7_oe() {
         // arrange
         final SimpleTriangleMesh.Builder builder = SimpleTriangleMesh.builder(TEST_PRECISION);
@@ -3087,7 +3087,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertArrayEquals(new int[] {0, 1, 2}, f1.getVertexIndices());
     }
 
-    @Test
+@Test
     void testBuilder_addFaceAndVertices_vs_addFaceUsingVertices_8_oe() {
         // arrange
         final SimpleTriangleMesh.Builder builder = SimpleTriangleMesh.builder(TEST_PRECISION);
@@ -3118,7 +3118,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         Assertions.assertArrayEquals(new int[] {3, 4, 5}, f2.getVertexIndices());
     }
 
-    @Test
+@Test
     void testBuilder_addFaceAndVertices_vs_addFaceUsingVertices_9_oe() {
         // arrange
         final SimpleTriangleMesh.Builder builder = SimpleTriangleMesh.builder(TEST_PRECISION);

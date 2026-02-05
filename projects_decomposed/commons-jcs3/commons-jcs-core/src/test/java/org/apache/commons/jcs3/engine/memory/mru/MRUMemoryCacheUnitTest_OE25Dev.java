@@ -98,7 +98,7 @@ public class MRUMemoryCacheUnitTest_OE25Dev
      * @throws CacheException
      */
 
-    public void testLoadFromCCF_1_oe()
+public void testLoadFromCCF_1_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGet" );
@@ -106,7 +106,7 @@ public class MRUMemoryCacheUnitTest_OE25Dev
         assertTrue( "Cache name should have MRU in it.", memoryCacheName.indexOf( "MRUMemoryCache" ) != -1 );
     }
 
-    public void testPutGetThroughHub_1_oe()
+public void testPutGetThroughHub_1_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGetThroughHub" );
@@ -127,7 +127,7 @@ public class MRUMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testPutGetThroughHub_2_oe()
+public void testPutGetThroughHub_2_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGetThroughHub" );
@@ -156,7 +156,7 @@ public class MRUMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testPutGetThroughHub_3_oe()
+public void testPutGetThroughHub_3_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGetThroughHub" );
@@ -198,7 +198,7 @@ public class MRUMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testPutGetThroughHub_4_oe()
+public void testPutGetThroughHub_4_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGetThroughHub" );
@@ -245,7 +245,7 @@ public class MRUMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testPutGetThroughHub_5_oe()
+public void testPutGetThroughHub_5_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGetThroughHub" );
@@ -293,7 +293,7 @@ public class MRUMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testPutGetThroughHubTwice_1_oe()
+public void testPutGetThroughHubTwice_1_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGetThroughHub" );
@@ -319,7 +319,7 @@ public class MRUMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testPutGetThroughHubTwice_2_oe()
+public void testPutGetThroughHubTwice_2_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGetThroughHub" );
@@ -353,7 +353,7 @@ public class MRUMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testPutRemoveThroughHub_1_oe()
+public void testPutRemoveThroughHub_1_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGetThroughHub" );
@@ -379,7 +379,7 @@ public class MRUMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testClearThroughHub_1_oe()
+public void testClearThroughHub_1_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGetThroughHub" );
@@ -402,7 +402,7 @@ public class MRUMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testGetStatsThroughHub_1_oe()
+public void testGetStatsThroughHub_1_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testGetStatsThroughHub" );
@@ -423,7 +423,7 @@ public class MRUMemoryCacheUnitTest_OE25Dev
         assertTrue( "Should have 200 puts", stats.indexOf( "2000" ) != -1 );
     }
 
-    public void testGetKeyArray_1_oe()
+public void testGetKeyArray_1_oe()
         throws Exception
     {
         final CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
@@ -448,7 +448,7 @@ public class MRUMemoryCacheUnitTest_OE25Dev
         assertEquals( "Wrong number of keys.", items, keys.size() );
     }
 
-    public void testRemovePartialThroughHub_1_oe()
+public void testRemovePartialThroughHub_1_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testGetStatsThroughHub" );
@@ -473,7 +473,7 @@ public class MRUMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testRemovePartialThroughHub_2_oe()
+public void testRemovePartialThroughHub_2_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testGetStatsThroughHub" );
@@ -506,7 +506,7 @@ public class MRUMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testRemovePartialThroughHub_3_oe()
+public void testRemovePartialThroughHub_3_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testGetStatsThroughHub" );

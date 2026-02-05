@@ -35,18 +35,18 @@ class LogFactorialTest_OE25Dev {
         return logSum;
     }
 
-    @Test
+@Test
     void testNonPositiveArgumentWithCache_1_oe() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> LogFactorial.create().withCache(-1) );
     }
 
-    @Test
+@Test
     void testNonPositiveArgument_1_oe() {
         final LogFactorial f = LogFactorial.create();
         Assertions.assertThrows(IllegalArgumentException.class, () -> f.value(-1) );
     }
 
-    @Test
+@Test
     void testDelegation_1_oe() {
         final LogFactorial f = LogFactorial.create();
 
@@ -58,7 +58,7 @@ class LogFactorialTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testCompareDirectWithoutCache_1_oe() {
         // This test shows that delegating to the "Gamma" class leads to difference
         // wrt the "direct" computation.
@@ -72,7 +72,7 @@ class LogFactorialTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testCompareDirectWithCache_1_oe() {
         final int max = 1000;
         final LogFactorial f = LogFactorial.create().withCache(max);
@@ -83,14 +83,14 @@ class LogFactorialTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testZeroCache_1_oe() {
         // Ensure that no exception is thrown.
         final LogFactorial f = LogFactorial.create().withCache(0);
         Assertions.assertEquals(0, f.value(0));
     }
 
-    @Test
+@Test
     void testZeroCache_2_oe() {
         // Ensure that no exception is thrown.
         final LogFactorial f = LogFactorial.create().withCache(0);
@@ -98,14 +98,14 @@ class LogFactorialTest_OE25Dev {
         Assertions.assertEquals(0, f.value(1));
     }
 
-    @Test
+@Test
     void testUselessCache_1_oe() {
         // Ensure that no exception is thrown.
         LogFactorial f = LogFactorial.create().withCache(1);
         Assertions.assertEquals(0, f.value(0));
     }
 
-    @Test
+@Test
     void testUselessCache_2_oe() {
         // Ensure that no exception is thrown.
         LogFactorial f = LogFactorial.create().withCache(1);
@@ -113,7 +113,7 @@ class LogFactorialTest_OE25Dev {
         Assertions.assertEquals(0, f.value(1));
     }
 
-    @Test
+@Test
     void testUselessCache_3_oe() {
         // Ensure that no exception is thrown.
         LogFactorial f = LogFactorial.create().withCache(1);
@@ -124,7 +124,7 @@ class LogFactorialTest_OE25Dev {
         Assertions.assertEquals(0, f.value(0));
     }
 
-    @Test
+@Test
     void testUselessCache_4_oe() {
         // Ensure that no exception is thrown.
         LogFactorial f = LogFactorial.create().withCache(1);
@@ -136,7 +136,7 @@ class LogFactorialTest_OE25Dev {
         Assertions.assertEquals(0, f.value(1));
     }
 
-    @Test
+@Test
     void testCacheIncrease_1_oe() {
         final int max = 100;
         final LogFactorial f1 = LogFactorial.create().withCache(max);
@@ -147,7 +147,7 @@ class LogFactorialTest_OE25Dev {
         Assertions.assertEquals(expected, f2.value(val));
     }
 
-    @Test
+@Test
     void testCacheDecrease_1_oe() {
         final int max = 100;
         final LogFactorial f1 = LogFactorial.create().withCache(max);

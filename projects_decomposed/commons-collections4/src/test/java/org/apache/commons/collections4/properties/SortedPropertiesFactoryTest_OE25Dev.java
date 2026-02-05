@@ -26,7 +26,7 @@ public class SortedPropertiesFactoryTest_OE25Dev extends AbstractPropertiesFacto
         super(SortedPropertiesFactory.INSTANCE);
     }
 
-    @Test
+@Test
     public void testInstance_1_oe() {
         Assert.assertNotNull(SortedPropertiesFactory.INSTANCE);
     }

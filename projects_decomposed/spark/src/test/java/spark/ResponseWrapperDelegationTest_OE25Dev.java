@@ -54,33 +54,33 @@ public class ResponseWrapperDelegationTest_OE25Dev {
         Spark.awaitInitialization();
     }
 
-    @Test
+@Test
     public void filters_can_detect_response_status_1_oe() throws Exception {
         UrlResponse response = testUtil.get("/204");
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void filters_can_detect_response_status_2_oe() throws Exception {
         UrlResponse response = testUtil.get("/204");
         // removed other assertion
         Assert.assertEquals("ok", response.body);
     }
 
-    @Test
+@Test
     public void filters_can_detect_content_type_1_oe() throws Exception {
         UrlResponse response = testUtil.get("/json");
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void filters_can_detect_content_type_2_oe() throws Exception {
         UrlResponse response = testUtil.get("/json");
         // removed other assertion
         Assert.assertEquals("{\"status\": \"ok\"}", response.body);
     }
 
-    @Test
+@Test
     public void filters_can_detect_content_type_3_oe() throws Exception {
         UrlResponse response = testUtil.get("/json");
         // removed other assertion

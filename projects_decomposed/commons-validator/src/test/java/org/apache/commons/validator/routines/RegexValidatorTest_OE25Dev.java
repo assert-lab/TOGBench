@@ -129,7 +129,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         }
     }
 
-    public void testSingle_1_oe() {
+public void testSingle_1_oe() {
         RegexValidator sensitive   = new RegexValidator(REGEX);
         RegexValidator insensitive = new RegexValidator(REGEX, false);
 
@@ -137,7 +137,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Sensitive isValid() valid",     true,   sensitive.isValid("ac-DE-1"));
     }
 
-    public void testSingle_2_oe() {
+public void testSingle_2_oe() {
         RegexValidator sensitive   = new RegexValidator(REGEX);
         RegexValidator insensitive = new RegexValidator(REGEX, false);
 
@@ -146,7 +146,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Sensitive isValid() invalid",   false,  sensitive.isValid("AB-de-1"));
     }
 
-    public void testSingle_3_oe() {
+public void testSingle_3_oe() {
         RegexValidator sensitive   = new RegexValidator(REGEX);
         RegexValidator insensitive = new RegexValidator(REGEX, false);
 
@@ -156,7 +156,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Insensitive isValid() valid",   true,   insensitive.isValid("AB-de-1"));
     }
 
-    public void testSingle_4_oe() {
+public void testSingle_4_oe() {
         RegexValidator sensitive   = new RegexValidator(REGEX);
         RegexValidator insensitive = new RegexValidator(REGEX, false);
 
@@ -167,7 +167,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Insensitive isValid() invalid", false,  insensitive.isValid("ABd-de-1"));
     }
 
-    public void testSingle_5_oe() {
+public void testSingle_5_oe() {
         RegexValidator sensitive   = new RegexValidator(REGEX);
         RegexValidator insensitive = new RegexValidator(REGEX, false);
 
@@ -181,7 +181,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Sensitive validate() valid",     "acDE1", sensitive.validate("ac-DE-1"));
     }
 
-    public void testSingle_6_oe() {
+public void testSingle_6_oe() {
         RegexValidator sensitive   = new RegexValidator(REGEX);
         RegexValidator insensitive = new RegexValidator(REGEX, false);
 
@@ -196,7 +196,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Sensitive validate() invalid",   null,    sensitive.validate("AB-de-1"));
     }
 
-    public void testSingle_7_oe() {
+public void testSingle_7_oe() {
         RegexValidator sensitive   = new RegexValidator(REGEX);
         RegexValidator insensitive = new RegexValidator(REGEX, false);
 
@@ -212,7 +212,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Insensitive validate() valid",   "ABde1", insensitive.validate("AB-de-1"));
     }
 
-    public void testSingle_8_oe() {
+public void testSingle_8_oe() {
         RegexValidator sensitive   = new RegexValidator(REGEX);
         RegexValidator insensitive = new RegexValidator(REGEX, false);
 
@@ -229,7 +229,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Insensitive validate() invalid", null,    insensitive.validate("ABd-de-1"));
     }
 
-    public void testSingle_9_oe() {
+public void testSingle_9_oe() {
         RegexValidator sensitive   = new RegexValidator(REGEX);
         RegexValidator insensitive = new RegexValidator(REGEX, false);
 
@@ -253,7 +253,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("validate one", "ABC", (new RegexValidator("^([A-Z]*)$")).validate("ABC"));
     }
 
-    public void testMultipleSensitive_1_oe() {
+public void testMultipleSensitive_1_oe() {
 
         // ------------ Set up Sensitive Validators
         RegexValidator multiple   = new RegexValidator(MULTIPLE_REGEX);
@@ -270,7 +270,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Sensitive isValid() Multiple", true,  multiple.isValid(value));
     }
 
-    public void testMultipleSensitive_2_oe() {
+public void testMultipleSensitive_2_oe() {
 
         // ------------ Set up Sensitive Validators
         RegexValidator multiple   = new RegexValidator(MULTIPLE_REGEX);
@@ -288,7 +288,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Sensitive isValid() 1st",      false, single1.isValid(value));
     }
 
-    public void testMultipleSensitive_3_oe() {
+public void testMultipleSensitive_3_oe() {
 
         // ------------ Set up Sensitive Validators
         RegexValidator multiple   = new RegexValidator(MULTIPLE_REGEX);
@@ -307,7 +307,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Sensitive isValid() 2nd",      true,  single2.isValid(value));
     }
 
-    public void testMultipleSensitive_4_oe() {
+public void testMultipleSensitive_4_oe() {
 
         // ------------ Set up Sensitive Validators
         RegexValidator multiple   = new RegexValidator(MULTIPLE_REGEX);
@@ -327,7 +327,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Sensitive isValid() 3rd",      false, single3.isValid(value));
     }
 
-    public void testMultipleSensitive_5_oe() {
+public void testMultipleSensitive_5_oe() {
 
         // ------------ Set up Sensitive Validators
         RegexValidator multiple   = new RegexValidator(MULTIPLE_REGEX);
@@ -350,7 +350,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Sensitive validate() Multiple", expect, multiple.validate(value));
     }
 
-    public void testMultipleSensitive_6_oe() {
+public void testMultipleSensitive_6_oe() {
 
         // ------------ Set up Sensitive Validators
         RegexValidator multiple   = new RegexValidator(MULTIPLE_REGEX);
@@ -374,7 +374,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Sensitive validate() 1st",      null,   single1.validate(value));
     }
 
-    public void testMultipleSensitive_7_oe() {
+public void testMultipleSensitive_7_oe() {
 
         // ------------ Set up Sensitive Validators
         RegexValidator multiple   = new RegexValidator(MULTIPLE_REGEX);
@@ -399,7 +399,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Sensitive validate() 2nd",      expect, single2.validate(value));
     }
 
-    public void testMultipleSensitive_8_oe() {
+public void testMultipleSensitive_8_oe() {
 
         // ------------ Set up Sensitive Validators
         RegexValidator multiple   = new RegexValidator(MULTIPLE_REGEX);
@@ -425,7 +425,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Sensitive validate() 3rd",      null,   single3.validate(value));
     }
 
-    public void testMultipleSensitive_9_oe() {
+public void testMultipleSensitive_9_oe() {
 
         // ------------ Set up Sensitive Validators
         RegexValidator multiple   = new RegexValidator(MULTIPLE_REGEX);
@@ -461,7 +461,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("isValid() Invalid",  false, multiple.isValid(value));
     }
 
-    public void testMultipleSensitive_10_oe() {
+public void testMultipleSensitive_10_oe() {
 
         // ------------ Set up Sensitive Validators
         RegexValidator multiple   = new RegexValidator(MULTIPLE_REGEX);
@@ -498,7 +498,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("validate() Invalid", null,  multiple.validate(value));
     }
 
-    public void testMultipleSensitive_11_oe() {
+public void testMultipleSensitive_11_oe() {
 
         // ------------ Set up Sensitive Validators
         RegexValidator multiple   = new RegexValidator(MULTIPLE_REGEX);
@@ -536,7 +536,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("match() Multiple",   null,  multiple.match(value));
     }
 
-    public void testMultipleInsensitive_1_oe() {
+public void testMultipleInsensitive_1_oe() {
 
         // ------------ Set up In-sensitive Validators
         RegexValidator multiple = new RegexValidator(MULTIPLE_REGEX, false);
@@ -553,7 +553,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("isValid() Multiple", true,  multiple.isValid(value));
     }
 
-    public void testMultipleInsensitive_2_oe() {
+public void testMultipleInsensitive_2_oe() {
 
         // ------------ Set up In-sensitive Validators
         RegexValidator multiple = new RegexValidator(MULTIPLE_REGEX, false);
@@ -571,7 +571,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("isValid() 1st",      false, single1.isValid(value));
     }
 
-    public void testMultipleInsensitive_3_oe() {
+public void testMultipleInsensitive_3_oe() {
 
         // ------------ Set up In-sensitive Validators
         RegexValidator multiple = new RegexValidator(MULTIPLE_REGEX, false);
@@ -590,7 +590,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("isValid() 2nd",      true,  single2.isValid(value));
     }
 
-    public void testMultipleInsensitive_4_oe() {
+public void testMultipleInsensitive_4_oe() {
 
         // ------------ Set up In-sensitive Validators
         RegexValidator multiple = new RegexValidator(MULTIPLE_REGEX, false);
@@ -610,7 +610,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("isValid() 3rd",      false, single3.isValid(value));
     }
 
-    public void testMultipleInsensitive_5_oe() {
+public void testMultipleInsensitive_5_oe() {
 
         // ------------ Set up In-sensitive Validators
         RegexValidator multiple = new RegexValidator(MULTIPLE_REGEX, false);
@@ -633,7 +633,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("validate() Multiple", expect, multiple.validate(value));
     }
 
-    public void testMultipleInsensitive_6_oe() {
+public void testMultipleInsensitive_6_oe() {
 
         // ------------ Set up In-sensitive Validators
         RegexValidator multiple = new RegexValidator(MULTIPLE_REGEX, false);
@@ -657,7 +657,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("validate() 1st",      null,   single1.validate(value));
     }
 
-    public void testMultipleInsensitive_7_oe() {
+public void testMultipleInsensitive_7_oe() {
 
         // ------------ Set up In-sensitive Validators
         RegexValidator multiple = new RegexValidator(MULTIPLE_REGEX, false);
@@ -682,7 +682,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("validate() 2nd",      expect, single2.validate(value));
     }
 
-    public void testMultipleInsensitive_8_oe() {
+public void testMultipleInsensitive_8_oe() {
 
         // ------------ Set up In-sensitive Validators
         RegexValidator multiple = new RegexValidator(MULTIPLE_REGEX, false);
@@ -708,7 +708,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("validate() 3rd",      null,   single3.validate(value));
     }
 
-    public void testMultipleInsensitive_9_oe() {
+public void testMultipleInsensitive_9_oe() {
 
         // ------------ Set up In-sensitive Validators
         RegexValidator multiple = new RegexValidator(MULTIPLE_REGEX, false);
@@ -744,7 +744,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("isValid() Invalid",  false, multiple.isValid(value));
     }
 
-    public void testMultipleInsensitive_10_oe() {
+public void testMultipleInsensitive_10_oe() {
 
         // ------------ Set up In-sensitive Validators
         RegexValidator multiple = new RegexValidator(MULTIPLE_REGEX, false);
@@ -781,7 +781,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("validate() Invalid", null,  multiple.validate(value));
     }
 
-    public void testMultipleInsensitive_11_oe() {
+public void testMultipleInsensitive_11_oe() {
 
         // ------------ Set up In-sensitive Validators
         RegexValidator multiple = new RegexValidator(MULTIPLE_REGEX, false);
@@ -819,20 +819,20 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("match() Multiple",   null,  multiple.match(value));
     }
 
-    public void testNullValue_1_oe() {
+public void testNullValue_1_oe() {
 
         RegexValidator validator = new RegexValidator(REGEX);
         assertEquals("Instance isValid()",  false, validator.isValid(null));
     }
 
-    public void testNullValue_2_oe() {
+public void testNullValue_2_oe() {
 
         RegexValidator validator = new RegexValidator(REGEX);
         // removed other assertion
         assertEquals("Instance validate()", null,  validator.validate(null));
     }
 
-    public void testNullValue_3_oe() {
+public void testNullValue_3_oe() {
 
         RegexValidator validator = new RegexValidator(REGEX);
         // removed other assertion
@@ -840,7 +840,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
         assertEquals("Instance match()",    null,  validator.match(null));
     }
 
-    public void testMissingRegex_2_oe() {
+public void testMissingRegex_2_oe() {
 
         // Single Regular Expression - null
         try {
@@ -851,7 +851,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testMissingRegex_4_oe() {
+public void testMissingRegex_4_oe() {
 
         // Single Regular Expression - null
         try {
@@ -870,7 +870,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testMissingRegex_6_oe() {
+public void testMissingRegex_6_oe() {
 
         // Single Regular Expression - null
         try {
@@ -897,7 +897,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testMissingRegex_8_oe() {
+public void testMissingRegex_8_oe() {
 
         // Single Regular Expression - null
         try {
@@ -932,7 +932,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testMissingRegex_10_oe() {
+public void testMissingRegex_10_oe() {
 
         // Single Regular Expression - null
         try {
@@ -976,7 +976,7 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testMissingRegex_12_oe() {
+public void testMissingRegex_12_oe() {
 
         // Single Regular Expression - null
         try {
@@ -1029,12 +1029,12 @@ public class RegexValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         RegexValidator single = new RegexValidator(REGEX);
         assertEquals("Single", "RegexValidator{" + REGEX + "}", single.toString());
     }
 
-    public void testToString_2_oe() {
+public void testToString_2_oe() {
         RegexValidator single = new RegexValidator(REGEX);
         // removed other assertion
 

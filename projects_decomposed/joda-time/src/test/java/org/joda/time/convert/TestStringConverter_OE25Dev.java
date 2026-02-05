@@ -220,25 +220,25 @@ public class TestStringConverter_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testSingleton_1_oe() throws Exception {
+public void testSingleton_1_oe() throws Exception {
         Class cls = StringConverter.class;
         assertEquals(false,Modifier.isPublic(cls.getModifiers()));
     }
 
-    public void testSingleton_2_oe() throws Exception {
+public void testSingleton_2_oe() throws Exception {
         Class cls = StringConverter.class;
         // removed other assertion
         assertEquals(false,Modifier.isProtected(cls.getModifiers()));
     }
 
-    public void testSingleton_3_oe() throws Exception {
+public void testSingleton_3_oe() throws Exception {
         Class cls = StringConverter.class;
         // removed other assertion
         // removed other assertion
         assertEquals(false,Modifier.isPrivate(cls.getModifiers()));
     }
 
-    public void testSingleton_4_oe() throws Exception {
+public void testSingleton_4_oe() throws Exception {
         Class cls = StringConverter.class;
         // removed other assertion
         // removed other assertion
@@ -248,7 +248,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(1,cls.getDeclaredConstructors().length);
     }
 
-    public void testSingleton_5_oe() throws Exception {
+public void testSingleton_5_oe() throws Exception {
         Class cls = StringConverter.class;
         // removed other assertion
         // removed other assertion
@@ -259,7 +259,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(true,Modifier.isProtected(con.getModifiers()));
     }
 
-    public void testSingleton_6_oe() throws Exception {
+public void testSingleton_6_oe() throws Exception {
         Class cls = StringConverter.class;
         // removed other assertion
         // removed other assertion
@@ -273,7 +273,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPublic(fld.getModifiers()));
     }
 
-    public void testSingleton_7_oe() throws Exception {
+public void testSingleton_7_oe() throws Exception {
         Class cls = StringConverter.class;
         // removed other assertion
         // removed other assertion
@@ -288,7 +288,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isProtected(fld.getModifiers()));
     }
 
-    public void testSingleton_8_oe() throws Exception {
+public void testSingleton_8_oe() throws Exception {
         Class cls = StringConverter.class;
         // removed other assertion
         // removed other assertion
@@ -304,16 +304,16 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPrivate(fld.getModifiers()));
     }
 
-    public void testSupportedType_1_oe() throws Exception {
+public void testSupportedType_1_oe() throws Exception {
         assertEquals(String.class,StringConverter.INSTANCE.getSupportedType());
     }
 
-    public void testGetInstantMillis_Object_1_oe() throws Exception {
+public void testGetInstantMillis_Object_1_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, EIGHT);
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-06-09T12:24:48.501+08:00",ISO_EIGHT));
     }
 
-    public void testGetInstantMillis_Object_2_oe() throws Exception {
+public void testGetInstantMillis_Object_2_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, EIGHT);
         // removed other assertion
         
@@ -321,7 +321,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004T+08:00",ISO_EIGHT));
     }
 
-    public void testGetInstantMillis_Object_3_oe() throws Exception {
+public void testGetInstantMillis_Object_3_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, EIGHT);
         // removed other assertion
         
@@ -332,7 +332,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-06T+08:00",ISO_EIGHT));
     }
 
-    public void testGetInstantMillis_Object_4_oe() throws Exception {
+public void testGetInstantMillis_Object_4_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, EIGHT);
         // removed other assertion
         
@@ -346,7 +346,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-06-09T+08:00",ISO_EIGHT));
     }
 
-    public void testGetInstantMillis_Object_5_oe() throws Exception {
+public void testGetInstantMillis_Object_5_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, EIGHT);
         // removed other assertion
         
@@ -363,7 +363,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-161T+08:00",ISO_EIGHT));
     }
 
-    public void testGetInstantMillis_Object_6_oe() throws Exception {
+public void testGetInstantMillis_Object_6_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, EIGHT);
         // removed other assertion
         
@@ -383,7 +383,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-W24-3T+08:00",ISO_EIGHT));
     }
 
-    public void testGetInstantMillis_Object_7_oe() throws Exception {
+public void testGetInstantMillis_Object_7_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, EIGHT);
         // removed other assertion
         
@@ -406,7 +406,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-W24T+08:00",ISO_EIGHT));
     }
 
-    public void testGetInstantMillis_Object_8_oe() throws Exception {
+public void testGetInstantMillis_Object_8_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, EIGHT);
         // removed other assertion
         
@@ -432,7 +432,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-06-09T12+08:00",ISO_EIGHT));
     }
 
-    public void testGetInstantMillis_Object_9_oe() throws Exception {
+public void testGetInstantMillis_Object_9_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, EIGHT);
         // removed other assertion
         
@@ -461,7 +461,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-06-09T12:24+08:00",ISO_EIGHT));
     }
 
-    public void testGetInstantMillis_Object_10_oe() throws Exception {
+public void testGetInstantMillis_Object_10_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, EIGHT);
         // removed other assertion
         
@@ -493,7 +493,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-06-09T12:24:48+08:00",ISO_EIGHT));
     }
 
-    public void testGetInstantMillis_Object_11_oe() throws Exception {
+public void testGetInstantMillis_Object_11_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, EIGHT);
         // removed other assertion
         
@@ -528,7 +528,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-06-09T12.5+08:00",ISO_EIGHT));
     }
 
-    public void testGetInstantMillis_Object_12_oe() throws Exception {
+public void testGetInstantMillis_Object_12_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, EIGHT);
         // removed other assertion
         
@@ -566,7 +566,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-06-09T12:24.5+08:00",ISO_EIGHT));
     }
 
-    public void testGetInstantMillis_Object_13_oe() throws Exception {
+public void testGetInstantMillis_Object_13_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, EIGHT);
         // removed other assertion
         
@@ -607,7 +607,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-06-09T12:24:48.5+08:00",ISO_EIGHT));
     }
 
-    public void testGetInstantMillis_Object_14_oe() throws Exception {
+public void testGetInstantMillis_Object_14_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, EIGHT);
         // removed other assertion
         
@@ -651,12 +651,12 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-06-09T12:24:48.501",ISO));
     }
 
-    public void testGetInstantMillis_Object_Zone_1_oe() throws Exception {
+public void testGetInstantMillis_Object_Zone_1_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, PARIS);
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-06-09T12:24:48.501+02:00",ISO_PARIS));
     }
 
-    public void testGetInstantMillis_Object_Zone_2_oe() throws Exception {
+public void testGetInstantMillis_Object_Zone_2_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, PARIS);
         // removed other assertion
         
@@ -664,7 +664,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-06-09T12:24:48.501",ISO_PARIS));
     }
 
-    public void testGetInstantMillis_Object_Zone_3_oe() throws Exception {
+public void testGetInstantMillis_Object_Zone_3_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, PARIS);
         // removed other assertion
         
@@ -675,7 +675,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-06-09T12:24:48.501+01:00",ISO_LONDON));
     }
 
-    public void testGetInstantMillis_Object_Zone_4_oe() throws Exception {
+public void testGetInstantMillis_Object_Zone_4_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, PARIS);
         // removed other assertion
         
@@ -689,87 +689,87 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-06-09T12:24:48.501",ISO_LONDON));
     }
 
-    public void testGetInstantMillis_Object_Chronology_1_oe() throws Exception {
+public void testGetInstantMillis_Object_Chronology_1_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 12, 24, 48, 501, JulianChronology.getInstance(LONDON));
         assertEquals(dt.getMillis(),StringConverter.INSTANCE.getInstantMillis("2004-06-09T12:24:48.501+01:00",JULIAN));
     }
 
-    public void testGetChronology_Object_Zone_1_oe() throws Exception {
+public void testGetChronology_Object_Zone_1_oe() throws Exception {
         assertEquals(ISOChronology.getInstance(PARIS),StringConverter.INSTANCE.getChronology("2004-06-09T12:24:48.501+01:00",PARIS));
     }
 
-    public void testGetChronology_Object_Zone_2_oe() throws Exception {
+public void testGetChronology_Object_Zone_2_oe() throws Exception {
         // removed other assertion
         assertEquals(ISOChronology.getInstance(PARIS),StringConverter.INSTANCE.getChronology("2004-06-09T12:24:48.501",PARIS));
     }
 
-    public void testGetChronology_Object_Zone_3_oe() throws Exception {
+public void testGetChronology_Object_Zone_3_oe() throws Exception {
         // removed other assertion
         // removed other assertion
         assertEquals(ISOChronology.getInstance(LONDON),StringConverter.INSTANCE.getChronology("2004-06-09T12:24:48.501+01:00",(DateTimeZone)null));
     }
 
-    public void testGetChronology_Object_Zone_4_oe() throws Exception {
+public void testGetChronology_Object_Zone_4_oe() throws Exception {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(ISOChronology.getInstance(LONDON),StringConverter.INSTANCE.getChronology("2004-06-09T12:24:48.501",(DateTimeZone)null));
     }
 
-    public void testGetChronology_Object_Chronology_1_oe() throws Exception {
+public void testGetChronology_Object_Chronology_1_oe() throws Exception {
         assertEquals(JulianChronology.getInstance(LONDON),StringConverter.INSTANCE.getChronology("2004-06-09T12:24:48.501+01:00",JULIAN));
     }
 
-    public void testGetChronology_Object_Chronology_2_oe() throws Exception {
+public void testGetChronology_Object_Chronology_2_oe() throws Exception {
         // removed other assertion
         assertEquals(JulianChronology.getInstance(LONDON),StringConverter.INSTANCE.getChronology("2004-06-09T12:24:48.501",JULIAN));
     }
 
-    public void testGetChronology_Object_Chronology_3_oe() throws Exception {
+public void testGetChronology_Object_Chronology_3_oe() throws Exception {
         // removed other assertion
         // removed other assertion
         assertEquals(ISOChronology.getInstance(LONDON),StringConverter.INSTANCE.getChronology("2004-06-09T12:24:48.501+01:00",(Chronology)null));
     }
 
-    public void testGetChronology_Object_Chronology_4_oe() throws Exception {
+public void testGetChronology_Object_Chronology_4_oe() throws Exception {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(ISOChronology.getInstance(LONDON),StringConverter.INSTANCE.getChronology("2004-06-09T12:24:48.501",(Chronology)null));
     }
 
-    public void testGetPartialValues_1_oe() throws Exception {
+public void testGetPartialValues_1_oe() throws Exception {
         TimeOfDay tod = new TimeOfDay();
         int[] expected = new int[] {3, 4, 5, 6};
         int[] actual = StringConverter.INSTANCE.getPartialValues(tod, "T03:04:05.006", ISOChronology.getInstance());
         assertEquals(true,Arrays.equals(expected,actual));
     }
 
-    public void testGetDateTime_1_oe() throws Exception {
+public void testGetDateTime_1_oe() throws Exception {
         DateTime base = new DateTime(2004, 6, 9, 12, 24, 48, 501, PARIS);
         DateTime test = new DateTime(base.toString(), PARIS);
         assertEquals(base,test);
     }
 
-    public void testGetDateTime1_1_oe() throws Exception {
+public void testGetDateTime1_1_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+01:00");
         assertEquals(2004,test.getYear());
     }
 
-    public void testGetDateTime1_2_oe() throws Exception {
+public void testGetDateTime1_2_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+01:00");
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testGetDateTime1_3_oe() throws Exception {
+public void testGetDateTime1_3_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+01:00");
         // removed other assertion
         // removed other assertion
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testGetDateTime1_4_oe() throws Exception {
+public void testGetDateTime1_4_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+01:00");
         // removed other assertion
         // removed other assertion
@@ -777,7 +777,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(12,test.getHourOfDay());
     }
 
-    public void testGetDateTime1_5_oe() throws Exception {
+public void testGetDateTime1_5_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+01:00");
         // removed other assertion
         // removed other assertion
@@ -786,7 +786,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(24,test.getMinuteOfHour());
     }
 
-    public void testGetDateTime1_6_oe() throws Exception {
+public void testGetDateTime1_6_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+01:00");
         // removed other assertion
         // removed other assertion
@@ -796,7 +796,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(48,test.getSecondOfMinute());
     }
 
-    public void testGetDateTime1_7_oe() throws Exception {
+public void testGetDateTime1_7_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+01:00");
         // removed other assertion
         // removed other assertion
@@ -807,7 +807,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(501,test.getMillisOfSecond());
     }
 
-    public void testGetDateTime1_8_oe() throws Exception {
+public void testGetDateTime1_8_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+01:00");
         // removed other assertion
         // removed other assertion
@@ -819,25 +819,25 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(LONDON,test.getZone());
     }
 
-    public void testGetDateTime2_1_oe() throws Exception {
+public void testGetDateTime2_1_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501");
         assertEquals(2004,test.getYear());
     }
 
-    public void testGetDateTime2_2_oe() throws Exception {
+public void testGetDateTime2_2_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501");
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testGetDateTime2_3_oe() throws Exception {
+public void testGetDateTime2_3_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501");
         // removed other assertion
         // removed other assertion
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testGetDateTime2_4_oe() throws Exception {
+public void testGetDateTime2_4_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501");
         // removed other assertion
         // removed other assertion
@@ -845,7 +845,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(12,test.getHourOfDay());
     }
 
-    public void testGetDateTime2_5_oe() throws Exception {
+public void testGetDateTime2_5_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501");
         // removed other assertion
         // removed other assertion
@@ -854,7 +854,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(24,test.getMinuteOfHour());
     }
 
-    public void testGetDateTime2_6_oe() throws Exception {
+public void testGetDateTime2_6_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501");
         // removed other assertion
         // removed other assertion
@@ -864,7 +864,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(48,test.getSecondOfMinute());
     }
 
-    public void testGetDateTime2_7_oe() throws Exception {
+public void testGetDateTime2_7_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501");
         // removed other assertion
         // removed other assertion
@@ -875,7 +875,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(501,test.getMillisOfSecond());
     }
 
-    public void testGetDateTime2_8_oe() throws Exception {
+public void testGetDateTime2_8_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501");
         // removed other assertion
         // removed other assertion
@@ -887,25 +887,25 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(LONDON,test.getZone());
     }
 
-    public void testGetDateTime3_1_oe() throws Exception {
+public void testGetDateTime3_1_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+02:00", PARIS);
         assertEquals(2004,test.getYear());
     }
 
-    public void testGetDateTime3_2_oe() throws Exception {
+public void testGetDateTime3_2_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+02:00", PARIS);
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testGetDateTime3_3_oe() throws Exception {
+public void testGetDateTime3_3_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+02:00", PARIS);
         // removed other assertion
         // removed other assertion
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testGetDateTime3_4_oe() throws Exception {
+public void testGetDateTime3_4_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+02:00", PARIS);
         // removed other assertion
         // removed other assertion
@@ -913,7 +913,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(12,test.getHourOfDay());
     }
 
-    public void testGetDateTime3_5_oe() throws Exception {
+public void testGetDateTime3_5_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+02:00", PARIS);
         // removed other assertion
         // removed other assertion
@@ -922,7 +922,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(24,test.getMinuteOfHour());
     }
 
-    public void testGetDateTime3_6_oe() throws Exception {
+public void testGetDateTime3_6_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+02:00", PARIS);
         // removed other assertion
         // removed other assertion
@@ -932,7 +932,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(48,test.getSecondOfMinute());
     }
 
-    public void testGetDateTime3_7_oe() throws Exception {
+public void testGetDateTime3_7_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+02:00", PARIS);
         // removed other assertion
         // removed other assertion
@@ -943,7 +943,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(501,test.getMillisOfSecond());
     }
 
-    public void testGetDateTime3_8_oe() throws Exception {
+public void testGetDateTime3_8_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+02:00", PARIS);
         // removed other assertion
         // removed other assertion
@@ -955,25 +955,25 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(PARIS,test.getZone());
     }
 
-    public void testGetDateTime4_1_oe() throws Exception {
+public void testGetDateTime4_1_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501", PARIS);
         assertEquals(2004,test.getYear());
     }
 
-    public void testGetDateTime4_2_oe() throws Exception {
+public void testGetDateTime4_2_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501", PARIS);
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testGetDateTime4_3_oe() throws Exception {
+public void testGetDateTime4_3_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501", PARIS);
         // removed other assertion
         // removed other assertion
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testGetDateTime4_4_oe() throws Exception {
+public void testGetDateTime4_4_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501", PARIS);
         // removed other assertion
         // removed other assertion
@@ -981,7 +981,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(12,test.getHourOfDay());
     }
 
-    public void testGetDateTime4_5_oe() throws Exception {
+public void testGetDateTime4_5_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501", PARIS);
         // removed other assertion
         // removed other assertion
@@ -990,7 +990,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(24,test.getMinuteOfHour());
     }
 
-    public void testGetDateTime4_6_oe() throws Exception {
+public void testGetDateTime4_6_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501", PARIS);
         // removed other assertion
         // removed other assertion
@@ -1000,7 +1000,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(48,test.getSecondOfMinute());
     }
 
-    public void testGetDateTime4_7_oe() throws Exception {
+public void testGetDateTime4_7_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501", PARIS);
         // removed other assertion
         // removed other assertion
@@ -1011,7 +1011,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(501,test.getMillisOfSecond());
     }
 
-    public void testGetDateTime4_8_oe() throws Exception {
+public void testGetDateTime4_8_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501", PARIS);
         // removed other assertion
         // removed other assertion
@@ -1023,25 +1023,25 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(PARIS,test.getZone());
     }
 
-    public void testGetDateTime5_1_oe() throws Exception {
+public void testGetDateTime5_1_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+02:00", JulianChronology.getInstance(PARIS));
         assertEquals(2004,test.getYear());
     }
 
-    public void testGetDateTime5_2_oe() throws Exception {
+public void testGetDateTime5_2_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+02:00", JulianChronology.getInstance(PARIS));
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testGetDateTime5_3_oe() throws Exception {
+public void testGetDateTime5_3_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+02:00", JulianChronology.getInstance(PARIS));
         // removed other assertion
         // removed other assertion
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testGetDateTime5_4_oe() throws Exception {
+public void testGetDateTime5_4_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+02:00", JulianChronology.getInstance(PARIS));
         // removed other assertion
         // removed other assertion
@@ -1049,7 +1049,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(12,test.getHourOfDay());
     }
 
-    public void testGetDateTime5_5_oe() throws Exception {
+public void testGetDateTime5_5_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+02:00", JulianChronology.getInstance(PARIS));
         // removed other assertion
         // removed other assertion
@@ -1058,7 +1058,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(24,test.getMinuteOfHour());
     }
 
-    public void testGetDateTime5_6_oe() throws Exception {
+public void testGetDateTime5_6_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+02:00", JulianChronology.getInstance(PARIS));
         // removed other assertion
         // removed other assertion
@@ -1068,7 +1068,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(48,test.getSecondOfMinute());
     }
 
-    public void testGetDateTime5_7_oe() throws Exception {
+public void testGetDateTime5_7_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+02:00", JulianChronology.getInstance(PARIS));
         // removed other assertion
         // removed other assertion
@@ -1079,7 +1079,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(501,test.getMillisOfSecond());
     }
 
-    public void testGetDateTime5_8_oe() throws Exception {
+public void testGetDateTime5_8_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501+02:00", JulianChronology.getInstance(PARIS));
         // removed other assertion
         // removed other assertion
@@ -1091,25 +1091,25 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(PARIS,test.getZone());
     }
 
-    public void testGetDateTime6_1_oe() throws Exception {
+public void testGetDateTime6_1_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501", JulianChronology.getInstance(PARIS));
         assertEquals(2004,test.getYear());
     }
 
-    public void testGetDateTime6_2_oe() throws Exception {
+public void testGetDateTime6_2_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501", JulianChronology.getInstance(PARIS));
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testGetDateTime6_3_oe() throws Exception {
+public void testGetDateTime6_3_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501", JulianChronology.getInstance(PARIS));
         // removed other assertion
         // removed other assertion
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testGetDateTime6_4_oe() throws Exception {
+public void testGetDateTime6_4_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501", JulianChronology.getInstance(PARIS));
         // removed other assertion
         // removed other assertion
@@ -1117,7 +1117,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(12,test.getHourOfDay());
     }
 
-    public void testGetDateTime6_5_oe() throws Exception {
+public void testGetDateTime6_5_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501", JulianChronology.getInstance(PARIS));
         // removed other assertion
         // removed other assertion
@@ -1126,7 +1126,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(24,test.getMinuteOfHour());
     }
 
-    public void testGetDateTime6_6_oe() throws Exception {
+public void testGetDateTime6_6_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501", JulianChronology.getInstance(PARIS));
         // removed other assertion
         // removed other assertion
@@ -1136,7 +1136,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(48,test.getSecondOfMinute());
     }
 
-    public void testGetDateTime6_7_oe() throws Exception {
+public void testGetDateTime6_7_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501", JulianChronology.getInstance(PARIS));
         // removed other assertion
         // removed other assertion
@@ -1147,7 +1147,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(501,test.getMillisOfSecond());
     }
 
-    public void testGetDateTime6_8_oe() throws Exception {
+public void testGetDateTime6_8_oe() throws Exception {
         DateTime test = new DateTime("2004-06-09T12:24:48.501", JulianChronology.getInstance(PARIS));
         // removed other assertion
         // removed other assertion
@@ -1159,12 +1159,12 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(PARIS,test.getZone());
     }
 
-    public void testGetDurationMillis_Object1_1_oe() throws Exception {
+public void testGetDurationMillis_Object1_1_oe() throws Exception {
         long millis = StringConverter.INSTANCE.getDurationMillis("PT12.345S");
         assertEquals(12345,millis);
     }
 
-    public void testGetDurationMillis_Object1_2_oe() throws Exception {
+public void testGetDurationMillis_Object1_2_oe() throws Exception {
         long millis = StringConverter.INSTANCE.getDurationMillis("PT12.345S");
         // removed other assertion
         
@@ -1172,7 +1172,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(12345,millis);
     }
 
-    public void testGetDurationMillis_Object1_3_oe() throws Exception {
+public void testGetDurationMillis_Object1_3_oe() throws Exception {
         long millis = StringConverter.INSTANCE.getDurationMillis("PT12.345S");
         // removed other assertion
         
@@ -1183,7 +1183,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(12000,millis);
     }
 
-    public void testGetDurationMillis_Object1_4_oe() throws Exception {
+public void testGetDurationMillis_Object1_4_oe() throws Exception {
         long millis = StringConverter.INSTANCE.getDurationMillis("PT12.345S");
         // removed other assertion
         
@@ -1197,7 +1197,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(12000,millis);
     }
 
-    public void testGetDurationMillis_Object1_5_oe() throws Exception {
+public void testGetDurationMillis_Object1_5_oe() throws Exception {
         long millis = StringConverter.INSTANCE.getDurationMillis("PT12.345S");
         // removed other assertion
         
@@ -1214,7 +1214,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(-12320,millis);
     }
 
-    public void testGetDurationMillis_Object1_6_oe() throws Exception {
+public void testGetDurationMillis_Object1_6_oe() throws Exception {
         long millis = StringConverter.INSTANCE.getDurationMillis("PT12.345S");
         // removed other assertion
         
@@ -1234,7 +1234,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(-320,millis);
     }
 
-    public void testGetDurationMillis_Object1_7_oe() throws Exception {
+public void testGetDurationMillis_Object1_7_oe() throws Exception {
         long millis = StringConverter.INSTANCE.getDurationMillis("PT12.345S");
         // removed other assertion
         
@@ -1257,7 +1257,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(0,millis);
     }
 
-    public void testGetDurationMillis_Object1_8_oe() throws Exception {
+public void testGetDurationMillis_Object1_8_oe() throws Exception {
         long millis = StringConverter.INSTANCE.getDurationMillis("PT12.345S");
         // removed other assertion
         
@@ -1283,7 +1283,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(0,millis);
     }
 
-    public void testGetDurationMillis_Object1_9_oe() throws Exception {
+public void testGetDurationMillis_Object1_9_oe() throws Exception {
         long millis = StringConverter.INSTANCE.getDurationMillis("PT12.345S");
         // removed other assertion
         
@@ -1312,24 +1312,24 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(12345,millis);
     }
 
-    public void testGetPeriodType_Object_1_oe() throws Exception {
+public void testGetPeriodType_Object_1_oe() throws Exception {
         assertEquals(PeriodType.standard(),StringConverter.INSTANCE.getPeriodType("P2Y6M9D"));
     }
 
-    public void testSetIntoPeriod_Object1_1_oe() throws Exception {
+public void testSetIntoPeriod_Object1_1_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearMonthDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y6M9DT12H24M48S", null);
         assertEquals(2,m.getYears());
     }
 
-    public void testSetIntoPeriod_Object1_2_oe() throws Exception {
+public void testSetIntoPeriod_Object1_2_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearMonthDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y6M9DT12H24M48S", null);
         // removed other assertion
         assertEquals(6,m.getMonths());
     }
 
-    public void testSetIntoPeriod_Object1_3_oe() throws Exception {
+public void testSetIntoPeriod_Object1_3_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearMonthDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y6M9DT12H24M48S", null);
         // removed other assertion
@@ -1337,7 +1337,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(9,m.getDays());
     }
 
-    public void testSetIntoPeriod_Object1_4_oe() throws Exception {
+public void testSetIntoPeriod_Object1_4_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearMonthDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y6M9DT12H24M48S", null);
         // removed other assertion
@@ -1346,7 +1346,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(12,m.getHours());
     }
 
-    public void testSetIntoPeriod_Object1_5_oe() throws Exception {
+public void testSetIntoPeriod_Object1_5_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearMonthDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y6M9DT12H24M48S", null);
         // removed other assertion
@@ -1356,7 +1356,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(24,m.getMinutes());
     }
 
-    public void testSetIntoPeriod_Object1_6_oe() throws Exception {
+public void testSetIntoPeriod_Object1_6_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearMonthDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y6M9DT12H24M48S", null);
         // removed other assertion
@@ -1367,7 +1367,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(48,m.getSeconds());
     }
 
-    public void testSetIntoPeriod_Object1_7_oe() throws Exception {
+public void testSetIntoPeriod_Object1_7_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearMonthDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y6M9DT12H24M48S", null);
         // removed other assertion
@@ -1379,20 +1379,20 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getMillis());
     }
 
-    public void testSetIntoPeriod_Object2_1_oe() throws Exception {
+public void testSetIntoPeriod_Object2_1_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M48S", null);
         assertEquals(2,m.getYears());
     }
 
-    public void testSetIntoPeriod_Object2_2_oe() throws Exception {
+public void testSetIntoPeriod_Object2_2_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M48S", null);
         // removed other assertion
         assertEquals(4,m.getWeeks());
     }
 
-    public void testSetIntoPeriod_Object2_3_oe() throws Exception {
+public void testSetIntoPeriod_Object2_3_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M48S", null);
         // removed other assertion
@@ -1400,7 +1400,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(3,m.getDays());
     }
 
-    public void testSetIntoPeriod_Object2_4_oe() throws Exception {
+public void testSetIntoPeriod_Object2_4_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M48S", null);
         // removed other assertion
@@ -1409,7 +1409,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(12,m.getHours());
     }
 
-    public void testSetIntoPeriod_Object2_5_oe() throws Exception {
+public void testSetIntoPeriod_Object2_5_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M48S", null);
         // removed other assertion
@@ -1419,7 +1419,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(24,m.getMinutes());
     }
 
-    public void testSetIntoPeriod_Object2_6_oe() throws Exception {
+public void testSetIntoPeriod_Object2_6_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M48S", null);
         // removed other assertion
@@ -1430,7 +1430,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(48,m.getSeconds());
     }
 
-    public void testSetIntoPeriod_Object2_7_oe() throws Exception {
+public void testSetIntoPeriod_Object2_7_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M48S", null);
         // removed other assertion
@@ -1442,20 +1442,20 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getMillis());
     }
 
-    public void testSetIntoPeriod_Object3_1_oe() throws Exception {
+public void testSetIntoPeriod_Object3_1_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M48.034S", null);
         assertEquals(2,m.getYears());
     }
 
-    public void testSetIntoPeriod_Object3_2_oe() throws Exception {
+public void testSetIntoPeriod_Object3_2_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M48.034S", null);
         // removed other assertion
         assertEquals(4,m.getWeeks());
     }
 
-    public void testSetIntoPeriod_Object3_3_oe() throws Exception {
+public void testSetIntoPeriod_Object3_3_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M48.034S", null);
         // removed other assertion
@@ -1463,7 +1463,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(3,m.getDays());
     }
 
-    public void testSetIntoPeriod_Object3_4_oe() throws Exception {
+public void testSetIntoPeriod_Object3_4_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M48.034S", null);
         // removed other assertion
@@ -1472,7 +1472,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(12,m.getHours());
     }
 
-    public void testSetIntoPeriod_Object3_5_oe() throws Exception {
+public void testSetIntoPeriod_Object3_5_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M48.034S", null);
         // removed other assertion
@@ -1482,7 +1482,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(24,m.getMinutes());
     }
 
-    public void testSetIntoPeriod_Object3_6_oe() throws Exception {
+public void testSetIntoPeriod_Object3_6_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M48.034S", null);
         // removed other assertion
@@ -1493,7 +1493,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(48,m.getSeconds());
     }
 
-    public void testSetIntoPeriod_Object3_7_oe() throws Exception {
+public void testSetIntoPeriod_Object3_7_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M48.034S", null);
         // removed other assertion
@@ -1505,20 +1505,20 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(34,m.getMillis());
     }
 
-    public void testSetIntoPeriod_Object4_1_oe() throws Exception {
+public void testSetIntoPeriod_Object4_1_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M.056S", null);
         assertEquals(2,m.getYears());
     }
 
-    public void testSetIntoPeriod_Object4_2_oe() throws Exception {
+public void testSetIntoPeriod_Object4_2_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M.056S", null);
         // removed other assertion
         assertEquals(4,m.getWeeks());
     }
 
-    public void testSetIntoPeriod_Object4_3_oe() throws Exception {
+public void testSetIntoPeriod_Object4_3_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M.056S", null);
         // removed other assertion
@@ -1526,7 +1526,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(3,m.getDays());
     }
 
-    public void testSetIntoPeriod_Object4_4_oe() throws Exception {
+public void testSetIntoPeriod_Object4_4_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M.056S", null);
         // removed other assertion
@@ -1535,7 +1535,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(12,m.getHours());
     }
 
-    public void testSetIntoPeriod_Object4_5_oe() throws Exception {
+public void testSetIntoPeriod_Object4_5_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M.056S", null);
         // removed other assertion
@@ -1545,7 +1545,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(24,m.getMinutes());
     }
 
-    public void testSetIntoPeriod_Object4_6_oe() throws Exception {
+public void testSetIntoPeriod_Object4_6_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M.056S", null);
         // removed other assertion
@@ -1556,7 +1556,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getSeconds());
     }
 
-    public void testSetIntoPeriod_Object4_7_oe() throws Exception {
+public void testSetIntoPeriod_Object4_7_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M.056S", null);
         // removed other assertion
@@ -1568,20 +1568,20 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(56,m.getMillis());
     }
 
-    public void testSetIntoPeriod_Object5_1_oe() throws Exception {
+public void testSetIntoPeriod_Object5_1_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M56.S", null);
         assertEquals(2,m.getYears());
     }
 
-    public void testSetIntoPeriod_Object5_2_oe() throws Exception {
+public void testSetIntoPeriod_Object5_2_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M56.S", null);
         // removed other assertion
         assertEquals(4,m.getWeeks());
     }
 
-    public void testSetIntoPeriod_Object5_3_oe() throws Exception {
+public void testSetIntoPeriod_Object5_3_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M56.S", null);
         // removed other assertion
@@ -1589,7 +1589,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(3,m.getDays());
     }
 
-    public void testSetIntoPeriod_Object5_4_oe() throws Exception {
+public void testSetIntoPeriod_Object5_4_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M56.S", null);
         // removed other assertion
@@ -1598,7 +1598,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(12,m.getHours());
     }
 
-    public void testSetIntoPeriod_Object5_5_oe() throws Exception {
+public void testSetIntoPeriod_Object5_5_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M56.S", null);
         // removed other assertion
@@ -1608,7 +1608,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(24,m.getMinutes());
     }
 
-    public void testSetIntoPeriod_Object5_6_oe() throws Exception {
+public void testSetIntoPeriod_Object5_6_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M56.S", null);
         // removed other assertion
@@ -1619,7 +1619,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(56,m.getSeconds());
     }
 
-    public void testSetIntoPeriod_Object5_7_oe() throws Exception {
+public void testSetIntoPeriod_Object5_7_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M56.S", null);
         // removed other assertion
@@ -1631,20 +1631,20 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getMillis());
     }
 
-    public void testSetIntoPeriod_Object6_1_oe() throws Exception {
+public void testSetIntoPeriod_Object6_1_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M56.1234567S", null);
         assertEquals(2,m.getYears());
     }
 
-    public void testSetIntoPeriod_Object6_2_oe() throws Exception {
+public void testSetIntoPeriod_Object6_2_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M56.1234567S", null);
         // removed other assertion
         assertEquals(4,m.getWeeks());
     }
 
-    public void testSetIntoPeriod_Object6_3_oe() throws Exception {
+public void testSetIntoPeriod_Object6_3_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M56.1234567S", null);
         // removed other assertion
@@ -1652,7 +1652,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(3,m.getDays());
     }
 
-    public void testSetIntoPeriod_Object6_4_oe() throws Exception {
+public void testSetIntoPeriod_Object6_4_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M56.1234567S", null);
         // removed other assertion
@@ -1661,7 +1661,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(12,m.getHours());
     }
 
-    public void testSetIntoPeriod_Object6_5_oe() throws Exception {
+public void testSetIntoPeriod_Object6_5_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M56.1234567S", null);
         // removed other assertion
@@ -1671,7 +1671,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(24,m.getMinutes());
     }
 
-    public void testSetIntoPeriod_Object6_6_oe() throws Exception {
+public void testSetIntoPeriod_Object6_6_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M56.1234567S", null);
         // removed other assertion
@@ -1682,7 +1682,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(56,m.getSeconds());
     }
 
-    public void testSetIntoPeriod_Object6_7_oe() throws Exception {
+public void testSetIntoPeriod_Object6_7_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3DT12H24M56.1234567S", null);
         // removed other assertion
@@ -1694,20 +1694,20 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(123,m.getMillis());
     }
 
-    public void testSetIntoPeriod_Object7_1_oe() throws Exception {
+public void testSetIntoPeriod_Object7_1_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(1, 0, 1, 1, 1, 1, 1, 1, PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3D", null);
         assertEquals(2,m.getYears());
     }
 
-    public void testSetIntoPeriod_Object7_2_oe() throws Exception {
+public void testSetIntoPeriod_Object7_2_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(1, 0, 1, 1, 1, 1, 1, 1, PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3D", null);
         // removed other assertion
         assertEquals(4,m.getWeeks());
     }
 
-    public void testSetIntoPeriod_Object7_3_oe() throws Exception {
+public void testSetIntoPeriod_Object7_3_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(1, 0, 1, 1, 1, 1, 1, 1, PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3D", null);
         // removed other assertion
@@ -1715,7 +1715,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(3,m.getDays());
     }
 
-    public void testSetIntoPeriod_Object7_4_oe() throws Exception {
+public void testSetIntoPeriod_Object7_4_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(1, 0, 1, 1, 1, 1, 1, 1, PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3D", null);
         // removed other assertion
@@ -1724,7 +1724,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getHours());
     }
 
-    public void testSetIntoPeriod_Object7_5_oe() throws Exception {
+public void testSetIntoPeriod_Object7_5_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(1, 0, 1, 1, 1, 1, 1, 1, PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3D", null);
         // removed other assertion
@@ -1734,7 +1734,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getMinutes());
     }
 
-    public void testSetIntoPeriod_Object7_6_oe() throws Exception {
+public void testSetIntoPeriod_Object7_6_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(1, 0, 1, 1, 1, 1, 1, 1, PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3D", null);
         // removed other assertion
@@ -1745,7 +1745,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getSeconds());
     }
 
-    public void testSetIntoPeriod_Object7_7_oe() throws Exception {
+public void testSetIntoPeriod_Object7_7_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(1, 0, 1, 1, 1, 1, 1, 1, PeriodType.yearWeekDayTime());
         StringConverter.INSTANCE.setInto(m, "P2Y4W3D", null);
         // removed other assertion
@@ -1757,24 +1757,24 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(0,m.getMillis());
     }
 
-    public void testIsReadableInterval_Object_Chronology_1_oe() throws Exception {
+public void testIsReadableInterval_Object_Chronology_1_oe() throws Exception {
         assertEquals(false,StringConverter.INSTANCE.isReadableInterval("",null));
     }
 
-    public void testSetIntoInterval_Object_Chronology1_1_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology1_1_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2004-06-09/P1Y2M", null);
         assertEquals(new DateTime(2004,6,9,0,0,0,0),m.getStart());
     }
 
-    public void testSetIntoInterval_Object_Chronology1_2_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology1_2_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2004-06-09/P1Y2M", null);
         // removed other assertion
         assertEquals(new DateTime(2005,8,9,0,0,0,0),m.getEnd());
     }
 
-    public void testSetIntoInterval_Object_Chronology1_3_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology1_3_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2004-06-09/P1Y2M", null);
         // removed other assertion
@@ -1782,20 +1782,20 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(ISOChronology.getInstance(),m.getChronology());
     }
 
-    public void testSetIntoInterval_Object_Chronology2_1_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology2_1_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "P1Y2M/2004-06-09", null);
         assertEquals(new DateTime(2003,4,9,0,0,0,0),m.getStart());
     }
 
-    public void testSetIntoInterval_Object_Chronology2_2_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology2_2_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "P1Y2M/2004-06-09", null);
         // removed other assertion
         assertEquals(new DateTime(2004,6,9,0,0,0,0),m.getEnd());
     }
 
-    public void testSetIntoInterval_Object_Chronology2_3_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology2_3_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "P1Y2M/2004-06-09", null);
         // removed other assertion
@@ -1803,20 +1803,20 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(ISOChronology.getInstance(),m.getChronology());
     }
 
-    public void testSetIntoInterval_Object_Chronology3_1_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology3_1_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2003-08-09/2004-06-09", null);
         assertEquals(new DateTime(2003,8,9,0,0,0,0),m.getStart());
     }
 
-    public void testSetIntoInterval_Object_Chronology3_2_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology3_2_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2003-08-09/2004-06-09", null);
         // removed other assertion
         assertEquals(new DateTime(2004,6,9,0,0,0,0),m.getEnd());
     }
 
-    public void testSetIntoInterval_Object_Chronology3_3_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology3_3_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2003-08-09/2004-06-09", null);
         // removed other assertion
@@ -1824,20 +1824,20 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(ISOChronology.getInstance(),m.getChronology());
     }
 
-    public void testSetIntoInterval_Object_Chronology4_1_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology4_1_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2004-06-09T+06:00/P1Y2M", null);
         assertEquals(new DateTime(2004,6,9,0,0,0,0,SIX).withChronology(null),m.getStart());
     }
 
-    public void testSetIntoInterval_Object_Chronology4_2_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology4_2_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2004-06-09T+06:00/P1Y2M", null);
         // removed other assertion
         assertEquals(new DateTime(2005,8,9,0,0,0,0,SIX).withChronology(null),m.getEnd());
     }
 
-    public void testSetIntoInterval_Object_Chronology4_3_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology4_3_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2004-06-09T+06:00/P1Y2M", null);
         // removed other assertion
@@ -1845,20 +1845,20 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(ISOChronology.getInstance(),m.getChronology());
     }
 
-    public void testSetIntoInterval_Object_Chronology5_1_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology5_1_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "P1Y2M/2004-06-09T+06:00", null);
         assertEquals(new DateTime(2003,4,9,0,0,0,0,SIX).withChronology(null),m.getStart());
     }
 
-    public void testSetIntoInterval_Object_Chronology5_2_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology5_2_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "P1Y2M/2004-06-09T+06:00", null);
         // removed other assertion
         assertEquals(new DateTime(2004,6,9,0,0,0,0,SIX).withChronology(null),m.getEnd());
     }
 
-    public void testSetIntoInterval_Object_Chronology5_3_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology5_3_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "P1Y2M/2004-06-09T+06:00", null);
         // removed other assertion
@@ -1866,20 +1866,20 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(ISOChronology.getInstance(),m.getChronology());
     }
 
-    public void testSetIntoInterval_Object_Chronology6_1_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology6_1_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2003-08-09T+06:00/2004-06-09T+07:00", null);
         assertEquals(new DateTime(2003,8,9,0,0,0,0,SIX).withChronology(null),m.getStart());
     }
 
-    public void testSetIntoInterval_Object_Chronology6_2_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology6_2_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2003-08-09T+06:00/2004-06-09T+07:00", null);
         // removed other assertion
         assertEquals(new DateTime(2004,6,9,0,0,0,0,SEVEN).withChronology(null),m.getEnd());
     }
 
-    public void testSetIntoInterval_Object_Chronology6_3_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology6_3_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2003-08-09T+06:00/2004-06-09T+07:00", null);
         // removed other assertion
@@ -1887,20 +1887,20 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(ISOChronology.getInstance(),m.getChronology());
     }
 
-    public void testSetIntoInterval_Object_Chronology7_1_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology7_1_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2003-08-09/2004-06-09", BuddhistChronology.getInstance());
         assertEquals(new DateTime(2003,8,9,0,0,0,0,BuddhistChronology.getInstance()),m.getStart());
     }
 
-    public void testSetIntoInterval_Object_Chronology7_2_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology7_2_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2003-08-09/2004-06-09", BuddhistChronology.getInstance());
         // removed other assertion
         assertEquals(new DateTime(2004,6,9,0,0,0,0,BuddhistChronology.getInstance()),m.getEnd());
     }
 
-    public void testSetIntoInterval_Object_Chronology7_3_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology7_3_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2003-08-09/2004-06-09", BuddhistChronology.getInstance());
         // removed other assertion
@@ -1908,20 +1908,20 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(BuddhistChronology.getInstance(),m.getChronology());
     }
 
-    public void testSetIntoInterval_Object_Chronology8_1_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology8_1_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2003-08-09T+06:00/2004-06-09T+07:00", BuddhistChronology.getInstance(EIGHT));
         assertEquals(new DateTime(2003,8,9,0,0,0,0,BuddhistChronology.getInstance(SIX)).withZone(EIGHT),m.getStart());
     }
 
-    public void testSetIntoInterval_Object_Chronology8_2_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology8_2_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2003-08-09T+06:00/2004-06-09T+07:00", BuddhistChronology.getInstance(EIGHT));
         // removed other assertion
         assertEquals(new DateTime(2004,6,9,0,0,0,0,BuddhistChronology.getInstance(SEVEN)).withZone(EIGHT),m.getEnd());
     }
 
-    public void testSetIntoInterval_Object_Chronology8_3_oe() throws Exception {
+public void testSetIntoInterval_Object_Chronology8_3_oe() throws Exception {
         MutableInterval m = new MutableInterval(-1000L, 1000L);
         StringConverter.INSTANCE.setInto(m, "2003-08-09T+06:00/2004-06-09T+07:00", BuddhistChronology.getInstance(EIGHT));
         // removed other assertion
@@ -1929,7 +1929,7 @@ public class TestStringConverter_OE25Dev extends TestCase {
         assertEquals(BuddhistChronology.getInstance(EIGHT),m.getChronology());
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         assertEquals("Converter[java.lang.String]",StringConverter.INSTANCE.toString());
     }
 

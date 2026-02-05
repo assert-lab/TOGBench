@@ -42,7 +42,7 @@ public class TestFileSystemLocationStrategy_OE25Dev {
      * Tests a locate() operation.
      */
 
-    @Test
+@Test
     public void testLocate_1_oe() {
         final FileSystem fs = EasyMock.createMock(FileSystem.class);
         final URL url = ConfigurationAssert.getTestURL("test.xml");

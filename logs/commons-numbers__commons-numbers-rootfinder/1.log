@@ -26,7 +26,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-rootfinder ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-rootfinder' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-rootfinder
-[INFO] Storing buildNumber: 4e96f64c167c9f400b8bc7340bf57241aa8435a5 at timestamp: 1770255694239
+[INFO] Storing buildNumber: e4cf1dbede35d5b995b6d81363d313f167d9b312 at timestamp: 1770279552512
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-rootfinder ---
@@ -50,26 +50,19 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-numbers-rootfinder ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 5 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-rootfinder/target/test-classes
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-rootfinder/src/test/java/org/apache/commons/numbers/rootfinder/BrentSolverTest_OE25Dev.java:[1283,40] cannot find symbol
-  symbol:   variable ex
-  location: class org.apache.commons.numbers.rootfinder.BrentSolverTest_OE25Dev
-[INFO] 1 error
-[INFO] -------------------------------------------------------------
+[INFO] Compiling 4 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-rootfinder/target/test-classes
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-rootfinder ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-rootfinder/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-numbers-rootfinder ---
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  5.867 s
-[INFO] Finished at: 2026-02-04T19:41:37-06:00
+[INFO] Total time:  5.820 s
+[INFO] Finished at: 2026-02-05T02:19:15-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-numbers-rootfinder: Compilation failure
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-rootfinder/src/test/java/org/apache/commons/numbers/rootfinder/BrentSolverTest_OE25Dev.java:[1283,40] cannot find symbol
-[ERROR]   symbol:   variable ex
-[ERROR]   location: class org.apache.commons.numbers.rootfinder.BrentSolverTest_OE25Dev
-[ERROR] -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-numbers-rootfinder: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

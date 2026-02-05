@@ -77,7 +77,7 @@ public class DoubleConverterTestCase_OE25Dev extends NumberConverterTestBase {
 
     // ------------------------------------------------------------------------
 
-    public void testSimpleConversion_1_oe() throws Exception {
+public void testSimpleConversion_1_oe() throws Exception {
         final String[] message= {
             "from String",
             "from String",
@@ -131,7 +131,7 @@ public class DoubleConverterTestCase_OE25Dev extends NumberConverterTestBase {
     }
     }
 
-    public void testSimpleConversion_2_oe() throws Exception {
+public void testSimpleConversion_2_oe() throws Exception {
         final String[] message= {
             "from String",
             "from String",
@@ -186,7 +186,7 @@ public class DoubleConverterTestCase_OE25Dev extends NumberConverterTestBase {
     }
     }
 
-    public void testSimpleConversion_3_oe() throws Exception {
+public void testSimpleConversion_3_oe() throws Exception {
         final String[] message= {
             "from String",
             "from String",

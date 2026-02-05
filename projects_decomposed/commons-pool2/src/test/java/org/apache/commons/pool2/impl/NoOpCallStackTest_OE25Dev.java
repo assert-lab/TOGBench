@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 
 public class NoOpCallStackTest_OE25Dev {
 
-    @Test
+@Test
     public void printStackTraceIsNoOp_1_oe() {
         final CallStack stack = NoOpCallStack.INSTANCE;
         stack.fillInStackTrace();

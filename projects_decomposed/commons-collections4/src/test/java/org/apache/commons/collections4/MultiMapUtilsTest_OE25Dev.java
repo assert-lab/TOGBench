@@ -36,23 +36,23 @@ import org.junit.Test;
  */
 public class MultiMapUtilsTest_OE25Dev {
 
-    public void testEmptyUnmodifiableMultiValuedMap_1_oe() {
+public void testEmptyUnmodifiableMultiValuedMap_1_oe() {
         final MultiValuedMap map = MultiMapUtils.EMPTY_MULTI_VALUED_MAP;
         assertTrue(map.isEmpty());
     }
 
-    @Test
+@Test
     public void testTypeSafeEmptyMultiValuedMap_1_oe() {
         final MultiValuedMap<String, String> map = MultiMapUtils.<String, String>emptyMultiValuedMap();
         assertTrue(map.isEmpty());
     }
 
-    @Test
+@Test
     public void testEmptyIfNull_1_oe() {
         assertTrue(MultiMapUtils.emptyIfNull(null).isEmpty());
     }
 
-    @Test
+@Test
     public void testEmptyIfNull_2_oe() {
         // removed other assertion
 
@@ -61,31 +61,31 @@ public class MultiMapUtilsTest_OE25Dev {
         assertFalse(MultiMapUtils.emptyIfNull(map).isEmpty());
     }
 
-    @Test
+@Test
     public void testIsEmptyWithEmptyMap_1_oe() {
         final MultiValuedMap<Object, Object> map = new ArrayListValuedHashMap<>();
         assertEquals(true, MultiMapUtils.isEmpty(map));
     }
 
-    @Test
+@Test
     public void testIsEmptyWithNonEmptyMap_1_oe() {
         final MultiValuedMap<String, String> map = new ArrayListValuedHashMap<>();
         map.put("item", "value");
         assertEquals(false, MultiMapUtils.isEmpty(map));
     }
 
-    @Test
+@Test
     public void testIsEmptyWithNull_1_oe() {
         final MultiValuedMap<Object, Object> map = null;
         assertEquals(true, MultiMapUtils.isEmpty(map));
     }
 
-    @Test
+@Test
     public void testGetCollection_1_oe() {
         assertNull(MultiMapUtils.getCollection(null, "key1"));
     }
 
-    @Test
+@Test
     public void testGetCollection_2_oe() {
         // removed other assertion
 
@@ -101,12 +101,12 @@ public class MultiMapUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetValuesAsList_1_oe() {
         assertNull(MultiMapUtils.getValuesAsList(null, "key1"));
     }
 
-    @Test
+@Test
     public void testGetValuesAsList_2_oe() {
         // removed other assertion
 
@@ -123,12 +123,12 @@ public class MultiMapUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetValuesAsSet_1_oe() {
         assertNull(MultiMapUtils.getValuesAsList(null, "key1"));
     }
 
-    @Test
+@Test
     public void testGetValuesAsSet_2_oe() {
         // removed other assertion
 
@@ -143,7 +143,7 @@ public class MultiMapUtilsTest_OE25Dev {
         assertEquals(3, set.size());
     }
 
-    @Test
+@Test
     public void testGetValuesAsSet_3_oe() {
         // removed other assertion
 
@@ -161,12 +161,12 @@ public class MultiMapUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetValuesAsBag_1_oe() {
         assertNull(MultiMapUtils.getValuesAsBag(null, "key1"));
     }
 
-    @Test
+@Test
     public void testGetValuesAsBag_2_oe() {
         // removed other assertion
 
@@ -181,7 +181,7 @@ public class MultiMapUtilsTest_OE25Dev {
         assertEquals(6, bag.size());
     }
 
-    @Test
+@Test
     public void testGetValuesAsBag_3_oe() {
         // removed other assertion
 
@@ -199,7 +199,7 @@ public class MultiMapUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetValuesAsBag_4_oe() {
         // removed other assertion
 

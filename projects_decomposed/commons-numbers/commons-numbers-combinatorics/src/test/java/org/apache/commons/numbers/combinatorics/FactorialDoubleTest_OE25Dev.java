@@ -35,41 +35,41 @@ class FactorialDoubleTest_OE25Dev {
         return result;
     }
 
-    @Test
+@Test
     void testFactorialZero_1_oe() {
         Assertions.assertEquals(1, FactorialDouble.create().value(0), "0!");
     }
 
-    @Test
+@Test
     void testFactorialDirect_1_oe() {
         for (int i = 1; i < 21; i++) {
             Assertions.assertEquals(factorialDirect(i),FactorialDouble.create().value(i),i + "!");
     }
     }
 
-    @Test
+@Test
     void testLargestFactorialDouble_1_oe() {
         final int n = 170;
         Assertions.assertNotEquals(Double.POSITIVE_INFINITY,FactorialDouble.create().value(n),()-> n + "!");
     }
 
-    @Test
+@Test
     void testFactorialDoubleTooLarge_1_oe() {
         final int n = 171;
         Assertions.assertEquals(Double.POSITIVE_INFINITY,FactorialDouble.create().value(n),()-> n + "!");
     }
 
-    @Test
+@Test
     void testNonPositiveArgumentWithCache_1_oe() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> FactorialDouble.create().withCache(-1) );
     }
 
-    @Test
+@Test
     void testNonPositiveArgument_1_oe() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> FactorialDouble.create().value(-1) );
     }
 
-    @Test
+@Test
     void testCompareDirectWithoutCache_1_oe() {
         // This test shows that delegating to the "Gamma" class will also lead to a
         // less accurate result.
@@ -83,7 +83,7 @@ class FactorialDoubleTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testCompareDirectWithCache_1_oe() {
         final int max = 100;
         final FactorialDouble f = FactorialDouble.create().withCache(max);
@@ -94,7 +94,7 @@ class FactorialDoubleTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testCacheIncrease_1_oe() {
         final int max = 100;
         final FactorialDouble f1 = FactorialDouble.create().withCache(max);
@@ -104,14 +104,14 @@ class FactorialDoubleTest_OE25Dev {
         Assertions.assertEquals(f1.value(val), f2.value(val));
     }
 
-    @Test
+@Test
     void testZeroCache_1_oe() {
         // Ensure that no exception is thrown.
         final FactorialDouble f = FactorialDouble.create().withCache(0);
         Assertions.assertEquals(1, f.value(0));
     }
 
-    @Test
+@Test
     void testZeroCache_2_oe() {
         // Ensure that no exception is thrown.
         final FactorialDouble f = FactorialDouble.create().withCache(0);
@@ -119,12 +119,12 @@ class FactorialDoubleTest_OE25Dev {
         Assertions.assertEquals(1, f.value(1));
     }
 
-    @Test
+@Test
     void testUselessCache_1_oe() {
         Assertions.assertDoesNotThrow(() -> { LogFactorial.create().withCache(1); LogFactorial.create().withCache(2); });
     }
 
-    @Test
+@Test
     void testCacheDecrease_1_oe() {
         final int max = 100;
         final FactorialDouble f1 = FactorialDouble.create().withCache(max);

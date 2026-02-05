@@ -120,7 +120,7 @@ public class LastModifiedTests_OE25Dev extends AbstractProviderTestCase {
         }
     }
 
-    @Test
+@Test
     public void testGetAccurary_1_oe() throws FileSystemException {
         final FileObject file = getReadFolder().resolveFile("file1.txt");
         final long lastModTimeAccuracyMillis = (long) file.getFileSystem().getLastModTimeAccuracy();
@@ -129,7 +129,7 @@ public class LastModifiedTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue("Accuracy must be positive", lastModTimeAccuracyMillis >= 0);
     }
 
-    @Test
+@Test
     public void testGetAccurary_2_oe() throws FileSystemException {
         final FileObject file = getReadFolder().resolveFile("file1.txt");
         final long lastModTimeAccuracyMillis = (long) file.getFileSystem().getLastModTimeAccuracy();
@@ -140,13 +140,13 @@ public class LastModifiedTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue("Accuracy must be < 2m", lastModTimeAccuracyMillis < Duration.ofMinutes(2).toMillis());
     }
 
-    @Test
+@Test
     public void testGetLastModifiedFile_1_oe() throws FileSystemException {
         final FileObject file = getReadFolder().resolveFile("file1.txt");
         assertNotEquals(0L, file.getContent().getLastModifiedTime());
     }
 
-    @Test
+@Test
     public void testGetLastModifiedFolder_1_oe() throws FileSystemException {
         final FileObject file = getReadFolder().resolveFile("dir1");
         assertNotEquals(0L, file.getContent().getLastModifiedTime());

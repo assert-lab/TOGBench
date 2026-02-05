@@ -90,7 +90,7 @@ public class TestNodeUpdateData_OE25Dev {
      * Tests whether a defensive copy is created from the removed nodes.
      */
 
-    @Test
+@Test
     public void testInitChangedValuesDefensiveCopy_1_oe() {
         final Map<QueryResult<Object>, Object> map = new HashMap<>();
         map.put(result("test"), "value");
@@ -100,7 +100,7 @@ public class TestNodeUpdateData_OE25Dev {
         assertEquals("Wrong number of changed values", 1, changedValues.size());
     }
 
-    @Test
+@Test
     public void testInitChangedValuesDefensiveCopy_2_oe() {
         final Map<QueryResult<Object>, Object> map = new HashMap<>();
         map.put(result("test"), "value");
@@ -111,7 +111,7 @@ public class TestNodeUpdateData_OE25Dev {
         assertEquals("Wrong changed value", "value", changedValues.get(result("test")));
     }
 
-    @Test
+@Test
     public void testInitNewValuesDefensiveCopy_1_oe() {
         final Collection<Object> col = new LinkedList<>();
         col.add(42);
@@ -121,7 +121,7 @@ public class TestNodeUpdateData_OE25Dev {
         assertEquals("Wrong number of new values", 1, newValues.size());
     }
 
-    @Test
+@Test
     public void testInitNewValuesDefensiveCopy_2_oe() {
         final Collection<Object> col = new LinkedList<>();
         col.add(42);
@@ -132,20 +132,20 @@ public class TestNodeUpdateData_OE25Dev {
         assertEquals("Wrong value", 42, newValues.iterator().next());
     }
 
-    @Test
+@Test
     public void testInitNoData_1_oe() {
         final NodeUpdateData<Object> data = new NodeUpdateData<>(null, null, null, null);
         assertTrue("Got changed values", data.getChangedValues().isEmpty());
     }
 
-    @Test
+@Test
     public void testInitNoData_2_oe() {
         final NodeUpdateData<Object> data = new NodeUpdateData<>(null, null, null, null);
         // removed other assertion
         assertTrue("Got new values", data.getNewValues().isEmpty());
     }
 
-    @Test
+@Test
     public void testInitNoData_3_oe() {
         final NodeUpdateData<Object> data = new NodeUpdateData<>(null, null, null, null);
         // removed other assertion
@@ -153,7 +153,7 @@ public class TestNodeUpdateData_OE25Dev {
         assertTrue("Got removed nodes", data.getRemovedNodes().isEmpty());
     }
 
-    @Test
+@Test
     public void testInitRemovedNodesDefensiveCopy_1_oe() {
         final Collection<QueryResult<Object>> col = new LinkedList<>();
         col.add(result("n1"));
@@ -163,7 +163,7 @@ public class TestNodeUpdateData_OE25Dev {
         assertEquals("Wrong number of new values", 1, removedNodes.size());
     }
 
-    @Test
+@Test
     public void testInitRemovedNodesDefensiveCopy_2_oe() {
         final Collection<QueryResult<Object>> col = new LinkedList<>();
         col.add(result("n1"));

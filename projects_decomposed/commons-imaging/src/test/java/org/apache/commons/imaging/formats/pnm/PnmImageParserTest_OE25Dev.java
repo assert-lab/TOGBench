@@ -42,7 +42,7 @@ public class PnmImageParserTest_OE25Dev {
      * {@link NumberFormatException}.
      */
 
-    @Test
+@Test
     public void testGetImageInfo_happyCase_1_oe() throws ImageReadException, IOException {
         final byte[] bytes = "P1\n3 2\n0 1 0\n1 0 1\n".getBytes(US_ASCII);
         final PnmImagingParameters params = new PnmImagingParameters();
@@ -51,7 +51,7 @@ public class PnmImageParserTest_OE25Dev {
         assertEquals(results.getBitsPerPixel(), 1);
     }
 
-    @Test
+@Test
     public void testGetImageInfo_happyCase_2_oe() throws ImageReadException, IOException {
         final byte[] bytes = "P1\n3 2\n0 1 0\n1 0 1\n".getBytes(US_ASCII);
         final PnmImagingParameters params = new PnmImagingParameters();
@@ -61,7 +61,7 @@ public class PnmImageParserTest_OE25Dev {
         assertEquals(results.getWidth(), 3);
     }
 
-    @Test
+@Test
     public void testGetImageInfo_happyCase_3_oe() throws ImageReadException, IOException {
         final byte[] bytes = "P1\n3 2\n0 1 0\n1 0 1\n".getBytes(US_ASCII);
         final PnmImagingParameters params = new PnmImagingParameters();
@@ -72,7 +72,7 @@ public class PnmImageParserTest_OE25Dev {
         assertEquals(results.getHeight(), 2);
     }
 
-    @Test
+@Test
     public void testGetImageInfo_happyCase_4_oe() throws ImageReadException, IOException {
         final byte[] bytes = "P1\n3 2\n0 1 0\n1 0 1\n".getBytes(US_ASCII);
         final PnmImagingParameters params = new PnmImagingParameters();
@@ -84,7 +84,7 @@ public class PnmImageParserTest_OE25Dev {
         assertEquals(results.getNumberOfImages(), 1);
     }
 
-    @Test
+@Test
     public void testWriteImageRaw_happyCase_1_oe() throws ImageWriteException,
                                                      ImageReadException, IOException {
         final BufferedImage srcImage = new BufferedImage(10, 10, BufferedImage.TYPE_INT_ARGB);
@@ -95,7 +95,7 @@ public class PnmImageParserTest_OE25Dev {
         assertEquals(srcImage.getWidth(), dstImage.getWidth());
     }
 
-    @Test
+@Test
     public void testWriteImageRaw_happyCase_2_oe() throws ImageWriteException,
                                                      ImageReadException, IOException {
         final BufferedImage srcImage = new BufferedImage(10, 10, BufferedImage.TYPE_INT_ARGB);
@@ -107,7 +107,7 @@ public class PnmImageParserTest_OE25Dev {
         assertEquals(srcImage.getHeight(), dstImage.getHeight());
     }
 
-    @Test
+@Test
     public void testWriteImageRaw_happyCase_3_oe() throws ImageWriteException,
                                                      ImageReadException, IOException {
         final BufferedImage srcImage = new BufferedImage(10, 10, BufferedImage.TYPE_INT_ARGB);
@@ -129,7 +129,7 @@ public class PnmImageParserTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetImageInfo_invalidWidth_1_oe() {
         final byte[] bytes = "P1\na 2\n0 0 0 0 0 0 0 0 0 0 0\n1 1 1 1 1 1 1 1 1 1 1\n".getBytes(US_ASCII);
         final PnmImagingParameters params = new PnmImagingParameters();
@@ -137,7 +137,7 @@ public class PnmImageParserTest_OE25Dev {
         Assertions.assertThrows(ImageReadException.class, () -> underTest.getImageInfo(bytes, params));
     }
 
-    @Test
+@Test
     public void testGetImageInfo_invalidHeight_1_oe() {
         final byte[] bytes = "P1\n2 a\n0 0\n0 0\n0 0\n0 0\n0 0\n0 1\n1 1\n1 1\n1 1\n1 1\n1 1\n".getBytes(US_ASCII);
         final PnmImagingParameters params = new PnmImagingParameters();
@@ -145,7 +145,7 @@ public class PnmImageParserTest_OE25Dev {
         Assertions.assertThrows(ImageReadException.class, () -> underTest.getImageInfo(bytes, params));
     }
 
-    @Test
+@Test
     public void testGetImageInfo_missingWidthValue_1_oe() {
         final byte[] bytes = "P7\nWIDTH \n".getBytes(US_ASCII);
         final PnmImagingParameters params = new PnmImagingParameters();

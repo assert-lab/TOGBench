@@ -31,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PngMultipleRoundtripTest_OE25Dev extends PngBaseTest {
 
-    @Test
+@Test
     public void test_1_oe() throws Exception {
         final String imagesFolderPath = FilenameUtils.separatorsToSystem(
                 "src\\test\\data\\images\\png\\3");
@@ -39,7 +39,7 @@ public class PngMultipleRoundtripTest_OE25Dev extends PngBaseTest {
         assertTrue(imagesFolder.exists() && imagesFolder.isDirectory());
     }
 
-    @Test
+@Test
     public void test_2_oe() throws Exception {
         final String imagesFolderPath = FilenameUtils.separatorsToSystem(
                 "src\\test\\data\\images\\png\\3");

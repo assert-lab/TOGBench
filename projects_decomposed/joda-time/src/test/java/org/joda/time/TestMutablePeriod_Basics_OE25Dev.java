@@ -353,45 +353,45 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
     
-    public void testTest_1_oe() {
+public void testTest_1_oe() {
         assertEquals("2002-06-09T00:00:00.000Z",new Instant(TEST_TIME_NOW).toString());
     }
 
-    public void testTest_2_oe() {
+public void testTest_2_oe() {
         // removed other assertion
         assertEquals("2002-04-05T12:24:00.000Z",new Instant(TEST_TIME1).toString());
     }
 
-    public void testTest_3_oe() {
+public void testTest_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("2003-05-06T14:28:00.000Z",new Instant(TEST_TIME2).toString());
     }
 
-    public void testGetPeriodType_1_oe() {
+public void testGetPeriodType_1_oe() {
         MutablePeriod test = new MutablePeriod();
         assertEquals(PeriodType.standard(),test.getPeriodType());
     }
 
-    public void testGetMethods_1_oe() {
+public void testGetMethods_1_oe() {
         MutablePeriod test = new MutablePeriod();
         assertEquals(0,test.getYears());
     }
 
-    public void testGetMethods_2_oe() {
+public void testGetMethods_2_oe() {
         MutablePeriod test = new MutablePeriod();
         // removed other assertion
         assertEquals(0,test.getMonths());
     }
 
-    public void testGetMethods_3_oe() {
+public void testGetMethods_3_oe() {
         MutablePeriod test = new MutablePeriod();
         // removed other assertion
         // removed other assertion
         assertEquals(0,test.getDays());
     }
 
-    public void testGetMethods_4_oe() {
+public void testGetMethods_4_oe() {
         MutablePeriod test = new MutablePeriod();
         // removed other assertion
         // removed other assertion
@@ -399,7 +399,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getWeeks());
     }
 
-    public void testGetMethods_5_oe() {
+public void testGetMethods_5_oe() {
         MutablePeriod test = new MutablePeriod();
         // removed other assertion
         // removed other assertion
@@ -408,7 +408,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getDays());
     }
 
-    public void testGetMethods_6_oe() {
+public void testGetMethods_6_oe() {
         MutablePeriod test = new MutablePeriod();
         // removed other assertion
         // removed other assertion
@@ -418,7 +418,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getHours());
     }
 
-    public void testGetMethods_7_oe() {
+public void testGetMethods_7_oe() {
         MutablePeriod test = new MutablePeriod();
         // removed other assertion
         // removed other assertion
@@ -429,7 +429,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMinutes());
     }
 
-    public void testGetMethods_8_oe() {
+public void testGetMethods_8_oe() {
         MutablePeriod test = new MutablePeriod();
         // removed other assertion
         // removed other assertion
@@ -441,7 +441,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getSeconds());
     }
 
-    public void testGetMethods_9_oe() {
+public void testGetMethods_9_oe() {
         MutablePeriod test = new MutablePeriod();
         // removed other assertion
         // removed other assertion
@@ -454,20 +454,20 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(0,test.getMillis());
     }
 
-    public void testEqualsHashCode_1_oe() {
+public void testEqualsHashCode_1_oe() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
         assertEquals(true,test1.equals(test2));
     }
 
-    public void testEqualsHashCode_2_oe() {
+public void testEqualsHashCode_2_oe() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
         // removed other assertion
         assertEquals(true,test2.equals(test1));
     }
 
-    public void testEqualsHashCode_3_oe() {
+public void testEqualsHashCode_3_oe() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
         // removed other assertion
@@ -475,7 +475,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.equals(test1));
     }
 
-    public void testEqualsHashCode_4_oe() {
+public void testEqualsHashCode_4_oe() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
         // removed other assertion
@@ -484,7 +484,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.equals(test2));
     }
 
-    public void testEqualsHashCode_5_oe() {
+public void testEqualsHashCode_5_oe() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
         // removed other assertion
@@ -494,7 +494,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test2.hashCode());
     }
 
-    public void testEqualsHashCode_6_oe() {
+public void testEqualsHashCode_6_oe() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
         // removed other assertion
@@ -505,7 +505,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test1.hashCode());
     }
 
-    public void testEqualsHashCode_7_oe() {
+public void testEqualsHashCode_7_oe() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
         // removed other assertion
@@ -517,7 +517,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.hashCode()== test2.hashCode());
     }
 
-    public void testEqualsHashCode_8_oe() {
+public void testEqualsHashCode_8_oe() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
         // removed other assertion
@@ -532,7 +532,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals(test3));
     }
 
-    public void testEqualsHashCode_9_oe() {
+public void testEqualsHashCode_9_oe() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
         // removed other assertion
@@ -548,7 +548,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.equals(test3));
     }
 
-    public void testEqualsHashCode_10_oe() {
+public void testEqualsHashCode_10_oe() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
         // removed other assertion
@@ -565,7 +565,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.equals(test1));
     }
 
-    public void testEqualsHashCode_11_oe() {
+public void testEqualsHashCode_11_oe() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
         // removed other assertion
@@ -583,7 +583,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.equals(test2));
     }
 
-    public void testEqualsHashCode_12_oe() {
+public void testEqualsHashCode_12_oe() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
         // removed other assertion
@@ -602,7 +602,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.hashCode()== test3.hashCode());
     }
 
-    public void testEqualsHashCode_13_oe() {
+public void testEqualsHashCode_13_oe() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
         // removed other assertion
@@ -622,7 +622,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.hashCode()== test3.hashCode());
     }
 
-    public void testEqualsHashCode_14_oe() {
+public void testEqualsHashCode_14_oe() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
         // removed other assertion
@@ -644,7 +644,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals("Hello"));
     }
 
-    public void testEqualsHashCode_15_oe() {
+public void testEqualsHashCode_15_oe() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
         // removed other assertion
@@ -667,7 +667,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.equals(new MockMutablePeriod(123L)));
     }
 
-    public void testEqualsHashCode_16_oe() {
+public void testEqualsHashCode_16_oe() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
         // removed other assertion
@@ -691,7 +691,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals(new Period(123L,PeriodType.dayTime())));
     }
 
-    public void testSerialization_1_oe() throws Exception {
+public void testSerialization_1_oe() throws Exception {
         MutablePeriod test = new MutablePeriod(123L);
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -708,12 +708,12 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals(test,result);
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
         assertEquals("P1Y2M3W4DT5H6M7.008S",test.toString());
     }
 
-    public void testToString_2_oe() {
+public void testToString_2_oe() {
         MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         
@@ -721,7 +721,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals("PT0S",test.toString());
     }
 
-    public void testToString_3_oe() {
+public void testToString_3_oe() {
         MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
         // removed other assertion
         
@@ -732,43 +732,43 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
         assertEquals("PT12.345S",test.toString());
     }
 
-    public void testToPeriod_1_oe() {
+public void testToPeriod_1_oe() {
         MutablePeriod test = new MutablePeriod(123L);
         Period result = test.toPeriod();
         assertEquals(test,result);
     }
 
-    public void testToMutablePeriod_1_oe() {
+public void testToMutablePeriod_1_oe() {
         MutablePeriod test = new MutablePeriod(123L);
         MutablePeriod result = test.toMutablePeriod();
         assertEquals(test,result);
     }
 
-    public void testToDurationFrom_1_oe() {
+public void testToDurationFrom_1_oe() {
         MutablePeriod test = new MutablePeriod(123L);
         assertEquals(new Duration(123L),test.toDurationFrom(new Instant(0L)));
     }
 
-    public void testCopy_1_oe() {
+public void testCopy_1_oe() {
         MutablePeriod test = new MutablePeriod(123L);
         MutablePeriod copy = test.copy();
         assertEquals(test.getPeriodType(),copy.getPeriodType());
     }
 
-    public void testCopy_2_oe() {
+public void testCopy_2_oe() {
         MutablePeriod test = new MutablePeriod(123L);
         MutablePeriod copy = test.copy();
         // removed other assertion
         assertEquals(test,copy);
     }
 
-    public void testClone_1_oe() {
+public void testClone_1_oe() {
         MutablePeriod test = new MutablePeriod(123L);
         MutablePeriod copy = (MutablePeriod) test.clone();
         assertEquals(test.getPeriodType(),copy.getPeriodType());
     }
 
-    public void testClone_2_oe() {
+public void testClone_2_oe() {
         MutablePeriod test = new MutablePeriod(123L);
         MutablePeriod copy = (MutablePeriod) test.clone();
         // removed other assertion

@@ -65,7 +65,7 @@ public class OutParameterTest_OE25Dev {
         verify(stmt, times(1)).setObject(INDEX, VALUE);
     }
 
-    @Test
+@Test
     public void testSetValue_1_oe() throws Exception {
         when(stmt.getObject(INDEX)).thenReturn(VALUE);
 

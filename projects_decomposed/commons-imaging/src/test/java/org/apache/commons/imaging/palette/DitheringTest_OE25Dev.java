@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
  **/
 public class DitheringTest_OE25Dev {
 
-  @Test
+@Test
   public void testApplyFloydSteinbergDitheringWithNonNullOne_1_oe() throws ImageWriteException {
       final BufferedImage bufferedImage = new BufferedImage(8, 8, 8);
       bufferedImage.setRGB(2, 2, 2);
@@ -44,7 +44,7 @@ public class DitheringTest_OE25Dev {
       assertEquals(-16777208, bufferedImage.getRGB(0,0) );
   }
 
-  @Test
+@Test
   public void testApplyFloydSteinbergDitheringWithNonNullOne_2_oe() throws ImageWriteException {
       final BufferedImage bufferedImage = new BufferedImage(8, 8, 8);
       bufferedImage.setRGB(2, 2, 2);
@@ -59,7 +59,7 @@ public class DitheringTest_OE25Dev {
       assertEquals(-16777208, bufferedImage.getRGB(1,1) );
   }
 
-  @Test
+@Test
   public void testApplyFloydSteinbergDitheringWithNonNullOne_3_oe() throws ImageWriteException {
       final BufferedImage bufferedImage = new BufferedImage(8, 8, 8);
       bufferedImage.setRGB(2, 2, 2);
@@ -75,7 +75,7 @@ public class DitheringTest_OE25Dev {
       assertEquals(-16777208, bufferedImage.getRGB(2,1) );
   }
 
-  @Test
+@Test
   public void testApplyFloydSteinbergDitheringWithNonNullOne_4_oe() throws ImageWriteException {
       final BufferedImage bufferedImage = new BufferedImage(8, 8, 8);
       bufferedImage.setRGB(2, 2, 2);
@@ -92,7 +92,7 @@ public class DitheringTest_OE25Dev {
       assertEquals(-16777208, bufferedImage.getRGB(2,2) );
   }
 
-  @Test
+@Test
   public void testApplyFloydSteinbergDitheringWithNonNullTwo_1_oe() throws ImageWriteException {
       final BufferedImage bufferedImage = new BufferedImage(3, 3, 3);
       bufferedImage.setRGB(1, 2, 4);
@@ -105,7 +105,7 @@ public class DitheringTest_OE25Dev {
       assertEquals(-1, bufferedImage.getRGB(0,0) );
   }
 
-  @Test
+@Test
   public void testApplyFloydSteinbergDitheringWithNonNullTwo_2_oe() throws ImageWriteException {
       final BufferedImage bufferedImage = new BufferedImage(3, 3, 3);
       bufferedImage.setRGB(1, 2, 4);
@@ -119,7 +119,7 @@ public class DitheringTest_OE25Dev {
       assertEquals(-1, bufferedImage.getRGB(1,1) );
   }
 
-  @Test
+@Test
   public void testApplyFloydSteinbergDitheringWithNonNullTwo_3_oe() throws ImageWriteException {
       final BufferedImage bufferedImage = new BufferedImage(3, 3, 3);
       bufferedImage.setRGB(1, 2, 4);
@@ -134,7 +134,7 @@ public class DitheringTest_OE25Dev {
       assertEquals(-1, bufferedImage.getRGB(2,1) );
   }
 
-  @Test
+@Test
   public void testApplyFloydSteinbergDitheringWithNonNullTwo_4_oe() throws ImageWriteException {
       final BufferedImage bufferedImage = new BufferedImage(3, 3, 3);
       bufferedImage.setRGB(1, 2, 4);

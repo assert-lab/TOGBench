@@ -206,19 +206,19 @@ public class TestBaseConfigurationBuilderProvider_OE25Dev {
      * Tests whether a null collection of parameter classes is handled correctly.
      */
 
-    @Test
+@Test
     public void testGetBuilderNotReloading_1_oe() throws ConfigurationException {
         final ConfigurationBuilder<? extends Configuration> builder = checkBuilder(false);
         assertEquals("Wrong builder class", FileBasedConfigurationBuilder.class, builder.getClass());
     }
 
-    @Test
+@Test
     public void testGetBuilderReloading_1_oe() throws ConfigurationException {
         final ConfigurationBuilder<? extends Configuration> builder = checkBuilder(true);
         assertEquals("Wrong builder class", ReloadingFileBasedConfigurationBuilder.class, builder.getClass());
     }
 
-    @Test
+@Test
     public void testInitNoParameterClasses_1_oe() {
         final BaseConfigurationBuilderProvider provider = new BaseConfigurationBuilderProvider(BasicConfigurationBuilder.class.getName(), null,
             PropertiesConfiguration.class.getName(), null);

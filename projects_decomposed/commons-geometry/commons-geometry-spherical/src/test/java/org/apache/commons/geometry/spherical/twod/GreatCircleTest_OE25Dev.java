@@ -255,7 +255,7 @@ class GreatCircleTest_OE25Dev {
         SphericalTestUtils.assertPointsEq(end, arc.getEndPoint(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromPoints_invalidPoints_4_oe() {
         // arrange
         final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
@@ -271,7 +271,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> GreatCircles.fromPoints(p1, Point2S.NaN, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFromPoints_invalidPoints_5_oe() {
         // arrange
         final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
@@ -288,7 +288,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> GreatCircles.fromPoints(Point2S.NaN, p2, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFromPoints_invalidPoints_6_oe() {
         // arrange
         final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
@@ -306,7 +306,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> GreatCircles.fromPoints(p1, Point2S.of(Double.POSITIVE_INFINITY, Angle.PI_OVER_TWO), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFromPoints_invalidPoints_7_oe() {
         // arrange
         final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
@@ -325,7 +325,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> GreatCircles.fromPoints(Point2S.of(Double.POSITIVE_INFINITY, Angle.PI_OVER_TWO), p2, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOffset_point_1_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -339,7 +339,7 @@ class GreatCircleTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testOffset_point_2_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -354,7 +354,7 @@ class GreatCircleTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testOffset_point_3_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -372,7 +372,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-1, circle.offset(Point2S.of(Angle.PI_OVER_TWO + 1, Angle.PI_OVER_TWO)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_point_4_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -391,7 +391,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(1, circle.offset(Point2S.of(-Angle.PI_OVER_TWO + 1, Angle.PI_OVER_TWO)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_point_5_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -413,7 +413,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-Angle.PI_OVER_TWO, circle.offset(Point2S.of(Math.PI, Angle.PI_OVER_TWO)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_point_6_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -436,7 +436,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, circle.offset(Point2S.of(0.0, Angle.PI_OVER_TWO)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_vector_1_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -448,7 +448,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0, circle.offset(Vector3D.of(0, 1, 0)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_vector_2_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -461,7 +461,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0, circle.offset(Vector3D.of(0, 0, 1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_vector_3_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -475,7 +475,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0, circle.offset(Vector3D.of(0, -1, 0)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_vector_4_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -490,7 +490,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0, circle.offset(Vector3D.of(0, 0, -1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_vector_5_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -508,7 +508,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-0.25 * Math.PI, circle.offset(Vector3D.of(-1, 1, 0)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_vector_6_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -527,7 +527,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-0.25 * Math.PI, circle.offset(Vector3D.of(-1, 0, 1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_vector_7_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -547,7 +547,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-0.25 * Math.PI, circle.offset(Vector3D.of(-1, -1, 0)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_vector_8_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -568,7 +568,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-0.25 * Math.PI, circle.offset(Vector3D.of(-1, 0, -1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_vector_9_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -591,7 +591,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.25 * Math.PI, circle.offset(Vector3D.of(1, 1, 0)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_vector_10_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -615,7 +615,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.25 * Math.PI, circle.offset(Vector3D.of(1, 0, 1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_vector_11_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -640,7 +640,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.25 * Math.PI, circle.offset(Vector3D.of(1, -1, 0)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_vector_12_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -666,7 +666,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.25 * Math.PI, circle.offset(Vector3D.of(1, 0, -1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_vector_13_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -695,7 +695,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-Angle.PI_OVER_TWO, circle.offset(Vector3D.Unit.MINUS_X), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_vector_14_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -725,7 +725,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, circle.offset(Vector3D.Unit.PLUS_X), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_point_1_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -737,7 +737,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, circle.azimuth(Point2S.from(Vector3D.of(0, 1, 0))), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_point_2_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -750,7 +750,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.0, circle.azimuth(Point2S.from(Vector3D.of(0, 0, 1))), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_point_3_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -764,7 +764,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(1.5 * Math.PI, circle.azimuth(Point2S.from(Vector3D.of(0, -1, 0))), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_point_4_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -779,7 +779,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Math.PI, circle.azimuth(Point2S.from(Vector3D.of(0, 0, -1))), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_point_5_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -797,7 +797,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, circle.azimuth(Point2S.from(Vector3D.of(-1, 1, 0))), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_point_6_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -816,7 +816,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.0, circle.azimuth(Point2S.from(Vector3D.of(-1, 0, 1))), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_point_7_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -836,7 +836,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(1.5 * Math.PI, circle.azimuth(Point2S.from(Vector3D.of(-1, -1, 0))), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_point_8_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -857,7 +857,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Math.PI, circle.azimuth(Point2S.from(Vector3D.of(-1, 0, -1))), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_point_9_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -880,7 +880,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, circle.azimuth(Point2S.from(Vector3D.of(1, 1, 0))), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_point_10_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -904,7 +904,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.0, circle.azimuth(Point2S.from(Vector3D.of(1, 0, 1))), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_point_11_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -929,7 +929,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(1.5 * Math.PI, circle.azimuth(Point2S.from(Vector3D.of(1, -1, 0))), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_point_12_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -955,7 +955,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Math.PI, circle.azimuth(Point2S.from(Vector3D.of(1, 0, -1))), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_point_13_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -984,7 +984,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0, circle.azimuth(Point2S.from(Vector3D.Unit.MINUS_X)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_point_14_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -1014,7 +1014,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0, circle.azimuth(Point2S.from(Vector3D.Unit.PLUS_X)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_vector_1_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -1026,7 +1026,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, circle.azimuth(Vector3D.of(0, 1, 0)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_vector_2_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -1039,7 +1039,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.0, circle.azimuth(Vector3D.of(0, 0, 1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_vector_3_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -1053,7 +1053,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(1.5 * Math.PI, circle.azimuth(Vector3D.of(0, -1, 0)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_vector_4_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -1068,7 +1068,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Math.PI, circle.azimuth(Vector3D.of(0, 0, -1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_vector_5_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -1086,7 +1086,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, circle.azimuth(Vector3D.of(-1, 1, 0)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_vector_6_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -1105,7 +1105,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.0, circle.azimuth(Vector3D.of(-1, 0, 1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_vector_7_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -1125,7 +1125,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(1.5 * Math.PI, circle.azimuth(Vector3D.of(-1, -1, 0)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_vector_8_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -1146,7 +1146,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Math.PI, circle.azimuth(Vector3D.of(-1, 0, -1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_vector_9_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -1169,7 +1169,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, circle.azimuth(Vector3D.of(1, 1, 0)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_vector_10_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -1193,7 +1193,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.0, circle.azimuth(Vector3D.of(1, 0, 1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_vector_11_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -1218,7 +1218,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(1.5 * Math.PI, circle.azimuth(Vector3D.of(1, -1, 0)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_vector_12_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -1244,7 +1244,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Math.PI, circle.azimuth(Vector3D.of(1, 0, -1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_vector_13_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -1273,7 +1273,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0, circle.azimuth(Vector3D.Unit.MINUS_X), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAzimuth_vector_14_oe() {
         // --- arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(
@@ -1303,7 +1303,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0, circle.azimuth(Vector3D.Unit.PLUS_X), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTransform_rotateAroundPole_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(
@@ -1320,7 +1320,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertNotSame(circle, result);
     }
 
-    @Test
+@Test
     void testTransform_rotateAroundNonPole_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(
@@ -1337,7 +1337,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertNotSame(circle, result);
     }
 
-    @Test
+@Test
     void testTransform_piMinusAzimuth_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(
@@ -1355,7 +1355,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertNotSame(circle, result);
     }
 
-    @Test
+@Test
     void testSimilarOrientation_1_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1368,7 +1368,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertTrue(a.similarOrientation(a));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_2_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1383,7 +1383,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertFalse(a.similarOrientation(b));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_3_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1399,7 +1399,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertFalse(a.similarOrientation(c));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_4_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1416,7 +1416,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertFalse(a.similarOrientation(d));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_5_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1435,7 +1435,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertTrue(a.similarOrientation(e));
     }
 
-    @Test
+@Test
     void testSpan_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1447,7 +1447,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertSame(circle, span.getCircle());
     }
 
-    @Test
+@Test
     void testSpan_2_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1460,7 +1460,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertTrue(span.getInterval().isFull());
     }
 
-    @Test
+@Test
     void testSpan_3_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1475,7 +1475,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertNull(span.getStartPoint());
     }
 
-    @Test
+@Test
     void testSpan_4_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1491,7 +1491,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertNull(span.getEndPoint());
     }
 
-    @Test
+@Test
     void testArc_points_2s_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1503,7 +1503,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertTrue(circle.arc(Point2S.PLUS_I, Point2S.PLUS_I).isFull());
     }
 
-    @Test
+@Test
     void testArc_points_1s_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1515,7 +1515,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertTrue(circle.arc(Point1S.of(1), Point1S.of(1)).isFull());
     }
 
-    @Test
+@Test
     void testArc_azimuths_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1527,7 +1527,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertTrue(circle.arc(1, 1).isFull());
     }
 
-    @Test
+@Test
     void testArc_interval_1_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1540,7 +1540,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertSame(circle, arc.getCircle());
     }
 
-    @Test
+@Test
     void testArc_interval_2_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoleAndU(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -1554,7 +1554,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertSame(interval, arc.getInterval());
     }
 
-    @Test
+@Test
     void testIntersection_parallel_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -1569,7 +1569,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertNull(a.intersection(b));
     }
 
-    @Test
+@Test
     void testIntersection_parallel_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -1585,7 +1585,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertNull(a.intersection(c));
     }
 
-    @Test
+@Test
     void testIntersection_parallel_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -1602,7 +1602,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertNull(a.intersection(d));
     }
 
-    @Test
+@Test
     void testIntersection_parallel_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -1620,7 +1620,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertNull(a.intersection(e));
     }
 
-    @Test
+@Test
     void testAngle_withoutReferencePoint_1_oe() {
      // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -1641,7 +1641,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0, a.angle(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withoutReferencePoint_2_oe() {
      // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -1663,7 +1663,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Math.PI, a.angle(b), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withoutReferencePoint_3_oe() {
      // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -1687,7 +1687,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, a.angle(c), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withoutReferencePoint_4_oe() {
      // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -1712,7 +1712,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, c.angle(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withoutReferencePoint_5_oe() {
      // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -1739,7 +1739,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, a.angle(d), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withoutReferencePoint_6_oe() {
      // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -1767,7 +1767,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, d.angle(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withoutReferencePoint_7_oe() {
      // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -1797,7 +1797,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.25 * Math.PI, a.angle(e), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withoutReferencePoint_8_oe() {
      // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -1828,7 +1828,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.25 * Math.PI, e.angle(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withoutReferencePoint_9_oe() {
      // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -1861,7 +1861,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.75 * Math.PI, a.angle(f), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withoutReferencePoint_10_oe() {
      // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -1895,7 +1895,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.75 * Math.PI, f.angle(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_1_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -1916,7 +1916,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0, a.angle(a, Point2S.PLUS_J), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_2_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -1938,7 +1938,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0, a.angle(a, Point2S.MINUS_J), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_3_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -1962,7 +1962,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-Math.PI, a.angle(b, Point2S.PLUS_J), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_4_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -1987,7 +1987,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-Math.PI, a.angle(b, Point2S.MINUS_J), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_5_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2014,7 +2014,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, a.angle(c, Point2S.PLUS_I), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_6_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2042,7 +2042,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-Angle.PI_OVER_TWO, a.angle(c, Point2S.MINUS_I), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_7_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2072,7 +2072,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-Angle.PI_OVER_TWO, c.angle(a, Point2S.PLUS_I), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_8_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2103,7 +2103,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, c.angle(a, Point2S.MINUS_I), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_9_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2136,7 +2136,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, a.angle(d, Point2S.PLUS_J), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_10_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2170,7 +2170,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-Angle.PI_OVER_TWO, a.angle(d, Point2S.MINUS_J), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_11_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2206,7 +2206,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-Angle.PI_OVER_TWO, d.angle(a, Point2S.PLUS_J), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_12_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2243,7 +2243,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, d.angle(a, Point2S.MINUS_J), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_13_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2282,7 +2282,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.25 * Math.PI, a.angle(e, Point2S.PLUS_J), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_14_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2322,7 +2322,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-0.25 * Math.PI, a.angle(e, Point2S.MINUS_J), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_15_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2364,7 +2364,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-0.25 * Math.PI, e.angle(a, Point2S.PLUS_J), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_16_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2407,7 +2407,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.25 * Math.PI, e.angle(a, Point2S.MINUS_J), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_17_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2452,7 +2452,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.75 * Math.PI, a.angle(f, Point2S.PLUS_J), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_18_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2498,7 +2498,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-0.75 * Math.PI, a.angle(f, Point2S.MINUS_J), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_19_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2546,7 +2546,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-0.75 * Math.PI, f.angle(a, Point2S.PLUS_J), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_20_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2595,7 +2595,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(0.75 * Math.PI, f.angle(a, Point2S.MINUS_J), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_pointEquidistanceFromIntersections_1_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2608,7 +2608,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-0.25 * Math.PI, a.angle(b, Point2S.PLUS_I), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_withReferencePoint_pointEquidistanceFromIntersections_2_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
@@ -2622,7 +2622,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(-0.25 * Math.PI, a.angle(b, Point2S.MINUS_I), TEST_EPS);
     }
 
-    @Test
+@Test
     void testEq_1_oe() {
         // arrange
         final double eps = 1e-3;
@@ -2643,7 +2643,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertTrue(a.eq(a, precision));
     }
 
-    @Test
+@Test
     void testEq_2_oe() {
         // arrange
         final double eps = 1e-3;
@@ -2666,7 +2666,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertFalse(a.eq(b, precision));
     }
 
-    @Test
+@Test
     void testEq_3_oe() {
         // arrange
         final double eps = 1e-3;
@@ -2690,7 +2690,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertFalse(a.eq(c, precision));
     }
 
-    @Test
+@Test
     void testEq_4_oe() {
         // arrange
         final double eps = 1e-3;
@@ -2716,7 +2716,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertTrue(a.eq(d, precision));
     }
 
-    @Test
+@Test
     void testEq_5_oe() {
         // arrange
         final double eps = 1e-3;
@@ -2743,7 +2743,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertTrue(a.eq(e, precision));
     }
 
-    @Test
+@Test
     void testEq_6_oe() {
         // arrange
         final double eps = 1e-3;
@@ -2771,7 +2771,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertTrue(e.eq(a, precision));
     }
 
-    @Test
+@Test
     void testEq_7_oe() {
         // arrange
         final double eps = 1e-3;
@@ -2801,7 +2801,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertTrue(a.eq(f, precision));
     }
 
-    @Test
+@Test
     void testEq_8_oe() {
         // arrange
         final double eps = 1e-3;
@@ -2832,7 +2832,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertTrue(f.eq(a, precision));
     }
 
-    @Test
+@Test
     void testEq_9_oe() {
         // arrange
         final double eps = 1e-3;
@@ -2865,7 +2865,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertTrue(g.eq(e, precision));
     }
 
-    @Test
+@Test
     void testEq_10_oe() {
         // arrange
         final double eps = 1e-3;
@@ -2899,7 +2899,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertTrue(e.eq(g, precision));
     }
 
-    @Test
+@Test
     void testHashCode_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -2919,7 +2919,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(hash, a.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -2941,7 +2941,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertNotEquals(hash, b.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -2964,7 +2964,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertNotEquals(hash, c.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -2988,7 +2988,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertNotEquals(hash, d.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -3014,7 +3014,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(hash, e.hashCode());
     }
 
-    @Test
+@Test
     void testEquals_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -3033,7 +3033,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertNotEquals(a, b);
     }
 
-    @Test
+@Test
     void testEquals_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -3053,7 +3053,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertNotEquals(a, c);
     }
 
-    @Test
+@Test
     void testEquals_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -3074,7 +3074,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertNotEquals(a, d);
     }
 
-    @Test
+@Test
     void testEquals_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -3097,7 +3097,7 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(a, e);
     }
 
-    @Test
+@Test
     void testEquals_6_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);

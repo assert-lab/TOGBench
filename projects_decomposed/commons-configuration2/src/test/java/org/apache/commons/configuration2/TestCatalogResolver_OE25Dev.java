@@ -94,14 +94,14 @@ public class TestCatalogResolver_OE25Dev {
         load(REWRITE_SCHEMA_FILE);
     }
 
-    @Test
+@Test
     public void testLogger_1_oe() throws Exception {
         final ConfigurationLogger log = new ConfigurationLogger(this.getClass());
         resolver.setLogger(log);
         assertNotNull("No Logger returned", resolver.getLogger());
     }
 
-    @Test
+@Test
     public void testLogger_2_oe() throws Exception {
         final ConfigurationLogger log = new ConfigurationLogger(this.getClass());
         resolver.setLogger(log);

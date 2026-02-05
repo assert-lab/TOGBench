@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ElementIT_OE25Dev {
 
-    @Test
+@Test
     public void testFastReparent_1_oe() {
         StringBuilder htmlBuf = new StringBuilder();
         int rows = 300000;
@@ -32,7 +32,7 @@ public class ElementIT_OE25Dev {
         assertEquals(rows, wrapper.childNodes.size());
     }
 
-    @Test
+@Test
     public void testFastReparent_2_oe() {
         StringBuilder htmlBuf = new StringBuilder();
         int rows = 300000;
@@ -55,7 +55,7 @@ public class ElementIT_OE25Dev {
         assertEquals(rows,childNodes.size());// child nodes is a wrapper,so still there assertEquals(0,doc.body().childNodes().size());// but on a fresh look,all gone doc.body().empty().appendChild(wrapper);
     }
 
-    @Test
+@Test
     public void testFastReparent_3_oe() {
         StringBuilder htmlBuf = new StringBuilder();
         int rows = 300000;
@@ -80,7 +80,7 @@ public class ElementIT_OE25Dev {
         assertEquals(wrapper, wrapperAcutal);
     }
 
-    @Test
+@Test
     public void testFastReparent_4_oe() {
         StringBuilder htmlBuf = new StringBuilder();
         int rows = 300000;
@@ -106,7 +106,7 @@ public class ElementIT_OE25Dev {
         assertEquals("El-1", wrapperAcutal.children().get(0).text());
     }
 
-    @Test
+@Test
     public void testFastReparent_5_oe() {
         StringBuilder htmlBuf = new StringBuilder();
         int rows = 300000;
@@ -133,7 +133,7 @@ public class ElementIT_OE25Dev {
         assertEquals("El-" + rows, wrapperAcutal.children().get(rows - 1).text());
     }
 
-    @Test
+@Test
     public void testFastReparent_6_oe() {
         StringBuilder htmlBuf = new StringBuilder();
         int rows = 300000;
@@ -161,7 +161,7 @@ public class ElementIT_OE25Dev {
         assertTrue(runtime <= 10000);
     }
 
-    @Test
+@Test
     public void testFastReparentExistingContent_1_oe() {
         StringBuilder htmlBuf = new StringBuilder();
         int rows = 300000;
@@ -181,7 +181,7 @@ public class ElementIT_OE25Dev {
         assertEquals(2, wrapper.childNodes.size());
     }
 
-    @Test
+@Test
     public void testFastReparentExistingContent_2_oe() {
         StringBuilder htmlBuf = new StringBuilder();
         int rows = 300000;
@@ -207,7 +207,7 @@ public class ElementIT_OE25Dev {
         assertEquals(rows + 2, wrapper.childNodes.size());
     }
 
-    @Test
+@Test
     public void testFastReparentExistingContent_3_oe() {
         StringBuilder htmlBuf = new StringBuilder();
         int rows = 300000;
@@ -234,7 +234,7 @@ public class ElementIT_OE25Dev {
         assertEquals(rows,childNodes.size());// child nodes is a wrapper,so still there assertEquals(0,doc.body().childNodes().size());// but on a fresh look,all gone doc.body().empty().appendChild(wrapper);
     }
 
-    @Test
+@Test
     public void testFastReparentExistingContent_4_oe() {
         StringBuilder htmlBuf = new StringBuilder();
         int rows = 300000;
@@ -263,7 +263,7 @@ public class ElementIT_OE25Dev {
         assertEquals(wrapper, wrapperAcutal);
     }
 
-    @Test
+@Test
     public void testFastReparentExistingContent_5_oe() {
         StringBuilder htmlBuf = new StringBuilder();
         int rows = 300000;
@@ -293,7 +293,7 @@ public class ElementIT_OE25Dev {
         assertEquals("Prior Content", wrapperAcutal.children().get(0).text());
     }
 
-    @Test
+@Test
     public void testFastReparentExistingContent_6_oe() {
         StringBuilder htmlBuf = new StringBuilder();
         int rows = 300000;
@@ -324,7 +324,7 @@ public class ElementIT_OE25Dev {
         assertEquals("El-1", wrapperAcutal.children().get(1).text());
     }
 
-    @Test
+@Test
     public void testFastReparentExistingContent_7_oe() {
         StringBuilder htmlBuf = new StringBuilder();
         int rows = 300000;
@@ -357,7 +357,7 @@ public class ElementIT_OE25Dev {
         assertEquals("El-" + rows, wrapperAcutal.children().get(rows).text());
     }
 
-    @Test
+@Test
     public void testFastReparentExistingContent_8_oe() {
         StringBuilder htmlBuf = new StringBuilder();
         int rows = 300000;
@@ -391,7 +391,7 @@ public class ElementIT_OE25Dev {
         assertEquals("End Content", wrapperAcutal.children().get(rows + 1).text());
     }
 
-    @Test
+@Test
     public void testFastReparentExistingContent_9_oe() {
         StringBuilder htmlBuf = new StringBuilder();
         int rows = 300000;

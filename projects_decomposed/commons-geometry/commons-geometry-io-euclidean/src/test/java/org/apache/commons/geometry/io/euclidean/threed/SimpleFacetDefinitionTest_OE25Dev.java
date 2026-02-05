@@ -70,7 +70,7 @@ class SimpleFacetDefinitionTest_OE25Dev {
         GeometryTestUtils.assertContains(", normal= (0", str);
     }
 
-    @Test
+@Test
     void testProperties_verticesOnly_1_oe() {
         // act
         final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS));
@@ -79,7 +79,7 @@ class SimpleFacetDefinitionTest_OE25Dev {
         Assertions.assertEquals(FACET_PTS, f.getVertices());
     }
 
-    @Test
+@Test
     void testProperties_verticesOnly_2_oe() {
         // act
         final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS));
@@ -89,7 +89,7 @@ class SimpleFacetDefinitionTest_OE25Dev {
         Assertions.assertNotSame(FACET_PTS, f.getVertices());
     }
 
-    @Test
+@Test
     void testProperties_verticesOnly_3_oe() {
         // act
         final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS));
@@ -103,7 +103,7 @@ class SimpleFacetDefinitionTest_OE25Dev {
         Assertions.assertThrows(UnsupportedOperationException.class, () -> vertices.add(toAdd));
     }
 
-    @Test
+@Test
     void testProperties_verticesOnly_4_oe() {
         // act
         final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS));
@@ -119,7 +119,7 @@ class SimpleFacetDefinitionTest_OE25Dev {
         Assertions.assertNull(f.getNormal());
     }
 
-    @Test
+@Test
     void testProperties_verticesAndNormal_1_oe() {
         // arrange
         final Vector3D normal = Vector3D.ZERO; // invalid normal is accepted
@@ -131,7 +131,7 @@ class SimpleFacetDefinitionTest_OE25Dev {
         Assertions.assertEquals(FACET_PTS, f.getVertices());
     }
 
-    @Test
+@Test
     void testProperties_verticesAndNormal_2_oe() {
         // arrange
         final Vector3D normal = Vector3D.ZERO; // invalid normal is accepted
@@ -144,7 +144,7 @@ class SimpleFacetDefinitionTest_OE25Dev {
         Assertions.assertNotSame(FACET_PTS, f.getVertices());
     }
 
-    @Test
+@Test
     void testProperties_verticesAndNormal_3_oe() {
         // arrange
         final Vector3D normal = Vector3D.ZERO; // invalid normal is accepted
@@ -161,7 +161,7 @@ class SimpleFacetDefinitionTest_OE25Dev {
         Assertions.assertThrows(UnsupportedOperationException.class, () -> vertices.add(toAdd));
     }
 
-    @Test
+@Test
     void testProperties_verticesAndNormal_4_oe() {
         // arrange
         final Vector3D normal = Vector3D.ZERO; // invalid normal is accepted

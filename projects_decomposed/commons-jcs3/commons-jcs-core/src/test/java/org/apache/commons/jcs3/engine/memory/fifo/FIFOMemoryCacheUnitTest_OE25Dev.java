@@ -44,7 +44,7 @@ public class FIFOMemoryCacheUnitTest_OE25Dev
      * @throws IOException
      */
 
-    public void testExpirationPolicy_oneExtra_1_oe()
+public void testExpirationPolicy_oneExtra_1_oe()
         throws IOException
     {
         // SETUP
@@ -74,7 +74,7 @@ public class FIFOMemoryCacheUnitTest_OE25Dev
         assertEquals( "Should have max elements", maxObjects, cache.getSize() );
     }
 
-    public void testExpirationPolicy_oneExtra_2_oe()
+public void testExpirationPolicy_oneExtra_2_oe()
         throws IOException
     {
         // SETUP
@@ -109,7 +109,7 @@ public class FIFOMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testExpirationPolicy_oneExtra_3_oe()
+public void testExpirationPolicy_oneExtra_3_oe()
         throws IOException
     {
         // SETUP
@@ -145,7 +145,7 @@ public class FIFOMemoryCacheUnitTest_OE25Dev
         assertNotNull( "Should have oneMoreElement", cache.get( "onemore" ) );
     }
 
-    public void testExpirationPolicy_doubleOver_1_oe()
+public void testExpirationPolicy_doubleOver_1_oe()
         throws IOException
     {
         // SETUP
@@ -171,7 +171,7 @@ public class FIFOMemoryCacheUnitTest_OE25Dev
         assertEquals( "Should have max elements", maxObjects, cache.getSize() );
     }
 
-    public void testExpirationPolicy_doubleOver_2_oe()
+public void testExpirationPolicy_doubleOver_2_oe()
         throws IOException
     {
         // SETUP

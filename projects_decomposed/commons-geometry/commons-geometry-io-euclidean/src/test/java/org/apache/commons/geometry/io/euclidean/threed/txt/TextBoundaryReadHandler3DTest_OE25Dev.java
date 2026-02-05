@@ -56,20 +56,20 @@ class TextBoundaryReadHandler3DTest_OE25Dev {
         return new ByteArrayInputStream(str.getBytes(charset));
     }
 
-    @Test
+@Test
     void testProperties_1_oe() {
         // act/assert
         Assertions.assertEquals(GeometryFormat3D.TXT, handler.getFormat());
     }
 
-    @Test
+@Test
     void testProperties_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals(StandardCharsets.UTF_8, handler.getDefaultCharset());
     }
 
-    @Test
+@Test
     void testFacetDefinitionReader_1_oe() {
         // arrange
         final InputStream in = input("0 0 0; 1 1 0; 0 1 0", StandardCharsets.UTF_8);
@@ -83,7 +83,7 @@ class TextBoundaryReadHandler3DTest_OE25Dev {
         Assertions.assertEquals(1, facets.size());
     }
 
-    @Test
+@Test
     void testFacetDefinitionReader_usesInputCharset_1_oe() {
         // arrange
         final InputStream in = input("0 0 0; 1 1 0; 0 1 0", StandardCharsets.UTF_16);
@@ -97,7 +97,7 @@ class TextBoundaryReadHandler3DTest_OE25Dev {
         Assertions.assertEquals(1, facets.size());
     }
 
-    @Test
+@Test
     void testFacetDefinitionReader_setDefaultCharset_1_oe() {
         // arrange
         handler.setDefaultCharset(StandardCharsets.UTF_16);

@@ -203,7 +203,7 @@ class InteriorAngleLinePathConnectorTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testConnectAll_squaresJoinedAtVertex_maximize_1_oe() {
         // arrange
         final Maximize connector = new Maximize();
@@ -221,7 +221,7 @@ class InteriorAngleLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_multipleSegmentsAtVertex_maximize_1_oe() {
         // arrange
         final Maximize connector = new Maximize();
@@ -239,7 +239,7 @@ class InteriorAngleLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(2, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_squaresJoinedAtVertex_minimize_1_oe() {
         // arrange
         final Minimize connector = new Minimize();
@@ -257,7 +257,7 @@ class InteriorAngleLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(2, paths.size());
     }
 
-    @Test
+@Test
     void testConnectAll_multipleSegmentsAtVertex_minimize_1_oe() {
         // arrange
         final Minimize connector = new Minimize();
@@ -275,7 +275,7 @@ class InteriorAngleLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(2, paths.size());
     }
 
-    @Test
+@Test
     void testConnectMaximized_1_oe() {
         // arrange
         final List<LineConvexSubset> segments = new ArrayList<>();
@@ -291,7 +291,7 @@ class InteriorAngleLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(2, paths.size());
     }
 
-    @Test
+@Test
     void testConnectMinimized_1_oe() {
         // arrange
         final List<LineConvexSubset> segments = new ArrayList<>();

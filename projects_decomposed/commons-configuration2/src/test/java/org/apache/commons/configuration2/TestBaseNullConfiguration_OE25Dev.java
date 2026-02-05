@@ -134,7 +134,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         config.getString("test.a");
     }
 
-    @Test
+@Test
     public void testCommaSeparatedString_1_oe() {
         final String prop = "hey, that's a test";
         config.setProperty("prop.string", prop);
@@ -142,7 +142,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("Wrong number of elements", 2, list.size());
     }
 
-    @Test
+@Test
     public void testCommaSeparatedString_2_oe() {
         final String prop = "hey, that's a test";
         config.setProperty("prop.string", prop);
@@ -151,7 +151,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("Wrong element 1", "hey", list.get(0));
     }
 
-    @Test
+@Test
     public void testCommaSeparatedStringEscaped_1_oe() {
         final String prop2 = "hey\\, that's a test";
         config.clearProperty("prop.string");
@@ -159,7 +159,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("Wrong value", "hey, that's a test", config.getString("prop.string"));
     }
 
-    @Test
+@Test
     public void testGetBigDecimal_1_oe() {
         config.setProperty("numberBigD", "123.456");
         final BigDecimal number = new BigDecimal("123.456");
@@ -168,7 +168,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("Existing key", number, config.getBigDecimal("numberBigD"));
     }
 
-    @Test
+@Test
     public void testGetBigDecimal_2_oe() {
         config.setProperty("numberBigD", "123.456");
         final BigDecimal number = new BigDecimal("123.456");
@@ -178,7 +178,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("Existing key with default value", number, config.getBigDecimal("numberBigD", defaultValue));
     }
 
-    @Test
+@Test
     public void testGetBigDecimal_3_oe() {
         config.setProperty("numberBigD", "123.456");
         final BigDecimal number = new BigDecimal("123.456");
@@ -189,12 +189,12 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("Missing key with default value", defaultValue, config.getBigDecimal("numberNotInConfig", defaultValue));
     }
 
-    @Test
+@Test
     public void testGetBigDecimalUnknown_1_oe() {
         assertNull("Missing Key is not null!", config.getBigDecimal("numberNotInConfig"));
     }
 
-    @Test
+@Test
     public void testGetBigInteger_1_oe() {
         config.setProperty("numberBigI", "1234567890");
         final BigInteger number = new BigInteger("1234567890");
@@ -203,7 +203,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("Existing key", number, config.getBigInteger("numberBigI"));
     }
 
-    @Test
+@Test
     public void testGetBigInteger_2_oe() {
         config.setProperty("numberBigI", "1234567890");
         final BigInteger number = new BigInteger("1234567890");
@@ -213,7 +213,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("Existing key with default value", number, config.getBigInteger("numberBigI", defaultValue));
     }
 
-    @Test
+@Test
     public void testGetBigInteger_3_oe() {
         config.setProperty("numberBigI", "1234567890");
         final BigInteger number = new BigInteger("1234567890");
@@ -224,19 +224,19 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("Missing key with default value", defaultValue, config.getBigInteger("numberNotInConfig", defaultValue));
     }
 
-    @Test
+@Test
     public void testGetBigIntegerUnknown_1_oe() {
         assertNull("Missing Key is not null!", config.getBigInteger("numberNotInConfig"));
     }
 
-    @Test
+@Test
     public void testGetBoolean_1_oe() {
         config.setProperty("boolA", Boolean.TRUE);
         final boolean boolT = true, boolF = false;
         assertEquals("This returns true", boolT, config.getBoolean("boolA"));
     }
 
-    @Test
+@Test
     public void testGetBoolean_2_oe() {
         config.setProperty("boolA", Boolean.TRUE);
         final boolean boolT = true, boolF = false;
@@ -244,7 +244,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns true, not the default", boolT, config.getBoolean("boolA", boolF));
     }
 
-    @Test
+@Test
     public void testGetBoolean_3_oe() {
         config.setProperty("boolA", Boolean.TRUE);
         final boolean boolT = true, boolF = false;
@@ -253,7 +253,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns false(default)", boolF, config.getBoolean("boolNotInConfig", boolF));
     }
 
-    @Test
+@Test
     public void testGetBoolean_4_oe() {
         config.setProperty("boolA", Boolean.TRUE);
         final boolean boolT = true, boolF = false;
@@ -263,7 +263,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns true(Boolean)", Boolean.valueOf(boolT), config.getBoolean("boolA", Boolean.valueOf(boolF)));
     }
 
-    @Test
+@Test
     public void testGetByte_1_oe() {
         config.setProperty("number", "1");
         final byte oneB = 1;
@@ -271,7 +271,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 1(byte)", oneB, config.getByte("number"));
     }
 
-    @Test
+@Test
     public void testGetByte_2_oe() {
         config.setProperty("number", "1");
         final byte oneB = 1;
@@ -280,7 +280,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 1(byte)", oneB, config.getByte("number", twoB));
     }
 
-    @Test
+@Test
     public void testGetByte_3_oe() {
         config.setProperty("number", "1");
         final byte oneB = 1;
@@ -290,7 +290,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 2(default byte)", twoB, config.getByte("numberNotInConfig", twoB));
     }
 
-    @Test
+@Test
     public void testGetByte_4_oe() {
         config.setProperty("number", "1");
         final byte oneB = 1;
@@ -301,7 +301,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 1(Byte)", Byte.valueOf(oneB), config.getByte("number", Byte.valueOf("2")));
     }
 
-    @Test
+@Test
     public void testGetDouble_1_oe() {
         config.setProperty("numberD", "1.0");
         final double oneD = 1;
@@ -309,7 +309,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 1(double)", oneD, config.getDouble("numberD"), 0);
     }
 
-    @Test
+@Test
     public void testGetDouble_2_oe() {
         config.setProperty("numberD", "1.0");
         final double oneD = 1;
@@ -318,7 +318,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 1(double)", oneD, config.getDouble("numberD", twoD), 0);
     }
 
-    @Test
+@Test
     public void testGetDouble_3_oe() {
         config.setProperty("numberD", "1.0");
         final double oneD = 1;
@@ -328,7 +328,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 2(default double)", twoD, config.getDouble("numberNotInConfig", twoD), 0);
     }
 
-    @Test
+@Test
     public void testGetDouble_4_oe() {
         config.setProperty("numberD", "1.0");
         final double oneD = 1;
@@ -339,7 +339,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 1(Double)", Double.valueOf(oneD), config.getDouble("numberD", Double.valueOf("2")));
     }
 
-    @Test
+@Test
     public void testGetFloat_1_oe() {
         config.setProperty("numberF", "1.0");
         final float oneF = 1;
@@ -347,7 +347,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 1(float)", oneF, config.getFloat("numberF"), 0);
     }
 
-    @Test
+@Test
     public void testGetFloat_2_oe() {
         config.setProperty("numberF", "1.0");
         final float oneF = 1;
@@ -356,7 +356,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 1(float)", oneF, config.getFloat("numberF", twoF), 0);
     }
 
-    @Test
+@Test
     public void testGetFloat_3_oe() {
         config.setProperty("numberF", "1.0");
         final float oneF = 1;
@@ -366,7 +366,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 2(default float)", twoF, config.getFloat("numberNotInConfig", twoF), 0);
     }
 
-    @Test
+@Test
     public void testGetFloat_4_oe() {
         config.setProperty("numberF", "1.0");
         final float oneF = 1;
@@ -377,7 +377,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 1(Float)", Float.valueOf(oneF), config.getFloat("numberF", Float.valueOf("2")));
     }
 
-    @Test
+@Test
     public void testGetList_1_oe() {
         config.addProperty("number", "1");
         config.addProperty("number", "2");
@@ -385,7 +385,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertNotNull("The list is null", list);
     }
 
-    @Test
+@Test
     public void testGetList_2_oe() {
         config.addProperty("number", "1");
         config.addProperty("number", "2");
@@ -394,7 +394,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("List size", 2, list.size());
     }
 
-    @Test
+@Test
     public void testGetList_3_oe() {
         config.addProperty("number", "1");
         config.addProperty("number", "2");
@@ -404,7 +404,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertTrue("The number 1 is missing from the list", list.contains("1"));
     }
 
-    @Test
+@Test
     public void testGetList_4_oe() {
         config.addProperty("number", "1");
         config.addProperty("number", "2");
@@ -415,14 +415,14 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertTrue("The number 2 is missing from the list", list.contains("2"));
     }
 
-    @Test
+@Test
     public void testGetListAsScalar_1_oe() {
         config.addProperty("number", "1");
         config.addProperty("number", "2");
         assertEquals("Wrong value", "1", config.getString("number"));
     }
 
-    @Test
+@Test
     public void testGetLong_1_oe() {
         config.setProperty("numberL", "1");
         final long oneL = 1;
@@ -430,7 +430,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 1(long)", oneL, config.getLong("numberL"));
     }
 
-    @Test
+@Test
     public void testGetLong_2_oe() {
         config.setProperty("numberL", "1");
         final long oneL = 1;
@@ -439,7 +439,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 1(long)", oneL, config.getLong("numberL", twoL));
     }
 
-    @Test
+@Test
     public void testGetLong_3_oe() {
         config.setProperty("numberL", "1");
         final long oneL = 1;
@@ -449,7 +449,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 2(default long)", twoL, config.getLong("numberNotInConfig", twoL));
     }
 
-    @Test
+@Test
     public void testGetLong_4_oe() {
         config.setProperty("numberL", "1");
         final long oneL = 1;
@@ -460,13 +460,13 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 1(Long)", Long.valueOf(oneL), config.getLong("numberL", Long.valueOf("2")));
     }
 
-    @Test
+@Test
     public void testGetProperty_1_oe() {
         /* should be empty and return null */
         assertNull("This returns null", config.getProperty("foo"));
     }
 
-    @Test
+@Test
     public void testGetProperty_2_oe() {
         /* should be empty and return null */
         // removed other assertion
@@ -476,7 +476,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns '1'", config.getProperty("number"), "1");
     }
 
-    @Test
+@Test
     public void testGetProperty_3_oe() {
         /* should be empty and return null */
         // removed other assertion
@@ -487,7 +487,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns '1'", config.getString("number"), "1");
     }
 
-    @Test
+@Test
     public void testGetShort_1_oe() {
         config.setProperty("numberS", "1");
         final short oneS = 1;
@@ -495,7 +495,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 1(short)", oneS, config.getShort("numberS"));
     }
 
-    @Test
+@Test
     public void testGetShort_2_oe() {
         config.setProperty("numberS", "1");
         final short oneS = 1;
@@ -504,7 +504,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 1(short)", oneS, config.getShort("numberS", twoS));
     }
 
-    @Test
+@Test
     public void testGetShort_3_oe() {
         config.setProperty("numberS", "1");
         final short oneS = 1;
@@ -514,7 +514,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 2(default short)", twoS, config.getShort("numberNotInConfig", twoS));
     }
 
-    @Test
+@Test
     public void testGetShort_4_oe() {
         config.setProperty("numberS", "1");
         final short oneS = 1;
@@ -525,7 +525,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns 1(Short)", Short.valueOf(oneS), config.getShort("numberS", Short.valueOf("2")));
     }
 
-    @Test
+@Test
     public void testGetString_1_oe() {
         config.setProperty("testString", "The quick brown fox");
         final String string = "The quick brown fox";
@@ -534,7 +534,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("Existing key", string, config.getString("testString"));
     }
 
-    @Test
+@Test
     public void testGetString_2_oe() {
         config.setProperty("testString", "The quick brown fox");
         final String string = "The quick brown fox";
@@ -544,7 +544,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("Existing key with default value", string, config.getString("testString", defaultValue));
     }
 
-    @Test
+@Test
     public void testGetString_3_oe() {
         config.setProperty("testString", "The quick brown fox");
         final String string = "The quick brown fox";
@@ -555,12 +555,12 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("Missing key with default value", defaultValue, config.getString("stringNotInConfig", defaultValue));
     }
 
-    @Test
+@Test
     public void testGetStringUnknown_1_oe() {
         assertNull("Missing Key is not null!", config.getString("stringNotInConfig"));
     }
 
-    @Test
+@Test
     public void testInterpolation_1_oe() throws Exception {
         config.setProperty("applicationRoot", "/home/applicationRoot");
         config.setProperty("db", "${applicationRoot}/db/hypersonic");
@@ -574,7 +574,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("Checking interpolated variable", dbProp, superProp.getString("db"));
     }
 
-    @Test
+@Test
     public void testInterpolation_2_oe() throws Exception {
         config.setProperty("applicationRoot", "/home/applicationRoot");
         config.setProperty("db", "${applicationRoot}/db/hypersonic");
@@ -589,7 +589,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("lookup fails, leave variable as is", superProp.getString("dbFailedInterpolate"), unInterpolatedValue);
     }
 
-    @Test
+@Test
     public void testInterpolation_3_oe() throws Exception {
         config.setProperty("applicationRoot", "/home/applicationRoot");
         config.setProperty("db", "${applicationRoot}/db/hypersonic");
@@ -608,7 +608,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("check first entry was interpolated", "/home/applicationRoot/1", arrayInt[0]);
     }
 
-    @Test
+@Test
     public void testMultipleInterpolation_1_oe() throws Exception {
         config.setProperty("test.base-level", "/base-level");
         config.setProperty("test.first-level", "${test.base-level}/first-level");
@@ -620,14 +620,14 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals(config.getString("test.third-level"), expectedValue);
     }
 
-    @Test
+@Test
     public void testPropertyAccess_1_oe() {
         config.clearProperty("prop.properties");
         config.setProperty("prop.properties", "");
         assertEquals("This returns an empty Properties object", config.getProperties("prop.properties"), new Properties());
     }
 
-    @Test
+@Test
     public void testPropertyAccess_2_oe() {
         config.clearProperty("prop.properties");
         config.setProperty("prop.properties", "");
@@ -642,7 +642,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("This returns a filled in Properties object", config.getProperties("prop.properties"), p);
     }
 
-    @Test
+@Test
     public void testSubset_1_oe() {
         /*
          * test subset : assure we don't reprocess the data elements when generating the subset
@@ -658,7 +658,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("Returns the full string", prop, subEprop.getString("string"));
     }
 
-    @Test
+@Test
     public void testSubset_2_oe() {
         /*
          * test subset : assure we don't reprocess the data elements when generating the subset
@@ -675,7 +675,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertEquals("Wrong list size", 1, subEprop.getList("string").size());
     }
 
-    @Test
+@Test
     public void testSubset_3_oe() {
         /*
          * test subset : assure we don't reprocess the data elements when generating the subset
@@ -696,7 +696,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertFalse(it.hasNext());
     }
 
-    @Test
+@Test
     public void testSubset_4_oe() {
         /*
          * test subset : assure we don't reprocess the data elements when generating the subset
@@ -721,7 +721,7 @@ public class TestBaseNullConfiguration_OE25Dev {
         assertFalse(it.hasNext());
     }
 
-    @Test
+@Test
     public void testThrowExceptionOnMissing_1_oe() {
         assertFalse("Throw Exception Property is set!", config.isThrowExceptionOnMissing());
     }

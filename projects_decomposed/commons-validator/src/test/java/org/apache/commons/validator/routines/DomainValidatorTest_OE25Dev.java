@@ -404,23 +404,23 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         return sorted && strictlySorted && lowerCase;
     }
 
-    public void testValidDomains_1_oe() {
+public void testValidDomains_1_oe() {
         assertTrue("apache.org should validate", validator.isValid("apache.org"));
     }
 
-    public void testValidDomains_2_oe() {
+public void testValidDomains_2_oe() {
         // removed other assertion
         assertTrue("www.google.com should validate", validator.isValid("www.google.com"));
     }
 
-    public void testValidDomains_3_oe() {
+public void testValidDomains_3_oe() {
         // removed other assertion
         // removed other assertion
 
         assertTrue("test-domain.com should validate", validator.isValid("test-domain.com"));
     }
 
-    public void testValidDomains_4_oe() {
+public void testValidDomains_4_oe() {
         // removed other assertion
         // removed other assertion
 
@@ -428,7 +428,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue("test---domain.com should validate", validator.isValid("test---domain.com"));
     }
 
-    public void testValidDomains_5_oe() {
+public void testValidDomains_5_oe() {
         // removed other assertion
         // removed other assertion
 
@@ -437,7 +437,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue("test-d-o-m-ain.com should validate", validator.isValid("test-d-o-m-ain.com"));
     }
 
-    public void testValidDomains_6_oe() {
+public void testValidDomains_6_oe() {
         // removed other assertion
         // removed other assertion
 
@@ -447,7 +447,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue("two-letter domain label should validate", validator.isValid("as.uk"));
     }
 
-    public void testValidDomains_7_oe() {
+public void testValidDomains_7_oe() {
         // removed other assertion
         // removed other assertion
 
@@ -459,7 +459,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue("case-insensitive ApAchE.Org should validate", validator.isValid("ApAchE.Org"));
     }
 
-    public void testValidDomains_8_oe() {
+public void testValidDomains_8_oe() {
         // removed other assertion
         // removed other assertion
 
@@ -473,7 +473,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue("single-character domain label should validate", validator.isValid("z.com"));
     }
 
-    public void testValidDomains_9_oe() {
+public void testValidDomains_9_oe() {
         // removed other assertion
         // removed other assertion
 
@@ -489,29 +489,29 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue("i.have.an-example.domain.name should validate", validator.isValid("i.have.an-example.domain.name"));
     }
 
-    public void testInvalidDomains_1_oe() {
+public void testInvalidDomains_1_oe() {
         assertFalse("bare TLD .org shouldn't validate", validator.isValid(".org"));
     }
 
-    public void testInvalidDomains_2_oe() {
+public void testInvalidDomains_2_oe() {
         // removed other assertion
         assertFalse("domain name with spaces shouldn't validate", validator.isValid(" apache.org "));
     }
 
-    public void testInvalidDomains_3_oe() {
+public void testInvalidDomains_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse("domain name containing spaces shouldn't validate", validator.isValid("apa che.org"));
     }
 
-    public void testInvalidDomains_4_oe() {
+public void testInvalidDomains_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertFalse("domain name starting with dash shouldn't validate", validator.isValid("-testdomain.name"));
     }
 
-    public void testInvalidDomains_5_oe() {
+public void testInvalidDomains_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -519,7 +519,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("domain name ending with dash shouldn't validate", validator.isValid("testdomain-.name"));
     }
 
-    public void testInvalidDomains_6_oe() {
+public void testInvalidDomains_6_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -528,7 +528,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("domain name starting with multiple dashes shouldn't validate", validator.isValid("---c.com"));
     }
 
-    public void testInvalidDomains_7_oe() {
+public void testInvalidDomains_7_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -538,7 +538,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("domain name ending with multiple dashes shouldn't validate", validator.isValid("c--.com"));
     }
 
-    public void testInvalidDomains_8_oe() {
+public void testInvalidDomains_8_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -549,7 +549,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("domain name with invalid TLD shouldn't validate", validator.isValid("apache.rog"));
     }
 
-    public void testInvalidDomains_9_oe() {
+public void testInvalidDomains_9_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -562,7 +562,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("URL shouldn't validate", validator.isValid("http://www.apache.org"));
     }
 
-    public void testInvalidDomains_10_oe() {
+public void testInvalidDomains_10_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -576,7 +576,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("Empty string shouldn't validate as domain name", validator.isValid(" "));
     }
 
-    public void testInvalidDomains_11_oe() {
+public void testInvalidDomains_11_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -591,18 +591,18 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("Null shouldn't validate as domain name", validator.isValid(null));
     }
 
-    public void testTopLevelDomains_1_oe() {
+public void testTopLevelDomains_1_oe() {
         // infrastructure TLDs
         assertTrue(".arpa should validate as iTLD", validator.isValidInfrastructureTld(".arpa"));
     }
 
-    public void testTopLevelDomains_2_oe() {
+public void testTopLevelDomains_2_oe() {
         // infrastructure TLDs
         // removed other assertion
         assertFalse(".com shouldn't validate as iTLD", validator.isValidInfrastructureTld(".com"));
     }
 
-    public void testTopLevelDomains_3_oe() {
+public void testTopLevelDomains_3_oe() {
         // infrastructure TLDs
         // removed other assertion
         // removed other assertion
@@ -611,7 +611,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue(".name should validate as gTLD", validator.isValidGenericTld(".name"));
     }
 
-    public void testTopLevelDomains_4_oe() {
+public void testTopLevelDomains_4_oe() {
         // infrastructure TLDs
         // removed other assertion
         // removed other assertion
@@ -621,7 +621,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse(".us shouldn't validate as gTLD", validator.isValidGenericTld(".us"));
     }
 
-    public void testTopLevelDomains_5_oe() {
+public void testTopLevelDomains_5_oe() {
         // infrastructure TLDs
         // removed other assertion
         // removed other assertion
@@ -634,7 +634,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue(".uk should validate as ccTLD", validator.isValidCountryCodeTld(".uk"));
     }
 
-    public void testTopLevelDomains_6_oe() {
+public void testTopLevelDomains_6_oe() {
         // infrastructure TLDs
         // removed other assertion
         // removed other assertion
@@ -648,7 +648,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse(".org shouldn't validate as ccTLD", validator.isValidCountryCodeTld(".org"));
     }
 
-    public void testTopLevelDomains_7_oe() {
+public void testTopLevelDomains_7_oe() {
         // infrastructure TLDs
         // removed other assertion
         // removed other assertion
@@ -665,7 +665,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue(".COM should validate as TLD", validator.isValidTld(".COM"));
     }
 
-    public void testTopLevelDomains_8_oe() {
+public void testTopLevelDomains_8_oe() {
         // infrastructure TLDs
         // removed other assertion
         // removed other assertion
@@ -683,7 +683,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue(".BiZ should validate as TLD", validator.isValidTld(".BiZ"));
     }
 
-    public void testTopLevelDomains_9_oe() {
+public void testTopLevelDomains_9_oe() {
         // infrastructure TLDs
         // removed other assertion
         // removed other assertion
@@ -704,7 +704,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("invalid TLD shouldn't validate",validator.isValid(".nope"));// TODO this is not guaranteed invalid forever assertFalse("empty string shouldn't validate as TLD",validator.isValid(""));
     }
 
-    public void testTopLevelDomains_10_oe() {
+public void testTopLevelDomains_10_oe() {
         // infrastructure TLDs
         // removed other assertion
         // removed other assertion
@@ -726,7 +726,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("null shouldn't validate as TLD", validator.isValid(null));
     }
 
-    public void testAllowLocal_1_oe() {
+public void testAllowLocal_1_oe() {
        DomainValidator noLocal = DomainValidator.getInstance(false);
        DomainValidator allowLocal = DomainValidator.getInstance(true);
 
@@ -734,7 +734,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
        assertEquals(noLocal, validator);
     }
 
-    public void testAllowLocal_2_oe() {
+public void testAllowLocal_2_oe() {
        DomainValidator noLocal = DomainValidator.getInstance(false);
        DomainValidator allowLocal = DomainValidator.getInstance(true);
 
@@ -745,7 +745,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
        assertFalse("localhost.localdomain should validate", noLocal.isValid("localhost.localdomain"));
     }
 
-    public void testAllowLocal_3_oe() {
+public void testAllowLocal_3_oe() {
        DomainValidator noLocal = DomainValidator.getInstance(false);
        DomainValidator allowLocal = DomainValidator.getInstance(true);
 
@@ -757,7 +757,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
        assertFalse("localhost should validate", noLocal.isValid("localhost"));
     }
 
-    public void testAllowLocal_4_oe() {
+public void testAllowLocal_4_oe() {
        DomainValidator noLocal = DomainValidator.getInstance(false);
        DomainValidator allowLocal = DomainValidator.getInstance(true);
 
@@ -772,7 +772,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
        assertTrue("localhost.localdomain should validate", allowLocal.isValid("localhost.localdomain"));
     }
 
-    public void testAllowLocal_5_oe() {
+public void testAllowLocal_5_oe() {
        DomainValidator noLocal = DomainValidator.getInstance(false);
        DomainValidator allowLocal = DomainValidator.getInstance(true);
 
@@ -788,7 +788,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
        assertTrue("localhost should validate", allowLocal.isValid("localhost"));
     }
 
-    public void testAllowLocal_6_oe() {
+public void testAllowLocal_6_oe() {
        DomainValidator noLocal = DomainValidator.getInstance(false);
        DomainValidator allowLocal = DomainValidator.getInstance(true);
 
@@ -805,7 +805,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
        assertTrue("hostname should validate", allowLocal.isValid("hostname"));
     }
 
-    public void testAllowLocal_7_oe() {
+public void testAllowLocal_7_oe() {
        DomainValidator noLocal = DomainValidator.getInstance(false);
        DomainValidator allowLocal = DomainValidator.getInstance(true);
 
@@ -823,7 +823,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
        assertTrue("machinename should validate", allowLocal.isValid("machinename"));
     }
 
-    public void testAllowLocal_8_oe() {
+public void testAllowLocal_8_oe() {
        DomainValidator noLocal = DomainValidator.getInstance(false);
        DomainValidator allowLocal = DomainValidator.getInstance(true);
 
@@ -844,7 +844,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
        assertTrue("apache.org should validate", allowLocal.isValid("apache.org"));
     }
 
-    public void testAllowLocal_9_oe() {
+public void testAllowLocal_9_oe() {
        DomainValidator noLocal = DomainValidator.getInstance(false);
        DomainValidator allowLocal = DomainValidator.getInstance(true);
 
@@ -866,11 +866,11 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
        assertFalse("domain name with spaces shouldn't validate", allowLocal.isValid(" apache.org "));
     }
 
-    public void testIDN_1_oe() {
+public void testIDN_1_oe() {
        assertTrue("b\u00fccher.ch in IDN should validate", validator.isValid("www.xn--bcher-kva.ch"));
     }
 
-    public void testIDNJava6OrLater_1_oe() {
+public void testIDNJava6OrLater_1_oe() {
         String version = System.getProperty("java.version");
         if (version.compareTo("1.6") < 0) {
             System.out.println("Cannot run Unicode IDN tests");
@@ -879,7 +879,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
        assertTrue("b\u00fccher.ch should validate", validator.isValid("www.b\u00fccher.ch"));
     }
 
-    public void testIDNJava6OrLater_2_oe() {
+public void testIDNJava6OrLater_2_oe() {
         String version = System.getProperty("java.version");
         if (version.compareTo("1.6") < 0) {
             System.out.println("Cannot run Unicode IDN tests");
@@ -889,7 +889,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
        assertTrue("xn--d1abbgf6aiiy.xn--p1ai should validate", validator.isValid("xn--d1abbgf6aiiy.xn--p1ai"));
     }
 
-    public void testIDNJava6OrLater_3_oe() {
+public void testIDNJava6OrLater_3_oe() {
         String version = System.getProperty("java.version");
         if (version.compareTo("1.6") < 0) {
             System.out.println("Cannot run Unicode IDN tests");
@@ -900,7 +900,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
        assertTrue("президент.рф should validate", validator.isValid("президент.рф"));
     }
 
-    public void testIDNJava6OrLater_4_oe() {
+public void testIDNJava6OrLater_4_oe() {
         String version = System.getProperty("java.version");
         if (version.compareTo("1.6") < 0) {
             System.out.println("Cannot run Unicode IDN tests");
@@ -912,29 +912,29 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
        assertFalse("www.\uFFFD.ch FFFD should fail", validator.isValid("www.\uFFFD.ch"));
     }
 
-    public void testRFC2396domainlabel_1_oe() { // use fixed valid TLD
+public void testRFC2396domainlabel_1_oe() { // use fixed valid TLD
         assertTrue("a.ch should validate", validator.isValid("a.ch"));
     }
 
-    public void testRFC2396domainlabel_2_oe() { // use fixed valid TLD
+public void testRFC2396domainlabel_2_oe() { // use fixed valid TLD
         // removed other assertion
         assertTrue("9.ch should validate", validator.isValid("9.ch"));
     }
 
-    public void testRFC2396domainlabel_3_oe() { // use fixed valid TLD
+public void testRFC2396domainlabel_3_oe() { // use fixed valid TLD
         // removed other assertion
         // removed other assertion
         assertTrue("az.ch should validate", validator.isValid("az.ch"));
     }
 
-    public void testRFC2396domainlabel_4_oe() { // use fixed valid TLD
+public void testRFC2396domainlabel_4_oe() { // use fixed valid TLD
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertTrue("09.ch should validate", validator.isValid("09.ch"));
     }
 
-    public void testRFC2396domainlabel_5_oe() { // use fixed valid TLD
+public void testRFC2396domainlabel_5_oe() { // use fixed valid TLD
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -942,7 +942,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue("9-1.ch should validate", validator.isValid("9-1.ch"));
     }
 
-    public void testRFC2396domainlabel_6_oe() { // use fixed valid TLD
+public void testRFC2396domainlabel_6_oe() { // use fixed valid TLD
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -951,7 +951,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("91-.ch should not validate", validator.isValid("91-.ch"));
     }
 
-    public void testRFC2396domainlabel_7_oe() { // use fixed valid TLD
+public void testRFC2396domainlabel_7_oe() { // use fixed valid TLD
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -961,25 +961,25 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("-.ch should not validate", validator.isValid("-.ch"));
     }
 
-    public void testRFC2396toplabel_1_oe() {
+public void testRFC2396toplabel_1_oe() {
         // These tests use non-existent TLDs so currently need to use a package protected method
         assertTrue("a.c (alpha) should validate", validator.isValidDomainSyntax("a.c"));
     }
 
-    public void testRFC2396toplabel_2_oe() {
+public void testRFC2396toplabel_2_oe() {
         // These tests use non-existent TLDs so currently need to use a package protected method
         // removed other assertion
         assertTrue("a.cc (alpha alpha) should validate", validator.isValidDomainSyntax("a.cc"));
     }
 
-    public void testRFC2396toplabel_3_oe() {
+public void testRFC2396toplabel_3_oe() {
         // These tests use non-existent TLDs so currently need to use a package protected method
         // removed other assertion
         // removed other assertion
         assertTrue("a.c9 (alpha alphanum) should validate", validator.isValidDomainSyntax("a.c9"));
     }
 
-    public void testRFC2396toplabel_4_oe() {
+public void testRFC2396toplabel_4_oe() {
         // These tests use non-existent TLDs so currently need to use a package protected method
         // removed other assertion
         // removed other assertion
@@ -987,7 +987,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue("a.c-9 (alpha - alphanum) should validate", validator.isValidDomainSyntax("a.c-9"));
     }
 
-    public void testRFC2396toplabel_5_oe() {
+public void testRFC2396toplabel_5_oe() {
         // These tests use non-existent TLDs so currently need to use a package protected method
         // removed other assertion
         // removed other assertion
@@ -996,7 +996,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue("a.c-z (alpha - alpha) should validate", validator.isValidDomainSyntax("a.c-z"));
     }
 
-    public void testRFC2396toplabel_6_oe() {
+public void testRFC2396toplabel_6_oe() {
         // These tests use non-existent TLDs so currently need to use a package protected method
         // removed other assertion
         // removed other assertion
@@ -1007,7 +1007,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("a.9c (alphanum alpha) should fail", validator.isValidDomainSyntax("a.9c"));
     }
 
-    public void testRFC2396toplabel_7_oe() {
+public void testRFC2396toplabel_7_oe() {
         // These tests use non-existent TLDs so currently need to use a package protected method
         // removed other assertion
         // removed other assertion
@@ -1019,7 +1019,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("a.c- (alpha -) should fail", validator.isValidDomainSyntax("a.c-"));
     }
 
-    public void testRFC2396toplabel_8_oe() {
+public void testRFC2396toplabel_8_oe() {
         // These tests use non-existent TLDs so currently need to use a package protected method
         // removed other assertion
         // removed other assertion
@@ -1032,7 +1032,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("a.- (-) should fail", validator.isValidDomainSyntax("a.-"));
     }
 
-    public void testRFC2396toplabel_9_oe() {
+public void testRFC2396toplabel_9_oe() {
         // These tests use non-existent TLDs so currently need to use a package protected method
         // removed other assertion
         // removed other assertion
@@ -1046,22 +1046,22 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("a.-9 (- alphanum) should fail", validator.isValidDomainSyntax("a.-9"));
     }
 
-    public void testDomainNoDots_1_oe() {// rfc1123
+public void testDomainNoDots_1_oe() {// rfc1123
         assertTrue("a (alpha) should validate", validator.isValidDomainSyntax("a"));
     }
 
-    public void testDomainNoDots_2_oe() {// rfc1123
+public void testDomainNoDots_2_oe() {// rfc1123
         // removed other assertion
         assertTrue("9 (alphanum) should validate", validator.isValidDomainSyntax("9"));
     }
 
-    public void testDomainNoDots_3_oe() {// rfc1123
+public void testDomainNoDots_3_oe() {// rfc1123
         // removed other assertion
         // removed other assertion
         assertTrue("c-z (alpha - alpha) should validate", validator.isValidDomainSyntax("c-z"));
     }
 
-    public void testDomainNoDots_4_oe() {// rfc1123
+public void testDomainNoDots_4_oe() {// rfc1123
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1069,7 +1069,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("c- (alpha -) should fail", validator.isValidDomainSyntax("c-"));
     }
 
-    public void testDomainNoDots_5_oe() {// rfc1123
+public void testDomainNoDots_5_oe() {// rfc1123
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1078,7 +1078,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("-c (- alpha) should fail", validator.isValidDomainSyntax("-c"));
     }
 
-    public void testDomainNoDots_6_oe() {// rfc1123
+public void testDomainNoDots_6_oe() {// rfc1123
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1088,22 +1088,22 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("- (-) should fail", validator.isValidDomainSyntax("-"));
     }
 
-    public void testValidator297_1_oe() {
+public void testValidator297_1_oe() {
         assertTrue("xn--d1abbgf6aiiy.xn--p1ai should validate", validator.isValid("xn--d1abbgf6aiiy.xn--p1ai")); // This uses a valid TLD;
     }
 
-    public void testValidator306_1_oe() {
+public void testValidator306_1_oe() {
         final String longString = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789A";
         assertEquals(63,longString.length());// 26 * 2 + 11 assertTrue("63 chars label should validate",validator.isValidDomainSyntax(longString+".com"));
     }
 
-    public void testValidator306_2_oe() {
+public void testValidator306_2_oe() {
         final String longString = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789A";
         // removed other assertion
         assertFalse("64 chars label should fail", validator.isValidDomainSyntax(longString+"x.com"));
     }
 
-    public void testValidator306_3_oe() {
+public void testValidator306_3_oe() {
         final String longString = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789A";
         // removed other assertion
         // removed other assertion
@@ -1111,7 +1111,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue("63 chars TLD should validate", validator.isValidDomainSyntax("test."+longString));
     }
 
-    public void testValidator306_4_oe() {
+public void testValidator306_4_oe() {
         final String longString = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789A";
         // removed other assertion
         // removed other assertion
@@ -1120,7 +1120,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("64 chars TLD should fail", validator.isValidDomainSyntax("test.x"+longString));
     }
 
-    public void testValidator306_5_oe() {
+public void testValidator306_5_oe() {
         final String longString = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789A";
         // removed other assertion
         // removed other assertion
@@ -1137,7 +1137,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertEquals(253, longDomain.length());
     }
 
-    public void testValidator306_6_oe() {
+public void testValidator306_6_oe() {
         final String longString = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789A";
         // removed other assertion
         // removed other assertion
@@ -1155,7 +1155,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue("253 chars domain should validate", validator.isValidDomainSyntax(longDomain));
     }
 
-    public void testValidator306_7_oe() {
+public void testValidator306_7_oe() {
         final String longString = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789A";
         // removed other assertion
         // removed other assertion
@@ -1174,7 +1174,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("254 chars domain should fail", validator.isValidDomainSyntax(longDomain+"x"));
     }
 
-    public void testUnicodeToASCII_1_oe() {
+public void testUnicodeToASCII_1_oe() {
         String[] asciidots = {
                 "",
                 ",",
@@ -1191,7 +1191,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testUnicodeToASCII_2_oe() {
+public void testUnicodeToASCII_2_oe() {
         String[] asciidots = {
                 "",
                 ",",
@@ -1224,7 +1224,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testIsIDNtoASCIIBroken_1_oe() {
+public void testIsIDNtoASCIIBroken_1_oe() {
         System.out.println(">>DomainValidatorTest.testIsIDNtoASCIIBroken()");
         final String input = ".";
         final boolean ok = input.equals(IDN.toASCII(input));
@@ -1250,53 +1250,53 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue(true); // dummy assertion to satisfy lint;
     }
 
-    public void test_INFRASTRUCTURE_TLDS_sortedAndLowerCase_1_oe() throws Exception {
+public void test_INFRASTRUCTURE_TLDS_sortedAndLowerCase_1_oe() throws Exception {
         final boolean sorted = isSortedLowerCase("INFRASTRUCTURE_TLDS");
         assertTrue(sorted);
     }
 
-    public void test_COUNTRY_CODE_TLDS_sortedAndLowerCase_1_oe() throws Exception {
+public void test_COUNTRY_CODE_TLDS_sortedAndLowerCase_1_oe() throws Exception {
         final boolean sorted = isSortedLowerCase("COUNTRY_CODE_TLDS");
         assertTrue(sorted);
     }
 
-    public void test_GENERIC_TLDS_sortedAndLowerCase_1_oe() throws Exception {
+public void test_GENERIC_TLDS_sortedAndLowerCase_1_oe() throws Exception {
         final boolean sorted = isSortedLowerCase("GENERIC_TLDS");
         assertTrue(sorted);
     }
 
-    public void test_LOCAL_TLDS_sortedAndLowerCase_1_oe() throws Exception {
+public void test_LOCAL_TLDS_sortedAndLowerCase_1_oe() throws Exception {
         final boolean sorted = isSortedLowerCase("LOCAL_TLDS");
         assertTrue(sorted);
     }
 
-    public void testEnumIsPublic_1_oe() {
+public void testEnumIsPublic_1_oe() {
         assertTrue(Modifier.isPublic(DomainValidator.ArrayType.class.getModifiers()));
     }
 
-    public void testGetArray_1_oe() {
+public void testGetArray_1_oe() {
         assertNotNull(DomainValidator.getTLDEntries(ArrayType.COUNTRY_CODE_MINUS));
     }
 
-    public void testGetArray_2_oe() {
+public void testGetArray_2_oe() {
         // removed other assertion
         assertNotNull(DomainValidator.getTLDEntries(ArrayType.COUNTRY_CODE_PLUS));
     }
 
-    public void testGetArray_3_oe() {
+public void testGetArray_3_oe() {
         // removed other assertion
         // removed other assertion
         assertNotNull(DomainValidator.getTLDEntries(ArrayType.GENERIC_MINUS));
     }
 
-    public void testGetArray_4_oe() {
+public void testGetArray_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertNotNull(DomainValidator.getTLDEntries(ArrayType.GENERIC_PLUS));
     }
 
-    public void testGetArray_5_oe() {
+public void testGetArray_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1304,7 +1304,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertNotNull(DomainValidator.getTLDEntries(ArrayType.LOCAL_MINUS));
     }
 
-    public void testGetArray_6_oe() {
+public void testGetArray_6_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1313,7 +1313,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertNotNull(DomainValidator.getTLDEntries(ArrayType.LOCAL_PLUS));
     }
 
-    public void testGetArray_7_oe() {
+public void testGetArray_7_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1323,7 +1323,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertNotNull(DomainValidator.getTLDEntries(ArrayType.COUNTRY_CODE_RO));
     }
 
-    public void testGetArray_8_oe() {
+public void testGetArray_8_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1334,7 +1334,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertNotNull(DomainValidator.getTLDEntries(ArrayType.GENERIC_RO));
     }
 
-    public void testGetArray_9_oe() {
+public void testGetArray_9_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1346,7 +1346,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertNotNull(DomainValidator.getTLDEntries(ArrayType.INFRASTRUCTURE_RO));
     }
 
-    public void testGetArray_10_oe() {
+public void testGetArray_10_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion

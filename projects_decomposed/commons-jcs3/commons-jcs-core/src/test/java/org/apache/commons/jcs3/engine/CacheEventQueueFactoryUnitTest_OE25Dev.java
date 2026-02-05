@@ -34,7 +34,7 @@ public class CacheEventQueueFactoryUnitTest_OE25Dev
 
     /** Test create */
 
-    public void testCreateCacheEventQueue_Single_1_oe()
+public void testCreateCacheEventQueue_Single_1_oe()
     {
         // SETUP
         final QueueType eventQueueType = QueueType.SINGLE;
@@ -50,7 +50,7 @@ public class CacheEventQueueFactoryUnitTest_OE25Dev
         assertNotNull( "Should have a result", result );
     }
 
-    public void testCreateCacheEventQueue_Single_2_oe()
+public void testCreateCacheEventQueue_Single_2_oe()
     {
         // SETUP
         final QueueType eventQueueType = QueueType.SINGLE;
@@ -67,7 +67,7 @@ public class CacheEventQueueFactoryUnitTest_OE25Dev
         assertTrue( "Wrong type", result.getQueueType() == QueueType.SINGLE );
     }
 
-    public void testCreateCacheEventQueue_Pooled_1_oe()
+public void testCreateCacheEventQueue_Pooled_1_oe()
     {
         // SETUP
         final QueueType eventQueueType = QueueType.POOLED;
@@ -83,7 +83,7 @@ public class CacheEventQueueFactoryUnitTest_OE25Dev
         assertNotNull( "Should have a result", result );
     }
 
-    public void testCreateCacheEventQueue_Pooled_2_oe()
+public void testCreateCacheEventQueue_Pooled_2_oe()
     {
         // SETUP
         final QueueType eventQueueType = QueueType.POOLED;

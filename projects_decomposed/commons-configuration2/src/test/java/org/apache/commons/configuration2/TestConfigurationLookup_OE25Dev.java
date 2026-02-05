@@ -59,7 +59,7 @@ public class TestConfigurationLookup_OE25Dev {
      * Tests whether an existing variable can be resolved.
      */
 
-    @Test
+@Test
     public void testLookupComplex_1_oe() {
         final int count = 5;
         final Configuration conf = new BaseConfiguration();
@@ -71,7 +71,7 @@ public class TestConfigurationLookup_OE25Dev {
         assertEquals("Wrong number of elements", count, col.size());
     }
 
-    @Test
+@Test
     public void testLookupComplex_2_oe() {
         final int count = 5;
         final Configuration conf = new BaseConfiguration();
@@ -87,14 +87,14 @@ public class TestConfigurationLookup_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testLookupNotFound_1_oe() {
         final Configuration conf = new BaseConfiguration();
         final ConfigurationLookup lookup = new ConfigurationLookup(conf);
         assertNull("Got a value", lookup.lookup(VAR));
     }
 
-    @Test
+@Test
     public void testLookupNotFoundEx_1_oe() {
         final BaseConfiguration conf = new BaseConfiguration();
         conf.setThrowExceptionOnMissing(true);
@@ -102,7 +102,7 @@ public class TestConfigurationLookup_OE25Dev {
         assertNull("Got a value", lookup.lookup(VAR));
     }
 
-    @Test
+@Test
     public void testLookupSuccess_1_oe() {
         final Configuration conf = new BaseConfiguration();
         conf.addProperty(VAR, VALUE);

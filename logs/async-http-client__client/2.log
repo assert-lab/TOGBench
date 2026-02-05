@@ -45,8 +45,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.324 s
-[INFO] Finished at: 2026-02-04T19:40:50-06:00
+[INFO] Total time:  15.299 s
+[INFO] Finished at: 2026-02-05T02:18:47-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project async-http-client: Compilation failure: Compilation failure: 
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/PerRequestTimeoutTest_OE25Dev.java:[90,45] unreported exception java.util.concurrent.ExecutionException; must be caught or declared to be thrown

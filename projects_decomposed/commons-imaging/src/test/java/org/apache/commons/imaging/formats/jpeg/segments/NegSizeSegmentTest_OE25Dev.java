@@ -33,7 +33,7 @@ import org.junit.jupiter.api.Test;
 
 public class NegSizeSegmentTest_OE25Dev {
 
-    @Test
+@Test
     public void testCreatesNegSizeSegment_2_oe() throws IOException {
         final byte[] bytes = new byte[8];
         bytes[0] = (byte) 0xff;
@@ -56,7 +56,7 @@ public class NegSizeSegmentTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testCreatesNegSizeSegment_3_oe() throws IOException {
         final byte[] bytes = new byte[8];
         bytes[0] = (byte) 0xff;

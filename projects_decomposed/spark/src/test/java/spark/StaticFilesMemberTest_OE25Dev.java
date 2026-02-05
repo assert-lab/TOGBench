@@ -171,14 +171,14 @@ public class StaticFilesMemberTest_OE25Dev {
         Assert.assertTrue(response.body.contains(FO_SHIZZY));
     }
 
-    @Test
+@Test
     public void testExceptionMapping404_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/filethatdoesntexist.html", null);
 
         Assert.assertEquals(404, response.status);
     }
 
-    @Test
+@Test
     public void testExceptionMapping404_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/filethatdoesntexist.html", null);
 

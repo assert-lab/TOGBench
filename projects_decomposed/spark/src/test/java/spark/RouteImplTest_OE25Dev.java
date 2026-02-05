@@ -13,7 +13,7 @@ public class RouteImplTest_OE25Dev {
 
     private RouteImpl route;
 
-    @Test
+@Test
     public void testConstructor_1_oe(){
         route = new RouteImpl(PATH_TEST) {
             @Override
@@ -24,46 +24,46 @@ public class RouteImplTest_OE25Dev {
         assertEquals("Should return path specified", PATH_TEST, route.getPath());
     }
 
-    @Test
+@Test
     public void testGets_thenReturnGetPathAndGetAcceptTypeSuccessfully_1_oe() throws Exception {
         route = RouteImpl.create(PATH_TEST, ACCEPT_TYPE_TEST, null);
         assertEquals("Should return path specified", PATH_TEST, route.getPath());
     }
 
-    @Test
+@Test
     public void testGets_thenReturnGetPathAndGetAcceptTypeSuccessfully_2_oe() throws Exception {
         route = RouteImpl.create(PATH_TEST, ACCEPT_TYPE_TEST, null);
         // removed other assertion
         assertEquals("Should return accept type specified", ACCEPT_TYPE_TEST, route.getAcceptType());
     }
 
-    @Test
+@Test
     public void testCreate_whenOutAssignAcceptTypeInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_1_oe(){
         route = RouteImpl.create(PATH_TEST, null);
         assertEquals("Should return path specified", PATH_TEST, route.getPath());
     }
 
-    @Test
+@Test
     public void testCreate_whenOutAssignAcceptTypeInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_2_oe(){
         route = RouteImpl.create(PATH_TEST, null);
         // removed other assertion
         assertEquals("Should return the default accept type", RouteImpl.DEFAULT_ACCEPT_TYPE, route.getAcceptType());
     }
 
-    @Test
+@Test
     public void testCreate_whenAcceptTypeNullValueInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_1_oe(){
         route = RouteImpl.create(PATH_TEST, null, null);
         assertEquals("Should return path specified", PATH_TEST, route.getPath());
     }
 
-    @Test
+@Test
     public void testCreate_whenAcceptTypeNullValueInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_2_oe(){
         route = RouteImpl.create(PATH_TEST, null, null);
         // removed other assertion
         assertEquals("Should return the default accept type", RouteImpl.DEFAULT_ACCEPT_TYPE, route.getAcceptType());
     }
 
-    @Test
+@Test
     public void testRender_whenElementParameterValid_thenReturnValidObject_1_oe() throws Exception {
         String finalObjValue = "object_value";
         route = RouteImpl.create(PATH_TEST, null);
@@ -71,7 +71,7 @@ public class RouteImplTest_OE25Dev {
         assertNotNull("Should return an Object because we configured it to have one", value);
     }
 
-    @Test
+@Test
     public void testRender_whenElementParameterValid_thenReturnValidObject_2_oe() throws Exception {
         String finalObjValue = "object_value";
         route = RouteImpl.create(PATH_TEST, null);
@@ -80,7 +80,7 @@ public class RouteImplTest_OE25Dev {
         assertEquals("Should return a string object specified", finalObjValue, value.toString());
     }
 
-    @Test
+@Test
     public void testRender_whenElementParameterIsNull_thenReturnNull_1_oe() throws Exception {
         route = RouteImpl.create(PATH_TEST, null);
         Object value = route.render(null);

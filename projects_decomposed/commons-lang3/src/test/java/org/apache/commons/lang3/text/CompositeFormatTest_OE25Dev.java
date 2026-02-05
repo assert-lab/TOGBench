@@ -37,7 +37,7 @@ public class CompositeFormatTest_OE25Dev {
      * Ensures that the parse/format separation is correctly maintained.
      */
 
-    @Test
+@Test
     public void testCompositeFormat_1_oe() {
 
         final Format parser = new Format() {
@@ -75,7 +75,7 @@ public class CompositeFormatTest_OE25Dev {
         assertEquals(parser, composite.getParser(), "Parser get method incorrectly implemented");
     }
 
-    @Test
+@Test
     public void testCompositeFormat_2_oe() {
 
         final Format parser = new Format() {
@@ -114,7 +114,7 @@ public class CompositeFormatTest_OE25Dev {
         assertEquals(formatter, composite.getFormatter(), "Formatter get method incorrectly implemented");
     }
 
-    @Test
+@Test
     public void testUsage_1_oe() throws Exception {
         final Format f1 = new SimpleDateFormat("MMddyyyy", Locale.ENGLISH);
         final Format f2 = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
@@ -123,7 +123,7 @@ public class CompositeFormatTest_OE25Dev {
         assertEquals(testString, c.format(c.parseObject("01032005")));
     }
 
-    @Test
+@Test
     public void testUsage_2_oe() throws Exception {
         final Format f1 = new SimpleDateFormat("MMddyyyy", Locale.ENGLISH);
         final Format f2 = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);

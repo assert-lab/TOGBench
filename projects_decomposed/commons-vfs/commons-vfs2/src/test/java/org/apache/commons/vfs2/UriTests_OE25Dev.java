@@ -56,7 +56,7 @@ public class UriTests_OE25Dev extends AbstractProviderTestCase {
      * Tests content.
      */
 
-    @Test
+@Test
     public void testAbsoluteURI_1_oe() throws Exception {
         final FileObject readFolder = getReadFolder();
 
@@ -66,7 +66,7 @@ public class UriTests_OE25Dev extends AbstractProviderTestCase {
         assertSame("file object", readFolder, file);
     }
 
-    @Test
+@Test
     public void testAbsoluteURI_2_oe() throws Exception {
         final FileObject readFolder = getReadFolder();
 
@@ -81,7 +81,7 @@ public class UriTests_OE25Dev extends AbstractProviderTestCase {
         assertSame(readFolder.getFileSystem().getRoot(), file);
     }
 
-    @Test
+@Test
     public void testAbsoluteURI_3_oe() throws Exception {
         final FileObject readFolder = getReadFolder();
 
@@ -97,7 +97,7 @@ public class UriTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(rootUri, file.getName().getRootURI());
     }
 
-    @Test
+@Test
     public void testAbsoluteURI_4_oe() throws Exception {
         final FileObject readFolder = getReadFolder();
 
@@ -114,7 +114,7 @@ public class UriTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(rootUri, file.getName().getURI());
     }
 
-    @Test
+@Test
     public void testAbsoluteURI_5_oe() throws Exception {
         final FileObject readFolder = getReadFolder();
 
@@ -132,7 +132,7 @@ public class UriTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(FileName.ROOT_PATH, file.getName().getPath());
     }
 
-    @Test
+@Test
     public void testGetURI_1_oe() throws Exception {
         final FileObject fileObject = getReadFolder().resolveFile("some-dir/");
         final URI uri = fileObject.getURI();
@@ -141,7 +141,7 @@ public class UriTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(fileObject.getName().getURI(), uri.toString());
     }
 
-    @Test
+@Test
     public void testGetURI_2_oe() throws Exception {
         final FileObject fileObject = getReadFolder().resolveFile("some-dir/");
         final URI uri = fileObject.getURI();
@@ -151,7 +151,7 @@ public class UriTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(URI.create(fileObject.getName().getURI()), uri);
     }
 
-    @Test
+@Test
     public void testGetURI_3_oe() throws Exception {
         final FileObject fileObject = getReadFolder().resolveFile("some-dir/");
         final URI uri = fileObject.getURI();
@@ -163,7 +163,7 @@ public class UriTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(fileObject.getURL().toString(), fileObject.getURI().toString());
     }
 
-    @Test
+@Test
     public void testGetURI_4_oe() throws Exception {
         final FileObject fileObject = getReadFolder().resolveFile("some-dir/");
         final URI uri = fileObject.getURI();
@@ -176,14 +176,14 @@ public class UriTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(fileObject.getURL().toURI(), fileObject.getURI());
     }
 
-    @Test
+@Test
     public void testURIContentProvider_1_oe() throws Exception {
         // Test non-empty file
         final FileObject fileObject = getReadFolder().resolveFile("file1.txt");
         assertTrue(fileObject.exists());
     }
 
-    @Test
+@Test
     public void testURIContentProvider_2_oe() throws Exception {
         // Test non-empty file
         final FileObject fileObject = getReadFolder().resolveFile("file1.txt");
@@ -199,7 +199,7 @@ public class UriTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals("Two files resolved by URI must be equals on " + uriStr, f1, f2);
     }
 
-    @Test
+@Test
     public void testURIContentProvider_3_oe() throws Exception {
         // Test non-empty file
         final FileObject fileObject = getReadFolder().resolveFile("file1.txt");

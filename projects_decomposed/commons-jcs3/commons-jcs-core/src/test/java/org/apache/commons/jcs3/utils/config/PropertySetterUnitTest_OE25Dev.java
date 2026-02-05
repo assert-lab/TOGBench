@@ -35,7 +35,7 @@ public class PropertySetterUnitTest_OE25Dev
 {
     enum EnumTest { ONE, TWO, THREE }
 
-    @Test
+@Test
     public void testConvertArg_1_oe()
     {
         final PropertySetter ps = new PropertySetter(this);
@@ -43,7 +43,7 @@ public class PropertySetterUnitTest_OE25Dev
         assertEquals("Should be a string", "test", s);
     }
 
-    @Test
+@Test
     public void testConvertArg_2_oe()
     {
         final PropertySetter ps = new PropertySetter(this);
@@ -54,7 +54,7 @@ public class PropertySetterUnitTest_OE25Dev
         assertEquals("Should be an integer", Integer.valueOf(1), i);
     }
 
-    @Test
+@Test
     public void testConvertArg_3_oe()
     {
         final PropertySetter ps = new PropertySetter(this);
@@ -68,7 +68,7 @@ public class PropertySetterUnitTest_OE25Dev
         assertEquals("Should be a long", Long.valueOf(1), l);
     }
 
-    @Test
+@Test
     public void testConvertArg_4_oe()
     {
         final PropertySetter ps = new PropertySetter(this);
@@ -85,7 +85,7 @@ public class PropertySetterUnitTest_OE25Dev
         assertEquals("Should be a boolean", Boolean.TRUE, b);
     }
 
-    @Test
+@Test
     public void testConvertArg_5_oe()
     {
         final PropertySetter ps = new PropertySetter(this);
@@ -105,7 +105,7 @@ public class PropertySetterUnitTest_OE25Dev
         assertEquals("Should be an enum", EnumTest.TWO, e);
     }
 
-    @Test
+@Test
     public void testConvertArg_6_oe()
     {
         final PropertySetter ps = new PropertySetter(this);

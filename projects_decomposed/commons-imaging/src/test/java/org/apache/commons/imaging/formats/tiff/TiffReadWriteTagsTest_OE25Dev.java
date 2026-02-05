@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
 
 public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
 
-    @Test
+@Test
     public void testReadWriteTags_1_oe() throws ImageWriteException, ImageReadException, IOException {
         final String description = "A pretty picture";
         final short page = 1;
@@ -80,7 +80,7 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         assertEquals(description, rootDir.getSingleFieldValue(TiffTagConstants.TIFF_TAG_IMAGE_DESCRIPTION));
     }
 
-    @Test
+@Test
     public void testReadWriteTags_2_oe() throws ImageWriteException, ImageReadException, IOException {
         final String description = "A pretty picture";
         final short page = 1;
@@ -123,7 +123,7 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         assertEquals(page, rootDir.getFieldValue(TiffTagConstants.TIFF_TAG_PAGE_NUMBER, true)[0]);
     }
 
-    @Test
+@Test
     public void testReadWriteTags_3_oe() throws ImageWriteException, ImageReadException, IOException {
         final String description = "A pretty picture";
         final short page = 1;
@@ -168,7 +168,7 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         assertEquals(twoThirds.numerator, yRes.numerator);
     }
 
-    @Test
+@Test
     public void testReadWriteTags_4_oe() throws ImageWriteException, ImageReadException, IOException {
         final String description = "A pretty picture";
         final short page = 1;
@@ -214,7 +214,7 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         assertEquals(twoThirds.divisor, yRes.divisor);
     }
 
-    @Test
+@Test
     public void testReadWriteTags_5_oe() throws ImageWriteException, ImageReadException, IOException {
         final String description = "A pretty picture";
         final short page = 1;
@@ -261,7 +261,7 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         assertEquals(t4Options, rootDir.getFieldValue(TiffTagConstants.TIFF_TAG_T4_OPTIONS));
     }
 
-    @Test
+@Test
     public void testReadWriteTags_6_oe() throws ImageWriteException, ImageReadException, IOException {
         final String description = "A pretty picture";
         final short page = 1;
@@ -309,7 +309,7 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         assertEquals(width, rootDir.getSingleFieldValue(TiffTagConstants.TIFF_TAG_IMAGE_WIDTH));
     }
 
-    @Test
+@Test
     public void testReadWriteTags_7_oe() throws ImageWriteException, ImageReadException, IOException {
         final String description = "A pretty picture";
         final short page = 1;
@@ -358,7 +358,7 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         assertEquals(width, rootDir.getSingleFieldValue(TiffTagConstants.TIFF_TAG_IMAGE_LENGTH));
     }
 
-    @Test
+@Test
     public void testReadWriteTags_8_oe() throws ImageWriteException, ImageReadException, IOException {
         final String description = "A pretty picture";
         final short page = 1;
@@ -408,7 +408,7 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         assertEquals(area, rootDir.getFieldValue(GpsTagConstants.GPS_TAG_GPS_AREA_INFORMATION, true));
     }
 
-    @Test
+@Test
     public void testReadWriteTags_9_oe() throws ImageWriteException, ImageReadException, IOException {
         final String description = "A pretty picture";
         final short page = 1;
@@ -459,7 +459,7 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         assertEquals(widthRes, rootDir.getFieldValue(MicrosoftHdPhotoTagConstants.EXIF_TAG_WIDTH_RESOLUTION), 0.0);
     }
 
-    @Test
+@Test
     public void testReadWriteTags_10_oe() throws ImageWriteException, ImageReadException, IOException {
         final String description = "A pretty picture";
         final short page = 1;
@@ -511,7 +511,7 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         assertEquals(geoDoubleParams, rootDir.getFieldValue(GeoTiffTagConstants.EXIF_TAG_GEO_DOUBLE_PARAMS_TAG, true)[0], 0.0);
     }
 
-    @Test
+@Test
     public void testReadWriteTags_11_oe() throws ImageWriteException, ImageReadException, IOException {
         final String description = "A pretty picture";
         final short page = 1;
@@ -564,7 +564,7 @@ public class TiffReadWriteTagsTest_OE25Dev extends TiffBaseTest {
         assertEquals(exposureCompensation.doubleValue(), rootDir.getFieldValue(ExifTagConstants.EXIF_TAG_EXPOSURE_COMPENSATION).doubleValue(), 0.0);
     }
 
-    @Test
+@Test
     public void testReadWriteTags_12_oe() throws ImageWriteException, ImageReadException, IOException {
         final String description = "A pretty picture";
         final short page = 1;

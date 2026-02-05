@@ -62,14 +62,14 @@ public class Jira422TestCase_OE25Dev {
         Assert.fail("Could not find PropertyDescriptor for 'file'");
     }
 
-    @Test
+@Test
     public void testRootBean_1_oe() throws Exception {
         final RootBean bean = new FirstChildBean();
         final Class<?> propertyType = PropertyUtils.getPropertyType(bean, "file[0]");
         assertEquals(String.class.getName(), propertyType.getName());
     }
 
-    @Test
+@Test
     public void testSecondChildBean_1_oe() throws Exception {
         final RootBean bean = new SecondChildBean();
         final Class<?> propertyType = PropertyUtils.getPropertyType(bean, "file[0]");

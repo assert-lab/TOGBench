@@ -95,7 +95,7 @@ public class IntegerConverterTestCase_OE25Dev extends NumberConverterTestBase {
         }
     }
 
-    public void testSimpleConversion_1_oe() throws Exception {
+public void testSimpleConversion_1_oe() throws Exception {
         final String[] message= {
             "from String",
             "from String",
@@ -149,7 +149,7 @@ public class IntegerConverterTestCase_OE25Dev extends NumberConverterTestBase {
     }
     }
 
-    public void testSimpleConversion_2_oe() throws Exception {
+public void testSimpleConversion_2_oe() throws Exception {
         final String[] message= {
             "from String",
             "from String",
@@ -204,7 +204,7 @@ public class IntegerConverterTestCase_OE25Dev extends NumberConverterTestBase {
     }
     }
 
-    public void testSimpleConversion_3_oe() throws Exception {
+public void testSimpleConversion_3_oe() throws Exception {
         final String[] message= {
             "from String",
             "from String",
@@ -260,7 +260,7 @@ public class IntegerConverterTestCase_OE25Dev extends NumberConverterTestBase {
     }
     }
 
-    public void testInvalidAmount_1_oe() {
+public void testInvalidAmount_1_oe() {
         final Converter converter = makeConverter();
         final Class<?> clazz = Integer.class;
 
@@ -273,7 +273,7 @@ public class IntegerConverterTestCase_OE25Dev extends NumberConverterTestBase {
         assertEquals("Minimum", new Integer(Integer.MIN_VALUE), converter.convert(clazz, min));
     }
 
-    public void testInvalidAmount_2_oe() {
+public void testInvalidAmount_2_oe() {
         final Converter converter = makeConverter();
         final Class<?> clazz = Integer.class;
 

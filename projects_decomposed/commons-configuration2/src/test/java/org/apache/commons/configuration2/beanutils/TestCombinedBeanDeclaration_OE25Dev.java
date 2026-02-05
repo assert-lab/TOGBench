@@ -127,7 +127,7 @@ public class TestCombinedBeanDeclaration_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testGetBeanClassNameDefined_1_oe() {
         final CombinedBeanDeclaration cd = createCombinedDeclaration();
         EasyMock.expect(decl(0).getBeanClassName()).andReturn(null);
@@ -136,13 +136,13 @@ public class TestCombinedBeanDeclaration_OE25Dev {
         assertEquals("Wrong bean class", getClass().getName(), cd.getBeanClassName());
     }
 
-    @Test
+@Test
     public void testGetBeanClassNameUndefined_1_oe() {
         final CombinedBeanDeclaration cd = new CombinedBeanDeclaration();
         assertNull("Got a bean class name", cd.getBeanClassName());
     }
 
-    @Test
+@Test
     public void testGetBeanFactoryNameDefined_1_oe() {
         final CombinedBeanDeclaration cd = createCombinedDeclaration();
         final String name = "someTestBeanFactory";
@@ -152,13 +152,13 @@ public class TestCombinedBeanDeclaration_OE25Dev {
         assertEquals("Wrong factory name", name, cd.getBeanFactoryName());
     }
 
-    @Test
+@Test
     public void testGetBeanFactoryNameUndefined_1_oe() {
         final CombinedBeanDeclaration cd = new CombinedBeanDeclaration();
         assertNull("Got a factory name", cd.getBeanFactoryName());
     }
 
-    @Test
+@Test
     public void testGetBeanFactoryParameterDefined_1_oe() {
         final CombinedBeanDeclaration cd = createCombinedDeclaration();
         final Object param = new Object();
@@ -168,13 +168,13 @@ public class TestCombinedBeanDeclaration_OE25Dev {
         assertSame("Wrong parameter", param, cd.getBeanFactoryParameter());
     }
 
-    @Test
+@Test
     public void testGetBeanFactoryParameterUndefined_1_oe() {
         final CombinedBeanDeclaration cd = new CombinedBeanDeclaration();
         assertNull("Got a factory parameter", cd.getBeanFactoryParameter());
     }
 
-    @Test
+@Test
     public void testGetBeanProperties_1_oe() {
         final Map<String, Object> props1 = new HashMap<>();
         final Map<String, Object> props2 = new HashMap<>();
@@ -194,7 +194,7 @@ public class TestCombinedBeanDeclaration_OE25Dev {
         assertEquals("Wrong number of properties", 4, props.size());
     }
 
-    @Test
+@Test
     public void testGetBeanProperties_2_oe() {
         final Map<String, Object> props1 = new HashMap<>();
         final Map<String, Object> props2 = new HashMap<>();
@@ -217,7 +217,7 @@ public class TestCombinedBeanDeclaration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetBeanPropertiesNull_1_oe() {
         final BeanDeclaration child = EasyMock.createMock(BeanDeclaration.class);
         EasyMock.expect(child.getBeanProperties()).andReturn(null);
@@ -226,7 +226,7 @@ public class TestCombinedBeanDeclaration_OE25Dev {
         assertTrue("Got bean properties", cd.getBeanProperties().isEmpty());
     }
 
-    @Test
+@Test
     public void testGetConstructorArgsDefined_1_oe() {
         final CombinedBeanDeclaration cd = createCombinedDeclaration();
         final Collection<ConstructorArg> args = Arrays.asList(ConstructorArg.forValue(42));
@@ -236,7 +236,7 @@ public class TestCombinedBeanDeclaration_OE25Dev {
         assertSame("Wrong constructor arguments", args, cd.getConstructorArgs());
     }
 
-    @Test
+@Test
     public void testGetConstructorArgsUndefined_1_oe() {
         final CombinedBeanDeclaration cd = createCombinedDeclaration();
         EasyMock.expect(decl(0).getConstructorArgs()).andReturn(null);
@@ -246,7 +246,7 @@ public class TestCombinedBeanDeclaration_OE25Dev {
         assertTrue("Got constructor arguments", cd.getConstructorArgs().isEmpty());
     }
 
-    @Test
+@Test
     public void testGetNestedBeanDeclarations_1_oe() {
         final Map<String, Object> decls1 = new HashMap<>();
         final Map<String, Object> decls2 = new HashMap<>();
@@ -266,7 +266,7 @@ public class TestCombinedBeanDeclaration_OE25Dev {
         assertEquals("Wrong number of declarations", 4, decls.size());
     }
 
-    @Test
+@Test
     public void testGetNestedBeanDeclarations_2_oe() {
         final Map<String, Object> decls1 = new HashMap<>();
         final Map<String, Object> decls2 = new HashMap<>();
@@ -289,7 +289,7 @@ public class TestCombinedBeanDeclaration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetNestedBeanDeclarationsNull_1_oe() {
         final BeanDeclaration child = EasyMock.createMock(BeanDeclaration.class);
         EasyMock.expect(child.getNestedBeanDeclarations()).andReturn(null);

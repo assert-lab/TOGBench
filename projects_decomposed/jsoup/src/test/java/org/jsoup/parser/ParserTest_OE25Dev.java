@@ -12,13 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ParserTest_OE25Dev {
 
-    @Test
+@Test
     public void unescapeEntities_1_oe() {
         String s = Parser.unescapeEntities("One &amp; Two", false);
         assertEquals("One & Two", s);
     }
 
-    @Test
+@Test
     public void unescapeEntitiesHandlesLargeInput_1_oe() {
         StringBuilder longBody = new StringBuilder(500000);
         do {
@@ -29,7 +29,7 @@ public class ParserTest_OE25Dev {
         assertEquals(body, Parser.unescapeEntities(body, false));
     }
 
-    @Test
+@Test
     public void testUtf8_1_oe() throws IOException {
         // testcase for https://github.com/jhy/jsoup/issues/1557. no repro.
         Document parsed = Jsoup.parse(new ByteArrayInputStream("<p>H\u00E9llo, w\u00F6rld!".getBytes(StandardCharsets.UTF_8)), null, "");

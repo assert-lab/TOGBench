@@ -58,7 +58,7 @@ public class ArrayListIteratorTest_OE25Dev<E> extends ArrayIteratorTest<E> {
      * Tests the {@link java.util.ListIterator#set} operation.
      */
 
-    public void testListIterator_1_oe() {
+public void testListIterator_1_oe() {
         final ListIterator<E> iter = makeObject();
 
         // TestArrayIterator#testIterator() has already tested the iterator forward,
@@ -77,7 +77,7 @@ public class ArrayListIteratorTest_OE25Dev<E> extends ArrayIteratorTest<E> {
     }
     }
 
-    public void testListIterator_2_oe() {
+public void testListIterator_2_oe() {
         final ListIterator<E> iter = makeObject();
 
         // TestArrayIterator#testIterator() has already tested the iterator forward,
@@ -98,7 +98,7 @@ public class ArrayListIteratorTest_OE25Dev<E> extends ArrayIteratorTest<E> {
         assertTrue("Iterator should now be empty", !iter.hasPrevious());
     }
 
-    public void testListIterator_3_oe() {
+public void testListIterator_3_oe() {
         final ListIterator<E> iter = makeObject();
 
         // TestArrayIterator#testIterator() has already tested the iterator forward,
@@ -125,7 +125,7 @@ public class ArrayListIteratorTest_OE25Dev<E> extends ArrayIteratorTest<E> {
     }
     }
 
-    public void testListIteratorSet_1_oe() {
+public void testListIteratorSet_1_oe() {
         final String[] testData = new String[] { "a", "b", "c" };
 
         final String[] result = new String[] { "0", "1", "2" };
@@ -142,7 +142,7 @@ public class ArrayListIteratorTest_OE25Dev<E> extends ArrayIteratorTest<E> {
         assertTrue("The two arrays should have the same value, i.e. {0,1,2}", Arrays.equals(testData, result));
     }
 
-    public void testListIteratorSet_3_oe() {
+public void testListIteratorSet_3_oe() {
         final String[] testData = new String[] { "a", "b", "c" };
 
         final String[] result = new String[] { "0", "1", "2" };

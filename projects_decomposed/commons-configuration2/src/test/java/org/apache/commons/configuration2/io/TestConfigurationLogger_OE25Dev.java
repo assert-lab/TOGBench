@@ -176,13 +176,13 @@ public class TestConfigurationLogger_OE25Dev {
         EasyMock.verify(log);
     }
 
-    @Test
+@Test
     public void testAbstractConfigurationDefaultLogger_1_oe() {
         final AbstractConfiguration config = new BaseConfiguration();
         assertThat("Wrong default logger", config.getLogger().getLog(), instanceOf(NoOpLog.class));
     }
 
-    @Test
+@Test
     public void testAbstractConfigurationSetLogger_1_oe() {
         final ConfigurationLogger logger = new ConfigurationLogger(getClass());
         final AbstractConfiguration config = new BaseConfiguration();
@@ -191,7 +191,7 @@ public class TestConfigurationLogger_OE25Dev {
         assertThat("Logger not set", config.getLogger(), sameInstance(logger));
     }
 
-    @Test
+@Test
     public void testAbstractConfigurationSetLoggerNull_1_oe() {
         final AbstractConfiguration config = new BaseConfiguration();
         config.setLogger(new ConfigurationLogger(getClass()));
@@ -200,14 +200,14 @@ public class TestConfigurationLogger_OE25Dev {
         assertThat("Logger not disabled", config.getLogger().getLog(), instanceOf(NoOpLog.class));
     }
 
-    @Test
+@Test
     public void testDummyLogger_1_oe() {
         final ConfigurationLogger logger = ConfigurationLogger.newDummyLogger();
 
         assertThat("Wrong internal logger", logger.getLog(), instanceOf(NoOpLog.class));
     }
 
-    @Test
+@Test
     public void testInitWithLoggerSpec_1_oe() {
         final ConfigurationLogger logger1 = new ConfigurationLogger(getClass().getName());
         final ConfigurationLogger logger2 = new ConfigurationLogger(getClass());
@@ -215,7 +215,7 @@ public class TestConfigurationLogger_OE25Dev {
         assertNotNull("No internal logger", logger1.getLog());
     }
 
-    @Test
+@Test
     public void testInitWithLoggerSpec_2_oe() {
         final ConfigurationLogger logger1 = new ConfigurationLogger(getClass().getName());
         final ConfigurationLogger logger2 = new ConfigurationLogger(getClass());
@@ -226,7 +226,7 @@ public class TestConfigurationLogger_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIsDebugEnabled_1_oe() {
         final Log log = EasyMock.createMock(Log.class);
         EasyMock.expect(log.isDebugEnabled()).andReturn(Boolean.TRUE);
@@ -236,7 +236,7 @@ public class TestConfigurationLogger_OE25Dev {
         assertTrue("No debug log", logger.isDebugEnabled());
     }
 
-    @Test
+@Test
     public void testIsInfoEnabled_1_oe() {
         final Log log = EasyMock.createMock(Log.class);
         EasyMock.expect(log.isInfoEnabled()).andReturn(Boolean.FALSE);
@@ -246,7 +246,7 @@ public class TestConfigurationLogger_OE25Dev {
         assertFalse("Wrong info log", logger.isInfoEnabled());
     }
 
-    @Test
+@Test
     public void testSubClass_1_oe() {
         final StringBuilder buf = new StringBuilder();
         final ConfigurationLogger logger = new ConfigurationLogger() {
@@ -259,7 +259,7 @@ public class TestConfigurationLogger_OE25Dev {
         assertNull("Got an internal logger", logger.getLog());
     }
 
-    @Test
+@Test
     public void testSubClass_2_oe() {
         final StringBuilder buf = new StringBuilder();
         final ConfigurationLogger logger = new ConfigurationLogger() {

@@ -65,7 +65,7 @@ public class IptcParserTest_OE25Dev {
      * @throws ImageReadException when parsing file
      */
 
-    @Test
+@Test
     public void testSkipBlockTypes_1_oe() throws ImageReadException, IOException {
         final String location = IptcParserTest.class
                 .getResource("/images/jpeg/photoshop/IMAGING-246/FallHarvestKitKat_07610.jpg")
@@ -79,7 +79,7 @@ public class IptcParserTest_OE25Dev {
         assertEquals(2, blocks.size());
     }
 
-    @Test
+@Test
     public void testSkipBlockTypes_2_oe() throws ImageReadException, IOException {
         final String location = IptcParserTest.class
                 .getResource("/images/jpeg/photoshop/IMAGING-246/FallHarvestKitKat_07610.jpg")
@@ -100,7 +100,7 @@ public class IptcParserTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSkipBlockTypes_3_oe() throws ImageReadException, IOException {
         final String location = IptcParserTest.class
                 .getResource("/images/jpeg/photoshop/IMAGING-246/FallHarvestKitKat_07610.jpg")
@@ -125,7 +125,7 @@ public class IptcParserTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSkipBlockTypes_4_oe() throws ImageReadException, IOException {
         final String location = IptcParserTest.class
                 .getResource("/images/jpeg/photoshop/IMAGING-246/FallHarvestKitKat_07610.jpg")
@@ -152,7 +152,7 @@ public class IptcParserTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testEncodingSupport_1_oe() throws IOException, ImageReadException {
         // NOTE: We use the JpegParser, so it will send only the block/segment that IptcParser needs for the test image
         File file = new File(IptcParserTest.class.getResource("/images/jpeg/iptc/IMAGING-168/111083453-c07f1880-851e-11eb-8b61-2757f7d934bf.jpg").getFile());

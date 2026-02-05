@@ -539,7 +539,7 @@ public class IcoRoundtripTest_OE25Dev extends IcoBaseTest {
         }
     }
 
-    @Test
+@Test
     public void testZeroColorPlanes_1_oe() throws Exception {
         final int foreground = 0xFFF000E0;
         final int background = 0xFF102030;

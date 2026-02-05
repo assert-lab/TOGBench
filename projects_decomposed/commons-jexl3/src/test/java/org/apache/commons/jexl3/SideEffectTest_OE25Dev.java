@@ -361,7 +361,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         }
     }
 
-    @Test
+@Test
     public void testSideEffectVar_2_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -372,7 +372,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(context.get("foo"), i41 + 2);
     }
 
-    @Test
+@Test
     public void testSideEffectVar_4_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -387,7 +387,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(context.get("foo"), i41 - 2);
     }
 
-    @Test
+@Test
     public void testSideEffectVar_6_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -406,7 +406,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(context.get("foo"), i41 * 2);
     }
 
-    @Test
+@Test
     public void testSideEffectVar_8_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -429,7 +429,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(context.get("foo"), i41 / 2);
     }
 
-    @Test
+@Test
     public void testSideEffectVar_10_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -456,7 +456,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(context.get("foo"), i41 % 2);
     }
 
-    @Test
+@Test
     public void testSideEffectVar_12_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -487,7 +487,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(context.get("foo"), (long)(i41 & 3));
     }
 
-    @Test
+@Test
     public void testSideEffectVar_14_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -522,7 +522,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(context.get("foo"), (long)(i41 | 2));
     }
 
-    @Test
+@Test
     public void testSideEffectVar_16_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -561,7 +561,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(context.get("foo"), (long)(i41 ^ 2));
     }
 
-    @Test
+@Test
     public void testSideEffectVarDots_2_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -572,7 +572,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(context.get("foo.bar.quux"), i41 + 2);
     }
 
-    @Test
+@Test
     public void testSideEffectVarDots_4_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -587,7 +587,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(context.get("foo.bar.quux"), i41 - 2);
     }
 
-    @Test
+@Test
     public void testSideEffectVarDots_6_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -606,7 +606,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(context.get("foo.bar.quux"), i41 * 2);
     }
 
-    @Test
+@Test
     public void testSideEffectVarDots_8_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -629,7 +629,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(context.get("foo.bar.quux"), i41 / 2);
     }
 
-    @Test
+@Test
     public void testSideEffectVarDots_10_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -656,7 +656,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(context.get("foo.bar.quux"), i41 % 2);
     }
 
-    @Test
+@Test
     public void testSideEffectVarDots_12_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -687,7 +687,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(context.get("foo.bar.quux"), (long)(i41 & 3));
     }
 
-    @Test
+@Test
     public void testSideEffectVarDots_14_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -722,7 +722,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(context.get("foo.bar.quux"), (long)(i41 | 2));
     }
 
-    @Test
+@Test
     public void testSideEffectVarDots_16_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -761,7 +761,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(context.get("foo.bar.quux"), (long)(i41 ^ 2));
     }
 
-    @Test
+@Test
     public void testSideEffectArray_2_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -777,7 +777,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], i41 + 2);
     }
 
-    @Test
+@Test
     public void testSideEffectArray_4_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -796,7 +796,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], i41 - 2);
     }
 
-    @Test
+@Test
     public void testSideEffectArray_6_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -818,7 +818,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], i41 * 2);
     }
 
-    @Test
+@Test
     public void testSideEffectArray_8_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -843,7 +843,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], i41 / 2);
     }
 
-    @Test
+@Test
     public void testSideEffectArray_10_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -871,7 +871,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], i41 % 2);
     }
 
-    @Test
+@Test
     public void testSideEffectArray_12_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -902,7 +902,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], (long)(i41 & 3));
     }
 
-    @Test
+@Test
     public void testSideEffectArray_14_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -936,7 +936,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], (long)(i41 | 2));
     }
 
-    @Test
+@Test
     public void testSideEffectArray_16_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -973,7 +973,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], (long)(i41 ^ 2));
     }
 
-    @Test
+@Test
     public void testSideEffectDotArray_2_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -989,7 +989,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], i41 + 2);
     }
 
-    @Test
+@Test
     public void testSideEffectDotArray_4_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -1008,7 +1008,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], i41 - 2);
     }
 
-    @Test
+@Test
     public void testSideEffectDotArray_6_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -1030,7 +1030,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], i41 * 2);
     }
 
-    @Test
+@Test
     public void testSideEffectDotArray_8_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -1055,7 +1055,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], i41 / 2);
     }
 
-    @Test
+@Test
     public void testSideEffectDotArray_10_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -1083,7 +1083,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], i41 % 2);
     }
 
-    @Test
+@Test
     public void testSideEffectDotArray_12_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -1114,7 +1114,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], (long)(i41 & 3));
     }
 
-    @Test
+@Test
     public void testSideEffectDotArray_14_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -1148,7 +1148,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], (long)(i41 | 2));
     }
 
-    @Test
+@Test
     public void testSideEffectDotArray_16_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -1185,7 +1185,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], (long)(i41 ^ 2));
     }
 
-    @Test
+@Test
     public void testSideEffectAntishArray_2_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -1199,7 +1199,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], i41 + 2);
     }
 
-    @Test
+@Test
     public void testSideEffectAntishArray_4_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -1216,7 +1216,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], i41 - 2);
     }
 
-    @Test
+@Test
     public void testSideEffectAntishArray_6_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -1236,7 +1236,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], i41 * 2);
     }
 
-    @Test
+@Test
     public void testSideEffectAntishArray_8_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -1259,7 +1259,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], i41 / 2);
     }
 
-    @Test
+@Test
     public void testSideEffectAntishArray_10_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -1285,7 +1285,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], i41 % 2);
     }
 
-    @Test
+@Test
     public void testSideEffectAntishArray_12_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -1314,7 +1314,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], (long)(i41 & 3));
     }
 
-    @Test
+@Test
     public void testSideEffectAntishArray_14_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -1346,7 +1346,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], (long)(i41 | 2));
     }
 
-    @Test
+@Test
     public void testSideEffectAntishArray_16_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
@@ -1381,7 +1381,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo[0], (long)(i41 ^ 2));
     }
 
-    @Test
+@Test
     public void testSideEffectBean_2_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1391,7 +1391,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 + 2);
     }
 
-    @Test
+@Test
     public void testSideEffectBean_4_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1404,7 +1404,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 - 2);
     }
 
-    @Test
+@Test
     public void testSideEffectBean_6_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1420,7 +1420,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 * 2);
     }
 
-    @Test
+@Test
     public void testSideEffectBean_8_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1439,7 +1439,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 / 2);
     }
 
-    @Test
+@Test
     public void testSideEffectBean_10_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1461,7 +1461,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 % 2);
     }
 
-    @Test
+@Test
     public void testSideEffectBean_12_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1486,7 +1486,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 & 3);
     }
 
-    @Test
+@Test
     public void testSideEffectBean_14_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1514,7 +1514,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 | 2);
     }
 
-    @Test
+@Test
     public void testSideEffectBean_16_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1545,7 +1545,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 ^ 2);
     }
 
-    @Test
+@Test
     public void testSideEffectBeanContainer_2_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1555,7 +1555,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 + 2);
     }
 
-    @Test
+@Test
     public void testSideEffectBeanContainer_4_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1568,7 +1568,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 + 4);
     }
 
-    @Test
+@Test
     public void testSideEffectBeanContainer_6_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1584,7 +1584,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 - 2);
     }
 
-    @Test
+@Test
     public void testSideEffectBeanContainer_8_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1603,7 +1603,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 * 2);
     }
 
-    @Test
+@Test
     public void testSideEffectBeanContainer_10_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1625,7 +1625,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 / 2);
     }
 
-    @Test
+@Test
     public void testSideEffectBeanContainer_12_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1650,7 +1650,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 % 2);
     }
 
-    @Test
+@Test
     public void testSideEffectBeanContainer_14_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1678,7 +1678,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 & 3);
     }
 
-    @Test
+@Test
     public void testSideEffectBeanContainer_16_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1709,7 +1709,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 | 2);
     }
 
-    @Test
+@Test
     public void testSideEffectBeanContainer_18_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
@@ -1743,7 +1743,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(foo.value, i41 ^ 2);
     }
 
-    @Test
+@Test
     public void testOverrideGetSet_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().cache(64).arithmetic(new SelfArithmetic(false)).create();
         final JexlContext jc = null;
@@ -1756,7 +1756,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(3115, result);
     }
 
-    @Test
+@Test
     public void testOverrideGetSet_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().cache(64).arithmetic(new SelfArithmetic(false)).create();
         final JexlContext jc = null;
@@ -1772,7 +1772,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(3115, result);
     }
 
-    @Test
+@Test
     public void testOverrideGetSet_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().cache(64).arithmetic(new SelfArithmetic(false)).create();
         final JexlContext jc = null;
@@ -1791,7 +1791,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testOverrideGetSet_4_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().cache(64).arithmetic(new SelfArithmetic(false)).create();
         final JexlContext jc = null;
@@ -1813,7 +1813,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(169, result);
     }
 
-    @Test
+@Test
     public void test248_2_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final List<Object> foo = new ArrayList<Object>(Arrays.asList(10, 20, 30, 40));
@@ -1829,7 +1829,7 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void test248_5_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final List<Object> foo = new ArrayList<Object>(Arrays.asList(10, 20, 30, 40));

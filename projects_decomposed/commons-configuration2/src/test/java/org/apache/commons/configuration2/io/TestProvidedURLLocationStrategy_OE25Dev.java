@@ -47,7 +47,7 @@ public class TestProvidedURLLocationStrategy_OE25Dev {
      * Tests a successful locate() operation.
      */
 
-    @Test
+@Test
     public void testLocateFail_1_oe() {
         final FileSystem fs = EasyMock.createMock(FileSystem.class);
         EasyMock.replay(fs);
@@ -55,7 +55,7 @@ public class TestProvidedURLLocationStrategy_OE25Dev {
         assertNull("Got a URL", strategy.locate(fs, locator));
     }
 
-    @Test
+@Test
     public void testLocateSuccess_1_oe() {
         final FileSystem fs = EasyMock.createMock(FileSystem.class);
         EasyMock.replay(fs);

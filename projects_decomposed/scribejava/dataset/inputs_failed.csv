@@ -982,3 +982,651 @@ scribejava_89_6,"    @Test
     }
     }
 ",FacebookAccessTokenJsonExtractorTest::shouldThrowExceptionIfResponseIsError_6_oe
+scribejava_1_1,"@Test
+    public void shouldReleaseLatchOnSuccess_1_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+
+        final com.ning.http.client.Response response
+                = new MockResponse(200, ""ok"", new FluentCaseInsensitiveStringsMap(), new byte[0]);
+        handler.onCompleted(response);
+        assertNotNull(callback.getResponse());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_1_oe
+scribejava_1_2,"@Test
+    public void shouldReleaseLatchOnSuccess_2_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+
+        final com.ning.http.client.Response response
+                = new MockResponse(200, ""ok"", new FluentCaseInsensitiveStringsMap(), new byte[0]);
+        handler.onCompleted(response);
+        // removed other assertion
+        assertNull(callback.getThrowable());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_2_oe
+scribejava_1_3,"@Test
+    public void shouldReleaseLatchOnSuccess_3_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+
+        final com.ning.http.client.Response response
+                = new MockResponse(200, ""ok"", new FluentCaseInsensitiveStringsMap(), new byte[0]);
+        handler.onCompleted(response);
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertEquals(""All good"", callback.getResponse());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_3_oe
+scribejava_2_1,"@Test
+    public void shouldReportOAuthException_1_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+
+        final com.ning.http.client.Response response
+                = new MockResponse(200, ""ok"", new FluentCaseInsensitiveStringsMap(), new byte[0]);
+        handler.onCompleted(response);
+        assertNull(callback.getResponse());
+    }",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_1_oe
+scribejava_2_2,"@Test
+    public void shouldReportOAuthException_2_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+
+        final com.ning.http.client.Response response
+                = new MockResponse(200, ""ok"", new FluentCaseInsensitiveStringsMap(), new byte[0]);
+        handler.onCompleted(response);
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_2_oe
+scribejava_2_3,"@Test
+    public void shouldReportOAuthException_3_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+
+        final com.ning.http.client.Response response
+                = new MockResponse(200, ""ok"", new FluentCaseInsensitiveStringsMap(), new byte[0]);
+        handler.onCompleted(response);
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof OAuthException);
+    }",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_3_oe
+scribejava_4_1,"@Test
+    public void shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_1_oe() throws Exception {
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse());
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        oAuthService.execute(request, null).get(30, TimeUnit.SECONDS).close();
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(""POST"", recordedRequest.getMethod());
+    }",AbstractClientTest::shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_1_oe
+scribejava_4_2,"@Test
+    public void shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_2_oe() throws Exception {
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse());
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        oAuthService.execute(request, null).get(30, TimeUnit.SECONDS).close();
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        // removed other assertion
+        assertEquals(HttpClient.DEFAULT_CONTENT_TYPE, recordedRequest.getHeader(HttpClient.CONTENT_TYPE));
+    }",AbstractClientTest::shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_2_oe
+scribejava_10_1,"@Test
+    public void shouldCallCallback_1_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldCallCallback"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.GET, baseUrl.toString());
+
+        final TestCallback callback = new TestCallback();
+        oAuthService.execute(request, callback).get();
+
+        assertEquals(expectedResponseBody, callback.getResponse().getBody());
+    }",AbstractClientTest::shouldCallCallback_1_oe
+scribejava_79_1,"@Test
+    public void shouldReleaseLatchOnSuccess_1_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        assertNotNull(callback.getResponse());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_1_oe
+scribejava_79_2,"@Test
+    public void shouldReleaseLatchOnSuccess_2_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        assertNull(callback.getThrowable());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_2_oe
+scribejava_79_3,"@Test
+    public void shouldReleaseLatchOnSuccess_3_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertEquals(""All good"", future.get());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_3_oe
+scribejava_80_1,"@Test
+    public void shouldReleaseLatchOnIOException_1_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        assertNull(callback.getResponse());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_1_oe
+scribejava_80_2,"@Test
+    public void shouldReleaseLatchOnIOException_2_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_2_oe
+scribejava_80_3,"@Test
+    public void shouldReleaseLatchOnIOException_3_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof IOException);
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_3_oe
+scribejava_80_4,"@Test
+    public void shouldReleaseLatchOnIOException_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } });
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_4_oe
+scribejava_81_1,"@Test
+    public void shouldReportOAuthException_1_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        assertNull(callback.getResponse());
+    }",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_1_oe
+scribejava_81_2,"@Test
+    public void shouldReportOAuthException_2_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_2_oe
+scribejava_81_3,"@Test
+    public void shouldReportOAuthException_3_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof OAuthException);
+    }",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_3_oe
+scribejava_81_4,"@Test
+    public void shouldReportOAuthException_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } });
+    }",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_4_oe
+scribejava_82_1,"@Test
+    public void shouldReleaseLatchOnCancel_1_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        future.cancel(true);
+        assertNull(callback.getResponse());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_1_oe
+scribejava_82_2,"@Test
+    public void shouldReleaseLatchOnCancel_2_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        future.cancel(true);
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_2_oe
+scribejava_82_3,"@Test
+    public void shouldReleaseLatchOnCancel_3_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        future.cancel(true);
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof IOException);
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_3_oe
+scribejava_82_4,"@Test
+    public void shouldReleaseLatchOnCancel_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        future.cancel(true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } });
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_4_oe
+scribejava_83_1,"@Test
+    public void shouldReleaseLatchOnFailure_1_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        handler.onFailure(call, new IOException());
+        assertNull(callback.getResponse());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_1_oe
+scribejava_83_2,"@Test
+    public void shouldReleaseLatchOnFailure_2_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        handler.onFailure(call, new IOException());
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_2_oe
+scribejava_83_3,"@Test
+    public void shouldReleaseLatchOnFailure_3_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        handler.onFailure(call, new IOException());
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof IOException);
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_3_oe
+scribejava_83_4,"@Test
+    public void shouldReleaseLatchOnFailure_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        handler.onFailure(call, new IOException());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } });
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_4_oe
+scribejava_84_1,"@Test
+    public void shouldReleaseLatchOnSuccess_1_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        assertNotNull(callback.getResponse());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_1_oe
+scribejava_84_2,"@Test
+    public void shouldReleaseLatchOnSuccess_2_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        assertNull(callback.getThrowable());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_2_oe
+scribejava_84_3,"@Test
+    public void shouldReleaseLatchOnSuccess_3_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertEquals(""All good"", handler.getResult());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_3_oe
+scribejava_85_1,"@Test
+    public void shouldReleaseLatchOnIOException_1_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        assertNull(callback.getResponse());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_1_oe
+scribejava_85_2,"@Test
+    public void shouldReleaseLatchOnIOException_2_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_2_oe
+scribejava_85_3,"@Test
+    public void shouldReleaseLatchOnIOException_3_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof IOException);
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_3_oe
+scribejava_85_4,"@Test
+    public void shouldReleaseLatchOnIOException_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } });
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_4_oe
+scribejava_86_1,"@Test
+    public void shouldReportOAuthException_1_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        assertNull(callback.getResponse());
+    }",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_1_oe
+scribejava_86_2,"@Test
+    public void shouldReportOAuthException_2_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_2_oe
+scribejava_86_3,"@Test
+    public void shouldReportOAuthException_3_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof OAuthException);
+    }",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_3_oe
+scribejava_86_4,"@Test
+    public void shouldReportOAuthException_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } });
+    }",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_4_oe
+scribejava_87_1,"@Test
+    public void shouldReleaseLatchOnCancel_1_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.cancelled();
+        assertNull(callback.getResponse());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_1_oe
+scribejava_87_2,"@Test
+    public void shouldReleaseLatchOnCancel_2_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.cancelled();
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_2_oe
+scribejava_87_3,"@Test
+    public void shouldReleaseLatchOnCancel_3_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.cancelled();
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof CancellationException);
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_3_oe
+scribejava_87_4,"@Test
+    public void shouldReleaseLatchOnCancel_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.cancelled();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } });
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_4_oe
+scribejava_88_1,"@Test
+    public void shouldReleaseLatchOnFailure_1_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.failed(new RuntimeException());
+        assertNull(callback.getResponse());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_1_oe
+scribejava_88_2,"@Test
+    public void shouldReleaseLatchOnFailure_2_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.failed(new RuntimeException());
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_2_oe
+scribejava_88_3,"@Test
+    public void shouldReleaseLatchOnFailure_3_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.failed(new RuntimeException());
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof RuntimeException);
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_3_oe
+scribejava_88_4,"@Test
+    public void shouldReleaseLatchOnFailure_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.failed(new RuntimeException());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } });
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_4_oe
+scribejava_90_1,"@Test
+    public void testSigGeneration_1_oe() {
+        final OAuth2AccessToken accessToken = new OAuth2AccessToken(""d3iwa.403gvrs194740652m1k4w2a503k3c"");
+        final OAuthRequest request = new OAuthRequest(Verb.GET, URL);
+        service.signRequest(accessToken, request);
+        assertEquals(""96127f5ca29a8351399e94bbd284ab16"", findParam(request.getQueryStringParams(), ""sig""));
+    }",OdnoklassnikiServiceTest::testSigGeneration_1_oe
+scribejava_91_1,"@Test
+    public void testErrorExtraction_1_oe() throws IOException {
+
+        final FitBitJsonTokenExtractor extractor = new FitBitJsonTokenExtractor();
+        final OAuth2AccessTokenErrorResponse thrown = assertThrows(OAuth2AccessTokenErrorResponse.class, new ThrowingRunnable() { @Override public void run() throws Throwable { extractor.generateError(new Response(403, null, null, ERROR_JSON)); } });
+    }",FitBitJsonTokenExtractorTest::testErrorExtraction_1_oe
+scribejava_91_2,"@Test
+    public void testErrorExtraction_2_oe() throws IOException {
+
+        final FitBitJsonTokenExtractor extractor = new FitBitJsonTokenExtractor();
+        // removed other assertion
+        assertSame(OAuth2Error.INVALID_GRANT, thrown.getError());
+    }",FitBitJsonTokenExtractorTest::testErrorExtraction_2_oe
+scribejava_91_3,"@Test
+    public void testErrorExtraction_3_oe() throws IOException {
+
+        final FitBitJsonTokenExtractor extractor = new FitBitJsonTokenExtractor();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(ERROR_DESCRIPTION, thrown.getErrorDescription());
+    }",FitBitJsonTokenExtractorTest::testErrorExtraction_3_oe

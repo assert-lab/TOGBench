@@ -33,12 +33,12 @@ class NativeSeedTypeTest_OE25Dev {
      * that can be converted that is not a native type.
      */
 
-    @Test
+@Test
     void testConvertSeedToBytesUsingNullThrows_1_oe() {
         Assertions.assertThrows(UnsupportedOperationException.class, () -> NativeSeedType.convertSeedToBytes(null));
     }
 
-    @Test
+@Test
     void testConvertSeedToBytesUsingByteArray_1_oe() {
         final byte[] seed = {42, 78, 99};
         Assertions.assertSame(seed, NativeSeedType.convertSeedToBytes(seed));

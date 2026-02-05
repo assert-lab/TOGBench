@@ -322,14 +322,14 @@ class ProvidersCommonParametricTest_OE25Dev {
         return nonZero;
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testUnsupportedSeedType_1_oe(ProvidersList.Data data) {
         final byte seed = 123;
         Assertions.assertThrows(UnsupportedOperationException.class, () -> data.getSource().create(seed, data.getArgs()));
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testFactoryCreateMethod_1_oe(ProvidersList.Data data) {
         final RandomSource originalSource = data.getSource();
@@ -343,7 +343,7 @@ class ProvidersCommonParametricTest_OE25Dev {
         Assertions.assertEquals(generator.getClass(), rng.getClass());
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testFactoryCreateMethodWithSeed_1_oe(ProvidersList.Data data) {
         final RandomSource originalSource = data.getSource();
@@ -355,7 +355,7 @@ class ProvidersCommonParametricTest_OE25Dev {
         Assertions.assertEquals(rng1.getClass(), generator.getClass());
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testFactoryCreateMethodWithSeed_2_oe(ProvidersList.Data data) {
         final RandomSource originalSource = data.getSource();
@@ -372,7 +372,7 @@ class ProvidersCommonParametricTest_OE25Dev {
     }
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testCreateMethodThrowsWithIncorrectArguments_1_oe(ProvidersList.Data data) {
         final RandomSource originalSource = data.getSource();
@@ -385,7 +385,7 @@ class ProvidersCommonParametricTest_OE25Dev {
     }
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testCreateMethodThrowsWithIncorrectArguments_2_oe(ProvidersList.Data data) {
         final RandomSource originalSource = data.getSource();
@@ -401,7 +401,7 @@ class ProvidersCommonParametricTest_OE25Dev {
     }
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testAllSeedTypes_1_oe(ProvidersList.Data data) {
         final RandomSource originalSource = data.getSource();
@@ -430,7 +430,7 @@ class ProvidersCommonParametricTest_OE25Dev {
     }
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testAllSeedTypes_2_oe(ProvidersList.Data data) {
         final RandomSource originalSource = data.getSource();
@@ -460,7 +460,7 @@ class ProvidersCommonParametricTest_OE25Dev {
     }
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testAllSeedTypes_3_oe(ProvidersList.Data data) {
         final RandomSource originalSource = data.getSource();
@@ -496,7 +496,7 @@ class ProvidersCommonParametricTest_OE25Dev {
         Assertions.assertEquals(6, seedCount);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testAllSeedTypes_4_oe(ProvidersList.Data data) {
         final RandomSource originalSource = data.getSource();
@@ -533,7 +533,7 @@ class ProvidersCommonParametricTest_OE25Dev {
         Assertions.assertEquals(5, nonNativeSeedCount);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testUnrestorable_2_oe(ProvidersList.Data data) {
         final RandomSource originalSource = data.getSource();
@@ -552,7 +552,7 @@ class ProvidersCommonParametricTest_OE25Dev {
         Assertions.assertThrows(ClassCastException.class, () -> { RestorableUniformRandomProvider dummy = (RestorableUniformRandomProvider) rng2; });
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testSerializingState_1_oe(ProvidersList.Data data)
         throws IOException,
@@ -580,7 +580,7 @@ class ProvidersCommonParametricTest_OE25Dev {
         Assertions.assertNotEquals(0, listDiscard.size());
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testSerializingState_2_oe(ProvidersList.Data data)
         throws IOException,
@@ -609,7 +609,7 @@ class ProvidersCommonParametricTest_OE25Dev {
         Assertions.assertNotEquals(listOrig, listDiscard);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testSerializingState_3_oe(ProvidersList.Data data)
         throws IOException,
@@ -645,7 +645,7 @@ class ProvidersCommonParametricTest_OE25Dev {
         Assertions.assertNotSame(stateOrig, stateNew);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testSerializingState_4_oe(ProvidersList.Data data)
         throws IOException,
@@ -688,7 +688,7 @@ class ProvidersCommonParametricTest_OE25Dev {
         Assertions.assertNotSame(listOrig, listReplay);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testSerializingState_5_oe(ProvidersList.Data data)
         throws IOException,
@@ -734,14 +734,14 @@ class ProvidersCommonParametricTest_OE25Dev {
         Assertions.assertEquals(listOrig, listReplay);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testUnrestorableToString_1_oe(ProvidersList.Data data) {
         final UniformRandomProvider generator = data.getSource().create(data.getSeed(), data.getArgs());
         Assertions.assertEquals(generator.toString(),RandomSource.unrestorable(generator).toString());
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testSupportedInterfaces_1_oe(ProvidersList.Data data) {
         final RandomSource originalSource = data.getSource();
@@ -750,7 +750,7 @@ class ProvidersCommonParametricTest_OE25Dev {
         Assertions.assertEquals(rng instanceof JumpableUniformRandomProvider,originalSource.isJumpable(),"isJumpable");
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("getProvidersTestData")
     void testSupportedInterfaces_2_oe(ProvidersList.Data data) {
         final RandomSource originalSource = data.getSource();

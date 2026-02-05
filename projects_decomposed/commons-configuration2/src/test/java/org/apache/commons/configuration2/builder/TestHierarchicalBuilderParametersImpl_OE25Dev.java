@@ -52,7 +52,7 @@ public class TestHierarchicalBuilderParametersImpl_OE25Dev {
      * Tests whether the expression engine can be set.
      */
 
-    @Test
+@Test
     public void testBeanPropertiesAccess_1_oe() throws Exception {
         final ExpressionEngine engine = EasyMock.createMock(ExpressionEngine.class);
         BeanHelper.setProperty(params, "expressionEngine", engine);
@@ -61,7 +61,7 @@ public class TestHierarchicalBuilderParametersImpl_OE25Dev {
         assertSame("Wrong expression engine", engine, map.get("expressionEngine"));
     }
 
-    @Test
+@Test
     public void testBeanPropertiesAccess_2_oe() throws Exception {
         final ExpressionEngine engine = EasyMock.createMock(ExpressionEngine.class);
         BeanHelper.setProperty(params, "expressionEngine", engine);
@@ -71,7 +71,7 @@ public class TestHierarchicalBuilderParametersImpl_OE25Dev {
         assertEquals("Wrong exception flag", Boolean.TRUE, map.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_1_oe() {
         final ExpressionEngine engine = EasyMock.createMock(ExpressionEngine.class);
         final HierarchicalBuilderParametersImpl params = new HierarchicalBuilderParametersImpl();
@@ -84,7 +84,7 @@ public class TestHierarchicalBuilderParametersImpl_OE25Dev {
         assertEquals("Exception flag not set", Boolean.TRUE, parameters.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_2_oe() {
         final ExpressionEngine engine = EasyMock.createMock(ExpressionEngine.class);
         final HierarchicalBuilderParametersImpl params = new HierarchicalBuilderParametersImpl();
@@ -98,7 +98,7 @@ public class TestHierarchicalBuilderParametersImpl_OE25Dev {
         assertEquals("Expression engine not set", engine, parameters.get("expressionEngine"));
     }
 
-    @Test
+@Test
     public void testSetExpressionEngine_1_oe() {
         final ExpressionEngine engine = EasyMock.createMock(ExpressionEngine.class);
         EasyMock.replay(engine);

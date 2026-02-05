@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 
 public class FieldTypeLongTest_OE25Dev {
 
-    @Test
+@Test
     public void testWriteDataWithNonNull_2_oe() {
         final FieldTypeLong fieldTypeLong = FieldType.IFD;
         final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;
@@ -38,7 +38,7 @@ public class FieldTypeLongTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testWriteDataWithNonNull_3_oe() {
         final FieldTypeLong fieldTypeLong = FieldType.IFD;
         final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;

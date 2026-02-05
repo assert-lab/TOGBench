@@ -148,40 +148,40 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
     //-----------------------------------------------------------------------
 
 
-    public void testTest_1_oe() {
+public void testTest_1_oe() {
         assertEquals("2002-06-09T00:00:00.000Z",new Instant(TEST_TIME_NOW).toString());
     }
 
-    public void testTest_2_oe() {
+public void testTest_2_oe() {
         // removed other assertion
         assertEquals("2002-04-05T12:24:00.000Z",new Instant(TEST_TIME1).toString());
     }
 
-    public void testTest_3_oe() {
+public void testTest_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("2003-05-06T14:28:00.000Z",new Instant(TEST_TIME2).toString());
     }
 
-    public void testGetMillis_1_oe() {
+public void testGetMillis_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         assertEquals(TEST_TIME1,test.getStartMillis());
     }
 
-    public void testGetMillis_2_oe() {
+public void testGetMillis_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
         assertEquals(TEST_TIME1,test.getStart().getMillis());
     }
 
-    public void testGetMillis_3_oe() {
+public void testGetMillis_3_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
         // removed other assertion
         assertEquals(TEST_TIME2,test.getEndMillis());
     }
 
-    public void testGetMillis_4_oe() {
+public void testGetMillis_4_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
         // removed other assertion
@@ -189,7 +189,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(TEST_TIME2,test.getEnd().getMillis());
     }
 
-    public void testGetMillis_5_oe() {
+public void testGetMillis_5_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
         // removed other assertion
@@ -198,7 +198,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(TEST_TIME2 - TEST_TIME1,test.toDurationMillis());
     }
 
-    public void testGetMillis_6_oe() {
+public void testGetMillis_6_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
         // removed other assertion
@@ -208,36 +208,36 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(TEST_TIME2 - TEST_TIME1,test.toDuration().getMillis());
     }
 
-    public void testGetDuration1_1_oe() {
+public void testGetDuration1_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         assertEquals(TEST_TIME2 - TEST_TIME1,test.toDurationMillis());
     }
 
-    public void testGetDuration1_2_oe() {
+public void testGetDuration1_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
         assertEquals(TEST_TIME2 - TEST_TIME1,test.toDuration().getMillis());
     }
 
-    public void testGetDuration2_1_oe() {
+public void testGetDuration2_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME1);
         assertSame(Duration.ZERO,test.toDuration());
     }
 
-    public void testEqualsHashCode_1_oe() {
+public void testEqualsHashCode_1_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         assertEquals(true,test1.equals(test2));
     }
 
-    public void testEqualsHashCode_2_oe() {
+public void testEqualsHashCode_2_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
         assertEquals(true,test2.equals(test1));
     }
 
-    public void testEqualsHashCode_3_oe() {
+public void testEqualsHashCode_3_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -245,7 +245,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.equals(test1));
     }
 
-    public void testEqualsHashCode_4_oe() {
+public void testEqualsHashCode_4_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -254,7 +254,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.equals(test2));
     }
 
-    public void testEqualsHashCode_5_oe() {
+public void testEqualsHashCode_5_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -264,7 +264,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test2.hashCode());
     }
 
-    public void testEqualsHashCode_6_oe() {
+public void testEqualsHashCode_6_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -275,7 +275,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test1.hashCode());
     }
 
-    public void testEqualsHashCode_7_oe() {
+public void testEqualsHashCode_7_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -287,7 +287,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.hashCode()== test2.hashCode());
     }
 
-    public void testEqualsHashCode_8_oe() {
+public void testEqualsHashCode_8_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -302,7 +302,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals(test3));
     }
 
-    public void testEqualsHashCode_9_oe() {
+public void testEqualsHashCode_9_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -318,7 +318,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.equals(test3));
     }
 
-    public void testEqualsHashCode_10_oe() {
+public void testEqualsHashCode_10_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -335,7 +335,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.equals(test1));
     }
 
-    public void testEqualsHashCode_11_oe() {
+public void testEqualsHashCode_11_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -353,7 +353,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.equals(test2));
     }
 
-    public void testEqualsHashCode_12_oe() {
+public void testEqualsHashCode_12_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -372,7 +372,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.hashCode()== test3.hashCode());
     }
 
-    public void testEqualsHashCode_13_oe() {
+public void testEqualsHashCode_13_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -392,7 +392,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.hashCode()== test3.hashCode());
     }
 
-    public void testEqualsHashCode_14_oe() {
+public void testEqualsHashCode_14_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -415,7 +415,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test4.equals(test4));
     }
 
-    public void testEqualsHashCode_15_oe() {
+public void testEqualsHashCode_15_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -439,7 +439,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals(test4));
     }
 
-    public void testEqualsHashCode_16_oe() {
+public void testEqualsHashCode_16_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -464,7 +464,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.equals(test4));
     }
 
-    public void testEqualsHashCode_17_oe() {
+public void testEqualsHashCode_17_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -490,7 +490,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test4.equals(test1));
     }
 
-    public void testEqualsHashCode_18_oe() {
+public void testEqualsHashCode_18_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -517,7 +517,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test4.equals(test2));
     }
 
-    public void testEqualsHashCode_19_oe() {
+public void testEqualsHashCode_19_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -545,7 +545,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.hashCode()== test4.hashCode());
     }
 
-    public void testEqualsHashCode_20_oe() {
+public void testEqualsHashCode_20_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -574,7 +574,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test2.hashCode()== test4.hashCode());
     }
 
-    public void testEqualsHashCode_21_oe() {
+public void testEqualsHashCode_21_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -606,7 +606,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.equals(test5));
     }
 
-    public void testEqualsHashCode_22_oe() {
+public void testEqualsHashCode_22_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -639,7 +639,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.equals(test5));
     }
 
-    public void testEqualsHashCode_23_oe() {
+public void testEqualsHashCode_23_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -673,7 +673,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.equals(test5));
     }
 
-    public void testEqualsHashCode_24_oe() {
+public void testEqualsHashCode_24_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -708,7 +708,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test5.equals(test1));
     }
 
-    public void testEqualsHashCode_25_oe() {
+public void testEqualsHashCode_25_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -744,7 +744,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test5.equals(test2));
     }
 
-    public void testEqualsHashCode_26_oe() {
+public void testEqualsHashCode_26_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -781,7 +781,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test5.equals(test3));
     }
 
-    public void testEqualsHashCode_27_oe() {
+public void testEqualsHashCode_27_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -819,7 +819,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.hashCode()== test5.hashCode());
     }
 
-    public void testEqualsHashCode_28_oe() {
+public void testEqualsHashCode_28_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -858,7 +858,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test2.hashCode()== test5.hashCode());
     }
 
-    public void testEqualsHashCode_29_oe() {
+public void testEqualsHashCode_29_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -898,7 +898,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test3.hashCode()== test5.hashCode());
     }
 
-    public void testEqualsHashCode_30_oe() {
+public void testEqualsHashCode_30_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -940,7 +940,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals("Hello"));
     }
 
-    public void testEqualsHashCode_31_oe() {
+public void testEqualsHashCode_31_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -983,7 +983,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test1.equals(new MockInterval()));
     }
 
-    public void testEqualsHashCode_32_oe() {
+public void testEqualsHashCode_32_oe() {
         MutableInterval test1 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         MutableInterval test2 = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
@@ -1027,25 +1027,25 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test1.equals(new DateTime(TEST_TIME1)));
     }
 
-    public void testContains_long_1_oe() {
+public void testContains_long_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         assertEquals(true,test.contains(TEST_TIME1));
     }
 
-    public void testContains_long_2_oe() {
+public void testContains_long_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
         assertEquals(false,test.contains(TEST_TIME1 - 1));
     }
 
-    public void testContains_long_3_oe() {
+public void testContains_long_3_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
         // removed other assertion
         assertEquals(true,test.contains(TEST_TIME1 +(TEST_TIME2 - TEST_TIME1)/ 2));
     }
 
-    public void testContains_long_4_oe() {
+public void testContains_long_4_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
         // removed other assertion
@@ -1053,7 +1053,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.contains(TEST_TIME2));
     }
 
-    public void testContains_long_5_oe() {
+public void testContains_long_5_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
         // removed other assertion
@@ -1062,14 +1062,14 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.contains(TEST_TIME2 - 1));
     }
 
-    public void testContainsNow_1_oe() {
+public void testContainsNow_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         DateTimeUtils.setCurrentMillisFixed(TEST_TIME1);
         assertEquals(true,test.containsNow());
     }
 
-    public void testContainsNow_2_oe() {
+public void testContainsNow_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         DateTimeUtils.setCurrentMillisFixed(TEST_TIME1);
@@ -1078,7 +1078,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.containsNow());
     }
 
-    public void testContainsNow_3_oe() {
+public void testContainsNow_3_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         DateTimeUtils.setCurrentMillisFixed(TEST_TIME1);
@@ -1089,7 +1089,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.containsNow());
     }
 
-    public void testContainsNow_4_oe() {
+public void testContainsNow_4_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         DateTimeUtils.setCurrentMillisFixed(TEST_TIME1);
@@ -1102,7 +1102,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.containsNow());
     }
 
-    public void testContainsNow_5_oe() {
+public void testContainsNow_5_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         DateTimeUtils.setCurrentMillisFixed(TEST_TIME1);
@@ -1117,25 +1117,25 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.containsNow());
     }
 
-    public void testContains_RI_1_oe() {
+public void testContains_RI_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         assertEquals(true,test.contains(new Instant(TEST_TIME1)));
     }
 
-    public void testContains_RI_2_oe() {
+public void testContains_RI_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
         assertEquals(false,test.contains(new Instant(TEST_TIME1 - 1)));
     }
 
-    public void testContains_RI_3_oe() {
+public void testContains_RI_3_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
         // removed other assertion
         assertEquals(true,test.contains(new Instant(TEST_TIME1 +(TEST_TIME2 - TEST_TIME1)/ 2)));
     }
 
-    public void testContains_RI_4_oe() {
+public void testContains_RI_4_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
         // removed other assertion
@@ -1143,7 +1143,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.contains(new Instant(TEST_TIME2)));
     }
 
-    public void testContains_RI_5_oe() {
+public void testContains_RI_5_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
         // removed other assertion
@@ -1152,7 +1152,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.contains(new Instant(TEST_TIME2 - 1)));
     }
 
-    public void testContains_RI_6_oe() {
+public void testContains_RI_6_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         // removed other assertion
         // removed other assertion
@@ -1162,20 +1162,20 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.contains((ReadableInstant)null));
     }
 
-    public void testContains_RInterval_1_oe() {
+public void testContains_RInterval_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         assertEquals(true,test.contains(new Interval(TEST_TIME1,TEST_TIME1)));
     }
 
-    public void testContains_RInterval_2_oe() {
+public void testContains_RInterval_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
         assertEquals(false,test.contains(new Interval(TEST_TIME1 - 1,TEST_TIME1)));
     }
 
-    public void testContains_RInterval_3_oe() {
+public void testContains_RInterval_3_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1184,7 +1184,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.contains(new Interval(TEST_TIME1,TEST_TIME1 + 1)));
     }
 
-    public void testContains_RInterval_4_oe() {
+public void testContains_RInterval_4_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1194,7 +1194,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.contains(new Interval(TEST_TIME1 - 1,TEST_TIME1 + 1)));
     }
 
-    public void testContains_RInterval_5_oe() {
+public void testContains_RInterval_5_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1205,7 +1205,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.contains(new Interval(TEST_TIME1 + 1,TEST_TIME1 + 1)));
     }
 
-    public void testContains_RInterval_6_oe() {
+public void testContains_RInterval_6_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1218,7 +1218,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.contains(new Interval(TEST_TIME1,TEST_TIME2)));
     }
 
-    public void testContains_RInterval_7_oe() {
+public void testContains_RInterval_7_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1232,7 +1232,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.contains(new Interval(TEST_TIME1 - 1,TEST_TIME2)));
     }
 
-    public void testContains_RInterval_8_oe() {
+public void testContains_RInterval_8_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1247,7 +1247,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.contains(new Interval(TEST_TIME1 +(TEST_TIME2 - TEST_TIME1)/ 2,TEST_TIME2)));
     }
 
-    public void testContains_RInterval_9_oe() {
+public void testContains_RInterval_9_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1263,7 +1263,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.contains(new Interval(TEST_TIME2,TEST_TIME2)));
     }
 
-    public void testContains_RInterval_10_oe() {
+public void testContains_RInterval_10_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1280,7 +1280,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.contains(new Interval(TEST_TIME2 - 1,TEST_TIME2)));
     }
 
-    public void testContains_RInterval_11_oe() {
+public void testContains_RInterval_11_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1299,7 +1299,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.contains(new Interval(TEST_TIME1,TEST_TIME2 - 1)));
     }
 
-    public void testContains_RInterval_12_oe() {
+public void testContains_RInterval_12_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1319,7 +1319,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.contains(new Interval(TEST_TIME1 - 1,TEST_TIME2 - 1)));
     }
 
-    public void testContains_RInterval_13_oe() {
+public void testContains_RInterval_13_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1340,7 +1340,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.contains(new Interval(TEST_TIME1 +(TEST_TIME2 - TEST_TIME1)/ 2,TEST_TIME2 - 1)));
     }
 
-    public void testContains_RInterval_14_oe() {
+public void testContains_RInterval_14_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1362,7 +1362,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.contains(new Interval(TEST_TIME2 - 1,TEST_TIME2 - 1)));
     }
 
-    public void testContains_RInterval_15_oe() {
+public void testContains_RInterval_15_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1385,7 +1385,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.contains(new Interval(TEST_TIME2 - 2,TEST_TIME2 - 1)));
     }
 
-    public void testContains_RInterval_16_oe() {
+public void testContains_RInterval_16_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1410,7 +1410,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.contains(new Interval(TEST_TIME1,TEST_TIME2 + 1)));
     }
 
-    public void testContains_RInterval_17_oe() {
+public void testContains_RInterval_17_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1436,7 +1436,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.contains(new Interval(TEST_TIME1 - 1,TEST_TIME2 + 1)));
     }
 
-    public void testContains_RInterval_18_oe() {
+public void testContains_RInterval_18_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1463,7 +1463,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.contains(new Interval(TEST_TIME1 +(TEST_TIME2 - TEST_TIME1)/ 2,TEST_TIME2 + 1)));
     }
 
-    public void testContains_RInterval_19_oe() {
+public void testContains_RInterval_19_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1491,7 +1491,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.contains(new Interval(TEST_TIME2,TEST_TIME2 + 1)));
     }
 
-    public void testContains_RInterval_20_oe() {
+public void testContains_RInterval_20_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1520,7 +1520,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.contains(new Interval(TEST_TIME2 - 1,TEST_TIME2 + 1)));
     }
 
-    public void testContains_RInterval_21_oe() {
+public void testContains_RInterval_21_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1550,7 +1550,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.contains(new Interval(TEST_TIME1 - 2,TEST_TIME1 - 1)));
     }
 
-    public void testContains_RInterval_22_oe() {
+public void testContains_RInterval_22_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1582,20 +1582,20 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.contains((ReadableInterval)null));
     }
 
-    public void testOverlaps_RInterval_1_oe() {
+public void testOverlaps_RInterval_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         assertEquals(false,test.overlaps(new Interval(TEST_TIME1,TEST_TIME1)));
     }
 
-    public void testOverlaps_RInterval_2_oe() {
+public void testOverlaps_RInterval_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
         assertEquals(false,test.overlaps(new Interval(TEST_TIME1 - 1,TEST_TIME1)));
     }
 
-    public void testOverlaps_RInterval_3_oe() {
+public void testOverlaps_RInterval_3_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1604,7 +1604,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.overlaps(new Interval(TEST_TIME1,TEST_TIME1 + 1)));
     }
 
-    public void testOverlaps_RInterval_4_oe() {
+public void testOverlaps_RInterval_4_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1614,7 +1614,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.overlaps(new Interval(TEST_TIME1 - 1,TEST_TIME1 + 1)));
     }
 
-    public void testOverlaps_RInterval_5_oe() {
+public void testOverlaps_RInterval_5_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1625,7 +1625,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.overlaps(new Interval(TEST_TIME1 + 1,TEST_TIME1 + 1)));
     }
 
-    public void testOverlaps_RInterval_6_oe() {
+public void testOverlaps_RInterval_6_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1638,7 +1638,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.overlaps(new Interval(TEST_TIME1,TEST_TIME2)));
     }
 
-    public void testOverlaps_RInterval_7_oe() {
+public void testOverlaps_RInterval_7_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1652,7 +1652,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.overlaps(new Interval(TEST_TIME1 - 1,TEST_TIME2)));
     }
 
-    public void testOverlaps_RInterval_8_oe() {
+public void testOverlaps_RInterval_8_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1667,7 +1667,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.overlaps(new Interval(TEST_TIME1 +(TEST_TIME2 - TEST_TIME1)/ 2,TEST_TIME2)));
     }
 
-    public void testOverlaps_RInterval_9_oe() {
+public void testOverlaps_RInterval_9_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1683,7 +1683,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.overlaps(new Interval(TEST_TIME2,TEST_TIME2)));
     }
 
-    public void testOverlaps_RInterval_10_oe() {
+public void testOverlaps_RInterval_10_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1700,7 +1700,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.overlaps(new Interval(TEST_TIME2 - 1,TEST_TIME2)));
     }
 
-    public void testOverlaps_RInterval_11_oe() {
+public void testOverlaps_RInterval_11_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1719,7 +1719,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.overlaps(new Interval(TEST_TIME1,TEST_TIME2 + 1)));
     }
 
-    public void testOverlaps_RInterval_12_oe() {
+public void testOverlaps_RInterval_12_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1739,7 +1739,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.overlaps(new Interval(TEST_TIME1 - 1,TEST_TIME2 + 1)));
     }
 
-    public void testOverlaps_RInterval_13_oe() {
+public void testOverlaps_RInterval_13_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1760,7 +1760,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.overlaps(new Interval(TEST_TIME1 +(TEST_TIME2 - TEST_TIME1)/ 2,TEST_TIME2 + 1)));
     }
 
-    public void testOverlaps_RInterval_14_oe() {
+public void testOverlaps_RInterval_14_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1782,7 +1782,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.overlaps(new Interval(TEST_TIME2,TEST_TIME2 + 1)));
     }
 
-    public void testOverlaps_RInterval_15_oe() {
+public void testOverlaps_RInterval_15_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1805,7 +1805,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.overlaps(new Interval(TEST_TIME2 - 1,TEST_TIME2 + 1)));
     }
 
-    public void testOverlaps_RInterval_16_oe() {
+public void testOverlaps_RInterval_16_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1830,7 +1830,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.overlaps(new Interval(TEST_TIME1 - 1,TEST_TIME1 - 1)));
     }
 
-    public void testOverlaps_RInterval_17_oe() {
+public void testOverlaps_RInterval_17_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1856,7 +1856,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.overlaps(new Interval(TEST_TIME1 - 1,TEST_TIME1)));
     }
 
-    public void testOverlaps_RInterval_18_oe() {
+public void testOverlaps_RInterval_18_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1883,7 +1883,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.overlaps(new Interval(TEST_TIME1 - 1,TEST_TIME1 + 1)));
     }
 
-    public void testOverlaps_RInterval_19_oe() {
+public void testOverlaps_RInterval_19_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1912,7 +1912,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.overlaps((ReadableInterval)null));
     }
 
-    public void testOverlaps_RInterval_20_oe() {
+public void testOverlaps_RInterval_20_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1944,7 +1944,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,empty.overlaps(empty));
     }
 
-    public void testOverlaps_RInterval_21_oe() {
+public void testOverlaps_RInterval_21_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -1977,7 +1977,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,empty.overlaps(test));
     }
 
-    public void testOverlaps_RInterval_22_oe() {
+public void testOverlaps_RInterval_22_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2011,20 +2011,20 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.overlaps(empty));
     }
 
-    public void testIsBefore_long_1_oe() {
+public void testIsBefore_long_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         assertEquals(false,test.isBefore(TEST_TIME1 - 1));
     }
 
-    public void testIsBefore_long_2_oe() {
+public void testIsBefore_long_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
         assertEquals(false,test.isBefore(TEST_TIME1));
     }
 
-    public void testIsBefore_long_3_oe() {
+public void testIsBefore_long_3_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2032,7 +2032,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isBefore(TEST_TIME1 + 1));
     }
 
-    public void testIsBefore_long_4_oe() {
+public void testIsBefore_long_4_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2042,7 +2042,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isBefore(TEST_TIME2 - 1));
     }
 
-    public void testIsBefore_long_5_oe() {
+public void testIsBefore_long_5_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2053,7 +2053,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isBefore(TEST_TIME2));
     }
 
-    public void testIsBefore_long_6_oe() {
+public void testIsBefore_long_6_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2065,14 +2065,14 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isBefore(TEST_TIME2 + 1));
     }
 
-    public void testIsBeforeNow_1_oe() {
+public void testIsBeforeNow_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         DateTimeUtils.setCurrentMillisFixed(TEST_TIME2 - 1);
         assertEquals(false,test.isBeforeNow());
     }
 
-    public void testIsBeforeNow_2_oe() {
+public void testIsBeforeNow_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         DateTimeUtils.setCurrentMillisFixed(TEST_TIME2 - 1);
@@ -2081,7 +2081,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isBeforeNow());
     }
 
-    public void testIsBeforeNow_3_oe() {
+public void testIsBeforeNow_3_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         DateTimeUtils.setCurrentMillisFixed(TEST_TIME2 - 1);
@@ -2092,20 +2092,20 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isBeforeNow());
     }
 
-    public void testIsBefore_RI_1_oe() {
+public void testIsBefore_RI_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         assertEquals(false,test.isBefore(new Instant(TEST_TIME1 - 1)));
     }
 
-    public void testIsBefore_RI_2_oe() {
+public void testIsBefore_RI_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
         assertEquals(false,test.isBefore(new Instant(TEST_TIME1)));
     }
 
-    public void testIsBefore_RI_3_oe() {
+public void testIsBefore_RI_3_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2113,7 +2113,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isBefore(new Instant(TEST_TIME1 + 1)));
     }
 
-    public void testIsBefore_RI_4_oe() {
+public void testIsBefore_RI_4_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2123,7 +2123,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isBefore(new Instant(TEST_TIME2 - 1)));
     }
 
-    public void testIsBefore_RI_5_oe() {
+public void testIsBefore_RI_5_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2134,7 +2134,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isBefore(new Instant(TEST_TIME2)));
     }
 
-    public void testIsBefore_RI_6_oe() {
+public void testIsBefore_RI_6_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2146,7 +2146,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isBefore(new Instant(TEST_TIME2 + 1)));
     }
 
-    public void testIsBefore_RI_7_oe() {
+public void testIsBefore_RI_7_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2160,20 +2160,20 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isBefore((ReadableInstant)null));
     }
 
-    public void testIsBefore_RInterval_1_oe() {
+public void testIsBefore_RInterval_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         assertEquals(false,test.isBefore(new Interval(Long.MIN_VALUE,TEST_TIME1 - 1)));
     }
 
-    public void testIsBefore_RInterval_2_oe() {
+public void testIsBefore_RInterval_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
         assertEquals(false,test.isBefore(new Interval(Long.MIN_VALUE,TEST_TIME1)));
     }
 
-    public void testIsBefore_RInterval_3_oe() {
+public void testIsBefore_RInterval_3_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2181,7 +2181,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isBefore(new Interval(Long.MIN_VALUE,TEST_TIME1 + 1)));
     }
 
-    public void testIsBefore_RInterval_4_oe() {
+public void testIsBefore_RInterval_4_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2191,7 +2191,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isBefore(new Interval(TEST_TIME2 - 1,Long.MAX_VALUE)));
     }
 
-    public void testIsBefore_RInterval_5_oe() {
+public void testIsBefore_RInterval_5_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2202,7 +2202,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isBefore(new Interval(TEST_TIME2,Long.MAX_VALUE)));
     }
 
-    public void testIsBefore_RInterval_6_oe() {
+public void testIsBefore_RInterval_6_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2214,7 +2214,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(true,test.isBefore(new Interval(TEST_TIME2 + 1,Long.MAX_VALUE)));
     }
 
-    public void testIsBefore_RInterval_7_oe() {
+public void testIsBefore_RInterval_7_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2228,20 +2228,20 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isBefore((ReadableInterval)null));
     }
 
-    public void testIsAfter_long_1_oe() {
+public void testIsAfter_long_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         assertEquals(true,test.isAfter(TEST_TIME1 - 1));
     }
 
-    public void testIsAfter_long_2_oe() {
+public void testIsAfter_long_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
         assertEquals(false,test.isAfter(TEST_TIME1));
     }
 
-    public void testIsAfter_long_3_oe() {
+public void testIsAfter_long_3_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2249,7 +2249,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isAfter(TEST_TIME1 + 1));
     }
 
-    public void testIsAfter_long_4_oe() {
+public void testIsAfter_long_4_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2259,7 +2259,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isAfter(TEST_TIME2 - 1));
     }
 
-    public void testIsAfter_long_5_oe() {
+public void testIsAfter_long_5_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2270,7 +2270,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isAfter(TEST_TIME2));
     }
 
-    public void testIsAfter_long_6_oe() {
+public void testIsAfter_long_6_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2282,14 +2282,14 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isAfter(TEST_TIME2 + 1));
     }
 
-    public void testIsAfterNow_1_oe() {
+public void testIsAfterNow_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         DateTimeUtils.setCurrentMillisFixed(TEST_TIME1 - 1);
         assertEquals(true,test.isAfterNow());
     }
 
-    public void testIsAfterNow_2_oe() {
+public void testIsAfterNow_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         DateTimeUtils.setCurrentMillisFixed(TEST_TIME1 - 1);
@@ -2298,7 +2298,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isAfterNow());
     }
 
-    public void testIsAfterNow_3_oe() {
+public void testIsAfterNow_3_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         DateTimeUtils.setCurrentMillisFixed(TEST_TIME1 - 1);
@@ -2309,20 +2309,20 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isAfterNow());
     }
 
-    public void testIsAfter_RI_1_oe() {
+public void testIsAfter_RI_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         assertEquals(true,test.isAfter(new Instant(TEST_TIME1 - 1)));
     }
 
-    public void testIsAfter_RI_2_oe() {
+public void testIsAfter_RI_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
         assertEquals(false,test.isAfter(new Instant(TEST_TIME1)));
     }
 
-    public void testIsAfter_RI_3_oe() {
+public void testIsAfter_RI_3_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2330,7 +2330,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isAfter(new Instant(TEST_TIME1 + 1)));
     }
 
-    public void testIsAfter_RI_4_oe() {
+public void testIsAfter_RI_4_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2340,7 +2340,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isAfter(new Instant(TEST_TIME2 - 1)));
     }
 
-    public void testIsAfter_RI_5_oe() {
+public void testIsAfter_RI_5_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2351,7 +2351,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isAfter(new Instant(TEST_TIME2)));
     }
 
-    public void testIsAfter_RI_6_oe() {
+public void testIsAfter_RI_6_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2363,7 +2363,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isAfter(new Instant(TEST_TIME2 + 1)));
     }
 
-    public void testIsAfter_RI_7_oe() {
+public void testIsAfter_RI_7_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2377,20 +2377,20 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isAfter((ReadableInstant)null));
     }
 
-    public void testIsAfter_RInterval_1_oe() {
+public void testIsAfter_RInterval_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         assertEquals(true,test.isAfter(new Interval(Long.MIN_VALUE,TEST_TIME1 - 1)));
     }
 
-    public void testIsAfter_RInterval_2_oe() {
+public void testIsAfter_RInterval_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
         assertEquals(true,test.isAfter(new Interval(Long.MIN_VALUE,TEST_TIME1)));
     }
 
-    public void testIsAfter_RInterval_3_oe() {
+public void testIsAfter_RInterval_3_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2398,7 +2398,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isAfter(new Interval(Long.MIN_VALUE,TEST_TIME1 + 1)));
     }
 
-    public void testIsAfter_RInterval_4_oe() {
+public void testIsAfter_RInterval_4_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2408,7 +2408,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isAfter(new Interval(TEST_TIME2 - 1,Long.MAX_VALUE)));
     }
 
-    public void testIsAfter_RInterval_5_oe() {
+public void testIsAfter_RInterval_5_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2419,7 +2419,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isAfter(new Interval(TEST_TIME2,Long.MAX_VALUE)));
     }
 
-    public void testIsAfter_RInterval_6_oe() {
+public void testIsAfter_RInterval_6_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2431,7 +2431,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isAfter(new Interval(TEST_TIME2 + 1,Long.MAX_VALUE)));
     }
 
-    public void testIsAfter_RInterval_7_oe() {
+public void testIsAfter_RInterval_7_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         // removed other assertion
@@ -2445,26 +2445,26 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,test.isAfter((ReadableInterval)null));
     }
 
-    public void testToInterval1_1_oe() {
+public void testToInterval1_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2, COPTIC_PARIS);
         Interval result = test.toInterval();
         assertEquals(test,result);
     }
 
-    public void testToMutableInterval1_1_oe() {
+public void testToMutableInterval1_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2, COPTIC_PARIS);
         MutableInterval result = test.toMutableInterval();
         assertEquals(test,result);
     }
 
-    public void testToMutableInterval1_2_oe() {
+public void testToMutableInterval1_2_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2, COPTIC_PARIS);
         MutableInterval result = test.toMutableInterval();
         // removed other assertion
         assertNotSame(test,result);
     }
 
-    public void testToPeriod_1_oe() {
+public void testToPeriod_1_oe() {
         DateTime dt1 = new DateTime(2004, 6, 9, 7, 8, 9, 10, COPTIC_PARIS);
         DateTime dt2 = new DateTime(2005, 8, 13, 12, 14, 16, 18, COPTIC_PARIS);
         MutableInterval base = new MutableInterval(dt1, dt2);
@@ -2474,7 +2474,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToPeriod_PeriodType1_1_oe() {
+public void testToPeriod_PeriodType1_1_oe() {
         DateTime dt1 = new DateTime(2004, 6, 9, 7, 8, 9, 10, COPTIC_PARIS);
         DateTime dt2 = new DateTime(2005, 8, 13, 12, 14, 16, 18, COPTIC_PARIS);
         MutableInterval base = new MutableInterval(dt1, dt2);
@@ -2484,7 +2484,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testToPeriod_PeriodType2_1_oe() {
+public void testToPeriod_PeriodType2_1_oe() {
         DateTime dt1 = new DateTime(2004, 6, 9, 7, 8, 9, 10);
         DateTime dt2 = new DateTime(2005, 8, 13, 12, 14, 16, 18);
         MutableInterval base = new MutableInterval(dt1, dt2);
@@ -2494,7 +2494,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(expected,test);
     }
 
-    public void testSerialization_1_oe() throws Exception {
+public void testSerialization_1_oe() throws Exception {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -2511,33 +2511,33 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
         assertEquals(test,result);
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         DateTime dt1 = new DateTime(2004, 6, 9, 7, 8, 9, 10, DateTimeZone.UTC);
         DateTime dt2 = new DateTime(2005, 8, 13, 12, 14, 16, 18, DateTimeZone.UTC);
         MutableInterval test = new MutableInterval(dt1, dt2);
         assertEquals("2004-06-09T07:08:09.010Z/2005-08-13T12:14:16.018Z",test.toString());
     }
 
-    public void testCopy_1_oe() {
+public void testCopy_1_oe() {
         MutableInterval test = new MutableInterval(123L, 456L, COPTIC_PARIS);
         MutableInterval cloned = test.copy();
         assertEquals(test,cloned);
     }
 
-    public void testCopy_2_oe() {
+public void testCopy_2_oe() {
         MutableInterval test = new MutableInterval(123L, 456L, COPTIC_PARIS);
         MutableInterval cloned = test.copy();
         // removed other assertion
         assertNotSame(test,cloned);
     }
 
-    public void testClone_1_oe() {
+public void testClone_1_oe() {
         MutableInterval test = new MutableInterval(123L, 456L, COPTIC_PARIS);
         MutableInterval cloned = (MutableInterval) test.clone();
         assertEquals(test,cloned);
     }
 
-    public void testClone_2_oe() {
+public void testClone_2_oe() {
         MutableInterval test = new MutableInterval(123L, 456L, COPTIC_PARIS);
         MutableInterval cloned = (MutableInterval) test.clone();
         // removed other assertion

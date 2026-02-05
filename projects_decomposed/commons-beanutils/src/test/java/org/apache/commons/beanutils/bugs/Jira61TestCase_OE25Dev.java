@@ -180,7 +180,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
      * to a read-only WrapDynaBean property.
      */
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_1_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_1_oe() {
         boolean result = false;
 
         try {
@@ -191,7 +191,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_2_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_2_oe() {
         boolean result = false;
 
         try {
@@ -203,7 +203,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertTrue("PropertyUtils.isReadable(bean, \"simpleReadOnly\") returned " + result, result);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_3_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_3_oe() {
         boolean result = false;
 
         try {
@@ -222,7 +222,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_4_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_4_oe() {
         boolean result = false;
 
         try {
@@ -242,7 +242,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertFalse("PropertyUtils.isReadable(bean, \"simpleWriteOnly\") returned " + result, result);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_1_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_1_oe() {
         boolean result = false;
 
         try {
@@ -253,7 +253,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_2_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_2_oe() {
         boolean result = false;
 
         try {
@@ -265,7 +265,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertFalse("PropertyUtils.isWriteable(bean, \"simpleReadOnly\") returned " + result, result);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_3_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_3_oe() {
         boolean result = false;
 
         try {
@@ -284,7 +284,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_4_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_4_oe() {
         boolean result = false;
 
         try {
@@ -304,7 +304,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertTrue("PropertyUtils.isWriteable(bean, \"simpleWriteOnly\") returned " + result, result);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_Indexed_1_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_Indexed_1_oe() {
         boolean result = false;
 
         try {
@@ -315,7 +315,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_Indexed_2_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_Indexed_2_oe() {
         boolean result = false;
 
         try {
@@ -327,7 +327,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertTrue("PropertyUtils.isReadable(bean, \"indexedReadOnly\") returned " + result, result);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_Indexed_3_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_Indexed_3_oe() {
         boolean result = false;
 
         try {
@@ -346,7 +346,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_Indexed_4_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_Indexed_4_oe() {
         boolean result = false;
 
         try {
@@ -366,7 +366,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertFalse("PropertyUtils.isReadable(bean, \"indexedWriteOnly\") returned " + result, result);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_Mapped_1_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_Mapped_1_oe() {
         boolean result = false;
 
         try {
@@ -377,7 +377,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_Mapped_2_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_Mapped_2_oe() {
         boolean result = false;
 
         try {
@@ -389,7 +389,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertTrue("PropertyUtils.isReadable(bean, \"mappedReadOnly\") returned " + result, result);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_Mapped_3_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_Mapped_3_oe() {
         boolean result = false;
 
         try {
@@ -408,7 +408,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_Mapped_4_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isReadable_Mapped_4_oe() {
         boolean result = false;
 
         try {
@@ -428,7 +428,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertFalse("PropertyUtils.isReadable(bean, \"mappedWriteOnly\") returned " + result, result);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_Indexed_1_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_Indexed_1_oe() {
         boolean result = false;
 
         try {
@@ -439,7 +439,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_Indexed_2_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_Indexed_2_oe() {
         boolean result = false;
 
         try {
@@ -451,7 +451,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertFalse("PropertyUtils.isWriteable(bean, \"indexedReadOnly\") returned " + result, result);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_Indexed_3_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_Indexed_3_oe() {
         boolean result = false;
 
         try {
@@ -470,7 +470,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_Indexed_4_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_Indexed_4_oe() {
         boolean result = false;
 
         try {
@@ -490,7 +490,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertTrue("PropertyUtils.isWriteable(bean, \"indexedWriteOnly\") returned " + result, result);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_Mapped_1_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_Mapped_1_oe() {
         boolean result = false;
 
         try {
@@ -501,7 +501,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_Mapped_2_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_Mapped_2_oe() {
         boolean result = false;
 
         try {
@@ -513,7 +513,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertFalse("PropertyUtils.isWriteable(bean, \"mappedReadOnly\") returned " + result, result);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_Mapped_3_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_Mapped_3_oe() {
         boolean result = false;
 
         try {
@@ -532,7 +532,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_Mapped_4_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_isWriteable_Mapped_4_oe() {
         boolean result = false;
 
         try {
@@ -552,7 +552,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertTrue("PropertyUtils.isWriteable(bean, \"mappedWriteOnly\") returned " + result, result);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_1_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_1_oe() {
         boolean threwIllegalArgumentException = false;
         Object result = null;
         try {
@@ -563,7 +563,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_2_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_2_oe() {
         boolean threwIllegalArgumentException = false;
         Object result = null;
         try {
@@ -575,7 +575,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertEquals("simpleReadOnly", testBean.getSimpleReadOnly(), result);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_3_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_3_oe() {
         boolean threwIllegalArgumentException = false;
         Object result = null;
         try {
@@ -596,7 +596,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_4_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_4_oe() {
         boolean threwIllegalArgumentException = false;
         Object result = null;
         try {
@@ -618,7 +618,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertTrue("Expected IllegalArgumentException but returned '" + result + "'", threwIllegalArgumentException);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_1_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_1_oe() {
         boolean threwIllegalArgumentException = false;
         try {
             PropertyUtils.setProperty(wrapDynaBean, "simpleReadOnly", "READONLY-SIMPLE-BAR");
@@ -630,7 +630,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_2_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_2_oe() {
         boolean threwIllegalArgumentException = false;
         try {
             PropertyUtils.setProperty(wrapDynaBean, "simpleReadOnly", "READONLY-SIMPLE-BAR");
@@ -643,7 +643,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertTrue("Expected IllegalArgumentException", threwIllegalArgumentException);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_3_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_3_oe() {
         boolean threwIllegalArgumentException = false;
         try {
             PropertyUtils.setProperty(wrapDynaBean, "simpleReadOnly", "READONLY-SIMPLE-BAR");
@@ -663,7 +663,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_4_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_4_oe() {
         boolean threwIllegalArgumentException = false;
         try {
             PropertyUtils.setProperty(wrapDynaBean, "simpleReadOnly", "READONLY-SIMPLE-BAR");
@@ -684,7 +684,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertEquals("simpleWriteOnly", testBean.getSimpleReadOnly(), "SIMPLE-BAR");
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_Indexed_1_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_Indexed_1_oe() {
         boolean threwIllegalArgumentException = false;
         Object result = null;
         try {
@@ -695,7 +695,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_Indexed_2_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_Indexed_2_oe() {
         boolean threwIllegalArgumentException = false;
         Object result = null;
         try {
@@ -707,7 +707,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertEquals("indexedReadOnly", testBean.getIndexedReadOnly(0), result);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_Indexed_3_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_Indexed_3_oe() {
         boolean threwIllegalArgumentException = false;
         Object result = null;
         try {
@@ -728,7 +728,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_Indexed_4_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_Indexed_4_oe() {
         boolean threwIllegalArgumentException = false;
         Object result = null;
         try {
@@ -750,7 +750,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertTrue("Expected IllegalArgumentException but returned '" + result + "'", threwIllegalArgumentException);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_Indexed_1_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_Indexed_1_oe() {
         boolean threwIllegalArgumentException = false;
         try {
             PropertyUtils.setProperty(wrapDynaBean, "indexedReadOnly[0]", "READONLY-INDEXED-BAR");
@@ -762,7 +762,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_Indexed_2_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_Indexed_2_oe() {
         boolean threwIllegalArgumentException = false;
         try {
             PropertyUtils.setProperty(wrapDynaBean, "indexedReadOnly[0]", "READONLY-INDEXED-BAR");
@@ -775,7 +775,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertTrue("Expected IllegalArgumentException", threwIllegalArgumentException);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_Indexed_3_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_Indexed_3_oe() {
         boolean threwIllegalArgumentException = false;
         try {
             PropertyUtils.setProperty(wrapDynaBean, "indexedReadOnly[0]", "READONLY-INDEXED-BAR");
@@ -795,7 +795,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_Indexed_4_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_Indexed_4_oe() {
         boolean threwIllegalArgumentException = false;
         try {
             PropertyUtils.setProperty(wrapDynaBean, "indexedReadOnly[0]", "READONLY-INDEXED-BAR");
@@ -816,7 +816,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertEquals("indexedWriteOnly", testBean.getIndexedReadOnly(0), "INDEXED-BAR");
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_Mapped_1_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_Mapped_1_oe() {
         boolean threwIllegalArgumentException = false;
         Object result = null;
         try {
@@ -827,7 +827,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_Mapped_2_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_Mapped_2_oe() {
         boolean threwIllegalArgumentException = false;
         Object result = null;
         try {
@@ -839,7 +839,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertEquals("mappedReadOnly", testBean.getMappedReadOnly("foo-key"), result);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_Mapped_3_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_Mapped_3_oe() {
         boolean threwIllegalArgumentException = false;
         Object result = null;
         try {
@@ -860,7 +860,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_Mapped_4_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_getProperty_Mapped_4_oe() {
         boolean threwIllegalArgumentException = false;
         Object result = null;
         try {
@@ -882,7 +882,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertTrue("Expected IllegalArgumentException but returned '" + result + "'", threwIllegalArgumentException);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_Mapped_1_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_Mapped_1_oe() {
         boolean threwIllegalArgumentException = false;
         try {
             PropertyUtils.setProperty(wrapDynaBean, "mappedReadOnly(foo-key)", "READONLY-MAPPED-BAR");
@@ -894,7 +894,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_Mapped_2_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_Mapped_2_oe() {
         boolean threwIllegalArgumentException = false;
         try {
             PropertyUtils.setProperty(wrapDynaBean, "mappedReadOnly(foo-key)", "READONLY-MAPPED-BAR");
@@ -907,7 +907,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertTrue("Expected IllegalArgumentException", threwIllegalArgumentException);
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_Mapped_3_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_Mapped_3_oe() {
         boolean threwIllegalArgumentException = false;
         try {
             PropertyUtils.setProperty(wrapDynaBean, "mappedReadOnly(foo-key)", "READONLY-MAPPED-BAR");
@@ -927,7 +927,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_Mapped_4_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_setProperty_Mapped_4_oe() {
         boolean threwIllegalArgumentException = false;
         try {
             PropertyUtils.setProperty(wrapDynaBean, "mappedReadOnly(foo-key)", "READONLY-MAPPED-BAR");
@@ -948,7 +948,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertEquals("mappedWriteOnly", testBean.getMappedReadOnly("foo-key"), "MAPPED-BAR");
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_copyProperties_to_WrapDynaBean_1_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_copyProperties_to_WrapDynaBean_1_oe() {
         final String value = "copied simpleReadOnly";
         final Map<String, Object> source = new HashMap<String, Object>();
         source.put("simpleReadOnly", value);
@@ -960,7 +960,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_copyProperties_to_WrapDynaBean_2_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_copyProperties_to_WrapDynaBean_2_oe() {
         final String value = "copied simpleReadOnly";
         final Map<String, Object> source = new HashMap<String, Object>();
         source.put("simpleReadOnly", value);
@@ -973,7 +973,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertFalse("Target value='" + value + "'", value.equals(testBean.getSimpleReadOnly()));
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_copyProperties_from_WrapDynaBean_1_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_copyProperties_from_WrapDynaBean_1_oe() {
         final String value = "ORIG TARGET VALUE";
         final TestBean targetBean = Jira61BeanFactory.createBean();
         targetBean.setSimpleWriteOnly(value);
@@ -985,7 +985,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_PropertyUtils_copyProperties_from_WrapDynaBean_2_oe() {
+public void testIssue_BEANUTILS_61_PropertyUtils_copyProperties_from_WrapDynaBean_2_oe() {
         final String value = "ORIG TARGET VALUE";
         final TestBean targetBean = Jira61BeanFactory.createBean();
         targetBean.setSimpleWriteOnly(value);
@@ -998,7 +998,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertTrue("Target value='" + targetBean.getSimpleReadOnly() + "'", value.equals(targetBean.getSimpleReadOnly()));
     }
 
-    public void testIssue_BEANUTILS_61_BeanUtils_copyProperties_to_WrapDynaBean_1_oe() {
+public void testIssue_BEANUTILS_61_BeanUtils_copyProperties_to_WrapDynaBean_1_oe() {
         final String value = "copied simpleReadOnly";
         final Map<String, Object> source = new HashMap<String, Object>();
         source.put("simpleReadOnly", value);
@@ -1010,7 +1010,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_BeanUtils_copyProperties_to_WrapDynaBean_2_oe() {
+public void testIssue_BEANUTILS_61_BeanUtils_copyProperties_to_WrapDynaBean_2_oe() {
         final String value = "copied simpleReadOnly";
         final Map<String, Object> source = new HashMap<String, Object>();
         source.put("simpleReadOnly", value);
@@ -1023,7 +1023,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
         assertFalse("Target value='" + value + "'", value.equals(testBean.getSimpleReadOnly()));
     }
 
-    public void testIssue_BEANUTILS_61_BeanUtils_copyProperties_from_WrapDynaBean_1_oe() {
+public void testIssue_BEANUTILS_61_BeanUtils_copyProperties_from_WrapDynaBean_1_oe() {
         final String value = "ORIG TARGET VALUE";
         final TestBean targetBean = Jira61BeanFactory.createBean();
         targetBean.setSimpleWriteOnly(value);
@@ -1035,7 +1035,7 @@ public class Jira61TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_61_BeanUtils_copyProperties_from_WrapDynaBean_2_oe() {
+public void testIssue_BEANUTILS_61_BeanUtils_copyProperties_from_WrapDynaBean_2_oe() {
         final String value = "ORIG TARGET VALUE";
         final TestBean targetBean = Jira61BeanFactory.createBean();
         targetBean.setSimpleWriteOnly(value);

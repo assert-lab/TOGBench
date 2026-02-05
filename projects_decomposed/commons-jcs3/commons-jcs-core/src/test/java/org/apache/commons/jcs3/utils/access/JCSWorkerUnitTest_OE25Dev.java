@@ -42,7 +42,7 @@ public class JCSWorkerUnitTest_OE25Dev
      *
      */
 
-    public void testSimpleGet_1_oe()
+public void testSimpleGet_1_oe()
         throws Exception
     {
         final JCSWorker<String, Long> cachingWorker = new JCSWorker<>( "example region" );
@@ -65,7 +65,7 @@ public class JCSWorkerUnitTest_OE25Dev
         assertEquals( "Called the wrong number of times", Long.valueOf( 1 ), result );
     }
 
-    public void testSimpleGet_2_oe()
+public void testSimpleGet_2_oe()
         throws Exception
     {
         final JCSWorker<String, Long> cachingWorker = new JCSWorker<>( "example region" );

@@ -45,7 +45,7 @@ public class TestEvent_OE25Dev {
      * Tests the string representation.
      */
 
-    @Test
+@Test
     public void testToString_1_oe() {
         final Event event = new Event(this, Event.ANY);
         final String s = event.toString();

@@ -35,7 +35,7 @@ public class SafelistExtensionTest_OE25Dev {
         }
     }
 
-    @Test public void canCustomizeSafeTests_1_oe() {
+@Test public void canCustomizeSafeTests_1_oe() {
         OpenSafelist openSafelist = new OpenSafelist(Safelist.relaxed());
         Safelist safelist = Safelist.relaxed();
 
@@ -47,7 +47,7 @@ public class SafelistExtensionTest_OE25Dev {
         assertEquals("<p><opentag openattr=\"\">Hello</opentag></p>", TextUtil.stripNewlines(openClean));
         }
 
-    @Test public void canCustomizeSafeTests_2_oe() {
+@Test public void canCustomizeSafeTests_2_oe() {
         OpenSafelist openSafelist = new OpenSafelist(Safelist.relaxed());
         Safelist safelist = Safelist.relaxed();
 

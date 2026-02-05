@@ -53,7 +53,7 @@ public class CustomValidatorResourcesTest_OE25Dev extends TestCase {
      * Test creating a custom validator resources.
      */
 
-    public void testCustomResources_1_oe() {
+public void testCustomResources_1_oe() {
         // Load resources
         InputStream in = null;
         try {

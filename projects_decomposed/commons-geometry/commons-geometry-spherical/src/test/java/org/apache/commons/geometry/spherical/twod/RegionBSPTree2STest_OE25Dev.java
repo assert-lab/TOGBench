@@ -296,7 +296,7 @@ class RegionBSPTree2STest_OE25Dev {
         return GreatArcPath.fromVertexLoop(pts, precision).toTree();
     }
 
-    @Test
+@Test
     void testCtor_booleanArg_true_1_oe() {
         // act
         final RegionBSPTree2S tree = new RegionBSPTree2S(true);
@@ -305,7 +305,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testCtor_booleanArg_true_2_oe() {
         // act
         final RegionBSPTree2S tree = new RegionBSPTree2S(true);
@@ -315,7 +315,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testCtor_booleanArg_true_3_oe() {
         // act
         final RegionBSPTree2S tree = new RegionBSPTree2S(true);
@@ -326,7 +326,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testCtor_booleanArg_false_1_oe() {
         // act
         final RegionBSPTree2S tree = new RegionBSPTree2S(false);
@@ -335,7 +335,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testCtor_booleanArg_false_2_oe() {
         // act
         final RegionBSPTree2S tree = new RegionBSPTree2S(false);
@@ -345,7 +345,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testCtor_booleanArg_false_3_oe() {
         // act
         final RegionBSPTree2S tree = new RegionBSPTree2S(false);
@@ -356,7 +356,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testCtor_default_1_oe() {
         // act
         final RegionBSPTree2S tree = new RegionBSPTree2S();
@@ -365,7 +365,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testCtor_default_2_oe() {
         // act
         final RegionBSPTree2S tree = new RegionBSPTree2S();
@@ -375,7 +375,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testCtor_default_3_oe() {
         // act
         final RegionBSPTree2S tree = new RegionBSPTree2S();
@@ -386,7 +386,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testFull_factoryMethod_1_oe() {
         // act
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -395,7 +395,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testFull_factoryMethod_2_oe() {
         // act
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -405,7 +405,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testFull_factoryMethod_3_oe() {
         // act
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -416,7 +416,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testEmpty_factoryMethod_1_oe() {
         // act
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -425,7 +425,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testEmpty_factoryMethod_2_oe() {
         // act
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -435,7 +435,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testEmpty_factoryMethod_3_oe() {
         // act
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -446,20 +446,20 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1, tree.count());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_noBoundaries_1_oe() {
         // act/assert
         Assertions.assertTrue(RegionBSPTree2S.from(Collections.emptyList()).isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_noBoundaries_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertTrue(RegionBSPTree2S.from(Collections.emptyList(), true).isFull());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_noBoundaries_3_oe() {
         // act/assert
         // removed other assertion
@@ -467,7 +467,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertTrue(RegionBSPTree2S.from(Collections.emptyList(), false).isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_1_oe() {
         // act
         final RegionBSPTree2S tree = RegionBSPTree2S.from(Arrays.asList(
@@ -480,7 +480,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_2_oe() {
         // act
         final RegionBSPTree2S tree = RegionBSPTree2S.from(Arrays.asList(
@@ -494,7 +494,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_3_oe() {
         // act
         final RegionBSPTree2S tree = RegionBSPTree2S.from(Arrays.asList(
@@ -510,7 +510,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.getRoot().getLocation());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_fullIsTrue_1_oe() {
         // act
         final RegionBSPTree2S tree = RegionBSPTree2S.from(Arrays.asList(
@@ -523,7 +523,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_fullIsTrue_2_oe() {
         // act
         final RegionBSPTree2S tree = RegionBSPTree2S.from(Arrays.asList(
@@ -537,7 +537,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testFrom_boundaries_fullIsTrue_3_oe() {
         // act
         final RegionBSPTree2S tree = RegionBSPTree2S.from(Arrays.asList(
@@ -553,7 +553,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.getRoot().getLocation());
     }
 
-    @Test
+@Test
     void testCopy_1_oe() {
         // arrange
         final RegionBSPTree2S tree = new RegionBSPTree2S(true);
@@ -566,7 +566,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertNotSame(tree, copy);
     }
 
-    @Test
+@Test
     void testCopy_2_oe() {
         // arrange
         final RegionBSPTree2S tree = new RegionBSPTree2S(true);
@@ -580,7 +580,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(3, copy.count());
     }
 
-    @Test
+@Test
     void testBoundaries_1_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -594,7 +594,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(3, arcs.size());
     }
 
-    @Test
+@Test
     void testGetBoundaries_1_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -607,7 +607,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(3, arcs.size());
     }
 
-    @Test
+@Test
     void testBoundaryStream_1_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -620,7 +620,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(3, arcs.size());
     }
 
-    @Test
+@Test
     void testBoundaryStream_noBoundaries_1_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -632,20 +632,20 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(0, arcs.size());
     }
 
-    @Test
+@Test
     void testToList_fullAndEmpty_1_oe() {
         // act/assert
         Assertions.assertEquals(0, RegionBSPTree2S.full().toList().count());
     }
 
-    @Test
+@Test
     void testToList_fullAndEmpty_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals(0, RegionBSPTree2S.empty().toList().count());
     }
 
-    @Test
+@Test
     void testToList_1_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -658,7 +658,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(3, list.count());
     }
 
-    @Test
+@Test
     void testToList_2_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -672,7 +672,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(0.5 * Math.PI, list.toTree().getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToTree_returnsSameInstance_1_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -682,7 +682,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertSame(tree, tree.toTree());
     }
 
-    @Test
+@Test
     void testGetBoundaryPaths_cachesResult_1_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -696,7 +696,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertSame(a, b);
     }
 
-    @Test
+@Test
     void testGetBoundaryPaths_recomputesResultOnChange_1_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -711,7 +711,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertNotSame(a, b);
     }
 
-    @Test
+@Test
     void testGetBoundaryPaths_isUnmodifiable_1_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -721,7 +721,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertThrows(UnsupportedOperationException.class, () -> tree.getBoundaryPaths().add(GreatArcPath.empty()));
     }
 
-    @Test
+@Test
     void testToConvex_full_1_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -733,7 +733,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1, result.size());
     }
 
-    @Test
+@Test
     void testToConvex_full_2_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -746,7 +746,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertTrue(result.get(0).isFull());
     }
 
-    @Test
+@Test
     void testToConvex_empty_1_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -758,7 +758,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(0, result.size());
     }
 
-    @Test
+@Test
     void testToConvex_doubleLune_1_oe() {
         // arrange
         final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
@@ -776,7 +776,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(2, result.size());
     }
 
-    @Test
+@Test
     void testToConvex_doubleLune_2_oe() {
         // arrange
         final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
@@ -797,7 +797,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(Angle.TWO_PI, size, TEST_EPS);
     }
 
-    @Test
+@Test
     void testToConvex_doubleLune_complement_1_oe() {
         // arrange
         final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
@@ -815,7 +815,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(2, result.size());
     }
 
-    @Test
+@Test
     void testToConvex_doubleLune_complement_2_oe() {
         // arrange
         final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
@@ -836,20 +836,20 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(Angle.TWO_PI, size, TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_noBoundaries_1_oe() {
         // act/assert
         Assertions.assertNull(RegionBSPTree2S.empty().project(Point2S.PLUS_I));
     }
 
-    @Test
+@Test
     void testProject_noBoundaries_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertNull(RegionBSPTree2S.full().project(Point2S.PLUS_I));
     }
 
-    @Test
+@Test
     void testGeometricProperties_full_1_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -858,7 +858,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(4 * Math.PI, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_full_2_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -868,7 +868,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertNull(tree.getCentroid());
     }
 
-    @Test
+@Test
     void testGeometricProperties_full_3_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -880,7 +880,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_full_4_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -894,7 +894,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundaries().size());
     }
 
-    @Test
+@Test
     void testGeometricProperties_full_5_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -909,7 +909,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundaryPaths().size());
     }
 
-    @Test
+@Test
     void testGeometricProperties_empty_1_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -918,7 +918,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(0, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_empty_2_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -928,7 +928,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertNull(tree.getCentroid());
     }
 
-    @Test
+@Test
     void testGeometricProperties_empty_3_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -940,7 +940,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_empty_4_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -954,7 +954,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundaries().size());
     }
 
-    @Test
+@Test
     void testGeometricProperties_empty_5_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -969,7 +969,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundaryPaths().size());
     }
 
-    @Test
+@Test
     void testGeometricProperties_halfSpace_1_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -979,7 +979,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(Angle.TWO_PI, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_halfSpace_2_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -990,7 +990,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(Angle.TWO_PI, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_halfSpace_4_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -1007,7 +1007,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1, arcs.size());
     }
 
-    @Test
+@Test
     void testGeometricProperties_halfSpace_5_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -1027,7 +1027,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertSame(EQUATOR, arc.getCircle());
     }
 
-    @Test
+@Test
     void testGeometricProperties_halfSpace_6_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -1048,7 +1048,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertNull(arc.getStartPoint());
     }
 
-    @Test
+@Test
     void testGeometricProperties_halfSpace_7_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -1070,7 +1070,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertNull(arc.getEndPoint());
     }
 
-    @Test
+@Test
     void testGeometricProperties_halfSpace_8_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -1095,7 +1095,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1, paths.size());
     }
 
-    @Test
+@Test
     void testGeometricProperties_halfSpace_9_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -1123,7 +1123,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1, path.getArcs().size());
     }
 
-    @Test
+@Test
     void testGeometricProperties_halfSpace_10_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.full();
@@ -1152,7 +1152,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertTrue(path.getArcs().get(0).isFull());
     }
 
-    @Test
+@Test
     void testGeometricProperties_doubleLune_1_oe() {
         // act
         final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
@@ -1167,7 +1167,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(2 * Math.PI, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_doubleLune_2_oe() {
         // act
         final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
@@ -1183,7 +1183,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(4 * Math.PI, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_doubleLune_3_oe() {
         // act
         final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
@@ -1200,7 +1200,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertNull(tree.getCentroid());
     }
 
-    @Test
+@Test
     void testGeometricProperties_doubleLune_4_oe() {
         // act
         final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
@@ -1220,7 +1220,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(2, paths.size());
     }
 
-    @Test
+@Test
     void testGeometricProperties_quadrant_1_oe() {
         // act
         final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
@@ -1232,7 +1232,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(0.5 * Math.PI, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_quadrant_2_oe() {
         // act
         final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
@@ -1245,7 +1245,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1.5 * Math.PI, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_quadrant_4_oe() {
         // act
         final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
@@ -1268,7 +1268,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1, paths.size());
     }
 
-    @Test
+@Test
     void testGeometricProperties_quadrant_complement_1_oe() {
         // arrange
         final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
@@ -1283,7 +1283,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(3.5 * Math.PI, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_quadrant_complement_2_oe() {
         // arrange
         final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
@@ -1299,7 +1299,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1.5 * Math.PI, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_quadrant_complement_4_oe() {
         // arrange
         final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
@@ -1325,7 +1325,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1, paths.size());
     }
 
-    @Test
+@Test
     void testGeometricProperties_polygonWithHole_1_oe() {
         // arrange
         final Point2S center = Point2S.of(0.5, 2);
@@ -1348,7 +1348,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(area, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_polygonWithHole_2_oe() {
         // arrange
         final Point2S center = Point2S.of(0.5, 2);
@@ -1376,7 +1376,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(boundarySize, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_polygonWithHole_small_1_oe() {
         // arrange
         final Point2S center = Point2S.of(0.5, 2);
@@ -1402,7 +1402,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(area, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_polygonWithHole_small_2_oe() {
         // arrange
         final Point2S center = Point2S.of(0.5, 2);
@@ -1433,7 +1433,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(boundarySize, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_polygonWithHole_complex_1_oe() {
         // arrange
         final Point2S center = Point2S.of(0.5, 2);
@@ -1464,7 +1464,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(area, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_polygonWithHole_complex_2_oe() {
         // arrange
         final Point2S center = Point2S.of(0.5, 2);
@@ -1501,7 +1501,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(boundarySize, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_smallRightTriangle_1_oe() {
         // arrange
         final double azOffset = 1e-5;
@@ -1528,7 +1528,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(expectedArea, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_smallRightTriangle_2_oe() {
         // arrange
         final double azOffset = 1e-5;
@@ -1558,7 +1558,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(expectedBoundarySize, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_smallRightTriangle_3_oe() {
         // arrange
         final double azOffset = 1e-5;
@@ -1590,7 +1590,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertTrue(tree.contains(tree.getCentroid()));
     }
 
-    @Test
+@Test
     void testGeometricProperties_equalAndOppositeRegions_1_oe() {
         // arrange
         final Point2S center = Point2S.PLUS_I;
@@ -1608,7 +1608,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(area, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_equalAndOppositeRegions_2_oe() {
         // arrange
         final Point2S center = Point2S.PLUS_I;
@@ -1629,7 +1629,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(boundarySize, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeometricProperties_equalAndOppositeRegions_3_oe() {
         // arrange
         final Point2S center = Point2S.PLUS_I;
@@ -1653,7 +1653,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertNull(tree.getCentroid());
     }
 
-    @Test
+@Test
     void testSplit_both_1_oe() {
         // arrange
         final GreatCircle c1 = GreatCircles.fromPole(Vector3D.Unit.MINUS_X, TEST_PRECISION);
@@ -1670,7 +1670,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_both_2_oe() {
         // arrange
         final GreatCircle c1 = GreatCircles.fromPole(Vector3D.Unit.MINUS_X, TEST_PRECISION);
@@ -1694,7 +1694,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1, minusPaths.size());
     }
 
-    @Test
+@Test
     void testSplit_both_4_oe() {
         // arrange
         final GreatCircle c1 = GreatCircles.fromPole(Vector3D.Unit.MINUS_X, TEST_PRECISION);
@@ -1723,7 +1723,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1, plusPaths.size());
     }
 
-    @Test
+@Test
     void testSplit_both_6_oe() {
         // arrange
         final GreatCircle c1 = GreatCircles.fromPole(Vector3D.Unit.MINUS_X, TEST_PRECISION);
@@ -1755,7 +1755,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(tree.getSize(), minus.getSize() + plus.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSplit_minus_1_oe() {
         // arrange
         final RegionBSPTree2S tree = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1771,7 +1771,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_minus_2_oe() {
         // arrange
         final RegionBSPTree2S tree = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1790,7 +1790,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertNotSame(tree, minus);
     }
 
-    @Test
+@Test
     void testSplit_minus_3_oe() {
         // arrange
         final RegionBSPTree2S tree = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1810,7 +1810,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(tree.getSize(), minus.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSplit_minus_4_oe() {
         // arrange
         final RegionBSPTree2S tree = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1832,7 +1832,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_plus_1_oe() {
         // arrange
         final RegionBSPTree2S tree = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1848,7 +1848,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_plus_2_oe() {
         // arrange
         final RegionBSPTree2S tree = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1866,7 +1866,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_plus_3_oe() {
         // arrange
         final RegionBSPTree2S tree = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1887,7 +1887,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertNotSame(tree, plus);
     }
 
-    @Test
+@Test
     void testSplit_plus_4_oe() {
         // arrange
         final RegionBSPTree2S tree = ConvexArea2S.fromVertexLoop(Arrays.asList(
@@ -1909,7 +1909,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(tree.getSize(), plus.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTransform_1_oe() {
         // arrange
         final Transform2S t = Transform2S.createReflection(Point2S.PLUS_J);
@@ -1923,7 +1923,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testTransform_2_oe() {
         // arrange
         final Transform2S t = Transform2S.createReflection(Point2S.PLUS_J);
@@ -1938,7 +1938,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testTransform_3_oe() {
         // arrange
         final Transform2S t = Transform2S.createReflection(Point2S.PLUS_J);
@@ -1954,7 +1954,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1.5 * Math.PI, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTransform_4_oe() {
         // arrange
         final Transform2S t = Transform2S.createReflection(Point2S.PLUS_J);
@@ -1971,7 +1971,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionNode_getNodeRegion_1_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -1985,7 +1985,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(4 * Math.PI, rootRegion.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionNode_getNodeRegion_2_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -2000,7 +2000,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertNull(rootRegion.getCentroid());
     }
 
-    @Test
+@Test
     void testRegionNode_getNodeRegion_3_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -2018,7 +2018,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(2 * Math.PI, minusRegion.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionNode_getNodeRegion_5_oe() {
         // arrange
         final RegionBSPTree2S tree = RegionBSPTree2S.empty();
@@ -2040,7 +2040,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(Math.PI, minusPlusRegion.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeographicMap_1_oe() {
         // arrange
         final RegionBSPTree2S continental = latLongToTree(TEST_PRECISION, new double[][] {
@@ -2066,7 +2066,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(0.6316801448267251, france.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGeographicMap_2_oe() {
         // arrange
         final RegionBSPTree2S continental = latLongToTree(TEST_PRECISION, new double[][] {
@@ -2093,7 +2093,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(0.013964220234478741, france.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testCircleToPolygonSize_1_oe() {
         final double radius = 0.0001;
         final Point2S center = Point2S.of(1.0, 1.0);
@@ -2107,7 +2107,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(ccwArea, ccw.getSize(), TEST_EPS, "Counterclockwise size");
     }
 
-    @Test
+@Test
     void testCircleToPolygonSize_2_oe() {
         final double radius = 0.0001;
         final Point2S center = Point2S.of(1.0, 1.0);
@@ -2124,7 +2124,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(cwArea, cw.getSize(), TEST_EPS, "Clockwise size");
     }
 
-    @Test
+@Test
     void testCircleToPolygonBoundarySize_1_oe() {
         final double radius = 0.0001;
         final Point2S center = Point2S.of(1.0, 1.0);
@@ -2137,7 +2137,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(boundary, ccw.getBoundarySize(), 1.0e-7, "Counterclockwise boundary size");
     }
 
-    @Test
+@Test
     void testCircleToPolygonBoundarySize_2_oe() {
         final double radius = 0.0001;
         final Point2S center = Point2S.of(1.0, 1.0);
@@ -2153,7 +2153,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(boundary, cw.getBoundarySize(), 1.0e-7, "Clockwise boundary size");
     }
 
-    @Test
+@Test
     void testSmallCircleToPolygon_2_oe() {
         // arrange
         final double radius = 5.0e-8;
@@ -2172,7 +2172,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(area, circle.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSmallCircleToPolygon_3_oe() {
         // arrange
         final double radius = 5.0e-8;
@@ -2192,7 +2192,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(boundary, circle.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSmallGeographicalRectangle_2_oe() {
         // arrange
         final double[][] vertices = {
@@ -2217,7 +2217,7 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1.997213869978027E-11, rectangle.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSmallGeographicalRectangle_3_oe() {
         // arrange
         final double[][] vertices = {

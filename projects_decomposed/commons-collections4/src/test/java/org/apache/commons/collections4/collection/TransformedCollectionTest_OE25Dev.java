@@ -97,12 +97,12 @@ public class TransformedCollectionTest_OE25Dev extends AbstractCollectionTest<Ob
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/TransformedCollection.fullCollection.version4.obj");
 //    }
 
-    public void testTransformedCollection_1_oe() {
+public void testTransformedCollection_1_oe() {
         final Collection<Object> coll = TransformedCollection.transformingCollection(new ArrayList<>(), STRING_TO_INTEGER_TRANSFORMER);
         assertEquals(0, coll.size());
     }
 
-    public void testTransformedCollection_2_oe() {
+public void testTransformedCollection_2_oe() {
         final Collection<Object> coll = TransformedCollection.transformingCollection(new ArrayList<>(), STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final Object[] elements = getFullElements();
@@ -112,7 +112,7 @@ public class TransformedCollectionTest_OE25Dev extends AbstractCollectionTest<Ob
     }
     }
 
-    public void testTransformedCollection_3_oe() {
+public void testTransformedCollection_3_oe() {
         final Collection<Object> coll = TransformedCollection.transformingCollection(new ArrayList<>(), STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final Object[] elements = getFullElements();
@@ -123,7 +123,7 @@ public class TransformedCollectionTest_OE25Dev extends AbstractCollectionTest<Ob
     }
     }
 
-    public void testTransformedCollection_4_oe() {
+public void testTransformedCollection_4_oe() {
         final Collection<Object> coll = TransformedCollection.transformingCollection(new ArrayList<>(), STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final Object[] elements = getFullElements();
@@ -135,7 +135,7 @@ public class TransformedCollectionTest_OE25Dev extends AbstractCollectionTest<Ob
     }
     }
 
-    public void testTransformedCollection_5_oe() {
+public void testTransformedCollection_5_oe() {
         final Collection<Object> coll = TransformedCollection.transformingCollection(new ArrayList<>(), STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
         final Object[] elements = getFullElements();
@@ -149,7 +149,7 @@ public class TransformedCollectionTest_OE25Dev extends AbstractCollectionTest<Ob
         assertEquals(true, coll.remove(Integer.valueOf((String) elements[0])));
     }
 
-    public void testTransformedCollection_decorateTransform_1_oe() {
+public void testTransformedCollection_decorateTransform_1_oe() {
         final Collection<Object> originalCollection = new ArrayList<>();
         final Object[] elements = getFullElements();
         Collections.addAll(originalCollection, elements);
@@ -157,7 +157,7 @@ public class TransformedCollectionTest_OE25Dev extends AbstractCollectionTest<Ob
         assertEquals(elements.length, collection.size());
     }
 
-    public void testTransformedCollection_decorateTransform_2_oe() {
+public void testTransformedCollection_decorateTransform_2_oe() {
         final Collection<Object> originalCollection = new ArrayList<>();
         final Object[] elements = getFullElements();
         Collections.addAll(originalCollection, elements);
@@ -168,7 +168,7 @@ public class TransformedCollectionTest_OE25Dev extends AbstractCollectionTest<Ob
     }
     }
 
-    public void testTransformedCollection_decorateTransform_3_oe() {
+public void testTransformedCollection_decorateTransform_3_oe() {
         final Collection<Object> originalCollection = new ArrayList<>();
         final Object[] elements = getFullElements();
         Collections.addAll(originalCollection, elements);
@@ -180,7 +180,7 @@ public class TransformedCollectionTest_OE25Dev extends AbstractCollectionTest<Ob
     }
     }
 
-    public void testTransformedCollection_decorateTransform_4_oe() {
+public void testTransformedCollection_decorateTransform_4_oe() {
         final Collection<Object> originalCollection = new ArrayList<>();
         final Object[] elements = getFullElements();
         Collections.addAll(originalCollection, elements);
@@ -194,7 +194,7 @@ public class TransformedCollectionTest_OE25Dev extends AbstractCollectionTest<Ob
         assertEquals(false, collection.remove(elements[0]));
     }
 
-    public void testTransformedCollection_decorateTransform_5_oe() {
+public void testTransformedCollection_decorateTransform_5_oe() {
         final Collection<Object> originalCollection = new ArrayList<>();
         final Object[] elements = getFullElements();
         Collections.addAll(originalCollection, elements);

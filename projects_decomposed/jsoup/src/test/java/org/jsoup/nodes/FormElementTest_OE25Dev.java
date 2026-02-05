@@ -26,7 +26,7 @@ public class FormElementTest_OE25Dev {
         TestServer.start();
     }
 
-    @Test public void hasAssociatedControls_1_oe() {
+@Test public void hasAssociatedControls_1_oe() {
         //"button", "fieldset", "input", "keygen", "object", "output", "select", "textarea"
         String html = "<form id=1><button id=1><fieldset id=2 /><input id=3><keygen id=4><object id=5><output id=6>" +
                 "<select id=7><option></select><textarea id=8><p id=9>";
@@ -36,7 +36,7 @@ public class FormElementTest_OE25Dev {
         assertEquals(8, form.elements().size());
         }
 
-    @Test public void createsFormData_1_oe() {
+@Test public void createsFormData_1_oe() {
         String html = "<form><input name='one' value='two'><select name='three'><option value='not'>" +
                 "<option value='four' selected><option value='five' selected><textarea name=six>seven</textarea>" +
                 "<input name='seven' type='radio' value='on' checked><input name='seven' type='radio' value='off'>" +
@@ -51,7 +51,7 @@ public class FormElementTest_OE25Dev {
         assertEquals(6, data.size());
         }
 
-    @Test public void createsFormData_2_oe() {
+@Test public void createsFormData_2_oe() {
         String html = "<form><input name='one' value='two'><select name='three'><option value='not'>" +
                 "<option value='four' selected><option value='five' selected><textarea name=six>seven</textarea>" +
                 "<input name='seven' type='radio' value='on' checked><input name='seven' type='radio' value='off'>" +
@@ -67,7 +67,7 @@ public class FormElementTest_OE25Dev {
         assertEquals("one=two", data.get(0).toString());
         }
 
-    @Test public void createsFormData_3_oe() {
+@Test public void createsFormData_3_oe() {
         String html = "<form><input name='one' value='two'><select name='three'><option value='not'>" +
                 "<option value='four' selected><option value='five' selected><textarea name=six>seven</textarea>" +
                 "<input name='seven' type='radio' value='on' checked><input name='seven' type='radio' value='off'>" +
@@ -84,7 +84,7 @@ public class FormElementTest_OE25Dev {
         assertEquals("three=four", data.get(1).toString());
         }
 
-    @Test public void createsFormData_4_oe() {
+@Test public void createsFormData_4_oe() {
         String html = "<form><input name='one' value='two'><select name='three'><option value='not'>" +
                 "<option value='four' selected><option value='five' selected><textarea name=six>seven</textarea>" +
                 "<input name='seven' type='radio' value='on' checked><input name='seven' type='radio' value='off'>" +
@@ -102,7 +102,7 @@ public class FormElementTest_OE25Dev {
         assertEquals("three=five", data.get(2).toString());
         }
 
-    @Test public void createsFormData_5_oe() {
+@Test public void createsFormData_5_oe() {
         String html = "<form><input name='one' value='two'><select name='three'><option value='not'>" +
                 "<option value='four' selected><option value='five' selected><textarea name=six>seven</textarea>" +
                 "<input name='seven' type='radio' value='on' checked><input name='seven' type='radio' value='off'>" +
@@ -121,7 +121,7 @@ public class FormElementTest_OE25Dev {
         assertEquals("six=seven", data.get(3).toString());
         }
 
-    @Test public void createsFormData_6_oe() {
+@Test public void createsFormData_6_oe() {
         String html = "<form><input name='one' value='two'><select name='three'><option value='not'>" +
                 "<option value='four' selected><option value='five' selected><textarea name=six>seven</textarea>" +
                 "<input name='seven' type='radio' value='on' checked><input name='seven' type='radio' value='off'>" +
@@ -141,7 +141,7 @@ public class FormElementTest_OE25Dev {
         assertEquals("seven=on", data.get(4).toString()); // set;
         }
 
-    @Test public void createsFormData_7_oe() {
+@Test public void createsFormData_7_oe() {
         String html = "<form><input name='one' value='two'><select name='three'><option value='not'>" +
                 "<option value='four' selected><option value='five' selected><textarea name=six>seven</textarea>" +
                 "<input name='seven' type='radio' value='on' checked><input name='seven' type='radio' value='off'>" +
@@ -162,14 +162,14 @@ public class FormElementTest_OE25Dev {
         assertEquals("eight=on", data.get(5).toString()); // default;
         }
 
-    @Test public void formDataUsesFirstAttribute_1_oe() {
+@Test public void formDataUsesFirstAttribute_1_oe() {
         String html = "<form><input name=test value=foo name=test2 value=bar>";
         Document doc = Jsoup.parse(html);
         FormElement form = (FormElement) doc.selectFirst("form");
         assertEquals("test=foo", form.formData().get(0).toString());
         }
 
-    @Test public void createsSubmitableConnection_1_oe() {
+@Test public void createsSubmitableConnection_1_oe() {
         String html = "<form action='/search'><input name='q'></form>";
         Document doc = Jsoup.parse(html, "http://example.com/");
         doc.select("[name=q]").attr("value", "jsoup");
@@ -180,7 +180,7 @@ public class FormElementTest_OE25Dev {
         assertEquals(Connection.Method.GET, con.request().method());
         }
 
-    @Test public void createsSubmitableConnection_2_oe() {
+@Test public void createsSubmitableConnection_2_oe() {
         String html = "<form action='/search'><input name='q'></form>";
         Document doc = Jsoup.parse(html, "http://example.com/");
         doc.select("[name=q]").attr("value", "jsoup");
@@ -192,7 +192,7 @@ public class FormElementTest_OE25Dev {
         assertEquals("http://example.com/search", con.request().url().toExternalForm());
         }
 
-    @Test public void createsSubmitableConnection_3_oe() {
+@Test public void createsSubmitableConnection_3_oe() {
         String html = "<form action='/search'><input name='q'></form>";
         Document doc = Jsoup.parse(html, "http://example.com/");
         doc.select("[name=q]").attr("value", "jsoup");
@@ -206,7 +206,7 @@ public class FormElementTest_OE25Dev {
         assertEquals("q=jsoup", dataList.get(0).toString());
         }
 
-    @Test public void createsSubmitableConnection_4_oe() {
+@Test public void createsSubmitableConnection_4_oe() {
         String html = "<form action='/search'><input name='q'></form>";
         Document doc = Jsoup.parse(html, "http://example.com/");
         doc.select("[name=q]").attr("value", "jsoup");
@@ -224,7 +224,7 @@ public class FormElementTest_OE25Dev {
         assertEquals(Connection.Method.POST, con2.request().method());
         }
 
-    @Test public void actionWithNoValue_1_oe() {
+@Test public void actionWithNoValue_1_oe() {
         String html = "<form><input name='q'></form>";
         Document doc = Jsoup.parse(html, "http://example.com/");
         FormElement form = ((FormElement) doc.select("form").first());
@@ -233,7 +233,7 @@ public class FormElementTest_OE25Dev {
         assertEquals("http://example.com/", con.request().url().toExternalForm());
         }
 
-    @Test public void actionWithNoBaseUri_1_oe() {
+@Test public void actionWithNoBaseUri_1_oe() {
         String html = "<form><input name='q'></form>";
         Document doc = Jsoup.parse(html);
         FormElement form = ((FormElement) doc.select("form").first());
@@ -248,7 +248,7 @@ public class FormElementTest_OE25Dev {
         }
         }
 
-    @Test public void actionWithNoBaseUri_2_oe() {
+@Test public void actionWithNoBaseUri_2_oe() {
         String html = "<form><input name='q'></form>";
         Document doc = Jsoup.parse(html);
         FormElement form = ((FormElement) doc.select("form").first());
@@ -264,14 +264,14 @@ public class FormElementTest_OE25Dev {
         assertTrue(threw);
         }
 
-    @Test public void formsAddedAfterParseAreFormElements_1_oe() {
+@Test public void formsAddedAfterParseAreFormElements_1_oe() {
         Document doc = Jsoup.parse("<body />");
         doc.body().html("<form action='http://example.com/search'><input name='q' value='search'>");
         Element formEl = doc.select("form").first();
         assertTrue(formEl instanceof FormElement);
         }
 
-    @Test public void formsAddedAfterParseAreFormElements_2_oe() {
+@Test public void formsAddedAfterParseAreFormElements_2_oe() {
         Document doc = Jsoup.parse("<body />");
         doc.body().html("<form action='http://example.com/search'><input name='q' value='search'>");
         Element formEl = doc.select("form").first();
@@ -281,7 +281,7 @@ public class FormElementTest_OE25Dev {
         assertEquals(1, form.elements().size());
         }
 
-    @Test public void controlsAddedAfterParseAreLinkedWithForms_1_oe() {
+@Test public void controlsAddedAfterParseAreLinkedWithForms_1_oe() {
         Document doc = Jsoup.parse("<body />");
         doc.body().html("<form />");
 
@@ -291,7 +291,7 @@ public class FormElementTest_OE25Dev {
         assertTrue(formEl instanceof FormElement);
         }
 
-    @Test public void controlsAddedAfterParseAreLinkedWithForms_2_oe() {
+@Test public void controlsAddedAfterParseAreLinkedWithForms_2_oe() {
         Document doc = Jsoup.parse("<body />");
         doc.body().html("<form />");
 
@@ -303,7 +303,7 @@ public class FormElementTest_OE25Dev {
         assertEquals(1, form.elements().size());
         }
 
-    @Test public void controlsAddedAfterParseAreLinkedWithForms_3_oe() {
+@Test public void controlsAddedAfterParseAreLinkedWithForms_3_oe() {
         Document doc = Jsoup.parse("<body />");
         doc.body().html("<form />");
 
@@ -318,14 +318,14 @@ public class FormElementTest_OE25Dev {
         assertEquals("foo=bar", data.get(0).toString());
         }
 
-    @Test public void usesOnForCheckboxValueIfNoValueSet_1_oe() {
+@Test public void usesOnForCheckboxValueIfNoValueSet_1_oe() {
         Document doc = Jsoup.parse("<form><input type=checkbox checked name=foo></form>");
         FormElement form = (FormElement) doc.select("form").first();
         List<Connection.KeyVal> data = form.formData();
         assertEquals("on", data.get(0).value());
         }
 
-    @Test public void usesOnForCheckboxValueIfNoValueSet_2_oe() {
+@Test public void usesOnForCheckboxValueIfNoValueSet_2_oe() {
         Document doc = Jsoup.parse("<form><input type=checkbox checked name=foo></form>");
         FormElement form = (FormElement) doc.select("form").first();
         List<Connection.KeyVal> data = form.formData();
@@ -333,7 +333,7 @@ public class FormElementTest_OE25Dev {
         assertEquals("foo", data.get(0).key());
         }
 
-    @Test public void adoptedFormsRetainInputs_1_oe() {
+@Test public void adoptedFormsRetainInputs_1_oe() {
         // test for https://github.com/jhy/jsoup/issues/249
         String html = "<html>\n" +
                 "<body>  \n" +
@@ -352,7 +352,7 @@ public class FormElementTest_OE25Dev {
         assertEquals(3, data.size());
         }
 
-    @Test public void adoptedFormsRetainInputs_2_oe() {
+@Test public void adoptedFormsRetainInputs_2_oe() {
         // test for https://github.com/jhy/jsoup/issues/249
         String html = "<html>\n" +
                 "<body>  \n" +
@@ -372,7 +372,7 @@ public class FormElementTest_OE25Dev {
         assertEquals("user", data.get(0).key());
         }
 
-    @Test public void adoptedFormsRetainInputs_3_oe() {
+@Test public void adoptedFormsRetainInputs_3_oe() {
         // test for https://github.com/jhy/jsoup/issues/249
         String html = "<html>\n" +
                 "<body>  \n" +
@@ -393,7 +393,7 @@ public class FormElementTest_OE25Dev {
         assertEquals("pass", data.get(1).key());
         }
 
-    @Test public void adoptedFormsRetainInputs_4_oe() {
+@Test public void adoptedFormsRetainInputs_4_oe() {
         // test for https://github.com/jhy/jsoup/issues/249
         String html = "<html>\n" +
                 "<body>  \n" +
@@ -415,7 +415,7 @@ public class FormElementTest_OE25Dev {
         assertEquals("login", data.get(2).key());
         }
 
-    @Test public void removeFormElement_1_oe() {
+@Test public void removeFormElement_1_oe() {
         String html = "<html>\n" +
                 "  <body> \n" +
                 "      <form action=\"/hello.php\" method=\"post\">\n" +
@@ -434,7 +434,7 @@ public class FormElementTest_OE25Dev {
         assertEquals(2, data.size());
         }
 
-    @Test public void removeFormElement_2_oe() {
+@Test public void removeFormElement_2_oe() {
         String html = "<html>\n" +
                 "  <body> \n" +
                 "      <form action=\"/hello.php\" method=\"post\">\n" +
@@ -454,7 +454,7 @@ public class FormElementTest_OE25Dev {
         assertEquals("user", data.get(0).key());
         }
 
-    @Test public void removeFormElement_3_oe() {
+@Test public void removeFormElement_3_oe() {
         String html = "<html>\n" +
                 "  <body> \n" +
                 "      <form action=\"/hello.php\" method=\"post\">\n" +
@@ -475,7 +475,7 @@ public class FormElementTest_OE25Dev {
         assertEquals("login", data.get(1).key());
         }
 
-    @Test public void removeFormElement_4_oe() {
+@Test public void removeFormElement_4_oe() {
         String html = "<html>\n" +
                 "  <body> \n" +
                 "      <form action=\"/hello.php\" method=\"post\">\n" +
@@ -497,7 +497,7 @@ public class FormElementTest_OE25Dev {
         assertNull(doc.selectFirst("input[name=pass]"));
         }
 
-    @Test public void formSubmissionCarriesCookiesFromSession_1_oe() throws IOException {
+@Test public void formSubmissionCarriesCookiesFromSession_1_oe() throws IOException {
         String echoUrl = EchoServlet.Url; // this is a dirty hack to initialize the EchoServlet(!)
         Document cookieDoc = Jsoup.connect(CookieServlet.Url)
             .data(CookieServlet.SetCookiesParam, "1")
@@ -511,7 +511,7 @@ public class FormElementTest_OE25Dev {
         assertEquals(echoUrl, echo.location());
         }
 
-    @Test public void formSubmissionCarriesCookiesFromSession_2_oe() throws IOException {
+@Test public void formSubmissionCarriesCookiesFromSession_2_oe() throws IOException {
         String echoUrl = EchoServlet.Url; // this is a dirty hack to initialize the EchoServlet(!)
         Document cookieDoc = Jsoup.connect(CookieServlet.Url)
             .data(CookieServlet.SetCookiesParam, "1")
@@ -528,7 +528,7 @@ public class FormElementTest_OE25Dev {
         assertEquals("EchoServlet", els.get(0).nextElementSibling().text());
         }
 
-    @Test public void formSubmissionCarriesCookiesFromSession_3_oe() throws IOException {
+@Test public void formSubmissionCarriesCookiesFromSession_3_oe() throws IOException {
         String echoUrl = EchoServlet.Url; // this is a dirty hack to initialize the EchoServlet(!)
         Document cookieDoc = Jsoup.connect(CookieServlet.Url)
             .data(CookieServlet.SetCookiesParam, "1")
@@ -546,7 +546,7 @@ public class FormElementTest_OE25Dev {
         assertEquals("Root", els.get(1).nextElementSibling().text());
         }
 
-    @Test public void formSubmissionCarriesCookiesFromSession_4_oe() throws IOException {
+@Test public void formSubmissionCarriesCookiesFromSession_4_oe() throws IOException {
         String echoUrl = EchoServlet.Url; // this is a dirty hack to initialize the EchoServlet(!)
         Document cookieDoc = Jsoup.connect(CookieServlet.Url)
             .data(CookieServlet.SetCookiesParam, "1")
@@ -567,7 +567,7 @@ public class FormElementTest_OE25Dev {
         assertTrue(cookieDoc.connection().response().url().toExternalForm().contains("CookieServlet"));
         }
 
-    @Test public void formSubmissionCarriesCookiesFromSession_5_oe() throws IOException {
+@Test public void formSubmissionCarriesCookiesFromSession_5_oe() throws IOException {
         String echoUrl = EchoServlet.Url; // this is a dirty hack to initialize the EchoServlet(!)
         Document cookieDoc = Jsoup.connect(CookieServlet.Url)
             .data(CookieServlet.SetCookiesParam, "1")
@@ -589,7 +589,7 @@ public class FormElementTest_OE25Dev {
         assertTrue(formDoc.connection().response().url().toExternalForm().contains("upload-form"));
         }
 
-    @Test public void formSubmissionCarriesCookiesFromSession_6_oe() throws IOException {
+@Test public void formSubmissionCarriesCookiesFromSession_6_oe() throws IOException {
         String echoUrl = EchoServlet.Url; // this is a dirty hack to initialize the EchoServlet(!)
         Document cookieDoc = Jsoup.connect(CookieServlet.Url)
             .data(CookieServlet.SetCookiesParam, "1")

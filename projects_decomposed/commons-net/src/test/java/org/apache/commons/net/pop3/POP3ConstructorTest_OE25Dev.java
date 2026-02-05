@@ -53,20 +53,20 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
      * reason, this test will have to be updated.
      */
 
-    public void testConstants_1_oe()
+public void testConstants_1_oe()
     {
         //From POP3
         assertEquals(110, POP3.DEFAULT_PORT);
     }
 
-    public void testConstants_2_oe()
+public void testConstants_2_oe()
     {
         //From POP3
         // removed other assertion
         assertEquals(-1, POP3.DISCONNECTED_STATE);
     }
 
-    public void testConstants_3_oe()
+public void testConstants_3_oe()
     {
         //From POP3
         // removed other assertion
@@ -74,7 +74,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(0, POP3.AUTHORIZATION_STATE);
     }
 
-    public void testConstants_4_oe()
+public void testConstants_4_oe()
     {
         //From POP3
         // removed other assertion
@@ -83,7 +83,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(1, POP3.TRANSACTION_STATE);
     }
 
-    public void testConstants_5_oe()
+public void testConstants_5_oe()
     {
         //From POP3
         // removed other assertion
@@ -93,7 +93,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(2, POP3.UPDATE_STATE);
     }
 
-    public void testConstants_6_oe()
+public void testConstants_6_oe()
     {
         //From POP3
         // removed other assertion
@@ -106,7 +106,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(0, POP3Command.USER);
     }
 
-    public void testConstants_7_oe()
+public void testConstants_7_oe()
     {
         //From POP3
         // removed other assertion
@@ -120,7 +120,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(1, POP3Command.PASS);
     }
 
-    public void testConstants_8_oe()
+public void testConstants_8_oe()
     {
         //From POP3
         // removed other assertion
@@ -135,7 +135,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(2, POP3Command.QUIT);
     }
 
-    public void testConstants_9_oe()
+public void testConstants_9_oe()
     {
         //From POP3
         // removed other assertion
@@ -151,7 +151,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(3, POP3Command.STAT);
     }
 
-    public void testConstants_10_oe()
+public void testConstants_10_oe()
     {
         //From POP3
         // removed other assertion
@@ -168,7 +168,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(4, POP3Command.LIST);
     }
 
-    public void testConstants_11_oe()
+public void testConstants_11_oe()
     {
         //From POP3
         // removed other assertion
@@ -186,7 +186,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(5, POP3Command.RETR);
     }
 
-    public void testConstants_12_oe()
+public void testConstants_12_oe()
     {
         //From POP3
         // removed other assertion
@@ -205,7 +205,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(6, POP3Command.DELE);
     }
 
-    public void testConstants_13_oe()
+public void testConstants_13_oe()
     {
         //From POP3
         // removed other assertion
@@ -225,7 +225,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(7, POP3Command.NOOP);
     }
 
-    public void testConstants_14_oe()
+public void testConstants_14_oe()
     {
         //From POP3
         // removed other assertion
@@ -246,7 +246,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(8, POP3Command.RSET);
     }
 
-    public void testConstants_15_oe()
+public void testConstants_15_oe()
     {
         //From POP3
         // removed other assertion
@@ -268,7 +268,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(9, POP3Command.APOP);
     }
 
-    public void testConstants_16_oe()
+public void testConstants_16_oe()
     {
         //From POP3
         // removed other assertion
@@ -291,7 +291,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(10, POP3Command.TOP);
     }
 
-    public void testConstants_17_oe()
+public void testConstants_17_oe()
     {
         //From POP3
         // removed other assertion
@@ -315,14 +315,14 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(11, POP3Command.UIDL);
     }
 
-    public void testPOP3DefaultConstructor_1_oe()
+public void testPOP3DefaultConstructor_1_oe()
     {
         final POP3 pop = new POP3();
 
         assertEquals(110, pop.getDefaultPort());
     }
 
-    public void testPOP3DefaultConstructor_2_oe()
+public void testPOP3DefaultConstructor_2_oe()
     {
         final POP3 pop = new POP3();
 
@@ -330,7 +330,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(POP3.DISCONNECTED_STATE, pop.getState());
     }
 
-    public void testPOP3DefaultConstructor_3_oe()
+public void testPOP3DefaultConstructor_3_oe()
     {
         final POP3 pop = new POP3();
 
@@ -339,7 +339,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertNull(pop.reader);
     }
 
-    public void testPOP3DefaultConstructor_4_oe()
+public void testPOP3DefaultConstructor_4_oe()
     {
         final POP3 pop = new POP3();
 
@@ -349,7 +349,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertNotNull(pop.replyLines);
     }
 
-    public void testPOP3ClientStateTransition_1_oe() throws Exception
+public void testPOP3ClientStateTransition_1_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 
@@ -357,7 +357,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(110, pop.getDefaultPort());
     }
 
-    public void testPOP3ClientStateTransition_2_oe() throws Exception
+public void testPOP3ClientStateTransition_2_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 
@@ -366,7 +366,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(POP3.DISCONNECTED_STATE, pop.getState());
     }
 
-    public void testPOP3ClientStateTransition_3_oe() throws Exception
+public void testPOP3ClientStateTransition_3_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 
@@ -376,7 +376,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertNull(pop.reader);
     }
 
-    public void testPOP3ClientStateTransition_4_oe() throws Exception
+public void testPOP3ClientStateTransition_4_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 
@@ -387,7 +387,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertNotNull(pop.replyLines);
     }
 
-    public void testPOP3ClientStateTransition_5_oe() throws Exception
+public void testPOP3ClientStateTransition_5_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 
@@ -402,7 +402,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(POP3.AUTHORIZATION_STATE, pop.getState());
     }
 
-    public void testPOP3ClientStateTransition_6_oe() throws Exception
+public void testPOP3ClientStateTransition_6_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 
@@ -421,7 +421,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(POP3.TRANSACTION_STATE, pop.getState());
     }
 
-    public void testPOP3ClientStateTransition_7_oe() throws Exception
+public void testPOP3ClientStateTransition_7_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 
@@ -444,7 +444,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(POP3.TRANSACTION_STATE, pop.getState());
     }
 
-    public void testPOP3ClientStateTransition_8_oe() throws Exception
+public void testPOP3ClientStateTransition_8_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 
@@ -469,7 +469,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
         assertEquals(POP3.TRANSACTION_STATE, pop.getState());
     }
 
-    public void testPOP3ClientStateTransition_9_oe() throws Exception
+public void testPOP3ClientStateTransition_9_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 
@@ -503,7 +503,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
     }
     }
 
-    public void testPOP3ClientStateTransition_10_oe() throws Exception
+public void testPOP3ClientStateTransition_10_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 
@@ -540,7 +540,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
     }
     }
 
-    public void testPOP3ClientStateTransition_11_oe() throws Exception
+public void testPOP3ClientStateTransition_11_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 
@@ -580,7 +580,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
     }
     }
 
-    public void testPOP3ClientStateTransition_12_oe() throws Exception
+public void testPOP3ClientStateTransition_12_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 
@@ -623,7 +623,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
     }
     }
 
-    public void testPOP3ClientStateTransition_13_oe() throws Exception
+public void testPOP3ClientStateTransition_13_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 
@@ -669,7 +669,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
     }
     }
 
-    public void testPOP3ClientStateTransition_14_oe() throws Exception
+public void testPOP3ClientStateTransition_14_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 
@@ -718,7 +718,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
     }
     }
 
-    public void testPOP3ClientStateTransition_15_oe() throws Exception
+public void testPOP3ClientStateTransition_15_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 
@@ -770,7 +770,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
     }
     }
 
-    public void testPOP3ClientStateTransition_16_oe() throws Exception
+public void testPOP3ClientStateTransition_16_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 
@@ -833,7 +833,7 @@ public class POP3ConstructorTest_OE25Dev extends TestCase
     }
     }
 
-    public void testPOP3ClientStateTransition_17_oe() throws Exception
+public void testPOP3ClientStateTransition_17_oe() throws Exception
     {
         final POP3Client pop = new POP3Client();
 

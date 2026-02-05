@@ -238,7 +238,7 @@ public class TestBasicBuilderParameters_OE25Dev {
      * Tests whether the throw exception on missing property can be set.
      */
 
-    @Test
+@Test
     public void testCloneDefaultLookups_1_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         final Collection<Lookup> looks = Collections.singleton(look);
@@ -250,7 +250,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Wrong number of default lookups", 1, defLooks.size());
     }
 
-    @Test
+@Test
     public void testCloneDefaultLookups_2_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         final Collection<Lookup> looks = Collections.singleton(look);
@@ -263,7 +263,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertTrue("Wrong default lookup", defLooks.contains(look));
     }
 
-    @Test
+@Test
     public void testClonePrefixLookups_1_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         final Map<String, Lookup> lookups = Collections.singletonMap("test", look);
@@ -275,7 +275,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Wrong number of lookups", 1, map.size());
     }
 
-    @Test
+@Test
     public void testClonePrefixLookups_2_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         final Map<String, Lookup> lookups = Collections.singletonMap("test", look);
@@ -288,7 +288,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertSame("Wrong lookup", look, map.get("test"));
     }
 
-    @Test
+@Test
     public void testCloneValues_1_oe() {
         final ConfigurationLogger log = EasyMock.createMock(ConfigurationLogger.class);
         final ConfigurationInterpolator ci = EasyMock.createMock(ConfigurationInterpolator.class);
@@ -305,7 +305,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertSame("Wrong logger", log, map.get("logger"));
     }
 
-    @Test
+@Test
     public void testCloneValues_2_oe() {
         final ConfigurationLogger log = EasyMock.createMock(ConfigurationLogger.class);
         final ConfigurationInterpolator ci = EasyMock.createMock(ConfigurationInterpolator.class);
@@ -323,7 +323,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertSame("Wrong interpolator", ci, map.get("interpolator"));
     }
 
-    @Test
+@Test
     public void testCloneValues_3_oe() {
         final ConfigurationLogger log = EasyMock.createMock(ConfigurationLogger.class);
         final ConfigurationInterpolator ci = EasyMock.createMock(ConfigurationInterpolator.class);
@@ -342,7 +342,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Wrong list delimiter handler", handler1, map.get("listDelimiterHandler"));
     }
 
-    @Test
+@Test
     public void testCloneValues_4_oe() {
         final ConfigurationLogger log = EasyMock.createMock(ConfigurationLogger.class);
         final ConfigurationInterpolator ci = EasyMock.createMock(ConfigurationInterpolator.class);
@@ -362,18 +362,18 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Wrong exception flag", Boolean.TRUE, map.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testDefaults_1_oe() {
         final Map<String, Object> paramMap = params.getParameters();
         assertTrue("Got parameters", paramMap.isEmpty());
     }
 
-    @Test
+@Test
     public void testFetchBeanHelperNoSet_1_oe() {
         assertNull("Got a BeanHelper", BasicBuilderParameters.fetchBeanHelper(params.getParameters()));
     }
 
-    @Test
+@Test
     public void testFetchInterpolatorSpecification_1_oe() {
         final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
         final Lookup l1 = EasyMock.createMock(Lookup.class);
@@ -391,7 +391,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertSame("Wrong parent", parent, spec.getParentInterpolator());
     }
 
-    @Test
+@Test
     public void testFetchInterpolatorSpecification_2_oe() {
         final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
         final Lookup l1 = EasyMock.createMock(Lookup.class);
@@ -410,7 +410,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Wrong prefix lookups", prefixLookups, spec.getPrefixLookups());
     }
 
-    @Test
+@Test
     public void testFetchInterpolatorSpecification_3_oe() {
         final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
         final Lookup l1 = EasyMock.createMock(Lookup.class);
@@ -430,7 +430,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Wrong number of default lookups", 1, spec.getDefaultLookups().size());
     }
 
-    @Test
+@Test
     public void testFetchInterpolatorSpecification_4_oe() {
         final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
         final Lookup l1 = EasyMock.createMock(Lookup.class);
@@ -451,20 +451,20 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertTrue("Wrong default lookup", spec.getDefaultLookups().contains(l3));
     }
 
-    @Test
+@Test
     public void testFetchInterpolatorSpecificationEmpty_1_oe() {
         final InterpolatorSpecification spec = BasicBuilderParameters.fetchInterpolatorSpecification(params.getParameters());
         assertNull("Got an interpolator", spec.getInterpolator());
     }
 
-    @Test
+@Test
     public void testFetchInterpolatorSpecificationEmpty_2_oe() {
         final InterpolatorSpecification spec = BasicBuilderParameters.fetchInterpolatorSpecification(params.getParameters());
         // removed other assertion
         assertTrue("Got lookups", spec.getDefaultLookups().isEmpty());
     }
 
-    @Test
+@Test
     public void testFetchInterpolatorSpecificationWithInterpolator_1_oe() {
         final ConfigurationInterpolator ci = EasyMock.createMock(ConfigurationInterpolator.class);
         params.setInterpolator(ci);
@@ -472,7 +472,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertSame("Wrong interpolator", ci, spec.getInterpolator());
     }
 
-    @Test
+@Test
     public void testFetchInterpolatorSpecificationWithInterpolator_2_oe() {
         final ConfigurationInterpolator ci = EasyMock.createMock(ConfigurationInterpolator.class);
         params.setInterpolator(ci);
@@ -481,7 +481,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertNull("Got a parent", spec.getParentInterpolator());
     }
 
-    @Test
+@Test
     public void testGetParametersDefensiveCopy_1_oe() {
         final Map<String, Object> map1 = params.getParameters();
         final Map<String, Object> mapCopy = new HashMap<>(map1);
@@ -490,7 +490,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertNotSame("Same map returned", map1, map2);
     }
 
-    @Test
+@Test
     public void testGetParametersDefensiveCopy_2_oe() {
         final Map<String, Object> map1 = params.getParameters();
         final Map<String, Object> mapCopy = new HashMap<>(map1);
@@ -500,7 +500,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Different properties", mapCopy, map2);
     }
 
-    @Test
+@Test
     public void testInheritFrom_1_oe() {
         final BeanHelper beanHelper = new BeanHelper();
         final ConfigurationDecoder decoder = EasyMock.createMock(ConfigurationDecoder.class);
@@ -517,7 +517,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Bean helper not set", beanHelper, parameters.get("config-BeanHelper"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_2_oe() {
         final BeanHelper beanHelper = new BeanHelper();
         final ConfigurationDecoder decoder = EasyMock.createMock(ConfigurationDecoder.class);
@@ -535,7 +535,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Decoder not set", decoder, parameters.get("configurationDecoder"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_3_oe() {
         final BeanHelper beanHelper = new BeanHelper();
         final ConfigurationDecoder decoder = EasyMock.createMock(ConfigurationDecoder.class);
@@ -554,7 +554,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Conversion handler not set", conversionHandler, parameters.get("conversionHandler"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_4_oe() {
         final BeanHelper beanHelper = new BeanHelper();
         final ConfigurationDecoder decoder = EasyMock.createMock(ConfigurationDecoder.class);
@@ -574,7 +574,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Delimiter handler not set", listDelimiterHandler, parameters.get("listDelimiterHandler"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_5_oe() {
         final BeanHelper beanHelper = new BeanHelper();
         final ConfigurationDecoder decoder = EasyMock.createMock(ConfigurationDecoder.class);
@@ -595,7 +595,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Logger not set", logger, parameters.get("logger"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_6_oe() {
         final BeanHelper beanHelper = new BeanHelper();
         final ConfigurationDecoder decoder = EasyMock.createMock(ConfigurationDecoder.class);
@@ -617,7 +617,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Synchronizer not set", synchronizer, parameters.get("synchronizer"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_7_oe() {
         final BeanHelper beanHelper = new BeanHelper();
         final ConfigurationDecoder decoder = EasyMock.createMock(ConfigurationDecoder.class);
@@ -640,7 +640,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Exception flag not set", Boolean.TRUE, parameters.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testInheritFromUndefinedProperties_1_oe() {
         final BasicBuilderParameters p2 = new BasicBuilderParameters().setThrowExceptionOnMissing(true);
 
@@ -649,7 +649,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Wrong number of properties", 1, parameters.size());
     }
 
-    @Test
+@Test
     public void testInheritFromUndefinedProperties_2_oe() {
         final BasicBuilderParameters p2 = new BasicBuilderParameters().setThrowExceptionOnMissing(true);
 
@@ -659,7 +659,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Exception flag not set", Boolean.TRUE, parameters.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testMerge_1_oe() {
         final ListDelimiterHandler handler1 = EasyMock.createMock(ListDelimiterHandler.class);
         final ListDelimiterHandler handler2 = EasyMock.createMock(ListDelimiterHandler.class);
@@ -677,7 +677,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Wrong list delimiter handler", handler2, map.get("listDelimiterHandler"));
     }
 
-    @Test
+@Test
     public void testMerge_2_oe() {
         final ListDelimiterHandler handler1 = EasyMock.createMock(ListDelimiterHandler.class);
         final ListDelimiterHandler handler2 = EasyMock.createMock(ListDelimiterHandler.class);
@@ -696,7 +696,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Wrong exception flag", Boolean.TRUE, map.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testMerge_3_oe() {
         final ListDelimiterHandler handler1 = EasyMock.createMock(ListDelimiterHandler.class);
         final ListDelimiterHandler handler2 = EasyMock.createMock(ListDelimiterHandler.class);
@@ -716,7 +716,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertEquals("Wrong other property", "test", map.get("other"));
     }
 
-    @Test
+@Test
     public void testMerge_4_oe() {
         final ListDelimiterHandler handler1 = EasyMock.createMock(ListDelimiterHandler.class);
         final ListDelimiterHandler handler2 = EasyMock.createMock(ListDelimiterHandler.class);
@@ -737,34 +737,34 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertFalse("Reserved property was copied", map.containsKey(BuilderParameters.RESERVED_PARAMETER_PREFIX + "test"));
     }
 
-    @Test
+@Test
     public void testSetBeanHelper_1_oe() {
         final BeanHelper helper = new BeanHelper();
         assertSame("Wrong result", params, params.setBeanHelper(helper));
     }
 
-    @Test
+@Test
     public void testSetConfigurationDecoder_1_oe() {
         final ConfigurationDecoder decoder = EasyMock.createMock(ConfigurationDecoder.class);
         EasyMock.replay(decoder);
         assertSame("Wrong result", params, params.setConfigurationDecoder(decoder));
     }
 
-    @Test
+@Test
     public void testSetConversionHandler_1_oe() {
         final ConversionHandler handler = EasyMock.createMock(ConversionHandler.class);
         EasyMock.replay(handler);
         assertSame("Wrong result", params, params.setConversionHandler(handler));
     }
 
-    @Test
+@Test
     public void testSetDefaultLookups_1_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         final Collection<Lookup> looks = Collections.singleton(look);
         assertSame("Wrong result", params, params.setDefaultLookups(looks));
     }
 
-    @Test
+@Test
     public void testSetDefaultLookups_2_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         final Collection<Lookup> looks = Collections.singleton(look);
@@ -773,35 +773,35 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertNotSame("No copy was created", col, looks);
     }
 
-    @Test
+@Test
     public void testSetDefaultLookupsNull_1_oe() {
         params.setDefaultLookups(new ArrayList<>());
         params.setDefaultLookups(null);
         assertFalse("Found key", params.getParameters().containsKey("defaultLookups"));
     }
 
-    @Test
+@Test
     public void testSetInterpolator_1_oe() {
         final ConfigurationInterpolator ci = EasyMock.createMock(ConfigurationInterpolator.class);
         EasyMock.replay(ci);
         assertSame("Wrong result", params, params.setInterpolator(ci));
     }
 
-    @Test
+@Test
     public void testSetListDelimiter_1_oe() {
         final ListDelimiterHandler handler = EasyMock.createMock(ListDelimiterHandler.class);
         EasyMock.replay(handler);
         assertSame("Wrong result", params, params.setListDelimiterHandler(handler));
     }
 
-    @Test
+@Test
     public void testSetLogger_1_oe() {
         final ConfigurationLogger log = EasyMock.createMock(ConfigurationLogger.class);
         EasyMock.replay(log);
         assertSame("Wrong result", params, params.setLogger(log));
     }
 
-    @Test
+@Test
     public void testSetLookupsAndInterpolator_1_oe() {
         final Lookup look1 = EasyMock.createMock(Lookup.class);
         final Lookup look2 = EasyMock.createMock(Lookup.class);
@@ -815,7 +815,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertFalse("Got prefix lookups", map.containsKey("prefixLookups"));
     }
 
-    @Test
+@Test
     public void testSetLookupsAndInterpolator_2_oe() {
         final Lookup look1 = EasyMock.createMock(Lookup.class);
         final Lookup look2 = EasyMock.createMock(Lookup.class);
@@ -830,7 +830,7 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertFalse("Got default lookups", map.containsKey("defaultLookups"));
     }
 
-    @Test
+@Test
     public void testSetLookupsAndInterpolator_3_oe() {
         final Lookup look1 = EasyMock.createMock(Lookup.class);
         final Lookup look2 = EasyMock.createMock(Lookup.class);
@@ -846,21 +846,21 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertFalse("Got a parent interpolator", map.containsKey("parentInterpolator"));
     }
 
-    @Test
+@Test
     public void testSetParentInterpolator_1_oe() {
         final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
         EasyMock.replay(parent);
         assertSame("Wrong result", params, params.setParentInterpolator(parent));
     }
 
-    @Test
+@Test
     public void testSetPrefixLookups_1_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         final Map<String, Lookup> lookups = Collections.singletonMap("test", look);
         assertSame("Wrong result", params, params.setPrefixLookups(lookups));
     }
 
-    @Test
+@Test
     public void testSetPrefixLookups_2_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         final Map<String, Lookup> lookups = Collections.singletonMap("test", look);
@@ -869,21 +869,21 @@ public class TestBasicBuilderParameters_OE25Dev {
         assertNotSame("No copy was created", lookups, map);
     }
 
-    @Test
+@Test
     public void testSetPrefixLookupsNull_1_oe() {
         params.setPrefixLookups(new HashMap<>());
         params.setPrefixLookups(null);
         assertFalse("Found key", params.getParameters().containsKey("prefixLookups"));
     }
 
-    @Test
+@Test
     public void testSetSynchronizer_1_oe() {
         final Synchronizer sync = EasyMock.createMock(Synchronizer.class);
         EasyMock.replay(sync);
         assertSame("Wrong result", params, params.setSynchronizer(sync));
     }
 
-    @Test
+@Test
     public void testSetThrowExceptionOnMissing_1_oe() {
         assertSame("Wrong result", params, params.setThrowExceptionOnMissing(true));
     }

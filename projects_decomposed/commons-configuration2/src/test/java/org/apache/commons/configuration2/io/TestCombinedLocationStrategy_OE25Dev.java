@@ -168,7 +168,7 @@ public class TestCombinedLocationStrategy_OE25Dev {
         EasyMock.verify((Object[]) getSubStrategies());
     }
 
-    @Test
+@Test
     public void testLocateFailed_1_oe() {
         EasyMock.expect(getSubStrategies()[0].locate(getFileSystem(), locator)).andReturn(null);
         EasyMock.expect(getSubStrategies()[1].locate(getFileSystem(), locator)).andReturn(null);
@@ -177,7 +177,7 @@ public class TestCombinedLocationStrategy_OE25Dev {
         assertNull("Got a URL", strategy.locate(getFileSystem(), locator));
     }
 
-    @Test
+@Test
     public void testLocateSuccessFirstSubStrategy_1_oe() {
         EasyMock.expect(getSubStrategies()[0].locate(getFileSystem(), locator)).andReturn(locateURL);
         replaySubStrategies();
@@ -185,7 +185,7 @@ public class TestCombinedLocationStrategy_OE25Dev {
         assertSame("Wrong result", locateURL, strategy.locate(getFileSystem(), locator));
     }
 
-    @Test
+@Test
     public void testLocateSuccessSecondSubStrategy_1_oe() {
         EasyMock.expect(getSubStrategies()[0].locate(getFileSystem(), locator)).andReturn(null);
         EasyMock.expect(getSubStrategies()[1].locate(getFileSystem(), locator)).andReturn(locateURL);

@@ -30,7 +30,7 @@ import static org.junit.Assert.*;
  */
 public class IteratorEnumerationTest_OE25Dev {
 
-    @Test
+@Test
     public void testEnumeration_1_oe() {
         final Iterator<String> iterator = Arrays.asList("a", "b", "c").iterator();
         final IteratorEnumeration<String> enumeration = new IteratorEnumeration<>(iterator);
@@ -38,7 +38,7 @@ public class IteratorEnumerationTest_OE25Dev {
         assertEquals(iterator, enumeration.getIterator());
     }
 
-    @Test
+@Test
     public void testEnumeration_2_oe() {
         final Iterator<String> iterator = Arrays.asList("a", "b", "c").iterator();
         final IteratorEnumeration<String> enumeration = new IteratorEnumeration<>(iterator);
@@ -48,7 +48,7 @@ public class IteratorEnumerationTest_OE25Dev {
         assertTrue(enumeration.hasMoreElements());
     }
 
-    @Test
+@Test
     public void testEnumeration_3_oe() {
         final Iterator<String> iterator = Arrays.asList("a", "b", "c").iterator();
         final IteratorEnumeration<String> enumeration = new IteratorEnumeration<>(iterator);
@@ -59,7 +59,7 @@ public class IteratorEnumerationTest_OE25Dev {
         assertEquals("a", enumeration.nextElement());
     }
 
-    @Test
+@Test
     public void testEnumeration_4_oe() {
         final Iterator<String> iterator = Arrays.asList("a", "b", "c").iterator();
         final IteratorEnumeration<String> enumeration = new IteratorEnumeration<>(iterator);
@@ -71,7 +71,7 @@ public class IteratorEnumerationTest_OE25Dev {
         assertEquals("b", enumeration.nextElement());
     }
 
-    @Test
+@Test
     public void testEnumeration_5_oe() {
         final Iterator<String> iterator = Arrays.asList("a", "b", "c").iterator();
         final IteratorEnumeration<String> enumeration = new IteratorEnumeration<>(iterator);
@@ -84,7 +84,7 @@ public class IteratorEnumerationTest_OE25Dev {
         assertEquals("c", enumeration.nextElement());
     }
 
-    @Test
+@Test
     public void testEnumeration_6_oe() {
         final Iterator<String> iterator = Arrays.asList("a", "b", "c").iterator();
         final IteratorEnumeration<String> enumeration = new IteratorEnumeration<>(iterator);

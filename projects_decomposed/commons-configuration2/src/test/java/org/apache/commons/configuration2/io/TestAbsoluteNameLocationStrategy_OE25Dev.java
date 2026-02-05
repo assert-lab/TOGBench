@@ -61,7 +61,7 @@ public class TestAbsoluteNameLocationStrategy_OE25Dev {
      * Tests a locate() operation if an absolute file name is provided, but this file does not exist.
      */
 
-    @Test
+@Test
     public void testExistingAbsoluteFile_1_oe() {
         final File file = ConfigurationAssert.getTestFile("test.xml");
         final FileLocator locator = FileLocatorUtils.fileLocator().fileName(file.getAbsolutePath()).create();
@@ -69,19 +69,19 @@ public class TestAbsoluteNameLocationStrategy_OE25Dev {
         assertEquals("Wrong URL", file.getAbsoluteFile(), FileLocatorUtils.fileFromURL(url).getAbsoluteFile());
     }
 
-    @Test
+@Test
     public void testNoAbsoluteFileName_1_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().fileName("test.xml").create();
         assertNull("Got a URL", strategy.locate(fileSystem, locator));
     }
 
-    @Test
+@Test
     public void testNoFileName_1_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().create();
         assertNull("Got a URL", strategy.locate(fileSystem, locator));
     }
 
-    @Test
+@Test
     public void testNonExistingAbsoluteFile_1_oe() {
         final File file = ConfigurationAssert.getOutFile("NotExistingFile.tst");
         final FileLocator locator = FileLocatorUtils.fileLocator().fileName(file.getAbsolutePath()).create();

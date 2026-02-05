@@ -173,7 +173,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/CompositeCollection.fullCollection.version4.obj");
 //    }
 
-    public void testAddAllMutator_1_oe() {
+public void testAddAllMutator_1_oe() {
         setUpTest();
         c.setMutator(new CompositeCollection.CollectionMutator<E>() {
             @Override
@@ -207,7 +207,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(c.contains("foo"));
     }
 
-    public void testAddAllMutator_2_oe() {
+public void testAddAllMutator_2_oe() {
         setUpTest();
         c.setMutator(new CompositeCollection.CollectionMutator<E>() {
             @Override
@@ -242,7 +242,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(one.contains("foo"));
     }
 
-    public void testAddAllToCollection_1_oe() {
+public void testAddAllToCollection_1_oe() {
         setUpTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -252,7 +252,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(toCollection.containsAll(c));
     }
 
-    public void testAddAllToCollection_2_oe() {
+public void testAddAllToCollection_2_oe() {
         setUpTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -263,7 +263,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertEquals(c.size(), toCollection.size());
     }
 
-    public void testAddMutator_1_oe() {
+public void testAddMutator_1_oe() {
         setUpTest();
         c.setMutator(new CompositeCollection.CollectionMutator<E>() {
             @Override
@@ -296,7 +296,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(c.contains("foo"));
     }
 
-    public void testAddMutator_2_oe() {
+public void testAddMutator_2_oe() {
         setUpTest();
         c.setMutator(new CompositeCollection.CollectionMutator<E>() {
             @Override
@@ -330,7 +330,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(one.contains("foo"));
     }
 
-    public void testClear_1_oe() {
+public void testClear_1_oe() {
         setUpTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -339,7 +339,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(one.isEmpty());
     }
 
-    public void testClear_2_oe() {
+public void testClear_2_oe() {
         setUpTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -349,7 +349,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(two.isEmpty());
     }
 
-    public void testClear_3_oe() {
+public void testClear_3_oe() {
         setUpTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -360,7 +360,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(c.isEmpty());
     }
 
-    public void testContainsAll_1_oe() {
+public void testContainsAll_1_oe() {
         setUpTest();
         one.add((E) "1");
         two.add((E) "1");
@@ -368,7 +368,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(c.containsAll(two));
     }
 
-    public void testContainsAll_2_oe() {
+public void testContainsAll_2_oe() {
         setUpTest();
         one.add((E) "1");
         two.add((E) "1");
@@ -377,33 +377,33 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertFalse(c.containsAll(null));
     }
 
-    public void testAddNullList_1_oe() {
+public void testAddNullList_1_oe() {
         ArrayList<String> nullList = null;
         CompositeCollection<String> cc = new CompositeCollection<>();
         cc.addComposited(nullList);
         Assert.assertEquals(0, cc.size());
     }
 
-    public void testAddNullLists2Args_1_oe() {
+public void testAddNullLists2Args_1_oe() {
         ArrayList<String> nullList = null;
         CompositeCollection<String> cc = new CompositeCollection<>();
         cc.addComposited(nullList, nullList);
         Assert.assertEquals(0, cc.size());
     }
 
-    public void testAddNullListsVarArgs_1_oe() {
+public void testAddNullListsVarArgs_1_oe() {
         ArrayList<String> nullList = null;
         CompositeCollection<String> cc = new CompositeCollection<>();
         cc.addComposited(nullList, nullList, nullList);
         Assert.assertEquals(0, cc.size());
     }
 
-    public void testIsEmpty_1_oe() {
+public void testIsEmpty_1_oe() {
         setUpTest();
         assertTrue(c.isEmpty());
     }
 
-    public void testIsEmpty_2_oe() {
+public void testIsEmpty_2_oe() {
         setUpTest();
         // removed other assertion
         final HashSet<E> empty = new HashSet<>();
@@ -411,7 +411,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(c.isEmpty());
     }
 
-    public void testIsEmpty_3_oe() {
+public void testIsEmpty_3_oe() {
         setUpTest();
         // removed other assertion
         final HashSet<E> empty = new HashSet<>();
@@ -421,7 +421,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!c.isEmpty());
     }
 
-    public void testIterator_1_oe() {
+public void testIterator_1_oe() {
         setUpTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -432,7 +432,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(c.contains(next));
     }
 
-    public void testIterator_2_oe() {
+public void testIterator_2_oe() {
         setUpTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -444,7 +444,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(one.contains(next));
     }
 
-    public void testIterator_3_oe() {
+public void testIterator_3_oe() {
         setUpTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -459,7 +459,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!c.contains(next));
     }
 
-    public void testIterator_4_oe() {
+public void testIterator_4_oe() {
         setUpTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -475,7 +475,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!two.contains(next));
     }
 
-    public void testMultipleCollectionsSize_1_oe() {
+public void testMultipleCollectionsSize_1_oe() {
         setUpTest();
         final HashSet<E> set = new HashSet<>();
         set.add((E) "a");
@@ -487,7 +487,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertEquals(set.size() + other.size(), c.size());
     }
 
-    public void testRemove_1_oe() {
+public void testRemove_1_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -497,7 +497,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!c.contains("1"));
     }
 
-    public void testRemove_2_oe() {
+public void testRemove_2_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -508,7 +508,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!one.contains("1"));
     }
 
-    public void testRemove_3_oe() {
+public void testRemove_3_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -520,7 +520,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!two.contains("1"));
     }
 
-    public void testRemoveAll_1_oe() {
+public void testRemoveAll_1_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -532,7 +532,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!c.contains("1"));
     }
 
-    public void testRemoveAll_2_oe() {
+public void testRemoveAll_2_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -545,7 +545,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!one.contains("1"));
     }
 
-    public void testRemoveAll_3_oe() {
+public void testRemoveAll_3_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -559,7 +559,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!two.contains("1"));
     }
 
-    public void testRemoveAll_4_oe() {
+public void testRemoveAll_4_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -575,7 +575,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!c.contains("1"));
     }
 
-    public void testRemoveAll_5_oe() {
+public void testRemoveAll_5_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -592,7 +592,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!one.contains("1"));
     }
 
-    public void testRemoveAll_6_oe() {
+public void testRemoveAll_6_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -610,7 +610,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!two.contains("1"));
     }
 
-    public void testRemoveIf_1_oe() {
+public void testRemoveIf_1_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -622,7 +622,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!c.contains("1"));
     }
 
-    public void testRemoveIf_2_oe() {
+public void testRemoveIf_2_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -635,7 +635,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!one.contains("1"));
     }
 
-    public void testRemoveIf_3_oe() {
+public void testRemoveIf_3_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -649,7 +649,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!two.contains("1"));
     }
 
-    public void testRemoveIf_4_oe() {
+public void testRemoveIf_4_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -665,7 +665,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!c.contains("1"));
     }
 
-    public void testRemoveIf_5_oe() {
+public void testRemoveIf_5_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -682,7 +682,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!one.contains("1"));
     }
 
-    public void testRemoveIf_6_oe() {
+public void testRemoveIf_6_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -700,7 +700,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!two.contains("1"));
     }
 
-    public void testRemoveComposited_1_oe() {
+public void testRemoveComposited_1_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -710,7 +710,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(c.contains("1"));
     }
 
-    public void testRemoveComposited_2_oe() {
+public void testRemoveComposited_2_oe() {
         setUpMutatorTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -721,7 +721,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertEquals(2, c.size());
     }
 
-    public void testRetainAll_1_oe() {
+public void testRetainAll_1_oe() {
         setUpTest();
         one.add((E) "1");
         one.add((E) "2");
@@ -731,7 +731,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!c.contains("2"));
     }
 
-    public void testRetainAll_2_oe() {
+public void testRetainAll_2_oe() {
         setUpTest();
         one.add((E) "1");
         one.add((E) "2");
@@ -742,7 +742,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!one.contains("2"));
     }
 
-    public void testRetainAll_3_oe() {
+public void testRetainAll_3_oe() {
         setUpTest();
         one.add((E) "1");
         one.add((E) "2");
@@ -754,7 +754,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(c.contains("1"));
     }
 
-    public void testRetainAll_4_oe() {
+public void testRetainAll_4_oe() {
         setUpTest();
         one.add((E) "1");
         one.add((E) "2");
@@ -767,7 +767,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(one.contains("1"));
     }
 
-    public void testRetainAll_5_oe() {
+public void testRetainAll_5_oe() {
         setUpTest();
         one.add((E) "1");
         one.add((E) "2");
@@ -782,7 +782,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!c.contains("2"));
     }
 
-    public void testRetainAll_6_oe() {
+public void testRetainAll_6_oe() {
         setUpTest();
         one.add((E) "1");
         one.add((E) "2");
@@ -798,7 +798,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(!one.contains("2"));
     }
 
-    public void testRetainAll_7_oe() {
+public void testRetainAll_7_oe() {
         setUpTest();
         one.add((E) "1");
         one.add((E) "2");
@@ -815,7 +815,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(c.contains("1"));
     }
 
-    public void testRetainAll_8_oe() {
+public void testRetainAll_8_oe() {
         setUpTest();
         one.add((E) "1");
         one.add((E) "2");
@@ -833,7 +833,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(one.contains("1"));
     }
 
-    public void testSize_1_oe() {
+public void testSize_1_oe() {
         setUpTest();
         final HashSet<E> set = new HashSet<>();
         set.add((E) "a");
@@ -842,7 +842,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertEquals(set.size(), c.size());
     }
 
-    public void testToCollection_1_oe() {
+public void testToCollection_1_oe() {
         setUpTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -851,7 +851,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertTrue(foo.containsAll(c));
     }
 
-    public void testToCollection_2_oe() {
+public void testToCollection_2_oe() {
         setUpTest();
         one.add((E) "1");
         two.add((E) "2");
@@ -861,7 +861,7 @@ public class CompositeCollectionTest_OE25Dev<E> extends AbstractCollectionTest<E
         assertEquals(c.size(), foo.size());
     }
 
-    public void testToCollection_3_oe() {
+public void testToCollection_3_oe() {
         setUpTest();
         one.add((E) "1");
         two.add((E) "2");

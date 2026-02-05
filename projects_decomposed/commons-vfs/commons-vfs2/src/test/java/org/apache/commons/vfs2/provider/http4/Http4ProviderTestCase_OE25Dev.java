@@ -175,7 +175,7 @@ public class Http4ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         testResloveFolderSlash(ConnectionUri + "/read-tests/", true);
     }
 
-    public void testHttpTimeoutConfig_1_oe() {
+public void testHttpTimeoutConfig_1_oe() {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http4FileSystemConfigBuilder builder = Http4FileSystemConfigBuilder.getInstance();
 
@@ -183,7 +183,7 @@ public class Http4ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         assertEquals(0, builder.getConnectionTimeout(opts));
     }
 
-    public void testHttpTimeoutConfig_2_oe() {
+public void testHttpTimeoutConfig_2_oe() {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http4FileSystemConfigBuilder builder = Http4FileSystemConfigBuilder.getInstance();
 
@@ -192,7 +192,7 @@ public class Http4ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         assertEquals(Duration.ZERO, builder.getConnectionTimeoutDuration(opts));
     }
 
-    public void testHttpTimeoutConfig_3_oe() {
+public void testHttpTimeoutConfig_3_oe() {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http4FileSystemConfigBuilder builder = Http4FileSystemConfigBuilder.getInstance();
 
@@ -202,7 +202,7 @@ public class Http4ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         assertEquals(0, builder.getSoTimeout(opts));
     }
 
-    public void testHttpTimeoutConfig_4_oe() {
+public void testHttpTimeoutConfig_4_oe() {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http4FileSystemConfigBuilder builder = Http4FileSystemConfigBuilder.getInstance();
 
@@ -213,7 +213,7 @@ public class Http4ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         assertEquals(Duration.ZERO, builder.getSoTimeoutDuration(opts));
     }
 
-    public void testHttpTimeoutConfig_5_oe() {
+public void testHttpTimeoutConfig_5_oe() {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http4FileSystemConfigBuilder builder = Http4FileSystemConfigBuilder.getInstance();
 
@@ -225,7 +225,7 @@ public class Http4ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         assertEquals("Jakarta-Commons-VFS", builder.getUserAgent(opts));
     }
 
-    public void testHttpTimeoutConfig_6_oe() {
+public void testHttpTimeoutConfig_6_oe() {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http4FileSystemConfigBuilder builder = Http4FileSystemConfigBuilder.getInstance();
 
@@ -245,7 +245,7 @@ public class Http4ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         assertEquals(60_000, builder.getConnectionTimeout(opts));
     }
 
-    public void testHttpTimeoutConfig_7_oe() {
+public void testHttpTimeoutConfig_7_oe() {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http4FileSystemConfigBuilder builder = Http4FileSystemConfigBuilder.getInstance();
 
@@ -266,7 +266,7 @@ public class Http4ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         assertEquals(60_000, builder.getConnectionTimeoutDuration(opts).toMillis());
     }
 
-    public void testHttpTimeoutConfig_8_oe() {
+public void testHttpTimeoutConfig_8_oe() {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http4FileSystemConfigBuilder builder = Http4FileSystemConfigBuilder.getInstance();
 
@@ -288,7 +288,7 @@ public class Http4ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         assertEquals(60_000, builder.getSoTimeout(opts));
     }
 
-    public void testHttpTimeoutConfig_9_oe() {
+public void testHttpTimeoutConfig_9_oe() {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http4FileSystemConfigBuilder builder = Http4FileSystemConfigBuilder.getInstance();
 
@@ -311,7 +311,7 @@ public class Http4ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         assertEquals(60_000, builder.getSoTimeoutDuration(opts).toMillis());
     }
 
-    public void testHttpTimeoutConfig_10_oe() {
+public void testHttpTimeoutConfig_10_oe() {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http4FileSystemConfigBuilder builder = Http4FileSystemConfigBuilder.getInstance();
 
@@ -335,7 +335,7 @@ public class Http4ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         assertEquals("foo/bar", builder.getUserAgent(opts));
     }
 
-    public void testHttpTimeoutConfig_11_oe() {
+public void testHttpTimeoutConfig_11_oe() {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http4FileSystemConfigBuilder builder = Http4FileSystemConfigBuilder.getInstance();
 
@@ -367,7 +367,7 @@ public class Http4ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         assertEquals(60_000, builder.getConnectionTimeout(opts));
     }
 
-    public void testHttpTimeoutConfig_12_oe() {
+public void testHttpTimeoutConfig_12_oe() {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http4FileSystemConfigBuilder builder = Http4FileSystemConfigBuilder.getInstance();
 
@@ -400,7 +400,7 @@ public class Http4ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         assertEquals(60_000, builder.getConnectionTimeoutDuration(opts).toMillis());
     }
 
-    public void testHttpTimeoutConfig_13_oe() {
+public void testHttpTimeoutConfig_13_oe() {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http4FileSystemConfigBuilder builder = Http4FileSystemConfigBuilder.getInstance();
 
@@ -434,7 +434,7 @@ public class Http4ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         assertEquals(60_000, builder.getSoTimeout(opts));
     }
 
-    public void testHttpTimeoutConfig_14_oe() {
+public void testHttpTimeoutConfig_14_oe() {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http4FileSystemConfigBuilder builder = Http4FileSystemConfigBuilder.getInstance();
 
@@ -469,7 +469,7 @@ public class Http4ProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
         assertEquals(60_000, builder.getSoTimeoutDuration(opts).toMillis());
     }
 
-    public void testHttpTimeoutConfig_15_oe() {
+public void testHttpTimeoutConfig_15_oe() {
         final FileSystemOptions opts = new FileSystemOptions();
         final Http4FileSystemConfigBuilder builder = Http4FileSystemConfigBuilder.getInstance();
 

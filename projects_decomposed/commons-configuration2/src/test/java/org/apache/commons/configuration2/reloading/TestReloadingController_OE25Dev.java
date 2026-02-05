@@ -115,7 +115,7 @@ public class TestReloadingController_OE25Dev {
      * Tests that the reloading state can be reset.
      */
 
-    @Test
+@Test
     public void testCheckForReloadingFalse_1_oe() {
         final EventListener<ReloadingEvent> l = createListenerMock();
         EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.FALSE);
@@ -125,7 +125,7 @@ public class TestReloadingController_OE25Dev {
         assertFalse("Wrong result", ctrl.checkForReloading(null));
     }
 
-    @Test
+@Test
     public void testCheckForReloadingFalse_2_oe() {
         final EventListener<ReloadingEvent> l = createListenerMock();
         EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.FALSE);
@@ -136,7 +136,7 @@ public class TestReloadingController_OE25Dev {
         assertFalse("In reloading state", ctrl.isInReloadingState());
     }
 
-    @Test
+@Test
     public void testCheckForReloadingInReloadingState_1_oe() {
         final EventListener<ReloadingEvent> l = createListenerMock();
         EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
@@ -147,7 +147,7 @@ public class TestReloadingController_OE25Dev {
         assertTrue("Wrong result (1)", ctrl.checkForReloading(1));
     }
 
-    @Test
+@Test
     public void testCheckForReloadingInReloadingState_2_oe() {
         final EventListener<ReloadingEvent> l = createListenerMock();
         EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
@@ -159,7 +159,7 @@ public class TestReloadingController_OE25Dev {
         assertTrue("Wrong result (2)", ctrl.checkForReloading(2));
     }
 
-    @Test
+@Test
     public void testCheckForReloadingTrue_1_oe() {
         final EventListener<ReloadingEvent> l = createListenerMock();
         final EventListener<ReloadingEvent> lRemoved = createListenerMock();
@@ -173,7 +173,7 @@ public class TestReloadingController_OE25Dev {
         assertTrue("Wrong result", ctrl.removeEventListener(ReloadingEvent.ANY, lRemoved));
     }
 
-    @Test
+@Test
     public void testCheckForReloadingTrue_2_oe() {
         final EventListener<ReloadingEvent> l = createListenerMock();
         final EventListener<ReloadingEvent> lRemoved = createListenerMock();
@@ -189,17 +189,17 @@ public class TestReloadingController_OE25Dev {
         assertTrue("Wrong result", ctrl.checkForReloading(testData));
     }
 
-    @Test
+@Test
     public void testReloadingEventType_1_oe() {
         assertEquals("Wrong super event type", Event.ANY, ReloadingEvent.ANY.getSuperType());
     }
 
-    @Test
+@Test
     public void testReloadingStateAfterInit_1_oe() {
         assertFalse("In reloading state", createController().isInReloadingState());
     }
 
-    @Test
+@Test
     public void testResetReloadingState_1_oe() {
         EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
         detector.reloadingPerformed();

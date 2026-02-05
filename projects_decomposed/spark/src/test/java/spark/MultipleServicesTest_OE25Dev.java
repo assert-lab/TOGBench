@@ -83,71 +83,71 @@ public class MultipleServicesTest_OE25Dev {
     }
 
 
-    @Test
+@Test
     public void testGetHello_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = firstClient.doMethod("GET", "/hello", null);
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testGetHello_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = firstClient.doMethod("GET", "/hello", null);
         // removed other assertion
         Assert.assertEquals("Hello World!", response.body);
     }
 
-    @Test
+@Test
     public void testGetRedirectedHi_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = secondClient.doMethod("GET", "/hi", null);
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testGetRedirectedHi_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = secondClient.doMethod("GET", "/hi", null);
         // removed other assertion
         Assert.assertEquals("Hello World!", response.body);
     }
 
-    @Test
+@Test
     public void testGetUniqueForSecondWithFirst_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = firstClient.doMethod("GET", "/uniqueforsecond", null);
         Assert.assertEquals(404, response.status);
     }
 
-    @Test
+@Test
     public void testGetUniqueForSecondWithSecond_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = secondClient.doMethod("GET", "/uniqueforsecond", null);
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testGetUniqueForSecondWithSecond_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = secondClient.doMethod("GET", "/uniqueforsecond", null);
         // removed other assertion
         Assert.assertEquals("Bompton", response.body);
     }
 
-    @Test
+@Test
     public void testStaticFileCssStyleCssWithFirst_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = firstClient.doMethod("GET", "/css/style.css", null);
         Assert.assertEquals(404, response.status);
     }
 
-    @Test
+@Test
     public void testStaticFileCssStyleCssWithSecond_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = secondClient.doMethod("GET", "/css/style.css", null);
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testStaticFileCssStyleCssWithSecond_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = secondClient.doMethod("GET", "/css/style.css", null);
         // removed other assertion
         Assert.assertEquals("Content of css file", response.body);
     }
 
-    @Test
+@Test
     public void testGetAllRoutesFromBothServices_1_oe(){
         for(RouteMatch routeMatch : first.routes()){
             Assert.assertEquals(routeMatch.getAcceptType(), "*/*");
@@ -163,7 +163,7 @@ public class MultipleServicesTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetAllRoutesFromBothServices_2_oe(){
         for(RouteMatch routeMatch : first.routes()){
             Assert.assertEquals(routeMatch.getAcceptType(), "*/*");
@@ -181,7 +181,7 @@ public class MultipleServicesTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetAllRoutesFromBothServices_3_oe(){
         for(RouteMatch routeMatch : first.routes()){
             Assert.assertEquals(routeMatch.getAcceptType(), "*/*");
@@ -200,7 +200,7 @@ public class MultipleServicesTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetAllRoutesFromBothServices_4_oe(){
         for(RouteMatch routeMatch : first.routes()){
             Assert.assertEquals(routeMatch.getAcceptType(), "*/*");

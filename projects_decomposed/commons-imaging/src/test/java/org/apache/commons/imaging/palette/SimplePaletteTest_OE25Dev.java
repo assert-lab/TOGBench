@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 public class SimplePaletteTest_OE25Dev{
 
 
-    @Test
+@Test
     public void testGetPaletteIndexReturningNegative_1_oe() {
 
         final int[] intArray = new int[1];
@@ -32,7 +32,7 @@ public class SimplePaletteTest_OE25Dev{
         assertEquals( -1, simplePalette.getPaletteIndex((-1)));
     }
 
-    @Test
+@Test
     public void testGetPaletteIndexReturningNegative_2_oe() {
 
         final int[] intArray = new int[1];

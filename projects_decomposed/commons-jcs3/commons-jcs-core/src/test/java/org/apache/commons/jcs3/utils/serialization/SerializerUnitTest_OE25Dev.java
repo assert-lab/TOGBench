@@ -73,7 +73,7 @@ public class SerializerUnitTest_OE25Dev
      * @throws Exception
      */
 
-    public void testReadWrite_1_oe()
+public void testReadWrite_1_oe()
         throws Exception
     {
         final int count = 500; // 100 fit in memory
@@ -92,7 +92,7 @@ public class SerializerUnitTest_OE25Dev
     }
     }
 
-    public void testReadWrite_2_oe()
+public void testReadWrite_2_oe()
         throws Exception
     {
         final int count = 500; // 100 fit in memory
@@ -125,7 +125,7 @@ public class SerializerUnitTest_OE25Dev
     }
     }
 
-    public void testReadWrite_3_oe()
+public void testReadWrite_3_oe()
         throws Exception
     {
         final int count = 500; // 100 fit in memory

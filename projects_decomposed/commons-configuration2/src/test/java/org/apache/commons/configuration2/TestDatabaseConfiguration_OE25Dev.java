@@ -246,7 +246,7 @@ public class TestDatabaseConfiguration_OE25Dev {
      * Tests setProperty() if the property value contains the list delimiter.
      */
 
-    @Test
+@Test
     public void testAddNonStringProperty_1_oe() throws ConfigurationException {
         final DatabaseConfiguration config = helper.setUpConfig();
         config.addPropertyDirect("boolean", Boolean.TRUE);
@@ -254,7 +254,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertTrue("missing property", config.containsKey("boolean"));
     }
 
-    @Test
+@Test
     public void testAddPropertyDirectCommit_1_oe() throws ConfigurationException {
         helper.setAutoCommit(false);
         final DatabaseConfiguration config = helper.setUpConfig();
@@ -262,7 +262,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertTrue("missing property", config.containsKey("key"));
     }
 
-    @Test
+@Test
     public void testAddPropertyDirectMultiple_1_oe() throws ConfigurationException {
         final DatabaseConfiguration config = helper.setUpMultiConfig();
         config.addPropertyDirect("key", "value");
@@ -270,7 +270,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertTrue("missing property", config.containsKey("key"));
     }
 
-    @Test
+@Test
     public void testAddPropertyDirectSingle_1_oe() throws ConfigurationException {
         final DatabaseConfiguration config = helper.setUpConfig();
         config.addPropertyDirect("key", "value");
@@ -278,7 +278,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertTrue("missing property", config.containsKey("key"));
     }
 
-    @Test
+@Test
     public void testAddWithDelimiter_1_oe() throws ConfigurationException {
         final DatabaseConfiguration config = setUpConfig();
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(';'));
@@ -287,7 +287,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertEquals("Wrong number of property values", 3, values.length);
     }
 
-    @Test
+@Test
     public void testAddWithDelimiter_2_oe() throws ConfigurationException {
         final DatabaseConfiguration config = setUpConfig();
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(';'));
@@ -297,7 +297,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertEquals("Wrong value at index 1", "2", values[1]);
     }
 
-    @Test
+@Test
     public void testClearCommit_1_oe() throws ConfigurationException {
         helper.setAutoCommit(false);
         final Configuration config = helper.setUpConfig();
@@ -305,7 +305,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertTrue("configuration is not cleared", config.isEmpty());
     }
 
-    @Test
+@Test
     public void testClearMultiple_1_oe() throws ConfigurationException {
         final Configuration config = helper.setUpMultiConfig();
         config.clear();
@@ -313,7 +313,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertTrue("configuration is not cleared", config.isEmpty());
     }
 
-    @Test
+@Test
     public void testClearPropertyCommit_1_oe() throws ConfigurationException {
         helper.setAutoCommit(false);
         final Configuration config = helper.setUpConfig();
@@ -321,7 +321,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertFalse("property not cleared", config.containsKey("key1"));
     }
 
-    @Test
+@Test
     public void testClearPropertyMultiple_1_oe() throws ConfigurationException {
         final Configuration config = helper.setUpMultiConfig();
         config.clearProperty("key1");
@@ -329,7 +329,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertFalse("property not cleared", config.containsKey("key1"));
     }
 
-    @Test
+@Test
     public void testClearPropertyMultipleOtherConfig_1_oe() throws ConfigurationException {
         final DatabaseConfiguration config = helper.setUpMultiConfig();
         final DatabaseConfiguration config2 = helper.setUpMultiConfig(DatabaseConfiguration.class, CONFIG_NAME2);
@@ -338,7 +338,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertFalse("property not cleared", config.containsKey("key1"));
     }
 
-    @Test
+@Test
     public void testClearPropertyMultipleOtherConfig_2_oe() throws ConfigurationException {
         final DatabaseConfiguration config = helper.setUpMultiConfig();
         final DatabaseConfiguration config2 = helper.setUpMultiConfig(DatabaseConfiguration.class, CONFIG_NAME2);
@@ -348,7 +348,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertTrue("Property cleared in other config", config2.containsKey("key1"));
     }
 
-    @Test
+@Test
     public void testClearPropertySingle_1_oe() throws ConfigurationException {
         final Configuration config = helper.setUpConfig();
         config.clearProperty("key1");
@@ -356,7 +356,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertFalse("property not cleared", config.containsKey("key1"));
     }
 
-    @Test
+@Test
     public void testClearSingle_1_oe() throws ConfigurationException {
         final Configuration config = helper.setUpConfig();
         config.clear();
@@ -364,7 +364,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertTrue("configuration is not cleared", config.isEmpty());
     }
 
-    @Test
+@Test
     public void testClearSubset_1_oe() throws ConfigurationException {
         final Configuration config = setUpConfig();
 
@@ -374,7 +374,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertTrue("the subset is not empty", subset.isEmpty());
     }
 
-    @Test
+@Test
     public void testClearSubset_2_oe() throws ConfigurationException {
         final Configuration config = setUpConfig();
 
@@ -385,38 +385,38 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertFalse("the parent configuration is empty", config.isEmpty());
     }
 
-    @Test
+@Test
     public void testContainsKeyError_1_oe() throws ConfigurationException {
         assertFalse("Wrong return value for failure", setUpErrorConfig().containsKey("key1"));
     }
 
-    @Test
+@Test
     public void testContainsKeyMultiple_1_oe() throws ConfigurationException {
         final Configuration config = helper.setUpMultiConfig();
         assertTrue("missing key1", config.containsKey("key1"));
     }
 
-    @Test
+@Test
     public void testContainsKeyMultiple_2_oe() throws ConfigurationException {
         final Configuration config = helper.setUpMultiConfig();
         // removed other assertion
         assertTrue("missing key2", config.containsKey("key2"));
     }
 
-    @Test
+@Test
     public void testContainsKeySingle_1_oe() throws ConfigurationException {
         final Configuration config = setUpConfig();
         assertTrue("missing key1", config.containsKey("key1"));
     }
 
-    @Test
+@Test
     public void testContainsKeySingle_2_oe() throws ConfigurationException {
         final Configuration config = setUpConfig();
         // removed other assertion
         assertTrue("missing key2", config.containsKey("key2"));
     }
 
-    @Test
+@Test
     public void testExtractPropertyValueCLOB_1_oe() throws ConfigurationException, SQLException {
         final ResultSet rs = EasyMock.createMock(ResultSet.class);
         final Clob clob = EasyMock.createMock(Clob.class);
@@ -429,7 +429,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertEquals("Wrong extracted value", content, config.extractPropertyValue(rs));
     }
 
-    @Test
+@Test
     public void testExtractPropertyValueCLOBEmpty_1_oe() throws ConfigurationException, SQLException {
         final ResultSet rs = EasyMock.createMock(ResultSet.class);
         final Clob clob = EasyMock.createMock(Clob.class);
@@ -440,7 +440,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertEquals("Wrong extracted value", "", config.extractPropertyValue(rs));
     }
 
-    @Test
+@Test
     public void testGetKeys_1_oe() throws ConfigurationException {
         final DatabaseBuilderParameters params = helper.setUpDefaultParameters().setTable("configurationList");
         final Configuration config1 = helper.createConfig(DatabaseConfiguration.class, params);
@@ -448,7 +448,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertTrue(i.hasNext());
     }
 
-    @Test
+@Test
     public void testGetKeys_2_oe() throws ConfigurationException {
         final DatabaseBuilderParameters params = helper.setUpDefaultParameters().setTable("configurationList");
         final Configuration config1 = helper.createConfig(DatabaseConfiguration.class, params);
@@ -458,7 +458,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertEquals("key3", key.toString());
     }
 
-    @Test
+@Test
     public void testGetKeys_3_oe() throws ConfigurationException {
         final DatabaseBuilderParameters params = helper.setUpDefaultParameters().setTable("configurationList");
         final Configuration config1 = helper.createConfig(DatabaseConfiguration.class, params);
@@ -469,14 +469,14 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertFalse(i.hasNext());
     }
 
-    @Test
+@Test
     public void testGetKeysError_1_oe() throws ConfigurationException {
         final Iterator<String> it = setUpErrorConfig().getKeys();
         checkErrorListener(ConfigurationErrorEvent.READ, ConfigurationErrorEvent.READ, null, null);
         assertFalse("Iteration is not empty", it.hasNext());
     }
 
-    @Test
+@Test
     public void testGetKeysMultiple_1_oe() throws ConfigurationException {
         final Configuration config = helper.setUpMultiConfig();
         final Iterator<String> it = config.getKeys();
@@ -484,7 +484,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertEquals("1st key", "key1", it.next());
     }
 
-    @Test
+@Test
     public void testGetKeysSingle_1_oe() throws ConfigurationException {
         final Configuration config = setUpConfig();
         final Iterator<String> it = config.getKeys();
@@ -492,7 +492,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertEquals("1st key", "key1", it.next());
     }
 
-    @Test
+@Test
     public void testGetList_1_oe() throws ConfigurationException {
         final DatabaseBuilderParameters params = helper.setUpDefaultParameters().setTable("configurationList");
         final Configuration config1 = helper.createConfig(DatabaseConfiguration.class, params);
@@ -500,7 +500,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertEquals(3, list.size());
     }
 
-    @Test
+@Test
     public void testGetListWithDelimiter_1_oe() throws ConfigurationException {
         final DatabaseConfiguration config = setUpConfig();
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(';'));
@@ -508,7 +508,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertEquals("Wrong number of list elements", 3, values.size());
     }
 
-    @Test
+@Test
     public void testGetListWithDelimiter_2_oe() throws ConfigurationException {
         final DatabaseConfiguration config = setUpConfig();
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(';'));
@@ -517,7 +517,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertEquals("Wrong list element 0", "a", values.get(0));
     }
 
-    @Test
+@Test
     public void testGetListWithDelimiter_3_oe() throws ConfigurationException {
         final DatabaseConfiguration config = setUpConfig();
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(';'));
@@ -527,20 +527,20 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertEquals("Wrong list element 2", "c", values.get(2));
     }
 
-    @Test
+@Test
     public void testGetListWithDelimiterParsingDisabled_1_oe() throws ConfigurationException {
         final DatabaseConfiguration config = setUpConfig();
         assertEquals("Wrong value of property", "a;b;c", config.getString("keyMulti"));
     }
 
-    @Test
+@Test
     public void testGetPropertyDirectMultiple_1_oe() throws ConfigurationException {
         final Configuration config = helper.setUpMultiConfig();
 
         assertEquals("property1", "value1", config.getProperty("key1"));
     }
 
-    @Test
+@Test
     public void testGetPropertyDirectMultiple_2_oe() throws ConfigurationException {
         final Configuration config = helper.setUpMultiConfig();
 
@@ -548,7 +548,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertEquals("property2", "value2", config.getProperty("key2"));
     }
 
-    @Test
+@Test
     public void testGetPropertyDirectMultiple_3_oe() throws ConfigurationException {
         final Configuration config = helper.setUpMultiConfig();
 
@@ -557,14 +557,14 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertNull("unknown property", config.getProperty("key3"));
     }
 
-    @Test
+@Test
     public void testGetPropertyDirectSingle_1_oe() throws ConfigurationException {
         final Configuration config = setUpConfig();
 
         assertEquals("property1", "value1", config.getProperty("key1"));
     }
 
-    @Test
+@Test
     public void testGetPropertyDirectSingle_2_oe() throws ConfigurationException {
         final Configuration config = setUpConfig();
 
@@ -572,7 +572,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertEquals("property2", "value2", config.getProperty("key2"));
     }
 
-    @Test
+@Test
     public void testGetPropertyDirectSingle_3_oe() throws ConfigurationException {
         final Configuration config = setUpConfig();
 
@@ -581,18 +581,18 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertNull("unknown property", config.getProperty("key3"));
     }
 
-    @Test
+@Test
     public void testIsEmptyError_1_oe() throws ConfigurationException {
         assertTrue("Wrong return value for failure", setUpErrorConfig().isEmpty());
     }
 
-    @Test
+@Test
     public void testIsEmptyMultiple_1_oe() throws ConfigurationException {
         final Configuration config1 = helper.setUpMultiConfig();
         assertFalse("The configuration named 'test' is empty", config1.isEmpty());
     }
 
-    @Test
+@Test
     public void testIsEmptyMultiple_2_oe() throws ConfigurationException {
         final Configuration config1 = helper.setUpMultiConfig();
         // removed other assertion
@@ -601,19 +601,19 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertTrue("The configuration named 'testIsEmpty' is not empty", config2.isEmpty());
     }
 
-    @Test
+@Test
     public void testIsEmptySingle_1_oe() throws ConfigurationException {
         final Configuration config1 = setUpConfig();
         assertFalse("The configuration is empty", config1.isEmpty());
     }
 
-    @Test
+@Test
     public void testLogErrorListener_1_oe() throws ConfigurationException {
         final DatabaseConfiguration config = helper.setUpConfig();
         assertEquals("No error listener registered", 1, config.getEventListeners(ConfigurationErrorEvent.ANY).size());
     }
 
-    @Test
+@Test
     public void testSetPropertyWithDelimiter_1_oe() throws ConfigurationException {
         final DatabaseConfiguration config = helper.setUpMultiConfig();
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(';'));
@@ -622,7 +622,7 @@ public class TestDatabaseConfiguration_OE25Dev {
         assertEquals("Wrong number of property values", 3, values.length);
     }
 
-    @Test
+@Test
     public void testSetPropertyWithDelimiter_2_oe() throws ConfigurationException {
         final DatabaseConfiguration config = helper.setUpMultiConfig();
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(';'));

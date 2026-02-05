@@ -84,20 +84,20 @@ public class BeanIntrospectionDataTestCase_OE25Dev extends TestCase {
      * Tests getWriteMethod() for a property for which no write method is known.
      */
 
-    public void testGetWriteMethodDefined_1_oe() {
+public void testGetWriteMethodDefined_1_oe() {
         final BeanIntrospectionData data = setUpData();
         final PropertyDescriptor pd = fetchTestDescriptor(data);
         assertNotNull("No write method", pd.getWriteMethod());
     }
 
-    public void testGetWriteMethodDefined_2_oe() {
+public void testGetWriteMethodDefined_2_oe() {
         final BeanIntrospectionData data = setUpData();
         final PropertyDescriptor pd = fetchTestDescriptor(data);
         // removed other assertion
         assertEquals("Wrong write method",pd.getWriteMethod(),data.getWriteMethod(BEAN_CLASS,pd));
     }
 
-    public void testGetWriteMethodUndefined_1_oe() throws Exception {
+public void testGetWriteMethodUndefined_1_oe() throws Exception {
         final BeanIntrospectionData data = setUpData();
         final PropertyDescriptor pd = fetchTestDescriptor(data);
         final Method writeMethod = pd.getWriteMethod();
@@ -105,7 +105,7 @@ public class BeanIntrospectionDataTestCase_OE25Dev extends TestCase {
         assertEquals("Wrong write method",writeMethod,data.getWriteMethod(BEAN_CLASS,pd));
     }
 
-    public void testGetWriteMethodUndefined_2_oe() throws Exception {
+public void testGetWriteMethodUndefined_2_oe() throws Exception {
         final BeanIntrospectionData data = setUpData();
         final PropertyDescriptor pd = fetchTestDescriptor(data);
         final Method writeMethod = pd.getWriteMethod();
@@ -114,7 +114,7 @@ public class BeanIntrospectionDataTestCase_OE25Dev extends TestCase {
         assertEquals("Method not set in descriptor", writeMethod, pd.getWriteMethod());
     }
 
-    public void testGetWriteMethodNonExisting_1_oe() throws Exception {
+public void testGetWriteMethodNonExisting_1_oe() throws Exception {
         final PropertyDescriptor pd = new PropertyDescriptor(TEST_PROP,
                 BEAN_CLASS.getMethod("getFluentGetProperty"), BEAN_CLASS.getMethod(
                         "setFluentGetProperty", String.class));
@@ -126,7 +126,7 @@ public class BeanIntrospectionDataTestCase_OE25Dev extends TestCase {
         assertNull("Got a write method", data.getWriteMethod(BEAN_CLASS, pd));
     }
 
-    public void testGetWriteMethodUnknown_1_oe() {
+public void testGetWriteMethodUnknown_1_oe() {
         final BeanIntrospectionData data = setUpData();
         final PropertyDescriptor pd = data.getDescriptor("class");
         assertNull("Got a write method", data.getWriteMethod(BEAN_CLASS, pd));

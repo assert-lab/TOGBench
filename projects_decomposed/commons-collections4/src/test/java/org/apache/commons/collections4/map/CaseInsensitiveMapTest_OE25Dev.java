@@ -90,14 +90,14 @@ public class CaseInsensitiveMapTest_OE25Dev<K, V> extends AbstractIterableMapTes
      * Test for <a href="https://issues.apache.org/jira/browse/COLLECTIONS-323">COLLECTIONS-323</a>.
      */
 
-    public void testCaseInsensitive_1_oe() {
+public void testCaseInsensitive_1_oe() {
         final Map<K, V> map = makeObject();
         map.put((K) "One", (V) "One");
         map.put((K) "Two", (V) "Two");
         assertEquals("One", map.get("one"));
     }
 
-    public void testCaseInsensitive_2_oe() {
+public void testCaseInsensitive_2_oe() {
         final Map<K, V> map = makeObject();
         map.put((K) "One", (V) "One");
         map.put((K) "Two", (V) "Two");
@@ -105,7 +105,7 @@ public class CaseInsensitiveMapTest_OE25Dev<K, V> extends AbstractIterableMapTes
         assertEquals("One", map.get("oNe"));
     }
 
-    public void testCaseInsensitive_3_oe() {
+public void testCaseInsensitive_3_oe() {
         final Map<K, V> map = makeObject();
         map.put((K) "One", (V) "One");
         map.put((K) "Two", (V) "Two");
@@ -115,7 +115,7 @@ public class CaseInsensitiveMapTest_OE25Dev<K, V> extends AbstractIterableMapTes
         assertEquals("Three", map.get("Two"));
     }
 
-    public void testNullHandling_1_oe() {
+public void testNullHandling_1_oe() {
         final Map<K, V> map = makeObject();
         map.put((K) "One", (V) "One");
         map.put((K) "Two", (V) "Two");
@@ -123,7 +123,7 @@ public class CaseInsensitiveMapTest_OE25Dev<K, V> extends AbstractIterableMapTes
         assertEquals("Three", map.get(null));
     }
 
-    public void testNullHandling_2_oe() {
+public void testNullHandling_2_oe() {
         final Map<K, V> map = makeObject();
         map.put((K) "One", (V) "One");
         map.put((K) "Two", (V) "Two");
@@ -133,7 +133,7 @@ public class CaseInsensitiveMapTest_OE25Dev<K, V> extends AbstractIterableMapTes
         assertEquals("Four", map.get(null));
     }
 
-    public void testNullHandling_3_oe() {
+public void testNullHandling_3_oe() {
         final Map<K, V> map = makeObject();
         map.put((K) "One", (V) "One");
         map.put((K) "Two", (V) "Two");
@@ -145,7 +145,7 @@ public class CaseInsensitiveMapTest_OE25Dev<K, V> extends AbstractIterableMapTes
         assertTrue(keys.contains("one"));
     }
 
-    public void testNullHandling_4_oe() {
+public void testNullHandling_4_oe() {
         final Map<K, V> map = makeObject();
         map.put((K) "One", (V) "One");
         map.put((K) "Two", (V) "Two");
@@ -158,7 +158,7 @@ public class CaseInsensitiveMapTest_OE25Dev<K, V> extends AbstractIterableMapTes
         assertTrue(keys.contains("two"));
     }
 
-    public void testNullHandling_5_oe() {
+public void testNullHandling_5_oe() {
         final Map<K, V> map = makeObject();
         map.put((K) "One", (V) "One");
         map.put((K) "Two", (V) "Two");
@@ -172,7 +172,7 @@ public class CaseInsensitiveMapTest_OE25Dev<K, V> extends AbstractIterableMapTes
         assertTrue(keys.contains(null));
     }
 
-    public void testNullHandling_6_oe() {
+public void testNullHandling_6_oe() {
         final Map<K, V> map = makeObject();
         map.put((K) "One", (V) "One");
         map.put((K) "Two", (V) "Two");
@@ -187,7 +187,7 @@ public class CaseInsensitiveMapTest_OE25Dev<K, V> extends AbstractIterableMapTes
         assertEquals(3, keys.size());
     }
 
-    public void testPutAll_1_oe() {
+public void testPutAll_1_oe() {
         final Map<Object, String> map = new HashMap<>();
         map.put("One", "One");
         map.put("Two", "Two");
@@ -198,7 +198,7 @@ public class CaseInsensitiveMapTest_OE25Dev<K, V> extends AbstractIterableMapTes
         assertEquals(4,caseInsensitiveMap.size());
     }
 
-    public void testPutAll_2_oe() {
+public void testPutAll_2_oe() {
         final Map<Object, String> map = new HashMap<>();
         map.put("One", "One");
         map.put("Two", "Two");
@@ -210,14 +210,14 @@ public class CaseInsensitiveMapTest_OE25Dev<K, V> extends AbstractIterableMapTes
         assertTrue(!caseInsensitiveMap.containsValue("One")|| !caseInsensitiveMap.containsValue("Three"));// ones collaped assertEquals("Four",caseInsensitiveMap.get(null));
     }
 
-    public void testClone_1_oe() {
+public void testClone_1_oe() {
         final CaseInsensitiveMap<K, V> map = new CaseInsensitiveMap<>(10);
         map.put((K) "1", (V) "1");
         final CaseInsensitiveMap<K, V> cloned = map.clone();
         assertEquals(map.size(), cloned.size());
     }
 
-    public void testClone_2_oe() {
+public void testClone_2_oe() {
         final CaseInsensitiveMap<K, V> map = new CaseInsensitiveMap<>(10);
         map.put((K) "1", (V) "1");
         final CaseInsensitiveMap<K, V> cloned = map.clone();
@@ -225,7 +225,7 @@ public class CaseInsensitiveMapTest_OE25Dev<K, V> extends AbstractIterableMapTes
         assertSame(map.get("1"), cloned.get("1"));
     }
 
-    public void testInitialCapacityZero_1_oe() {
+public void testInitialCapacityZero_1_oe() {
         final CaseInsensitiveMap<String,String> map = new CaseInsensitiveMap<>(0);
         assertEquals(1, map.data.length);
     }

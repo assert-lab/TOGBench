@@ -113,7 +113,7 @@ class SimpleTriangle3DTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testProperties_1_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -127,7 +127,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertFalse(tri.isFull());
     }
 
-    @Test
+@Test
     void testProperties_2_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -142,7 +142,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertFalse(tri.isEmpty());
     }
 
-    @Test
+@Test
     void testProperties_3_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -158,7 +158,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertFalse(tri.isInfinite());
     }
 
-    @Test
+@Test
     void testProperties_4_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -175,7 +175,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertTrue(tri.isFinite());
     }
 
-    @Test
+@Test
     void testProperties_5_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -194,7 +194,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertSame(XY_PLANE_Z1, tri.getPlane());
     }
 
-    @Test
+@Test
     void testProperties_6_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -214,7 +214,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertSame(p1, tri.getPoint1());
     }
 
-    @Test
+@Test
     void testProperties_7_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -235,7 +235,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertSame(p2, tri.getPoint2());
     }
 
-    @Test
+@Test
     void testProperties_8_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -257,7 +257,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertSame(p3, tri.getPoint3());
     }
 
-    @Test
+@Test
     void testProperties_9_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -281,7 +281,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertEquals(Arrays.asList(p1, p2, p3), tri.getVertices());
     }
 
-    @Test
+@Test
     void testProperties_10_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -308,7 +308,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertEquals(3, subspaceVertices.size());
     }
 
-    @Test
+@Test
     void testProperties_14_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -340,7 +340,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertEquals(0.5, tri.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testVertices_listIsImmutable_1_oe() {
         // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
@@ -350,7 +350,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertThrows(UnsupportedOperationException.class, () -> tri.getVertices().add(Vector3D.of(-1, 0, 1)));
     }
 
-    @Test
+@Test
     void testToTriangles_1_oe() {
         // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
@@ -363,7 +363,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertEquals(1, triangles.size());
     }
 
-    @Test
+@Test
     void testToTriangles_2_oe() {
         // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
@@ -377,7 +377,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertSame(tri, triangles.get(0));
     }
 
-    @Test
+@Test
     void testGetSize_1_oe() {
         // arrange
         final QuaternionRotation rot = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, 0.2);
@@ -386,7 +386,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertEquals(0.5,new SimpleTriangle3D(XY_PLANE_Z1,Vector3D.of(0,0,1),Vector3D.of(1,0,1),Vector3D.of(0,1,1)).getSize(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_2_oe() {
         // arrange
         final QuaternionRotation rot = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, 0.2);
@@ -397,7 +397,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertEquals(1,new SimpleTriangle3D(XY_PLANE_Z1,Vector3D.of(0,0,1),Vector3D.of(2,0,1),Vector3D.of(0,1,1)).getSize(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_3_oe() {
         // arrange
         final QuaternionRotation rot = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, 0.2);
@@ -410,7 +410,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertEquals(1.5,new SimpleTriangle3D(XY_PLANE_Z1,Vector3D.of(1,2,1),Vector3D.of(4,2,1),Vector3D.of(2,3,1)).getSize(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSize_4_oe() {
         // arrange
         final QuaternionRotation rot = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, 0.2);
@@ -425,7 +425,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertEquals(1.5,new SimpleTriangle3D(XY_PLANE_Z1,rot.applyVector(Vector3D.of(1,2,1)),rot.apply(Vector3D.of(4,2,1)),rot.applyVector(Vector3D.of(2,3,1))).getSize(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testReverse_2_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -443,7 +443,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertSame(p1, result.getPoint1());
     }
 
-    @Test
+@Test
     void testReverse_3_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -462,7 +462,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertSame(p3, result.getPoint2());
     }
 
-    @Test
+@Test
     void testReverse_4_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -482,7 +482,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertSame(p2, result.getPoint3());
     }
 
-    @Test
+@Test
     void testReverse_6_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -508,7 +508,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertEquals(1, result.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTransform_6_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -539,7 +539,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertEquals(2, result.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSplit_plus_1_oe() {
         // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
@@ -554,7 +554,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_plus_2_oe() {
         // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
@@ -571,7 +571,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_plus_3_oe() {
         // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
@@ -589,7 +589,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertSame(tri, split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_minus_1_oe() {
         // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
@@ -604,7 +604,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_minus_2_oe() {
         // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
@@ -621,7 +621,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertSame(tri, split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_minus_3_oe() {
         // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
@@ -639,7 +639,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_both_1_oe() {
         // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
@@ -654,7 +654,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_neither_1_oe() {
         // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
@@ -669,7 +669,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_neither_2_oe() {
         // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
@@ -686,7 +686,7 @@ class SimpleTriangle3DTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_neither_3_oe() {
         // arrange
         final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,

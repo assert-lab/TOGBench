@@ -145,20 +145,20 @@ class StlBoundaryWriteHandler3DTest_OE25Dev {
             .collect(Collectors.toList());
     }
 
-    @Test
+@Test
     void testProperties_1_oe() {
         // assert
         Assertions.assertEquals(GeometryFormat3D.STL, handler.getFormat());
     }
 
-    @Test
+@Test
     void testProperties_2_oe() {
         // assert
         // removed other assertion
         Assertions.assertEquals(51200, handler.getinitialBufferSize());
     }
 
-    @Test
+@Test
     void testSetInitialBufferSize_1_oe() {
         // act
         handler.setInitialBufferSize(10);
@@ -167,7 +167,7 @@ class StlBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals(10, handler.getinitialBufferSize());
     }
 
-    @Test
+@Test
     void testWrite_boundarySource_empty_1_oe() {
         // arrange
         final BoundarySource3D src = BoundarySource3D.of();
@@ -179,7 +179,7 @@ class StlBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals(0, readOutput().count());
     }
 
-    @Test
+@Test
     void testWrite_triangleMesh_empty_1_oe() {
         // arrange
         final TriangleMesh mesh = SimpleTriangleMesh.builder(TEST_PRECISION)
@@ -192,7 +192,7 @@ class StlBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals(0, readOutput().count());
     }
 
-    @Test
+@Test
     void testWriteFacets_list_empty_1_oe() {
         // act
         handler.writeFacets(Collections.emptyList(), new StreamGeometryOutput(out));
@@ -201,7 +201,7 @@ class StlBoundaryWriteHandler3DTest_OE25Dev {
         Assertions.assertEquals(0, readOutput().count());
     }
 
-    @Test
+@Test
     void testWriteFacets_includesStlFacetAttribute_3_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0));

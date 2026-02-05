@@ -70,7 +70,7 @@ class BoundarySourceBoundsBuilder3DTest_OE25Dev {
         EuclideanTestUtils.assertCoordinatesEqual(max, b.getMax(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetBounds_noBoundaries_1_oe() {
         // arrange
         final BoundarySource3D src = BoundarySource3D.of(new ArrayList<>());
@@ -83,7 +83,7 @@ class BoundarySourceBoundsBuilder3DTest_OE25Dev {
         Assertions.assertNull(b);
     }
 
-    @Test
+@Test
     void testGetBounds_singleFiniteBoundary_1_oe() {
         // arrange
         final ConvexPolygon3D poly = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -104,7 +104,7 @@ class BoundarySourceBoundsBuilder3DTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testGetBounds_singleInfiniteBoundary_1_oe() {
         // arrange
         final PlaneConvexSubset boundary = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION)
@@ -119,7 +119,7 @@ class BoundarySourceBoundsBuilder3DTest_OE25Dev {
         Assertions.assertNull(b);
     }
 
-    @Test
+@Test
     void testGetBounds_mixedFiniteAndInfiniteBoundaries_1_oe() {
         // arrange
         final PlaneConvexSubset inf = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION)

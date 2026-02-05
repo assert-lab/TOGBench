@@ -46,98 +46,98 @@ public class CleanerTest_OE25Dev {
         });
     }
 
-    @Test public void simpleBehaviourTest_1_oe() {
+@Test public void simpleBehaviourTest_1_oe() {
         String h = "<div><p class=foo><a href='http://evil.com'>Hello <b id=bar>there</b>!</a></div>";
         String cleanHtml = Jsoup.clean(h, Safelist.simpleText());
 
         assertEquals("Hello <b>there</b>!", TextUtil.stripNewlines(cleanHtml));
         }
 
-    @Test public void simpleBehaviourTest2_1_oe() {
+@Test public void simpleBehaviourTest2_1_oe() {
         String h = "Hello <b>there</b>!";
         String cleanHtml = Jsoup.clean(h, Safelist.simpleText());
 
         assertEquals("Hello <b>there</b>!", TextUtil.stripNewlines(cleanHtml));
         }
 
-    @Test public void basicBehaviourTest_1_oe() {
+@Test public void basicBehaviourTest_1_oe() {
         String h = "<div><p><a href='javascript:sendAllMoney()'>Dodgy</a> <A HREF='HTTP://nice.com'>Nice</a></p><blockquote>Hello</blockquote>";
         String cleanHtml = Jsoup.clean(h, Safelist.basic());
 
         assertEquals("<p><a rel=\"nofollow\">Dodgy</a> <a href=\"http://nice.com\" rel=\"nofollow\">Nice</a></p><blockquote>Hello</blockquote>",TextUtil.stripNewlines(cleanHtml));
         }
 
-    @Test public void basicWithImagesTest_1_oe() {
+@Test public void basicWithImagesTest_1_oe() {
         String h = "<div><p><img src='http://example.com/' alt=Image></p><p><img src='ftp://ftp.example.com'></p></div>";
         String cleanHtml = Jsoup.clean(h, Safelist.basicWithImages());
         assertEquals("<p><img src=\"http://example.com/\" alt=\"Image\"></p><p><img></p>", TextUtil.stripNewlines(cleanHtml));
         }
 
-    @Test public void testRelaxed_1_oe() {
+@Test public void testRelaxed_1_oe() {
         String h = "<h1>Head</h1><table><tr><td>One<td>Two</td></tr></table>";
         String cleanHtml = Jsoup.clean(h, Safelist.relaxed());
         assertEquals("<h1>Head</h1><table><tbody><tr><td>One</td><td>Two</td></tr></tbody></table>", TextUtil.stripNewlines(cleanHtml));
         }
 
-    @Test public void testRemoveTags_1_oe() {
+@Test public void testRemoveTags_1_oe() {
         String h = "<div><p><A HREF='HTTP://nice.com'>Nice</a></p><blockquote>Hello</blockquote>";
         String cleanHtml = Jsoup.clean(h, Safelist.basic().removeTags("a"));
 
         assertEquals("<p>Nice</p><blockquote>Hello</blockquote>", TextUtil.stripNewlines(cleanHtml));
         }
 
-    @Test public void testRemoveAttributes_1_oe() {
+@Test public void testRemoveAttributes_1_oe() {
         String h = "<div><p>Nice</p><blockquote cite='http://example.com/quotations'>Hello</blockquote>";
         String cleanHtml = Jsoup.clean(h, Safelist.basic().removeAttributes("blockquote", "cite"));
 
         assertEquals("<p>Nice</p><blockquote>Hello</blockquote>", TextUtil.stripNewlines(cleanHtml));
         }
 
-    @Test public void testRemoveEnforcedAttributes_1_oe() {
+@Test public void testRemoveEnforcedAttributes_1_oe() {
         String h = "<div><p><A HREF='HTTP://nice.com'>Nice</a></p><blockquote>Hello</blockquote>";
         String cleanHtml = Jsoup.clean(h, Safelist.basic().removeEnforcedAttribute("a", "rel"));
 
         assertEquals("<p><a href=\"http://nice.com\">Nice</a></p><blockquote>Hello</blockquote>",TextUtil.stripNewlines(cleanHtml));
         }
 
-    @Test public void testRemoveProtocols_1_oe() {
+@Test public void testRemoveProtocols_1_oe() {
         String h = "<p>Contact me <a href='mailto:info@example.com'>here</a></p>";
         String cleanHtml = Jsoup.clean(h, Safelist.basic().removeProtocols("a", "href", "ftp", "mailto"));
 
         assertEquals("<p>Contact me <a rel=\"nofollow\">here</a></p>",TextUtil.stripNewlines(cleanHtml));
         }
 
-    @Test public void testDropComments_1_oe() {
+@Test public void testDropComments_1_oe() {
         String h = "<p>Hello<!-- no --></p>";
         String cleanHtml = Jsoup.clean(h, Safelist.relaxed());
         assertEquals("<p>Hello</p>", cleanHtml);
         }
 
-    @Test public void testDropXmlProc_1_oe() {
+@Test public void testDropXmlProc_1_oe() {
         String h = "<?import namespace=\"xss\"><p>Hello</p>";
         String cleanHtml = Jsoup.clean(h, Safelist.relaxed());
         assertEquals("<p>Hello</p>", cleanHtml);
         }
 
-    @Test public void testDropScript_1_oe() {
+@Test public void testDropScript_1_oe() {
         String h = "<SCRIPT SRC=//ha.ckers.org/.j><SCRIPT>alert(/XSS/.source)</SCRIPT>";
         String cleanHtml = Jsoup.clean(h, Safelist.relaxed());
         assertEquals("", cleanHtml);
         }
 
-    @Test public void testDropImageScript_1_oe() {
+@Test public void testDropImageScript_1_oe() {
         String h = "<IMG SRC=\"javascript:alert('XSS')\">";
         String cleanHtml = Jsoup.clean(h, Safelist.relaxed());
         assertEquals("<img>", cleanHtml);
         }
 
-    @Test public void testCleanJavascriptHref_1_oe() {
+@Test public void testCleanJavascriptHref_1_oe() {
         String h = "<A HREF=\"javascript:document.location='http://www.google.com/'\">XSS</A>";
         String cleanHtml = Jsoup.clean(h, Safelist.relaxed());
         assertEquals("<a>XSS</a>", cleanHtml);
         }
 
-    @Test public void testCleanAnchorProtocol_1_oe() {
+@Test public void testCleanAnchorProtocol_1_oe() {
         String validAnchor = "<a href=\"#valid\">Valid anchor</a>";
         String invalidAnchor = "<a href=\"#anchor with spaces\">Invalid anchor</a>";
 
@@ -146,7 +146,7 @@ public class CleanerTest_OE25Dev {
         assertEquals("<a>Valid anchor</a>", cleanHtml);
         }
 
-    @Test public void testCleanAnchorProtocol_2_oe() {
+@Test public void testCleanAnchorProtocol_2_oe() {
         String validAnchor = "<a href=\"#valid\">Valid anchor</a>";
         String invalidAnchor = "<a href=\"#anchor with spaces\">Invalid anchor</a>";
 
@@ -158,7 +158,7 @@ public class CleanerTest_OE25Dev {
         assertEquals("<a>Invalid anchor</a>", cleanHtml);
         }
 
-    @Test public void testCleanAnchorProtocol_3_oe() {
+@Test public void testCleanAnchorProtocol_3_oe() {
         String validAnchor = "<a href=\"#valid\">Valid anchor</a>";
         String invalidAnchor = "<a href=\"#anchor with spaces\">Invalid anchor</a>";
 
@@ -176,7 +176,7 @@ public class CleanerTest_OE25Dev {
         assertEquals(validAnchor, cleanHtml);
         }
 
-    @Test public void testCleanAnchorProtocol_4_oe() {
+@Test public void testCleanAnchorProtocol_4_oe() {
         String validAnchor = "<a href=\"#valid\">Valid anchor</a>";
         String invalidAnchor = "<a href=\"#anchor with spaces\">Invalid anchor</a>";
 
@@ -198,19 +198,19 @@ public class CleanerTest_OE25Dev {
         assertEquals("<a>Invalid anchor</a>", cleanHtml);
         }
 
-    @Test public void testDropsUnknownTags_1_oe() {
+@Test public void testDropsUnknownTags_1_oe() {
         String h = "<p><custom foo=true>Test</custom></p>";
         String cleanHtml = Jsoup.clean(h, Safelist.relaxed());
         assertEquals("<p>Test</p>", cleanHtml);
         }
 
-    @Test public void testHandlesEmptyAttributes_1_oe() {
+@Test public void testHandlesEmptyAttributes_1_oe() {
         String h = "<img alt=\"\" src= unknown=''>";
         String cleanHtml = Jsoup.clean(h, Safelist.basicWithImages());
         assertEquals("<img alt=\"\">", cleanHtml);
         }
 
-    @Test public void testIsValidBodyHtml_1_oe() {
+@Test public void testIsValidBodyHtml_1_oe() {
         String ok = "<p>Test <b><a href='http://example.com/' rel='nofollow'>OK</a></b></p>";
         String ok1 = "<p>Test <b><a href='http://example.com/'>OK</a></b></p>"; // missing enforced is OK because still needs run thru cleaner
         String nok1 = "<p><script></script>Not <b>OK</b></p>";
@@ -223,7 +223,7 @@ public class CleanerTest_OE25Dev {
         assertTrue(Jsoup.isValid(ok, Safelist.basic()));
         }
 
-    @Test public void testIsValidBodyHtml_2_oe() {
+@Test public void testIsValidBodyHtml_2_oe() {
         String ok = "<p>Test <b><a href='http://example.com/' rel='nofollow'>OK</a></b></p>";
         String ok1 = "<p>Test <b><a href='http://example.com/'>OK</a></b></p>"; // missing enforced is OK because still needs run thru cleaner
         String nok1 = "<p><script></script>Not <b>OK</b></p>";
@@ -237,7 +237,7 @@ public class CleanerTest_OE25Dev {
         assertTrue(Jsoup.isValid(ok1, Safelist.basic()));
         }
 
-    @Test public void testIsValidBodyHtml_3_oe() {
+@Test public void testIsValidBodyHtml_3_oe() {
         String ok = "<p>Test <b><a href='http://example.com/' rel='nofollow'>OK</a></b></p>";
         String ok1 = "<p>Test <b><a href='http://example.com/'>OK</a></b></p>"; // missing enforced is OK because still needs run thru cleaner
         String nok1 = "<p><script></script>Not <b>OK</b></p>";
@@ -252,7 +252,7 @@ public class CleanerTest_OE25Dev {
         assertFalse(Jsoup.isValid(nok1, Safelist.basic()));
         }
 
-    @Test public void testIsValidBodyHtml_4_oe() {
+@Test public void testIsValidBodyHtml_4_oe() {
         String ok = "<p>Test <b><a href='http://example.com/' rel='nofollow'>OK</a></b></p>";
         String ok1 = "<p>Test <b><a href='http://example.com/'>OK</a></b></p>"; // missing enforced is OK because still needs run thru cleaner
         String nok1 = "<p><script></script>Not <b>OK</b></p>";
@@ -268,7 +268,7 @@ public class CleanerTest_OE25Dev {
         assertFalse(Jsoup.isValid(nok2, Safelist.basic()));
         }
 
-    @Test public void testIsValidBodyHtml_5_oe() {
+@Test public void testIsValidBodyHtml_5_oe() {
         String ok = "<p>Test <b><a href='http://example.com/' rel='nofollow'>OK</a></b></p>";
         String ok1 = "<p>Test <b><a href='http://example.com/'>OK</a></b></p>"; // missing enforced is OK because still needs run thru cleaner
         String nok1 = "<p><script></script>Not <b>OK</b></p>";
@@ -285,7 +285,7 @@ public class CleanerTest_OE25Dev {
         assertFalse(Jsoup.isValid(nok3, Safelist.basic()));
         }
 
-    @Test public void testIsValidBodyHtml_6_oe() {
+@Test public void testIsValidBodyHtml_6_oe() {
         String ok = "<p>Test <b><a href='http://example.com/' rel='nofollow'>OK</a></b></p>";
         String ok1 = "<p>Test <b><a href='http://example.com/'>OK</a></b></p>"; // missing enforced is OK because still needs run thru cleaner
         String nok1 = "<p><script></script>Not <b>OK</b></p>";
@@ -303,7 +303,7 @@ public class CleanerTest_OE25Dev {
         assertFalse(Jsoup.isValid(nok4, Safelist.basic()));
         }
 
-    @Test public void testIsValidBodyHtml_7_oe() {
+@Test public void testIsValidBodyHtml_7_oe() {
         String ok = "<p>Test <b><a href='http://example.com/' rel='nofollow'>OK</a></b></p>";
         String ok1 = "<p>Test <b><a href='http://example.com/'>OK</a></b></p>"; // missing enforced is OK because still needs run thru cleaner
         String nok1 = "<p><script></script>Not <b>OK</b></p>";
@@ -322,7 +322,7 @@ public class CleanerTest_OE25Dev {
         assertFalse(Jsoup.isValid(nok5, Safelist.basic()));
         }
 
-    @Test public void testIsValidBodyHtml_8_oe() {
+@Test public void testIsValidBodyHtml_8_oe() {
         String ok = "<p>Test <b><a href='http://example.com/' rel='nofollow'>OK</a></b></p>";
         String ok1 = "<p>Test <b><a href='http://example.com/'>OK</a></b></p>"; // missing enforced is OK because still needs run thru cleaner
         String nok1 = "<p><script></script>Not <b>OK</b></p>";
@@ -342,7 +342,7 @@ public class CleanerTest_OE25Dev {
         assertFalse(Jsoup.isValid(nok6, Safelist.basic()));
         }
 
-    @Test public void testIsValidBodyHtml_9_oe() {
+@Test public void testIsValidBodyHtml_9_oe() {
         String ok = "<p>Test <b><a href='http://example.com/' rel='nofollow'>OK</a></b></p>";
         String ok1 = "<p>Test <b><a href='http://example.com/'>OK</a></b></p>"; // missing enforced is OK because still needs run thru cleaner
         String nok1 = "<p><script></script>Not <b>OK</b></p>";
@@ -363,7 +363,7 @@ public class CleanerTest_OE25Dev {
         assertFalse(Jsoup.isValid(ok, Safelist.none()));
         }
 
-    @Test public void testIsValidBodyHtml_10_oe() {
+@Test public void testIsValidBodyHtml_10_oe() {
         String ok = "<p>Test <b><a href='http://example.com/' rel='nofollow'>OK</a></b></p>";
         String ok1 = "<p>Test <b><a href='http://example.com/'>OK</a></b></p>"; // missing enforced is OK because still needs run thru cleaner
         String nok1 = "<p><script></script>Not <b>OK</b></p>";
@@ -385,7 +385,7 @@ public class CleanerTest_OE25Dev {
         assertFalse(Jsoup.isValid(nok7, Safelist.basic()));
         }
 
-    @Test public void testIsValidDocument_1_oe() {
+@Test public void testIsValidDocument_1_oe() {
         String ok = "<html><head></head><body><p>Hello</p></body><html>";
         String nok = "<html><head><script>woops</script><title>Hello</title></head><body><p>Hello</p></body><html>";
 
@@ -395,7 +395,7 @@ public class CleanerTest_OE25Dev {
         assertTrue(cleaner.isValid(okDoc));
         }
 
-    @Test public void testIsValidDocument_2_oe() {
+@Test public void testIsValidDocument_2_oe() {
         String ok = "<html><head></head><body><p>Hello</p></body><html>";
         String nok = "<html><head><script>woops</script><title>Hello</title></head><body><p>Hello</p></body><html>";
 
@@ -406,7 +406,7 @@ public class CleanerTest_OE25Dev {
         assertFalse(cleaner.isValid(Jsoup.parse(nok)));
         }
 
-    @Test public void testIsValidDocument_3_oe() {
+@Test public void testIsValidDocument_3_oe() {
         String ok = "<html><head></head><body><p>Hello</p></body><html>";
         String nok = "<html><head><script>woops</script><title>Hello</title></head><body><p>Hello</p></body><html>";
 
@@ -418,32 +418,32 @@ public class CleanerTest_OE25Dev {
         assertFalse(new Cleaner(Safelist.none()).isValid(okDoc));
         }
 
-    @Test public void resolvesRelativeLinks_1_oe() {
+@Test public void resolvesRelativeLinks_1_oe() {
         String html = "<a href='/foo'>Link</a><img src='/bar'>";
         String clean = Jsoup.clean(html, "http://example.com/", Safelist.basicWithImages());
         assertEquals("<a href=\"http://example.com/foo\" rel=\"nofollow\">Link</a><img src=\"http://example.com/bar\">", clean);
         }
 
-    @Test public void preservesRelativeLinksIfConfigured_1_oe() {
+@Test public void preservesRelativeLinksIfConfigured_1_oe() {
         String html = "<a href='/foo'>Link</a><img src='/bar'> <img src='javascript:alert()'>";
         String clean = Jsoup.clean(html, "http://example.com/", Safelist.basicWithImages().preserveRelativeLinks(true));
         assertEquals("<a href=\"/foo\" rel=\"nofollow\">Link</a><img src=\"/bar\"> <img>", clean);
         }
 
-    @Test public void dropsUnresolvableRelativeLinks_1_oe() {
+@Test public void dropsUnresolvableRelativeLinks_1_oe() {
         String html = "<a href='/foo'>Link</a>";
         String clean = Jsoup.clean(html, Safelist.basic());
         assertEquals("<a rel=\"nofollow\">Link</a>", clean);
         }
 
-    @Test void dropsConcealedJavascriptProtocolWhenRelativesLinksEnabled_1_oe() {
+@Test void dropsConcealedJavascriptProtocolWhenRelativesLinksEnabled_1_oe() {
         Safelist safelist = Safelist.basic().preserveRelativeLinks(true);
         String html = "<a href=\"&#0013;ja&Tab;va&Tab;script&#0010;:alert(1)\">Link</a>";
         String clean = Jsoup.clean(html, "https://", safelist);
         assertEquals("<a rel=\"nofollow\">Link</a>", clean);
         }
 
-    @Test void dropsConcealedJavascriptProtocolWhenRelativesLinksEnabled_2_oe() {
+@Test void dropsConcealedJavascriptProtocolWhenRelativesLinksEnabled_2_oe() {
         Safelist safelist = Safelist.basic().preserveRelativeLinks(true);
         String html = "<a href=\"&#0013;ja&Tab;va&Tab;script&#0010;:alert(1)\">Link</a>";
         String clean = Jsoup.clean(html, "https://", safelist);
@@ -454,20 +454,20 @@ public class CleanerTest_OE25Dev {
         assertEquals("<a rel=\"nofollow\">Link</a>", cleanColon);
         }
 
-    @Test void dropsConcealedJavascriptProtocolWhenRelativesLinksDisabled_1_oe() {
+@Test void dropsConcealedJavascriptProtocolWhenRelativesLinksDisabled_1_oe() {
         Safelist safelist = Safelist.basic().preserveRelativeLinks(false);
         String html = "<a href=\"ja&Tab;vas&#0013;cript:alert(1)\">Link</a>";
         String clean = Jsoup.clean(html, "https://", safelist);
         assertEquals("<a rel=\"nofollow\">Link</a>", clean);
         }
 
-    @Test public void handlesCustomProtocols_1_oe() {
+@Test public void handlesCustomProtocols_1_oe() {
         String html = "<img src='cid:12345' /> <img src='data:gzzt' />";
         String dropped = Jsoup.clean(html, Safelist.basicWithImages());
         assertEquals("<img> <img>", dropped);
         }
 
-    @Test public void handlesCustomProtocols_2_oe() {
+@Test public void handlesCustomProtocols_2_oe() {
         String html = "<img src='cid:12345' /> <img src='data:gzzt' />";
         String dropped = Jsoup.clean(html, Safelist.basicWithImages());
         // removed other assertion
@@ -476,7 +476,7 @@ public class CleanerTest_OE25Dev {
         assertEquals("<img src=\"cid:12345\"> <img src=\"data:gzzt\">", preserved);
         }
 
-    @Test public void handlesAllPseudoTag_1_oe() {
+@Test public void handlesAllPseudoTag_1_oe() {
         String html = "<p class='foo' src='bar'><a class='qux'>link</a></p>";
         Safelist safelist = new Safelist()
                 .addAttributes(":all", "class")
@@ -487,7 +487,7 @@ public class CleanerTest_OE25Dev {
         assertEquals("<p class=\"foo\"><a class=\"qux\">link</a></p>", clean);
         }
 
-    @Test public void addsTagOnAttributesIfNotSet_1_oe() {
+@Test public void addsTagOnAttributesIfNotSet_1_oe() {
         String html = "<p class='foo' src='bar'>One</p>";
         Safelist safelist = new Safelist()
             .addAttributes("p", "class");
@@ -496,7 +496,7 @@ public class CleanerTest_OE25Dev {
         assertEquals("<p class=\"foo\">One</p>", clean);
         }
 
-    @Test public void supplyOutputSettings_1_oe() {
+@Test public void supplyOutputSettings_1_oe() {
         // test that one can override the default document output settings
         Document.OutputSettings os = new Document.OutputSettings();
         os.prettyPrint(false);
@@ -509,7 +509,7 @@ public class CleanerTest_OE25Dev {
         assertNotSame(defaultOut, customOut);
         }
 
-    @Test public void supplyOutputSettings_2_oe() {
+@Test public void supplyOutputSettings_2_oe() {
         // test that one can override the default document output settings
         Document.OutputSettings os = new Document.OutputSettings();
         os.prettyPrint(false);
@@ -524,7 +524,7 @@ public class CleanerTest_OE25Dev {
         assertEquals("<div><p>&Bscr;</p></div>",customOut);// entities now prefers shorted names if aliased assertEquals("<div>\n" + " <p>ℬ</p>\n" + "</div>",defaultOut);
         }
 
-    @Test public void supplyOutputSettings_3_oe() {
+@Test public void supplyOutputSettings_3_oe() {
         // test that one can override the default document output settings
         Document.OutputSettings os = new Document.OutputSettings();
         os.prettyPrint(false);
@@ -544,13 +544,13 @@ public class CleanerTest_OE25Dev {
         assertEquals("<div><p>&#x212c;</p></div>", customOut2);
         }
 
-    @Test public void handlesFramesets_1_oe() {
+@Test public void handlesFramesets_1_oe() {
         String dirty = "<html><head><script></script><noscript></noscript></head><frameset><frame src=\"foo\" /><frame src=\"foo\" /></frameset></html>";
         String clean = Jsoup.clean(dirty, Safelist.basic());
         assertEquals("",clean);// nothing good can come out of that;
         }
 
-    @Test public void handlesFramesets_2_oe() {
+@Test public void handlesFramesets_2_oe() {
         String dirty = "<html><head><script></script><noscript></noscript></head><frameset><frame src=\"foo\" /><frame src=\"foo\" /></frameset></html>";
         String clean = Jsoup.clean(dirty, Safelist.basic());
         // removed other assertion
@@ -559,7 +559,7 @@ public class CleanerTest_OE25Dev {
         assertNotNull(cleanDoc);
         }
 
-    @Test public void handlesFramesets_3_oe() {
+@Test public void handlesFramesets_3_oe() {
         String dirty = "<html><head><script></script><noscript></noscript></head><frameset><frame src=\"foo\" /><frame src=\"foo\" /></frameset></html>";
         String clean = Jsoup.clean(dirty, Safelist.basic());
         // removed other assertion
@@ -569,38 +569,38 @@ public class CleanerTest_OE25Dev {
         assertEquals(0, cleanDoc.body().childNodeSize());
         }
 
-    @Test public void cleansInternationalText_1_oe() {
+@Test public void cleansInternationalText_1_oe() {
         assertEquals("привет", Jsoup.clean("привет", Safelist.none()));
         }
 
-    @Test
+@Test
     public void testScriptTagInSafeList_1_oe() {
         Safelist safelist = Safelist.relaxed();
         safelist.addTags( "script" );
         assertTrue( Jsoup.isValid("Hello<script>alert('Doh')</script>World !", safelist) );
     }
 
-    @Test public void handlesControlCharactersAfterTagName_1_oe() {
+@Test public void handlesControlCharactersAfterTagName_1_oe() {
         String html = "<a/\06>";
         String clean = Jsoup.clean(html, Safelist.basic());
         assertEquals("<a rel=\"nofollow\"></a>", clean);
         }
 
-    @Test public void handlesAttributesWithNoValue_1_oe() {
+@Test public void handlesAttributesWithNoValue_1_oe() {
         // https://github.com/jhy/jsoup/issues/973
         String clean = Jsoup.clean("<a href>Clean</a>", Safelist.basic());
 
         assertEquals("<a rel=\"nofollow\">Clean</a>", clean);
         }
 
-    @Test public void handlesNoHrefAttribute_1_oe() {
+@Test public void handlesNoHrefAttribute_1_oe() {
         String dirty = "<a>One</a> <a href>Two</a>";
         Safelist relaxedWithAnchor = Safelist.relaxed().addProtocols("a", "href", "#");
         String clean = Jsoup.clean(dirty, relaxedWithAnchor);
         assertEquals("<a>One</a> <a>Two</a>", clean);
         }
 
-    @Test public void handlesNestedQuotesInAttribute_1_oe() {
+@Test public void handlesNestedQuotesInAttribute_1_oe() {
         // https://github.com/jhy/jsoup/issues/1243 - no repro
         String orig = "<div style=\"font-family: 'Calibri'\">Will (not) fail</div>";
         Safelist allow = Safelist.relaxed()
@@ -612,7 +612,7 @@ public class CleanerTest_OE25Dev {
         assertEquals(orig,TextUtil.stripNewlines(clean));// only difference is pretty print wrap & indent assertTrue(isValid);
         }
 
-    @Test public void copiesOutputSettings_1_oe() {
+@Test public void copiesOutputSettings_1_oe() {
         Document orig = Jsoup.parse("<p>test<br></p>");
         orig.outputSettings().syntax(Document.OutputSettings.Syntax.xml);
         orig.outputSettings().escapeMode(Entities.EscapeMode.xhtml);
@@ -622,7 +622,7 @@ public class CleanerTest_OE25Dev {
         assertEquals(Document.OutputSettings.Syntax.xml, result.outputSettings().syntax());
         }
 
-    @Test public void copiesOutputSettings_2_oe() {
+@Test public void copiesOutputSettings_2_oe() {
         Document orig = Jsoup.parse("<p>test<br></p>");
         orig.outputSettings().syntax(Document.OutputSettings.Syntax.xml);
         orig.outputSettings().escapeMode(Entities.EscapeMode.xhtml);
@@ -633,14 +633,14 @@ public class CleanerTest_OE25Dev {
         assertEquals("<p>test<br /></p>", result.body().html());
         }
 
-    @Test void preservesSourcePositionViaUserData_1_oe() {
+@Test void preservesSourcePositionViaUserData_1_oe() {
         Document orig = Jsoup.parse("<script>xss</script>\n <p>Hello</p>", Parser.htmlParser().setTrackPosition(true));
         Element p = orig.expectFirst("p");
         Range origRange = p.sourceRange();
         assertEquals("2,2:22-2,5:25", origRange.toString());
         }
 
-    @Test void preservesSourcePositionViaUserData_2_oe() {
+@Test void preservesSourcePositionViaUserData_2_oe() {
         Document orig = Jsoup.parse("<script>xss</script>\n <p>Hello</p>", Parser.htmlParser().setTrackPosition(true));
         Element p = orig.expectFirst("p");
         Range origRange = p.sourceRange();
@@ -652,7 +652,7 @@ public class CleanerTest_OE25Dev {
         assertEquals(cleanRange, origRange);
         }
 
-    @Test void preservesSourcePositionViaUserData_3_oe() {
+@Test void preservesSourcePositionViaUserData_3_oe() {
         Document orig = Jsoup.parse("<script>xss</script>\n <p>Hello</p>", Parser.htmlParser().setTrackPosition(true));
         Element p = orig.expectFirst("p");
         Range origRange = p.sourceRange();

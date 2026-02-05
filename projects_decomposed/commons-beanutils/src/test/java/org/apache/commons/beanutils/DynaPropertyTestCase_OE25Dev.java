@@ -93,20 +93,20 @@ public class DynaPropertyTestCase_OE25Dev extends TestCase {
      * Class under test for boolean equals(Object)
      */
 
-    public void testHashCode_1_oe() {
+public void testHashCode_1_oe() {
 
         final int initialHashCode = testPropertyWithNameAndTypeAndContentType.hashCode();
         assertEquals(testPropertyWithName.hashCode(), testProperty1Duplicate.hashCode());
     }
 
-    public void testHashCode_2_oe() {
+public void testHashCode_2_oe() {
 
         final int initialHashCode = testPropertyWithNameAndTypeAndContentType.hashCode();
         // removed other assertion
         assertEquals(testPropertyWithNameAndType.hashCode(), testProperty2Duplicate.hashCode());
     }
 
-    public void testHashCode_3_oe() {
+public void testHashCode_3_oe() {
 
         final int initialHashCode = testPropertyWithNameAndTypeAndContentType.hashCode();
         // removed other assertion
@@ -114,7 +114,7 @@ public class DynaPropertyTestCase_OE25Dev extends TestCase {
         assertEquals(testPropertyWithNameAndTypeAndContentType.hashCode(), testProperty3Duplicate.hashCode());
     }
 
-    public void testHashCode_4_oe() {
+public void testHashCode_4_oe() {
 
         final int initialHashCode = testPropertyWithNameAndTypeAndContentType.hashCode();
         // removed other assertion
@@ -123,25 +123,25 @@ public class DynaPropertyTestCase_OE25Dev extends TestCase {
         assertEquals(initialHashCode, testPropertyWithNameAndTypeAndContentType.hashCode());
     }
 
-    public void testEqualsObject_1_oe() {
+public void testEqualsObject_1_oe() {
 
         assertEquals(testPropertyWithName, testProperty1Duplicate);
     }
 
-    public void testEqualsObject_2_oe() {
+public void testEqualsObject_2_oe() {
 
         // removed other assertion
         assertEquals(testPropertyWithNameAndType, testProperty2Duplicate);
     }
 
-    public void testEqualsObject_3_oe() {
+public void testEqualsObject_3_oe() {
 
         // removed other assertion
         // removed other assertion
         assertEquals(testPropertyWithNameAndTypeAndContentType, testProperty3Duplicate);
     }
 
-    public void testEqualsObject_4_oe() {
+public void testEqualsObject_4_oe() {
 
         // removed other assertion
         // removed other assertion
@@ -149,7 +149,7 @@ public class DynaPropertyTestCase_OE25Dev extends TestCase {
         assertFalse(testPropertyWithName.equals(testPropertyWithNameAndType));
     }
 
-    public void testEqualsObject_5_oe() {
+public void testEqualsObject_5_oe() {
 
         // removed other assertion
         // removed other assertion
@@ -158,7 +158,7 @@ public class DynaPropertyTestCase_OE25Dev extends TestCase {
         assertFalse(testPropertyWithNameAndType.equals(testPropertyWithNameAndTypeAndContentType));
     }
 
-    public void testEqualsObject_6_oe() {
+public void testEqualsObject_6_oe() {
 
         // removed other assertion
         // removed other assertion

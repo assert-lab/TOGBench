@@ -362,7 +362,7 @@ public class TestInMemoryNodeModel_OE25Dev {
      * Tests whether the root node can be set to null.
      */
 
-    @Test
+@Test
     public void testAddNodesToExistingNode_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_AUTHORS_TREE);
@@ -379,7 +379,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertSame("New child 1 not added", newWork1, node.getChildren().get(size - 2));
     }
 
-    @Test
+@Test
     public void testAddNodesToExistingNode_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_AUTHORS_TREE);
@@ -397,7 +397,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertSame("New child 2 not added", newWork2, node.getChildren().get(size - 1));
     }
 
-    @Test
+@Test
     public void testAddNodesToNewNode_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_AUTHORS_TREE);
@@ -414,7 +414,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertSame("Wrong added node", personaNode, nodeForKey(model, newAuthor + "/" + newWork + "/" + newPersona));
     }
 
-    @Test
+@Test
     public void testAddPropertyAttributeNoPathNodes_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final NodeAddData<ImmutableNode> addData = new NodeAddData<>(nodeForKey(ROOT_AUTHORS_TREE, "Shakespeare/The Tempest"), "year", true, null);
@@ -427,7 +427,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertEquals("Attribute not set", 1611, node.getAttributes().get("year"));
     }
 
-    @Test
+@Test
     public void testAddPropertyAttributeWithPathNodes_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final NodeAddData<ImmutableNode> addData = new NodeAddData<>(nodeForKey(ROOT_AUTHORS_TREE, "Homer/Ilias"), "number", true,
@@ -441,7 +441,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertEquals("Attribute not set", 1, node.getAttributes().get("number"));
     }
 
-    @Test
+@Test
     public void testAddPropertyAttributeWithSinglePathNode_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final NodeAddData<ImmutableNode> addData = new NodeAddData<>(nodeForKey(ROOT_AUTHORS_TREE, NodeStructureHelper.author(0)), "year", true,
@@ -456,7 +456,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertEquals("Attribute not set", year, node.getAttributes().get("year"));
     }
 
-    @Test
+@Test
     public void testAddPropertyNoPathNodes_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final NodeAddData<ImmutableNode> addData = new NodeAddData<>(nodeForKey(ROOT_AUTHORS_TREE, "Homer"), "work", false, null);
@@ -469,7 +469,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertEquals("Wrong node value", "Odyssee", node.getValue());
     }
 
-    @Test
+@Test
     public void testAddPropertyNoPathNodes_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final NodeAddData<ImmutableNode> addData = new NodeAddData<>(nodeForKey(ROOT_AUTHORS_TREE, "Homer"), "work", false, null);
@@ -483,7 +483,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertNotNull("Could not find other nodes", nodeForKey(model, "Homer/Ilias/Hektor"));
     }
 
-    @Test
+@Test
     public void testAddPropertyNoValues_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         EasyMock.replay(resolver);
@@ -493,7 +493,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertSame("Root node was changed", ROOT_AUTHORS_TREE, model.getRootNode());
     }
 
-    @Test
+@Test
     public void testAddPropertyWithPathNodes_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final NodeAddData<ImmutableNode> addData = new NodeAddData<>(nodeForKey(ROOT_AUTHORS_TREE, "Homer/Ilias"), "location", false,
@@ -508,7 +508,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertEquals("Wrong number of children", locations.length, nodeLocs.getChildren().size());
     }
 
-    @Test
+@Test
     public void testAddPropertyWithPathNodes_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final NodeAddData<ImmutableNode> addData = new NodeAddData<>(nodeForKey(ROOT_AUTHORS_TREE, "Homer/Ilias"), "location", false,
@@ -527,7 +527,7 @@ public class TestInMemoryNodeModel_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testAddPropertyWithPathNodes_4_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final NodeAddData<ImmutableNode> addData = new NodeAddData<>(nodeForKey(ROOT_AUTHORS_TREE, "Homer/Ilias"), "location", false,
@@ -548,7 +548,7 @@ public class TestInMemoryNodeModel_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testAddPropertyWithPathNodes_5_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final NodeAddData<ImmutableNode> addData = new NodeAddData<>(nodeForKey(ROOT_AUTHORS_TREE, "Homer/Ilias"), "location", false,
@@ -570,7 +570,7 @@ public class TestInMemoryNodeModel_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testAddPropertyWithPathNodes_6_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final NodeAddData<ImmutableNode> addData = new NodeAddData<>(nodeForKey(ROOT_AUTHORS_TREE, "Homer/Ilias"), "location", false,
@@ -594,14 +594,14 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertNotNull("Could not find other nodes", nodeForKey(model, "Homer/Ilias/Hektor"));
     }
 
-    @Test
+@Test
     public void testClear_1_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_AUTHORS_TREE);
         model.clear(createResolver());
         assertFalse("Got still data", model.getNodeHandler().isDefined(model.getRootNode()));
     }
 
-    @Test
+@Test
     public void testClear_2_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_AUTHORS_TREE);
         model.clear(createResolver());
@@ -609,7 +609,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertEquals("Root name was changed", ROOT_AUTHORS_TREE.getNodeName(), model.getRootNode().getNodeName());
     }
 
-    @Test
+@Test
     public void testClearPropertyAttribute_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_PERSONAE_TREE);
@@ -623,7 +623,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertTrue("Attribute not removed", node.getAttributes().isEmpty());
     }
 
-    @Test
+@Test
     public void testClearPropertyNode_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_PERSONAE_TREE);
@@ -637,7 +637,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertNull("Value not cleared", node.getValue());
     }
 
-    @Test
+@Test
     public void testClearPropertyNonExisting_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_PERSONAE_TREE);
@@ -649,7 +649,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertNotNull("No root node", model.getNodeHandler().getRootNode());
     }
 
-    @Test
+@Test
     public void testClearPropertyNonExisting_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_PERSONAE_TREE);
@@ -662,7 +662,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertSame("Data was changed", treeDataOld, model.getTreeData());
     }
 
-    @Test
+@Test
     public void testClearTreeAttribute_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_PERSONAE_TREE);
@@ -676,7 +676,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertTrue("Got still attributes", node.getAttributes().isEmpty());
     }
 
-    @Test
+@Test
     public void testClearTreeAttribute_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_PERSONAE_TREE);
@@ -691,7 +691,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertEquals("Wrong number of removed elements", 1, removed.size());
     }
 
-    @Test
+@Test
     public void testClearTreeAttribute_3_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_PERSONAE_TREE);
@@ -707,7 +707,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertTrue("Wrong removed element", removed.contains(result));
     }
 
-    @Test
+@Test
     public void testClearTreeNodes_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_AUTHORS_TREE);
@@ -720,7 +720,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertEquals("Wrong number of children", 2, node.getChildren().size());
     }
 
-    @Test
+@Test
     public void testClearTreeNodes_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_AUTHORS_TREE);
@@ -736,7 +736,7 @@ public class TestInMemoryNodeModel_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testClearTreeNodes_3_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_AUTHORS_TREE);
@@ -753,7 +753,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertEquals("Wrong number of removed elements", 1, removed.size());
     }
 
-    @Test
+@Test
     public void testClearTreeNodes_4_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_AUTHORS_TREE);
@@ -771,7 +771,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertTrue("Wrong removed element", removed.contains(result));
     }
 
-    @Test
+@Test
     public void testClearTreeNonExistingKey_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_PERSONAE_TREE);
@@ -782,7 +782,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertTrue("Elements removed", model.clearTree(KEY, resolver).isEmpty());
     }
 
-    @Test
+@Test
     public void testClearTreeNonExistingKey_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_PERSONAE_TREE);
@@ -794,7 +794,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertNotNull("No root node", model.getNodeHandler().getRootNode());
     }
 
-    @Test
+@Test
     public void testClearTreeNonExistingKey_3_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_PERSONAE_TREE);
@@ -807,7 +807,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertSame("Data was changed", treeDataOld, model.getTreeData());
     }
 
-    @Test
+@Test
     public void testClearTreeRemoveUndefinedNodes_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_AUTHORS_TREE);
@@ -823,7 +823,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertEquals("Child of root not removed", NodeStructureHelper.authorsLength() - 1, model.getRootNode().getChildren().size());
     }
 
-    @Test
+@Test
     public void testClearTreeRemoveUndefinedNodes_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_AUTHORS_TREE);
@@ -842,7 +842,7 @@ public class TestInMemoryNodeModel_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testClearTreeResultIsEmpty_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final ImmutableNode child = new ImmutableNode.Builder().name("child").value("test").create();
@@ -855,7 +855,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertFalse("Root node still defined", model.getNodeHandler().isDefined(model.getRootNode()));
     }
 
-    @Test
+@Test
     public void testClearTreeRootNode_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_AUTHORS_TREE);
@@ -869,7 +869,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertFalse("Got still data", model.getNodeHandler().isDefined(model.getRootNode()));
     }
 
-    @Test
+@Test
     public void testCompactReplacementMapping_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_AUTHORS_TREE);
@@ -894,7 +894,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertEquals("Wrong number of children", orgNode.getChildren().size() + numberOfOperations, changedNode.getChildren().size());
     }
 
-    @Test
+@Test
     public void testCompactReplacementMapping_3_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_AUTHORS_TREE);
@@ -921,7 +921,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertTrue("Replacement mapping too big: " + replacementMapping.size(), replacementMapping.size() < numberOfOperations);
     }
 
-    @Test
+@Test
     public void testConcurrentUpdate_1_oe() throws InterruptedException {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_AUTHORS_TREE);
@@ -961,32 +961,32 @@ public class TestInMemoryNodeModel_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetInMemoryRepresentation_1_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_AUTHORS_TREE);
         assertSame("Wrong in-memory representation", NodeStructureHelper.ROOT_AUTHORS_TREE, model.getInMemoryRepresentation());
     }
 
-    @Test
+@Test
     public void testGetNodeHandler_1_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_PERSONAE_TREE);
         assertSame("Wrong node handler", model.getTreeData(), model.getNodeHandler());
     }
 
-    @Test
+@Test
     public void testGetRootNodeFromConstructor_1_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_AUTHORS_TREE);
         assertSame("Wrong root node", ROOT_AUTHORS_TREE, model.getRootNode());
     }
 
-    @Test
+@Test
     public void testInitDefaultRoot_1_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel();
         final ImmutableNode root = model.getRootNode();
         assertNull("Got a name", root.getNodeName());
     }
 
-    @Test
+@Test
     public void testInitDefaultRoot_2_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel();
         final ImmutableNode root = model.getRootNode();
@@ -994,7 +994,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertNull("Got a value", root.getValue());
     }
 
-    @Test
+@Test
     public void testInitDefaultRoot_3_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel();
         final ImmutableNode root = model.getRootNode();
@@ -1003,7 +1003,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertTrue("Got children", root.getChildren().isEmpty());
     }
 
-    @Test
+@Test
     public void testInitDefaultRoot_4_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel();
         final ImmutableNode root = model.getRootNode();
@@ -1013,7 +1013,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertTrue("Got attributes", root.getAttributes().isEmpty());
     }
 
-    @Test
+@Test
     public void testSetPropertyChangedValues_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_PERSONAE_TREE);
@@ -1032,7 +1032,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertEquals("Attribute value not changed", newValue, node.getAttributes().get(NodeStructureHelper.ATTR_TESTED));
     }
 
-    @Test
+@Test
     public void testSetPropertyChangedValues_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_PERSONAE_TREE);
@@ -1052,7 +1052,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertEquals("Node value not changed", newValue, node.getValue());
     }
 
-    @Test
+@Test
     public void testSetPropertyClearValues_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_PERSONAE_TREE);
@@ -1067,7 +1067,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertNull("Value not cleared", node.getValue());
     }
 
-    @Test
+@Test
     public void testSetPropertyNewValues_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final NodeAddData<ImmutableNode> addData = new NodeAddData<>(nodeForKey(ROOT_AUTHORS_TREE, "Homer"), "work", false, null);
@@ -1082,7 +1082,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertEquals("Wrong node value", "Odyssee", node.getValue());
     }
 
-    @Test
+@Test
     public void testSetPropertyNewValues_2_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final NodeAddData<ImmutableNode> addData = new NodeAddData<>(nodeForKey(ROOT_AUTHORS_TREE, "Homer"), "work", false, null);
@@ -1098,7 +1098,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertNotNull("Could not find other nodes", nodeForKey(model, "Homer/Ilias/Hektor"));
     }
 
-    @Test
+@Test
     public void testSetPropertyNoChanges_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_PERSONAE_TREE);
@@ -1110,14 +1110,14 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertSame("Model was changed", NodeStructureHelper.ROOT_PERSONAE_TREE, model.getRootNode());
     }
 
-    @Test
+@Test
     public void testSetRoot_1_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_PERSONAE_TREE);
         model.setRootNode(NodeStructureHelper.ROOT_AUTHORS_TREE);
         assertSame("Root node not changed", NodeStructureHelper.ROOT_AUTHORS_TREE, model.getRootNode());
     }
 
-    @Test
+@Test
     public void testSetRoot_2_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_PERSONAE_TREE);
         model.setRootNode(NodeStructureHelper.ROOT_AUTHORS_TREE);
@@ -1126,7 +1126,7 @@ public class TestInMemoryNodeModel_OE25Dev {
         assertEquals("Wrong parent mapping", nodeForKey(model, "Homer"), model.getNodeHandler().getParent(node));
     }
 
-    @Test
+@Test
     public void testSetRootNull_1_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_PERSONAE_TREE);
         model.setRootNode(null);

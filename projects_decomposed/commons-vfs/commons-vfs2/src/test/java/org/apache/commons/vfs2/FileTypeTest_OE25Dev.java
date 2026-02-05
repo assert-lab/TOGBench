@@ -72,7 +72,7 @@ public class FileTypeTest_OE25Dev {
         test(FileType.IMAGINARY);
     }
 
-    @Test
+@Test
     public void testSerializationContainer_1_oe() {
         final Fixture expectedFixture = new Fixture();
         final byte[] serialized = SerializationUtils.serialize(expectedFixture);

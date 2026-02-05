@@ -50,7 +50,7 @@ public class TestHierarchicalConfigurationXMLReader_OE25Dev {
         parser = new HierarchicalConfigurationXMLReader<>(config);
     }
 
-    @Test
+@Test
     public void testParse_1_oe() throws Exception {
         final SAXSource source = new SAXSource(parser, new InputSource());
         final DOMResult result = new DOMResult();

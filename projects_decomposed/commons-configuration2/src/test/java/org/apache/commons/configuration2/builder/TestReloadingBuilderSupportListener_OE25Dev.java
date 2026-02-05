@@ -40,7 +40,7 @@ public class TestReloadingBuilderSupportListener_OE25Dev {
      * Tests that the controller's reloading state is reset when a new result object is created.
      */
 
-    @Test
+@Test
     public void testResetBuilderOnReloadingEvent_1_oe() {
         final ReloadingDetector detector = EasyMock.createMock(ReloadingDetector.class);
         EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
@@ -54,7 +54,7 @@ public class TestReloadingBuilderSupportListener_OE25Dev {
         assertNotNull("No listener returned", listener);
     }
 
-    @Test
+@Test
     public void testResetReloadingStateOnResultCreation_1_oe() throws ConfigurationException {
         final ReloadingController controller = EasyMock.createMock(ReloadingController.class);
         controller.addEventListener(EasyMock.eq(ReloadingEvent.ANY), EasyMock.anyObject(EventListener.class));

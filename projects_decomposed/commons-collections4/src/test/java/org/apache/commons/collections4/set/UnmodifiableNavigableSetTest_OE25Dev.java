@@ -150,12 +150,12 @@ public class UnmodifiableNavigableSetTest_OE25Dev<E> extends AbstractNavigableSe
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/UnmodifiableNavigableSet.fullCollection.version4.1.obj");
 //    }
 
-    public void testDecorateFactory_1_oe() {
+public void testDecorateFactory_1_oe() {
         final NavigableSet<E> set = makeFullCollection();
         assertSame(set, UnmodifiableNavigableSet.unmodifiableNavigableSet(set));
     }
 
-    public void testComparator_1_oe() {
+public void testComparator_1_oe() {
         setupSet();
         final Comparator<? super E> c = set.comparator();
         assertTrue("natural order, so comparator should be null", c == null);

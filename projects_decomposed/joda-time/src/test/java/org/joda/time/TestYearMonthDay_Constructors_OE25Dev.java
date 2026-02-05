@@ -194,39 +194,39 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
      * Test constructor (int, int, int, Chronology=null)
      */
 
-    public void testFactory_FromCalendarFields_1_oe() throws Exception {
+public void testFactory_FromCalendarFields_1_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(1970, 1, 3, 4, 5, 6);
         cal.set(Calendar.MILLISECOND, 7);
         YearMonthDay expected = new YearMonthDay(1970, 2, 3);
         assertEquals(expected,YearMonthDay.fromCalendarFields(cal));
     }
 
-    public void testFactory_FromDateFields_1_oe() throws Exception {
+public void testFactory_FromDateFields_1_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(1970, 1, 3, 4, 5, 6);
         cal.set(Calendar.MILLISECOND, 7);
         YearMonthDay expected = new YearMonthDay(1970, 2, 3);
         assertEquals(expected,YearMonthDay.fromDateFields(cal.getTime()));
     }
 
-    public void testConstructor_1_oe() throws Throwable {
+public void testConstructor_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay();
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_2_oe() throws Throwable {
+public void testConstructor_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay();
         // removed other assertion
         assertEquals(1970,test.getYear());
     }
 
-    public void testConstructor_3_oe() throws Throwable {
+public void testConstructor_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay();
         // removed other assertion
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testConstructor_4_oe() throws Throwable {
+public void testConstructor_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay();
         // removed other assertion
         // removed other assertion
@@ -234,7 +234,7 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testConstructor_DateTimeZone_1_oe() throws Throwable {
+public void testConstructor_DateTimeZone_1_oe() throws Throwable {
         DateTime dt = new DateTime(2005, 6, 8, 23, 59, 0, 0, LONDON);
         DateTimeUtils.setCurrentMillisFixed(dt.getMillis());
         // 23:59 in London is 00:59 the following day in Paris
@@ -243,7 +243,7 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_DateTimeZone_2_oe() throws Throwable {
+public void testConstructor_DateTimeZone_2_oe() throws Throwable {
         DateTime dt = new DateTime(2005, 6, 8, 23, 59, 0, 0, LONDON);
         DateTimeUtils.setCurrentMillisFixed(dt.getMillis());
         // 23:59 in London is 00:59 the following day in Paris
@@ -253,7 +253,7 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(2005,test.getYear());
     }
 
-    public void testConstructor_DateTimeZone_3_oe() throws Throwable {
+public void testConstructor_DateTimeZone_3_oe() throws Throwable {
         DateTime dt = new DateTime(2005, 6, 8, 23, 59, 0, 0, LONDON);
         DateTimeUtils.setCurrentMillisFixed(dt.getMillis());
         // 23:59 in London is 00:59 the following day in Paris
@@ -264,7 +264,7 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testConstructor_DateTimeZone_4_oe() throws Throwable {
+public void testConstructor_DateTimeZone_4_oe() throws Throwable {
         DateTime dt = new DateTime(2005, 6, 8, 23, 59, 0, 0, LONDON);
         DateTimeUtils.setCurrentMillisFixed(dt.getMillis());
         // 23:59 in London is 00:59 the following day in Paris
@@ -276,7 +276,7 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(8,test.getDayOfMonth());
     }
 
-    public void testConstructor_DateTimeZone_5_oe() throws Throwable {
+public void testConstructor_DateTimeZone_5_oe() throws Throwable {
         DateTime dt = new DateTime(2005, 6, 8, 23, 59, 0, 0, LONDON);
         DateTimeUtils.setCurrentMillisFixed(dt.getMillis());
         // 23:59 in London is 00:59 the following day in Paris
@@ -291,7 +291,7 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_DateTimeZone_6_oe() throws Throwable {
+public void testConstructor_DateTimeZone_6_oe() throws Throwable {
         DateTime dt = new DateTime(2005, 6, 8, 23, 59, 0, 0, LONDON);
         DateTimeUtils.setCurrentMillisFixed(dt.getMillis());
         // 23:59 in London is 00:59 the following day in Paris
@@ -307,7 +307,7 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(2005,test.getYear());
     }
 
-    public void testConstructor_DateTimeZone_7_oe() throws Throwable {
+public void testConstructor_DateTimeZone_7_oe() throws Throwable {
         DateTime dt = new DateTime(2005, 6, 8, 23, 59, 0, 0, LONDON);
         DateTimeUtils.setCurrentMillisFixed(dt.getMillis());
         // 23:59 in London is 00:59 the following day in Paris
@@ -324,7 +324,7 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testConstructor_DateTimeZone_8_oe() throws Throwable {
+public void testConstructor_DateTimeZone_8_oe() throws Throwable {
         DateTime dt = new DateTime(2005, 6, 8, 23, 59, 0, 0, LONDON);
         DateTimeUtils.setCurrentMillisFixed(dt.getMillis());
         // 23:59 in London is 00:59 the following day in Paris
@@ -342,7 +342,7 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testConstructor_nullDateTimeZone_1_oe() throws Throwable {
+public void testConstructor_nullDateTimeZone_1_oe() throws Throwable {
         DateTime dt = new DateTime(2005, 6, 8, 23, 59, 0, 0, LONDON);
         DateTimeUtils.setCurrentMillisFixed(dt.getMillis());
         // 23:59 in London is 00:59 the following day in Paris
@@ -351,7 +351,7 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_nullDateTimeZone_2_oe() throws Throwable {
+public void testConstructor_nullDateTimeZone_2_oe() throws Throwable {
         DateTime dt = new DateTime(2005, 6, 8, 23, 59, 0, 0, LONDON);
         DateTimeUtils.setCurrentMillisFixed(dt.getMillis());
         // 23:59 in London is 00:59 the following day in Paris
@@ -361,7 +361,7 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(2005,test.getYear());
     }
 
-    public void testConstructor_nullDateTimeZone_3_oe() throws Throwable {
+public void testConstructor_nullDateTimeZone_3_oe() throws Throwable {
         DateTime dt = new DateTime(2005, 6, 8, 23, 59, 0, 0, LONDON);
         DateTimeUtils.setCurrentMillisFixed(dt.getMillis());
         // 23:59 in London is 00:59 the following day in Paris
@@ -372,7 +372,7 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testConstructor_nullDateTimeZone_4_oe() throws Throwable {
+public void testConstructor_nullDateTimeZone_4_oe() throws Throwable {
         DateTime dt = new DateTime(2005, 6, 8, 23, 59, 0, 0, LONDON);
         DateTimeUtils.setCurrentMillisFixed(dt.getMillis());
         // 23:59 in London is 00:59 the following day in Paris
@@ -384,25 +384,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(8,test.getDayOfMonth());
     }
 
-    public void testConstructor_Chronology_1_oe() throws Throwable {
+public void testConstructor_Chronology_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(GREGORIAN_PARIS);
         assertEquals(GREGORIAN_UTC,test.getChronology());
     }
 
-    public void testConstructor_Chronology_2_oe() throws Throwable {
+public void testConstructor_Chronology_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(GREGORIAN_PARIS);
         // removed other assertion
         assertEquals(1970,test.getYear());
     }
 
-    public void testConstructor_Chronology_3_oe() throws Throwable {
+public void testConstructor_Chronology_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(GREGORIAN_PARIS);
         // removed other assertion
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testConstructor_Chronology_4_oe() throws Throwable {
+public void testConstructor_Chronology_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(GREGORIAN_PARIS);
         // removed other assertion
         // removed other assertion
@@ -410,25 +410,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testConstructor_nullChronology_1_oe() throws Throwable {
+public void testConstructor_nullChronology_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay((Chronology) null);
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_nullChronology_2_oe() throws Throwable {
+public void testConstructor_nullChronology_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay((Chronology) null);
         // removed other assertion
         assertEquals(1970,test.getYear());
     }
 
-    public void testConstructor_nullChronology_3_oe() throws Throwable {
+public void testConstructor_nullChronology_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay((Chronology) null);
         // removed other assertion
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testConstructor_nullChronology_4_oe() throws Throwable {
+public void testConstructor_nullChronology_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay((Chronology) null);
         // removed other assertion
         // removed other assertion
@@ -436,25 +436,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testConstructor_long1_1_oe() throws Throwable {
+public void testConstructor_long1_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME1);
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_long1_2_oe() throws Throwable {
+public void testConstructor_long1_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME1);
         // removed other assertion
         assertEquals(1970,test.getYear());
     }
 
-    public void testConstructor_long1_3_oe() throws Throwable {
+public void testConstructor_long1_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME1);
         // removed other assertion
         // removed other assertion
         assertEquals(4,test.getMonthOfYear());
     }
 
-    public void testConstructor_long1_4_oe() throws Throwable {
+public void testConstructor_long1_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME1);
         // removed other assertion
         // removed other assertion
@@ -462,25 +462,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(6,test.getDayOfMonth());
     }
 
-    public void testConstructor_long2_1_oe() throws Throwable {
+public void testConstructor_long2_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME2);
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_long2_2_oe() throws Throwable {
+public void testConstructor_long2_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME2);
         // removed other assertion
         assertEquals(1971,test.getYear());
     }
 
-    public void testConstructor_long2_3_oe() throws Throwable {
+public void testConstructor_long2_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME2);
         // removed other assertion
         // removed other assertion
         assertEquals(5,test.getMonthOfYear());
     }
 
-    public void testConstructor_long2_4_oe() throws Throwable {
+public void testConstructor_long2_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME2);
         // removed other assertion
         // removed other assertion
@@ -488,25 +488,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(7,test.getDayOfMonth());
     }
 
-    public void testConstructor_long1_Chronology_1_oe() throws Throwable {
+public void testConstructor_long1_Chronology_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME1, GREGORIAN_PARIS);
         assertEquals(GREGORIAN_UTC,test.getChronology());
     }
 
-    public void testConstructor_long1_Chronology_2_oe() throws Throwable {
+public void testConstructor_long1_Chronology_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME1, GREGORIAN_PARIS);
         // removed other assertion
         assertEquals(1970,test.getYear());
     }
 
-    public void testConstructor_long1_Chronology_3_oe() throws Throwable {
+public void testConstructor_long1_Chronology_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME1, GREGORIAN_PARIS);
         // removed other assertion
         // removed other assertion
         assertEquals(4,test.getMonthOfYear());
     }
 
-    public void testConstructor_long1_Chronology_4_oe() throws Throwable {
+public void testConstructor_long1_Chronology_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME1, GREGORIAN_PARIS);
         // removed other assertion
         // removed other assertion
@@ -514,25 +514,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(6,test.getDayOfMonth());
     }
 
-    public void testConstructor_long2_Chronology_1_oe() throws Throwable {
+public void testConstructor_long2_Chronology_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME2, GREGORIAN_PARIS);
         assertEquals(GREGORIAN_UTC,test.getChronology());
     }
 
-    public void testConstructor_long2_Chronology_2_oe() throws Throwable {
+public void testConstructor_long2_Chronology_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME2, GREGORIAN_PARIS);
         // removed other assertion
         assertEquals(1971,test.getYear());
     }
 
-    public void testConstructor_long2_Chronology_3_oe() throws Throwable {
+public void testConstructor_long2_Chronology_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME2, GREGORIAN_PARIS);
         // removed other assertion
         // removed other assertion
         assertEquals(5,test.getMonthOfYear());
     }
 
-    public void testConstructor_long2_Chronology_4_oe() throws Throwable {
+public void testConstructor_long2_Chronology_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME2, GREGORIAN_PARIS);
         // removed other assertion
         // removed other assertion
@@ -540,25 +540,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(7,test.getDayOfMonth());
     }
 
-    public void testConstructor_long_nullChronology_1_oe() throws Throwable {
+public void testConstructor_long_nullChronology_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME1, null);
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_long_nullChronology_2_oe() throws Throwable {
+public void testConstructor_long_nullChronology_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME1, null);
         // removed other assertion
         assertEquals(1970,test.getYear());
     }
 
-    public void testConstructor_long_nullChronology_3_oe() throws Throwable {
+public void testConstructor_long_nullChronology_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME1, null);
         // removed other assertion
         // removed other assertion
         assertEquals(4,test.getMonthOfYear());
     }
 
-    public void testConstructor_long_nullChronology_4_oe() throws Throwable {
+public void testConstructor_long_nullChronology_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(TEST_TIME1, null);
         // removed other assertion
         // removed other assertion
@@ -566,20 +566,20 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(6,test.getDayOfMonth());
     }
 
-    public void testConstructor_Object_1_oe() throws Throwable {
+public void testConstructor_Object_1_oe() throws Throwable {
         Date date = new Date(TEST_TIME1);
         YearMonthDay test = new YearMonthDay(date);
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_Object_2_oe() throws Throwable {
+public void testConstructor_Object_2_oe() throws Throwable {
         Date date = new Date(TEST_TIME1);
         YearMonthDay test = new YearMonthDay(date);
         // removed other assertion
         assertEquals(1970,test.getYear());
     }
 
-    public void testConstructor_Object_3_oe() throws Throwable {
+public void testConstructor_Object_3_oe() throws Throwable {
         Date date = new Date(TEST_TIME1);
         YearMonthDay test = new YearMonthDay(date);
         // removed other assertion
@@ -587,7 +587,7 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(4,test.getMonthOfYear());
     }
 
-    public void testConstructor_Object_4_oe() throws Throwable {
+public void testConstructor_Object_4_oe() throws Throwable {
         Date date = new Date(TEST_TIME1);
         YearMonthDay test = new YearMonthDay(date);
         // removed other assertion
@@ -596,25 +596,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(6,test.getDayOfMonth());
     }
 
-    public void testConstructor_nullObject_1_oe() throws Throwable {
+public void testConstructor_nullObject_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay((Object) null);
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_nullObject_2_oe() throws Throwable {
+public void testConstructor_nullObject_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay((Object) null);
         // removed other assertion
         assertEquals(1970,test.getYear());
     }
 
-    public void testConstructor_nullObject_3_oe() throws Throwable {
+public void testConstructor_nullObject_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay((Object) null);
         // removed other assertion
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testConstructor_nullObject_4_oe() throws Throwable {
+public void testConstructor_nullObject_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay((Object) null);
         // removed other assertion
         // removed other assertion
@@ -622,25 +622,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testConstructor_ObjectString1_1_oe() throws Throwable {
+public void testConstructor_ObjectString1_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("1972-12-03");
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_ObjectString1_2_oe() throws Throwable {
+public void testConstructor_ObjectString1_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("1972-12-03");
         // removed other assertion
         assertEquals(1972,test.getYear());
     }
 
-    public void testConstructor_ObjectString1_3_oe() throws Throwable {
+public void testConstructor_ObjectString1_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("1972-12-03");
         // removed other assertion
         // removed other assertion
         assertEquals(12,test.getMonthOfYear());
     }
 
-    public void testConstructor_ObjectString1_4_oe() throws Throwable {
+public void testConstructor_ObjectString1_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("1972-12-03");
         // removed other assertion
         // removed other assertion
@@ -648,25 +648,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(3,test.getDayOfMonth());
     }
 
-    public void testConstructor_ObjectString2_1_oe() throws Throwable {
+public void testConstructor_ObjectString2_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("1972-12-03T+14:00");
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_ObjectString2_2_oe() throws Throwable {
+public void testConstructor_ObjectString2_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("1972-12-03T+14:00");
         // removed other assertion
         assertEquals(1972,test.getYear());
     }
 
-    public void testConstructor_ObjectString2_3_oe() throws Throwable {
+public void testConstructor_ObjectString2_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("1972-12-03T+14:00");
         // removed other assertion
         // removed other assertion
         assertEquals(12,test.getMonthOfYear());
     }
 
-    public void testConstructor_ObjectString2_4_oe() throws Throwable {
+public void testConstructor_ObjectString2_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("1972-12-03T+14:00");
         // removed other assertion
         // removed other assertion
@@ -674,25 +674,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(2,test.getDayOfMonth());  // timezone;
     }
 
-    public void testConstructor_ObjectString3_1_oe() throws Throwable {
+public void testConstructor_ObjectString3_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("1972-12-03T10:20:30.040");
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_ObjectString3_2_oe() throws Throwable {
+public void testConstructor_ObjectString3_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("1972-12-03T10:20:30.040");
         // removed other assertion
         assertEquals(1972,test.getYear());
     }
 
-    public void testConstructor_ObjectString3_3_oe() throws Throwable {
+public void testConstructor_ObjectString3_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("1972-12-03T10:20:30.040");
         // removed other assertion
         // removed other assertion
         assertEquals(12,test.getMonthOfYear());
     }
 
-    public void testConstructor_ObjectString3_4_oe() throws Throwable {
+public void testConstructor_ObjectString3_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("1972-12-03T10:20:30.040");
         // removed other assertion
         // removed other assertion
@@ -700,25 +700,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(3,test.getDayOfMonth());
     }
 
-    public void testConstructor_ObjectString4_1_oe() throws Throwable {
+public void testConstructor_ObjectString4_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("1972-12-03T10:20:30.040+14:00");
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_ObjectString4_2_oe() throws Throwable {
+public void testConstructor_ObjectString4_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("1972-12-03T10:20:30.040+14:00");
         // removed other assertion
         assertEquals(1972,test.getYear());
     }
 
-    public void testConstructor_ObjectString4_3_oe() throws Throwable {
+public void testConstructor_ObjectString4_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("1972-12-03T10:20:30.040+14:00");
         // removed other assertion
         // removed other assertion
         assertEquals(12,test.getMonthOfYear());
     }
 
-    public void testConstructor_ObjectString4_4_oe() throws Throwable {
+public void testConstructor_ObjectString4_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("1972-12-03T10:20:30.040+14:00");
         // removed other assertion
         // removed other assertion
@@ -726,25 +726,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(2,test.getDayOfMonth());  // timezone;
     }
 
-    public void testConstructor_ObjectString5_1_oe() throws Throwable {
+public void testConstructor_ObjectString5_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("10");
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_ObjectString5_2_oe() throws Throwable {
+public void testConstructor_ObjectString5_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("10");
         // removed other assertion
         assertEquals(10,test.getYear());
     }
 
-    public void testConstructor_ObjectString5_3_oe() throws Throwable {
+public void testConstructor_ObjectString5_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("10");
         // removed other assertion
         // removed other assertion
         assertEquals(1,test.getMonthOfYear());
     }
 
-    public void testConstructor_ObjectString5_4_oe() throws Throwable {
+public void testConstructor_ObjectString5_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay("10");
         // removed other assertion
         // removed other assertion
@@ -752,20 +752,20 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(1,test.getDayOfMonth());
     }
 
-    public void testConstructor_Object_Chronology_1_oe() throws Throwable {
+public void testConstructor_Object_Chronology_1_oe() throws Throwable {
         Date date = new Date(TEST_TIME1);
         YearMonthDay test = new YearMonthDay(date, GREGORIAN_PARIS);
         assertEquals(GREGORIAN_UTC,test.getChronology());
     }
 
-    public void testConstructor_Object_Chronology_2_oe() throws Throwable {
+public void testConstructor_Object_Chronology_2_oe() throws Throwable {
         Date date = new Date(TEST_TIME1);
         YearMonthDay test = new YearMonthDay(date, GREGORIAN_PARIS);
         // removed other assertion
         assertEquals(1970,test.getYear());
     }
 
-    public void testConstructor_Object_Chronology_3_oe() throws Throwable {
+public void testConstructor_Object_Chronology_3_oe() throws Throwable {
         Date date = new Date(TEST_TIME1);
         YearMonthDay test = new YearMonthDay(date, GREGORIAN_PARIS);
         // removed other assertion
@@ -773,7 +773,7 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(4,test.getMonthOfYear());
     }
 
-    public void testConstructor_Object_Chronology_4_oe() throws Throwable {
+public void testConstructor_Object_Chronology_4_oe() throws Throwable {
         Date date = new Date(TEST_TIME1);
         YearMonthDay test = new YearMonthDay(date, GREGORIAN_PARIS);
         // removed other assertion
@@ -782,25 +782,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(6,test.getDayOfMonth());
     }
 
-    public void testConstructor_nullObject_Chronology_1_oe() throws Throwable {
+public void testConstructor_nullObject_Chronology_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay((Object) null, GREGORIAN_PARIS);
         assertEquals(GREGORIAN_UTC,test.getChronology());
     }
 
-    public void testConstructor_nullObject_Chronology_2_oe() throws Throwable {
+public void testConstructor_nullObject_Chronology_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay((Object) null, GREGORIAN_PARIS);
         // removed other assertion
         assertEquals(1970,test.getYear());
     }
 
-    public void testConstructor_nullObject_Chronology_3_oe() throws Throwable {
+public void testConstructor_nullObject_Chronology_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay((Object) null, GREGORIAN_PARIS);
         // removed other assertion
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testConstructor_nullObject_Chronology_4_oe() throws Throwable {
+public void testConstructor_nullObject_Chronology_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay((Object) null, GREGORIAN_PARIS);
         // removed other assertion
         // removed other assertion
@@ -808,20 +808,20 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testConstructor_Object_nullChronology_1_oe() throws Throwable {
+public void testConstructor_Object_nullChronology_1_oe() throws Throwable {
         Date date = new Date(TEST_TIME1);
         YearMonthDay test = new YearMonthDay(date, null);
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_Object_nullChronology_2_oe() throws Throwable {
+public void testConstructor_Object_nullChronology_2_oe() throws Throwable {
         Date date = new Date(TEST_TIME1);
         YearMonthDay test = new YearMonthDay(date, null);
         // removed other assertion
         assertEquals(1970,test.getYear());
     }
 
-    public void testConstructor_Object_nullChronology_3_oe() throws Throwable {
+public void testConstructor_Object_nullChronology_3_oe() throws Throwable {
         Date date = new Date(TEST_TIME1);
         YearMonthDay test = new YearMonthDay(date, null);
         // removed other assertion
@@ -829,7 +829,7 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(4,test.getMonthOfYear());
     }
 
-    public void testConstructor_Object_nullChronology_4_oe() throws Throwable {
+public void testConstructor_Object_nullChronology_4_oe() throws Throwable {
         Date date = new Date(TEST_TIME1);
         YearMonthDay test = new YearMonthDay(date, null);
         // removed other assertion
@@ -838,25 +838,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(6,test.getDayOfMonth());
     }
 
-    public void testConstructor_nullObject_nullChronology_1_oe() throws Throwable {
+public void testConstructor_nullObject_nullChronology_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay((Object) null, null);
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_nullObject_nullChronology_2_oe() throws Throwable {
+public void testConstructor_nullObject_nullChronology_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay((Object) null, null);
         // removed other assertion
         assertEquals(1970,test.getYear());
     }
 
-    public void testConstructor_nullObject_nullChronology_3_oe() throws Throwable {
+public void testConstructor_nullObject_nullChronology_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay((Object) null, null);
         // removed other assertion
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testConstructor_nullObject_nullChronology_4_oe() throws Throwable {
+public void testConstructor_nullObject_nullChronology_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay((Object) null, null);
         // removed other assertion
         // removed other assertion
@@ -864,25 +864,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testConstructor_int_int_int_1_oe() throws Throwable {
+public void testConstructor_int_int_int_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(1970, 6, 9);
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_int_int_int_2_oe() throws Throwable {
+public void testConstructor_int_int_int_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(1970, 6, 9);
         // removed other assertion
         assertEquals(1970,test.getYear());
     }
 
-    public void testConstructor_int_int_int_3_oe() throws Throwable {
+public void testConstructor_int_int_int_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(1970, 6, 9);
         // removed other assertion
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testConstructor_int_int_int_4_oe() throws Throwable {
+public void testConstructor_int_int_int_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(1970, 6, 9);
         // removed other assertion
         // removed other assertion
@@ -890,25 +890,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testConstructor_int_int_int_Chronology_1_oe() throws Throwable {
+public void testConstructor_int_int_int_Chronology_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(1970, 6, 9, GREGORIAN_PARIS);
         assertEquals(GREGORIAN_UTC,test.getChronology());
     }
 
-    public void testConstructor_int_int_int_Chronology_2_oe() throws Throwable {
+public void testConstructor_int_int_int_Chronology_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(1970, 6, 9, GREGORIAN_PARIS);
         // removed other assertion
         assertEquals(1970,test.getYear());
     }
 
-    public void testConstructor_int_int_int_Chronology_3_oe() throws Throwable {
+public void testConstructor_int_int_int_Chronology_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(1970, 6, 9, GREGORIAN_PARIS);
         // removed other assertion
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testConstructor_int_int_int_Chronology_4_oe() throws Throwable {
+public void testConstructor_int_int_int_Chronology_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(1970, 6, 9, GREGORIAN_PARIS);
         // removed other assertion
         // removed other assertion
@@ -916,25 +916,25 @@ public class TestYearMonthDay_Constructors_OE25Dev extends TestCase {
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testConstructor_int_int_int_nullChronology_1_oe() throws Throwable {
+public void testConstructor_int_int_int_nullChronology_1_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(1970, 6, 9, null);
         assertEquals(ISO_UTC,test.getChronology());
     }
 
-    public void testConstructor_int_int_int_nullChronology_2_oe() throws Throwable {
+public void testConstructor_int_int_int_nullChronology_2_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(1970, 6, 9, null);
         // removed other assertion
         assertEquals(1970,test.getYear());
     }
 
-    public void testConstructor_int_int_int_nullChronology_3_oe() throws Throwable {
+public void testConstructor_int_int_int_nullChronology_3_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(1970, 6, 9, null);
         // removed other assertion
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testConstructor_int_int_int_nullChronology_4_oe() throws Throwable {
+public void testConstructor_int_int_int_nullChronology_4_oe() throws Throwable {
         YearMonthDay test = new YearMonthDay(1970, 6, 9, null);
         // removed other assertion
         // removed other assertion

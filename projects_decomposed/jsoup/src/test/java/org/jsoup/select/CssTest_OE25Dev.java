@@ -174,20 +174,20 @@ public class CssTest_OE25Dev {
 		}
 	}
 
-	@Test
+@Test
 	public void empty_1_oe() {
 		final Elements sel = html.select(":empty");
 		assertEquals(3, sel.size());
 	}
 
-	@Test
+@Test
 	public void empty_2_oe() {
 		final Elements sel = html.select(":empty");
 		// removed other assertion
 		assertEquals("head", sel.get(0).tagName());
 	}
 
-	@Test
+@Test
 	public void empty_3_oe() {
 		final Elements sel = html.select(":empty");
 		// removed other assertion
@@ -195,7 +195,7 @@ public class CssTest_OE25Dev {
 		assertEquals("br", sel.get(1).tagName());
 	}
 
-	@Test
+@Test
 	public void empty_4_oe() {
 		final Elements sel = html.select(":empty");
 		// removed other assertion
@@ -204,33 +204,33 @@ public class CssTest_OE25Dev {
 		assertEquals("p", sel.get(2).tagName());
 	}
 
-	@Test
+@Test
 	public void onlyChild_1_oe() {
 		final Elements sel = html.select("span :only-child");
 		assertEquals(1, sel.size());
 	}
 
-	@Test
+@Test
 	public void onlyChild_2_oe() {
 		final Elements sel = html.select("span :only-child");
 		// removed other assertion
 		assertEquals("br", sel.get(0).tagName());
 	}
 
-	@Test
+@Test
 	public void onlyOfType_1_oe() {
 		final Elements sel = html.select(":only-of-type");
 		assertEquals(6, sel.size());
 	}
 
-	@Test
+@Test
 	public void onlyOfType_2_oe() {
 		final Elements sel = html.select(":only-of-type");
 		// removed other assertion
 		assertEquals("head", sel.get(0).tagName());
 	}
 
-	@Test
+@Test
 	public void onlyOfType_3_oe() {
 		final Elements sel = html.select(":only-of-type");
 		// removed other assertion
@@ -238,7 +238,7 @@ public class CssTest_OE25Dev {
 		assertEquals("body", sel.get(1).tagName());
 	}
 
-	@Test
+@Test
 	public void onlyOfType_4_oe() {
 		final Elements sel = html.select(":only-of-type");
 		// removed other assertion
@@ -247,7 +247,7 @@ public class CssTest_OE25Dev {
 		assertEquals("span", sel.get(2).tagName());
 	}
 
-	@Test
+@Test
 	public void onlyOfType_5_oe() {
 		final Elements sel = html.select(":only-of-type");
 		// removed other assertion
@@ -257,7 +257,7 @@ public class CssTest_OE25Dev {
 		assertEquals("br", sel.get(3).tagName());
 	}
 
-	@Test
+@Test
 	public void onlyOfType_6_oe() {
 		final Elements sel = html.select(":only-of-type");
 		// removed other assertion
@@ -268,7 +268,7 @@ public class CssTest_OE25Dev {
 		assertEquals("p", sel.get(4).tagName());
 	}
 
-	@Test
+@Test
 	public void onlyOfType_7_oe() {
 		final Elements sel = html.select(":only-of-type");
 		// removed other assertion
@@ -280,7 +280,7 @@ public class CssTest_OE25Dev {
 		assertTrue(sel.get(4).hasClass("empty"));
 	}
 
-	@Test
+@Test
 	public void onlyOfType_8_oe() {
 		final Elements sel = html.select(":only-of-type");
 		// removed other assertion
@@ -293,20 +293,20 @@ public class CssTest_OE25Dev {
 		assertEquals("em", sel.get(5).tagName());
 	}
 
-	@Test
+@Test
 	public void root_1_oe() {
 		Elements sel = html.select(":root");
 		assertEquals(1, sel.size());
 	}
 
-	@Test
+@Test
 	public void root_2_oe() {
 		Elements sel = html.select(":root");
 		// removed other assertion
 		assertNotNull(sel.get(0));
 	}
 
-	@Test
+@Test
 	public void root_3_oe() {
 		Elements sel = html.select(":root");
 		// removed other assertion
@@ -314,7 +314,7 @@ public class CssTest_OE25Dev {
 		assertEquals(Tag.valueOf("html"), sel.get(0).tag());
 	}
 
-	@Test
+@Test
 	public void root_4_oe() {
 		Elements sel = html.select(":root");
 		// removed other assertion
@@ -325,7 +325,7 @@ public class CssTest_OE25Dev {
 		assertEquals(1, sel2.size());
 	}
 
-	@Test
+@Test
 	public void root_5_oe() {
 		Elements sel = html.select(":root");
 		// removed other assertion
@@ -337,7 +337,7 @@ public class CssTest_OE25Dev {
 		assertNotNull(sel2.get(0));
 	}
 
-	@Test
+@Test
 	public void root_6_oe() {
 		Elements sel = html.select(":root");
 		// removed other assertion

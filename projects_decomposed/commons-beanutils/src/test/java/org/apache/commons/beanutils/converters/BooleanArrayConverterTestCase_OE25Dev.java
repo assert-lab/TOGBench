@@ -121,7 +121,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
      * Check that registration of a custom converter works.
      */
 
-    public void testStandardStringArrayConversion_1_oe() {
+public void testStandardStringArrayConversion_1_oe() {
         final String[] values = {
             "true", "false",
             "yes", "no",
@@ -135,7 +135,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertNotNull(results);
     }
 
-    public void testStandardStringArrayConversion_2_oe() {
+public void testStandardStringArrayConversion_2_oe() {
         final String[] values = {
             "true", "false",
             "yes", "no",
@@ -150,7 +150,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertEquals(8, results.length);
     }
 
-    public void testStandardStringArrayConversion_3_oe() {
+public void testStandardStringArrayConversion_3_oe() {
         final String[] values = {
             "true", "false",
             "yes", "no",
@@ -166,7 +166,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[0]);
     }
 
-    public void testStandardStringArrayConversion_4_oe() {
+public void testStandardStringArrayConversion_4_oe() {
         final String[] values = {
             "true", "false",
             "yes", "no",
@@ -183,7 +183,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertFalse(results[1]);
     }
 
-    public void testStandardStringArrayConversion_5_oe() {
+public void testStandardStringArrayConversion_5_oe() {
         final String[] values = {
             "true", "false",
             "yes", "no",
@@ -201,7 +201,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[2]);
     }
 
-    public void testStandardStringArrayConversion_6_oe() {
+public void testStandardStringArrayConversion_6_oe() {
         final String[] values = {
             "true", "false",
             "yes", "no",
@@ -220,7 +220,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertFalse(results[3]);
     }
 
-    public void testStandardStringArrayConversion_7_oe() {
+public void testStandardStringArrayConversion_7_oe() {
         final String[] values = {
             "true", "false",
             "yes", "no",
@@ -240,7 +240,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[4]);
     }
 
-    public void testStandardStringArrayConversion_8_oe() {
+public void testStandardStringArrayConversion_8_oe() {
         final String[] values = {
             "true", "false",
             "yes", "no",
@@ -261,7 +261,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertFalse(results[5]);
     }
 
-    public void testStandardStringArrayConversion_9_oe() {
+public void testStandardStringArrayConversion_9_oe() {
         final String[] values = {
             "true", "false",
             "yes", "no",
@@ -283,7 +283,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[6]);
     }
 
-    public void testStandardStringArrayConversion_10_oe() {
+public void testStandardStringArrayConversion_10_oe() {
         final String[] values = {
             "true", "false",
             "yes", "no",
@@ -306,7 +306,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertFalse(results[7]);
     }
 
-    public void testStandardStringConversion_1_oe() {
+public void testStandardStringConversion_1_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -320,7 +320,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertNotNull(results);
     }
 
-    public void testStandardStringConversion_2_oe() {
+public void testStandardStringConversion_2_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -335,7 +335,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertEquals(8, results.length);
     }
 
-    public void testStandardStringConversion_3_oe() {
+public void testStandardStringConversion_3_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -351,7 +351,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[0]);
     }
 
-    public void testStandardStringConversion_4_oe() {
+public void testStandardStringConversion_4_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -368,7 +368,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[1]);
     }
 
-    public void testStandardStringConversion_5_oe() {
+public void testStandardStringConversion_5_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -386,7 +386,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[2]);
     }
 
-    public void testStandardStringConversion_6_oe() {
+public void testStandardStringConversion_6_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -405,7 +405,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[3]);
     }
 
-    public void testStandardStringConversion_7_oe() {
+public void testStandardStringConversion_7_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -425,7 +425,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertFalse(results[4]);
     }
 
-    public void testStandardStringConversion_8_oe() {
+public void testStandardStringConversion_8_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -446,7 +446,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertFalse(results[5]);
     }
 
-    public void testStandardStringConversion_9_oe() {
+public void testStandardStringConversion_9_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -468,7 +468,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertFalse(results[6]);
     }
 
-    public void testStandardStringConversion_10_oe() {
+public void testStandardStringConversion_10_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -491,7 +491,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertFalse(results[7]);
     }
 
-    public void testStandardStringConversion_11_oe() {
+public void testStandardStringConversion_11_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -521,7 +521,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertNotNull(results);
     }
 
-    public void testStandardStringConversion_12_oe() {
+public void testStandardStringConversion_12_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -552,7 +552,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertEquals(8, results.length);
     }
 
-    public void testStandardStringConversion_13_oe() {
+public void testStandardStringConversion_13_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -584,7 +584,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertFalse(results[0]);
     }
 
-    public void testStandardStringConversion_14_oe() {
+public void testStandardStringConversion_14_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -617,7 +617,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertFalse(results[1]);
     }
 
-    public void testStandardStringConversion_15_oe() {
+public void testStandardStringConversion_15_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -651,7 +651,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertFalse(results[2]);
     }
 
-    public void testStandardStringConversion_16_oe() {
+public void testStandardStringConversion_16_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -686,7 +686,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertFalse(results[3]);
     }
 
-    public void testStandardStringConversion_17_oe() {
+public void testStandardStringConversion_17_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -722,7 +722,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[4]);
     }
 
-    public void testStandardStringConversion_18_oe() {
+public void testStandardStringConversion_18_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -759,7 +759,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[5]);
     }
 
-    public void testStandardStringConversion_19_oe() {
+public void testStandardStringConversion_19_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -797,7 +797,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[6]);
     }
 
-    public void testStandardStringConversion_20_oe() {
+public void testStandardStringConversion_20_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -836,7 +836,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[7]);
     }
 
-    public void testStandardStringConversion_21_oe() {
+public void testStandardStringConversion_21_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -882,7 +882,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertNotNull(results);
     }
 
-    public void testStandardStringConversion_22_oe() {
+public void testStandardStringConversion_22_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -929,7 +929,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertEquals(1, results.length);
     }
 
-    public void testStandardStringConversion_23_oe() {
+public void testStandardStringConversion_23_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -977,7 +977,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[0]);
     }
 
-    public void testStandardStringConversion_24_oe() {
+public void testStandardStringConversion_24_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -1032,7 +1032,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertNotNull(results);
     }
 
-    public void testStandardStringConversion_25_oe() {
+public void testStandardStringConversion_25_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -1088,7 +1088,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertEquals(1, results.length);
     }
 
-    public void testStandardStringConversion_26_oe() {
+public void testStandardStringConversion_26_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -1145,7 +1145,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[0]);
     }
 
-    public void testStandardStringConversion_27_oe() {
+public void testStandardStringConversion_27_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -1209,7 +1209,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertNotNull(results);
     }
 
-    public void testStandardStringConversion_28_oe() {
+public void testStandardStringConversion_28_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -1274,7 +1274,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertEquals(1, results.length);
     }
 
-    public void testStandardStringConversion_29_oe() {
+public void testStandardStringConversion_29_oe() {
         final BooleanArrayConverter converter = new BooleanArrayConverter();
 
         final StringBuilder input = new StringBuilder();
@@ -1340,7 +1340,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[0]);
     }
 
-    public void testAdditionalStrings_1_oe() {
+public void testAdditionalStrings_1_oe() {
         final String[] trueStrings = {"sure"};
         final String[] falseStrings = {"nope"};
         final BooleanConverter bc = new BooleanConverter(
@@ -1352,7 +1352,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertNotNull(results);
     }
 
-    public void testAdditionalStrings_2_oe() {
+public void testAdditionalStrings_2_oe() {
         final String[] trueStrings = {"sure"};
         final String[] falseStrings = {"nope"};
         final BooleanConverter bc = new BooleanConverter(
@@ -1365,7 +1365,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertEquals(3, results.length);
     }
 
-    public void testAdditionalStrings_3_oe() {
+public void testAdditionalStrings_3_oe() {
         final String[] trueStrings = {"sure"};
         final String[] falseStrings = {"nope"};
         final BooleanConverter bc = new BooleanConverter(
@@ -1379,7 +1379,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertFalse(results[0]);
     }
 
-    public void testAdditionalStrings_4_oe() {
+public void testAdditionalStrings_4_oe() {
         final String[] trueStrings = {"sure"};
         final String[] falseStrings = {"nope"};
         final BooleanConverter bc = new BooleanConverter(
@@ -1394,7 +1394,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[1]);
     }
 
-    public void testAdditionalStrings_5_oe() {
+public void testAdditionalStrings_5_oe() {
         final String[] trueStrings = {"sure"};
         final String[] falseStrings = {"nope"};
         final BooleanConverter bc = new BooleanConverter(
@@ -1410,21 +1410,21 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[2]);
     }
 
-    public void testInvalidStringWithDefault_1_oe() {
+public void testInvalidStringWithDefault_1_oe() {
         final boolean[] defaults = new boolean[1];
         final BooleanArrayConverter converter = new BooleanArrayConverter(defaults);
         final Object o = converter.convert(null, "true!");
         assertSame("Unexpected object returned for failed conversion", o, defaults);
     }
 
-    public void testInvalidElementWithDefault_1_oe() {
+public void testInvalidElementWithDefault_1_oe() {
         final boolean[] defaults = new boolean[1];
         final BooleanArrayConverter converter = new BooleanArrayConverter(defaults);
         final Object o = converter.convert(null, "true,bogus");
         assertSame("Unexpected object returned for failed conversion", o, defaults);
     }
 
-    public void testElementDefault_1_oe() {
+public void testElementDefault_1_oe() {
         final boolean[] defaults = new boolean[1];
         final BooleanConverter bc = new BooleanConverter(Boolean.TRUE);
         final BooleanArrayConverter converter = new BooleanArrayConverter(bc, defaults);
@@ -1433,7 +1433,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertEquals(2, results.length);
     }
 
-    public void testElementDefault_2_oe() {
+public void testElementDefault_2_oe() {
         final boolean[] defaults = new boolean[1];
         final BooleanConverter bc = new BooleanConverter(Boolean.TRUE);
         final BooleanArrayConverter converter = new BooleanArrayConverter(bc, defaults);
@@ -1443,7 +1443,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[0]);
     }
 
-    public void testElementDefault_3_oe() {
+public void testElementDefault_3_oe() {
         final boolean[] defaults = new boolean[1];
         final BooleanConverter bc = new BooleanConverter(Boolean.TRUE);
         final BooleanArrayConverter converter = new BooleanArrayConverter(bc, defaults);
@@ -1454,7 +1454,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[1]);
     }
 
-    public void testRegistration_1_oe() {
+public void testRegistration_1_oe() {
         final String[] trueStrings = {"sure"};
         final String[] falseStrings = {"nope"};
         final BooleanConverter bc = new BooleanConverter(
@@ -1470,7 +1470,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertEquals(2, results.length);
     }
 
-    public void testRegistration_2_oe() {
+public void testRegistration_2_oe() {
         final String[] trueStrings = {"sure"};
         final String[] falseStrings = {"nope"};
         final BooleanConverter bc = new BooleanConverter(
@@ -1487,7 +1487,7 @@ public class BooleanArrayConverterTestCase_OE25Dev extends TestCase {
         assertTrue(results[0]);
     }
 
-    public void testRegistration_3_oe() {
+public void testRegistration_3_oe() {
         final String[] trueStrings = {"sure"};
         final String[] falseStrings = {"nope"};
         final BooleanConverter bc = new BooleanConverter(

@@ -133,7 +133,7 @@ public class Jira157TestCase_OE25Dev extends TestCase {
         }
     }
 
-    public void testIssue_BEANUTILS_157_BeanUtils_Describe_Serializable_1_oe() {
+public void testIssue_BEANUTILS_157_BeanUtils_Describe_Serializable_1_oe() {
         final Object bean = new Serializable() {
             private static final long serialVersionUID = 1L;
 
@@ -155,7 +155,7 @@ public class Jira157TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_157_BeanUtils_Describe_Serializable_2_oe() {
+public void testIssue_BEANUTILS_157_BeanUtils_Describe_Serializable_2_oe() {
         final Object bean = new Serializable() {
             private static final long serialVersionUID = 1L;
 
@@ -178,7 +178,7 @@ public class Jira157TestCase_OE25Dev extends TestCase {
         assertEquals("Check Size", 1, result.size());
     }
 
-    public void testIssue_BEANUTILS_157_BeanUtils_Describe_Serializable_3_oe() {
+public void testIssue_BEANUTILS_157_BeanUtils_Describe_Serializable_3_oe() {
         final Object bean = new Serializable() {
             private static final long serialVersionUID = 1L;
 
@@ -202,7 +202,7 @@ public class Jira157TestCase_OE25Dev extends TestCase {
         assertTrue("Class", result.containsKey("class"));
     }
 
-    public void testIssue_BEANUTILS_157_BeanUtils_Describe_Interface_1_oe() {
+public void testIssue_BEANUTILS_157_BeanUtils_Describe_Interface_1_oe() {
         final Object bean = new XY() {
             public String getX() {
                 return "x-value";
@@ -220,7 +220,7 @@ public class Jira157TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_157_BeanUtils_Describe_Interface_2_oe() {
+public void testIssue_BEANUTILS_157_BeanUtils_Describe_Interface_2_oe() {
         final Object bean = new XY() {
             public String getX() {
                 return "x-value";
@@ -239,7 +239,7 @@ public class Jira157TestCase_OE25Dev extends TestCase {
         assertEquals("Check Size", 3, result.size());
     }
 
-    public void testIssue_BEANUTILS_157_BeanUtils_Describe_Interface_3_oe() {
+public void testIssue_BEANUTILS_157_BeanUtils_Describe_Interface_3_oe() {
         final Object bean = new XY() {
             public String getX() {
                 return "x-value";
@@ -259,7 +259,7 @@ public class Jira157TestCase_OE25Dev extends TestCase {
         assertTrue("Class", result.containsKey("class"));
     }
 
-    public void testIssue_BEANUTILS_157_BeanUtils_Describe_Interface_4_oe() {
+public void testIssue_BEANUTILS_157_BeanUtils_Describe_Interface_4_oe() {
         final Object bean = new XY() {
             public String getX() {
                 return "x-value";
@@ -280,7 +280,7 @@ public class Jira157TestCase_OE25Dev extends TestCase {
         assertTrue("X Key", result.containsKey("x"));
     }
 
-    public void testIssue_BEANUTILS_157_BeanUtils_Describe_Interface_5_oe() {
+public void testIssue_BEANUTILS_157_BeanUtils_Describe_Interface_5_oe() {
         final Object bean = new XY() {
             public String getX() {
                 return "x-value";
@@ -302,7 +302,7 @@ public class Jira157TestCase_OE25Dev extends TestCase {
         assertTrue("Y Key", result.containsKey("y"));
     }
 
-    public void testIssue_BEANUTILS_157_BeanUtils_Describe_Interface_6_oe() {
+public void testIssue_BEANUTILS_157_BeanUtils_Describe_Interface_6_oe() {
         final Object bean = new XY() {
             public String getX() {
                 return "x-value";
@@ -325,7 +325,7 @@ public class Jira157TestCase_OE25Dev extends TestCase {
         assertEquals("X Value", "x-value", result.get("x"));
     }
 
-    public void testIssue_BEANUTILS_157_BeanUtils_Describe_Interface_7_oe() {
+public void testIssue_BEANUTILS_157_BeanUtils_Describe_Interface_7_oe() {
         final Object bean = new XY() {
             public String getX() {
                 return "x-value";
@@ -349,7 +349,7 @@ public class Jira157TestCase_OE25Dev extends TestCase {
         assertEquals("Y Value", "y-value", result.get("y"));
     }
 
-    public void testIssue_BEANUTILS_157_BeanUtils_Describe_Bean_1_oe() {
+public void testIssue_BEANUTILS_157_BeanUtils_Describe_Bean_1_oe() {
         final Object bean = new FooBar();
         Map<String, String> result = null;
         try {
@@ -360,7 +360,7 @@ public class Jira157TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIssue_BEANUTILS_157_BeanUtils_Describe_Bean_2_oe() {
+public void testIssue_BEANUTILS_157_BeanUtils_Describe_Bean_2_oe() {
         final Object bean = new FooBar();
         Map<String, String> result = null;
         try {
@@ -372,7 +372,7 @@ public class Jira157TestCase_OE25Dev extends TestCase {
         assertEquals("Check Size", 2, result.size());
     }
 
-    public void testIssue_BEANUTILS_157_BeanUtils_Describe_Bean_3_oe() {
+public void testIssue_BEANUTILS_157_BeanUtils_Describe_Bean_3_oe() {
         final Object bean = new FooBar();
         Map<String, String> result = null;
         try {
@@ -385,7 +385,7 @@ public class Jira157TestCase_OE25Dev extends TestCase {
         assertTrue("Class", result.containsKey("class"));
     }
 
-    public void testIssue_BEANUTILS_157_BeanUtils_Describe_Bean_4_oe() {
+public void testIssue_BEANUTILS_157_BeanUtils_Describe_Bean_4_oe() {
         final Object bean = new FooBar();
         Map<String, String> result = null;
         try {
@@ -399,7 +399,7 @@ public class Jira157TestCase_OE25Dev extends TestCase {
         assertTrue("publicFoo Key", result.containsKey("publicFoo"));
     }
 
-    public void testIssue_BEANUTILS_157_BeanUtils_Describe_Bean_5_oe() {
+public void testIssue_BEANUTILS_157_BeanUtils_Describe_Bean_5_oe() {
         final Object bean = new FooBar();
         Map<String, String> result = null;
         try {

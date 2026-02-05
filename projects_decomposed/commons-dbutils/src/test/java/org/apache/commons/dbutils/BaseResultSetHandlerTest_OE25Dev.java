@@ -48,14 +48,14 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
 
     }
 
-    @Test
+@Test
     public void handleWithoutExplicitResultSetInvocation_1_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
         assertFalse(result.isEmpty());
     }
 
-    @Test
+@Test
     public void handleWithoutExplicitResultSetInvocation_2_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
@@ -66,7 +66,7 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    @Test
+@Test
     public void handleWithoutExplicitResultSetInvocation_3_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
@@ -78,7 +78,7 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    @Test
+@Test
     public void handleWithoutExplicitResultSetInvocation_4_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
@@ -91,7 +91,7 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    @Test
+@Test
     public void handleWithoutExplicitResultSetInvocation_5_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
@@ -105,7 +105,7 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    @Test
+@Test
     public void handleWithoutExplicitResultSetInvocation_6_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
@@ -120,7 +120,7 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    @Test
+@Test
     public void handleWithoutExplicitResultSetInvocation_7_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
@@ -136,7 +136,7 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    @Test
+@Test
     public void handleWithoutExplicitResultSetInvocation_8_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
@@ -153,7 +153,7 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    @Test
+@Test
     public void handleWithoutExplicitResultSetInvocation_9_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
@@ -171,7 +171,7 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    @Test
+@Test
     public void handleWithoutExplicitResultSetInvocation_10_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 
@@ -190,7 +190,7 @@ public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    @Test
+@Test
     public void handleWithoutExplicitResultSetInvocation_11_oe() throws Exception {
         Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
 

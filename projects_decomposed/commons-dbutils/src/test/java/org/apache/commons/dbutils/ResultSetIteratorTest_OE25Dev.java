@@ -39,7 +39,7 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
     }
 
 
-    public void testNext_1_oe() {
+public void testNext_1_oe() {
 
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
@@ -47,7 +47,7 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         assertTrue(iter.hasNext());
     }
 
-    public void testNext_2_oe() {
+public void testNext_2_oe() {
 
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
@@ -57,7 +57,7 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         assertEquals(COLS, row.length);
     }
 
-    public void testNext_3_oe() {
+public void testNext_3_oe() {
 
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
@@ -68,7 +68,7 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         assertEquals("1", row[0]);
     }
 
-    public void testNext_4_oe() {
+public void testNext_4_oe() {
 
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
@@ -80,7 +80,7 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         assertEquals("2", row[1]);
     }
 
-    public void testNext_5_oe() {
+public void testNext_5_oe() {
 
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
@@ -93,7 +93,7 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         assertEquals("THREE", row[2]);
     }
 
-    public void testNext_6_oe() {
+public void testNext_6_oe() {
 
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
@@ -108,7 +108,7 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         assertTrue(iter.hasNext());
     }
 
-    public void testNext_7_oe() {
+public void testNext_7_oe() {
 
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
@@ -125,7 +125,7 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         assertEquals(COLS, row.length);
     }
 
-    public void testNext_8_oe() {
+public void testNext_8_oe() {
 
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
@@ -144,7 +144,7 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         assertEquals("4", row[0]);
     }
 
-    public void testNext_9_oe() {
+public void testNext_9_oe() {
 
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
@@ -164,7 +164,7 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         assertEquals("5", row[1]);
     }
 
-    public void testNext_10_oe() {
+public void testNext_10_oe() {
 
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
@@ -185,7 +185,7 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         assertEquals("SIX", row[2]);
     }
 
-    public void testNext_11_oe() {
+public void testNext_11_oe() {
 
         Iterator<Object[]> iter = new ResultSetIterator(this.rs);
 
@@ -208,7 +208,7 @@ public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
         assertFalse(iter.hasNext());
     }
 
-    @Test
+@Test
     public void testRethrowThrowsRuntimeException_2_oe() {
 
         ResultSetIterator resultSetIterator = new ResultSetIterator((ResultSet) null);

@@ -69,13 +69,13 @@ public class FileIteratorTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testIterator_1_oe() throws FileSystemException {
         final FileObject[] findFiles = BaseFolder.findFiles(Selectors.SELECT_ALL);
         Assert.assertEquals(FileCount, findFiles.length);
     }
 
-    @Test
+@Test
     public void testIterator_2_oe() throws FileSystemException {
         final FileObject[] findFiles = BaseFolder.findFiles(Selectors.SELECT_ALL);
         // removed other assertion
@@ -83,7 +83,7 @@ public class FileIteratorTest_OE25Dev {
         Assert.assertTrue(FileCount > listFiles.length);
     }
 
-    @Test
+@Test
     public void testIterator_3_oe() throws FileSystemException {
         final FileObject[] findFiles = BaseFolder.findFiles(Selectors.SELECT_ALL);
         // removed other assertion
@@ -96,7 +96,7 @@ public class FileIteratorTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIterator_4_oe() throws FileSystemException {
         final FileObject[] findFiles = BaseFolder.findFiles(Selectors.SELECT_ALL);
         // removed other assertion

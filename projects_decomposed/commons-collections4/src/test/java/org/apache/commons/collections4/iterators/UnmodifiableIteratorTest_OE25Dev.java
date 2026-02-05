@@ -64,16 +64,16 @@ public class UnmodifiableIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E>
 
     //-----------------------------------------------------------------------
 
-    public void testIterator_1_oe() {
+public void testIterator_1_oe() {
         assertTrue(makeEmptyIterator() instanceof Unmodifiable);
     }
 
-    public void testDecorateFactory_1_oe() {
+public void testDecorateFactory_1_oe() {
         Iterator<E> it = makeObject();
         assertSame(it, UnmodifiableIterator.unmodifiableIterator(it));
     }
 
-    public void testDecorateFactory_2_oe() {
+public void testDecorateFactory_2_oe() {
         Iterator<E> it = makeObject();
         // removed other assertion
 

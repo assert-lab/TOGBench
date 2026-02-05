@@ -58,25 +58,25 @@ public class MultiSetUtilsTest_OE25Dev {
      * Tests {@link MultiSetUtils#predicatedMultiSet(org.apache.commons.collections4.MultiSet, org.apache.commons.collections4.Predicate)}.
      */
 
-    @Test
+@Test
     public void testEmptyMultiSet_1_oe() {
         final MultiSet<Integer> empty = MultiSetUtils.emptyMultiSet();
         assertEquals(0, empty.size());
     }
 
-    @Test
+@Test
     public void testUnmodifiableMultiSet_1_oe() {
         final MultiSet<String> unmodifiable = MultiSetUtils.unmodifiableMultiSet(multiSet);
         assertEquals(multiSet, unmodifiable);
     }
 
-    @Test
+@Test
     public void testSynchronizedMultiSet_1_oe() {
         final MultiSet<String> synced = MultiSetUtils.synchronizedMultiSet(multiSet);
         assertEquals(multiSet, synced);
     }
 
-    @Test
+@Test
     public void testPredicatedMultiSet_1_oe() {
         final Predicate<String> predicate = new Predicate<String>() {
             @Override
@@ -88,7 +88,7 @@ public class MultiSetUtilsTest_OE25Dev {
         assertEquals(multiSet.size(), predicated.size());
     }
 
-    @Test
+@Test
     public void testPredicatedMultiSet_2_oe() {
         final Predicate<String> predicate = new Predicate<String>() {
             @Override

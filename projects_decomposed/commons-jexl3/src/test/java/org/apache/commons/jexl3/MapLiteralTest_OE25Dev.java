@@ -32,7 +32,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         super("MapLiteralTest_OE25Dev");
     }
 
-    @Test
+@Test
     public void testLiteralWithStrings_1_oe() throws Exception {
         final JexlExpression e = JEXL.createExpression("{ 'foo' : 'bar' }");
         final JexlContext jc = new MapContext();
@@ -41,7 +41,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Collections.singletonMap("foo", "bar"), o);
     }
 
-    @Test
+@Test
     public void testLiteralWithMultipleEntries_1_oe() throws Exception {
         final JexlExpression e = JEXL.createExpression("{ 'foo' : 'bar', 'eat' : 'food' }");
         final JexlContext jc = new MapContext();
@@ -54,7 +54,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expected, o);
     }
 
-    @Test
+@Test
     public void testLiteralWithNumbers_1_oe() throws Exception {
         JexlExpression e = JEXL.createExpression("{ 5 : 10 }");
         final JexlContext jc = new MapContext();
@@ -63,7 +63,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Collections.singletonMap(new Integer(5), new Integer(10)), o);
     }
 
-    @Test
+@Test
     public void testLiteralWithNumbers_2_oe() throws Exception {
         JexlExpression e = JEXL.createExpression("{ 5 : 10 }");
         final JexlContext jc = new MapContext();
@@ -79,7 +79,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(new Integer(30), o);
     }
 
-    @Test
+@Test
     public void testLiteralWithNumbers_3_oe() throws Exception {
         JexlExpression e = JEXL.createExpression("{ 5 : 10 }");
         final JexlContext jc = new MapContext();
@@ -99,7 +99,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(new Integer(40), o);
     }
 
-    @Test
+@Test
     public void testLiteralWithNumbers_4_oe() throws Exception {
         JexlExpression e = JEXL.createExpression("{ 5 : 10 }");
         final JexlContext jc = new MapContext();
@@ -124,7 +124,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("fifty", o);
     }
 
-    @Test
+@Test
     public void testLiteralWithNumbers_5_oe() throws Exception {
         JexlExpression e = JEXL.createExpression("{ 5 : 10 }");
         final JexlContext jc = new MapContext();
@@ -155,7 +155,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("thirty", o);
     }
 
-    @Test
+@Test
     public void testLiteralWithNumbers_6_oe() throws Exception {
         JexlExpression e = JEXL.createExpression("{ 5 : 10 }");
         final JexlContext jc = new MapContext();
@@ -190,7 +190,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("seven", o);
     }
 
-    @Test
+@Test
     public void testLiteralWithNumbers_7_oe() throws Exception {
         JexlExpression e = JEXL.createExpression("{ 5 : 10 }");
         final JexlContext jc = new MapContext();
@@ -229,7 +229,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("SEVEN", o);
     }
 
-    @Test
+@Test
     public void testLiteralWithNumbers_8_oe() throws Exception {
         JexlExpression e = JEXL.createExpression("{ 5 : 10 }");
         final JexlContext jc = new MapContext();
@@ -273,7 +273,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("SEVEN", o);
     }
 
-    @Test
+@Test
     public void testLiteralWithNumbers_9_oe() throws Exception {
         JexlExpression e = JEXL.createExpression("{ 5 : 10 }");
         final JexlContext jc = new MapContext();
@@ -322,7 +322,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("seven", o);
     }
 
-    @Test
+@Test
     public void testSizeOfSimpleMapLiteral_1_oe() throws Exception {
         final JexlExpression e = JEXL.createExpression("size({ 'foo' : 'bar' })");
         final JexlContext jc = new MapContext();
@@ -331,7 +331,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(new Integer(1), o);
     }
 
-    @Test
+@Test
     public void testCallingMethodsOnNewMapLiteral_1_oe() throws Exception {
         final JexlExpression e = JEXL.createExpression("size({ 'foo' : 'bar' }.values())");
         final JexlContext jc = new MapContext();
@@ -340,7 +340,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(new Integer(1), o);
     }
 
-    @Test
+@Test
     public void testNotEmptySimpleMapLiteral_1_oe() throws Exception {
         final JexlExpression e = JEXL.createExpression("empty({ 'foo' : 'bar' })");
         final JexlContext jc = new MapContext();
@@ -349,7 +349,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse((Boolean) o);
     }
 
-    @Test
+@Test
     public void testMapMapLiteral_1_oe() throws Exception {
         JexlExpression e = JEXL.createExpression("{'foo' : { 'inner' : 'bar' }}");
         final JexlContext jc = new MapContext();
@@ -357,7 +357,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(o);
     }
 
-    @Test
+@Test
     public void testMapMapLiteral_2_oe() throws Exception {
         JexlExpression e = JEXL.createExpression("{'foo' : { 'inner' : 'bar' }}");
         final JexlContext jc = new MapContext();
@@ -370,7 +370,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("bar", o);
     }
 
-    @Test
+@Test
     public void testMapArrayLiteral_1_oe() throws Exception {
         JexlExpression e = JEXL.createExpression("{'foo' : [ 'inner' , 'bar' ]}");
         final JexlContext jc = new MapContext();
@@ -378,7 +378,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(o);
     }
 
-    @Test
+@Test
     public void testMapArrayLiteral_2_oe() throws Exception {
         JexlExpression e = JEXL.createExpression("{'foo' : [ 'inner' , 'bar' ]}");
         final JexlContext jc = new MapContext();
@@ -391,21 +391,21 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("bar", o);
     }
 
-    @Test
+@Test
     public void testEmptyMap_1_oe() throws Exception {
         final JexlScript script = JEXL.createScript("map['']", "map");
         final Object result = script.execute(null, Collections.singletonMap("", 42));
         Assert.assertEquals(42, result);
     }
 
-    @Test
+@Test
     public void testVariableMap_1_oe() throws Exception {
         final JexlScript script = JEXL.createScript("{ ['1', '2'.toString()] : someValue }", "someValue");
         final Object result = script.execute(null, 42);
         Assert.assertTrue(result instanceof Map);
     }
 
-    @Test
+@Test
     public void testVariableMap_2_oe() throws Exception {
         final JexlScript script = JEXL.createScript("{ ['1', '2'.toString()] : someValue }", "someValue");
         final Object result = script.execute(null, 42);
@@ -421,7 +421,7 @@ public class MapLiteralTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(42, ((Number) gg).intValue());
     }
 
-    @Test
+@Test
     public void testVariableMap_3_oe() throws Exception {
         final JexlScript script = JEXL.createScript("{ ['1', '2'.toString()] : someValue }", "someValue");
         final Object result = script.execute(null, 42);

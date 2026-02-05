@@ -98,7 +98,7 @@ class Line3DTest_OE25Dev {
         GeometryTestUtils.assertContains(", direction= (1", str);
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 1, 0), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
@@ -109,7 +109,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, line.getPrecision());
     }
 
-    @Test
+@Test
     void testFromPointAndDirection_normalizesDirection_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -122,7 +122,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, line.getPrecision());
     }
 
-    @Test
+@Test
     void testFromPoints_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.of(-1, 1, 0), Vector3D.of(-1, 7, 0), TEST_PRECISION);
@@ -133,13 +133,13 @@ class Line3DTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, line.getPrecision());
     }
 
-    @Test
+@Test
     void testFromPoints_pointsTooClose_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> Lines3D.fromPoints(Vector3D.of(1, 1, 1), Vector3D.of(1, 1, 1 + 1e-16), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testTransform_1_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -155,7 +155,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(result.contains(pt));
     }
 
-    @Test
+@Test
     void testTransform_reflectionInOneAxis_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(1, 0, 0), Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -169,7 +169,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(result.contains(Vector3D.of(1, 0, 0)));
     }
 
-    @Test
+@Test
     void testTransform_reflectionInTwoAxes_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(1, 0, 0), Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -183,7 +183,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(result.contains(Vector3D.of(1, 0, 0)));
     }
 
-    @Test
+@Test
     void testTransform_reflectionInThreeAxes_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(1, 0, 0), Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -197,7 +197,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(result.contains(Vector3D.of(-1, 0, 0)));
     }
 
-    @Test
+@Test
     void testSubspaceTransform_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 0), TEST_PRECISION);
@@ -220,7 +220,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(0.5, tSub.apply(Vector1D.ZERO).getX(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSubspaceTransform_4_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 0), TEST_PRECISION);
@@ -244,7 +244,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(4.5, tSub.apply(Vector1D.of(2)).getX(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAbscissa_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, -1), Vector3D.of(4, 3, 0), TEST_PRECISION);
@@ -253,7 +253,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(0.0, line.abscissa(line.getOrigin()), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAbscissa_2_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, -1), Vector3D.of(4, 3, 0), TEST_PRECISION);
@@ -264,7 +264,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(5.0, line.abscissa(Vector3D.of(4, 3, 0)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAbscissa_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, -1), Vector3D.of(4, 3, 0), TEST_PRECISION);
@@ -276,7 +276,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(5.0, line.abscissa(Vector3D.of(4, 3, 10)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAbscissa_4_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, -1), Vector3D.of(4, 3, 0), TEST_PRECISION);
@@ -290,7 +290,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(-5.0, line.abscissa(Vector3D.of(-4, -3, 0)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAbscissa_5_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, -1), Vector3D.of(4, 3, 0), TEST_PRECISION);
@@ -305,7 +305,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(-5.0, line.abscissa(Vector3D.of(-4, -3, -10)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToSubspace_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, -1), Vector3D.of(4, 3, 0), TEST_PRECISION);
@@ -314,7 +314,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(0.0, line.toSubspace(line.getOrigin()).getX(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToSubspace_2_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, -1), Vector3D.of(4, 3, 0), TEST_PRECISION);
@@ -325,7 +325,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(5.0, line.toSubspace(Vector3D.of(4, 3, -1)).getX(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToSubspace_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, -1), Vector3D.of(4, 3, 0), TEST_PRECISION);
@@ -337,7 +337,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(5.0, line.toSubspace(Vector3D.of(4, 3, 10)).getX(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToSubspace_4_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, -1), Vector3D.of(4, 3, 0), TEST_PRECISION);
@@ -351,7 +351,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(-5.0, line.toSubspace(Vector3D.of(-4, -3, -1)).getX(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToSubspace_5_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, -1), Vector3D.of(4, 3, 0), TEST_PRECISION);
@@ -366,14 +366,14 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(-5.0, line.toSubspace(Vector3D.of(-4, -3, -10)).getX(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testContains_1_oe() {
         final Vector3D p1 = Vector3D.of(0, 0, 1);
         final Line3D l = Lines3D.fromPoints(p1, Vector3D.of(0, 0, 2), TEST_PRECISION);
         Assertions.assertTrue(l.contains(p1));
     }
 
-    @Test
+@Test
     void testContains_2_oe() {
         final Vector3D p1 = Vector3D.of(0, 0, 1);
         final Line3D l = Lines3D.fromPoints(p1, Vector3D.of(0, 0, 2), TEST_PRECISION);
@@ -381,7 +381,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(l.contains(Vector3D.Sum.of(p1).addScaled(0.3, l.getDirection()).get()));
     }
 
-    @Test
+@Test
     void testContains_3_oe() {
         final Vector3D p1 = Vector3D.of(0, 0, 1);
         final Line3D l = Lines3D.fromPoints(p1, Vector3D.of(0, 0, 2), TEST_PRECISION);
@@ -394,7 +394,7 @@ class Line3DTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testSimilar_1_oe() {
         final Vector3D p1  = Vector3D.of(1.2, 3.4, -5.8);
         final Vector3D p2  = Vector3D.of(3.4, -5.8, 1.2);
@@ -403,7 +403,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(lA.isSimilarTo(lB));
     }
 
-    @Test
+@Test
     void testSimilar_2_oe() {
         final Vector3D p1  = Vector3D.of(1.2, 3.4, -5.8);
         final Vector3D p2  = Vector3D.of(3.4, -5.8, 1.2);
@@ -413,33 +413,33 @@ class Line3DTest_OE25Dev {
         Assertions.assertFalse(lA.isSimilarTo(Lines3D.fromPoints(p1, p1.add(lA.getDirection().orthogonal()), TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testPointDistance_1_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         Assertions.assertEquals(Math.sqrt(3.0 / 2.0), l.distance(Vector3D.of(1, 0, 1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testPointDistance_2_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
         Assertions.assertEquals(0, l.distance(Vector3D.of(0, -4, -4)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testLineDistance_1_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         Assertions.assertEquals(1.0,l.distance(Lines3D.fromPoints(Vector3D.of(1,0,1),Vector3D.of(1,0,2),TEST_PRECISION)),1.0e-10);
     }
 
-    @Test
+@Test
     void testLineDistance_2_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
         Assertions.assertEquals(0.5,l.distance(Lines3D.fromPoints(Vector3D.of(-0.5,0,0),Vector3D.of(-0.5,-1,-1),TEST_PRECISION)),1.0e-10);
     }
 
-    @Test
+@Test
     void testLineDistance_3_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
@@ -447,7 +447,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(0.0,l.distance(l),1.0e-10);
     }
 
-    @Test
+@Test
     void testLineDistance_4_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
@@ -456,7 +456,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(0.0,l.distance(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(0,-5,-5),TEST_PRECISION)),1.0e-10);
     }
 
-    @Test
+@Test
     void testLineDistance_5_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
@@ -466,7 +466,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(0.0,l.distance(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(0,-3,-4),TEST_PRECISION)),1.0e-10);
     }
 
-    @Test
+@Test
     void testLineDistance_6_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
@@ -477,7 +477,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(0.0,l.distance(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(1,-4,-4),TEST_PRECISION)),1.0e-10);
     }
 
-    @Test
+@Test
     void testLineDistance_7_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
@@ -489,20 +489,20 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(Math.sqrt(8),l.distance(Lines3D.fromPoints(Vector3D.of(0,-4,0),Vector3D.of(1,-4,0),TEST_PRECISION)),1.0e-10);
     }
 
-    @Test
+@Test
     void testClosest_1_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         Assertions.assertEquals(0.0,l.closest(Lines3D.fromPoints(Vector3D.of(1,0,1),Vector3D.of(1,0,2),TEST_PRECISION)).distance(Vector3D.of(0,0,0)),1.0e-10);
     }
 
-    @Test
+@Test
     void testClosest_2_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
         Assertions.assertEquals(0.5,l.closest(Lines3D.fromPoints(Vector3D.of(-0.5,0,0),Vector3D.of(-0.5,-1,-1),TEST_PRECISION)).distance(Vector3D.of(-0.5,0,0)),1.0e-10);
     }
 
-    @Test
+@Test
     void testClosest_3_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
@@ -510,7 +510,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(0.0,l.closest(l).distance(Vector3D.of(0,0,0)),1.0e-10);
     }
 
-    @Test
+@Test
     void testClosest_4_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
@@ -519,7 +519,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(0.0,l.closest(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(0,-5,-5),TEST_PRECISION)).distance(Vector3D.of(0,0,0)),1.0e-10);
     }
 
-    @Test
+@Test
     void testClosest_5_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
@@ -529,7 +529,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(0.0,l.closest(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(0,-3,-4),TEST_PRECISION)).distance(Vector3D.of(0,-4,-4)),1.0e-10);
     }
 
-    @Test
+@Test
     void testClosest_6_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
@@ -540,7 +540,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(0.0,l.closest(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(1,-4,-4),TEST_PRECISION)).distance(Vector3D.of(0,-4,-4)),1.0e-10);
     }
 
-    @Test
+@Test
     void testClosest_7_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
@@ -552,20 +552,20 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(0.0,l.closest(Lines3D.fromPoints(Vector3D.of(0,-4,0),Vector3D.of(1,-4,0),TEST_PRECISION)).distance(Vector3D.of(0,-2,-2)),1.0e-10);
     }
 
-    @Test
+@Test
     void testIntersection_1_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         Assertions.assertNull(l.intersection(Lines3D.fromPoints(Vector3D.of(1, 0, 1), Vector3D.of(1, 0, 2), TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testIntersection_2_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
         Assertions.assertNull(l.intersection(Lines3D.fromPoints(Vector3D.of(-0.5, 0, 0), Vector3D.of(-0.5, -1, -1), TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testIntersection_3_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
@@ -573,7 +573,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(0.0,l.intersection(l).distance(Vector3D.of(0,0,0)),1.0e-10);
     }
 
-    @Test
+@Test
     void testIntersection_4_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
@@ -582,7 +582,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(0.0,l.intersection(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(0,-5,-5),TEST_PRECISION)).distance(Vector3D.of(0,0,0)),1.0e-10);
     }
 
-    @Test
+@Test
     void testIntersection_5_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
@@ -592,7 +592,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(0.0,l.intersection(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(0,-3,-4),TEST_PRECISION)).distance(Vector3D.of(0,-4,-4)),1.0e-10);
     }
 
-    @Test
+@Test
     void testIntersection_6_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
@@ -603,7 +603,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(0.0,l.intersection(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(1,-4,-4),TEST_PRECISION)).distance(Vector3D.of(0,-4,-4)),1.0e-10);
     }
 
-    @Test
+@Test
     void testIntersection_7_oe() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         // removed other assertion
@@ -615,7 +615,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNull(l.intersection(Lines3D.fromPoints(Vector3D.of(0, -4, 0), Vector3D.of(1, -4, 0), TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testSpan_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -627,7 +627,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(span.isInfinite());
     }
 
-    @Test
+@Test
     void testSpan_2_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -640,7 +640,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertFalse(span.isFinite());
     }
 
-    @Test
+@Test
     void testSpan_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -655,7 +655,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNull(span.getStartPoint());
     }
 
-    @Test
+@Test
     void testSpan_4_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -671,7 +671,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNull(span.getEndPoint());
     }
 
-    @Test
+@Test
     void testSpan_5_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -689,7 +689,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNull(span.getCentroid());
     }
 
-    @Test
+@Test
     void testSpan_6_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -708,7 +708,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNull(span.getBounds());
     }
 
-    @Test
+@Test
     void testSpan_10_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -734,7 +734,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertSame(line, span.getLine());
     }
 
-    @Test
+@Test
     void testSpan_11_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -761,7 +761,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(span.getInterval().isFull());
     }
 
-    @Test
+@Test
     void testSpan_contains_1_oe() {
         // arrange
         final double delta = 1e-12;
@@ -775,7 +775,7 @@ class Line3DTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testSpan_contains_2_oe() {
         // arrange
         final double delta = 1e-12;
@@ -790,7 +790,7 @@ class Line3DTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testSpan_contains_3_oe() {
         // arrange
         final double delta = 1e-12;
@@ -807,7 +807,7 @@ class Line3DTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testSpan_contains_4_oe() {
         // arrange
         final double delta = 1e-12;
@@ -825,7 +825,7 @@ class Line3DTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testSpan_transform_1_oe() {
         // arrange
         final AffineTransformMatrix3D t = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, 0.5 * Math.PI)
@@ -842,7 +842,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNull(result.getStartPoint());
     }
 
-    @Test
+@Test
     void testSpan_transform_2_oe() {
         // arrange
         final AffineTransformMatrix3D t = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, 0.5 * Math.PI)
@@ -860,7 +860,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNull(result.getEndPoint());
     }
 
-    @Test
+@Test
     void testSpan_transform_3_oe() {
         // arrange
         final AffineTransformMatrix3D t = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, 0.5 * Math.PI)
@@ -880,7 +880,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(result.contains(Vector3D.of(0, 1, -1)));
     }
 
-    @Test
+@Test
     void testSpan_transform_reflection_1_oe() {
         // arrange
         final AffineTransformMatrix3D t = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, 0.5 * Math.PI)
@@ -898,7 +898,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNull(result.getStartPoint());
     }
 
-    @Test
+@Test
     void testSpan_transform_reflection_2_oe() {
         // arrange
         final AffineTransformMatrix3D t = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, 0.5 * Math.PI)
@@ -917,7 +917,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNull(result.getEndPoint());
     }
 
-    @Test
+@Test
     void testSpan_transform_reflection_3_oe() {
         // arrange
         final AffineTransformMatrix3D t = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, 0.5 * Math.PI)
@@ -938,7 +938,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(result.contains(Vector3D.of(0, 1, 2)));
     }
 
-    @Test
+@Test
     void testSubsetMethods_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
@@ -948,7 +948,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertSame(line, doubleArgResult.getLine());
     }
 
-    @Test
+@Test
     void testSubsetMethods_4_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
@@ -963,7 +963,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertSame(line, ptArgResult.getLine());
     }
 
-    @Test
+@Test
     void testSubsetMethods_7_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
@@ -983,7 +983,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertSame(line, rayDoubleResult.getLine());
     }
 
-    @Test
+@Test
     void testSubsetMethods_9_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
@@ -1005,7 +1005,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNull(rayDoubleResult.getEndPoint());
     }
 
-    @Test
+@Test
     void testSubsetMethods_10_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
@@ -1030,7 +1030,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertSame(line, rayPtResult.getLine());
     }
 
-    @Test
+@Test
     void testSubsetMethods_12_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
@@ -1057,7 +1057,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNull(rayPtResult.getEndPoint());
     }
 
-    @Test
+@Test
     void testSubsetMethods_13_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
@@ -1087,7 +1087,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertSame(line, toDoubleResult.getLine());
     }
 
-    @Test
+@Test
     void testSubsetMethods_14_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
@@ -1118,7 +1118,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNull(toDoubleResult.getStartPoint());
     }
 
-    @Test
+@Test
     void testSubsetMethods_16_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
@@ -1153,7 +1153,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertSame(line, toPtResult.getLine());
     }
 
-    @Test
+@Test
     void testSubsetMethods_17_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
@@ -1189,7 +1189,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNull(toPtResult.getStartPoint());
     }
 
-    @Test
+@Test
     void testEq_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -1209,7 +1209,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(a.eq(a, precision));
     }
 
-    @Test
+@Test
     void testEq_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -1231,7 +1231,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(a.eq(d, precision));
     }
 
-    @Test
+@Test
     void testEq_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -1254,7 +1254,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(d.eq(a, precision));
     }
 
-    @Test
+@Test
     void testEq_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -1279,7 +1279,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(a.eq(e, precision));
     }
 
-    @Test
+@Test
     void testEq_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -1305,7 +1305,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(e.eq(a, precision));
     }
 
-    @Test
+@Test
     void testEq_6_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -1333,7 +1333,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(a.eq(f, precision));
     }
 
-    @Test
+@Test
     void testEq_7_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -1362,7 +1362,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(f.eq(a, precision));
     }
 
-    @Test
+@Test
     void testEq_8_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -1393,7 +1393,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertFalse(a.eq(b, precision));
     }
 
-    @Test
+@Test
     void testEq_9_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -1425,7 +1425,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertFalse(a.eq(c, precision));
     }
 
-    @Test
+@Test
     void testHashCode_1_oe() {
         // arrange
         final Line3D a = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
@@ -1441,7 +1441,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(hash, a.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_2_oe() {
         // arrange
         final Line3D a = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
@@ -1459,7 +1459,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNotEquals(hash, b.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_3_oe() {
         // arrange
         final Line3D a = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
@@ -1478,7 +1478,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNotEquals(hash, c.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_4_oe() {
         // arrange
         final Line3D a = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
@@ -1498,7 +1498,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNotEquals(hash, d.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_5_oe() {
         // arrange
         final Line3D a = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
@@ -1520,7 +1520,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(hash, e.hashCode());
     }
 
-    @Test
+@Test
     void testEquals_2_oe() {
         // arrange
         final Line3D a = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
@@ -1536,7 +1536,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNotEquals(a, b);
     }
 
-    @Test
+@Test
     void testEquals_3_oe() {
         // arrange
         final Line3D a = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
@@ -1553,7 +1553,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNotEquals(a, c);
     }
 
-    @Test
+@Test
     void testEquals_4_oe() {
         // arrange
         final Line3D a = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
@@ -1571,7 +1571,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertNotEquals(a, d);
     }
 
-    @Test
+@Test
     void testEquals_5_oe() {
         // arrange
         final Line3D a = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
@@ -1591,7 +1591,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(a, e);
     }
 
-    @Test
+@Test
     void testEquals_6_oe() {
         // arrange
         final Line3D a = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
@@ -1612,7 +1612,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertEquals(e, a);
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -1624,7 +1624,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(str.contains("Line3D"));
     }
 
-    @Test
+@Test
     void testToString_2_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -1637,7 +1637,7 @@ class Line3DTest_OE25Dev {
         Assertions.assertTrue(str.matches(".*origin= \\(0(\\.0)?, 0(\\.0)?, 0(\\.0)?\\).*"));
     }
 
-    @Test
+@Test
     void testToString_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);

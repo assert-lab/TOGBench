@@ -320,25 +320,25 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(milli,test.get(DateTimeFieldType.millisOfSecond()));
     }
 
-    public void testPropertyGetHour_1_oe() {
+public void testPropertyGetHour_1_oe() {
         Partial test = new Partial(TYPES, VALUES);
         assertSame(test.getChronology().hourOfDay(),test.property(DateTimeFieldType.hourOfDay()).getField());
     }
 
-    public void testPropertyGetHour_2_oe() {
+public void testPropertyGetHour_2_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         assertEquals("hourOfDay",test.property(DateTimeFieldType.hourOfDay()).getName());
     }
 
-    public void testPropertyGetHour_3_oe() {
+public void testPropertyGetHour_3_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
         assertEquals("Property[hourOfDay]",test.property(DateTimeFieldType.hourOfDay()).toString());
     }
 
-    public void testPropertyGetHour_4_oe() {
+public void testPropertyGetHour_4_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -346,7 +346,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertSame(test,test.property(DateTimeFieldType.hourOfDay()).getReadablePartial());
     }
 
-    public void testPropertyGetHour_5_oe() {
+public void testPropertyGetHour_5_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -355,7 +355,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertSame(test,test.property(DateTimeFieldType.hourOfDay()).getPartial());
     }
 
-    public void testPropertyGetHour_6_oe() {
+public void testPropertyGetHour_6_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -365,7 +365,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(10,test.property(DateTimeFieldType.hourOfDay()).get());
     }
 
-    public void testPropertyGetHour_7_oe() {
+public void testPropertyGetHour_7_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -376,7 +376,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals("10",test.property(DateTimeFieldType.hourOfDay()).getAsString());
     }
 
-    public void testPropertyGetHour_8_oe() {
+public void testPropertyGetHour_8_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -388,7 +388,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals("10",test.property(DateTimeFieldType.hourOfDay()).getAsText());
     }
 
-    public void testPropertyGetHour_9_oe() {
+public void testPropertyGetHour_9_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -401,7 +401,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals("10",test.property(DateTimeFieldType.hourOfDay()).getAsText(Locale.FRENCH));
     }
 
-    public void testPropertyGetHour_10_oe() {
+public void testPropertyGetHour_10_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -415,7 +415,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals("10",test.property(DateTimeFieldType.hourOfDay()).getAsShortText());
     }
 
-    public void testPropertyGetHour_11_oe() {
+public void testPropertyGetHour_11_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -430,7 +430,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals("10",test.property(DateTimeFieldType.hourOfDay()).getAsShortText(Locale.FRENCH));
     }
 
-    public void testPropertyGetHour_12_oe() {
+public void testPropertyGetHour_12_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -446,7 +446,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(test.getChronology().hours(),test.property(DateTimeFieldType.hourOfDay()).getDurationField());
     }
 
-    public void testPropertyGetHour_13_oe() {
+public void testPropertyGetHour_13_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -463,7 +463,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(test.getChronology().days(),test.property(DateTimeFieldType.hourOfDay()).getRangeDurationField());
     }
 
-    public void testPropertyGetHour_14_oe() {
+public void testPropertyGetHour_14_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -481,7 +481,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(2,test.property(DateTimeFieldType.hourOfDay()).getMaximumTextLength(null));
     }
 
-    public void testPropertyGetHour_15_oe() {
+public void testPropertyGetHour_15_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -500,25 +500,25 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(2,test.property(DateTimeFieldType.hourOfDay()).getMaximumShortTextLength(null));
     }
 
-    public void testPropertyGetMaxMinValuesHour_1_oe() {
+public void testPropertyGetMaxMinValuesHour_1_oe() {
         Partial test = new Partial(TYPES, VALUES);
         assertEquals(0,test.property(DateTimeFieldType.hourOfDay()).getMinimumValue());
     }
 
-    public void testPropertyGetMaxMinValuesHour_2_oe() {
+public void testPropertyGetMaxMinValuesHour_2_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         assertEquals(0,test.property(DateTimeFieldType.hourOfDay()).getMinimumValueOverall());
     }
 
-    public void testPropertyGetMaxMinValuesHour_3_oe() {
+public void testPropertyGetMaxMinValuesHour_3_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
         assertEquals(23,test.property(DateTimeFieldType.hourOfDay()).getMaximumValue());
     }
 
-    public void testPropertyGetMaxMinValuesHour_4_oe() {
+public void testPropertyGetMaxMinValuesHour_4_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -526,20 +526,20 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(23,test.property(DateTimeFieldType.hourOfDay()).getMaximumValueOverall());
     }
 
-    public void testPropertyCompareToHour_1_oe() {
+public void testPropertyCompareToHour_1_oe() {
         Partial test1 = new Partial(TYPES, VALUES1);
         Partial test2 = new Partial(TYPES, VALUES2);
         assertEquals(true,test1.property(DateTimeFieldType.hourOfDay()).compareTo(test2)< 0);
     }
 
-    public void testPropertyCompareToHour_2_oe() {
+public void testPropertyCompareToHour_2_oe() {
         Partial test1 = new Partial(TYPES, VALUES1);
         Partial test2 = new Partial(TYPES, VALUES2);
         // removed other assertion
         assertEquals(true,test2.property(DateTimeFieldType.hourOfDay()).compareTo(test1)> 0);
     }
 
-    public void testPropertyCompareToHour_3_oe() {
+public void testPropertyCompareToHour_3_oe() {
         Partial test1 = new Partial(TYPES, VALUES1);
         Partial test2 = new Partial(TYPES, VALUES2);
         // removed other assertion
@@ -547,7 +547,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(true,test1.property(DateTimeFieldType.hourOfDay()).compareTo(test1)== 0);
     }
 
-    public void testPropertyCompareToHour_5_oe() {
+public void testPropertyCompareToHour_5_oe() {
         Partial test1 = new Partial(TYPES, VALUES1);
         Partial test2 = new Partial(TYPES, VALUES2);
         // removed other assertion
@@ -563,7 +563,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(true,test1.property(DateTimeFieldType.hourOfDay()).compareTo(dt2)< 0);
     }
 
-    public void testPropertyCompareToHour_6_oe() {
+public void testPropertyCompareToHour_6_oe() {
         Partial test1 = new Partial(TYPES, VALUES1);
         Partial test2 = new Partial(TYPES, VALUES2);
         // removed other assertion
@@ -580,7 +580,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(true,test2.property(DateTimeFieldType.hourOfDay()).compareTo(dt1)> 0);
     }
 
-    public void testPropertyCompareToHour_7_oe() {
+public void testPropertyCompareToHour_7_oe() {
         Partial test1 = new Partial(TYPES, VALUES1);
         Partial test2 = new Partial(TYPES, VALUES2);
         // removed other assertion
@@ -598,25 +598,25 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(true,test1.property(DateTimeFieldType.hourOfDay()).compareTo(dt1)== 0);
     }
 
-    public void testPropertyGetMinute_1_oe() {
+public void testPropertyGetMinute_1_oe() {
         Partial test = new Partial(TYPES, VALUES);
         assertSame(test.getChronology().minuteOfHour(),test.property(DateTimeFieldType.minuteOfHour()).getField());
     }
 
-    public void testPropertyGetMinute_2_oe() {
+public void testPropertyGetMinute_2_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         assertEquals("minuteOfHour",test.property(DateTimeFieldType.minuteOfHour()).getName());
     }
 
-    public void testPropertyGetMinute_3_oe() {
+public void testPropertyGetMinute_3_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
         assertEquals("Property[minuteOfHour]",test.property(DateTimeFieldType.minuteOfHour()).toString());
     }
 
-    public void testPropertyGetMinute_4_oe() {
+public void testPropertyGetMinute_4_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -624,7 +624,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertSame(test,test.property(DateTimeFieldType.minuteOfHour()).getReadablePartial());
     }
 
-    public void testPropertyGetMinute_5_oe() {
+public void testPropertyGetMinute_5_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -633,7 +633,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertSame(test,test.property(DateTimeFieldType.minuteOfHour()).getPartial());
     }
 
-    public void testPropertyGetMinute_6_oe() {
+public void testPropertyGetMinute_6_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -643,7 +643,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(20,test.property(DateTimeFieldType.minuteOfHour()).get());
     }
 
-    public void testPropertyGetMinute_7_oe() {
+public void testPropertyGetMinute_7_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -654,7 +654,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals("20",test.property(DateTimeFieldType.minuteOfHour()).getAsString());
     }
 
-    public void testPropertyGetMinute_8_oe() {
+public void testPropertyGetMinute_8_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -666,7 +666,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals("20",test.property(DateTimeFieldType.minuteOfHour()).getAsText());
     }
 
-    public void testPropertyGetMinute_9_oe() {
+public void testPropertyGetMinute_9_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -679,7 +679,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals("20",test.property(DateTimeFieldType.minuteOfHour()).getAsText(Locale.FRENCH));
     }
 
-    public void testPropertyGetMinute_10_oe() {
+public void testPropertyGetMinute_10_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -693,7 +693,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals("20",test.property(DateTimeFieldType.minuteOfHour()).getAsShortText());
     }
 
-    public void testPropertyGetMinute_11_oe() {
+public void testPropertyGetMinute_11_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -708,7 +708,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals("20",test.property(DateTimeFieldType.minuteOfHour()).getAsShortText(Locale.FRENCH));
     }
 
-    public void testPropertyGetMinute_12_oe() {
+public void testPropertyGetMinute_12_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -724,7 +724,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(test.getChronology().minutes(),test.property(DateTimeFieldType.minuteOfHour()).getDurationField());
     }
 
-    public void testPropertyGetMinute_13_oe() {
+public void testPropertyGetMinute_13_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -741,7 +741,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(test.getChronology().hours(),test.property(DateTimeFieldType.minuteOfHour()).getRangeDurationField());
     }
 
-    public void testPropertyGetMinute_14_oe() {
+public void testPropertyGetMinute_14_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -759,7 +759,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(2,test.property(DateTimeFieldType.minuteOfHour()).getMaximumTextLength(null));
     }
 
-    public void testPropertyGetMinute_15_oe() {
+public void testPropertyGetMinute_15_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -778,25 +778,25 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(2,test.property(DateTimeFieldType.minuteOfHour()).getMaximumShortTextLength(null));
     }
 
-    public void testPropertyGetMaxMinValuesMinute_1_oe() {
+public void testPropertyGetMaxMinValuesMinute_1_oe() {
         Partial test = new Partial(TYPES, VALUES);
         assertEquals(0,test.property(DateTimeFieldType.minuteOfHour()).getMinimumValue());
     }
 
-    public void testPropertyGetMaxMinValuesMinute_2_oe() {
+public void testPropertyGetMaxMinValuesMinute_2_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         assertEquals(0,test.property(DateTimeFieldType.minuteOfHour()).getMinimumValueOverall());
     }
 
-    public void testPropertyGetMaxMinValuesMinute_3_oe() {
+public void testPropertyGetMaxMinValuesMinute_3_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
         assertEquals(59,test.property(DateTimeFieldType.minuteOfHour()).getMaximumValue());
     }
 
-    public void testPropertyGetMaxMinValuesMinute_4_oe() {
+public void testPropertyGetMaxMinValuesMinute_4_oe() {
         Partial test = new Partial(TYPES, VALUES);
         // removed other assertion
         // removed other assertion
@@ -804,20 +804,20 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(59,test.property(DateTimeFieldType.minuteOfHour()).getMaximumValueOverall());
     }
 
-    public void testPropertyCompareToMinute_1_oe() {
+public void testPropertyCompareToMinute_1_oe() {
         Partial test1 = new Partial(TYPES, VALUES1);
         Partial test2 = new Partial(TYPES, VALUES2);
         assertEquals(true,test1.property(DateTimeFieldType.minuteOfHour()).compareTo(test2)< 0);
     }
 
-    public void testPropertyCompareToMinute_2_oe() {
+public void testPropertyCompareToMinute_2_oe() {
         Partial test1 = new Partial(TYPES, VALUES1);
         Partial test2 = new Partial(TYPES, VALUES2);
         // removed other assertion
         assertEquals(true,test2.property(DateTimeFieldType.minuteOfHour()).compareTo(test1)> 0);
     }
 
-    public void testPropertyCompareToMinute_3_oe() {
+public void testPropertyCompareToMinute_3_oe() {
         Partial test1 = new Partial(TYPES, VALUES1);
         Partial test2 = new Partial(TYPES, VALUES2);
         // removed other assertion
@@ -825,7 +825,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(true,test1.property(DateTimeFieldType.minuteOfHour()).compareTo(test1)== 0);
     }
 
-    public void testPropertyCompareToMinute_5_oe() {
+public void testPropertyCompareToMinute_5_oe() {
         Partial test1 = new Partial(TYPES, VALUES1);
         Partial test2 = new Partial(TYPES, VALUES2);
         // removed other assertion
@@ -841,7 +841,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(true,test1.property(DateTimeFieldType.minuteOfHour()).compareTo(dt2)< 0);
     }
 
-    public void testPropertyCompareToMinute_6_oe() {
+public void testPropertyCompareToMinute_6_oe() {
         Partial test1 = new Partial(TYPES, VALUES1);
         Partial test2 = new Partial(TYPES, VALUES2);
         // removed other assertion
@@ -858,7 +858,7 @@ public class TestPartial_Properties_OE25Dev extends TestCase {
         assertEquals(true,test2.property(DateTimeFieldType.minuteOfHour()).compareTo(dt1)> 0);
     }
 
-    public void testPropertyCompareToMinute_7_oe() {
+public void testPropertyCompareToMinute_7_oe() {
         Partial test1 = new Partial(TYPES, VALUES1);
         Partial test2 = new Partial(TYPES, VALUES2);
         // removed other assertion

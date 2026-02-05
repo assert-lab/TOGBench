@@ -27,14 +27,14 @@ import org.apache.commons.dbutils.ResultSetHandler;
  */
 public class MapHandlerTest_OE25Dev extends BaseTestCase {
 
-    public void testHandle_1_oe() throws SQLException {
+public void testHandle_1_oe() throws SQLException {
         ResultSetHandler<Map<String,Object>> h = new MapHandler();
         Map<String,Object> results = h.handle(this.rs);
 
         assertNotNull(results);
     }
 
-    public void testHandle_2_oe() throws SQLException {
+public void testHandle_2_oe() throws SQLException {
         ResultSetHandler<Map<String,Object>> h = new MapHandler();
         Map<String,Object> results = h.handle(this.rs);
 
@@ -42,7 +42,7 @@ public class MapHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals(COLS, results.keySet().size());
     }
 
-    public void testHandle_3_oe() throws SQLException {
+public void testHandle_3_oe() throws SQLException {
         ResultSetHandler<Map<String,Object>> h = new MapHandler();
         Map<String,Object> results = h.handle(this.rs);
 
@@ -51,7 +51,7 @@ public class MapHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("1", results.get("ONE"));
     }
 
-    public void testHandle_4_oe() throws SQLException {
+public void testHandle_4_oe() throws SQLException {
         ResultSetHandler<Map<String,Object>> h = new MapHandler();
         Map<String,Object> results = h.handle(this.rs);
 
@@ -61,7 +61,7 @@ public class MapHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("2", results.get("two"));
     }
 
-    public void testHandle_5_oe() throws SQLException {
+public void testHandle_5_oe() throws SQLException {
         ResultSetHandler<Map<String,Object>> h = new MapHandler();
         Map<String,Object> results = h.handle(this.rs);
 
@@ -72,7 +72,7 @@ public class MapHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("THREE", results.get("Three"));
     }
 
-    public void testEmptyResultSetHandle_1_oe() throws SQLException {
+public void testEmptyResultSetHandle_1_oe() throws SQLException {
         ResultSetHandler<Map<String,Object>> h = new MapHandler();
         Map<String,Object> results = h.handle(this.emptyResultSet);
 

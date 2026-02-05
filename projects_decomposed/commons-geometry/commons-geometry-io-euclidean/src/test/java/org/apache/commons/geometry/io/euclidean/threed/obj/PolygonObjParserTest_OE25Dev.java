@@ -508,7 +508,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertArrayEquals(expectedNormalIndices, face.getNormalIndices());
     }
 
-    @Test
+@Test
     void testInitialState_1_oe() {
         // act
         final PolygonObjParser p = parser("");
@@ -517,7 +517,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertNull(p.getCurrentKeyword());
     }
 
-    @Test
+@Test
     void testInitialState_2_oe() {
         // act
         final PolygonObjParser p = parser("");
@@ -527,7 +527,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(0, p.getVertexCount());
     }
 
-    @Test
+@Test
     void testInitialState_3_oe() {
         // act
         final PolygonObjParser p = parser("");
@@ -538,7 +538,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(0, p.getVertexNormalCount());
     }
 
-    @Test
+@Test
     void testInitialState_4_oe() {
         // act
         final PolygonObjParser p = parser("");
@@ -550,7 +550,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(0, p.getTextureCoordinateCount());
     }
 
-    @Test
+@Test
     void testInitialState_5_oe() {
         // act
         final PolygonObjParser p = parser("");
@@ -563,7 +563,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertFalse(p.isFailOnNonPolygonKeywords());
     }
 
-    @Test
+@Test
     void testReadDataLine_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -580,7 +580,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals("  line\t", p.readDataLine());
     }
 
-    @Test
+@Test
     void testReadDataLine_2_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -598,7 +598,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals("", p.readDataLine());
     }
 
-    @Test
+@Test
     void testReadDataLine_3_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -617,7 +617,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(" a bcd.", p.readDataLine());
     }
 
-    @Test
+@Test
     void testReadDataLine_4_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -637,7 +637,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertNull(p.readDataLine());
     }
 
-    @Test
+@Test
     void testDiscardDataLine_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -655,7 +655,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(2, p.getTextParser().getLineNumber());
     }
 
-    @Test
+@Test
     void testDiscardDataLine_2_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -674,7 +674,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(1, p.getTextParser().getColumnNumber());
     }
 
-    @Test
+@Test
     void testDiscardDataLine_3_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -696,7 +696,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(3, p.getTextParser().getLineNumber());
     }
 
-    @Test
+@Test
     void testDiscardDataLine_4_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -719,7 +719,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(1, p.getTextParser().getColumnNumber());
     }
 
-    @Test
+@Test
     void testDiscardDataLine_5_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -745,7 +745,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(8, p.getTextParser().getLineNumber());
     }
 
-    @Test
+@Test
     void testDiscardDataLine_6_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -772,7 +772,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(1, p.getTextParser().getColumnNumber());
     }
 
-    @Test
+@Test
     void testDiscardDataLine_7_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -802,7 +802,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(8, p.getTextParser().getLineNumber());
     }
 
-    @Test
+@Test
     void testDiscardDataLine_8_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -833,7 +833,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(1, p.getTextParser().getColumnNumber());
     }
 
-    @Test
+@Test
     void testReadDoubles_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -847,7 +847,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertArrayEquals(new double[] { 0.1, 0.2, 3e2, 4e2, 500.01 }, p.readDoubles(), EPS);
     }
 
-    @Test
+@Test
     void testReadDoubles_2_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -862,7 +862,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertArrayEquals(new double[0], p.readDoubles(), EPS);
     }
 
-    @Test
+@Test
     void testReadDoubles_3_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -881,7 +881,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertArrayEquals(new double[] {12.001}, p.readDoubles(), EPS);
     }
 
-    @Test
+@Test
     void testReadDoubles_4_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -904,7 +904,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertArrayEquals(new double[0], p.readDoubles(), EPS);
     }
 
-    @Test
+@Test
     void testReadDoubles_5_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -931,7 +931,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertArrayEquals(new double[0], p.readDoubles(), EPS);
     }
 
-    @Test
+@Test
     void testParse_2_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -965,7 +965,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals("test", p.readDataLine());
     }
 
-    @Test
+@Test
     void testParse_4_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1002,7 +1002,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals("test", p.readDataLine());
     }
 
-    @Test
+@Test
     void testParse_6_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1042,7 +1042,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals("test", p.readDataLine());
     }
 
-    @Test
+@Test
     void testParse_8_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1085,7 +1085,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals("mylib.mtl", p.readDataLine());
     }
 
-    @Test
+@Test
     void testParse_10_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1131,7 +1131,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals("mymaterial", p.readDataLine());
     }
 
-    @Test
+@Test
     void testParse_20_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1192,7 +1192,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertArrayEquals(new double[] {0, 0}, p.readDoubles(),  EPS);
     }
 
-    @Test
+@Test
     void testParse_22_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1256,7 +1256,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertArrayEquals(new double[] {1, 0}, p.readDoubles(),  EPS);
     }
 
-    @Test
+@Test
     void testParse_24_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1323,7 +1323,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertArrayEquals(new double[] {1, 1}, p.readDoubles(),  EPS);
     }
 
-    @Test
+@Test
     void testParse_31_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1401,7 +1401,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(4, p.getVertexCount());
     }
 
-    @Test
+@Test
     void testParse_32_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1480,7 +1480,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(3, p.getTextureCoordinateCount());
     }
 
-    @Test
+@Test
     void testParse_33_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1560,7 +1560,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(1, p.getVertexNormalCount());
     }
 
-    @Test
+@Test
     void testFace_getDefinedCompositeNormal_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1593,7 +1593,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertNull(p.readFace().getDefinedCompositeNormal(normalFn));
     }
 
-    @Test
+@Test
     void testFace_getDefinedCompositeNormal_4_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1635,7 +1635,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertNull(p.readFace().getDefinedCompositeNormal(normalFn));
     }
 
-    @Test
+@Test
     void testFace_computeNormalFromVertices_2_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1665,7 +1665,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertNull(p.readFace().computeNormalFromVertices(vertexFn));
     }
 
-    @Test
+@Test
     void testFace_getVertexAttributesCounterClockwise_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1694,7 +1694,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(attrs, f.getVertexAttributesCounterClockwise(null, vertexFn));
     }
 
-    @Test
+@Test
     void testFace_getVertexAttributesCounterClockwise_2_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1725,7 +1725,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(attrs, f.getVertexAttributesCounterClockwise(Vector3D.Unit.PLUS_Z, vertexFn));
     }
 
-    @Test
+@Test
     void testFace_getVertexAttributesCounterClockwise_3_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1757,7 +1757,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(attrs, f.getVertexAttributesCounterClockwise(Vector3D.of(1, 0, 0.1), vertexFn));
     }
 
-    @Test
+@Test
     void testFace_getVertexAttributesCounterClockwise_4_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1790,7 +1790,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(attrs, f.getVertexAttributesCounterClockwise(Vector3D.Unit.PLUS_X, vertexFn));
     }
 
-    @Test
+@Test
     void testFace_getVertexAttributesCounterClockwise_5_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1825,7 +1825,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(reverseAttrs, f.getVertexAttributesCounterClockwise(Vector3D.Unit.MINUS_Z, vertexFn));
     }
 
-    @Test
+@Test
     void testFace_getVertexAttributesCounterClockwise_6_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1861,7 +1861,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(reverseAttrs, f.getVertexAttributesCounterClockwise(Vector3D.of(1, 0, -0.1), vertexFn));
     }
 
-    @Test
+@Test
     void testFace_getVertices_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1889,7 +1889,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(vertices.subList(1, 4), p.readFace().getVertices(vertexFn));
     }
 
-    @Test
+@Test
     void testFace_getVerticesCounterClockwise_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1918,7 +1918,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(faceVertices, f.getVerticesCounterClockwise(null, vertexFn));
     }
 
-    @Test
+@Test
     void testFace_getVerticesCounterClockwise_2_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1949,7 +1949,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(faceVertices, f.getVerticesCounterClockwise(Vector3D.Unit.PLUS_Z, vertexFn));
     }
 
-    @Test
+@Test
     void testFace_getVerticesCounterClockwise_3_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -1981,7 +1981,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(faceVertices, f.getVerticesCounterClockwise(Vector3D.of(1, 0, 0.1), vertexFn));
     }
 
-    @Test
+@Test
     void testFace_getVerticesCounterClockwise_4_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -2014,7 +2014,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(faceVertices, f.getVerticesCounterClockwise(Vector3D.Unit.PLUS_X, vertexFn));
     }
 
-    @Test
+@Test
     void testFace_getVerticesCounterClockwise_5_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -2049,7 +2049,7 @@ class PolygonObjParserTest_OE25Dev {
         Assertions.assertEquals(reverseFaceVertices, f.getVerticesCounterClockwise(Vector3D.Unit.MINUS_Z, vertexFn));
     }
 
-    @Test
+@Test
     void testFace_getVerticesCounterClockwise_6_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(

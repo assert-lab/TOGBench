@@ -79,7 +79,7 @@ public class Jira368TestCase_OE25Dev extends TestCase {
      * Test {@link BeanUtils} setProperty() with Null value
      */
 
-    public void testBeanUtilsSetProperty_NullBean_1_oe() throws Exception {
+public void testBeanUtilsSetProperty_NullBean_1_oe() throws Exception {
         try {
             BeanUtils.setProperty(null, "foo", "bar");
         } catch (final NullPointerException e) {
@@ -87,7 +87,7 @@ public class Jira368TestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testBeanUtilsSetProperty_NullBean_2_oe() throws Exception {
+public void testBeanUtilsSetProperty_NullBean_2_oe() throws Exception {
         try {
             BeanUtils.setProperty(null, "foo", "bar");
         } catch (final NullPointerException e) {

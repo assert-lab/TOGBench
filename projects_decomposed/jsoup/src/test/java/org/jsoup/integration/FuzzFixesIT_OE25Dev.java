@@ -31,7 +31,7 @@ public class FuzzFixesIT_OE25Dev {
         return Stream.of(files);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("testFiles")
     void testHtmlParse_1_oe(File file) throws IOException {
         long startTime = System.currentTimeMillis();
@@ -43,7 +43,7 @@ public class FuzzFixesIT_OE25Dev {
     }
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("testFiles")
     void testHtmlParse_2_oe(File file) throws IOException {
         long startTime = System.currentTimeMillis();
@@ -57,7 +57,7 @@ public class FuzzFixesIT_OE25Dev {
     }
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("testFiles")
     void testXmlParse_1_oe(File file) throws IOException {
         long startTime = System.currentTimeMillis();
@@ -69,7 +69,7 @@ public class FuzzFixesIT_OE25Dev {
     }
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("testFiles")
     void testXmlParse_2_oe(File file) throws IOException {
         long startTime = System.currentTimeMillis();

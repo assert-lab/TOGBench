@@ -115,18 +115,18 @@ public class TestBasePartial_OE25Dev extends TestCase {
         }
     }
 
-    public void testSetMethods_1_oe() throws Throwable {
+public void testSetMethods_1_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         assertEquals(1970,mock.getYear());
     }
 
-    public void testSetMethods_2_oe() throws Throwable {
+public void testSetMethods_2_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         // removed other assertion
         assertEquals(1,mock.getMonthOfYear());
     }
 
-    public void testSetMethods_3_oe() throws Throwable {
+public void testSetMethods_3_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         // removed other assertion
         // removed other assertion
@@ -135,7 +135,7 @@ public class TestBasePartial_OE25Dev extends TestCase {
         assertEquals(2004,mock.getYear());
     }
 
-    public void testSetMethods_4_oe() throws Throwable {
+public void testSetMethods_4_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         // removed other assertion
         // removed other assertion
@@ -145,7 +145,7 @@ public class TestBasePartial_OE25Dev extends TestCase {
         assertEquals(1,mock.getMonthOfYear());
     }
 
-    public void testSetMethods_5_oe() throws Throwable {
+public void testSetMethods_5_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         // removed other assertion
         // removed other assertion
@@ -158,7 +158,7 @@ public class TestBasePartial_OE25Dev extends TestCase {
         assertEquals(2004,mock.getYear());
     }
 
-    public void testSetMethods_6_oe() throws Throwable {
+public void testSetMethods_6_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         // removed other assertion
         // removed other assertion
@@ -172,7 +172,7 @@ public class TestBasePartial_OE25Dev extends TestCase {
         assertEquals(6,mock.getMonthOfYear());
     }
 
-    public void testSetMethods_7_oe() throws Throwable {
+public void testSetMethods_7_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         // removed other assertion
         // removed other assertion
@@ -189,7 +189,7 @@ public class TestBasePartial_OE25Dev extends TestCase {
         assertEquals(2005,mock.getYear());
     }
 
-    public void testSetMethods_8_oe() throws Throwable {
+public void testSetMethods_8_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         // removed other assertion
         // removed other assertion
@@ -207,7 +207,7 @@ public class TestBasePartial_OE25Dev extends TestCase {
         assertEquals(5,mock.getMonthOfYear());
     }
 
-    public void testSetMethods_10_oe() throws Throwable {
+public void testSetMethods_10_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         // removed other assertion
         // removed other assertion
@@ -231,7 +231,7 @@ public class TestBasePartial_OE25Dev extends TestCase {
         assertEquals(2005,mock.getYear());
     }
 
-    public void testSetMethods_11_oe() throws Throwable {
+public void testSetMethods_11_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         // removed other assertion
         // removed other assertion
@@ -256,7 +256,7 @@ public class TestBasePartial_OE25Dev extends TestCase {
         assertEquals(5,mock.getMonthOfYear());
     }
 
-    public void testSetMethods_13_oe() throws Throwable {
+public void testSetMethods_13_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         // removed other assertion
         // removed other assertion
@@ -287,7 +287,7 @@ public class TestBasePartial_OE25Dev extends TestCase {
         assertEquals(2005,mock.getYear());
     }
 
-    public void testSetMethods_14_oe() throws Throwable {
+public void testSetMethods_14_oe() throws Throwable {
         MockPartial mock = new MockPartial();
         // removed other assertion
         // removed other assertion

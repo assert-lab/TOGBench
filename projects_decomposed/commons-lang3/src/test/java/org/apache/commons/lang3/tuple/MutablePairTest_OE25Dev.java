@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Test;
  */
 public class MutablePairTest_OE25Dev {
 
-    @Test
+@Test
     public void testBasic_1_oe() {
         MutablePair<Integer, String> oldPair = new MutablePair<>(0, "foo");
         MutablePair<Integer, String> nowPair;
@@ -41,7 +41,7 @@ public class MutablePairTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testBasic_2_oe() {
         MutablePair<Integer, String> oldPair = new MutablePair<>(0, "foo");
         MutablePair<Integer, String> nowPair;
@@ -52,7 +52,7 @@ public class MutablePairTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testBasic_3_oe() {
         MutablePair<Integer, String> oldPair = new MutablePair<>(0, "foo");
         MutablePair<Integer, String> nowPair;
@@ -64,7 +64,7 @@ public class MutablePairTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testBasic_4_oe() {
         MutablePair<Integer, String> oldPair = new MutablePair<>(0, "foo");
         MutablePair<Integer, String> nowPair;
@@ -77,7 +77,7 @@ public class MutablePairTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testBasic_5_oe() {
         MutablePair<Integer, String> oldPair = new MutablePair<>(0, "foo");
         MutablePair<Integer, String> nowPair;
@@ -91,7 +91,7 @@ public class MutablePairTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testBasic_6_oe() {
         MutablePair<Integer, String> oldPair = new MutablePair<>(0, "foo");
         MutablePair<Integer, String> nowPair;
@@ -113,7 +113,7 @@ public class MutablePairTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testBasic_7_oe() {
         MutablePair<Integer, String> oldPair = new MutablePair<>(0, "foo");
         MutablePair<Integer, String> nowPair;
@@ -136,7 +136,7 @@ public class MutablePairTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testBasic_8_oe() {
         MutablePair<Integer, String> oldPair = new MutablePair<>(0, "foo");
         MutablePair<Integer, String> nowPair;
@@ -160,7 +160,7 @@ public class MutablePairTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testBasic_9_oe() {
         MutablePair<Integer, String> oldPair = new MutablePair<>(0, "foo");
         MutablePair<Integer, String> nowPair;
@@ -185,51 +185,51 @@ public class MutablePairTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testDefault_1_oe() {
         final MutablePair<Integer, String> pair = new MutablePair<>();
         assertNull(pair.getLeft());
     }
 
-    @Test
+@Test
     public void testDefault_2_oe() {
         final MutablePair<Integer, String> pair = new MutablePair<>();
         // removed other assertion
         assertNull(pair.getRight());
     }
 
-    @Test
+@Test
     public void testEmptyArrayGenerics_1_oe() {
         final MutablePair<Integer, String>[] empty = MutablePair.emptyArray();
         assertEquals(0, empty.length);
     }
 
-    @Test
+@Test
     public void testEmptyArrayLength_1_oe() {
         @SuppressWarnings("unchecked")
         final MutablePair<Integer, String>[] empty = (MutablePair<Integer, String>[]) MutablePair.EMPTY_ARRAY;
         assertEquals(0, empty.length);
     }
 
-    @Test
+@Test
     public void testEquals_1_oe() {
         assertEquals(MutablePair.of(null, "foo"), MutablePair.of(null, "foo"));
     }
 
-    @Test
+@Test
     public void testEquals_2_oe() {
         // removed other assertion
         assertNotEquals(MutablePair.of("foo", 0), MutablePair.of("foo", null));
     }
 
-    @Test
+@Test
     public void testEquals_3_oe() {
         // removed other assertion
         // removed other assertion
         assertNotEquals(MutablePair.of("foo", "bar"), MutablePair.of("xyz", "bar"));
     }
 
-    @Test
+@Test
     public void testEquals_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -239,7 +239,7 @@ public class MutablePairTest_OE25Dev {
         assertEquals(p, p);
     }
 
-    @Test
+@Test
     public void testEquals_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -250,12 +250,12 @@ public class MutablePairTest_OE25Dev {
         assertNotEquals(p, new Object());
     }
 
-    @Test
+@Test
     public void testHashCode_1_oe() {
         assertEquals(MutablePair.of(null, "foo").hashCode(), MutablePair.of(null, "foo").hashCode());
     }
 
-    @Test
+@Test
     public void testMutate_1_oe() {
         final MutablePair<Integer, String> pair = new MutablePair<>(0, "foo");
         pair.setLeft(42);
@@ -263,7 +263,7 @@ public class MutablePairTest_OE25Dev {
         assertEquals(42, pair.getLeft().intValue());
     }
 
-    @Test
+@Test
     public void testMutate_2_oe() {
         final MutablePair<Integer, String> pair = new MutablePair<>(0, "foo");
         pair.setLeft(42);
@@ -272,7 +272,7 @@ public class MutablePairTest_OE25Dev {
         assertEquals("bar", pair.getRight());
     }
 
-    @Test
+@Test
     public void testPairOfMapEntry_1_oe() {
         final HashMap<Integer, String> map = new HashMap<>();
         map.put(0, "foo");
@@ -281,7 +281,7 @@ public class MutablePairTest_OE25Dev {
         assertEquals(entry.getKey(), pair.getLeft());
     }
 
-    @Test
+@Test
     public void testPairOfMapEntry_2_oe() {
         final HashMap<Integer, String> map = new HashMap<>();
         map.put(0, "foo");
@@ -291,20 +291,20 @@ public class MutablePairTest_OE25Dev {
         assertEquals(entry.getValue(), pair.getRight());
     }
 
-    @Test
+@Test
     public void testPairOfObjects_1_oe() {
         final MutablePair<Integer, String> pair = MutablePair.of(0, "foo");
         assertEquals(0, pair.getLeft().intValue());
     }
 
-    @Test
+@Test
     public void testPairOfObjects_2_oe() {
         final MutablePair<Integer, String> pair = MutablePair.of(0, "foo");
         // removed other assertion
         assertEquals("foo", pair.getRight());
     }
 
-    @Test
+@Test
     public void testPairOfObjects_3_oe() {
         final MutablePair<Integer, String> pair = MutablePair.of(0, "foo");
         // removed other assertion
@@ -313,7 +313,7 @@ public class MutablePairTest_OE25Dev {
         assertNull(pair2.getLeft());
     }
 
-    @Test
+@Test
     public void testPairOfObjects_4_oe() {
         final MutablePair<Integer, String> pair = MutablePair.of(0, "foo");
         // removed other assertion
@@ -323,7 +323,7 @@ public class MutablePairTest_OE25Dev {
         assertEquals("bar", pair2.getRight());
     }
 
-    @Test
+@Test
     public void testPairOfObjects_5_oe() {
         final MutablePair<Integer, String> pair = MutablePair.of(0, "foo");
         // removed other assertion
@@ -335,7 +335,7 @@ public class MutablePairTest_OE25Dev {
         assertNull(pair3.left);
     }
 
-    @Test
+@Test
     public void testPairOfObjects_6_oe() {
         final MutablePair<Integer, String> pair = MutablePair.of(0, "foo");
         // removed other assertion
@@ -348,14 +348,14 @@ public class MutablePairTest_OE25Dev {
         assertNull(pair3.right);
     }
 
-    @Test
+@Test
     public void testSerialization_1_oe() throws Exception {
         final MutablePair<Integer, String> origPair = MutablePair.of(0, "foo");
         final MutablePair<Integer, String> deserializedPair = SerializationUtils.roundtrip(origPair);
         assertEquals(origPair, deserializedPair);
     }
 
-    @Test
+@Test
     public void testSerialization_2_oe() throws Exception {
         final MutablePair<Integer, String> origPair = MutablePair.of(0, "foo");
         final MutablePair<Integer, String> deserializedPair = SerializationUtils.roundtrip(origPair);
@@ -363,25 +363,25 @@ public class MutablePairTest_OE25Dev {
         assertEquals(origPair.hashCode(), deserializedPair.hashCode());
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         assertEquals("(null,null)", MutablePair.of(null, null).toString());
     }
 
-    @Test
+@Test
     public void testToString_2_oe() {
         // removed other assertion
         assertEquals("(null,two)", MutablePair.of(null, "two").toString());
     }
 
-    @Test
+@Test
     public void testToString_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("(one,null)", MutablePair.of("one", null).toString());
     }
 
-    @Test
+@Test
     public void testToString_4_oe() {
         // removed other assertion
         // removed other assertion

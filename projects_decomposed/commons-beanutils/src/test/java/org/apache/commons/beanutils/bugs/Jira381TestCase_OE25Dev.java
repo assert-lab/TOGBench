@@ -78,7 +78,7 @@ public class Jira381TestCase_OE25Dev extends TestCase {
     public class TestObjectSubclass extends TestObject{
     }
 
-    public void testIssue_BEANUTILS_381_getMatchingAccessibleMethod_1_oe() {
+public void testIssue_BEANUTILS_381_getMatchingAccessibleMethod_1_oe() {
 
         final Class<?> target = TestServiceBean.class;
         final String methodName = "performOp";
@@ -89,7 +89,7 @@ public class Jira381TestCase_OE25Dev extends TestCase {
         assertEquals(target, returned.getDeclaringClass());
     }
 
-    public void testIssue_BEANUTILS_381_getMatchingAccessibleMethod_2_oe() {
+public void testIssue_BEANUTILS_381_getMatchingAccessibleMethod_2_oe() {
 
         final Class<?> target = TestServiceBean.class;
         final String methodName = "performOp";
@@ -101,7 +101,7 @@ public class Jira381TestCase_OE25Dev extends TestCase {
         assertEquals(methodName, returned.getName());
     }
 
-    public void testIssue_BEANUTILS_381_getMatchingAccessibleMethod_3_oe() {
+public void testIssue_BEANUTILS_381_getMatchingAccessibleMethod_3_oe() {
 
         final Class<?> target = TestServiceBean.class;
         final String methodName = "performOp";

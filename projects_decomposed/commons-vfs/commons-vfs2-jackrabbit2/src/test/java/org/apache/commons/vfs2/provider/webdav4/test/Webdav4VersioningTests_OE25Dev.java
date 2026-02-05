@@ -51,7 +51,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         return scratchFolder;
     }
 
-    @Test
+@Test
     public void testVersioning_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -63,7 +63,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertSame(opts, newOpts);
     }
 
-    @Test
+@Test
     public void testVersioning_2_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -76,7 +76,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(builder.isVersioning(newOpts));
     }
 
-    @Test
+@Test
     public void testVersioning_3_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -90,7 +90,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testVersioning_4_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -106,7 +106,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testVersioning_5_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -123,7 +123,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertSame(FileType.FILE, file.getType());
     }
 
-    @Test
+@Test
     public void testVersioning_6_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -141,7 +141,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isFile());
     }
 
-    @Test
+@Test
     public void testVersioning_7_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -160,7 +160,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(0, file.getContent().getSize());
     }
 
-    @Test
+@Test
     public void testVersioning_8_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -180,7 +180,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.getContent().isEmpty());
     }
 
-    @Test
+@Test
     public void testVersioning_9_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -201,7 +201,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.isExecutable());
     }
 
-    @Test
+@Test
     public void testVersioning_10_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -223,7 +223,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.isHidden());
     }
 
-    @Test
+@Test
     public void testVersioning_11_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -246,7 +246,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isReadable());
     }
 
-    @Test
+@Test
     public void testVersioning_12_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -270,7 +270,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isWriteable());
     }
 
-    @Test
+@Test
     public void testVersioning_13_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -297,7 +297,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(map.containsKey(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
     }
 
-    @Test
+@Test
     public void testVersioning_14_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -327,7 +327,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testVersioning_15_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -358,7 +358,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(map.containsKey(VersionControlledResource.CHECKED_IN.toString()));
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -371,7 +371,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertSame(opts, newOpts);
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_2_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -385,7 +385,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(builder.isVersioning(newOpts));
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_3_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -400,7 +400,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_4_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -417,7 +417,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_5_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -435,7 +435,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertSame(FileType.FILE, file.getType());
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_6_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -454,7 +454,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isFile());
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_7_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -474,7 +474,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(0, file.getContent().getSize());
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_8_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -495,7 +495,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.getContent().isEmpty());
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_9_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -517,7 +517,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.isExecutable());
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_10_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -540,7 +540,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.isHidden());
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_11_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -564,7 +564,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isReadable());
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_12_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -589,7 +589,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(file.isWriteable());
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_13_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -617,7 +617,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(map.containsKey(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_14_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -646,7 +646,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals("testUser", map.get(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_15_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -678,7 +678,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_16_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -711,7 +711,7 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testVersioningWithCreator_17_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();

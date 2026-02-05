@@ -120,7 +120,7 @@ public class IndexedCollectionTest_OE25Dev extends AbstractCollectionTest<String
         }
     }
 
-    public void testAddedObjectsCanBeRetrievedByKey_1_oe() throws Exception {
+public void testAddedObjectsCanBeRetrievedByKey_1_oe() throws Exception {
         final Collection<String> coll = makeTestCollection();
         coll.add("12");
         coll.add("16");
@@ -132,7 +132,7 @@ public class IndexedCollectionTest_OE25Dev extends AbstractCollectionTest<String
         assertEquals("12", indexed.get(12));
     }
 
-    public void testAddedObjectsCanBeRetrievedByKey_2_oe() throws Exception {
+public void testAddedObjectsCanBeRetrievedByKey_2_oe() throws Exception {
         final Collection<String> coll = makeTestCollection();
         coll.add("12");
         coll.add("16");
@@ -145,7 +145,7 @@ public class IndexedCollectionTest_OE25Dev extends AbstractCollectionTest<String
         assertEquals("16", indexed.get(16));
     }
 
-    public void testAddedObjectsCanBeRetrievedByKey_3_oe() throws Exception {
+public void testAddedObjectsCanBeRetrievedByKey_3_oe() throws Exception {
         final Collection<String> coll = makeTestCollection();
         coll.add("12");
         coll.add("16");
@@ -159,7 +159,7 @@ public class IndexedCollectionTest_OE25Dev extends AbstractCollectionTest<String
         assertEquals("1", indexed.get(1));
     }
 
-    public void testAddedObjectsCanBeRetrievedByKey_4_oe() throws Exception {
+public void testAddedObjectsCanBeRetrievedByKey_4_oe() throws Exception {
         final Collection<String> coll = makeTestCollection();
         coll.add("12");
         coll.add("16");
@@ -174,7 +174,7 @@ public class IndexedCollectionTest_OE25Dev extends AbstractCollectionTest<String
         assertEquals("2", indexed.get(2));
     }
 
-    public void testAddedObjectsCanBeRetrievedByKey_5_oe() throws Exception {
+public void testAddedObjectsCanBeRetrievedByKey_5_oe() throws Exception {
         final Collection<String> coll = makeTestCollection();
         coll.add("12");
         coll.add("16");
@@ -190,7 +190,7 @@ public class IndexedCollectionTest_OE25Dev extends AbstractCollectionTest<String
         assertEquals("3", indexed.get(3));
     }
 
-    public void testAddedObjectsCanBeRetrievedByKey_6_oe() throws Exception {
+public void testAddedObjectsCanBeRetrievedByKey_6_oe() throws Exception {
         final Collection<String> coll = makeTestCollection();
         coll.add("12");
         coll.add("16");
@@ -207,14 +207,14 @@ public class IndexedCollectionTest_OE25Dev extends AbstractCollectionTest<String
         assertEquals("4", indexed.get(4));
     }
 
-    public void testDecoratedCollectionIsIndexedOnCreation_1_oe() throws Exception {
+public void testDecoratedCollectionIsIndexedOnCreation_1_oe() throws Exception {
         final Collection<String> original = makeFullCollection();
         final IndexedCollection<Integer, String> indexed = decorateUniqueCollection(original);
 
         assertEquals("1", indexed.get(1));
     }
 
-    public void testDecoratedCollectionIsIndexedOnCreation_2_oe() throws Exception {
+public void testDecoratedCollectionIsIndexedOnCreation_2_oe() throws Exception {
         final Collection<String> original = makeFullCollection();
         final IndexedCollection<Integer, String> indexed = decorateUniqueCollection(original);
 
@@ -222,7 +222,7 @@ public class IndexedCollectionTest_OE25Dev extends AbstractCollectionTest<String
         assertEquals("2", indexed.get(2));
     }
 
-    public void testDecoratedCollectionIsIndexedOnCreation_3_oe() throws Exception {
+public void testDecoratedCollectionIsIndexedOnCreation_3_oe() throws Exception {
         final Collection<String> original = makeFullCollection();
         final IndexedCollection<Integer, String> indexed = decorateUniqueCollection(original);
 
@@ -231,7 +231,7 @@ public class IndexedCollectionTest_OE25Dev extends AbstractCollectionTest<String
         assertEquals("3", indexed.get(3));
     }
 
-    public void testReindexUpdatesIndexWhenDecoratedCollectionIsModifiedSeparately_1_oe() throws Exception {
+public void testReindexUpdatesIndexWhenDecoratedCollectionIsModifiedSeparately_1_oe() throws Exception {
         final Collection<String> original = new ArrayList<>();
         final IndexedCollection<Integer, String> indexed = decorateUniqueCollection(original);
 
@@ -242,7 +242,7 @@ public class IndexedCollectionTest_OE25Dev extends AbstractCollectionTest<String
         assertNull(indexed.get(1));
     }
 
-    public void testReindexUpdatesIndexWhenDecoratedCollectionIsModifiedSeparately_2_oe() throws Exception {
+public void testReindexUpdatesIndexWhenDecoratedCollectionIsModifiedSeparately_2_oe() throws Exception {
         final Collection<String> original = new ArrayList<>();
         final IndexedCollection<Integer, String> indexed = decorateUniqueCollection(original);
 
@@ -254,7 +254,7 @@ public class IndexedCollectionTest_OE25Dev extends AbstractCollectionTest<String
         assertNull(indexed.get(2));
     }
 
-    public void testReindexUpdatesIndexWhenDecoratedCollectionIsModifiedSeparately_3_oe() throws Exception {
+public void testReindexUpdatesIndexWhenDecoratedCollectionIsModifiedSeparately_3_oe() throws Exception {
         final Collection<String> original = new ArrayList<>();
         final IndexedCollection<Integer, String> indexed = decorateUniqueCollection(original);
 
@@ -267,7 +267,7 @@ public class IndexedCollectionTest_OE25Dev extends AbstractCollectionTest<String
         assertNull(indexed.get(3));
     }
 
-    public void testReindexUpdatesIndexWhenDecoratedCollectionIsModifiedSeparately_4_oe() throws Exception {
+public void testReindexUpdatesIndexWhenDecoratedCollectionIsModifiedSeparately_4_oe() throws Exception {
         final Collection<String> original = new ArrayList<>();
         final IndexedCollection<Integer, String> indexed = decorateUniqueCollection(original);
 
@@ -284,7 +284,7 @@ public class IndexedCollectionTest_OE25Dev extends AbstractCollectionTest<String
         assertEquals("1", indexed.get(1));
     }
 
-    public void testReindexUpdatesIndexWhenDecoratedCollectionIsModifiedSeparately_5_oe() throws Exception {
+public void testReindexUpdatesIndexWhenDecoratedCollectionIsModifiedSeparately_5_oe() throws Exception {
         final Collection<String> original = new ArrayList<>();
         final IndexedCollection<Integer, String> indexed = decorateUniqueCollection(original);
 
@@ -302,7 +302,7 @@ public class IndexedCollectionTest_OE25Dev extends AbstractCollectionTest<String
         assertEquals("2", indexed.get(2));
     }
 
-    public void testReindexUpdatesIndexWhenDecoratedCollectionIsModifiedSeparately_6_oe() throws Exception {
+public void testReindexUpdatesIndexWhenDecoratedCollectionIsModifiedSeparately_6_oe() throws Exception {
         final Collection<String> original = new ArrayList<>();
         final IndexedCollection<Integer, String> indexed = decorateUniqueCollection(original);
 

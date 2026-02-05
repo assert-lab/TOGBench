@@ -19,3 +19,6 @@ spark_185_1,spark,SocketConnectorFactoryTest,testCreateSecureSocketConnector_whe
 spark_191_1,spark,JettyServerTest,testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_1_oe,src/test/java/spark/embeddedserver/jetty/JettyServerTest.java,,,,assert,unknown,standard,fail
 spark_193_1,spark,WebSocketCreatorFactoryTest,testCannotCreateInvalidHandlers_1_oe,src/test/java/spark/embeddedserver/jetty/websocket/WebSocketCreatorFactoryTest.java,,,,assert,unknown,standard,fail
 spark_194_1,spark,WebSocketCreatorFactoryTest,testCreate_whenInstantiationException_1_oe,src/test/java/spark/embeddedserver/jetty/websocket/WebSocketCreatorFactoryTest.java,,,,assert,unknown,standard,fail
+spark_178_1,spark,EmbeddedServersTest,testAddAndCreate_whenCreate_createsCustomServer_1_oe,src/test/java/spark/embeddedserver/EmbeddedServersTest.java,,,,assert,unknown,standard,assertNotNull
+spark_178_2,spark,EmbeddedServersTest,testAddAndCreate_whenCreate_createsCustomServer_2_oe,src/test/java/spark/embeddedserver/EmbeddedServersTest.java,,,,assert,unknown,standard,assertTrue
+spark_179_1,spark,EmbeddedServersTest,testAdd_whenConfigureRoutes_createsCustomServer_1_oe,src/test/java/spark/embeddedserver/EmbeddedServersTest.java,,,,assert,unknown,standard,assertTrue

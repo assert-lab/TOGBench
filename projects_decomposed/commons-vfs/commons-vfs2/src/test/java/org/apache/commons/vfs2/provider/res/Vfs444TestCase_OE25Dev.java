@@ -62,49 +62,49 @@ public class Vfs444TestCase_OE25Dev extends AbstractProviderTestConfig {
         manager.addProvider("zip", new ZipFileProvider());
     }
 
-        @Test
+@Test
         public void testResolveFullPathFile0_1_oe() throws FileSystemException {
             final FileObject result = getManager().resolveFile("res:test-data/test.zip");
             Assert.assertTrue(result.exists());
         }
 
-        @Test
+@Test
         public void testResolveFullPathFile1_1_oe() throws FileSystemException {
             final FileObject result = getManager().resolveFile("res:/test-data/test.zip");
             Assert.assertTrue(result.exists());
         }
 
-        @Test
+@Test
         public void testResolveFullPathFile2_1_oe() throws FileSystemException {
         	final FileObject result = getManager().resolveFile("res://test-data/test.zip");
             Assert.assertTrue(result.exists());
         }
 
-        @Test
+@Test
         public void testResolveFullPathURI0_1_oe() throws FileSystemException {
             final FileName result = getManager().resolveURI("res:test-data/test.zip");
             Assert.assertTrue(result.isFile());
         }
 
-        @Test
+@Test
         public void testResolveFullPathURI1_1_oe() throws FileSystemException {
             final FileName result = getManager().resolveURI("res:/test-data/test.zip");
             Assert.assertTrue(result.isFile());
         }
 
-        @Test
+@Test
         public void testResolveFullPathURI2_1_oe() throws FileSystemException {
             final FileName result = getManager().resolveURI("res://test-data/test.zip");
             Assert.assertTrue(result.isFile());
         }
 
-        @Test
+@Test
         public void testResolvePartialPath1_1_oe() throws FileSystemException {
             final FileName result = getManager().resolveURI("res:test-data");
             Assert.assertTrue(result.isFile());
         }
 
-        @Test
+@Test
         public void testResolvePartialPath2_1_oe() throws FileSystemException {
             final FileName root = getManager().resolveURI("res:test-data");
             final FileName file = getManager().resolveName(root, "test.zip");
@@ -113,7 +113,7 @@ public class Vfs444TestCase_OE25Dev extends AbstractProviderTestConfig {
             Assert.assertNotNull(result);
         }
 
-        @Test
+@Test
         public void testResolvePartialPath2_2_oe() throws FileSystemException {
             final FileName root = getManager().resolveURI("res:test-data");
             final FileName file = getManager().resolveName(root, "test.zip");

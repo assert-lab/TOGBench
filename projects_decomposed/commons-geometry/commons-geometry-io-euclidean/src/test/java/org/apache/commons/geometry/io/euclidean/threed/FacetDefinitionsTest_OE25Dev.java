@@ -52,7 +52,7 @@ class FacetDefinitionsTest_OE25Dev {
                 NullPointerException.class, "Precision context cannot be null");
     }
 
-    @Test
+@Test
     void testToPolygon_noNormal_1_oe() {
         // arrange
         final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS);
@@ -64,7 +64,7 @@ class FacetDefinitionsTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, p.getPlane().getPrecision());
     }
 
-    @Test
+@Test
     void testToPolygon_noNormal_3_oe() {
         // arrange
         final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS);
@@ -79,7 +79,7 @@ class FacetDefinitionsTest_OE25Dev {
         Assertions.assertEquals(4, p.getVertices().size());
     }
 
-    @Test
+@Test
     void testToPolygon_noNormal_4_oe() {
         // arrange
         final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS);
@@ -95,7 +95,7 @@ class FacetDefinitionsTest_OE25Dev {
         Assertions.assertEquals(1.0, p.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToPolygon_withNormal_similarDirection_1_oe() {
         // arrange
         final Vector3D normal = Vector3D.of(0.1, 0.2, 0.3);
@@ -108,7 +108,7 @@ class FacetDefinitionsTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, p.getPlane().getPrecision());
     }
 
-    @Test
+@Test
     void testToPolygon_withNormal_similarDirection_3_oe() {
         // arrange
         final Vector3D normal = Vector3D.of(0.1, 0.2, 0.3);
@@ -124,7 +124,7 @@ class FacetDefinitionsTest_OE25Dev {
         Assertions.assertEquals(4, p.getVertices().size());
     }
 
-    @Test
+@Test
     void testToPolygon_withNormal_similarDirection_4_oe() {
         // arrange
         final Vector3D normal = Vector3D.of(0.1, 0.2, 0.3);
@@ -141,7 +141,7 @@ class FacetDefinitionsTest_OE25Dev {
         Assertions.assertEquals(1.0, p.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToPolygon_withNormal_differentDirection_1_oe() {
         // arrange
         final Vector3D normal = Vector3D.of(0.1, 0.2, -0.3);
@@ -154,7 +154,7 @@ class FacetDefinitionsTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, p.getPlane().getPrecision());
     }
 
-    @Test
+@Test
     void testToPolygon_withNormal_differentDirection_3_oe() {
         // arrange
         final Vector3D normal = Vector3D.of(0.1, 0.2, -0.3);
@@ -170,7 +170,7 @@ class FacetDefinitionsTest_OE25Dev {
         Assertions.assertEquals(4, p.getVertices().size());
     }
 
-    @Test
+@Test
     void testToPolygon_withNormal_differentDirection_4_oe() {
         // arrange
         final Vector3D normal = Vector3D.of(0.1, 0.2, -0.3);
@@ -187,7 +187,7 @@ class FacetDefinitionsTest_OE25Dev {
         Assertions.assertEquals(1.0, p.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToPolygon_failure_1_oe() {
         // arrange
         final SimpleFacetDefinition f = new SimpleFacetDefinition(Arrays.asList(

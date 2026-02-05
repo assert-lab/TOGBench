@@ -322,7 +322,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
      * Tests whether new parameters can be set to replace existing ones.
      */
 
-    @Test
+@Test
     public void testAddConfigurationListener_1_oe() throws ConfigurationException {
         final EventListener<ConfigurationEvent> l1 = createEventListener();
         final EventListener<ConfigurationEvent> l2 = createEventListener();
@@ -335,7 +335,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("Listener 1 not registered", listeners.contains(l1));
     }
 
-    @Test
+@Test
     public void testAddConfigurationListener_2_oe() throws ConfigurationException {
         final EventListener<ConfigurationEvent> l1 = createEventListener();
         final EventListener<ConfigurationEvent> l2 = createEventListener();
@@ -349,7 +349,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("Listener 2 not registered", listeners.contains(l2));
     }
 
-    @Test
+@Test
     public void testAddParameters_1_oe() {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class,
             createTestParameters());
@@ -358,7 +358,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertSame("Wrong result", builder, builder.addParameters(params));
     }
 
-    @Test
+@Test
     public void testAddParameters_2_oe() {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class,
             createTestParameters());
@@ -369,7 +369,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("No original parameters", params2.keySet().containsAll(createTestParameters().keySet()));
     }
 
-    @Test
+@Test
     public void testAddParametersNull_1_oe() {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class,
             createTestParameters());
@@ -378,7 +378,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertEquals("Parameters changed", params, builder.getParameters());
     }
 
-    @Test
+@Test
     public void testBeanHelperInConfiguration_1_oe() throws ConfigurationException {
         final Set<Class<?>> classesPassedToFactory = new HashSet<>();
         final BeanFactory factory = new DefaultBeanFactory() {
@@ -395,7 +395,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("BeanFactory was not used correctly", classesPassedToFactory.contains(config.getClass()));
     }
 
-    @Test
+@Test
     public void testConfigure_1_oe() {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class)
             .configure(new BasicBuilderParameters().setListDelimiterHandler(listHandler).setThrowExceptionOnMissing(true));
@@ -403,7 +403,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertEquals("Wrong parameters", createTestParameters(), params2);
     }
 
-    @Test
+@Test
     public void testConnectToReloadingController_1_oe() throws ConfigurationException {
         final ReloadingDetector detector = EasyMock.createNiceMock(ReloadingDetector.class);
         EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
@@ -417,7 +417,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("Not in reloading state", controller.isInReloadingState());
     }
 
-    @Test
+@Test
     public void testConnectToReloadingController_2_oe() throws ConfigurationException {
         final ReloadingDetector detector = EasyMock.createNiceMock(ReloadingDetector.class);
         EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
@@ -432,7 +432,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertNotSame("No new configuration created", configuration, builder.getConfiguration());
     }
 
-    @Test
+@Test
     public void testCopyEventListeners_1_oe() throws ConfigurationException {
         final EventListener<ConfigurationEvent> l1 = createEventListener();
         final EventListener<ConfigurationEvent> l2 = createEventListener();
@@ -448,7 +448,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertEquals("Wrong number of listeners", 1, listeners.size());
     }
 
-    @Test
+@Test
     public void testCopyEventListeners_2_oe() throws ConfigurationException {
         final EventListener<ConfigurationEvent> l1 = createEventListener();
         final EventListener<ConfigurationEvent> l2 = createEventListener();
@@ -465,7 +465,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("Wrong listener", listeners.contains(l1));
     }
 
-    @Test
+@Test
     public void testCopyEventListeners_3_oe() throws ConfigurationException {
         final EventListener<ConfigurationEvent> l1 = createEventListener();
         final EventListener<ConfigurationEvent> l2 = createEventListener();
@@ -484,7 +484,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertEquals("Wrong number of listeners for hierarchical", 2, listeners.size());
     }
 
-    @Test
+@Test
     public void testCopyEventListeners_4_oe() throws ConfigurationException {
         final EventListener<ConfigurationEvent> l1 = createEventListener();
         final EventListener<ConfigurationEvent> l2 = createEventListener();
@@ -504,7 +504,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("Listener 1 not found", listeners.contains(l1));
     }
 
-    @Test
+@Test
     public void testCopyEventListeners_5_oe() throws ConfigurationException {
         final EventListener<ConfigurationEvent> l1 = createEventListener();
         final EventListener<ConfigurationEvent> l2 = createEventListener();
@@ -525,7 +525,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("Listener 2 not found", listeners.contains(l2));
     }
 
-    @Test
+@Test
     public void testCopyEventListeners_6_oe() throws ConfigurationException {
         final EventListener<ConfigurationEvent> l1 = createEventListener();
         final EventListener<ConfigurationEvent> l2 = createEventListener();
@@ -548,7 +548,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertEquals("Wrong number of error listeners", 1, errListeners.size());
     }
 
-    @Test
+@Test
     public void testCopyEventListeners_7_oe() throws ConfigurationException {
         final EventListener<ConfigurationEvent> l1 = createEventListener();
         final EventListener<ConfigurationEvent> l2 = createEventListener();
@@ -572,7 +572,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("Wrong error listener", errListeners.contains(l3));
     }
 
-    @Test
+@Test
     public void testEventListenerConfiguration_1_oe() throws ConfigurationException {
         final EventListenerTestImpl listener1 = new EventListenerTestImpl(null);
         final EventListenerRegistrationData<ConfigurationErrorEvent> regData = new EventListenerRegistrationData<>(ConfigurationErrorEvent.WRITE,
@@ -583,7 +583,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("Configuration listener not found", config.getEventListeners(ConfigurationEvent.ANY).contains(listener1));
     }
 
-    @Test
+@Test
     public void testEventListenerConfiguration_2_oe() throws ConfigurationException {
         final EventListenerTestImpl listener1 = new EventListenerTestImpl(null);
         final EventListenerRegistrationData<ConfigurationErrorEvent> regData = new EventListenerRegistrationData<>(ConfigurationErrorEvent.WRITE,
@@ -595,14 +595,14 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("Error listener not found", config.getEventListeners(regData.getEventType()).contains(regData.getListener()));
     }
 
-    @Test
+@Test
     public void testGetConfiguration_1_oe() throws ConfigurationException {
         final PropertiesConfiguration config = new BasicConfigurationBuilder<>(PropertiesConfiguration.class)
             .configure(new BasicBuilderParameters().setListDelimiterHandler(listHandler).setThrowExceptionOnMissing(true)).getConfiguration();
         assertTrue("Wrong exception flag", config.isThrowExceptionOnMissing());
     }
 
-    @Test
+@Test
     public void testGetConfiguration_2_oe() throws ConfigurationException {
         final PropertiesConfiguration config = new BasicConfigurationBuilder<>(PropertiesConfiguration.class)
             .configure(new BasicBuilderParameters().setListDelimiterHandler(listHandler).setThrowExceptionOnMissing(true)).getConfiguration();
@@ -610,7 +610,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertEquals("Wrong list delimiter handler", listHandler, config.getListDelimiterHandler());
     }
 
-    @Test
+@Test
     public void testGetConfigurationConcurrently_1_oe() throws Exception {
         final int threadCount = 32;
         final CountDownLatch startLatch = new CountDownLatch(1);
@@ -625,7 +625,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("Timeout", endLatch.await(5, TimeUnit.SECONDS));
     }
 
-    @Test
+@Test
     public void testGetConfigurationConcurrently_2_oe() throws Exception {
         final int threadCount = 32;
         final CountDownLatch startLatch = new CountDownLatch(1);
@@ -645,7 +645,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertEquals("Wrong number of result objects", 1, results.size());
     }
 
-    @Test
+@Test
     public void testInitializableCalled_1_oe() throws ConfigurationException {
         final BasicConfigurationBuilder<InitializableConfiguration> builder = new BasicConfigurationBuilder<>(InitializableConfiguration.class);
         builder.configure(new BasicBuilderParameters().setThrowExceptionOnMissing(true));
@@ -653,14 +653,14 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertEquals("Property not correctly initialized", "Initialized with flag true", config.getInitProperty());
     }
 
-    @Test
+@Test
     public void testInitializationErrorAllowed_1_oe() throws ConfigurationException {
         final BasicConfigurationBuilderInitFailImpl builder = new BasicConfigurationBuilderInitFailImpl(true);
         final PropertiesConfiguration config = builder.getConfiguration();
         assertTrue("Got data", config.isEmpty());
     }
 
-    @Test
+@Test
     public void testInitWithParameters_1_oe() {
         final Map<String, Object> params = createTestParameters();
         final BasicConfigurationBuilder<Configuration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class, params);
@@ -668,7 +668,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertEquals("Wrong parameters", createTestParameters(), params2);
     }
 
-    @Test
+@Test
     public void testInitWithParametersDefensiveCopy_1_oe() {
         final Map<String, Object> params = createTestParameters();
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class, params);
@@ -677,13 +677,13 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertEquals("Wrong parameters", createTestParameters(), params2);
     }
 
-    @Test
+@Test
     public void testInitWithParametersNull_1_oe() {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class, null);
         assertTrue("Got parameters", builder.getParameters().isEmpty());
     }
 
-    @Test
+@Test
     public void testRemoveConfigurationListener_1_oe() throws ConfigurationException {
         final EventListener<ConfigurationEvent> l1 = createEventListener();
         final EventListener<ConfigurationEvent> l2 = createEventListener();
@@ -694,7 +694,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("Wrong result", builder.removeEventListener(ConfigurationEvent.ANY, l2));
     }
 
-    @Test
+@Test
     public void testRemoveConfigurationListener_3_oe() throws ConfigurationException {
         final EventListener<ConfigurationEvent> l1 = createEventListener();
         final EventListener<ConfigurationEvent> l2 = createEventListener();
@@ -708,7 +708,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("Listener not registered", config.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL).contains(l1));
     }
 
-    @Test
+@Test
     public void testRemoveConfigurationListener_4_oe() throws ConfigurationException {
         final EventListener<ConfigurationEvent> l1 = createEventListener();
         final EventListener<ConfigurationEvent> l2 = createEventListener();
@@ -724,7 +724,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertFalse("Listener still registered", config.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL).contains(l1));
     }
 
-    @Test
+@Test
     public void testReservedParameter_1_oe() throws ConfigurationException {
         final Map<String, Object> params = new HashMap<>();
         params.put("throwExceptionOnMissing", Boolean.TRUE);
@@ -734,7 +734,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("Flag not set", config.isThrowExceptionOnMissing());
     }
 
-    @Test
+@Test
     public void testReset_1_oe() throws ConfigurationException {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class,
             createTestParameters());
@@ -744,7 +744,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertNotSame("No new result", config, config2);
     }
 
-    @Test
+@Test
     public void testReset_2_oe() throws ConfigurationException {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class,
             createTestParameters());
@@ -755,7 +755,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertFalse("Parameters not reset", config2.isThrowExceptionOnMissing());
     }
 
-    @Test
+@Test
     public void testResetParameters_1_oe() {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class,
             createTestParameters());
@@ -763,7 +763,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("Still got parameters", builder.getParameters().isEmpty());
     }
 
-    @Test
+@Test
     public void testResetResult_1_oe() throws ConfigurationException {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class,
             createTestParameters());
@@ -773,7 +773,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertNotSame("No new result", config, config2);
     }
 
-    @Test
+@Test
     public void testResetResult_2_oe() throws ConfigurationException {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class,
             createTestParameters());
@@ -784,7 +784,7 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         assertTrue("Wrong property", config2.isThrowExceptionOnMissing());
     }
 
-    @Test
+@Test
     public void testSetParameters_1_oe() {
         final Map<String, Object> params1 = new HashMap<>();
         params1.put("someParameter", "value");

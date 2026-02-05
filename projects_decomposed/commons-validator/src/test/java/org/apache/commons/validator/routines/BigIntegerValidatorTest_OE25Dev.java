@@ -82,7 +82,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
      * Test BigInteger Range/Min/Max
      */
 
-    public void testBigIntegerValidatorMethods_1_oe() {
+public void testBigIntegerValidatorMethods_1_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -94,7 +94,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertEquals("validate(A) default", expected, BigIntegerValidator.getInstance().validate(defaultVal));
     }
 
-    public void testBigIntegerValidatorMethods_2_oe() {
+public void testBigIntegerValidatorMethods_2_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -107,7 +107,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertEquals("validate(A) locale ", expected, BigIntegerValidator.getInstance().validate(localeVal, locale));
     }
 
-    public void testBigIntegerValidatorMethods_3_oe() {
+public void testBigIntegerValidatorMethods_3_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -121,7 +121,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertEquals("validate(A) pattern", expected, BigIntegerValidator.getInstance().validate(patternVal, pattern));
     }
 
-    public void testBigIntegerValidatorMethods_4_oe() {
+public void testBigIntegerValidatorMethods_4_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -136,7 +136,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertEquals("validate(A) both",    expected, BigIntegerValidator.getInstance().validate(germanPatternVal, pattern, Locale.GERMAN));
     }
 
-    public void testBigIntegerValidatorMethods_5_oe() {
+public void testBigIntegerValidatorMethods_5_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -153,7 +153,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("isValid(A) default", BigIntegerValidator.getInstance().isValid(defaultVal));
     }
 
-    public void testBigIntegerValidatorMethods_6_oe() {
+public void testBigIntegerValidatorMethods_6_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -171,7 +171,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("isValid(A) locale ", BigIntegerValidator.getInstance().isValid(localeVal, locale));
     }
 
-    public void testBigIntegerValidatorMethods_7_oe() {
+public void testBigIntegerValidatorMethods_7_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -190,7 +190,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("isValid(A) pattern", BigIntegerValidator.getInstance().isValid(patternVal, pattern));
     }
 
-    public void testBigIntegerValidatorMethods_8_oe() {
+public void testBigIntegerValidatorMethods_8_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -210,7 +210,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("isValid(A) both",    BigIntegerValidator.getInstance().isValid(germanPatternVal, pattern, Locale.GERMAN));
     }
 
-    public void testBigIntegerValidatorMethods_9_oe() {
+public void testBigIntegerValidatorMethods_9_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -232,7 +232,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertNull("validate(B) default", BigIntegerValidator.getInstance().validate(XXXX));
     }
 
-    public void testBigIntegerValidatorMethods_10_oe() {
+public void testBigIntegerValidatorMethods_10_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -255,7 +255,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertNull("validate(B) locale ", BigIntegerValidator.getInstance().validate(XXXX, locale));
     }
 
-    public void testBigIntegerValidatorMethods_11_oe() {
+public void testBigIntegerValidatorMethods_11_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -279,7 +279,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertNull("validate(B) pattern", BigIntegerValidator.getInstance().validate(XXXX, pattern));
     }
 
-    public void testBigIntegerValidatorMethods_12_oe() {
+public void testBigIntegerValidatorMethods_12_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -304,7 +304,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertNull("validate(B) both",    BigIntegerValidator.getInstance().validate(patternVal, pattern, Locale.GERMAN));
     }
 
-    public void testBigIntegerValidatorMethods_13_oe() {
+public void testBigIntegerValidatorMethods_13_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -331,7 +331,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertFalse("isValid(B) default", BigIntegerValidator.getInstance().isValid(XXXX));
     }
 
-    public void testBigIntegerValidatorMethods_14_oe() {
+public void testBigIntegerValidatorMethods_14_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -359,7 +359,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertFalse("isValid(B) locale ", BigIntegerValidator.getInstance().isValid(XXXX, locale));
     }
 
-    public void testBigIntegerValidatorMethods_15_oe() {
+public void testBigIntegerValidatorMethods_15_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -388,7 +388,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertFalse("isValid(B) pattern", BigIntegerValidator.getInstance().isValid(XXXX, pattern));
     }
 
-    public void testBigIntegerValidatorMethods_16_oe() {
+public void testBigIntegerValidatorMethods_16_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -418,7 +418,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertFalse("isValid(B) both",    BigIntegerValidator.getInstance().isValid(patternVal, pattern, Locale.GERMAN));
     }
 
-    public void testBigIntegerRangeMinMax_1_oe() {
+public void testBigIntegerRangeMinMax_1_oe() {
         BigIntegerValidator validator = (BigIntegerValidator)strictValidator;
         BigInteger number9  = validator.validate("9", "#");
         BigInteger number10 = validator.validate("10", "#");
@@ -431,7 +431,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertFalse("isInRange() < min",   validator.isInRange(number9,  10, 20));
     }
 
-    public void testBigIntegerRangeMinMax_2_oe() {
+public void testBigIntegerRangeMinMax_2_oe() {
         BigIntegerValidator validator = (BigIntegerValidator)strictValidator;
         BigInteger number9  = validator.validate("9", "#");
         BigInteger number10 = validator.validate("10", "#");
@@ -445,7 +445,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("isInRange() = min",    validator.isInRange(number10, 10, 20));
     }
 
-    public void testBigIntegerRangeMinMax_3_oe() {
+public void testBigIntegerRangeMinMax_3_oe() {
         BigIntegerValidator validator = (BigIntegerValidator)strictValidator;
         BigInteger number9  = validator.validate("9", "#");
         BigInteger number10 = validator.validate("10", "#");
@@ -460,7 +460,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("isInRange() in range", validator.isInRange(number11, 10, 20));
     }
 
-    public void testBigIntegerRangeMinMax_4_oe() {
+public void testBigIntegerRangeMinMax_4_oe() {
         BigIntegerValidator validator = (BigIntegerValidator)strictValidator;
         BigInteger number9  = validator.validate("9", "#");
         BigInteger number10 = validator.validate("10", "#");
@@ -476,7 +476,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("isInRange() = max",    validator.isInRange(number20, 10, 20));
     }
 
-    public void testBigIntegerRangeMinMax_5_oe() {
+public void testBigIntegerRangeMinMax_5_oe() {
         BigIntegerValidator validator = (BigIntegerValidator)strictValidator;
         BigInteger number9  = validator.validate("9", "#");
         BigInteger number10 = validator.validate("10", "#");
@@ -493,7 +493,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertFalse("isInRange() > max",   validator.isInRange(number21, 10, 20));
     }
 
-    public void testBigIntegerRangeMinMax_6_oe() {
+public void testBigIntegerRangeMinMax_6_oe() {
         BigIntegerValidator validator = (BigIntegerValidator)strictValidator;
         BigInteger number9  = validator.validate("9", "#");
         BigInteger number10 = validator.validate("10", "#");
@@ -513,7 +513,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertFalse("minValue() < min",    validator.minValue(number9,  10));
     }
 
-    public void testBigIntegerRangeMinMax_7_oe() {
+public void testBigIntegerRangeMinMax_7_oe() {
         BigIntegerValidator validator = (BigIntegerValidator)strictValidator;
         BigInteger number9  = validator.validate("9", "#");
         BigInteger number10 = validator.validate("10", "#");
@@ -534,7 +534,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("minValue() = min",     validator.minValue(number10, 10));
     }
 
-    public void testBigIntegerRangeMinMax_8_oe() {
+public void testBigIntegerRangeMinMax_8_oe() {
         BigIntegerValidator validator = (BigIntegerValidator)strictValidator;
         BigInteger number9  = validator.validate("9", "#");
         BigInteger number10 = validator.validate("10", "#");
@@ -556,7 +556,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("minValue() > min",     validator.minValue(number11, 10));
     }
 
-    public void testBigIntegerRangeMinMax_9_oe() {
+public void testBigIntegerRangeMinMax_9_oe() {
         BigIntegerValidator validator = (BigIntegerValidator)strictValidator;
         BigInteger number9  = validator.validate("9", "#");
         BigInteger number10 = validator.validate("10", "#");
@@ -581,7 +581,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("maxValue() < max",     validator.maxValue(number19, 20));
     }
 
-    public void testBigIntegerRangeMinMax_10_oe() {
+public void testBigIntegerRangeMinMax_10_oe() {
         BigIntegerValidator validator = (BigIntegerValidator)strictValidator;
         BigInteger number9  = validator.validate("9", "#");
         BigInteger number10 = validator.validate("10", "#");
@@ -607,7 +607,7 @@ public class BigIntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest
         assertTrue("maxValue() = max",     validator.maxValue(number20, 20));
     }
 
-    public void testBigIntegerRangeMinMax_11_oe() {
+public void testBigIntegerRangeMinMax_11_oe() {
         BigIntegerValidator validator = (BigIntegerValidator)strictValidator;
         BigInteger number9  = validator.validate("9", "#");
         BigInteger number10 = validator.validate("10", "#");

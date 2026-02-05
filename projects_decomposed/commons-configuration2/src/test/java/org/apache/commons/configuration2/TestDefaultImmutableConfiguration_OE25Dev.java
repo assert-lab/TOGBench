@@ -354,7 +354,7 @@ public class TestDefaultImmutableConfiguration_OE25Dev {
         config.getDuration("numberNotInConfig");
     }
 
-    @Test
+@Test
     public void testGetDuration_1_oe() {
         final Duration d = Duration.ofSeconds(1);
         config.map.put("durationD", d.toString());
@@ -363,7 +363,7 @@ public class TestDefaultImmutableConfiguration_OE25Dev {
         assertEquals("This returns 1(Duration)", oneD, config.getDuration("durationD"));
     }
 
-    @Test
+@Test
     public void testGetDuration_2_oe() {
         final Duration d = Duration.ofSeconds(1);
         config.map.put("durationD", d.toString());
@@ -373,7 +373,7 @@ public class TestDefaultImmutableConfiguration_OE25Dev {
         assertEquals("This returns 1(Duration)", oneD, config.getDuration("durationD", twoD));
     }
 
-    @Test
+@Test
     public void testGetDuration_3_oe() {
         final Duration d = Duration.ofSeconds(1);
         config.map.put("durationD", d.toString());
@@ -384,7 +384,7 @@ public class TestDefaultImmutableConfiguration_OE25Dev {
         assertEquals("This returns 2(default Duration)", twoD, config.getDuration("numberNotInConfig", twoD));
     }
 
-    @Test
+@Test
     public void testGetDuration_4_oe() {
         final Duration d = Duration.ofSeconds(1);
         config.map.put("durationD", d.toString());

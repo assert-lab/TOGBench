@@ -46,23 +46,23 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
 
     //----------------------------------------------------------------
 
-    @Test
+@Test
     public void testBlank_1_oe() {
         assertEquals(baseStr + "[]", new ToStringBuilder(base).toString());
     }
 
-    @Test
+@Test
     public void testAppendSuper_1_oe() {
         assertEquals(baseStr + "[]", new ToStringBuilder(base).appendSuper("Integer@8888[]").toString());
     }
 
-    @Test
+@Test
     public void testAppendSuper_2_oe() {
         // removed other assertion
         assertEquals(baseStr + "[<null>]", new ToStringBuilder(base).appendSuper("Integer@8888[<null>]").toString());
     }
 
-    @Test
+@Test
     public void testAppendSuper_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -70,7 +70,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a=hello]", new ToStringBuilder(base).appendSuper("Integer@8888[]").append("a", "hello").toString());
     }
 
-    @Test
+@Test
     public void testAppendSuper_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -79,7 +79,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[<null>,a=hello]", new ToStringBuilder(base).appendSuper("Integer@8888[<null>]").append("a", "hello").toString());
     }
 
-    @Test
+@Test
     public void testAppendSuper_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -89,14 +89,14 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a=hello]", new ToStringBuilder(base).appendSuper(null).append("a", "hello").toString());
     }
 
-    @Test
+@Test
     public void testObject_1_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
         assertEquals(baseStr + "[<null>]", new ToStringBuilder(base).append((Object) null).toString());
     }
 
-    @Test
+@Test
     public void testObject_2_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
@@ -104,7 +104,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[3]", new ToStringBuilder(base).append(i3).toString());
     }
 
-    @Test
+@Test
     public void testObject_3_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
@@ -113,7 +113,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a=<null>]", new ToStringBuilder(base).append("a", (Object) null).toString());
     }
 
-    @Test
+@Test
     public void testObject_4_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
@@ -123,7 +123,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a=3]", new ToStringBuilder(base).append("a", i3).toString());
     }
 
-    @Test
+@Test
     public void testObject_5_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
@@ -134,7 +134,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a=3,b=4]", new ToStringBuilder(base).append("a", i3).append("b", i4).toString());
     }
 
-    @Test
+@Test
     public void testObject_6_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
@@ -146,14 +146,14 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a=<Integer>]", new ToStringBuilder(base).append("a", i3, false).toString());
     }
 
-    @Test
+@Test
     public void testCollection_1_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
         assertEquals(baseStr + "[a=<size=0>]", new ToStringBuilder(base).append("a", Collections.emptyList(), false).toString());
     }
 
-    @Test
+@Test
     public void testCollection_2_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
@@ -161,7 +161,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a=[]]", new ToStringBuilder(base).append("a", Collections.emptyList(), true).toString());
     }
 
-    @Test
+@Test
     public void testCollection_3_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
@@ -170,7 +170,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a=<size=1>]", new ToStringBuilder(base).append("a", Collections.singletonList(i3), false).toString());
     }
 
-    @Test
+@Test
     public void testCollection_4_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
@@ -180,7 +180,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a=[3]]", new ToStringBuilder(base).append("a", Collections.singletonList(i3), true).toString());
     }
 
-    @Test
+@Test
     public void testCollection_5_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
@@ -191,7 +191,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a=<size=2>]", new ToStringBuilder(base).append("a", Arrays.asList(i3, i4), false).toString());
     }
 
-    @Test
+@Test
     public void testCollection_6_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
@@ -203,25 +203,25 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a=[3, 4]]", new ToStringBuilder(base).append("a", Arrays.asList(i3, i4), true).toString());
     }
 
-    @Test
+@Test
     public void testMap_1_oe() {
         assertEquals(baseStr + "[a=<size=0>]", new ToStringBuilder(base).append("a", Collections.emptyMap(), false).toString());
     }
 
-    @Test
+@Test
     public void testMap_2_oe() {
         // removed other assertion
         assertEquals(baseStr + "[a={}]", new ToStringBuilder(base).append("a", Collections.emptyMap(), true).toString());
     }
 
-    @Test
+@Test
     public void testMap_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(baseStr + "[a=<size=1>]", new ToStringBuilder(base).append("a", Collections.singletonMap("k", "v"), false).toString());
     }
 
-    @Test
+@Test
     public void testMap_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -229,14 +229,14 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a={k=v}]", new ToStringBuilder(base).append("a", Collections.singletonMap("k", "v"), true).toString());
     }
 
-    @Test
+@Test
     public void testArray_1_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
         assertEquals(baseStr + "[a=<size=0>]", new ToStringBuilder(base).append("a", (Object) new Integer[0], false).toString());
     }
 
-    @Test
+@Test
     public void testArray_2_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
@@ -244,7 +244,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a={}]", new ToStringBuilder(base).append("a", (Object) new Integer[0], true).toString());
     }
 
-    @Test
+@Test
     public void testArray_3_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
@@ -253,7 +253,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a=<size=1>]", new ToStringBuilder(base).append("a", (Object) new Integer[] {i3}, false).toString());
     }
 
-    @Test
+@Test
     public void testArray_4_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
@@ -263,7 +263,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a={3}]", new ToStringBuilder(base).append("a", (Object) new Integer[] {i3}, true).toString());
     }
 
-    @Test
+@Test
     public void testArray_5_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
@@ -274,7 +274,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a=<size=2>]", new ToStringBuilder(base).append("a", (Object) new Integer[] {i3, i4}, false).toString());
     }
 
-    @Test
+@Test
     public void testArray_6_oe() {
         final Integer i3 = Integer.valueOf(3);
         final Integer i4 = Integer.valueOf(4);
@@ -286,7 +286,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[a={3,4}]", new ToStringBuilder(base).append("a", (Object) new Integer[] {i3, i4}, true).toString());
     }
 
-    @Test
+@Test
     public void testPerson_1_oe() {
         final Person p = new Person();
         p.name = "John Q. Public";
@@ -296,38 +296,38 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(pBaseStr + "[name=John Q. Public,age=45,smoker=true]", new ToStringBuilder(p).append("name", p.name).append("age", p.age).append("smoker", p.smoker).toString());
     }
 
-    @Test
+@Test
     public void testLong_1_oe() {
         assertEquals(baseStr + "[3]", new ToStringBuilder(base).append(3L).toString());
     }
 
-    @Test
+@Test
     public void testLong_2_oe() {
         // removed other assertion
         assertEquals(baseStr + "[a=3]", new ToStringBuilder(base).append("a", 3L).toString());
     }
 
-    @Test
+@Test
     public void testLong_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(baseStr + "[a=3,b=4]", new ToStringBuilder(base).append("a", 3L).append("b", 4L).toString());
     }
 
-    @Test
+@Test
     public void testObjectArray_1_oe() {
         Object[] array = new Object[] {null, base, new int[] {3, 6}};
         assertEquals(baseStr + "[{<null>,5,{3,6}}]", new ToStringBuilder(base).append(array).toString());
     }
 
-    @Test
+@Test
     public void testObjectArray_2_oe() {
         Object[] array = new Object[] {null, base, new int[] {3, 6}};
         // removed other assertion
         assertEquals(baseStr + "[{<null>,5,{3,6}}]", new ToStringBuilder(base).append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testObjectArray_3_oe() {
         Object[] array = new Object[] {null, base, new int[] {3, 6}};
         // removed other assertion
@@ -336,7 +336,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[<null>]", new ToStringBuilder(base).append(array).toString());
     }
 
-    @Test
+@Test
     public void testObjectArray_4_oe() {
         Object[] array = new Object[] {null, base, new int[] {3, 6}};
         // removed other assertion
@@ -346,20 +346,20 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[<null>]", new ToStringBuilder(base).append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testLongArray_1_oe() {
         long[] array = new long[] {1, 2, -3, 4};
         assertEquals(baseStr + "[{1,2,-3,4}]", new ToStringBuilder(base).append(array).toString());
     }
 
-    @Test
+@Test
     public void testLongArray_2_oe() {
         long[] array = new long[] {1, 2, -3, 4};
         // removed other assertion
         assertEquals(baseStr + "[{1,2,-3,4}]", new ToStringBuilder(base).append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testLongArray_3_oe() {
         long[] array = new long[] {1, 2, -3, 4};
         // removed other assertion
@@ -368,7 +368,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[<null>]", new ToStringBuilder(base).append(array).toString());
     }
 
-    @Test
+@Test
     public void testLongArray_4_oe() {
         long[] array = new long[] {1, 2, -3, 4};
         // removed other assertion
@@ -378,20 +378,20 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[<null>]", new ToStringBuilder(base).append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testLongArrayArray_1_oe() {
         long[][] array = new long[][] {{1, 2}, null, {5}};
         assertEquals(baseStr + "[{{1,2},<null>,{5}}]", new ToStringBuilder(base).append(array).toString());
     }
 
-    @Test
+@Test
     public void testLongArrayArray_2_oe() {
         long[][] array = new long[][] {{1, 2}, null, {5}};
         // removed other assertion
         assertEquals(baseStr + "[{{1,2},<null>,{5}}]", new ToStringBuilder(base).append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testLongArrayArray_3_oe() {
         long[][] array = new long[][] {{1, 2}, null, {5}};
         // removed other assertion
@@ -400,7 +400,7 @@ public class ShortPrefixToStringStyleTest_OE25Dev {
         assertEquals(baseStr + "[<null>]", new ToStringBuilder(base).append(array).toString());
     }
 
-    @Test
+@Test
     public void testLongArrayArray_4_oe() {
         long[][] array = new long[][] {{1, 2}, null, {5}};
         // removed other assertion

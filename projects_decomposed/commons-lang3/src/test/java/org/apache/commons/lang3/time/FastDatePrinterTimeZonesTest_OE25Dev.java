@@ -35,7 +35,7 @@ public class FastDatePrinterTimeZonesTest_OE25Dev {
         return Arrays.stream(TimeZone.getAvailableIDs()).map(TimeZone::getTimeZone);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testCalendarTimezoneRespected_1_oe(final TimeZone timeZone) {
         final Calendar cal = Calendar.getInstance(timeZone);

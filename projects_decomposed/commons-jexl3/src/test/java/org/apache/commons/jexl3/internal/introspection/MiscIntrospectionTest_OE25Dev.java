@@ -85,7 +85,7 @@ public class MiscIntrospectionTest_OE25Dev {
         int method();
     }
 
-    @Test
+@Test
     public void testEmptyContext_2_oe() {
         try {
             JexlEngine.EMPTY_CONTEXT.set("nope", 42);
@@ -95,7 +95,7 @@ public class MiscIntrospectionTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testArrayIterator_1_oe() {
         // not on lists
         try {
@@ -105,7 +105,7 @@ public class MiscIntrospectionTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testArrayIterator_2_oe() {
         // not on lists
         try {
@@ -118,7 +118,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertFalse(ai0.hasNext());
     }
 
-    @Test
+@Test
     public void testArrayIterator_4_oe() {
         // not on lists
         try {
@@ -137,7 +137,7 @@ public class MiscIntrospectionTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testArrayIterator_5_oe() {
         // not on lists
         try {
@@ -159,7 +159,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertTrue(ai0.hasNext());
     }
 
-    @Test
+@Test
     public void testArrayIterator_6_oe() {
         // not on lists
         try {
@@ -182,7 +182,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertEquals(42, ai0.next());
     }
 
-    @Test
+@Test
     public void testArrayIterator_7_oe() {
         // not on lists
         try {
@@ -206,7 +206,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertFalse(ai0.hasNext());
     }
 
-    @Test
+@Test
     public void testArrayIterator_9_oe() {
         // not on lists
         try {
@@ -236,7 +236,7 @@ public class MiscIntrospectionTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testArrayIterator_11_oe() {
         // not on lists
         try {
@@ -273,7 +273,7 @@ public class MiscIntrospectionTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testArrayListWrapper_2_oe() {
         ArrayListWrapper alw ;
         try {
@@ -284,7 +284,7 @@ public class MiscIntrospectionTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testArrayListWrapper_3_oe() {
         ArrayListWrapper alw ;
         try {
@@ -298,7 +298,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertEquals(1, alw.indexOf(2));
     }
 
-    @Test
+@Test
     public void testArrayListWrapper_4_oe() {
         ArrayListWrapper alw ;
         try {
@@ -313,20 +313,20 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertEquals(-1, alw.indexOf(null));
     }
 
-    @Test
+@Test
     public void testPermissions_1_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         Assert.assertFalse(p.allow((Field) null));
     }
 
-    @Test
+@Test
     public void testPermissions_2_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
         Assert.assertFalse(p.allow((Package) null));
     }
 
-    @Test
+@Test
     public void testPermissions_3_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -334,7 +334,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertFalse(p.allow((Method) null));
     }
 
-    @Test
+@Test
     public void testPermissions_4_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -343,7 +343,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertFalse(p.allow((Constructor<?>) null));
     }
 
-    @Test
+@Test
     public void testPermissions_5_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -353,7 +353,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertFalse(p.allow((Class<?>) null));
     }
 
-    @Test
+@Test
     public void testPermissions_6_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -365,7 +365,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertTrue(p.allow(A2.class));
     }
 
-    @Test
+@Test
     public void testPermissions_7_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -378,7 +378,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertFalse(p.allow(A3.class));
     }
 
-    @Test
+@Test
     public void testPermissions_8_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -392,7 +392,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertFalse(p.allow(A5.class));
     }
 
-    @Test
+@Test
     public void testPermissions_9_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -409,7 +409,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertNotNull(mA);
     }
 
-    @Test
+@Test
     public void testPermissions_10_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -428,7 +428,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertNotNull(mA0);
     }
 
-    @Test
+@Test
     public void testPermissions_11_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -449,7 +449,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertNotNull(mA1);
     }
 
-    @Test
+@Test
     public void testPermissions_12_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -472,7 +472,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertNotNull(mA1);
     }
 
-    @Test
+@Test
     public void testPermissions_13_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -497,7 +497,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertNotNull(mA1);
     }
 
-    @Test
+@Test
     public void testPermissions_14_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -524,7 +524,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertTrue(p.allow(mA));
     }
 
-    @Test
+@Test
     public void testPermissions_15_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -552,7 +552,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertFalse(p.allow(mA0));
     }
 
-    @Test
+@Test
     public void testPermissions_16_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -581,7 +581,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertFalse(p.allow(mA1));
     }
 
-    @Test
+@Test
     public void testPermissions_17_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -611,7 +611,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertFalse(p.allow(mA2));
     }
 
-    @Test
+@Test
     public void testPermissions_18_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -642,7 +642,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertFalse(p.allow(mA3));
     }
 
-    @Test
+@Test
     public void testPermissions_19_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -676,7 +676,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertNotNull(fA);
     }
 
-    @Test
+@Test
     public void testPermissions_20_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -711,7 +711,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertTrue(p.allow(fA));
     }
 
-    @Test
+@Test
     public void testPermissions_21_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -749,7 +749,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertNotNull(fA0);
     }
 
-    @Test
+@Test
     public void testPermissions_22_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -788,7 +788,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertFalse(p.allow(fA0));
     }
 
-    @Test
+@Test
     public void testPermissions_23_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -829,7 +829,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertNotNull(fA1);
     }
 
-    @Test
+@Test
     public void testPermissions_24_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -871,7 +871,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertFalse(p.allow(fA0));
     }
 
-    @Test
+@Test
     public void testPermissions_25_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -916,7 +916,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertNotNull(cA);
     }
 
-    @Test
+@Test
     public void testPermissions_26_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -962,7 +962,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertTrue(p.allow(cA));
     }
 
-    @Test
+@Test
     public void testPermissions_27_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -1011,7 +1011,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertNotNull(cA0);
     }
 
-    @Test
+@Test
     public void testPermissions_28_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -1061,7 +1061,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertFalse(p.allow(cA0));
     }
 
-    @Test
+@Test
     public void testPermissions_29_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion
@@ -1114,7 +1114,7 @@ public class MiscIntrospectionTest_OE25Dev {
         Assert.assertNotNull(cA3);
     }
 
-    @Test
+@Test
     public void testPermissions_30_oe() throws Exception {
         Permissions p = Permissions.DEFAULT;
         // removed other assertion

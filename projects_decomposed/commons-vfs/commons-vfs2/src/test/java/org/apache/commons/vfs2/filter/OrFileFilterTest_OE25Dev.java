@@ -158,7 +158,7 @@ public class OrFileFilterTest_OE25Dev extends BaseFilterTest {
 
     }
 
-    @Test
+@Test
     public void testAccept_1_oe() throws FileSystemException {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
@@ -167,7 +167,7 @@ public class OrFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(new OrFileFilter().accept(any));
     }
 
-    @Test
+@Test
     public void testAccept_2_oe() throws FileSystemException {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
@@ -179,7 +179,7 @@ public class OrFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(new OrFileFilter(new True()).accept(any));
     }
 
-    @Test
+@Test
     public void testAccept_3_oe() throws FileSystemException {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
@@ -192,7 +192,7 @@ public class OrFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(new OrFileFilter(new True(), new True()).accept(any));
     }
 
-    @Test
+@Test
     public void testAccept_4_oe() throws FileSystemException {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
@@ -206,7 +206,7 @@ public class OrFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(new OrFileFilter(new False(), new True()).accept(any));
     }
 
-    @Test
+@Test
     public void testAccept_5_oe() throws FileSystemException {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
@@ -221,7 +221,7 @@ public class OrFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(new OrFileFilter(new True(), new False()).accept(any));
     }
 
-    @Test
+@Test
     public void testAccept_6_oe() throws FileSystemException {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
@@ -239,7 +239,7 @@ public class OrFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(new OrFileFilter(new False()).accept(any));
     }
 
-    @Test
+@Test
     public void testAccept_7_oe() throws FileSystemException {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));

@@ -310,7 +310,7 @@ public class TiffFloatingPointRoundTripTest_OE25Dev extends TiffBaseTest {
         return blocks;
     }
 
-    @Test
+@Test
     public void test_1_oe() throws Exception {
         // we set up the 32 and 64 bit test cases.  At this time,
         // the Tile format is not supported for floating-point samples by the
@@ -344,7 +344,7 @@ public class TiffFloatingPointRoundTripTest_OE25Dev extends TiffBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_2_oe() throws Exception {
         // we set up the 32 and 64 bit test cases.  At this time,
         // the Tile format is not supported for floating-point samples by the
@@ -383,7 +383,7 @@ public class TiffFloatingPointRoundTripTest_OE25Dev extends TiffBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_3_oe() throws Exception {
         // we set up the 32 and 64 bit test cases.  At this time,
         // the Tile format is not supported for floating-point samples by the

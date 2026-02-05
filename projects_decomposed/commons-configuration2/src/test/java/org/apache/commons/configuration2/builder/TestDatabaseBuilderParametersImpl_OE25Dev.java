@@ -73,7 +73,7 @@ public class TestDatabaseBuilderParametersImpl_OE25Dev {
      * Tests whether the value column name can be set.
      */
 
-    @Test
+@Test
     public void testBeanProperties_1_oe() throws Exception {
         BeanHelper.setProperty(params, "table", "testTable");
         BeanHelper.setProperty(params, "autoCommit", Boolean.FALSE);
@@ -81,7 +81,7 @@ public class TestDatabaseBuilderParametersImpl_OE25Dev {
         assertEquals("Wrong table name", "testTable", map.get("table"));
     }
 
-    @Test
+@Test
     public void testBeanProperties_2_oe() throws Exception {
         BeanHelper.setProperty(params, "table", "testTable");
         BeanHelper.setProperty(params, "autoCommit", Boolean.FALSE);
@@ -90,43 +90,43 @@ public class TestDatabaseBuilderParametersImpl_OE25Dev {
         assertEquals("Wrong auto commit", Boolean.FALSE, map.get("autoCommit"));
     }
 
-    @Test
+@Test
     public void testSetAutoCommit_1_oe() {
         assertSame("Wrong result", params, params.setAutoCommit(true));
     }
 
-    @Test
+@Test
     public void testSetConfigurationName_1_oe() {
         final String confName = "TestConfiguration";
         assertSame("Wrong result", params, params.setConfigurationName(confName));
     }
 
-    @Test
+@Test
     public void testSetConfigurationNameColumn_1_oe() {
         final String colName = "CONFIG_COLUMN";
         assertSame("Wrong result", params, params.setConfigurationNameColumn(colName));
     }
 
-    @Test
+@Test
     public void testSetDataSource_1_oe() {
         final DataSource src = EasyMock.createMock(DataSource.class);
         EasyMock.replay(src);
         assertSame("Wrong result", params, params.setDataSource(src));
     }
 
-    @Test
+@Test
     public void testSetKeyColumn_1_oe() {
         final String colName = "KEY_COLUMN";
         assertSame("Wrong result", params, params.setKeyColumn(colName));
     }
 
-    @Test
+@Test
     public void testSetTable_1_oe() {
         final String table = "TestTable";
         assertSame("Wrong result", params, params.setTable(table));
     }
 
-    @Test
+@Test
     public void testSetValueColumn_1_oe() {
         final String colName = "VALUE_COLUMN";
         assertSame("Wrong result", params, params.setValueColumn(colName));

@@ -270,25 +270,25 @@ public class TestFileLocatorUtils_OE25Dev {
      * Tests whether a file locator can be stored in a map and read again from there.
      */
 
-    @Test
+@Test
     public void testConvertToURIException_1_oe() throws URISyntaxException {
         final URI uri = new URI("test://test/path/file.tst");
         assertNull("Got a URL", FileLocatorUtils.convertURIToURL(uri));
     }
 
-    @Test
+@Test
     public void testDefaultFileLocationStrategy_1_oe() {
         final CombinedLocationStrategy strategy = (CombinedLocationStrategy) FileLocatorUtils.DEFAULT_LOCATION_STRATEGY;
         final Iterator<FileLocationStrategy> it = strategy.getSubStrategies().iterator();
         assertTrue("Wrong strategy (1)", it.next() instanceof ProvidedURLLocationStrategy);
     }
 
-    @Test
+@Test
     public void testFileFromURLNull_1_oe() throws Exception {
         assertNull("Wrong file for null URL", FileLocatorUtils.fileFromURL(null));
     }
 
-    @Test
+@Test
     public void testFileFromURLWithEncodedPercent_1_oe() throws MalformedURLException {
         final File file = new File("https%3A%2F%2Fwww.apache.org%2F.url").getAbsoluteFile();
         final URL fileURL = file.toURI().toURL();
@@ -296,7 +296,7 @@ public class TestFileLocatorUtils_OE25Dev {
         assertEquals("Wrong file", file, file2);
     }
 
-    @Test
+@Test
     public void testFileFromURLWithPlus_1_oe() throws MalformedURLException {
         final File file = new File(new File("target"), "foo+bar.txt").getAbsoluteFile();
         final URL fileURL = file.toURI().toURL();
@@ -304,37 +304,37 @@ public class TestFileLocatorUtils_OE25Dev {
         assertEquals("Wrong file", file, file2);
     }
 
-    @Test
+@Test
     public void testFromMapNoMap_1_oe() {
         final FileLocator fileLocator = FileLocatorUtils.fromMap(null);
         assertEquals("Locator is initialized", FileLocatorUtils.fileLocator().create(), fileLocator);
     }
 
-    @Test
+@Test
     public void testFullyInitializedLocatorAlreadyComplete_1_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().fileName(FILE_NAME).create();
         final FileLocator fullLocator = FileLocatorUtils.fullyInitializedLocator(locator);
         assertSame("Different instance", fullLocator, FileLocatorUtils.fullyInitializedLocator(fullLocator));
     }
 
-    @Test
+@Test
     public void testFullyInitializedLocatorLocateFails_1_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().fileName("non existing file").create();
         assertNull("Wrong result", FileLocatorUtils.fullyInitializedLocator(locator));
     }
 
-    @Test
+@Test
     public void testFullyInitializedLocatorUndefined_1_oe() {
         assertNull("Got a result", FileLocatorUtils.fullyInitializedLocator(FileLocatorUtils.fileLocator().create()));
     }
 
-    @Test
+@Test
     public void testGetBasePath_1_oe() throws Exception {
         URL url = new URL("http://xyz.net/foo/bar.xml");
         assertEquals("base path of " + url, "http://xyz.net/foo/", FileLocatorUtils.getBasePath(url));
     }
 
-    @Test
+@Test
     public void testGetBasePath_2_oe() throws Exception {
         URL url = new URL("http://xyz.net/foo/bar.xml");
         // removed other assertion
@@ -343,7 +343,7 @@ public class TestFileLocatorUtils_OE25Dev {
         assertEquals("base path of " + url, "http://xyz.net/foo/", FileLocatorUtils.getBasePath(url));
     }
 
-    @Test
+@Test
     public void testGetBasePath_3_oe() throws Exception {
         URL url = new URL("http://xyz.net/foo/bar.xml");
         // removed other assertion
@@ -355,7 +355,7 @@ public class TestFileLocatorUtils_OE25Dev {
         assertEquals("base path of " + url, "http://xyz.net/", FileLocatorUtils.getBasePath(url));
     }
 
-    @Test
+@Test
     public void testGetBasePath_4_oe() throws Exception {
         URL url = new URL("http://xyz.net/foo/bar.xml");
         // removed other assertion
@@ -370,7 +370,7 @@ public class TestFileLocatorUtils_OE25Dev {
         assertEquals("base path of " + url, "http://xyz.net/", FileLocatorUtils.getBasePath(url));
     }
 
-    @Test
+@Test
     public void testGetBasePath_5_oe() throws Exception {
         URL url = new URL("http://xyz.net/foo/bar.xml");
         // removed other assertion
@@ -388,7 +388,7 @@ public class TestFileLocatorUtils_OE25Dev {
         assertEquals("base path of " + url, "http://xyz.net", FileLocatorUtils.getBasePath(url));
     }
 
-    @Test
+@Test
     public void testGetFile_1_oe() throws Exception {
         final File directory = new File("target");
         final File reference = new File(directory, "test.txt").getAbsoluteFile();
@@ -396,7 +396,7 @@ public class TestFileLocatorUtils_OE25Dev {
         assertEquals(reference, FileLocatorUtils.getFile(null, reference.getAbsolutePath()));
     }
 
-    @Test
+@Test
     public void testGetFile_2_oe() throws Exception {
         final File directory = new File("target");
         final File reference = new File(directory, "test.txt").getAbsoluteFile();
@@ -405,7 +405,7 @@ public class TestFileLocatorUtils_OE25Dev {
         assertEquals(reference, FileLocatorUtils.getFile(directory.getAbsolutePath(), reference.getAbsolutePath()));
     }
 
-    @Test
+@Test
     public void testGetFile_3_oe() throws Exception {
         final File directory = new File("target");
         final File reference = new File(directory, "test.txt").getAbsoluteFile();
@@ -415,7 +415,7 @@ public class TestFileLocatorUtils_OE25Dev {
         assertEquals(reference, FileLocatorUtils.getFile(directory.getAbsolutePath(), reference.getName()));
     }
 
-    @Test
+@Test
     public void testGetFile_4_oe() throws Exception {
         final File directory = new File("target");
         final File reference = new File(directory, "test.txt").getAbsoluteFile();
@@ -426,7 +426,7 @@ public class TestFileLocatorUtils_OE25Dev {
         assertEquals(reference, FileLocatorUtils.getFile(directory.toURI().toURL().toString(), reference.getName()));
     }
 
-    @Test
+@Test
     public void testGetFile_5_oe() throws Exception {
         final File directory = new File("target");
         final File reference = new File(directory, "test.txt").getAbsoluteFile();
@@ -438,7 +438,7 @@ public class TestFileLocatorUtils_OE25Dev {
         assertEquals(reference, FileLocatorUtils.getFile("invalid", reference.toURI().toURL().toString()));
     }
 
-    @Test
+@Test
     public void testGetFile_6_oe() throws Exception {
         final File directory = new File("target");
         final File reference = new File(directory, "test.txt").getAbsoluteFile();
@@ -451,12 +451,12 @@ public class TestFileLocatorUtils_OE25Dev {
         assertEquals(reference, FileLocatorUtils.getFile("jar:file:/C:/myjar.jar!/my-config.xml/someprops.properties", reference.getAbsolutePath()));
     }
 
-    @Test
+@Test
     public void testGetFileName_1_oe() throws Exception {
         assertNull("file name for a null URL", FileLocatorUtils.getFileName(null));
     }
 
-    @Test
+@Test
     public void testGetFileName_2_oe() throws Exception {
         // removed other assertion
 
@@ -464,7 +464,7 @@ public class TestFileLocatorUtils_OE25Dev {
         assertNull("file for a directory URL " + url, FileLocatorUtils.getFileName(url));
     }
 
-    @Test
+@Test
     public void testGetFileName_3_oe() throws Exception {
         // removed other assertion
 
@@ -475,53 +475,53 @@ public class TestFileLocatorUtils_OE25Dev {
         assertEquals("file name for a valid URL " + url, "bar.xml", FileLocatorUtils.getFileName(url));
     }
 
-    @Test
+@Test
     public void testIsFullyInitializedNoBasePath_1_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().sourceURL(ConfigurationAssert.getTestURL(FILE_NAME)).fileName(FILE_NAME).create();
         assertFalse("Wrong result", FileLocatorUtils.isFullyInitialized(locator));
     }
 
-    @Test
+@Test
     public void testIsFullyInitializedNull_1_oe() {
         assertFalse("Wrong result", FileLocatorUtils.isFullyInitialized(null));
     }
 
-    @Test
+@Test
     public void testIsLocationDefinedFalse_1_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().encoding(ENCODING).basePath(BASE_PATH).fileSystem(FileLocatorUtils.DEFAULT_FILE_SYSTEM)
             .create();
         assertFalse("Wrong result", FileLocatorUtils.isLocationDefined(locator));
     }
 
-    @Test
+@Test
     public void testIsLocationDefinedFileName_1_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().fileName(FILE_NAME).create();
         assertTrue("Wrong result", FileLocatorUtils.isLocationDefined(locator));
     }
 
-    @Test
+@Test
     public void testIsLocationDefinedNull_1_oe() {
         assertFalse("Wrong result", FileLocatorUtils.isLocationDefined(null));
     }
 
-    @Test
+@Test
     public void testIsLocationDefinedURL_1_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().sourceURL(ConfigurationAssert.getTestURL(FILE_NAME)).create();
         assertTrue("Wrong result", FileLocatorUtils.isLocationDefined(locator));
     }
 
-    @Test
+@Test
     public void testLocateNullLocator_1_oe() {
         assertNull("Wrong result", FileLocatorUtils.locate(null));
     }
 
-    @Test
+@Test
     public void testLocateSuccessWithDefaults_1_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().sourceURL(sourceURL).create();
         assertSame("Wrong URL", sourceURL, FileLocatorUtils.locate(locator));
     }
 
-    @Test
+@Test
     public void testLocateSuccessWithStrategyAndFileSystem_1_oe() throws ConfigurationException {
         final FileSystem fs = EasyMock.createMock(FileSystem.class);
         final FileLocationStrategy strategy = EasyMock.createMock(FileLocationStrategy.class);
@@ -531,7 +531,7 @@ public class TestFileLocatorUtils_OE25Dev {
         assertSame("Wrong URL", sourceURL, FileLocatorUtils.locateOrThrow(locator));
     }
 
-    @Test
+@Test
     public void testLocateSuccessWithStrategyDefaultFileSystem_1_oe() throws ConfigurationException {
         final FileLocationStrategy strategy = EasyMock.createMock(FileLocationStrategy.class);
         final FileLocator locator = FileLocatorUtils.fileLocator().locationStrategy(strategy).create();
@@ -540,35 +540,35 @@ public class TestFileLocatorUtils_OE25Dev {
         assertSame("Wrong URL", sourceURL, FileLocatorUtils.locateOrThrow(locator));
     }
 
-    @Test
+@Test
     public void testObtainFileSystemNotSetInLocator_1_oe() {
         assertSame("Wrong file system", FileLocatorUtils.DEFAULT_FILE_SYSTEM, FileLocatorUtils.obtainFileSystem(FileLocatorUtils.fileLocator().create()));
     }
 
-    @Test
+@Test
     public void testObtainFileSystemNullLocator_1_oe() {
         assertSame("Wrong file system", FileLocatorUtils.DEFAULT_FILE_SYSTEM, FileLocatorUtils.obtainFileSystem(null));
     }
 
-    @Test
+@Test
     public void testObtainFileSystemSetInLocator_1_oe() {
         final FileSystem fs = EasyMock.createMock(FileSystem.class);
         final FileLocator locator = FileLocatorUtils.fileLocator().fileSystem(fs).create();
         assertSame("Wrong file system", fs, FileLocatorUtils.obtainFileSystem(locator));
     }
 
-    @Test
+@Test
     public void testObtainLocationStrategyNotSetInLocator_1_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().create();
         assertSame("Wrong strategy", FileLocatorUtils.DEFAULT_LOCATION_STRATEGY, FileLocatorUtils.obtainLocationStrategy(locator));
     }
 
-    @Test
+@Test
     public void testObtainLocationStrategyNullLocator_1_oe() {
         assertSame("Wrong strategy", FileLocatorUtils.DEFAULT_LOCATION_STRATEGY, FileLocatorUtils.obtainLocationStrategy(null));
     }
 
-    @Test
+@Test
     public void testObtainLocationStrategySetInLocator_1_oe() {
         final FileLocationStrategy strategy = EasyMock.createMock(FileLocationStrategy.class);
         EasyMock.replay(strategy);
@@ -576,14 +576,14 @@ public class TestFileLocatorUtils_OE25Dev {
         assertSame("Wrong strategy", strategy, FileLocatorUtils.obtainLocationStrategy(locator));
     }
 
-    @Test
+@Test
     public void testPutNoLocator_1_oe() {
         final Map<String, Object> map = new HashMap<>();
         FileLocatorUtils.put(null, map);
         assertTrue("Got properties", map.isEmpty());
     }
 
-    @Test
+@Test
     public void testStoreFileLocatorInMap_1_oe() {
         final FileLocationStrategy strategy = EasyMock.createMock(FileLocationStrategy.class);
         EasyMock.replay(strategy);

@@ -25,7 +25,7 @@ import org.apache.commons.dbutils.ResultSetHandler;
 
 public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
 
-    public void testHandle_1_oe() throws SQLException {
+public void testHandle_1_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>();
 
         Map<String,Map<String,Object>> results = h.handle(this.rs);
@@ -33,7 +33,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         assertNotNull(results);
     }
 
-    public void testHandle_2_oe() throws SQLException {
+public void testHandle_2_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>();
 
         Map<String,Map<String,Object>> results = h.handle(this.rs);
@@ -42,7 +42,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals(ROWS, results.size());
     }
 
-    public void testHandle_3_oe() throws SQLException {
+public void testHandle_3_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>();
 
         Map<String,Map<String,Object>> results = h.handle(this.rs);
@@ -58,7 +58,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testHandle_4_oe() throws SQLException {
+public void testHandle_4_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>();
 
         Map<String,Map<String,Object>> results = h.handle(this.rs);
@@ -76,7 +76,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testHandle_5_oe() throws SQLException {
+public void testHandle_5_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>();
 
         Map<String,Map<String,Object>> results = h.handle(this.rs);
@@ -95,7 +95,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testHandle_6_oe() throws SQLException {
+public void testHandle_6_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>();
 
         Map<String,Map<String,Object>> results = h.handle(this.rs);
@@ -116,7 +116,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("1", row.get("one"));
     }
 
-    public void testHandle_7_oe() throws SQLException {
+public void testHandle_7_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>();
 
         Map<String,Map<String,Object>> results = h.handle(this.rs);
@@ -138,7 +138,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("2", row.get("TWO"));
     }
 
-    public void testHandle_8_oe() throws SQLException {
+public void testHandle_8_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>();
 
         Map<String,Map<String,Object>> results = h.handle(this.rs);
@@ -161,14 +161,14 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("THREE", row.get("Three"));
     }
 
-    public void testColumnIndexHandle_1_oe() throws SQLException {
+public void testColumnIndexHandle_1_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>(2);
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
         assertNotNull(results);
     }
 
-    public void testColumnIndexHandle_2_oe() throws SQLException {
+public void testColumnIndexHandle_2_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>(2);
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
@@ -176,7 +176,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals(ROWS, results.size());
     }
 
-    public void testColumnIndexHandle_3_oe() throws SQLException {
+public void testColumnIndexHandle_3_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>(2);
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
@@ -191,7 +191,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testColumnIndexHandle_4_oe() throws SQLException {
+public void testColumnIndexHandle_4_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>(2);
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
@@ -208,7 +208,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testColumnIndexHandle_5_oe() throws SQLException {
+public void testColumnIndexHandle_5_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>(2);
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
@@ -226,7 +226,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testColumnIndexHandle_6_oe() throws SQLException {
+public void testColumnIndexHandle_6_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>(2);
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
@@ -246,7 +246,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("4", row.get("one"));
     }
 
-    public void testColumnIndexHandle_7_oe() throws SQLException {
+public void testColumnIndexHandle_7_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>(2);
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
@@ -267,7 +267,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("5", row.get("TWO"));
     }
 
-    public void testColumnIndexHandle_8_oe() throws SQLException {
+public void testColumnIndexHandle_8_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>(2);
         Map<String,Map<String,Object>> results = h.handle(this.rs);
 
@@ -289,14 +289,14 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("SIX", row.get("Three"));
     }
 
-    public void testColumnNameHandle_1_oe() throws SQLException {
+public void testColumnNameHandle_1_oe() throws SQLException {
         ResultSetHandler<Map<Integer,Map<String,Object>>> h = new KeyedHandler<Integer>("intTest");
         Map<Integer,Map<String,Object>> results = h.handle(this.rs);
 
         assertNotNull(results);
     }
 
-    public void testColumnNameHandle_2_oe() throws SQLException {
+public void testColumnNameHandle_2_oe() throws SQLException {
         ResultSetHandler<Map<Integer,Map<String,Object>>> h = new KeyedHandler<Integer>("intTest");
         Map<Integer,Map<String,Object>> results = h.handle(this.rs);
 
@@ -304,7 +304,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals(ROWS, results.size());
     }
 
-    public void testColumnNameHandle_3_oe() throws SQLException {
+public void testColumnNameHandle_3_oe() throws SQLException {
         ResultSetHandler<Map<Integer,Map<String,Object>>> h = new KeyedHandler<Integer>("intTest");
         Map<Integer,Map<String,Object>> results = h.handle(this.rs);
 
@@ -319,7 +319,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testColumnNameHandle_4_oe() throws SQLException {
+public void testColumnNameHandle_4_oe() throws SQLException {
         ResultSetHandler<Map<Integer,Map<String,Object>>> h = new KeyedHandler<Integer>("intTest");
         Map<Integer,Map<String,Object>> results = h.handle(this.rs);
 
@@ -336,7 +336,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testColumnNameHandle_5_oe() throws SQLException {
+public void testColumnNameHandle_5_oe() throws SQLException {
         ResultSetHandler<Map<Integer,Map<String,Object>>> h = new KeyedHandler<Integer>("intTest");
         Map<Integer,Map<String,Object>> results = h.handle(this.rs);
 
@@ -354,7 +354,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
     }
     }
 
-    public void testColumnNameHandle_6_oe() throws SQLException {
+public void testColumnNameHandle_6_oe() throws SQLException {
         ResultSetHandler<Map<Integer,Map<String,Object>>> h = new KeyedHandler<Integer>("intTest");
         Map<Integer,Map<String,Object>> results = h.handle(this.rs);
 
@@ -374,7 +374,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("4", row.get("one"));
     }
 
-    public void testColumnNameHandle_7_oe() throws SQLException {
+public void testColumnNameHandle_7_oe() throws SQLException {
         ResultSetHandler<Map<Integer,Map<String,Object>>> h = new KeyedHandler<Integer>("intTest");
         Map<Integer,Map<String,Object>> results = h.handle(this.rs);
 
@@ -395,7 +395,7 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("5", row.get("TWO"));
     }
 
-    public void testColumnNameHandle_8_oe() throws SQLException {
+public void testColumnNameHandle_8_oe() throws SQLException {
         ResultSetHandler<Map<Integer,Map<String,Object>>> h = new KeyedHandler<Integer>("intTest");
         Map<Integer,Map<String,Object>> results = h.handle(this.rs);
 
@@ -417,13 +417,13 @@ public class KeyedHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("SIX", row.get("Three"));
     }
 
-    public void testEmptyResultSetHandle_1_oe() throws SQLException {
+public void testEmptyResultSetHandle_1_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>();
         Map<String,Map<String,Object>> results = h.handle(this.emptyResultSet);
         assertNotNull(results);
     }
 
-    public void testEmptyResultSetHandle_2_oe() throws SQLException {
+public void testEmptyResultSetHandle_2_oe() throws SQLException {
         ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>();
         Map<String,Map<String,Object>> results = h.handle(this.emptyResultSet);
         // removed other assertion

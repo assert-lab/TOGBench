@@ -73,7 +73,7 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
      * Tests whether validating property can be set.
      */
 
-    @Test
+@Test
     public void testBeanPropertiesAccess_1_oe() throws Exception {
         final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
         final DocumentBuilder builder = EasyMock.createMock(DocumentBuilder.class);
@@ -85,7 +85,7 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
         assertEquals("Wrong file name", "test.xml", params.getFileHandler().getFileName());
     }
 
-    @Test
+@Test
     public void testBeanPropertiesAccess_2_oe() throws Exception {
         final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
         final DocumentBuilder builder = EasyMock.createMock(DocumentBuilder.class);
@@ -99,7 +99,7 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
         assertEquals("Wrong exception flag", Boolean.TRUE, paramsMap.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testBeanPropertiesAccess_3_oe() throws Exception {
         final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
         final DocumentBuilder builder = EasyMock.createMock(DocumentBuilder.class);
@@ -114,7 +114,7 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
         assertSame("Wrong resolver", resolver, paramsMap.get("entityResolver"));
     }
 
-    @Test
+@Test
     public void testBeanPropertiesAccess_4_oe() throws Exception {
         final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
         final DocumentBuilder builder = EasyMock.createMock(DocumentBuilder.class);
@@ -130,7 +130,7 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
         assertSame("Wrong builder", builder, paramsMap.get("documentBuilder"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_1_oe() {
         final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
         final DocumentBuilder builder = EasyMock.createMock(DocumentBuilder.class);
@@ -143,7 +143,7 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
         assertEquals("Exception flag not set", Boolean.TRUE, parameters.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_2_oe() {
         final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
         final DocumentBuilder builder = EasyMock.createMock(DocumentBuilder.class);
@@ -157,7 +157,7 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
         assertEquals("Entity resolver not set", resolver, parameters.get("entityResolver"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_3_oe() {
         final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
         final DocumentBuilder builder = EasyMock.createMock(DocumentBuilder.class);
@@ -172,7 +172,7 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
         assertEquals("Document builder not set", builder, parameters.get("documentBuilder"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_4_oe() {
         final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
         final DocumentBuilder builder = EasyMock.createMock(DocumentBuilder.class);
@@ -188,7 +188,7 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
         assertEquals("Validation flag not set", Boolean.TRUE, parameters.get("validating"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_5_oe() {
         final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
         final DocumentBuilder builder = EasyMock.createMock(DocumentBuilder.class);
@@ -205,38 +205,38 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
         assertEquals("Schema flag not set", Boolean.TRUE, parameters.get("schemaValidation"));
     }
 
-    @Test
+@Test
     public void testSetDocumentBuilder_1_oe() {
         final DocumentBuilder builder = EasyMock.createMock(DocumentBuilder.class);
         EasyMock.replay(builder);
         assertSame("Wrong result", params, params.setDocumentBuilder(builder));
     }
 
-    @Test
+@Test
     public void testSetEntityResolver_1_oe() {
         final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
         EasyMock.replay(resolver);
         assertSame("Wrong result", params, params.setEntityResolver(resolver));
     }
 
-    @Test
+@Test
     public void testSetPublicID_1_oe() {
         final String pubID = "testPublicID";
         assertSame("Wrong result", params, params.setPublicID(pubID));
     }
 
-    @Test
+@Test
     public void testSetSchemaValidation_1_oe() {
         assertSame("Wrong result", params, params.setSchemaValidation(false));
     }
 
-    @Test
+@Test
     public void testSetSystemID_1_oe() {
         final String sysID = "testSystemID";
         assertSame("Wrong result", params, params.setSystemID(sysID));
     }
 
-    @Test
+@Test
     public void testSetValidating_1_oe() {
         assertSame("Wrong result", params, params.setValidating(true));
     }

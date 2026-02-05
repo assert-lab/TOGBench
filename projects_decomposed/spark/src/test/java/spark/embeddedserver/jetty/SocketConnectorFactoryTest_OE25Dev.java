@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 
 public class SocketConnectorFactoryTest_OE25Dev {
 
-    @Test
+@Test
     public void testCreateSocketConnector_whenServerIsNull_thenThrowException_2_oe() {
 
         try {
@@ -27,7 +27,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testCreateSocketConnector_whenHostIsNull_thenThrowException_2_oe() {
 
         Server server = new Server();
@@ -40,7 +40,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testCreateSocketConnector_1_oe() {
 
         final String host = "localhost";
@@ -56,7 +56,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
         assertEquals("Server Connector Host should be set to the specified server", host, internalHost);
     }
 
-    @Test
+@Test
     public void testCreateSocketConnector_2_oe() {
 
         final String host = "localhost";
@@ -73,7 +73,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
         assertEquals("Server Connector Port should be set to the specified port", port, internalPort);
     }
 
-    @Test
+@Test
     public void testCreateSocketConnector_3_oe() {
 
         final String host = "localhost";
@@ -91,7 +91,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
         assertEquals("Server Connector Server should be set to the specified server", internalServerConnector, server);
     }
 
-    @Test
+@Test
     public void testCreateSecureSocketConnector_whenServerIsNull_2_oe() {
 
         try {
@@ -102,7 +102,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testCreateSecureSocketConnector_whenHostIsNull_2_oe() {
 
         Server server = new Server();
@@ -115,7 +115,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testCreateSecureSocketConnector_whenSslStoresIsNull_2_oe() {
 
         Server server = new Server();
@@ -128,7 +128,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
     }
     }
 
-    public void testCreateSecureSocketConnector_1_oe() throws  Exception {
+public void testCreateSecureSocketConnector_1_oe() throws  Exception {
 
         final String host = "localhost";
         final int port = 8888;
@@ -150,7 +150,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
         assertEquals("Server Connector Host should be set to the specified server", host, internalHost);
     }
 
-    public void testCreateSecureSocketConnector_2_oe() throws  Exception {
+public void testCreateSecureSocketConnector_2_oe() throws  Exception {
 
         final String host = "localhost";
         final int port = 8888;
@@ -173,7 +173,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
         assertEquals("Server Connector Port should be set to the specified port", port, internalPort);
     }
 
-    public void testCreateSecureSocketConnector_3_oe() throws  Exception {
+public void testCreateSecureSocketConnector_3_oe() throws  Exception {
 
         final String host = "localhost";
         final int port = 8888;
@@ -200,7 +200,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
         assertTrue("Should return true because factory for SSL should have been set",factories.containsKey("ssl")&& factories.get("ssl")!= null);
     }
 
-    public void testCreateSecureSocketConnector_4_oe() throws  Exception {
+public void testCreateSecureSocketConnector_4_oe() throws  Exception {
 
         final String host = "localhost";
         final int port = 8888;
@@ -232,7 +232,7 @@ public class SocketConnectorFactoryTest_OE25Dev {
         assertEquals("Should return the Keystore file specified",keystoreFile,sslContextFactory.getKeyStoreResource().getFile().getName());
     }
 
-    public void testCreateSecureSocketConnector_5_oe() throws  Exception {
+public void testCreateSecureSocketConnector_5_oe() throws  Exception {
 
         final String host = "localhost";
         final int port = 8888;

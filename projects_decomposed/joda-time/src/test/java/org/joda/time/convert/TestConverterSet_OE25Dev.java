@@ -79,25 +79,25 @@ public class TestConverterSet_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testClass_1_oe() throws Exception {
+public void testClass_1_oe() throws Exception {
         Class cls = ConverterSet.class;
         assertEquals(false,Modifier.isPublic(cls.getModifiers()));
     }
 
-    public void testClass_2_oe() throws Exception {
+public void testClass_2_oe() throws Exception {
         Class cls = ConverterSet.class;
         // removed other assertion
         assertEquals(false,Modifier.isProtected(cls.getModifiers()));
     }
 
-    public void testClass_3_oe() throws Exception {
+public void testClass_3_oe() throws Exception {
         Class cls = ConverterSet.class;
         // removed other assertion
         // removed other assertion
         assertEquals(false,Modifier.isPrivate(cls.getModifiers()));
     }
 
-    public void testClass_4_oe() throws Exception {
+public void testClass_4_oe() throws Exception {
         Class cls = ConverterSet.class;
         // removed other assertion
         // removed other assertion
@@ -106,7 +106,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         assertEquals(1,cls.getDeclaredConstructors().length);
     }
 
-    public void testClass_5_oe() throws Exception {
+public void testClass_5_oe() throws Exception {
         Class cls = ConverterSet.class;
         // removed other assertion
         // removed other assertion
@@ -117,7 +117,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPublic(con.getModifiers()));
     }
 
-    public void testClass_6_oe() throws Exception {
+public void testClass_6_oe() throws Exception {
         Class cls = ConverterSet.class;
         // removed other assertion
         // removed other assertion
@@ -129,7 +129,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isProtected(con.getModifiers()));
     }
 
-    public void testClass_7_oe() throws Exception {
+public void testClass_7_oe() throws Exception {
         Class cls = ConverterSet.class;
         // removed other assertion
         // removed other assertion
@@ -142,7 +142,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPrivate(con.getModifiers()));
     }
 
-    public void testBigHashtable_1_oe() {
+public void testBigHashtable_1_oe() {
         Converter[] array = new Converter[] {
             c1, c2, c3, c4,
         };
@@ -168,7 +168,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         assertEquals(4,set.size());
     }
 
-    public void testAddNullRemoved1_1_oe() {
+public void testAddNullRemoved1_1_oe() {
         Converter[] array = new Converter[] {
             c1, c2, c3, c4,
         };
@@ -177,7 +177,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         assertEquals(4,set.size());
     }
 
-    public void testAddNullRemoved1_2_oe() {
+public void testAddNullRemoved1_2_oe() {
         Converter[] array = new Converter[] {
             c1, c2, c3, c4,
         };
@@ -187,7 +187,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         assertEquals(5,result.size());
     }
 
-    public void testAddNullRemoved2_1_oe() {
+public void testAddNullRemoved2_1_oe() {
         Converter[] array = new Converter[] {
             c1, c2, c3, c4,
         };
@@ -196,7 +196,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         assertSame(set,result);
     }
 
-    public void testAddNullRemoved3_1_oe() {
+public void testAddNullRemoved3_1_oe() {
         Converter[] array = new Converter[] {
             c1, c2, c3, c4,
         };
@@ -205,7 +205,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         assertTrue(set != result);
     }
 
-    public void testAddNullRemoved3_2_oe() {
+public void testAddNullRemoved3_2_oe() {
         Converter[] array = new Converter[] {
             c1, c2, c3, c4,
         };
@@ -215,7 +215,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         assertEquals(4,set.size());
     }
 
-    public void testAddNullRemoved3_3_oe() {
+public void testAddNullRemoved3_3_oe() {
         Converter[] array = new Converter[] {
             c1, c2, c3, c4,
         };
@@ -226,7 +226,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         assertEquals(4,result.size());
     }
 
-    public void testRemoveNullRemoved1_1_oe() {
+public void testRemoveNullRemoved1_1_oe() {
         Converter[] array = new Converter[] {
             c1, c2, c3, c4,
         };
@@ -235,7 +235,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         assertEquals(4,set.size());
     }
 
-    public void testRemoveNullRemoved1_2_oe() {
+public void testRemoveNullRemoved1_2_oe() {
         Converter[] array = new Converter[] {
             c1, c2, c3, c4,
         };
@@ -245,7 +245,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         assertEquals(3,result.size());
     }
 
-    public void testRemoveNullRemoved2_1_oe() {
+public void testRemoveNullRemoved2_1_oe() {
         Converter[] array = new Converter[] {
             c1, c2, c3, c4,
         };
@@ -254,7 +254,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         assertSame(set,result);
     }
 
-    public void testRemoveBadIndex1_2_oe() {
+public void testRemoveBadIndex1_2_oe() {
         Converter[] array = new Converter[] {
             c1, c2, c3, c4,
         };
@@ -266,7 +266,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         assertEquals(4,set.size());
     }
 
-    public void testRemoveBadIndex2_2_oe() {
+public void testRemoveBadIndex2_2_oe() {
         Converter[] array = new Converter[] {
             c1, c2, c3, c4,
         };

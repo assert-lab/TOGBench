@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 
 public class TagInfoSBytesTest_OE25Dev{
 
-  @Test
+@Test
   public void testCreatesTagInfoSBytesAndCallsEncodeValue_1_oe() {
       final TiffDirectoryType tiffDirectoryType = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
       final TagInfoSBytes tagInfoSBytes = new TagInfoSBytes("", (-198), 10, tiffDirectoryType);

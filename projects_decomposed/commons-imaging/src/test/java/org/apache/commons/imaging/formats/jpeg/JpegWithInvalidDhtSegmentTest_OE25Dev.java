@@ -30,7 +30,7 @@ import java.io.File;
  */
 public class JpegWithInvalidDhtSegmentTest_OE25Dev {
 
-    @Test
+@Test
     public void testSingleImage_1_oe() {
         // we cannot use ImagingTest and getImageByFileName, as it would cause others
         // tests to fail

@@ -296,20 +296,20 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         CollectionUtils.permutations(null);
     }
 
-    @Test
+@Test
     public void getCardinalityMap_1_oe() {
         final Map<Number, Integer> freqA = CollectionUtils.<Number>getCardinalityMap(iterableA);
         assertEquals(1, (int) freqA.get(1));
     }
 
-    @Test
+@Test
     public void getCardinalityMap_2_oe() {
         final Map<Number, Integer> freqA = CollectionUtils.<Number>getCardinalityMap(iterableA);
         // removed other assertion
         assertEquals(2, (int) freqA.get(2));
     }
 
-    @Test
+@Test
     public void getCardinalityMap_3_oe() {
         final Map<Number, Integer> freqA = CollectionUtils.<Number>getCardinalityMap(iterableA);
         // removed other assertion
@@ -317,7 +317,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, (int) freqA.get(3));
     }
 
-    @Test
+@Test
     public void getCardinalityMap_4_oe() {
         final Map<Number, Integer> freqA = CollectionUtils.<Number>getCardinalityMap(iterableA);
         // removed other assertion
@@ -326,7 +326,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(4, (int) freqA.get(4));
     }
 
-    @Test
+@Test
     public void getCardinalityMap_5_oe() {
         final Map<Number, Integer> freqA = CollectionUtils.<Number>getCardinalityMap(iterableA);
         // removed other assertion
@@ -336,7 +336,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(freqA.get(5));
     }
 
-    @Test
+@Test
     public void getCardinalityMap_6_oe() {
         final Map<Number, Integer> freqA = CollectionUtils.<Number>getCardinalityMap(iterableA);
         // removed other assertion
@@ -349,7 +349,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(freqB.get(1L));
     }
 
-    @Test
+@Test
     public void getCardinalityMap_7_oe() {
         final Map<Number, Integer> freqA = CollectionUtils.<Number>getCardinalityMap(iterableA);
         // removed other assertion
@@ -363,7 +363,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(4, (int) freqB.get(2L));
     }
 
-    @Test
+@Test
     public void getCardinalityMap_8_oe() {
         final Map<Number, Integer> freqA = CollectionUtils.<Number>getCardinalityMap(iterableA);
         // removed other assertion
@@ -378,7 +378,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, (int) freqB.get(3L));
     }
 
-    @Test
+@Test
     public void getCardinalityMap_9_oe() {
         final Map<Number, Integer> freqA = CollectionUtils.<Number>getCardinalityMap(iterableA);
         // removed other assertion
@@ -394,7 +394,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(2, (int) freqB.get(4L));
     }
 
-    @Test
+@Test
     public void getCardinalityMap_10_oe() {
         final Map<Number, Integer> freqA = CollectionUtils.<Number>getCardinalityMap(iterableA);
         // removed other assertion
@@ -411,20 +411,20 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, (int) freqB.get(5L));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_1_oe() {
         assertEquals(1, CollectionUtils.cardinality(1, iterableA));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_2_oe() {
         // removed other assertion
         assertEquals(2, CollectionUtils.cardinality(2, iterableA));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_3_oe() {
         // removed other assertion
@@ -432,7 +432,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, CollectionUtils.cardinality(3, iterableA));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_4_oe() {
         // removed other assertion
@@ -441,7 +441,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(4, CollectionUtils.cardinality(4, iterableA));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_5_oe() {
         // removed other assertion
@@ -451,7 +451,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(0, CollectionUtils.cardinality(5, iterableA));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_6_oe() {
         // removed other assertion
@@ -463,7 +463,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(0, CollectionUtils.cardinality(1L, iterableB));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_7_oe() {
         // removed other assertion
@@ -476,7 +476,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(4, CollectionUtils.cardinality(2L, iterableB));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_8_oe() {
         // removed other assertion
@@ -490,7 +490,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, CollectionUtils.cardinality(3L, iterableB));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_9_oe() {
         // removed other assertion
@@ -505,7 +505,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(2, CollectionUtils.cardinality(4L, iterableB));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_10_oe() {
         // removed other assertion
@@ -521,7 +521,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, CollectionUtils.cardinality(5L, iterableB));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_11_oe() {
         // removed other assertion
@@ -542,7 +542,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(0, CollectionUtils.cardinality(2L, iterableA2));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_12_oe() {
         // removed other assertion
@@ -564,7 +564,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(0, CollectionUtils.cardinality(2, iterableB2));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_13_oe() {
         // removed other assertion
@@ -593,7 +593,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, CollectionUtils.cardinality("A", set));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_14_oe() {
         // removed other assertion
@@ -623,7 +623,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(0, CollectionUtils.cardinality("B", set));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_15_oe() {
         // removed other assertion
@@ -654,7 +654,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, CollectionUtils.cardinality("C", set));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_16_oe() {
         // removed other assertion
@@ -686,7 +686,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(0, CollectionUtils.cardinality("D", set));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_17_oe() {
         // removed other assertion
@@ -719,7 +719,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, CollectionUtils.cardinality("E", set));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_18_oe() {
         // removed other assertion
@@ -759,7 +759,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, CollectionUtils.cardinality("A", bag));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_19_oe() {
         // removed other assertion
@@ -800,7 +800,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(0, CollectionUtils.cardinality("B", bag));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_20_oe() {
         // removed other assertion
@@ -842,7 +842,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, CollectionUtils.cardinality("C", bag));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_21_oe() {
         // removed other assertion
@@ -885,7 +885,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(0, CollectionUtils.cardinality("D", bag));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinality_22_oe() {
         // removed other assertion
@@ -929,14 +929,14 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(2, CollectionUtils.cardinality("E", bag));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinalityOfNull_1_oe() {
         final List<String> list = new ArrayList<>();
         assertEquals(0, CollectionUtils.cardinality(null, list));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinalityOfNull_2_oe() {
         final List<String> list = new ArrayList<>();
@@ -947,7 +947,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
     }
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinalityOfNull_3_oe() {
         final List<String> list = new ArrayList<>();
@@ -960,7 +960,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(0, CollectionUtils.cardinality(null, list));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinalityOfNull_4_oe() {
         final List<String> list = new ArrayList<>();
@@ -977,7 +977,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
     }
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinalityOfNull_5_oe() {
         final List<String> list = new ArrayList<>();
@@ -996,7 +996,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, CollectionUtils.cardinality(null, list));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinalityOfNull_6_oe() {
         final List<String> list = new ArrayList<>();
@@ -1019,7 +1019,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
     }
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinalityOfNull_7_oe() {
         final List<String> list = new ArrayList<>();
@@ -1044,7 +1044,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, CollectionUtils.cardinality(null, list));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinalityOfNull_8_oe() {
         final List<String> list = new ArrayList<>();
@@ -1073,7 +1073,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
     }
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinalityOfNull_9_oe() {
         final List<String> list = new ArrayList<>();
@@ -1104,7 +1104,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(2, CollectionUtils.cardinality(null, list));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinalityOfNull_10_oe() {
         final List<String> list = new ArrayList<>();
@@ -1139,7 +1139,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
     }
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinalityOfNull_11_oe() {
         final List<String> list = new ArrayList<>();
@@ -1176,7 +1176,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(2, CollectionUtils.cardinality(null, list));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinalityOfNull_12_oe() {
         final List<String> list = new ArrayList<>();
@@ -1217,7 +1217,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
     }
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinalityOfNull_13_oe() {
         final List<String> list = new ArrayList<>();
@@ -1260,7 +1260,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, CollectionUtils.cardinality(null, list));
     }
 
-    @Test
+@Test
     @Deprecated
     public void cardinalityOfNull_14_oe() {
         final List<String> list = new ArrayList<>();
@@ -1307,7 +1307,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
     }
     }
 
-    @Test
+@Test
     public void containsAll_1_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1327,7 +1327,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAll({1},{1,3}) should return false.", !CollectionUtils.containsAll(one, odds));
     }
 
-    @Test
+@Test
     public void containsAll_2_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1348,7 +1348,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAll({1,3},{1}) should return true.", CollectionUtils.containsAll(odds, one));
     }
 
-    @Test
+@Test
     public void containsAll_3_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1370,7 +1370,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAll({3},{1,3}) should return false.", !CollectionUtils.containsAll(three, odds));
     }
 
-    @Test
+@Test
     public void containsAll_4_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1393,7 +1393,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAll({1,3},{3}) should return true.", CollectionUtils.containsAll(odds, three));
     }
 
-    @Test
+@Test
     public void containsAll_5_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1417,7 +1417,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAll({2},{2}) should return true.", CollectionUtils.containsAll(two, two));
     }
 
-    @Test
+@Test
     public void containsAll_6_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1442,7 +1442,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAll({1,3},{1,3}) should return true.", CollectionUtils.containsAll(odds, odds));
     }
 
-    @Test
+@Test
     public void containsAll_7_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1469,7 +1469,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAll({2},{1,3}) should return false.", !CollectionUtils.containsAll(two, odds));
     }
 
-    @Test
+@Test
     public void containsAll_8_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1497,7 +1497,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAll({1,3},{2}) should return false.", !CollectionUtils.containsAll(odds, two));
     }
 
-    @Test
+@Test
     public void containsAll_9_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1526,7 +1526,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAll({1},{3}) should return false.", !CollectionUtils.containsAll(one, three));
     }
 
-    @Test
+@Test
     public void containsAll_10_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1556,7 +1556,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAll({3},{1}) should return false.", !CollectionUtils.containsAll(three, one));
     }
 
-    @Test
+@Test
     public void containsAll_11_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1587,7 +1587,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAll({1,3},{}) should return true.", CollectionUtils.containsAll(odds, empty));
     }
 
-    @Test
+@Test
     public void containsAll_12_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1619,7 +1619,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAll({},{1,3}) should return false.", !CollectionUtils.containsAll(empty, odds));
     }
 
-    @Test
+@Test
     public void containsAll_13_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1652,7 +1652,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAll({},{}) should return true.", CollectionUtils.containsAll(empty, empty));
     }
 
-    @Test
+@Test
     public void containsAll_14_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1687,7 +1687,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAll({1,3},{1,3,1}) should return true.", CollectionUtils.containsAll(odds, multiples));
     }
 
-    @Test
+@Test
     public void containsAll_15_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1723,7 +1723,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAll({1,3,1},{1,3,1}) should return true.", CollectionUtils.containsAll(odds, odds));
     }
 
-    @Test
+@Test
     public void containsAnyInCollection_1_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1739,7 +1739,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({1},{1,3}) should return true.", CollectionUtils.containsAny(one, odds));
     }
 
-    @Test
+@Test
     public void containsAnyInCollection_2_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1756,7 +1756,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({1,3},{1}) should return true.", CollectionUtils.containsAny(odds, one));
     }
 
-    @Test
+@Test
     public void containsAnyInCollection_3_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1774,7 +1774,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({3},{1,3}) should return true.", CollectionUtils.containsAny(three, odds));
     }
 
-    @Test
+@Test
     public void containsAnyInCollection_4_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1793,7 +1793,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({1,3},{3}) should return true.", CollectionUtils.containsAny(odds, three));
     }
 
-    @Test
+@Test
     public void containsAnyInCollection_5_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1813,7 +1813,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({2},{2}) should return true.", CollectionUtils.containsAny(two, two));
     }
 
-    @Test
+@Test
     public void containsAnyInCollection_6_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1834,7 +1834,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({1,3},{1,3}) should return true.", CollectionUtils.containsAny(odds, odds));
     }
 
-    @Test
+@Test
     public void containsAnyInCollection_7_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1857,7 +1857,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({2},{1,3}) should return false.", !CollectionUtils.containsAny(two, odds));
     }
 
-    @Test
+@Test
     public void containsAnyInCollection_8_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1881,7 +1881,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({1,3},{2}) should return false.", !CollectionUtils.containsAny(odds, two));
     }
 
-    @Test
+@Test
     public void containsAnyInCollection_9_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1906,7 +1906,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({1},{3}) should return false.", !CollectionUtils.containsAny(one, three));
     }
 
-    @Test
+@Test
     public void containsAnyInCollection_10_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1932,7 +1932,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({3},{1}) should return false.", !CollectionUtils.containsAny(three, one));
     }
 
-    @Test
+@Test
     public void containsAnyInCollection_11_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1959,7 +1959,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({1,3},{}) should return false.", !CollectionUtils.containsAny(odds, empty));
     }
 
-    @Test
+@Test
     public void containsAnyInCollection_12_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -1987,7 +1987,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({},{1,3}) should return false.", !CollectionUtils.containsAny(empty, odds));
     }
 
-    @Test
+@Test
     public void containsAnyInCollection_13_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final Collection<String> one = new ArrayList<>(1);
@@ -2016,7 +2016,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({},{}) should return false.", !CollectionUtils.containsAny(empty, empty));
     }
 
-    @Test
+@Test
     public void containsAnyInArray_1_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final String[] emptyArr = {};
@@ -2037,7 +2037,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({1},{1,3}) should return true.", CollectionUtils.containsAny(one, oddsArr));
     }
 
-    @Test
+@Test
     public void containsAnyInArray_2_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final String[] emptyArr = {};
@@ -2059,7 +2059,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({1,3},{1}) should return true.", CollectionUtils.containsAny(odds, oneArr));
     }
 
-    @Test
+@Test
     public void containsAnyInArray_3_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final String[] emptyArr = {};
@@ -2082,7 +2082,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({3},{1,3}) should return true.", CollectionUtils.containsAny(three, oddsArr));
     }
 
-    @Test
+@Test
     public void containsAnyInArray_4_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final String[] emptyArr = {};
@@ -2106,7 +2106,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({1,3},{3}) should return true.", CollectionUtils.containsAny(odds, threeArr));
     }
 
-    @Test
+@Test
     public void containsAnyInArray_5_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final String[] emptyArr = {};
@@ -2131,7 +2131,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({2},{2}) should return true.", CollectionUtils.containsAny(two, twoArr));
     }
 
-    @Test
+@Test
     public void containsAnyInArray_6_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final String[] emptyArr = {};
@@ -2157,7 +2157,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({1,3},{1,3}) should return true.", CollectionUtils.containsAny(odds, oddsArr));
     }
 
-    @Test
+@Test
     public void containsAnyInArray_7_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final String[] emptyArr = {};
@@ -2185,7 +2185,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({2},{1,3}) should return false.", !CollectionUtils.containsAny(two, oddsArr));
     }
 
-    @Test
+@Test
     public void containsAnyInArray_8_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final String[] emptyArr = {};
@@ -2214,7 +2214,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({1,3},{2}) should return false.", !CollectionUtils.containsAny(odds, twoArr));
     }
 
-    @Test
+@Test
     public void containsAnyInArray_9_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final String[] emptyArr = {};
@@ -2244,7 +2244,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({1},{3}) should return false.", !CollectionUtils.containsAny(one, threeArr));
     }
 
-    @Test
+@Test
     public void containsAnyInArray_10_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final String[] emptyArr = {};
@@ -2275,7 +2275,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({3},{1}) should return false.", !CollectionUtils.containsAny(three, oneArr));
     }
 
-    @Test
+@Test
     public void containsAnyInArray_11_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final String[] emptyArr = {};
@@ -2307,7 +2307,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({1,3},{}) should return false.", !CollectionUtils.containsAny(odds, emptyArr));
     }
 
-    @Test
+@Test
     public void containsAnyInArray_12_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final String[] emptyArr = {};
@@ -2340,7 +2340,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({},{1,3}) should return false.", !CollectionUtils.containsAny(empty, oddsArr));
     }
 
-    @Test
+@Test
     public void containsAnyInArray_13_oe() {
         final Collection<String> empty = new ArrayList<>(0);
         final String[] emptyArr = {};
@@ -2374,14 +2374,14 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue("containsAny({},{}) should return false.", !CollectionUtils.containsAny(empty, emptyArr));
     }
 
-    @Test
+@Test
     public void union_1_oe() {
         final Collection<Integer> col = CollectionUtils.union(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
         assertEquals(Integer.valueOf(1), freq.get(1));
     }
 
-    @Test
+@Test
     public void union_2_oe() {
         final Collection<Integer> col = CollectionUtils.union(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2389,7 +2389,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(4), freq.get(2));
     }
 
-    @Test
+@Test
     public void union_3_oe() {
         final Collection<Integer> col = CollectionUtils.union(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2398,7 +2398,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(3), freq.get(3));
     }
 
-    @Test
+@Test
     public void union_4_oe() {
         final Collection<Integer> col = CollectionUtils.union(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2408,7 +2408,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(4), freq.get(4));
     }
 
-    @Test
+@Test
     public void union_5_oe() {
         final Collection<Integer> col = CollectionUtils.union(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2419,7 +2419,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(1), freq.get(5));
     }
 
-    @Test
+@Test
     public void union_6_oe() {
         final Collection<Integer> col = CollectionUtils.union(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2434,7 +2434,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(1), freq2.get(1));
     }
 
-    @Test
+@Test
     public void union_7_oe() {
         final Collection<Integer> col = CollectionUtils.union(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2450,7 +2450,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(4), freq2.get(2));
     }
 
-    @Test
+@Test
     public void union_8_oe() {
         final Collection<Integer> col = CollectionUtils.union(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2467,7 +2467,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(3), freq2.get(3));
     }
 
-    @Test
+@Test
     public void union_9_oe() {
         final Collection<Integer> col = CollectionUtils.union(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2485,7 +2485,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(4), freq2.get(4));
     }
 
-    @Test
+@Test
     public void union_10_oe() {
         final Collection<Integer> col = CollectionUtils.union(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2504,14 +2504,14 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(1), freq2.get(5));
     }
 
-    @Test
+@Test
     public void intersection_1_oe() {
         final Collection<Integer> col = CollectionUtils.intersection(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
         assertNull(freq.get(1));
     }
 
-    @Test
+@Test
     public void intersection_2_oe() {
         final Collection<Integer> col = CollectionUtils.intersection(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2519,7 +2519,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(2), freq.get(2));
     }
 
-    @Test
+@Test
     public void intersection_3_oe() {
         final Collection<Integer> col = CollectionUtils.intersection(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2528,7 +2528,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(3), freq.get(3));
     }
 
-    @Test
+@Test
     public void intersection_4_oe() {
         final Collection<Integer> col = CollectionUtils.intersection(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2538,7 +2538,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(2), freq.get(4));
     }
 
-    @Test
+@Test
     public void intersection_5_oe() {
         final Collection<Integer> col = CollectionUtils.intersection(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2549,7 +2549,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(freq.get(5));
     }
 
-    @Test
+@Test
     public void intersection_6_oe() {
         final Collection<Integer> col = CollectionUtils.intersection(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2564,7 +2564,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(freq2.get(1));
     }
 
-    @Test
+@Test
     public void intersection_7_oe() {
         final Collection<Integer> col = CollectionUtils.intersection(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2580,7 +2580,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(2), freq2.get(2));
     }
 
-    @Test
+@Test
     public void intersection_8_oe() {
         final Collection<Integer> col = CollectionUtils.intersection(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2597,7 +2597,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(3), freq2.get(3));
     }
 
-    @Test
+@Test
     public void intersection_9_oe() {
         final Collection<Integer> col = CollectionUtils.intersection(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2615,7 +2615,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(2), freq2.get(4));
     }
 
-    @Test
+@Test
     public void intersection_10_oe() {
         final Collection<Integer> col = CollectionUtils.intersection(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2634,14 +2634,14 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(freq2.get(5));
     }
 
-    @Test
+@Test
     public void disjunction_1_oe() {
         final Collection<Integer> col = CollectionUtils.disjunction(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
         assertEquals(Integer.valueOf(1), freq.get(1));
     }
 
-    @Test
+@Test
     public void disjunction_2_oe() {
         final Collection<Integer> col = CollectionUtils.disjunction(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2649,7 +2649,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(2), freq.get(2));
     }
 
-    @Test
+@Test
     public void disjunction_3_oe() {
         final Collection<Integer> col = CollectionUtils.disjunction(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2658,7 +2658,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(freq.get(3));
     }
 
-    @Test
+@Test
     public void disjunction_4_oe() {
         final Collection<Integer> col = CollectionUtils.disjunction(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2668,7 +2668,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(2), freq.get(4));
     }
 
-    @Test
+@Test
     public void disjunction_5_oe() {
         final Collection<Integer> col = CollectionUtils.disjunction(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2679,7 +2679,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(1), freq.get(5));
     }
 
-    @Test
+@Test
     public void disjunction_6_oe() {
         final Collection<Integer> col = CollectionUtils.disjunction(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2694,7 +2694,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(1), freq2.get(1));
     }
 
-    @Test
+@Test
     public void disjunction_7_oe() {
         final Collection<Integer> col = CollectionUtils.disjunction(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2710,7 +2710,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(2), freq2.get(2));
     }
 
-    @Test
+@Test
     public void disjunction_8_oe() {
         final Collection<Integer> col = CollectionUtils.disjunction(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2727,7 +2727,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(freq2.get(3));
     }
 
-    @Test
+@Test
     public void disjunction_9_oe() {
         final Collection<Integer> col = CollectionUtils.disjunction(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2745,7 +2745,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(2), freq2.get(4));
     }
 
-    @Test
+@Test
     public void disjunction_10_oe() {
         final Collection<Integer> col = CollectionUtils.disjunction(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2764,7 +2764,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(1), freq2.get(5));
     }
 
-    @Test
+@Test
     public void testDisjunctionAsUnionMinusIntersection_1_oe() {
         final Collection<Number> dis = CollectionUtils.<Number>disjunction(collectionA, collectionC);
         final Collection<Number> un = CollectionUtils.<Number>union(collectionA, collectionC);
@@ -2772,7 +2772,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isEqualCollection(dis, CollectionUtils.subtract(un, inter)));
     }
 
-    @Test
+@Test
     public void testDisjunctionAsSymmetricDifference_1_oe() {
         final Collection<Number> dis = CollectionUtils.<Number>disjunction(collectionA, collectionC);
         final Collection<Number> amb = CollectionUtils.<Number>subtract(collectionA, collectionC);
@@ -2780,14 +2780,14 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isEqualCollection(dis, CollectionUtils.union(amb, bma)));
     }
 
-    @Test
+@Test
     public void testSubtract_1_oe() {
         final Collection<Integer> col = CollectionUtils.subtract(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
         assertEquals(Integer.valueOf(1), freq.get(1));
     }
 
-    @Test
+@Test
     public void testSubtract_2_oe() {
         final Collection<Integer> col = CollectionUtils.subtract(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2795,7 +2795,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(freq.get(2));
     }
 
-    @Test
+@Test
     public void testSubtract_3_oe() {
         final Collection<Integer> col = CollectionUtils.subtract(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2804,7 +2804,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(freq.get(3));
     }
 
-    @Test
+@Test
     public void testSubtract_4_oe() {
         final Collection<Integer> col = CollectionUtils.subtract(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2814,7 +2814,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(2), freq.get(4));
     }
 
-    @Test
+@Test
     public void testSubtract_5_oe() {
         final Collection<Integer> col = CollectionUtils.subtract(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2825,7 +2825,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(freq.get(5));
     }
 
-    @Test
+@Test
     public void testSubtract_6_oe() {
         final Collection<Integer> col = CollectionUtils.subtract(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2840,7 +2840,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(1), freq2.get(5));
     }
 
-    @Test
+@Test
     public void testSubtract_7_oe() {
         final Collection<Integer> col = CollectionUtils.subtract(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2856,7 +2856,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(freq2.get(4));
     }
 
-    @Test
+@Test
     public void testSubtract_8_oe() {
         final Collection<Integer> col = CollectionUtils.subtract(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2873,7 +2873,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(freq2.get(3));
     }
 
-    @Test
+@Test
     public void testSubtract_9_oe() {
         final Collection<Integer> col = CollectionUtils.subtract(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2891,7 +2891,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(2), freq2.get(2));
     }
 
-    @Test
+@Test
     public void testSubtract_10_oe() {
         final Collection<Integer> col = CollectionUtils.subtract(iterableA, iterableC);
         final Map<Integer, Integer> freq = CollectionUtils.getCardinalityMap(col);
@@ -2910,7 +2910,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(freq2.get(1));
     }
 
-    @Test
+@Test
     public void testSubtractWithPredicate_1_oe() {
         // greater than 3
         final Predicate<Number> predicate = new Predicate<Number>() {
@@ -2925,7 +2925,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(1), freq2.get(1));
     }
 
-    @Test
+@Test
     public void testSubtractWithPredicate_2_oe() {
         // greater than 3
         final Predicate<Number> predicate = new Predicate<Number>() {
@@ -2941,7 +2941,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(2), freq2.get(2));
     }
 
-    @Test
+@Test
     public void testSubtractWithPredicate_3_oe() {
         // greater than 3
         final Predicate<Number> predicate = new Predicate<Number>() {
@@ -2958,7 +2958,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(3), freq2.get(3));
     }
 
-    @Test
+@Test
     public void testSubtractWithPredicate_4_oe() {
         // greater than 3
         final Predicate<Number> predicate = new Predicate<Number>() {
@@ -2976,7 +2976,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(2), freq2.get(4));
     }
 
-    @Test
+@Test
     public void testSubtractWithPredicate_5_oe() {
         // greater than 3
         final Predicate<Number> predicate = new Predicate<Number>() {
@@ -2995,42 +2995,42 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(freq2.get(5));
     }
 
-    @Test
+@Test
     public void testIsSubCollectionOfSelf_1_oe() {
         assertTrue(CollectionUtils.isSubCollection(collectionA, collectionA));
     }
 
-    @Test
+@Test
     public void testIsSubCollectionOfSelf_2_oe() {
         // removed other assertion
         assertTrue(CollectionUtils.isSubCollection(collectionB, collectionB));
     }
 
-    @Test
+@Test
     public void testIsSubCollection_1_oe() {
         assertTrue(!CollectionUtils.isSubCollection(collectionA, collectionC));
     }
 
-    @Test
+@Test
     public void testIsSubCollection_2_oe() {
         // removed other assertion
         assertTrue(!CollectionUtils.isSubCollection(collectionC, collectionA));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_1_oe() {
         final Collection<Integer> c = new ArrayList<>();
         assertTrue(CollectionUtils.isSubCollection(c, collectionA));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_2_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
         assertTrue(!CollectionUtils.isSubCollection(collectionA, c));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_3_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3039,7 +3039,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isSubCollection(c, collectionA));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_4_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3049,7 +3049,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isSubCollection(collectionA, c));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_5_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3061,7 +3061,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isSubCollection(c, collectionA));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_6_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3074,7 +3074,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isSubCollection(collectionA, c));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_7_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3089,7 +3089,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isSubCollection(c, collectionA));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_8_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3105,7 +3105,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isSubCollection(collectionA, c));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_9_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3123,7 +3123,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isSubCollection(c, collectionA));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_10_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3142,7 +3142,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isSubCollection(collectionA, c));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_11_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3163,7 +3163,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isSubCollection(c, collectionA));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_12_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3185,7 +3185,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isSubCollection(collectionA, c));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_13_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3209,7 +3209,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isSubCollection(c, collectionA));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_14_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3234,7 +3234,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isSubCollection(collectionA, c));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_15_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3261,7 +3261,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isSubCollection(c, collectionA));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_16_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3289,7 +3289,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isSubCollection(collectionA, c));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_17_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3319,7 +3319,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isSubCollection(c, collectionA));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_18_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3350,7 +3350,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isSubCollection(collectionA, c));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_19_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3383,7 +3383,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isSubCollection(c, collectionA));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_20_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3417,7 +3417,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isSubCollection(collectionA, c));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_21_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3453,7 +3453,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isSubCollection(c, collectionA));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_22_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3490,7 +3490,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isSubCollection(collectionA, c));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_23_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3529,7 +3529,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isSubCollection(c, collectionA));
     }
 
-    @Test
+@Test
     public void testIsSubCollection2_24_oe() {
         final Collection<Integer> c = new ArrayList<>();
         // removed other assertion
@@ -3569,29 +3569,29 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isSubCollection(collectionA, c));
     }
 
-    @Test
+@Test
     public void testIsEqualCollectionToSelf_1_oe() {
         assertTrue(CollectionUtils.isEqualCollection(collectionA, collectionA));
     }
 
-    @Test
+@Test
     public void testIsEqualCollectionToSelf_2_oe() {
         // removed other assertion
         assertTrue(CollectionUtils.isEqualCollection(collectionB, collectionB));
     }
 
-    @Test
+@Test
     public void testIsEqualCollection_1_oe() {
         assertTrue(!CollectionUtils.isEqualCollection(collectionA, collectionC));
     }
 
-    @Test
+@Test
     public void testIsEqualCollection_2_oe() {
         // removed other assertion
         assertTrue(!CollectionUtils.isEqualCollection(collectionC, collectionA));
     }
 
-    @Test
+@Test
     public void testIsEqualCollectionReturnsFalse_1_oe() {
         final List<Integer> b = new ArrayList<>(collectionA);
         // remove an extra '2', and add a 5.  This will increase the size of the cardinality
@@ -3600,7 +3600,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.isEqualCollection(collectionA, b));
     }
 
-    @Test
+@Test
     public void testIsEqualCollectionReturnsFalse_2_oe() {
         final List<Integer> b = new ArrayList<>(collectionA);
         // remove an extra '2', and add a 5.  This will increase the size of the cardinality
@@ -3610,14 +3610,14 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.isEqualCollection(b, collectionA));
     }
 
-    @Test
+@Test
     public void testIsEqualCollection2_1_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
         assertTrue(CollectionUtils.isEqualCollection(a, b));
     }
 
-    @Test
+@Test
     public void testIsEqualCollection2_2_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -3625,7 +3625,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isEqualCollection(b, a));
     }
 
-    @Test
+@Test
     public void testIsEqualCollection2_3_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -3635,7 +3635,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isEqualCollection(a, b));
     }
 
-    @Test
+@Test
     public void testIsEqualCollection2_4_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -3646,7 +3646,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isEqualCollection(b, a));
     }
 
-    @Test
+@Test
     public void testIsEqualCollection2_5_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -3659,7 +3659,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isEqualCollection(a, b));
     }
 
-    @Test
+@Test
     public void testIsEqualCollection2_6_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -3673,7 +3673,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isEqualCollection(b, a));
     }
 
-    @Test
+@Test
     public void testIsEqualCollection2_7_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -3689,7 +3689,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isEqualCollection(a, b));
     }
 
-    @Test
+@Test
     public void testIsEqualCollection2_8_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -3706,7 +3706,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isEqualCollection(b, a));
     }
 
-    @Test
+@Test
     public void testIsEqualCollection2_9_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -3725,7 +3725,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isEqualCollection(a, b));
     }
 
-    @Test
+@Test
     public void testIsEqualCollection2_10_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -3745,7 +3745,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isEqualCollection(b, a));
     }
 
-    @Test
+@Test
     public void testIsEqualCollection2_11_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -3767,7 +3767,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isEqualCollection(a, b));
     }
 
-    @Test
+@Test
     public void testIsEqualCollection2_12_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -3790,7 +3790,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isEqualCollection(b, a));
     }
 
-    @Test
+@Test
     public void testIsEqualCollection2_13_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -3815,7 +3815,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isEqualCollection(a, b));
     }
 
-    @Test
+@Test
     public void testIsEqualCollection2_14_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -3841,7 +3841,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isEqualCollection(b, a));
     }
 
-    @Test
+@Test
     public void testIsEqualCollectionEquator_1_oe() {
         final Collection<Integer> collB = CollectionUtils.collect(collectionB, TRANSFORM_TO_INTEGER);
 
@@ -3864,7 +3864,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isEqualCollection(collectionA, collectionA, e));
     }
 
-    @Test
+@Test
     public void testIsEqualCollectionEquator_2_oe() {
         final Collection<Integer> collB = CollectionUtils.collect(collectionB, TRANSFORM_TO_INTEGER);
 
@@ -3888,7 +3888,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isEqualCollection(collectionA, collB, e));
     }
 
-    @Test
+@Test
     public void testIsEqualCollectionEquator_3_oe() {
         final Collection<Integer> collB = CollectionUtils.collect(collectionB, TRANSFORM_TO_INTEGER);
 
@@ -3913,7 +3913,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isEqualCollection(collB, collectionA, e));
     }
 
-    @Test
+@Test
     public void testIsEqualCollectionEquator_4_oe() {
         final Collection<Integer> collB = CollectionUtils.collect(collectionB, TRANSFORM_TO_INTEGER);
 
@@ -3941,7 +3941,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.isEqualCollection(collectionA, collectionB, defaultEquator));
     }
 
-    @Test
+@Test
     public void testIsEqualCollectionEquator_5_oe() {
         final Collection<Integer> collB = CollectionUtils.collect(collectionB, TRANSFORM_TO_INTEGER);
 
@@ -3970,14 +3970,14 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.isEqualCollection(collectionA, collB, defaultEquator));
     }
 
-    @Test
+@Test
     public void testIsProperSubCollection_1_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
         assertTrue(!CollectionUtils.isProperSubCollection(a, b));
     }
 
-    @Test
+@Test
     public void testIsProperSubCollection_2_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -3986,7 +3986,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isProperSubCollection(a, b));
     }
 
-    @Test
+@Test
     public void testIsProperSubCollection_3_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -3996,7 +3996,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isProperSubCollection(b, a));
     }
 
-    @Test
+@Test
     public void testIsProperSubCollection_4_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -4007,7 +4007,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isProperSubCollection(b, b));
     }
 
-    @Test
+@Test
     public void testIsProperSubCollection_5_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -4019,7 +4019,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isProperSubCollection(a, a));
     }
 
-    @Test
+@Test
     public void testIsProperSubCollection_6_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -4035,7 +4035,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isProperSubCollection(b, a));
     }
 
-    @Test
+@Test
     public void testIsProperSubCollection_7_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -4052,7 +4052,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isProperSubCollection(a, b));
     }
 
-    @Test
+@Test
     public void testIsProperSubCollection_8_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -4071,7 +4071,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isProperSubCollection(b, a));
     }
 
-    @Test
+@Test
     public void testIsProperSubCollection_9_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -4091,7 +4091,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isProperSubCollection(CollectionUtils.intersection(collectionA, collectionC), collectionA));
     }
 
-    @Test
+@Test
     public void testIsProperSubCollection_10_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -4112,7 +4112,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isProperSubCollection(CollectionUtils.subtract(a, b), a));
     }
 
-    @Test
+@Test
     public void testIsProperSubCollection_11_oe() {
         final Collection<String> a = new ArrayList<>();
         final Collection<String> b = new ArrayList<>();
@@ -4134,7 +4134,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!CollectionUtils.isProperSubCollection(a, CollectionUtils.subtract(a, b)));
     }
 
-    @Test
+@Test
     @Deprecated
     public void find_1_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
@@ -4142,7 +4142,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(test.equals(4));
     }
 
-    @Test
+@Test
     @Deprecated
     public void find_2_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
@@ -4153,7 +4153,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(test == null);
     }
 
-    @Test
+@Test
     @Deprecated
     public void find_3_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
@@ -4165,7 +4165,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(CollectionUtils.find(null,testPredicate));
     }
 
-    @Test
+@Test
     @Deprecated
     public void find_4_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
@@ -4178,7 +4178,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(CollectionUtils.find(collectionA, null));
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllDoCollection_1_oe() {
         final Closure<Collection<Integer>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4189,7 +4189,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertSame(testClosure, resultClosure);
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllDoCollection_2_oe() {
         final Closure<Collection<Integer>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4201,7 +4201,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(collectionA.isEmpty() && collectionC.isEmpty());
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllDoCollection_3_oe() {
         final Closure<Collection<Integer>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4216,7 +4216,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(resultClosure);
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllDoCollection_4_oe() {
         final Closure<Collection<Integer>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4232,7 +4232,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(collectionA.isEmpty() && collectionC.isEmpty());
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllDoIterator_1_oe() {
         final Closure<Collection<Integer>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4243,7 +4243,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertSame(testClosure, resultClosure);
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllDoIterator_2_oe() {
         final Closure<Collection<Integer>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4255,7 +4255,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(collectionA.isEmpty() && collectionC.isEmpty());
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllDoIterator_3_oe() {
         final Closure<Collection<Integer>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4270,7 +4270,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(resultClosure);
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllDoIterator_4_oe() {
         final Closure<Collection<Integer>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4286,7 +4286,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(collectionA.isEmpty() && collectionC.isEmpty());
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllButLastDoCollection_1_oe() {
         final Closure<List<? extends Number>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4297,7 +4297,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertSame(lastElement, collectionB);
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllButLastDoCollection_2_oe() {
         final Closure<List<? extends Number>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4309,7 +4309,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(collectionA.isEmpty() && !collectionB.isEmpty());
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllButLastDoCollection_3_oe() {
         final Closure<List<? extends Number>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4326,7 +4326,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertSame(lastElement, collectionB);
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllButLastDoCollection_4_oe() {
         final Closure<List<? extends Number>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4344,7 +4344,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!collectionB.isEmpty() );
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllButLastDoCollection_5_oe() {
         final Closure<List<? extends Number>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4366,7 +4366,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(lastElement);
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllButLastDoCollection_6_oe() {
         final Closure<List<? extends Number>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4398,7 +4398,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("a;b;c", result.toString());
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllButLastDoCollection_7_oe() {
         final Closure<List<? extends Number>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4440,7 +4440,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("a", resultOne.toString());
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllButLastDoCollection_8_oe() {
         final Closure<List<? extends Number>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4483,7 +4483,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(CollectionUtils.forAllButLastDo(strings, (Closure<String>) null)); // do not remove cast;
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllButLastDoCollection_9_oe() {
         final Closure<List<? extends Number>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4527,7 +4527,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(CollectionUtils.forAllButLastDo((Collection<String>) null, (Closure<String>) null)); // do not remove cast;
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllButLastDoIterator_1_oe() {
         final Closure<List<? extends Number>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4538,7 +4538,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertSame(lastElement, collectionB);
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllButLastDoIterator_2_oe() {
         final Closure<List<? extends Number>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4550,7 +4550,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(collectionA.isEmpty() && !collectionB.isEmpty());
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllButLastDoIterator_3_oe() {
         final Closure<List<? extends Number>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4564,7 +4564,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(CollectionUtils.forAllButLastDo(col.iterator(), (Closure<List<? extends Number>>) null));
     }
 
-    @Test
+@Test
     @Deprecated
     public void forAllButLastDoIterator_4_oe() {
         final Closure<List<? extends Number>> testClosure = ClosureUtils.invokerClosure("clear");
@@ -4579,7 +4579,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertNull(CollectionUtils.forAllButLastDo((Iterator<String>) null, (Closure<String>) null)); // do not remove cast;
     }
 
-    @Test
+@Test
     public void getFromMap_1_oe() {
         // Unordered map, entries exist
         final Map<String, String> expected = new HashMap<>();
@@ -4594,7 +4594,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(expected, found);
     }
 
-    @Test
+@Test
     public void getFromMap_4_oe() {
         // Unordered map, entries exist
         final Map<String, String> expected = new HashMap<>();
@@ -4630,7 +4630,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("zeroKey", test.getKey());
     }
 
-    @Test
+@Test
     public void getFromMap_5_oe() {
         // Unordered map, entries exist
         final Map<String, String> expected = new HashMap<>();
@@ -4667,7 +4667,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("zero", test.getValue());
     }
 
-    @Test
+@Test
     public void getFromMap_6_oe() {
         // Unordered map, entries exist
         final Map<String, String> expected = new HashMap<>();
@@ -4706,7 +4706,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("oneKey", test.getKey());
     }
 
-    @Test
+@Test
     public void getFromMap_7_oe() {
         // Unordered map, entries exist
         final Map<String, String> expected = new HashMap<>();
@@ -4746,7 +4746,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("one", test.getValue());
     }
 
-    @Test(expected=IndexOutOfBoundsException.class)
+@Test(expected=IndexOutOfBoundsException.class)
     public void getFromList_1_oe() throws Exception {
         // List, entry exists
         final List<String> list = createMock(List.class);
@@ -4757,7 +4757,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("zero", string);
     }
 
-    @Test(expected=IndexOutOfBoundsException.class)
+@Test(expected=IndexOutOfBoundsException.class)
     public void getFromList_2_oe() throws Exception {
         // List, entry exists
         final List<String> list = createMock(List.class);
@@ -4769,7 +4769,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("one", CollectionUtils.get(list, 1));
     }
 
-    @Test
+@Test
     @Deprecated
     public void getFromIterator_1_oe() throws Exception {
         // Iterator, entry exists
@@ -4777,7 +4777,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, (int) CollectionUtils.get(iterator, 0));
     }
 
-    @Test
+@Test
     @Deprecated
     public void getFromIterator_2_oe() throws Exception {
         // Iterator, entry exists
@@ -4787,7 +4787,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(2, (int) CollectionUtils.get(iterator, 1));
     }
 
-    @Test
+@Test
     @Deprecated
     public void getFromIterator_4_oe() throws Exception {
         // Iterator, entry exists
@@ -4806,7 +4806,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!iterator.hasNext());
     }
 
-    @Test
+@Test
     @Deprecated
     public void getFromEnumeration_1_oe() throws Exception {
         // Enumeration, entry exists
@@ -4817,7 +4817,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("zero", CollectionUtils.get(en, 0));
     }
 
-    @Test
+@Test
     @Deprecated
     public void getFromEnumeration_2_oe() throws Exception {
         // Enumeration, entry exists
@@ -4830,7 +4830,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("one", CollectionUtils.get(en, 1));
     }
 
-    @Test
+@Test
     @Deprecated
     public void getFromEnumeration_4_oe() throws Exception {
         // Enumeration, entry exists
@@ -4852,7 +4852,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(!en.hasMoreElements());
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+@Test(expected = IndexOutOfBoundsException.class)
     @Deprecated
     public void getFromIterable_1_oe() throws Exception {
         // Collection, entry exists
@@ -4861,7 +4861,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("element", CollectionUtils.get(bag, 0));
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+@Test(expected = IndexOutOfBoundsException.class)
     public void getFromObjectArray_1_oe() throws Exception {
         // Object array, entry exists
         final Object[] objArray = new Object[2];
@@ -4870,7 +4870,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("zero", CollectionUtils.get(objArray, 0));
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+@Test(expected = IndexOutOfBoundsException.class)
     public void getFromObjectArray_2_oe() throws Exception {
         // Object array, entry exists
         final Object[] objArray = new Object[2];
@@ -4880,7 +4880,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("one", CollectionUtils.get(objArray, 1));
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+@Test(expected = IndexOutOfBoundsException.class)
     public void getFromPrimitiveArray_1_oe() throws Exception {
         // Primitive array, entry exists
         final int[] array = new int[2];
@@ -4889,7 +4889,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(10, CollectionUtils.get(array, 0));
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+@Test(expected = IndexOutOfBoundsException.class)
     public void getFromPrimitiveArray_2_oe() throws Exception {
         // Primitive array, entry exists
         final int[] array = new int[2];
@@ -4899,13 +4899,13 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(20, CollectionUtils.get(array, 1));
     }
 
-    @Test
+@Test
     public void testSize_List_1_oe() {
         List<String> list = null;
         assertEquals(0, CollectionUtils.size(list));
     }
 
-    @Test
+@Test
     public void testSize_List_2_oe() {
         List<String> list = null;
         // removed other assertion
@@ -4913,7 +4913,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(0, CollectionUtils.size(list));
     }
 
-    @Test
+@Test
     public void testSize_List_3_oe() {
         List<String> list = null;
         // removed other assertion
@@ -4923,7 +4923,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, CollectionUtils.size(list));
     }
 
-    @Test
+@Test
     public void testSize_List_4_oe() {
         List<String> list = null;
         // removed other assertion
@@ -4935,13 +4935,13 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(2, CollectionUtils.size(list));
     }
 
-    @Test
+@Test
     public void testSize_Map_1_oe() {
         final Map<String, String> map = new HashMap<>();
         assertEquals(0, CollectionUtils.size(map));
     }
 
-    @Test
+@Test
     public void testSize_Map_2_oe() {
         final Map<String, String> map = new HashMap<>();
         // removed other assertion
@@ -4949,7 +4949,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, CollectionUtils.size(map));
     }
 
-    @Test
+@Test
     public void testSize_Map_3_oe() {
         final Map<String, String> map = new HashMap<>();
         // removed other assertion
@@ -4959,13 +4959,13 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(2, CollectionUtils.size(map));
     }
 
-    @Test
+@Test
     public void testSize_Array_1_oe() {
         final Object[] objectArray = new Object[0];
         assertEquals(0, CollectionUtils.size(objectArray));
     }
 
-    @Test
+@Test
     public void testSize_Array_2_oe() {
         final Object[] objectArray = new Object[0];
         // removed other assertion
@@ -4974,7 +4974,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, CollectionUtils.size(stringArray));
     }
 
-    @Test
+@Test
     public void testSize_Array_3_oe() {
         final Object[] objectArray = new Object[0];
         // removed other assertion
@@ -4987,13 +4987,13 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, CollectionUtils.size(stringArray));
     }
 
-    @Test
+@Test
     public void testSize_PrimitiveArray_1_oe() {
         final int[] intArray = new int[0];
         assertEquals(0, CollectionUtils.size(intArray));
     }
 
-    @Test
+@Test
     public void testSize_PrimitiveArray_2_oe() {
         final int[] intArray = new int[0];
         // removed other assertion
@@ -5002,7 +5002,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, CollectionUtils.size(doubleArray));
     }
 
-    @Test
+@Test
     public void testSize_PrimitiveArray_3_oe() {
         final int[] intArray = new int[0];
         // removed other assertion
@@ -5015,13 +5015,13 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, CollectionUtils.size(doubleArray));
     }
 
-    @Test
+@Test
     public void testSize_Enumeration_1_oe() {
         final Vector<String> list = new Vector<>();
         assertEquals(0, CollectionUtils.size(list.elements()));
     }
 
-    @Test
+@Test
     public void testSize_Enumeration_2_oe() {
         final Vector<String> list = new Vector<>();
         // removed other assertion
@@ -5029,7 +5029,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, CollectionUtils.size(list.elements()));
     }
 
-    @Test
+@Test
     public void testSize_Enumeration_3_oe() {
         final Vector<String> list = new Vector<>();
         // removed other assertion
@@ -5039,13 +5039,13 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(2, CollectionUtils.size(list.elements()));
     }
 
-    @Test
+@Test
     public void testSize_Iterator_1_oe() {
         final List<String> list = new ArrayList<>();
         assertEquals(0, CollectionUtils.size(list.iterator()));
     }
 
-    @Test
+@Test
     public void testSize_Iterator_2_oe() {
         final List<String> list = new ArrayList<>();
         // removed other assertion
@@ -5053,7 +5053,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, CollectionUtils.size(list.iterator()));
     }
 
-    @Test
+@Test
     public void testSize_Iterator_3_oe() {
         final List<String> list = new ArrayList<>();
         // removed other assertion
@@ -5063,18 +5063,18 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(2, CollectionUtils.size(list.iterator()));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_Null_1_oe() {
         assertEquals(true, CollectionUtils.sizeIsEmpty(null));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_List_1_oe() {
         final List<String> list = new ArrayList<>();
         assertEquals(true, CollectionUtils.sizeIsEmpty(list));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_List_2_oe() {
         final List<String> list = new ArrayList<>();
         // removed other assertion
@@ -5082,13 +5082,13 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(false, CollectionUtils.sizeIsEmpty(list));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_Map_1_oe() {
         final Map<String, String> map = new HashMap<>();
         assertEquals(true, CollectionUtils.sizeIsEmpty(map));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_Map_2_oe() {
         final Map<String, String> map = new HashMap<>();
         // removed other assertion
@@ -5096,13 +5096,13 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(false, CollectionUtils.sizeIsEmpty(map));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_Array_1_oe() {
         final Object[] objectArray = new Object[0];
         assertEquals(true, CollectionUtils.sizeIsEmpty(objectArray));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_Array_2_oe() {
         final Object[] objectArray = new Object[0];
         // removed other assertion
@@ -5111,7 +5111,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(false, CollectionUtils.sizeIsEmpty(stringArray));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_Array_3_oe() {
         final Object[] objectArray = new Object[0];
         // removed other assertion
@@ -5124,13 +5124,13 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(false, CollectionUtils.sizeIsEmpty(stringArray));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_PrimitiveArray_1_oe() {
         final int[] intArray = new int[0];
         assertEquals(true, CollectionUtils.sizeIsEmpty(intArray));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_PrimitiveArray_2_oe() {
         final int[] intArray = new int[0];
         // removed other assertion
@@ -5139,7 +5139,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(false, CollectionUtils.sizeIsEmpty(doubleArray));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_PrimitiveArray_3_oe() {
         final int[] intArray = new int[0];
         // removed other assertion
@@ -5152,13 +5152,13 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(false, CollectionUtils.sizeIsEmpty(doubleArray));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_Enumeration_1_oe() {
         final Vector<String> list = new Vector<>();
         assertEquals(true, CollectionUtils.sizeIsEmpty(list.elements()));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_Enumeration_2_oe() {
         final Vector<String> list = new Vector<>();
         // removed other assertion
@@ -5166,7 +5166,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(false, CollectionUtils.sizeIsEmpty(list.elements()));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_Enumeration_3_oe() {
         final Vector<String> list = new Vector<>();
         // removed other assertion
@@ -5177,13 +5177,13 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, CollectionUtils.sizeIsEmpty(en));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_Iterator_1_oe() {
         final List<String> list = new ArrayList<>();
         assertEquals(true, CollectionUtils.sizeIsEmpty(list.iterator()));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_Iterator_2_oe() {
         final List<String> list = new ArrayList<>();
         // removed other assertion
@@ -5191,7 +5191,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(false, CollectionUtils.sizeIsEmpty(list.iterator()));
     }
 
-    @Test
+@Test
     public void testSizeIsEmpty_Iterator_3_oe() {
         final List<String> list = new ArrayList<>();
         // removed other assertion
@@ -5202,45 +5202,45 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, CollectionUtils.sizeIsEmpty(it));
     }
 
-    @Test
+@Test
     public void testIsEmptyWithEmptyCollection_1_oe() {
         final Collection<Object> coll = new ArrayList<>();
         assertEquals(true, CollectionUtils.isEmpty(coll));
     }
 
-    @Test
+@Test
     public void testIsEmptyWithNonEmptyCollection_1_oe() {
         final Collection<String> coll = new ArrayList<>();
         coll.add("item");
         assertEquals(false, CollectionUtils.isEmpty(coll));
     }
 
-    @Test
+@Test
     public void testIsEmptyWithNull_1_oe() {
         final Collection<?> coll = null;
         assertEquals(true, CollectionUtils.isEmpty(coll));
     }
 
-    @Test
+@Test
     public void testIsNotEmptyWithEmptyCollection_1_oe() {
         final Collection<Object> coll = new ArrayList<>();
         assertEquals(false, CollectionUtils.isNotEmpty(coll));
     }
 
-    @Test
+@Test
     public void testIsNotEmptyWithNonEmptyCollection_1_oe() {
         final Collection<String> coll = new ArrayList<>();
         coll.add("item");
         assertEquals(true, CollectionUtils.isNotEmpty(coll));
     }
 
-    @Test
+@Test
     public void testIsNotEmptyWithNull_1_oe() {
         final Collection<?> coll = null;
         assertEquals(false, CollectionUtils.isNotEmpty(coll));
     }
 
-    @Test
+@Test
     public void filter_1_oe() {
         final List<Integer> ints = new ArrayList<>();
         ints.add(1);
@@ -5251,7 +5251,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.filter(iterable, EQUALS_TWO));
     }
 
-    @Test
+@Test
     public void filter_2_oe() {
         final List<Integer> ints = new ArrayList<>();
         ints.add(1);
@@ -5263,7 +5263,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, ints.size());
     }
 
-    @Test
+@Test
     public void filter_3_oe() {
         final List<Integer> ints = new ArrayList<>();
         ints.add(1);
@@ -5276,20 +5276,20 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(2, (int) ints.get(0));
     }
 
-    @Test
+@Test
     public void filterNullParameters_1_oe() throws Exception {
         final List<Long> longs = Collections.nCopies(4, 10L);
         assertFalse(CollectionUtils.filter(longs, null));
     }
 
-    @Test
+@Test
     public void filterNullParameters_2_oe() throws Exception {
         final List<Long> longs = Collections.nCopies(4, 10L);
         // removed other assertion
         assertEquals(4, longs.size());
     }
 
-    @Test
+@Test
     public void filterNullParameters_3_oe() throws Exception {
         final List<Long> longs = Collections.nCopies(4, 10L);
         // removed other assertion
@@ -5297,7 +5297,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.filter(null, EQUALS_TWO));
     }
 
-    @Test
+@Test
     public void filterNullParameters_4_oe() throws Exception {
         final List<Long> longs = Collections.nCopies(4, 10L);
         // removed other assertion
@@ -5306,7 +5306,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(4, longs.size());
     }
 
-    @Test
+@Test
     public void filterNullParameters_5_oe() throws Exception {
         final List<Long> longs = Collections.nCopies(4, 10L);
         // removed other assertion
@@ -5316,7 +5316,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.filter(null, null));
     }
 
-    @Test
+@Test
     public void filterNullParameters_6_oe() throws Exception {
         final List<Long> longs = Collections.nCopies(4, 10L);
         // removed other assertion
@@ -5327,7 +5327,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(4, longs.size());
     }
 
-    @Test
+@Test
     public void filterInverse_1_oe() {
         final List<Integer> ints = new ArrayList<>();
         ints.add(1);
@@ -5338,7 +5338,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.filterInverse(iterable, EQUALS_TWO));
     }
 
-    @Test
+@Test
     public void filterInverse_2_oe() {
         final List<Integer> ints = new ArrayList<>();
         ints.add(1);
@@ -5350,7 +5350,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, ints.size());
     }
 
-    @Test
+@Test
     public void filterInverse_3_oe() {
         final List<Integer> ints = new ArrayList<>();
         ints.add(1);
@@ -5363,7 +5363,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, (int) ints.get(0));
     }
 
-    @Test
+@Test
     public void filterInverse_4_oe() {
         final List<Integer> ints = new ArrayList<>();
         ints.add(1);
@@ -5377,7 +5377,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, (int) ints.get(1));
     }
 
-    @Test
+@Test
     public void filterInverse_5_oe() {
         final List<Integer> ints = new ArrayList<>();
         ints.add(1);
@@ -5392,20 +5392,20 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, (int) ints.get(2));
     }
 
-    @Test
+@Test
     public void filterInverseNullParameters_1_oe() throws Exception {
         final List<Long> longs = Collections.nCopies(4, 10L);
         assertFalse(CollectionUtils.filterInverse(longs, null));
     }
 
-    @Test
+@Test
     public void filterInverseNullParameters_2_oe() throws Exception {
         final List<Long> longs = Collections.nCopies(4, 10L);
         // removed other assertion
         assertEquals(4, longs.size());
     }
 
-    @Test
+@Test
     public void filterInverseNullParameters_3_oe() throws Exception {
         final List<Long> longs = Collections.nCopies(4, 10L);
         // removed other assertion
@@ -5413,7 +5413,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.filterInverse(null, EQUALS_TWO));
     }
 
-    @Test
+@Test
     public void filterInverseNullParameters_4_oe() throws Exception {
         final List<Long> longs = Collections.nCopies(4, 10L);
         // removed other assertion
@@ -5422,7 +5422,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(4, longs.size());
     }
 
-    @Test
+@Test
     public void filterInverseNullParameters_5_oe() throws Exception {
         final List<Long> longs = Collections.nCopies(4, 10L);
         // removed other assertion
@@ -5432,7 +5432,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.filterInverse(null, null));
     }
 
-    @Test
+@Test
     public void filterInverseNullParameters_6_oe() throws Exception {
         final List<Long> longs = Collections.nCopies(4, 10L);
         // removed other assertion
@@ -5443,20 +5443,20 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(4, longs.size());
     }
 
-    @Test
+@Test
     @Deprecated
     public void countMatches_1_oe() {
         assertEquals(4, CollectionUtils.countMatches(iterableB, EQUALS_TWO));
     }
 
-    @Test
+@Test
     @Deprecated
     public void countMatches_2_oe() {
         // removed other assertion
         assertEquals(0, CollectionUtils.countMatches(iterableA, null));
     }
 
-    @Test
+@Test
     @Deprecated
     public void countMatches_3_oe() {
         // removed other assertion
@@ -5464,7 +5464,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(0, CollectionUtils.countMatches(null, EQUALS_TWO));
     }
 
-    @Test
+@Test
     @Deprecated
     public void countMatches_4_oe() {
         // removed other assertion
@@ -5473,14 +5473,14 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(0, CollectionUtils.countMatches(null, null));
     }
 
-    @Test
+@Test
     @Deprecated
     public void exists_1_oe() {
         final List<Integer> list = new ArrayList<>();
         assertFalse(CollectionUtils.exists(null, null));
     }
 
-    @Test
+@Test
     @Deprecated
     public void exists_2_oe() {
         final List<Integer> list = new ArrayList<>();
@@ -5488,7 +5488,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.exists(list, null));
     }
 
-    @Test
+@Test
     @Deprecated
     public void exists_3_oe() {
         final List<Integer> list = new ArrayList<>();
@@ -5497,7 +5497,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.exists(null, EQUALS_TWO));
     }
 
-    @Test
+@Test
     @Deprecated
     public void exists_4_oe() {
         final List<Integer> list = new ArrayList<>();
@@ -5507,7 +5507,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.exists(list, EQUALS_TWO));
     }
 
-    @Test
+@Test
     @Deprecated
     public void exists_5_oe() {
         final List<Integer> list = new ArrayList<>();
@@ -5521,7 +5521,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.exists(list, EQUALS_TWO));
     }
 
-    @Test
+@Test
     @Deprecated
     public void exists_6_oe() {
         final List<Integer> list = new ArrayList<>();
@@ -5538,7 +5538,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, CollectionUtils.exists(list, EQUALS_TWO));
     }
 
-    @Test
+@Test
     public void select_1_oe() {
         final List<Integer> list = new ArrayList<>();
         list.add(1);
@@ -5552,7 +5552,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isEqualCollection(output1, output3));
     }
 
-    @Test
+@Test
     public void select_2_oe() {
         final List<Integer> list = new ArrayList<>();
         list.add(1);
@@ -5567,7 +5567,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(4, list.size());
     }
 
-    @Test
+@Test
     public void select_3_oe() {
         final List<Integer> list = new ArrayList<>();
         list.add(1);
@@ -5583,7 +5583,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, output1.size());
     }
 
-    @Test
+@Test
     public void select_4_oe() {
         final List<Integer> list = new ArrayList<>();
         list.add(1);
@@ -5600,7 +5600,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(2, output2.iterator().next());
     }
 
-    @Test
+@Test
     public void selectWithOutputCollections_1_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -5617,7 +5617,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, output.size());
     }
 
-    @Test
+@Test
     public void selectWithOutputCollections_2_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -5635,7 +5635,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(2, CollectionUtils.extractSingleton(output).intValue());
     }
 
-    @Test
+@Test
     public void selectWithOutputCollections_3_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -5657,7 +5657,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         Assert.assertArrayEquals(expected, rejected.toArray());
     }
 
-    @Test
+@Test
     public void selectWithOutputCollections_4_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -5684,7 +5684,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(output.isEmpty());
     }
 
-    @Test
+@Test
     public void selectWithOutputCollections_5_oe() {
         final List<Integer> input = new ArrayList<>();
         input.add(1);
@@ -5712,7 +5712,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(rejected.isEmpty());
     }
 
-    @Test
+@Test
     public void selectRejected_1_oe() {
         final List<Long> list = new ArrayList<>();
         list.add(1L);
@@ -5725,7 +5725,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isEqualCollection(output1, output2));
     }
 
-    @Test
+@Test
     public void selectRejected_2_oe() {
         final List<Long> list = new ArrayList<>();
         list.add(1L);
@@ -5739,7 +5739,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.isEqualCollection(output1, output3));
     }
 
-    @Test
+@Test
     public void selectRejected_3_oe() {
         final List<Long> list = new ArrayList<>();
         list.add(1L);
@@ -5754,7 +5754,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(4, list.size());
     }
 
-    @Test
+@Test
     public void selectRejected_4_oe() {
         final List<Long> list = new ArrayList<>();
         list.add(1L);
@@ -5770,7 +5770,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, output1.size());
     }
 
-    @Test
+@Test
     public void selectRejected_5_oe() {
         final List<Long> list = new ArrayList<>();
         list.add(1L);
@@ -5787,7 +5787,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(output1.contains(1L));
     }
 
-    @Test
+@Test
     public void selectRejected_6_oe() {
         final List<Long> list = new ArrayList<>();
         list.add(1L);
@@ -5805,7 +5805,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(output1.contains(3L));
     }
 
-    @Test
+@Test
     public void selectRejected_7_oe() {
         final List<Long> list = new ArrayList<>();
         list.add(1L);
@@ -5824,14 +5824,14 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(output1.contains(4L));
     }
 
-    @Test
+@Test
     public void collect_1_oe() {
         final Transformer<Number, Long> transformer = TransformerUtils.constantTransformer(2L);
         Collection<Number> collection = CollectionUtils.<Integer, Number>collect(iterableA, transformer);
         assertTrue(collection.size() == collectionA.size());
     }
 
-    @Test
+@Test
     public void collect_3_oe() {
         final Transformer<Number, Long> transformer = TransformerUtils.constantTransformer(2L);
         Collection<Number> collection = CollectionUtils.<Integer, Number>collect(iterableA, transformer);
@@ -5843,7 +5843,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(list.size() == collectionA.size());
     }
 
-    @Test
+@Test
     public void collect_5_oe() {
         final Transformer<Number, Long> transformer = TransformerUtils.constantTransformer(2L);
         Collection<Number> collection = CollectionUtils.<Integer, Number>collect(iterableA, transformer);
@@ -5863,7 +5863,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(collection.size() == collectionA.size());
     }
 
-    @Test
+@Test
     public void collect_7_oe() {
         final Transformer<Number, Long> transformer = TransformerUtils.constantTransformer(2L);
         Collection<Number> collection = CollectionUtils.<Integer, Number>collect(iterableA, transformer);
@@ -5888,7 +5888,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(collection.size() == collectionA.size());
     }
 
-    @Test
+@Test
     public void collect_8_oe() {
         final Transformer<Number, Long> transformer = TransformerUtils.constantTransformer(2L);
         Collection<Number> collection = CollectionUtils.<Integer, Number>collect(iterableA, transformer);
@@ -5914,7 +5914,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(collection.contains(2L) && !collection.contains(1));
     }
 
-    @Test
+@Test
     public void collect_9_oe() {
         final Transformer<Number, Long> transformer = TransformerUtils.constantTransformer(2L);
         Collection<Number> collection = CollectionUtils.<Integer, Number>collect(iterableA, transformer);
@@ -5942,7 +5942,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(collection.size() == 0);
     }
 
-    @Test
+@Test
     public void collect_10_oe() {
         final Transformer<Number, Long> transformer = TransformerUtils.constantTransformer(2L);
         Collection<Number> collection = CollectionUtils.<Integer, Number>collect(iterableA, transformer);
@@ -5974,7 +5974,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(collectionA.size() == size && collectionA.contains(1));
     }
 
-    @Test
+@Test
     public void collect_11_oe() {
         final Transformer<Number, Long> transformer = TransformerUtils.constantTransformer(2L);
         Collection<Number> collection = CollectionUtils.<Integer, Number>collect(iterableA, transformer);
@@ -6008,7 +6008,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(collectionA.size() == size && collectionA.contains(1));
     }
 
-    @Test
+@Test
     public void transform1_1_oe() {
         List<Number> list = new ArrayList<>();
         list.add(1L);
@@ -6018,7 +6018,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, list.size());
     }
 
-    @Test
+@Test
     public void transform1_2_oe() {
         List<Number> list = new ArrayList<>();
         list.add(1L);
@@ -6029,7 +6029,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, list.get(0));
     }
 
-    @Test
+@Test
     public void transform1_3_oe() {
         List<Number> list = new ArrayList<>();
         list.add(1L);
@@ -6041,7 +6041,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(2, list.get(1));
     }
 
-    @Test
+@Test
     public void transform1_4_oe() {
         List<Number> list = new ArrayList<>();
         list.add(1L);
@@ -6054,7 +6054,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, list.get(2));
     }
 
-    @Test
+@Test
     public void transform1_5_oe() {
         List<Number> list = new ArrayList<>();
         list.add(1L);
@@ -6074,7 +6074,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, list.size());
     }
 
-    @Test
+@Test
     public void transform1_6_oe() {
         List<Number> list = new ArrayList<>();
         list.add(1L);
@@ -6096,7 +6096,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, list.size());
     }
 
-    @Test
+@Test
     public void transform1_7_oe() {
         List<Number> list = new ArrayList<>();
         list.add(1L);
@@ -6120,7 +6120,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, list.size());
     }
 
-    @Test
+@Test
     public void transform2_1_oe() {
         final Set<Number> set = new HashSet<>();
         set.add(1L);
@@ -6135,7 +6135,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, set.size());
     }
 
-    @Test
+@Test
     public void transform2_2_oe() {
         final Set<Number> set = new HashSet<>();
         set.add(1L);
@@ -6151,7 +6151,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(4, set.iterator().next());
     }
 
-    @Test
+@Test
     public void addIgnoreNull_1_oe() {
         final Set<String> set = new HashSet<>();
         set.add("1");
@@ -6160,7 +6160,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.addIgnoreNull(set, null));
     }
 
-    @Test
+@Test
     public void addIgnoreNull_2_oe() {
         final Set<String> set = new HashSet<>();
         set.add("1");
@@ -6170,7 +6170,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, set.size());
     }
 
-    @Test
+@Test
     public void addIgnoreNull_3_oe() {
         final Set<String> set = new HashSet<>();
         set.add("1");
@@ -6181,7 +6181,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.addIgnoreNull(set, "1"));
     }
 
-    @Test
+@Test
     public void addIgnoreNull_4_oe() {
         final Set<String> set = new HashSet<>();
         set.add("1");
@@ -6193,7 +6193,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, set.size());
     }
 
-    @Test
+@Test
     public void addIgnoreNull_5_oe() {
         final Set<String> set = new HashSet<>();
         set.add("1");
@@ -6206,7 +6206,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, CollectionUtils.addIgnoreNull(set, "4"));
     }
 
-    @Test
+@Test
     public void addIgnoreNull_6_oe() {
         final Set<String> set = new HashSet<>();
         set.add("1");
@@ -6220,7 +6220,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(4, set.size());
     }
 
-    @Test
+@Test
     public void addIgnoreNull_7_oe() {
         final Set<String> set = new HashSet<>();
         set.add("1");
@@ -6235,14 +6235,14 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, set.contains("4"));
     }
 
-    @Test
+@Test
     public void predicatedCollection_1_oe() {
         final Predicate<Object> predicate = PredicateUtils.instanceofPredicate(Integer.class);
         final Collection<Number> collection = CollectionUtils.predicatedCollection(new ArrayList<Number>(), predicate);
         assertTrue("returned object should be a PredicatedCollection", collection instanceof PredicatedCollection);
     }
 
-    @Test
+@Test
     public void isFull_2_oe() {
         final Set<String> set = new HashSet<>();
         set.add("1");
@@ -6256,7 +6256,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.isFull(set));
     }
 
-    @Test
+@Test
     public void isFull_3_oe() {
         final Set<String> set = new HashSet<>();
         set.add("1");
@@ -6273,7 +6273,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(false, CollectionUtils.isFull(buf));
     }
 
-    @Test
+@Test
     public void isFull_4_oe() {
         final Set<String> set = new HashSet<>();
         set.add("1");
@@ -6292,7 +6292,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.isFull(buf));
     }
 
-    @Test
+@Test
     public void isFull_5_oe() {
         final Set<String> set = new HashSet<>();
         set.add("1");
@@ -6313,18 +6313,18 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(false, CollectionUtils.isFull(buf));
     }
 
-    @Test
+@Test
     public void isEmpty_1_oe() {
         assertFalse(CollectionUtils.isNotEmpty(null));
     }
 
-    @Test
+@Test
     public void isEmpty_2_oe() {
         // removed other assertion
         assertTrue(CollectionUtils.isNotEmpty(collectionA));
     }
 
-    @Test
+@Test
     public void maxSize_2_oe() {
         final Set<String> set = new HashSet<>();
         set.add("1");
@@ -6338,7 +6338,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(-1, CollectionUtils.maxSize(set));
     }
 
-    @Test
+@Test
     public void maxSize_3_oe() {
         final Set<String> set = new HashSet<>();
         set.add("1");
@@ -6355,7 +6355,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, CollectionUtils.maxSize(buf));
     }
 
-    @Test
+@Test
     public void maxSize_4_oe() {
         final Set<String> set = new HashSet<>();
         set.add("1");
@@ -6374,7 +6374,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, CollectionUtils.maxSize(buf));
     }
 
-    @Test
+@Test
     public void maxSize_5_oe() {
         final Set<String> set = new HashSet<>();
         set.add("1");
@@ -6395,7 +6395,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, CollectionUtils.maxSize(buf));
     }
 
-    @Test
+@Test
     public void intersectionUsesMethodEquals_1_oe() {
         // Let elta and eltb be objects...
         final Integer elta = new Integer(17); // Cannot use valueOf here
@@ -6405,7 +6405,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(elta, eltb);
     }
 
-    @Test
+@Test
     public void intersectionUsesMethodEquals_2_oe() {
         // Let elta and eltb be objects...
         final Integer elta = new Integer(17); // Cannot use valueOf here
@@ -6416,7 +6416,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(eltb, elta);
     }
 
-    @Test
+@Test
     public void intersectionUsesMethodEquals_3_oe() {
         // Let elta and eltb be objects...
         final Integer elta = new Integer(17); // Cannot use valueOf here
@@ -6430,7 +6430,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(elta != eltb);
     }
 
-    @Test
+@Test
     public void intersectionUsesMethodEquals_4_oe() {
         // Let elta and eltb be objects...
         final Integer elta = new Integer(17); // Cannot use valueOf here
@@ -6458,7 +6458,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, intersection.size());
     }
 
-    @Test
+@Test
     public void intersectionUsesMethodEquals_5_oe() {
         // Let elta and eltb be objects...
         final Integer elta = new Integer(17); // Cannot use valueOf here
@@ -6492,7 +6492,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(eltc == elta && eltc != eltb || eltc != elta && eltc == eltb);
     }
 
-    @Test
+@Test
     public void intersectionUsesMethodEquals_6_oe() {
         // Let elta and eltb be objects...
         final Integer elta = new Integer(17); // Cannot use valueOf here
@@ -6530,7 +6530,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(elta, eltc);
     }
 
-    @Test
+@Test
     public void intersectionUsesMethodEquals_7_oe() {
         // Let elta and eltb be objects...
         final Integer elta = new Integer(17); // Cannot use valueOf here
@@ -6569,7 +6569,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(eltc, elta);
     }
 
-    @Test
+@Test
     public void intersectionUsesMethodEquals_8_oe() {
         // Let elta and eltb be objects...
         final Integer elta = new Integer(17); // Cannot use valueOf here
@@ -6609,7 +6609,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(eltb, eltc);
     }
 
-    @Test
+@Test
     public void intersectionUsesMethodEquals_9_oe() {
         // Let elta and eltb be objects...
         final Integer elta = new Integer(17); // Cannot use valueOf here
@@ -6650,7 +6650,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(eltc, eltb);
     }
 
-    @Test
+@Test
     public void testRetainAll_1_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6665,7 +6665,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(2, result.size());
     }
 
-    @Test
+@Test
     public void testRetainAll_2_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6681,7 +6681,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, result.contains("A"));
     }
 
-    @Test
+@Test
     public void testRetainAll_3_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6698,7 +6698,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(result.contains("B"));
     }
 
-    @Test
+@Test
     public void testRetainAll_4_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6716,7 +6716,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, result.contains("C"));
     }
 
-    @Test
+@Test
     public void testRetainAll_5_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6735,7 +6735,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, base.size());
     }
 
-    @Test
+@Test
     public void testRetainAll_6_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6755,7 +6755,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, base.contains("A"));
     }
 
-    @Test
+@Test
     public void testRetainAll_7_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6776,7 +6776,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, base.contains("B"));
     }
 
-    @Test
+@Test
     public void testRetainAll_8_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6798,7 +6798,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, base.contains("C"));
     }
 
-    @Test
+@Test
     public void testRetainAll_9_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6821,7 +6821,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, sub.size());
     }
 
-    @Test
+@Test
     public void testRetainAll_10_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6845,7 +6845,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, sub.contains("A"));
     }
 
-    @Test
+@Test
     public void testRetainAll_11_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6870,7 +6870,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, sub.contains("C"));
     }
 
-    @Test
+@Test
     public void testRetainAll_12_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6896,7 +6896,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, sub.contains("X"));
     }
 
-    @Test
+@Test
     public void testRemoveAll_1_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6911,7 +6911,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, result.size());
     }
 
-    @Test
+@Test
     public void testRemoveAll_2_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6927,7 +6927,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(result.contains("A"));
     }
 
-    @Test
+@Test
     public void testRemoveAll_3_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6944,7 +6944,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, result.contains("B"));
     }
 
-    @Test
+@Test
     public void testRemoveAll_4_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6962,7 +6962,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(result.contains("C"));
     }
 
-    @Test
+@Test
     public void testRemoveAll_5_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -6981,7 +6981,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, base.size());
     }
 
-    @Test
+@Test
     public void testRemoveAll_6_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -7001,7 +7001,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, base.contains("A"));
     }
 
-    @Test
+@Test
     public void testRemoveAll_7_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -7022,7 +7022,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, base.contains("B"));
     }
 
-    @Test
+@Test
     public void testRemoveAll_8_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -7044,7 +7044,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, base.contains("C"));
     }
 
-    @Test
+@Test
     public void testRemoveAll_9_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -7067,7 +7067,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, sub.size());
     }
 
-    @Test
+@Test
     public void testRemoveAll_10_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -7091,7 +7091,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, sub.contains("A"));
     }
 
-    @Test
+@Test
     public void testRemoveAll_11_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -7116,7 +7116,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, sub.contains("C"));
     }
 
-    @Test
+@Test
     public void testRemoveAll_12_oe() {
         final List<String> base = new ArrayList<>();
         base.add("A");
@@ -7142,14 +7142,14 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, sub.contains("X"));
     }
 
-    @Test
+@Test
     public void testTransformedCollection_1_oe() {
         final Transformer<Object, Object> transformer = TransformerUtils.nopTransformer();
         final Collection<Object> collection = CollectionUtils.transformingCollection(new ArrayList<>(), transformer);
         assertTrue("returned object should be a TransformedCollection", collection instanceof TransformedCollection);
     }
 
-    @Test
+@Test
     public void testTransformedCollection_2_1_oe() {
         final List<Object> list = new ArrayList<>();
         list.add("1");
@@ -7159,7 +7159,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, result.contains("1")); // untransformed;
     }
 
-    @Test
+@Test
     public void testTransformedCollection_2_2_oe() {
         final List<Object> list = new ArrayList<>();
         list.add("1");
@@ -7170,7 +7170,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, result.contains("2")); // untransformed;
     }
 
-    @Test
+@Test
     public void testTransformedCollection_2_3_oe() {
         final List<Object> list = new ArrayList<>();
         list.add("1");
@@ -7182,39 +7182,39 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, result.contains("3")); // untransformed;
     }
 
-    @Test
+@Test
     @Deprecated
     public void testSynchronizedCollection_1_oe() {
         final Collection<Object> col = CollectionUtils.synchronizedCollection(new ArrayList<>());
         assertTrue("Returned object should be a SynchronizedCollection.", col instanceof SynchronizedCollection);
     }
 
-    @Test
+@Test
     @Deprecated
     public void testUnmodifiableCollection_1_oe() {
         final Collection<Object> col = CollectionUtils.unmodifiableCollection(new ArrayList<>());
         assertTrue("Returned object should be a UnmodifiableCollection.", col instanceof UnmodifiableCollection);
     }
 
-    @Test
+@Test
     public void emptyCollection_1_oe() throws Exception {
         final Collection<Number> coll = CollectionUtils.emptyCollection();
         assertEquals(CollectionUtils.EMPTY_COLLECTION, coll);
     }
 
-    @Test
+@Test
     public void emptyIfNull_1_oe() {
         assertTrue(CollectionUtils.emptyIfNull(null).isEmpty());
     }
 
-    @Test
+@Test
     public void emptyIfNull_2_oe() {
         // removed other assertion
         final Collection<Object> collection = new ArrayList<>();
         assertSame(collection, CollectionUtils.emptyIfNull(collection));
     }
 
-    @Test
+@Test
     public void addAllForIterable_1_oe() {
         final Collection<Integer> inputCollection = createMock(Collection.class);
         final Iterable<Integer> inputIterable = inputCollection;
@@ -7245,7 +7245,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.addAll(c, iterable));
     }
 
-    @Test
+@Test
     public void addAllForIterable_2_oe() {
         final Collection<Integer> inputCollection = createMock(Collection.class);
         final Iterable<Integer> inputIterable = inputCollection;
@@ -7277,7 +7277,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.addAll(c, inputIterable));
     }
 
-    @Test
+@Test
     public void addAllForIterable_3_oe() {
         final Collection<Integer> inputCollection = createMock(Collection.class);
         final Iterable<Integer> inputIterable = inputCollection;
@@ -7311,7 +7311,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.addAll(c, iterable));
     }
 
-    @Test
+@Test
     public void addAllForIterable_4_oe() {
         final Collection<Integer> inputCollection = createMock(Collection.class);
         final Iterable<Integer> inputIterable = inputCollection;
@@ -7346,7 +7346,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.addAll(c, inputIterable));
     }
 
-    @Test
+@Test
     public void addAllForEnumeration_1_oe() {
         final Hashtable<Integer, Integer> h = new Hashtable<>();
         h.put(5, 5);
@@ -7355,24 +7355,24 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(collectionA.contains(5));
     }
 
-    @Test
+@Test
     public void addAllForElements_1_oe() {
         CollectionUtils.addAll(collectionA, new Integer[]{5});
         assertTrue(collectionA.contains(5));
     }
 
-    @Test
+@Test
     public void get_1_oe() {
         assertEquals(2, CollectionUtils.get((Object)collectionA, 2));
     }
 
-    @Test
+@Test
     public void get_2_oe() {
         // removed other assertion
         assertEquals(2, CollectionUtils.get((Object)collectionA.iterator(), 2));
     }
 
-    @Test
+@Test
     public void get_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -7380,20 +7380,20 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(map.entrySet().iterator().next(), CollectionUtils.get((Object)map, 0));
     }
 
-    @Test
+@Test
     public void getIterator_1_oe() {
         final Iterator<Integer> it = collectionA.iterator();
         assertEquals(Integer.valueOf(2), CollectionUtils.get((Object) it, 2));
     }
 
-    @Test
+@Test
     public void getIterator_2_oe() {
         final Iterator<Integer> it = collectionA.iterator();
         // removed other assertion
         assertTrue(it.hasNext());
     }
 
-    @Test
+@Test
     public void getIterator_3_oe() {
         final Iterator<Integer> it = collectionA.iterator();
         // removed other assertion
@@ -7401,7 +7401,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(4), CollectionUtils.get((Object) it, 6));
     }
 
-    @Test
+@Test
     public void getIterator_4_oe() {
         final Iterator<Integer> it = collectionA.iterator();
         // removed other assertion
@@ -7410,14 +7410,14 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(it.hasNext());
     }
 
-    @Test
+@Test
     public void getEnumeration_1_oe() {
         final Vector<Integer> vectorA = new Vector<>(collectionA);
         final Enumeration<Integer> e = vectorA.elements();
         assertEquals(Integer.valueOf(2), CollectionUtils.get(e, 2));
     }
 
-    @Test
+@Test
     public void getEnumeration_2_oe() {
         final Vector<Integer> vectorA = new Vector<>(collectionA);
         final Enumeration<Integer> e = vectorA.elements();
@@ -7425,7 +7425,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(e.hasMoreElements());
     }
 
-    @Test
+@Test
     public void getEnumeration_3_oe() {
         final Vector<Integer> vectorA = new Vector<>(collectionA);
         final Enumeration<Integer> e = vectorA.elements();
@@ -7434,7 +7434,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(Integer.valueOf(4), CollectionUtils.get(e, 6));
     }
 
-    @Test
+@Test
     public void getEnumeration_4_oe() {
         final Vector<Integer> vectorA = new Vector<>(collectionA);
         final Enumeration<Integer> e = vectorA.elements();
@@ -7444,7 +7444,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(e.hasMoreElements());
     }
 
-    @Test
+@Test
     public void reverse_1_oe() {
         CollectionUtils.reverseArray(new Object[] {});
         final Integer[] a = collectionA.toArray(new Integer[collectionA.size()]);
@@ -7454,7 +7454,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(collectionA, Arrays.asList(a));
     }
 
-    @Test
+@Test
     public void extractSingleton_3_oe() {
         ArrayList<String> coll = null;
         try {
@@ -7472,13 +7472,13 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("foo", CollectionUtils.extractSingleton(coll));
     }
 
-    @Test
+@Test
     public void testCollate_1_oe() {
         List<Integer> result = CollectionUtils.collate(emptyCollection, emptyCollection);
         assertEquals("Merge empty with empty", 0, result.size());
     }
 
-    @Test
+@Test
     public void testCollate_2_oe() {
         List<Integer> result = CollectionUtils.collate(emptyCollection, emptyCollection);
         // removed other assertion
@@ -7487,7 +7487,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("Merge empty with non-empty", collectionA, result);
     }
 
-    @Test
+@Test
     public void testCollate_3_oe() {
         List<Integer> result = CollectionUtils.collate(emptyCollection, emptyCollection);
         // removed other assertion
@@ -7500,7 +7500,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("Merge two lists 1", result1, result2);
     }
 
-    @Test
+@Test
     public void testCollate_4_oe() {
         List<Integer> result = CollectionUtils.collate(emptyCollection, emptyCollection);
         // removed other assertion
@@ -7520,7 +7520,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("Merge two lists 2", combinedList, result2);
     }
 
-    @Test
+@Test
     public void testCollate_5_oe() {
         List<Integer> result = CollectionUtils.collate(emptyCollection, emptyCollection);
         // removed other assertion
@@ -7546,7 +7546,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("Comparator Merge empty with empty", 0, result.size());
     }
 
-    @Test
+@Test
     public void testCollate_6_oe() {
         List<Integer> result = CollectionUtils.collate(emptyCollection, emptyCollection);
         // removed other assertion
@@ -7580,7 +7580,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("Comparator Merge two lists 1", result1, result2);
     }
 
-    @Test
+@Test
     public void testCollate_7_oe() {
         List<Integer> result = CollectionUtils.collate(emptyCollection, emptyCollection);
         // removed other assertion
@@ -7615,14 +7615,14 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("Comparator Merge two lists 2", combinedList, result2);
     }
 
-    @Test
+@Test
     public void testCollateIgnoreDuplicates_1_oe() {
         final List<Integer> result1 = CollectionUtils.collate(collectionD, collectionE, false);
         final List<Integer> result2 = CollectionUtils.collate(collectionE, collectionD, false);
         assertEquals("Merge two lists 1 - ignore duplicates", result1, result2);
     }
 
-    @Test
+@Test
     public void testCollateIgnoreDuplicates_2_oe() {
         final List<Integer> result1 = CollectionUtils.collate(collectionD, collectionE, false);
         final List<Integer> result2 = CollectionUtils.collate(collectionE, collectionD, false);
@@ -7637,7 +7637,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("Merge two lists 2 - ignore duplicates", combinedList, result2);
     }
 
-    @Test
+@Test
     public void testPermutations_1_oe() {
         final List<Integer> sample = collectionA.subList(0, 5);
         final Collection<List<Integer>> permutations = CollectionUtils.permutations(sample);
@@ -7651,20 +7651,20 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(factorial, permutations.size());
     }
 
-    @Test
+@Test
     @Deprecated
     public void testMatchesAll_1_oe() {
         assertFalse(CollectionUtils.matchesAll(null, null));
     }
 
-    @Test
+@Test
     @Deprecated
     public void testMatchesAll_2_oe() {
         // removed other assertion
         assertFalse(CollectionUtils.matchesAll(collectionA, null));
     }
 
-    @Test
+@Test
     @Deprecated
     public void testMatchesAll_3_oe() {
         // removed other assertion
@@ -7679,7 +7679,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.matchesAll(collectionA, lessThanFive));
     }
 
-    @Test
+@Test
     @Deprecated
     public void testMatchesAll_4_oe() {
         // removed other assertion
@@ -7702,7 +7702,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(CollectionUtils.matchesAll(collectionA, lessThanFour));
     }
 
-    @Test
+@Test
     @Deprecated
     public void testMatchesAll_5_oe() {
         // removed other assertion
@@ -7727,7 +7727,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.matchesAll(null, lessThanFour));
     }
 
-    @Test
+@Test
     @Deprecated
     public void testMatchesAll_6_oe() {
         // removed other assertion
@@ -7753,7 +7753,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(CollectionUtils.matchesAll(emptyCollection, lessThanFour));
     }
 
-    @Test
+@Test
     public void testRemoveAllWithEquator_1_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -7782,7 +7782,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(2, result.size());
     }
 
-    @Test
+@Test
     public void testRemoveAllWithEquator_2_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -7812,7 +7812,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(result.contains("AC"));
     }
 
-    @Test
+@Test
     public void testRemoveAllWithEquator_3_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -7843,7 +7843,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(result.contains("BB"));
     }
 
-    @Test
+@Test
     public void testRemoveAllWithEquator_4_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -7875,7 +7875,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(result.contains("CA"));
     }
 
-    @Test
+@Test
     public void testRemoveAllWithEquator_5_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -7908,7 +7908,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, base.size());
     }
 
-    @Test
+@Test
     public void testRemoveAllWithEquator_6_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -7942,7 +7942,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, base.contains("AC"));
     }
 
-    @Test
+@Test
     public void testRemoveAllWithEquator_7_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -7977,7 +7977,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, base.contains("BB"));
     }
 
-    @Test
+@Test
     public void testRemoveAllWithEquator_8_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -8013,7 +8013,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, base.contains("CA"));
     }
 
-    @Test
+@Test
     public void testRemoveAllWithEquator_9_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -8050,7 +8050,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, remove.size());
     }
 
-    @Test
+@Test
     public void testRemoveAllWithEquator_10_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -8088,7 +8088,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, remove.contains("AA"));
     }
 
-    @Test
+@Test
     public void testRemoveAllWithEquator_11_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -8127,7 +8127,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, remove.contains("CX"));
     }
 
-    @Test
+@Test
     public void testRemoveAllWithEquator_12_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -8167,7 +8167,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(true, remove.contains("XZ"));
     }
 
-    @Test
+@Test
     public void testRetainAllWithEquator_1_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -8195,7 +8195,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(1, result.size());
     }
 
-    @Test
+@Test
     public void testRetainAllWithEquator_2_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -8224,7 +8224,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(result.contains("CA"));
     }
 
-    @Test
+@Test
     public void testRetainAllWithEquator_3_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -8254,7 +8254,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(result.contains("BB"));
     }
 
-    @Test
+@Test
     public void testRetainAllWithEquator_4_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -8285,7 +8285,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertFalse(result.contains("AC"));
     }
 
-    @Test
+@Test
     public void testRetainAllWithEquator_5_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -8318,7 +8318,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, base.size());
     }
 
-    @Test
+@Test
     public void testRetainAllWithEquator_6_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -8352,7 +8352,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(base.contains("AC"));
     }
 
-    @Test
+@Test
     public void testRetainAllWithEquator_7_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -8387,7 +8387,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(base.contains("BB"));
     }
 
-    @Test
+@Test
     public void testRetainAllWithEquator_8_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -8423,7 +8423,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(base.contains("CA"));
     }
 
-    @Test
+@Test
     public void testRetainAllWithEquator_9_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -8461,7 +8461,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals(3, retain.size());
     }
 
-    @Test
+@Test
     public void testRetainAllWithEquator_10_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -8500,7 +8500,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(retain.contains("AA"));
     }
 
-    @Test
+@Test
     public void testRetainAllWithEquator_11_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");
@@ -8540,7 +8540,7 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertTrue(retain.contains("CX"));
     }
 
-    @Test
+@Test
     public void testRetainAllWithEquator_12_oe() {
         final List<String> base = new ArrayList<>();
         base.add("AC");

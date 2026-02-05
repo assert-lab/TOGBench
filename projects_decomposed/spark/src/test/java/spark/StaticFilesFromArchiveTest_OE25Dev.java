@@ -78,7 +78,7 @@ public class StaticFilesFromArchiveTest_OE25Dev {
         return new URLClassLoader(urls, null);
     }
 
-    @Test
+@Test
     public void testCss_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/css/style.css", null);
 
@@ -86,7 +86,7 @@ public class StaticFilesFromArchiveTest_OE25Dev {
         assertEquals(expectedContentType, "text/css");
     }
 
-    @Test
+@Test
     public void testCss_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/css/style.css", null);
 

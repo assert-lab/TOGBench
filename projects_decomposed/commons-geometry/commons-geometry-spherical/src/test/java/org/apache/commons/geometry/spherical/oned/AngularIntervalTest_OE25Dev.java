@@ -314,20 +314,20 @@ class AngularIntervalTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testOf_doubles_invalidArgs_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Double.NEGATIVE_INFINITY, 0, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_doubles_invalidArgs_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(0, Double.POSITIVE_INFINITY, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_doubles_invalidArgs_3_oe() {
         // act/assert
         // removed other assertion
@@ -335,7 +335,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_doubles_invalidArgs_4_oe() {
         // act/assert
         // removed other assertion
@@ -344,7 +344,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Double.NaN, 0, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_doubles_invalidArgs_5_oe() {
         // act/assert
         // removed other assertion
@@ -354,7 +354,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(0, Double.NaN, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_doubles_invalidArgs_6_oe() {
         // act/assert
         // removed other assertion
@@ -365,20 +365,20 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Double.NaN, Double.NaN, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_points_invalidArgs_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.of(Double.NEGATIVE_INFINITY), Point1S.ZERO, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_points_invalidArgs_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.ZERO, Point1S.of(Double.POSITIVE_INFINITY), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_points_invalidArgs_3_oe() {
         // act/assert
         // removed other assertion
@@ -386,7 +386,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.of(Double.POSITIVE_INFINITY), Point1S.of(Double.NEGATIVE_INFINITY), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_points_invalidArgs_4_oe() {
         // act/assert
         // removed other assertion
@@ -395,7 +395,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.NaN, Point1S.ZERO, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_points_invalidArgs_5_oe() {
         // act/assert
         // removed other assertion
@@ -405,7 +405,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.ZERO, Point1S.NaN, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_points_invalidArgs_6_oe() {
         // act/assert
         // removed other assertion
@@ -416,7 +416,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.NaN, Point1S.NaN, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testOf_orientedPoints_invalidArgs_1_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
@@ -426,7 +426,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(pt, nan));
     }
 
-    @Test
+@Test
     void testOf_orientedPoints_invalidArgs_2_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
@@ -437,7 +437,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(nan, pt));
     }
 
-    @Test
+@Test
     void testOf_orientedPoints_invalidArgs_3_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
@@ -449,7 +449,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(nan, nan));
     }
 
-    @Test
+@Test
     void testProject_full_1_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.full();
@@ -458,7 +458,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertNull(interval.project(Point1S.ZERO));
     }
 
-    @Test
+@Test
     void testProject_full_2_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.full();
@@ -468,7 +468,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertNull(interval.project(Point1S.PI));
     }
 
-    @Test
+@Test
     void testProject_1_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(1, 2, TEST_PRECISION);
@@ -477,7 +477,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(1, interval.project(Point1S.ZERO).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_2_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(1, 2, TEST_PRECISION);
@@ -487,7 +487,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(1, interval.project(Point1S.of(1)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_3_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(1, 2, TEST_PRECISION);
@@ -498,7 +498,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(1, interval.project(Point1S.of(1.5)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_4_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(1, 2, TEST_PRECISION);
@@ -511,7 +511,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(2, interval.project(Point1S.of(2)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_5_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(1, 2, TEST_PRECISION);
@@ -525,7 +525,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(2, interval.project(Point1S.PI).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_6_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(1, 2, TEST_PRECISION);
@@ -540,7 +540,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(2, interval.project(Point1S.of(1.4 + Math.PI)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_7_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(1, 2, TEST_PRECISION);
@@ -557,7 +557,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(1, interval.project(Point1S.of(1.5 + Math.PI)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_8_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(1, 2, TEST_PRECISION);
@@ -575,20 +575,20 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(1, interval.project(Point1S.of(1.6 + Math.PI)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testWrapsZero_1_oe() {
         // act/assert
         Assertions.assertFalse(AngularInterval.full().wrapsZero());
     }
 
-    @Test
+@Test
     void testWrapsZero_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertFalse(AngularInterval.of(0, Angle.PI_OVER_TWO, TEST_PRECISION).wrapsZero());
     }
 
-    @Test
+@Test
     void testWrapsZero_3_oe() {
         // act/assert
         // removed other assertion
@@ -596,7 +596,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertFalse(AngularInterval.of(Angle.PI_OVER_TWO, Math.PI, TEST_PRECISION).wrapsZero());
     }
 
-    @Test
+@Test
     void testWrapsZero_4_oe() {
         // act/assert
         // removed other assertion
@@ -605,7 +605,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertFalse(AngularInterval.of(Math.PI, 1.5 * Math.PI, TEST_PRECISION).wrapsZero());
     }
 
-    @Test
+@Test
     void testWrapsZero_5_oe() {
         // act/assert
         // removed other assertion
@@ -615,7 +615,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertFalse(AngularInterval.of(1.5 * Math.PI, Angle.TWO_PI - 1e-5, TEST_PRECISION).wrapsZero());
     }
 
-    @Test
+@Test
     void testWrapsZero_6_oe() {
         // act/assert
         // removed other assertion
@@ -627,7 +627,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertTrue(AngularInterval.of(1.5 * Math.PI, Angle.TWO_PI, TEST_PRECISION).wrapsZero());
     }
 
-    @Test
+@Test
     void testWrapsZero_7_oe() {
         // act/assert
         // removed other assertion
@@ -640,7 +640,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertTrue(AngularInterval.of(1.5 * Math.PI, 2.5 * Math.PI, TEST_PRECISION).wrapsZero());
     }
 
-    @Test
+@Test
     void testWrapsZero_8_oe() {
         // act/assert
         // removed other assertion
@@ -654,7 +654,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertTrue(AngularInterval.of(-2.5 * Math.PI, -1.5 * Math.PI, TEST_PRECISION).wrapsZero());
     }
 
-    @Test
+@Test
     void testToTree_full_1_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.full();
@@ -666,7 +666,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_full_2_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.full();
@@ -679,7 +679,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testToTree_intervalEqualToPi_1_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(0.0, Math.PI, TEST_PRECISION);
@@ -691,7 +691,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_intervalEqualToPi_2_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(0.0, Math.PI, TEST_PRECISION);
@@ -704,7 +704,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testToTree_intervalLessThanPi_1_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(Angle.PI_OVER_TWO, Math.PI, TEST_PRECISION);
@@ -716,7 +716,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_intervalLessThanPi_2_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(Angle.PI_OVER_TWO, Math.PI, TEST_PRECISION);
@@ -729,7 +729,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testToTree_intervalGreaterThanPi_1_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(Math.PI, Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -741,7 +741,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testToTree_intervalGreaterThanPi_2_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(Math.PI, Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -754,7 +754,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testToConvex_lessThanPi_1_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(0, Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -766,7 +766,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(1, result.size());
     }
 
-    @Test
+@Test
     void testToConvex_equalToPi_1_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(Math.PI, Angle.TWO_PI, TEST_PRECISION);
@@ -778,7 +778,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(1, result.size());
     }
 
-    @Test
+@Test
     void testToConvex_overPi_1_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(Math.PI, Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -790,7 +790,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(2, result.size());
     }
 
-    @Test
+@Test
     void testToConvex_overPi_splitAtZero_1_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(1.25 * Math.PI, 2.75 * Math.PI, TEST_PRECISION);
@@ -802,7 +802,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(2, result.size());
     }
 
-    @Test
+@Test
     void testSplit_full_1_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.full();
@@ -815,7 +815,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_interval_both_1_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(Angle.PI_OVER_TWO, Math.PI, TEST_PRECISION);
@@ -828,7 +828,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(1, 2, TEST_PRECISION);
@@ -840,7 +840,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertTrue(str.contains("AngularInterval"));
     }
 
-    @Test
+@Test
     void testToString_2_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(1, 2, TEST_PRECISION);
@@ -853,7 +853,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertTrue(str.contains("min= 1.0"));
     }
 
-    @Test
+@Test
     void testToString_3_oe() {
         // arrange
         final AngularInterval interval = AngularInterval.of(1, 2, TEST_PRECISION);
@@ -867,20 +867,20 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertTrue(str.contains("max= 2.0"));
     }
 
-    @Test
+@Test
     void testConvex_of_doubles_invalidArgs_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testConvex_of_doubles_invalidArgs_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(0, Math.PI + 1e-1, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testConvex_of_doubles_invalidArgs_3_oe() {
         // act/assert
         // removed other assertion
@@ -888,7 +888,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Angle.PI_OVER_TWO, -Angle.PI_OVER_TWO + 1, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testConvex_of_doubles_invalidArgs_4_oe() {
         // act/assert
         // removed other assertion
@@ -897,20 +897,20 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(0, -0.5, TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testConvex_of_points_invalidArgs_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Point1S.of(Double.NEGATIVE_INFINITY), Point1S.of(Double.POSITIVE_INFINITY), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testConvex_of_points_invalidArgs_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Point1S.of(0), Point1S.of(Math.PI + 1e-1), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testConvex_of_points_invalidArgs_3_oe() {
         // act/assert
         // removed other assertion
@@ -918,7 +918,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Point1S.of(Angle.PI_OVER_TWO), Point1S.of(-Angle.PI_OVER_TWO + 1), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testConvex_of_points_invalidArgs_4_oe() {
         // act/assert
         // removed other assertion
@@ -927,7 +927,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Point1S.of(0), Point1S.of(-0.5), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testConvex_of_cutAngles_invalidArgs_1_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
@@ -937,7 +937,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(pt, nan));
     }
 
-    @Test
+@Test
     void testConvex_of_cutAngles_invalidArgs_2_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
@@ -948,7 +948,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(nan, pt));
     }
 
-    @Test
+@Test
     void testConvex_of_cutAngles_invalidArgs_3_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
@@ -960,7 +960,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(nan, nan));
     }
 
-    @Test
+@Test
     void testConvex_of_cutAngles_invalidArgs_4_oe() {
         // arrange
         final CutAngle pt = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
@@ -973,7 +973,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of( CutAngles.createNegativeFacing(1, TEST_PRECISION), CutAngles.createPositiveFacing(0.5, TEST_PRECISION)));
     }
 
-    @Test
+@Test
     void testConvex_toConvex_1_oe() {
         // arrange
         final AngularInterval.Convex full = AngularInterval.full();
@@ -986,7 +986,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(1, result.size());
     }
 
-    @Test
+@Test
     void testConvex_toConvex_2_oe() {
         // arrange
         final AngularInterval.Convex full = AngularInterval.full();
@@ -1000,7 +1000,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertSame(full, result.get(0));
     }
 
-    @Test
+@Test
     void testConvex_toConvex_3_oe() {
         // arrange
         final AngularInterval.Convex full = AngularInterval.full();
@@ -1017,7 +1017,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(1, result.size());
     }
 
-    @Test
+@Test
     void testConvex_toConvex_4_oe() {
         // arrange
         final AngularInterval.Convex full = AngularInterval.full();
@@ -1035,7 +1035,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertSame(interval, result.get(0));
     }
 
-    @Test
+@Test
     void testSplitDiameter_full_1_oe() {
         // arrange
         final AngularInterval.Convex full = AngularInterval.full();
@@ -1048,7 +1048,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_full_splitOnZero_1_oe() {
         // arrange
         final AngularInterval.Convex full = AngularInterval.full();
@@ -1061,7 +1061,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_minus_1_oe() {
         // arrange
         final AngularInterval.Convex interval = AngularInterval.Convex.of(0.1, Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -1074,7 +1074,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_minus_2_oe() {
         // arrange
         final AngularInterval.Convex interval = AngularInterval.Convex.of(0.1, Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -1089,7 +1089,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertSame(interval, split.getMinus());
     }
 
-    @Test
+@Test
     void testSplitDiameter_minus_3_oe() {
         // arrange
         final AngularInterval.Convex interval = AngularInterval.Convex.of(0.1, Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -1105,7 +1105,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplitDiameter_plus_1_oe() {
         // arrange
         final AngularInterval.Convex interval = AngularInterval.Convex.of(-0.4 * Math.PI, 0.4 * Math.PI, TEST_PRECISION);
@@ -1118,7 +1118,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_plus_2_oe() {
         // arrange
         final AngularInterval.Convex interval = AngularInterval.Convex.of(-0.4 * Math.PI, 0.4 * Math.PI, TEST_PRECISION);
@@ -1133,7 +1133,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplitDiameter_plus_3_oe() {
         // arrange
         final AngularInterval.Convex interval = AngularInterval.Convex.of(-0.4 * Math.PI, 0.4 * Math.PI, TEST_PRECISION);
@@ -1149,7 +1149,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertSame(interval, split.getPlus());
     }
 
-    @Test
+@Test
     void testSplitDiameter_both_negativeFacingSplitter_1_oe() {
         // arrange
         final AngularInterval.Convex interval = AngularInterval.Convex.of(Angle.PI_OVER_TWO, -Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -1162,7 +1162,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_both_positiveFacingSplitter_1_oe() {
         // arrange
         final AngularInterval.Convex interval = AngularInterval.Convex.of(Angle.PI_OVER_TWO, -Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -1175,7 +1175,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_both_antipodal_negativeFacingSplitter_1_oe() {
         // arrange
         final AngularInterval.Convex interval = AngularInterval.Convex.of(Angle.PI_OVER_TWO, -Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -1188,7 +1188,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_both_antipodal_positiveFacingSplitter_1_oe() {
         // arrange
         final AngularInterval.Convex interval = AngularInterval.Convex.of(Angle.PI_OVER_TWO, -Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -1201,7 +1201,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_splitOnBoundary_negativeFacing_1_oe() {
         // arrange
         final AngularInterval.Convex interval = AngularInterval.Convex.of(Angle.PI_OVER_TWO, -Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -1214,7 +1214,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_splitOnBoundary_negativeFacing_2_oe() {
         // arrange
         final AngularInterval.Convex interval = AngularInterval.Convex.of(Angle.PI_OVER_TWO, -Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -1229,7 +1229,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertSame(interval, split.getMinus());
     }
 
-    @Test
+@Test
     void testSplitDiameter_splitOnBoundary_negativeFacing_3_oe() {
         // arrange
         final AngularInterval.Convex interval = AngularInterval.Convex.of(Angle.PI_OVER_TWO, -Angle.PI_OVER_TWO, TEST_PRECISION);
@@ -1245,7 +1245,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplitDiameter_splitOnBoundary_positiveFacing_1_oe() {
         // arrange
         final AngularInterval.Convex interval = AngularInterval.Convex.of(0, Math.PI, TEST_PRECISION);
@@ -1258,7 +1258,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_splitOnBoundary_positiveFacing_2_oe() {
         // arrange
         final AngularInterval.Convex interval = AngularInterval.Convex.of(0, Math.PI, TEST_PRECISION);
@@ -1273,7 +1273,7 @@ class AngularIntervalTest_OE25Dev {
         Assertions.assertSame(interval, split.getMinus());
     }
 
-    @Test
+@Test
     void testSplitDiameter_splitOnBoundary_positiveFacing_3_oe() {
         // arrange
         final AngularInterval.Convex interval = AngularInterval.Convex.of(0, Math.PI, TEST_PRECISION);

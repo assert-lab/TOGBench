@@ -71,7 +71,7 @@ public class TestNodeAddData_OE25Dev {
         data.getPathNodes().add("test");
     }
 
-    @Test
+@Test
     public void testInitPathNodesDefensiveCopy_1_oe() {
         final List<String> pathNodes = new ArrayList<>();
         pathNodes.add(PATH_NODE_NAME);
@@ -80,7 +80,7 @@ public class TestNodeAddData_OE25Dev {
         assertEquals("Wrong number of path nodes", 1, data.getPathNodes().size());
     }
 
-    @Test
+@Test
     public void testInitPathNodesDefensiveCopy_2_oe() {
         final List<String> pathNodes = new ArrayList<>();
         pathNodes.add(PATH_NODE_NAME);
@@ -90,7 +90,7 @@ public class TestNodeAddData_OE25Dev {
         assertEquals("Wrong path node", PATH_NODE_NAME, data.getPathNodes().get(0));
     }
 
-    @Test
+@Test
     public void testPathNodesNull_1_oe() {
         final NodeAddData<ImmutableNode> data = new NodeAddData<>(parentNode, TEST_NODENAME, false, null);
         assertTrue("Got path nodes", data.getPathNodes().isEmpty());

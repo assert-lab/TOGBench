@@ -55,13 +55,13 @@ public class TestConstructorArg_OE25Dev {
      * Tests whether a specified data type is evaluated by matches().
      */
 
-    @Test
+@Test
     public void testIsNestedBeanDeclarationFalse_1_oe() {
         final ConstructorArg arg = ConstructorArg.forValue("test");
         assertFalse("A bean declaration", arg.isNestedBeanDeclaration());
     }
 
-    @Test
+@Test
     public void testIsNestedBeanDeclarationTrue_1_oe() {
         final BeanDeclaration decl = EasyMock.createMock(BeanDeclaration.class);
         EasyMock.replay(decl);
@@ -69,39 +69,39 @@ public class TestConstructorArg_OE25Dev {
         assertTrue("No bean declaration", arg.isNestedBeanDeclaration());
     }
 
-    @Test
+@Test
     public void testMatchesNoType_1_oe() {
         final ConstructorArg arg = ConstructorArg.forValue(42);
         assertTrue("No match (1)", arg.matches(String.class));
     }
 
-    @Test
+@Test
     public void testMatchesNoType_2_oe() {
         final ConstructorArg arg = ConstructorArg.forValue(42);
         // removed other assertion
         assertTrue("No match (2)", arg.matches(getClass()));
     }
 
-    @Test
+@Test
     public void testMatchesNull_1_oe() {
         final ConstructorArg arg = ConstructorArg.forValue(0);
         assertFalse("Wrong result", arg.matches(null));
     }
 
-    @Test
+@Test
     public void testMatchesWithType_1_oe() {
         final ConstructorArg arg = ConstructorArg.forValue("42", int.class.getName());
         assertTrue("Wrong result (1)", arg.matches(Integer.TYPE));
     }
 
-    @Test
+@Test
     public void testMatchesWithType_2_oe() {
         final ConstructorArg arg = ConstructorArg.forValue("42", int.class.getName());
         // removed other assertion
         assertFalse("Wrong result (2)", arg.matches(Integer.class));
     }
 
-    @Test
+@Test
     public void testMatchesWithType_3_oe() {
         final ConstructorArg arg = ConstructorArg.forValue("42", int.class.getName());
         // removed other assertion

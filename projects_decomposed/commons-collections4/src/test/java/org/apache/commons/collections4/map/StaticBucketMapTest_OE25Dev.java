@@ -61,13 +61,13 @@ public class StaticBucketMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K
 
     // Bugzilla 37567
 
-    public void test_get_nullMatchesIncorrectly_1_oe() {
+public void test_get_nullMatchesIncorrectly_1_oe() {
         final StaticBucketMap<K, V> map = new StaticBucketMap<>(17);
         map.put(null, (V) "A");
         assertEquals("A", map.get(null));
     }
 
-    public void test_get_nullMatchesIncorrectly_2_oe() {
+public void test_get_nullMatchesIncorrectly_2_oe() {
         final StaticBucketMap<K, V> map = new StaticBucketMap<>(17);
         map.put(null, (V) "A");
         // removed other assertion
@@ -78,13 +78,13 @@ public class StaticBucketMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K
     }
     }
 
-    public void test_containsKey_nullMatchesIncorrectly_1_oe() {
+public void test_containsKey_nullMatchesIncorrectly_1_oe() {
         final StaticBucketMap<K, V> map = new StaticBucketMap<>(17);
         map.put(null, (V) "A");
         assertEquals(true, map.containsKey(null));
     }
 
-    public void test_containsKey_nullMatchesIncorrectly_2_oe() {
+public void test_containsKey_nullMatchesIncorrectly_2_oe() {
         final StaticBucketMap<K, V> map = new StaticBucketMap<>(17);
         map.put(null, (V) "A");
         // removed other assertion
@@ -95,13 +95,13 @@ public class StaticBucketMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K
     }
     }
 
-    public void test_containsValue_nullMatchesIncorrectly_1_oe() {
+public void test_containsValue_nullMatchesIncorrectly_1_oe() {
         final StaticBucketMap<K, V> map = new StaticBucketMap<>(17);
         map.put((K) "A", null);
         assertEquals(true, map.containsValue(null));
     }
 
-    public void test_containsValue_nullMatchesIncorrectly_2_oe() {
+public void test_containsValue_nullMatchesIncorrectly_2_oe() {
         final StaticBucketMap<K, V> map = new StaticBucketMap<>(17);
         map.put((K) "A", null);
         // removed other assertion

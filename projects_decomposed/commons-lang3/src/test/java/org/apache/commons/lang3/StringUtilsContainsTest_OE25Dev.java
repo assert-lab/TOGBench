@@ -91,25 +91,25 @@ public class StringUtilsContainsTest_OE25Dev  {
      * See http://www.oracle.com/technetwork/articles/javase/supplementary-142654.html
      */
 
-    @Test
+@Test
     public void testContains_Char_1_oe() {
         assertFalse(StringUtils.contains(null, ' '));
     }
 
-    @Test
+@Test
     public void testContains_Char_2_oe() {
         // removed other assertion
         assertFalse(StringUtils.contains("", ' '));
     }
 
-    @Test
+@Test
     public void testContains_Char_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(StringUtils.contains("", null));
     }
 
-    @Test
+@Test
     public void testContains_Char_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -117,7 +117,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.contains(null, null));
     }
 
-    @Test
+@Test
     public void testContains_Char_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -126,7 +126,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.contains("abc", 'a'));
     }
 
-    @Test
+@Test
     public void testContains_Char_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -136,7 +136,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.contains("abc", 'b'));
     }
 
-    @Test
+@Test
     public void testContains_Char_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -147,7 +147,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.contains("abc", 'c'));
     }
 
-    @Test
+@Test
     public void testContains_Char_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -159,25 +159,25 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.contains("abc", 'z'));
     }
 
-    @Test
+@Test
     public void testContains_String_1_oe() {
         assertFalse(StringUtils.contains(null, null));
     }
 
-    @Test
+@Test
     public void testContains_String_2_oe() {
         // removed other assertion
         assertFalse(StringUtils.contains(null, ""));
     }
 
-    @Test
+@Test
     public void testContains_String_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(StringUtils.contains(null, "a"));
     }
 
-    @Test
+@Test
     public void testContains_String_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -185,7 +185,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.contains("", null));
     }
 
-    @Test
+@Test
     public void testContains_String_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -194,7 +194,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.contains("", ""));
     }
 
-    @Test
+@Test
     public void testContains_String_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -204,7 +204,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.contains("", "a"));
     }
 
-    @Test
+@Test
     public void testContains_String_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -215,7 +215,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.contains("abc", "a"));
     }
 
-    @Test
+@Test
     public void testContains_String_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -227,7 +227,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.contains("abc", "b"));
     }
 
-    @Test
+@Test
     public void testContains_String_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -240,7 +240,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.contains("abc", "c"));
     }
 
-    @Test
+@Test
     public void testContains_String_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -254,7 +254,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.contains("abc", "abc"));
     }
 
-    @Test
+@Test
     public void testContains_String_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -269,20 +269,20 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.contains("abc", "z"));
     }
 
-    @Test
+@Test
     public void testContains_StringWithBadSupplementaryChars_1_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         assertFalse(StringUtils.contains(CharUSuppCharHigh, CharU20001));
     }
 
-    @Test
+@Test
     public void testContains_StringWithBadSupplementaryChars_2_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
         assertFalse(StringUtils.contains(CharUSuppCharLow, CharU20001));
     }
 
-    @Test
+@Test
     public void testContains_StringWithBadSupplementaryChars_3_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -290,7 +290,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.contains(CharU20001, CharUSuppCharHigh));
     }
 
-    @Test
+@Test
     public void testContains_StringWithBadSupplementaryChars_4_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -299,7 +299,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(0, CharU20001.indexOf(CharUSuppCharLow));
     }
 
-    @Test
+@Test
     public void testContains_StringWithBadSupplementaryChars_5_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -309,7 +309,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.contains(CharU20001, CharUSuppCharLow));
     }
 
-    @Test
+@Test
     public void testContains_StringWithBadSupplementaryChars_6_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -320,7 +320,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.contains(CharU20001 + CharUSuppCharLow + "a", "a"));
     }
 
-    @Test
+@Test
     public void testContains_StringWithBadSupplementaryChars_7_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -332,25 +332,25 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.contains(CharU20001 + CharUSuppCharHigh + "a", "a"));
     }
 
-    @Test
+@Test
     public void testContains_StringWithSupplementaryChars_1_oe() {
         assertTrue(StringUtils.contains(CharU20000 + CharU20001, CharU20000));
     }
 
-    @Test
+@Test
     public void testContains_StringWithSupplementaryChars_2_oe() {
         // removed other assertion
         assertTrue(StringUtils.contains(CharU20000 + CharU20001, CharU20001));
     }
 
-    @Test
+@Test
     public void testContains_StringWithSupplementaryChars_3_oe() {
         // removed other assertion
         // removed other assertion
         assertTrue(StringUtils.contains(CharU20000, CharU20000));
     }
 
-    @Test
+@Test
     public void testContains_StringWithSupplementaryChars_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -358,25 +358,25 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.contains(CharU20000, CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArray_1_oe() {
         assertFalse(StringUtils.containsAny(null, (char[]) null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArray_2_oe() {
         // removed other assertion
         assertFalse(StringUtils.containsAny(null, new char[0]));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArray_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(StringUtils.containsAny(null, 'a', 'b'));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArray_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -385,7 +385,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("", (char[]) null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArray_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -395,7 +395,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("", new char[0]));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArray_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -406,7 +406,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("", 'a', 'b'));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArray_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -419,7 +419,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("zzabyycdxx", (char[]) null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArray_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -433,7 +433,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("zzabyycdxx", new char[0]));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArray_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -448,7 +448,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAny("zzabyycdxx", 'z', 'a'));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArray_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -464,7 +464,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAny("zzabyycdxx", 'b', 'y'));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArray_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -481,7 +481,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAny("zzabyycdxx", 'z', 'y'));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArray_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -499,20 +499,20 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("ab", 'z'));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithBadSupplementaryChars_1_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         assertFalse(StringUtils.containsAny(CharUSuppCharHigh, CharU20001.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithBadSupplementaryChars_2_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
         assertFalse(StringUtils.containsAny("abc" + CharUSuppCharHigh + "xyz", CharU20001.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithBadSupplementaryChars_3_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -520,7 +520,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(-1, CharUSuppCharLow.indexOf(CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithBadSupplementaryChars_4_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -529,7 +529,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny(CharUSuppCharLow, CharU20001.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithBadSupplementaryChars_5_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -539,7 +539,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny(CharU20001, CharUSuppCharHigh.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithBadSupplementaryChars_6_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -550,7 +550,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(0, CharU20001.indexOf(CharUSuppCharLow));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithBadSupplementaryChars_7_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -562,25 +562,25 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAny(CharU20001, CharUSuppCharLow.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithSupplementaryChars_1_oe() {
         assertTrue(StringUtils.containsAny(CharU20000 + CharU20001, CharU20000.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithSupplementaryChars_2_oe() {
         // removed other assertion
         assertTrue(StringUtils.containsAny("a" + CharU20000 + CharU20001, "a".toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithSupplementaryChars_3_oe() {
         // removed other assertion
         // removed other assertion
         assertTrue(StringUtils.containsAny(CharU20000 + "a" + CharU20001, "a".toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithSupplementaryChars_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -588,7 +588,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAny(CharU20000 + CharU20001 + "a", "a".toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithSupplementaryChars_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -597,7 +597,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAny(CharU20000 + CharU20001, CharU20001.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithSupplementaryChars_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -607,7 +607,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAny(CharU20000, CharU20000.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithSupplementaryChars_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -619,7 +619,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(-1, CharU20000.indexOf(CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithSupplementaryChars_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -632,7 +632,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(0, CharU20000.indexOf(CharU20001.charAt(0)));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithSupplementaryChars_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -646,7 +646,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(-1, CharU20000.indexOf(CharU20001.charAt(1)));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithSupplementaryChars_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -662,7 +662,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny(CharU20000, CharU20001.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringCharArrayWithSupplementaryChars_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -679,25 +679,25 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny(CharU20001, CharU20000.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_1_oe() {
         assertFalse(StringUtils.containsAny(null, (String) null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_2_oe() {
         // removed other assertion
         assertFalse(StringUtils.containsAny(null, ""));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(StringUtils.containsAny(null, "ab"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -706,7 +706,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("", (String) null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -716,7 +716,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("", ""));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -727,7 +727,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("", "ab"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -740,7 +740,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("zzabyycdxx", (String) null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -754,7 +754,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("zzabyycdxx", ""));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -769,7 +769,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAny("zzabyycdxx", "za"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -785,7 +785,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAny("zzabyycdxx", "by"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -802,7 +802,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAny("zzabyycdxx", "zy"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringString_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -820,25 +820,25 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("ab", "z"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringArray_1_oe() {
         assertFalse(StringUtils.containsAny(null, (String[]) null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringArray_2_oe() {
         // removed other assertion
         assertFalse(StringUtils.containsAny(null, new String[0]));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringArray_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(StringUtils.containsAny(null, new String[] { "hello" }));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringArray_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -846,7 +846,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("", (String[]) null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringArray_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -855,7 +855,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("", new String[0]));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringArray_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -865,7 +865,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("", new String[] { "hello" }));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringArray_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -876,7 +876,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("hello, goodbye", (String[]) null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringArray_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -888,7 +888,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("hello, goodbye", new String[0]));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringArray_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -901,7 +901,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAny("hello, goodbye", new String[]{"hello", "goodbye"}));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringArray_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -915,7 +915,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAny("hello, goodbye", new String[]{"hello", "Goodbye"}));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringArray_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -930,7 +930,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("hello, goodbye", new String[]{"Hello", "Goodbye"}));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringArray_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -946,7 +946,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("hello, goodbye", new String[]{"Hello", null}));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringArray_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -963,7 +963,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny("hello, null", new String[] { "Hello", null }));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringArray_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -982,7 +982,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAny("abcd", "ab", null));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringArray_15_oe() {
         // removed other assertion
         // removed other assertion
@@ -1002,7 +1002,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAny("abcd", "ab", "cd"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringStringArray_16_oe() {
         // removed other assertion
         // removed other assertion
@@ -1023,25 +1023,25 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAny("abc", "d", "abc"));
     }
 
-    @Test
+@Test
     public void testContainsAnyIgnoreCase_StringStringArray_1_oe() {
         assertFalse(StringUtils.containsAnyIgnoreCase(null, (String[]) null));
     }
 
-    @Test
+@Test
     public void testContainsAnyIgnoreCase_StringStringArray_2_oe() {
         // removed other assertion
         assertFalse(StringUtils.containsAnyIgnoreCase(null, new String[0]));
     }
 
-    @Test
+@Test
     public void testContainsAnyIgnoreCase_StringStringArray_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(StringUtils.containsAnyIgnoreCase(null, new String[] { "hello" }));
     }
 
-    @Test
+@Test
     public void testContainsAnyIgnoreCase_StringStringArray_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1049,7 +1049,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAnyIgnoreCase("", (String[]) null));
     }
 
-    @Test
+@Test
     public void testContainsAnyIgnoreCase_StringStringArray_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1058,7 +1058,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAnyIgnoreCase("", new String[0]));
     }
 
-    @Test
+@Test
     public void testContainsAnyIgnoreCase_StringStringArray_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1068,7 +1068,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAnyIgnoreCase("", new String[] { "hello" }));
     }
 
-    @Test
+@Test
     public void testContainsAnyIgnoreCase_StringStringArray_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -1079,7 +1079,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAnyIgnoreCase("hello, goodbye", (String[]) null));
     }
 
-    @Test
+@Test
     public void testContainsAnyIgnoreCase_StringStringArray_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -1091,7 +1091,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAnyIgnoreCase("hello, goodbye", new String[0]));
     }
 
-    @Test
+@Test
     public void testContainsAnyIgnoreCase_StringStringArray_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -1104,7 +1104,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAnyIgnoreCase("hello, goodbye", new String[]{"hello", "goodbye"}));
     }
 
-    @Test
+@Test
     public void testContainsAnyIgnoreCase_StringStringArray_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -1118,7 +1118,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAnyIgnoreCase("hello, goodbye", new String[]{"hello", "Goodbye"}));
     }
 
-    @Test
+@Test
     public void testContainsAnyIgnoreCase_StringStringArray_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -1133,7 +1133,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAnyIgnoreCase("hello, goodbye", new String[]{"Hello", "Goodbye"}));
     }
 
-    @Test
+@Test
     public void testContainsAnyIgnoreCase_StringStringArray_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -1149,7 +1149,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAnyIgnoreCase("hello, goodbye", new String[]{"Hello", null}));
     }
 
-    @Test
+@Test
     public void testContainsAnyIgnoreCase_StringStringArray_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -1166,7 +1166,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAnyIgnoreCase("hello, null", new String[] { "Hello", null }));
     }
 
-    @Test
+@Test
     public void testContainsAnyIgnoreCase_StringStringArray_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -1185,7 +1185,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAnyIgnoreCase("abcd", "ab", null));
     }
 
-    @Test
+@Test
     public void testContainsAnyIgnoreCase_StringStringArray_15_oe() {
         // removed other assertion
         // removed other assertion
@@ -1205,7 +1205,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAnyIgnoreCase("abcd", "ab", "cd"));
     }
 
-    @Test
+@Test
     public void testContainsAnyIgnoreCase_StringStringArray_16_oe() {
         // removed other assertion
         // removed other assertion
@@ -1226,20 +1226,20 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAnyIgnoreCase("abc", "d", "abc"));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringWithBadSupplementaryChars_1_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         assertFalse(StringUtils.containsAny(CharUSuppCharHigh, CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringWithBadSupplementaryChars_2_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
         assertEquals(-1, CharUSuppCharLow.indexOf(CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringWithBadSupplementaryChars_3_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -1247,7 +1247,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny(CharUSuppCharLow, CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringWithBadSupplementaryChars_4_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -1256,7 +1256,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny(CharU20001, CharUSuppCharHigh));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringWithBadSupplementaryChars_5_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -1266,7 +1266,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(0, CharU20001.indexOf(CharUSuppCharLow));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringWithBadSupplementaryChars_6_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -1277,25 +1277,25 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsAny(CharU20001, CharUSuppCharLow));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringWithSupplementaryChars_1_oe() {
         assertTrue(StringUtils.containsAny(CharU20000 + CharU20001, CharU20000));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringWithSupplementaryChars_2_oe() {
         // removed other assertion
         assertTrue(StringUtils.containsAny(CharU20000 + CharU20001, CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringWithSupplementaryChars_3_oe() {
         // removed other assertion
         // removed other assertion
         assertTrue(StringUtils.containsAny(CharU20000, CharU20000));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringWithSupplementaryChars_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1304,7 +1304,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(-1, CharU20000.indexOf(CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringWithSupplementaryChars_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1314,7 +1314,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(0, CharU20000.indexOf(CharU20001.charAt(0)));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringWithSupplementaryChars_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1325,7 +1325,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(-1, CharU20000.indexOf(CharU20001.charAt(1)));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringWithSupplementaryChars_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -1338,7 +1338,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny(CharU20000, CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsAny_StringWithSupplementaryChars_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -1352,7 +1352,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsAny(CharU20001, CharU20000));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_LocaleIndependence_1_oe() {
         final Locale[] locales = { Locale.ENGLISH, new Locale("tr"), Locale.getDefault() };
 
@@ -1369,7 +1369,7 @@ public class StringUtilsContainsTest_OE25Dev  {
     }
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_LocaleIndependence_2_oe() {
         final Locale[] locales = { Locale.ENGLISH, new Locale("tr"), Locale.getDefault() };
 
@@ -1389,12 +1389,12 @@ public class StringUtilsContainsTest_OE25Dev  {
     }
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_1_oe() {
         assertFalse(StringUtils.containsIgnoreCase(null, null));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_2_oe() {
         // removed other assertion
 
@@ -1402,7 +1402,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsIgnoreCase(null, ""));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_3_oe() {
         // removed other assertion
 
@@ -1411,7 +1411,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsIgnoreCase(null, "a"));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_4_oe() {
         // removed other assertion
 
@@ -1421,7 +1421,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsIgnoreCase(null, "abc"));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_5_oe() {
         // removed other assertion
 
@@ -1433,7 +1433,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsIgnoreCase("", null));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_6_oe() {
         // removed other assertion
 
@@ -1446,7 +1446,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsIgnoreCase("a", null));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_7_oe() {
         // removed other assertion
 
@@ -1460,7 +1460,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsIgnoreCase("abc", null));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_8_oe() {
         // removed other assertion
 
@@ -1477,7 +1477,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsIgnoreCase("", ""));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_9_oe() {
         // removed other assertion
 
@@ -1495,7 +1495,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsIgnoreCase("a", ""));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_10_oe() {
         // removed other assertion
 
@@ -1514,7 +1514,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsIgnoreCase("abc", ""));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_11_oe() {
         // removed other assertion
 
@@ -1536,7 +1536,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsIgnoreCase("", "a"));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_12_oe() {
         // removed other assertion
 
@@ -1559,7 +1559,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsIgnoreCase("a", "a"));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_13_oe() {
         // removed other assertion
 
@@ -1583,7 +1583,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsIgnoreCase("abc", "a"));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_14_oe() {
         // removed other assertion
 
@@ -1608,7 +1608,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsIgnoreCase("", "A"));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_15_oe() {
         // removed other assertion
 
@@ -1634,7 +1634,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsIgnoreCase("a", "A"));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_16_oe() {
         // removed other assertion
 
@@ -1661,7 +1661,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsIgnoreCase("abc", "A"));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_17_oe() {
         // removed other assertion
 
@@ -1691,7 +1691,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsIgnoreCase("", "abc"));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_18_oe() {
         // removed other assertion
 
@@ -1722,7 +1722,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsIgnoreCase("a", "abc"));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_19_oe() {
         // removed other assertion
 
@@ -1754,7 +1754,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsIgnoreCase("xabcz", "abc"));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_20_oe() {
         // removed other assertion
 
@@ -1787,7 +1787,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsIgnoreCase("", "ABC"));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_21_oe() {
         // removed other assertion
 
@@ -1821,7 +1821,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsIgnoreCase("a", "ABC"));
     }
 
-    @Test
+@Test
     public void testContainsIgnoreCase_StringString_22_oe() {
         // removed other assertion
 
@@ -1856,7 +1856,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsIgnoreCase("xabcz", "ABC"));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArray_1_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -1868,7 +1868,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(null, (char[]) null));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArray_2_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -1881,7 +1881,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone("", (char[]) null));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArray_3_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -1895,7 +1895,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(null, emptyChars));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArray_4_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -1910,7 +1910,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(str1, emptyChars));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArray_5_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -1926,7 +1926,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone("", emptyChars));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArray_6_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -1943,7 +1943,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone("", chars1));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArray_7_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -1961,7 +1961,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(str1, chars1));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArray_8_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -1980,7 +1980,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(str1, chars2));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArray_9_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2000,7 +2000,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(str1, chars3));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArray_10_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2021,7 +2021,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsNone(str2, chars1));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArray_11_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2043,7 +2043,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(str2, chars2));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArray_12_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2066,7 +2066,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(str2, chars3));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArray_13_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2090,7 +2090,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsNone(str3, chars1));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArray_14_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2115,7 +2115,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsNone(str3, chars2));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArray_15_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2141,20 +2141,20 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(str3, chars3));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArrayWithBadSupplementaryChars_1_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         assertTrue(StringUtils.containsNone(CharUSuppCharHigh, CharU20001.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArrayWithBadSupplementaryChars_2_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
         assertEquals(-1, CharUSuppCharLow.indexOf(CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArrayWithBadSupplementaryChars_3_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -2162,7 +2162,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(CharUSuppCharLow, CharU20001.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArrayWithBadSupplementaryChars_4_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -2171,7 +2171,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(-1, CharU20001.indexOf(CharUSuppCharHigh));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArrayWithBadSupplementaryChars_5_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -2181,7 +2181,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(CharU20001, CharUSuppCharHigh.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArrayWithBadSupplementaryChars_6_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -2192,7 +2192,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(0, CharU20001.indexOf(CharUSuppCharLow));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArrayWithBadSupplementaryChars_7_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -2204,25 +2204,25 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsNone(CharU20001, CharUSuppCharLow.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArrayWithSupplementaryChars_1_oe() {
         assertFalse(StringUtils.containsNone(CharU20000 + CharU20001, CharU20000.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArrayWithSupplementaryChars_2_oe() {
         // removed other assertion
         assertFalse(StringUtils.containsNone(CharU20000 + CharU20001, CharU20001.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArrayWithSupplementaryChars_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(StringUtils.containsNone(CharU20000, CharU20000.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArrayWithSupplementaryChars_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -2231,7 +2231,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(-1, CharU20000.indexOf(CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArrayWithSupplementaryChars_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -2241,7 +2241,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(0, CharU20000.indexOf(CharU20001.charAt(0)));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArrayWithSupplementaryChars_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -2252,7 +2252,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(-1, CharU20000.indexOf(CharU20001.charAt(1)));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArrayWithSupplementaryChars_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -2265,7 +2265,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(CharU20000, CharU20001.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsNone_CharArrayWithSupplementaryChars_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -2279,7 +2279,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(CharU20001, CharU20000.toCharArray()));
     }
 
-    @Test
+@Test
     public void testContainsNone_String_1_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2290,7 +2290,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(null, (String) null));
     }
 
-    @Test
+@Test
     public void testContainsNone_String_2_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2302,7 +2302,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone("", (String) null));
     }
 
-    @Test
+@Test
     public void testContainsNone_String_3_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2315,7 +2315,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(null, ""));
     }
 
-    @Test
+@Test
     public void testContainsNone_String_4_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2329,7 +2329,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(str1, ""));
     }
 
-    @Test
+@Test
     public void testContainsNone_String_5_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2344,7 +2344,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone("", ""));
     }
 
-    @Test
+@Test
     public void testContainsNone_String_6_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2360,7 +2360,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone("", chars1));
     }
 
-    @Test
+@Test
     public void testContainsNone_String_7_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2377,7 +2377,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(str1, chars1));
     }
 
-    @Test
+@Test
     public void testContainsNone_String_8_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2395,7 +2395,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(str1, chars2));
     }
 
-    @Test
+@Test
     public void testContainsNone_String_9_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2414,7 +2414,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(str1, chars3));
     }
 
-    @Test
+@Test
     public void testContainsNone_String_10_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2434,7 +2434,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsNone(str2, chars1));
     }
 
-    @Test
+@Test
     public void testContainsNone_String_11_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2455,7 +2455,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(str2, chars2));
     }
 
-    @Test
+@Test
     public void testContainsNone_String_12_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2477,7 +2477,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(str2, chars3));
     }
 
-    @Test
+@Test
     public void testContainsNone_String_13_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2500,7 +2500,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsNone(str3, chars1));
     }
 
-    @Test
+@Test
     public void testContainsNone_String_14_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2524,7 +2524,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsNone(str3, chars2));
     }
 
-    @Test
+@Test
     public void testContainsNone_String_15_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2549,20 +2549,20 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(str3, chars3));
     }
 
-    @Test
+@Test
     public void testContainsNone_StringWithBadSupplementaryChars_1_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         assertTrue(StringUtils.containsNone(CharUSuppCharHigh, CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsNone_StringWithBadSupplementaryChars_2_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
         assertEquals(-1, CharUSuppCharLow.indexOf(CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsNone_StringWithBadSupplementaryChars_3_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -2570,7 +2570,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(CharUSuppCharLow, CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsNone_StringWithBadSupplementaryChars_4_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -2579,7 +2579,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(-1, CharU20001.indexOf(CharUSuppCharHigh));
     }
 
-    @Test
+@Test
     public void testContainsNone_StringWithBadSupplementaryChars_5_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -2589,7 +2589,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(CharU20001, CharUSuppCharHigh));
     }
 
-    @Test
+@Test
     public void testContainsNone_StringWithBadSupplementaryChars_6_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -2600,7 +2600,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(0, CharU20001.indexOf(CharUSuppCharLow));
     }
 
-    @Test
+@Test
     public void testContainsNone_StringWithBadSupplementaryChars_7_oe() {
         // Test edge case: 1/2 of a (broken) supplementary char
         // removed other assertion
@@ -2612,25 +2612,25 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsNone(CharU20001, CharUSuppCharLow));
     }
 
-    @Test
+@Test
     public void testContainsNone_StringWithSupplementaryChars_1_oe() {
         assertFalse(StringUtils.containsNone(CharU20000 + CharU20001, CharU20000));
     }
 
-    @Test
+@Test
     public void testContainsNone_StringWithSupplementaryChars_2_oe() {
         // removed other assertion
         assertFalse(StringUtils.containsNone(CharU20000 + CharU20001, CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsNone_StringWithSupplementaryChars_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(StringUtils.containsNone(CharU20000, CharU20000));
     }
 
-    @Test
+@Test
     public void testContainsNone_StringWithSupplementaryChars_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -2639,7 +2639,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(-1, CharU20000.indexOf(CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsNone_StringWithSupplementaryChars_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -2649,7 +2649,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(0, CharU20000.indexOf(CharU20001.charAt(0)));
     }
 
-    @Test
+@Test
     public void testContainsNone_StringWithSupplementaryChars_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -2660,7 +2660,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertEquals(-1, CharU20000.indexOf(CharU20001.charAt(1)));
     }
 
-    @Test
+@Test
     public void testContainsNone_StringWithSupplementaryChars_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -2673,7 +2673,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(CharU20000, CharU20001));
     }
 
-    @Test
+@Test
     public void testContainsNone_StringWithSupplementaryChars_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -2687,7 +2687,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsNone(CharU20001, CharU20000));
     }
 
-    @Test
+@Test
     public void testContainsOnly_CharArray_1_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2699,7 +2699,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsOnly(null, (char[]) null));
     }
 
-    @Test
+@Test
     public void testContainsOnly_CharArray_2_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2712,7 +2712,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsOnly("", (char[]) null));
     }
 
-    @Test
+@Test
     public void testContainsOnly_CharArray_3_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2726,7 +2726,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsOnly(null, emptyChars));
     }
 
-    @Test
+@Test
     public void testContainsOnly_CharArray_4_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2741,7 +2741,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsOnly(str1, emptyChars));
     }
 
-    @Test
+@Test
     public void testContainsOnly_CharArray_5_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2757,7 +2757,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsOnly("", emptyChars));
     }
 
-    @Test
+@Test
     public void testContainsOnly_CharArray_6_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2774,7 +2774,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsOnly("", chars1));
     }
 
-    @Test
+@Test
     public void testContainsOnly_CharArray_7_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2792,7 +2792,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsOnly(str1, chars1));
     }
 
-    @Test
+@Test
     public void testContainsOnly_CharArray_8_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2811,7 +2811,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsOnly(str1, chars2));
     }
 
-    @Test
+@Test
     public void testContainsOnly_CharArray_9_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2831,7 +2831,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsOnly(str1, chars3));
     }
 
-    @Test
+@Test
     public void testContainsOnly_CharArray_10_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2852,7 +2852,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsOnly(str2, chars1));
     }
 
-    @Test
+@Test
     public void testContainsOnly_CharArray_11_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2874,7 +2874,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsOnly(str2, chars2));
     }
 
-    @Test
+@Test
     public void testContainsOnly_CharArray_12_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2897,7 +2897,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsOnly(str2, chars3));
     }
 
-    @Test
+@Test
     public void testContainsOnly_CharArray_13_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2921,7 +2921,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsOnly(str3, chars1));
     }
 
-    @Test
+@Test
     public void testContainsOnly_CharArray_14_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2946,7 +2946,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsOnly(str3, chars2));
     }
 
-    @Test
+@Test
     public void testContainsOnly_CharArray_15_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2972,7 +2972,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsOnly(str3, chars3));
     }
 
-    @Test
+@Test
     public void testContainsOnly_String_1_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2983,7 +2983,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsOnly(null, (String) null));
     }
 
-    @Test
+@Test
     public void testContainsOnly_String_2_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -2995,7 +2995,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsOnly("", (String) null));
     }
 
-    @Test
+@Test
     public void testContainsOnly_String_3_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -3008,7 +3008,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsOnly(null, ""));
     }
 
-    @Test
+@Test
     public void testContainsOnly_String_4_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -3022,7 +3022,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsOnly(str1, ""));
     }
 
-    @Test
+@Test
     public void testContainsOnly_String_5_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -3037,7 +3037,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsOnly("", ""));
     }
 
-    @Test
+@Test
     public void testContainsOnly_String_6_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -3053,7 +3053,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsOnly("", chars1));
     }
 
-    @Test
+@Test
     public void testContainsOnly_String_7_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -3070,7 +3070,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsOnly(str1, chars1));
     }
 
-    @Test
+@Test
     public void testContainsOnly_String_8_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -3088,7 +3088,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsOnly(str1, chars2));
     }
 
-    @Test
+@Test
     public void testContainsOnly_String_9_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -3107,7 +3107,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsOnly(str1, chars3));
     }
 
-    @Test
+@Test
     public void testContainsOnly_String_10_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -3127,7 +3127,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsOnly(str2, chars1));
     }
 
-    @Test
+@Test
     public void testContainsOnly_String_11_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -3148,7 +3148,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsOnly(str2, chars2));
     }
 
-    @Test
+@Test
     public void testContainsOnly_String_12_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -3170,7 +3170,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsOnly(str2, chars3));
     }
 
-    @Test
+@Test
     public void testContainsOnly_String_13_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -3193,7 +3193,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsOnly(str3, chars1));
     }
 
-    @Test
+@Test
     public void testContainsOnly_String_14_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -3217,7 +3217,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertFalse(StringUtils.containsOnly(str3, chars2));
     }
 
-    @Test
+@Test
     public void testContainsOnly_String_15_oe() {
         final String str1 = "a";
         final String str2 = "b";
@@ -3242,25 +3242,25 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue(StringUtils.containsOnly(str3, chars3));
     }
 
-    @Test
+@Test
     public void testContainsWhitespace_1_oe() {
         assertFalse( StringUtils.containsWhitespace("") );
     }
 
-    @Test
+@Test
     public void testContainsWhitespace_2_oe() {
         // removed other assertion
         assertTrue( StringUtils.containsWhitespace(" ") );
     }
 
-    @Test
+@Test
     public void testContainsWhitespace_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse( StringUtils.containsWhitespace("a") );
     }
 
-    @Test
+@Test
     public void testContainsWhitespace_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -3268,7 +3268,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue( StringUtils.containsWhitespace("a ") );
     }
 
-    @Test
+@Test
     public void testContainsWhitespace_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -3277,7 +3277,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue( StringUtils.containsWhitespace(" a") );
     }
 
-    @Test
+@Test
     public void testContainsWhitespace_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -3287,7 +3287,7 @@ public class StringUtilsContainsTest_OE25Dev  {
         assertTrue( StringUtils.containsWhitespace("a\t") );
     }
 
-    @Test
+@Test
     public void testContainsWhitespace_7_oe() {
         // removed other assertion
         // removed other assertion

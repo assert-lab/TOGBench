@@ -77,7 +77,7 @@ public class ZippingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer> {
 
     //------------------------------------------------------------------- Tests
 
-    public void testIterateEven_1_oe() {
+public void testIterateEven_1_oe() {
         @SuppressWarnings("unchecked")
         final ZippingIterator<Integer> iter = new ZippingIterator<>(evens.iterator());
         for (int i = 0; i < evens.size(); i++) {
@@ -85,7 +85,7 @@ public class ZippingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer> {
     }
     }
 
-    public void testIterateEven_2_oe() {
+public void testIterateEven_2_oe() {
         @SuppressWarnings("unchecked")
         final ZippingIterator<Integer> iter = new ZippingIterator<>(evens.iterator());
         for (int i = 0; i < evens.size(); i++) {
@@ -94,7 +94,7 @@ public class ZippingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer> {
     }
     }
 
-    public void testIterateEven_3_oe() {
+public void testIterateEven_3_oe() {
         @SuppressWarnings("unchecked")
         final ZippingIterator<Integer> iter = new ZippingIterator<>(evens.iterator());
         for (int i = 0; i < evens.size(); i++) {
@@ -104,14 +104,14 @@ public class ZippingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer> {
         assertTrue(!iter.hasNext());
     }
 
-    public void testIterateEvenOdd_1_oe() {
+public void testIterateEvenOdd_1_oe() {
         final ZippingIterator<Integer> iter = new ZippingIterator<>(evens.iterator(), odds.iterator());
         for (int i = 0; i < 20; i++) {
             assertTrue(iter.hasNext());
     }
     }
 
-    public void testIterateEvenOdd_2_oe() {
+public void testIterateEvenOdd_2_oe() {
         final ZippingIterator<Integer> iter = new ZippingIterator<>(evens.iterator(), odds.iterator());
         for (int i = 0; i < 20; i++) {
             // removed other assertion
@@ -119,7 +119,7 @@ public class ZippingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer> {
     }
     }
 
-    public void testIterateEvenOdd_3_oe() {
+public void testIterateEvenOdd_3_oe() {
         final ZippingIterator<Integer> iter = new ZippingIterator<>(evens.iterator(), odds.iterator());
         for (int i = 0; i < 20; i++) {
             // removed other assertion
@@ -128,14 +128,14 @@ public class ZippingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer> {
         assertTrue(!iter.hasNext());
     }
 
-    public void testIterateOddEven_1_oe() {
+public void testIterateOddEven_1_oe() {
         final ZippingIterator<Integer> iter = new ZippingIterator<>(odds.iterator(), evens.iterator());
         for (int i = 0, j = 0; i < 20; i++) {
             assertTrue(iter.hasNext());
     }
     }
 
-    public void testIterateOddEven_2_oe() {
+public void testIterateOddEven_2_oe() {
         final ZippingIterator<Integer> iter = new ZippingIterator<>(odds.iterator(), evens.iterator());
         for (int i = 0, j = 0; i < 20; i++) {
             // removed other assertion
@@ -146,7 +146,7 @@ public class ZippingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer> {
     }
     }
 
-    public void testIterateOddEven_3_oe() {
+public void testIterateOddEven_3_oe() {
         final ZippingIterator<Integer> iter = new ZippingIterator<>(odds.iterator(), evens.iterator());
         for (int i = 0, j = 0; i < 20; i++) {
             // removed other assertion
@@ -159,7 +159,7 @@ public class ZippingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer> {
     }
     }
 
-    public void testIterateOddEven_4_oe() {
+public void testIterateOddEven_4_oe() {
         final ZippingIterator<Integer> iter = new ZippingIterator<>(odds.iterator(), evens.iterator());
         for (int i = 0, j = 0; i < 20; i++) {
             // removed other assertion
@@ -174,14 +174,14 @@ public class ZippingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer> {
         assertTrue(!iter.hasNext());
     }
 
-    public void testIterateEvenEven_1_oe() {
+public void testIterateEvenEven_1_oe() {
         final ZippingIterator<Integer> iter = new ZippingIterator<>(evens.iterator(), evens.iterator());
         for (int i = 0; i < evens.size(); i++) {
             assertTrue(iter.hasNext());
     }
     }
 
-    public void testIterateEvenEven_2_oe() {
+public void testIterateEvenEven_2_oe() {
         final ZippingIterator<Integer> iter = new ZippingIterator<>(evens.iterator(), evens.iterator());
         for (int i = 0; i < evens.size(); i++) {
             // removed other assertion
@@ -189,7 +189,7 @@ public class ZippingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer> {
     }
     }
 
-    public void testIterateEvenEven_3_oe() {
+public void testIterateEvenEven_3_oe() {
         final ZippingIterator<Integer> iter = new ZippingIterator<>(evens.iterator(), evens.iterator());
         for (int i = 0; i < evens.size(); i++) {
             // removed other assertion
@@ -198,7 +198,7 @@ public class ZippingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer> {
     }
     }
 
-    public void testIterateEvenEven_4_oe() {
+public void testIterateEvenEven_4_oe() {
         final ZippingIterator<Integer> iter = new ZippingIterator<>(evens.iterator(), evens.iterator());
         for (int i = 0; i < evens.size(); i++) {
             // removed other assertion
@@ -208,7 +208,7 @@ public class ZippingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer> {
     }
     }
 
-    public void testIterateEvenEven_5_oe() {
+public void testIterateEvenEven_5_oe() {
         final ZippingIterator<Integer> iter = new ZippingIterator<>(evens.iterator(), evens.iterator());
         for (int i = 0; i < evens.size(); i++) {
             // removed other assertion
@@ -219,13 +219,13 @@ public class ZippingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer> {
         assertTrue(!iter.hasNext());
     }
 
-    public void testIterateFibEvenOdd_1_oe() {
+public void testIterateFibEvenOdd_1_oe() {
         final ZippingIterator<Integer> iter = new ZippingIterator<>(fib.iterator(), evens.iterator(), odds.iterator());
 
         assertEquals(Integer.valueOf(1),iter.next());// fib 1 assertEquals(Integer.valueOf(0),iter.next());// even 0 assertEquals(Integer.valueOf(1),iter.next());// odd 1 assertEquals(Integer.valueOf(1),iter.next());// fib 1 assertEquals(Integer.valueOf(2),iter.next());// even 2 assertEquals(Integer.valueOf(3),iter.next());// odd 3 assertEquals(Integer.valueOf(2),iter.next());// fib 2 assertEquals(Integer.valueOf(4),iter.next());// even 4 assertEquals(Integer.valueOf(5),iter.next());// odd 5 assertEquals(Integer.valueOf(3),iter.next());// fib 3 assertEquals(Integer.valueOf(6),iter.next());// even 6 assertEquals(Integer.valueOf(7),iter.next());// odd 7 assertEquals(Integer.valueOf(5),iter.next());// fib 5 assertEquals(Integer.valueOf(8),iter.next());// even 8 assertEquals(Integer.valueOf(9),iter.next());// odd 9 assertEquals(Integer.valueOf(8),iter.next());// fib 8 assertEquals(Integer.valueOf(10),iter.next());// even 10 assertEquals(Integer.valueOf(11),iter.next());// odd 11 assertEquals(Integer.valueOf(13),iter.next());// fib 13 assertEquals(Integer.valueOf(12),iter.next());// even 12 assertEquals(Integer.valueOf(13),iter.next());// odd 13 assertEquals(Integer.valueOf(21),iter.next());// fib 21 assertEquals(Integer.valueOf(14),iter.next());// even 14 assertEquals(Integer.valueOf(15),iter.next());// odd 15 assertEquals(Integer.valueOf(16),iter.next());// even 16 assertEquals(Integer.valueOf(17),iter.next());// odd 17 assertEquals(Integer.valueOf(18),iter.next());// even 18 assertEquals(Integer.valueOf(19),iter.next());// odd 19 assertTrue(!iter.hasNext());
     }
 
-    public void testRemoveFromSingle_1_oe() {
+public void testRemoveFromSingle_1_oe() {
         @SuppressWarnings("unchecked")
         final ZippingIterator<Integer> iter = new ZippingIterator<>(evens.iterator());
         int expectedSize = evens.size();
@@ -240,7 +240,7 @@ public class ZippingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer> {
         assertEquals(expectedSize, evens.size());
     }
 
-    public void testRemoveFromDouble_1_oe() {
+public void testRemoveFromDouble_1_oe() {
         final ZippingIterator<Integer> iter = new ZippingIterator<>(evens.iterator(), odds.iterator());
         int expectedSize = evens.size() + odds.size();
         while (iter.hasNext()) {

@@ -113,39 +113,39 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
      * 
      */
 
-    public void testInetAddressesFromTheWild_1_oe() {
+public void testInetAddressesFromTheWild_1_oe() {
         assertTrue("www.apache.org IP should be valid",       validator.isValid("140.211.11.130"));
     }
 
-    public void testInetAddressesFromTheWild_2_oe() {
+public void testInetAddressesFromTheWild_2_oe() {
         // removed other assertion
         assertTrue("www.l.google.com IP should be valid",     validator.isValid("72.14.253.103"));
     }
 
-    public void testInetAddressesFromTheWild_3_oe() {
+public void testInetAddressesFromTheWild_3_oe() {
         // removed other assertion
         // removed other assertion
         assertTrue("fsf.org IP should be valid",              validator.isValid("199.232.41.5"));
     }
 
-    public void testInetAddressesFromTheWild_4_oe() {
+public void testInetAddressesFromTheWild_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertTrue("appscs.ign.com IP should be valid",       validator.isValid("216.35.123.87"));
     }
 
-    public void testVALIDATOR_335_1_oe() {
+public void testVALIDATOR_335_1_oe() {
         assertTrue("2001:0438:FFFE:0000:0000:0000:0000:0A35 should be valid",       validator.isValid("2001:0438:FFFE:0000:0000:0000:0000:0A35"));
     }
 
-    public void testVALIDATOR_419_1_oe() {
+public void testVALIDATOR_419_1_oe() {
         String addr;
         addr = "0:0:0:0:0:0:13.1.68.3";
         assertTrue(addr, validator.isValid(addr));
     }
 
-    public void testVALIDATOR_419_2_oe() {
+public void testVALIDATOR_419_2_oe() {
         String addr;
         addr = "0:0:0:0:0:0:13.1.68.3";
         // removed other assertion
@@ -153,7 +153,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue(addr, validator.isValid(addr));
     }
 
-    public void testVALIDATOR_419_3_oe() {
+public void testVALIDATOR_419_3_oe() {
         String addr;
         addr = "0:0:0:0:0:0:13.1.68.3";
         // removed other assertion
@@ -163,7 +163,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue(addr, validator.isValid(addr));
     }
 
-    public void testVALIDATOR_419_4_oe() {
+public void testVALIDATOR_419_4_oe() {
         String addr;
         addr = "0:0:0:0:0:0:13.1.68.3";
         // removed other assertion
@@ -175,7 +175,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue(addr, validator.isValid(addr));
     }
 
-    public void testVALIDATOR_419_5_oe() {
+public void testVALIDATOR_419_5_oe() {
         String addr;
         addr = "0:0:0:0:0:0:13.1.68.3";
         // removed other assertion
@@ -190,7 +190,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse(addr, validator.isValid(addr));
     }
 
-    public void testVALIDATOR_419_6_oe() {
+public void testVALIDATOR_419_6_oe() {
         String addr;
         addr = "0:0:0:0:0:0:13.1.68.3";
         // removed other assertion
@@ -207,7 +207,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse(addr, validator.isValid(addr));
     }
 
-    public void testVALIDATOR_445_1_oe() {
+public void testVALIDATOR_445_1_oe() {
         String [] valid = {
             "2001:0000:1234:0000:0000:C1C0:ABCD:0876",
             "2001:0000:1234:0000:0000:C1C0:ABCD:0876/123",
@@ -229,7 +229,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testVALIDATOR_445_2_oe() {
+public void testVALIDATOR_445_2_oe() {
         String [] valid = {
             "2001:0000:1234:0000:0000:C1C0:ABCD:0876",
             "2001:0000:1234:0000:0000:C1C0:ABCD:0876/123",
@@ -254,23 +254,23 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
     }
     }
 
-    public void testInetAddressesByClass_1_oe() {
+public void testInetAddressesByClass_1_oe() {
         assertTrue("class A IP should be valid",              validator.isValid("24.25.231.12"));
     }
 
-    public void testInetAddressesByClass_2_oe() {
+public void testInetAddressesByClass_2_oe() {
         // removed other assertion
         assertFalse("illegal class A IP should be invalid",   validator.isValid("2.41.32.324"));
     }
 
-    public void testInetAddressesByClass_3_oe() {
+public void testInetAddressesByClass_3_oe() {
         // removed other assertion
         // removed other assertion
 
         assertTrue("class B IP should be valid",              validator.isValid("135.14.44.12"));
     }
 
-    public void testInetAddressesByClass_4_oe() {
+public void testInetAddressesByClass_4_oe() {
         // removed other assertion
         // removed other assertion
 
@@ -278,7 +278,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("illegal class B IP should be invalid",   validator.isValid("154.123.441.123"));
     }
 
-    public void testInetAddressesByClass_5_oe() {
+public void testInetAddressesByClass_5_oe() {
         // removed other assertion
         // removed other assertion
 
@@ -288,7 +288,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("class C IP should be valid",              validator.isValid("213.25.224.32"));
     }
 
-    public void testInetAddressesByClass_6_oe() {
+public void testInetAddressesByClass_6_oe() {
         // removed other assertion
         // removed other assertion
 
@@ -299,7 +299,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("illegal class C IP should be invalid",   validator.isValid("201.543.23.11"));
     }
 
-    public void testInetAddressesByClass_7_oe() {
+public void testInetAddressesByClass_7_oe() {
         // removed other assertion
         // removed other assertion
 
@@ -312,7 +312,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("class D IP should be valid",              validator.isValid("229.35.159.6"));
     }
 
-    public void testInetAddressesByClass_8_oe() {
+public void testInetAddressesByClass_8_oe() {
         // removed other assertion
         // removed other assertion
 
@@ -326,7 +326,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("illegal class D IP should be invalid",   validator.isValid("231.54.11.987"));
     }
 
-    public void testInetAddressesByClass_9_oe() {
+public void testInetAddressesByClass_9_oe() {
         // removed other assertion
         // removed other assertion
 
@@ -342,7 +342,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("class E IP should be valid",              validator.isValid("248.85.24.92"));
     }
 
-    public void testInetAddressesByClass_10_oe() {
+public void testInetAddressesByClass_10_oe() {
         // removed other assertion
         // removed other assertion
 
@@ -359,27 +359,27 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("illegal class E IP should be invalid",   validator.isValid("250.21.323.48"));
     }
 
-    public void testReservedInetAddresses_1_oe() {
+public void testReservedInetAddresses_1_oe() {
         assertTrue("localhost IP should be valid",            validator.isValid("127.0.0.1"));
     }
 
-    public void testReservedInetAddresses_2_oe() {
+public void testReservedInetAddresses_2_oe() {
         // removed other assertion
         assertTrue("broadcast IP should be valid",            validator.isValid("255.255.255.255"));
     }
 
-    public void testBrokenInetAddresses_1_oe() {
+public void testBrokenInetAddresses_1_oe() {
         assertFalse("IP with characters should be invalid",     validator.isValid("124.14.32.abc"));
     }
 
-    public void testBrokenInetAddresses_2_oe() {
+public void testBrokenInetAddresses_2_oe() {
         // removed other assertion
         // TODO: there is some debate as to whether leading zeros should be allowed
         // They are ambiguous: does the leading 0 mean octal?
         assertFalse("IP with leading zeroes should be invalid", validator.isValid("124.14.32.01"));
     }
 
-    public void testBrokenInetAddresses_3_oe() {
+public void testBrokenInetAddresses_3_oe() {
         // removed other assertion
         // TODO: there is some debate as to whether leading zeros should be allowed
         // They are ambiguous: does the leading 0 mean octal?
@@ -387,7 +387,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IP with three groups should be invalid",   validator.isValid("23.64.12"));
     }
 
-    public void testBrokenInetAddresses_4_oe() {
+public void testBrokenInetAddresses_4_oe() {
         // removed other assertion
         // TODO: there is some debate as to whether leading zeros should be allowed
         // They are ambiguous: does the leading 0 mean octal?
@@ -396,7 +396,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IP with five groups should be invalid",    validator.isValid("26.34.23.77.234"));
     }
 
-    public void testBrokenInetAddresses_5_oe() {
+public void testBrokenInetAddresses_5_oe() {
         // removed other assertion
         // TODO: there is some debate as to whether leading zeros should be allowed
         // They are ambiguous: does the leading 0 mean octal?
@@ -406,20 +406,20 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IP empty string should be invalid", validator.isValidInet6Address(""));// empty string;
     }
 
-    public void testIPv6_1_oe() {
+public void testIPv6_1_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         assertFalse("IPV6 empty string should be invalid",validator.isValidInet6Address(""));// empty string assertTrue("IPV6 ::1 should be valid",validator.isValidInet6Address("::1"));// loopback,compressed,non-routable assertTrue("IPV6 :: should be valid",validator.isValidInet6Address("::"));// unspecified,compressed,non-routable assertTrue("IPV6 0:0:0:0:0:0:0:1 should be valid",validator.isValidInet6Address("0:0:0:0:0:0:0:1"));// loopback,full assertTrue("IPV6 0:0:0:0:0:0:0:0 should be valid",validator.isValidInet6Address("0:0:0:0:0:0:0:0"));// unspecified,full assertTrue("IPV6 2001:DB8:0:0:8:800:200C:417A should be valid",validator.isValidInet6Address("2001:DB8:0:0:8:800:200C:417A"));// unicast,full assertTrue("IPV6 FF01:0:0:0:0:0:0:101 should be valid",validator.isValidInet6Address("FF01:0:0:0:0:0:0:101"));// multicast,full assertTrue("IPV6 2001:DB8::8:800:200C:417A should be valid",validator.isValidInet6Address("2001:DB8::8:800:200C:417A"));// unicast,compressed assertTrue("IPV6 FF01::101 should be valid",validator.isValidInet6Address("FF01::101"));// multicast,compressed assertFalse("IPV6 2001:DB8:0:0:8:800:200C:417A:221 should be invalid",validator.isValidInet6Address("2001:DB8:0:0:8:800:200C:417A:221"));// unicast,full assertFalse("IPV6 FF01::101::2 should be invalid",validator.isValidInet6Address("FF01::101::2"));// multicast,compressed assertTrue("IPV6 fe80::217:f2ff:fe07:ed62 should be valid",validator.isValidInet6Address("fe80::217:f2ff:fe07:ed62"));
     }
 
-    public void testIPv6_2_oe() {
+public void testIPv6_2_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
         assertTrue("IPV6 2001:0000:1234:0000:0000:C1C0:ABCD:0876 should be valid", validator.isValidInet6Address("2001:0000:1234:0000:0000:C1C0:ABCD:0876"));
     }
 
-    public void testIPv6_3_oe() {
+public void testIPv6_3_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -427,7 +427,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 3ffe:0b00:0000:0000:0001:0000:0000:000a should be valid", validator.isValidInet6Address("3ffe:0b00:0000:0000:0001:0000:0000:000a"));
     }
 
-    public void testIPv6_4_oe() {
+public void testIPv6_4_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -436,7 +436,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 FF02:0000:0000:0000:0000:0000:0000:0001 should be valid", validator.isValidInet6Address("FF02:0000:0000:0000:0000:0000:0000:0001"));
     }
 
-    public void testIPv6_5_oe() {
+public void testIPv6_5_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -446,7 +446,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 0000:0000:0000:0000:0000:0000:0000:0001 should be valid", validator.isValidInet6Address("0000:0000:0000:0000:0000:0000:0000:0001"));
     }
 
-    public void testIPv6_6_oe() {
+public void testIPv6_6_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -457,7 +457,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 0000:0000:0000:0000:0000:0000:0000:0000 should be valid", validator.isValidInet6Address("0000:0000:0000:0000:0000:0000:0000:0000"));
     }
 
-    public void testIPv6_7_oe() {
+public void testIPv6_7_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -469,7 +469,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 02001:0000:1234:0000:0000:C1C0:ABCD:0876 should be invalid",validator.isValidInet6Address("02001:0000:1234:0000:0000:C1C0:ABCD:0876"));// extra 0 not allowed! assertFalse("IPV6 2001:0000:1234:0000:00001:C1C0:ABCD:0876 should be invalid",validator.isValidInet6Address("2001:0000:1234:0000:00001:C1C0:ABCD:0876"));// extra 0 not allowed! assertFalse("IPV6 2001:0000:1234:0000:0000:C1C0:ABCD:0876 0 should be invalid",validator.isValidInet6Address("2001:0000:1234:0000:0000:C1C0:ABCD:0876 0"));// junk after valid address assertFalse("IPV6 2001:0000:1234: 0000:0000:C1C0:ABCD:0876 should be invalid",validator.isValidInet6Address("2001:0000:1234: 0000:0000:C1C0:ABCD:0876"));// internal space assertFalse("IPV6 3ffe:0b00:0000:0001:0000:0000:000a should be invalid",validator.isValidInet6Address("3ffe:0b00:0000:0001:0000:0000:000a"));// seven segments assertFalse("IPV6 FF02:0000:0000:0000:0000:0000:0000:0000:0001 should be invalid",validator.isValidInet6Address("FF02:0000:0000:0000:0000:0000:0000:0000:0001"));// nine segments assertFalse("IPV6 3ffe:b00::1::a should be invalid",validator.isValidInet6Address("3ffe:b00::1::a"));// double "::" assertFalse("IPV6 ::1111:2222:3333:4444:5555:6666:: should be invalid",validator.isValidInet6Address("::1111:2222:3333:4444:5555:6666::"));// double "::" assertTrue("IPV6 2::10 should be valid",validator.isValidInet6Address("2::10"));
     }
 
-    public void testIPv6_8_oe() {
+public void testIPv6_8_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -482,7 +482,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ff02::1 should be valid", validator.isValidInet6Address("ff02::1"));
     }
 
-    public void testIPv6_9_oe() {
+public void testIPv6_9_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -496,7 +496,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 fe80:: should be valid", validator.isValidInet6Address("fe80::"));
     }
 
-    public void testIPv6_10_oe() {
+public void testIPv6_10_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -511,7 +511,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 2002:: should be valid", validator.isValidInet6Address("2002::"));
     }
 
-    public void testIPv6_11_oe() {
+public void testIPv6_11_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -527,7 +527,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 2001:db8:: should be valid", validator.isValidInet6Address("2001:db8::"));
     }
 
-    public void testIPv6_12_oe() {
+public void testIPv6_12_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -544,7 +544,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 2001:0db8:1234:: should be valid", validator.isValidInet6Address("2001:0db8:1234::"));
     }
 
-    public void testIPv6_13_oe() {
+public void testIPv6_13_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -562,7 +562,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::ffff:0:0 should be valid", validator.isValidInet6Address("::ffff:0:0"));
     }
 
-    public void testIPv6_14_oe() {
+public void testIPv6_14_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -581,7 +581,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3:4:5:6:7:8 should be valid", validator.isValidInet6Address("1:2:3:4:5:6:7:8"));
     }
 
-    public void testIPv6_15_oe() {
+public void testIPv6_15_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -601,7 +601,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3:4:5:6::8 should be valid", validator.isValidInet6Address("1:2:3:4:5:6::8"));
     }
 
-    public void testIPv6_16_oe() {
+public void testIPv6_16_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -622,7 +622,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3:4:5::8 should be valid", validator.isValidInet6Address("1:2:3:4:5::8"));
     }
 
-    public void testIPv6_17_oe() {
+public void testIPv6_17_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -644,7 +644,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3:4::8 should be valid", validator.isValidInet6Address("1:2:3:4::8"));
     }
 
-    public void testIPv6_18_oe() {
+public void testIPv6_18_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -667,7 +667,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3::8 should be valid", validator.isValidInet6Address("1:2:3::8"));
     }
 
-    public void testIPv6_19_oe() {
+public void testIPv6_19_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -691,7 +691,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2::8 should be valid", validator.isValidInet6Address("1:2::8"));
     }
 
-    public void testIPv6_20_oe() {
+public void testIPv6_20_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -716,7 +716,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1::8 should be valid", validator.isValidInet6Address("1::8"));
     }
 
-    public void testIPv6_21_oe() {
+public void testIPv6_21_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -742,7 +742,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1::2:3:4:5:6:7 should be valid", validator.isValidInet6Address("1::2:3:4:5:6:7"));
     }
 
-    public void testIPv6_22_oe() {
+public void testIPv6_22_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -769,7 +769,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1::2:3:4:5:6 should be valid", validator.isValidInet6Address("1::2:3:4:5:6"));
     }
 
-    public void testIPv6_23_oe() {
+public void testIPv6_23_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -797,7 +797,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1::2:3:4:5 should be valid", validator.isValidInet6Address("1::2:3:4:5"));
     }
 
-    public void testIPv6_24_oe() {
+public void testIPv6_24_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -826,7 +826,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1::2:3:4 should be valid", validator.isValidInet6Address("1::2:3:4"));
     }
 
-    public void testIPv6_25_oe() {
+public void testIPv6_25_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -856,7 +856,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1::2:3 should be valid", validator.isValidInet6Address("1::2:3"));
     }
 
-    public void testIPv6_26_oe() {
+public void testIPv6_26_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -887,7 +887,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::2:3:4:5:6:7:8 should be valid", validator.isValidInet6Address("::2:3:4:5:6:7:8"));
     }
 
-    public void testIPv6_27_oe() {
+public void testIPv6_27_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -919,7 +919,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::2:3:4:5:6:7 should be valid", validator.isValidInet6Address("::2:3:4:5:6:7"));
     }
 
-    public void testIPv6_28_oe() {
+public void testIPv6_28_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -952,7 +952,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::2:3:4:5:6 should be valid", validator.isValidInet6Address("::2:3:4:5:6"));
     }
 
-    public void testIPv6_29_oe() {
+public void testIPv6_29_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -986,7 +986,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::2:3:4:5 should be valid", validator.isValidInet6Address("::2:3:4:5"));
     }
 
-    public void testIPv6_30_oe() {
+public void testIPv6_30_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1021,7 +1021,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::2:3:4 should be valid", validator.isValidInet6Address("::2:3:4"));
     }
 
-    public void testIPv6_31_oe() {
+public void testIPv6_31_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1057,7 +1057,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::2:3 should be valid", validator.isValidInet6Address("::2:3"));
     }
 
-    public void testIPv6_32_oe() {
+public void testIPv6_32_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1094,7 +1094,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::8 should be valid", validator.isValidInet6Address("::8"));
     }
 
-    public void testIPv6_33_oe() {
+public void testIPv6_33_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1132,7 +1132,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3:4:5:6:: should be valid", validator.isValidInet6Address("1:2:3:4:5:6::"));
     }
 
-    public void testIPv6_34_oe() {
+public void testIPv6_34_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1171,7 +1171,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3:4:5:: should be valid", validator.isValidInet6Address("1:2:3:4:5::"));
     }
 
-    public void testIPv6_35_oe() {
+public void testIPv6_35_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1211,7 +1211,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3:4:: should be valid", validator.isValidInet6Address("1:2:3:4::"));
     }
 
-    public void testIPv6_36_oe() {
+public void testIPv6_36_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1252,7 +1252,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3:: should be valid", validator.isValidInet6Address("1:2:3::"));
     }
 
-    public void testIPv6_37_oe() {
+public void testIPv6_37_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1294,7 +1294,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:: should be valid", validator.isValidInet6Address("1:2::"));
     }
 
-    public void testIPv6_38_oe() {
+public void testIPv6_38_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1337,7 +1337,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:: should be valid", validator.isValidInet6Address("1::"));
     }
 
-    public void testIPv6_39_oe() {
+public void testIPv6_39_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1381,7 +1381,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3:4:5::7:8 should be valid", validator.isValidInet6Address("1:2:3:4:5::7:8"));
     }
 
-    public void testIPv6_40_oe() {
+public void testIPv6_40_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1426,7 +1426,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1:2:3::4:5::7:8 should be invalid",validator.isValidInet6Address("1:2:3::4:5::7:8"));// Double "::" assertFalse("IPV6 12345::6:7:8 should be invalid",validator.isValidInet6Address("12345::6:7:8"));
     }
 
-    public void testIPv6_41_oe() {
+public void testIPv6_41_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1472,7 +1472,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3:4::7:8 should be valid", validator.isValidInet6Address("1:2:3:4::7:8"));
     }
 
-    public void testIPv6_42_oe() {
+public void testIPv6_42_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1519,7 +1519,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3::7:8 should be valid", validator.isValidInet6Address("1:2:3::7:8"));
     }
 
-    public void testIPv6_43_oe() {
+public void testIPv6_43_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1567,7 +1567,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2::7:8 should be valid", validator.isValidInet6Address("1:2::7:8"));
     }
 
-    public void testIPv6_44_oe() {
+public void testIPv6_44_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1616,7 +1616,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1::7:8 should be valid", validator.isValidInet6Address("1::7:8"));
     }
 
-    public void testIPv6_45_oe() {
+public void testIPv6_45_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1667,7 +1667,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3:4:5:6:1.2.3.4 should be valid", validator.isValidInet6Address("1:2:3:4:5:6:1.2.3.4"));
     }
 
-    public void testIPv6_46_oe() {
+public void testIPv6_46_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1719,7 +1719,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3:4:5::1.2.3.4 should be valid", validator.isValidInet6Address("1:2:3:4:5::1.2.3.4"));
     }
 
-    public void testIPv6_47_oe() {
+public void testIPv6_47_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1772,7 +1772,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3:4::1.2.3.4 should be valid", validator.isValidInet6Address("1:2:3:4::1.2.3.4"));
     }
 
-    public void testIPv6_48_oe() {
+public void testIPv6_48_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1826,7 +1826,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3::1.2.3.4 should be valid", validator.isValidInet6Address("1:2:3::1.2.3.4"));
     }
 
-    public void testIPv6_49_oe() {
+public void testIPv6_49_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1881,7 +1881,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2::1.2.3.4 should be valid", validator.isValidInet6Address("1:2::1.2.3.4"));
     }
 
-    public void testIPv6_50_oe() {
+public void testIPv6_50_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1937,7 +1937,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1::1.2.3.4 should be valid", validator.isValidInet6Address("1::1.2.3.4"));
     }
 
-    public void testIPv6_51_oe() {
+public void testIPv6_51_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -1994,7 +1994,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3:4::5:1.2.3.4 should be valid", validator.isValidInet6Address("1:2:3:4::5:1.2.3.4"));
     }
 
-    public void testIPv6_52_oe() {
+public void testIPv6_52_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -2052,7 +2052,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2:3::5:1.2.3.4 should be valid", validator.isValidInet6Address("1:2:3::5:1.2.3.4"));
     }
 
-    public void testIPv6_53_oe() {
+public void testIPv6_53_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -2111,7 +2111,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1:2::5:1.2.3.4 should be valid", validator.isValidInet6Address("1:2::5:1.2.3.4"));
     }
 
-    public void testIPv6_54_oe() {
+public void testIPv6_54_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -2171,7 +2171,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1::5:1.2.3.4 should be valid", validator.isValidInet6Address("1::5:1.2.3.4"));
     }
 
-    public void testIPv6_55_oe() {
+public void testIPv6_55_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -2232,7 +2232,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1::5:11.22.33.44 should be valid", validator.isValidInet6Address("1::5:11.22.33.44"));
     }
 
-    public void testIPv6_56_oe() {
+public void testIPv6_56_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -2294,7 +2294,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::5:400.2.3.4 should be invalid", validator.isValidInet6Address("1::5:400.2.3.4"));
     }
 
-    public void testIPv6_57_oe() {
+public void testIPv6_57_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -2357,7 +2357,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::5:260.2.3.4 should be invalid", validator.isValidInet6Address("1::5:260.2.3.4"));
     }
 
-    public void testIPv6_58_oe() {
+public void testIPv6_58_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -2421,7 +2421,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::5:256.2.3.4 should be invalid", validator.isValidInet6Address("1::5:256.2.3.4"));
     }
 
-    public void testIPv6_59_oe() {
+public void testIPv6_59_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -2486,7 +2486,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::5:1.256.3.4 should be invalid", validator.isValidInet6Address("1::5:1.256.3.4"));
     }
 
-    public void testIPv6_60_oe() {
+public void testIPv6_60_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -2552,7 +2552,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::5:1.2.256.4 should be invalid", validator.isValidInet6Address("1::5:1.2.256.4"));
     }
 
-    public void testIPv6_61_oe() {
+public void testIPv6_61_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -2619,7 +2619,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::5:1.2.3.256 should be invalid", validator.isValidInet6Address("1::5:1.2.3.256"));
     }
 
-    public void testIPv6_62_oe() {
+public void testIPv6_62_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -2687,7 +2687,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::5:300.2.3.4 should be invalid", validator.isValidInet6Address("1::5:300.2.3.4"));
     }
 
-    public void testIPv6_63_oe() {
+public void testIPv6_63_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -2756,7 +2756,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::5:1.300.3.4 should be invalid", validator.isValidInet6Address("1::5:1.300.3.4"));
     }
 
-    public void testIPv6_64_oe() {
+public void testIPv6_64_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -2826,7 +2826,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::5:1.2.300.4 should be invalid", validator.isValidInet6Address("1::5:1.2.300.4"));
     }
 
-    public void testIPv6_65_oe() {
+public void testIPv6_65_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -2897,7 +2897,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::5:1.2.3.300 should be invalid", validator.isValidInet6Address("1::5:1.2.3.300"));
     }
 
-    public void testIPv6_66_oe() {
+public void testIPv6_66_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -2969,7 +2969,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::5:900.2.3.4 should be invalid", validator.isValidInet6Address("1::5:900.2.3.4"));
     }
 
-    public void testIPv6_67_oe() {
+public void testIPv6_67_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -3042,7 +3042,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::5:1.900.3.4 should be invalid", validator.isValidInet6Address("1::5:1.900.3.4"));
     }
 
-    public void testIPv6_68_oe() {
+public void testIPv6_68_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -3116,7 +3116,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::5:1.2.900.4 should be invalid", validator.isValidInet6Address("1::5:1.2.900.4"));
     }
 
-    public void testIPv6_69_oe() {
+public void testIPv6_69_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -3191,7 +3191,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::5:1.2.3.900 should be invalid", validator.isValidInet6Address("1::5:1.2.3.900"));
     }
 
-    public void testIPv6_70_oe() {
+public void testIPv6_70_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -3267,7 +3267,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::5:300.300.300.300 should be invalid", validator.isValidInet6Address("1::5:300.300.300.300"));
     }
 
-    public void testIPv6_71_oe() {
+public void testIPv6_71_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -3344,7 +3344,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::5:3000.30.30.30 should be invalid", validator.isValidInet6Address("1::5:3000.30.30.30"));
     }
 
-    public void testIPv6_72_oe() {
+public void testIPv6_72_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -3422,7 +3422,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::400.2.3.4 should be invalid", validator.isValidInet6Address("1::400.2.3.4"));
     }
 
-    public void testIPv6_73_oe() {
+public void testIPv6_73_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -3501,7 +3501,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::260.2.3.4 should be invalid", validator.isValidInet6Address("1::260.2.3.4"));
     }
 
-    public void testIPv6_74_oe() {
+public void testIPv6_74_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -3581,7 +3581,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::256.2.3.4 should be invalid", validator.isValidInet6Address("1::256.2.3.4"));
     }
 
-    public void testIPv6_75_oe() {
+public void testIPv6_75_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -3662,7 +3662,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::1.256.3.4 should be invalid", validator.isValidInet6Address("1::1.256.3.4"));
     }
 
-    public void testIPv6_76_oe() {
+public void testIPv6_76_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -3744,7 +3744,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::1.2.256.4 should be invalid", validator.isValidInet6Address("1::1.2.256.4"));
     }
 
-    public void testIPv6_77_oe() {
+public void testIPv6_77_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -3827,7 +3827,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::1.2.3.256 should be invalid", validator.isValidInet6Address("1::1.2.3.256"));
     }
 
-    public void testIPv6_78_oe() {
+public void testIPv6_78_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -3911,7 +3911,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::300.2.3.4 should be invalid", validator.isValidInet6Address("1::300.2.3.4"));
     }
 
-    public void testIPv6_79_oe() {
+public void testIPv6_79_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -3996,7 +3996,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::1.300.3.4 should be invalid", validator.isValidInet6Address("1::1.300.3.4"));
     }
 
-    public void testIPv6_80_oe() {
+public void testIPv6_80_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -4082,7 +4082,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::1.2.300.4 should be invalid", validator.isValidInet6Address("1::1.2.300.4"));
     }
 
-    public void testIPv6_81_oe() {
+public void testIPv6_81_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -4169,7 +4169,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::1.2.3.300 should be invalid", validator.isValidInet6Address("1::1.2.3.300"));
     }
 
-    public void testIPv6_82_oe() {
+public void testIPv6_82_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -4257,7 +4257,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::900.2.3.4 should be invalid", validator.isValidInet6Address("1::900.2.3.4"));
     }
 
-    public void testIPv6_83_oe() {
+public void testIPv6_83_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -4346,7 +4346,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::1.900.3.4 should be invalid", validator.isValidInet6Address("1::1.900.3.4"));
     }
 
-    public void testIPv6_84_oe() {
+public void testIPv6_84_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -4436,7 +4436,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::1.2.900.4 should be invalid", validator.isValidInet6Address("1::1.2.900.4"));
     }
 
-    public void testIPv6_85_oe() {
+public void testIPv6_85_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -4527,7 +4527,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::1.2.3.900 should be invalid", validator.isValidInet6Address("1::1.2.3.900"));
     }
 
-    public void testIPv6_86_oe() {
+public void testIPv6_86_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -4619,7 +4619,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::300.300.300.300 should be invalid", validator.isValidInet6Address("1::300.300.300.300"));
     }
 
-    public void testIPv6_87_oe() {
+public void testIPv6_87_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -4712,7 +4712,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::3000.30.30.30 should be invalid", validator.isValidInet6Address("1::3000.30.30.30"));
     }
 
-    public void testIPv6_88_oe() {
+public void testIPv6_88_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -4806,7 +4806,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::400.2.3.4 should be invalid", validator.isValidInet6Address("::400.2.3.4"));
     }
 
-    public void testIPv6_89_oe() {
+public void testIPv6_89_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -4901,7 +4901,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::260.2.3.4 should be invalid", validator.isValidInet6Address("::260.2.3.4"));
     }
 
-    public void testIPv6_90_oe() {
+public void testIPv6_90_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -4997,7 +4997,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::256.2.3.4 should be invalid", validator.isValidInet6Address("::256.2.3.4"));
     }
 
-    public void testIPv6_91_oe() {
+public void testIPv6_91_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -5094,7 +5094,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::1.256.3.4 should be invalid", validator.isValidInet6Address("::1.256.3.4"));
     }
 
-    public void testIPv6_92_oe() {
+public void testIPv6_92_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -5192,7 +5192,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::1.2.256.4 should be invalid", validator.isValidInet6Address("::1.2.256.4"));
     }
 
-    public void testIPv6_93_oe() {
+public void testIPv6_93_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -5291,7 +5291,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::1.2.3.256 should be invalid", validator.isValidInet6Address("::1.2.3.256"));
     }
 
-    public void testIPv6_94_oe() {
+public void testIPv6_94_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -5391,7 +5391,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::300.2.3.4 should be invalid", validator.isValidInet6Address("::300.2.3.4"));
     }
 
-    public void testIPv6_95_oe() {
+public void testIPv6_95_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -5492,7 +5492,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::1.300.3.4 should be invalid", validator.isValidInet6Address("::1.300.3.4"));
     }
 
-    public void testIPv6_96_oe() {
+public void testIPv6_96_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -5594,7 +5594,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::1.2.300.4 should be invalid", validator.isValidInet6Address("::1.2.300.4"));
     }
 
-    public void testIPv6_97_oe() {
+public void testIPv6_97_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -5697,7 +5697,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::1.2.3.300 should be invalid", validator.isValidInet6Address("::1.2.3.300"));
     }
 
-    public void testIPv6_98_oe() {
+public void testIPv6_98_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -5801,7 +5801,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::900.2.3.4 should be invalid", validator.isValidInet6Address("::900.2.3.4"));
     }
 
-    public void testIPv6_99_oe() {
+public void testIPv6_99_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -5906,7 +5906,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::1.900.3.4 should be invalid", validator.isValidInet6Address("::1.900.3.4"));
     }
 
-    public void testIPv6_100_oe() {
+public void testIPv6_100_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -6012,7 +6012,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::1.2.900.4 should be invalid", validator.isValidInet6Address("::1.2.900.4"));
     }
 
-    public void testIPv6_101_oe() {
+public void testIPv6_101_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -6119,7 +6119,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::1.2.3.900 should be invalid", validator.isValidInet6Address("::1.2.3.900"));
     }
 
-    public void testIPv6_102_oe() {
+public void testIPv6_102_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -6227,7 +6227,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::300.300.300.300 should be invalid", validator.isValidInet6Address("::300.300.300.300"));
     }
 
-    public void testIPv6_103_oe() {
+public void testIPv6_103_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -6336,7 +6336,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::3000.30.30.30 should be invalid", validator.isValidInet6Address("::3000.30.30.30"));
     }
 
-    public void testIPv6_104_oe() {
+public void testIPv6_104_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -6446,7 +6446,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 fe80::217:f2ff:254.7.237.98 should be valid", validator.isValidInet6Address("fe80::217:f2ff:254.7.237.98"));
     }
 
-    public void testIPv6_105_oe() {
+public void testIPv6_105_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -6557,7 +6557,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::ffff:192.168.1.26 should be valid", validator.isValidInet6Address("::ffff:192.168.1.26"));
     }
 
-    public void testIPv6_106_oe() {
+public void testIPv6_106_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -6669,7 +6669,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 2001:1:1:1:1:1:255Z255X255Y255 should be invalid",validator.isValidInet6Address("2001:1:1:1:1:1:255Z255X255Y255"));// garbage instead of "." in IPv4 assertFalse("IPV6 ::ffff:192x168.1.26 should be invalid",validator.isValidInet6Address("::ffff:192x168.1.26"));// ditto assertTrue("IPV6 ::ffff:192.168.1.1 should be valid",validator.isValidInet6Address("::ffff:192.168.1.1"));
     }
 
-    public void testIPv6_107_oe() {
+public void testIPv6_107_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -6782,7 +6782,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 0:0:0:0:0:0:13.1.68.3 should be valid",validator.isValidInet6Address("0:0:0:0:0:0:13.1.68.3"));// IPv4-compatible IPv6 address,full,deprecated assertTrue("IPV6 0:0:0:0:0:FFFF:129.144.52.38 should be valid",validator.isValidInet6Address("0:0:0:0:0:FFFF:129.144.52.38"));// IPv4-mapped IPv6 address,full assertTrue("IPV6 ::13.1.68.3 should be valid",validator.isValidInet6Address("::13.1.68.3"));// IPv4-compatible IPv6 address,compressed,deprecated assertTrue("IPV6 ::FFFF:129.144.52.38 should be valid",validator.isValidInet6Address("::FFFF:129.144.52.38"));// IPv4-mapped IPv6 address,compressed assertTrue("IPV6 fe80:0:0:0:204:61ff:254.157.241.86 should be valid",validator.isValidInet6Address("fe80:0:0:0:204:61ff:254.157.241.86"));
     }
 
-    public void testIPv6_108_oe() {
+public void testIPv6_108_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -6896,7 +6896,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 fe80::204:61ff:254.157.241.86 should be valid", validator.isValidInet6Address("fe80::204:61ff:254.157.241.86"));
     }
 
-    public void testIPv6_109_oe() {
+public void testIPv6_109_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -7011,7 +7011,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::ffff:12.34.56.78 should be valid", validator.isValidInet6Address("::ffff:12.34.56.78"));
     }
 
-    public void testIPv6_110_oe() {
+public void testIPv6_110_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -7127,7 +7127,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::ffff:2.3.4 should be invalid", validator.isValidInet6Address("::ffff:2.3.4"));
     }
 
-    public void testIPv6_111_oe() {
+public void testIPv6_111_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -7244,7 +7244,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::ffff:257.1.2.3 should be invalid", validator.isValidInet6Address("::ffff:257.1.2.3"));
     }
 
-    public void testIPv6_112_oe() {
+public void testIPv6_112_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -7362,7 +7362,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1.2.3.4 should be invalid", validator.isValidInet6Address("1.2.3.4"));
     }
 
-    public void testIPv6_113_oe() {
+public void testIPv6_113_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -7481,7 +7481,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1.2.3.4:1111:2222:3333:4444::5555 should be invalid", validator.isValidInet6Address("1.2.3.4:1111:2222:3333:4444::5555"));
     }
 
-    public void testIPv6_114_oe() {
+public void testIPv6_114_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -7601,7 +7601,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1.2.3.4:1111:2222:3333::5555 should be invalid", validator.isValidInet6Address("1.2.3.4:1111:2222:3333::5555"));
     }
 
-    public void testIPv6_115_oe() {
+public void testIPv6_115_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -7722,7 +7722,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1.2.3.4:1111:2222::5555 should be invalid", validator.isValidInet6Address("1.2.3.4:1111:2222::5555"));
     }
 
-    public void testIPv6_116_oe() {
+public void testIPv6_116_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -7844,7 +7844,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1.2.3.4:1111::5555 should be invalid", validator.isValidInet6Address("1.2.3.4:1111::5555"));
     }
 
-    public void testIPv6_117_oe() {
+public void testIPv6_117_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -7967,7 +7967,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1.2.3.4::5555 should be invalid", validator.isValidInet6Address("1.2.3.4::5555"));
     }
 
-    public void testIPv6_118_oe() {
+public void testIPv6_118_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -8091,7 +8091,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1.2.3.4:: should be invalid", validator.isValidInet6Address("1.2.3.4::"));
     }
 
-    public void testIPv6_119_oe() {
+public void testIPv6_119_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -8219,7 +8219,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 fe80:0000:0000:0000:0204:61ff:254.157.241.086 should be invalid", validator.isValidInet6Address("fe80:0000:0000:0000:0204:61ff:254.157.241.086"));
     }
 
-    public void testIPv6_120_oe() {
+public void testIPv6_120_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -8348,7 +8348,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::ffff:192.0.2.128 should be valid",validator.isValidInet6Address("::ffff:192.0.2.128"));// but this is OK,since there's a single digit assertFalse("IPV6 XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:1.2.3.4 should be invalid",validator.isValidInet6Address("XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:1.2.3.4"));
     }
 
-    public void testIPv6_121_oe() {
+public void testIPv6_121_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -8478,7 +8478,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:00.00.00.00 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:00.00.00.00"));
     }
 
-    public void testIPv6_122_oe() {
+public void testIPv6_122_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -8609,7 +8609,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:000.000.000.000 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:000.000.000.000"));
     }
 
-    public void testIPv6_123_oe() {
+public void testIPv6_123_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -8741,7 +8741,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:256.256.256.256 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:256.256.256.256"));
     }
 
-    public void testIPv6_124_oe() {
+public void testIPv6_124_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -8874,7 +8874,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 fe80:0000:0000:0000:0204:61ff:fe9d:f156 should be valid", validator.isValidInet6Address("fe80:0000:0000:0000:0204:61ff:fe9d:f156"));
     }
 
-    public void testIPv6_125_oe() {
+public void testIPv6_125_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -9008,7 +9008,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 fe80:0:0:0:204:61ff:fe9d:f156 should be valid", validator.isValidInet6Address("fe80:0:0:0:204:61ff:fe9d:f156"));
     }
 
-    public void testIPv6_126_oe() {
+public void testIPv6_126_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -9143,7 +9143,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 fe80::204:61ff:fe9d:f156 should be valid", validator.isValidInet6Address("fe80::204:61ff:fe9d:f156"));
     }
 
-    public void testIPv6_127_oe() {
+public void testIPv6_127_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -9279,7 +9279,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 : should be invalid", validator.isValidInet6Address(":"));
     }
 
-    public void testIPv6_128_oe() {
+public void testIPv6_128_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -9416,7 +9416,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::ffff:c000:280 should be valid", validator.isValidInet6Address("::ffff:c000:280"));
     }
 
-    public void testIPv6_129_oe() {
+public void testIPv6_129_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -9554,7 +9554,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444::5555: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444::5555:"));
     }
 
-    public void testIPv6_130_oe() {
+public void testIPv6_130_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -9693,7 +9693,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333::5555: should be invalid", validator.isValidInet6Address("1111:2222:3333::5555:"));
     }
 
-    public void testIPv6_131_oe() {
+public void testIPv6_131_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -9833,7 +9833,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222::5555: should be invalid", validator.isValidInet6Address("1111:2222::5555:"));
     }
 
-    public void testIPv6_132_oe() {
+public void testIPv6_132_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -9974,7 +9974,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111::5555: should be invalid", validator.isValidInet6Address("1111::5555:"));
     }
 
-    public void testIPv6_133_oe() {
+public void testIPv6_133_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -10116,7 +10116,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::5555: should be invalid", validator.isValidInet6Address("::5555:"));
     }
 
-    public void testIPv6_134_oe() {
+public void testIPv6_134_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -10259,7 +10259,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::: should be invalid", validator.isValidInet6Address(":::"));
     }
 
-    public void testIPv6_135_oe() {
+public void testIPv6_135_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -10403,7 +10403,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111: should be invalid", validator.isValidInet6Address("1111:"));
     }
 
-    public void testIPv6_136_oe() {
+public void testIPv6_136_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -10548,7 +10548,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444::5555 should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444::5555"));
     }
 
-    public void testIPv6_137_oe() {
+public void testIPv6_137_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -10694,7 +10694,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333::5555 should be invalid", validator.isValidInet6Address(":1111:2222:3333::5555"));
     }
 
-    public void testIPv6_138_oe() {
+public void testIPv6_138_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -10841,7 +10841,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222::5555 should be invalid", validator.isValidInet6Address(":1111:2222::5555"));
     }
 
-    public void testIPv6_139_oe() {
+public void testIPv6_139_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -10989,7 +10989,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111::5555 should be invalid", validator.isValidInet6Address(":1111::5555"));
     }
 
-    public void testIPv6_140_oe() {
+public void testIPv6_140_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -11138,7 +11138,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :::5555 should be invalid", validator.isValidInet6Address(":::5555"));
     }
 
-    public void testIPv6_141_oe() {
+public void testIPv6_141_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -11288,7 +11288,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 2001:0db8:85a3:0000:0000:8a2e:0370:7334 should be valid", validator.isValidInet6Address("2001:0db8:85a3:0000:0000:8a2e:0370:7334"));
     }
 
-    public void testIPv6_142_oe() {
+public void testIPv6_142_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -11439,7 +11439,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 2001:db8:85a3:0:0:8a2e:370:7334 should be valid", validator.isValidInet6Address("2001:db8:85a3:0:0:8a2e:370:7334"));
     }
 
-    public void testIPv6_143_oe() {
+public void testIPv6_143_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -11591,7 +11591,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 2001:db8:85a3::8a2e:370:7334 should be valid", validator.isValidInet6Address("2001:db8:85a3::8a2e:370:7334"));
     }
 
-    public void testIPv6_144_oe() {
+public void testIPv6_144_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -11744,7 +11744,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 2001:0db8:0000:0000:0000:0000:1428:57ab should be valid", validator.isValidInet6Address("2001:0db8:0000:0000:0000:0000:1428:57ab"));
     }
 
-    public void testIPv6_145_oe() {
+public void testIPv6_145_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -11898,7 +11898,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 2001:0db8:0000:0000:0000::1428:57ab should be valid", validator.isValidInet6Address("2001:0db8:0000:0000:0000::1428:57ab"));
     }
 
-    public void testIPv6_146_oe() {
+public void testIPv6_146_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -12053,7 +12053,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 2001:0db8:0:0:0:0:1428:57ab should be valid", validator.isValidInet6Address("2001:0db8:0:0:0:0:1428:57ab"));
     }
 
-    public void testIPv6_147_oe() {
+public void testIPv6_147_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -12209,7 +12209,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 2001:0db8:0:0::1428:57ab should be valid", validator.isValidInet6Address("2001:0db8:0:0::1428:57ab"));
     }
 
-    public void testIPv6_148_oe() {
+public void testIPv6_148_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -12366,7 +12366,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 2001:0db8::1428:57ab should be valid", validator.isValidInet6Address("2001:0db8::1428:57ab"));
     }
 
-    public void testIPv6_149_oe() {
+public void testIPv6_149_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -12524,7 +12524,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 2001:db8::1428:57ab should be valid", validator.isValidInet6Address("2001:db8::1428:57ab"));
     }
 
-    public void testIPv6_150_oe() {
+public void testIPv6_150_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -12683,7 +12683,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::ffff:0c22:384e should be valid", validator.isValidInet6Address("::ffff:0c22:384e"));
     }
 
-    public void testIPv6_151_oe() {
+public void testIPv6_151_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -12843,7 +12843,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 2001:0db8:1234:0000:0000:0000:0000:0000 should be valid", validator.isValidInet6Address("2001:0db8:1234:0000:0000:0000:0000:0000"));
     }
 
-    public void testIPv6_152_oe() {
+public void testIPv6_152_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -13004,7 +13004,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 2001:0db8:1234:ffff:ffff:ffff:ffff:ffff should be valid", validator.isValidInet6Address("2001:0db8:1234:ffff:ffff:ffff:ffff:ffff"));
     }
 
-    public void testIPv6_153_oe() {
+public void testIPv6_153_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -13166,7 +13166,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 2001:db8:a::123 should be valid", validator.isValidInet6Address("2001:db8:a::123"));
     }
 
-    public void testIPv6_154_oe() {
+public void testIPv6_154_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -13329,7 +13329,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 123 should be invalid", validator.isValidInet6Address("123"));
     }
 
-    public void testIPv6_155_oe() {
+public void testIPv6_155_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -13493,7 +13493,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ldkfj should be invalid", validator.isValidInet6Address("ldkfj"));
     }
 
-    public void testIPv6_156_oe() {
+public void testIPv6_156_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -13658,7 +13658,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 2001::FFD3::57ab should be invalid", validator.isValidInet6Address("2001::FFD3::57ab"));
     }
 
-    public void testIPv6_157_oe() {
+public void testIPv6_157_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -13824,7 +13824,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 2001:db8:85a3::8a2e:37023:7334 should be invalid", validator.isValidInet6Address("2001:db8:85a3::8a2e:37023:7334"));
     }
 
-    public void testIPv6_158_oe() {
+public void testIPv6_158_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -13991,7 +13991,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 2001:db8:85a3::8a2e:370k:7334 should be invalid", validator.isValidInet6Address("2001:db8:85a3::8a2e:370k:7334"));
     }
 
-    public void testIPv6_159_oe() {
+public void testIPv6_159_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -14159,7 +14159,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1:2:3:4:5:6:7:8:9 should be invalid", validator.isValidInet6Address("1:2:3:4:5:6:7:8:9"));
     }
 
-    public void testIPv6_160_oe() {
+public void testIPv6_160_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -14328,7 +14328,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1::2::3 should be invalid", validator.isValidInet6Address("1::2::3"));
     }
 
-    public void testIPv6_161_oe() {
+public void testIPv6_161_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -14498,7 +14498,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1:::3:4:5 should be invalid", validator.isValidInet6Address("1:::3:4:5"));
     }
 
-    public void testIPv6_162_oe() {
+public void testIPv6_162_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -14669,7 +14669,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1:2:3::4:5:6:7:8:9 should be invalid", validator.isValidInet6Address("1:2:3::4:5:6:7:8:9"));
     }
 
-    public void testIPv6_163_oe() {
+public void testIPv6_163_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -14841,7 +14841,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333:4444:5555:6666:7777:8888 should be valid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_164_oe() {
+public void testIPv6_164_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -15014,7 +15014,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333:4444:5555:6666:7777:: should be valid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:7777::"));
     }
 
-    public void testIPv6_165_oe() {
+public void testIPv6_165_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -15188,7 +15188,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333:4444:5555:6666:: should be valid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666::"));
     }
 
-    public void testIPv6_166_oe() {
+public void testIPv6_166_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -15363,7 +15363,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333:4444:5555:: should be valid", validator.isValidInet6Address("1111:2222:3333:4444:5555::"));
     }
 
-    public void testIPv6_167_oe() {
+public void testIPv6_167_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -15539,7 +15539,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333:4444:: should be valid", validator.isValidInet6Address("1111:2222:3333:4444::"));
     }
 
-    public void testIPv6_168_oe() {
+public void testIPv6_168_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -15716,7 +15716,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333:: should be valid", validator.isValidInet6Address("1111:2222:3333::"));
     }
 
-    public void testIPv6_169_oe() {
+public void testIPv6_169_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -15894,7 +15894,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:: should be valid", validator.isValidInet6Address("1111:2222::"));
     }
 
-    public void testIPv6_170_oe() {
+public void testIPv6_170_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -16073,7 +16073,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:: should be valid", validator.isValidInet6Address("1111::"));
     }
 
-    public void testIPv6_171_oe() {
+public void testIPv6_171_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -16253,7 +16253,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333:4444:5555:6666::8888 should be valid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666::8888"));
     }
 
-    public void testIPv6_172_oe() {
+public void testIPv6_172_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -16434,7 +16434,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333:4444:5555::8888 should be valid", validator.isValidInet6Address("1111:2222:3333:4444:5555::8888"));
     }
 
-    public void testIPv6_173_oe() {
+public void testIPv6_173_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -16616,7 +16616,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333:4444::8888 should be valid", validator.isValidInet6Address("1111:2222:3333:4444::8888"));
     }
 
-    public void testIPv6_174_oe() {
+public void testIPv6_174_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -16799,7 +16799,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333::8888 should be valid", validator.isValidInet6Address("1111:2222:3333::8888"));
     }
 
-    public void testIPv6_175_oe() {
+public void testIPv6_175_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -16983,7 +16983,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222::8888 should be valid", validator.isValidInet6Address("1111:2222::8888"));
     }
 
-    public void testIPv6_176_oe() {
+public void testIPv6_176_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -17168,7 +17168,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111::8888 should be valid", validator.isValidInet6Address("1111::8888"));
     }
 
-    public void testIPv6_177_oe() {
+public void testIPv6_177_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -17354,7 +17354,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::8888 should be valid", validator.isValidInet6Address("::8888"));
     }
 
-    public void testIPv6_178_oe() {
+public void testIPv6_178_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -17541,7 +17541,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333:4444:5555::7777:8888 should be valid", validator.isValidInet6Address("1111:2222:3333:4444:5555::7777:8888"));
     }
 
-    public void testIPv6_179_oe() {
+public void testIPv6_179_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -17729,7 +17729,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333:4444::7777:8888 should be valid", validator.isValidInet6Address("1111:2222:3333:4444::7777:8888"));
     }
 
-    public void testIPv6_180_oe() {
+public void testIPv6_180_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -17918,7 +17918,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333::7777:8888 should be valid", validator.isValidInet6Address("1111:2222:3333::7777:8888"));
     }
 
-    public void testIPv6_181_oe() {
+public void testIPv6_181_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -18108,7 +18108,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222::7777:8888 should be valid", validator.isValidInet6Address("1111:2222::7777:8888"));
     }
 
-    public void testIPv6_182_oe() {
+public void testIPv6_182_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -18299,7 +18299,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111::7777:8888 should be valid", validator.isValidInet6Address("1111::7777:8888"));
     }
 
-    public void testIPv6_183_oe() {
+public void testIPv6_183_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -18491,7 +18491,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::7777:8888 should be valid", validator.isValidInet6Address("::7777:8888"));
     }
 
-    public void testIPv6_184_oe() {
+public void testIPv6_184_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -18684,7 +18684,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333:4444::6666:7777:8888 should be valid", validator.isValidInet6Address("1111:2222:3333:4444::6666:7777:8888"));
     }
 
-    public void testIPv6_185_oe() {
+public void testIPv6_185_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -18878,7 +18878,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333::6666:7777:8888 should be valid", validator.isValidInet6Address("1111:2222:3333::6666:7777:8888"));
     }
 
-    public void testIPv6_186_oe() {
+public void testIPv6_186_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -19073,7 +19073,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222::6666:7777:8888 should be valid", validator.isValidInet6Address("1111:2222::6666:7777:8888"));
     }
 
-    public void testIPv6_187_oe() {
+public void testIPv6_187_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -19269,7 +19269,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111::6666:7777:8888 should be valid", validator.isValidInet6Address("1111::6666:7777:8888"));
     }
 
-    public void testIPv6_188_oe() {
+public void testIPv6_188_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -19466,7 +19466,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::6666:7777:8888 should be valid", validator.isValidInet6Address("::6666:7777:8888"));
     }
 
-    public void testIPv6_189_oe() {
+public void testIPv6_189_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -19664,7 +19664,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333::5555:6666:7777:8888 should be valid", validator.isValidInet6Address("1111:2222:3333::5555:6666:7777:8888"));
     }
 
-    public void testIPv6_190_oe() {
+public void testIPv6_190_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -19863,7 +19863,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222::5555:6666:7777:8888 should be valid", validator.isValidInet6Address("1111:2222::5555:6666:7777:8888"));
     }
 
-    public void testIPv6_191_oe() {
+public void testIPv6_191_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -20063,7 +20063,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111::5555:6666:7777:8888 should be valid", validator.isValidInet6Address("1111::5555:6666:7777:8888"));
     }
 
-    public void testIPv6_192_oe() {
+public void testIPv6_192_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -20264,7 +20264,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::5555:6666:7777:8888 should be valid", validator.isValidInet6Address("::5555:6666:7777:8888"));
     }
 
-    public void testIPv6_193_oe() {
+public void testIPv6_193_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -20466,7 +20466,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222::4444:5555:6666:7777:8888 should be valid", validator.isValidInet6Address("1111:2222::4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_194_oe() {
+public void testIPv6_194_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -20669,7 +20669,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111::4444:5555:6666:7777:8888 should be valid", validator.isValidInet6Address("1111::4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_195_oe() {
+public void testIPv6_195_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -20873,7 +20873,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::4444:5555:6666:7777:8888 should be valid", validator.isValidInet6Address("::4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_196_oe() {
+public void testIPv6_196_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -21078,7 +21078,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111::3333:4444:5555:6666:7777:8888 should be valid", validator.isValidInet6Address("1111::3333:4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_197_oe() {
+public void testIPv6_197_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -21284,7 +21284,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::3333:4444:5555:6666:7777:8888 should be valid", validator.isValidInet6Address("::3333:4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_198_oe() {
+public void testIPv6_198_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -21491,7 +21491,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::2222:3333:4444:5555:6666:7777:8888 should be valid", validator.isValidInet6Address("::2222:3333:4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_199_oe() {
+public void testIPv6_199_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -21699,7 +21699,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333:4444:5555:6666:123.123.123.123 should be valid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:123.123.123.123"));
     }
 
-    public void testIPv6_200_oe() {
+public void testIPv6_200_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -21908,7 +21908,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333:4444:5555::123.123.123.123 should be valid", validator.isValidInet6Address("1111:2222:3333:4444:5555::123.123.123.123"));
     }
 
-    public void testIPv6_201_oe() {
+public void testIPv6_201_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -22118,7 +22118,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333:4444::123.123.123.123 should be valid", validator.isValidInet6Address("1111:2222:3333:4444::123.123.123.123"));
     }
 
-    public void testIPv6_202_oe() {
+public void testIPv6_202_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -22329,7 +22329,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333::123.123.123.123 should be valid", validator.isValidInet6Address("1111:2222:3333::123.123.123.123"));
     }
 
-    public void testIPv6_203_oe() {
+public void testIPv6_203_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -22541,7 +22541,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222::123.123.123.123 should be valid", validator.isValidInet6Address("1111:2222::123.123.123.123"));
     }
 
-    public void testIPv6_204_oe() {
+public void testIPv6_204_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -22754,7 +22754,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111::123.123.123.123 should be valid", validator.isValidInet6Address("1111::123.123.123.123"));
     }
 
-    public void testIPv6_205_oe() {
+public void testIPv6_205_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -22968,7 +22968,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::123.123.123.123 should be valid", validator.isValidInet6Address("::123.123.123.123"));
     }
 
-    public void testIPv6_206_oe() {
+public void testIPv6_206_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -23183,7 +23183,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333:4444::6666:123.123.123.123 should be valid", validator.isValidInet6Address("1111:2222:3333:4444::6666:123.123.123.123"));
     }
 
-    public void testIPv6_207_oe() {
+public void testIPv6_207_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -23399,7 +23399,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333::6666:123.123.123.123 should be valid", validator.isValidInet6Address("1111:2222:3333::6666:123.123.123.123"));
     }
 
-    public void testIPv6_208_oe() {
+public void testIPv6_208_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -23616,7 +23616,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222::6666:123.123.123.123 should be valid", validator.isValidInet6Address("1111:2222::6666:123.123.123.123"));
     }
 
-    public void testIPv6_209_oe() {
+public void testIPv6_209_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -23834,7 +23834,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111::6666:123.123.123.123 should be valid", validator.isValidInet6Address("1111::6666:123.123.123.123"));
     }
 
-    public void testIPv6_210_oe() {
+public void testIPv6_210_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -24053,7 +24053,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::6666:123.123.123.123 should be valid", validator.isValidInet6Address("::6666:123.123.123.123"));
     }
 
-    public void testIPv6_211_oe() {
+public void testIPv6_211_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -24273,7 +24273,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222:3333::5555:6666:123.123.123.123 should be valid", validator.isValidInet6Address("1111:2222:3333::5555:6666:123.123.123.123"));
     }
 
-    public void testIPv6_212_oe() {
+public void testIPv6_212_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -24494,7 +24494,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222::5555:6666:123.123.123.123 should be valid", validator.isValidInet6Address("1111:2222::5555:6666:123.123.123.123"));
     }
 
-    public void testIPv6_213_oe() {
+public void testIPv6_213_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -24716,7 +24716,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111::5555:6666:123.123.123.123 should be valid", validator.isValidInet6Address("1111::5555:6666:123.123.123.123"));
     }
 
-    public void testIPv6_214_oe() {
+public void testIPv6_214_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -24939,7 +24939,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::5555:6666:123.123.123.123 should be valid", validator.isValidInet6Address("::5555:6666:123.123.123.123"));
     }
 
-    public void testIPv6_215_oe() {
+public void testIPv6_215_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -25163,7 +25163,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111:2222::4444:5555:6666:123.123.123.123 should be valid", validator.isValidInet6Address("1111:2222::4444:5555:6666:123.123.123.123"));
     }
 
-    public void testIPv6_216_oe() {
+public void testIPv6_216_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -25388,7 +25388,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111::4444:5555:6666:123.123.123.123 should be valid", validator.isValidInet6Address("1111::4444:5555:6666:123.123.123.123"));
     }
 
-    public void testIPv6_217_oe() {
+public void testIPv6_217_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -25614,7 +25614,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::4444:5555:6666:123.123.123.123 should be valid", validator.isValidInet6Address("::4444:5555:6666:123.123.123.123"));
     }
 
-    public void testIPv6_218_oe() {
+public void testIPv6_218_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -25841,7 +25841,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 1111::3333:4444:5555:6666:123.123.123.123 should be valid", validator.isValidInet6Address("1111::3333:4444:5555:6666:123.123.123.123"));
     }
 
-    public void testIPv6_219_oe() {
+public void testIPv6_219_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -26069,7 +26069,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::2222:3333:4444:5555:6666:123.123.123.123 should be valid", validator.isValidInet6Address("::2222:3333:4444:5555:6666:123.123.123.123"));
     }
 
-    public void testIPv6_220_oe() {
+public void testIPv6_220_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -26301,7 +26301,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::0:0:0:0:0:0:0 should be valid", validator.isValidInet6Address("::0:0:0:0:0:0:0"));
     }
 
-    public void testIPv6_221_oe() {
+public void testIPv6_221_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -26534,7 +26534,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::0:0:0:0:0:0 should be valid", validator.isValidInet6Address("::0:0:0:0:0:0"));
     }
 
-    public void testIPv6_222_oe() {
+public void testIPv6_222_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -26768,7 +26768,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::0:0:0:0:0 should be valid", validator.isValidInet6Address("::0:0:0:0:0"));
     }
 
-    public void testIPv6_223_oe() {
+public void testIPv6_223_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -27003,7 +27003,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::0:0:0:0 should be valid", validator.isValidInet6Address("::0:0:0:0"));
     }
 
-    public void testIPv6_224_oe() {
+public void testIPv6_224_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -27239,7 +27239,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::0:0:0 should be valid", validator.isValidInet6Address("::0:0:0"));
     }
 
-    public void testIPv6_225_oe() {
+public void testIPv6_225_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -27476,7 +27476,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::0:0 should be valid", validator.isValidInet6Address("::0:0"));
     }
 
-    public void testIPv6_226_oe() {
+public void testIPv6_226_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -27714,7 +27714,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::0 should be valid", validator.isValidInet6Address("::0"));
     }
 
-    public void testIPv6_227_oe() {
+public void testIPv6_227_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -27953,7 +27953,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 0:0:0:0:0:0:0:: should be valid", validator.isValidInet6Address("0:0:0:0:0:0:0::"));
     }
 
-    public void testIPv6_228_oe() {
+public void testIPv6_228_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -28193,7 +28193,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 0:0:0:0:0:0:: should be valid", validator.isValidInet6Address("0:0:0:0:0:0::"));
     }
 
-    public void testIPv6_229_oe() {
+public void testIPv6_229_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -28434,7 +28434,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 0:0:0:0:0:: should be valid", validator.isValidInet6Address("0:0:0:0:0::"));
     }
 
-    public void testIPv6_230_oe() {
+public void testIPv6_230_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -28676,7 +28676,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 0:0:0:0:: should be valid", validator.isValidInet6Address("0:0:0:0::"));
     }
 
-    public void testIPv6_231_oe() {
+public void testIPv6_231_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -28919,7 +28919,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 0:0:0:: should be valid", validator.isValidInet6Address("0:0:0::"));
     }
 
-    public void testIPv6_232_oe() {
+public void testIPv6_232_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -29163,7 +29163,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 0:0:: should be valid", validator.isValidInet6Address("0:0::"));
     }
 
-    public void testIPv6_233_oe() {
+public void testIPv6_233_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -29408,7 +29408,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 0:: should be valid", validator.isValidInet6Address("0::"));
     }
 
-    public void testIPv6_234_oe() {
+public void testIPv6_234_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -29655,7 +29655,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX should be invalid", validator.isValidInet6Address("XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX"));
     }
 
-    public void testIPv6_235_oe() {
+public void testIPv6_235_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -29904,7 +29904,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:7777:8888:9999 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:7777:8888:9999"));
     }
 
-    public void testIPv6_236_oe() {
+public void testIPv6_236_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -30154,7 +30154,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:7777:8888:: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:7777:8888::"));
     }
 
-    public void testIPv6_237_oe() {
+public void testIPv6_237_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -30405,7 +30405,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::2222:3333:4444:5555:6666:7777:8888:9999 should be invalid", validator.isValidInet6Address("::2222:3333:4444:5555:6666:7777:8888:9999"));
     }
 
-    public void testIPv6_238_oe() {
+public void testIPv6_238_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -30658,7 +30658,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:7777 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:7777"));
     }
 
-    public void testIPv6_239_oe() {
+public void testIPv6_239_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -30912,7 +30912,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666"));
     }
 
-    public void testIPv6_240_oe() {
+public void testIPv6_240_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -31167,7 +31167,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555"));
     }
 
-    public void testIPv6_241_oe() {
+public void testIPv6_241_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -31423,7 +31423,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444"));
     }
 
-    public void testIPv6_242_oe() {
+public void testIPv6_242_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -31680,7 +31680,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333 should be invalid", validator.isValidInet6Address("1111:2222:3333"));
     }
 
-    public void testIPv6_243_oe() {
+public void testIPv6_243_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -31938,7 +31938,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222 should be invalid", validator.isValidInet6Address("1111:2222"));
     }
 
-    public void testIPv6_244_oe() {
+public void testIPv6_244_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -32197,7 +32197,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111 should be invalid", validator.isValidInet6Address("1111"));
     }
 
-    public void testIPv6_245_oe() {
+public void testIPv6_245_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -32458,7 +32458,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 11112222:3333:4444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address("11112222:3333:4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_246_oe() {
+public void testIPv6_246_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -32720,7 +32720,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:22223333:4444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address("1111:22223333:4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_247_oe() {
+public void testIPv6_247_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -32983,7 +32983,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:33334444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address("1111:2222:33334444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_248_oe() {
+public void testIPv6_248_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -33247,7 +33247,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:44445555:6666:7777:8888 should be invalid", validator.isValidInet6Address("1111:2222:3333:44445555:6666:7777:8888"));
     }
 
-    public void testIPv6_249_oe() {
+public void testIPv6_249_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -33512,7 +33512,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:55556666:7777:8888 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:55556666:7777:8888"));
     }
 
-    public void testIPv6_250_oe() {
+public void testIPv6_250_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -33778,7 +33778,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:66667777:8888 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:66667777:8888"));
     }
 
-    public void testIPv6_251_oe() {
+public void testIPv6_251_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -34045,7 +34045,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:77778888 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:77778888"));
     }
 
-    public void testIPv6_252_oe() {
+public void testIPv6_252_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -34314,7 +34314,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:7777:8888: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:7777:8888:"));
     }
 
-    public void testIPv6_253_oe() {
+public void testIPv6_253_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -34584,7 +34584,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:7777: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:7777:"));
     }
 
-    public void testIPv6_254_oe() {
+public void testIPv6_254_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -34855,7 +34855,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:"));
     }
 
-    public void testIPv6_255_oe() {
+public void testIPv6_255_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -35127,7 +35127,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:"));
     }
 
-    public void testIPv6_256_oe() {
+public void testIPv6_256_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -35400,7 +35400,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:"));
     }
 
-    public void testIPv6_257_oe() {
+public void testIPv6_257_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -35674,7 +35674,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333: should be invalid", validator.isValidInet6Address("1111:2222:3333:"));
     }
 
-    public void testIPv6_258_oe() {
+public void testIPv6_258_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -35949,7 +35949,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222: should be invalid", validator.isValidInet6Address("1111:2222:"));
     }
 
-    public void testIPv6_259_oe() {
+public void testIPv6_259_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -36225,7 +36225,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :8888 should be invalid", validator.isValidInet6Address(":8888"));
     }
 
-    public void testIPv6_260_oe() {
+public void testIPv6_260_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -36502,7 +36502,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :7777:8888 should be invalid", validator.isValidInet6Address(":7777:8888"));
     }
 
-    public void testIPv6_261_oe() {
+public void testIPv6_261_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -36780,7 +36780,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :6666:7777:8888 should be invalid", validator.isValidInet6Address(":6666:7777:8888"));
     }
 
-    public void testIPv6_262_oe() {
+public void testIPv6_262_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -37059,7 +37059,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :5555:6666:7777:8888 should be invalid", validator.isValidInet6Address(":5555:6666:7777:8888"));
     }
 
-    public void testIPv6_263_oe() {
+public void testIPv6_263_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -37339,7 +37339,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :4444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address(":4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_264_oe() {
+public void testIPv6_264_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -37620,7 +37620,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :3333:4444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address(":3333:4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_265_oe() {
+public void testIPv6_265_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -37902,7 +37902,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :2222:3333:4444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address(":2222:3333:4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_266_oe() {
+public void testIPv6_266_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -38185,7 +38185,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_267_oe() {
+public void testIPv6_267_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -38470,7 +38470,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :::2222:3333:4444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address(":::2222:3333:4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_268_oe() {
+public void testIPv6_268_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -38756,7 +38756,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:::3333:4444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address("1111:::3333:4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_269_oe() {
+public void testIPv6_269_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -39043,7 +39043,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:::4444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address("1111:2222:::4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_270_oe() {
+public void testIPv6_270_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -39331,7 +39331,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:::5555:6666:7777:8888 should be invalid", validator.isValidInet6Address("1111:2222:3333:::5555:6666:7777:8888"));
     }
 
-    public void testIPv6_271_oe() {
+public void testIPv6_271_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -39620,7 +39620,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:::6666:7777:8888 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:::6666:7777:8888"));
     }
 
-    public void testIPv6_272_oe() {
+public void testIPv6_272_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -39910,7 +39910,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:::7777:8888 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:::7777:8888"));
     }
 
-    public void testIPv6_273_oe() {
+public void testIPv6_273_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -40201,7 +40201,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:::8888 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:::8888"));
     }
 
-    public void testIPv6_274_oe() {
+public void testIPv6_274_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -40493,7 +40493,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:7777::: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:7777:::"));
     }
 
-    public void testIPv6_275_oe() {
+public void testIPv6_275_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -40787,7 +40787,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::2222::4444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address("::2222::4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_276_oe() {
+public void testIPv6_276_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -41082,7 +41082,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::2222:3333::5555:6666:7777:8888 should be invalid", validator.isValidInet6Address("::2222:3333::5555:6666:7777:8888"));
     }
 
-    public void testIPv6_277_oe() {
+public void testIPv6_277_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -41378,7 +41378,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::2222:3333:4444::6666:7777:8888 should be invalid", validator.isValidInet6Address("::2222:3333:4444::6666:7777:8888"));
     }
 
-    public void testIPv6_278_oe() {
+public void testIPv6_278_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -41675,7 +41675,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::2222:3333:4444:5555::7777:8888 should be invalid", validator.isValidInet6Address("::2222:3333:4444:5555::7777:8888"));
     }
 
-    public void testIPv6_279_oe() {
+public void testIPv6_279_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -41973,7 +41973,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::2222:3333:4444:5555:7777::8888 should be invalid", validator.isValidInet6Address("::2222:3333:4444:5555:7777::8888"));
     }
 
-    public void testIPv6_280_oe() {
+public void testIPv6_280_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -42272,7 +42272,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::2222:3333:4444:5555:7777:8888:: should be invalid", validator.isValidInet6Address("::2222:3333:4444:5555:7777:8888::"));
     }
 
-    public void testIPv6_281_oe() {
+public void testIPv6_281_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -42572,7 +42572,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111::3333::5555:6666:7777:8888 should be invalid", validator.isValidInet6Address("1111::3333::5555:6666:7777:8888"));
     }
 
-    public void testIPv6_282_oe() {
+public void testIPv6_282_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -42873,7 +42873,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111::3333:4444::6666:7777:8888 should be invalid", validator.isValidInet6Address("1111::3333:4444::6666:7777:8888"));
     }
 
-    public void testIPv6_283_oe() {
+public void testIPv6_283_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -43175,7 +43175,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111::3333:4444:5555::7777:8888 should be invalid", validator.isValidInet6Address("1111::3333:4444:5555::7777:8888"));
     }
 
-    public void testIPv6_284_oe() {
+public void testIPv6_284_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -43478,7 +43478,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111::3333:4444:5555:6666::8888 should be invalid", validator.isValidInet6Address("1111::3333:4444:5555:6666::8888"));
     }
 
-    public void testIPv6_285_oe() {
+public void testIPv6_285_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -43782,7 +43782,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111::3333:4444:5555:6666:7777:: should be invalid", validator.isValidInet6Address("1111::3333:4444:5555:6666:7777::"));
     }
 
-    public void testIPv6_286_oe() {
+public void testIPv6_286_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -44087,7 +44087,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222::4444::6666:7777:8888 should be invalid", validator.isValidInet6Address("1111:2222::4444::6666:7777:8888"));
     }
 
-    public void testIPv6_287_oe() {
+public void testIPv6_287_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -44393,7 +44393,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222::4444:5555::7777:8888 should be invalid", validator.isValidInet6Address("1111:2222::4444:5555::7777:8888"));
     }
 
-    public void testIPv6_288_oe() {
+public void testIPv6_288_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -44700,7 +44700,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222::4444:5555:6666::8888 should be invalid", validator.isValidInet6Address("1111:2222::4444:5555:6666::8888"));
     }
 
-    public void testIPv6_289_oe() {
+public void testIPv6_289_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -45008,7 +45008,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222::4444:5555:6666:7777:: should be invalid", validator.isValidInet6Address("1111:2222::4444:5555:6666:7777::"));
     }
 
-    public void testIPv6_290_oe() {
+public void testIPv6_290_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -45317,7 +45317,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333::5555::7777:8888 should be invalid", validator.isValidInet6Address("1111:2222:3333::5555::7777:8888"));
     }
 
-    public void testIPv6_291_oe() {
+public void testIPv6_291_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -45627,7 +45627,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333::5555:6666::8888 should be invalid", validator.isValidInet6Address("1111:2222:3333::5555:6666::8888"));
     }
 
-    public void testIPv6_292_oe() {
+public void testIPv6_292_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -45938,7 +45938,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333::5555:6666:7777:: should be invalid", validator.isValidInet6Address("1111:2222:3333::5555:6666:7777::"));
     }
 
-    public void testIPv6_293_oe() {
+public void testIPv6_293_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -46250,7 +46250,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444::6666::8888 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444::6666::8888"));
     }
 
-    public void testIPv6_294_oe() {
+public void testIPv6_294_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -46563,7 +46563,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444::6666:7777:: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444::6666:7777::"));
     }
 
-    public void testIPv6_295_oe() {
+public void testIPv6_295_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -46877,7 +46877,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555::7777:: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555::7777::"));
     }
 
-    public void testIPv6_296_oe() {
+public void testIPv6_296_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -47193,7 +47193,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:7777:8888:1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:7777:8888:1.2.3.4"));
     }
 
-    public void testIPv6_297_oe() {
+public void testIPv6_297_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -47510,7 +47510,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:7777:1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:7777:1.2.3.4"));
     }
 
-    public void testIPv6_298_oe() {
+public void testIPv6_298_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -47828,7 +47828,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666::1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666::1.2.3.4"));
     }
 
-    public void testIPv6_299_oe() {
+public void testIPv6_299_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -48147,7 +48147,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::2222:3333:4444:5555:6666:7777:1.2.3.4 should be invalid", validator.isValidInet6Address("::2222:3333:4444:5555:6666:7777:1.2.3.4"));
     }
 
-    public void testIPv6_300_oe() {
+public void testIPv6_300_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -48467,7 +48467,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:1.2.3.4.5 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:1.2.3.4.5"));
     }
 
-    public void testIPv6_301_oe() {
+public void testIPv6_301_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -48789,7 +48789,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:1.2.3.4"));
     }
 
-    public void testIPv6_302_oe() {
+public void testIPv6_302_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -49112,7 +49112,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:1.2.3.4"));
     }
 
-    public void testIPv6_303_oe() {
+public void testIPv6_303_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -49436,7 +49436,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222:3333:1.2.3.4"));
     }
 
-    public void testIPv6_304_oe() {
+public void testIPv6_304_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -49761,7 +49761,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222:1.2.3.4"));
     }
 
-    public void testIPv6_305_oe() {
+public void testIPv6_305_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -50087,7 +50087,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:1.2.3.4 should be invalid", validator.isValidInet6Address("1111:1.2.3.4"));
     }
 
-    public void testIPv6_306_oe() {
+public void testIPv6_306_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -50414,7 +50414,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1.2.3.4 should be invalid", validator.isValidInet6Address("1.2.3.4"));
     }
 
-    public void testIPv6_307_oe() {
+public void testIPv6_307_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -50743,7 +50743,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 11112222:3333:4444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address("11112222:3333:4444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_308_oe() {
+public void testIPv6_308_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -51073,7 +51073,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:22223333:4444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address("1111:22223333:4444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_309_oe() {
+public void testIPv6_309_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -51404,7 +51404,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:33334444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222:33334444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_310_oe() {
+public void testIPv6_310_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -51736,7 +51736,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:44445555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222:3333:44445555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_311_oe() {
+public void testIPv6_311_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -52069,7 +52069,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:55556666:1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:55556666:1.2.3.4"));
     }
 
-    public void testIPv6_312_oe() {
+public void testIPv6_312_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -52403,7 +52403,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:66661.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:66661.2.3.4"));
     }
 
-    public void testIPv6_313_oe() {
+public void testIPv6_313_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -52739,7 +52739,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:255255.255.255 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:255255.255.255"));
     }
 
-    public void testIPv6_314_oe() {
+public void testIPv6_314_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -53076,7 +53076,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:255.255255.255 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:255.255255.255"));
     }
 
-    public void testIPv6_315_oe() {
+public void testIPv6_315_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -53414,7 +53414,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:255.255.255255 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:255.255.255255"));
     }
 
-    public void testIPv6_316_oe() {
+public void testIPv6_316_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -53754,7 +53754,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1.2.3.4 should be invalid", validator.isValidInet6Address(":1.2.3.4"));
     }
 
-    public void testIPv6_317_oe() {
+public void testIPv6_317_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -54095,7 +54095,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":6666:1.2.3.4"));
     }
 
-    public void testIPv6_318_oe() {
+public void testIPv6_318_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -54437,7 +54437,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_319_oe() {
+public void testIPv6_319_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -54780,7 +54780,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :4444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":4444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_320_oe() {
+public void testIPv6_320_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -55124,7 +55124,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :3333:4444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":3333:4444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_321_oe() {
+public void testIPv6_321_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -55469,7 +55469,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :2222:3333:4444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":2222:3333:4444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_322_oe() {
+public void testIPv6_322_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -55815,7 +55815,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_323_oe() {
+public void testIPv6_323_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -56163,7 +56163,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :::2222:3333:4444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":::2222:3333:4444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_324_oe() {
+public void testIPv6_324_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -56512,7 +56512,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:::3333:4444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address("1111:::3333:4444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_325_oe() {
+public void testIPv6_325_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -56862,7 +56862,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:::4444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222:::4444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_326_oe() {
+public void testIPv6_326_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -57213,7 +57213,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:::5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222:3333:::5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_327_oe() {
+public void testIPv6_327_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -57565,7 +57565,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:::6666:1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:::6666:1.2.3.4"));
     }
 
-    public void testIPv6_328_oe() {
+public void testIPv6_328_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -57918,7 +57918,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:::1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:::1.2.3.4"));
     }
 
-    public void testIPv6_329_oe() {
+public void testIPv6_329_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -58273,7 +58273,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::2222::4444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address("::2222::4444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_330_oe() {
+public void testIPv6_330_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -58629,7 +58629,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::2222:3333::5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address("::2222:3333::5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_331_oe() {
+public void testIPv6_331_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -58986,7 +58986,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::2222:3333:4444::6666:1.2.3.4 should be invalid", validator.isValidInet6Address("::2222:3333:4444::6666:1.2.3.4"));
     }
 
-    public void testIPv6_332_oe() {
+public void testIPv6_332_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -59344,7 +59344,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::2222:3333:4444:5555::1.2.3.4 should be invalid", validator.isValidInet6Address("::2222:3333:4444:5555::1.2.3.4"));
     }
 
-    public void testIPv6_333_oe() {
+public void testIPv6_333_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -59703,7 +59703,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111::3333::5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address("1111::3333::5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_334_oe() {
+public void testIPv6_334_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -60063,7 +60063,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111::3333:4444::6666:1.2.3.4 should be invalid", validator.isValidInet6Address("1111::3333:4444::6666:1.2.3.4"));
     }
 
-    public void testIPv6_335_oe() {
+public void testIPv6_335_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -60424,7 +60424,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111::3333:4444:5555::1.2.3.4 should be invalid", validator.isValidInet6Address("1111::3333:4444:5555::1.2.3.4"));
     }
 
-    public void testIPv6_336_oe() {
+public void testIPv6_336_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -60786,7 +60786,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222::4444::6666:1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222::4444::6666:1.2.3.4"));
     }
 
-    public void testIPv6_337_oe() {
+public void testIPv6_337_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -61149,7 +61149,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222::4444:5555::1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222::4444:5555::1.2.3.4"));
     }
 
-    public void testIPv6_338_oe() {
+public void testIPv6_338_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -61513,7 +61513,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333::5555::1.2.3.4 should be invalid", validator.isValidInet6Address("1111:2222:3333::5555::1.2.3.4"));
     }
 
-    public void testIPv6_339_oe() {
+public void testIPv6_339_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -61879,7 +61879,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::. should be invalid", validator.isValidInet6Address("::."));
     }
 
-    public void testIPv6_340_oe() {
+public void testIPv6_340_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -62246,7 +62246,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::.. should be invalid", validator.isValidInet6Address("::.."));
     }
 
-    public void testIPv6_341_oe() {
+public void testIPv6_341_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -62614,7 +62614,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::... should be invalid", validator.isValidInet6Address("::..."));
     }
 
-    public void testIPv6_342_oe() {
+public void testIPv6_342_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -62983,7 +62983,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::1... should be invalid", validator.isValidInet6Address("::1..."));
     }
 
-    public void testIPv6_343_oe() {
+public void testIPv6_343_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -63353,7 +63353,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::1.2.. should be invalid", validator.isValidInet6Address("::1.2.."));
     }
 
-    public void testIPv6_344_oe() {
+public void testIPv6_344_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -63724,7 +63724,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::1.2.3. should be invalid", validator.isValidInet6Address("::1.2.3."));
     }
 
-    public void testIPv6_345_oe() {
+public void testIPv6_345_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -64096,7 +64096,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::.2.. should be invalid", validator.isValidInet6Address("::.2.."));
     }
 
-    public void testIPv6_346_oe() {
+public void testIPv6_346_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -64469,7 +64469,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::.2.3. should be invalid", validator.isValidInet6Address("::.2.3."));
     }
 
-    public void testIPv6_347_oe() {
+public void testIPv6_347_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -64843,7 +64843,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::.2.3.4 should be invalid", validator.isValidInet6Address("::.2.3.4"));
     }
 
-    public void testIPv6_348_oe() {
+public void testIPv6_348_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -65218,7 +65218,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::..3. should be invalid", validator.isValidInet6Address("::..3."));
     }
 
-    public void testIPv6_349_oe() {
+public void testIPv6_349_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -65594,7 +65594,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::..3.4 should be invalid", validator.isValidInet6Address("::..3.4"));
     }
 
-    public void testIPv6_350_oe() {
+public void testIPv6_350_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -65971,7 +65971,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::...4 should be invalid", validator.isValidInet6Address("::...4"));
     }
 
-    public void testIPv6_351_oe() {
+public void testIPv6_351_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -66350,7 +66350,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444:5555:6666:7777:: should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444:5555:6666:7777::"));
     }
 
-    public void testIPv6_352_oe() {
+public void testIPv6_352_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -66730,7 +66730,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444:5555:6666:: should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444:5555:6666::"));
     }
 
-    public void testIPv6_353_oe() {
+public void testIPv6_353_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -67111,7 +67111,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444:5555:: should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444:5555::"));
     }
 
-    public void testIPv6_354_oe() {
+public void testIPv6_354_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -67493,7 +67493,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444:: should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444::"));
     }
 
-    public void testIPv6_355_oe() {
+public void testIPv6_355_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -67876,7 +67876,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:: should be invalid", validator.isValidInet6Address(":1111:2222:3333::"));
     }
 
-    public void testIPv6_356_oe() {
+public void testIPv6_356_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -68260,7 +68260,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:: should be invalid", validator.isValidInet6Address(":1111:2222::"));
     }
 
-    public void testIPv6_357_oe() {
+public void testIPv6_357_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -68645,7 +68645,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:: should be invalid", validator.isValidInet6Address(":1111::"));
     }
 
-    public void testIPv6_358_oe() {
+public void testIPv6_358_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -69031,7 +69031,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444:5555:6666::8888 should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444:5555:6666::8888"));
     }
 
-    public void testIPv6_359_oe() {
+public void testIPv6_359_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -69418,7 +69418,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444:5555::8888 should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444:5555::8888"));
     }
 
-    public void testIPv6_360_oe() {
+public void testIPv6_360_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -69806,7 +69806,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444::8888 should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444::8888"));
     }
 
-    public void testIPv6_361_oe() {
+public void testIPv6_361_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -70195,7 +70195,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333::8888 should be invalid", validator.isValidInet6Address(":1111:2222:3333::8888"));
     }
 
-    public void testIPv6_362_oe() {
+public void testIPv6_362_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -70585,7 +70585,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222::8888 should be invalid", validator.isValidInet6Address(":1111:2222::8888"));
     }
 
-    public void testIPv6_363_oe() {
+public void testIPv6_363_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -70976,7 +70976,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111::8888 should be invalid", validator.isValidInet6Address(":1111::8888"));
     }
 
-    public void testIPv6_364_oe() {
+public void testIPv6_364_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -71368,7 +71368,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :::8888 should be invalid", validator.isValidInet6Address(":::8888"));
     }
 
-    public void testIPv6_365_oe() {
+public void testIPv6_365_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -71761,7 +71761,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444:5555::7777:8888 should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444:5555::7777:8888"));
     }
 
-    public void testIPv6_366_oe() {
+public void testIPv6_366_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -72155,7 +72155,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444::7777:8888 should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444::7777:8888"));
     }
 
-    public void testIPv6_367_oe() {
+public void testIPv6_367_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -72550,7 +72550,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333::7777:8888 should be invalid", validator.isValidInet6Address(":1111:2222:3333::7777:8888"));
     }
 
-    public void testIPv6_368_oe() {
+public void testIPv6_368_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -72946,7 +72946,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222::7777:8888 should be invalid", validator.isValidInet6Address(":1111:2222::7777:8888"));
     }
 
-    public void testIPv6_369_oe() {
+public void testIPv6_369_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -73343,7 +73343,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111::7777:8888 should be invalid", validator.isValidInet6Address(":1111::7777:8888"));
     }
 
-    public void testIPv6_370_oe() {
+public void testIPv6_370_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -73741,7 +73741,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :::7777:8888 should be invalid", validator.isValidInet6Address(":::7777:8888"));
     }
 
-    public void testIPv6_371_oe() {
+public void testIPv6_371_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -74140,7 +74140,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444::6666:7777:8888 should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444::6666:7777:8888"));
     }
 
-    public void testIPv6_372_oe() {
+public void testIPv6_372_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -74540,7 +74540,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333::6666:7777:8888 should be invalid", validator.isValidInet6Address(":1111:2222:3333::6666:7777:8888"));
     }
 
-    public void testIPv6_373_oe() {
+public void testIPv6_373_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -74941,7 +74941,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222::6666:7777:8888 should be invalid", validator.isValidInet6Address(":1111:2222::6666:7777:8888"));
     }
 
-    public void testIPv6_374_oe() {
+public void testIPv6_374_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -75343,7 +75343,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111::6666:7777:8888 should be invalid", validator.isValidInet6Address(":1111::6666:7777:8888"));
     }
 
-    public void testIPv6_375_oe() {
+public void testIPv6_375_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -75746,7 +75746,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :::6666:7777:8888 should be invalid", validator.isValidInet6Address(":::6666:7777:8888"));
     }
 
-    public void testIPv6_376_oe() {
+public void testIPv6_376_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -76150,7 +76150,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333::5555:6666:7777:8888 should be invalid", validator.isValidInet6Address(":1111:2222:3333::5555:6666:7777:8888"));
     }
 
-    public void testIPv6_377_oe() {
+public void testIPv6_377_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -76555,7 +76555,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222::5555:6666:7777:8888 should be invalid", validator.isValidInet6Address(":1111:2222::5555:6666:7777:8888"));
     }
 
-    public void testIPv6_378_oe() {
+public void testIPv6_378_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -76961,7 +76961,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111::5555:6666:7777:8888 should be invalid", validator.isValidInet6Address(":1111::5555:6666:7777:8888"));
     }
 
-    public void testIPv6_379_oe() {
+public void testIPv6_379_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -77368,7 +77368,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :::5555:6666:7777:8888 should be invalid", validator.isValidInet6Address(":::5555:6666:7777:8888"));
     }
 
-    public void testIPv6_380_oe() {
+public void testIPv6_380_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -77776,7 +77776,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222::4444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address(":1111:2222::4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_381_oe() {
+public void testIPv6_381_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -78185,7 +78185,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111::4444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address(":1111::4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_382_oe() {
+public void testIPv6_382_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -78595,7 +78595,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :::4444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address(":::4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_383_oe() {
+public void testIPv6_383_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -79006,7 +79006,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111::3333:4444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address(":1111::3333:4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_384_oe() {
+public void testIPv6_384_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -79418,7 +79418,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :::3333:4444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address(":::3333:4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_385_oe() {
+public void testIPv6_385_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -79831,7 +79831,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :::2222:3333:4444:5555:6666:7777:8888 should be invalid", validator.isValidInet6Address(":::2222:3333:4444:5555:6666:7777:8888"));
     }
 
-    public void testIPv6_386_oe() {
+public void testIPv6_386_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -80245,7 +80245,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_387_oe() {
+public void testIPv6_387_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -80660,7 +80660,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444:5555::1.2.3.4 should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444:5555::1.2.3.4"));
     }
 
-    public void testIPv6_388_oe() {
+public void testIPv6_388_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -81076,7 +81076,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444::1.2.3.4 should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444::1.2.3.4"));
     }
 
-    public void testIPv6_389_oe() {
+public void testIPv6_389_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -81493,7 +81493,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333::1.2.3.4 should be invalid", validator.isValidInet6Address(":1111:2222:3333::1.2.3.4"));
     }
 
-    public void testIPv6_390_oe() {
+public void testIPv6_390_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -81911,7 +81911,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222::1.2.3.4 should be invalid", validator.isValidInet6Address(":1111:2222::1.2.3.4"));
     }
 
-    public void testIPv6_391_oe() {
+public void testIPv6_391_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -82330,7 +82330,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111::1.2.3.4 should be invalid", validator.isValidInet6Address(":1111::1.2.3.4"));
     }
 
-    public void testIPv6_392_oe() {
+public void testIPv6_392_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -82750,7 +82750,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :::1.2.3.4 should be invalid", validator.isValidInet6Address(":::1.2.3.4"));
     }
 
-    public void testIPv6_393_oe() {
+public void testIPv6_393_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -83171,7 +83171,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333:4444::6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":1111:2222:3333:4444::6666:1.2.3.4"));
     }
 
-    public void testIPv6_394_oe() {
+public void testIPv6_394_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -83593,7 +83593,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333::6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":1111:2222:3333::6666:1.2.3.4"));
     }
 
-    public void testIPv6_395_oe() {
+public void testIPv6_395_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -84016,7 +84016,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222::6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":1111:2222::6666:1.2.3.4"));
     }
 
-    public void testIPv6_396_oe() {
+public void testIPv6_396_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -84440,7 +84440,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111::6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":1111::6666:1.2.3.4"));
     }
 
-    public void testIPv6_397_oe() {
+public void testIPv6_397_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -84865,7 +84865,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :::6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":::6666:1.2.3.4"));
     }
 
-    public void testIPv6_398_oe() {
+public void testIPv6_398_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -85291,7 +85291,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222:3333::5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":1111:2222:3333::5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_399_oe() {
+public void testIPv6_399_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -85718,7 +85718,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222::5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":1111:2222::5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_400_oe() {
+public void testIPv6_400_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -86146,7 +86146,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111::5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":1111::5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_401_oe() {
+public void testIPv6_401_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -86575,7 +86575,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :::5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":::5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_402_oe() {
+public void testIPv6_402_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -87005,7 +87005,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111:2222::4444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":1111:2222::4444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_403_oe() {
+public void testIPv6_403_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -87436,7 +87436,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111::4444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":1111::4444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_404_oe() {
+public void testIPv6_404_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -87868,7 +87868,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :::4444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":::4444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_405_oe() {
+public void testIPv6_405_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -88301,7 +88301,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :1111::3333:4444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":1111::3333:4444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_406_oe() {
+public void testIPv6_406_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -88735,7 +88735,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 :::2222:3333:4444:5555:6666:1.2.3.4 should be invalid", validator.isValidInet6Address(":::2222:3333:4444:5555:6666:1.2.3.4"));
     }
 
-    public void testIPv6_407_oe() {
+public void testIPv6_407_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -89171,7 +89171,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666:7777::: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:7777:::"));
     }
 
-    public void testIPv6_408_oe() {
+public void testIPv6_408_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -89608,7 +89608,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666::: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666:::"));
     }
 
-    public void testIPv6_409_oe() {
+public void testIPv6_409_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -90046,7 +90046,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555::: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:::"));
     }
 
-    public void testIPv6_410_oe() {
+public void testIPv6_410_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -90485,7 +90485,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444::: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:::"));
     }
 
-    public void testIPv6_411_oe() {
+public void testIPv6_411_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -90925,7 +90925,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333::: should be invalid", validator.isValidInet6Address("1111:2222:3333:::"));
     }
 
-    public void testIPv6_412_oe() {
+public void testIPv6_412_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -91366,7 +91366,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222::: should be invalid", validator.isValidInet6Address("1111:2222:::"));
     }
 
-    public void testIPv6_413_oe() {
+public void testIPv6_413_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -91808,7 +91808,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111::: should be invalid", validator.isValidInet6Address("1111:::"));
     }
 
-    public void testIPv6_414_oe() {
+public void testIPv6_414_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -92251,7 +92251,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555:6666::8888: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555:6666::8888:"));
     }
 
-    public void testIPv6_415_oe() {
+public void testIPv6_415_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -92695,7 +92695,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555::8888: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555::8888:"));
     }
 
-    public void testIPv6_416_oe() {
+public void testIPv6_416_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -93140,7 +93140,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444::8888: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444::8888:"));
     }
 
-    public void testIPv6_417_oe() {
+public void testIPv6_417_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -93586,7 +93586,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333::8888: should be invalid", validator.isValidInet6Address("1111:2222:3333::8888:"));
     }
 
-    public void testIPv6_418_oe() {
+public void testIPv6_418_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -94033,7 +94033,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222::8888: should be invalid", validator.isValidInet6Address("1111:2222::8888:"));
     }
 
-    public void testIPv6_419_oe() {
+public void testIPv6_419_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -94481,7 +94481,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111::8888: should be invalid", validator.isValidInet6Address("1111::8888:"));
     }
 
-    public void testIPv6_420_oe() {
+public void testIPv6_420_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -94930,7 +94930,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::8888: should be invalid", validator.isValidInet6Address("::8888:"));
     }
 
-    public void testIPv6_421_oe() {
+public void testIPv6_421_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -95380,7 +95380,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444:5555::7777:8888: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444:5555::7777:8888:"));
     }
 
-    public void testIPv6_422_oe() {
+public void testIPv6_422_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -95831,7 +95831,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444::7777:8888: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444::7777:8888:"));
     }
 
-    public void testIPv6_423_oe() {
+public void testIPv6_423_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -96283,7 +96283,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333::7777:8888: should be invalid", validator.isValidInet6Address("1111:2222:3333::7777:8888:"));
     }
 
-    public void testIPv6_424_oe() {
+public void testIPv6_424_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -96736,7 +96736,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222::7777:8888: should be invalid", validator.isValidInet6Address("1111:2222::7777:8888:"));
     }
 
-    public void testIPv6_425_oe() {
+public void testIPv6_425_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -97190,7 +97190,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111::7777:8888: should be invalid", validator.isValidInet6Address("1111::7777:8888:"));
     }
 
-    public void testIPv6_426_oe() {
+public void testIPv6_426_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -97645,7 +97645,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::7777:8888: should be invalid", validator.isValidInet6Address("::7777:8888:"));
     }
 
-    public void testIPv6_427_oe() {
+public void testIPv6_427_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -98101,7 +98101,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333:4444::6666:7777:8888: should be invalid", validator.isValidInet6Address("1111:2222:3333:4444::6666:7777:8888:"));
     }
 
-    public void testIPv6_428_oe() {
+public void testIPv6_428_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -98558,7 +98558,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333::6666:7777:8888: should be invalid", validator.isValidInet6Address("1111:2222:3333::6666:7777:8888:"));
     }
 
-    public void testIPv6_429_oe() {
+public void testIPv6_429_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -99016,7 +99016,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222::6666:7777:8888: should be invalid", validator.isValidInet6Address("1111:2222::6666:7777:8888:"));
     }
 
-    public void testIPv6_430_oe() {
+public void testIPv6_430_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -99475,7 +99475,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111::6666:7777:8888: should be invalid", validator.isValidInet6Address("1111::6666:7777:8888:"));
     }
 
-    public void testIPv6_431_oe() {
+public void testIPv6_431_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -99935,7 +99935,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::6666:7777:8888: should be invalid", validator.isValidInet6Address("::6666:7777:8888:"));
     }
 
-    public void testIPv6_432_oe() {
+public void testIPv6_432_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -100396,7 +100396,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222:3333::5555:6666:7777:8888: should be invalid", validator.isValidInet6Address("1111:2222:3333::5555:6666:7777:8888:"));
     }
 
-    public void testIPv6_433_oe() {
+public void testIPv6_433_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -100858,7 +100858,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222::5555:6666:7777:8888: should be invalid", validator.isValidInet6Address("1111:2222::5555:6666:7777:8888:"));
     }
 
-    public void testIPv6_434_oe() {
+public void testIPv6_434_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -101321,7 +101321,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111::5555:6666:7777:8888: should be invalid", validator.isValidInet6Address("1111::5555:6666:7777:8888:"));
     }
 
-    public void testIPv6_435_oe() {
+public void testIPv6_435_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -101785,7 +101785,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::5555:6666:7777:8888: should be invalid", validator.isValidInet6Address("::5555:6666:7777:8888:"));
     }
 
-    public void testIPv6_436_oe() {
+public void testIPv6_436_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -102250,7 +102250,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111:2222::4444:5555:6666:7777:8888: should be invalid", validator.isValidInet6Address("1111:2222::4444:5555:6666:7777:8888:"));
     }
 
-    public void testIPv6_437_oe() {
+public void testIPv6_437_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -102716,7 +102716,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111::4444:5555:6666:7777:8888: should be invalid", validator.isValidInet6Address("1111::4444:5555:6666:7777:8888:"));
     }
 
-    public void testIPv6_438_oe() {
+public void testIPv6_438_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -103183,7 +103183,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::4444:5555:6666:7777:8888: should be invalid", validator.isValidInet6Address("::4444:5555:6666:7777:8888:"));
     }
 
-    public void testIPv6_439_oe() {
+public void testIPv6_439_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -103651,7 +103651,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 1111::3333:4444:5555:6666:7777:8888: should be invalid", validator.isValidInet6Address("1111::3333:4444:5555:6666:7777:8888:"));
     }
 
-    public void testIPv6_440_oe() {
+public void testIPv6_440_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -104120,7 +104120,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::3333:4444:5555:6666:7777:8888: should be invalid", validator.isValidInet6Address("::3333:4444:5555:6666:7777:8888:"));
     }
 
-    public void testIPv6_441_oe() {
+public void testIPv6_441_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -104590,7 +104590,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertFalse("IPV6 ::2222:3333:4444:5555:6666:7777:8888: should be invalid", validator.isValidInet6Address("::2222:3333:4444:5555:6666:7777:8888:"));
     }
 
-    public void testIPv6_442_oe() {
+public void testIPv6_442_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -105061,7 +105061,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 0:a:b:c:d:e:f:: should be valid", validator.isValidInet6Address("0:a:b:c:d:e:f::"));
     }
 
-    public void testIPv6_443_oe() {
+public void testIPv6_443_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion
@@ -105533,7 +105533,7 @@ public class InetAddressValidatorTest_OE25Dev extends TestCase {
         assertTrue("IPV6 ::0:a:b:c:d:e:f should be valid",validator.isValidInet6Address("::0:a:b:c:d:e:f"));// syntactically correct,but bad form(::0:... could be combined)assertTrue("IPV6 a:b:c:d:e:f:0:: should be valid",validator.isValidInet6Address("a:b:c:d:e:f:0::"));
     }
 
-    public void testIPv6_444_oe() {
+public void testIPv6_444_oe() {
         // The original Perl script contained a lot of duplicate tests.
         // I removed the duplicates I noticed, but there may be more.
         // removed other assertion

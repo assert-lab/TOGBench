@@ -358,7 +358,7 @@ public class FilterListIteratorTest_OE25Dev {
 
     }
 
-    @Test
+@Test
     public void testManual_1_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -366,7 +366,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(0), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_2_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -375,7 +375,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(3), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_3_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -385,7 +385,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(6), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_4_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -396,7 +396,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(9), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_5_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -408,7 +408,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(12), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_6_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -421,7 +421,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(15), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_7_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -435,7 +435,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(18), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_8_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -451,7 +451,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(18), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_9_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -468,7 +468,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(15), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_10_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -486,7 +486,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(12), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_11_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -505,7 +505,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(9), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_12_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -525,7 +525,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(6), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_13_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -546,7 +546,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(3), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_14_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -568,7 +568,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(0), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_15_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -592,7 +592,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertTrue(!filtered.hasPrevious());
     }
 
-    @Test
+@Test
     public void testManual_16_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -618,7 +618,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(0), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_17_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -645,7 +645,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(3), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_18_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -673,7 +673,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(6), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_19_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -702,7 +702,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(9), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_20_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -732,7 +732,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(12), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_21_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -763,7 +763,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(15), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_22_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -795,7 +795,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(18), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_23_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -829,7 +829,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertTrue(!filtered.hasNext());
     }
 
-    @Test
+@Test
     public void testManual_24_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -865,7 +865,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(18), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_25_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -902,7 +902,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(15), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_26_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -940,7 +940,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(12), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_27_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -979,7 +979,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(9), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_28_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1019,7 +1019,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(6), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_29_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1060,7 +1060,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(3), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_30_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1102,7 +1102,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(0), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_31_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1146,7 +1146,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(0), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_32_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1191,7 +1191,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(0), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_33_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1237,7 +1237,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(0), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_34_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1285,7 +1285,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(3), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_35_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1334,7 +1334,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(6), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_36_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1384,7 +1384,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(6), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_37_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1435,7 +1435,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(3), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_38_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1487,7 +1487,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(3), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_39_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1540,7 +1540,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(6), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_40_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1595,7 +1595,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(9), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_41_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1651,7 +1651,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(12), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_42_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1708,7 +1708,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(15), filtered.next());
     }
 
-    @Test
+@Test
     public void testManual_43_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1766,7 +1766,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(15), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_44_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1825,7 +1825,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(12), filtered.previous());
     }
 
-    @Test
+@Test
     public void testManual_45_oe() {
         // do this one "by hand" as a sanity check
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
@@ -1885,7 +1885,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(Integer.valueOf(9), filtered.previous());
     }
 
-    @Test
+@Test
     public void testFailingHasNextBug_1_oe() {
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), fourPred);
         final ListIterator<Integer> expected = fours.listIterator();
@@ -1896,7 +1896,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertTrue(filtered.hasPrevious());
     }
 
-    @Test
+@Test
     public void testFailingHasNextBug_2_oe() {
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), fourPred);
         final ListIterator<Integer> expected = fours.listIterator();
@@ -1908,7 +1908,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertTrue(!filtered.hasNext());
     }
 
-    @Test
+@Test
     public void testFailingHasNextBug_3_oe() {
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), fourPred);
         final ListIterator<Integer> expected = fours.listIterator();
@@ -1921,7 +1921,7 @@ public class FilterListIteratorTest_OE25Dev {
         assertEquals(expected.previous(), filtered.previous());
     }
 
-    @Test
+@Test
     public void testCollections360_1_oe() throws Throwable {
         final Collection<Predicate<Object>> var7 = new GrowthList<>();
         final Predicate<Object> var9 = PredicateUtils.anyPredicate(var7);
@@ -1929,7 +1929,7 @@ public class FilterListIteratorTest_OE25Dev {
         Assert.assertFalse(var13.hasNext());
     }
 
-    @Test
+@Test
     public void testCollections360_2_oe() throws Throwable {
         final Collection<Predicate<Object>> var7 = new GrowthList<>();
         final Predicate<Object> var9 = PredicateUtils.anyPredicate(var7);

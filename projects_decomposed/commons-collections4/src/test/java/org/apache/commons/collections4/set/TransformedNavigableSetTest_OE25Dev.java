@@ -75,13 +75,13 @@ public class TransformedNavigableSetTest_OE25Dev<E> extends AbstractNavigableSet
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/TransformedNavigableSet.fullCollection.version4.1.obj");
 //    }
 
-    public void testTransformedSet_1_oe() {
+public void testTransformedSet_1_oe() {
         final NavigableSet<E> set = TransformedNavigableSet.transformingNavigableSet(new TreeSet<E>(),
                 (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         assertEquals(0, set.size());
     }
 
-    public void testTransformedSet_2_oe() {
+public void testTransformedSet_2_oe() {
         final NavigableSet<E> set = TransformedNavigableSet.transformingNavigableSet(new TreeSet<E>(),
                 (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
@@ -92,7 +92,7 @@ public class TransformedNavigableSetTest_OE25Dev<E> extends AbstractNavigableSet
     }
     }
 
-    public void testTransformedSet_3_oe() {
+public void testTransformedSet_3_oe() {
         final NavigableSet<E> set = TransformedNavigableSet.transformingNavigableSet(new TreeSet<E>(),
                 (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
@@ -104,7 +104,7 @@ public class TransformedNavigableSetTest_OE25Dev<E> extends AbstractNavigableSet
     }
     }
 
-    public void testTransformedSet_4_oe() {
+public void testTransformedSet_4_oe() {
         final NavigableSet<E> set = TransformedNavigableSet.transformingNavigableSet(new TreeSet<E>(),
                 (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
@@ -118,7 +118,7 @@ public class TransformedNavigableSetTest_OE25Dev<E> extends AbstractNavigableSet
         assertEquals(true, set.remove(Integer.valueOf((String) els[0])));
     }
 
-    public void testTransformedSet_decorateTransform_1_oe() {
+public void testTransformedSet_decorateTransform_1_oe() {
         final Set<Object> originalSet = new TreeSet<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         Collections.addAll(originalSet, els);
@@ -127,7 +127,7 @@ public class TransformedNavigableSetTest_OE25Dev<E> extends AbstractNavigableSet
         assertEquals(els.length, set.size());
     }
 
-    public void testTransformedSet_decorateTransform_2_oe() {
+public void testTransformedSet_decorateTransform_2_oe() {
         final Set<Object> originalSet = new TreeSet<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         Collections.addAll(originalSet, els);
@@ -139,7 +139,7 @@ public class TransformedNavigableSetTest_OE25Dev<E> extends AbstractNavigableSet
     }
     }
 
-    public void testTransformedSet_decorateTransform_3_oe() {
+public void testTransformedSet_decorateTransform_3_oe() {
         final Set<Object> originalSet = new TreeSet<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         Collections.addAll(originalSet, els);

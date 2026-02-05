@@ -172,7 +172,7 @@ public class TestDefaultBeanFactory_OE25Dev {
      * Tests whether a custom conversion handler can be passed to the constructor.
      */
 
-    @Test
+@Test
     public void testCreateBean_1_oe() throws Exception {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Map<String, Object> props = new HashMap<>();
@@ -182,7 +182,7 @@ public class TestDefaultBeanFactory_OE25Dev {
         assertNotNull("New bean is null", bean);
     }
 
-    @Test
+@Test
     public void testCreateBean_2_oe() throws Exception {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Map<String, Object> props = new HashMap<>();
@@ -193,7 +193,7 @@ public class TestDefaultBeanFactory_OE25Dev {
         assertEquals("Bean is of wrong class", PropertiesConfiguration.class, bean.getClass());
     }
 
-    @Test
+@Test
     public void testCreateBean_3_oe() throws Exception {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Map<String, Object> props = new HashMap<>();
@@ -206,7 +206,7 @@ public class TestDefaultBeanFactory_OE25Dev {
         assertTrue("Bean was not initialized", config.isThrowExceptionOnMissing());
     }
 
-    @Test
+@Test
     public void testCreateBeanConstructor_1_oe() throws Exception {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -217,7 +217,7 @@ public class TestDefaultBeanFactory_OE25Dev {
         assertEquals("Wrong string property", "test", bean.getStringValue());
     }
 
-    @Test
+@Test
     public void testCreateBeanConstructor_2_oe() throws Exception {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -229,7 +229,7 @@ public class TestDefaultBeanFactory_OE25Dev {
         assertEquals("Wrong int property", 42, bean.getIntValue());
     }
 
-    @Test
+@Test
     public void testCreateBeanConstructorNestedBean_1_oe() throws Exception {
         final BeanDeclarationTestImpl declNested = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -242,7 +242,7 @@ public class TestDefaultBeanFactory_OE25Dev {
         assertNotNull("Buddy bean was not set", bean.getBuddy());
     }
 
-    @Test
+@Test
     public void testCreateBeanConstructorNestedBean_2_oe() throws Exception {
         final BeanDeclarationTestImpl declNested = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -256,12 +256,12 @@ public class TestDefaultBeanFactory_OE25Dev {
         assertEquals("Wrong property of buddy bean", "test", bean.getBuddy().getStringValue());
     }
 
-    @Test
+@Test
     public void testDefaultConversionHandler_1_oe() {
         assertSame("Wrong default conversion handler", DefaultConversionHandler.INSTANCE, factory.getConversionHandler());
     }
 
-    @Test
+@Test
     public void testFindMatchingConstructorArgCount_1_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -273,7 +273,7 @@ public class TestDefaultBeanFactory_OE25Dev {
         assertEquals("Wrong number of parameters", 2, paramTypes.length);
     }
 
-    @Test
+@Test
     public void testFindMatchingConstructorArgCount_2_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -286,7 +286,7 @@ public class TestDefaultBeanFactory_OE25Dev {
         assertEquals("Wrong parameter type 1", String.class, paramTypes[0]);
     }
 
-    @Test
+@Test
     public void testFindMatchingConstructorArgCount_3_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -300,7 +300,7 @@ public class TestDefaultBeanFactory_OE25Dev {
         assertEquals("Wrong parameter type 2", Integer.TYPE, paramTypes[1]);
     }
 
-    @Test
+@Test
     public void testFindMatchingConstructorExplicitType_1_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -311,7 +311,7 @@ public class TestDefaultBeanFactory_OE25Dev {
         assertEquals("Wrong number of parameters", 1, paramTypes.length);
     }
 
-    @Test
+@Test
     public void testFindMatchingConstructorExplicitType_2_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -323,14 +323,14 @@ public class TestDefaultBeanFactory_OE25Dev {
         assertEquals("Wrong parameter type", BeanCreationTestBean.class, paramTypes[0]);
     }
 
-    @Test
+@Test
     public void testFindMatchingConstructorNoArgs_1_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Constructor<BeanCreationTestBean> ctor = DefaultBeanFactory.findMatchingConstructor(BeanCreationTestBean.class, decl);
         assertEquals("Not the standard constructor", 0, ctor.getParameterTypes().length);
     }
 
-    @Test
+@Test
     public void testFindMatchingConstructorNoMatch_2_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -345,7 +345,7 @@ public class TestDefaultBeanFactory_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testFindMatchingConstructorNoMatch_3_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -361,7 +361,7 @@ public class TestDefaultBeanFactory_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testFindMatchingConstructorNoMatch_4_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -378,12 +378,12 @@ public class TestDefaultBeanFactory_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetDefaultBeanClass_1_oe() {
         assertNull("Default class is not null", factory.getDefaultBeanClass());
     }
 
-    @Test
+@Test
     public void testInitWithConversionHandler_1_oe() {
         final ConversionHandler handler = EasyMock.createMock(ConversionHandler.class);
         EasyMock.replay(handler);

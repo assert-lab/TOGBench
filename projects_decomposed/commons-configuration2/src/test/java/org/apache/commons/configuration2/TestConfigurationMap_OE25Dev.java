@@ -59,7 +59,7 @@ public class TestConfigurationMap_OE25Dev {
      * Class under test for Object put(Object, Object)
      */
 
-    @Test
+@Test
     public void testPut_1_oe() {
         for (int i = 0; i < properties.length; i++) {
             Object object = map.put(properties[i], values[i]);
@@ -67,7 +67,7 @@ public class TestConfigurationMap_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testPut_2_oe() {
         for (int i = 0; i < properties.length; i++) {
             Object object = map.put(properties[i], values[i]);
@@ -76,7 +76,7 @@ public class TestConfigurationMap_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testPut_3_oe() {
         for (int i = 0; i < properties.length; i++) {
             Object object = map.put(properties[i], values[i]);
@@ -87,7 +87,7 @@ public class TestConfigurationMap_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testPut_4_oe() {
         for (int i = 0; i < properties.length; i++) {
             Object object = map.put(properties[i], values[i]);

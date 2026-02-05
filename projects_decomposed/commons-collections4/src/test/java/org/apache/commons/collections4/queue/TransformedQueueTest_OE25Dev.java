@@ -79,13 +79,13 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
 //      writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/TransformedQueue.fullCollection.version4.obj");
 //  }
 
-    public void testTransformedQueue_1_oe() {
+public void testTransformedQueue_1_oe() {
         final Queue<Object> queue = TransformedQueue.transformingQueue(new LinkedList<>(),
                 TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         assertEquals(0, queue.size());
     }
 
-    public void testTransformedQueue_2_oe() {
+public void testTransformedQueue_2_oe() {
         final Queue<Object> queue = TransformedQueue.transformingQueue(new LinkedList<>(),
                 TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
@@ -96,7 +96,7 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
     }
     }
 
-    public void testTransformedQueue_3_oe() {
+public void testTransformedQueue_3_oe() {
         final Queue<Object> queue = TransformedQueue.transformingQueue(new LinkedList<>(),
                 TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
@@ -108,7 +108,7 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
     }
     }
 
-    public void testTransformedQueue_4_oe() {
+public void testTransformedQueue_4_oe() {
         final Queue<Object> queue = TransformedQueue.transformingQueue(new LinkedList<>(),
                 TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
@@ -121,7 +121,7 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
     }
     }
 
-    public void testTransformedQueue_5_oe() {
+public void testTransformedQueue_5_oe() {
         final Queue<Object> queue = TransformedQueue.transformingQueue(new LinkedList<>(),
                 TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
@@ -136,7 +136,7 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(false, queue.remove(elements[0]));
     }
 
-    public void testTransformedQueue_6_oe() {
+public void testTransformedQueue_6_oe() {
         final Queue<Object> queue = TransformedQueue.transformingQueue(new LinkedList<>(),
                 TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         // removed other assertion
@@ -152,7 +152,7 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(true, queue.remove(Integer.valueOf((String) elements[0])));
     }
 
-    public void testTransformedQueue_decorateTransform_1_oe() {
+public void testTransformedQueue_decorateTransform_1_oe() {
         final Queue originalQueue = new LinkedList();
         final Object[] elements = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         Collections.addAll(originalQueue, elements);
@@ -161,7 +161,7 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(elements.length, queue.size());
     }
 
-    public void testTransformedQueue_decorateTransform_2_oe() {
+public void testTransformedQueue_decorateTransform_2_oe() {
         final Queue originalQueue = new LinkedList();
         final Object[] elements = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         Collections.addAll(originalQueue, elements);
@@ -173,7 +173,7 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
     }
     }
 
-    public void testTransformedQueue_decorateTransform_3_oe() {
+public void testTransformedQueue_decorateTransform_3_oe() {
         final Queue originalQueue = new LinkedList();
         final Object[] elements = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         Collections.addAll(originalQueue, elements);
@@ -186,7 +186,7 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
     }
     }
 
-    public void testTransformedQueue_decorateTransform_4_oe() {
+public void testTransformedQueue_decorateTransform_4_oe() {
         final Queue originalQueue = new LinkedList();
         final Object[] elements = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         Collections.addAll(originalQueue, elements);
@@ -201,7 +201,7 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals(false, queue.remove(elements[0]));
     }
 
-    public void testTransformedQueue_decorateTransform_5_oe() {
+public void testTransformedQueue_decorateTransform_5_oe() {
         final Queue originalQueue = new LinkedList();
         final Object[] elements = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         Collections.addAll(originalQueue, elements);

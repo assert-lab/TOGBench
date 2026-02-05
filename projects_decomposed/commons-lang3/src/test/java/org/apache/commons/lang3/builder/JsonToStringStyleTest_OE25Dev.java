@@ -151,35 +151,35 @@ public class JsonToStringStyleTest_OE25Dev {
         Map<String, Object> map;
     }
 
-    @Test
+@Test
     public void testNull_1_oe() {
         assertEquals("null", new ToStringBuilder(null).toString());
     }
 
-    @Test
+@Test
     public void testBlank_1_oe() {
         assertEquals("{}", new ToStringBuilder(base).toString());
     }
 
-    @Test
+@Test
     public void testAppendSuper_1_oe() {
         assertEquals( "{}", new ToStringBuilder(base).appendSuper( "Integer@8888[" + System.lineSeparator() + "]") .toString());
     }
 
-    @Test
+@Test
     public void testAppendSuper_2_oe() {
         // removed other assertion
         assertEquals( "{}", new ToStringBuilder(base).appendSuper( "Integer@8888[" + System.lineSeparator() + "  null" + System.lineSeparator() + "]").toString());
     }
 
-    @Test
+@Test
     public void testAppendSuper_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals( "{\"a\":\"hello\"}", new ToStringBuilder(base) .appendSuper( "Integer@8888[" + System.lineSeparator() + "]").append("a", "hello").toString());
     }
 
-    @Test
+@Test
     public void testAppendSuper_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -187,7 +187,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals( "{\"a\":\"hello\"}", new ToStringBuilder(base) .appendSuper( "Integer@8888[" + System.lineSeparator() + "  null" + System.lineSeparator() + "]").append("a", "hello").toString());
     }
 
-    @Test
+@Test
     public void testAppendSuper_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -196,7 +196,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"a\":\"hello\"}", new ToStringBuilder(base) .appendSuper(null).append("a", "hello").toString());
     }
 
-    @Test
+@Test
     public void testAppendSuper_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -207,19 +207,19 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"a\":\"hello\",\"b\":\"world\"}", new ToStringBuilder(base) .appendSuper("{\"a\":\"hello\"}").append("b", "world").toString());
     }
 
-    @Test
+@Test
     public void testChar_1_oe() {
         assertThrows(UnsupportedOperationException.class, () -> new ToStringBuilder(base).append('A').toString());
     }
 
-    @Test
+@Test
     public void testChar_2_oe() {
         // removed other assertion
 
         assertEquals("{\"a\":\"A\"}", new ToStringBuilder(base).append("a", 'A') .toString());
     }
 
-    @Test
+@Test
     public void testChar_3_oe() {
         // removed other assertion
 
@@ -227,7 +227,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"a\":\"A\",\"b\":\"B\"}", new ToStringBuilder(base).append("a", 'A').append("b", 'B') .toString());
     }
 
-    @Test
+@Test
     public void testDate_1_oe() {
         final Date now = new Date();
         final Date afterNow = new Date(System.currentTimeMillis() + 1);
@@ -235,7 +235,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows(UnsupportedOperationException.class, () -> new ToStringBuilder(base).append(now).toString());
     }
 
-    @Test
+@Test
     public void testDate_2_oe() {
         final Date now = new Date();
         final Date afterNow = new Date(System.currentTimeMillis() + 1);
@@ -245,7 +245,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"now\":\"" + now.toString() +"\"}", new ToStringBuilder(base).append("now", now) .toString());
     }
 
-    @Test
+@Test
     public void testDate_3_oe() {
         final Date now = new Date();
         final Date afterNow = new Date(System.currentTimeMillis() + 1);
@@ -256,7 +256,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"now\":\"" + now.toString() +"\",\"after\":\"" + afterNow.toString() + "\"}", new ToStringBuilder(base).append("now", now).append("after", afterNow) .toString());
     }
 
-    @Test
+@Test
     public void testObject_1_oe() {
 
         final Integer i3 = Integer.valueOf(3);
@@ -265,7 +265,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> new ToStringBuilder(base).append((Object) null).toString());
     }
 
-    @Test
+@Test
     public void testObject_2_oe() {
 
         final Integer i3 = Integer.valueOf(3);
@@ -276,7 +276,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows(UnsupportedOperationException.class, () -> new ToStringBuilder(base).append(i3).toString());
     }
 
-    @Test
+@Test
     public void testObject_3_oe() {
 
         final Integer i3 = Integer.valueOf(3);
@@ -289,7 +289,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"a\":null}", new ToStringBuilder(base).append("a", (Object) null).toString());
     }
 
-    @Test
+@Test
     public void testObject_4_oe() {
 
         final Integer i3 = Integer.valueOf(3);
@@ -303,7 +303,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"a\":3}", new ToStringBuilder(base).append("a", i3) .toString());
     }
 
-    @Test
+@Test
     public void testObject_5_oe() {
 
         final Integer i3 = Integer.valueOf(3);
@@ -318,7 +318,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"a\":3,\"b\":4}", new ToStringBuilder(base).append("a", i3).append("b", i4) .toString());
     }
 
-    @Test
+@Test
     public void testObject_6_oe() {
 
         final Integer i3 = Integer.valueOf(3);
@@ -335,7 +335,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> new ToStringBuilder(base).append("a", i3, false).toString());
     }
 
-    @Test
+@Test
     public void testObject_7_oe() {
 
         final Integer i3 = Integer.valueOf(3);
@@ -354,7 +354,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> new ToStringBuilder(base).append("a", new ArrayList<>(), false).toString());
     }
 
-    @Test
+@Test
     public void testObject_8_oe() {
 
         final Integer i3 = Integer.valueOf(3);
@@ -375,7 +375,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals( "{\"a\":[]}", new ToStringBuilder(base).append("a", new ArrayList<>(), true).toString());
     }
 
-    @Test
+@Test
     public void testObject_9_oe() {
 
         final Integer i3 = Integer.valueOf(3);
@@ -398,7 +398,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> new ToStringBuilder(base).append("a", new HashMap<>(), false).toString());
     }
 
-    @Test
+@Test
     public void testObject_10_oe() {
 
         final Integer i3 = Integer.valueOf(3);
@@ -423,7 +423,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals( "{\"a\":{}}", new ToStringBuilder(base).append("a", new HashMap<>(), true).toString());
     }
 
-    @Test
+@Test
     public void testObject_11_oe() {
 
         final Integer i3 = Integer.valueOf(3);
@@ -450,7 +450,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> new ToStringBuilder(base).append("a", (Object) new String[0], false).toString());
     }
 
-    @Test
+@Test
     public void testObject_12_oe() {
 
         final Integer i3 = Integer.valueOf(3);
@@ -479,7 +479,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals( "{\"a\":[]}", new ToStringBuilder(base).append("a", (Object) new String[0], true).toString());
     }
 
-    @Test
+@Test
     public void testObject_13_oe() {
 
         final Integer i3 = Integer.valueOf(3);
@@ -510,7 +510,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> new ToStringBuilder(base).append("a", (Object) new int[]{1, 2, 3}, false).toString());
     }
 
-    @Test
+@Test
     public void testObject_14_oe() {
 
         final Integer i3 = Integer.valueOf(3);
@@ -543,7 +543,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals( "{\"a\":[1,2,3]}", new ToStringBuilder(base).append("a", (Object) new int[]{1, 2, 3}, true).toString());
     }
 
-    @Test
+@Test
     public void testObject_15_oe() {
 
         final Integer i3 = Integer.valueOf(3);
@@ -578,7 +578,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> new ToStringBuilder(base).append("a", (Object) new String[]{"v", "x", "y", "z"}, false).toString());
     }
 
-    @Test
+@Test
     public void testObject_16_oe() {
 
         final Integer i3 = Integer.valueOf(3);
@@ -615,7 +615,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals( "{\"a\":[\"v\",\"x\",\"y\",\"z\"]}", new ToStringBuilder(base).append("a", (Object) new String[]{"v", "x", "y", "z"}, true) .toString());
     }
 
-    @Test
+@Test
     public void testList_1_oe() {
         final Student student = new Student();
         final ArrayList<Hobby> objects = new ArrayList<>();
@@ -629,7 +629,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals(student.toString(), "{\"hobbies\":[\"BOOK\",\"SPORT\",\"MUSIC\"]}");
     }
 
-    @Test
+@Test
     public void testList_2_oe() {
         final Student student = new Student();
         final ArrayList<Hobby> objects = new ArrayList<>();
@@ -645,7 +645,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals(student.toString(), "{\"hobbies\":[]}");
     }
 
-    @Test
+@Test
     public void testList_3_oe() {
         final Student student = new Student();
         final ArrayList<Hobby> objects = new ArrayList<>();
@@ -663,7 +663,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals(student.toString(), "{\"hobbies\":null}");
     }
 
-    @Test
+@Test
     public void testArrayEnum_1_oe() {
         final Teacher teacher = new Teacher();
         final Hobby[] hobbies = new Hobby[3];
@@ -676,7 +676,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals(teacher.toString(), "{\"hobbies\":[\"BOOK\",\"SPORT\",\"MUSIC\"]}");
     }
 
-    @Test
+@Test
     public void testArrayEnum_2_oe() {
         final Teacher teacher = new Teacher();
         final Hobby[] hobbies = new Hobby[3];
@@ -691,7 +691,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals(teacher.toString(), "{\"hobbies\":[]}");
     }
 
-    @Test
+@Test
     public void testArrayEnum_3_oe() {
         final Teacher teacher = new Teacher();
         final Hobby[] hobbies = new Hobby[3];
@@ -708,7 +708,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals(teacher.toString(), "{\"hobbies\":null}");
     }
 
-    @Test
+@Test
     public void testCombineListAndEnum_1_oe() {
         final Teacher teacher = new Teacher();
 
@@ -740,7 +740,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals(academyClass.toString(), "{\"students\":[{\"hobbies\":[\"BOOK\",\"MUSIC\"]},{\"hobbies\":[]},{\"hobbies\":[\"BOOK\"]}],\"teacher\":{\"hobbies\":[\"BOOK\",\"SPORT\",\"MUSIC\"]}}");
     }
 
-    @Test
+@Test
     public void testPerson_1_oe() {
         final Person p = new Person();
         p.name = "Jane Doe";
@@ -750,7 +750,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals( "{\"name\":\"Jane Doe\",\"age\":25,\"smoker\":true}", new ToStringBuilder(p).append("name", p.name) .append("age", p.age).append("smoker", p.smoker) .toString());
     }
 
-    @Test
+@Test
     public void testNestingPerson_1_oe() {
         final Person p = new Person() {
             @Override
@@ -771,19 +771,19 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals( "{\"pid\":\"#1@Jane\",\"person\":{\"name\":\"Jane Doe\",\"age\":25,\"smoker\":true}}", new ToStringBuilder(nestP).append("pid", nestP.pid) .append("person", nestP.person) .toString());
     }
 
-    @Test
+@Test
     public void testLong_1_oe() {
         assertThrows(UnsupportedOperationException.class, () -> new ToStringBuilder(base).append(3L).toString());
     }
 
-    @Test
+@Test
     public void testLong_2_oe() {
         // removed other assertion
 
         assertEquals("{\"a\":3}", new ToStringBuilder(base).append("a", 3L) .toString());
     }
 
-    @Test
+@Test
     public void testLong_3_oe() {
         // removed other assertion
 
@@ -791,7 +791,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"a\":3,\"b\":4}", new ToStringBuilder(base).append("a", 3L).append("b", 4L) .toString());
     }
 
-    @Test
+@Test
     public void testObjectArray_1_oe() {
         final Object[] array = new Object[]{null, base, new int[]{3, 6}};
 
@@ -799,7 +799,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows(UnsupportedOperationException.class, () -> toStringBuilder.append(array).toString());
     }
 
-    @Test
+@Test
     public void testObjectArray_2_oe() {
         final Object[] array = new Object[]{null, base, new int[]{3, 6}};
 
@@ -809,7 +809,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"objectArray\":[null,5,[3,6]]}", toStringBuilder.append("objectArray", array) .toString());
     }
 
-    @Test
+@Test
     public void testObjectArray_3_oe() {
         final Object[] array = new Object[]{null, base, new int[]{3, 6}};
 
@@ -821,7 +821,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testObjectArray_4_oe() {
         final Object[] array = new Object[]{null, base, new int[]{3, 6}};
 
@@ -835,7 +835,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object[]) null).toString());
     }
 
-    @Test
+@Test
     public void testObjectArray_5_oe() {
         final Object[] array = new Object[]{null, base, new int[]{3, 6}};
 
@@ -851,7 +851,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testLongArray_1_oe() {
         final long[] array = new long[]{1, 2, -3, 4};
 
@@ -859,7 +859,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows(UnsupportedOperationException.class, () -> toStringBuilder.append(array).toString());
     }
 
-    @Test
+@Test
     public void testLongArray_2_oe() {
         final long[] array = new long[]{1, 2, -3, 4};
 
@@ -869,7 +869,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"longArray\":[1,2,-3,4]}", toStringBuilder.append("longArray", array) .toString());
     }
 
-    @Test
+@Test
     public void testLongArray_3_oe() {
         final long[] array = new long[]{1, 2, -3, 4};
 
@@ -881,7 +881,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testLongArray_4_oe() {
         final long[] array = new long[]{1, 2, -3, 4};
 
@@ -895,7 +895,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((long[]) null).toString());
     }
 
-    @Test
+@Test
     public void testLongArray_5_oe() {
         final long[] array = new long[]{1, 2, -3, 4};
 
@@ -911,7 +911,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testIntArray_1_oe() {
         final int[] array = new int[]{1, 2, -3, 4};
 
@@ -919,7 +919,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows(UnsupportedOperationException.class, () -> toStringBuilder.append(array).toString());
     }
 
-    @Test
+@Test
     public void testIntArray_2_oe() {
         final int[] array = new int[]{1, 2, -3, 4};
 
@@ -929,7 +929,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"intArray\":[1,2,-3,4]}", toStringBuilder.append("intArray", array) .toString());
     }
 
-    @Test
+@Test
     public void testIntArray_3_oe() {
         final int[] array = new int[]{1, 2, -3, 4};
 
@@ -941,7 +941,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testIntArray_4_oe() {
         final int[] array = new int[]{1, 2, -3, 4};
 
@@ -955,7 +955,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((long[]) null).toString());
     }
 
-    @Test
+@Test
     public void testIntArray_5_oe() {
         final int[] array = new int[]{1, 2, -3, 4};
 
@@ -971,7 +971,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testByteArray_1_oe() {
         final byte[] array = new byte[]{1, 2, -3, 4};
 
@@ -979,7 +979,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows(UnsupportedOperationException.class, () -> toStringBuilder.append(array).toString());
     }
 
-    @Test
+@Test
     public void testByteArray_2_oe() {
         final byte[] array = new byte[]{1, 2, -3, 4};
 
@@ -989,7 +989,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"byteArray\":[1,2,-3,4]}", toStringBuilder.append("byteArray", array) .toString());
     }
 
-    @Test
+@Test
     public void testByteArray_3_oe() {
         final byte[] array = new byte[]{1, 2, -3, 4};
 
@@ -1001,7 +1001,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testByteArray_4_oe() {
         final byte[] array = new byte[]{1, 2, -3, 4};
 
@@ -1015,7 +1015,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((long[]) null).toString());
     }
 
-    @Test
+@Test
     public void testByteArray_5_oe() {
         final byte[] array = new byte[]{1, 2, -3, 4};
 
@@ -1031,7 +1031,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testShortArray_1_oe() {
         final short[] array = new short[]{1, 2, -3, 4};
 
@@ -1039,7 +1039,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows(UnsupportedOperationException.class, () -> toStringBuilder.append(array).toString());
     }
 
-    @Test
+@Test
     public void testShortArray_2_oe() {
         final short[] array = new short[]{1, 2, -3, 4};
 
@@ -1049,7 +1049,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"shortArray\":[1,2,-3,4]}", toStringBuilder.append("shortArray", array) .toString());
     }
 
-    @Test
+@Test
     public void testShortArray_3_oe() {
         final short[] array = new short[]{1, 2, -3, 4};
 
@@ -1061,7 +1061,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testShortArray_4_oe() {
         final short[] array = new short[]{1, 2, -3, 4};
 
@@ -1075,7 +1075,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((long[]) null).toString());
     }
 
-    @Test
+@Test
     public void testShortArray_5_oe() {
         final short[] array = new short[]{1, 2, -3, 4};
 
@@ -1091,7 +1091,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testDoubleArray_1_oe() {
         final double[] array = new double[]{1, 2, -3, 4};
 
@@ -1099,7 +1099,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows(UnsupportedOperationException.class, () -> toStringBuilder.append(array).toString());
     }
 
-    @Test
+@Test
     public void testDoubleArray_2_oe() {
         final double[] array = new double[]{1, 2, -3, 4};
 
@@ -1109,7 +1109,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"doubleArray\":[1.0,2.0,-3.0,4.0]}", toStringBuilder.append("doubleArray", array) .toString());
     }
 
-    @Test
+@Test
     public void testDoubleArray_3_oe() {
         final double[] array = new double[]{1, 2, -3, 4};
 
@@ -1121,7 +1121,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testDoubleArray_4_oe() {
         final double[] array = new double[]{1, 2, -3, 4};
 
@@ -1135,7 +1135,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((long[]) null).toString());
     }
 
-    @Test
+@Test
     public void testDoubleArray_5_oe() {
         final double[] array = new double[]{1, 2, -3, 4};
 
@@ -1151,7 +1151,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testFloatArray_1_oe() {
         final float[] array = new float[]{1, 2, -3, 4};
 
@@ -1159,7 +1159,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows(UnsupportedOperationException.class, () -> toStringBuilder.append(array).toString());
     }
 
-    @Test
+@Test
     public void testFloatArray_2_oe() {
         final float[] array = new float[]{1, 2, -3, 4};
 
@@ -1169,7 +1169,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"floatArray\":[1.0,2.0,-3.0,4.0]}", toStringBuilder.append("floatArray", array) .toString());
     }
 
-    @Test
+@Test
     public void testFloatArray_3_oe() {
         final float[] array = new float[]{1, 2, -3, 4};
 
@@ -1181,7 +1181,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testFloatArray_4_oe() {
         final float[] array = new float[]{1, 2, -3, 4};
 
@@ -1195,7 +1195,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((long[]) null).toString());
     }
 
-    @Test
+@Test
     public void testFloatArray_5_oe() {
         final float[] array = new float[]{1, 2, -3, 4};
 
@@ -1211,7 +1211,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testCharArray_1_oe() {
         final char[] array = new char[]{'1', '2', '3', '4'};
 
@@ -1219,7 +1219,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows(UnsupportedOperationException.class, () -> toStringBuilder.append(array).toString());
     }
 
-    @Test
+@Test
     public void testCharArray_2_oe() {
         final char[] array = new char[]{'1', '2', '3', '4'};
 
@@ -1229,7 +1229,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"charArray\":[\"1\",\"2\",\"3\",\"4\"]}", toStringBuilder.append("charArray", array) .toString());
     }
 
-    @Test
+@Test
     public void testCharArray_3_oe() {
         final char[] array = new char[]{'1', '2', '3', '4'};
 
@@ -1241,7 +1241,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testCharArray_4_oe() {
         final char[] array = new char[]{'1', '2', '3', '4'};
 
@@ -1255,7 +1255,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((long[]) null).toString());
     }
 
-    @Test
+@Test
     public void testCharArray_5_oe() {
         final char[] array = new char[]{'1', '2', '3', '4'};
 
@@ -1271,7 +1271,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testBooleanArray_1_oe() {
         final boolean[] array = new boolean[]{true, false};
 
@@ -1279,7 +1279,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows(UnsupportedOperationException.class, () -> toStringBuilder.append(array).toString());
     }
 
-    @Test
+@Test
     public void testBooleanArray_2_oe() {
         final boolean[] array = new boolean[]{true, false};
 
@@ -1289,7 +1289,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"booleanArray\":[true,false]}", toStringBuilder.append("booleanArray", array) .toString());
     }
 
-    @Test
+@Test
     public void testBooleanArray_3_oe() {
         final boolean[] array = new boolean[]{true, false};
 
@@ -1301,7 +1301,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testBooleanArray_4_oe() {
         final boolean[] array = new boolean[]{true, false};
 
@@ -1315,7 +1315,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((long[]) null).toString());
     }
 
-    @Test
+@Test
     public void testBooleanArray_5_oe() {
         final boolean[] array = new boolean[]{true, false};
 
@@ -1331,7 +1331,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testLongArrayArray_1_oe() {
         final long[][] array = new long[][]{{1, 2}, null, {5}};
 
@@ -1339,7 +1339,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows(UnsupportedOperationException.class, () -> toStringBuilder.append(array).toString());
     }
 
-    @Test
+@Test
     public void testLongArrayArray_2_oe() {
         final long[][] array = new long[][]{{1, 2}, null, {5}};
 
@@ -1349,7 +1349,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testLongArrayArray_3_oe() {
         final long[][] array = new long[][]{{1, 2}, null, {5}};
 
@@ -1361,7 +1361,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((long[][]) null).toString());
     }
 
-    @Test
+@Test
     public void testLongArrayArray_4_oe() {
         final long[][] array = new long[][]{{1, 2}, null, {5}};
 
@@ -1375,7 +1375,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertThrows( UnsupportedOperationException.class, () -> toStringBuilder.append((Object) array).toString());
     }
 
-    @Test
+@Test
     public void testArray_1_oe() {
         final Person p = new Person();
         p.name = "Jane Doe";
@@ -1385,25 +1385,25 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals( "{\"name\":\"Jane Doe\",\"age\":25,\"smoker\":true,\"groups\":['admin', 'manager', 'user']}", new ToStringBuilder(p).append("name", p.name) .append("age", p.age).append("smoker", p.smoker) .append("groups", new Object() { @Override public String toString() { return "['admin', 'manager', 'user']"; } }) .toString());
     }
 
-    @Test
+@Test
     public void testLANG1395_1_oe() {
         assertEquals("{\"name\":\"value\"}", new ToStringBuilder(base).append("name", "value").toString());
     }
 
-    @Test
+@Test
     public void testLANG1395_2_oe() {
         // removed other assertion
         assertEquals("{\"name\":\"\"}", new ToStringBuilder(base).append("name", "").toString());
     }
 
-    @Test
+@Test
     public void testLANG1395_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("{\"name\":\"\\\"\"}", new ToStringBuilder(base).append("name", '"').toString());
     }
 
-    @Test
+@Test
     public void testLANG1395_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1411,7 +1411,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"name\":\"\\\\\"}", new ToStringBuilder(base).append("name", '\\').toString());
     }
 
-    @Test
+@Test
     public void testLANG1395_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1420,12 +1420,12 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"name\":\"Let's \\\"quote\\\" this\"}", new ToStringBuilder(base).append("name", "Let's \"quote\" this").toString());
     }
 
-    @Test
+@Test
     public void testLANG1396_1_oe() {
         assertEquals("{\"Let's \\\"quote\\\" this\":\"value\"}", new ToStringBuilder(base).append("Let's \"quote\" this", "value").toString());
     }
 
-    @Test
+@Test
     public void testRootMap_1_oe() {
         final Map<String, Object> map = new LinkedHashMap<>();
         map.put("k1", "v1");
@@ -1434,7 +1434,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"map\":{\"k1\":\"v1\",\"k2\":2}}", new ToStringBuilder(base).append("map", map).toString());
     }
 
-    @Test
+@Test
     public void testObjectWithInnerMap_1_oe() {
         final Map<String, Object> map = new LinkedHashMap<>();
         map.put("k1", "value1");
@@ -1453,7 +1453,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"object\":{\"pid\":\"dummy-text\",\"map\":{\"k1\":\"value1\",\"k2\":2}}}", new ToStringBuilder(base).append("object", object).toString());
     }
 
-    @Test
+@Test
     public void testNestedMaps_1_oe() {
         final Map<String, Object> innerMap = new LinkedHashMap<>();
         innerMap.put("k2.1", "v2.1");
@@ -1475,7 +1475,7 @@ public class JsonToStringStyleTest_OE25Dev {
         assertEquals("{\"object\":{\"pid\":\"dummy-text\",\"map\":{\"k1\":\"v1\"," + "\"k2\":{\"k2.1\":\"v2.1\",\"k2.2\":\"v2.2\"}}}}", new ToStringBuilder(base).append("object", object).toString());
     }
 
-    @Test
+@Test
     public void testMapSkipNullKey_1_oe() {
         final Map<String, Object> map = new LinkedHashMap<>();
         map.put("k1", "v1");

@@ -35,14 +35,14 @@ public class VerifierArrayAccessTestCase_OE25Dev extends AbstractVerifierTestCas
     }
 
 
-        public void testValidArrayAccess_2_oe_1_oe() throws IOException {
+public void testValidArrayAccess_2_oe_1_oe() throws IOException {
         final String classname = "TestArrayAccess01";
         final String message = "Verification of an arraystore instruction on an array that is not compatible with the stored element must pass.";
         final String testClassname = TEST_PACKAGE + classname;
          assertTrue(message, doAllPasses(testClassname));
         }
 
-        public void testValidArrayAccess_2_oe_2_oe() throws IOException {
+public void testValidArrayAccess_2_oe_2_oe() throws IOException {
         final String classname = "TestArrayAccess01";
         final String message = "Verification of an arraystore instruction on an array that is not compatible with the stored element must pass.";
         final String testClassname = TEST_PACKAGE + classname;

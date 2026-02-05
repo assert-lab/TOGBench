@@ -66,7 +66,7 @@ class ParallelepipedTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testUnitCube_1_oe() {
         // act
         final Parallelepiped p = Parallelepiped.unitCube(TEST_PRECISION);
@@ -75,7 +75,7 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertEquals(1, p.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testUnitCube_2_oe() {
         // act
         final Parallelepiped p = Parallelepiped.unitCube(TEST_PRECISION);
@@ -85,7 +85,7 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertEquals(6, p.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testUnitCube_4_oe() {
         // act
         final Parallelepiped p = Parallelepiped.unitCube(TEST_PRECISION);
@@ -99,7 +99,7 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertEquals(6, boundaries.size());
     }
 
-    @Test
+@Test
     void testFromTransformedUnitCube_1_oe() {
         // arrange
         final AffineTransformMatrix3D t = AffineTransformMatrix3D.createTranslation(Vector3D.of(1, 0, 2))
@@ -116,7 +116,7 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertEquals(2, p.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromTransformedUnitCube_2_oe() {
         // arrange
         final AffineTransformMatrix3D t = AffineTransformMatrix3D.createTranslation(Vector3D.of(1, 0, 2))
@@ -134,7 +134,7 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertEquals(4 + (4 * Math.sqrt(2.5)), p.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromTransformedUnitCube_transformDoesNotPreserveOrientation_1_oe() {
         // arrange
         final AffineTransformMatrix3D t = AffineTransformMatrix3D.createTranslation(Vector3D.of(1, 0, 2))
@@ -151,7 +151,7 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertEquals(2, p.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromTransformedUnitCube_transformDoesNotPreserveOrientation_2_oe() {
         // arrange
         final AffineTransformMatrix3D t = AffineTransformMatrix3D.createTranslation(Vector3D.of(1, 0, 2))
@@ -169,20 +169,20 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertEquals(4 + (4 * Math.sqrt(2.5)), p.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFromTransformedUnitCube_zeroSizeRegion_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.fromTransformedUnitCube(AffineTransformMatrix3D.createScale(Vector3D.of(1e-16, 1, 1)), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFromTransformedUnitCube_zeroSizeRegion_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.fromTransformedUnitCube(AffineTransformMatrix3D.createScale(Vector3D.of(1, 1e-16, 1)), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testFromTransformedUnitCube_zeroSizeRegion_3_oe() {
         // act/assert
         // removed other assertion
@@ -190,7 +190,7 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.fromTransformedUnitCube(AffineTransformMatrix3D.createScale(Vector3D.of(1, 1, 1e-16)), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testAxisAligned_minFirst_1_oe() {
         // act
         final Parallelepiped p = Parallelepiped.axisAligned(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
@@ -200,7 +200,7 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertEquals(6, boundaries.size());
     }
 
-    @Test
+@Test
     void testAxisAligned_maxFirst_1_oe() {
         // act
         final Parallelepiped p = Parallelepiped.axisAligned(Vector3D.of(4, 5, 6), Vector3D.of(1, 2, 3), TEST_PRECISION);
@@ -210,20 +210,20 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertEquals(6, boundaries.size());
     }
 
-    @Test
+@Test
     void testAxisAligned_illegalArgs_1_oe() {
         // act/assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.axisAligned(Vector3D.of(1, 2, 3), Vector3D.of(1, 5, 6), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testAxisAligned_illegalArgs_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.axisAligned(Vector3D.of(1, 2, 3), Vector3D.of(4, 2, 6), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testAxisAligned_illegalArgs_3_oe() {
         // act/assert
         // removed other assertion
@@ -231,7 +231,7 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.axisAligned(Vector3D.of(1, 2, 3), Vector3D.of(1, 5, 3), TEST_PRECISION));
     }
 
-    @Test
+@Test
     void testBuilder_defaultValues_1_oe() {
         // arrange
         final Parallelepiped.Builder builder = Parallelepiped.builder(TEST_PRECISION);
@@ -243,7 +243,7 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertEquals(1, p.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBuilder_defaultValues_2_oe() {
         // arrange
         final Parallelepiped.Builder builder = Parallelepiped.builder(TEST_PRECISION);
@@ -256,7 +256,7 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertEquals(6, p.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBuilder_defaultValues_4_oe() {
         // arrange
         final Parallelepiped.Builder builder = Parallelepiped.builder(TEST_PRECISION);
@@ -273,7 +273,7 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertEquals(6, boundaries.size());
     }
 
-    @Test
+@Test
     void testBuilder_withRotation_1_oe() {
         // arrange
         final Parallelepiped.Builder builder = Parallelepiped.builder(TEST_PRECISION);
@@ -289,7 +289,7 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertEquals(6, p.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBuilder_withRotation_2_oe() {
         // arrange
         final Parallelepiped.Builder builder = Parallelepiped.builder(TEST_PRECISION);
@@ -306,7 +306,7 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertEquals(22, p.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBuilder_withUniformScale_1_oe() {
         // arrange
         final Parallelepiped.Builder builder = Parallelepiped.builder(TEST_PRECISION);
@@ -320,7 +320,7 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertEquals(0.125, p.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testBuilder_withUniformScale_2_oe() {
         // arrange
         final Parallelepiped.Builder builder = Parallelepiped.builder(TEST_PRECISION);
@@ -335,7 +335,7 @@ class ParallelepipedTest_OE25Dev {
         Assertions.assertEquals(1.5, p.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToTree_1_oe() {
         // arrange
         final Parallelepiped p = Parallelepiped.axisAligned(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);

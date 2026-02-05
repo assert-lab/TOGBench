@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Test;
  **/
 public class JpegInputStreamTest_OE25Dev {
 
-  @Test
+@Test
   public void testNextBitThrowsImageReadExceptionOne_1_oe() {
     final int[] byteArray = new int[6];
     byteArray[0] = (byte) (-1);
@@ -36,7 +36,7 @@ public class JpegInputStreamTest_OE25Dev {
     Assertions.assertThrows(ImageReadException.class, jpegInputStream::nextBit);
   }
 
-  @Test
+@Test
   public void testNextBitThrowsImageReadExceptionTwo_1_oe() {
     final int[] byteArray = new int[0];
     final JpegInputStream jpegInputStream = new JpegInputStream(byteArray);

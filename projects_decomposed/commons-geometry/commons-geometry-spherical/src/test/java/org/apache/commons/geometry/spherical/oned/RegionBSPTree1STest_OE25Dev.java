@@ -245,7 +245,7 @@ class RegionBSPTree1STest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testConstructor_default_1_oe() {
         // act
         final RegionBSPTree1S tree = new RegionBSPTree1S();
@@ -254,7 +254,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testConstructor_default_2_oe() {
         // act
         final RegionBSPTree1S tree = new RegionBSPTree1S();
@@ -264,7 +264,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testConstructor_default_3_oe() {
         // act
         final RegionBSPTree1S tree = new RegionBSPTree1S();
@@ -276,7 +276,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testConstructor_default_4_oe() {
         // act
         final RegionBSPTree1S tree = new RegionBSPTree1S();
@@ -289,7 +289,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testConstructor_default_5_oe() {
         // act
         final RegionBSPTree1S tree = new RegionBSPTree1S();
@@ -303,7 +303,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(tree.getCentroid());
     }
 
-    @Test
+@Test
     void testConstructor_true_1_oe() {
         // act
         final RegionBSPTree1S tree = new RegionBSPTree1S(true);
@@ -312,7 +312,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testConstructor_true_2_oe() {
         // act
         final RegionBSPTree1S tree = new RegionBSPTree1S(true);
@@ -322,7 +322,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testConstructor_true_3_oe() {
         // act
         final RegionBSPTree1S tree = new RegionBSPTree1S(true);
@@ -334,7 +334,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(Angle.TWO_PI, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testConstructor_true_4_oe() {
         // act
         final RegionBSPTree1S tree = new RegionBSPTree1S(true);
@@ -347,7 +347,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testConstructor_true_5_oe() {
         // act
         final RegionBSPTree1S tree = new RegionBSPTree1S(true);
@@ -361,7 +361,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(tree.getCentroid());
     }
 
-    @Test
+@Test
     void testConstructor_false_1_oe() {
         // act
         final RegionBSPTree1S tree = new RegionBSPTree1S(false);
@@ -370,7 +370,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testConstructor_false_2_oe() {
         // act
         final RegionBSPTree1S tree = new RegionBSPTree1S(false);
@@ -380,7 +380,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testConstructor_false_3_oe() {
         // act
         final RegionBSPTree1S tree = new RegionBSPTree1S(false);
@@ -392,7 +392,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testConstructor_false_4_oe() {
         // act
         final RegionBSPTree1S tree = new RegionBSPTree1S(false);
@@ -405,7 +405,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testConstructor_false_5_oe() {
         // act
         final RegionBSPTree1S tree = new RegionBSPTree1S(false);
@@ -419,7 +419,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(tree.getCentroid());
     }
 
-    @Test
+@Test
     void testFull_1_oe() {
         // act
         final RegionBSPTree1S tree = RegionBSPTree1S.full();
@@ -428,7 +428,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testFull_2_oe() {
         // act
         final RegionBSPTree1S tree = RegionBSPTree1S.full();
@@ -438,7 +438,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testFull_3_oe() {
         // act
         final RegionBSPTree1S tree = RegionBSPTree1S.full();
@@ -450,7 +450,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(Angle.TWO_PI, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFull_4_oe() {
         // act
         final RegionBSPTree1S tree = RegionBSPTree1S.full();
@@ -463,7 +463,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testFull_5_oe() {
         // act
         final RegionBSPTree1S tree = RegionBSPTree1S.full();
@@ -477,7 +477,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(tree.getCentroid());
     }
 
-    @Test
+@Test
     void testEmpty_1_oe() {
         // act
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -486,7 +486,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testEmpty_2_oe() {
         // act
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -496,7 +496,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testEmpty_3_oe() {
         // act
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -508,7 +508,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testEmpty_4_oe() {
         // act
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -521,7 +521,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testEmpty_5_oe() {
         // act
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -535,7 +535,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(tree.getCentroid());
     }
 
-    @Test
+@Test
     void testCopy_1_oe() {
         // arrange
         final RegionBSPTree1S orig = RegionBSPTree1S.fromInterval(AngularInterval.of(0, Math.PI, TEST_PRECISION));
@@ -547,7 +547,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNotSame(orig, copy);
     }
 
-    @Test
+@Test
     void testFromInterval_full_1_oe() {
         // act
         final RegionBSPTree1S tree = RegionBSPTree1S.fromInterval(AngularInterval.full());
@@ -556,7 +556,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testFromInterval_nonFull_1_oe() {
         for (double theta = 0.0; theta <= Angle.TWO_PI; theta += 0.2) {
             // arrange
@@ -571,7 +571,7 @@ class RegionBSPTree1STest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testFromInterval_nonFull_2_oe() {
         for (double theta = 0.0; theta <= Angle.TWO_PI; theta += 0.2) {
             // arrange
@@ -587,7 +587,7 @@ class RegionBSPTree1STest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testFromInterval_nonFull_3_oe() {
         for (double theta = 0.0; theta <= Angle.TWO_PI; theta += 0.2) {
             // arrange
@@ -604,7 +604,7 @@ class RegionBSPTree1STest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testToIntervals_full_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.full();
@@ -616,7 +616,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(1, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_full_2_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.full();
@@ -631,7 +631,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertTrue(interval.isFull());
     }
 
-    @Test
+@Test
     void testToIntervals_empty_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -643,7 +643,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_wrapAround_joinedIntervalsOnPositiveSide_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -657,7 +657,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(1, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_wrapAround_joinedIntervalsOnNegativeSide_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -671,7 +671,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(1, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_multipleIntervals_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -686,7 +686,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(2, intervals.size());
     }
 
-    @Test
+@Test
     void testToIntervals_multipleIntervals_complement_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -703,7 +703,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(2, intervals.size());
     }
 
-    @Test
+@Test
     void testSplit_empty_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -712,7 +712,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER,tree.split(CutAngles.createPositiveFacing(0,TEST_PRECISION)).getLocation());
     }
 
-    @Test
+@Test
     void testSplit_empty_2_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -722,7 +722,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER,tree.split(CutAngles.createNegativeFacing(Angle.PI_OVER_TWO,TEST_PRECISION)).getLocation());
     }
 
-    @Test
+@Test
     void testSplit_empty_3_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -733,7 +733,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER,tree.split(CutAngles.createPositiveFacing(Math.PI,TEST_PRECISION)).getLocation());
     }
 
-    @Test
+@Test
     void testSplit_empty_4_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -745,7 +745,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER,tree.split(CutAngles.createNegativeFacing(-Angle.PI_OVER_TWO,TEST_PRECISION)).getLocation());
     }
 
-    @Test
+@Test
     void testSplit_empty_5_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -758,7 +758,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER,tree.split(CutAngles.createPositiveFacing(Angle.TWO_PI,TEST_PRECISION)).getLocation());
     }
 
-    @Test
+@Test
     void testSplit_singleIntervalSplitIntoTwoIntervalsOnSameSide_1_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(-Angle.PI_OVER_TWO, Angle.PI_OVER_TWO, TEST_PRECISION).toTree();
@@ -772,7 +772,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_singleIntervalSplitIntoTwoIntervalsOnSameSide_2_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(-Angle.PI_OVER_TWO, Angle.PI_OVER_TWO, TEST_PRECISION).toTree();
@@ -789,7 +789,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(minus);
     }
 
-    @Test
+@Test
     void testSplit_singleIntervalSplitIntoTwoIntervalsOnSameSide_3_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(-Angle.PI_OVER_TWO, Angle.PI_OVER_TWO, TEST_PRECISION).toTree();
@@ -810,7 +810,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(1, plusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplit_multipleRegions_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -826,7 +826,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_multipleRegions_2_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -846,7 +846,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(3, minusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplit_multipleRegions_3_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -873,7 +873,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(1, plusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplitDiameter_full_1_oe() {
         // arrange
         final RegionBSPTree1S full = RegionBSPTree1S.full();
@@ -886,7 +886,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_full_2_oe() {
         // arrange
         final RegionBSPTree1S full = RegionBSPTree1S.full();
@@ -903,7 +903,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(1, minusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplitDiameter_full_3_oe() {
         // arrange
         final RegionBSPTree1S full = RegionBSPTree1S.full();
@@ -925,7 +925,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(1, plusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplitDiameter_empty_1_oe() {
         // arrange
         final RegionBSPTree1S empty = RegionBSPTree1S.empty();
@@ -938,7 +938,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_empty_2_oe() {
         // arrange
         final RegionBSPTree1S empty = RegionBSPTree1S.empty();
@@ -954,7 +954,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(minus);
     }
 
-    @Test
+@Test
     void testSplitDiameter_empty_3_oe() {
         // arrange
         final RegionBSPTree1S empty = RegionBSPTree1S.empty();
@@ -973,7 +973,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(plus);
     }
 
-    @Test
+@Test
     void testSplitDiameter_minus_zeroOnMinusSide_1_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(0, 1, TEST_PRECISION).toTree();
@@ -986,7 +986,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_minus_zeroOnMinusSide_2_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(0, 1, TEST_PRECISION).toTree();
@@ -1003,7 +1003,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(1, minusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplitDiameter_minus_zeroOnMinusSide_3_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(0, 1, TEST_PRECISION).toTree();
@@ -1024,7 +1024,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(plus);
     }
 
-    @Test
+@Test
     void testSplitDiameter_minus_zeroOnPlusSide_1_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(1, 2, TEST_PRECISION).toTree();
@@ -1037,7 +1037,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_minus_zeroOnPlusSide_2_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(1, 2, TEST_PRECISION).toTree();
@@ -1054,7 +1054,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(1, minusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplitDiameter_minus_zeroOnPlusSide_3_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(1, 2, TEST_PRECISION).toTree();
@@ -1075,7 +1075,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(plus);
     }
 
-    @Test
+@Test
     void testSplitDiameter_plus_zeroOnMinusSide_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1091,7 +1091,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_plus_zeroOnMinusSide_2_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1110,7 +1110,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(minus);
     }
 
-    @Test
+@Test
     void testSplitDiameter_plus_zeroOnMinusSide_3_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1133,7 +1133,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(2, plusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplitDiameter_plus_zeroOnPlusSide_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1149,7 +1149,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_plus_zeroOnPlusSide_2_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1168,7 +1168,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(minus);
     }
 
-    @Test
+@Test
     void testSplitDiameter_plus_zeroOnPlusSide_3_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1191,7 +1191,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(2, plusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplitDiameter_both_zeroOnMinusSide_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1207,7 +1207,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_both_zeroOnMinusSide_2_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1227,7 +1227,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(2, plusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplitDiameter_both_zeroOnMinusSide_3_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1253,7 +1253,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(1, minusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplitDiameter_both_zeroOnPlusSide_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1269,7 +1269,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplitDiameter_both_zeroOnPlusSide_2_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1289,7 +1289,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(1, minusIntervals.size());
     }
 
-    @Test
+@Test
     void testSplitDiameter_both_zeroOnPlusSide_3_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1314,7 +1314,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(2, plusIntervals.size());
     }
 
-    @Test
+@Test
     void testRegionProperties_singleInterval_wrapsZero_1_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(-Angle.PI_OVER_TWO, Math.PI,
@@ -1324,7 +1324,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(1.5 * Math.PI, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionProperties_singleInterval_wrapsZero_2_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(-Angle.PI_OVER_TWO, Math.PI,
@@ -1335,7 +1335,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionProperties_singleInterval_wrapsZero_3_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(-Angle.PI_OVER_TWO, Math.PI,
@@ -1347,7 +1347,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0.25 * Math.PI, tree.getCentroid().getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionProperties_singleInterval_doesNotWrap_1_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(Angle.PI_OVER_TWO, Angle.TWO_PI,
@@ -1357,7 +1357,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(1.5 * Math.PI, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionProperties_singleInterval_doesNotWrap_2_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(Angle.PI_OVER_TWO, Angle.TWO_PI,
@@ -1368,7 +1368,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionProperties_singleInterval_doesNotWrap_3_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(Angle.PI_OVER_TWO, Angle.TWO_PI,
@@ -1380,7 +1380,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(1.25 * Math.PI, tree.getCentroid().getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionProperties_multipleIntervals_sameSize_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1391,7 +1391,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0.2, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionProperties_multipleIntervals_sameSize_2_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1403,7 +1403,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionProperties_multipleIntervals_sameSize_3_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1416,7 +1416,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0.15, tree.getCentroid().getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionProperties_multipleIntervals_differentSizes_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1427,7 +1427,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0.6, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionProperties_multipleIntervals_differentSizes_2_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1439,7 +1439,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionProperties_multipleIntervals_differentSizes_3_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1455,7 +1455,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(Point1S.from(centroidVector).getAzimuth(), tree.getCentroid().getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionProperties_equalAndOppositeIntervals_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1466,7 +1466,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(4, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionProperties_equalAndOppositeIntervals_2_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1478,7 +1478,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundarySize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testRegionProperties_equalAndOppositeIntervals_3_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1491,7 +1491,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(tree.getCentroid()); // no unique centroid exists;
     }
 
-    @Test
+@Test
     void testTransform_fullAndEmpty_1_oe() {
         // arrange
         final RegionBSPTree1S full = RegionBSPTree1S.full();
@@ -1505,7 +1505,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertTrue(full.isFull());
     }
 
-    @Test
+@Test
     void testTransform_fullAndEmpty_2_oe() {
         // arrange
         final RegionBSPTree1S full = RegionBSPTree1S.full();
@@ -1520,7 +1520,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertFalse(full.isEmpty());
     }
 
-    @Test
+@Test
     void testTransform_fullAndEmpty_3_oe() {
         // arrange
         final RegionBSPTree1S full = RegionBSPTree1S.full();
@@ -1537,7 +1537,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertFalse(empty.isFull());
     }
 
-    @Test
+@Test
     void testTransform_fullAndEmpty_4_oe() {
         // arrange
         final RegionBSPTree1S full = RegionBSPTree1S.full();
@@ -1555,7 +1555,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertTrue(empty.isEmpty());
     }
 
-    @Test
+@Test
     void testTransform_halfPiPlusAz_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1569,7 +1569,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(3, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTransform_halfPiPlusAz_2_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1587,7 +1587,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(2, intervals.size());
     }
 
-    @Test
+@Test
     void testTransform_piMinusAz_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1601,7 +1601,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(3, tree.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testTransform_piMinusAz_2_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1619,7 +1619,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(2, intervals.size());
     }
 
-    @Test
+@Test
     void testProject_fullAndEmpty_1_oe() {
         // arrange
         final RegionBSPTree1S full = RegionBSPTree1S.full();
@@ -1629,7 +1629,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(full.project(Point1S.ZERO));
     }
 
-    @Test
+@Test
     void testProject_fullAndEmpty_2_oe() {
         // arrange
         final RegionBSPTree1S full = RegionBSPTree1S.full();
@@ -1640,7 +1640,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(full.project(Point1S.PI));
     }
 
-    @Test
+@Test
     void testProject_fullAndEmpty_3_oe() {
         // arrange
         final RegionBSPTree1S full = RegionBSPTree1S.full();
@@ -1653,7 +1653,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(empty.project(Point1S.ZERO));
     }
 
-    @Test
+@Test
     void testProject_fullAndEmpty_4_oe() {
         // arrange
         final RegionBSPTree1S full = RegionBSPTree1S.full();
@@ -1667,7 +1667,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertNull(empty.project(Point1S.PI));
     }
 
-    @Test
+@Test
     void testProject_withIntervals_1_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1678,7 +1678,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(-Angle.PI_OVER_TWO,tree.project(Point1S.of(-Angle.PI_OVER_TWO - 0.1)).getAzimuth(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_withIntervals_2_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1690,7 +1690,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(-Angle.PI_OVER_TWO,tree.project(Point1S.of(-Angle.PI_OVER_TWO)).getAzimuth(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_withIntervals_3_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1703,7 +1703,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(-Angle.PI_OVER_TWO,tree.project(Point1S.of(-Angle.PI_OVER_TWO + 0.1)).getAzimuth(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_withIntervals_4_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1718,7 +1718,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(-Angle.PI_OVER_TWO, tree.project(Point1S.of(-0.1)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_withIntervals_5_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1734,7 +1734,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, tree.project(Point1S.ZERO).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_withIntervals_6_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1751,7 +1751,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(Angle.PI_OVER_TWO, tree.project(Point1S.of(0.1)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_withIntervals_7_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1770,7 +1770,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(Math.PI - 1,tree.project(Point1S.of(Math.PI - 0.5)).getAzimuth(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_withIntervals_8_oe() {
         // arrange
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
@@ -1790,7 +1790,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(Math.PI + 1,tree.project(Point1S.of(Math.PI + 0.5)).getAzimuth(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_equidistant_1_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(1, 2, TEST_PRECISION).toTree();
@@ -1801,7 +1801,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(1, tree.project(Point1S.of(1.5)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_equidistant_2_oe() {
         // arrange
         final RegionBSPTree1S tree = AngularInterval.of(1, 2, TEST_PRECISION).toTree();
@@ -1813,7 +1813,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(1, treeComplement.project(Point1S.of(1.5)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMinSide_1_oe() {
         // arrange
         final double start = -1;
@@ -1824,7 +1824,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(end, tree.project(Point1S.of(-1.5 * Math.PI)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMinSide_2_oe() {
         // arrange
         final double start = -1;
@@ -1836,7 +1836,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(start, tree.project(Point1S.of(-Math.PI)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMinSide_3_oe() {
         // arrange
         final double start = -1;
@@ -1849,7 +1849,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(start, tree.project(Point1S.of(-0.5 * Math.PI)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMinSide_4_oe() {
         // arrange
         final double start = -1;
@@ -1863,7 +1863,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(start, tree.project(Point1S.of(-1)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMinSide_5_oe() {
         // arrange
         final double start = -1;
@@ -1878,7 +1878,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(start, tree.project(Point1S.of(-0.5)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMinSide_6_oe() {
         // arrange
         final double start = -1;
@@ -1894,7 +1894,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(end, tree.project(Point1S.of(-0.25)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMinSide_7_oe() {
         // arrange
         final double start = -1;
@@ -1911,7 +1911,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(end, tree.project(Point1S.of(-0.1)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMinSide_8_oe() {
         // arrange
         final double start = -1;
@@ -1929,7 +1929,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(end, tree.project(Point1S.ZERO).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMinSide_9_oe() {
         // arrange
         final double start = -1;
@@ -1948,7 +1948,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(end, tree.project(Point1S.of(0.1)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMinSide_10_oe() {
         // arrange
         final double start = -1;
@@ -1968,7 +1968,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(end, tree.project(Point1S.of(0.25)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMinSide_11_oe() {
         // arrange
         final double start = -1;
@@ -1989,7 +1989,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(end, tree.project(Point1S.of(0.5)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMinSide_12_oe() {
         // arrange
         final double start = -1;
@@ -2011,7 +2011,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(end, tree.project(Point1S.of(0.75)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMaxSide_1_oe() {
         // arrange
         final double start = -0.5;
@@ -2022,7 +2022,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(end, tree.project(Point1S.of(-1.5 * Math.PI)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMaxSide_2_oe() {
         // arrange
         final double start = -0.5;
@@ -2034,7 +2034,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(end, tree.project(Point1S.of(-Math.PI)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMaxSide_3_oe() {
         // arrange
         final double start = -0.5;
@@ -2047,7 +2047,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(start, tree.project(Point1S.of(-0.5 * Math.PI)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMaxSide_4_oe() {
         // arrange
         final double start = -0.5;
@@ -2061,7 +2061,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(start, tree.project(Point1S.of(-1)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMaxSide_5_oe() {
         // arrange
         final double start = -0.5;
@@ -2076,7 +2076,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(start, tree.project(Point1S.of(-0.5)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMaxSide_6_oe() {
         // arrange
         final double start = -0.5;
@@ -2092,7 +2092,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(start, tree.project(Point1S.of(-0.25)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMaxSide_7_oe() {
         // arrange
         final double start = -0.5;
@@ -2109,7 +2109,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(start, tree.project(Point1S.of(-0.1)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMaxSide_8_oe() {
         // arrange
         final double start = -0.5;
@@ -2127,7 +2127,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(start, tree.project(Point1S.ZERO).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMaxSide_9_oe() {
         // arrange
         final double start = -0.5;
@@ -2146,7 +2146,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(start, tree.project(Point1S.of(0.1)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMaxSide_10_oe() {
         // arrange
         final double start = -0.5;
@@ -2166,7 +2166,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(end, tree.project(Point1S.of(0.25)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMaxSide_11_oe() {
         // arrange
         final double start = -0.5;
@@ -2187,7 +2187,7 @@ class RegionBSPTree1STest_OE25Dev {
         Assertions.assertEquals(end, tree.project(Point1S.of(0.5)).getAzimuth(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProject_intervalAroundZero_closerOnMaxSide_12_oe() {
         // arrange
         final double start = -0.5;

@@ -146,26 +146,26 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
      * Tests whether all nodes with a specific prefix can be obtained.
      */
 
-    @Test
+@Test
     public void testIterateAllChildren_1_oe() {
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, false, null);
         assertEquals("Wrong number of elements", CHILD_COUNT, iteratorSize(it));
     }
 
-    @Test
+@Test
     public void testIterateReverse_1_oe() {
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, true, null);
         assertEquals("Wrong number of elements", CHILD_COUNT, iteratorSize(it));
     }
 
-    @Test
+@Test
     public void testIterateStartsWith_1_oe() {
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer, root.getChildren().get(2), handler);
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, false, childPointer);
         assertEquals("Wrong start position", 0, it.getPosition());
     }
 
-    @Test
+@Test
     public void testIterateStartsWith_2_oe() {
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer, root.getChildren().get(2), handler);
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, false, childPointer);
@@ -174,7 +174,7 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
         assertEquals("Wrong size of iteration", CHILD_COUNT - 3, nodes.size());
     }
 
-    @Test
+@Test
     public void testIterateStartsWithInvalid_1_oe() {
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer,
             new ImmutableNode.Builder().name("newNode").create(), handler);
@@ -182,7 +182,7 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
         assertEquals("Wrong size of iteration", CHILD_COUNT, iteratorSize(it));
     }
 
-    @Test
+@Test
     public void testIterateStartsWithInvalid_2_oe() {
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer,
             new ImmutableNode.Builder().name("newNode").create(), handler);
@@ -193,7 +193,7 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
         assertEquals("Wrong start node", "1", node.getValue());
     }
 
-    @Test
+@Test
     public void testIterateStartsWithReverse_1_oe() {
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer, root.getChildren().get(3), handler);
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, true, childPointer);
@@ -204,7 +204,7 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
     }
     }
 
-    @Test
+@Test
     public void testIterateStartsWithReverse_2_oe() {
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer, root.getChildren().get(3), handler);
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, true, childPointer);
@@ -216,14 +216,14 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
         assertEquals("Iteration ended not at end node", 0, value);
     }
 
-    @Test
+@Test
     public void testIterateWithMatchingPrefixTest_1_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(PREFIX, PREFIX_NODE));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(createPointerWithNamespace(), test, false, null);
         assertEquals("Wrong number of elements", 1, iteratorSize(it));
     }
 
-    @Test
+@Test
     public void testIterateWithMatchingPrefixTest_2_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(PREFIX, PREFIX_NODE));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(createPointerWithNamespace(), test, false, null);
@@ -233,14 +233,14 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
     }
     }
 
-    @Test
+@Test
     public void testIterateWithNameTest_1_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(null, CHILD_NAME2));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
         assertTrue("No children found", iteratorSize(it) > 0);
     }
 
-    @Test
+@Test
     public void testIterateWithNameTest_2_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(null, CHILD_NAME2));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
@@ -250,21 +250,21 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
     }
     }
 
-    @Test
+@Test
     public void testIterateWithNodeType_1_oe() {
         final NodeTypeTest test = new NodeTypeTest(Compiler.NODE_TYPE_NODE);
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
         assertEquals("Node type not evaluated", CHILD_COUNT, iteratorSize(it));
     }
 
-    @Test
+@Test
     public void testIterateWithPrefixTest_1_oe() {
         final NodeNameTest test = new NodeNameTest(new QName("prefix", "*"));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
         assertNull("Undefined node pointer not returned", it.getNodePointer());
     }
 
-    @Test
+@Test
     public void testIterateWithPrefixTest_2_oe() {
         final NodeNameTest test = new NodeNameTest(new QName("prefix", "*"));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
@@ -272,35 +272,35 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
         assertEquals("Prefix was not evaluated", 0, iteratorSize(it));
     }
 
-    @Test
+@Test
     public void testIterateWithUnknownTest_1_oe() {
         final NodeTest test = new ProcessingInstructionTest("test");
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
         assertEquals("Unknown test was not evaluated", 0, iteratorSize(it));
     }
 
-    @Test
+@Test
     public void testIterateWithUnknownType_1_oe() {
         final NodeTypeTest test = new NodeTypeTest(Compiler.NODE_TYPE_COMMENT);
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
         assertEquals("Unknown node type not evaluated", 0, iteratorSize(it));
     }
 
-    @Test
+@Test
     public void testIterateWithWildcardTest_1_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(null, "*"));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
         assertEquals("Wrong number of elements", CHILD_COUNT, iteratorSize(it));
     }
 
-    @Test
+@Test
     public void testIterateWithWildcardTestPrefix_1_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(PREFIX, "*"));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(createPointerWithNamespace(), test, false, null);
         assertEquals("Wrong number of elements", 1, iteratorSize(it));
     }
 
-    @Test
+@Test
     public void testIterateWithWildcardTestPrefix_2_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(PREFIX, "*"));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(createPointerWithNamespace(), test, false, null);

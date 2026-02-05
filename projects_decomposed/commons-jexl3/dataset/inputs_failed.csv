@@ -5563,3 +5563,177 @@ jexl_594_1,"    @Test
     }
     }
 ",MiscIntrospectionTest::testArrayListWrapper_1_oe
+jexl_132_1,"@Test
+    public void testSimpleWhileFalse_1_oe() throws Exception {
+        JexlScript e = JEXL.createScript("" while (false)"");
+        final JexlContext jc = new MapContext();
+
+        Object o = e.execute(jc);
+        Assert.assertNull(""Result is not null"", o);
+    }",DoWhileTest::testSimpleWhileFalse_1_oe
+jexl_132_2,"@Test
+    public void testSimpleWhileFalse_2_oe() throws Exception {
+        JexlScript e = JEXL.createScript(""  while (false); 23"");
+        o = e.execute(jc);
+        Assert.assertEquals(23, o);
+    }",DoWhileTest::testSimpleWhileFalse_2_oe
+jexl_133_1,"@Test
+    public void testWhileExecutesExpressionWhenLooping_1_oe() throws Exception {
+        JexlScript e = JEXL.createScript(""do x = x + 1 while (x < 10)"");
+        final JexlContext jc = new MapContext();
+        jc.set(""x"", 1);
+
+        Object o = e.execute(jc);
+        Assert.assertEquals(10, o);
+    }",DoWhileTest::testWhileExecutesExpressionWhenLooping_1_oe
+jexl_133_2,"@Test
+    public void testWhileExecutesExpressionWhenLooping_2_oe() throws Exception {
+        JexlScript e = JEXL.createScript(""do x = x + 1 while (x < 10)"");
+        final JexlContext jc = new MapContext();
+        jc.set(""x"", 1);
+
+        Object o = e.execute(jc);
+        // removed other assertion
+        Assert.assertEquals(10, jc.get(""x""));
+    }",DoWhileTest::testWhileExecutesExpressionWhenLooping_2_oe
+jexl_133_3,"@Test
+    public void testWhileExecutesExpressionWhenLooping_3_oe() throws Exception {
+        JexlScript e = JEXL.createScript(""do x = x + 1 while (x < 10)"");
+        final JexlContext jc = new MapContext();
+        jc.set(""x"", 1);
+
+        Object o = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
+
+        e = JEXL.createScript(""var x = 0; do x += 1; while (x < 23)"");
+        o = e.execute(jc);
+        Assert.assertEquals(23, o);
+    }",DoWhileTest::testWhileExecutesExpressionWhenLooping_3_oe
+jexl_133_4,"@Test
+    public void testWhileExecutesExpressionWhenLooping_4_oe() throws Exception {
+        JexlScript e = JEXL.createScript(""do x = x + 1 while (x < 10)"");
+        final JexlContext jc = new MapContext();
+        jc.set(""x"", 1);
+
+        Object o = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
+
+        e = JEXL.createScript(""var x = 0; do x += 1; while (x < 23)"");
+        o = e.execute(jc);
+        // removed other assertion
+
+
+        jc.set(""x"", 1);
+        e = JEXL.createScript(""do x += 1; while (x < 23); return 42;"");
+        o = e.execute(jc);
+        Assert.assertEquals(23, jc.get(""x""));
+    }",DoWhileTest::testWhileExecutesExpressionWhenLooping_4_oe
+jexl_133_5,"@Test
+    public void testWhileExecutesExpressionWhenLooping_5_oe() throws Exception {
+        JexlScript e = JEXL.createScript(""do x = x + 1 while (x < 10)"");
+        final JexlContext jc = new MapContext();
+        jc.set(""x"", 1);
+
+        Object o = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
+
+        e = JEXL.createScript(""var x = 0; do x += 1; while (x < 23)"");
+        o = e.execute(jc);
+        // removed other assertion
+
+
+        jc.set(""x"", 1);
+        e = JEXL.createScript(""do x += 1; while (x < 23); return 42;"");
+        o = e.execute(jc);
+        // removed other assertion
+        Assert.assertEquals(42, o);
+    }",DoWhileTest::testWhileExecutesExpressionWhenLooping_5_oe
+jexl_134_1,"@Test
+    public void testWhileWithBlock_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""do { x = x + 1; y = y * 2; } while (x < 10)"");
+        final JexlContext jc = new MapContext();
+        jc.set(""x"", new Integer(1));
+        jc.set(""y"", new Integer(1));
+
+        final Object o = e.execute(jc);
+        Assert.assertEquals(""Result is wrong"", new Integer(512), o);
+    }",DoWhileTest::testWhileWithBlock_1_oe
+jexl_134_2,"@Test
+    public void testWhileWithBlock_2_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""do { x = x + 1; y = y * 2; } while (x < 10)"");
+        final JexlContext jc = new MapContext();
+        jc.set(""x"", new Integer(1));
+        jc.set(""y"", new Integer(1));
+
+        final Object o = e.execute(jc);
+        // removed other assertion
+        Assert.assertEquals(""x is wrong"", new Integer(10), jc.get(""x""));
+    }",DoWhileTest::testWhileWithBlock_2_oe
+jexl_134_3,"@Test
+    public void testWhileWithBlock_3_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""do { x = x + 1; y = y * 2; } while (x < 10)"");
+        final JexlContext jc = new MapContext();
+        jc.set(""x"", new Integer(1));
+        jc.set(""y"", new Integer(1));
+
+        final Object o = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(""y is wrong"", new Integer(512), jc.get(""y""));
+    }",DoWhileTest::testWhileWithBlock_3_oe
+jexl_135_2,"@Test
+    public void testForEachBreakInsideFunction_2_oe() throws Exception {
+        try {
+            final JexlScript e = JEXL.createScript(""for (i : 1..2) {  y = function() { break; } }"");
+            // removed other assertion
+        } catch (final JexlException.Parsing xparse) {
+            final String str = xparse.detailedMessage();
+            Assert.assertTrue(str.contains(""break""));
+    }
+    }",DoWhileTest::testForEachBreakInsideFunction_2_oe
+jexl_136_2,"@Test
+    public void testForEachContinueInsideFunction_2_oe() throws Exception {
+        try {
+            final JexlScript e = JEXL.createScript(""for (i : 1..2) {  y = function() { continue; } }"");
+            // removed other assertion
+        } catch (final JexlException.Parsing xparse) {
+            final String str = xparse.detailedMessage();
+            Assert.assertTrue(str.contains(""continue""));
+    }
+    }",DoWhileTest::testForEachContinueInsideFunction_2_oe
+jexl_137_1,"@Test
+    public void testForEachLambda_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""(x)->{ for (i : 1..2) {  continue; var y = function() { 42; } break; } }"");
+        Assert.assertNotNull(e);
+    }",DoWhileTest::testForEachLambda_1_oe
+jexl_138_1,"@Test
+    public void testEmptyBody_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""var i = 0; do ; while((i+=1) < 10); i"");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals(10, o);
+    }",DoWhileTest::testEmptyBody_1_oe
+jexl_139_1,"@Test
+    public void testEmptyStmtBody_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""var i = 0;  while((i+=1) < 10); i"");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals(10, o);
+    }",DoWhileTest::testEmptyStmtBody_1_oe
+jexl_140_1,"@Test
+    public void testWhileEmptyBody_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""var i = 0; while((i+=1) < 10); i"");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals(10, o);
+    }",DoWhileTest::testWhileEmptyBody_1_oe
+jexl_141_1,"@Test
+    public void testWhileEmptyStmtBody_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""var i = 0; ; i"");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals(10, o);
+    }",DoWhileTest::testWhileEmptyStmtBody_1_oe

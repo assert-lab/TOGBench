@@ -63,20 +63,20 @@ public class ArchUtilsTest_OE25Dev {
         assertNotEquals(type, processor.getType());
     }
 
-    @Test
+@Test
     public void testArch_1_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         assertEqualsTypeNotNull(Processor.Type.X86, processor);
     }
 
-    @Test
+@Test
     public void testArch_2_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
         assertTrue(processor.isX86());
     }
 
-    @Test
+@Test
     public void testArch_4_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -85,7 +85,7 @@ public class ArchUtilsTest_OE25Dev {
         assertFalse(processor.isPPC());
     }
 
-    @Test
+@Test
     public void testArch_5_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -97,7 +97,7 @@ public class ArchUtilsTest_OE25Dev {
         assertEqualsTypeNotNull(Processor.Type.X86, processor);
     }
 
-    @Test
+@Test
     public void testArch_6_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -110,7 +110,7 @@ public class ArchUtilsTest_OE25Dev {
         assertTrue(processor.isX86());
     }
 
-    @Test
+@Test
     public void testArch_7_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -126,7 +126,7 @@ public class ArchUtilsTest_OE25Dev {
         assertEqualsTypeNotNull(Processor.Type.IA_64, processor);
     }
 
-    @Test
+@Test
     public void testArch_8_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -143,7 +143,7 @@ public class ArchUtilsTest_OE25Dev {
         assertTrue(processor.isIA64());
     }
 
-    @Test
+@Test
     public void testArch_9_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -163,7 +163,7 @@ public class ArchUtilsTest_OE25Dev {
         assertEqualsTypeNotNull(Processor.Type.IA_64, processor);
     }
 
-    @Test
+@Test
     public void testArch_10_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -184,7 +184,7 @@ public class ArchUtilsTest_OE25Dev {
         assertTrue(processor.isIA64());
     }
 
-    @Test
+@Test
     public void testArch_12_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -207,7 +207,7 @@ public class ArchUtilsTest_OE25Dev {
         assertFalse(processor.isX86());
     }
 
-    @Test
+@Test
     public void testArch_13_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -233,7 +233,7 @@ public class ArchUtilsTest_OE25Dev {
         assertEqualsTypeNotNull(Processor.Type.PPC, processor);
     }
 
-    @Test
+@Test
     public void testArch_14_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -260,7 +260,7 @@ public class ArchUtilsTest_OE25Dev {
         assertTrue(processor.isPPC());
     }
 
-    @Test
+@Test
     public void testArch_16_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -289,7 +289,7 @@ public class ArchUtilsTest_OE25Dev {
         assertFalse(processor.isIA64());
     }
 
-    @Test
+@Test
     public void testArch_17_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -321,7 +321,7 @@ public class ArchUtilsTest_OE25Dev {
         assertEqualsTypeNotNull(Processor.Type.PPC, processor);
     }
 
-    @Test
+@Test
     public void testArch_18_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -354,7 +354,7 @@ public class ArchUtilsTest_OE25Dev {
         assertTrue(processor.isPPC());
     }
 
-    @Test
+@Test
     public void testArchLabels_1_oe() {
         for (final Arch arch : Arch.values()) {
             // Only test label presence.
@@ -362,25 +362,25 @@ public class ArchUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetProcessor_1_oe() {
         assertNotNull(ArchUtils.getProcessor(X86));
     }
 
-    @Test
+@Test
     public void testGetProcessor_2_oe() {
         // removed other assertion
         assertNull(ArchUtils.getProcessor("NA"));
     }
 
-    @Test
+@Test
     public void testIs32BitJVM_2_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
         assertTrue(processor.is32Bit());
     }
 
-    @Test
+@Test
     public void testIs32BitJVM_4_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -391,7 +391,7 @@ public class ArchUtilsTest_OE25Dev {
         assertTrue(processor.is32Bit());
     }
 
-    @Test
+@Test
     public void testIs32BitJVM_7_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -410,7 +410,7 @@ public class ArchUtilsTest_OE25Dev {
         assertFalse(processor.is32Bit());
     }
 
-    @Test
+@Test
     public void testIs32BitJVM_9_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -433,7 +433,7 @@ public class ArchUtilsTest_OE25Dev {
         assertFalse(processor.is32Bit());
     }
 
-    @Test
+@Test
     public void testIs32BitJVM_11_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
@@ -460,14 +460,14 @@ public class ArchUtilsTest_OE25Dev {
         assertFalse(processor.is32Bit());
     }
 
-    @Test
+@Test
     public void testIs64BitJVM_2_oe() {
         Processor processor = ArchUtils.getProcessor(X86_64);
         // removed other assertion
         assertTrue(processor.is64Bit());
     }
 
-    @Test
+@Test
     public void testIs64BitJVM_4_oe() {
         Processor processor = ArchUtils.getProcessor(X86_64);
         // removed other assertion
@@ -478,7 +478,7 @@ public class ArchUtilsTest_OE25Dev {
         assertTrue(processor.is64Bit());
     }
 
-    @Test
+@Test
     public void testIs64BitJVM_6_oe() {
         Processor processor = ArchUtils.getProcessor(X86_64);
         // removed other assertion
@@ -493,7 +493,7 @@ public class ArchUtilsTest_OE25Dev {
         assertTrue(processor.is64Bit());
     }
 
-    @Test
+@Test
     public void testIs64BitJVM_8_oe() {
         Processor processor = ArchUtils.getProcessor(X86_64);
         // removed other assertion
@@ -512,7 +512,7 @@ public class ArchUtilsTest_OE25Dev {
         assertFalse(processor.is64Bit());
     }
 
-    @Test
+@Test
     public void testIs64BitJVM_10_oe() {
         Processor processor = ArchUtils.getProcessor(X86_64);
         // removed other assertion
@@ -535,7 +535,7 @@ public class ArchUtilsTest_OE25Dev {
         assertFalse(processor.is64Bit());
     }
 
-    @Test
+@Test
     public void testIs64BitJVM_12_oe() {
         Processor processor = ArchUtils.getProcessor(X86_64);
         // removed other assertion

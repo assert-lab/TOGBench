@@ -452,7 +452,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
      * Tests toArray() if the array's size does not fit the collection size.
      */
 
-    public void testCollection_1_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+public void testCollection_1_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
 
         // ----- Create Collection & Array of Maps -----
         final int size = 5;
@@ -471,7 +471,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("1. check size", size, lazyList.size());
     }
 
-    public void testCollection_2_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+public void testCollection_2_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
 
         // ----- Create Collection & Array of Maps -----
         final int size = 5;
@@ -496,7 +496,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("2. check size", size, dynaArray.length);
     }
 
-    public void testCollection_3_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+public void testCollection_3_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
 
         // ----- Create Collection & Array of Maps -----
         final int size = 5;
@@ -522,7 +522,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("3. check size", size, mapArray.length);
     }
 
-    public void testCollection_4_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+public void testCollection_4_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
 
         // ----- Create Collection & Array of Maps -----
         final int size = 5;
@@ -551,7 +551,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testCollection_5_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+public void testCollection_5_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
 
         // ----- Create Collection & Array of Maps -----
         final int size = 5;
@@ -581,7 +581,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testCollection_6_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+public void testCollection_6_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
 
         // ----- Create Collection & Array of Maps -----
         final int size = 5;
@@ -617,7 +617,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("6. check size", size, lazyList.size());
     }
 
-    public void testCollection_7_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+public void testCollection_7_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
 
         // ----- Create Collection & Array of Maps -----
         final int size = 5;
@@ -659,7 +659,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("7. check size", size, dynaArray.length);
     }
 
-    public void testCollection_8_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+public void testCollection_8_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
 
         // ----- Create Collection & Array of Maps -----
         final int size = 5;
@@ -702,7 +702,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("8. check size", size, mapArray.length);
     }
 
-    public void testCollection_9_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+public void testCollection_9_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
 
         // ----- Create Collection & Array of Maps -----
         final int size = 5;
@@ -748,7 +748,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testCollection_10_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+public void testCollection_10_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
 
         // ----- Create Collection & Array of Maps -----
         final int size = 5;
@@ -795,7 +795,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testSerializationDynaBean_1_oe() {
+public void testSerializationDynaBean_1_oe() {
 
         // Create LazyArrayList for DynaBeans
         LazyDynaList target = new LazyDynaList(basicDynaClass);
@@ -805,7 +805,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertNull("pre-set check", bean.get(BASIC_PROP1));
     }
 
-    public void testSerializationDynaBean_2_oe() {
+public void testSerializationDynaBean_2_oe() {
 
         // Create LazyArrayList for DynaBeans
         LazyDynaList target = new LazyDynaList(basicDynaClass);
@@ -817,7 +817,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("post-set check", "value1", bean.get(BASIC_PROP1));
     }
 
-    public void testSerializationDynaBean_3_oe() {
+public void testSerializationDynaBean_3_oe() {
 
         // Create LazyArrayList for DynaBeans
         LazyDynaList target = new LazyDynaList(basicDynaClass);
@@ -838,7 +838,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("post-serialize check", "value1", bean.get(BASIC_PROP1));
     }
 
-    public void testSerializationLazyDynaBean_1_oe() {
+public void testSerializationLazyDynaBean_1_oe() {
 
         // Create LazyArrayList for DynaBeans
         LazyDynaList target = new LazyDynaList();
@@ -848,7 +848,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertNull("pre-set check", bean.get(BASIC_PROP1));
     }
 
-    public void testSerializationLazyDynaBean_2_oe() {
+public void testSerializationLazyDynaBean_2_oe() {
 
         // Create LazyArrayList for DynaBeans
         LazyDynaList target = new LazyDynaList();
@@ -860,7 +860,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("post-set check", "value1", bean.get(BASIC_PROP1));
     }
 
-    public void testSerializationLazyDynaBean_3_oe() {
+public void testSerializationLazyDynaBean_3_oe() {
 
         // Create LazyArrayList for DynaBeans
         LazyDynaList target = new LazyDynaList();
@@ -881,7 +881,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("post-serialize check", "value1", bean.get(BASIC_PROP1));
     }
 
-    public void testSerializationMap_1_oe() {
+public void testSerializationMap_1_oe() {
 
         // Create LazyArrayList for DynaBeans
         LazyDynaList target = new LazyDynaList(treeMapDynaClass);
@@ -891,7 +891,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertNull("pre-set check", bean.get(BASIC_PROP1));
     }
 
-    public void testSerializationMap_2_oe() {
+public void testSerializationMap_2_oe() {
 
         // Create LazyArrayList for DynaBeans
         LazyDynaList target = new LazyDynaList(treeMapDynaClass);
@@ -903,7 +903,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("post-set check", "value1", bean.get(BASIC_PROP1));
     }
 
-    public void testSerializationMap_3_oe() {
+public void testSerializationMap_3_oe() {
 
         // Create LazyArrayList for DynaBeans
         LazyDynaList target = new LazyDynaList(treeMapDynaClass);
@@ -924,7 +924,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("post-serialize check", "value1", bean.get(BASIC_PROP1));
     }
 
-    public void testSerializationPojo_1_oe() {
+public void testSerializationPojo_1_oe() {
 
         // Create LazyArrayList for DynaBeans
         LazyDynaList target = new LazyDynaList(pojoDynaClass);
@@ -934,7 +934,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("pre-set check", "This is a string", bean.get("stringProperty"));
     }
 
-    public void testSerializationPojo_2_oe() {
+public void testSerializationPojo_2_oe() {
 
         // Create LazyArrayList for DynaBeans
         LazyDynaList target = new LazyDynaList(pojoDynaClass);
@@ -946,7 +946,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("post-set check", "value1", bean.get("stringProperty"));
     }
 
-    public void testSerializationPojo_3_oe() {
+public void testSerializationPojo_3_oe() {
 
         // Create LazyArrayList for DynaBeans
         LazyDynaList target = new LazyDynaList(pojoDynaClass);
@@ -970,7 +970,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("post-serialize check", "value1", bean.get("stringProperty"));
     }
 
-    public void testToArrayDynaBeans_1_oe() {
+public void testToArrayDynaBeans_1_oe() {
         final LazyDynaList list = new LazyDynaList(LazyDynaBean.class);
         final LazyDynaBean elem = new LazyDynaBean();
         list.add(elem);
@@ -978,7 +978,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertSame("Wrong array", beans, list.toArray(beans));
     }
 
-    public void testToArrayDynaBeans_2_oe() {
+public void testToArrayDynaBeans_2_oe() {
         final LazyDynaList list = new LazyDynaList(LazyDynaBean.class);
         final LazyDynaBean elem = new LazyDynaBean();
         list.add(elem);
@@ -987,7 +987,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertSame("Wrong element", elem, beans[0]);
     }
 
-    public void testToArrayMapType_1_oe() {
+public void testToArrayMapType_1_oe() {
         final LazyDynaList list = new LazyDynaList(HashMap.class);
         final HashMap<String, Object> elem = new HashMap<String, Object>();
         list.add(elem);
@@ -995,7 +995,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertSame("Wrong array", array, list.toArray(array));
     }
 
-    public void testToArrayMapType_2_oe() {
+public void testToArrayMapType_2_oe() {
         final LazyDynaList list = new LazyDynaList(HashMap.class);
         final HashMap<String, Object> elem = new HashMap<String, Object>();
         list.add(elem);
@@ -1004,7 +1004,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("Wrong element", elem, array[0]);
     }
 
-    public void testToArrayOtherType_1_oe() {
+public void testToArrayOtherType_1_oe() {
         final LazyDynaList list = new LazyDynaList(TestBean.class);
         final TestBean elem = new TestBean();
         list.add(elem);
@@ -1012,7 +1012,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertSame("Wrong array", array, list.toArray(array));
     }
 
-    public void testToArrayOtherType_2_oe() {
+public void testToArrayOtherType_2_oe() {
         final LazyDynaList list = new LazyDynaList(TestBean.class);
         final TestBean elem = new TestBean();
         list.add(elem);
@@ -1021,7 +1021,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("Wrong element", elem, array[0]);
     }
 
-    public void testToArrayUnsufficientSize_1_oe() {
+public void testToArrayUnsufficientSize_1_oe() {
         final LazyDynaList list = new LazyDynaList(LazyDynaBean.class);
         final LazyDynaBean elem = new LazyDynaBean();
         list.add(elem);
@@ -1029,7 +1029,7 @@ public class LazyDynaListTestCase_OE25Dev extends TestCase {
         assertEquals("Wrong array size", 1, array.length);
     }
 
-    public void testToArrayUnsufficientSize_2_oe() {
+public void testToArrayUnsufficientSize_2_oe() {
         final LazyDynaList list = new LazyDynaList(LazyDynaBean.class);
         final LazyDynaBean elem = new LazyDynaBean();
         list.add(elem);

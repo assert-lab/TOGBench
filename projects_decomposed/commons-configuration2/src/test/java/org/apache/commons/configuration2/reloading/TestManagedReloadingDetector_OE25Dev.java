@@ -48,27 +48,27 @@ public class TestManagedReloadingDetector_OE25Dev {
      * Tests the result of isReloadingRequired() for a newly created instance.
      */
 
-    @Test
+@Test
     public void testRefresh_1_oe() {
         strategy.refresh();
         assertTrue("Reloading request not detected", strategy.isReloadingRequired());
     }
 
-    @Test
+@Test
     public void testRefresh_2_oe() {
         strategy.refresh();
         // removed other assertion
         assertTrue("Reloading state not permanent", strategy.isReloadingRequired());
     }
 
-    @Test
+@Test
     public void testReloadingPerformed_1_oe() {
         strategy.refresh();
         strategy.reloadingPerformed();
         assertFalse("Reloading state not reset", strategy.isReloadingRequired());
     }
 
-    @Test
+@Test
     public void testReloadingRequiredInitial_1_oe() {
         assertFalse("Wrong result", strategy.isReloadingRequired());
     }

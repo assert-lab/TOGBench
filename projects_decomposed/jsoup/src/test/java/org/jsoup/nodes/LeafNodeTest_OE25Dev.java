@@ -30,7 +30,7 @@ public class LeafNodeTest_OE25Dev {
         return found[0];
     }
 
-    @Test
+@Test
     public void doesNotGetAttributesTooEasily_1_oe() {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
@@ -38,7 +38,7 @@ public class LeafNodeTest_OE25Dev {
         assertTrue(hasAnyAttributes(doc));// should have one - the base uri on the doc;
     }
 
-    @Test
+@Test
     public void doesNotGetAttributesTooEasily_2_oe() {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
@@ -48,7 +48,7 @@ public class LeafNodeTest_OE25Dev {
         assertFalse(hasAnyAttributes(html));
     }
 
-    @Test
+@Test
     public void doesNotGetAttributesTooEasily_3_oe() {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
@@ -61,7 +61,7 @@ public class LeafNodeTest_OE25Dev {
         assertFalse(hasAnyAttributes(html));
     }
 
-    @Test
+@Test
     public void doesNotGetAttributesTooEasily_4_oe() {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
@@ -78,7 +78,7 @@ public class LeafNodeTest_OE25Dev {
         assertEquals(1, els.size());
     }
 
-    @Test
+@Test
     public void doesNotGetAttributesTooEasily_5_oe() {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
@@ -96,7 +96,7 @@ public class LeafNodeTest_OE25Dev {
         assertFalse(hasAnyAttributes(html));
     }
 
-    @Test
+@Test
     public void doesNotGetAttributesTooEasily_6_oe() {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
@@ -117,7 +117,7 @@ public class LeafNodeTest_OE25Dev {
         assertFalse(hasAnyAttributes(html));
     }
 
-    @Test
+@Test
     public void doesNotGetAttributesTooEasily_7_oe() {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
@@ -141,7 +141,7 @@ public class LeafNodeTest_OE25Dev {
         assertEquals("", id);
     }
 
-    @Test
+@Test
     public void doesNotGetAttributesTooEasily_8_oe() {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
@@ -166,7 +166,7 @@ public class LeafNodeTest_OE25Dev {
         assertFalse(p.hasClass("Foobs"));
     }
 
-    @Test
+@Test
     public void doesNotGetAttributesTooEasily_9_oe() {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
@@ -192,7 +192,7 @@ public class LeafNodeTest_OE25Dev {
         assertFalse(hasAnyAttributes(html));
     }
 
-    @Test
+@Test
     public void doesNotGetAttributesTooEasily_10_oe() {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
@@ -221,7 +221,7 @@ public class LeafNodeTest_OE25Dev {
         assertTrue(p.hasClass("Foobs"));
     }
 
-    @Test
+@Test
     public void doesNotGetAttributesTooEasily_11_oe() {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
@@ -251,7 +251,7 @@ public class LeafNodeTest_OE25Dev {
         assertTrue(hasAnyAttributes(html));
     }
 
-    @Test
+@Test
     public void doesNotGetAttributesTooEasily_12_oe() {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
@@ -282,7 +282,7 @@ public class LeafNodeTest_OE25Dev {
         assertTrue(hasAnyAttributes(p));
     }
 
-    @Test
+@Test
     public void doesNotGetAttributesTooEasily_13_oe() {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
@@ -316,7 +316,7 @@ public class LeafNodeTest_OE25Dev {
         assertTrue(attributes.hasKey("class"));
     }
 
-    @Test
+@Test
     public void doesNotGetAttributesTooEasily_14_oe() {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
@@ -352,7 +352,7 @@ public class LeafNodeTest_OE25Dev {
         assertFalse(hasAnyAttributes(p));
     }
 
-    @Test
+@Test
     public void doesNotGetAttributesTooEasily_15_oe() {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
@@ -389,7 +389,7 @@ public class LeafNodeTest_OE25Dev {
         assertFalse(hasAnyAttributes(html));
     }
 
-    @Test
+@Test
     public void doesNotGetAttributesTooEasily_16_oe() {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";

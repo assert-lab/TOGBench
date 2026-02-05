@@ -94,7 +94,7 @@ public class SoftReferenceMemoryCacheUnitTest_OE25Dev
      * @throws CacheException
      */
 
-    public void testLoadFromCCF_1_oe()
+public void testLoadFromCCF_1_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGet" );
@@ -102,7 +102,7 @@ public class SoftReferenceMemoryCacheUnitTest_OE25Dev
         assertTrue("Cache name should have SoftReference in it.",memoryCacheName.indexOf("SoftReferenceMemoryCache")!= -1);
     }
 
-    public void testPutGetThroughHub_1_oe()
+public void testPutGetThroughHub_1_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGetThroughHub" );
@@ -123,7 +123,7 @@ public class SoftReferenceMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testPutGetThroughHub_2_oe()
+public void testPutGetThroughHub_2_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGetThroughHub" );
@@ -158,7 +158,7 @@ public class SoftReferenceMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testPutGetThroughHub_3_oe()
+public void testPutGetThroughHub_3_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGetThroughHub" );
@@ -194,7 +194,7 @@ public class SoftReferenceMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testPutRemoveThroughHub_1_oe()
+public void testPutRemoveThroughHub_1_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGetThroughHub" );
@@ -220,7 +220,7 @@ public class SoftReferenceMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testClearThroughHub_1_oe()
+public void testClearThroughHub_1_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGetThroughHub" );
@@ -243,7 +243,7 @@ public class SoftReferenceMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testGetKeyArray_1_oe()
+public void testGetKeyArray_1_oe()
         throws Exception
     {
         final CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
@@ -268,7 +268,7 @@ public class SoftReferenceMemoryCacheUnitTest_OE25Dev
         assertEquals( "Wrong number of keys.", items, keys.size() );
     }
 
-    public void testRemovePartialThroughHub_1_oe()
+public void testRemovePartialThroughHub_1_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testGetStatsThroughHub" );
@@ -293,7 +293,7 @@ public class SoftReferenceMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testRemovePartialThroughHub_2_oe()
+public void testRemovePartialThroughHub_2_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testGetStatsThroughHub" );
@@ -326,7 +326,7 @@ public class SoftReferenceMemoryCacheUnitTest_OE25Dev
     }
     }
 
-    public void testRemovePartialThroughHub_3_oe()
+public void testRemovePartialThroughHub_3_oe()
         throws CacheException
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testGetStatsThroughHub" );

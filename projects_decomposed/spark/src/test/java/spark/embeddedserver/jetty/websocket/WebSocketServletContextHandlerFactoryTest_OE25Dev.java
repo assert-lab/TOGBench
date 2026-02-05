@@ -29,7 +29,7 @@ public class WebSocketServletContextHandlerFactoryTest_OE25Dev {
     final String webSocketPath = "/websocket";
     private ServletContextHandler servletContextHandler;
 
-    @Test
+@Test
     public void testCreate_whenWebSocketHandlersIsNull_thenReturnNull_1_oe() throws Exception {
 
         servletContextHandler = WebSocketServletContextHandlerFactory.create(null, Optional.empty());
@@ -37,7 +37,7 @@ public class WebSocketServletContextHandlerFactoryTest_OE25Dev {
         assertNull("Should return null because no WebSocket Handlers were passed", servletContextHandler);
     }
 
-    @Test
+@Test
     public void testCreate_whenNoIdleTimeoutIsPresent_1_oe() throws Exception {
 
         Map<String, WebSocketHandlerWrapper> webSocketHandlers = new HashMap<>();
@@ -54,7 +54,7 @@ public class WebSocketServletContextHandlerFactoryTest_OE25Dev {
         assertNotNull("Should return a WebSocketUpgradeFilter because we configured it to have one", webSocketUpgradeFilter);
     }
 
-    @Test
+@Test
     public void testCreate_whenNoIdleTimeoutIsPresent_2_oe() throws Exception {
 
         Map<String, WebSocketHandlerWrapper> webSocketHandlers = new HashMap<>();
@@ -79,7 +79,7 @@ public class WebSocketServletContextHandlerFactoryTest_OE25Dev {
         assertEquals("Should return the WebSocket path specified when context handler was created",webSocketPath,pathSpec.getDeclaration());
     }
 
-    @Test
+@Test
     public void testCreate_whenTimeoutIsPresent_1_oe() throws Exception {
 
         final Integer timeout = Integer.valueOf(1000);
@@ -98,7 +98,7 @@ public class WebSocketServletContextHandlerFactoryTest_OE25Dev {
         assertNotNull("Should return a WebSocketUpgradeFilter because we configured it to have one", webSocketUpgradeFilter);
     }
 
-    @Test
+@Test
     public void testCreate_whenTimeoutIsPresent_2_oe() throws Exception {
 
         final Integer timeout = Integer.valueOf(1000);
@@ -123,7 +123,7 @@ public class WebSocketServletContextHandlerFactoryTest_OE25Dev {
         assertEquals("Timeout value should be the same as the timeout specified when context handler was created",timeout.longValue(),webSocketServerFactory.getPolicy().getIdleTimeout());
     }
 
-    @Test
+@Test
     public void testCreate_whenTimeoutIsPresent_3_oe() throws Exception {
 
         final Integer timeout = Integer.valueOf(1000);
@@ -153,7 +153,7 @@ public class WebSocketServletContextHandlerFactoryTest_OE25Dev {
         assertEquals("Should return the WebSocket path specified when context handler was created",webSocketPath,pathSpec.getDeclaration());
     }
 
-    @Test
+@Test
     @PrepareForTest(WebSocketServletContextHandlerFactory.class)
     public void testCreate_whenWebSocketContextHandlerCreationFails_thenThrowException_1_oe() throws Exception {
 

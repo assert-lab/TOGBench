@@ -358,7 +358,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
      * Test that the cause of exception thrown by put() is initialized.
      */
 
-    public void testBeanMapClone_2_oe() {
+public void testBeanMapClone_2_oe() {
         final BeanMap map = (BeanMap)makeFullMap();
         try {
             final BeanMap map2 = (BeanMap)map.clone();
@@ -374,7 +374,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
     }
     }
 
-    public void testBeanMapPutAllWriteable_1_oe() {
+public void testBeanMapPutAllWriteable_1_oe() {
         final BeanMap map1 = (BeanMap)makeFullMap();
         final BeanMap map2 = (BeanMap)makeFullMap();
         map2.put("someIntValue", new Integer(0));
@@ -382,37 +382,37 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
         assertEquals(map1.get("someIntValue"), new Integer(0));
     }
 
-    public void testMethodAccessor_1_oe() throws Exception {
+public void testMethodAccessor_1_oe() throws Exception {
         final BeanMap map = (BeanMap) makeFullMap();
         final Method method = BeanWithProperties.class.getDeclaredMethod("getSomeIntegerValue");
         assertEquals(method, map.getReadMethod("someIntegerValue"));
     }
 
-    public void testMethodMutator_1_oe() throws Exception {
+public void testMethodMutator_1_oe() throws Exception {
         final BeanMap map = (BeanMap) makeFullMap();
         final Method method = BeanWithProperties.class.getDeclaredMethod("setSomeIntegerValue", new Class[] {Integer.class});
         assertEquals(method, map.getWriteMethod("someIntegerValue"));
     }
 
-    public void testGetTypeTransformerMethod_1_oe() {
+public void testGetTypeTransformerMethod_1_oe() {
         final BeanMap beanMap = new BeanMap();
         assertEquals("Boolean.TYPE",   Boolean.TRUE,        beanMap.getTypeTransformer(Boolean.TYPE).transform("true"));
     }
 
-    public void testGetTypeTransformerMethod_2_oe() {
+public void testGetTypeTransformerMethod_2_oe() {
         final BeanMap beanMap = new BeanMap();
         // removed other assertion
         assertEquals("Character.TYPE", new Character('B'),  beanMap.getTypeTransformer(Character.TYPE).transform("BCD"));
     }
 
-    public void testGetTypeTransformerMethod_3_oe() {
+public void testGetTypeTransformerMethod_3_oe() {
         final BeanMap beanMap = new BeanMap();
         // removed other assertion
         // removed other assertion
         assertEquals("Byte.TYPE",      new Byte((byte)1),   beanMap.getTypeTransformer(Byte.TYPE).transform("1"));
     }
 
-    public void testGetTypeTransformerMethod_4_oe() {
+public void testGetTypeTransformerMethod_4_oe() {
         final BeanMap beanMap = new BeanMap();
         // removed other assertion
         // removed other assertion
@@ -420,7 +420,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
         assertEquals("Short.TYPE",     new Short((short)2), beanMap.getTypeTransformer(Short.TYPE).transform("2"));
     }
 
-    public void testGetTypeTransformerMethod_5_oe() {
+public void testGetTypeTransformerMethod_5_oe() {
         final BeanMap beanMap = new BeanMap();
         // removed other assertion
         // removed other assertion
@@ -429,7 +429,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
         assertEquals("Integer.TYPE",   new Integer(3),      beanMap.getTypeTransformer(Integer.TYPE).transform("3"));
     }
 
-    public void testGetTypeTransformerMethod_6_oe() {
+public void testGetTypeTransformerMethod_6_oe() {
         final BeanMap beanMap = new BeanMap();
         // removed other assertion
         // removed other assertion
@@ -439,7 +439,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
         assertEquals("Long.TYPE",      new Long(4),         beanMap.getTypeTransformer(Long.TYPE).transform("4"));
     }
 
-    public void testGetTypeTransformerMethod_7_oe() {
+public void testGetTypeTransformerMethod_7_oe() {
         final BeanMap beanMap = new BeanMap();
         // removed other assertion
         // removed other assertion
@@ -450,7 +450,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
         assertEquals("Float.TYPE",     new Float("5"),      beanMap.getTypeTransformer(Float.TYPE).transform("5"));
     }
 
-    public void testGetTypeTransformerMethod_8_oe() {
+public void testGetTypeTransformerMethod_8_oe() {
         final BeanMap beanMap = new BeanMap();
         // removed other assertion
         // removed other assertion
@@ -462,29 +462,29 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
         assertEquals("Double.TYPE",    new Double("6"),     beanMap.getTypeTransformer(Double.TYPE).transform("6"));
     }
 
-    public void testGetDefaultTransformersMap_1_oe() {
+public void testGetDefaultTransformersMap_1_oe() {
         assertEquals("Boolean.TYPE",   Boolean.TRUE,        ((Transformer)BeanMap.defaultTransformers.get(Boolean.TYPE)).transform("true"));
     }
 
-    public void testGetDefaultTransformersMap_2_oe() {
+public void testGetDefaultTransformersMap_2_oe() {
         // removed other assertion
         assertEquals("Character.TYPE", new Character('B'),  ((Transformer)BeanMap.defaultTransformers.get(Character.TYPE)).transform("BCD"));
     }
 
-    public void testGetDefaultTransformersMap_3_oe() {
+public void testGetDefaultTransformersMap_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("Byte.TYPE",      new Byte((byte)1),   ((Transformer)BeanMap.defaultTransformers.get(Byte.TYPE)).transform("1"));
     }
 
-    public void testGetDefaultTransformersMap_4_oe() {
+public void testGetDefaultTransformersMap_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals("Short.TYPE",     new Short((short)2), ((Transformer)BeanMap.defaultTransformers.get(Short.TYPE)).transform("2"));
     }
 
-    public void testGetDefaultTransformersMap_5_oe() {
+public void testGetDefaultTransformersMap_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -492,7 +492,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
         assertEquals("Integer.TYPE",   new Integer(3),      ((Transformer)BeanMap.defaultTransformers.get(Integer.TYPE)).transform("3"));
     }
 
-    public void testGetDefaultTransformersMap_6_oe() {
+public void testGetDefaultTransformersMap_6_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -501,7 +501,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
         assertEquals("Long.TYPE",      new Long(4),         ((Transformer)BeanMap.defaultTransformers.get(Long.TYPE)).transform("4"));
     }
 
-    public void testGetDefaultTransformersMap_7_oe() {
+public void testGetDefaultTransformersMap_7_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -511,7 +511,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
         assertEquals("Float.TYPE",     new Float("5"),      ((Transformer)BeanMap.defaultTransformers.get(Float.TYPE)).transform("5"));
     }
 
-    public void testGetDefaultTransformersMap_8_oe() {
+public void testGetDefaultTransformersMap_8_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -522,29 +522,29 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
         assertEquals("Double.TYPE",    new Double("6"),     ((Transformer)BeanMap.defaultTransformers.get(Double.TYPE)).transform("6"));
     }
 
-    public void testDefaultTransformersMap_1_oe() {
+public void testDefaultTransformersMap_1_oe() {
         assertEquals("Size",     8, BeanMap.defaultTransformers.size());
     }
 
-    public void testDefaultTransformersMap_2_oe() {
+public void testDefaultTransformersMap_2_oe() {
         // removed other assertion
         assertEquals("entrySet", 8, BeanMap.defaultTransformers.entrySet().size());
     }
 
-    public void testDefaultTransformersMap_3_oe() {
+public void testDefaultTransformersMap_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("keySet",   8, BeanMap.defaultTransformers.keySet().size());
     }
 
-    public void testDefaultTransformersMap_4_oe() {
+public void testDefaultTransformersMap_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals("values",   8, BeanMap.defaultTransformers.values().size());
     }
 
-    public void testDefaultTransformersMap_5_oe() {
+public void testDefaultTransformersMap_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -552,7 +552,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
         assertFalse("isEmpty",      BeanMap.defaultTransformers.isEmpty());
     }
 
-    public void testDefaultTransformersMap_6_oe() {
+public void testDefaultTransformersMap_6_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -561,7 +561,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
         assertTrue("containsKey(Double)",    BeanMap.defaultTransformers.containsKey(Double.TYPE));
     }
 
-    public void testDefaultTransformersMap_7_oe() {
+public void testDefaultTransformersMap_7_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -571,7 +571,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
         assertFalse("containsKey(Object)",   BeanMap.defaultTransformers.containsKey(Object.class));
     }
 
-    public void testDefaultTransformersMap_8_oe() {
+public void testDefaultTransformersMap_8_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -582,7 +582,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
         assertTrue("containsValue(double)",  BeanMap.defaultTransformers.containsValue(BeanMap.defaultTransformers.get(Double.TYPE)));
     }
 
-    public void testDefaultTransformersMap_9_oe() {
+public void testDefaultTransformersMap_9_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -594,7 +594,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
         assertFalse("containsValue(Object)", BeanMap.defaultTransformers.containsValue(Object.class));
     }
 
-    public void testExceptionThrowFromClone_2_oe() {
+public void testExceptionThrowFromClone_2_oe() {
 
         if (BeanUtilsTestCase.isPre14JVM()) {
             System.out.println("testExceptionThrowFromClone() skipped on pre 1.4 JVM");
@@ -617,7 +617,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
     }
     }
 
-    public void testExceptionThrowFromClone_3_oe() {
+public void testExceptionThrowFromClone_3_oe() {
 
         if (BeanUtilsTestCase.isPre14JVM()) {
             System.out.println("testExceptionThrowFromClone() skipped on pre 1.4 JVM");
@@ -641,7 +641,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
     }
     }
 
-    public void testExceptionThrowFromClone_4_oe() {
+public void testExceptionThrowFromClone_4_oe() {
 
         if (BeanUtilsTestCase.isPre14JVM()) {
             System.out.println("testExceptionThrowFromClone() skipped on pre 1.4 JVM");
@@ -666,7 +666,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
     }
     }
 
-    public void testExceptionThrowFromClone_6_oe() {
+public void testExceptionThrowFromClone_6_oe() {
 
         if (BeanUtilsTestCase.isPre14JVM()) {
             System.out.println("testExceptionThrowFromClone() skipped on pre 1.4 JVM");
@@ -705,7 +705,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
     }
     }
 
-    public void testExceptionThrowFromClone_7_oe() {
+public void testExceptionThrowFromClone_7_oe() {
 
         if (BeanUtilsTestCase.isPre14JVM()) {
             System.out.println("testExceptionThrowFromClone() skipped on pre 1.4 JVM");
@@ -745,7 +745,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
     }
     }
 
-    public void testExceptionThrowFromClone_8_oe() {
+public void testExceptionThrowFromClone_8_oe() {
 
         if (BeanUtilsTestCase.isPre14JVM()) {
             System.out.println("testExceptionThrowFromClone() skipped on pre 1.4 JVM");
@@ -786,7 +786,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
     }
     }
 
-    public void testExceptionThrowFromClear_2_oe() {
+public void testExceptionThrowFromClear_2_oe() {
 
         if (BeanUtilsTestCase.isPre14JVM()) {
             System.out.println("testExceptionThrowFromClear() skipped on pre 1.4 JVM");
@@ -808,7 +808,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
     }
     }
 
-    public void testExceptionThrowFromClear_3_oe() {
+public void testExceptionThrowFromClear_3_oe() {
 
         if (BeanUtilsTestCase.isPre14JVM()) {
             System.out.println("testExceptionThrowFromClear() skipped on pre 1.4 JVM");
@@ -831,7 +831,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
     }
     }
 
-    public void testExceptionThrowFromClear_4_oe() {
+public void testExceptionThrowFromClear_4_oe() {
 
         if (BeanUtilsTestCase.isPre14JVM()) {
             System.out.println("testExceptionThrowFromClear() skipped on pre 1.4 JVM");
@@ -855,7 +855,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
     }
     }
 
-    public void testExceptionThrowFromPut_2_oe() {
+public void testExceptionThrowFromPut_2_oe() {
 
         if (BeanUtilsTestCase.isPre14JVM()) {
             System.out.println("testExceptionThrowFromPut() skipped on pre 1.4 JVM");
@@ -878,7 +878,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
     }
     }
 
-    public void testExceptionThrowFromPut_3_oe() {
+public void testExceptionThrowFromPut_3_oe() {
 
         if (BeanUtilsTestCase.isPre14JVM()) {
             System.out.println("testExceptionThrowFromPut() skipped on pre 1.4 JVM");
@@ -902,7 +902,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
     }
     }
 
-    public void testExceptionThrowFromPut_4_oe() {
+public void testExceptionThrowFromPut_4_oe() {
 
         if (BeanUtilsTestCase.isPre14JVM()) {
             System.out.println("testExceptionThrowFromPut() skipped on pre 1.4 JVM");
@@ -927,7 +927,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
     }
     }
 
-    public void testExceptionThrowFromPut_5_oe() {
+public void testExceptionThrowFromPut_5_oe() {
 
         if (BeanUtilsTestCase.isPre14JVM()) {
             System.out.println("testExceptionThrowFromPut() skipped on pre 1.4 JVM");
@@ -953,7 +953,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
     }
     }
 
-    public void testExceptionThrowFromPut_6_oe() {
+public void testExceptionThrowFromPut_6_oe() {
 
         if (BeanUtilsTestCase.isPre14JVM()) {
             System.out.println("testExceptionThrowFromPut() skipped on pre 1.4 JVM");

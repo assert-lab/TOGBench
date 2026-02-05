@@ -636,7 +636,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
      * Tests the default implementation of sizeInternal().
      */
 
-    @Test
+@Test
     public void testAppend_1_oe() {
         final AbstractConfiguration config = setUpDestConfig();
         final Configuration srcConfig = setUpSourceConfig();
@@ -650,7 +650,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testAppend_2_oe() {
         final AbstractConfiguration config = setUpDestConfig();
         final Configuration srcConfig = setUpSourceConfig();
@@ -665,7 +665,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testAppend_3_oe() {
         final AbstractConfiguration config = setUpDestConfig();
         final Configuration srcConfig = setUpSourceConfig();
@@ -681,7 +681,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testAppend_4_oe() {
         final AbstractConfiguration config = setUpDestConfig();
         final Configuration srcConfig = setUpSourceConfig();
@@ -699,7 +699,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testAppendDelimiterHandling_1_oe() {
         final BaseConfiguration srcConfig = new BaseConfiguration();
         final BaseConfiguration dstConfig = new BaseConfiguration();
@@ -709,7 +709,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong property value", srcConfig.getString(KEY_PREFIX), dstConfig.getString(KEY_PREFIX));
     }
 
-    @Test
+@Test
     public void testClearIteratorNoRemove_1_oe() {
         final AbstractConfiguration config = new TestConfigurationImpl(new BaseConfiguration()) {
             // return an iterator that does not support remove operations
@@ -728,7 +728,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertTrue("Configuration not empty", config.isEmpty());
     }
 
-    @Test
+@Test
     public void testCopy_1_oe() {
         final AbstractConfiguration config = setUpDestConfig();
         final Configuration srcConfig = setUpSourceConfig();
@@ -741,7 +741,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testCopy_2_oe() {
         final AbstractConfiguration config = setUpDestConfig();
         final Configuration srcConfig = setUpSourceConfig();
@@ -756,7 +756,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testCopyDelimiterHandling_1_oe() {
         final BaseConfiguration srcConfig = new BaseConfiguration();
         final BaseConfiguration dstConfig = new BaseConfiguration();
@@ -766,26 +766,26 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong property value", srcConfig.getString(KEY_PREFIX), dstConfig.getString(KEY_PREFIX));
     }
 
-    @Test
+@Test
     public void testDefaultConversionHandler_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         assertEquals("Wrong default conversion handler", DefaultConversionHandler.class, config.getConversionHandler().getClass());
     }
 
-    @Test
+@Test
     public void testDefaultConversionHandlerSharedInstance_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final PropertiesConfiguration config2 = new PropertiesConfiguration();
         assertSame("Multiple conversion handlers", config.getConversionHandler(), config2.getConversionHandler());
     }
 
-    @Test
+@Test
     public void testDefaultListDelimiterHandler_1_oe() {
         final BaseConfiguration config = new BaseConfiguration();
         assertTrue("Wrong list delimiter handler", config.getListDelimiterHandler() instanceof DisabledListDelimiterHandler);
     }
 
-    @Test
+@Test
     public void testGet_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final Integer value = 20130816;
@@ -793,7 +793,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong result", value, config.get(Integer.class, KEY_PREFIX));
     }
 
-    @Test
+@Test
     public void testGetArray_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final Integer[] expected = new Integer[PROP_COUNT];
@@ -805,7 +805,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertArrayEquals("Wrong result", expected, result);
     }
 
-    @Test
+@Test
     public void testGetArrayPrimitive_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final short[] expected = new short[PROP_COUNT];
@@ -817,20 +817,20 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertArrayEquals("Wrong result", expected, result);
     }
 
-    @Test
+@Test
     public void testGetArrayUnknownNoDefault_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         assertNull("Wrong result", config.get(Integer[].class, KEY_PREFIX));
     }
 
-    @Test
+@Test
     public void testGetArrayUnknownWithDefault_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final int[] defValue = {1, 2, 3};
         assertArrayEquals("Wrong result", defValue, config.get(int[].class, KEY_PREFIX, defValue));
     }
 
-    @Test
+@Test
     public void testGetCollection_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final List<Integer> expected = prepareListTest(config);
@@ -838,7 +838,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertSame("Wrong result", result, config.getCollection(Integer.class, KEY_PREFIX, result));
     }
 
-    @Test
+@Test
     public void testGetCollectionNullTarget_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final List<Integer> expected = prepareListTest(config);
@@ -846,7 +846,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong result", expected, result);
     }
 
-    @Test
+@Test
     public void testGetCollectionSingleValue_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         config.addProperty(KEY_PREFIX, "1");
@@ -855,7 +855,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong number of elements", 1, result.size());
     }
 
-    @Test
+@Test
     public void testGetCollectionSingleValue_2_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         config.addProperty(KEY_PREFIX, "1");
@@ -865,14 +865,14 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong element", Integer.valueOf(1), result.get(0));
     }
 
-    @Test
+@Test
     public void testGetCollectionUnknownNoDefault_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final List<Integer> result = new ArrayList<>();
         assertNull("Wrong result", config.getCollection(Integer.class, KEY_PREFIX, result));
     }
 
-    @Test
+@Test
     public void testGetCollectionUnknownNoDefault_2_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final List<Integer> result = new ArrayList<>();
@@ -880,7 +880,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertTrue("Got elements", result.isEmpty());
     }
 
-    @Test
+@Test
     public void testGetCollectionUnknownWithDefault_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final List<Integer> defValue = Arrays.asList(1, 2, 4, 8, 16, 32);
@@ -888,7 +888,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong result", defValue, result);
     }
 
-    @Test
+@Test
     public void testGetEncodedStringNoValue_1_oe() {
         final ConfigurationDecoder decoder = EasyMock.createMock(ConfigurationDecoder.class);
         EasyMock.replay(decoder);
@@ -896,7 +896,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertNull("Got a value", config.getEncodedString(KEY_PREFIX, decoder));
     }
 
-    @Test
+@Test
     public void testGetEncodedStringValue_1_oe() {
         final ConfigurationDecoder decoder = EasyMock.createMock(ConfigurationDecoder.class);
         final String value = "original value";
@@ -909,7 +909,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong decoded value", decodedValue, config.getEncodedString(KEY_PREFIX, decoder));
     }
 
-    @Test
+@Test
     public void testGetEncodedStringWithDefaultDecoder_1_oe() {
         final ConfigurationDecoder decoder = EasyMock.createMock(ConfigurationDecoder.class);
         final String value = "original value";
@@ -923,7 +923,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong decoded value", decodedValue, config.getEncodedString(KEY_PREFIX));
     }
 
-    @Test
+@Test
     public void testGetList_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final List<Integer> expected = prepareListTest(config);
@@ -931,40 +931,40 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong result", expected, result);
     }
 
-    @Test
+@Test
     public void testGetListUnknownNoDefault_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         assertNull("Wrong result", config.getList(Integer.class, KEY_PREFIX));
     }
 
-    @Test
+@Test
     public void testGetListUnknownWithDefault_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final List<Integer> defValue = Arrays.asList(1, 2, 3);
         assertEquals("Wrong result", defValue, config.getList(Integer.class, KEY_PREFIX, defValue));
     }
 
-    @Test
+@Test
     public void testGetStringArrayUnknown_1_oe() {
         final BaseConfiguration config = new BaseConfiguration();
         final String[] array = config.getStringArray(KEY_PREFIX);
         assertEquals("Got elements", 0, array.length);
     }
 
-    @Test
+@Test
     public void testGetUnknownNoDefaultValue_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         assertNull("Wrong result", config.get(Integer.class, KEY_PREFIX));
     }
 
-    @Test
+@Test
     public void testGetUnknownWithDefaultValue_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final Integer defaultValue = 2121;
         assertEquals("Wrong result", defaultValue, config.get(Integer.class, KEY_PREFIX, defaultValue));
     }
 
-    @Test
+@Test
     public void testGetUnownWithDefaultValueThrowExceptionOnMissing_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         config.setThrowExceptionOnMissing(true);
@@ -972,14 +972,14 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong result", defaultValue, config.get(Integer.class, KEY_PREFIX, defaultValue));
     }
 
-    @Test
+@Test
     public void testInstallInterpolatorNull_1_oe() {
         final AbstractConfiguration config = new TestConfigurationImpl(new PropertiesConfiguration());
         config.installInterpolator(null, null);
         assertTrue("Got prefix lookups", config.getInterpolator().getLookups().isEmpty());
     }
 
-    @Test
+@Test
     public void testInstallInterpolatorNull_2_oe() {
         final AbstractConfiguration config = new TestConfigurationImpl(new PropertiesConfiguration());
         config.installInterpolator(null, null);
@@ -988,7 +988,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong number of default lookups", 1, defLookups.size());
     }
 
-    @Test
+@Test
     public void testInstallInterpolatorNull_3_oe() {
         final AbstractConfiguration config = new TestConfigurationImpl(new PropertiesConfiguration());
         config.installInterpolator(null, null);
@@ -998,7 +998,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertTrue("Wrong default lookup", defLookups.get(0) instanceof ConfigurationLookup);
     }
 
-    @Test
+@Test
     public void testInterpolateArray_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final String[] values = {"some", "test", "values"};
@@ -1009,7 +1009,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertArrayEquals("Wrong property", values, config.getStringArray(KEY_PREFIX));
     }
 
-    @Test
+@Test
     public void testInterpolateEscape_1_oe() {
         final AbstractConfiguration config = new TestConfigurationImpl(new PropertiesConfiguration());
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
@@ -1017,7 +1017,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong interpolated value", "${DB2UNIVERSAL_JDBC_DRIVER_PATH}/db2jcc.jar,${DB2UNIVERSAL_JDBC_DRIVER_PATH}/db2jcc_license_cu.jar", config.getString("mypath"));
     }
 
-    @Test
+@Test
     public void testInterpolateList_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final List<String> values = Arrays.asList("some", "test", "values");
@@ -1028,7 +1028,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong property", values, config.getList(String.class, KEY_PREFIX));
     }
 
-    @Test
+@Test
     public void testInterpolateRecursive_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         config.addProperty("animal", "${animal_attr} fox");
@@ -1039,7 +1039,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong complex interpolation", "The quick brown fox jumps over the lazy dog.", config.getString(KEY_PREFIX));
     }
 
-    @Test
+@Test
     public void testInterpolateString_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         config.addProperty("animal", "quick brown fox");
@@ -1048,7 +1048,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong interpolation", "The quick brown fox jumps over the lazy dog.", config.getString(KEY_PREFIX));
     }
 
-    @Test
+@Test
     public void testInterpolateStringWithListVariable_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final List<String> values = Arrays.asList("some", "test", "values");
@@ -1059,7 +1059,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong interpolation", "result = some", config.getString(KEY_PREFIX));
     }
 
-    @Test
+@Test
     public void testInterpolationNoInterpolator_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         config.addProperty("animal", "quick brown fox");
@@ -1069,7 +1069,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Interpolation was performed", SUBST_TXT, config.getString(KEY_PREFIX));
     }
 
-    @Test
+@Test
     public void testInterpolationUnknownVariable_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         config.addProperty("animal", "quick brown fox");
@@ -1077,7 +1077,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong interpolation", "The quick brown fox jumps over the ${target}.", config.getString(KEY_PREFIX));
     }
 
-    @Test
+@Test
     public void testNestedVariableInterpolation_1_oe() {
         final BaseConfiguration config = new BaseConfiguration();
         config.getInterpolator().setEnableSubstitutionInVariables(true);
@@ -1087,7 +1087,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong path", "C:\\java\\1.4", config.getString("jre.path"));
     }
 
-    @Test
+@Test
     public void testSetDefaultConversionHandler_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final ConversionHandler handler = new DefaultConversionHandler();
@@ -1095,7 +1095,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertSame("Handler not set", handler, config.getConversionHandler());
     }
 
-    @Test
+@Test
     public void testSetDefaultLookupsExistingInterpolator_1_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         EasyMock.replay(look);
@@ -1106,7 +1106,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong number of default lookups", 3, lookups.size());
     }
 
-    @Test
+@Test
     public void testSetDefaultLookupsExistingInterpolator_2_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         EasyMock.replay(look);
@@ -1118,7 +1118,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertSame("Wrong lookup at 1", look, lookups.get(1));
     }
 
-    @Test
+@Test
     public void testSetDefaultLookupsExistingInterpolator_3_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         EasyMock.replay(look);
@@ -1131,7 +1131,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertTrue("Wrong lookup at 2: " + lookups, lookups.get(2) instanceof ConfigurationLookup);
     }
 
-    @Test
+@Test
     public void testSetDefaultLookupsNoInterpolator_1_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         EasyMock.replay(look);
@@ -1142,7 +1142,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong number of default lookups", 2, lookups.size());
     }
 
-    @Test
+@Test
     public void testSetDefaultLookupsNoInterpolator_2_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         EasyMock.replay(look);
@@ -1154,7 +1154,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertSame("Wrong lookup at 0", look, lookups.get(0));
     }
 
-    @Test
+@Test
     public void testSetDefaultLookupsNoInterpolator_3_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         EasyMock.replay(look);
@@ -1167,7 +1167,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertTrue("Wrong lookup at 1", lookups.get(1) instanceof ConfigurationLookup);
     }
 
-    @Test
+@Test
     public void testSetParentInterpolatorExistingInterpolator_1_oe() {
         final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
         EasyMock.replay(parent);
@@ -1177,7 +1177,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertSame("Parent was not set", parent, config.getInterpolator().getParentInterpolator());
     }
 
-    @Test
+@Test
     public void testSetParentInterpolatorExistingInterpolator_2_oe() {
         final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
         EasyMock.replay(parent);
@@ -1188,7 +1188,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertSame("Interpolator was changed", ci, config.getInterpolator());
     }
 
-    @Test
+@Test
     public void testSetParentInterpolatorNoInterpolator_1_oe() {
         final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
         EasyMock.replay(parent);
@@ -1198,7 +1198,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertSame("Parent was not set", parent, config.getInterpolator().getParentInterpolator());
     }
 
-    @Test
+@Test
     public void testSetPrefixLookupsExistingInterpolator_1_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         EasyMock.replay(look);
@@ -1211,7 +1211,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Not added", count + 1, lookups2.size());
     }
 
-    @Test
+@Test
     public void testSetPrefixLookupsExistingInterpolator_2_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         EasyMock.replay(look);
@@ -1225,7 +1225,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertSame("Not found", look, lookups2.get("test"));
     }
 
-    @Test
+@Test
     public void testSetPrefixLookupsNoInterpolator_1_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         EasyMock.replay(look);
@@ -1236,7 +1236,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertEquals("Wrong number of lookups", 1, lookups.size());
     }
 
-    @Test
+@Test
     public void testSetPrefixLookupsNoInterpolator_2_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
         EasyMock.replay(look);
@@ -1248,7 +1248,7 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
         assertSame("Not found", look, lookups.get("test"));
     }
 
-    @Test
+@Test
     public void testSizeInternal_1_oe() {
         final AbstractConfiguration config = new TestConfigurationImpl(new PropertiesConfiguration());
         for (int i = 0; i < PROP_COUNT; i++) {

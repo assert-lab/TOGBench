@@ -253,7 +253,7 @@ public class FeaturesTest_OE25Dev extends JexlTestCase {
         checkFeature(f, scripts);
     }
 
-    @Test
+@Test
     public void testNoSideEffectsGlobal_1_oe() throws Exception {
         final JexlFeatures f = new JexlFeatures().sideEffectGlobal(false);
         final String[] scripts = new String[]{

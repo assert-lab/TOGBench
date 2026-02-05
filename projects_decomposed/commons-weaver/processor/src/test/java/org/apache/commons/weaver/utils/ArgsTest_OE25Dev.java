@@ -29,25 +29,25 @@ import org.junit.Test;
  */
 public class ArgsTest_OE25Dev {
 
-    @Test
+@Test
     public void testCompare_1_oe() {
         assertTrue(Args.compare(ArrayUtils.EMPTY_CLASS_ARRAY, ArrayUtils.EMPTY_CLASS_ARRAY) == 0);
     }
 
-    @Test
+@Test
     public void testCompare_2_oe() {
         // removed other assertion
         assertTrue(Args.compare(ArrayUtils.EMPTY_CLASS_ARRAY, new Class[] { String.class }) < 0);
     }
 
-    @Test
+@Test
     public void testCompare_3_oe() {
         // removed other assertion
         // removed other assertion
         assertTrue(Args.compare(new Class[] { String.class }, ArrayUtils.EMPTY_CLASS_ARRAY) > 0);
     }
 
-    @Test
+@Test
     public void testCompare_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -55,7 +55,7 @@ public class ArgsTest_OE25Dev {
         assertTrue(Args.compare(new Class[] { String.class }, new Class[] { String.class }) == 0);
     }
 
-    @Test
+@Test
     public void testCompare_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -64,7 +64,7 @@ public class ArgsTest_OE25Dev {
         assertTrue(Args.compare(new Class[] { int.class }, new Class[] { String.class }) < 0);
     }
 
-    @Test
+@Test
     public void testCompare_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -74,7 +74,7 @@ public class ArgsTest_OE25Dev {
         assertTrue(Args.compare(new Class[] { String.class }, new Class[] { int.class }) > 0);
     }
 
-    @Test
+@Test
     public void testCompare_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -85,7 +85,7 @@ public class ArgsTest_OE25Dev {
         assertTrue(Args.compare(new Class[] { int.class, String.class }, new Class[] { int.class, String.class}) == 0);
     }
 
-    @Test
+@Test
     public void testCompare_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -97,7 +97,7 @@ public class ArgsTest_OE25Dev {
         assertTrue(Args.compare(new Class[] { String.class, String.class }, new Class[] { String.class, String.class}) == 0);
     }
 
-    @Test
+@Test
     public void testCompare_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -110,7 +110,7 @@ public class ArgsTest_OE25Dev {
         assertTrue(Args.compare(new Class[] { String.class, int.class }, new Class[] { String.class, String.class}) < 0);
     }
 
-    @Test
+@Test
     public void testCompare_10_oe() {
         // removed other assertion
         // removed other assertion

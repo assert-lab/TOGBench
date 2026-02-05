@@ -145,7 +145,7 @@ public class TestPropertyListConfiguration_OE25Dev {
      * Ensure that setProperty doesn't alter an array of byte since it's a first class type in plist file
      */
 
-    @Test
+@Test
     public void testAddDataProperty_1_oe() throws Exception {
         final File saveFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -160,7 +160,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertNotNull("data not found", array);
     }
 
-    @Test
+@Test
     public void testAddDataProperty_2_oe() throws Exception {
         final File saveFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -176,7 +176,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("property type", byte[].class, array.getClass());
     }
 
-    @Test
+@Test
     public void testAddDataProperty_3_oe() throws Exception {
         final File saveFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -193,13 +193,13 @@ public class TestPropertyListConfiguration_OE25Dev {
         ArrayAssert.assertEquals(expected, (byte[]) array);
     }
 
-    @Test
+@Test
     public void testArray_1_oe() {
         final String key = "array";
         assertNotNull("array null", config.getProperty(key));
     }
 
-    @Test
+@Test
     public void testArray_2_oe() {
         final String key = "array";
         // removed other assertion
@@ -208,7 +208,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertFalse("array is empty", list.isEmpty());
     }
 
-    @Test
+@Test
     public void testArray_3_oe() {
         final String key = "array";
         // removed other assertion
@@ -219,7 +219,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("1st value", "value1", list.get(0));
     }
 
-    @Test
+@Test
     public void testArray_4_oe() {
         final String key = "array";
         // removed other assertion
@@ -231,7 +231,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("2nd value", "value2", list.get(1));
     }
 
-    @Test
+@Test
     public void testArray_5_oe() {
         final String key = "array";
         // removed other assertion
@@ -244,13 +244,13 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("3rd value", "value3", list.get(2));
     }
 
-    @Test
+@Test
     public void testData_2_oe() {
         // removed other assertion
         ArrayAssert.assertEquals("data", "foo bar".getBytes(), (byte[]) config.getProperty("data"));
     }
 
-    @Test
+@Test
     public void testDate_1_oe() throws Exception {
         final Calendar cal = Calendar.getInstance();
         cal.clear();
@@ -261,18 +261,18 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("date", date, config.getProperty("date"));
     }
 
-    @Test
+@Test
     public void testDictionary_1_oe() {
         assertEquals("1st element in dictionary", "bar1", config.getProperty("dictionary.foo1"));
     }
 
-    @Test
+@Test
     public void testDictionary_2_oe() {
         // removed other assertion
         assertEquals("2nd element in dictionary", "bar2", config.getProperty("dictionary.foo2"));
     }
 
-    @Test
+@Test
     public void testDictionaryArray_1_oe() {
         final String key = "dictionary-array";
 
@@ -282,7 +282,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertNotNull("array not found", array);
     }
 
-    @Test
+@Test
     public void testDictionaryArray_3_oe() {
         final String key = "dictionary-array";
 
@@ -296,7 +296,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertFalse("empty array", list.isEmpty());
     }
 
-    @Test
+@Test
     public void testDictionaryArray_4_oe() {
         final String key = "dictionary-array";
 
@@ -311,7 +311,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("size", 2, list.size());
     }
 
-    @Test
+@Test
     public void testDictionaryArray_6_oe() {
         final String key = "dictionary-array";
 
@@ -331,7 +331,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertFalse("configuration 1 is empty", conf1.isEmpty());
     }
 
-    @Test
+@Test
     public void testDictionaryArray_7_oe() {
         final String key = "dictionary-array";
 
@@ -352,7 +352,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("configuration element", "bar", conf1.getProperty("foo"));
     }
 
-    @Test
+@Test
     public void testDictionaryArray_9_oe() {
         final String key = "dictionary-array";
 
@@ -378,7 +378,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertFalse("configuration 2 is empty", conf2.isEmpty());
     }
 
-    @Test
+@Test
     public void testDictionaryArray_10_oe() {
         final String key = "dictionary-array";
 
@@ -405,13 +405,13 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("configuration element", "value", conf2.getProperty("key"));
     }
 
-    @Test
+@Test
     public void testEmptyArray_1_oe() {
         final String key = "empty-array";
         assertNotNull("array null", config.getProperty(key));
     }
 
-    @Test
+@Test
     public void testEmptyArray_2_oe() {
         final String key = "empty-array";
         // removed other assertion
@@ -420,7 +420,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertTrue("array is not empty", list.isEmpty());
     }
 
-    @Test
+@Test
     public void testFormatDate_1_oe() {
         final Calendar cal = Calendar.getInstance();
         cal.clear();
@@ -429,7 +429,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("Wrong date literal (1)", "<*D2007-10-29 23:04:30 -0230>", PropertyListConfiguration.formatDate(cal));
     }
 
-    @Test
+@Test
     public void testFormatDate_2_oe() {
         final Calendar cal = Calendar.getInstance();
         cal.clear();
@@ -442,18 +442,18 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("Wrong date literal (2)", "<*D2007-10-30 22:02:15 +1111>", PropertyListConfiguration.formatDate(cal));
     }
 
-    @Test
+@Test
     public void testInitCopy_1_oe() {
         final PropertyListConfiguration copy = new PropertyListConfiguration(config);
         assertFalse("Nothing was copied", copy.isEmpty());
     }
 
-    @Test
+@Test
     public void testLoad_1_oe() {
         assertFalse("the configuration is empty", config.isEmpty());
     }
 
-    @Test
+@Test
     public void testLoadWithError_2_oe() {
         config = new PropertyListConfiguration();
         try {
@@ -465,7 +465,7 @@ public class TestPropertyListConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testNestedArrays_1_oe() {
         final String key = "nested-arrays";
 
@@ -475,7 +475,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertNotNull("array not found", array);
     }
 
-    @Test
+@Test
     public void testNestedArrays_3_oe() {
         final String key = "nested-arrays";
 
@@ -489,7 +489,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertFalse("empty array", list.isEmpty());
     }
 
-    @Test
+@Test
     public void testNestedArrays_4_oe() {
         final String key = "nested-arrays";
 
@@ -504,7 +504,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("size", 2, list.size());
     }
 
-    @Test
+@Test
     public void testNestedArrays_6_oe() {
         final String key = "nested-arrays";
 
@@ -524,7 +524,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertFalse("nested array 1 is empty", list1.isEmpty());
     }
 
-    @Test
+@Test
     public void testNestedArrays_7_oe() {
         final String key = "nested-arrays";
 
@@ -545,7 +545,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("size", 2, list1.size());
     }
 
-    @Test
+@Test
     public void testNestedArrays_8_oe() {
         final String key = "nested-arrays";
 
@@ -567,7 +567,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("1st element", "a", list1.get(0));
     }
 
-    @Test
+@Test
     public void testNestedArrays_9_oe() {
         final String key = "nested-arrays";
 
@@ -590,7 +590,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("2nd element", "b", list1.get(1));
     }
 
-    @Test
+@Test
     public void testNestedArrays_11_oe() {
         final String key = "nested-arrays";
 
@@ -618,7 +618,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertFalse("nested array 2 is empty", list2.isEmpty());
     }
 
-    @Test
+@Test
     public void testNestedArrays_12_oe() {
         final String key = "nested-arrays";
 
@@ -647,7 +647,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("size", 2, list2.size());
     }
 
-    @Test
+@Test
     public void testNestedArrays_13_oe() {
         final String key = "nested-arrays";
 
@@ -677,7 +677,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("1st element", "c", list2.get(0));
     }
 
-    @Test
+@Test
     public void testNestedArrays_14_oe() {
         final String key = "nested-arrays";
 
@@ -708,48 +708,48 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("2nd element", "d", list2.get(1));
     }
 
-    @Test
+@Test
     public void testNestedDictionaries_1_oe() {
         assertEquals("nested property", "value", config.getString("nested-dictionaries.foo.bar.key"));
     }
 
-    @Test
+@Test
     public void testQuotedString_1_oe() {
         assertEquals("quoted-string", "string2", config.getProperty("quoted-string"));
     }
 
-    @Test
+@Test
     public void testQuotedString_2_oe() {
         // removed other assertion
         assertEquals("quoted-string2", "this is a string", config.getProperty("quoted-string2"));
     }
 
-    @Test
+@Test
     public void testQuotedString_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("complex-string", "this is a \"complex\" string {(=,;)}", config.getProperty("complex-string"));
     }
 
-    @Test
+@Test
     public void testQuoteString_1_oe() {
         assertNull("null string", config.quoteString(null));
     }
 
-    @Test
+@Test
     public void testQuoteString_2_oe() {
         // removed other assertion
         assertEquals("simple string", "abcd", config.quoteString("abcd"));
     }
 
-    @Test
+@Test
     public void testQuoteString_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("string with a space", "\"ab cd\"", config.quoteString("ab cd"));
     }
 
-    @Test
+@Test
     public void testQuoteString_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -757,7 +757,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("string with a quote", "\"foo\\\"bar\"", config.quoteString("foo\"bar"));
     }
 
-    @Test
+@Test
     public void testQuoteString_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -766,7 +766,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("string with a special char", "\"foo;bar\"", config.quoteString("foo;bar"));
     }
 
-    @Test
+@Test
     public void testSave_1_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
@@ -775,7 +775,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertTrue("The saved file doesn't exist", savedFile.exists());
     }
 
-    @Test
+@Test
     public void testSave_2_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
@@ -794,7 +794,7 @@ public class TestPropertyListConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSave_3_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
@@ -819,7 +819,7 @@ public class TestPropertyListConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSave_4_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
@@ -849,7 +849,7 @@ public class TestPropertyListConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSave_5_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
@@ -889,7 +889,7 @@ public class TestPropertyListConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSave_6_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
@@ -931,7 +931,7 @@ public class TestPropertyListConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSave_7_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
@@ -975,7 +975,7 @@ public class TestPropertyListConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSave_8_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
@@ -1021,7 +1021,7 @@ public class TestPropertyListConfiguration_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSaveEmptyDictionary_1_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
@@ -1030,7 +1030,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertTrue("The saved file doesn't exist", savedFile.exists());
     }
 
-    @Test
+@Test
     public void testSaveEmptyDictionary_2_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
@@ -1045,7 +1045,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertFalse(getNamedChildren(config, "empty-dictionary").isEmpty());
     }
 
-    @Test
+@Test
     public void testSaveEmptyDictionary_3_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
@@ -1061,7 +1061,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertFalse(getNamedChildren(checkConfig, "empty-dictionary").isEmpty());
     }
 
-    @Test
+@Test
     public void testSetDataProperty_1_oe() throws Exception {
         final File saveFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -1076,7 +1076,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertNotNull("data not found", array);
     }
 
-    @Test
+@Test
     public void testSetDataProperty_2_oe() throws Exception {
         final File saveFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -1092,7 +1092,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         assertEquals("property type", byte[].class, array.getClass());
     }
 
-    @Test
+@Test
     public void testSetDataProperty_3_oe() throws Exception {
         final File saveFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -1109,7 +1109,7 @@ public class TestPropertyListConfiguration_OE25Dev {
         ArrayAssert.assertEquals(expected, (byte[]) array);
     }
 
-    @Test
+@Test
     public void testString_1_oe() {
         assertEquals("simple-string", "string1", config.getProperty("simple-string"));
     }

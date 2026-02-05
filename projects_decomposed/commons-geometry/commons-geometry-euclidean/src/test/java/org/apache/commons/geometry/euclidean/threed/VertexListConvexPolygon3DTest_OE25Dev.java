@@ -151,7 +151,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testProperties_1_oe() {
         // act
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -160,7 +160,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertFalse(p.isFull());
     }
 
-    @Test
+@Test
     void testProperties_2_oe() {
         // act
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -170,7 +170,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertFalse(p.isEmpty());
     }
 
-    @Test
+@Test
     void testProperties_3_oe() {
         // act
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -181,7 +181,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertTrue(p.isFinite());
     }
 
-    @Test
+@Test
     void testProperties_4_oe() {
         // act
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -193,7 +193,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertFalse(p.isInfinite());
     }
 
-    @Test
+@Test
     void testProperties_5_oe() {
         // act
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -207,7 +207,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertEquals(0.5, p.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProperties_7_oe() {
         // act
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -224,7 +224,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertSame(XY_PLANE_Z1, p.getPlane());
     }
 
-    @Test
+@Test
     void testVertices_listIsImmutable_1_oe() {
         // arrange
         final List<Vector3D> vertices = new ArrayList<>(TRIANGLE_VERTICES);
@@ -234,7 +234,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertThrows(UnsupportedOperationException.class, () -> p.getVertices().add(Vector3D.of(-1, 0, 1)));
     }
 
-    @Test
+@Test
     void testGetSubspaceRegion_1_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -246,7 +246,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertFalse(area.isFull());
     }
 
-    @Test
+@Test
     void testGetSubspaceRegion_2_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -259,7 +259,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertFalse(area.isEmpty());
     }
 
-    @Test
+@Test
     void testGetSubspaceRegion_3_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -273,7 +273,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertTrue(area.isFinite());
     }
 
-    @Test
+@Test
     void testGetSubspaceRegion_4_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -288,7 +288,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertFalse(area.isInfinite());
     }
 
-    @Test
+@Test
     void testGetSubspaceRegion_5_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -305,7 +305,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertEquals(0.5, area.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetSubspaceRegion_6_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -325,7 +325,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertEquals(3, vertices.size());
     }
 
-    @Test
+@Test
     void testToTriangles_threeVertices_1_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -337,7 +337,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertEquals(1, tris.size());
     }
 
-    @Test
+@Test
     void testToTriangles_threeVertices_2_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -352,7 +352,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertSame(XY_PLANE_Z1, a.getPlane());
     }
 
-    @Test
+@Test
     void testToTriangles_fiveVertices_1_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 1, 1);
@@ -370,7 +370,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertEquals(3, tris.size());
     }
 
-    @Test
+@Test
     void testToTriangles_fiveVertices_2_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 1, 1);
@@ -391,7 +391,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertSame(XY_PLANE_Z1, a.getPlane());
     }
 
-    @Test
+@Test
     void testToTriangles_fiveVertices_4_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 1, 1);
@@ -416,7 +416,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertSame(XY_PLANE_Z1, b.getPlane());
     }
 
-    @Test
+@Test
     void testToTriangles_fiveVertices_6_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 1, 1);
@@ -445,7 +445,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertSame(XY_PLANE_Z1, c.getPlane());
     }
 
-    @Test
+@Test
     void testTransform_1_oe() {
         // arrange
         final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
@@ -465,7 +465,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertFalse(result.isFull());
     }
 
-    @Test
+@Test
     void testTransform_2_oe() {
         // arrange
         final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
@@ -486,7 +486,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertFalse(result.isEmpty());
     }
 
-    @Test
+@Test
     void testTransform_3_oe() {
         // arrange
         final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
@@ -508,7 +508,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertTrue(result.isFinite());
     }
 
-    @Test
+@Test
     void testTransform_4_oe() {
         // arrange
         final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
@@ -531,7 +531,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertFalse(result.isInfinite());
     }
 
-    @Test
+@Test
     void testTransform_5_oe() {
         // arrange
         final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
@@ -556,7 +556,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertEquals(8, result.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testReverse_1_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, Arrays.asList(
@@ -571,7 +571,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertFalse(result.isFull());
     }
 
-    @Test
+@Test
     void testReverse_2_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, Arrays.asList(
@@ -587,7 +587,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertFalse(result.isEmpty());
     }
 
-    @Test
+@Test
     void testReverse_3_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, Arrays.asList(
@@ -604,7 +604,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertTrue(result.isFinite());
     }
 
-    @Test
+@Test
     void testReverse_4_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, Arrays.asList(
@@ -622,7 +622,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertFalse(result.isInfinite());
     }
 
-    @Test
+@Test
     void testReverse_5_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, Arrays.asList(
@@ -642,7 +642,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertEquals(4, result.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSplit_plus_1_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -656,7 +656,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_plus_2_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -672,7 +672,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_plus_3_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -689,7 +689,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertSame(p, split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_minus_1_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -703,7 +703,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_minus_2_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -719,7 +719,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertSame(p, split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_minus_3_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -736,7 +736,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_both_1_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -750,7 +750,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_neither_1_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -764,7 +764,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_neither_2_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
@@ -780,7 +780,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_neither_3_oe() {
         // arrange
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);

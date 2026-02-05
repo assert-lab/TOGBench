@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class JpegWithJpegThumbnailTest_OE25Dev extends ImagingTest {
 
-    @Test
+@Test
     public void testSingleImage_1_oe() throws Exception {
         final File imageFile = getTestImageByName("img_F028c_small.jpg");
 
@@ -37,7 +37,7 @@ public class JpegWithJpegThumbnailTest_OE25Dev extends ImagingTest {
         assertNotNull(metadata);
     }
 
-    @Test
+@Test
     public void testSingleImage_2_oe() throws Exception {
         final File imageFile = getTestImageByName("img_F028c_small.jpg");
 

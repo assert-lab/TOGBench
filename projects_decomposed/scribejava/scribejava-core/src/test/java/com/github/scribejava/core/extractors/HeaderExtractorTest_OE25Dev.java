@@ -41,7 +41,7 @@ public class HeaderExtractorTest_OE25Dev {
         });
     }
 
-    @Test
+@Test
     public void shouldExtractStandardHeader_1_oe() {
         final String header = extractor.extract(request);
         final String oauth = "OAuth ";
@@ -53,7 +53,7 @@ public class HeaderExtractorTest_OE25Dev {
         assertTrue(header.startsWith(oauth));
     }
 
-    @Test
+@Test
     public void shouldExtractStandardHeader_2_oe() {
         final String header = extractor.extract(request);
         final String oauth = "OAuth ";
@@ -66,7 +66,7 @@ public class HeaderExtractorTest_OE25Dev {
         assertTrue(header.contains(callback));
     }
 
-    @Test
+@Test
     public void shouldExtractStandardHeader_3_oe() {
         final String header = extractor.extract(request);
         final String oauth = "OAuth ";
@@ -80,7 +80,7 @@ public class HeaderExtractorTest_OE25Dev {
         assertTrue(header.contains(signature));
     }
 
-    @Test
+@Test
     public void shouldExtractStandardHeader_4_oe() {
         final String header = extractor.extract(request);
         final String oauth = "OAuth ";
@@ -95,7 +95,7 @@ public class HeaderExtractorTest_OE25Dev {
         assertTrue(header.contains(key));
     }
 
-    @Test
+@Test
     public void shouldExtractStandardHeader_5_oe() {
         final String header = extractor.extract(request);
         final String oauth = "OAuth ";
@@ -111,7 +111,7 @@ public class HeaderExtractorTest_OE25Dev {
         assertTrue(header.contains(timestamp));
     }
 
-    @Test
+@Test
     public void shouldExtractStandardHeader_6_oe() {
         final String header = extractor.extract(request);
         final String oauth = "OAuth ";

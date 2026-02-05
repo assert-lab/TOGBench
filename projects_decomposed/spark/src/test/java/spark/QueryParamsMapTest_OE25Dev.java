@@ -15,7 +15,7 @@ public class QueryParamsMapTest_OE25Dev {
     QueryParamsMap queryMap = new QueryParamsMap();
     
     
-    @Test
+@Test
     public void constructorWithParametersMap_1_oe() {
         Map<String,String[]> params = new HashMap<>();
         
@@ -26,7 +26,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals("fede",queryMap.get("user").get("info").get("name").value());
     }
 
-    @Test
+@Test
     public void constructorWithParametersMap_2_oe() {
         Map<String,String[]> params = new HashMap<>();
         
@@ -38,7 +38,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals("fede",queryMap.get("user","info","name").value());
     }
 
-    @Test
+@Test
     public void keyToMap_1_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -48,7 +48,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertFalse(queryMap.getQueryMap().isEmpty());
     }
 
-    @Test
+@Test
     public void keyToMap_2_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -59,7 +59,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertFalse(queryMap.getQueryMap().get("user").getQueryMap().isEmpty());
     }
 
-    @Test
+@Test
     public void keyToMap_3_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -71,7 +71,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertFalse(queryMap.getQueryMap().get("user").getQueryMap().get("info").getQueryMap().isEmpty());
     }
 
-    @Test
+@Test
     public void keyToMap_4_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -84,7 +84,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals("federico",queryMap.getQueryMap().get("user").getQueryMap().get("info").getQueryMap().get("first_name").getValues()[0]);
     }
 
-    @Test
+@Test
     public void keyToMap_5_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -98,7 +98,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals("dayan",queryMap.getQueryMap().get("user").getQueryMap().get("info").getQueryMap().get("last_name").getValues()[0]);
     }
 
-    @Test
+@Test
     public void keyToMap_6_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -114,7 +114,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertTrue(queryMap.hasKey("user"));
     }
 
-    @Test
+@Test
     public void keyToMap_7_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -131,7 +131,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertFalse(queryMap.hasKey("frame"));
     }
 
-    @Test
+@Test
     public void keyToMap_8_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -149,7 +149,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertFalse(queryMap.hasKey(null));
     }
 
-    @Test
+@Test
     public void keyToMap_9_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -169,7 +169,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertTrue(queryMap.hasKeys());
     }
 
-    @Test
+@Test
     public void keyToMap_10_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -190,7 +190,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertFalse(queryMap.hasValue());
     }
 
-    @Test
+@Test
     public void keyToMap_11_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -212,7 +212,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertTrue(queryMap.getQueryMap().get("user").getQueryMap().get("info").getQueryMap().get("last_name").hasValue());
     }
 
-    @Test
+@Test
     public void testDifferentTypesForValue_1_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -222,7 +222,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals(new Integer(10),queryMap.get("user").get("age").integerValue());
     }
 
-    @Test
+@Test
     public void testDifferentTypesForValue_2_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -233,7 +233,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals(new Float(10),queryMap.get("user").get("age").floatValue());
     }
 
-    @Test
+@Test
     public void testDifferentTypesForValue_3_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -245,7 +245,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals(new Double(10),queryMap.get("user").get("age").doubleValue());
     }
 
-    @Test
+@Test
     public void testDifferentTypesForValue_4_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -258,7 +258,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals(new Long(10),queryMap.get("user").get("age").longValue());
     }
 
-    @Test
+@Test
     public void testDifferentTypesForValue_5_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -272,14 +272,14 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals(Boolean.TRUE,queryMap.get("user").get("agrees").booleanValue());
     }
 
-    @Test
+@Test
     public void parseKeyShouldParseRootKey_1_oe() {
         String[] parsed = queryMap.parseKey("user[name][more]");
         
         assertEquals("user",parsed[0]);
     }
 
-    @Test
+@Test
     public void parseKeyShouldParseRootKey_2_oe() {
         String[] parsed = queryMap.parseKey("user[name][more]");
         
@@ -287,7 +287,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals("[name][more]",parsed[1]);
     }
 
-    @Test
+@Test
     public void parseKeyShouldParseSubkeys_1_oe() {
         String[] parsed = null;
         
@@ -296,7 +296,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals("name",parsed[0]);
     }
 
-    @Test
+@Test
     public void parseKeyShouldParseSubkeys_2_oe() {
         String[] parsed = null;
         
@@ -306,7 +306,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals("[more]",parsed[1]);
     }
 
-    @Test
+@Test
     public void parseKeyShouldParseSubkeys_3_oe() {
         String[] parsed = null;
         
@@ -320,7 +320,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals("more",parsed[0]);
     }
 
-    @Test
+@Test
     public void parseKeyShouldParseSubkeys_4_oe() {
         String[] parsed = null;
         
@@ -335,7 +335,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals("",parsed[1]);
     }
 
-    @Test
+@Test
     public void itShouldbeNullSafe_1_oe() {
         QueryParamsMap queryParamsMap = new QueryParamsMap();
         
@@ -344,14 +344,14 @@ public class QueryParamsMapTest_OE25Dev {
         assertNull(ret);
     }
 
-    @Test
+@Test
     public void testConstructor_1_oe() {
         QueryParamsMap queryMap = new QueryParamsMap("user[name][more]","fede");
 
         assertFalse(queryMap.getQueryMap().isEmpty());
     }
 
-    @Test
+@Test
     public void testConstructor_2_oe() {
         QueryParamsMap queryMap = new QueryParamsMap("user[name][more]","fede");
 
@@ -359,7 +359,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertFalse(queryMap.getQueryMap().get("user").getQueryMap().isEmpty());
     }
 
-    @Test
+@Test
     public void testConstructor_3_oe() {
         QueryParamsMap queryMap = new QueryParamsMap("user[name][more]","fede");
 
@@ -368,7 +368,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertFalse(queryMap.getQueryMap().get("user").getQueryMap().get("name").getQueryMap().isEmpty());
     }
 
-    @Test
+@Test
     public void testConstructor_4_oe() {
         QueryParamsMap queryMap = new QueryParamsMap("user[name][more]","fede");
 
@@ -378,7 +378,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals("fede",queryMap.getQueryMap().get("user").getQueryMap().get("name").getQueryMap().get("more").getValues()[0]);
     }
 
-    @Test
+@Test
     public void testToMap_1_oe() {
         Map<String,String[]> params = new HashMap<>();
         
@@ -392,7 +392,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals(2,map.size());
     }
 
-    @Test
+@Test
     public void testToMap_2_oe() {
         Map<String,String[]> params = new HashMap<>();
         
@@ -407,7 +407,7 @@ public class QueryParamsMapTest_OE25Dev {
         assertEquals("fede",map.get("name")[0]);
     }
 
-    @Test
+@Test
     public void testToMap_3_oe() {
         Map<String,String[]> params = new HashMap<>();
         

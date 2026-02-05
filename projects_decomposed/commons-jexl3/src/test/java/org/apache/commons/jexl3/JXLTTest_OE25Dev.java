@@ -312,7 +312,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         }
     };
 
-    @Test
+@Test
     public void testStatement_1_oe() throws Exception {
         final Froboz froboz = new Froboz(32);
         context.set("froboz", froboz);
@@ -321,7 +321,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 32", new Integer(32), o);
     }
 
-    @Test
+@Test
     public void testStatement_2_oe() throws Exception {
         final Froboz froboz = new Froboz(32);
         context.set("froboz", froboz);
@@ -331,7 +331,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 42", 42, froboz.getValue());
     }
 
-    @Test
+@Test
     public void testStatement_3_oe() throws Exception {
         final Froboz froboz = new Froboz(32);
         context.set("froboz", froboz);
@@ -343,7 +343,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, evars.size());
     }
 
-    @Test
+@Test
     public void testAssign_1_oe() throws Exception {
         final Froboz froboz = new Froboz(32);
         context.set("froboz", froboz);
@@ -353,7 +353,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 10", new Integer(42), o);
     }
 
-    @Test
+@Test
     public void testAssign_2_oe() throws Exception {
         final Froboz froboz = new Froboz(32);
         context.set("froboz", froboz);
@@ -365,7 +365,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 10", new Integer(42), o);
     }
 
-    @Test
+@Test
     public void testComposite_1_oe() throws Exception {
         final String source = "Dear ${p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
@@ -374,7 +374,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("expression should be immediate", expr.isImmediate());
     }
 
-    @Test
+@Test
     public void testComposite_2_oe() throws Exception {
         final String source = "Dear ${p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
@@ -385,7 +385,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Dear Mr Doe;", o);
     }
 
-    @Test
+@Test
     public void testComposite_3_oe() throws Exception {
         final String source = "Dear ${p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
@@ -400,7 +400,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Dear Ms Jones;", o);
     }
 
-    @Test
+@Test
     public void testComposite_4_oe() throws Exception {
         final String source = "Dear ${p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
@@ -416,14 +416,14 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(source, getSource(expr.toString()));
     }
 
-    @Test
+@Test
     public void testPrepareEvaluate_1_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
         Assert.assertTrue("expression should be deferred", expr.isDeferred());
     }
 
-    @Test
+@Test
     public void testPrepareEvaluate_2_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
@@ -433,7 +433,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, evars.size());
     }
 
-    @Test
+@Test
     public void testPrepareEvaluate_3_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
@@ -444,7 +444,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(contains(evars, Collections.singletonList("name")));
     }
 
-    @Test
+@Test
     public void testPrepareEvaluate_4_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
@@ -459,7 +459,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Dear ${p} Doe;", as);
     }
 
-    @Test
+@Test
     public void testPrepareEvaluate_5_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
@@ -476,7 +476,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, evars1.size());
     }
 
-    @Test
+@Test
     public void testPrepareEvaluate_6_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
@@ -494,7 +494,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(contains(evars1, Collections.singletonList("p")));
     }
 
-    @Test
+@Test
     public void testPrepareEvaluate_7_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
@@ -517,7 +517,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Dear Mr Doe;", o);
     }
 
-    @Test
+@Test
     public void testPrepareEvaluate_8_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
@@ -543,7 +543,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(source, getSource(phase1.toString()));
     }
 
-    @Test
+@Test
     public void testPrepareEvaluate_9_oe() throws Exception {
         final String source = "Dear #{p} ${name};";
         final JxltEngine.Expression expr = JXLT.createExpression("Dear #{p} ${name};");
@@ -570,7 +570,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(source, getSource(expr.toString()));
     }
 
-    @Test
+@Test
     public void testNested_1_oe() throws Exception {
         final String source = "#{${hi}+'.world'}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
@@ -579,7 +579,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, evars.size());
     }
 
-    @Test
+@Test
     public void testNested_2_oe() throws Exception {
         final String source = "#{${hi}+'.world'}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
@@ -589,7 +589,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(contains(evars, Collections.singletonList("hi")));
     }
 
-    @Test
+@Test
     public void testNested_3_oe() throws Exception {
         final String source = "#{${hi}+'.world'}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
@@ -603,7 +603,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("expression should be deferred", expr.isDeferred());
     }
 
-    @Test
+@Test
     public void testNested_4_oe() throws Exception {
         final String source = "#{${hi}+'.world'}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
@@ -619,7 +619,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Hello World!", o);
     }
 
-    @Test
+@Test
     public void testNested_5_oe() throws Exception {
         final String source = "#{${hi}+'.world'}";
         final JxltEngine.Expression expr = JXLT.createExpression(source);
@@ -637,7 +637,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(source, getSource(expr.toString()));
     }
 
-    @Test
+@Test
     public void testNestedTemplate_1_oe() throws Exception {
         final String source = "#{${hi}+'.world'}";
         final JxltEngine.Template expr = JXLT.createTemplate(source, "hi");
@@ -649,7 +649,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Hello World!", o);
     }
 
-    @Test
+@Test
     public void testNestedTemplate_2_oe() throws Exception {
         final String source = "#{${hi}+'.world'}";
         final JxltEngine.Template expr = JXLT.createTemplate(source, "hi");
@@ -663,7 +663,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(source, getSource(expr.toString()));
     }
 
-    @Test
+@Test
     public void testImmediate_1_oe() throws Exception {
         final JexlContext none = null;
         final String source = "${'Hello ' + 'World!'}";
@@ -672,7 +672,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("prepare should return same expression", "Hello World!", prepared.asString());
     }
 
-    @Test
+@Test
     public void testImmediate_2_oe() throws Exception {
         final JexlContext none = null;
         final String source = "${'Hello ' + 'World!'}";
@@ -683,7 +683,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("expression should be immediate", expr.isImmediate());
     }
 
-    @Test
+@Test
     public void testImmediate_3_oe() throws Exception {
         final JexlContext none = null;
         final String source = "${'Hello ' + 'World!'}";
@@ -695,7 +695,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Hello World!", o);
     }
 
-    @Test
+@Test
     public void testImmediate_4_oe() throws Exception {
         final JexlContext none = null;
         final String source = "${'Hello ' + 'World!'}";
@@ -709,7 +709,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(source, getSource(expr.toString()));
     }
 
-    @Test
+@Test
     public void testConstant_1_oe() throws Exception {
         final JexlContext none = null;
         final String source = "Hello World!";
@@ -717,7 +717,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertSame("prepare should return same expression", expr.prepare(none), expr);
     }
 
-    @Test
+@Test
     public void testConstant_2_oe() throws Exception {
         final JexlContext none = null;
         final String source = "Hello World!";
@@ -727,7 +727,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("expression should be immediate", expr.isImmediate());
     }
 
-    @Test
+@Test
     public void testConstant_3_oe() throws Exception {
         final JexlContext none = null;
         final String source = "Hello World!";
@@ -738,7 +738,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Hello World!", o);
     }
 
-    @Test
+@Test
     public void testConstant_4_oe() throws Exception {
         final JexlContext none = null;
         final String source = "Hello World!";
@@ -751,7 +751,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(source, getSource(expr.toString()));
     }
 
-    @Test
+@Test
     public void testConstant2_1_oe() throws Exception {
         final JexlContext none = null;
         final String source = "${size({'map':123,'map2':456})}";
@@ -761,7 +761,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("expression should be immediate", expr.isImmediate());
     }
 
-    @Test
+@Test
     public void testConstant2_2_oe() throws Exception {
         final JexlContext none = null;
         final String source = "${size({'map':123,'map2':456})}";
@@ -772,7 +772,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(2, o);
     }
 
-    @Test
+@Test
     public void testConstant2_3_oe() throws Exception {
         final JexlContext none = null;
         final String source = "${size({'map':123,'map2':456})}";
@@ -785,7 +785,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(source, getSource(expr.toString()));
     }
 
-    @Test
+@Test
     public void testConstant3_1_oe() throws Exception {
         final JexlContext none = null;
         final String source = "#{size({'map':123,'map2':456})}";
@@ -795,7 +795,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("expression should be deferred", expr.isDeferred());
     }
 
-    @Test
+@Test
     public void testConstant3_2_oe() throws Exception {
         final JexlContext none = null;
         final String source = "#{size({'map':123,'map2':456})}";
@@ -806,7 +806,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(2, o);
     }
 
-    @Test
+@Test
     public void testConstant3_3_oe() throws Exception {
         final JexlContext none = null;
         final String source = "#{size({'map':123,'map2':456})}";
@@ -819,7 +819,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(source, getSource(expr.toString()));
     }
 
-    @Test
+@Test
     public void testConstant4_1_oe() throws Exception {
         final JexlContext none = null;
         final String source = "#{ ${size({'1':2,'2': 3})} }";
@@ -829,7 +829,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("expression should be deferred", expr.isDeferred());
     }
 
-    @Test
+@Test
     public void testConstant4_2_oe() throws Exception {
         final JexlContext none = null;
         final String source = "#{ ${size({'1':2,'2': 3})} }";
@@ -840,7 +840,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(2, o);
     }
 
-    @Test
+@Test
     public void testConstant4_3_oe() throws Exception {
         final JexlContext none = null;
         final String source = "#{ ${size({'1':2,'2': 3})} }";
@@ -853,7 +853,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(source, getSource(expr.toString()));
     }
 
-    @Test
+@Test
     public void testDeferred_1_oe() throws Exception {
         final JexlContext none = null;
         final String source = "#{'world'}";
@@ -861,7 +861,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("expression should be deferred", expr.isDeferred());
     }
 
-    @Test
+@Test
     public void testDeferred_2_oe() throws Exception {
         final JexlContext none = null;
         final String source = "#{'world'}";
@@ -871,7 +871,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("prepare should return immediate version", "${'world'}", as);
     }
 
-    @Test
+@Test
     public void testDeferred_3_oe() throws Exception {
         final JexlContext none = null;
         final String source = "#{'world'}";
@@ -883,7 +883,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("world", o);
     }
 
-    @Test
+@Test
     public void testDeferred_4_oe() throws Exception {
         final JexlContext none = null;
         final String source = "#{'world'}";
@@ -897,7 +897,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(source, getSource(expr.toString()));
     }
 
-    @Test
+@Test
     public void testEscape_1_oe() throws Exception {
         final JexlContext none = null;
         JxltEngine.Expression expr;
@@ -908,7 +908,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("#{'world'}", o);
     }
 
-    @Test
+@Test
     public void testEscape_2_oe() throws Exception {
         final JexlContext none = null;
         JxltEngine.Expression expr;
@@ -922,7 +922,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("${'world'}", o);
     }
 
-    @Test
+@Test
     public void testEscapeString_1_oe() throws Exception {
         final JxltEngine.Expression expr = JXLT.createExpression("\\\"${'world\\'s finest'}\\\"");
         final JexlContext none = null;
@@ -930,7 +930,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("\"world's finest\"", o);
     }
 
-    @Test
+@Test
     public void testNonEscapeString_1_oe() throws Exception {
         final JxltEngine.Expression expr = JXLT.createExpression("c:\\some\\windows\\path");
         final JexlContext none = null;
@@ -938,7 +938,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("c:\\some\\windows\\path", o);
     }
 
-    @Test
+@Test
     public void testCharAtBug_1_oe() throws Exception {
         context.set("foo", "abcdef");
         final JexlOptions options = context.getEngineOptions();
@@ -947,7 +947,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("cd", o);
     }
 
-    @Test
+@Test
     public void testTemplate0_1_oe() throws Exception {
         final String source = "   $$ if(x) {\nx is ${x}\n   $$ } else {\n${'no x'}\n$$ }\n";
         StringWriter strw;
@@ -962,7 +962,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("x is 42\n", output);
     }
 
-    @Test
+@Test
     public void testTemplate0_2_oe() throws Exception {
         final String source = "   $$ if(x) {\nx is ${x}\n   $$ } else {\n${'no x'}\n$$ }\n";
         StringWriter strw;
@@ -983,7 +983,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("no x\n", output);
     }
 
-    @Test
+@Test
     public void testTemplate0_3_oe() throws Exception {
         final String source = "   $$ if(x) {\nx is ${x}\n   $$ } else {\n${'no x'}\n$$ }\n";
         StringWriter strw;
@@ -1007,7 +1007,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(dstr);
     }
 
-    @Test
+@Test
     public void testTemplate10_1_oe() throws Exception {
         final String source = "$$(x)->{ if(x) {\nx is ${x}\n$$ } else {\n${'no x'}\n$$ } }\n";
         StringWriter strw;
@@ -1018,7 +1018,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(dstr);
     }
 
-    @Test
+@Test
     public void testTemplate10_2_oe() throws Exception {
         final String source = "$$(x)->{ if(x) {\nx is ${x}\n$$ } else {\n${'no x'}\n$$ } }\n";
         StringWriter strw;
@@ -1032,7 +1032,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(Arrays.asList(ps).contains("x"));
     }
 
-    @Test
+@Test
     public void testTemplate10_3_oe() throws Exception {
         final String source = "$$(x)->{ if(x) {\nx is ${x}\n$$ } else {\n${'no x'}\n$$ } }\n";
         StringWriter strw;
@@ -1051,7 +1051,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("x is 42\n", output);
     }
 
-    @Test
+@Test
     public void testTemplate1_1_oe() throws Exception {
         final String source = "$$ if(x) {\nx is ${x}\n$$ } else {\n${'no x'}\n$$ }\n";
         StringWriter strw;
@@ -1062,7 +1062,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(dstr);
     }
 
-    @Test
+@Test
     public void testTemplate1_2_oe() throws Exception {
         final String source = "$$ if(x) {\nx is ${x}\n$$ } else {\n${'no x'}\n$$ }\n";
         StringWriter strw;
@@ -1078,7 +1078,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("x is 42\n", output);
     }
 
-    @Test
+@Test
     public void testTemplate1_3_oe() throws Exception {
         final String source = "$$ if(x) {\nx is ${x}\n$$ } else {\n${'no x'}\n$$ }\n";
         StringWriter strw;
@@ -1099,7 +1099,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("no x\n", output);
     }
 
-    @Test
+@Test
     public void testTemplate2_1_oe() throws Exception {
         final String source = "The answer: ${x}";
         StringWriter strw;
@@ -1110,7 +1110,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(dstr);
     }
 
-    @Test
+@Test
     public void testTemplate2_2_oe() throws Exception {
         final String source = "The answer: ${x}";
         StringWriter strw;
@@ -1126,7 +1126,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("The answer: 42", output);
     }
 
-    @Test
+@Test
     public void testPrepareTemplate_1_oe() throws Exception {
         final String source
                 = "$$ for(var x : list) {\n"
@@ -1138,7 +1138,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(dstr);
     }
 
-    @Test
+@Test
     public void testPrepareTemplate_2_oe() throws Exception {
         final String source
                 = "$$ for(var x : list) {\n"
@@ -1152,7 +1152,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(vars.isEmpty());
     }
 
-    @Test
+@Test
     public void testPrepareTemplate_3_oe() throws Exception {
         final String source
                 = "$$ for(var x : list) {\n"
@@ -1177,7 +1177,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("valeur=42\n", outFR);
     }
 
-    @Test
+@Test
     public void testPrepareTemplate_4_oe() throws Exception {
         final String source
                 = "$$ for(var x : list) {\n"
@@ -1208,7 +1208,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("value=42\n", outEN);
     }
 
-    @Test
+@Test
     public void test42_1_oe() throws Exception {
         final String test42
                 = "$$ for(var x : list) {\n"
@@ -1234,7 +1234,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(out42, output);
     }
 
-    @Test
+@Test
     public void test42_2_oe() throws Exception {
         final String test42
                 = "$$ for(var x : list) {\n"
@@ -1263,7 +1263,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(dstr);
     }
 
-    @Test
+@Test
     public void test42_3_oe() throws Exception {
         final String test42
                 = "$$ for(var x : list) {\n"
@@ -1296,7 +1296,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(refactored);
     }
 
-    @Test
+@Test
     public void test42_4_oe() throws Exception {
         final String test42
                 = "$$ for(var x : list) {\n"
@@ -1330,7 +1330,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(test42, refactored);
     }
 
-    @Test
+@Test
     public void testInheritedDebugger_1_oe() throws Exception {
         final String src = "if ($A) { $B + 1; } else { $C - 2 }";
         final JexlEngine jexl = JXLT.getEngine();
@@ -1341,7 +1341,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(rscript);
     }
 
-    @Test
+@Test
     public void testInheritedDebugger_2_oe() throws Exception {
         final String src = "if ($A) { $B + 1; } else { $C - 2 }";
         final JexlEngine jexl = JXLT.getEngine();
@@ -1356,7 +1356,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(refactored);
     }
 
-    @Test
+@Test
     public void testInheritedDebugger_3_oe() throws Exception {
         final String src = "if ($A) { $B + 1; } else { $C - 2 }";
         final JexlEngine jexl = JXLT.getEngine();
@@ -1372,7 +1372,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(refactored, rscript);
     }
 
-    @Test
+@Test
     public void testWriter_1_oe() throws Exception {
         final Froboz froboz = new Froboz(42);
         final Writer writer = new FrobozWriter(new StringWriter());
@@ -1381,7 +1381,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("froboz{42}", writer.toString());
     }
 
-    @Test
+@Test
     public void testReport_1_oe() throws Exception {
         final String rpt
                 = "<report>\n"
@@ -1401,7 +1401,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(ctl, output);
     }
 
-    @Test
+@Test
     public void testReport_2_oe() throws Exception {
         final String rpt
                 = "<report>\n"
@@ -1425,7 +1425,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(refactored);
     }
 
-    @Test
+@Test
     public void testReport_3_oe() throws Exception {
         final String rpt
                 = "<report>\n"
@@ -1450,7 +1450,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(rpt, refactored);
     }
 
-    @Test
+@Test
     public void testReport1_1_oe() throws Exception {
         final String rpt
                 = "<report>\n"
@@ -1474,7 +1474,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(6, count);
     }
 
-    @Test
+@Test
     public void testReport1_2_oe() throws Exception {
         final String rpt
                 = "<report>\n"
@@ -1499,7 +1499,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(output.indexOf("42") > 0);
     }
 
-    @Test
+@Test
     public void testReport1_3_oe() throws Exception {
         final String rpt
                 = "<report>\n"
@@ -1525,7 +1525,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(output.indexOf("43") > 0);
     }
 
-    @Test
+@Test
     public void testReport1_4_oe() throws Exception {
         final String rpt
                 = "<report>\n"
@@ -1552,7 +1552,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(output.indexOf("44") > 0);
     }
 
-    @Test
+@Test
     public void testReport1_5_oe() throws Exception {
         final String rpt
                 = "<report>\n"
@@ -1580,7 +1580,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(output.indexOf("45") > 0);
     }
 
-    @Test
+@Test
     public void testReport2_1_oe() throws Exception {
         final String rpt
                 = "<report>\n"
@@ -1603,7 +1603,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(6, count);
     }
 
-    @Test
+@Test
     public void testReport2_2_oe() throws Exception {
         final String rpt
                 = "<report>\n"
@@ -1627,7 +1627,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(output.indexOf("42") > 0);
     }
 
-    @Test
+@Test
     public void testReport2_3_oe() throws Exception {
         final String rpt
                 = "<report>\n"
@@ -1652,7 +1652,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(output.indexOf("43") > 0);
     }
 
-    @Test
+@Test
     public void testReport2_4_oe() throws Exception {
         final String rpt
                 = "<report>\n"
@@ -1678,7 +1678,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(output.indexOf("44") > 0);
     }
 
-    @Test
+@Test
     public void testReport2_5_oe() throws Exception {
         final String rpt
                 = "<report>\n"
@@ -1705,7 +1705,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(output.indexOf("45") > 0);
     }
 
-    @Test
+@Test
     public void testReport2_6_oe() throws Exception {
         final String rpt
                 = "<report>\n"
@@ -1736,7 +1736,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(xxx);
     }
 
-    @Test
+@Test
     public void testReport2_7_oe() throws Exception {
         final String rpt
                 = "<report>\n"
@@ -1768,7 +1768,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(rpt, xxx);
     }
 
-    @Test
+@Test
     public void testOneLiner_1_oe() throws Exception {
         final JxltEngine.Template t = JXLT.createTemplate("$$", new StringReader("fourty-two"));
         final StringWriter strw = new StringWriter();
@@ -1777,7 +1777,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("fourty-two", output);
     }
 
-    @Test
+@Test
     public void testOneLinerVar_1_oe() throws Exception {
         final JxltEngine.Template t = JXLT.createTemplate("$$", new StringReader("fourty-${x}"));
         final StringWriter strw = new StringWriter();
@@ -1787,7 +1787,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("fourty-two", output);
     }
 
-    @Test
+@Test
     public void testInterpolation_1_oe() throws Exception {
         final String expr =  "`Hello \n${user}`";
         final JexlScript script = ENGINE.createScript(expr);
@@ -1796,7 +1796,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr, "Hello \nDimitri", value);
     }
 
-    @Test
+@Test
     public void testInterpolation_2_oe() throws Exception {
         final String expr =  "`Hello \n${user}`";
         final JexlScript script = ENGINE.createScript(expr);
@@ -1808,7 +1808,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr, "Hello \nRahul", value);
     }
 
-    @Test
+@Test
     public void testInterpolationGlobal_1_oe() throws Exception {
         if (isLexicalShade()) {
             context.set("user", null);
@@ -1818,14 +1818,14 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr, "Hello \nDimitri", value);
     }
 
-    @Test
+@Test
     public void testInterpolationLocal_1_oe() throws Exception {
         final String expr =  "var user='Henrib'; `Hello \n${user}`";
         final Object value = ENGINE.createScript(expr).execute(context);
         Assert.assertEquals(expr, "Hello \nHenrib", value);
     }
 
-    @Test
+@Test
     public void testInterpolationLvsG_1_oe() throws Exception {
         if (isLexicalShade()) {
             context.set("user", null);
@@ -1835,7 +1835,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr, "H\"ello \nHenrib", value);
     }
 
-    @Test
+@Test
     public void testInterpolationLvsG2_1_oe() throws Exception {
         if (isLexicalShade()) {
             context.set("user", null);
@@ -1845,14 +1845,14 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr, "H`ello \nHenrib", value);
     }
 
-    @Test
+@Test
     public void testInterpolationParameter_1_oe() throws Exception {
         final String expr =  "(user)->{`Hello \n${user}`}";
         Object value = ENGINE.createScript(expr).execute(context, "Henrib");
         Assert.assertEquals(expr, "Hello \nHenrib", value);
     }
 
-    @Test
+@Test
     public void testInterpolationParameter_2_oe() throws Exception {
         final String expr =  "(user)->{`Hello \n${user}`}";
         Object value = ENGINE.createScript(expr).execute(context, "Henrib");
@@ -1861,7 +1861,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr, "Hello \nDimitri", value);
     }
 
-    @Test
+@Test
     public void testImmediateTemplate_1_oe() throws Exception {
         context.set("tables", new String[]{"table1", "table2"});
         context.set("w" ,"x=1");
@@ -1881,7 +1881,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(output.contains("table1") && output.contains("table2"));
     }
 
-    @Test
+@Test
     public void test311a_1_oe() throws Exception {
         final JexlContext ctx = null;
         final String rpt
@@ -1895,7 +1895,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("<p>Universe 42</p>\n", output);
     }
 
-    @Test
+@Test
     public void test311b_1_oe() throws Exception {
         final JexlContext ctx311 = new Context311();
         final String rpt
@@ -1909,7 +1909,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("<p>Universe 42</p>\n", output);
     }
 
-    @Test
+@Test
     public void test311c_1_oe() throws Exception {
         final Context311 ctx311 = new Context311();
         ctx311.newOptions().setLexical(true);
@@ -1924,7 +1924,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("<p>Universe 42</p>\n", output);
     }
 
-    @Test
+@Test
     public void test311d_1_oe() throws Exception {
         final Context311 ctx311 = new Context311();
         ctx311.newOptions().setLexical(true);
@@ -1939,7 +1939,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("<p>Universe 42</p>\n", output);
     }
 
-    @Test
+@Test
     public void test311e_1_oe() throws Exception {
         final Context311 ctx311 = new Context311();
         ctx311.newOptions().setLexical(true);
@@ -1952,7 +1952,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("<p>Universe 42</p>", output);
     }
 
-    @Test
+@Test
     public void test311f_1_oe() throws Exception {
         final Context311 ctx311 = new Context311();
         ctx311.newOptions().setLexical(true);
@@ -1965,7 +1965,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("<p>Universe 42</p>", output);
     }
 
-    @Test
+@Test
     public void test311g_1_oe() throws Exception {
         final Context311 ctx311 = new Context311();
         ctx311.newOptions().setLexical(true);
@@ -1978,7 +1978,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("<p>Universe 42</p>", output);
     }
 
-    @Test
+@Test
     public void test311h_1_oe() throws Exception {
         final Context311 ctx311 = new Context311();
         ctx311.newOptions().setLexical(true);
@@ -1988,7 +1988,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("<p>Universe 42</p>", output);
     }
 
-    @Test
+@Test
     public void test311i_1_oe() throws Exception {
         final JexlContext ctx311 = new Context311();
         final String rpt
@@ -2002,7 +2002,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("<p>Universe 42</p>\n", output);
     }
 
-    @Test
+@Test
     public void test315_1_oe() throws Exception {
         String s315;
         StringWriter strw;
@@ -2017,7 +2017,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(s315, output);
     }
 
-    @Test
+@Test
     public void test315_2_oe() throws Exception {
         String s315;
         StringWriter strw;
@@ -2039,7 +2039,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(s315, output);
     }
 
-    @Test
+@Test
     public void test315_3_oe() throws Exception {
         String s315;
         StringWriter strw;
@@ -2068,7 +2068,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(s315, output);
     }
 
-    @Test
+@Test
     public void testLexicalTemplate_1_oe() throws Exception {
         final JexlOptions opts = new JexlOptions();
         final JexlContext ctxt = new PragmaticContext(opts);
@@ -2090,7 +2090,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals( "-strict -cancellable -lexical -lexicalShade +safe", output0);
     }
 
-    @Test
+@Test
     public void testLexicalTemplate_2_oe() throws Exception {
         final JexlOptions opts = new JexlOptions();
         final JexlContext ctxt = new PragmaticContext(opts);
@@ -2120,7 +2120,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("+strict +cancellable +lexical +lexicalShade -safe", output);
     }
 
-    @Test
+@Test
     public void testTemplatePragmaPro50_2_oe() throws Exception {
         final JexlOptions opts = new JexlOptions();
         opts.setCancellable(false);
@@ -2143,7 +2143,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTemplatePragmaPro50_3_oe() throws Exception {
         final JexlOptions opts = new JexlOptions();
         opts.setCancellable(false);
@@ -2167,7 +2167,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTemplateOutOfScope_2_oe() throws Exception {
         final JexlOptions opts = new JexlOptions();
         opts.setCancellable(false);
@@ -2198,7 +2198,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTemplateOutOfScope_4_oe() throws Exception {
         final JexlOptions opts = new JexlOptions();
         opts.setCancellable(false);
@@ -2237,7 +2237,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTemplateOutOfScope_5_oe() throws Exception {
         final JexlOptions opts = new JexlOptions();
         opts.setCancellable(false);
@@ -2277,7 +2277,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testTemplateOutOfScope_6_oe() throws Exception {
         final JexlOptions opts = new JexlOptions();
         opts.setCancellable(false);
@@ -2319,7 +2319,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testCommentedTemplate0_1_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         final JexlEngine jexl = new JexlBuilder().create();
@@ -2332,7 +2332,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(tmplt);
     }
 
-    @Test
+@Test
     public void testCommentedTemplate0_2_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         final JexlEngine jexl = new JexlBuilder().create();
@@ -2348,7 +2348,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(strw.toString().isEmpty());
     }
 
-    @Test
+@Test
     public void testCommentedTemplate1_1_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         final JexlEngine jexl = new JexlBuilder().create();
@@ -2365,7 +2365,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(tmplt);
     }
 
-    @Test
+@Test
     public void testCommentedTemplate1_2_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         final JexlEngine jexl = new JexlBuilder().create();
@@ -2385,7 +2385,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("42\n", strw.toString());
     }
 
-    @Test
+@Test
     public void testConstantTemplate_1_oe() {
         String src = "<script>\n" +
                 "      function test(src){\n" +
@@ -2401,7 +2401,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertNotNull(tmplt);
     }
 
-    @Test
+@Test
     public void testConstantTemplate_2_oe() {
         String src = "<script>\n" +
                 "      function test(src){\n" +
@@ -2421,7 +2421,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(src, result);
     }
 
-    @Test
+@Test
     public void testSanboxedTemplate_1_oe() throws Exception {
         final String src = "Hello ${user}";
         final JexlContext ctxt = new MapContext();
@@ -2432,7 +2432,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertNull(method);
     }
 
-    @Test
+@Test
     public void testSanboxedTemplate_2_oe() throws Exception {
         final String src = "Hello ${user}";
         final JexlContext ctxt = new MapContext();
@@ -2452,7 +2452,7 @@ public class JXLTTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Hello Francesco", result);
     }
 
-    @Test
+@Test
     public void testSanboxed311i_1_oe() throws Exception {
         /// this uberspect can not access jexl3 classes (besides test)
         Uberspect uberspect = new Uberspect(LogFactory.getLog(JXLTTest.class), null, NOJEXL3);

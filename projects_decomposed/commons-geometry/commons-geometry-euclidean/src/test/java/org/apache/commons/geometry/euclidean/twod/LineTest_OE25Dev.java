@@ -407,7 +407,7 @@ class LineTest_OE25Dev {
         EuclideanTestUtils.assertCoordinatesEqual(dir, line.getDirection(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetAngle_1_oe() {
         // arrange
         final Vector2D vec = Vector2D.of(1, 2);
@@ -420,7 +420,7 @@ class LineTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testGetAngle_multiplesOfPi_1_oe() {
         // arrange
         final Vector2D vec = Vector2D.of(-1, -2);
@@ -429,7 +429,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, Lines.fromPointAndAngle(vec, 0.0, TEST_PRECISION).getAngle(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetAngle_multiplesOfPi_2_oe() {
         // arrange
         final Vector2D vec = Vector2D.of(-1, -2);
@@ -439,7 +439,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(Math.PI, Lines.fromPointAndAngle(vec, Math.PI, TEST_PRECISION).getAngle(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetAngle_multiplesOfPi_3_oe() {
         // arrange
         final Vector2D vec = Vector2D.of(-1, -2);
@@ -450,7 +450,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, Lines.fromPointAndAngle(vec, Angle.TWO_PI, TEST_PRECISION).getAngle(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetAngle_multiplesOfPi_4_oe() {
         // arrange
         final Vector2D vec = Vector2D.of(-1, -2);
@@ -463,7 +463,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, Lines.fromPointAndAngle(vec, -2 * Math.PI, TEST_PRECISION).getAngle(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetAngle_multiplesOfPi_5_oe() {
         // arrange
         final Vector2D vec = Vector2D.of(-1, -2);
@@ -477,7 +477,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(Math.PI, Lines.fromPointAndAngle(vec, -3 * Math.PI, TEST_PRECISION).getAngle(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetAngle_multiplesOfPi_6_oe() {
         // arrange
         final Vector2D vec = Vector2D.of(-1, -2);
@@ -492,7 +492,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, Lines.fromPointAndAngle(vec, -4 * Angle.TWO_PI, TEST_PRECISION).getAngle(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetOriginOffset_1_oe() {
         // arrange
         final double sqrt2 = Math.sqrt(2);
@@ -501,7 +501,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.0,Lines.fromPoints(Vector2D.of(0,0),Vector2D.of(1,1),TEST_PRECISION).getOriginOffset(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetOriginOffset_2_oe() {
         // arrange
         final double sqrt2 = Math.sqrt(2);
@@ -511,7 +511,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.0,Lines.fromPoints(Vector2D.of(0,0),Vector2D.of(-1,-1),TEST_PRECISION).getOriginOffset(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetOriginOffset_3_oe() {
         // arrange
         final double sqrt2 = Math.sqrt(2);
@@ -523,7 +523,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(sqrt2,Lines.fromPoints(Vector2D.of(-1,1),Vector2D.of(0,2),TEST_PRECISION).getOriginOffset(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetOriginOffset_4_oe() {
         // arrange
         final double sqrt2 = Math.sqrt(2);
@@ -536,7 +536,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(-sqrt2,Lines.fromPoints(Vector2D.of(0,-2),Vector2D.of(1,-1),TEST_PRECISION).getOriginOffset(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetOriginOffset_5_oe() {
         // arrange
         final double sqrt2 = Math.sqrt(2);
@@ -551,7 +551,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(-sqrt2,Lines.fromPoints(Vector2D.of(0,2),Vector2D.of(-1,1),TEST_PRECISION).getOriginOffset(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetOriginOffset_6_oe() {
         // arrange
         final double sqrt2 = Math.sqrt(2);
@@ -567,20 +567,20 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(sqrt2,Lines.fromPoints(Vector2D.of(1,-1),Vector2D.of(0,-2),TEST_PRECISION).getOriginOffset(),TEST_EPS);
     }
 
-    @Test
+@Test
     void testGetPrecision_1_oe() {
         // act/assert
         Assertions.assertSame(TEST_PRECISION, Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).getPrecision());
     }
 
-    @Test
+@Test
     void testGetPrecision_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertSame(TEST_PRECISION, Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).getPrecision());
     }
 
-    @Test
+@Test
     void testGetPrecision_3_oe() {
         // act/assert
         // removed other assertion
@@ -588,7 +588,7 @@ class LineTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION).getPrecision());
     }
 
-    @Test
+@Test
     void testReverse_1_oe() {
         // arrange
         final Vector2D pt = Vector2D.of(0, 1);
@@ -604,7 +604,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(-1, reversed.getOriginOffset(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testReverse_2_oe() {
         // arrange
         final Vector2D pt = Vector2D.of(0, 1);
@@ -623,7 +623,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(1, doubleReversed.getOriginOffset(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAbscissa_1_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-2, -2), Vector2D.of(2, 1), TEST_PRECISION);
@@ -632,7 +632,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.0, line.abscissa(Vector2D.of(-3, 4)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAbscissa_2_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-2, -2), Vector2D.of(2, 1), TEST_PRECISION);
@@ -642,7 +642,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.0, line.abscissa(Vector2D.of(3, -4)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAbscissa_3_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-2, -2), Vector2D.of(2, 1), TEST_PRECISION);
@@ -653,7 +653,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(5.0, line.abscissa(Vector2D.of(7, -1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAbscissa_4_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-2, -2), Vector2D.of(2, 1), TEST_PRECISION);
@@ -665,7 +665,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(-5.0, line.abscissa(Vector2D.of(-1, -7)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToSubspace_1_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(2, 1), Vector2D.of(-2, -2), TEST_PRECISION);
@@ -674,7 +674,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.0, line.toSubspace(Vector2D.of(-3, 4)).getX(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToSubspace_2_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(2, 1), Vector2D.of(-2, -2), TEST_PRECISION);
@@ -684,7 +684,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.0, line.toSubspace(Vector2D.of(3, -4)).getX(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToSubspace_3_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(2, 1), Vector2D.of(-2, -2), TEST_PRECISION);
@@ -695,7 +695,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(-5.0, line.toSubspace(Vector2D.of(7, -1)).getX(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testToSubspace_4_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(2, 1), Vector2D.of(-2, -2), TEST_PRECISION);
@@ -707,7 +707,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(5.0, line.toSubspace(Vector2D.of(-1, -7)).getX(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testIntersection_parallel_1_oe() {
         // arrange
         final Line a = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -720,7 +720,7 @@ class LineTest_OE25Dev {
         Assertions.assertNull(a.intersection(b));
     }
 
-    @Test
+@Test
     void testIntersection_parallel_2_oe() {
         // arrange
         final Line a = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -734,7 +734,7 @@ class LineTest_OE25Dev {
         Assertions.assertNull(b.intersection(a));
     }
 
-    @Test
+@Test
     void testIntersection_parallel_3_oe() {
         // arrange
         final Line a = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -750,7 +750,7 @@ class LineTest_OE25Dev {
         Assertions.assertNull(c.intersection(d));
     }
 
-    @Test
+@Test
     void testIntersection_parallel_4_oe() {
         // arrange
         final Line a = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -767,7 +767,7 @@ class LineTest_OE25Dev {
         Assertions.assertNull(d.intersection(c));
     }
 
-    @Test
+@Test
     void testIntersection_coincident_1_oe() {
         // arrange
         final Line a = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -780,7 +780,7 @@ class LineTest_OE25Dev {
         Assertions.assertNull(a.intersection(b));
     }
 
-    @Test
+@Test
     void testIntersection_coincident_2_oe() {
         // arrange
         final Line a = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -794,7 +794,7 @@ class LineTest_OE25Dev {
         Assertions.assertNull(b.intersection(a));
     }
 
-    @Test
+@Test
     void testIntersection_coincident_3_oe() {
         // arrange
         final Line a = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -810,7 +810,7 @@ class LineTest_OE25Dev {
         Assertions.assertNull(c.intersection(d));
     }
 
-    @Test
+@Test
     void testIntersection_coincident_4_oe() {
         // arrange
         final Line a = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -827,7 +827,7 @@ class LineTest_OE25Dev {
         Assertions.assertNull(d.intersection(c));
     }
 
-    @Test
+@Test
     void testAngle_1_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -838,7 +838,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.0, a.angle(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_2_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -850,7 +850,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(-Math.PI, a.angle(b), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_3_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -863,7 +863,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.25 * Math.PI, a.angle(c), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_4_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -878,7 +878,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.0, b.angle(b), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_5_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -894,7 +894,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(-Math.PI, b.angle(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_6_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -911,7 +911,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(-0.75 * Math.PI, b.angle(c), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_7_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -930,7 +930,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.0, c.angle(c), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_8_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -950,7 +950,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(-0.25 * Math.PI, c.angle(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testAngle_9_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -971,7 +971,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.75 * Math.PI, c.angle(b), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSpan_1_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -983,7 +983,7 @@ class LineTest_OE25Dev {
         Assertions.assertSame(line, result.getHyperplane());
     }
 
-    @Test
+@Test
     void testSpan_2_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -996,7 +996,7 @@ class LineTest_OE25Dev {
         Assertions.assertSame(line, result.getLine());
     }
 
-    @Test
+@Test
     void testSegment_doubles_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -1008,7 +1008,7 @@ class LineTest_OE25Dev {
         Assertions.assertSame(line, segment.getLine());
     }
 
-    @Test
+@Test
     void testSegment_pointsOnLine_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -1020,7 +1020,7 @@ class LineTest_OE25Dev {
         Assertions.assertSame(line, segment.getLine());
     }
 
-    @Test
+@Test
     void testSegment_pointsProjectedOnLine_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -1032,7 +1032,7 @@ class LineTest_OE25Dev {
         Assertions.assertSame(line, segment.getLine());
     }
 
-    @Test
+@Test
     void testLineTo_pointOnLine_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1044,7 +1044,7 @@ class LineTest_OE25Dev {
         Assertions.assertSame(line, halfLine.getLine());
     }
 
-    @Test
+@Test
     void testLineTo_pointOnLine_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1057,7 +1057,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(halfLine.isInfinite());
     }
 
-    @Test
+@Test
     void testLineTo_pointOnLine_3_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1071,7 +1071,7 @@ class LineTest_OE25Dev {
         Assertions.assertNull(halfLine.getStartPoint());
     }
 
-    @Test
+@Test
     void testLineTo_pointOnLine_5_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1088,7 +1088,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(halfLine.contains(Vector2D.of(1, 1)));
     }
 
-    @Test
+@Test
     void testLineTo_pointOnLine_6_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1106,7 +1106,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(halfLine.contains(Vector2D.of(-4, 1)));
     }
 
-    @Test
+@Test
     void testLineTo_pointProjectedOnLine_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1118,7 +1118,7 @@ class LineTest_OE25Dev {
         Assertions.assertSame(line, halfLine.getLine());
     }
 
-    @Test
+@Test
     void testLineTo_pointProjectedOnLine_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1131,7 +1131,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(halfLine.isInfinite());
     }
 
-    @Test
+@Test
     void testLineTo_pointProjectedOnLine_3_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1145,7 +1145,7 @@ class LineTest_OE25Dev {
         Assertions.assertNull(halfLine.getStartPoint());
     }
 
-    @Test
+@Test
     void testLineTo_pointProjectedOnLine_5_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1162,7 +1162,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(halfLine.contains(Vector2D.of(1, 1)));
     }
 
-    @Test
+@Test
     void testLineTo_pointProjectedOnLine_6_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1180,7 +1180,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(halfLine.contains(Vector2D.of(-4, 1)));
     }
 
-    @Test
+@Test
     void testLineTo_double_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1192,7 +1192,7 @@ class LineTest_OE25Dev {
         Assertions.assertSame(line, halfLine.getLine());
     }
 
-    @Test
+@Test
     void testLineTo_double_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1205,7 +1205,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(halfLine.isInfinite());
     }
 
-    @Test
+@Test
     void testLineTo_double_3_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1219,7 +1219,7 @@ class LineTest_OE25Dev {
         Assertions.assertNull(halfLine.getStartPoint());
     }
 
-    @Test
+@Test
     void testLineTo_double_5_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1236,7 +1236,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(halfLine.contains(Vector2D.of(2, 1)));
     }
 
-    @Test
+@Test
     void testLineTo_double_6_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1254,7 +1254,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(halfLine.contains(Vector2D.of(-4, 1)));
     }
 
-    @Test
+@Test
     void testRayFrom_pointOnLine_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1266,7 +1266,7 @@ class LineTest_OE25Dev {
         Assertions.assertSame(line, ray.getLine());
     }
 
-    @Test
+@Test
     void testRayFrom_pointOnLine_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1279,7 +1279,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(ray.isInfinite());
     }
 
-    @Test
+@Test
     void testRayFrom_pointOnLine_4_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1294,7 +1294,7 @@ class LineTest_OE25Dev {
         Assertions.assertNull(ray.getEndPoint());
     }
 
-    @Test
+@Test
     void testRayFrom_pointOnLine_5_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1311,7 +1311,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(ray.contains(Vector2D.of(1, 1)));
     }
 
-    @Test
+@Test
     void testRayFrom_pointOnLine_6_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1329,7 +1329,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(ray.contains(Vector2D.of(-4, 1)));
     }
 
-    @Test
+@Test
     void testRayFrom_pointProjectedOnLine_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1341,7 +1341,7 @@ class LineTest_OE25Dev {
         Assertions.assertSame(line, ray.getLine());
     }
 
-    @Test
+@Test
     void testRayFrom_pointProjectedOnLine_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1354,7 +1354,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(ray.isInfinite());
     }
 
-    @Test
+@Test
     void testRayFrom_pointProjectedOnLine_4_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1369,7 +1369,7 @@ class LineTest_OE25Dev {
         Assertions.assertNull(ray.getEndPoint());
     }
 
-    @Test
+@Test
     void testRayFrom_pointProjectedOnLine_5_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1386,7 +1386,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(ray.contains(Vector2D.of(1, 1)));
     }
 
-    @Test
+@Test
     void testRayFrom_pointProjectedOnLine_6_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1404,7 +1404,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(ray.contains(Vector2D.of(-4, 1)));
     }
 
-    @Test
+@Test
     void testRayFrom_double_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1416,7 +1416,7 @@ class LineTest_OE25Dev {
         Assertions.assertSame(line, ray.getLine());
     }
 
-    @Test
+@Test
     void testRayFrom_double_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1429,7 +1429,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(ray.isInfinite());
     }
 
-    @Test
+@Test
     void testRayFrom_double_4_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1444,7 +1444,7 @@ class LineTest_OE25Dev {
         Assertions.assertNull(ray.getEndPoint());
     }
 
-    @Test
+@Test
     void testRayFrom_double_5_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1461,7 +1461,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(ray.contains(Vector2D.of(2, 1)));
     }
 
-    @Test
+@Test
     void testRayFrom_double_6_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1479,7 +1479,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(ray.contains(Vector2D.of(-4, 1)));
     }
 
-    @Test
+@Test
     void testOffset_parallelLines_1_oe() {
         // arrange
         final double dist = Math.sin(Math.atan2(2, 1));
@@ -1493,7 +1493,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(-dist, a.offset(b), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_parallelLines_2_oe() {
         // arrange
         final double dist = Math.sin(Math.atan2(2, 1));
@@ -1508,7 +1508,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(dist, b.offset(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_parallelLines_3_oe() {
         // arrange
         final double dist = Math.sin(Math.atan2(2, 1));
@@ -1525,7 +1525,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(dist, a.offset(c), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_parallelLines_4_oe() {
         // arrange
         final double dist = Math.sin(Math.atan2(2, 1));
@@ -1543,7 +1543,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(-dist, c.offset(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_parallelLines_5_oe() {
         // arrange
         final double dist = Math.sin(Math.atan2(2, 1));
@@ -1563,7 +1563,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(3 * dist, a.offset(d), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_parallelLines_6_oe() {
         // arrange
         final double dist = Math.sin(Math.atan2(2, 1));
@@ -1584,7 +1584,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(3 * dist, d.offset(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_coincidentLines_1_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.of(-2, 0), Vector2D.of(0, 4), TEST_PRECISION);
@@ -1595,7 +1595,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, a.offset(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_coincidentLines_2_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.of(-2, 0), Vector2D.of(0, 4), TEST_PRECISION);
@@ -1608,7 +1608,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, a.offset(b), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_coincidentLines_3_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.of(-2, 0), Vector2D.of(0, 4), TEST_PRECISION);
@@ -1622,7 +1622,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, b.offset(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_coincidentLines_4_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.of(-2, 0), Vector2D.of(0, 4), TEST_PRECISION);
@@ -1638,7 +1638,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, a.offset(c), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_coincidentLines_5_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.of(-2, 0), Vector2D.of(0, 4), TEST_PRECISION);
@@ -1655,7 +1655,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, c.offset(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_nonParallelLines_1_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1667,7 +1667,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, a.offset(b), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_nonParallelLines_2_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1680,7 +1680,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, b.offset(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_nonParallelLines_3_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1695,7 +1695,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, a.offset(c), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_nonParallelLines_4_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1711,7 +1711,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, c.offset(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_nonParallelLines_5_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1729,7 +1729,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, a.offset(d), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_nonParallelLines_6_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -1748,7 +1748,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, d.offset(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_point_1_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(0, 2), TEST_PRECISION);
@@ -1758,7 +1758,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.0, line.offset(Vector2D.of(-0.5, 1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_point_2_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(0, 2), TEST_PRECISION);
@@ -1769,7 +1769,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.0, line.offset(Vector2D.of(-1.5, -1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_point_3_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(0, 2), TEST_PRECISION);
@@ -1781,7 +1781,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.0, line.offset(Vector2D.of(0.5, 3)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_point_4_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(0, 2), TEST_PRECISION);
@@ -1797,7 +1797,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(d, line.offset(Vector2D.ZERO), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_point_5_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(0, 2), TEST_PRECISION);
@@ -1814,7 +1814,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(-d, line.offset(Vector2D.of(-1, 2)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_point_6_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(0, 2), TEST_PRECISION);
@@ -1833,7 +1833,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(-d, reversed.offset(Vector2D.ZERO), TEST_EPS);
     }
 
-    @Test
+@Test
     void testOffset_point_7_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(0, 2), TEST_PRECISION);
@@ -1853,7 +1853,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(d, reversed.offset(Vector2D.of(-1, 2)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSimilarOrientation_1_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -1869,7 +1869,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(a.similarOrientation(a));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_2_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -1886,7 +1886,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(a.similarOrientation(b));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_3_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -1904,7 +1904,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(b.similarOrientation(a));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_4_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -1923,7 +1923,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(a.similarOrientation(c));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_5_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -1943,7 +1943,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(c.similarOrientation(a));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_6_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -1964,7 +1964,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(a.similarOrientation(d));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_7_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -1986,7 +1986,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(d.similarOrientation(a));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_8_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -2010,7 +2010,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(c.similarOrientation(d));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_9_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -2035,7 +2035,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(d.similarOrientation(c));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_10_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -2062,7 +2062,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(e.similarOrientation(f));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_11_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -2090,7 +2090,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(f.similarOrientation(e));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_12_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -2119,7 +2119,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(e.similarOrientation(g));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_13_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -2149,7 +2149,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(g.similarOrientation(e));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_14_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -2181,7 +2181,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(a.similarOrientation(e));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_15_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
@@ -2214,7 +2214,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(e.similarOrientation(a));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_orthogonal_1_oe() {
         // arrange
         final Line a = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -2225,7 +2225,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(a.similarOrientation(b));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_orthogonal_2_oe() {
         // arrange
         final Line a = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -2237,7 +2237,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(b.similarOrientation(a));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_orthogonal_3_oe() {
         // arrange
         final Line a = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -2250,7 +2250,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(a.similarOrientation(c));
     }
 
-    @Test
+@Test
     void testSimilarOrientation_orthogonal_4_oe() {
         // arrange
         final Line a = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -2264,7 +2264,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(c.similarOrientation(a));
     }
 
-    @Test
+@Test
     void testDistance_parallelLines_1_oe() {
         // arrange
         final double dist = Math.sin(Math.atan2(2, 1));
@@ -2278,7 +2278,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(dist, a.distance(b), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_parallelLines_2_oe() {
         // arrange
         final double dist = Math.sin(Math.atan2(2, 1));
@@ -2293,7 +2293,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(dist, b.distance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_parallelLines_3_oe() {
         // arrange
         final double dist = Math.sin(Math.atan2(2, 1));
@@ -2310,7 +2310,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(dist, a.distance(c), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_parallelLines_4_oe() {
         // arrange
         final double dist = Math.sin(Math.atan2(2, 1));
@@ -2328,7 +2328,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(dist, c.distance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_parallelLines_5_oe() {
         // arrange
         final double dist = Math.sin(Math.atan2(2, 1));
@@ -2348,7 +2348,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(3 * dist, a.distance(d), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_parallelLines_6_oe() {
         // arrange
         final double dist = Math.sin(Math.atan2(2, 1));
@@ -2369,7 +2369,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(3 * dist, d.distance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_coincidentLines_1_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.of(-2, 0), Vector2D.of(0, 4), TEST_PRECISION);
@@ -2380,7 +2380,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, a.distance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_coincidentLines_2_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.of(-2, 0), Vector2D.of(0, 4), TEST_PRECISION);
@@ -2393,7 +2393,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, a.distance(b), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_coincidentLines_3_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.of(-2, 0), Vector2D.of(0, 4), TEST_PRECISION);
@@ -2407,7 +2407,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, b.distance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_coincidentLines_4_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.of(-2, 0), Vector2D.of(0, 4), TEST_PRECISION);
@@ -2423,7 +2423,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, a.distance(c), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_coincidentLines_5_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.of(-2, 0), Vector2D.of(0, 4), TEST_PRECISION);
@@ -2440,7 +2440,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, c.distance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_nonParallelLines_1_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -2452,7 +2452,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, a.distance(b), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_nonParallelLines_2_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -2465,7 +2465,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, b.distance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_nonParallelLines_3_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -2480,7 +2480,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, a.distance(c), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_nonParallelLines_4_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -2496,7 +2496,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, c.distance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_nonParallelLines_5_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -2514,7 +2514,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, a.distance(d), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_nonParallelLines_6_oe() {
         // arrange
         final Line a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -2533,7 +2533,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, d.distance(a), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_1_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(2, 1), Vector2D.of(-2, -2), TEST_PRECISION);
@@ -2542,7 +2542,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0, line.distance(line.getOrigin()), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_2_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(2, 1), Vector2D.of(-2, -2), TEST_PRECISION);
@@ -2552,7 +2552,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(+5.0, line.distance(Vector2D.of(5, -3)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_3_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(2, 1), Vector2D.of(-2, -2), TEST_PRECISION);
@@ -2563,7 +2563,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(+5.0, line.distance(Vector2D.of(-5, 2)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testPointAt_abscissaOffsetRoundtrip_1_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(2, 1), Vector2D.of(-2, -2), TEST_PRECISION);
@@ -2580,7 +2580,7 @@ class LineTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testPointAt_abscissaOffsetRoundtrip_2_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(2, 1), Vector2D.of(-2, -2), TEST_PRECISION);
@@ -2598,7 +2598,7 @@ class LineTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testContains_line_1_oe() {
         // arrange
         final Vector2D pt = Vector2D.of(1, 2);
@@ -2615,7 +2615,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(a.contains(a));
     }
 
-    @Test
+@Test
     void testContains_line_2_oe() {
         // arrange
         final Vector2D pt = Vector2D.of(1, 2);
@@ -2634,7 +2634,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(a.contains(e));
     }
 
-    @Test
+@Test
     void testContains_line_3_oe() {
         // arrange
         final Vector2D pt = Vector2D.of(1, 2);
@@ -2654,7 +2654,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(e.contains(a));
     }
 
-    @Test
+@Test
     void testContains_line_4_oe() {
         // arrange
         final Vector2D pt = Vector2D.of(1, 2);
@@ -2676,7 +2676,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(a.contains(f));
     }
 
-    @Test
+@Test
     void testContains_line_5_oe() {
         // arrange
         final Vector2D pt = Vector2D.of(1, 2);
@@ -2699,7 +2699,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(f.contains(a));
     }
 
-    @Test
+@Test
     void testContains_line_6_oe() {
         // arrange
         final Vector2D pt = Vector2D.of(1, 2);
@@ -2724,7 +2724,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(a.contains(b));
     }
 
-    @Test
+@Test
     void testContains_line_7_oe() {
         // arrange
         final Vector2D pt = Vector2D.of(1, 2);
@@ -2750,7 +2750,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(a.contains(c));
     }
 
-    @Test
+@Test
     void testContains_line_8_oe() {
         // arrange
         final Vector2D pt = Vector2D.of(1, 2);
@@ -2777,7 +2777,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(a.contains(d));
     }
 
-    @Test
+@Test
     void testIsParallel_closeToEpsilon_1_oe() {
         // arrange
         final double eps = 1e-3;
@@ -2794,7 +2794,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(line.contains(Lines.fromPointAndAngle(p.add(offset1), 0.0, precision)));
     }
 
-    @Test
+@Test
     void testIsParallel_closeToEpsilon_2_oe() {
         // arrange
         final double eps = 1e-3;
@@ -2812,7 +2812,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(line.contains(Lines.fromPointAndAngle(p.subtract(offset1), 0.0, precision)));
     }
 
-    @Test
+@Test
     void testIsParallel_closeToEpsilon_3_oe() {
         // arrange
         final double eps = 1e-3;
@@ -2832,7 +2832,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(line.contains(Lines.fromPointAndAngle(p.add(offset2), 0.0, precision)));
     }
 
-    @Test
+@Test
     void testIsParallel_closeToEpsilon_4_oe() {
         // arrange
         final double eps = 1e-3;
@@ -2853,7 +2853,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(line.contains(Lines.fromPointAndAngle(p.subtract(offset2), 0.0, precision)));
     }
 
-    @Test
+@Test
     void testIsParallel_closeToEpsilon_5_oe() {
         // arrange
         final double eps = 1e-3;
@@ -2876,7 +2876,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(line.contains(Lines.fromPointAndAngle(p, 1e-4, precision)));
     }
 
-    @Test
+@Test
     void testIsParallel_closeToEpsilon_6_oe() {
         // arrange
         final double eps = 1e-3;
@@ -2900,7 +2900,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(line.contains(Lines.fromPointAndAngle(p, 1e-2, precision)));
     }
 
-    @Test
+@Test
     void testContains_point_1_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 0);
@@ -2911,7 +2911,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(line.contains(p1));
     }
 
-    @Test
+@Test
     void testContains_point_2_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 0);
@@ -2923,7 +2923,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(line.contains(p2));
     }
 
-    @Test
+@Test
     void testContains_point_3_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 0);
@@ -2937,7 +2937,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(line.contains(Vector2D.ZERO));
     }
 
-    @Test
+@Test
     void testContains_point_4_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 0);
@@ -2952,7 +2952,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(line.contains(Vector2D.of(100, 79)));
     }
 
-    @Test
+@Test
     void testContains_point_5_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 0);
@@ -2976,7 +2976,7 @@ class LineTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testContains_point_6_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 0);
@@ -3002,7 +3002,7 @@ class LineTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testContains_point_7_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 0);
@@ -3029,7 +3029,7 @@ class LineTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testContains_point_closeToEpsilon_1_oe() {
         // arrange
         final double eps = 1e-3;
@@ -3046,7 +3046,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(line.contains(mid.add(dir.multiply(1e-4))));
     }
 
-    @Test
+@Test
     void testContains_point_closeToEpsilon_2_oe() {
         // arrange
         final double eps = 1e-3;
@@ -3064,7 +3064,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(line.contains(mid.add(dir.multiply(-1e-4))));
     }
 
-    @Test
+@Test
     void testContains_point_closeToEpsilon_3_oe() {
         // arrange
         final double eps = 1e-3;
@@ -3084,7 +3084,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(line.contains(mid.add(dir.multiply(2e-3))));
     }
 
-    @Test
+@Test
     void testContains_point_closeToEpsilon_4_oe() {
         // arrange
         final double eps = 1e-3;
@@ -3105,7 +3105,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(line.contains(mid.add(dir.multiply(-2e-3))));
     }
 
-    @Test
+@Test
     void testDistance_point_1_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(0, 2), TEST_PRECISION);
@@ -3115,7 +3115,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.0, line.distance(Vector2D.of(-0.5, 1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_point_2_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(0, 2), TEST_PRECISION);
@@ -3126,7 +3126,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.0, line.distance(Vector2D.of(-1.5, -1)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_point_3_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(0, 2), TEST_PRECISION);
@@ -3138,7 +3138,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(0.0, line.distance(Vector2D.of(0.5, 3)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_point_4_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(0, 2), TEST_PRECISION);
@@ -3154,7 +3154,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(d, line.distance(Vector2D.ZERO), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_point_5_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(0, 2), TEST_PRECISION);
@@ -3171,7 +3171,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(d, line.distance(Vector2D.of(-1, 2)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_point_6_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(0, 2), TEST_PRECISION);
@@ -3190,7 +3190,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(d, reversed.distance(Vector2D.ZERO), TEST_EPS);
     }
 
-    @Test
+@Test
     void testDistance_point_7_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(0, 2), TEST_PRECISION);
@@ -3210,7 +3210,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(d, reversed.distance(Vector2D.of(-1, 2)), TEST_EPS);
     }
 
-    @Test
+@Test
     void testIsParallel_1_oe() {
         // arrange
         final Vector2D dir = Vector2D.of(3, 7);
@@ -3223,7 +3223,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(a.isParallel(a));
     }
 
-    @Test
+@Test
     void testIsParallel_2_oe() {
         // arrange
         final Vector2D dir = Vector2D.of(3, 7);
@@ -3238,7 +3238,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(a.isParallel(b));
     }
 
-    @Test
+@Test
     void testIsParallel_3_oe() {
         // arrange
         final Vector2D dir = Vector2D.of(3, 7);
@@ -3254,7 +3254,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(b.isParallel(a));
     }
 
-    @Test
+@Test
     void testIsParallel_4_oe() {
         // arrange
         final Vector2D dir = Vector2D.of(3, 7);
@@ -3272,7 +3272,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(a.isParallel(c));
     }
 
-    @Test
+@Test
     void testIsParallel_5_oe() {
         // arrange
         final Vector2D dir = Vector2D.of(3, 7);
@@ -3291,7 +3291,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(c.isParallel(a));
     }
 
-    @Test
+@Test
     void testIsParallel_6_oe() {
         // arrange
         final Vector2D dir = Vector2D.of(3, 7);
@@ -3312,7 +3312,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(a.isParallel(d));
     }
 
-    @Test
+@Test
     void testIsParallel_7_oe() {
         // arrange
         final Vector2D dir = Vector2D.of(3, 7);
@@ -3334,7 +3334,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(d.isParallel(a));
     }
 
-    @Test
+@Test
     void testIsParallel_closeToParallel_1_oe() {
         // arrange
         final double eps = 1e-3;
@@ -3349,7 +3349,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(line.isParallel(Lines.fromPointAndAngle(p2, 1e-4, precision)));
     }
 
-    @Test
+@Test
     void testIsParallel_closeToParallel_2_oe() {
         // arrange
         final double eps = 1e-3;
@@ -3365,7 +3365,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(line.isParallel(Lines.fromPointAndAngle(p2, 1e-2, precision)));
     }
 
-    @Test
+@Test
     void testTransform_1_oe() {
         // arrange
         final AffineTransformMatrix2D scale = AffineTransformMatrix2D.createScale(2, 3);
@@ -3385,7 +3385,7 @@ class LineTest_OE25Dev {
         Assertions.assertSame(TEST_PRECISION, horizontal.transform(scale).getPrecision());
     }
 
-    @Test
+@Test
     void testEq_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -3405,7 +3405,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(a.eq(a, precision));
     }
 
-    @Test
+@Test
     void testEq_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -3427,7 +3427,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(a.eq(d, precision));
     }
 
-    @Test
+@Test
     void testEq_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -3450,7 +3450,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(d.eq(a, precision));
     }
 
-    @Test
+@Test
     void testEq_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -3475,7 +3475,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(a.eq(e, precision));
     }
 
-    @Test
+@Test
     void testEq_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -3501,7 +3501,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(e.eq(a, precision));
     }
 
-    @Test
+@Test
     void testEq_6_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -3529,7 +3529,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(a.eq(f, precision));
     }
 
-    @Test
+@Test
     void testEq_7_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -3558,7 +3558,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(f.eq(a, precision));
     }
 
-    @Test
+@Test
     void testEq_8_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -3589,7 +3589,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(a.eq(b, precision));
     }
 
-    @Test
+@Test
     void testEq_9_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -3621,7 +3621,7 @@ class LineTest_OE25Dev {
         Assertions.assertFalse(a.eq(c, precision));
     }
 
-    @Test
+@Test
     void testHashCode_1_oe() {
         // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-4);
@@ -3642,7 +3642,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(aHash, a.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-4);
@@ -3664,7 +3664,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(aHash, e.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-4);
@@ -3688,7 +3688,7 @@ class LineTest_OE25Dev {
         Assertions.assertNotEquals(aHash, b.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_4_oe() {
         // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-4);
@@ -3713,7 +3713,7 @@ class LineTest_OE25Dev {
         Assertions.assertNotEquals(aHash, c.hashCode());
     }
 
-    @Test
+@Test
     void testHashCode_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-4);
@@ -3739,7 +3739,7 @@ class LineTest_OE25Dev {
         Assertions.assertNotEquals(aHash, d.hashCode());
     }
 
-    @Test
+@Test
     void testEquals_2_oe() {
      // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-4);
@@ -3759,7 +3759,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(a, e);
     }
 
-    @Test
+@Test
     void testEquals_3_oe() {
      // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-4);
@@ -3780,7 +3780,7 @@ class LineTest_OE25Dev {
         Assertions.assertEquals(e, a);
     }
 
-    @Test
+@Test
     void testEquals_4_oe() {
      // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-4);
@@ -3803,7 +3803,7 @@ class LineTest_OE25Dev {
         Assertions.assertNotEquals(a, b);
     }
 
-    @Test
+@Test
     void testEquals_5_oe() {
      // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-4);
@@ -3827,7 +3827,7 @@ class LineTest_OE25Dev {
         Assertions.assertNotEquals(a, c);
     }
 
-    @Test
+@Test
     void testEquals_6_oe() {
      // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-4);
@@ -3852,7 +3852,7 @@ class LineTest_OE25Dev {
         Assertions.assertNotEquals(a, d);
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -3864,7 +3864,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(str.contains("Line"));
     }
 
-    @Test
+@Test
     void testToString_2_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -3877,7 +3877,7 @@ class LineTest_OE25Dev {
         Assertions.assertTrue(str.contains("origin= (0.0, 0.0)"));
     }
 
-    @Test
+@Test
     void testToString_3_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);

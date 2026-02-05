@@ -30,7 +30,7 @@ import org.junit.Test;
 // CHECKSTYLE:OFF Test code
 public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
 
-    @Test
+@Test
     public void testAcceptList_1_oe() throws FileSystemException {
 
         // PREPARE
@@ -43,7 +43,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
     }
 
-    @Test
+@Test
     public void testAcceptList_2_oe() throws FileSystemException {
 
         // PREPARE
@@ -57,7 +57,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
     }
 
-    @Test
+@Test
     public void testAcceptList_3_oe() throws FileSystemException {
 
         // PREPARE
@@ -72,7 +72,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.a"))));
     }
 
-    @Test
+@Test
     public void testAcceptList_4_oe() throws FileSystemException {
 
         // PREPARE
@@ -88,7 +88,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ab"))));
     }
 
-    @Test
+@Test
     public void testAcceptList_5_oe() throws FileSystemException {
 
         // PREPARE
@@ -105,7 +105,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.abc"))));
     }
 
-    @Test
+@Test
     public void testAcceptList_6_oe() throws FileSystemException {
 
         // PREPARE
@@ -123,7 +123,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ABC"))));
     }
 
-    @Test
+@Test
     public void testAcceptList_7_oe() throws FileSystemException {
 
         // PREPARE
@@ -142,7 +142,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aaa"))));
     }
 
-    @Test
+@Test
     public void testAcceptList_8_oe() throws FileSystemException {
 
         // PREPARE
@@ -162,7 +162,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.Aaa"))));
     }
 
-    @Test
+@Test
     public void testAcceptList_9_oe() throws FileSystemException {
 
         // PREPARE
@@ -183,7 +183,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aAA"))));
     }
 
-    @Test
+@Test
     public void testAcceptList_10_oe() throws FileSystemException {
 
         // PREPARE
@@ -205,7 +205,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.abcd"))));
     }
 
-    @Test
+@Test
     public void testAcceptList_11_oe() throws FileSystemException {
 
         // PREPARE
@@ -228,7 +228,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseInsensitive_1_oe() throws FileSystemException {
 
         // PREPARE
@@ -241,7 +241,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseInsensitive_2_oe() throws FileSystemException {
 
         // PREPARE
@@ -255,7 +255,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseInsensitive_3_oe() throws FileSystemException {
 
         // PREPARE
@@ -270,7 +270,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.a"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseInsensitive_4_oe() throws FileSystemException {
 
         // PREPARE
@@ -286,7 +286,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ab"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseInsensitive_5_oe() throws FileSystemException {
 
         // PREPARE
@@ -303,7 +303,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.abc"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseInsensitive_6_oe() throws FileSystemException {
 
         // PREPARE
@@ -321,7 +321,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.ABC"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseInsensitive_7_oe() throws FileSystemException {
 
         // PREPARE
@@ -340,7 +340,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aaa"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseInsensitive_8_oe() throws FileSystemException {
 
         // PREPARE
@@ -360,7 +360,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.Aaa"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseInsensitive_9_oe() throws FileSystemException {
 
         // PREPARE
@@ -381,7 +381,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aAA"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseInsensitive_10_oe() throws FileSystemException {
 
         // PREPARE
@@ -403,7 +403,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.abcd"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseInsensitive_11_oe() throws FileSystemException {
 
         // PREPARE
@@ -426,7 +426,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseSensitive_1_oe() throws FileSystemException {
 
         // PREPARE
@@ -439,7 +439,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseSensitive_2_oe() throws FileSystemException {
 
         // PREPARE
@@ -453,7 +453,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseSensitive_3_oe() throws FileSystemException {
 
         // PREPARE
@@ -468,7 +468,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.a"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseSensitive_4_oe() throws FileSystemException {
 
         // PREPARE
@@ -484,7 +484,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ab"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseSensitive_5_oe() throws FileSystemException {
 
         // PREPARE
@@ -501,7 +501,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.abc"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseSensitive_6_oe() throws FileSystemException {
 
         // PREPARE
@@ -519,7 +519,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ABC"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseSensitive_7_oe() throws FileSystemException {
 
         // PREPARE
@@ -538,7 +538,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aaa"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseSensitive_8_oe() throws FileSystemException {
 
         // PREPARE
@@ -558,7 +558,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.Aaa"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseSensitive_9_oe() throws FileSystemException {
 
         // PREPARE
@@ -579,7 +579,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aAA"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseSensitive_10_oe() throws FileSystemException {
 
         // PREPARE
@@ -601,7 +601,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.abcd"))));
     }
 
-    @Test
+@Test
     public void testAcceptListIOCaseSensitive_11_oe() throws FileSystemException {
 
         // PREPARE
@@ -624,7 +624,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
     }
 
-    @Test
+@Test
     public void testAcceptString_1_oe() throws FileSystemException {
 
         // PREPARE
@@ -634,7 +634,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
     }
 
-    @Test
+@Test
     public void testAcceptString_2_oe() throws FileSystemException {
 
         // PREPARE
@@ -645,7 +645,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
     }
 
-    @Test
+@Test
     public void testAcceptString_3_oe() throws FileSystemException {
 
         // PREPARE
@@ -657,7 +657,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.a"))));
     }
 
-    @Test
+@Test
     public void testAcceptString_4_oe() throws FileSystemException {
 
         // PREPARE
@@ -670,7 +670,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ab"))));
     }
 
-    @Test
+@Test
     public void testAcceptString_5_oe() throws FileSystemException {
 
         // PREPARE
@@ -684,7 +684,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.abc"))));
     }
 
-    @Test
+@Test
     public void testAcceptString_6_oe() throws FileSystemException {
 
         // PREPARE
@@ -699,7 +699,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ABC"))));
     }
 
-    @Test
+@Test
     public void testAcceptString_7_oe() throws FileSystemException {
 
         // PREPARE
@@ -715,7 +715,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aaa"))));
     }
 
-    @Test
+@Test
     public void testAcceptString_8_oe() throws FileSystemException {
 
         // PREPARE
@@ -732,7 +732,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.Aaa"))));
     }
 
-    @Test
+@Test
     public void testAcceptString_9_oe() throws FileSystemException {
 
         // PREPARE
@@ -750,7 +750,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aAA"))));
     }
 
-    @Test
+@Test
     public void testAcceptString_10_oe() throws FileSystemException {
 
         // PREPARE
@@ -769,7 +769,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.abcd"))));
     }
 
-    @Test
+@Test
     public void testAcceptString_11_oe() throws FileSystemException {
 
         // PREPARE
@@ -789,7 +789,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseInsensitive_1_oe() throws FileSystemException {
 
         // PREPARE
@@ -799,7 +799,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseInsensitive_2_oe() throws FileSystemException {
 
         // PREPARE
@@ -810,7 +810,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseInsensitive_3_oe() throws FileSystemException {
 
         // PREPARE
@@ -822,7 +822,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.a"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseInsensitive_4_oe() throws FileSystemException {
 
         // PREPARE
@@ -835,7 +835,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ab"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseInsensitive_5_oe() throws FileSystemException {
 
         // PREPARE
@@ -849,7 +849,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.abc"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseInsensitive_6_oe() throws FileSystemException {
 
         // PREPARE
@@ -864,7 +864,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.ABC"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseInsensitive_7_oe() throws FileSystemException {
 
         // PREPARE
@@ -880,7 +880,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aaa"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseInsensitive_8_oe() throws FileSystemException {
 
         // PREPARE
@@ -897,7 +897,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.Aaa"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseInsensitive_9_oe() throws FileSystemException {
 
         // PREPARE
@@ -915,7 +915,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aAA"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseInsensitive_10_oe() throws FileSystemException {
 
         // PREPARE
@@ -934,7 +934,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.abcd"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseInsensitive_11_oe() throws FileSystemException {
 
         // PREPARE
@@ -954,7 +954,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseSensitive_1_oe() throws FileSystemException {
 
         // PREPARE
@@ -964,7 +964,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseSensitive_2_oe() throws FileSystemException {
 
         // PREPARE
@@ -975,7 +975,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseSensitive_3_oe() throws FileSystemException {
 
         // PREPARE
@@ -987,7 +987,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.a"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseSensitive_4_oe() throws FileSystemException {
 
         // PREPARE
@@ -1000,7 +1000,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ab"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseSensitive_5_oe() throws FileSystemException {
 
         // PREPARE
@@ -1014,7 +1014,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.abc"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseSensitive_6_oe() throws FileSystemException {
 
         // PREPARE
@@ -1029,7 +1029,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ABC"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseSensitive_7_oe() throws FileSystemException {
 
         // PREPARE
@@ -1045,7 +1045,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aaa"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseSensitive_8_oe() throws FileSystemException {
 
         // PREPARE
@@ -1062,7 +1062,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.Aaa"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseSensitive_9_oe() throws FileSystemException {
 
         // PREPARE
@@ -1080,7 +1080,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aAA"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseSensitive_10_oe() throws FileSystemException {
 
         // PREPARE
@@ -1099,7 +1099,7 @@ public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
         Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.abcd"))));
     }
 
-    @Test
+@Test
     public void testAcceptStringIOCaseSensitive_11_oe() throws FileSystemException {
 
         // PREPARE

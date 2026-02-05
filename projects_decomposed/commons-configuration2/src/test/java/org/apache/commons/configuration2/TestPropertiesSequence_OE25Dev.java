@@ -79,7 +79,7 @@ public class TestPropertiesSequence_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testConfigurationValuesInSameOrderFromFile_1_oe() throws Exception {
         final String simpleConfigurationFile = ConfigurationAssert.getTestFile("testSequence.properties").getAbsolutePath();
         final String compositeConfigurationFile = ConfigurationAssert.getTestFile("testSequenceDigester.xml").getAbsolutePath();
@@ -102,7 +102,7 @@ public class TestPropertiesSequence_OE25Dev {
         assertFalse("Size:" + keysSimpleConfiguration.size(), keysSimpleConfiguration.isEmpty());
     }
 
-    @Test
+@Test
     public void testConfigurationValuesInSameOrderFromFile_2_oe() throws Exception {
         final String simpleConfigurationFile = ConfigurationAssert.getTestFile("testSequence.properties").getAbsolutePath();
         final String compositeConfigurationFile = ConfigurationAssert.getTestFile("testSequenceDigester.xml").getAbsolutePath();
@@ -126,7 +126,7 @@ public class TestPropertiesSequence_OE25Dev {
         assertEquals(keysSimpleConfiguration.size(), keysCompositeConfiguration.size());
     }
 
-    @Test
+@Test
     public void testConfigurationValuesInSameOrderFromFile_3_oe() throws Exception {
         final String simpleConfigurationFile = ConfigurationAssert.getTestFile("testSequence.properties").getAbsolutePath();
         final String compositeConfigurationFile = ConfigurationAssert.getTestFile("testSequenceDigester.xml").getAbsolutePath();
@@ -154,7 +154,7 @@ public class TestPropertiesSequence_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testConfigurationValuesInSameOrderWithManualAdd_1_oe() throws Exception {
         final String simpleConfigurationFile = ConfigurationAssert.getTestFile("testSequence.properties").getAbsolutePath();
         final String compositeConfigurationFile = ConfigurationAssert.getTestFile("testSequenceDigester.xml").getAbsolutePath();
@@ -183,7 +183,7 @@ public class TestPropertiesSequence_OE25Dev {
         assertFalse("Size:" + keysSimpleConfiguration.size(), keysSimpleConfiguration.isEmpty());
     }
 
-    @Test
+@Test
     public void testConfigurationValuesInSameOrderWithManualAdd_2_oe() throws Exception {
         final String simpleConfigurationFile = ConfigurationAssert.getTestFile("testSequence.properties").getAbsolutePath();
         final String compositeConfigurationFile = ConfigurationAssert.getTestFile("testSequenceDigester.xml").getAbsolutePath();
@@ -213,7 +213,7 @@ public class TestPropertiesSequence_OE25Dev {
         assertEquals(keysSimpleConfiguration.size(), keysCompositeConfiguration.size());
     }
 
-    @Test
+@Test
     public void testConfigurationValuesInSameOrderWithManualAdd_3_oe() throws Exception {
         final String simpleConfigurationFile = ConfigurationAssert.getTestFile("testSequence.properties").getAbsolutePath();
         final String compositeConfigurationFile = ConfigurationAssert.getTestFile("testSequenceDigester.xml").getAbsolutePath();

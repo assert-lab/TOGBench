@@ -60,12 +60,12 @@ public static Test suite() {
 //                "src/test/resources/data/test/HashSetValuedHashMap.fullCollection.version4.1.obj");
 //    }
 
-    public void testSetValuedMapAdd_1_oe() {
+public void testSetValuedMapAdd_1_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         assertTrue(setMap.get((K) "whatever") instanceof Set);
     }
 
-    public void testSetValuedMapAdd_2_oe() {
+public void testSetValuedMapAdd_2_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -73,7 +73,7 @@ public static Test suite() {
         assertTrue(set.add((V) "a1"));
     }
 
-    public void testSetValuedMapAdd_3_oe() {
+public void testSetValuedMapAdd_3_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -82,7 +82,7 @@ public static Test suite() {
         assertTrue(set.add((V) "a2"));
     }
 
-    public void testSetValuedMapAdd_4_oe() {
+public void testSetValuedMapAdd_4_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -92,7 +92,7 @@ public static Test suite() {
         assertFalse(set.add((V) "a1"));
     }
 
-    public void testSetValuedMapAdd_5_oe() {
+public void testSetValuedMapAdd_5_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -103,7 +103,7 @@ public static Test suite() {
         assertEquals(2, setMap.size());
     }
 
-    public void testSetValuedMapAdd_6_oe() {
+public void testSetValuedMapAdd_6_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -115,12 +115,12 @@ public static Test suite() {
         assertTrue(setMap.containsKey("A"));
     }
 
-    public void testSetValuedMapRemove_1_oe() {
+public void testSetValuedMapRemove_1_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         assertTrue(setMap.get((K) "whatever") instanceof Set);
     }
 
-    public void testSetValuedMapRemove_2_oe() {
+public void testSetValuedMapRemove_2_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -128,7 +128,7 @@ public static Test suite() {
         assertTrue(set.add((V) "a1"));
     }
 
-    public void testSetValuedMapRemove_3_oe() {
+public void testSetValuedMapRemove_3_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -137,7 +137,7 @@ public static Test suite() {
         assertTrue(set.add((V) "a2"));
     }
 
-    public void testSetValuedMapRemove_4_oe() {
+public void testSetValuedMapRemove_4_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -147,7 +147,7 @@ public static Test suite() {
         assertFalse(set.add((V) "a1"));
     }
 
-    public void testSetValuedMapRemove_5_oe() {
+public void testSetValuedMapRemove_5_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -158,7 +158,7 @@ public static Test suite() {
         assertEquals(2, setMap.size());
     }
 
-    public void testSetValuedMapRemove_6_oe() {
+public void testSetValuedMapRemove_6_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -170,7 +170,7 @@ public static Test suite() {
         assertTrue(setMap.containsKey("A"));
     }
 
-    public void testSetValuedMapRemove_7_oe() {
+public void testSetValuedMapRemove_7_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -184,7 +184,7 @@ public static Test suite() {
         assertTrue(set.remove("a1"));
     }
 
-    public void testSetValuedMapRemove_8_oe() {
+public void testSetValuedMapRemove_8_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -199,7 +199,7 @@ public static Test suite() {
         assertTrue(set.remove("a2"));
     }
 
-    public void testSetValuedMapRemove_9_oe() {
+public void testSetValuedMapRemove_9_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -215,7 +215,7 @@ public static Test suite() {
         assertFalse(set.remove("a1"));
     }
 
-    public void testSetValuedMapRemove_10_oe() {
+public void testSetValuedMapRemove_10_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -233,7 +233,7 @@ public static Test suite() {
         assertEquals(0, setMap.size());
     }
 
-    public void testSetValuedMapRemove_11_oe() {
+public void testSetValuedMapRemove_11_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -252,12 +252,12 @@ public static Test suite() {
         assertFalse(setMap.containsKey("A"));
     }
 
-    public void testSetValuedMapRemoveViaIterator_1_oe() {
+public void testSetValuedMapRemoveViaIterator_1_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         assertTrue(setMap.get((K) "whatever") instanceof Set);
     }
 
-    public void testSetValuedMapRemoveViaIterator_2_oe() {
+public void testSetValuedMapRemoveViaIterator_2_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -274,7 +274,7 @@ public static Test suite() {
         assertEquals(0, setMap.size());
     }
 
-    public void testSetValuedMapRemoveViaIterator_3_oe() {
+public void testSetValuedMapRemoveViaIterator_3_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         // removed other assertion
 
@@ -292,7 +292,7 @@ public static Test suite() {
         assertFalse(setMap.containsKey("A"));
     }
 
-    public void testSetValuedMapEqualsHashCodeContract_1_oe() {
+public void testSetValuedMapEqualsHashCodeContract_1_oe() {
         final SetValuedMap map1 = makeObject();
         final SetValuedMap map2 = makeObject();
 
@@ -303,7 +303,7 @@ public static Test suite() {
         assertEquals(map1, map2);
     }
 
-    public void testSetValuedMapEqualsHashCodeContract_2_oe() {
+public void testSetValuedMapEqualsHashCodeContract_2_oe() {
         final SetValuedMap map1 = makeObject();
         final SetValuedMap map2 = makeObject();
 
@@ -315,7 +315,7 @@ public static Test suite() {
         assertEquals(map1.hashCode(), map2.hashCode());
     }
 
-    public void testSetValuedMapEqualsHashCodeContract_3_oe() {
+public void testSetValuedMapEqualsHashCodeContract_3_oe() {
         final SetValuedMap map1 = makeObject();
         final SetValuedMap map2 = makeObject();
 
@@ -330,7 +330,7 @@ public static Test suite() {
         assertEquals(map1, map2);
     }
 
-    public void testSetValuedMapEqualsHashCodeContract_4_oe() {
+public void testSetValuedMapEqualsHashCodeContract_4_oe() {
         final SetValuedMap map1 = makeObject();
         final SetValuedMap map2 = makeObject();
 
@@ -346,7 +346,7 @@ public static Test suite() {
         assertEquals(map1.hashCode(), map2.hashCode());
     }
 
-    public void testSetValuedMapEqualsHashCodeContract_5_oe() {
+public void testSetValuedMapEqualsHashCodeContract_5_oe() {
         final SetValuedMap map1 = makeObject();
         final SetValuedMap map2 = makeObject();
 
@@ -365,7 +365,7 @@ public static Test suite() {
         assertNotSame(map1, map2);
     }
 
-    public void testSetValuedMapEqualsHashCodeContract_6_oe() {
+public void testSetValuedMapEqualsHashCodeContract_6_oe() {
         final SetValuedMap map1 = makeObject();
         final SetValuedMap map2 = makeObject();
 

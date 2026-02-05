@@ -66,27 +66,27 @@ public class IcnsReadTest_OE25Dev extends IcnsBaseTest {
      * @throws ImageReadException if the image is corrupted or invalid
      */
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testImageMetadata_1_oe(final File imageFile) {
         Assertions.assertThrows(UnsupportedOperationException.class, () -> Imaging.getMetadata(imageFile));
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testImageInfo_1_oe(final File imageFile) throws Exception {
         final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
         assertNotNull(imageInfo);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testBufferedImage_1_oe(final File imageFile) throws Exception {
         final BufferedImage image = Imaging.getBufferedImage(imageFile);
         assertNotNull(image);
     }
 
-    @ParameterizedTest()
+@ParameterizedTest()
     @MethodSource("provideIcnsImagesWithMonoAndJpegPngData")
     public void testIcnsElementMonoPngJpeg_1_oe(final String file, final int numberOfImages) throws ImageReadException, IOException {
         final File testFile = new File(IcnsReadTest.class.getResource(file).getFile());

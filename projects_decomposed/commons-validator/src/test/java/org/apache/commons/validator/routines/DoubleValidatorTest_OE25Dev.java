@@ -81,7 +81,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
      * Test Double Range/Min/Max
      */
 
-    public void testDoubleValidatorMethods_1_oe() {
+public void testDoubleValidatorMethods_1_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -93,7 +93,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertEquals("validate(A) default", expected, DoubleValidator.getInstance().validate(defaultVal));
     }
 
-    public void testDoubleValidatorMethods_2_oe() {
+public void testDoubleValidatorMethods_2_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -106,7 +106,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertEquals("validate(A) locale ", expected, DoubleValidator.getInstance().validate(localeVal, locale));
     }
 
-    public void testDoubleValidatorMethods_3_oe() {
+public void testDoubleValidatorMethods_3_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -120,7 +120,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertEquals("validate(A) pattern", expected, DoubleValidator.getInstance().validate(patternVal, pattern));
     }
 
-    public void testDoubleValidatorMethods_4_oe() {
+public void testDoubleValidatorMethods_4_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -135,7 +135,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertEquals("validate(A) both",    expected, DoubleValidator.getInstance().validate(germanPatternVal, pattern, Locale.GERMAN));
     }
 
-    public void testDoubleValidatorMethods_5_oe() {
+public void testDoubleValidatorMethods_5_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -152,7 +152,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isValid(A) default", DoubleValidator.getInstance().isValid(defaultVal));
     }
 
-    public void testDoubleValidatorMethods_6_oe() {
+public void testDoubleValidatorMethods_6_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -170,7 +170,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isValid(A) locale ", DoubleValidator.getInstance().isValid(localeVal, locale));
     }
 
-    public void testDoubleValidatorMethods_7_oe() {
+public void testDoubleValidatorMethods_7_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -189,7 +189,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isValid(A) pattern", DoubleValidator.getInstance().isValid(patternVal, pattern));
     }
 
-    public void testDoubleValidatorMethods_8_oe() {
+public void testDoubleValidatorMethods_8_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -209,7 +209,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isValid(A) both",    DoubleValidator.getInstance().isValid(germanPatternVal, pattern, Locale.GERMAN));
     }
 
-    public void testDoubleValidatorMethods_9_oe() {
+public void testDoubleValidatorMethods_9_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -231,7 +231,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertNull("validate(B) default", DoubleValidator.getInstance().validate(XXXX));
     }
 
-    public void testDoubleValidatorMethods_10_oe() {
+public void testDoubleValidatorMethods_10_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -254,7 +254,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertNull("validate(B) locale ", DoubleValidator.getInstance().validate(XXXX, locale));
     }
 
-    public void testDoubleValidatorMethods_11_oe() {
+public void testDoubleValidatorMethods_11_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -278,7 +278,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertNull("validate(B) pattern", DoubleValidator.getInstance().validate(XXXX, pattern));
     }
 
-    public void testDoubleValidatorMethods_12_oe() {
+public void testDoubleValidatorMethods_12_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -303,7 +303,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertNull("validate(B) both",    DoubleValidator.getInstance().validate(patternVal, pattern, Locale.GERMAN));
     }
 
-    public void testDoubleValidatorMethods_13_oe() {
+public void testDoubleValidatorMethods_13_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -330,7 +330,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isValid(B) default", DoubleValidator.getInstance().isValid(XXXX));
     }
 
-    public void testDoubleValidatorMethods_14_oe() {
+public void testDoubleValidatorMethods_14_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -358,7 +358,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isValid(B) locale ", DoubleValidator.getInstance().isValid(XXXX, locale));
     }
 
-    public void testDoubleValidatorMethods_15_oe() {
+public void testDoubleValidatorMethods_15_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -387,7 +387,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isValid(B) pattern", DoubleValidator.getInstance().isValid(XXXX, pattern));
     }
 
-    public void testDoubleValidatorMethods_16_oe() {
+public void testDoubleValidatorMethods_16_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -417,7 +417,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isValid(B) both",    DoubleValidator.getInstance().isValid(patternVal, pattern, Locale.GERMAN));
     }
 
-    public void testDoubleRangeMinMax_1_oe() {
+public void testDoubleRangeMinMax_1_oe() {
         DoubleValidator validator = (DoubleValidator)strictValidator;
         Double number9  = validator.validate("9", "#");
         Double number10 = validator.validate("10", "#");
@@ -430,7 +430,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isInRange() < min",   validator.isInRange(number9,  10, 20));
     }
 
-    public void testDoubleRangeMinMax_2_oe() {
+public void testDoubleRangeMinMax_2_oe() {
         DoubleValidator validator = (DoubleValidator)strictValidator;
         Double number9  = validator.validate("9", "#");
         Double number10 = validator.validate("10", "#");
@@ -444,7 +444,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isInRange() = min",    validator.isInRange(number10, 10, 20));
     }
 
-    public void testDoubleRangeMinMax_3_oe() {
+public void testDoubleRangeMinMax_3_oe() {
         DoubleValidator validator = (DoubleValidator)strictValidator;
         Double number9  = validator.validate("9", "#");
         Double number10 = validator.validate("10", "#");
@@ -459,7 +459,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isInRange() in range", validator.isInRange(number11, 10, 20));
     }
 
-    public void testDoubleRangeMinMax_4_oe() {
+public void testDoubleRangeMinMax_4_oe() {
         DoubleValidator validator = (DoubleValidator)strictValidator;
         Double number9  = validator.validate("9", "#");
         Double number10 = validator.validate("10", "#");
@@ -475,7 +475,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isInRange() = max",    validator.isInRange(number20, 10, 20));
     }
 
-    public void testDoubleRangeMinMax_5_oe() {
+public void testDoubleRangeMinMax_5_oe() {
         DoubleValidator validator = (DoubleValidator)strictValidator;
         Double number9  = validator.validate("9", "#");
         Double number10 = validator.validate("10", "#");
@@ -492,7 +492,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isInRange() > max",   validator.isInRange(number21, 10, 20));
     }
 
-    public void testDoubleRangeMinMax_6_oe() {
+public void testDoubleRangeMinMax_6_oe() {
         DoubleValidator validator = (DoubleValidator)strictValidator;
         Double number9  = validator.validate("9", "#");
         Double number10 = validator.validate("10", "#");
@@ -512,7 +512,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("minValue() < min",    validator.minValue(number9,  10));
     }
 
-    public void testDoubleRangeMinMax_7_oe() {
+public void testDoubleRangeMinMax_7_oe() {
         DoubleValidator validator = (DoubleValidator)strictValidator;
         Double number9  = validator.validate("9", "#");
         Double number10 = validator.validate("10", "#");
@@ -533,7 +533,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("minValue() = min",     validator.minValue(number10, 10));
     }
 
-    public void testDoubleRangeMinMax_8_oe() {
+public void testDoubleRangeMinMax_8_oe() {
         DoubleValidator validator = (DoubleValidator)strictValidator;
         Double number9  = validator.validate("9", "#");
         Double number10 = validator.validate("10", "#");
@@ -555,7 +555,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("minValue() > min",     validator.minValue(number11, 10));
     }
 
-    public void testDoubleRangeMinMax_9_oe() {
+public void testDoubleRangeMinMax_9_oe() {
         DoubleValidator validator = (DoubleValidator)strictValidator;
         Double number9  = validator.validate("9", "#");
         Double number10 = validator.validate("10", "#");
@@ -580,7 +580,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("maxValue() < max",     validator.maxValue(number19, 20));
     }
 
-    public void testDoubleRangeMinMax_10_oe() {
+public void testDoubleRangeMinMax_10_oe() {
         DoubleValidator validator = (DoubleValidator)strictValidator;
         Double number9  = validator.validate("9", "#");
         Double number10 = validator.validate("10", "#");
@@ -606,7 +606,7 @@ public class DoubleValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("maxValue() = max",     validator.maxValue(number20, 20));
     }
 
-    public void testDoubleRangeMinMax_11_oe() {
+public void testDoubleRangeMinMax_11_oe() {
         DoubleValidator validator = (DoubleValidator)strictValidator;
         Double number9  = validator.validate("9", "#");
         Double number10 = validator.validate("10", "#");

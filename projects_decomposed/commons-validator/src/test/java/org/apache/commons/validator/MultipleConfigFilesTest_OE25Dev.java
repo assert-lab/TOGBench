@@ -95,7 +95,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
      * If first name is ok and last name is ok and is an int, no errors.
     */
 
-    public void testMergedConfig_1_oe() {
+public void testMergedConfig_1_oe() {
 
         // *********** Default Locale *******************
 
@@ -104,7 +104,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertNotNull("Form 'testForm1' not found", form1);
     }
 
-    public void testMergedConfig_2_oe() {
+public void testMergedConfig_2_oe() {
 
         // *********** Default Locale *******************
 
@@ -117,7 +117,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertNotNull("Form 'testForm2' not found", form2);
     }
 
-    public void testMergedConfig_3_oe() {
+public void testMergedConfig_3_oe() {
 
         // *********** Default Locale *******************
 
@@ -134,7 +134,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertEquals("testProperty1 - const 1", "testConstValue1", field1.getVarValue("var11"));
     }
 
-    public void testMergedConfig_4_oe() {
+public void testMergedConfig_4_oe() {
 
         // *********** Default Locale *******************
 
@@ -152,7 +152,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertEquals("testProperty1 - const 2", "testConstValue2", field1.getVarValue("var12"));
     }
 
-    public void testMergedConfig_5_oe() {
+public void testMergedConfig_5_oe() {
 
         // *********** Default Locale *******************
 
@@ -174,7 +174,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertEquals("testProperty2 - const 1", "testConstValue1", field2.getVarValue("var21"));
     }
 
-    public void testMergedConfig_6_oe() {
+public void testMergedConfig_6_oe() {
 
         // *********** Default Locale *******************
 
@@ -197,7 +197,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertEquals("testProperty2 - const 2", "testConstValue2", field2.getVarValue("var22"));
     }
 
-    public void testMergedConfig_7_oe() {
+public void testMergedConfig_7_oe() {
 
         // *********** Default Locale *******************
 
@@ -226,7 +226,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertNotNull("Form 'testForm1_fr' not found", form1_fr);
     }
 
-    public void testMergedConfig_8_oe() {
+public void testMergedConfig_8_oe() {
 
         // *********** Default Locale *******************
 
@@ -259,7 +259,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertNotNull("Form 'testForm2_fr' not found", form2_fr);
     }
 
-    public void testMergedConfig_9_oe() {
+public void testMergedConfig_9_oe() {
 
         // *********** Default Locale *******************
 
@@ -296,7 +296,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertEquals("testProperty1_fr - const 1", "testConstValue1_fr", field1_fr.getVarValue("var11_fr"));
     }
 
-    public void testMergedConfig_10_oe() {
+public void testMergedConfig_10_oe() {
 
         // *********** Default Locale *******************
 
@@ -334,7 +334,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertEquals("testProperty1_fr - const 2", "testConstValue2_fr", field1_fr.getVarValue("var12_fr"));
     }
 
-    public void testMergedConfig_11_oe() {
+public void testMergedConfig_11_oe() {
 
         // *********** Default Locale *******************
 
@@ -376,7 +376,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertEquals("testProperty2_fr - const 1", "testConstValue1_fr", field2_fr.getVarValue("var21_fr"));
     }
 
-    public void testMergedConfig_12_oe() {
+public void testMergedConfig_12_oe() {
 
         // *********** Default Locale *******************
 
@@ -419,7 +419,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertEquals("testProperty2_fr - const 2", "testConstValue2_fr", field2_fr.getVarValue("var22_fr"));
     }
 
-    public void testBothBlank_1_oe() throws ValidatorException {
+public void testBothBlank_1_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
 
@@ -442,7 +442,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertNotNull("Results are null.", results);
     }
 
-    public void testBothBlank_2_oe() throws ValidatorException {
+public void testBothBlank_2_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
 
@@ -470,7 +470,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertNotNull(firstNameResult);
     }
 
-    public void testBothBlank_3_oe() throws ValidatorException {
+public void testBothBlank_3_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
 
@@ -499,7 +499,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertTrue(firstNameResult.containsAction(ACTION));
     }
 
-    public void testBothBlank_4_oe() throws ValidatorException {
+public void testBothBlank_4_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
 
@@ -529,7 +529,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertTrue(!firstNameResult.isValid(ACTION));
     }
 
-    public void testBothBlank_5_oe() throws ValidatorException {
+public void testBothBlank_5_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
 
@@ -561,7 +561,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertNotNull(lastNameResult);
     }
 
-    public void testBothBlank_6_oe() throws ValidatorException {
+public void testBothBlank_6_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
 
@@ -594,7 +594,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertTrue(lastNameResult.containsAction(ACTION));
     }
 
-    public void testBothBlank_7_oe() throws ValidatorException {
+public void testBothBlank_7_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
 
@@ -628,7 +628,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertTrue(!lastNameResult.isValid(ACTION));
     }
 
-    public void testBothBlank_8_oe() throws ValidatorException {
+public void testBothBlank_8_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
 
@@ -663,7 +663,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertTrue(!lastNameResult.containsAction("int"));
     }
 
-    public void testRequiredFirstNameBlankLastNameShort_1_oe()
+public void testRequiredFirstNameBlankLastNameShort_1_oe()
         throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
@@ -685,7 +685,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertNotNull("Results are null.", results);
     }
 
-    public void testRequiredFirstNameBlankLastNameShort_2_oe()
+public void testRequiredFirstNameBlankLastNameShort_2_oe()
         throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
@@ -712,7 +712,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertNotNull(firstNameResult);
     }
 
-    public void testRequiredFirstNameBlankLastNameShort_3_oe()
+public void testRequiredFirstNameBlankLastNameShort_3_oe()
         throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
@@ -740,7 +740,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertTrue(firstNameResult.containsAction(ACTION));
     }
 
-    public void testRequiredFirstNameBlankLastNameShort_4_oe()
+public void testRequiredFirstNameBlankLastNameShort_4_oe()
         throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
@@ -769,7 +769,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertTrue(!firstNameResult.isValid(ACTION));
     }
 
-    public void testRequiredFirstNameBlankLastNameShort_5_oe()
+public void testRequiredFirstNameBlankLastNameShort_5_oe()
         throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
@@ -800,7 +800,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertNotNull(lastNameResult);
     }
 
-    public void testRequiredFirstNameBlankLastNameShort_6_oe()
+public void testRequiredFirstNameBlankLastNameShort_6_oe()
         throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
@@ -832,7 +832,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertTrue(lastNameResult.containsAction("int"));
     }
 
-    public void testRequiredFirstNameBlankLastNameShort_7_oe()
+public void testRequiredFirstNameBlankLastNameShort_7_oe()
         throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
@@ -865,7 +865,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertTrue(!lastNameResult.isValid("int"));
     }
 
-    public void testRequiredLastNameShort_1_oe() throws ValidatorException {
+public void testRequiredLastNameShort_1_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
         name.setFirstName("Test");
@@ -886,7 +886,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertNotNull("Results are null.", results);
     }
 
-    public void testRequiredLastNameShort_2_oe() throws ValidatorException {
+public void testRequiredLastNameShort_2_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
         name.setFirstName("Test");
@@ -912,7 +912,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertNotNull(firstNameResult);
     }
 
-    public void testRequiredLastNameShort_3_oe() throws ValidatorException {
+public void testRequiredLastNameShort_3_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
         name.setFirstName("Test");
@@ -939,7 +939,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertTrue(firstNameResult.containsAction(ACTION));
     }
 
-    public void testRequiredLastNameShort_4_oe() throws ValidatorException {
+public void testRequiredLastNameShort_4_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
         name.setFirstName("Test");
@@ -967,7 +967,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertTrue(firstNameResult.isValid(ACTION));
     }
 
-    public void testRequiredLastNameShort_5_oe() throws ValidatorException {
+public void testRequiredLastNameShort_5_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
         name.setFirstName("Test");
@@ -997,7 +997,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertNotNull(lastNameResult);
     }
 
-    public void testRequiredLastNameShort_6_oe() throws ValidatorException {
+public void testRequiredLastNameShort_6_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
         name.setFirstName("Test");
@@ -1028,7 +1028,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertTrue(lastNameResult.containsAction("int"));
     }
 
-    public void testRequiredLastNameShort_7_oe() throws ValidatorException {
+public void testRequiredLastNameShort_7_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
         name.setFirstName("Test");
@@ -1060,7 +1060,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertTrue(!lastNameResult.isValid("int"));
     }
 
-    public void testRequiredLastNameLong_1_oe() throws ValidatorException {
+public void testRequiredLastNameLong_1_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
         name.setFirstName("Joe");
@@ -1081,7 +1081,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertNotNull("Results are null.", results);
     }
 
-    public void testRequiredLastNameLong_2_oe() throws ValidatorException {
+public void testRequiredLastNameLong_2_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
         name.setFirstName("Joe");
@@ -1107,7 +1107,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertNotNull(firstNameResult);
     }
 
-    public void testRequiredLastNameLong_3_oe() throws ValidatorException {
+public void testRequiredLastNameLong_3_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
         name.setFirstName("Joe");
@@ -1134,7 +1134,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertTrue(firstNameResult.containsAction(ACTION));
     }
 
-    public void testRequiredLastNameLong_4_oe() throws ValidatorException {
+public void testRequiredLastNameLong_4_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
         name.setFirstName("Joe");
@@ -1162,7 +1162,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertTrue(firstNameResult.isValid(ACTION));
     }
 
-    public void testRequiredLastNameLong_5_oe() throws ValidatorException {
+public void testRequiredLastNameLong_5_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
         name.setFirstName("Joe");
@@ -1192,7 +1192,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertNotNull(lastNameResult);
     }
 
-    public void testRequiredLastNameLong_6_oe() throws ValidatorException {
+public void testRequiredLastNameLong_6_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
         name.setFirstName("Joe");
@@ -1223,7 +1223,7 @@ public class MultipleConfigFilesTest_OE25Dev extends TestCase {
         assertTrue(lastNameResult.containsAction("int"));
     }
 
-    public void testRequiredLastNameLong_7_oe() throws ValidatorException {
+public void testRequiredLastNameLong_7_oe() throws ValidatorException {
         // Create bean to run test on.
         NameBean name = new NameBean();
         name.setFirstName("Joe");

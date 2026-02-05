@@ -275,7 +275,7 @@ public class DbUtilsTest_OE25Dev {
 
     }
     
-    @Test
+@Test
     public void testLoadDriverReturnsFalse_1_oe() {
         
         assertFalse(DbUtils.loadDriver(""));

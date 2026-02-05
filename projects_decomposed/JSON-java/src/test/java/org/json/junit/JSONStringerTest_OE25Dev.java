@@ -71,7 +71,7 @@ public class JSONStringerTest_OE25Dev {
      * returned values..
      */
 
-    @Test
+@Test
     public void nullKeyException_2_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object();
@@ -83,7 +83,7 @@ public class JSONStringerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void outOfSequenceException_2_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         try {
@@ -94,7 +94,7 @@ public class JSONStringerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void missplacedArrayException_2_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().endObject();
@@ -106,7 +106,7 @@ public class JSONStringerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void missplacedEndArrayException_2_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object();
@@ -118,7 +118,7 @@ public class JSONStringerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void missplacedEndObjectException_2_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.array();
@@ -130,7 +130,7 @@ public class JSONStringerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void missplacedObjectException_2_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().endObject();
@@ -142,7 +142,7 @@ public class JSONStringerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void exceedNestDepthException_2_oe() {
         try {
             JSONStringer s = new JSONStringer();
@@ -231,7 +231,7 @@ public class JSONStringerTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void simpleObjectString_1_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object();
@@ -251,7 +251,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 7 top level items", ((Map<?,?>)(JsonPath.read(doc, "$"))).size() == 7);
     }
 
-    @Test
+@Test
     public void simpleObjectString_2_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object();
@@ -272,7 +272,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected true", Boolean.TRUE.equals(jsonObject.query("/trueValue")));
     }
 
-    @Test
+@Test
     public void simpleObjectString_3_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object();
@@ -294,7 +294,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected false", Boolean.FALSE.equals(jsonObject.query("/falseValue")));
     }
 
-    @Test
+@Test
     public void simpleObjectString_4_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object();
@@ -317,7 +317,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected null", JSONObject.NULL.equals(jsonObject.query("/nullValue")));
     }
 
-    @Test
+@Test
     public void simpleObjectString_5_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object();
@@ -341,7 +341,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected hello world!", "hello world!".equals(jsonObject.query("/stringValue")));
     }
 
-    @Test
+@Test
     public void simpleObjectString_6_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object();
@@ -366,7 +366,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected h\be\tllo w\u1234orld!", "h\be\tllo w\u1234orld!".equals(jsonObject.query("/complexStringValue")));
     }
 
-    @Test
+@Test
     public void simpleObjectString_7_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object();
@@ -392,7 +392,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 42", Integer.valueOf(42).equals(jsonObject.query("/intValue")));
     }
 
-    @Test
+@Test
     public void simpleObjectString_8_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object();
@@ -419,7 +419,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected -23.45e67", BigDecimal.valueOf(-23.45e67).equals(jsonObject.query("/doubleValue")));
     }
 
-    @Test
+@Test
     public void simpleArrayString_1_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.array();
@@ -438,7 +438,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 6 top level items", ((List<?>)(JsonPath.read(doc, "$"))).size() == 6);
     }
 
-    @Test
+@Test
     public void simpleArrayString_2_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.array();
@@ -458,7 +458,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected true", Boolean.TRUE.equals(jsonArray.query("/0")));
     }
 
-    @Test
+@Test
     public void simpleArrayString_3_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.array();
@@ -479,7 +479,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected false", Boolean.FALSE.equals(jsonArray.query("/1")));
     }
 
-    @Test
+@Test
     public void simpleArrayString_4_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.array();
@@ -501,7 +501,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected null", JSONObject.NULL.equals(jsonArray.query("/2")));
     }
 
-    @Test
+@Test
     public void simpleArrayString_5_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.array();
@@ -524,7 +524,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected hello world!", "hello world!".equals(jsonArray.query("/3")));
     }
 
-    @Test
+@Test
     public void simpleArrayString_6_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.array();
@@ -548,7 +548,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 42", Integer.valueOf(42).equals(jsonArray.query("/4")));
     }
 
-    @Test
+@Test
     public void simpleArrayString_7_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.array();
@@ -573,7 +573,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected -23.45e67", BigDecimal.valueOf(-23.45e67).equals(jsonArray.query("/5")));
     }
 
-    @Test
+@Test
     public void complexObjectString_1_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -615,7 +615,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 8 top level items", ((Map<?,?>)(JsonPath.read(doc, "$"))).size() == 8);
     }
 
-    @Test
+@Test
     public void complexObjectString_2_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -658,7 +658,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 4 object2 items", ((Map<?,?>)(JsonPath.read(doc, "$.object2"))).size() == 4);
     }
 
-    @Test
+@Test
     public void complexObjectString_3_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -702,7 +702,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 5 array1 items", ((List<?>)(JsonPath.read(doc, "$.object2.array1"))).size() == 5);
     }
 
-    @Test
+@Test
     public void complexObjectString_4_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -747,7 +747,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 4 array[2] items", ((Map<?,?>)(JsonPath.read(doc, "$.object2.array1[2]"))).size() == 4);
     }
 
-    @Test
+@Test
     public void complexObjectString_5_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -793,7 +793,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 4 array1[2].array2 items", ((List<?>)(JsonPath.read(doc, "$.object2.array1[2].array2"))).size() == 4);
     }
 
-    @Test
+@Test
     public void complexObjectString_6_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -840,7 +840,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected true", Boolean.TRUE.equals(jsonObject.query("/trueValue")));
     }
 
-    @Test
+@Test
     public void complexObjectString_7_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -888,7 +888,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected false", Boolean.FALSE.equals(jsonObject.query("/falseValue")));
     }
 
-    @Test
+@Test
     public void complexObjectString_8_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -937,7 +937,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected null", JSONObject.NULL.equals(jsonObject.query("/nullValue")));
     }
 
-    @Test
+@Test
     public void complexObjectString_9_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -987,7 +987,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected hello world!", "hello world!".equals(jsonObject.query("/stringValue")));
     }
 
-    @Test
+@Test
     public void complexObjectString_10_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -1038,7 +1038,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 42", Integer.valueOf(42).equals(jsonObject.query("/intValue")));
     }
 
-    @Test
+@Test
     public void complexObjectString_11_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -1090,7 +1090,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected -23.45e67", BigDecimal.valueOf(-23.45e67).equals(jsonObject.query("/doubleValue")));
     }
 
-    @Test
+@Test
     public void complexObjectString_12_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -1143,7 +1143,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected h\be\tllo w\u1234orld!", "h\be\tllo w\u1234orld!".equals(jsonObject.query("/complexStringValue")));
     }
 
-    @Test
+@Test
     public void complexObjectString_13_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -1197,7 +1197,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected v1", "v1".equals(jsonObject.query("/object2/k1")));
     }
 
-    @Test
+@Test
     public void complexObjectString_14_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -1252,7 +1252,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected v2", "v2".equals(jsonObject.query("/object2/k2")));
     }
 
-    @Test
+@Test
     public void complexObjectString_15_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -1308,7 +1308,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected v3", "v3".equals(jsonObject.query("/object2/k3")));
     }
 
-    @Test
+@Test
     public void complexObjectString_16_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -1365,7 +1365,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 1", Integer.valueOf(1).equals(jsonObject.query("/object2/array1/0")));
     }
 
-    @Test
+@Test
     public void complexObjectString_17_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -1423,7 +1423,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 2", Integer.valueOf(2).equals(jsonObject.query("/object2/array1/1")));
     }
 
-    @Test
+@Test
     public void complexObjectString_18_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -1482,7 +1482,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected v4", "v4".equals(jsonObject.query("/object2/array1/2/k4")));
     }
 
-    @Test
+@Test
     public void complexObjectString_19_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -1542,7 +1542,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected v5", "v5".equals(jsonObject.query("/object2/array1/2/k5")));
     }
 
-    @Test
+@Test
     public void complexObjectString_20_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -1603,7 +1603,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected v6", "v6".equals(jsonObject.query("/object2/array1/2/k6")));
     }
 
-    @Test
+@Test
     public void complexObjectString_21_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -1665,7 +1665,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 5", Integer.valueOf(5).equals(jsonObject.query("/object2/array1/2/array2/0")));
     }
 
-    @Test
+@Test
     public void complexObjectString_22_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -1728,7 +1728,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 6", Integer.valueOf(6).equals(jsonObject.query("/object2/array1/2/array2/1")));
     }
 
-    @Test
+@Test
     public void complexObjectString_23_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -1792,7 +1792,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 7", Integer.valueOf(7).equals(jsonObject.query("/object2/array1/2/array2/2")));
     }
 
-    @Test
+@Test
     public void complexObjectString_24_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -1857,7 +1857,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 8", Integer.valueOf(8).equals(jsonObject.query("/object2/array1/2/array2/3")));
     }
 
-    @Test
+@Test
     public void complexObjectString_25_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().
@@ -1923,7 +1923,7 @@ public class JSONStringerTest_OE25Dev {
         assertTrue("expected 3", Integer.valueOf(3).equals(jsonObject.query("/object2/array1/3")));
     }
 
-    @Test
+@Test
     public void complexObjectString_26_oe() {
         JSONStringer jsonStringer = new JSONStringer();
         jsonStringer.object().

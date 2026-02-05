@@ -70,20 +70,20 @@ public class SelectorTest_OE25Dev {
     private final String lowercase =
         "<html xmlns:n=\"urn:ns\"><n:lowercase>text</n:lowercase></html>";
 
-    @Test public void testByTag_1_oe() {
+@Test public void testByTag_1_oe() {
         // should be case insensitive
         Elements els = Jsoup.parse("<div id=1><div id=2><p>Hello</p></div></div><DIV id=3>").select("DIV");
         assertEquals(3, els.size());
         }
 
-    @Test public void testByTag_2_oe() {
+@Test public void testByTag_2_oe() {
         // should be case insensitive
         Elements els = Jsoup.parse("<div id=1><div id=2><p>Hello</p></div></div><DIV id=3>").select("DIV");
         // removed other assertion
         assertEquals("1", els.get(0).id());
         }
 
-    @Test public void testByTag_3_oe() {
+@Test public void testByTag_3_oe() {
         // should be case insensitive
         Elements els = Jsoup.parse("<div id=1><div id=2><p>Hello</p></div></div><DIV id=3>").select("DIV");
         // removed other assertion
@@ -91,7 +91,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", els.get(1).id());
         }
 
-    @Test public void testByTag_4_oe() {
+@Test public void testByTag_4_oe() {
         // should be case insensitive
         Elements els = Jsoup.parse("<div id=1><div id=2><p>Hello</p></div></div><DIV id=3>").select("DIV");
         // removed other assertion
@@ -100,7 +100,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("3", els.get(2).id());
         }
 
-    @Test public void testByTag_5_oe() {
+@Test public void testByTag_5_oe() {
         // should be case insensitive
         Elements els = Jsoup.parse("<div id=1><div id=2><p>Hello</p></div></div><DIV id=3>").select("DIV");
         // removed other assertion
@@ -112,25 +112,25 @@ public class SelectorTest_OE25Dev {
         assertEquals(0, none.size());
         }
 
-    @Test public void testById_1_oe() {
+@Test public void testById_1_oe() {
         Elements els = Jsoup.parse("<div><p id=foo>Hello</p><p id=foo>Foo two!</p></div>").select("#foo");
         assertEquals(2, els.size());
         }
 
-    @Test public void testById_2_oe() {
+@Test public void testById_2_oe() {
         Elements els = Jsoup.parse("<div><p id=foo>Hello</p><p id=foo>Foo two!</p></div>").select("#foo");
         // removed other assertion
         assertEquals("Hello", els.get(0).text());
         }
 
-    @Test public void testById_3_oe() {
+@Test public void testById_3_oe() {
         Elements els = Jsoup.parse("<div><p id=foo>Hello</p><p id=foo>Foo two!</p></div>").select("#foo");
         // removed other assertion
         // removed other assertion
         assertEquals("Foo two!", els.get(1).text());
         }
 
-    @Test public void testById_4_oe() {
+@Test public void testById_4_oe() {
         Elements els = Jsoup.parse("<div><p id=foo>Hello</p><p id=foo>Foo two!</p></div>").select("#foo");
         // removed other assertion
         // removed other assertion
@@ -140,25 +140,25 @@ public class SelectorTest_OE25Dev {
         assertEquals(0, none.size());
         }
 
-    @Test public void testByClass_1_oe() {
+@Test public void testByClass_1_oe() {
         Elements els = Jsoup.parse("<p id=0 class='ONE two'><p id=1 class='one'><p id=2 class='two'>").select("P.One");
         assertEquals(2, els.size());
         }
 
-    @Test public void testByClass_2_oe() {
+@Test public void testByClass_2_oe() {
         Elements els = Jsoup.parse("<p id=0 class='ONE two'><p id=1 class='one'><p id=2 class='two'>").select("P.One");
         // removed other assertion
         assertEquals("0", els.get(0).id());
         }
 
-    @Test public void testByClass_3_oe() {
+@Test public void testByClass_3_oe() {
         Elements els = Jsoup.parse("<p id=0 class='ONE two'><p id=1 class='one'><p id=2 class='two'>").select("P.One");
         // removed other assertion
         // removed other assertion
         assertEquals("1", els.get(1).id());
         }
 
-    @Test public void testByClass_4_oe() {
+@Test public void testByClass_4_oe() {
         Elements els = Jsoup.parse("<p id=0 class='ONE two'><p id=1 class='one'><p id=2 class='two'>").select("P.One");
         // removed other assertion
         // removed other assertion
@@ -168,7 +168,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(0, none.size());
         }
 
-    @Test public void testByClass_5_oe() {
+@Test public void testByClass_5_oe() {
         Elements els = Jsoup.parse("<p id=0 class='ONE two'><p id=1 class='one'><p id=2 class='two'>").select("P.One");
         // removed other assertion
         // removed other assertion
@@ -181,7 +181,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, els2.size());
         }
 
-    @Test public void testByClassCaseInsensitive_1_oe() {
+@Test public void testByClassCaseInsensitive_1_oe() {
         String html = "<p Class=foo>One <p Class=Foo>Two <p class=FOO>Three <p class=farp>Four";
         Elements elsFromClass = Jsoup.parse(html).select("P.Foo");
         Elements elsFromAttr = Jsoup.parse(html).select("p[class=foo]");
@@ -189,7 +189,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(elsFromAttr.size(), elsFromClass.size());
         }
 
-    @Test public void testByClassCaseInsensitive_2_oe() {
+@Test public void testByClassCaseInsensitive_2_oe() {
         String html = "<p Class=foo>One <p Class=Foo>Two <p class=FOO>Three <p class=farp>Four";
         Elements elsFromClass = Jsoup.parse(html).select("P.Foo");
         Elements elsFromAttr = Jsoup.parse(html).select("p[class=foo]");
@@ -198,7 +198,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(3, elsFromClass.size());
         }
 
-    @Test public void testByClassCaseInsensitive_3_oe() {
+@Test public void testByClassCaseInsensitive_3_oe() {
         String html = "<p Class=foo>One <p Class=Foo>Two <p class=FOO>Three <p class=farp>Four";
         Elements elsFromClass = Jsoup.parse(html).select("P.Foo");
         Elements elsFromAttr = Jsoup.parse(html).select("p[class=foo]");
@@ -208,7 +208,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", elsFromClass.get(1).text());
         }
 
-    public void testByAttribute_1_oe(Locale locale) {
+public void testByAttribute_1_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -219,7 +219,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(4, withTitle.size());
     }
 
-    public void testByAttribute_2_oe(Locale locale) {
+public void testByAttribute_2_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -233,7 +233,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, foo.size());
     }
 
-    public void testByAttribute_3_oe(Locale locale) {
+public void testByAttribute_3_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -250,7 +250,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, foo2.size());
     }
 
-    public void testByAttribute_4_oe(Locale locale) {
+public void testByAttribute_4_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -270,7 +270,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, foo3.size());
     }
 
-    public void testByAttribute_5_oe(Locale locale) {
+public void testByAttribute_5_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -293,7 +293,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, dataName.size());
     }
 
-    public void testByAttribute_6_oe(Locale locale) {
+public void testByAttribute_6_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -317,7 +317,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("with spaces", dataName.first().attr("data-name"));
     }
 
-    public void testByAttribute_7_oe(Locale locale) {
+public void testByAttribute_7_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -344,7 +344,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(5, not.size());
     }
 
-    public void testByAttribute_8_oe(Locale locale) {
+public void testByAttribute_8_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -372,7 +372,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Foo", not.first().attr("title"));
     }
 
-    public void testByAttribute_9_oe(Locale locale) {
+public void testByAttribute_9_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -403,7 +403,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, starts.size());
     }
 
-    public void testByAttribute_10_oe(Locale locale) {
+public void testByAttribute_10_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -435,7 +435,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Bar", starts.first().attr("title"));
     }
 
-    public void testByAttribute_11_oe(Locale locale) {
+public void testByAttribute_11_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -468,7 +468,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Balim", starts.last().attr("title"));
     }
 
-    public void testByAttribute_12_oe(Locale locale) {
+public void testByAttribute_12_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -504,7 +504,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, ends.size());
     }
 
-    public void testByAttribute_13_oe(Locale locale) {
+public void testByAttribute_13_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -541,7 +541,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Balim", ends.first().attr("title"));
     }
 
-    public void testByAttribute_14_oe(Locale locale) {
+public void testByAttribute_14_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -579,7 +579,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("SLIM", ends.last().attr("title"));
     }
 
-    public void testByAttribute_15_oe(Locale locale) {
+public void testByAttribute_15_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -620,7 +620,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, contains.size());
     }
 
-    public void testByAttribute_16_oe(Locale locale) {
+public void testByAttribute_16_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -662,7 +662,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Balim", contains.first().attr("title"));
     }
 
-    public void testByAttribute_17_oe(Locale locale) {
+public void testByAttribute_17_oe(Locale locale) {
         Locale.setDefault(locale);
 
         String h = "<div Title=Foo /><div Title=Bar /><div Style=Qux /><div title=Balim /><div title=SLIM />" +
@@ -705,20 +705,20 @@ public class SelectorTest_OE25Dev {
         assertEquals("SLIM", contains.last().attr("title"));
     }
 
-    @Test public void testNamespacedTag_1_oe() {
+@Test public void testNamespacedTag_1_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
         assertEquals(2, byTag.size());
         }
 
-    @Test public void testNamespacedTag_2_oe() {
+@Test public void testNamespacedTag_2_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
         // removed other assertion
         assertEquals("1", byTag.first().id());
         }
 
-    @Test public void testNamespacedTag_3_oe() {
+@Test public void testNamespacedTag_3_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
         // removed other assertion
@@ -726,7 +726,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", byTag.last().id());
         }
 
-    @Test public void testNamespacedTag_4_oe() {
+@Test public void testNamespacedTag_4_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
         // removed other assertion
@@ -737,7 +737,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, byAttr.size());
         }
 
-    @Test public void testNamespacedTag_5_oe() {
+@Test public void testNamespacedTag_5_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
         // removed other assertion
@@ -749,7 +749,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", byAttr.last().id());
         }
 
-    @Test public void testNamespacedTag_6_oe() {
+@Test public void testNamespacedTag_6_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
         // removed other assertion
@@ -764,7 +764,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, byTagAttr.size());
         }
 
-    @Test public void testNamespacedTag_7_oe() {
+@Test public void testNamespacedTag_7_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
         // removed other assertion
@@ -780,7 +780,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", byTagAttr.last().id());
         }
 
-    @Test public void testNamespacedTag_8_oe() {
+@Test public void testNamespacedTag_8_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
         // removed other assertion
@@ -799,7 +799,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, byContains.size());
         }
 
-    @Test public void testNamespacedTag_9_oe() {
+@Test public void testNamespacedTag_9_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
         // removed other assertion
@@ -819,7 +819,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", byContains.first().id());
         }
 
-    @Test public void testNamespacedTag_10_oe() {
+@Test public void testNamespacedTag_10_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("abc|def");
         // removed other assertion
@@ -840,20 +840,20 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", byContains.last().id());
         }
 
-    @Test public void testWildcardNamespacedTag_1_oe() {
+@Test public void testWildcardNamespacedTag_1_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
         assertEquals(2, byTag.size());
         }
 
-    @Test public void testWildcardNamespacedTag_2_oe() {
+@Test public void testWildcardNamespacedTag_2_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
         // removed other assertion
         assertEquals("1", byTag.first().id());
         }
 
-    @Test public void testWildcardNamespacedTag_3_oe() {
+@Test public void testWildcardNamespacedTag_3_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
         // removed other assertion
@@ -861,7 +861,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", byTag.last().id());
         }
 
-    @Test public void testWildcardNamespacedTag_4_oe() {
+@Test public void testWildcardNamespacedTag_4_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
         // removed other assertion
@@ -872,7 +872,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, byAttr.size());
         }
 
-    @Test public void testWildcardNamespacedTag_5_oe() {
+@Test public void testWildcardNamespacedTag_5_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
         // removed other assertion
@@ -884,7 +884,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", byAttr.last().id());
         }
 
-    @Test public void testWildcardNamespacedTag_6_oe() {
+@Test public void testWildcardNamespacedTag_6_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
         // removed other assertion
@@ -899,7 +899,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, byTagAttr.size());
         }
 
-    @Test public void testWildcardNamespacedTag_7_oe() {
+@Test public void testWildcardNamespacedTag_7_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
         // removed other assertion
@@ -915,7 +915,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", byTagAttr.last().id());
         }
 
-    @Test public void testWildcardNamespacedTag_8_oe() {
+@Test public void testWildcardNamespacedTag_8_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
         // removed other assertion
@@ -934,7 +934,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, byContains.size());
         }
 
-    @Test public void testWildcardNamespacedTag_9_oe() {
+@Test public void testWildcardNamespacedTag_9_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
         // removed other assertion
@@ -954,7 +954,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", byContains.first().id());
         }
 
-    @Test public void testWildcardNamespacedTag_10_oe() {
+@Test public void testWildcardNamespacedTag_10_oe() {
         Document doc = Jsoup.parse("<div><abc:def id=1>Hello</abc:def></div> <abc:def class=bold id=2>There</abc:def>");
         Elements byTag = doc.select("*|def");
         // removed other assertion
@@ -975,7 +975,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", byContains.last().id());
         }
 
-    @Test public void testWildcardNamespacedXmlTag_1_oe() {
+@Test public void testWildcardNamespacedXmlTag_1_oe() {
         Document doc = Jsoup.parse(
             "<div><Abc:Def id=1>Hello</Abc:Def></div> <Abc:Def class=bold id=2>There</abc:def>",
             "", Parser.xmlParser()
@@ -985,7 +985,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, byTag.size());
         }
 
-    @Test public void testWildcardNamespacedXmlTag_2_oe() {
+@Test public void testWildcardNamespacedXmlTag_2_oe() {
         Document doc = Jsoup.parse(
             "<div><Abc:Def id=1>Hello</Abc:Def></div> <Abc:Def class=bold id=2>There</abc:def>",
             "", Parser.xmlParser()
@@ -996,7 +996,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", byTag.first().id());
         }
 
-    @Test public void testWildcardNamespacedXmlTag_3_oe() {
+@Test public void testWildcardNamespacedXmlTag_3_oe() {
         Document doc = Jsoup.parse(
             "<div><Abc:Def id=1>Hello</Abc:Def></div> <Abc:Def class=bold id=2>There</abc:def>",
             "", Parser.xmlParser()
@@ -1008,7 +1008,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", byTag.last().id());
         }
 
-    @Test public void testWildcardNamespacedXmlTag_4_oe() {
+@Test public void testWildcardNamespacedXmlTag_4_oe() {
         Document doc = Jsoup.parse(
             "<div><Abc:Def id=1>Hello</Abc:Def></div> <Abc:Def class=bold id=2>There</abc:def>",
             "", Parser.xmlParser()
@@ -1023,7 +1023,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, byAttr.size());
         }
 
-    @Test public void testWildcardNamespacedXmlTag_5_oe() {
+@Test public void testWildcardNamespacedXmlTag_5_oe() {
         Document doc = Jsoup.parse(
             "<div><Abc:Def id=1>Hello</Abc:Def></div> <Abc:Def class=bold id=2>There</abc:def>",
             "", Parser.xmlParser()
@@ -1039,7 +1039,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", byAttr.last().id());
         }
 
-    @Test public void testWildcardNamespacedXmlTag_6_oe() {
+@Test public void testWildcardNamespacedXmlTag_6_oe() {
         Document doc = Jsoup.parse(
             "<div><Abc:Def id=1>Hello</Abc:Def></div> <Abc:Def class=bold id=2>There</abc:def>",
             "", Parser.xmlParser()
@@ -1058,7 +1058,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, byTagAttr.size());
         }
 
-    @Test public void testWildcardNamespacedXmlTag_7_oe() {
+@Test public void testWildcardNamespacedXmlTag_7_oe() {
         Document doc = Jsoup.parse(
             "<div><Abc:Def id=1>Hello</Abc:Def></div> <Abc:Def class=bold id=2>There</abc:def>",
             "", Parser.xmlParser()
@@ -1078,7 +1078,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", byTagAttr.last().id());
         }
 
-    @Test public void testWildcardNamespacedXmlTag_8_oe() {
+@Test public void testWildcardNamespacedXmlTag_8_oe() {
         Document doc = Jsoup.parse(
             "<div><Abc:Def id=1>Hello</Abc:Def></div> <Abc:Def class=bold id=2>There</abc:def>",
             "", Parser.xmlParser()
@@ -1101,7 +1101,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, byContains.size());
         }
 
-    @Test public void testWildcardNamespacedXmlTag_9_oe() {
+@Test public void testWildcardNamespacedXmlTag_9_oe() {
         Document doc = Jsoup.parse(
             "<div><Abc:Def id=1>Hello</Abc:Def></div> <Abc:Def class=bold id=2>There</abc:def>",
             "", Parser.xmlParser()
@@ -1125,7 +1125,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", byContains.first().id());
         }
 
-    @Test public void testWildcardNamespacedXmlTag_10_oe() {
+@Test public void testWildcardNamespacedXmlTag_10_oe() {
         Document doc = Jsoup.parse(
             "<div><Abc:Def id=1>Hello</Abc:Def></div> <Abc:Def class=bold id=2>There</abc:def>",
             "", Parser.xmlParser()
@@ -1150,7 +1150,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", byContains.last().id());
         }
 
-    @Test public void testWildCardNamespacedCaseVariations_1_oe() {
+@Test public void testWildCardNamespacedCaseVariations_1_oe() {
         Document doc = Jsoup.parse("<One:Two>One</One:Two><three:four>Two</three:four>", "", Parser.xmlParser());
         Elements els1 = doc.select("One|Two");
         Elements els2 = doc.select("one|two");
@@ -1160,7 +1160,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(els1, els2);
         }
 
-    @Test public void testWildCardNamespacedCaseVariations_2_oe() {
+@Test public void testWildCardNamespacedCaseVariations_2_oe() {
         Document doc = Jsoup.parse("<One:Two>One</One:Two><three:four>Two</three:four>", "", Parser.xmlParser());
         Elements els1 = doc.select("One|Two");
         Elements els2 = doc.select("one|two");
@@ -1171,7 +1171,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(els3, els4);
         }
 
-    @Test public void testWildCardNamespacedCaseVariations_3_oe() {
+@Test public void testWildCardNamespacedCaseVariations_3_oe() {
         Document doc = Jsoup.parse("<One:Two>One</One:Two><three:four>Two</three:four>", "", Parser.xmlParser());
         Elements els1 = doc.select("One|Two");
         Elements els2 = doc.select("one|two");
@@ -1183,7 +1183,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("One", els1.text());
         }
 
-    @Test public void testWildCardNamespacedCaseVariations_4_oe() {
+@Test public void testWildCardNamespacedCaseVariations_4_oe() {
         Document doc = Jsoup.parse("<One:Two>One</One:Two><three:four>Two</three:four>", "", Parser.xmlParser());
         Elements els1 = doc.select("One|Two");
         Elements els2 = doc.select("one|two");
@@ -1196,7 +1196,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, els1.size());
         }
 
-    @Test public void testWildCardNamespacedCaseVariations_5_oe() {
+@Test public void testWildCardNamespacedCaseVariations_5_oe() {
         Document doc = Jsoup.parse("<One:Two>One</One:Two><three:four>Two</three:four>", "", Parser.xmlParser());
         Elements els1 = doc.select("One|Two");
         Elements els2 = doc.select("one|two");
@@ -1210,7 +1210,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", els3.text());
         }
 
-    @Test public void testWildCardNamespacedCaseVariations_6_oe() {
+@Test public void testWildCardNamespacedCaseVariations_6_oe() {
         Document doc = Jsoup.parse("<One:Two>One</One:Two><three:four>Two</three:four>", "", Parser.xmlParser());
         Elements els1 = doc.select("One|Two");
         Elements els2 = doc.select("one|two");
@@ -1225,7 +1225,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, els2.size());
         }
 
-    public void testByAttributeStarting_1_oe(Locale locale) {
+public void testByAttributeStarting_1_oe(Locale locale) {
         Locale.setDefault(locale);
 
         Document doc = Jsoup.parse("<div id=1 ATTRIBUTE data-name=jsoup>Hello</div><p data-val=5 id=2>There</p><p id=3>No</p>");
@@ -1233,7 +1233,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, withData.size());
     }
 
-    public void testByAttributeStarting_2_oe(Locale locale) {
+public void testByAttributeStarting_2_oe(Locale locale) {
         Locale.setDefault(locale);
 
         Document doc = Jsoup.parse("<div id=1 ATTRIBUTE data-name=jsoup>Hello</div><p data-val=5 id=2>There</p><p id=3>No</p>");
@@ -1242,7 +1242,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", withData.first().id());
     }
 
-    public void testByAttributeStarting_3_oe(Locale locale) {
+public void testByAttributeStarting_3_oe(Locale locale) {
         Locale.setDefault(locale);
 
         Document doc = Jsoup.parse("<div id=1 ATTRIBUTE data-name=jsoup>Hello</div><p data-val=5 id=2>There</p><p id=3>No</p>");
@@ -1252,7 +1252,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", withData.last().id());
     }
 
-    public void testByAttributeStarting_4_oe(Locale locale) {
+public void testByAttributeStarting_4_oe(Locale locale) {
         Locale.setDefault(locale);
 
         Document doc = Jsoup.parse("<div id=1 ATTRIBUTE data-name=jsoup>Hello</div><p data-val=5 id=2>There</p><p id=3>No</p>");
@@ -1265,7 +1265,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, withData.size());
     }
 
-    public void testByAttributeStarting_5_oe(Locale locale) {
+public void testByAttributeStarting_5_oe(Locale locale) {
         Locale.setDefault(locale);
 
         Document doc = Jsoup.parse("<div id=1 ATTRIBUTE data-name=jsoup>Hello</div><p data-val=5 id=2>There</p><p id=3>No</p>");
@@ -1279,7 +1279,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", withData.first().id());
     }
 
-    public void testByAttributeStarting_6_oe(Locale locale) {
+public void testByAttributeStarting_6_oe(Locale locale) {
         Locale.setDefault(locale);
 
         Document doc = Jsoup.parse("<div id=1 ATTRIBUTE data-name=jsoup>Hello</div><p data-val=5 id=2>There</p><p id=3>No</p>");
@@ -1295,20 +1295,20 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, doc.select("[^attrib]").size());
     }
 
-    @Test public void testByAttributeRegex_1_oe() {
+@Test public void testByAttributeRegex_1_oe() {
         Document doc = Jsoup.parse("<p><img src=foo.png id=1><img src=bar.jpg id=2><img src=qux.JPEG id=3><img src=old.gif><img></p>");
         Elements imgs = doc.select("img[src~=(?i)\\.(png|jpe?g)]");
         assertEquals(3, imgs.size());
         }
 
-    @Test public void testByAttributeRegex_2_oe() {
+@Test public void testByAttributeRegex_2_oe() {
         Document doc = Jsoup.parse("<p><img src=foo.png id=1><img src=bar.jpg id=2><img src=qux.JPEG id=3><img src=old.gif><img></p>");
         Elements imgs = doc.select("img[src~=(?i)\\.(png|jpe?g)]");
         // removed other assertion
         assertEquals("1", imgs.get(0).id());
         }
 
-    @Test public void testByAttributeRegex_3_oe() {
+@Test public void testByAttributeRegex_3_oe() {
         Document doc = Jsoup.parse("<p><img src=foo.png id=1><img src=bar.jpg id=2><img src=qux.JPEG id=3><img src=old.gif><img></p>");
         Elements imgs = doc.select("img[src~=(?i)\\.(png|jpe?g)]");
         // removed other assertion
@@ -1316,7 +1316,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", imgs.get(1).id());
         }
 
-    @Test public void testByAttributeRegex_4_oe() {
+@Test public void testByAttributeRegex_4_oe() {
         Document doc = Jsoup.parse("<p><img src=foo.png id=1><img src=bar.jpg id=2><img src=qux.JPEG id=3><img src=old.gif><img></p>");
         Elements imgs = doc.select("img[src~=(?i)\\.(png|jpe?g)]");
         // removed other assertion
@@ -1325,20 +1325,20 @@ public class SelectorTest_OE25Dev {
         assertEquals("3", imgs.get(2).id());
         }
 
-    @Test public void testByAttributeRegexCharacterClass_1_oe() {
+@Test public void testByAttributeRegexCharacterClass_1_oe() {
         Document doc = Jsoup.parse("<p><img src=foo.png id=1><img src=bar.jpg id=2><img src=qux.JPEG id=3><img src=old.gif id=4></p>");
         Elements imgs = doc.select("img[src~=[o]]");
         assertEquals(2, imgs.size());
         }
 
-    @Test public void testByAttributeRegexCharacterClass_2_oe() {
+@Test public void testByAttributeRegexCharacterClass_2_oe() {
         Document doc = Jsoup.parse("<p><img src=foo.png id=1><img src=bar.jpg id=2><img src=qux.JPEG id=3><img src=old.gif id=4></p>");
         Elements imgs = doc.select("img[src~=[o]]");
         // removed other assertion
         assertEquals("1", imgs.get(0).id());
         }
 
-    @Test public void testByAttributeRegexCharacterClass_3_oe() {
+@Test public void testByAttributeRegexCharacterClass_3_oe() {
         Document doc = Jsoup.parse("<p><img src=foo.png id=1><img src=bar.jpg id=2><img src=qux.JPEG id=3><img src=old.gif id=4></p>");
         Elements imgs = doc.select("img[src~=[o]]");
         // removed other assertion
@@ -1346,33 +1346,33 @@ public class SelectorTest_OE25Dev {
         assertEquals("4", imgs.get(1).id());
         }
 
-    @Test public void testByAttributeRegexCombined_1_oe() {
+@Test public void testByAttributeRegexCombined_1_oe() {
         Document doc = Jsoup.parse("<div><table class=x><td>Hello</td></table></div>");
         Elements els = doc.select("div table[class~=x|y]");
         assertEquals(1, els.size());
         }
 
-    @Test public void testByAttributeRegexCombined_2_oe() {
+@Test public void testByAttributeRegexCombined_2_oe() {
         Document doc = Jsoup.parse("<div><table class=x><td>Hello</td></table></div>");
         Elements els = doc.select("div table[class~=x|y]");
         // removed other assertion
         assertEquals("Hello", els.text());
         }
 
-    @Test public void testCombinedWithContains_1_oe() {
+@Test public void testCombinedWithContains_1_oe() {
         Document doc = Jsoup.parse("<p id=1>One</p><p>Two +</p><p>Three +</p>");
         Elements els = doc.select("p#1 + :contains(+)");
         assertEquals(1, els.size());
         }
 
-    @Test public void testCombinedWithContains_2_oe() {
+@Test public void testCombinedWithContains_2_oe() {
         Document doc = Jsoup.parse("<p id=1>One</p><p>Two +</p><p>Three +</p>");
         Elements els = doc.select("p#1 + :contains(+)");
         // removed other assertion
         assertEquals("Two +", els.text());
         }
 
-    @Test public void testCombinedWithContains_3_oe() {
+@Test public void testCombinedWithContains_3_oe() {
         Document doc = Jsoup.parse("<p id=1>One</p><p>Two +</p><p>Three +</p>");
         Elements els = doc.select("p#1 + :contains(+)");
         // removed other assertion
@@ -1380,7 +1380,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("p", els.first().tagName());
         }
 
-    @Test public void testAllElements_1_oe() {
+@Test public void testAllElements_1_oe() {
         String h = "<div><p>Hello</p><p><b>there</b></p></div>";
         Document doc = Jsoup.parse(h);
         Elements allDoc = doc.select("*");
@@ -1388,7 +1388,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(8, allDoc.size());
         }
 
-    @Test public void testAllElements_2_oe() {
+@Test public void testAllElements_2_oe() {
         String h = "<div><p>Hello</p><p><b>there</b></p></div>";
         Document doc = Jsoup.parse(h);
         Elements allDoc = doc.select("*");
@@ -1397,7 +1397,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(3, allUnderDiv.size());
         }
 
-    @Test public void testAllElements_3_oe() {
+@Test public void testAllElements_3_oe() {
         String h = "<div><p>Hello</p><p><b>there</b></p></div>";
         Document doc = Jsoup.parse(h);
         Elements allDoc = doc.select("*");
@@ -1407,14 +1407,14 @@ public class SelectorTest_OE25Dev {
         assertEquals("p", allUnderDiv.first().tagName());
         }
 
-    @Test public void testAllWithClass_1_oe() {
+@Test public void testAllWithClass_1_oe() {
         String h = "<p class=first>One<p class=first>Two<p>Three";
         Document doc = Jsoup.parse(h);
         Elements ps = doc.select("*.first");
         assertEquals(2, ps.size());
         }
 
-    @Test public void testGroupOr_1_oe() {
+@Test public void testGroupOr_1_oe() {
         String h = "<div title=foo /><div title=bar /><div /><p></p><img /><span title=qux>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
@@ -1422,7 +1422,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(5, els.size());
         }
 
-    @Test public void testGroupOr_2_oe() {
+@Test public void testGroupOr_2_oe() {
         String h = "<div title=foo /><div title=bar /><div /><p></p><img /><span title=qux>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
@@ -1431,7 +1431,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("div", els.get(0).tagName());
         }
 
-    @Test public void testGroupOr_3_oe() {
+@Test public void testGroupOr_3_oe() {
         String h = "<div title=foo /><div title=bar /><div /><p></p><img /><span title=qux>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
@@ -1441,7 +1441,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("foo", els.get(0).attr("title"));
         }
 
-    @Test public void testGroupOr_4_oe() {
+@Test public void testGroupOr_4_oe() {
         String h = "<div title=foo /><div title=bar /><div /><p></p><img /><span title=qux>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
@@ -1452,7 +1452,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("div", els.get(1).tagName());
         }
 
-    @Test public void testGroupOr_5_oe() {
+@Test public void testGroupOr_5_oe() {
         String h = "<div title=foo /><div title=bar /><div /><p></p><img /><span title=qux>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
@@ -1464,7 +1464,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("bar", els.get(1).attr("title"));
         }
 
-    @Test public void testGroupOr_6_oe() {
+@Test public void testGroupOr_6_oe() {
         String h = "<div title=foo /><div title=bar /><div /><p></p><img /><span title=qux>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
@@ -1477,7 +1477,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("div", els.get(2).tagName());
         }
 
-    @Test public void testGroupOr_7_oe() {
+@Test public void testGroupOr_7_oe() {
         String h = "<div title=foo /><div title=bar /><div /><p></p><img /><span title=qux>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
@@ -1491,7 +1491,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(0,els.get(2).attr("title").length());// missing attributes come back as empty string assertFalse(els.get(2).hasAttr("title"));
         }
 
-    @Test public void testGroupOr_8_oe() {
+@Test public void testGroupOr_8_oe() {
         String h = "<div title=foo /><div title=bar /><div /><p></p><img /><span title=qux>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
@@ -1506,7 +1506,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("p", els.get(3).tagName());
         }
 
-    @Test public void testGroupOr_9_oe() {
+@Test public void testGroupOr_9_oe() {
         String h = "<div title=foo /><div title=bar /><div /><p></p><img /><span title=qux>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("p,div,[title]");
@@ -1522,14 +1522,14 @@ public class SelectorTest_OE25Dev {
         assertEquals("span", els.get(4).tagName());
         }
 
-    @Test public void testGroupOrAttribute_1_oe() {
+@Test public void testGroupOrAttribute_1_oe() {
         String h = "<div id=1 /><div id=2 /><div title=foo /><div title=bar />";
         Elements els = Jsoup.parse(h).select("[id],[title=foo]");
 
         assertEquals(3, els.size());
         }
 
-    @Test public void testGroupOrAttribute_2_oe() {
+@Test public void testGroupOrAttribute_2_oe() {
         String h = "<div id=1 /><div id=2 /><div title=foo /><div title=bar />";
         Elements els = Jsoup.parse(h).select("[id],[title=foo]");
 
@@ -1537,7 +1537,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", els.get(0).id());
         }
 
-    @Test public void testGroupOrAttribute_3_oe() {
+@Test public void testGroupOrAttribute_3_oe() {
         String h = "<div id=1 /><div id=2 /><div title=foo /><div title=bar />";
         Elements els = Jsoup.parse(h).select("[id],[title=foo]");
 
@@ -1546,7 +1546,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", els.get(1).id());
         }
 
-    @Test public void testGroupOrAttribute_4_oe() {
+@Test public void testGroupOrAttribute_4_oe() {
         String h = "<div id=1 /><div id=2 /><div title=foo /><div title=bar />";
         Elements els = Jsoup.parse(h).select("[id],[title=foo]");
 
@@ -1556,7 +1556,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("foo", els.get(2).attr("title"));
         }
 
-    @Test public void descendant_1_oe() {
+@Test public void descendant_1_oe() {
         String h = "<div class=head><p class=first>Hello</p><p>There</p></div><p>None</p>";
         Document doc = Jsoup.parse(h);
         Element root = doc.getElementsByClass("HEAD").first();
@@ -1565,7 +1565,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, els.size());
         }
 
-    @Test public void descendant_2_oe() {
+@Test public void descendant_2_oe() {
         String h = "<div class=head><p class=first>Hello</p><p>There</p></div><p>None</p>";
         Document doc = Jsoup.parse(h);
         Element root = doc.getElementsByClass("HEAD").first();
@@ -1575,7 +1575,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Hello", els.get(0).text());
         }
 
-    @Test public void descendant_3_oe() {
+@Test public void descendant_3_oe() {
         String h = "<div class=head><p class=first>Hello</p><p>There</p></div><p>None</p>";
         Document doc = Jsoup.parse(h);
         Element root = doc.getElementsByClass("HEAD").first();
@@ -1586,7 +1586,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("There", els.get(1).text());
         }
 
-    @Test public void descendant_4_oe() {
+@Test public void descendant_4_oe() {
         String h = "<div class=head><p class=first>Hello</p><p>There</p></div><p>None</p>";
         Document doc = Jsoup.parse(h);
         Element root = doc.getElementsByClass("HEAD").first();
@@ -1600,7 +1600,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, p.size());
         }
 
-    @Test public void descendant_5_oe() {
+@Test public void descendant_5_oe() {
         String h = "<div class=head><p class=first>Hello</p><p>There</p></div><p>None</p>";
         Document doc = Jsoup.parse(h);
         Element root = doc.getElementsByClass("HEAD").first();
@@ -1615,7 +1615,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Hello", p.get(0).text());
         }
 
-    @Test public void descendant_6_oe() {
+@Test public void descendant_6_oe() {
         String h = "<div class=head><p class=first>Hello</p><p>There</p></div><p>None</p>";
         Document doc = Jsoup.parse(h);
         Element root = doc.getElementsByClass("HEAD").first();
@@ -1633,7 +1633,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(0, empty.size());
         }
 
-    @Test public void descendant_7_oe() {
+@Test public void descendant_7_oe() {
         String h = "<div class=head><p class=first>Hello</p><p>There</p></div><p>None</p>";
         Document doc = Jsoup.parse(h);
         Element root = doc.getElementsByClass("HEAD").first();
@@ -1654,7 +1654,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(0, aboveRoot.size());
         }
 
-    @Test public void and_1_oe() {
+@Test public void and_1_oe() {
         String h = "<div id=1 class='foo bar' title=bar name=qux><p class=foo title=bar>Hello</p></div";
         Document doc = Jsoup.parse(h);
 
@@ -1662,7 +1662,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, div.size());
         }
 
-    @Test public void and_2_oe() {
+@Test public void and_2_oe() {
         String h = "<div id=1 class='foo bar' title=bar name=qux><p class=foo title=bar>Hello</p></div";
         Document doc = Jsoup.parse(h);
 
@@ -1671,7 +1671,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("div", div.first().tagName());
         }
 
-    @Test public void and_3_oe() {
+@Test public void and_3_oe() {
         String h = "<div id=1 class='foo bar' title=bar name=qux><p class=foo title=bar>Hello</p></div";
         Document doc = Jsoup.parse(h);
 
@@ -1683,7 +1683,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, p.size());
         }
 
-    @Test public void and_4_oe() {
+@Test public void and_4_oe() {
         String h = "<div id=1 class='foo bar' title=bar name=qux><p class=foo title=bar>Hello</p></div";
         Document doc = Jsoup.parse(h);
 
@@ -1696,7 +1696,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("p", p.first().tagName());
         }
 
-    @Test public void and_5_oe() {
+@Test public void and_5_oe() {
         String h = "<div id=1 class='foo bar' title=bar name=qux><p class=foo title=bar>Hello</p></div";
         Document doc = Jsoup.parse(h);
 
@@ -1712,7 +1712,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, div2.size());
         }
 
-    @Test public void and_6_oe() {
+@Test public void and_6_oe() {
         String h = "<div id=1 class='foo bar' title=bar name=qux><p class=foo title=bar>Hello</p></div";
         Document doc = Jsoup.parse(h);
 
@@ -1729,7 +1729,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("div", div2.first().tagName());
         }
 
-    @Test public void and_7_oe() {
+@Test public void and_7_oe() {
         String h = "<div id=1 class='foo bar' title=bar name=qux><p class=foo title=bar>Hello</p></div";
         Document doc = Jsoup.parse(h);
 
@@ -1749,7 +1749,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, p2.size());
         }
 
-    @Test public void and_8_oe() {
+@Test public void and_8_oe() {
         String h = "<div id=1 class='foo bar' title=bar name=qux><p class=foo title=bar>Hello</p></div";
         Document doc = Jsoup.parse(h);
 
@@ -1770,7 +1770,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("p", p2.first().tagName());
         }
 
-    @Test public void deeperDescendant_1_oe() {
+@Test public void deeperDescendant_1_oe() {
         String h = "<div class=head><p><span class=first>Hello</div><div class=head><p class=first><span>Another</span><p>Again</div>";
         Document doc = Jsoup.parse(h);
         Element root = doc.getElementsByClass("head").first();
@@ -1779,7 +1779,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, els.size());
         }
 
-    @Test public void deeperDescendant_2_oe() {
+@Test public void deeperDescendant_2_oe() {
         String h = "<div class=head><p><span class=first>Hello</div><div class=head><p class=first><span>Another</span><p>Again</div>";
         Document doc = Jsoup.parse(h);
         Element root = doc.getElementsByClass("head").first();
@@ -1789,7 +1789,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Hello", els.first().text());
         }
 
-    @Test public void deeperDescendant_3_oe() {
+@Test public void deeperDescendant_3_oe() {
         String h = "<div class=head><p><span class=first>Hello</div><div class=head><p class=first><span>Another</span><p>Again</div>";
         Document doc = Jsoup.parse(h);
         Element root = doc.getElementsByClass("head").first();
@@ -1800,7 +1800,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("span", els.first().tagName());
         }
 
-    @Test public void deeperDescendant_4_oe() {
+@Test public void deeperDescendant_4_oe() {
         String h = "<div class=head><p><span class=first>Hello</div><div class=head><p class=first><span>Another</span><p>Again</div>";
         Document doc = Jsoup.parse(h);
         Element root = doc.getElementsByClass("head").first();
@@ -1814,7 +1814,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(0, aboveRoot.size());
         }
 
-    @Test public void parentChildElement_1_oe() {
+@Test public void parentChildElement_1_oe() {
         String h = "<div id=1><div id=2><div id = 3></div></div></div><div id=4></div>";
         Document doc = Jsoup.parse(h);
 
@@ -1822,7 +1822,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, divs.size());
         }
 
-    @Test public void parentChildElement_2_oe() {
+@Test public void parentChildElement_2_oe() {
         String h = "<div id=1><div id=2><div id = 3></div></div></div><div id=4></div>";
         Document doc = Jsoup.parse(h);
 
@@ -1831,7 +1831,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2",divs.get(0).id());// 2 is child of 1;
         }
 
-    @Test public void parentChildElement_3_oe() {
+@Test public void parentChildElement_3_oe() {
         String h = "<div id=1><div id=2><div id = 3></div></div></div><div id=4></div>";
         Document doc = Jsoup.parse(h);
 
@@ -1841,7 +1841,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("3",divs.get(1).id());// 3 is child of 2;
         }
 
-    @Test public void parentChildElement_4_oe() {
+@Test public void parentChildElement_4_oe() {
         String h = "<div id=1><div id=2><div id = 3></div></div></div><div id=4></div>";
         Document doc = Jsoup.parse(h);
 
@@ -1853,7 +1853,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, div2.size());
         }
 
-    @Test public void parentChildElement_5_oe() {
+@Test public void parentChildElement_5_oe() {
         String h = "<div id=1><div id=2><div id = 3></div></div></div><div id=4></div>";
         Document doc = Jsoup.parse(h);
 
@@ -1866,7 +1866,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", div2.get(0).id());
         }
 
-    @Test public void parentWithClassChild_1_oe() {
+@Test public void parentWithClassChild_1_oe() {
         String h = "<h1 class=foo><a href=1 /></h1><h1 class=foo><a href=2 class=bar /></h1><h1><a href=3 /></h1>";
         Document doc = Jsoup.parse(h);
 
@@ -1874,7 +1874,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(3, allAs.size());
         }
 
-    @Test public void parentWithClassChild_2_oe() {
+@Test public void parentWithClassChild_2_oe() {
         String h = "<h1 class=foo><a href=1 /></h1><h1 class=foo><a href=2 class=bar /></h1><h1><a href=3 /></h1>";
         Document doc = Jsoup.parse(h);
 
@@ -1883,7 +1883,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("a", allAs.first().tagName());
         }
 
-    @Test public void parentWithClassChild_3_oe() {
+@Test public void parentWithClassChild_3_oe() {
         String h = "<h1 class=foo><a href=1 /></h1><h1 class=foo><a href=2 class=bar /></h1><h1><a href=3 /></h1>";
         Document doc = Jsoup.parse(h);
 
@@ -1895,7 +1895,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, fooAs.size());
         }
 
-    @Test public void parentWithClassChild_4_oe() {
+@Test public void parentWithClassChild_4_oe() {
         String h = "<h1 class=foo><a href=1 /></h1><h1 class=foo><a href=2 class=bar /></h1><h1><a href=3 /></h1>";
         Document doc = Jsoup.parse(h);
 
@@ -1908,7 +1908,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("a", fooAs.first().tagName());
         }
 
-    @Test public void parentWithClassChild_5_oe() {
+@Test public void parentWithClassChild_5_oe() {
         String h = "<h1 class=foo><a href=1 /></h1><h1 class=foo><a href=2 class=bar /></h1><h1><a href=3 /></h1>";
         Document doc = Jsoup.parse(h);
 
@@ -1924,14 +1924,14 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, barAs.size());
         }
 
-    @Test public void parentChildStar_1_oe() {
+@Test public void parentChildStar_1_oe() {
         String h = "<div id=1><p>Hello<p><b>there</b></p></div><div id=2><span>Hi</span></div>";
         Document doc = Jsoup.parse(h);
         Elements divChilds = doc.select("div > *");
         assertEquals(3, divChilds.size());
         }
 
-    @Test public void parentChildStar_2_oe() {
+@Test public void parentChildStar_2_oe() {
         String h = "<div id=1><p>Hello<p><b>there</b></p></div><div id=2><span>Hi</span></div>";
         Document doc = Jsoup.parse(h);
         Elements divChilds = doc.select("div > *");
@@ -1939,7 +1939,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("p", divChilds.get(0).tagName());
         }
 
-    @Test public void parentChildStar_3_oe() {
+@Test public void parentChildStar_3_oe() {
         String h = "<div id=1><p>Hello<p><b>there</b></p></div><div id=2><span>Hi</span></div>";
         Document doc = Jsoup.parse(h);
         Elements divChilds = doc.select("div > *");
@@ -1948,7 +1948,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("p", divChilds.get(1).tagName());
         }
 
-    @Test public void parentChildStar_4_oe() {
+@Test public void parentChildStar_4_oe() {
         String h = "<div id=1><p>Hello<p><b>there</b></p></div><div id=2><span>Hi</span></div>";
         Document doc = Jsoup.parse(h);
         Elements divChilds = doc.select("div > *");
@@ -1958,14 +1958,14 @@ public class SelectorTest_OE25Dev {
         assertEquals("span", divChilds.get(2).tagName());
         }
 
-    @Test public void multiChildDescent_1_oe() {
+@Test public void multiChildDescent_1_oe() {
         String h = "<div id=foo><h1 class=bar><a href=http://example.com/>One</a></h1></div>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("div#foo > h1.bar > a[href*=example]");
         assertEquals(1, els.size());
         }
 
-    @Test public void multiChildDescent_2_oe() {
+@Test public void multiChildDescent_2_oe() {
         String h = "<div id=foo><h1 class=bar><a href=http://example.com/>One</a></h1></div>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("div#foo > h1.bar > a[href*=example]");
@@ -1973,14 +1973,14 @@ public class SelectorTest_OE25Dev {
         assertEquals("a", els.first().tagName());
         }
 
-    @Test public void caseInsensitive_1_oe() {
+@Test public void caseInsensitive_1_oe() {
         String h = "<dIv tItle=bAr><div>"; // mixed case so a simple toLowerCase() on value doesn't catch
         Document doc = Jsoup.parse(h);
 
         assertEquals(2, doc.select("DiV").size());
         }
 
-    @Test public void caseInsensitive_2_oe() {
+@Test public void caseInsensitive_2_oe() {
         String h = "<dIv tItle=bAr><div>"; // mixed case so a simple toLowerCase() on value doesn't catch
         Document doc = Jsoup.parse(h);
 
@@ -1988,7 +1988,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, doc.select("DiV[TiTLE]").size());
         }
 
-    @Test public void caseInsensitive_3_oe() {
+@Test public void caseInsensitive_3_oe() {
         String h = "<dIv tItle=bAr><div>"; // mixed case so a simple toLowerCase() on value doesn't catch
         Document doc = Jsoup.parse(h);
 
@@ -1997,7 +1997,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, doc.select("DiV[TiTLE=BAR]").size());
         }
 
-    @Test public void caseInsensitive_4_oe() {
+@Test public void caseInsensitive_4_oe() {
         String h = "<dIv tItle=bAr><div>"; // mixed case so a simple toLowerCase() on value doesn't catch
         Document doc = Jsoup.parse(h);
 
@@ -2007,14 +2007,14 @@ public class SelectorTest_OE25Dev {
         assertEquals(0, doc.select("DiV[TiTLE=BARBARELLA]").size());
         }
 
-    @Test public void adjacentSiblings_1_oe() {
+@Test public void adjacentSiblings_1_oe() {
         String h = "<ol><li>One<li>Two<li>Three</ol>";
         Document doc = Jsoup.parse(h);
         Elements sibs = doc.select("li + li");
         assertEquals(2, sibs.size());
         }
 
-    @Test public void adjacentSiblings_2_oe() {
+@Test public void adjacentSiblings_2_oe() {
         String h = "<ol><li>One<li>Two<li>Three</ol>";
         Document doc = Jsoup.parse(h);
         Elements sibs = doc.select("li + li");
@@ -2022,7 +2022,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", sibs.get(0).text());
         }
 
-    @Test public void adjacentSiblings_3_oe() {
+@Test public void adjacentSiblings_3_oe() {
         String h = "<ol><li>One<li>Two<li>Three</ol>";
         Document doc = Jsoup.parse(h);
         Elements sibs = doc.select("li + li");
@@ -2031,14 +2031,14 @@ public class SelectorTest_OE25Dev {
         assertEquals("Three", sibs.get(1).text());
         }
 
-    @Test public void adjacentSiblingsWithId_1_oe() {
+@Test public void adjacentSiblingsWithId_1_oe() {
         String h = "<ol><li id=1>One<li id=2>Two<li id=3>Three</ol>";
         Document doc = Jsoup.parse(h);
         Elements sibs = doc.select("li#1 + li#2");
         assertEquals(1, sibs.size());
         }
 
-    @Test public void adjacentSiblingsWithId_2_oe() {
+@Test public void adjacentSiblingsWithId_2_oe() {
         String h = "<ol><li id=1>One<li id=2>Two<li id=3>Three</ol>";
         Document doc = Jsoup.parse(h);
         Elements sibs = doc.select("li#1 + li#2");
@@ -2046,14 +2046,14 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", sibs.get(0).text());
         }
 
-    @Test public void notAdjacent_1_oe() {
+@Test public void notAdjacent_1_oe() {
         String h = "<ol><li id=1>One<li id=2>Two<li id=3>Three</ol>";
         Document doc = Jsoup.parse(h);
         Elements sibs = doc.select("li#1 + li#3");
         assertEquals(0, sibs.size());
         }
 
-    @Test public void mixCombinator_1_oe() {
+@Test public void mixCombinator_1_oe() {
         String h = "<div class=foo><ol><li>One<li>Two<li>Three</ol></div>";
         Document doc = Jsoup.parse(h);
         Elements sibs = doc.select("body > div.foo li + li");
@@ -2061,7 +2061,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, sibs.size());
         }
 
-    @Test public void mixCombinator_2_oe() {
+@Test public void mixCombinator_2_oe() {
         String h = "<div class=foo><ol><li>One<li>Two<li>Three</ol></div>";
         Document doc = Jsoup.parse(h);
         Elements sibs = doc.select("body > div.foo li + li");
@@ -2070,7 +2070,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", sibs.get(0).text());
         }
 
-    @Test public void mixCombinator_3_oe() {
+@Test public void mixCombinator_3_oe() {
         String h = "<div class=foo><ol><li>One<li>Two<li>Three</ol></div>";
         Document doc = Jsoup.parse(h);
         Elements sibs = doc.select("body > div.foo li + li");
@@ -2080,7 +2080,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Three", sibs.get(1).text());
         }
 
-    @Test public void mixCombinatorGroup_1_oe() {
+@Test public void mixCombinatorGroup_1_oe() {
         String h = "<div class=foo><ol><li>One<li>Two<li>Three</ol></div>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select(".foo > ol, ol > li + li");
@@ -2088,7 +2088,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(3, els.size());
         }
 
-    @Test public void mixCombinatorGroup_2_oe() {
+@Test public void mixCombinatorGroup_2_oe() {
         String h = "<div class=foo><ol><li>One<li>Two<li>Three</ol></div>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select(".foo > ol, ol > li + li");
@@ -2097,7 +2097,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("ol", els.get(0).tagName());
         }
 
-    @Test public void mixCombinatorGroup_3_oe() {
+@Test public void mixCombinatorGroup_3_oe() {
         String h = "<div class=foo><ol><li>One<li>Two<li>Three</ol></div>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select(".foo > ol, ol > li + li");
@@ -2107,7 +2107,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", els.get(1).text());
         }
 
-    @Test public void mixCombinatorGroup_4_oe() {
+@Test public void mixCombinatorGroup_4_oe() {
         String h = "<div class=foo><ol><li>One<li>Two<li>Three</ol></div>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select(".foo > ol, ol > li + li");
@@ -2118,14 +2118,14 @@ public class SelectorTest_OE25Dev {
         assertEquals("Three", els.get(2).text());
         }
 
-    @Test public void generalSiblings_1_oe() {
+@Test public void generalSiblings_1_oe() {
         String h = "<ol><li id=1>One<li id=2>Two<li id=3>Three</ol>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("#1 ~ #3");
         assertEquals(1, els.size());
         }
 
-    @Test public void generalSiblings_2_oe() {
+@Test public void generalSiblings_2_oe() {
         String h = "<ol><li id=1>One<li id=2>Two<li id=3>Three</ol>";
         Document doc = Jsoup.parse(h);
         Elements els = doc.select("#1 ~ #3");
@@ -2133,7 +2133,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Three", els.first().text());
         }
 
-    @Test public void testCharactersInIdAndClass_1_oe() {
+@Test public void testCharactersInIdAndClass_1_oe() {
         // using CSS spec for identifiers (id and class): a-z0-9, -, _. NOT . (which is OK in html spec, but not css)
         String h = "<div><p id='a1-foo_bar'>One</p><p class='b2-qux_bif'>Two</p></div>";
         Document doc = Jsoup.parse(h);
@@ -2142,7 +2142,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("One", el1.text());
         }
 
-    @Test public void testCharactersInIdAndClass_2_oe() {
+@Test public void testCharactersInIdAndClass_2_oe() {
         // using CSS spec for identifiers (id and class): a-z0-9, -, _. NOT . (which is OK in html spec, but not css)
         String h = "<div><p id='a1-foo_bar'>One</p><p class='b2-qux_bif'>Two</p></div>";
         Document doc = Jsoup.parse(h);
@@ -2153,7 +2153,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", el2.text());
         }
 
-    @Test public void testCharactersInIdAndClass_3_oe() {
+@Test public void testCharactersInIdAndClass_3_oe() {
         // using CSS spec for identifiers (id and class): a-z0-9, -, _. NOT . (which is OK in html spec, but not css)
         String h = "<div><p id='a1-foo_bar'>One</p><p class='b2-qux_bif'>Two</p></div>";
         Document doc = Jsoup.parse(h);
@@ -2167,7 +2167,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("One", el3.text());
         }
 
-    @Test public void testCharactersInIdAndClass_4_oe() {
+@Test public void testCharactersInIdAndClass_4_oe() {
         // using CSS spec for identifiers (id and class): a-z0-9, -, _. NOT . (which is OK in html spec, but not css)
         String h = "<div><p id='a1-foo_bar'>One</p><p class='b2-qux_bif'>Two</p></div>";
         Document doc = Jsoup.parse(h);
@@ -2183,7 +2183,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", el4.text());
         }
 
-    @Test public void testSupportsLeadingCombinator_1_oe() {
+@Test public void testSupportsLeadingCombinator_1_oe() {
         String h = "<div><p><span>One</span><span>Two</span></p></div>";
         Document doc = Jsoup.parse(h);
 
@@ -2192,7 +2192,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, spans.size());
         }
 
-    @Test public void testSupportsLeadingCombinator_2_oe() {
+@Test public void testSupportsLeadingCombinator_2_oe() {
         String h = "<div><p><span>One</span><span>Two</span></p></div>";
         Document doc = Jsoup.parse(h);
 
@@ -2202,7 +2202,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("One", spans.first().text());
         }
 
-    @Test public void testSupportsLeadingCombinator_3_oe() {
+@Test public void testSupportsLeadingCombinator_3_oe() {
         String h = "<div><p><span>One</span><span>Two</span></p></div>";
         Document doc = Jsoup.parse(h);
 
@@ -2218,20 +2218,20 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", div.id());
         }
 
-    @Test public void testPseudoLessThan_1_oe() {
+@Test public void testPseudoLessThan_1_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:lt(2)");
         assertEquals(3, ps.size());
         }
 
-    @Test public void testPseudoLessThan_2_oe() {
+@Test public void testPseudoLessThan_2_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:lt(2)");
         // removed other assertion
         assertEquals("One", ps.get(0).text());
         }
 
-    @Test public void testPseudoLessThan_3_oe() {
+@Test public void testPseudoLessThan_3_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:lt(2)");
         // removed other assertion
@@ -2239,7 +2239,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", ps.get(1).text());
         }
 
-    @Test public void testPseudoLessThan_4_oe() {
+@Test public void testPseudoLessThan_4_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:lt(2)");
         // removed other assertion
@@ -2248,20 +2248,20 @@ public class SelectorTest_OE25Dev {
         assertEquals("Four", ps.get(2).text());
         }
 
-    @Test public void testPseudoGreaterThan_1_oe() {
+@Test public void testPseudoGreaterThan_1_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:gt(0)");
         assertEquals(2, ps.size());
         }
 
-    @Test public void testPseudoGreaterThan_2_oe() {
+@Test public void testPseudoGreaterThan_2_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:gt(0)");
         // removed other assertion
         assertEquals("Two", ps.get(0).text());
         }
 
-    @Test public void testPseudoGreaterThan_3_oe() {
+@Test public void testPseudoGreaterThan_3_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:gt(0)");
         // removed other assertion
@@ -2269,20 +2269,20 @@ public class SelectorTest_OE25Dev {
         assertEquals("Three", ps.get(1).text());
         }
 
-    @Test public void testPseudoEquals_1_oe() {
+@Test public void testPseudoEquals_1_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:eq(0)");
         assertEquals(2, ps.size());
         }
 
-    @Test public void testPseudoEquals_2_oe() {
+@Test public void testPseudoEquals_2_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:eq(0)");
         // removed other assertion
         assertEquals("One", ps.get(0).text());
         }
 
-    @Test public void testPseudoEquals_3_oe() {
+@Test public void testPseudoEquals_3_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:eq(0)");
         // removed other assertion
@@ -2290,7 +2290,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Four", ps.get(1).text());
         }
 
-    @Test public void testPseudoEquals_4_oe() {
+@Test public void testPseudoEquals_4_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:eq(0)");
         // removed other assertion
@@ -2301,7 +2301,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, ps2.size());
         }
 
-    @Test public void testPseudoEquals_5_oe() {
+@Test public void testPseudoEquals_5_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:eq(0)");
         // removed other assertion
@@ -2313,7 +2313,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("One", ps2.get(0).text());
         }
 
-    @Test public void testPseudoEquals_6_oe() {
+@Test public void testPseudoEquals_6_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:eq(0)");
         // removed other assertion
@@ -2326,40 +2326,40 @@ public class SelectorTest_OE25Dev {
         assertEquals("p", ps2.get(0).tagName());
         }
 
-    @Test public void testPseudoBetween_1_oe() {
+@Test public void testPseudoBetween_1_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:gt(0):lt(2)");
         assertEquals(1, ps.size());
         }
 
-    @Test public void testPseudoBetween_2_oe() {
+@Test public void testPseudoBetween_2_oe() {
         Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
         Elements ps = doc.select("div p:gt(0):lt(2)");
         // removed other assertion
         assertEquals("Two", ps.get(0).text());
         }
 
-    @Test public void testPseudoCombined_1_oe() {
+@Test public void testPseudoCombined_1_oe() {
         Document doc = Jsoup.parse("<div class='foo'><p>One</p><p>Two</p></div><div><p>Three</p><p>Four</p></div>");
         Elements ps = doc.select("div.foo p:gt(0)");
         assertEquals(1, ps.size());
         }
 
-    @Test public void testPseudoCombined_2_oe() {
+@Test public void testPseudoCombined_2_oe() {
         Document doc = Jsoup.parse("<div class='foo'><p>One</p><p>Two</p></div><div><p>Three</p><p>Four</p></div>");
         Elements ps = doc.select("div.foo p:gt(0)");
         // removed other assertion
         assertEquals("Two", ps.get(0).text());
         }
 
-    @Test public void testPseudoHas_1_oe() {
+@Test public void testPseudoHas_1_oe() {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
         assertEquals(2, divs1.size());
         }
 
-    @Test public void testPseudoHas_2_oe() {
+@Test public void testPseudoHas_2_oe() {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
@@ -2367,7 +2367,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("0", divs1.get(0).id());
         }
 
-    @Test public void testPseudoHas_3_oe() {
+@Test public void testPseudoHas_3_oe() {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
@@ -2376,7 +2376,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", divs1.get(1).id());
         }
 
-    @Test public void testPseudoHas_4_oe() {
+@Test public void testPseudoHas_4_oe() {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
@@ -2388,7 +2388,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, divs2.size());
         }
 
-    @Test public void testPseudoHas_5_oe() {
+@Test public void testPseudoHas_5_oe() {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
@@ -2401,7 +2401,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", divs2.get(0).id());
         }
 
-    @Test public void testPseudoHas_6_oe() {
+@Test public void testPseudoHas_6_oe() {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
@@ -2417,7 +2417,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(3, divs3.size());
         }
 
-    @Test public void testPseudoHas_7_oe() {
+@Test public void testPseudoHas_7_oe() {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
@@ -2434,7 +2434,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("0", divs3.get(0).id());
         }
 
-    @Test public void testPseudoHas_8_oe() {
+@Test public void testPseudoHas_8_oe() {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
@@ -2452,7 +2452,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", divs3.get(1).id());
         }
 
-    @Test public void testPseudoHas_9_oe() {
+@Test public void testPseudoHas_9_oe() {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
@@ -2471,7 +2471,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", divs3.get(2).id());
         }
 
-    @Test public void testPseudoHas_10_oe() {
+@Test public void testPseudoHas_10_oe() {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
@@ -2493,7 +2493,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(3,els1.size());// body,div,div assertEquals("body",els1.first().tagName());
         }
 
-    @Test public void testPseudoHas_11_oe() {
+@Test public void testPseudoHas_11_oe() {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
@@ -2516,7 +2516,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("0", els1.get(1).id());
         }
 
-    @Test public void testPseudoHas_12_oe() {
+@Test public void testPseudoHas_12_oe() {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
@@ -2540,7 +2540,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", els1.get(2).id());
         }
 
-    @Test public void testPseudoHas_13_oe() {
+@Test public void testPseudoHas_13_oe() {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
@@ -2567,7 +2567,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2,els2.size());// p,div assertEquals("p",els2.first().tagName());
         }
 
-    @Test public void testPseudoHas_14_oe() {
+@Test public void testPseudoHas_14_oe() {
         Document doc = Jsoup.parse("<div id=0><p><span>Hello</span></p></div> <div id=1><span class=foo>There</span></div> <div id=2><p>Not</p></div>");
 
         Elements divs1 = doc.select("div:has(span)");
@@ -2595,20 +2595,20 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", els2.get(1).id());
         }
 
-    @Test public void testNestedHas_1_oe() {
+@Test public void testNestedHas_1_oe() {
         Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p></div>");
         Elements divs = doc.select("div:has(p:has(span))");
         assertEquals(1, divs.size());
         }
 
-    @Test public void testNestedHas_2_oe() {
+@Test public void testNestedHas_2_oe() {
         Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p></div>");
         Elements divs = doc.select("div:has(p:has(span))");
         // removed other assertion
         assertEquals("One", divs.first().text());
         }
 
-    @Test public void testNestedHas_3_oe() {
+@Test public void testNestedHas_3_oe() {
         Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p></div>");
         Elements divs = doc.select("div:has(p:has(span))");
         // removed other assertion
@@ -2619,7 +2619,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, divs.size());
         }
 
-    @Test public void testNestedHas_4_oe() {
+@Test public void testNestedHas_4_oe() {
         Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p></div>");
         Elements divs = doc.select("div:has(p:has(span))");
         // removed other assertion
@@ -2631,7 +2631,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("div", divs.first().tagName());
         }
 
-    @Test public void testNestedHas_5_oe() {
+@Test public void testNestedHas_5_oe() {
         Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p></div>");
         Elements divs = doc.select("div:has(p:has(span))");
         // removed other assertion
@@ -2644,7 +2644,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", divs.first().text());
         }
 
-    @Test public void testNestedHas_6_oe() {
+@Test public void testNestedHas_6_oe() {
         Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p></div>");
         Elements divs = doc.select("div:has(p:has(span))");
         // removed other assertion
@@ -2661,7 +2661,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, divs.size());
         }
 
-    @Test public void testNestedHas_7_oe() {
+@Test public void testNestedHas_7_oe() {
         Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p></div>");
         Elements divs = doc.select("div:has(p:has(span))");
         // removed other assertion
@@ -2679,7 +2679,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("div", divs.first().tagName());
         }
 
-    @Test public void testNestedHas_8_oe() {
+@Test public void testNestedHas_8_oe() {
         Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p></div>");
         Elements divs = doc.select("div:has(p:has(span))");
         // removed other assertion
@@ -2698,7 +2698,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", divs.first().text());
         }
 
-    public void testPseudoContains_1_oe(Locale locale) {
+public void testPseudoContains_1_oe(Locale locale) {
         Locale.setDefault(locale);
 
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
@@ -2707,7 +2707,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(3, ps1.size());
     }
 
-    public void testPseudoContains_2_oe(Locale locale) {
+public void testPseudoContains_2_oe(Locale locale) {
         Locale.setDefault(locale);
 
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
@@ -2719,7 +2719,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, ps2.size());
     }
 
-    public void testPseudoContains_3_oe(Locale locale) {
+public void testPseudoContains_3_oe(Locale locale) {
         Locale.setDefault(locale);
 
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
@@ -2732,7 +2732,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("The Rain.", ps2.first().html());
     }
 
-    public void testPseudoContains_4_oe(Locale locale) {
+public void testPseudoContains_4_oe(Locale locale) {
         Locale.setDefault(locale);
 
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
@@ -2746,7 +2746,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("The <i>RAIN</i>.", ps2.last().html());
     }
 
-    public void testPseudoContains_5_oe(Locale locale) {
+public void testPseudoContains_5_oe(Locale locale) {
         Locale.setDefault(locale);
 
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
@@ -2763,7 +2763,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, ps3.size());
     }
 
-    public void testPseudoContains_6_oe(Locale locale) {
+public void testPseudoContains_6_oe(Locale locale) {
         Locale.setDefault(locale);
 
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
@@ -2781,7 +2781,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("light", ps3.first().className());
     }
 
-    public void testPseudoContains_7_oe(Locale locale) {
+public void testPseudoContains_7_oe(Locale locale) {
         Locale.setDefault(locale);
 
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
@@ -2802,7 +2802,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, ps4.size());
     }
 
-    public void testPseudoContains_8_oe(Locale locale) {
+public void testPseudoContains_8_oe(Locale locale) {
         Locale.setDefault(locale);
 
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
@@ -2824,7 +2824,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("light", ps3.first().className());
     }
 
-    public void testPseudoContains_9_oe(Locale locale) {
+public void testPseudoContains_9_oe(Locale locale) {
         Locale.setDefault(locale);
 
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
@@ -2849,7 +2849,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(8,ps5.size());// html,body,div,...;
     }
 
-    public void testPseudoContains_10_oe(Locale locale) {
+public void testPseudoContains_10_oe(Locale locale) {
         Locale.setDefault(locale);
 
         Document doc = Jsoup.parse("<div><p>The Rain.</p> <p class=light>The <i>RAIN</i>.</p> <p>Rain, the.</p></div>");
@@ -2876,14 +2876,14 @@ public class SelectorTest_OE25Dev {
         assertEquals(8, ps6.size());
     }
 
-    @Test public void testPsuedoContainsWithParentheses_1_oe() {
+@Test public void testPsuedoContainsWithParentheses_1_oe() {
         Document doc = Jsoup.parse("<div><p id=1>This (is good)</p><p id=2>This is bad)</p>");
 
         Elements ps1 = doc.select("p:contains(this (is good))");
         assertEquals(1, ps1.size());
         }
 
-    @Test public void testPsuedoContainsWithParentheses_2_oe() {
+@Test public void testPsuedoContainsWithParentheses_2_oe() {
         Document doc = Jsoup.parse("<div><p id=1>This (is good)</p><p id=2>This is bad)</p>");
 
         Elements ps1 = doc.select("p:contains(this (is good))");
@@ -2891,7 +2891,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", ps1.first().id());
         }
 
-    @Test public void testPsuedoContainsWithParentheses_3_oe() {
+@Test public void testPsuedoContainsWithParentheses_3_oe() {
         Document doc = Jsoup.parse("<div><p id=1>This (is good)</p><p id=2>This is bad)</p>");
 
         Elements ps1 = doc.select("p:contains(this (is good))");
@@ -2902,7 +2902,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, ps2.size());
         }
 
-    @Test public void testPsuedoContainsWithParentheses_4_oe() {
+@Test public void testPsuedoContainsWithParentheses_4_oe() {
         Document doc = Jsoup.parse("<div><p id=1>This (is good)</p><p id=2>This is bad)</p>");
 
         Elements ps1 = doc.select("p:contains(this (is good))");
@@ -2914,7 +2914,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", ps2.first().id());
         }
 
-    @Test void containsWholeText_1_oe() {
+@Test void containsWholeText_1_oe() {
         Document doc = Jsoup.parse("<div><p> jsoup\n The <i>HTML</i> Parser</p><p>jsoup The HTML Parser</div>");
         Elements ps = doc.select("p");
 
@@ -2923,7 +2923,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, es1.size());
         }
 
-    @Test void containsWholeText_2_oe() {
+@Test void containsWholeText_2_oe() {
         Document doc = Jsoup.parse("<div><p> jsoup\n The <i>HTML</i> Parser</p><p>jsoup The HTML Parser</div>");
         Elements ps = doc.select("p");
 
@@ -2933,7 +2933,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, es2.size());
         }
 
-    @Test void containsWholeText_3_oe() {
+@Test void containsWholeText_3_oe() {
         Document doc = Jsoup.parse("<div><p> jsoup\n The <i>HTML</i> Parser</p><p>jsoup The HTML Parser</div>");
         Elements ps = doc.select("p");
 
@@ -2944,7 +2944,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(ps.get(0), es1.first());
         }
 
-    @Test void containsWholeText_4_oe() {
+@Test void containsWholeText_4_oe() {
         Document doc = Jsoup.parse("<div><p> jsoup\n The <i>HTML</i> Parser</p><p>jsoup The HTML Parser</div>");
         Elements ps = doc.select("p");
 
@@ -2956,7 +2956,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(ps.get(1), es2.first());
         }
 
-    @Test void containsWholeText_5_oe() {
+@Test void containsWholeText_5_oe() {
         Document doc = Jsoup.parse("<div><p> jsoup\n The <i>HTML</i> Parser</p><p>jsoup The HTML Parser</div>");
         Elements ps = doc.select("p");
 
@@ -2970,7 +2970,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(0, doc.select("div:containsWholeText(jsoup the html parser)").size());
         }
 
-    @Test void containsWholeText_6_oe() {
+@Test void containsWholeText_6_oe() {
         Document doc = Jsoup.parse("<div><p> jsoup\n The <i>HTML</i> Parser</p><p>jsoup The HTML Parser</div>");
         Elements ps = doc.select("p");
 
@@ -2985,7 +2985,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(0, doc.select("div:containsWholeText(jsoup\n the html parser)").size());
         }
 
-    @Test void containsWholeText_7_oe() {
+@Test void containsWholeText_7_oe() {
         Document doc = Jsoup.parse("<div><p> jsoup\n The <i>HTML</i> Parser</p><p>jsoup The HTML Parser</div>");
         Elements ps = doc.select("p");
 
@@ -3004,7 +3004,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, blanks.size());
         }
 
-    @Test void containsWholeText_8_oe() {
+@Test void containsWholeText_8_oe() {
         Document doc = Jsoup.parse("<div><p> jsoup\n The <i>HTML</i> Parser</p><p>jsoup The HTML Parser</div>");
         Elements ps = doc.select("p");
 
@@ -3024,7 +3024,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(".  ", blanks.first().wholeText());
         }
 
-    @Test void containsWholeOwnText_1_oe() {
+@Test void containsWholeOwnText_1_oe() {
         Document doc = Jsoup.parse("<div><p> jsoup\n The <i>HTML</i> Parser</p><p>jsoup The HTML Parser<br></div>");
         Elements ps = doc.select("p");
 
@@ -3033,7 +3033,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, es1.size());
         }
 
-    @Test void containsWholeOwnText_2_oe() {
+@Test void containsWholeOwnText_2_oe() {
         Document doc = Jsoup.parse("<div><p> jsoup\n The <i>HTML</i> Parser</p><p>jsoup The HTML Parser<br></div>");
         Elements ps = doc.select("p");
 
@@ -3043,7 +3043,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, es2.size());
         }
 
-    @Test void containsWholeOwnText_3_oe() {
+@Test void containsWholeOwnText_3_oe() {
         Document doc = Jsoup.parse("<div><p> jsoup\n The <i>HTML</i> Parser</p><p>jsoup The HTML Parser<br></div>");
         Elements ps = doc.select("p");
 
@@ -3054,7 +3054,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(ps.get(0), es1.first());
         }
 
-    @Test void containsWholeOwnText_4_oe() {
+@Test void containsWholeOwnText_4_oe() {
         Document doc = Jsoup.parse("<div><p> jsoup\n The <i>HTML</i> Parser</p><p>jsoup The HTML Parser<br></div>");
         Elements ps = doc.select("p");
 
@@ -3066,7 +3066,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(ps.get(1), es2.first());
         }
 
-    @Test void containsWholeOwnText_5_oe() {
+@Test void containsWholeOwnText_5_oe() {
         Document doc = Jsoup.parse("<div><p> jsoup\n The <i>HTML</i> Parser</p><p>jsoup The HTML Parser<br></div>");
         Elements ps = doc.select("p");
 
@@ -3080,7 +3080,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(0, doc.select("div:containsWholeOwnText(jsoup the html parser)").size());
         }
 
-    @Test void containsWholeOwnText_6_oe() {
+@Test void containsWholeOwnText_6_oe() {
         Document doc = Jsoup.parse("<div><p> jsoup\n The <i>HTML</i> Parser</p><p>jsoup The HTML Parser<br></div>");
         Elements ps = doc.select("p");
 
@@ -3095,7 +3095,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(0, doc.select("div:containsWholeOwnText(jsoup\n the  parser)").size());
         }
 
-    @Test void containsWholeOwnText_7_oe() {
+@Test void containsWholeOwnText_7_oe() {
         Document doc = Jsoup.parse("<div><p> jsoup\n The <i>HTML</i> Parser</p><p>jsoup The HTML Parser<br></div>");
         Elements ps = doc.select("p");
 
@@ -3114,7 +3114,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, blanks.size());
         }
 
-    @Test void containsWholeOwnText_8_oe() {
+@Test void containsWholeOwnText_8_oe() {
         Document doc = Jsoup.parse("<div><p> jsoup\n The <i>HTML</i> Parser</p><p>jsoup The HTML Parser<br></div>");
         Elements ps = doc.select("p");
 
@@ -3134,14 +3134,14 @@ public class SelectorTest_OE25Dev {
         assertEquals(".  ", blanks.first().wholeText());
         }
 
-    @Test public void testMatches_1_oe() {
+@Test public void testMatches_1_oe() {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
         assertEquals(0, p1.size());
         }
 
-    @Test public void testMatches_2_oe() {
+@Test public void testMatches_2_oe() {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
@@ -3151,7 +3151,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, p2.size());
         }
 
-    @Test public void testMatches_3_oe() {
+@Test public void testMatches_3_oe() {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
@@ -3162,7 +3162,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", p2.first().id());
         }
 
-    @Test public void testMatches_4_oe() {
+@Test public void testMatches_4_oe() {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
@@ -3176,7 +3176,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, p4.size());
         }
 
-    @Test public void testMatches_5_oe() {
+@Test public void testMatches_5_oe() {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
@@ -3191,7 +3191,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("4", p4.first().id());
         }
 
-    @Test public void testMatches_6_oe() {
+@Test public void testMatches_6_oe() {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
@@ -3209,7 +3209,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, p5.size());
         }
 
-    @Test public void testMatches_7_oe() {
+@Test public void testMatches_7_oe() {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
@@ -3228,7 +3228,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", p5.first().id());
         }
 
-    @Test public void testMatches_8_oe() {
+@Test public void testMatches_8_oe() {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
@@ -3250,7 +3250,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, p6.size());
         }
 
-    @Test public void testMatches_9_oe() {
+@Test public void testMatches_9_oe() {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
@@ -3273,7 +3273,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("3", p6.first().id());
         }
 
-    @Test public void testMatches_10_oe() {
+@Test public void testMatches_10_oe() {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
@@ -3299,7 +3299,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, p7.size());
         }
 
-    @Test public void testMatches_11_oe() {
+@Test public void testMatches_11_oe() {
         Document doc = Jsoup.parse("<p id=1>The <i>Rain</i></p> <p id=2>There are 99 bottles.</p> <p id=3>Harder (this)</p> <p id=4>Rain</p>");
 
         Elements p1 = doc.select("p:matches(The rain)"); // no match, case sensitive
@@ -3326,14 +3326,14 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", p7.first().id());
         }
 
-    @Test public void matchesOwn_1_oe() {
+@Test public void matchesOwn_1_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b> now</p>");
 
         Elements p1 = doc.select("p:matchesOwn((?i)hello now)");
         assertEquals(1, p1.size());
         }
 
-    @Test public void matchesOwn_2_oe() {
+@Test public void matchesOwn_2_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b> now</p>");
 
         Elements p1 = doc.select("p:matchesOwn((?i)hello now)");
@@ -3341,7 +3341,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", p1.first().id());
         }
 
-    @Test public void matchesOwn_3_oe() {
+@Test public void matchesOwn_3_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b> now</p>");
 
         Elements p1 = doc.select("p:matchesOwn((?i)hello now)");
@@ -3351,14 +3351,14 @@ public class SelectorTest_OE25Dev {
         assertEquals(0, doc.select("p:matchesOwn(there)").size());
         }
 
-    @Test public void matchesWholeText_1_oe() {
+@Test public void matchesWholeText_1_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3></p>");
 
         Elements p1 = doc.select("p:matchesWholeText((?i)hello there\n now)");
         assertEquals(1, p1.size());
         }
 
-    @Test public void matchesWholeText_2_oe() {
+@Test public void matchesWholeText_2_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3></p>");
 
         Elements p1 = doc.select("p:matchesWholeText((?i)hello there\n now)");
@@ -3366,7 +3366,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", p1.first().id());
         }
 
-    @Test public void matchesWholeText_3_oe() {
+@Test public void matchesWholeText_3_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3></p>");
 
         Elements p1 = doc.select("p:matchesWholeText((?i)hello there\n now)");
@@ -3376,7 +3376,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, doc.select("p:matchesWholeText(there\n now)").size());
         }
 
-    @Test public void matchesWholeText_4_oe() {
+@Test public void matchesWholeText_4_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3></p>");
 
         Elements p1 = doc.select("p:matchesWholeText((?i)hello there\n now)");
@@ -3387,7 +3387,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(0, doc.select("p:matchesWholeText(There\n now)").size());
         }
 
-    @Test public void matchesWholeText_5_oe() {
+@Test public void matchesWholeText_5_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3></p>");
 
         Elements p1 = doc.select("p:matchesWholeText((?i)hello there\n now)");
@@ -3401,7 +3401,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, p2.size());
         }
 
-    @Test public void matchesWholeText_6_oe() {
+@Test public void matchesWholeText_6_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3></p>");
 
         Elements p1 = doc.select("p:matchesWholeText((?i)hello there\n now)");
@@ -3416,7 +3416,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", p2.first().id());
         }
 
-    @Test public void matchesWholeText_7_oe() {
+@Test public void matchesWholeText_7_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3></p>");
 
         Elements p1 = doc.select("p:matchesWholeText((?i)hello there\n now)");
@@ -3434,7 +3434,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, p3.size());
         }
 
-    @Test public void matchesWholeText_8_oe() {
+@Test public void matchesWholeText_8_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3></p>");
 
         Elements p1 = doc.select("p:matchesWholeText((?i)hello there\n now)");
@@ -3453,14 +3453,14 @@ public class SelectorTest_OE25Dev {
         assertEquals("3", p3.first().id());
         }
 
-    @Test public void matchesWholeOwnText_1_oe() {
+@Test public void matchesWholeOwnText_1_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3><i>Text</i></p>");
 
         Elements p1 = doc.select("p:matchesWholeOwnText((?i)hello \n now)");
         assertEquals(1, p1.size());
         }
 
-    @Test public void matchesWholeOwnText_2_oe() {
+@Test public void matchesWholeOwnText_2_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3><i>Text</i></p>");
 
         Elements p1 = doc.select("p:matchesWholeOwnText((?i)hello \n now)");
@@ -3468,7 +3468,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", p1.first().id());
         }
 
-    @Test public void matchesWholeOwnText_3_oe() {
+@Test public void matchesWholeOwnText_3_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3><i>Text</i></p>");
 
         Elements p1 = doc.select("p:matchesWholeOwnText((?i)hello \n now)");
@@ -3478,7 +3478,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(0, doc.select("p:matchesWholeOwnText(there\n now)").size());
         }
 
-    @Test public void matchesWholeOwnText_4_oe() {
+@Test public void matchesWholeOwnText_4_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3><i>Text</i></p>");
 
         Elements p1 = doc.select("p:matchesWholeOwnText((?i)hello \n now)");
@@ -3491,7 +3491,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, p2.size());
         }
 
-    @Test public void matchesWholeOwnText_5_oe() {
+@Test public void matchesWholeOwnText_5_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3><i>Text</i></p>");
 
         Elements p1 = doc.select("p:matchesWholeOwnText((?i)hello \n now)");
@@ -3505,7 +3505,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", p2.first().id());
         }
 
-    @Test public void matchesWholeOwnText_6_oe() {
+@Test public void matchesWholeOwnText_6_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3><i>Text</i></p>");
 
         Elements p1 = doc.select("p:matchesWholeOwnText((?i)hello \n now)");
@@ -3522,7 +3522,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, p3.size());
         }
 
-    @Test public void matchesWholeOwnText_7_oe() {
+@Test public void matchesWholeOwnText_7_oe() {
         Document doc = Jsoup.parse("<p id=1>Hello <b>there</b>\n now</p><p id=2> </p><p id=3><i>Text</i></p>");
 
         Elements p1 = doc.select("p:matchesWholeOwnText((?i)hello \n now)");
@@ -3540,14 +3540,14 @@ public class SelectorTest_OE25Dev {
         assertEquals("3", p3.first().id());
         }
 
-    @Test public void testRelaxedTags_1_oe() {
+@Test public void testRelaxedTags_1_oe() {
         Document doc = Jsoup.parse("<abc_def id=1>Hello</abc_def> <abc-def id=2>There</abc-def>");
 
         Elements el1 = doc.select("abc_def");
         assertEquals(1, el1.size());
         }
 
-    @Test public void testRelaxedTags_2_oe() {
+@Test public void testRelaxedTags_2_oe() {
         Document doc = Jsoup.parse("<abc_def id=1>Hello</abc_def> <abc-def id=2>There</abc-def>");
 
         Elements el1 = doc.select("abc_def");
@@ -3555,7 +3555,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", el1.first().id());
         }
 
-    @Test public void testRelaxedTags_3_oe() {
+@Test public void testRelaxedTags_3_oe() {
         Document doc = Jsoup.parse("<abc_def id=1>Hello</abc_def> <abc-def id=2>There</abc-def>");
 
         Elements el1 = doc.select("abc_def");
@@ -3566,7 +3566,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, el2.size());
         }
 
-    @Test public void testRelaxedTags_4_oe() {
+@Test public void testRelaxedTags_4_oe() {
         Document doc = Jsoup.parse("<abc_def id=1>Hello</abc_def> <abc-def id=2>There</abc-def>");
 
         Elements el1 = doc.select("abc_def");
@@ -3578,14 +3578,14 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", el2.first().id());
         }
 
-    @Test public void notParas_1_oe() {
+@Test public void notParas_1_oe() {
         Document doc = Jsoup.parse("<p id=1>One</p> <p>Two</p> <p><span>Three</span></p>");
 
         Elements el1 = doc.select("p:not([id=1])");
         assertEquals(2, el1.size());
         }
 
-    @Test public void notParas_2_oe() {
+@Test public void notParas_2_oe() {
         Document doc = Jsoup.parse("<p id=1>One</p> <p>Two</p> <p><span>Three</span></p>");
 
         Elements el1 = doc.select("p:not([id=1])");
@@ -3593,7 +3593,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", el1.first().text());
         }
 
-    @Test public void notParas_3_oe() {
+@Test public void notParas_3_oe() {
         Document doc = Jsoup.parse("<p id=1>One</p> <p>Two</p> <p><span>Three</span></p>");
 
         Elements el1 = doc.select("p:not([id=1])");
@@ -3602,7 +3602,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Three", el1.last().text());
         }
 
-    @Test public void notParas_4_oe() {
+@Test public void notParas_4_oe() {
         Document doc = Jsoup.parse("<p id=1>One</p> <p>Two</p> <p><span>Three</span></p>");
 
         Elements el1 = doc.select("p:not([id=1])");
@@ -3614,7 +3614,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, el2.size());
         }
 
-    @Test public void notParas_5_oe() {
+@Test public void notParas_5_oe() {
         Document doc = Jsoup.parse("<p id=1>One</p> <p>Two</p> <p><span>Three</span></p>");
 
         Elements el1 = doc.select("p:not([id=1])");
@@ -3627,7 +3627,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("One", el2.first().text());
         }
 
-    @Test public void notParas_6_oe() {
+@Test public void notParas_6_oe() {
         Document doc = Jsoup.parse("<p id=1>One</p> <p>Two</p> <p><span>Three</span></p>");
 
         Elements el1 = doc.select("p:not([id=1])");
@@ -3641,14 +3641,14 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", el2.last().text());
         }
 
-    @Test public void notAll_1_oe() {
+@Test public void notAll_1_oe() {
         Document doc = Jsoup.parse("<p>Two</p> <p><span>Three</span></p>");
 
         Elements el1 = doc.body().select(":not(p)"); // should just be the span
         assertEquals(2, el1.size());
         }
 
-    @Test public void notAll_2_oe() {
+@Test public void notAll_2_oe() {
         Document doc = Jsoup.parse("<p>Two</p> <p><span>Three</span></p>");
 
         Elements el1 = doc.body().select(":not(p)"); // should just be the span
@@ -3656,7 +3656,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("body", el1.first().tagName());
         }
 
-    @Test public void notAll_3_oe() {
+@Test public void notAll_3_oe() {
         Document doc = Jsoup.parse("<p>Two</p> <p><span>Three</span></p>");
 
         Elements el1 = doc.body().select(":not(p)"); // should just be the span
@@ -3665,14 +3665,14 @@ public class SelectorTest_OE25Dev {
         assertEquals("span", el1.last().tagName());
         }
 
-    @Test public void notClass_1_oe() {
+@Test public void notClass_1_oe() {
         Document doc = Jsoup.parse("<div class=left>One</div><div class=right id=1><p>Two</p></div>");
 
         Elements el1 = doc.select("div:not(.left)");
         assertEquals(1, el1.size());
         }
 
-    @Test public void notClass_2_oe() {
+@Test public void notClass_2_oe() {
         Document doc = Jsoup.parse("<div class=left>One</div><div class=right id=1><p>Two</p></div>");
 
         Elements el1 = doc.select("div:not(.left)");
@@ -3680,14 +3680,14 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", el1.first().id());
         }
 
-    @Test public void handlesCommasInSelector_1_oe() {
+@Test public void handlesCommasInSelector_1_oe() {
         Document doc = Jsoup.parse("<p name='1,2'>One</p><div>Two</div><ol><li>123</li><li>Text</li></ol>");
 
         Elements ps = doc.select("[name=1,2]");
         assertEquals(1, ps.size());
         }
 
-    @Test public void handlesCommasInSelector_2_oe() {
+@Test public void handlesCommasInSelector_2_oe() {
         Document doc = Jsoup.parse("<p name='1,2'>One</p><div>Two</div><ol><li>123</li><li>Text</li></ol>");
 
         Elements ps = doc.select("[name=1,2]");
@@ -3697,7 +3697,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, containers.size());
         }
 
-    @Test public void handlesCommasInSelector_3_oe() {
+@Test public void handlesCommasInSelector_3_oe() {
         Document doc = Jsoup.parse("<p name='1,2'>One</p><div>Two</div><ol><li>123</li><li>Text</li></ol>");
 
         Elements ps = doc.select("[name=1,2]");
@@ -3708,7 +3708,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("div", containers.get(0).tagName());
         }
 
-    @Test public void handlesCommasInSelector_4_oe() {
+@Test public void handlesCommasInSelector_4_oe() {
         Document doc = Jsoup.parse("<p name='1,2'>One</p><div>Two</div><ol><li>123</li><li>Text</li></ol>");
 
         Elements ps = doc.select("[name=1,2]");
@@ -3720,7 +3720,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("li", containers.get(1).tagName());
         }
 
-    @Test public void handlesCommasInSelector_5_oe() {
+@Test public void handlesCommasInSelector_5_oe() {
         Document doc = Jsoup.parse("<p name='1,2'>One</p><div>Two</div><ol><li>123</li><li>Text</li></ol>");
 
         Elements ps = doc.select("[name=1,2]");
@@ -3733,20 +3733,20 @@ public class SelectorTest_OE25Dev {
         assertEquals("123", containers.get(1).text());
         }
 
-    @Test public void selectSupplementaryCharacter_1_oe() {
+@Test public void selectSupplementaryCharacter_1_oe() {
         String s = new String(Character.toChars(135361));
         Document doc = Jsoup.parse("<div k" + s + "='" + s + "'>^" + s +"$/div>");
         assertEquals("div", doc.select("div[k" + s + "]").first().tagName());
         }
 
-    @Test public void selectSupplementaryCharacter_2_oe() {
+@Test public void selectSupplementaryCharacter_2_oe() {
         String s = new String(Character.toChars(135361));
         Document doc = Jsoup.parse("<div k" + s + "='" + s + "'>^" + s +"$/div>");
         // removed other assertion
         assertEquals("div", doc.select("div:containsOwn(" + s + ")").first().tagName());
         }
 
-    @Test
+@Test
     public void selectClassWithSpace_1_oe() {
         final String html = "<div class=\"value\">class without space</div>\n"
                           + "<div class=\"value \">class with space</div>";
@@ -3757,7 +3757,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, found.size());
     }
 
-    @Test
+@Test
     public void selectClassWithSpace_2_oe() {
         final String html = "<div class=\"value\">class without space</div>\n"
                           + "<div class=\"value \">class with space</div>";
@@ -3769,7 +3769,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("class without space", found.get(0).text());
     }
 
-    @Test
+@Test
     public void selectClassWithSpace_3_oe() {
         final String html = "<div class=\"value\">class without space</div>\n"
                           + "<div class=\"value \">class with space</div>";
@@ -3782,7 +3782,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("class with space", found.get(1).text());
     }
 
-    @Test
+@Test
     public void selectClassWithSpace_4_oe() {
         final String html = "<div class=\"value\">class without space</div>\n"
                           + "<div class=\"value \">class with space</div>";
@@ -3798,7 +3798,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, found.size());
     }
 
-    @Test
+@Test
     public void selectClassWithSpace_5_oe() {
         final String html = "<div class=\"value\">class without space</div>\n"
                           + "<div class=\"value \">class with space</div>";
@@ -3815,7 +3815,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("class without space", found.get(0).text());
     }
 
-    @Test
+@Test
     public void selectClassWithSpace_6_oe() {
         final String html = "<div class=\"value\">class without space</div>\n"
                           + "<div class=\"value \">class with space</div>";
@@ -3833,7 +3833,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("class with space", found.get(1).text());
     }
 
-    @Test
+@Test
     public void selectClassWithSpace_7_oe() {
         final String html = "<div class=\"value\">class without space</div>\n"
                           + "<div class=\"value \">class with space</div>";
@@ -3854,7 +3854,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(0, found.size());
     }
 
-    @Test public void selectSameElements_1_oe() {
+@Test public void selectSameElements_1_oe() {
         final String html = "<div>one</div><div>one</div>";
 
         Document doc = Jsoup.parse(html);
@@ -3862,7 +3862,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, els.size());
         }
 
-    @Test public void selectSameElements_2_oe() {
+@Test public void selectSameElements_2_oe() {
         final String html = "<div>one</div><div>one</div>";
 
         Document doc = Jsoup.parse(html);
@@ -3873,20 +3873,20 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, subSelect.size());
         }
 
-    @Test public void attributeWithBrackets_1_oe() {
+@Test public void attributeWithBrackets_1_oe() {
         String html = "<div data='End]'>One</div> <div data='[Another)]]'>Two</div>";
         Document doc = Jsoup.parse(html);
         assertEquals("One", doc.select("div[data='End]']").first().text());
         }
 
-    @Test public void attributeWithBrackets_2_oe() {
+@Test public void attributeWithBrackets_2_oe() {
         String html = "<div data='End]'>One</div> <div data='[Another)]]'>Two</div>";
         Document doc = Jsoup.parse(html);
         // removed other assertion
         assertEquals("Two", doc.select("div[data='[Another)]]']").first().text());
         }
 
-    @Test public void attributeWithBrackets_3_oe() {
+@Test public void attributeWithBrackets_3_oe() {
         String html = "<div data='End]'>One</div> <div data='[Another)]]'>Two</div>";
         Document doc = Jsoup.parse(html);
         // removed other assertion
@@ -3894,7 +3894,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("One", doc.select("div[data=\"End]\"]").first().text());
         }
 
-    @Test public void attributeWithBrackets_4_oe() {
+@Test public void attributeWithBrackets_4_oe() {
         String html = "<div data='End]'>One</div> <div data='[Another)]]'>Two</div>";
         Document doc = Jsoup.parse(html);
         // removed other assertion
@@ -3903,14 +3903,14 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", doc.select("div[data=\"[Another)]]\"]").first().text());
         }
 
-    @Test public void containsWithQuote_1_oe() {
+@Test public void containsWithQuote_1_oe() {
         String html = "<p>One'One</p><p>One'Two</p>";
         Document doc = Jsoup.parse(html);
         Elements els = doc.select("p:contains(One\\'One)");
         assertEquals(1, els.size());
         }
 
-    @Test public void containsWithQuote_2_oe() {
+@Test public void containsWithQuote_2_oe() {
         String html = "<p>One'One</p><p>One'Two</p>";
         Document doc = Jsoup.parse(html);
         Elements els = doc.select("p:contains(One\\'One)");
@@ -3918,25 +3918,25 @@ public class SelectorTest_OE25Dev {
         assertEquals("One'One", els.text());
         }
 
-    @Test public void selectFirst_1_oe() {
+@Test public void selectFirst_1_oe() {
         String html = "<p>One<p>Two<p>Three";
         Document doc = Jsoup.parse(html);
         assertEquals("One", doc.selectFirst("p").text());
         }
 
-    @Test public void selectFirstWithAnd_1_oe() {
+@Test public void selectFirstWithAnd_1_oe() {
         String html = "<p>One<p class=foo>Two<p>Three";
         Document doc = Jsoup.parse(html);
         assertEquals("Two", doc.selectFirst("p.foo").text());
         }
 
-    @Test public void selectFirstWithOr_1_oe() {
+@Test public void selectFirstWithOr_1_oe() {
         String html = "<p>One<p>Two<p>Three<div>Four";
         Document doc = Jsoup.parse(html);
         assertEquals("One", doc.selectFirst("p, div").text());
         }
 
-    @Test public void matchText_1_oe() {
+@Test public void matchText_1_oe() {
         String html = "<p>One<br>Two</p>";
         Document doc = Jsoup.parse(html);
         String origHtml = doc.html();
@@ -3945,7 +3945,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("One", one.first().text());
         }
 
-    @Test public void matchText_2_oe() {
+@Test public void matchText_2_oe() {
         String html = "<p>One<br>Two</p>";
         Document doc = Jsoup.parse(html);
         String origHtml = doc.html();
@@ -3957,7 +3957,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", two.first().text());
         }
 
-    @Test public void matchText_3_oe() {
+@Test public void matchText_3_oe() {
         String html = "<p>One<br>Two</p>";
         Document doc = Jsoup.parse(html);
         String origHtml = doc.html();
@@ -3971,7 +3971,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(origHtml, doc.html());
         }
 
-    @Test public void matchText_4_oe() {
+@Test public void matchText_4_oe() {
         String html = "<p>One<br>Two</p>";
         Document doc = Jsoup.parse(html);
         String origHtml = doc.html();
@@ -3987,13 +3987,13 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", doc.select("p:matchText + br + *").text());
         }
 
-    @Test public void nthLastChildWithNoParent_1_oe() {
+@Test public void nthLastChildWithNoParent_1_oe() {
         Element el = new Element("p").text("Orphan");
         Elements els = el.select("p:nth-last-child(1)");
         assertEquals(0, els.size());
         }
 
-    @Test public void splitOnBr_1_oe() {
+@Test public void splitOnBr_1_oe() {
         String html = "<div><p>One<br>Two<br>Three</p></div>";
         Document doc = Jsoup.parse(html);
 
@@ -4001,7 +4001,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(3, els.size());
         }
 
-    @Test public void splitOnBr_2_oe() {
+@Test public void splitOnBr_2_oe() {
         String html = "<div><p>One<br>Two<br>Three</p></div>";
         Document doc = Jsoup.parse(html);
 
@@ -4010,7 +4010,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("One", els.get(0).text());
         }
 
-    @Test public void splitOnBr_3_oe() {
+@Test public void splitOnBr_3_oe() {
         String html = "<div><p>One<br>Two<br>Three</p></div>";
         Document doc = Jsoup.parse(html);
 
@@ -4020,7 +4020,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", els.get(1).text());
         }
 
-    @Test public void splitOnBr_4_oe() {
+@Test public void splitOnBr_4_oe() {
         String html = "<div><p>One<br>Two<br>Three</p></div>";
         Document doc = Jsoup.parse(html);
 
@@ -4031,14 +4031,14 @@ public class SelectorTest_OE25Dev {
         assertEquals("Three", els.get(2).toString());
         }
 
-    @Test public void matchTextAttributes_1_oe() {
+@Test public void matchTextAttributes_1_oe() {
         Document doc = Jsoup.parse("<div><p class=one>One<br>Two<p class=two>Three<br>Four");
         Elements els = doc.select("p.two:matchText:last-child");
 
         assertEquals(1, els.size());
         }
 
-    @Test public void matchTextAttributes_2_oe() {
+@Test public void matchTextAttributes_2_oe() {
         Document doc = Jsoup.parse("<div><p class=one>One<br>Two<p class=two>Three<br>Four");
         Elements els = doc.select("p.two:matchText:last-child");
 
@@ -4046,7 +4046,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Four", els.text());
         }
 
-    @Test public void findBetweenSpan_1_oe() {
+@Test public void findBetweenSpan_1_oe() {
         Document doc = Jsoup.parse("<p><span>One</span> Two <span>Three</span>");
         Elements els = doc.select("span ~ p:matchText"); // the Two becomes its own p, sibling of the span
         // todo - think this should really be 'p:matchText span ~ p'. The :matchText should behave as a modifier to expand the nodes.
@@ -4054,7 +4054,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, els.size());
         }
 
-    @Test public void findBetweenSpan_2_oe() {
+@Test public void findBetweenSpan_2_oe() {
         Document doc = Jsoup.parse("<p><span>One</span> Two <span>Three</span>");
         Elements els = doc.select("span ~ p:matchText"); // the Two becomes its own p, sibling of the span
         // todo - think this should really be 'p:matchText span ~ p'. The :matchText should behave as a modifier to expand the nodes.
@@ -4063,69 +4063,69 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", els.text());
         }
 
-    @Test public void startsWithBeginsWithSpace_1_oe() {
+@Test public void startsWithBeginsWithSpace_1_oe() {
         Document doc = Jsoup.parse("<small><a href=\" mailto:abc@def.net\">(abc@def.net)</a></small>");
         Elements els = doc.select("a[href^=' mailto']");
 
         assertEquals(1, els.size());
         }
 
-    @Test public void endsWithEndsWithSpaces_1_oe() {
+@Test public void endsWithEndsWithSpaces_1_oe() {
         Document doc = Jsoup.parse("<small><a href=\" mailto:abc@def.net \">(abc@def.net)</a></small>");
         Elements els = doc.select("a[href$='.net ']");
 
         assertEquals(1, els.size());
         }
 
-    @Test
+@Test
     public void html_mixed_case_simple_name_1_oe() {
         Document doc = Jsoup.parse(mixedCase, "", Parser.htmlParser());
         assertEquals(0, doc.select("mixedCase").size());
     }
 
-    @Test
+@Test
     public void html_mixed_case_wildcard_name_1_oe() {
         Document doc = Jsoup.parse(mixedCase, "", Parser.htmlParser());
         assertEquals(1, doc.select("*|mixedCase").size());
     }
 
-    @Test
+@Test
     public void html_lowercase_simple_name_1_oe() {
         Document doc = Jsoup.parse(lowercase, "", Parser.htmlParser());
         assertEquals(0, doc.select("lowercase").size());
     }
 
-    @Test
+@Test
     public void html_lowercase_wildcard_name_1_oe() {
         Document doc = Jsoup.parse(lowercase, "", Parser.htmlParser());
         assertEquals(1, doc.select("*|lowercase").size());
     }
 
-    @Test
+@Test
     public void xml_mixed_case_simple_name_1_oe() {
         Document doc = Jsoup.parse(mixedCase, "", Parser.xmlParser());
         assertEquals(0, doc.select("mixedCase").size());
     }
 
-    @Test
+@Test
     public void xml_mixed_case_wildcard_name_1_oe() {
         Document doc = Jsoup.parse(mixedCase, "", Parser.xmlParser());
         assertEquals(1, doc.select("*|mixedCase").size());
     }
 
-    @Test
+@Test
     public void xml_lowercase_simple_name_1_oe() {
         Document doc = Jsoup.parse(lowercase, "", Parser.xmlParser());
         assertEquals(0, doc.select("lowercase").size());
     }
 
-    @Test
+@Test
     public void xml_lowercase_wildcard_name_1_oe() {
         Document doc = Jsoup.parse(lowercase, "", Parser.xmlParser());
         assertEquals(1, doc.select("*|lowercase").size());
     }
 
-    @Test
+@Test
     public void trimSelector_1_oe() {
         // https://github.com/jhy/jsoup/issues/1274
         Document doc = Jsoup.parse("<p><span>Hello");
@@ -4133,7 +4133,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, els.size());
     }
 
-    @Test
+@Test
     public void trimSelector_2_oe() {
         // https://github.com/jhy/jsoup/issues/1274
         Document doc = Jsoup.parse("<p><span>Hello");
@@ -4142,7 +4142,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Hello", els.first().text());
     }
 
-    @Test
+@Test
     public void xmlWildcardNamespaceTest_1_oe() {
         // https://github.com/jhy/jsoup/issues/1208
         Document doc = Jsoup.parse("<ns1:MyXmlTag>1111</ns1:MyXmlTag><ns2:MyXmlTag>2222</ns2:MyXmlTag>", "", Parser.xmlParser());
@@ -4150,7 +4150,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, select.size());
     }
 
-    @Test
+@Test
     public void xmlWildcardNamespaceTest_2_oe() {
         // https://github.com/jhy/jsoup/issues/1208
         Document doc = Jsoup.parse("<ns1:MyXmlTag>1111</ns1:MyXmlTag><ns2:MyXmlTag>2222</ns2:MyXmlTag>", "", Parser.xmlParser());
@@ -4159,7 +4159,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1111", select.get(0).text());
     }
 
-    @Test
+@Test
     public void xmlWildcardNamespaceTest_3_oe() {
         // https://github.com/jhy/jsoup/issues/1208
         Document doc = Jsoup.parse("<ns1:MyXmlTag>1111</ns1:MyXmlTag><ns2:MyXmlTag>2222</ns2:MyXmlTag>", "", Parser.xmlParser());
@@ -4169,7 +4169,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2222", select.get(1).text());
     }
 
-    @Test
+@Test
     public void childElements_1_oe() {
         // https://github.com/jhy/jsoup/issues/1292
         String html = "<body><span id=1>One <span id=2>Two</span></span></body>";
@@ -4182,7 +4182,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", outer.id());
     }
 
-    @Test
+@Test
     public void childElements_2_oe() {
         // https://github.com/jhy/jsoup/issues/1292
         String html = "<body><span id=1>One <span id=2>Two</span></span></body>";
@@ -4196,7 +4196,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("1", span.id());
     }
 
-    @Test
+@Test
     public void childElements_3_oe() {
         // https://github.com/jhy/jsoup/issues/1292
         String html = "<body><span id=1>One <span id=2>Two</span></span></body>";
@@ -4211,7 +4211,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("2", inner.id());
     }
 
-    @Test
+@Test
     public void childElements_4_oe() {
         // https://github.com/jhy/jsoup/issues/1292
         String html = "<body><span id=1>One <span id=2>Two</span></span></body>";
@@ -4227,7 +4227,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(outer, span);
     }
 
-    @Test
+@Test
     public void childElements_5_oe() {
         // https://github.com/jhy/jsoup/issues/1292
         String html = "<body><span id=1>One <span id=2>Two</span></span></body>";
@@ -4244,7 +4244,7 @@ public class SelectorTest_OE25Dev {
         assertNotEquals(outer, inner);
     }
 
-    @Test
+@Test
     public void selectFirstLevelChildrenOnly_1_oe() {
         // testcase for https://github.com/jhy/jsoup/issues/984
         String html = "<div><span>One <span>Two</span></span> <span>Three <span>Four</span></span>";
@@ -4254,7 +4254,7 @@ public class SelectorTest_OE25Dev {
         assertNotNull(div);
     }
 
-    @Test
+@Test
     public void selectFirstLevelChildrenOnly_2_oe() {
         // testcase for https://github.com/jhy/jsoup/issues/984
         String html = "<div><span>One <span>Two</span></span> <span>Three <span>Four</span></span>";
@@ -4268,7 +4268,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, spans.size());
     }
 
-    @Test
+@Test
     public void selectFirstLevelChildrenOnly_3_oe() {
         // testcase for https://github.com/jhy/jsoup/issues/984
         String html = "<div><span>One <span>Two</span></span> <span>Three <span>Four</span></span>";
@@ -4283,7 +4283,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("One Two", spans.get(0).text());
     }
 
-    @Test
+@Test
     public void selectFirstLevelChildrenOnly_4_oe() {
         // testcase for https://github.com/jhy/jsoup/issues/984
         String html = "<div><span>One <span>Two</span></span> <span>Three <span>Four</span></span>";
@@ -4299,7 +4299,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Three Four", spans.get(1).text());
     }
 
-    @Test
+@Test
     public void wildcardNamespaceMatchesNoNamespace_1_oe() {
         // https://github.com/jhy/jsoup/issues/1565
         String xml = "<package><meta>One</meta><opf:meta>Two</opf:meta></package>";
@@ -4309,7 +4309,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, metaEls.size());
     }
 
-    @Test
+@Test
     public void wildcardNamespaceMatchesNoNamespace_2_oe() {
         // https://github.com/jhy/jsoup/issues/1565
         String xml = "<package><meta>One</meta><opf:meta>Two</opf:meta></package>";
@@ -4320,7 +4320,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("One", metaEls.get(0).text());
     }
 
-    @Test
+@Test
     public void wildcardNamespaceMatchesNoNamespace_3_oe() {
         // https://github.com/jhy/jsoup/issues/1565
         String xml = "<package><meta>One</meta><opf:meta>Two</opf:meta></package>";
@@ -4334,7 +4334,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(2, nsEls.size());
     }
 
-    @Test
+@Test
     public void wildcardNamespaceMatchesNoNamespace_4_oe() {
         // https://github.com/jhy/jsoup/issues/1565
         String xml = "<package><meta>One</meta><opf:meta>Two</opf:meta></package>";
@@ -4349,7 +4349,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("One", nsEls.get(0).text());
     }
 
-    @Test
+@Test
     public void wildcardNamespaceMatchesNoNamespace_5_oe() {
         // https://github.com/jhy/jsoup/issues/1565
         String xml = "<package><meta>One</meta><opf:meta>Two</opf:meta></package>";
@@ -4365,7 +4365,7 @@ public class SelectorTest_OE25Dev {
         assertEquals("Two", nsEls.get(1).text());
     }
 
-    @Test void containsTextQueryIsNormalized_1_oe() {
+@Test void containsTextQueryIsNormalized_1_oe() {
         Document doc = Jsoup.parse("<p><p id=1>Hello  there now<em>!</em>");
         Elements a = doc.select("p:contains(Hello   there  now!)");
         Elements b = doc.select(":containsOwn(hello   there  now)");
@@ -4376,7 +4376,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(1, a.size());
         }
 
-    @Test void containsTextQueryIsNormalized_2_oe() {
+@Test void containsTextQueryIsNormalized_2_oe() {
         Document doc = Jsoup.parse("<p><p id=1>Hello  there now<em>!</em>");
         Elements a = doc.select("p:contains(Hello   there  now!)");
         Elements b = doc.select(":containsOwn(hello   there  now)");
@@ -4388,7 +4388,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(a, b);
         }
 
-    @Test void containsTextQueryIsNormalized_3_oe() {
+@Test void containsTextQueryIsNormalized_3_oe() {
         Document doc = Jsoup.parse("<p><p id=1>Hello  there now<em>!</em>");
         Elements a = doc.select("p:contains(Hello   there  now!)");
         Elements b = doc.select(":containsOwn(hello   there  now)");
@@ -4401,7 +4401,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(a, c);
         }
 
-    @Test void containsTextQueryIsNormalized_4_oe() {
+@Test void containsTextQueryIsNormalized_4_oe() {
         Document doc = Jsoup.parse("<p><p id=1>Hello  there now<em>!</em>");
         Elements a = doc.select("p:contains(Hello   there  now!)");
         Elements b = doc.select(":containsOwn(hello   there  now)");
@@ -4415,7 +4415,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(a, d);
         }
 
-    @Test void containsTextQueryIsNormalized_5_oe() {
+@Test void containsTextQueryIsNormalized_5_oe() {
         Document doc = Jsoup.parse("<p><p id=1>Hello  there now<em>!</em>");
         Elements a = doc.select("p:contains(Hello   there  now!)");
         Elements b = doc.select(":containsOwn(hello   there  now)");
@@ -4430,7 +4430,7 @@ public class SelectorTest_OE25Dev {
         assertEquals(0, e.size());
         }
 
-    @Test void containsTextQueryIsNormalized_6_oe() {
+@Test void containsTextQueryIsNormalized_6_oe() {
         Document doc = Jsoup.parse("<p><p id=1>Hello  there now<em>!</em>");
         Elements a = doc.select("p:contains(Hello   there  now!)");
         Elements b = doc.select(":containsOwn(hello   there  now)");
@@ -4446,7 +4446,7 @@ public class SelectorTest_OE25Dev {
         assertNotEquals(a, e);
         }
 
-    @Test public void selectorExceptionNotStringFormatException_1_oe() {
+@Test public void selectorExceptionNotStringFormatException_1_oe() {
         Selector.SelectorParseException ex = new Selector.SelectorParseException("%&");
         assertEquals("%&", ex.getMessage());
         }

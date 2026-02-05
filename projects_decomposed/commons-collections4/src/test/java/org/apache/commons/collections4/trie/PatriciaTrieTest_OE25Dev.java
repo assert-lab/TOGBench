@@ -78,7 +78,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
 //            "src/test/resources/data/test/PatriciaTrie.fullCollection.version4.obj");
 //    }
 
-    public void testPrefixMap_1_oe() {
+public void testPrefixMap_1_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -102,7 +102,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals(8, map.size());
     }
 
-    public void testPrefixMap_2_oe() {
+public void testPrefixMap_2_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -127,7 +127,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alabama", map.firstKey());
     }
 
-    public void testPrefixMap_3_oe() {
+public void testPrefixMap_3_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -153,7 +153,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alliese", map.lastKey());
     }
 
-    public void testPrefixMap_4_oe() {
+public void testPrefixMap_4_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -180,7 +180,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoo", map.get("Albertoo"));
     }
 
-    public void testPrefixMap_5_oe() {
+public void testPrefixMap_5_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -208,7 +208,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertNotNull(trie.get("Xavier"));
     }
 
-    public void testPrefixMap_6_oe() {
+public void testPrefixMap_6_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -237,7 +237,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertNull(map.get("Xavier"));
     }
 
-    public void testPrefixMap_7_oe() {
+public void testPrefixMap_7_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -267,7 +267,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertNull(trie.get("Alice"));
     }
 
-    public void testPrefixMap_8_oe() {
+public void testPrefixMap_8_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -298,7 +298,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertNull(map.get("Alice"));
     }
 
-    public void testPrefixMap_9_oe() {
+public void testPrefixMap_9_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -331,7 +331,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alabama", iterator.next());
     }
 
-    public void testPrefixMap_10_oe() {
+public void testPrefixMap_10_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -365,7 +365,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albert", iterator.next());
     }
 
-    public void testPrefixMap_11_oe() {
+public void testPrefixMap_11_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -400,7 +400,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberto", iterator.next());
     }
 
-    public void testPrefixMap_12_oe() {
+public void testPrefixMap_12_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -436,7 +436,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoo", iterator.next());
     }
 
-    public void testPrefixMap_13_oe() {
+public void testPrefixMap_13_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -473,7 +473,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberts", iterator.next());
     }
 
-    public void testPrefixMap_14_oe() {
+public void testPrefixMap_14_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -511,7 +511,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alien", iterator.next());
     }
 
-    public void testPrefixMap_15_oe() {
+public void testPrefixMap_15_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -550,7 +550,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Allie", iterator.next());
     }
 
-    public void testPrefixMap_16_oe() {
+public void testPrefixMap_16_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -590,7 +590,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alliese", iterator.next());
     }
 
-    public void testPrefixMap_17_oe() {
+public void testPrefixMap_17_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -631,7 +631,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertFalse(iterator.hasNext());
     }
 
-    public void testPrefixMap_18_oe() {
+public void testPrefixMap_18_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -676,7 +676,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albert", iterator.next());
     }
 
-    public void testPrefixMap_19_oe() {
+public void testPrefixMap_19_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -722,7 +722,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberto", iterator.next());
     }
 
-    public void testPrefixMap_20_oe() {
+public void testPrefixMap_20_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -769,7 +769,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoo", iterator.next());
     }
 
-    public void testPrefixMap_21_oe() {
+public void testPrefixMap_21_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -817,7 +817,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberts", iterator.next());
     }
 
-    public void testPrefixMap_22_oe() {
+public void testPrefixMap_22_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -866,7 +866,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertFalse(iterator.hasNext());
     }
 
-    public void testPrefixMap_23_oe() {
+public void testPrefixMap_23_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -916,7 +916,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals(4, map.size());
     }
 
-    public void testPrefixMap_24_oe() {
+public void testPrefixMap_24_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -967,7 +967,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albert", map.firstKey());
     }
 
-    public void testPrefixMap_25_oe() {
+public void testPrefixMap_25_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -1019,7 +1019,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberts", map.lastKey());
     }
 
-    public void testPrefixMap_26_oe() {
+public void testPrefixMap_26_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -1072,7 +1072,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertNull(trie.get("Albertz"));
     }
 
-    public void testPrefixMap_27_oe() {
+public void testPrefixMap_27_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -1127,7 +1127,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertz", trie.get("Albertz"));
     }
 
-    public void testPrefixMap_28_oe() {
+public void testPrefixMap_28_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -1183,7 +1183,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals(5, map.size());
     }
 
-    public void testPrefixMap_29_oe() {
+public void testPrefixMap_29_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -1240,7 +1240,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertz", map.lastKey());
     }
 
-    public void testPrefixMap_30_oe() {
+public void testPrefixMap_30_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -1299,7 +1299,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albert", iterator.next());
     }
 
-    public void testPrefixMap_31_oe() {
+public void testPrefixMap_31_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -1359,7 +1359,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberto", iterator.next());
     }
 
-    public void testPrefixMap_32_oe() {
+public void testPrefixMap_32_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -1420,7 +1420,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoo", iterator.next());
     }
 
-    public void testPrefixMap_33_oe() {
+public void testPrefixMap_33_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -1482,7 +1482,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberts", iterator.next());
     }
 
-    public void testPrefixMap_34_oe() {
+public void testPrefixMap_34_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -1545,7 +1545,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertz", iterator.next());
     }
 
-    public void testPrefixMap_35_oe() {
+public void testPrefixMap_35_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -1609,7 +1609,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertFalse(iterator.hasNext());
     }
 
-    public void testPrefixMap_36_oe() {
+public void testPrefixMap_36_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -1674,7 +1674,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertz", map.remove("Albertz"));
     }
 
-    public void testPrefixMap_37_oe() {
+public void testPrefixMap_37_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -1742,7 +1742,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals(2, map.size());
     }
 
-    public void testPrefixMap_38_oe() {
+public void testPrefixMap_38_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -1811,7 +1811,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberto", map.firstKey());
     }
 
-    public void testPrefixMap_39_oe() {
+public void testPrefixMap_39_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -1881,7 +1881,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoo", map.lastKey());
     }
 
-    public void testPrefixMap_40_oe() {
+public void testPrefixMap_40_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -1954,7 +1954,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberto", entry.getKey());
     }
 
-    public void testPrefixMap_41_oe() {
+public void testPrefixMap_41_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -2028,7 +2028,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberto", entry.getValue());
     }
 
-    public void testPrefixMap_42_oe() {
+public void testPrefixMap_42_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -2104,7 +2104,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoo", entry.getKey());
     }
 
-    public void testPrefixMap_43_oe() {
+public void testPrefixMap_43_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -2181,7 +2181,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoo", entry.getValue());
     }
 
-    public void testPrefixMap_44_oe() {
+public void testPrefixMap_44_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -2259,7 +2259,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertFalse(entryIterator.hasNext());
     }
 
-    public void testPrefixMap_45_oe() {
+public void testPrefixMap_45_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -2339,7 +2339,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals(3, map.size());
     }
 
-    public void testPrefixMap_46_oe() {
+public void testPrefixMap_46_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -2420,7 +2420,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberto", map.firstKey());
     }
 
-    public void testPrefixMap_47_oe() {
+public void testPrefixMap_47_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -2502,7 +2502,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoo", map.lastKey());
     }
 
-    public void testPrefixMap_48_oe() {
+public void testPrefixMap_48_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -2587,7 +2587,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberto", entry.getKey());
     }
 
-    public void testPrefixMap_49_oe() {
+public void testPrefixMap_49_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -2673,7 +2673,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberto", entry.getValue());
     }
 
-    public void testPrefixMap_50_oe() {
+public void testPrefixMap_50_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -2761,7 +2761,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoad", entry.getKey());
     }
 
-    public void testPrefixMap_51_oe() {
+public void testPrefixMap_51_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -2850,7 +2850,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoad", entry.getValue());
     }
 
-    public void testPrefixMap_52_oe() {
+public void testPrefixMap_52_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -2941,7 +2941,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoo", entry.getKey());
     }
 
-    public void testPrefixMap_53_oe() {
+public void testPrefixMap_53_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -3033,7 +3033,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoo", entry.getValue());
     }
 
-    public void testPrefixMap_54_oe() {
+public void testPrefixMap_54_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -3126,7 +3126,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertFalse(entryIterator.hasNext());
     }
 
-    public void testPrefixMap_55_oe() {
+public void testPrefixMap_55_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -3220,7 +3220,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoo", trie.remove("Albertoo"));
     }
 
-    public void testPrefixMap_56_oe() {
+public void testPrefixMap_56_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -3315,7 +3315,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberto", map.firstKey());
     }
 
-    public void testPrefixMap_57_oe() {
+public void testPrefixMap_57_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -3411,7 +3411,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoad", map.lastKey());
     }
 
-    public void testPrefixMap_58_oe() {
+public void testPrefixMap_58_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -3508,7 +3508,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals(2, map.size());
     }
 
-    public void testPrefixMap_59_oe() {
+public void testPrefixMap_59_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -3608,7 +3608,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberto", entry.getKey());
     }
 
-    public void testPrefixMap_60_oe() {
+public void testPrefixMap_60_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -3709,7 +3709,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberto", entry.getValue());
     }
 
-    public void testPrefixMap_61_oe() {
+public void testPrefixMap_61_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -3812,7 +3812,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoad", entry.getKey());
     }
 
-    public void testPrefixMap_62_oe() {
+public void testPrefixMap_62_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -3916,7 +3916,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoad", entry.getValue());
     }
 
-    public void testPrefixMap_63_oe() {
+public void testPrefixMap_63_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -4021,7 +4021,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertFalse(entryIterator.hasNext());
     }
 
-    public void testPrefixMap_64_oe() {
+public void testPrefixMap_64_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -4127,7 +4127,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoad", trie.remove("Albertoad"));
     }
 
-    public void testPrefixMap_65_oe() {
+public void testPrefixMap_65_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -4237,7 +4237,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals(2, map.size());
     }
 
-    public void testPrefixMap_66_oe() {
+public void testPrefixMap_66_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -4348,7 +4348,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertFalse(map.containsKey("Albert"));
     }
 
-    public void testPrefixMap_67_oe() {
+public void testPrefixMap_67_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -4460,7 +4460,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertTrue(map.containsKey("Xavier"));
     }
 
-    public void testPrefixMap_68_oe() {
+public void testPrefixMap_68_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -4573,7 +4573,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertFalse(map.containsKey("Xalan"));
     }
 
-    public void testPrefixMap_69_oe() {
+public void testPrefixMap_69_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -4688,7 +4688,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Xavier", iterator.next());
     }
 
-    public void testPrefixMap_70_oe() {
+public void testPrefixMap_70_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -4804,7 +4804,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("XyZ", iterator.next());
     }
 
-    public void testPrefixMap_71_oe() {
+public void testPrefixMap_71_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -4921,7 +4921,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertFalse(iterator.hasNext());
     }
 
-    public void testPrefixMap_72_oe() {
+public void testPrefixMap_72_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -5041,7 +5041,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals(1, map.size());
     }
 
-    public void testPrefixMap_73_oe() {
+public void testPrefixMap_73_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -5162,7 +5162,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Anna", map.firstKey());
     }
 
-    public void testPrefixMap_74_oe() {
+public void testPrefixMap_74_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -5284,7 +5284,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Anna", map.lastKey());
     }
 
-    public void testPrefixMap_75_oe() {
+public void testPrefixMap_75_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -5408,7 +5408,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Anna", iterator.next());
     }
 
-    public void testPrefixMap_76_oe() {
+public void testPrefixMap_76_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -5533,7 +5533,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertFalse(iterator.hasNext());
     }
 
-    public void testPrefixMap_77_oe() {
+public void testPrefixMap_77_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -5661,7 +5661,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals(1, map.size());
     }
 
-    public void testPrefixMap_78_oe() {
+public void testPrefixMap_78_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -5790,7 +5790,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Banane", map.firstKey());
     }
 
-    public void testPrefixMap_79_oe() {
+public void testPrefixMap_79_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -5920,7 +5920,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Banane", map.lastKey());
     }
 
-    public void testPrefixMap_80_oe() {
+public void testPrefixMap_80_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -6052,7 +6052,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Banane", iterator.next());
     }
 
-    public void testPrefixMap_81_oe() {
+public void testPrefixMap_81_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -6185,7 +6185,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertFalse(iterator.hasNext());
     }
 
-    public void testPrefixMap_82_oe() {
+public void testPrefixMap_82_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -6321,7 +6321,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertFalse(map.isEmpty());
     }
 
-    public void testPrefixMap_83_oe() {
+public void testPrefixMap_83_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -6458,7 +6458,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals(3, map.size());
     }
 
-    public void testPrefixMap_84_oe() {
+public void testPrefixMap_84_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -6596,7 +6596,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Amber", trie.remove("Amber"));
     }
 
-    public void testPrefixMap_85_oe() {
+public void testPrefixMap_85_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -6736,7 +6736,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Amma", iterator.next());
     }
 
-    public void testPrefixMap_86_oe() {
+public void testPrefixMap_86_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -6877,7 +6877,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Ammun", iterator.next());
     }
 
-    public void testPrefixMap_87_oe() {
+public void testPrefixMap_87_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7019,7 +7019,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertFalse(iterator.hasNext());
     }
 
-    public void testPrefixMap_88_oe() {
+public void testPrefixMap_88_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7164,7 +7164,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals(3, map.size());
     }
 
-    public void testPrefixMapRemoval_1_oe() {
+public void testPrefixMapRemoval_1_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7182,7 +7182,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals(8, map.size());
     }
 
-    public void testPrefixMapRemoval_2_oe() {
+public void testPrefixMapRemoval_2_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7202,7 +7202,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alabama", iter.next());
     }
 
-    public void testPrefixMapRemoval_3_oe() {
+public void testPrefixMapRemoval_3_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7223,7 +7223,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albert", iter.next());
     }
 
-    public void testPrefixMapRemoval_4_oe() {
+public void testPrefixMapRemoval_4_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7245,7 +7245,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberto", iter.next());
     }
 
-    public void testPrefixMapRemoval_5_oe() {
+public void testPrefixMapRemoval_5_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7268,7 +7268,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Albertoo", iter.next());
     }
 
-    public void testPrefixMapRemoval_6_oe() {
+public void testPrefixMapRemoval_6_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7292,7 +7292,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alberts", iter.next());
     }
 
-    public void testPrefixMapRemoval_7_oe() {
+public void testPrefixMapRemoval_7_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7317,7 +7317,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alien", iter.next());
     }
 
-    public void testPrefixMapRemoval_8_oe() {
+public void testPrefixMapRemoval_8_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7344,7 +7344,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals(7, map.size());
     }
 
-    public void testPrefixMapRemoval_9_oe() {
+public void testPrefixMapRemoval_9_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7372,7 +7372,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Allie", iter.next());
     }
 
-    public void testPrefixMapRemoval_10_oe() {
+public void testPrefixMapRemoval_10_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7401,7 +7401,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Alliese", iter.next());
     }
 
-    public void testPrefixMapRemoval_11_oe() {
+public void testPrefixMapRemoval_11_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7431,7 +7431,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertFalse(iter.hasNext());
     }
 
-    public void testPrefixMapRemoval_12_oe() {
+public void testPrefixMapRemoval_12_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7464,7 +7464,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals(2, map.size());
     }
 
-    public void testPrefixMapRemoval_13_oe() {
+public void testPrefixMapRemoval_13_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7499,7 +7499,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Akka", iter.next());
     }
 
-    public void testPrefixMapRemoval_14_oe() {
+public void testPrefixMapRemoval_14_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7536,7 +7536,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals(1, map.size());
     }
 
-    public void testPrefixMapRemoval_15_oe() {
+public void testPrefixMapRemoval_15_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7574,7 +7574,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertEquals("Akko", iter.next());
     }
 
-    public void testPrefixMapRemoval_16_oe() {
+public void testPrefixMapRemoval_16_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7615,7 +7615,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
     }
     }
 
-    public void testPrefixMapRemoval_17_oe() {
+public void testPrefixMapRemoval_17_oe() {
         final PatriciaTrie<String> trie = new PatriciaTrie<>();
 
         final String[] keys = new String[]{
@@ -7657,7 +7657,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         Assert.assertFalse(iter.hasNext());
     }
 
-    public void testPrefixMapSizes_1_oe() {
+public void testPrefixMapSizes_1_oe() {
         // COLLECTIONS-525
         final PatriciaTrie<String> aTree = new PatriciaTrie<>();
         aTree.put("点评", "测试");
@@ -7665,7 +7665,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertTrue(aTree.prefixMap("点").containsKey("点评"));
     }
 
-    public void testPrefixMapSizes_2_oe() {
+public void testPrefixMapSizes_2_oe() {
         // COLLECTIONS-525
         final PatriciaTrie<String> aTree = new PatriciaTrie<>();
         aTree.put("点评", "测试");
@@ -7674,7 +7674,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals("测试", aTree.prefixMap("点").get("点评"));
     }
 
-    public void testPrefixMapSizes_3_oe() {
+public void testPrefixMapSizes_3_oe() {
         // COLLECTIONS-525
         final PatriciaTrie<String> aTree = new PatriciaTrie<>();
         aTree.put("点评", "测试");
@@ -7684,7 +7684,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertFalse(aTree.prefixMap("点").isEmpty());
     }
 
-    public void testPrefixMapSizes_4_oe() {
+public void testPrefixMapSizes_4_oe() {
         // COLLECTIONS-525
         final PatriciaTrie<String> aTree = new PatriciaTrie<>();
         aTree.put("点评", "测试");
@@ -7695,7 +7695,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(1, aTree.prefixMap("点").size());
     }
 
-    public void testPrefixMapSizes_5_oe() {
+public void testPrefixMapSizes_5_oe() {
         // COLLECTIONS-525
         final PatriciaTrie<String> aTree = new PatriciaTrie<>();
         aTree.put("点评", "测试");
@@ -7707,7 +7707,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(1, aTree.prefixMap("点").keySet().size());
     }
 
-    public void testPrefixMapSizes_6_oe() {
+public void testPrefixMapSizes_6_oe() {
         // COLLECTIONS-525
         final PatriciaTrie<String> aTree = new PatriciaTrie<>();
         aTree.put("点评", "测试");
@@ -7720,7 +7720,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(1, aTree.prefixMap("点").entrySet().size());
     }
 
-    public void testPrefixMapSizes_7_oe() {
+public void testPrefixMapSizes_7_oe() {
         // COLLECTIONS-525
         final PatriciaTrie<String> aTree = new PatriciaTrie<>();
         aTree.put("点评", "测试");
@@ -7734,7 +7734,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(1, aTree.prefixMap("点评").values().size());
     }
 
-    public void testPrefixMapSizes_8_oe() {
+public void testPrefixMapSizes_8_oe() {
         // COLLECTIONS-525
         final PatriciaTrie<String> aTree = new PatriciaTrie<>();
         aTree.put("点评", "测试");
@@ -7753,7 +7753,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(2, aTree.prefixMap("点").keySet().size());
     }
 
-    public void testPrefixMapSizes_9_oe() {
+public void testPrefixMapSizes_9_oe() {
         // COLLECTIONS-525
         final PatriciaTrie<String> aTree = new PatriciaTrie<>();
         aTree.put("点评", "测试");
@@ -7773,7 +7773,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(2, aTree.prefixMap("点").values().size());
     }
 
-    public void testPrefixMapSizes2_1_oe() {
+public void testPrefixMapSizes2_1_oe() {
         final char u8000 = Character.toChars(32768)[0]; // U+8000 (1000000000000000)
         final char char_b = 'b'; // 1100010
 
@@ -7784,7 +7784,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(1, prefixString.length());
     }
 
-    public void testPrefixMapSizes2_2_oe() {
+public void testPrefixMapSizes2_2_oe() {
         final char u8000 = Character.toChars(32768)[0]; // U+8000 (1000000000000000)
         final char char_b = 'b'; // 1100010
 
@@ -7796,7 +7796,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(2, longerString.length());
     }
 
-    public void testPrefixMapSizes2_3_oe() {
+public void testPrefixMapSizes2_3_oe() {
         final char u8000 = Character.toChars(32768)[0]; // U+8000 (1000000000000000)
         final char char_b = 'b'; // 1100010
 
@@ -7810,7 +7810,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertTrue(longerString.startsWith(prefixString));
     }
 
-    public void testPrefixMapSizes2_4_oe() {
+public void testPrefixMapSizes2_4_oe() {
         final char u8000 = Character.toChars(32768)[0]; // U+8000 (1000000000000000)
         final char char_b = 'b'; // 1100010
 
@@ -7829,7 +7829,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(2, trie.prefixMap(prefixString).size());
     }
 
-    public void testPrefixMapSizes2_5_oe() {
+public void testPrefixMapSizes2_5_oe() {
         final char u8000 = Character.toChars(32768)[0]; // U+8000 (1000000000000000)
         final char char_b = 'b'; // 1100010
 
@@ -7849,7 +7849,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertTrue(trie.prefixMap(prefixString).containsKey(longerString));
     }
 
-    public void testPrefixMapClear_1_oe() {
+public void testPrefixMapClear_1_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         trie.put("Anna", 1);
         trie.put("Anael", 2);
@@ -7862,7 +7862,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(new HashSet<>(Arrays.asList("Andrea", "Andreas", "Andres")), prefixMap.keySet());
     }
 
-    public void testPrefixMapClear_2_oe() {
+public void testPrefixMapClear_2_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         trie.put("Anna", 1);
         trie.put("Anael", 2);
@@ -7876,7 +7876,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(Arrays.asList(5, 4, 6), new ArrayList<>(prefixMap.values()));
     }
 
-    public void testPrefixMapClear_3_oe() {
+public void testPrefixMapClear_3_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         trie.put("Anna", 1);
         trie.put("Anael", 2);
@@ -7893,7 +7893,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertTrue(prefixMap.isEmpty());
     }
 
-    public void testPrefixMapClear_4_oe() {
+public void testPrefixMapClear_4_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         trie.put("Anna", 1);
         trie.put("Anael", 2);
@@ -7911,7 +7911,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertTrue(prefixMap.keySet().isEmpty());
     }
 
-    public void testPrefixMapClear_5_oe() {
+public void testPrefixMapClear_5_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         trie.put("Anna", 1);
         trie.put("Anael", 2);
@@ -7930,7 +7930,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertTrue(prefixMap.values().isEmpty());
     }
 
-    public void testPrefixMapClear_6_oe() {
+public void testPrefixMapClear_6_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         trie.put("Anna", 1);
         trie.put("Anael", 2);
@@ -7950,7 +7950,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(new HashSet<>(Arrays.asList("Anael", "Analu", "Anatole", "Anna")), trie.keySet());
     }
 
-    public void testPrefixMapClear_7_oe() {
+public void testPrefixMapClear_7_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         trie.put("Anna", 1);
         trie.put("Anael", 2);
@@ -7971,20 +7971,20 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(Arrays.asList(2, 3, 7, 1), new ArrayList<>(trie.values()));
     }
 
-    public void testPrefixMapClearNothing_1_oe() {
+public void testPrefixMapClearNothing_1_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         final SortedMap<String, Integer> prefixMap = trie.prefixMap("And");
         assertEquals(new HashSet<String>(), prefixMap.keySet());
     }
 
-    public void testPrefixMapClearNothing_2_oe() {
+public void testPrefixMapClearNothing_2_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         final SortedMap<String, Integer> prefixMap = trie.prefixMap("And");
         // removed other assertion
         assertEquals(new ArrayList<Integer>(0), new ArrayList<>(prefixMap.values()));
     }
 
-    public void testPrefixMapClearNothing_3_oe() {
+public void testPrefixMapClearNothing_3_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         final SortedMap<String, Integer> prefixMap = trie.prefixMap("And");
         // removed other assertion
@@ -7994,7 +7994,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertTrue(prefixMap.isEmpty());
     }
 
-    public void testPrefixMapClearNothing_4_oe() {
+public void testPrefixMapClearNothing_4_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         final SortedMap<String, Integer> prefixMap = trie.prefixMap("And");
         // removed other assertion
@@ -8005,7 +8005,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertTrue(prefixMap.keySet().isEmpty());
     }
 
-    public void testPrefixMapClearNothing_5_oe() {
+public void testPrefixMapClearNothing_5_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         final SortedMap<String, Integer> prefixMap = trie.prefixMap("And");
         // removed other assertion
@@ -8017,7 +8017,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertTrue(prefixMap.values().isEmpty());
     }
 
-    public void testPrefixMapClearNothing_6_oe() {
+public void testPrefixMapClearNothing_6_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         final SortedMap<String, Integer> prefixMap = trie.prefixMap("And");
         // removed other assertion
@@ -8030,7 +8030,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(new HashSet<String>(), trie.keySet());
     }
 
-    public void testPrefixMapClearNothing_7_oe() {
+public void testPrefixMapClearNothing_7_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         final SortedMap<String, Integer> prefixMap = trie.prefixMap("And");
         // removed other assertion
@@ -8044,7 +8044,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(new ArrayList<Integer>(0), new ArrayList<>(trie.values()));
     }
 
-    public void testPrefixMapClearUsingRemove_1_oe() {
+public void testPrefixMapClearUsingRemove_1_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         trie.put("Anna", 1);
         trie.put("Anael", 2);
@@ -8057,7 +8057,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(new HashSet<>(Arrays.asList("Andrea", "Andreas", "Andres")), prefixMap.keySet());
     }
 
-    public void testPrefixMapClearUsingRemove_2_oe() {
+public void testPrefixMapClearUsingRemove_2_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         trie.put("Anna", 1);
         trie.put("Anael", 2);
@@ -8071,7 +8071,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(Arrays.asList(5, 4, 6), new ArrayList<>(prefixMap.values()));
     }
 
-    public void testPrefixMapClearUsingRemove_3_oe() {
+public void testPrefixMapClearUsingRemove_3_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         trie.put("Anna", 1);
         trie.put("Anael", 2);
@@ -8091,7 +8091,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertTrue(prefixMap.keySet().isEmpty());
     }
 
-    public void testPrefixMapClearUsingRemove_4_oe() {
+public void testPrefixMapClearUsingRemove_4_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         trie.put("Anna", 1);
         trie.put("Anael", 2);
@@ -8112,7 +8112,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertTrue(prefixMap.values().isEmpty());
     }
 
-    public void testPrefixMapClearUsingRemove_5_oe() {
+public void testPrefixMapClearUsingRemove_5_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         trie.put("Anna", 1);
         trie.put("Anael", 2);
@@ -8134,7 +8134,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
         assertEquals(new HashSet<>(Arrays.asList("Anael", "Analu", "Anatole", "Anna")), trie.keySet());
     }
 
-    public void testPrefixMapClearUsingRemove_6_oe() {
+public void testPrefixMapClearUsingRemove_6_oe() {
         final Trie<String, Integer> trie = new PatriciaTrie<>();
         trie.put("Anna", 1);
         trie.put("Anael", 2);

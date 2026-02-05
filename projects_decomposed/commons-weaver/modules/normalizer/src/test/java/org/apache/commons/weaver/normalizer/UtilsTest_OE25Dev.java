@@ -83,25 +83,25 @@ public class UtilsTest_OE25Dev {
         assertFalse(iterator.hasNext());
     }
 
-    @Test
+@Test
     public void testValidatePackageName_1_oe() {
         assertEquals("", Utils.validatePackageName(""));
     }
 
-    @Test
+@Test
     public void testValidatePackageName_2_oe() {
         // removed other assertion
         assertEquals("", Utils.validatePackageName("    "));
     }
 
-    @Test
+@Test
     public void testValidatePackageName_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("foo", Utils.validatePackageName("foo"));
     }
 
-    @Test
+@Test
     public void testValidatePackageName_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -109,7 +109,7 @@ public class UtilsTest_OE25Dev {
         assertEquals("foo/bar", Utils.validatePackageName("foo.bar"));
     }
 
-    @Test
+@Test
     public void testValidatePackageName_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -118,7 +118,7 @@ public class UtilsTest_OE25Dev {
         assertEquals("foo/bar", Utils.validatePackageName("foo/bar"));
     }
 
-    @Test
+@Test
     public void testValidatePackageName_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -128,7 +128,7 @@ public class UtilsTest_OE25Dev {
         assertEquals("foo/bar/baz", Utils.validatePackageName("foo.bar.baz"));
     }
 
-    @Test
+@Test
     public void testValidatePackageName_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -139,7 +139,7 @@ public class UtilsTest_OE25Dev {
         assertEquals("foo/bar/baz", Utils.validatePackageName("foo.bar/baz"));
     }
 
-    @Test
+@Test
     public void testValidatePackageName_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -151,7 +151,7 @@ public class UtilsTest_OE25Dev {
         assertEquals("foo/bar/baz", Utils.validatePackageName("foo/bar.baz"));
     }
 
-    @Test
+@Test
     public void testValidatePackageName_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -164,7 +164,7 @@ public class UtilsTest_OE25Dev {
         assertEquals("foo/bar/baz", Utils.validatePackageName("foo/bar/baz"));
     }
 
-    @Test
+@Test
     public void testValidatePackageName_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -178,7 +178,7 @@ public class UtilsTest_OE25Dev {
         assertEquals("$foo", Utils.validatePackageName("$foo"));
     }
 
-    @Test
+@Test
     public void testValidatePackageName_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -193,7 +193,7 @@ public class UtilsTest_OE25Dev {
         assertEquals("_foo", Utils.validatePackageName("_foo"));
     }
 
-    @Test
+@Test
     public void testValidatePackageName_12_oe() {
         // removed other assertion
         // removed other assertion

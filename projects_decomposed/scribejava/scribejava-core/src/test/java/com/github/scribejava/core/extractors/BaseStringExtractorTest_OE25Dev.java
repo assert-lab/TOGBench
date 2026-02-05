@@ -50,7 +50,7 @@ public class BaseStringExtractorTest_OE25Dev {
         });
     }
 
-    @Test
+@Test
     public void shouldExtractBaseStringFromOAuthRequest_1_oe() {
         final String expected = "GET&http%3A%2F%2Fexample.com&oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback"
                 + "%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature%3DOAuth-Signature"
@@ -59,7 +59,7 @@ public class BaseStringExtractorTest_OE25Dev {
         assertEquals(expected, baseString);
     }
 
-    @Test
+@Test
     public void shouldExcludePort80_1_oe() {
         final String expected = "GET&http%3A%2F%2Fexample.com&oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback"
                 + "%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature%3DOAuth-Signature"
@@ -68,7 +68,7 @@ public class BaseStringExtractorTest_OE25Dev {
         assertEquals(expected, baseString);
     }
 
-    @Test
+@Test
     public void shouldExcludePort80v2_1_oe() {
         final String expected = "GET&http%3A%2F%2Fexample.com%2Ftest&oauth_callback%3Dhttp%253A%252F%252Fexample"
                 + "%252Fcallback%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature"
@@ -77,7 +77,7 @@ public class BaseStringExtractorTest_OE25Dev {
         assertEquals(expected, baseString);
     }
 
-    @Test
+@Test
     public void shouldIncludePort8080_1_oe() {
         final String expected = "GET&http%3A%2F%2Fexample.com%3A8080&oauth_callback%3Dhttp%253A%252F%252Fexample"
                 + "%252Fcallback%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature"
@@ -86,7 +86,7 @@ public class BaseStringExtractorTest_OE25Dev {
         assertEquals(expected, baseString);
     }
 
-    @Test
+@Test
     public void shouldExcludePort443_1_oe() {
         final String expected = "GET&https%3A%2F%2Fexample.com&oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback"
                 + "%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature%3DOAuth-Signature"
@@ -95,7 +95,7 @@ public class BaseStringExtractorTest_OE25Dev {
         assertEquals(expected, baseString);
     }
 
-    @Test
+@Test
     public void shouldExcludePort443v2_1_oe() {
         final String expected = "GET&https%3A%2F%2Fexample.com%2Ftest&oauth_callback%3Dhttp%253A%252F%252Fexample"
                 + "%252Fcallback%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature"
@@ -104,7 +104,7 @@ public class BaseStringExtractorTest_OE25Dev {
         assertEquals(expected, baseString);
     }
 
-    @Test
+@Test
     public void shouldProperlyEncodeSpaces_1_oe() {
         final String expected = "GET&http%3A%2F%2Fexample.com&body%3Dthis%2520param%2520has%2520whitespace"
                 + "%26oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback%26oauth_consumer_key"

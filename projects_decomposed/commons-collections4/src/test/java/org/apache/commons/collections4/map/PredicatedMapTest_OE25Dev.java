@@ -78,12 +78,12 @@ public class PredicatedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, 
 //            "src/test/resources/data/test/PredicatedMap.fullCollection.version4.obj");
 //    }
 
-    public void testEntrySet_1_oe() {
+public void testEntrySet_1_oe() {
         Map<K, V> map = makeTestMap();
         assertTrue("returned entryset should not be null",map.entrySet()!= null);
     }
 
-    public void testEntrySet_2_oe() {
+public void testEntrySet_2_oe() {
         Map<K, V> map = makeTestMap();
         // removed other assertion
         map = decorateMap(new HashMap<K, V>(), null, null);
@@ -91,7 +91,7 @@ public class PredicatedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, 
         assertTrue("returned entryset should contain one entry",map.entrySet().size()== 1);
     }
 
-    public void testPut_3_oe() {
+public void testPut_3_oe() {
         final Map<K, V> map = makeTestMap();
         try {
             map.put((K) "Hi", (V) Integer.valueOf(3));
@@ -110,7 +110,7 @@ public class PredicatedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, 
         assertTrue(!map.containsKey(Integer.valueOf(3)));
     }
 
-    public void testPut_4_oe() {
+public void testPut_4_oe() {
         final Map<K, V> map = makeTestMap();
         try {
             map.put((K) "Hi", (V) Integer.valueOf(3));

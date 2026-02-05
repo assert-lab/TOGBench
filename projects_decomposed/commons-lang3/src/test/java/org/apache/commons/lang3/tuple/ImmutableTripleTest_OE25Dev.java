@@ -36,20 +36,20 @@ import org.junit.jupiter.api.Test;
  */
 public class ImmutableTripleTest_OE25Dev {
 
-    @Test
+@Test
     public void testBasic_1_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = new ImmutableTriple<>(0, "foo", Boolean.TRUE);
         assertEquals(0, triple.left.intValue());
     }
 
-    @Test
+@Test
     public void testBasic_2_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = new ImmutableTriple<>(0, "foo", Boolean.TRUE);
         // removed other assertion
         assertEquals(0, triple.getLeft().intValue());
     }
 
-    @Test
+@Test
     public void testBasic_3_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = new ImmutableTriple<>(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -57,7 +57,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals("foo", triple.middle);
     }
 
-    @Test
+@Test
     public void testBasic_4_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = new ImmutableTriple<>(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -66,7 +66,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals("foo", triple.getMiddle());
     }
 
-    @Test
+@Test
     public void testBasic_5_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = new ImmutableTriple<>(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -76,7 +76,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals(Boolean.TRUE, triple.right);
     }
 
-    @Test
+@Test
     public void testBasic_6_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = new ImmutableTriple<>(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -87,7 +87,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals(Boolean.TRUE, triple.getRight());
     }
 
-    @Test
+@Test
     public void testBasic_7_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = new ImmutableTriple<>(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -100,7 +100,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertNull(triple2.left);
     }
 
-    @Test
+@Test
     public void testBasic_8_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = new ImmutableTriple<>(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -114,7 +114,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertNull(triple2.getLeft());
     }
 
-    @Test
+@Test
     public void testBasic_9_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = new ImmutableTriple<>(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -129,7 +129,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals("bar", triple2.middle);
     }
 
-    @Test
+@Test
     public void testBasic_10_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = new ImmutableTriple<>(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -145,7 +145,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals("bar", triple2.getMiddle());
     }
 
-    @Test
+@Test
     public void testBasic_11_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = new ImmutableTriple<>(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -162,7 +162,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals(new Integer(42), triple2.right);
     }
 
-    @Test
+@Test
     public void testBasic_12_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = new ImmutableTriple<>(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -180,38 +180,38 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals(new Integer(42), triple2.getRight());
     }
 
-    @Test
+@Test
     public void testEmptyArrayGenerics_1_oe() {
         final ImmutableTriple<Integer, String, Boolean>[] empty = ImmutableTriple.emptyArray();
         assertEquals(0, empty.length);
     }
 
-    @Test
+@Test
     public void testEmptyArrayLength_1_oe() {
         @SuppressWarnings("unchecked")
         final ImmutableTriple<Integer, String, Boolean>[] empty = (ImmutableTriple<Integer, String, Boolean>[]) ImmutableTriple.EMPTY_ARRAY;
         assertEquals(0, empty.length);
     }
 
-    @Test
+@Test
     public void testEquals_1_oe() {
         assertEquals(ImmutableTriple.of(null, "foo", 42), ImmutableTriple.of(null, "foo", 42));
     }
 
-    @Test
+@Test
     public void testEquals_2_oe() {
         // removed other assertion
         assertNotEquals(ImmutableTriple.of("foo", 0, Boolean.TRUE), ImmutableTriple.of("foo", null, null));
     }
 
-    @Test
+@Test
     public void testEquals_3_oe() {
         // removed other assertion
         // removed other assertion
         assertNotEquals(ImmutableTriple.of("foo", "bar", "baz"), ImmutableTriple.of("xyz", "bar", "blo"));
     }
 
-    @Test
+@Test
     public void testEquals_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -221,7 +221,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals(p, p);
     }
 
-    @Test
+@Test
     public void testEquals_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -232,37 +232,37 @@ public class ImmutableTripleTest_OE25Dev {
         assertNotEquals(p, new Object());
     }
 
-    @Test
+@Test
     public void testHashCode_1_oe() {
         assertEquals(ImmutableTriple.of(null, "foo", Boolean.TRUE).hashCode(), ImmutableTriple.of(null, "foo", Boolean.TRUE).hashCode());
     }
 
-    @Test
+@Test
     public void testNullTripleEquals_1_oe() {
         assertEquals(ImmutableTriple.nullTriple(), ImmutableTriple.nullTriple());
     }
 
-    @Test
+@Test
     public void testNullTripleLeft_1_oe() {
         assertNull(ImmutableTriple.nullTriple().getLeft());
     }
 
-    @Test
+@Test
     public void testNullTripleMiddle_1_oe() {
         assertNull(ImmutableTriple.nullTriple().getMiddle());
     }
 
-    @Test
+@Test
     public void testNullTripleRight_1_oe() {
         assertNull(ImmutableTriple.nullTriple().getRight());
     }
 
-    @Test
+@Test
     public void testNullTripleSame_1_oe() {
         assertSame(ImmutableTriple.nullTriple(), ImmutableTriple.nullTriple());
     }
 
-    @Test
+@Test
     public void testNullTripleTyped_1_oe() {
         // No compiler warnings
         // How do we assert that?
@@ -270,7 +270,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertNotNull(triple);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSerialization_1_oe() throws Exception {
         final ImmutableTriple<Integer, String, Boolean> origTriple = ImmutableTriple.of(0, "foo", Boolean.TRUE);
@@ -278,7 +278,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals(origTriple, deserializedTriple);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSerialization_2_oe() throws Exception {
         final ImmutableTriple<Integer, String, Boolean> origTriple = ImmutableTriple.of(0, "foo", Boolean.TRUE);
@@ -287,25 +287,25 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals(origTriple.hashCode(), deserializedTriple.hashCode());
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         assertEquals("(null,null,null)", ImmutableTriple.of(null, null, null).toString());
     }
 
-    @Test
+@Test
     public void testToString_2_oe() {
         // removed other assertion
         assertEquals("(null,two,null)", ImmutableTriple.of(null, "two", null).toString());
     }
 
-    @Test
+@Test
     public void testToString_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("(one,null,null)", ImmutableTriple.of("one", null, null).toString());
     }
 
-    @Test
+@Test
     public void testToString_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -313,7 +313,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals("(one,two,null)", ImmutableTriple.of("one", "two", null).toString());
     }
 
-    @Test
+@Test
     public void testToString_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -322,7 +322,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals("(null,two,three)", ImmutableTriple.of(null, "two", "three").toString());
     }
 
-    @Test
+@Test
     public void testToString_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -332,7 +332,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals("(one,null,three)", ImmutableTriple.of("one", null, "three").toString());
     }
 
-    @Test
+@Test
     public void testToString_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -343,20 +343,20 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals("(one,two,three)", MutableTriple.of("one", "two", "three").toString());
     }
 
-    @Test
+@Test
     public void testTripleOf_1_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = ImmutableTriple.of(0, "foo", Boolean.FALSE);
         assertEquals(0, triple.left.intValue());
     }
 
-    @Test
+@Test
     public void testTripleOf_2_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = ImmutableTriple.of(0, "foo", Boolean.FALSE);
         // removed other assertion
         assertEquals(0, triple.getLeft().intValue());
     }
 
-    @Test
+@Test
     public void testTripleOf_3_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = ImmutableTriple.of(0, "foo", Boolean.FALSE);
         // removed other assertion
@@ -364,7 +364,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals("foo", triple.middle);
     }
 
-    @Test
+@Test
     public void testTripleOf_4_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = ImmutableTriple.of(0, "foo", Boolean.FALSE);
         // removed other assertion
@@ -373,7 +373,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals("foo", triple.getMiddle());
     }
 
-    @Test
+@Test
     public void testTripleOf_5_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = ImmutableTriple.of(0, "foo", Boolean.FALSE);
         // removed other assertion
@@ -383,7 +383,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals(Boolean.FALSE, triple.right);
     }
 
-    @Test
+@Test
     public void testTripleOf_6_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = ImmutableTriple.of(0, "foo", Boolean.FALSE);
         // removed other assertion
@@ -394,7 +394,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals(Boolean.FALSE, triple.getRight());
     }
 
-    @Test
+@Test
     public void testTripleOf_7_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = ImmutableTriple.of(0, "foo", Boolean.FALSE);
         // removed other assertion
@@ -407,7 +407,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertNull(triple2.left);
     }
 
-    @Test
+@Test
     public void testTripleOf_8_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = ImmutableTriple.of(0, "foo", Boolean.FALSE);
         // removed other assertion
@@ -421,7 +421,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertNull(triple2.getLeft());
     }
 
-    @Test
+@Test
     public void testTripleOf_9_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = ImmutableTriple.of(0, "foo", Boolean.FALSE);
         // removed other assertion
@@ -436,7 +436,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals("bar", triple2.middle);
     }
 
-    @Test
+@Test
     public void testTripleOf_10_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = ImmutableTriple.of(0, "foo", Boolean.FALSE);
         // removed other assertion
@@ -452,7 +452,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals("bar", triple2.getMiddle());
     }
 
-    @Test
+@Test
     public void testTripleOf_11_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = ImmutableTriple.of(0, "foo", Boolean.FALSE);
         // removed other assertion
@@ -469,7 +469,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals(Boolean.TRUE, triple2.right);
     }
 
-    @Test
+@Test
     public void testTripleOf_12_oe() {
         final ImmutableTriple<Integer, String, Boolean> triple = ImmutableTriple.of(0, "foo", Boolean.FALSE);
         // removed other assertion
@@ -487,7 +487,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals(Boolean.TRUE, triple2.getRight());
     }
 
-    @Test
+@Test
     public void testUseAsKeyOfHashMap_1_oe() {
         final HashMap<ImmutableTriple<Object, Object, Object>, String> map = new HashMap<>();
         final Object o1 = new Object();
@@ -499,7 +499,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals(value1, map.get(key1));
     }
 
-    @Test
+@Test
     public void testUseAsKeyOfHashMap_2_oe() {
         final HashMap<ImmutableTriple<Object, Object, Object>, String> map = new HashMap<>();
         final Object o1 = new Object();
@@ -512,7 +512,7 @@ public class ImmutableTripleTest_OE25Dev {
         assertEquals(value1, map.get(ImmutableTriple.of(o1, o2, o3)));
     }
 
-    @Test
+@Test
     public void testUseAsKeyOfTreeMap_1_oe() {
         final TreeMap<ImmutableTriple<Integer, Integer, Integer>, String> map = new TreeMap<>();
         map.put(ImmutableTriple.of(0, 1, 2), "012");
@@ -529,7 +529,7 @@ public class ImmutableTripleTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testUseAsKeyOfTreeMap_2_oe() {
         final TreeMap<ImmutableTriple<Integer, Integer, Integer>, String> map = new TreeMap<>();
         map.put(ImmutableTriple.of(0, 1, 2), "012");

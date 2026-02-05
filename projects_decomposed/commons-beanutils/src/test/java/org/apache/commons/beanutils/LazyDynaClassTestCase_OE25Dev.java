@@ -176,60 +176,60 @@ public class LazyDynaClassTestCase_OE25Dev extends TestCase {
      * Test removing a property which doesn't exist
      */
 
-    public void testAddProperty1_1_oe() {
+public void testAddProperty1_1_oe() {
         dynaClass.add(testProperty);
         final DynaProperty dynaProperty = dynaClass.getDynaProperty(testProperty);
         assertEquals("name is correct", testProperty, dynaProperty.getName());
     }
 
-    public void testAddProperty1_2_oe() {
+public void testAddProperty1_2_oe() {
         dynaClass.add(testProperty);
         final DynaProperty dynaProperty = dynaClass.getDynaProperty(testProperty);
         // removed other assertion
         assertEquals("type is correct", Object.class, dynaProperty.getType());
     }
 
-    public void testAddProperty2_1_oe() {
+public void testAddProperty2_1_oe() {
         dynaClass.add(testProperty, String.class);
         final DynaProperty dynaProperty = dynaClass.getDynaProperty(testProperty);
         assertEquals("name is correct", testProperty, dynaProperty.getName());
     }
 
-    public void testAddProperty2_2_oe() {
+public void testAddProperty2_2_oe() {
         dynaClass.add(testProperty, String.class);
         final DynaProperty dynaProperty = dynaClass.getDynaProperty(testProperty);
         // removed other assertion
         assertEquals("type is correct", String.class, dynaProperty.getType());
     }
 
-    public void testAddPropertyRestricted1_1_oe() {
+public void testAddPropertyRestricted1_1_oe() {
         dynaClass.setRestricted(true);
         assertTrue("MutableDynaClass is restricted", dynaClass.isRestricted());
     }
 
-    public void testAddPropertyRestricted2_1_oe() {
+public void testAddPropertyRestricted2_1_oe() {
         dynaClass.setRestricted(true);
         assertTrue("MutableDynaClass is restricted", dynaClass.isRestricted());
     }
 
-    public void testAddPropertyRestricted3_1_oe() {
+public void testAddPropertyRestricted3_1_oe() {
         dynaClass.setRestricted(true);
         assertTrue("MutableDynaClass is restricted", dynaClass.isRestricted());
     }
 
-    public void testGetPropertyDoesntExist1_1_oe() {
+public void testGetPropertyDoesntExist1_1_oe() {
         dynaClass.setReturnNull(false);
         assertFalse("returnNull is 'false'", dynaClass.isReturnNull());
     }
 
-    public void testGetPropertyDoesntExist1_2_oe() {
+public void testGetPropertyDoesntExist1_2_oe() {
         dynaClass.setReturnNull(false);
         // removed other assertion
         final DynaProperty dynaProperty = dynaClass.getDynaProperty(testProperty);
         assertEquals("name is correct", testProperty, dynaProperty.getName());
     }
 
-    public void testGetPropertyDoesntExist1_3_oe() {
+public void testGetPropertyDoesntExist1_3_oe() {
         dynaClass.setReturnNull(false);
         // removed other assertion
         final DynaProperty dynaProperty = dynaClass.getDynaProperty(testProperty);
@@ -237,7 +237,7 @@ public class LazyDynaClassTestCase_OE25Dev extends TestCase {
         assertEquals("type is correct", Object.class, dynaProperty.getType());
     }
 
-    public void testGetPropertyDoesntExist1_4_oe() {
+public void testGetPropertyDoesntExist1_4_oe() {
         dynaClass.setReturnNull(false);
         // removed other assertion
         final DynaProperty dynaProperty = dynaClass.getDynaProperty(testProperty);
@@ -246,31 +246,31 @@ public class LazyDynaClassTestCase_OE25Dev extends TestCase {
         assertFalse("property doesnt exist", dynaClass.isDynaProperty(testProperty));
     }
 
-    public void testGetPropertyDoesntExist2_1_oe() {
+public void testGetPropertyDoesntExist2_1_oe() {
         dynaClass.setReturnNull(true);
         assertTrue("returnNull is 'true'", dynaClass.isReturnNull());
     }
 
-    public void testGetPropertyDoesntExist2_2_oe() {
+public void testGetPropertyDoesntExist2_2_oe() {
         dynaClass.setReturnNull(true);
         // removed other assertion
         assertNull("property is null", dynaClass.getDynaProperty(testProperty));
     }
 
-    public void testRemoveProperty_1_oe() {
+public void testRemoveProperty_1_oe() {
         dynaClass.setReturnNull(true);
         dynaClass.add(testProperty);
         assertTrue("Property exists", dynaClass.isDynaProperty(testProperty));
     }
 
-    public void testRemoveProperty_2_oe() {
+public void testRemoveProperty_2_oe() {
         dynaClass.setReturnNull(true);
         dynaClass.add(testProperty);
         // removed other assertion
         assertNotNull("property is Not null", dynaClass.getDynaProperty(testProperty));
     }
 
-    public void testRemoveProperty_3_oe() {
+public void testRemoveProperty_3_oe() {
         dynaClass.setReturnNull(true);
         dynaClass.add(testProperty);
         // removed other assertion
@@ -279,7 +279,7 @@ public class LazyDynaClassTestCase_OE25Dev extends TestCase {
         assertFalse("Property doesn't exist", dynaClass.isDynaProperty(testProperty));
     }
 
-    public void testRemoveProperty_4_oe() {
+public void testRemoveProperty_4_oe() {
         dynaClass.setReturnNull(true);
         dynaClass.add(testProperty);
         // removed other assertion
@@ -289,23 +289,23 @@ public class LazyDynaClassTestCase_OE25Dev extends TestCase {
         assertNull("property is null", dynaClass.getDynaProperty(testProperty));
     }
 
-    public void testRemovePropertyRestricted_1_oe() {
+public void testRemovePropertyRestricted_1_oe() {
         dynaClass.add(testProperty);
         assertTrue("Property exists", dynaClass.isDynaProperty(testProperty));
     }
 
-    public void testRemovePropertyRestricted_2_oe() {
+public void testRemovePropertyRestricted_2_oe() {
         dynaClass.add(testProperty);
         // removed other assertion
         dynaClass.setRestricted(true);
         assertTrue("MutableDynaClass is restricted", dynaClass.isRestricted());
     }
 
-    public void testRemovePropertyDoesntExist_1_oe() {
+public void testRemovePropertyDoesntExist_1_oe() {
         assertFalse("property doesn't exist", dynaClass.isDynaProperty(testProperty));
     }
 
-    public void testRemovePropertyDoesntExist_2_oe() {
+public void testRemovePropertyDoesntExist_2_oe() {
         // removed other assertion
         dynaClass.remove(testProperty);
         assertFalse("property still doesn't exist", dynaClass.isDynaProperty(testProperty));

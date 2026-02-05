@@ -31,7 +31,7 @@ public class ResourceUtilsTest_OE25Dev {
         ResourceUtils.getFile(url, "My File Path");
     }
 
-    @Test
+@Test
     public void testGetFile_whenURLProtocolIsFile_thenReturnFileObject_1_oe() throws
                                                                          MalformedURLException,
                                                                          FileNotFoundException,

@@ -38,7 +38,7 @@ public class JpegImageParserTest_OE25Dev {
      * @throws IOException
      */
 
-    @Test
+@Test
     public void testGetBufferedImage10_1_oe() throws ImageReadException, IOException {
         final File imageFile = new File(
                 JpegDecoderTest.class.getResource("/IMAGING-136/1402522741337.jpg")
@@ -48,7 +48,7 @@ public class JpegImageParserTest_OE25Dev {
         assertEquals(680, image.getWidth());
     }
 
-    @Test
+@Test
     public void testGetBufferedImage10_2_oe() throws ImageReadException, IOException {
         final File imageFile = new File(
                 JpegDecoderTest.class.getResource("/IMAGING-136/1402522741337.jpg")
@@ -59,7 +59,7 @@ public class JpegImageParserTest_OE25Dev {
         assertEquals(241, image.getHeight());
     }
 
-    @Test
+@Test
     public void testGetBufferedImage10_3_oe() throws ImageReadException, IOException {
         final File imageFile = new File(
                 JpegDecoderTest.class.getResource("/IMAGING-136/1402522741337.jpg")
@@ -71,7 +71,7 @@ public class JpegImageParserTest_OE25Dev {
         assertEquals(-16777216, image.getRGB(0, 0));
     }
 
-    @Test
+@Test
     public void testGetBufferedImage10_4_oe() throws ImageReadException, IOException {
         final File imageFile = new File(
                 JpegDecoderTest.class.getResource("/IMAGING-136/1402522741337.jpg")

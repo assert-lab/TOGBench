@@ -74,16 +74,16 @@ public class UnmodifiableListIteratorTest_OE25Dev<E> extends AbstractListIterato
 
     //-----------------------------------------------------------------------
 
-    public void testListIterator_1_oe() {
+public void testListIterator_1_oe() {
         assertTrue(makeEmptyIterator() instanceof Unmodifiable);
     }
 
-    public void testDecorateFactory_1_oe() {
+public void testDecorateFactory_1_oe() {
         ListIterator<E> it = makeObject();
         assertSame(it, UnmodifiableListIterator.umodifiableListIterator(it));
     }
 
-    public void testDecorateFactory_2_oe() {
+public void testDecorateFactory_2_oe() {
         ListIterator<E> it = makeObject();
         // removed other assertion
 

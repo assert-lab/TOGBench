@@ -73,7 +73,7 @@ public class TransformingComparatorTest_OE25Dev extends AbstractComparatorTest<I
     // The tests
     //
 
-    public void testEquals_1_oe() {
+public void testEquals_1_oe() {
         final Transformer<String, String> t1 = TransformerUtils.nopTransformer();
         final TransformingComparator<String, String> comp1 = new TransformingComparator<>(t1);
         final TransformingComparator<String, String> comp2 = new TransformingComparator<>(t1, comp1);
@@ -82,7 +82,7 @@ public class TransformingComparatorTest_OE25Dev extends AbstractComparatorTest<I
         assertTrue("Contract failed: equals-hashcode",comp1.equals(comp2)? comp1.hashCode()== comp2.hashCode(): true);
     }
 
-    public void testEquals_2_oe() {
+public void testEquals_2_oe() {
         final Transformer<String, String> t1 = TransformerUtils.nopTransformer();
         final TransformingComparator<String, String> comp1 = new TransformingComparator<>(t1);
         final TransformingComparator<String, String> comp2 = new TransformingComparator<>(t1, comp1);

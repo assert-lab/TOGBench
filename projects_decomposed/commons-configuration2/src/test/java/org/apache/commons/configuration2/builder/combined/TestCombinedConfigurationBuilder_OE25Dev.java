@@ -740,7 +740,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
      * properties can be added to the resulting configuration.
      */
 
-    @Test
+@Test
     public void testBasePathForChildConfigurations_1_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration defConfig = new BaseHierarchicalConfiguration();
         defConfig.addProperty("properties[@fileName]", "test.properties");
@@ -751,7 +751,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong property value", "somevalue", config.getString("somekey"));
     }
 
-    @Test
+@Test
     public void testBuilderNames_1_oe() throws ConfigurationException {
         builder.configure(createParameters().setFile(TEST_FILE));
         builder.getConfiguration();
@@ -760,7 +760,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong number of named builders", expected.size(), names.size());
     }
 
-    @Test
+@Test
     public void testBuilderNames_2_oe() throws ConfigurationException {
         builder.configure(createParameters().setFile(TEST_FILE));
         builder.getConfiguration();
@@ -770,19 +770,19 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Wrong builder names: " + names, names.containsAll(expected));
     }
 
-    @Test
+@Test
     public void testBuilderNamesBeforeConfigurationAccess_1_oe() {
         assertTrue("Got builders (1)", builder.builderNames().isEmpty());
     }
 
-    @Test
+@Test
     public void testBuilderNamesBeforeConfigurationAccess_2_oe() {
         // removed other assertion
         builder.configure(createParameters().setFile(TEST_FILE));
         assertTrue("Got builders (2)", builder.builderNames().isEmpty());
     }
 
-    @Test
+@Test
     public void testChildBuildersAreInitializedOnlyOnce_1_oe() throws ConfigurationException {
         builder.configure(createParameters().setFile(TEST_FILE));
         builder.getConfiguration();
@@ -792,7 +792,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong number of child builders", 3, childBuilders.size());
     }
 
-    @Test
+@Test
     public void testCombinedConfigurationListNodes_1_oe() throws ConfigurationException {
         final File initFile = ConfigurationAssert.getTestFile("testCCResultInitialization.xml");
         builder.configure(createParameters().setFile(initFile));
@@ -801,7 +801,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong number of list nodes", 2, listNodes.size());
     }
 
-    @Test
+@Test
     public void testCombinedConfigurationListNodes_2_oe() throws ConfigurationException {
         final File initFile = ConfigurationAssert.getTestFile("testCCResultInitialization.xml");
         builder.configure(createParameters().setFile(initFile));
@@ -811,7 +811,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("table node not a list node", listNodes.contains("table"));
     }
 
-    @Test
+@Test
     public void testCombinedConfigurationListNodes_3_oe() throws ConfigurationException {
         final File initFile = ConfigurationAssert.getTestFile("testCCResultInitialization.xml");
         builder.configure(createParameters().setFile(initFile));
@@ -822,7 +822,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("list node not a list node", listNodes.contains("list"));
     }
 
-    @Test
+@Test
     public void testCombinedConfigurationListNodes_4_oe() throws ConfigurationException {
         final File initFile = ConfigurationAssert.getTestFile("testCCResultInitialization.xml");
         builder.configure(createParameters().setFile(initFile));
@@ -837,14 +837,14 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Found list nodes for additional combiner", listNodes.isEmpty());
     }
 
-    @Test
+@Test
     public void testCombinedConfigurationNoAdditional_1_oe() throws ConfigurationException {
         builder.configure(createParameters().setFile(TEST_FILE));
         final CombinedConfiguration cc = builder.getConfiguration();
         assertNull("Additional configuration was found", cc.getConfiguration(CombinedConfigurationBuilder.ADDITIONAL_NAME));
     }
 
-    @Test
+@Test
     public void testConfigurationBuilderProvider_1_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration defConfig = new BaseHierarchicalConfiguration();
         defConfig.addProperty("override.configuration[@fileName]", TEST_FILE.getAbsolutePath());
@@ -853,7 +853,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong number of configurations", 1, cc.getNumberOfConfigurations());
     }
 
-    @Test
+@Test
     public void testConfigurationBuilderProviderInheritBasePath_1_oe() throws ConfigurationException {
         final File envFile = ConfigurationAssert.getTestFile("testCCEnvProperties.xml");
         final String basePath = ConfigurationAssert.OUT_DIR.getAbsolutePath();
@@ -864,7 +864,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Base path not set", basePath, params.getBasePath());
     }
 
-    @Test
+@Test
     public void testConfigurationBuilderProviderInheritBasicProperties_1_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testCCCombinedChildBuilder.xml");
         final ListDelimiterHandler listHandler = new DefaultListDelimiterHandler('*');
@@ -876,7 +876,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertFalse("Wrong exception flag", cc2.isThrowExceptionOnMissing());
     }
 
-    @Test
+@Test
     public void testConfigurationBuilderProviderInheritBasicProperties_2_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testCCCombinedChildBuilder.xml");
         final ListDelimiterHandler listHandler = new DefaultListDelimiterHandler('*');
@@ -889,7 +889,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong list delimiter handler", listHandler, cc2.getListDelimiterHandler());
     }
 
-    @Test
+@Test
     public void testConfigurationBuilderProviderInheritBasicProperties_3_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testCCCombinedChildBuilder.xml");
         final ListDelimiterHandler listHandler = new DefaultListDelimiterHandler('*');
@@ -903,7 +903,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong decoder", decoder, cc2.getConfigurationDecoder());
     }
 
-    @Test
+@Test
     public void testConfigurationBuilderProviderInheritCustomProviders_1_oe() throws ConfigurationException {
         builder.configure(createParameters().setFile(ConfigurationAssert.getTestFile("testCCCustomProvider.xml")));
         builder.getConfiguration();
@@ -912,7 +912,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertNotNull("Custom provider not found", ccparams.providerForTag("test"));
     }
 
-    @Test
+@Test
     public void testConfigurationBuilderProviderInheritEventListeners_1_oe() throws ConfigurationException {
         final EventListener<Event> l1 = EasyMock.createNiceMock(EventListener.class);
         final EventListener<ConfigurationEvent> l2 = EasyMock.createNiceMock(EventListener.class);
@@ -927,7 +927,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Listener 1 not found", listeners.contains(l1));
     }
 
-    @Test
+@Test
     public void testConfigurationBuilderProviderInheritEventListeners_2_oe() throws ConfigurationException {
         final EventListener<Event> l1 = EasyMock.createNiceMock(EventListener.class);
         final EventListener<ConfigurationEvent> l2 = EasyMock.createNiceMock(EventListener.class);
@@ -943,7 +943,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Listener 2 not found", listeners.contains(l2));
     }
 
-    @Test
+@Test
     public void testConfigurationBuilderProviderInheritEventListeners_3_oe() throws ConfigurationException {
         final EventListener<Event> l1 = EasyMock.createNiceMock(EventListener.class);
         final EventListener<ConfigurationEvent> l2 = EasyMock.createNiceMock(EventListener.class);
@@ -961,7 +961,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong number of event listeners", 1, eventListeners.size());
     }
 
-    @Test
+@Test
     public void testConfigurationBuilderProviderInheritEventListeners_4_oe() throws ConfigurationException {
         final EventListener<Event> l1 = EasyMock.createNiceMock(EventListener.class);
         final EventListener<ConfigurationEvent> l2 = EasyMock.createNiceMock(EventListener.class);
@@ -980,7 +980,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Wrong listener", eventListeners.contains(l1));
     }
 
-    @Test
+@Test
     public void testConfigureEntityResolverWithProperties_1_oe() throws ConfigurationException {
         final HierarchicalConfiguration<ImmutableNode> config = new BaseHierarchicalConfiguration();
         config.addProperty("header.entity-resolver[@config-class]", EntityResolverWithPropertiesTestImpl.class.getName());
@@ -994,7 +994,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertSame("File system not set", fs, resolver.getFileSystem());
     }
 
-    @Test
+@Test
     public void testConfigureEntityResolverWithProperties_2_oe() throws ConfigurationException {
         final HierarchicalConfiguration<ImmutableNode> config = new BaseHierarchicalConfiguration();
         config.addProperty("header.entity-resolver[@config-class]", EntityResolverWithPropertiesTestImpl.class.getName());
@@ -1009,13 +1009,13 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertSame("Base directory not set", baseDir, resolver.getBaseDir());
     }
 
-    @Test
+@Test
     public void testConfigureResult_1_oe() {
         final CombinedConfigurationBuilder configuredBuilder = builder.configure(createParameters().setFile(TEST_FILE));
         assertSame("Wrong instance returned", builder, configuredBuilder);
     }
 
-    @Test
+@Test
     public void testCustomBuilderProvider_1_oe() throws ConfigurationException {
         final String tagName = "myTestTag";
         final BaseHierarchicalConfiguration dataConf = new BaseHierarchicalConfiguration();
@@ -1029,7 +1029,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Configuration not added", dataConf, cc.getConfiguration(BUILDER_NAME));
     }
 
-    @Test
+@Test
     public void testCustomBuilderProvider_2_oe() throws ConfigurationException {
         final String tagName = "myTestTag";
         final BaseHierarchicalConfiguration dataConf = new BaseHierarchicalConfiguration();
@@ -1044,7 +1044,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Property not set", Boolean.TRUE, cc.getProperty("tests." + tagName));
     }
 
-    @Test
+@Test
     public void testCustomLookup_1_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testCCLookup.xml");
         builder.configure(createParameters().setFile(testFile));
@@ -1052,7 +1052,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Lookup not registered in CC", cc.getInterpolator().getLookups().containsKey("test"));
     }
 
-    @Test
+@Test
     public void testCustomLookup_2_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testCCLookup.xml");
         builder.configure(createParameters().setFile(testFile));
@@ -1062,7 +1062,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Lookup not registered in sub config", xmlConf.getInterpolator().getLookups().containsKey("test"));
     }
 
-    @Test
+@Test
     public void testCustomResultConfiguration_2_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testCCResultClass.xml");
         final ListDelimiterHandler listHandler = new DefaultListDelimiterHandler('.');
@@ -1073,7 +1073,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Wrong exception flag", cc.isThrowExceptionOnMissing());
     }
 
-    @Test
+@Test
     public void testCustomResultConfiguration_3_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testCCResultClass.xml");
         final ListDelimiterHandler listHandler = new DefaultListDelimiterHandler('.');
@@ -1085,7 +1085,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong list delimiter handler", listHandler, cc.getListDelimiterHandler());
     }
 
-    @Test
+@Test
     public void testDefaultBasePathFromDefinitionBuilder_1_oe() throws ConfigurationException, IOException {
         final String testFile = "testCCSystemProperties.xml";
         builder.configure(new CombinedBuilderParametersImpl()
@@ -1097,7 +1097,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong base path", ConfigurationAssert.getTestFile(testFile).getAbsoluteFile(), basePathFile);
     }
 
-    @Test
+@Test
     public void testDefaultBasePathInParameters_1_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testCCSystemProperties.xml");
         final String basePath = ConfigurationAssert.OUT_DIR.getAbsolutePath();
@@ -1108,7 +1108,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Base path not set", basePath, xmlParams.getFileHandler().getBasePath());
     }
 
-    @Test
+@Test
     public void testEnvironmentProperties_1_oe() throws ConfigurationException {
         final File envFile = ConfigurationAssert.getTestFile("testCCEnvProperties.xml");
         builder.configure(createParameters().setFile(envFile));
@@ -1116,7 +1116,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertFalse("Configuration is empty", cc.isEmpty());
     }
 
-    @Test
+@Test
     public void testEnvironmentProperties_2_oe() throws ConfigurationException {
         final File envFile = ConfigurationAssert.getTestFile("testCCEnvProperties.xml");
         builder.configure(createParameters().setFile(envFile));
@@ -1134,7 +1134,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testGetChildBuilders_1_oe() throws ConfigurationException {
         builder.configure(createParameters().setFile(TEST_FILE));
         builder.getConfiguration();
@@ -1142,7 +1142,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong number of child builders", 3, childBuilders.size());
     }
 
-    @Test
+@Test
     public void testGetNamedBuilder_1_oe() throws ConfigurationException {
         builder.configure(createParameters().setFile(TEST_FILE));
         builder.getConfiguration();
@@ -1150,7 +1150,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Wrong builder class", propBuilder instanceof FileBasedConfigurationBuilder);
     }
 
-    @Test
+@Test
     public void testGetNamedBuilder_2_oe() throws ConfigurationException {
         builder.configure(createParameters().setFile(TEST_FILE));
         builder.getConfiguration();
@@ -1159,7 +1159,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Wrong sub configuration", propBuilder.getConfiguration() instanceof PropertiesConfiguration);
     }
 
-    @Test
+@Test
     public void testInheritProperties_1_oe() throws ConfigurationException {
         final Parameters params = new Parameters();
         final XMLBuilderParameters xmlParams = prepareParamsForInheritanceTest(params);
@@ -1170,7 +1170,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Wrong number of elements in list", list.size() > 2);
     }
 
-    @Test
+@Test
     public void testInheritProperties_2_oe() throws ConfigurationException {
         final Parameters params = new Parameters();
         final XMLBuilderParameters xmlParams = prepareParamsForInheritanceTest(params);
@@ -1183,7 +1183,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Wrong number of elements in array", stringArray.length > 2);
     }
 
-    @Test
+@Test
     public void testInheritProperties_3_oe() throws ConfigurationException {
         final Parameters params = new Parameters();
         final XMLBuilderParameters xmlParams = prepareParamsForInheritanceTest(params);
@@ -1199,7 +1199,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong number of elements in XML list", 3, list.size());
     }
 
-    @Test
+@Test
     public void testINIConfiguration_1_oe() throws ConfigurationException {
         final File multiFile = ConfigurationAssert.getTestFile("testDigesterConfiguration3.xml");
         builder.configure(new CombinedBuilderParametersImpl().setDefinitionBuilderParameters(createParameters().setFile(multiFile)));
@@ -1207,7 +1207,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Property from ini file not found", "yes", cc.getString("testini.loaded"));
     }
 
-    @Test
+@Test
     public void testInitChildBuilderParametersDefaultChildProperties_1_oe() throws ConfigurationException {
         final Long defRefresh = 60000L;
         final Long xmlRefresh = 30000L;
@@ -1222,7 +1222,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Wrong expression engine", params.getParameters().get("expressionEngine") instanceof XPathExpressionEngine);
     }
 
-    @Test
+@Test
     public void testInitChildBuilderParametersDefaultChildProperties_2_oe() throws ConfigurationException {
         final Long defRefresh = 60000L;
         final Long xmlRefresh = 30000L;
@@ -1238,7 +1238,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Validating flag not set", Boolean.FALSE, params.getParameters().get("validating"));
     }
 
-    @Test
+@Test
     public void testInitChildBuilderParametersDefaultChildProperties_3_oe() throws ConfigurationException {
         final Long defRefresh = 60000L;
         final Long xmlRefresh = 30000L;
@@ -1255,7 +1255,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong XML refresh", xmlRefresh, params.getReloadingRefreshDelay());
     }
 
-    @Test
+@Test
     public void testInitChildBuilderParametersDefaultChildProperties_4_oe() throws ConfigurationException {
         final Long defRefresh = 60000L;
         final Long xmlRefresh = 30000L;
@@ -1273,7 +1273,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Basic flag not set", Boolean.TRUE, params.getParameters().get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testInitChildBuilderParametersDefaultChildProperties_5_oe() throws ConfigurationException {
         final Long defRefresh = 60000L;
         final Long xmlRefresh = 30000L;
@@ -1295,7 +1295,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong default refresh", defRefresh, params2.getReloadingRefreshDelay());
     }
 
-    @Test
+@Test
     public void testInterpolationOverMultipleSources_1_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testInterpolationBuilder.xml");
         builder.configure(createParameters().setFile(testFile));
@@ -1303,7 +1303,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong value", "abc-product", combConfig.getString("products.product.desc"));
     }
 
-    @Test
+@Test
     public void testInterpolationOverMultipleSources_2_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testInterpolationBuilder.xml");
         builder.configure(createParameters().setFile(testFile));
@@ -1313,7 +1313,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong value from XML config", "abc-product", xmlConfig.getString("products/product/desc"));
     }
 
-    @Test
+@Test
     public void testInterpolationOverMultipleSources_3_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testInterpolationBuilder.xml");
         builder.configure(createParameters().setFile(testFile));
@@ -1325,7 +1325,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong value from sub config", "abc-product", subConfig.getString("desc"));
     }
 
-    @Test
+@Test
     public void testJndiConfiguration_1_oe() throws ConfigurationException {
         final File multiFile = ConfigurationAssert.getTestFile("testDigesterConfiguration3.xml");
         builder.configure(new CombinedBuilderParametersImpl().setDefinitionBuilderParameters(createParameters().setFile(multiFile)));
@@ -1333,7 +1333,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("JNDI property not found", cc.getBoolean("test.onlyinjndi"));
     }
 
-    @Test
+@Test
     public void testLoadAdditional_1_oe() throws ConfigurationException {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
@@ -1341,7 +1341,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Verify how many configs", 2, compositeConfiguration.getNumberOfConfigurations());
     }
 
-    @Test
+@Test
     public void testLoadAdditional_2_oe() throws ConfigurationException {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
@@ -1353,7 +1353,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue(prop instanceof Collection);
     }
 
-    @Test
+@Test
     public void testLoadAdditional_3_oe() throws ConfigurationException {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
@@ -1366,7 +1366,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals(3, ((Collection<?>) prop).size());
     }
 
-    @Test
+@Test
     public void testLoadAdditional_4_oe() throws ConfigurationException {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
@@ -1380,7 +1380,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("users", compositeConfiguration.getProperty("tables.table(0).name"));
     }
 
-    @Test
+@Test
     public void testLoadAdditional_5_oe() throws ConfigurationException {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
@@ -1395,7 +1395,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("documents", compositeConfiguration.getProperty("tables.table(1).name"));
     }
 
-    @Test
+@Test
     public void testLoadAdditional_6_oe() throws ConfigurationException {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
@@ -1411,7 +1411,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("tasks", compositeConfiguration.getProperty("tables.table(2).name"));
     }
 
-    @Test
+@Test
     public void testLoadAdditional_7_oe() throws ConfigurationException {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
@@ -1430,7 +1430,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue(prop instanceof Collection);
     }
 
-    @Test
+@Test
     public void testLoadAdditional_8_oe() throws ConfigurationException {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
@@ -1450,7 +1450,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals(17, ((Collection<?>) prop).size());
     }
 
-    @Test
+@Test
     public void testLoadAdditional_9_oe() throws ConfigurationException {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
@@ -1472,7 +1472,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("smtp.mydomain.org", compositeConfiguration.getString("mail.host.smtp"));
     }
 
-    @Test
+@Test
     public void testLoadAdditional_10_oe() throws ConfigurationException {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
@@ -1495,7 +1495,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("pop3.mydomain.org", compositeConfiguration.getString("mail.host.pop"));
     }
 
-    @Test
+@Test
     public void testLoadAdditional_11_oe() throws ConfigurationException {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
@@ -1521,7 +1521,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("masterOfPost", compositeConfiguration.getString("mail.account.user"));
     }
 
-    @Test
+@Test
     public void testLoadAdditional_12_oe() throws ConfigurationException {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
@@ -1548,7 +1548,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("topsecret", compositeConfiguration.getString("mail.account.psswd"));
     }
 
-    @Test
+@Test
     public void testLoadAdditional_13_oe() throws ConfigurationException {
         final File additonalFile = ConfigurationAssert.getTestFile("testDigesterConfiguration2.xml");
         builder.configure(createParameters().setFile(additonalFile));
@@ -1578,7 +1578,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("enhanced factory", compositeConfiguration.getString("test.configuration"));
     }
 
-    @Test
+@Test
     public void testLoadOptional_1_oe() throws Exception {
         final File optionalFile = ConfigurationAssert.getTestFile("testDigesterOptionalConfiguration.xml");
         builder.configure(createParameters().setFile(optionalFile));
@@ -1586,7 +1586,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue(config.getBoolean("test.boolean"));
     }
 
-    @Test
+@Test
     public void testLoadOptional_2_oe() throws Exception {
         final File optionalFile = ConfigurationAssert.getTestFile("testDigesterOptionalConfiguration.xml");
         builder.configure(createParameters().setFile(optionalFile));
@@ -1595,7 +1595,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("value", config.getProperty("element"));
     }
 
-    @Test
+@Test
     public void testLoadOptionalForceCreate_1_oe() throws ConfigurationException {
         final String name = "optionalConfig";
         final Map<String, Object> attrs = new HashMap<>();
@@ -1610,7 +1610,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong number of configurations", 1, cc.getNumberOfConfigurations());
     }
 
-    @Test
+@Test
     public void testLoadOptionalForceCreate_2_oe() throws ConfigurationException {
         final String name = "optionalConfig";
         final Map<String, Object> attrs = new HashMap<>();
@@ -1626,7 +1626,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Wrong configuration type", cc.getConfiguration(name) instanceof XMLConfiguration);
     }
 
-    @Test
+@Test
     public void testMultiTenentConfigurationProperties_1_oe() throws ConfigurationException {
         final CombinedConfiguration config = createMultiFileConfig("testCCMultiTenent.xml");
         switchToMultiFile("1001");
@@ -1634,7 +1634,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Expression engine not configured", multiConf.getExpressionEngine() instanceof XPathExpressionEngine);
     }
 
-    @Test
+@Test
     public void testMultiTenentConfigurationProperties_2_oe() throws ConfigurationException {
         final CombinedConfiguration config = createMultiFileConfig("testCCMultiTenent.xml");
         switchToMultiFile("1001");
@@ -1643,7 +1643,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong bg color", "#808080", config.getString("colors.background"));
     }
 
-    @Test
+@Test
     public void testMultiTenentConfigurationProperties_3_oe() throws ConfigurationException {
         final CombinedConfiguration config = createMultiFileConfig("testCCMultiTenent.xml");
         switchToMultiFile("1001");
@@ -1653,7 +1653,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong text color", "#000000", multiConf.getString("colors/text"));
     }
 
-    @Test
+@Test
     public void testMultiTenentConfigurationReloading_7_oe() throws ConfigurationException, InterruptedException {
         final CombinedConfiguration config = createMultiFileConfig("testCCMultiTenentReloading.xml");
         final File outFile = ConfigurationAssert.getOutFile("MultiFileReloadingTest.xml");
@@ -1697,14 +1697,14 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testProviderInDefinitionConfig_1_oe() throws ConfigurationException {
         builder.configure(createParameters().setFile(ConfigurationAssert.getTestFile("testCCCustomProvider.xml")));
         final CombinedConfiguration cc = builder.getConfiguration();
         assertTrue("Property not found", cc.getBoolean("testKey"));
     }
 
-    @Test
+@Test
     public void testReactOnSubBuilderChange_1_oe() throws ConfigurationException {
         final Map<String, Object> attrs = new HashMap<>();
         prepareSubBuilderTest(attrs);
@@ -1714,7 +1714,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertNotSame("Configuration not newly created", cc, builder.getConfiguration());
     }
 
-    @Test
+@Test
     public void testReloadingBuilder_1_oe() throws ConfigurationException {
         final Map<String, Object> attrs = new HashMap<>();
         attrs.put("config-reload", Boolean.TRUE);
@@ -1723,7 +1723,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("Not a reloading builder", builder.getNamedBuilder(BUILDER_NAME) instanceof ReloadingFileBasedConfigurationBuilder);
     }
 
-    @Test
+@Test
     public void testRemoveSubBuilderListener_1_oe() throws ConfigurationException {
         final Map<String, Object> attrs = new HashMap<>();
         prepareSubBuilderTest(attrs);
@@ -1736,7 +1736,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertNotSame("Got the same sub builder", subBuilder, subBuilder2);
     }
 
-    @Test
+@Test
     public void testRemoveSubBuilderListener_2_oe() throws ConfigurationException {
         final Map<String, Object> attrs = new HashMap<>();
         prepareSubBuilderTest(attrs);
@@ -1751,7 +1751,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertSame("Configuration was reset", cc, builder.getConfiguration());
     }
 
-    @Test
+@Test
     public void testResetBuilder_1_oe() throws ConfigurationException {
         final Map<String, Object> attrs = new HashMap<>();
         final BasicConfigurationBuilder<? extends HierarchicalConfiguration<ImmutableNode>> defBuilder = prepareSubBuilderTest(attrs);
@@ -1762,7 +1762,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertNotSame("No new configuration instance", cc, cc2);
     }
 
-    @Test
+@Test
     public void testResetBuilder_2_oe() throws ConfigurationException {
         final Map<String, Object> attrs = new HashMap<>();
         final BasicConfigurationBuilder<? extends HierarchicalConfiguration<ImmutableNode>> defBuilder = prepareSubBuilderTest(attrs);
@@ -1775,14 +1775,14 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertNotSame("No new sub builder instance", subBuilder, subBuilder2);
     }
 
-    @Test
+@Test
     public void testRootNodeInitializedAfterCreation_1_oe() throws ConfigurationException {
         builder.configure(createParameters().setFile(TEST_FILE));
         final CombinedConfiguration cc = builder.getConfiguration();
         assertNotNull("Root node not initialized", cc.getNodeModel().getNodeHandler().getRootNode());
     }
 
-    @Test
+@Test
     public void testSuppressChildBuilderPropertyInheritance_1_oe() throws ConfigurationException {
         final Parameters params = new Parameters();
         final CombinedBuilderParameters combinedParams = params.combined().setInheritSettings(false);
@@ -1794,7 +1794,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertEquals("Wrong number of elements in XML list", 1, list.size());
     }
 
-    @Test
+@Test
     public void testSystemProperties_1_oe() throws ConfigurationException {
         final File systemFile = ConfigurationAssert.getTestFile("testCCSystemProperties.xml");
         builder.configure(createParameters().setFile(systemFile));
@@ -1802,7 +1802,7 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         assertTrue("System property not found", cc.containsKey("user.name"));
     }
 
-    @Test
+@Test
     public void testSystemProperties_2_oe() throws ConfigurationException {
         final File systemFile = ConfigurationAssert.getTestFile("testCCSystemProperties.xml");
         builder.configure(createParameters().setFile(systemFile));

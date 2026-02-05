@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class TokenTest_OE25Dev {
 
-    @Test
+@Test
     public void shouldTestEqualityBasedOnTokenAndSecret_1_oe() {
         final Token expected = new OAuth1AccessToken("access", "secret");
         final Token actual = new OAuth1AccessToken("access", "secret");
@@ -14,7 +14,7 @@ public class TokenTest_OE25Dev {
         assertEquals(expected, actual);
     }
 
-    @Test
+@Test
     public void shouldTestEqualityBasedOnTokenAndSecret_2_oe() {
         final Token expected = new OAuth1AccessToken("access", "secret");
         final Token actual = new OAuth1AccessToken("access", "secret");
@@ -23,7 +23,7 @@ public class TokenTest_OE25Dev {
         assertEquals(actual, actual);
     }
 
-    @Test
+@Test
     public void shouldNotDependOnRawString_1_oe() {
         final Token expected = new OAuth1AccessToken("access", "secret", "raw_string");
         final Token actual = new OAuth1AccessToken("access", "secret", "different_raw_string");
@@ -31,7 +31,7 @@ public class TokenTest_OE25Dev {
         assertEquals(expected, actual);
     }
 
-    @Test
+@Test
     public void shouldReturnSameHashCodeForEqualObjects_1_oe() {
         final Token expected = new OAuth1AccessToken("access", "secret");
         final Token actual = new OAuth1AccessToken("access", "secret");
@@ -39,14 +39,14 @@ public class TokenTest_OE25Dev {
         assertEquals(expected.hashCode(), actual.hashCode());
     }
 
-    @Test
+@Test
     public void shouldNotBeEqualToNullOrOtherObjects_1_oe() {
         final Token expected = new OAuth1AccessToken("access", "secret", "response");
 
         assertNotSame(expected, null);
     }
 
-    @Test
+@Test
     public void shouldNotBeEqualToNullOrOtherObjects_2_oe() {
         final Token expected = new OAuth1AccessToken("access", "secret", "response");
 
@@ -54,14 +54,14 @@ public class TokenTest_OE25Dev {
         assertNotSame(expected, new Object());
     }
 
-    @Test
+@Test
     public void shouldReturnUrlParam_1_oe() {
         final Token actual = new OAuth1AccessToken("acccess", "secret",
                 "user_id=3107154759&screen_name=someuser&empty=&=");
         assertEquals("someuser", actual.getParameter("screen_name"));
     }
 
-    @Test
+@Test
     public void shouldReturnUrlParam_2_oe() {
         final Token actual = new OAuth1AccessToken("acccess", "secret",
                 "user_id=3107154759&screen_name=someuser&empty=&=");
@@ -69,7 +69,7 @@ public class TokenTest_OE25Dev {
         assertEquals("3107154759", actual.getParameter("user_id"));
     }
 
-    @Test
+@Test
     public void shouldReturnUrlParam_3_oe() {
         final Token actual = new OAuth1AccessToken("acccess", "secret",
                 "user_id=3107154759&screen_name=someuser&empty=&=");
@@ -78,7 +78,7 @@ public class TokenTest_OE25Dev {
         assertEquals(null, actual.getParameter("empty"));
     }
 
-    @Test
+@Test
     public void shouldReturnUrlParam_4_oe() {
         final Token actual = new OAuth1AccessToken("acccess", "secret",
                 "user_id=3107154759&screen_name=someuser&empty=&=");

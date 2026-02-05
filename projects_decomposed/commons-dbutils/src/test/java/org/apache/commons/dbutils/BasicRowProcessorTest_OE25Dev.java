@@ -39,13 +39,13 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
     private static final DateFormat datef =
         new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
 
-    public void testToArray_1_oe() throws SQLException {
+public void testToArray_1_oe() throws SQLException {
 
         Object[] a = null;
         assertTrue(this.rs.next());
     }
 
-    public void testToArray_2_oe() throws SQLException {
+public void testToArray_2_oe() throws SQLException {
 
         Object[] a = null;
         // removed other assertion
@@ -53,7 +53,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(COLS, a.length);
     }
 
-    public void testToArray_3_oe() throws SQLException {
+public void testToArray_3_oe() throws SQLException {
 
         Object[] a = null;
         // removed other assertion
@@ -62,7 +62,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("1", a[0]);
     }
 
-    public void testToArray_4_oe() throws SQLException {
+public void testToArray_4_oe() throws SQLException {
 
         Object[] a = null;
         // removed other assertion
@@ -72,7 +72,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("2", a[1]);
     }
 
-    public void testToArray_5_oe() throws SQLException {
+public void testToArray_5_oe() throws SQLException {
 
         Object[] a = null;
         // removed other assertion
@@ -83,7 +83,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("THREE", a[2]);
     }
 
-    public void testToArray_6_oe() throws SQLException {
+public void testToArray_6_oe() throws SQLException {
 
         Object[] a = null;
         // removed other assertion
@@ -96,7 +96,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertTrue(this.rs.next());
     }
 
-    public void testToArray_7_oe() throws SQLException {
+public void testToArray_7_oe() throws SQLException {
 
         Object[] a = null;
         // removed other assertion
@@ -111,7 +111,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(COLS, a.length);
     }
 
-    public void testToArray_8_oe() throws SQLException {
+public void testToArray_8_oe() throws SQLException {
 
         Object[] a = null;
         // removed other assertion
@@ -128,7 +128,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("4", a[0]);
     }
 
-    public void testToArray_9_oe() throws SQLException {
+public void testToArray_9_oe() throws SQLException {
 
         Object[] a = null;
         // removed other assertion
@@ -146,7 +146,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("5", a[1]);
     }
 
-    public void testToArray_10_oe() throws SQLException {
+public void testToArray_10_oe() throws SQLException {
 
         Object[] a = null;
         // removed other assertion
@@ -165,7 +165,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("SIX", a[2]);
     }
 
-    public void testToArray_11_oe() throws SQLException {
+public void testToArray_11_oe() throws SQLException {
 
         Object[] a = null;
         // removed other assertion
@@ -186,13 +186,13 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertFalse(this.rs.next());
     }
 
-    public void testToBean_1_oe() throws SQLException, ParseException {
+public void testToBean_1_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         assertTrue(this.rs.next());
     }
 
-    public void testToBean_2_oe() throws SQLException, ParseException {
+public void testToBean_2_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -200,7 +200,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("1", row.getOne());
     }
 
-    public void testToBean_3_oe() throws SQLException, ParseException {
+public void testToBean_3_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -209,7 +209,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("2", row.getTwo());
     }
 
-    public void testToBean_4_oe() throws SQLException, ParseException {
+public void testToBean_4_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -219,7 +219,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(TestBean.Ordinal.THREE, row.getThree());
     }
 
-    public void testToBean_5_oe() throws SQLException, ParseException {
+public void testToBean_5_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -230,7 +230,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("not set", row.getDoNotSet());
     }
 
-    public void testToBean_6_oe() throws SQLException, ParseException {
+public void testToBean_6_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -243,7 +243,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertTrue(this.rs.next());
     }
 
-    public void testToBean_7_oe() throws SQLException, ParseException {
+public void testToBean_7_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -259,7 +259,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("4", row.getOne());
     }
 
-    public void testToBean_8_oe() throws SQLException, ParseException {
+public void testToBean_8_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -276,7 +276,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("5", row.getTwo());
     }
 
-    public void testToBean_9_oe() throws SQLException, ParseException {
+public void testToBean_9_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -294,7 +294,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(TestBean.Ordinal.SIX, row.getThree());
     }
 
-    public void testToBean_10_oe() throws SQLException, ParseException {
+public void testToBean_10_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -313,7 +313,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("not set", row.getDoNotSet());
     }
 
-    public void testToBean_11_oe() throws SQLException, ParseException {
+public void testToBean_11_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -333,7 +333,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(3, row.getIntTest());
     }
 
-    public void testToBean_12_oe() throws SQLException, ParseException {
+public void testToBean_12_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -354,7 +354,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(Integer.valueOf(4), row.getIntegerTest());
     }
 
-    public void testToBean_13_oe() throws SQLException, ParseException {
+public void testToBean_13_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -376,7 +376,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(null, row.getNullObjectTest());
     }
 
-    public void testToBean_14_oe() throws SQLException, ParseException {
+public void testToBean_14_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -399,7 +399,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(0, row.getNullPrimitiveTest());
     }
 
-    public void testToBean_15_oe() throws SQLException, ParseException {
+public void testToBean_15_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -424,7 +424,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertNotNull(row.getNotDate());
     }
 
-    public void testToBean_16_oe() throws SQLException, ParseException {
+public void testToBean_16_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -450,7 +450,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertTrue(!"not a date".equals(row.getNotDate()));
     }
 
-    public void testToBean_17_oe() throws SQLException, ParseException {
+public void testToBean_17_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -477,7 +477,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertTrue(row.getNotDate().endsWith("789456123"));
     }
 
-    public void testToBean_18_oe() throws SQLException, ParseException {
+public void testToBean_18_oe() throws SQLException, ParseException {
 
         TestBean row = null;
         // removed other assertion
@@ -506,20 +506,20 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertFalse(this.rs.next());
     }
 
-    public void testToBeanList_1_oe() throws SQLException, ParseException {
+public void testToBeanList_1_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         assertNotNull(list);
     }
 
-    public void testToBeanList_2_oe() throws SQLException, ParseException {
+public void testToBeanList_2_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         // removed other assertion
         assertEquals(ROWS, list.size());
     }
 
-    public void testToBeanList_3_oe() throws SQLException, ParseException {
+public void testToBeanList_3_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         // removed other assertion
@@ -529,7 +529,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("1", b.getOne());
     }
 
-    public void testToBeanList_4_oe() throws SQLException, ParseException {
+public void testToBeanList_4_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         // removed other assertion
@@ -540,7 +540,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("2", b.getTwo());
     }
 
-    public void testToBeanList_5_oe() throws SQLException, ParseException {
+public void testToBeanList_5_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         // removed other assertion
@@ -552,7 +552,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(TestBean.Ordinal.THREE, b.getThree());
     }
 
-    public void testToBeanList_6_oe() throws SQLException, ParseException {
+public void testToBeanList_6_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         // removed other assertion
@@ -565,7 +565,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("not set", b.getDoNotSet());
     }
 
-    public void testToBeanList_7_oe() throws SQLException, ParseException {
+public void testToBeanList_7_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         // removed other assertion
@@ -582,7 +582,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("4", b.getOne());
     }
 
-    public void testToBeanList_8_oe() throws SQLException, ParseException {
+public void testToBeanList_8_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         // removed other assertion
@@ -600,7 +600,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("5", b.getTwo());
     }
 
-    public void testToBeanList_9_oe() throws SQLException, ParseException {
+public void testToBeanList_9_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         // removed other assertion
@@ -619,7 +619,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(TestBean.Ordinal.SIX, b.getThree());
     }
 
-    public void testToBeanList_10_oe() throws SQLException, ParseException {
+public void testToBeanList_10_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         // removed other assertion
@@ -639,7 +639,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("not set", b.getDoNotSet());
     }
 
-    public void testToBeanList_11_oe() throws SQLException, ParseException {
+public void testToBeanList_11_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         // removed other assertion
@@ -660,7 +660,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(3, b.getIntTest());
     }
 
-    public void testToBeanList_12_oe() throws SQLException, ParseException {
+public void testToBeanList_12_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         // removed other assertion
@@ -682,7 +682,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(Integer.valueOf(4), b.getIntegerTest());
     }
 
-    public void testToBeanList_13_oe() throws SQLException, ParseException {
+public void testToBeanList_13_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         // removed other assertion
@@ -705,7 +705,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(null, b.getNullObjectTest());
     }
 
-    public void testToBeanList_14_oe() throws SQLException, ParseException {
+public void testToBeanList_14_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         // removed other assertion
@@ -729,7 +729,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(0, b.getNullPrimitiveTest());
     }
 
-    public void testToBeanList_15_oe() throws SQLException, ParseException {
+public void testToBeanList_15_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         // removed other assertion
@@ -755,7 +755,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertNotNull(b.getNotDate());
     }
 
-    public void testToBeanList_16_oe() throws SQLException, ParseException {
+public void testToBeanList_16_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         // removed other assertion
@@ -782,7 +782,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertTrue(!"not a date".equals(b.getNotDate()));
     }
 
-    public void testToBeanList_17_oe() throws SQLException, ParseException {
+public void testToBeanList_17_oe() throws SQLException, ParseException {
 
         List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
         // removed other assertion
@@ -810,19 +810,19 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertTrue(b.getNotDate().endsWith("789456123"));
     }
 
-    public void testToMap_1_oe() throws SQLException {
+public void testToMap_1_oe() throws SQLException {
 
         assertTrue(this.rs.next());
     }
 
-    public void testToMap_2_oe() throws SQLException {
+public void testToMap_2_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
         assertEquals(COLS, m.keySet().size());
     }
 
-    public void testToMap_3_oe() throws SQLException {
+public void testToMap_3_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -830,7 +830,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("1", m.get("one"));
     }
 
-    public void testToMap_4_oe() throws SQLException {
+public void testToMap_4_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -839,7 +839,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("2", m.get("TWO"));
     }
 
-    public void testToMap_5_oe() throws SQLException {
+public void testToMap_5_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -849,7 +849,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("THREE", m.get("Three"));
     }
 
-    public void testToMap_6_oe() throws SQLException {
+public void testToMap_6_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -861,7 +861,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertTrue(this.rs.next());
     }
 
-    public void testToMap_7_oe() throws SQLException {
+public void testToMap_7_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -875,7 +875,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals(COLS, m.keySet().size());
     }
 
-    public void testToMap_8_oe() throws SQLException {
+public void testToMap_8_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -891,7 +891,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("4",m.get("One"));// case shouldn't matter assertEquals("5",m.get("two"));
     }
 
-    public void testToMap_9_oe() throws SQLException {
+public void testToMap_9_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -908,7 +908,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("SIX", m.get("THREE"));
     }
 
-    public void testToMap_10_oe() throws SQLException {
+public void testToMap_10_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -927,12 +927,12 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertFalse(this.rs.next());
     }
 
-    public void testToMapOrdering_1_oe() throws SQLException {
+public void testToMapOrdering_1_oe() throws SQLException {
 
         assertTrue(this.rs.next());
     }
 
-    public void testToMapOrdering_2_oe() throws SQLException {
+public void testToMapOrdering_2_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -941,7 +941,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("one", itr.next());
     }
 
-    public void testToMapOrdering_3_oe() throws SQLException {
+public void testToMapOrdering_3_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -951,7 +951,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("two", itr.next());
     }
 
-    public void testToMapOrdering_4_oe() throws SQLException {
+public void testToMapOrdering_4_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -962,7 +962,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("three", itr.next());
     }
 
-    public void testToMapOrdering_5_oe() throws SQLException {
+public void testToMapOrdering_5_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -974,7 +974,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("notInBean", itr.next());
     }
 
-    public void testToMapOrdering_6_oe() throws SQLException {
+public void testToMapOrdering_6_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -987,7 +987,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("intTest", itr.next());
     }
 
-    public void testToMapOrdering_7_oe() throws SQLException {
+public void testToMapOrdering_7_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -1001,7 +1001,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("integerTest", itr.next());
     }
 
-    public void testToMapOrdering_8_oe() throws SQLException {
+public void testToMapOrdering_8_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -1016,7 +1016,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("nullObjectTest", itr.next());
     }
 
-    public void testToMapOrdering_9_oe() throws SQLException {
+public void testToMapOrdering_9_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -1032,7 +1032,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("nullPrimitiveTest", itr.next());
     }
 
-    public void testToMapOrdering_10_oe() throws SQLException {
+public void testToMapOrdering_10_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -1049,7 +1049,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("notDate", itr.next());
     }
 
-    public void testToMapOrdering_11_oe() throws SQLException {
+public void testToMapOrdering_11_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);
@@ -1067,7 +1067,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         assertEquals("columnProcessorDoubleTest", itr.next());
     }
 
-    public void testToMapOrdering_12_oe() throws SQLException {
+public void testToMapOrdering_12_oe() throws SQLException {
 
         // removed other assertion
         Map<String, Object> m = processor.toMap(this.rs);

@@ -65,7 +65,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
 //            "src/test/resources/data/test/TransformedMap.fullCollection.version4.obj");
 //    }
 
-    public void testTransformedMap_1_oe() {
+public void testTransformedMap_1_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -76,7 +76,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals(0, map.size());
     }
 
-    public void testTransformedMap_2_oe() {
+public void testTransformedMap_2_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -91,7 +91,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
     }
     }
 
-    public void testTransformedMap_3_oe() {
+public void testTransformedMap_3_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -107,7 +107,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
     }
     }
 
-    public void testTransformedMap_4_oe() {
+public void testTransformedMap_4_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -124,7 +124,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
     }
     }
 
-    public void testTransformedMap_5_oe() {
+public void testTransformedMap_5_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -142,7 +142,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
     }
     }
 
-    public void testTransformedMap_6_oe() {
+public void testTransformedMap_6_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -161,7 +161,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
     }
     }
 
-    public void testTransformedMap_7_oe() {
+public void testTransformedMap_7_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -182,7 +182,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals(null, map.remove(els[0]));
     }
 
-    public void testTransformedMap_8_oe() {
+public void testTransformedMap_8_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -204,7 +204,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals(els[0], map.remove(Integer.valueOf((String) els[0])));
     }
 
-    public void testTransformedMap_9_oe() {
+public void testTransformedMap_9_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -231,7 +231,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals(0, map.size());
     }
 
-    public void testTransformedMap_10_oe() {
+public void testTransformedMap_10_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -262,7 +262,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
     }
     }
 
-    public void testTransformedMap_11_oe() {
+public void testTransformedMap_11_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -294,7 +294,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
     }
     }
 
-    public void testTransformedMap_12_oe() {
+public void testTransformedMap_12_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -327,7 +327,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
     }
     }
 
-    public void testTransformedMap_13_oe() {
+public void testTransformedMap_13_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -361,7 +361,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
     }
     }
 
-    public void testTransformedMap_14_oe() {
+public void testTransformedMap_14_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -396,7 +396,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
     }
     }
 
-    public void testTransformedMap_15_oe() {
+public void testTransformedMap_15_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -433,7 +433,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals(Integer.valueOf((String) els[0]), map.remove(els[0]));
     }
 
-    public void testTransformedMap_16_oe() {
+public void testTransformedMap_16_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -475,7 +475,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals(Integer.valueOf(66), array[0].getValue());
     }
 
-    public void testTransformedMap_17_oe() {
+public void testTransformedMap_17_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -518,7 +518,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals(Integer.valueOf(66), map.get(array[0].getKey()));
     }
 
-    public void testTransformedMap_18_oe() {
+public void testTransformedMap_18_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -565,7 +565,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals(Integer.valueOf(88), entry.getValue());
     }
 
-    public void testTransformedMap_19_oe() {
+public void testTransformedMap_19_oe() {
         final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
 
         Map<K, V> map = TransformedMap
@@ -613,7 +613,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals(Integer.valueOf(88), map.get(entry.getKey()));
     }
 
-    public void testFactory_Decorate_1_oe() {
+public void testFactory_Decorate_1_oe() {
         final Map<K, V> base = new HashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -627,7 +627,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals(3, trans.size());
     }
 
-    public void testFactory_Decorate_2_oe() {
+public void testFactory_Decorate_2_oe() {
         final Map<K, V> base = new HashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -642,7 +642,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals("1", trans.get("A"));
     }
 
-    public void testFactory_Decorate_3_oe() {
+public void testFactory_Decorate_3_oe() {
         final Map<K, V> base = new HashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -658,7 +658,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals("2", trans.get("B"));
     }
 
-    public void testFactory_Decorate_4_oe() {
+public void testFactory_Decorate_4_oe() {
         final Map<K, V> base = new HashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -675,7 +675,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals("3", trans.get("C"));
     }
 
-    public void testFactory_Decorate_5_oe() {
+public void testFactory_Decorate_5_oe() {
         final Map<K, V> base = new HashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -694,7 +694,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals(Integer.valueOf(4), trans.get("D"));
     }
 
-    public void testFactory_decorateTransform_1_oe() {
+public void testFactory_decorateTransform_1_oe() {
         final Map<K, V> base = new HashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -708,7 +708,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals(3, trans.size());
     }
 
-    public void testFactory_decorateTransform_2_oe() {
+public void testFactory_decorateTransform_2_oe() {
         final Map<K, V> base = new HashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -723,7 +723,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals(Integer.valueOf(1), trans.get("A"));
     }
 
-    public void testFactory_decorateTransform_3_oe() {
+public void testFactory_decorateTransform_3_oe() {
         final Map<K, V> base = new HashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -739,7 +739,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals(Integer.valueOf(2), trans.get("B"));
     }
 
-    public void testFactory_decorateTransform_4_oe() {
+public void testFactory_decorateTransform_4_oe() {
         final Map<K, V> base = new HashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");
@@ -756,7 +756,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
         assertEquals(Integer.valueOf(3), trans.get("C"));
     }
 
-    public void testFactory_decorateTransform_5_oe() {
+public void testFactory_decorateTransform_5_oe() {
         final Map<K, V> base = new HashMap<>();
         base.put((K) "A", (V) "1");
         base.put((K) "B", (V) "2");

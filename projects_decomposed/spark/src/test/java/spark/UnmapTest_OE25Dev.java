@@ -13,7 +13,7 @@ public class UnmapTest_OE25Dev {
 
     SparkTestUtil testUtil = new SparkTestUtil(4567);
 
-    @Test
+@Test
     public void testUnmap_1_oe() throws Exception {
         get("/tobeunmapped", (q, a) -> "tobeunmapped");
         awaitInitialization();
@@ -22,7 +22,7 @@ public class UnmapTest_OE25Dev {
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testUnmap_2_oe() throws Exception {
         get("/tobeunmapped", (q, a) -> "tobeunmapped");
         awaitInitialization();
@@ -32,7 +32,7 @@ public class UnmapTest_OE25Dev {
         Assert.assertEquals("tobeunmapped", response.body);
     }
 
-    @Test
+@Test
     public void testUnmap_3_oe() throws Exception {
         get("/tobeunmapped", (q, a) -> "tobeunmapped");
         awaitInitialization();
@@ -47,7 +47,7 @@ public class UnmapTest_OE25Dev {
         Assert.assertEquals(404, response.status);
     }
 
-    @Test
+@Test
     public void testUnmap_4_oe() throws Exception {
         get("/tobeunmapped", (q, a) -> "tobeunmapped");
         awaitInitialization();
@@ -67,7 +67,7 @@ public class UnmapTest_OE25Dev {
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testUnmap_5_oe() throws Exception {
         get("/tobeunmapped", (q, a) -> "tobeunmapped");
         awaitInitialization();
@@ -88,7 +88,7 @@ public class UnmapTest_OE25Dev {
         Assert.assertEquals("tobeunmapped", response.body);
     }
 
-    @Test
+@Test
     public void testUnmap_6_oe() throws Exception {
         get("/tobeunmapped", (q, a) -> "tobeunmapped");
         awaitInitialization();

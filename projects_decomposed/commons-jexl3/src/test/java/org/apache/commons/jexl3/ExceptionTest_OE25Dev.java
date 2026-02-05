@@ -105,7 +105,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         }
     }
 
-    @Test
+@Test
     public void testWrappedEx_2_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlExpression e = jexl.createExpression("npe()");
@@ -119,7 +119,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWrappedExmore_2_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final ThrowNPE npe = new ThrowNPE();
@@ -132,7 +132,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWrappedExmore_4_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final ThrowNPE npe = new ThrowNPE();
@@ -152,7 +152,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWrappedExmore_5_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final ThrowNPE npe = new ThrowNPE();
@@ -175,7 +175,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse(b);
     }
 
-    @Test
+@Test
     public void testWrappedExmore_7_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final ThrowNPE npe = new ThrowNPE();
@@ -206,7 +206,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWrappedExmore_9_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final ThrowNPE npe = new ThrowNPE();
@@ -244,7 +244,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWrappedExmore_11_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final ThrowNPE npe = new ThrowNPE();
@@ -290,7 +290,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testWrappedExmore_13_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final ThrowNPE npe = new ThrowNPE();
@@ -343,7 +343,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testEx_2_oe() throws Exception {
         final JexlEngine jexl = createEngine(false);
         final JexlExpression e = jexl.createExpression("c.e * 6");
@@ -363,7 +363,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testEx_4_oe() throws Exception {
         final JexlEngine jexl = createEngine(false);
         final JexlExpression e = jexl.createExpression("c.e * 6");
@@ -394,7 +394,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testEx_5_oe() throws Exception {
         final JexlEngine jexl = createEngine(false);
         final JexlExpression e = jexl.createExpression("c.e * 6");
@@ -434,7 +434,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testEx_7_oe() throws Exception {
         final JexlEngine jexl = createEngine(false);
         final JexlExpression e = jexl.createExpression("c.e * 6");
@@ -485,7 +485,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testExVar_2_oe() throws Exception {
         final JexlEngine jexl = createEngine(false);
         final JexlScript e = jexl.createScript("(x)->{ x * 6 }");
@@ -506,7 +506,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testExVar_3_oe() throws Exception {
         final JexlEngine jexl = createEngine(false);
         final JexlScript e = jexl.createScript("(x)->{ x * 6 }");
@@ -535,7 +535,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testExMethod_2_oe() throws Exception {
         final JexlEngine jexl = createEngine(false);
         final JexlExpression e = jexl.createExpression("c.e.foo()");
@@ -555,7 +555,7 @@ public class ExceptionTest_OE25Dev extends JexlTestCase {
     }
     }
 
-    @Test
+@Test
     public void testExMethod_4_oe() throws Exception {
         final JexlEngine jexl = createEngine(false);
         final JexlExpression e = jexl.createExpression("c.e.foo()");

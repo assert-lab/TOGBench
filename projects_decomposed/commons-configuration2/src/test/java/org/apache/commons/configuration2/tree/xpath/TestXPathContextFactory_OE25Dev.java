@@ -43,7 +43,7 @@ public class TestXPathContextFactory_OE25Dev {
      * Tests whether a correct context is created.
      */
 
-    @Test
+@Test
     public void testCreateContext_1_oe() {
         final ImmutableNode node = new ImmutableNode.Builder().name("testRoot").create();
         final NodeHandler<ImmutableNode> handler = new InMemoryNodeModel(node).getNodeHandler();
@@ -52,7 +52,7 @@ public class TestXPathContextFactory_OE25Dev {
         assertTrue("No lenient mode", context.isLenient());
     }
 
-    @Test
+@Test
     public void testCreateContext_2_oe() {
         final ImmutableNode node = new ImmutableNode.Builder().name("testRoot").create();
         final NodeHandler<ImmutableNode> handler = new InMemoryNodeModel(node).getNodeHandler();
@@ -63,7 +63,7 @@ public class TestXPathContextFactory_OE25Dev {
         assertSame("Wrong node", node, wrapper.getNode());
     }
 
-    @Test
+@Test
     public void testCreateContext_3_oe() {
         final ImmutableNode node = new ImmutableNode.Builder().name("testRoot").create();
         final NodeHandler<ImmutableNode> handler = new InMemoryNodeModel(node).getNodeHandler();

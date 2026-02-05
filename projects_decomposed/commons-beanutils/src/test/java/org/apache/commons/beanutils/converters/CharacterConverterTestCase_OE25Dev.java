@@ -103,14 +103,14 @@ public class CharacterConverterTestCase_OE25Dev extends TestCase {
         }
     }
 
-    public void testConvertToString_1_oe() {
+public void testConvertToString_1_oe() {
 
         final Converter converter = new CharacterConverter();
 
         assertEquals("Character Test", "N", converter.convert(String.class, new Character('N')));
     }
 
-    public void testConvertToString_2_oe() {
+public void testConvertToString_2_oe() {
 
         final Converter converter = new CharacterConverter();
 
@@ -118,7 +118,7 @@ public class CharacterConverterTestCase_OE25Dev extends TestCase {
         assertEquals("String Test",    "F", converter.convert(String.class, "FOO"));
     }
 
-    public void testConvertToString_3_oe() {
+public void testConvertToString_3_oe() {
 
         final Converter converter = new CharacterConverter();
 
@@ -127,7 +127,7 @@ public class CharacterConverterTestCase_OE25Dev extends TestCase {
         assertEquals("Integer Test",   "3", converter.convert(String.class, new Integer(321)));
     }
 
-    public void testConvertToString_4_oe() {
+public void testConvertToString_4_oe() {
 
         final Converter converter = new CharacterConverter();
 
@@ -137,30 +137,30 @@ public class CharacterConverterTestCase_OE25Dev extends TestCase {
         assertEquals("Null Test",     null, converter.convert(String.class, null));
     }
 
-    public void testConvertToCharacter_1_oe() {
+public void testConvertToCharacter_1_oe() {
         final Converter converter = new CharacterConverter();
         assertEquals("Character Test", new Character('N'), converter.convert(Character.class, new Character('N')));
     }
 
-    public void testConvertToCharacter_2_oe() {
+public void testConvertToCharacter_2_oe() {
         final Converter converter = new CharacterConverter();
         // removed other assertion
         assertEquals("String Test",    new Character('F'), converter.convert(Character.class, "FOO"));
     }
 
-    public void testConvertToCharacter_3_oe() {
+public void testConvertToCharacter_3_oe() {
         final Converter converter = new CharacterConverter();
         // removed other assertion
         // removed other assertion
         assertEquals("Integer Test",   new Character('3'), converter.convert(Character.class, new Integer(321)));
     }
 
-    public void testConvertToChar_1_oe() {
+public void testConvertToChar_1_oe() {
         final Converter converter = new CharacterConverter();
         assertEquals("Wrong result", new Character('F'), converter.convert(Character.TYPE, "FOO"));
     }
 
-    public void testDefault_1_oe() {
+public void testDefault_1_oe() {
         final Converter converter = new CharacterConverter("C");
         assertEquals("Default Test",   new Character('C'), converter.convert(Character.class, null));
     }

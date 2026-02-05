@@ -75,20 +75,20 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertFalse(iter.hasNext());
     }
 
-    @Test
+@Test
     public void testEmpty_1_oe() {
         final Iterator<E> it = makeEmptyIterator();
         assertFalse(it.hasNext());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSinglePeek_1_oe() {
         final PeekingIterator<E> it = makeObject();
         assertEquals("a", it.peek());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSinglePeek_2_oe() {
         final PeekingIterator<E> it = makeObject();
@@ -96,20 +96,20 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("a", it.element());
     }
 
-    @Test
+@Test
     public void testMultiplePeek_1_oe() {
         final PeekingIterator<E> it = makeObject();
         assertEquals("a", it.peek());
     }
 
-    @Test
+@Test
     public void testMultiplePeek_2_oe() {
         final PeekingIterator<E> it = makeObject();
         // removed other assertion
         assertEquals("a", it.peek());
     }
 
-    @Test
+@Test
     public void testMultiplePeek_3_oe() {
         final PeekingIterator<E> it = makeObject();
         // removed other assertion
@@ -117,7 +117,7 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("a", it.next());
     }
 
-    @Test
+@Test
     public void testMultiplePeek_4_oe() {
         final PeekingIterator<E> it = makeObject();
         // removed other assertion
@@ -126,7 +126,7 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertTrue(it.hasNext());
     }
 
-    @Test
+@Test
     public void testMultiplePeek_5_oe() {
         final PeekingIterator<E> it = makeObject();
         // removed other assertion
@@ -136,7 +136,7 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("b", it.peek());
     }
 
-    @Test
+@Test
     public void testMultiplePeek_6_oe() {
         final PeekingIterator<E> it = makeObject();
         // removed other assertion
@@ -147,7 +147,7 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("b", it.peek());
     }
 
-    @Test
+@Test
     public void testMultiplePeek_7_oe() {
         final PeekingIterator<E> it = makeObject();
         // removed other assertion
@@ -159,7 +159,7 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("b", it.next());
     }
 
-    @Test
+@Test
     public void testMultiplePeek_8_oe() {
         final PeekingIterator<E> it = makeObject();
         // removed other assertion
@@ -172,7 +172,7 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertTrue(it.hasNext());
     }
 
-    @Test
+@Test
     public void testMultiplePeek_9_oe() {
         final PeekingIterator<E> it = makeObject();
         // removed other assertion
@@ -186,7 +186,7 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("c", it.peek());
     }
 
-    @Test
+@Test
     public void testMultiplePeek_10_oe() {
         final PeekingIterator<E> it = makeObject();
         // removed other assertion
@@ -201,7 +201,7 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("c", it.peek());
     }
 
-    @Test
+@Test
     public void testMultiplePeek_11_oe() {
         final PeekingIterator<E> it = makeObject();
         // removed other assertion
@@ -217,7 +217,7 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals("c", it.next());
     }
 
-    @Test
+@Test
     public void testMultiplePeek_12_oe() {
         final PeekingIterator<E> it = makeObject();
         // removed other assertion
@@ -234,7 +234,7 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertFalse(it.hasNext());
     }
 
-    @Test
+@Test
     public void testIteratorExhausted_1_oe() {
         final PeekingIterator<E> it = makeObject();
         it.next();
@@ -243,7 +243,7 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertFalse(it.hasNext());
     }
 
-    @Test
+@Test
     public void testIteratorExhausted_2_oe() {
         final PeekingIterator<E> it = makeObject();
         it.next();
@@ -253,7 +253,7 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertNull(it.peek());
     }
 
-    @Test
+@Test
     public void testIllegalRemove_1_oe() {
         final PeekingIterator<E> it = makeObject();
         it.next();
@@ -262,7 +262,7 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertTrue(it.hasNext());
     }
 
-    @Test
+@Test
     public void testIllegalRemove_2_oe() {
         final PeekingIterator<E> it = makeObject();
         it.next();

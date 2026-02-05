@@ -50,20 +50,20 @@ public class CacheLoaderAdapterTest_OE25Dev
     });
     private Cache<String, String> cache;
 
-    @Test
+@Test
     public void checkLoadAll_1_oe()
     {
         assertFalse(cache.iterator().hasNext());
     }
 
-    @Test
+@Test
     public void checkLoadAll_2_oe()
     {
         // removed other assertion
         assertEquals("foo", cache.get("foo"));
     }
 
-    @Test
+@Test
     public void checkLoadAll_3_oe()
     {
         // removed other assertion
@@ -86,7 +86,7 @@ public class CacheLoaderAdapterTest_OE25Dev
         assertEquals(2, count.get());
     }
 
-    @Test
+@Test
     public void checkLoadAll_4_oe()
     {
         // removed other assertion
@@ -110,7 +110,7 @@ public class CacheLoaderAdapterTest_OE25Dev
         assertEquals("a", cache.get("a"));
     }
 
-    @Test
+@Test
     public void checkLoadAll_5_oe()
     {
         // removed other assertion
@@ -135,7 +135,7 @@ public class CacheLoaderAdapterTest_OE25Dev
         assertEquals("b", cache.get("b"));
     }
 
-    @Test
+@Test
     public void checkLoadAll_6_oe()
     {
         // removed other assertion

@@ -49,7 +49,7 @@ public class TestJSONConfiguration_OE25Dev {
         jsonConfiguration.read(new FileReader(testJson));
     }
 
-    @Test
+@Test
     public void testCopyConstructor_1_oe() {
         final BaseHierarchicalConfiguration c = new BaseHierarchicalConfiguration();
         c.addProperty("foo", "bar");
@@ -58,76 +58,76 @@ public class TestJSONConfiguration_OE25Dev {
         assertEquals("bar", jsonConfiguration.getString("foo"));
     }
 
-    @Test
+@Test
     public void testGetProperty_dictionary_1_oe() {
         assertEquals("Martin D'vloper", jsonConfiguration.getProperty("martin.name"));
     }
 
-    @Test
+@Test
     public void testGetProperty_dictionary_2_oe() {
         // removed other assertion
         assertEquals("Developer", jsonConfiguration.getProperty("martin.job"));
     }
 
-    @Test
+@Test
     public void testGetProperty_dictionary_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("Elite", jsonConfiguration.getProperty("martin.skill"));
     }
 
-    @Test
+@Test
     public void testGetProperty_dictionaryInList_1_oe() {
         assertEquals("UK", jsonConfiguration.getString("capitals(1).country"));
     }
 
-    @Test
+@Test
     public void testGetProperty_dictionaryInList_2_oe() {
         // removed other assertion
         assertEquals("Washington", jsonConfiguration.getString("capitals(0).capital"));
     }
 
-    @Test
+@Test
     public void testGetProperty_integer_1_oe() {
         final Object property = jsonConfiguration.getProperty("int1");
         assertTrue("property should be an Integer", property instanceof Integer);
     }
 
-    @Test
+@Test
     public void testGetProperty_integer_2_oe() {
         final Object property = jsonConfiguration.getProperty("int1");
         // removed other assertion
         assertEquals(37, property);
     }
 
-    @Test
+@Test
     public void testGetProperty_nested_1_oe() {
         assertEquals("value23", jsonConfiguration.getProperty("key2.key3"));
     }
 
-    @Test
+@Test
     public void testGetProperty_nested_with_list_1_oe() {
         assertEquals(Arrays.asList("col1", "col2"), jsonConfiguration.getProperty("key4.key5"));
     }
 
-    @Test
+@Test
     public void testGetProperty_simple_1_oe() {
         assertEquals("value1", jsonConfiguration.getProperty("key1"));
     }
 
-    @Test
+@Test
     public void testGetProperty_subset_1_oe() {
         final Configuration subset = jsonConfiguration.subset("key4");
         assertEquals(Arrays.asList("col1", "col2"), subset.getProperty("key5"));
     }
 
-    @Test
+@Test
     public void testGetProperty_very_nested_properties_1_oe() {
         final Object property = jsonConfiguration.getProperty("very.nested.properties");
         assertEquals(Arrays.asList("nested1", "nested2", "nested3"), property);
     }
 
-    @Test
+@Test
     public void testSave_1_oe() throws IOException, ConfigurationException {
         // save the Configuration as a String...
         final StringWriter sw = new StringWriter();
@@ -141,7 +141,7 @@ public class TestJSONConfiguration_OE25Dev {
         assertEquals(7, parsed.entrySet().size());
     }
 
-    @Test
+@Test
     public void testSave_2_oe() throws IOException, ConfigurationException {
         // save the Configuration as a String...
         final StringWriter sw = new StringWriter();
@@ -156,7 +156,7 @@ public class TestJSONConfiguration_OE25Dev {
         assertEquals("value1", parsed.get("key1"));
     }
 
-    @Test
+@Test
     public void testSave_3_oe() throws IOException, ConfigurationException {
         // save the Configuration as a String...
         final StringWriter sw = new StringWriter();
@@ -174,7 +174,7 @@ public class TestJSONConfiguration_OE25Dev {
         assertEquals("value23", key2.get("key3"));
     }
 
-    @Test
+@Test
     public void testSave_4_oe() throws IOException, ConfigurationException {
         // save the Configuration as a String...
         final StringWriter sw = new StringWriter();
@@ -195,7 +195,7 @@ public class TestJSONConfiguration_OE25Dev {
         assertEquals(2, key5.size());
     }
 
-    @Test
+@Test
     public void testSave_5_oe() throws IOException, ConfigurationException {
         // save the Configuration as a String...
         final StringWriter sw = new StringWriter();
@@ -217,7 +217,7 @@ public class TestJSONConfiguration_OE25Dev {
         assertEquals("col1", key5.get(0));
     }
 
-    @Test
+@Test
     public void testSave_6_oe() throws IOException, ConfigurationException {
         // save the Configuration as a String...
         final StringWriter sw = new StringWriter();
@@ -240,7 +240,7 @@ public class TestJSONConfiguration_OE25Dev {
         assertEquals("col2", key5.get(1));
     }
 
-    @Test
+@Test
     public void testSave_7_oe() throws IOException, ConfigurationException {
         // save the Configuration as a String...
         final StringWriter sw = new StringWriter();

@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 
 public class TagInfoSShortsTest_OE25Dev{
 
-  @Test
+@Test
   public void testEncodeValue_1_oe() {
       final TiffDirectoryType tiffDirectoryType = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
       final TagInfoSShorts tagInfoSShorts = new TagInfoSShorts("", 2269, 2269, tiffDirectoryType);

@@ -30,14 +30,14 @@ import org.apache.commons.dbutils.ResultSetHandler;
  */
 public class ArrayHandlerTest_OE25Dev extends BaseTestCase {
 
-    public void testHandle_1_oe() throws SQLException {
+public void testHandle_1_oe() throws SQLException {
         ResultSetHandler<Object[]> h = new ArrayHandler();
         Object[] results = h.handle(this.rs);
 
         assertNotNull(results);
     }
 
-    public void testHandle_2_oe() throws SQLException {
+public void testHandle_2_oe() throws SQLException {
         ResultSetHandler<Object[]> h = new ArrayHandler();
         Object[] results = h.handle(this.rs);
 
@@ -45,7 +45,7 @@ public class ArrayHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals(COLS, results.length);
     }
 
-    public void testHandle_3_oe() throws SQLException {
+public void testHandle_3_oe() throws SQLException {
         ResultSetHandler<Object[]> h = new ArrayHandler();
         Object[] results = h.handle(this.rs);
 
@@ -54,7 +54,7 @@ public class ArrayHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("1", results[0]);
     }
 
-    public void testHandle_4_oe() throws SQLException {
+public void testHandle_4_oe() throws SQLException {
         ResultSetHandler<Object[]> h = new ArrayHandler();
         Object[] results = h.handle(this.rs);
 
@@ -64,7 +64,7 @@ public class ArrayHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("2", results[1]);
     }
 
-    public void testHandle_5_oe() throws SQLException {
+public void testHandle_5_oe() throws SQLException {
         ResultSetHandler<Object[]> h = new ArrayHandler();
         Object[] results = h.handle(this.rs);
 
@@ -75,7 +75,7 @@ public class ArrayHandlerTest_OE25Dev extends BaseTestCase {
         assertEquals("THREE", results[2]);
     }
 
-    public void testEmptyResultSetHandle_1_oe() throws SQLException {
+public void testEmptyResultSetHandle_1_oe() throws SQLException {
         ResultSetHandler<Object[]> h = new ArrayHandler();
         Object[] results = h.handle(this.emptyResultSet);
 

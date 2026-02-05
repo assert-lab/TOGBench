@@ -122,13 +122,13 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
         assertEquals("Incorrect number of result nodes", 1, nodes.size());
     }
 
-    @Test
+@Test
     public void testFollowingSiblingAxis_1_oe() {
         final List<?> nodes = context.selectNodes("/" + CHILD_NAME1 + "[2]/following-sibling::*");
         assertEquals("Wrong number of following siblings", 1, nodes.size());
     }
 
-    @Test
+@Test
     public void testFollowingSiblingAxis_2_oe() {
         final List<?> nodes = context.selectNodes("/" + CHILD_NAME1 + "[2]/following-sibling::*");
         // removed other assertion
@@ -136,7 +136,7 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
         assertEquals("Wrong node type", CHILD_NAME2, node.getNodeName());
     }
 
-    @Test
+@Test
     public void testFollowingSiblingAxis_3_oe() {
         final List<?> nodes = context.selectNodes("/" + CHILD_NAME1 + "[2]/following-sibling::*");
         // removed other assertion
@@ -145,12 +145,12 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
         assertEquals("Wrong index", String.valueOf(CHILD_COUNT), node.getValue());
     }
 
-    @Test
+@Test
     public void testIndices_1_oe() {
         assertEquals("Incorrect value", "1.2.3", context.getValue("/" + CHILD_NAME2 + "[1]/" + CHILD_NAME1 + "[1]/" + CHILD_NAME2 + "[2]"));
     }
 
-    @Test
+@Test
     public void testIndices_2_oe() {
         // removed other assertion
         assertEquals("Incorrect value of last node", String.valueOf(CHILD_COUNT), context.getValue(CHILD_NAME2 + "[last()]"));

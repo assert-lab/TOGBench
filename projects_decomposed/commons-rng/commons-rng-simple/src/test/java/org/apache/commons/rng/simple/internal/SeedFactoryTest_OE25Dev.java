@@ -240,7 +240,7 @@ class SeedFactoryTest_OE25Dev {
         // This tests an ArrayIndexOutOfBoundsException does not occur.
     }
 
-    @Test
+@Test
     void testCreateLongArray_1_oe() {
         final Map<Long, Integer> values = new HashMap<>();
 
@@ -249,7 +249,7 @@ class SeedFactoryTest_OE25Dev {
         Assertions.assertEquals(n, array.length);
     }
 
-    @Test
+@Test
     void testCreateByteArrayWithAllZeroBytesUpdatesPosition0_1_oe() {
         final UniformRandomProvider rng = new IntProvider() {
             @Override
@@ -263,7 +263,7 @@ class SeedFactoryTest_OE25Dev {
         Assertions.assertNotEquals(0, seed[0], "Zero at position 0 should be modified");
     }
 
-    @Test
+@Test
     void testCreateByteArrayWithAllZeroBytesUpdatesPosition0_2_oe() {
         final UniformRandomProvider rng = new IntProvider() {
             @Override
@@ -280,7 +280,7 @@ class SeedFactoryTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testEnsureNonZeroIntArrayIgnoresNonZeroPosition0_1_oe() {
         final int position0 = 123;
         final int[] seed = new int[] {position0, 0, 0, 0};
@@ -289,7 +289,7 @@ class SeedFactoryTest_OE25Dev {
         Assertions.assertEquals(position0, seed[0], "Non-zero at position 0 should be unmodified");
     }
 
-    @Test
+@Test
     void testEnsureNonZeroIntArrayIgnoresNonZeroPosition0_2_oe() {
         final int position0 = 123;
         final int[] seed = new int[] {position0, 0, 0, 0};
@@ -301,7 +301,7 @@ class SeedFactoryTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testEnsureNonZeroIntArrayUpdatesZeroPosition0_1_oe() {
         // Test the method replaces position 0 even if the rest of the array is non-zero
         final int[] seed = new int[] {0, 123, 456, 789};
@@ -310,7 +310,7 @@ class SeedFactoryTest_OE25Dev {
         Assertions.assertNotEquals(0, seed[0], "Zero at position 0 should be modified");
     }
 
-    @Test
+@Test
     void testEnsureNonZeroIntArrayUpdatesZeroPosition0_2_oe() {
         // Test the method replaces position 0 even if the rest of the array is non-zero
         final int[] seed = new int[] {0, 123, 456, 789};
@@ -322,7 +322,7 @@ class SeedFactoryTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testEnsureNonZeroLongArrayIgnoresNonZeroPosition0_1_oe() {
         final long position0 = 123;
         final long[] seed = new long[] {position0, 0, 0, 0};
@@ -331,7 +331,7 @@ class SeedFactoryTest_OE25Dev {
         Assertions.assertEquals(position0, seed[0], "Non-zero at position 0 should be unmodified");
     }
 
-    @Test
+@Test
     void testEnsureNonZeroLongArrayIgnoresNonZeroPosition0_2_oe() {
         final long position0 = 123;
         final long[] seed = new long[] {position0, 0, 0, 0};
@@ -343,7 +343,7 @@ class SeedFactoryTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testEnsureNonZeroLongArrayUpdatesZeroPosition0_1_oe() {
         // Test the method replaces position 0 even if the rest of the array is non-zero
         final long[] seed = new long[] {0, 123, 456, 789};
@@ -352,7 +352,7 @@ class SeedFactoryTest_OE25Dev {
         Assertions.assertNotEquals(0, seed[0], "Zero at position 0 should be modified");
     }
 
-    @Test
+@Test
     void testEnsureNonZeroLongArrayUpdatesZeroPosition0_2_oe() {
         // Test the method replaces position 0 even if the rest of the array is non-zero
         final long[] seed = new long[] {0, 123, 456, 789};
@@ -364,7 +364,7 @@ class SeedFactoryTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testEnsureNonZeroValue_1_oe() {
         final long expected = 345;
         RandomLongSource source = new RandomLongSource() {
@@ -376,7 +376,7 @@ class SeedFactoryTest_OE25Dev {
         Assertions.assertEquals(expected,SeedFactory.ensureNonZero(source,0),"Zero should be replaced using the random source");
     }
 
-    @Test
+@Test
     void testEnsureNonZeroValue_2_oe() {
         final long expected = 345;
         RandomLongSource source = new RandomLongSource() {

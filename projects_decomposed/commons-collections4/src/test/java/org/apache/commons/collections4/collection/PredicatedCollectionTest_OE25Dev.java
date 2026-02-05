@@ -99,7 +99,7 @@ public class PredicatedCollectionTest_OE25Dev<E> extends AbstractCollectionTest<
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/PredicatedCollection.fullCollection.version4.obj");
 //    }
 
-    public void testIllegalAdd_2_oe() {
+public void testIllegalAdd_2_oe() {
         final Collection<E> c = makeTestCollection();
         final Integer i = Integer.valueOf(3);
         try {
@@ -111,7 +111,7 @@ public class PredicatedCollectionTest_OE25Dev<E> extends AbstractCollectionTest<
         assertTrue("Collection shouldn't contain illegal element",!c.contains(i));
     }
 
-    public void testIllegalAddAll_2_oe() {
+public void testIllegalAddAll_2_oe() {
         final Collection<E> c = makeTestCollection();
         final List<E> elements = new ArrayList<>();
         elements.add((E) "one");
@@ -127,7 +127,7 @@ public class PredicatedCollectionTest_OE25Dev<E> extends AbstractCollectionTest<
         assertTrue("Collection shouldn't contain illegal element", !c.contains("one"));
     }
 
-    public void testIllegalAddAll_3_oe() {
+public void testIllegalAddAll_3_oe() {
         final Collection<E> c = makeTestCollection();
         final List<E> elements = new ArrayList<>();
         elements.add((E) "one");
@@ -144,7 +144,7 @@ public class PredicatedCollectionTest_OE25Dev<E> extends AbstractCollectionTest<
         assertTrue("Collection shouldn't contain illegal element", !c.contains("two"));
     }
 
-    public void testIllegalAddAll_4_oe() {
+public void testIllegalAddAll_4_oe() {
         final Collection<E> c = makeTestCollection();
         final List<E> elements = new ArrayList<>();
         elements.add((E) "one");
@@ -162,7 +162,7 @@ public class PredicatedCollectionTest_OE25Dev<E> extends AbstractCollectionTest<
         assertTrue("Collection shouldn't contain illegal element", !c.contains(Integer.valueOf(3)));
     }
 
-    public void testIllegalAddAll_5_oe() {
+public void testIllegalAddAll_5_oe() {
         final Collection<E> c = makeTestCollection();
         final List<E> elements = new ArrayList<>();
         elements.add((E) "one");

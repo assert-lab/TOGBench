@@ -174,7 +174,7 @@ public class UnmodifiableListTest_OE25Dev<E> extends AbstractListTest<E> {
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/UnmodifiableList.fullCollection.version4.obj");
 //    }
 
-    public void testDecorateFactory_1_oe() {
+public void testDecorateFactory_1_oe() {
         final List<E> list = makeObject();
         assertSame(list, UnmodifiableList.unmodifiableList(list));
     }

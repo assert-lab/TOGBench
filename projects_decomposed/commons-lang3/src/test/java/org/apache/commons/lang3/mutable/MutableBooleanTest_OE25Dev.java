@@ -35,14 +35,14 @@ public class MutableBooleanTest_OE25Dev {
 
     // ----------------------------------------------------------------
 
-    @Test
+@Test
     public void testCompareTo_1_oe() {
         final MutableBoolean mutBool = new MutableBoolean(false);
 
         assertEquals(0, mutBool.compareTo(new MutableBoolean(false)));
     }
 
-    @Test
+@Test
     public void testCompareTo_2_oe() {
         final MutableBoolean mutBool = new MutableBoolean(false);
 
@@ -50,7 +50,7 @@ public class MutableBooleanTest_OE25Dev {
         assertEquals(-1, mutBool.compareTo(new MutableBoolean(true)));
     }
 
-    @Test
+@Test
     public void testCompareTo_3_oe() {
         final MutableBoolean mutBool = new MutableBoolean(false);
 
@@ -60,7 +60,7 @@ public class MutableBooleanTest_OE25Dev {
         assertEquals(+1, mutBool.compareTo(new MutableBoolean(false)));
     }
 
-    @Test
+@Test
     public void testCompareTo_4_oe() {
         final MutableBoolean mutBool = new MutableBoolean(false);
 
@@ -71,30 +71,30 @@ public class MutableBooleanTest_OE25Dev {
         assertEquals(0, mutBool.compareTo(new MutableBoolean(true)));
     }
 
-    @Test
+@Test
     public void testCompareToNull_1_oe() {
         final MutableBoolean mutBool = new MutableBoolean(false);
         assertThrows(NullPointerException.class, () -> mutBool.compareTo(null));
     }
 
-    @Test
+@Test
     public void testConstructorNull_1_oe() {
         assertThrows(NullPointerException.class, () -> new MutableBoolean(null));
     }
 
-    @Test
+@Test
     public void testConstructors_1_oe() {
         assertFalse(new MutableBoolean().booleanValue());
     }
 
-    @Test
+@Test
     public void testConstructors_2_oe() {
         // removed other assertion
 
         assertTrue(new MutableBoolean(true).booleanValue());
     }
 
-    @Test
+@Test
     public void testConstructors_3_oe() {
         // removed other assertion
 
@@ -102,7 +102,7 @@ public class MutableBooleanTest_OE25Dev {
         assertFalse(new MutableBoolean(false).booleanValue());
     }
 
-    @Test
+@Test
     public void testConstructors_4_oe() {
         // removed other assertion
 
@@ -112,7 +112,7 @@ public class MutableBooleanTest_OE25Dev {
         assertTrue(new MutableBoolean(Boolean.TRUE).booleanValue());
     }
 
-    @Test
+@Test
     public void testConstructors_5_oe() {
         // removed other assertion
 
@@ -123,7 +123,7 @@ public class MutableBooleanTest_OE25Dev {
         assertFalse(new MutableBoolean(Boolean.FALSE).booleanValue());
     }
 
-    @Test
+@Test
     public void testEquals_1_oe() {
         final MutableBoolean mutBoolA = new MutableBoolean(false);
         final MutableBoolean mutBoolB = new MutableBoolean(false);
@@ -132,7 +132,7 @@ public class MutableBooleanTest_OE25Dev {
         assertEquals(mutBoolA, mutBoolA);
     }
 
-    @Test
+@Test
     public void testEquals_2_oe() {
         final MutableBoolean mutBoolA = new MutableBoolean(false);
         final MutableBoolean mutBoolB = new MutableBoolean(false);
@@ -142,7 +142,7 @@ public class MutableBooleanTest_OE25Dev {
         assertEquals(mutBoolA, mutBoolB);
     }
 
-    @Test
+@Test
     public void testEquals_3_oe() {
         final MutableBoolean mutBoolA = new MutableBoolean(false);
         final MutableBoolean mutBoolB = new MutableBoolean(false);
@@ -153,7 +153,7 @@ public class MutableBooleanTest_OE25Dev {
         assertEquals(mutBoolB, mutBoolA);
     }
 
-    @Test
+@Test
     public void testEquals_4_oe() {
         final MutableBoolean mutBoolA = new MutableBoolean(false);
         final MutableBoolean mutBoolB = new MutableBoolean(false);
@@ -165,7 +165,7 @@ public class MutableBooleanTest_OE25Dev {
         assertEquals(mutBoolB, mutBoolB);
     }
 
-    @Test
+@Test
     public void testEquals_5_oe() {
         final MutableBoolean mutBoolA = new MutableBoolean(false);
         final MutableBoolean mutBoolB = new MutableBoolean(false);
@@ -178,7 +178,7 @@ public class MutableBooleanTest_OE25Dev {
         assertNotEquals(mutBoolA, mutBoolC);
     }
 
-    @Test
+@Test
     public void testEquals_6_oe() {
         final MutableBoolean mutBoolA = new MutableBoolean(false);
         final MutableBoolean mutBoolB = new MutableBoolean(false);
@@ -192,7 +192,7 @@ public class MutableBooleanTest_OE25Dev {
         assertNotEquals(mutBoolB, mutBoolC);
     }
 
-    @Test
+@Test
     public void testEquals_7_oe() {
         final MutableBoolean mutBoolA = new MutableBoolean(false);
         final MutableBoolean mutBoolB = new MutableBoolean(false);
@@ -207,7 +207,7 @@ public class MutableBooleanTest_OE25Dev {
         assertEquals(mutBoolC, mutBoolC);
     }
 
-    @Test
+@Test
     public void testEquals_8_oe() {
         final MutableBoolean mutBoolA = new MutableBoolean(false);
         final MutableBoolean mutBoolB = new MutableBoolean(false);
@@ -223,7 +223,7 @@ public class MutableBooleanTest_OE25Dev {
         assertNotEquals(null, mutBoolA);
     }
 
-    @Test
+@Test
     public void testEquals_9_oe() {
         final MutableBoolean mutBoolA = new MutableBoolean(false);
         final MutableBoolean mutBoolB = new MutableBoolean(false);
@@ -240,7 +240,7 @@ public class MutableBooleanTest_OE25Dev {
         assertNotEquals(mutBoolA, Boolean.FALSE);
     }
 
-    @Test
+@Test
     public void testEquals_10_oe() {
         final MutableBoolean mutBoolA = new MutableBoolean(false);
         final MutableBoolean mutBoolB = new MutableBoolean(false);
@@ -258,18 +258,18 @@ public class MutableBooleanTest_OE25Dev {
         assertNotEquals("false", mutBoolA);
     }
 
-    @Test
+@Test
     public void testGetSet_1_oe() {
         assertFalse(new MutableBoolean().booleanValue());
     }
 
-    @Test
+@Test
     public void testGetSet_2_oe() {
         // removed other assertion
         assertEquals(Boolean.FALSE, new MutableBoolean().getValue());
     }
 
-    @Test
+@Test
     public void testGetSet_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -278,7 +278,7 @@ public class MutableBooleanTest_OE25Dev {
         assertEquals(Boolean.FALSE, mutBool.toBoolean());
     }
 
-    @Test
+@Test
     public void testGetSet_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -288,7 +288,7 @@ public class MutableBooleanTest_OE25Dev {
         assertFalse(mutBool.booleanValue());
     }
 
-    @Test
+@Test
     public void testGetSet_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -299,7 +299,7 @@ public class MutableBooleanTest_OE25Dev {
         assertTrue(mutBool.isFalse());
     }
 
-    @Test
+@Test
     public void testGetSet_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -311,7 +311,7 @@ public class MutableBooleanTest_OE25Dev {
         assertFalse(mutBool.isTrue());
     }
 
-    @Test
+@Test
     public void testGetSet_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -326,7 +326,7 @@ public class MutableBooleanTest_OE25Dev {
         assertEquals(Boolean.TRUE, mutBool.toBoolean());
     }
 
-    @Test
+@Test
     public void testGetSet_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -342,7 +342,7 @@ public class MutableBooleanTest_OE25Dev {
         assertTrue(mutBool.booleanValue());
     }
 
-    @Test
+@Test
     public void testGetSet_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -359,7 +359,7 @@ public class MutableBooleanTest_OE25Dev {
         assertFalse(mutBool.isFalse());
     }
 
-    @Test
+@Test
     public void testGetSet_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -377,7 +377,7 @@ public class MutableBooleanTest_OE25Dev {
         assertTrue(mutBool.isTrue());
     }
 
-    @Test
+@Test
     public void testGetSet_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -398,7 +398,7 @@ public class MutableBooleanTest_OE25Dev {
         assertFalse(mutBool.booleanValue());
     }
 
-    @Test
+@Test
     public void testGetSet_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -422,7 +422,7 @@ public class MutableBooleanTest_OE25Dev {
         assertTrue(mutBool.booleanValue());
     }
 
-    @Test
+@Test
     public void testGetSet_13_oe() {
         // removed other assertion
         // removed other assertion
@@ -449,7 +449,7 @@ public class MutableBooleanTest_OE25Dev {
         assertFalse(mutBool.booleanValue());
     }
 
-    @Test
+@Test
     public void testGetSet_14_oe() {
         // removed other assertion
         // removed other assertion
@@ -479,7 +479,7 @@ public class MutableBooleanTest_OE25Dev {
         assertTrue(mutBool.booleanValue());
     }
 
-    @Test
+@Test
     public void testHashCode_1_oe() {
         final MutableBoolean mutBoolA = new MutableBoolean(false);
         final MutableBoolean mutBoolB = new MutableBoolean(false);
@@ -488,7 +488,7 @@ public class MutableBooleanTest_OE25Dev {
         assertEquals(mutBoolA.hashCode(), mutBoolA.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_2_oe() {
         final MutableBoolean mutBoolA = new MutableBoolean(false);
         final MutableBoolean mutBoolB = new MutableBoolean(false);
@@ -498,7 +498,7 @@ public class MutableBooleanTest_OE25Dev {
         assertEquals(mutBoolA.hashCode(), mutBoolB.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_3_oe() {
         final MutableBoolean mutBoolA = new MutableBoolean(false);
         final MutableBoolean mutBoolB = new MutableBoolean(false);
@@ -509,7 +509,7 @@ public class MutableBooleanTest_OE25Dev {
         assertNotEquals(mutBoolA.hashCode(), mutBoolC.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_4_oe() {
         final MutableBoolean mutBoolA = new MutableBoolean(false);
         final MutableBoolean mutBoolB = new MutableBoolean(false);
@@ -521,7 +521,7 @@ public class MutableBooleanTest_OE25Dev {
         assertEquals(mutBoolA.hashCode(), Boolean.FALSE.hashCode());
     }
 
-    @Test
+@Test
     public void testHashCode_5_oe() {
         final MutableBoolean mutBoolA = new MutableBoolean(false);
         final MutableBoolean mutBoolB = new MutableBoolean(false);
@@ -534,18 +534,18 @@ public class MutableBooleanTest_OE25Dev {
         assertEquals(mutBoolC.hashCode(), Boolean.TRUE.hashCode());
     }
 
-    @Test
+@Test
     public void testSetNull_1_oe() {
         final MutableBoolean mutBool = new MutableBoolean(false);
         assertThrows(NullPointerException.class, () -> mutBool.setValue(null));
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         assertEquals(Boolean.FALSE.toString(), new MutableBoolean(false).toString());
     }
 
-    @Test
+@Test
     public void testToString_2_oe() {
         // removed other assertion
         assertEquals(Boolean.TRUE.toString(), new MutableBoolean(true).toString());

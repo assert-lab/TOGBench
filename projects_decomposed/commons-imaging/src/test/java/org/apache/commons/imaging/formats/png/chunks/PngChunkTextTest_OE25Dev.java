@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
 
 public class PngChunkTextTest_OE25Dev{
 
-    @Test
+@Test
     public void testCreatesPngChunkText_2_oe() {
         final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;
         try {
@@ -35,7 +35,7 @@ public class PngChunkTextTest_OE25Dev{
     }
     }
 
-    @Test
+@Test
     public void testCreatesPngChunkText_3_oe() {
         final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;
         try {

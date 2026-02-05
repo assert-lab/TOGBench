@@ -121,7 +121,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
 //        l.add("A6");
 //    }
 
-    public void testAddMultiple_1_oe() {
+public void testAddMultiple_1_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -132,7 +132,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(null, l.get(0));
     }
 
-    public void testAddMultiple_2_oe() {
+public void testAddMultiple_2_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -144,7 +144,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("hugo", l.get(1));
     }
 
-    public void testAddMultiple_3_oe() {
+public void testAddMultiple_3_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -157,7 +157,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("erna", l.get(2));
     }
 
-    public void testAddMultiple_4_oe() {
+public void testAddMultiple_4_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -171,7 +171,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("daniel", l.get(3));
     }
 
-    public void testAddMultiple_5_oe() {
+public void testAddMultiple_5_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -186,7 +186,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("andres", l.get(4));
     }
 
-    public void testAddMultiple_6_oe() {
+public void testAddMultiple_6_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -202,7 +202,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("harald", l.get(5));
     }
 
-    public void testRemove_1_oe() {
+public void testRemove_1_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -214,7 +214,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(null, l.get(i++));
     }
 
-    public void testRemove_2_oe() {
+public void testRemove_2_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -227,7 +227,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("hugo", l.get(i++));
     }
 
-    public void testRemove_3_oe() {
+public void testRemove_3_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -241,7 +241,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("erna", l.get(i++));
     }
 
-    public void testRemove_4_oe() {
+public void testRemove_4_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -256,7 +256,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("daniel", l.get(i++));
     }
 
-    public void testRemove_5_oe() {
+public void testRemove_5_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -272,7 +272,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("andres", l.get(i++));
     }
 
-    public void testRemove_6_oe() {
+public void testRemove_6_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -289,7 +289,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("harald", l.get(i++));
     }
 
-    public void testRemove_7_oe() {
+public void testRemove_7_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -310,7 +310,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("hugo", l.get(i++));
     }
 
-    public void testRemove_8_oe() {
+public void testRemove_8_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -332,7 +332,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("erna", l.get(i++));
     }
 
-    public void testRemove_9_oe() {
+public void testRemove_9_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -355,7 +355,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("daniel", l.get(i++));
     }
 
-    public void testRemove_10_oe() {
+public void testRemove_10_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -379,7 +379,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("andres", l.get(i++));
     }
 
-    public void testRemove_11_oe() {
+public void testRemove_11_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -404,7 +404,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("harald", l.get(i++));
     }
 
-    public void testRemove_12_oe() {
+public void testRemove_12_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -433,7 +433,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("hugo", l.get(i++));
     }
 
-    public void testRemove_13_oe() {
+public void testRemove_13_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -463,7 +463,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("daniel", l.get(i++));
     }
 
-    public void testRemove_14_oe() {
+public void testRemove_14_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -494,7 +494,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("andres", l.get(i++));
     }
 
-    public void testRemove_15_oe() {
+public void testRemove_15_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -526,7 +526,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("harald", l.get(i++));
     }
 
-    public void testRemove_16_oe() {
+public void testRemove_16_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -562,7 +562,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("hugo", l.get(i++));
     }
 
-    public void testRemove_17_oe() {
+public void testRemove_17_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -599,7 +599,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("daniel", l.get(i++));
     }
 
-    public void testRemove_18_oe() {
+public void testRemove_18_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
         l.add((E) "erna");
@@ -637,14 +637,14 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("harald", l.get(i++));
     }
 
-    public void testInsertBefore_1_oe() {
+public void testInsertBefore_1_oe() {
         final List<E> l = makeObject();
         l.add((E) "erna");
         l.add(0, (E) "hugo");
         assertEquals("hugo", l.get(0));
     }
 
-    public void testInsertBefore_2_oe() {
+public void testInsertBefore_2_oe() {
         final List<E> l = makeObject();
         l.add((E) "erna");
         l.add(0, (E) "hugo");
@@ -652,7 +652,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("erna", l.get(1));
     }
 
-    public void testIndexOf_1_oe() {
+public void testIndexOf_1_oe() {
         final List<E> l = makeObject();
         l.add((E) "0");
         l.add((E) "1");
@@ -664,7 +664,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(0, l.indexOf("0"));
     }
 
-    public void testIndexOf_2_oe() {
+public void testIndexOf_2_oe() {
         final List<E> l = makeObject();
         l.add((E) "0");
         l.add((E) "1");
@@ -677,7 +677,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(1, l.indexOf("1"));
     }
 
-    public void testIndexOf_3_oe() {
+public void testIndexOf_3_oe() {
         final List<E> l = makeObject();
         l.add((E) "0");
         l.add((E) "1");
@@ -691,7 +691,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(2, l.indexOf("2"));
     }
 
-    public void testIndexOf_4_oe() {
+public void testIndexOf_4_oe() {
         final List<E> l = makeObject();
         l.add((E) "0");
         l.add((E) "1");
@@ -706,7 +706,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(3, l.indexOf("3"));
     }
 
-    public void testIndexOf_5_oe() {
+public void testIndexOf_5_oe() {
         final List<E> l = makeObject();
         l.add((E) "0");
         l.add((E) "1");
@@ -722,7 +722,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(4, l.indexOf("4"));
     }
 
-    public void testIndexOf_6_oe() {
+public void testIndexOf_6_oe() {
         final List<E> l = makeObject();
         l.add((E) "0");
         l.add((E) "1");
@@ -739,7 +739,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(5, l.indexOf("5"));
     }
 
-    public void testIndexOf_7_oe() {
+public void testIndexOf_7_oe() {
         final List<E> l = makeObject();
         l.add((E) "0");
         l.add((E) "1");
@@ -757,7 +757,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(6, l.indexOf("6"));
     }
 
-    public void testIndexOf_8_oe() {
+public void testIndexOf_8_oe() {
         final List<E> l = makeObject();
         l.add((E) "0");
         l.add((E) "1");
@@ -778,7 +778,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(0, l.indexOf("0"));
     }
 
-    public void testIndexOf_9_oe() {
+public void testIndexOf_9_oe() {
         final List<E> l = makeObject();
         l.add((E) "0");
         l.add((E) "1");
@@ -802,7 +802,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(3, l.indexOf("3"));
     }
 
-    public void testIndexOf_10_oe() {
+public void testIndexOf_10_oe() {
         final List<E> l = makeObject();
         l.add((E) "0");
         l.add((E) "1");
@@ -828,7 +828,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(2, l.indexOf("3"));
     }
 
-    public void testIndexOf_11_oe() {
+public void testIndexOf_11_oe() {
         final List<E> l = makeObject();
         l.add((E) "0");
         l.add((E) "1");
@@ -856,7 +856,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(1, l.indexOf("3"));
     }
 
-    public void testIndexOf_12_oe() {
+public void testIndexOf_12_oe() {
         final List<E> l = makeObject();
         l.add((E) "0");
         l.add((E) "1");
@@ -886,7 +886,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(0, l.indexOf("3"));
     }
 
-    public void testBug35258_1_oe() {
+public void testBug35258_1_oe() {
         final Object objectToRemove = Integer.valueOf(3);
 
         final List<Integer> treelist = new TreeList<>();
@@ -903,7 +903,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(0), li.next());
     }
 
-    public void testBug35258_2_oe() {
+public void testBug35258_2_oe() {
         final Object objectToRemove = Integer.valueOf(3);
 
         final List<Integer> treelist = new TreeList<>();
@@ -921,7 +921,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(0), li.previous());
     }
 
-    public void testBug35258_3_oe() {
+public void testBug35258_3_oe() {
         final Object objectToRemove = Integer.valueOf(3);
 
         final List<Integer> treelist = new TreeList<>();
@@ -940,7 +940,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(0), li.next());
     }
 
-    public void testBug35258_4_oe() {
+public void testBug35258_4_oe() {
         final Object objectToRemove = Integer.valueOf(3);
 
         final List<Integer> treelist = new TreeList<>();
@@ -960,7 +960,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(1), li.next());
     }
 
-    public void testBug35258_5_oe() {
+public void testBug35258_5_oe() {
         final Object objectToRemove = Integer.valueOf(3);
 
         final List<Integer> treelist = new TreeList<>();
@@ -982,7 +982,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(1), li.previous());
     }
 
-    public void testBug35258_6_oe() {
+public void testBug35258_6_oe() {
         final Object objectToRemove = Integer.valueOf(3);
 
         final List<Integer> treelist = new TreeList<>();
@@ -1005,7 +1005,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(1), li.next());
     }
 
-    public void testBug35258_7_oe() {
+public void testBug35258_7_oe() {
         final Object objectToRemove = Integer.valueOf(3);
 
         final List<Integer> treelist = new TreeList<>();
@@ -1029,7 +1029,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(2), li.next());
     }
 
-    public void testBug35258_8_oe() {
+public void testBug35258_8_oe() {
         final Object objectToRemove = Integer.valueOf(3);
 
         final List<Integer> treelist = new TreeList<>();
@@ -1054,7 +1054,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(2), li.previous());
     }
 
-    public void testBug35258_9_oe() {
+public void testBug35258_9_oe() {
         final Object objectToRemove = Integer.valueOf(3);
 
         final List<Integer> treelist = new TreeList<>();
@@ -1080,7 +1080,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(2), li.next());
     }
 
-    public void testBug35258_10_oe() {
+public void testBug35258_10_oe() {
         final Object objectToRemove = Integer.valueOf(3);
 
         final List<Integer> treelist = new TreeList<>();
@@ -1107,7 +1107,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(4), li.next());
     }
 
-    public void testBug35258_11_oe() {
+public void testBug35258_11_oe() {
         final Object objectToRemove = Integer.valueOf(3);
 
         final List<Integer> treelist = new TreeList<>();
@@ -1135,7 +1135,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(4), li.previous());
     }
 
-    public void testBug35258_12_oe() {
+public void testBug35258_12_oe() {
         final Object objectToRemove = Integer.valueOf(3);
 
         final List<Integer> treelist = new TreeList<>();
@@ -1164,7 +1164,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(4), li.next());
     }
 
-    public void testBug35258_13_oe() {
+public void testBug35258_13_oe() {
         final Object objectToRemove = Integer.valueOf(3);
 
         final List<Integer> treelist = new TreeList<>();
@@ -1194,7 +1194,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(false, li.hasNext());
     }
 
-    public void testBugCollections447_1_oe() {
+public void testBugCollections447_1_oe() {
         final List<String> treeList = new TreeList<>();
         treeList.add("A");
         treeList.add("B");
@@ -1205,7 +1205,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("A", li.next());
     }
 
-    public void testBugCollections447_2_oe() {
+public void testBugCollections447_2_oe() {
         final List<String> treeList = new TreeList<>();
         treeList.add("A");
         treeList.add("B");
@@ -1217,7 +1217,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("B", li.next());
     }
 
-    public void testBugCollections447_3_oe() {
+public void testBugCollections447_3_oe() {
         final List<String> treeList = new TreeList<>();
         treeList.add("A");
         treeList.add("B");
@@ -1231,7 +1231,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("B", li.previous());
     }
 
-    public void testBugCollections447_4_oe() {
+public void testBugCollections447_4_oe() {
         final List<String> treeList = new TreeList<>();
         treeList.add("A");
         treeList.add("B");
@@ -1251,7 +1251,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals("A", li.previous());
     }
 
-    public void testIterationOrder_1_oe() {
+public void testIterationOrder_1_oe() {
         // COLLECTIONS-433:
         // ensure that the iteration order of elements is correct
         // when initializing the TreeList with another collection
@@ -1271,7 +1271,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
     }
     }
 
-    public void testIterationOrder_2_oe() {
+public void testIterationOrder_2_oe() {
         // COLLECTIONS-433:
         // ensure that the iteration order of elements is correct
         // when initializing the TreeList with another collection
@@ -1296,7 +1296,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
     }
     }
 
-    public void testIterationOrderAfterAddAll_1_oe() {
+public void testIterationOrderAfterAddAll_1_oe() {
         // COLLECTIONS-433:
         // ensure that the iteration order of elements is correct
         // when calling addAll on the TreeList
@@ -1326,7 +1326,7 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
     }
     }
 
-    public void testIterationOrderAfterAddAll_2_oe() {
+public void testIterationOrderAfterAddAll_2_oe() {
         // COLLECTIONS-433:
         // ensure that the iteration order of elements is correct
         // when calling addAll on the TreeList

@@ -69,7 +69,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
         return updated;
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testRemove_1_oe(final File imageFile) throws Exception {
         final ByteSource byteSource = new ByteSourceFile(imageFile);
@@ -81,7 +81,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
         assertNotNull(metadata);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testRemove_2_oe(final File imageFile) throws Exception {
         final ByteSource byteSource = new ByteSourceFile(imageFile);
@@ -101,7 +101,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
         assertTrue(outMetadata == null || outMetadata.getItems().isEmpty());
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testInsert_1_oe(final File imageFile) throws Exception {
         final ByteSource byteSource = new ByteSourceFile(imageFile);
@@ -113,7 +113,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
         assertNotNull(metadata);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testUpdate_1_oe(final File imageFile) throws Exception {
         final ByteSource byteSource = new ByteSourceFile(imageFile);
@@ -124,7 +124,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
         assertNotNull(metadata);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testUpdate_2_oe(final File imageFile) throws Exception {
         final ByteSource byteSource = new ByteSourceFile(imageFile);
@@ -153,7 +153,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
         assertNotNull(outMetadata);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testUpdate_3_oe(final File imageFile) throws Exception {
         final ByteSource byteSource = new ByteSourceFile(imageFile);
@@ -183,7 +183,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
         assertEquals(2, outMetadata.getItems().size());
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testNoChangeUpdate_1_oe(final File imageFile) throws Exception {
         final ByteSource byteSource = new ByteSourceFile(imageFile);
@@ -194,7 +194,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
         assertNotNull(metadata);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testNoChangeUpdate_2_oe(final File imageFile) throws Exception {
         final ByteSource byteSource = new ByteSourceFile(imageFile);
@@ -227,7 +227,7 @@ public class IptcUpdateTest_OE25Dev extends IptcBaseTest {
         assertNotNull(outMetadata);
     }
 
-    @ParameterizedTest
+@ParameterizedTest
     @MethodSource("data")
     public void testNoChangeUpdate_3_oe(final File imageFile) throws Exception {
         final ByteSource byteSource = new ByteSourceFile(imageFile);

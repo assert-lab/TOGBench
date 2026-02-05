@@ -665,7 +665,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expression, expected, actual);
     }
 
-    @Test
+@Test
     public void testProperty_1_oe() throws Exception {
         /*
          *  tests a simple property expression
@@ -680,7 +680,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("o not instanceof String", o instanceof String);
     }
 
-    @Test
+@Test
     public void testProperty_2_oe() throws Exception {
         /*
          *  tests a simple property expression
@@ -696,7 +696,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("o incorrect", GET_METHOD_STRING, o);
     }
 
-    @Test
+@Test
     public void testNew_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set("double", Double.class);
@@ -708,7 +708,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr.toString(), new Double(1.0), value);
     }
 
-    @Test
+@Test
     public void testNew_2_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set("double", Double.class);
@@ -723,7 +723,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr.toString(), new Float(100.0), value);
     }
 
-    @Test
+@Test
     public void testNew_3_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set("double", Double.class);
@@ -741,7 +741,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr.toString(), "String : quux", value);
     }
 
-    @Test
+@Test
     public void testIntProperty_1_oe() throws Exception {
         final Foo foo = new Foo();
 
@@ -749,7 +749,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(4, foo.square(2));
     }
 
-    @Test
+@Test
     public void testIntProperty_2_oe() throws Exception {
         final Foo foo = new Foo();
 
@@ -758,7 +758,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(4, foo.square(-2));
     }
 
-    @Test
+@Test
     public void testBooleanShortCircuitAnd_1_oe() throws Exception {
         // handle false for the left arg of 'and'
         Foo tester = new Foo();
@@ -770,7 +770,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse("Short circuit failure: rhs evaluated when lhs FALSE", tester.getModified());
     }
 
-    @Test
+@Test
     public void testBooleanShortCircuitAnd_2_oe() throws Exception {
         // handle false for the left arg of 'and'
         Foo tester = new Foo();
@@ -788,7 +788,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("Short circuit failure: rhs not evaluated when lhs TRUE", tester.getModified());
     }
 
-    @Test
+@Test
     public void testBooleanShortCircuitOr_1_oe() throws Exception {
         // handle false for the left arg of 'or'
         Foo tester = new Foo();
@@ -800,7 +800,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue("Short circuit failure: rhs not evaluated when lhs FALSE", tester.getModified());
     }
 
-    @Test
+@Test
     public void testBooleanShortCircuitOr_2_oe() throws Exception {
         // handle false for the left arg of 'or'
         Foo tester = new Foo();
@@ -818,14 +818,14 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertFalse("Short circuit failure: rhs evaluated when lhs TRUE", tester.getModified());
     }
 
-    @Test
+@Test
     public void testToString_1_oe() throws Exception {
         final String code = "abcd";
         final JexlExpression expr = JEXL.createExpression(code);
         Assert.assertEquals("Bad expression value", code, expr.toString());
     }
 
-    @Test
+@Test
     public void testAssignment_2_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set("aString", "Hello");
@@ -838,7 +838,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("hello variable not changed", "world", jc.get("hello"));
     }
 
-    @Test
+@Test
     public void testAssignment_4_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set("aString", "Hello");
@@ -853,7 +853,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("result variable not changed", new Integer(2), jc.get("result"));
     }
 
-    @Test
+@Test
     public void testDuck_1_oe() throws Exception {
         final JexlEngine jexl = JEXL;
         final JexlContext jc = new MapContext();
@@ -865,7 +865,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr.toString(), 0, result);
     }
 
-    @Test
+@Test
     public void testDuck_2_oe() throws Exception {
         final JexlEngine jexl = JEXL;
         final JexlContext jc = new MapContext();
@@ -880,7 +880,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr.toString(), 1, result);
     }
 
-    @Test
+@Test
     public void testDuck_3_oe() throws Exception {
         final JexlEngine jexl = JEXL;
         final JexlContext jc = new MapContext();
@@ -898,7 +898,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr.toString(), 20, result);
     }
 
-    @Test
+@Test
     public void testDuck_4_oe() throws Exception {
         final JexlEngine jexl = JEXL;
         final JexlContext jc = new MapContext();
@@ -919,7 +919,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr.toString(), 20, result);
     }
 
-    @Test
+@Test
     public void testDuck_5_oe() throws Exception {
         final JexlEngine jexl = JEXL;
         final JexlContext jc = new MapContext();
@@ -943,7 +943,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr.toString(), "zero", result);
     }
 
-    @Test
+@Test
     public void testDuck_6_oe() throws Exception {
         final JexlEngine jexl = JEXL;
         final JexlContext jc = new MapContext();
@@ -970,7 +970,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr.toString(), 0, result);
     }
 
-    @Test
+@Test
     public void testArray_1_oe() throws Exception {
         final int[] array = {100, 101, 102};
         final JexlEngine jexl = JEXL;
@@ -983,7 +983,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr.toString(), 101, result);
     }
 
-    @Test
+@Test
     public void testArray_2_oe() throws Exception {
         final int[] array = {100, 101, 102};
         final JexlEngine jexl = JEXL;
@@ -999,7 +999,7 @@ public class JexlTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(expr.toString(), 1010, result);
     }
 
-    @Test
+@Test
     public void testArray_3_oe() throws Exception {
         final int[] array = {100, 101, 102};
         final JexlEngine jexl = JEXL;

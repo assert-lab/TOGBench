@@ -119,13 +119,13 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
      * Tests a cycle with a detected reload operation and a notification that reloading was performed.
      */
 
-    @Test
+@Test
     public void testDefaultRefreshDelay_1_oe() {
         final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetector();
         assertEquals("Wrong delay", 5000, detector.getRefreshDelay());
     }
 
-    @Test
+@Test
     public void testGetFileJarURL_1_oe() throws Exception {
         final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetector();
         final URL url = new URL("jar:" + new File("conf/resources.jar").getAbsoluteFile().toURI().toURL() + "!/test-jar.xml");
@@ -134,7 +134,7 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
         assertNotNull("Detector's file is null", file);
     }
 
-    @Test
+@Test
     public void testGetFileJarURL_2_oe() throws Exception {
         final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetector();
         final URL url = new URL("jar:" + new File("conf/resources.jar").getAbsoluteFile().toURI().toURL() + "!/test-jar.xml");
@@ -144,14 +144,14 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
         assertEquals("Detector does not monitor the jar file", "resources.jar", file.getName());
     }
 
-    @Test
+@Test
     public void testInitWithFileHandler_1_oe() {
         final FileHandler handler = new FileHandler();
         final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetector(handler);
         assertSame("Different file handler", handler, detector.getFileHandler());
     }
 
-    @Test
+@Test
     public void testIsReloadingRequiredFileDoesNotExist_1_oe() {
         final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetector();
         detector.getFileHandler().setFile(new File("NonExistingFile.txt"));
@@ -159,13 +159,13 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
         assertFalse("Reloading required", detector.isReloadingRequired());
     }
 
-    @Test
+@Test
     public void testIsReloadingRequiredNoLocation_1_oe() {
         final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetector();
         assertFalse("Reloading", detector.isReloadingRequired());
     }
 
-    @Test
+@Test
     public void testIsReloadingRequiredTrue_1_oe() throws Exception {
         final File f = EasyMock.createMock(File.class);
         EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
@@ -176,13 +176,13 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
         assertFalse("Reloading required", detector.isReloadingRequired());
     }
 
-    @Test
+@Test
     public void testLocationAfterInit_1_oe() {
         final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetector();
         assertFalse("Got a location", detector.getFileHandler().isLocationDefined());
     }
 
-    @Test
+@Test
     public void testRefreshDelay_1_oe() throws Exception {
         final File f = EasyMock.createMock(File.class);
         EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
@@ -193,7 +193,7 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
         assertFalse("Reloading initially required", detector.isReloadingRequired());
     }
 
-    @Test
+@Test
     public void testRefreshDelay_2_oe() throws Exception {
         final File f = EasyMock.createMock(File.class);
         EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
@@ -205,7 +205,7 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
         assertFalse("Reloading required", detector.isReloadingRequired());
     }
 
-    @Test
+@Test
     public void testRefreshIsReloadingRequiredTrue_1_oe() throws Exception {
         final File f = EasyMock.createMock(File.class);
         EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
@@ -217,7 +217,7 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
         assertTrue("Reloading not detected", detector.isReloadingRequired());
     }
 
-    @Test
+@Test
     public void testRefreshReloadingAndReset_1_oe() throws Exception {
         final File f = EasyMock.createMock(File.class);
         EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
@@ -230,7 +230,7 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
         assertFalse("Reloading required", detector.isReloadingRequired());
     }
 
-    @Test
+@Test
     public void testRefreshReloadingAndReset_4_oe() throws Exception {
         final File f = EasyMock.createMock(File.class);
         EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
@@ -247,7 +247,7 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
         assertTrue("Next reloading not detected", detector.isReloadingRequired());
     }
 
-    @Test
+@Test
     public void testReloadingAndReset_1_oe() throws Exception {
         final File f = EasyMock.createMock(File.class);
         EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
@@ -259,7 +259,7 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
         assertFalse("Reloading required", detector.isReloadingRequired());
     }
 
-    @Test
+@Test
     public void testReloadingAndReset_4_oe() throws Exception {
         final File f = EasyMock.createMock(File.class);
         EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();

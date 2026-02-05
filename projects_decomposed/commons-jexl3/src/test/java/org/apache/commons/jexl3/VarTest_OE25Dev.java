@@ -312,28 +312,28 @@ public class VarTest_OE25Dev extends JexlTestCase {
         }
     }
 
-    @Test
+@Test
     public void testLocalBasic_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("var x; x = 42");
         final Object o = e.execute(null);
         Assert.assertEquals("Result is not 42", new Integer(42), o);
     }
 
-    @Test
+@Test
     public void testLocalSimple_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("var x = 21; x + x");
         final Object o = e.execute(null);
         Assert.assertEquals("Result is not 42", new Integer(42), o);
     }
 
-    @Test
+@Test
     public void testLocalFor_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("var y  = 0; for(var x : [5, 17, 20]) { y = y + x; } y;");
         final Object o = e.execute(null);
         Assert.assertEquals("Result is not 42", new Integer(42), o);
     }
 
-    @Test
+@Test
     public void testLocalForFunc_1_oe() throws Exception {
         final JexlContext jc = new NumbersContext();
         final JexlScript e = JEXL.createScript("var y  = 0; for(var x : numbers()) { y = y + x; } y;");
@@ -341,7 +341,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 42", new Integer(42), o);
     }
 
-    @Test
+@Test
     public void testLocalForFuncReturn_1_oe() throws Exception {
         final JexlContext jc = new NumbersContext();
         final JexlScript e = JEXL.createScript("var y  = 42; for(var x : numbers()) { if (x > 10) return x } y;");
@@ -349,7 +349,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("Result is not 17", new Integer(17), o);
     }
 
-    @Test
+@Test
     public void testLocalForFuncReturn_2_oe() throws Exception {
         final JexlContext jc = new NumbersContext();
         final JexlScript e = JEXL.createScript("var y  = 42; for(var x : numbers()) { if (x > 10) return x } y;");
@@ -359,7 +359,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(toString(e.getVariables()), e.getVariables().isEmpty());
     }
 
-    @Test
+@Test
     public void testRefs_1_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -371,7 +371,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_2_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -388,7 +388,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_3_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -410,7 +410,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_4_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -438,7 +438,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_5_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -471,7 +471,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_6_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -509,7 +509,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_7_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -552,7 +552,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_8_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -600,7 +600,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_9_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -653,7 +653,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_10_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -711,7 +711,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_11_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -774,7 +774,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_12_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -842,7 +842,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_13_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -915,7 +915,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_14_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -993,7 +993,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_15_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -1076,7 +1076,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_16_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -1164,7 +1164,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_17_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -1257,7 +1257,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_18_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -1355,7 +1355,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_19_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -1458,7 +1458,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_20_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -1566,7 +1566,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_21_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -1679,7 +1679,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testRefs_22_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -1797,7 +1797,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testVarCollectNotAll_1_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -1810,7 +1810,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testVarCollectNotAll_2_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -1828,7 +1828,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testVarCollectNotAll_3_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -1851,7 +1851,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testVarCollectNotAll_4_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -1879,7 +1879,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testVarCollectNotAll_5_oe() throws Exception {
         JexlScript e;
         Set<List<String>> vars;
@@ -1912,7 +1912,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(expect, vars));
     }
 
-    @Test
+@Test
     public void testMix_1_oe() throws Exception {
         JexlScript e;
         // x is a parameter, y a context variable, z a local variable
@@ -1924,7 +1924,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(mkref(new String[][]{{"y"}}), vars));
     }
 
-    @Test
+@Test
     public void testMix_2_oe() throws Exception {
         JexlScript e;
         // x is a parameter, y a context variable, z a local variable
@@ -1937,7 +1937,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, parms.length);
     }
 
-    @Test
+@Test
     public void testMix_3_oe() throws Exception {
         JexlScript e;
         // x is a parameter, y a context variable, z a local variable
@@ -1951,7 +1951,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("x", parms[0]);
     }
 
-    @Test
+@Test
     public void testMix_4_oe() throws Exception {
         JexlScript e;
         // x is a parameter, y a context variable, z a local variable
@@ -1966,7 +1966,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, locals.length);
     }
 
-    @Test
+@Test
     public void testMix_5_oe() throws Exception {
         JexlScript e;
         // x is a parameter, y a context variable, z a local variable
@@ -1982,7 +1982,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("z", locals[0]);
     }
 
-    @Test
+@Test
     public void testReferenceLiteral_1_oe() throws Exception {
         final JexlEngine jexld = new JexlBuilder().collectMode(2).create();
         JexlScript script;
@@ -1999,7 +1999,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(Arrays.asList("1969", "7", "20"), result);
     }
 
-    @Test
+@Test
     public void testReferenceLiteral_2_oe() throws Exception {
         final JexlEngine jexld = new JexlBuilder().collectMode(2).create();
         JexlScript script;
@@ -2019,7 +2019,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, vars.size());
     }
 
-    @Test
+@Test
     public void testReferenceLiteral_3_oe() throws Exception {
         final JexlEngine jexld = new JexlBuilder().collectMode(2).create();
         JexlScript script;
@@ -2041,7 +2041,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("moon", var.get(0));
     }
 
-    @Test
+@Test
     public void testReferenceLiteral_4_oe() throws Exception {
         final JexlEngine jexld = new JexlBuilder().collectMode(2).create();
         JexlScript script;
@@ -2064,7 +2064,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("landing", var.get(1));
     }
 
-    @Test
+@Test
     public void testReferenceLiteral_5_oe() throws Exception {
         final JexlEngine jexld = new JexlBuilder().collectMode(2).create();
         JexlScript script;
@@ -2088,7 +2088,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertArrayEquals(new String[]{"yyyy", "MM", "dd"}, readIdentifiers(var.get(2)));
     }
 
-    @Test
+@Test
     public void testReferenceLiteral_6_oe() throws Exception {
         final JexlEngine jexld = new JexlBuilder().collectMode(2).create();
         JexlScript script;
@@ -2116,7 +2116,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(3, mapr.size());
     }
 
-    @Test
+@Test
     public void testReferenceLiteral_7_oe() throws Exception {
         final JexlEngine jexld = new JexlBuilder().collectMode(2).create();
         JexlScript script;
@@ -2145,7 +2145,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("1969", mapr.get("year"));
     }
 
-    @Test
+@Test
     public void testReferenceLiteral_8_oe() throws Exception {
         final JexlEngine jexld = new JexlBuilder().collectMode(2).create();
         JexlScript script;
@@ -2175,7 +2175,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("7", mapr.get("month"));
     }
 
-    @Test
+@Test
     public void testReferenceLiteral_9_oe() throws Exception {
         final JexlEngine jexld = new JexlBuilder().collectMode(2).create();
         JexlScript script;
@@ -2206,7 +2206,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("20", mapr.get("day"));
     }
 
-    @Test
+@Test
     public void testReferenceLiteral_10_oe() throws Exception {
         final JexlEngine jexld = new JexlBuilder().collectMode(2).create();
         JexlScript script;
@@ -2240,7 +2240,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, vars.size());
     }
 
-    @Test
+@Test
     public void testReferenceLiteral_11_oe() throws Exception {
         final JexlEngine jexld = new JexlBuilder().collectMode(2).create();
         JexlScript script;
@@ -2276,7 +2276,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("moon", var.get(0));
     }
 
-    @Test
+@Test
     public void testReferenceLiteral_12_oe() throws Exception {
         final JexlEngine jexld = new JexlBuilder().collectMode(2).create();
         JexlScript script;
@@ -2313,7 +2313,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals("landing", var.get(1));
     }
 
-    @Test
+@Test
     public void testReferenceLiteral_13_oe() throws Exception {
         final JexlEngine jexld = new JexlBuilder().collectMode(2).create();
         JexlScript script;
@@ -2351,20 +2351,20 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertArrayEquals(new String[]{"yyyy", "MM", "dd"}, readIdentifiers(var.get(2)));
     }
 
-    @Test
+@Test
     public void testLiteral_1_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         Assert.assertEquals(2, builder.collectMode());
     }
 
-    @Test
+@Test
     public void testLiteral_2_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
         Assert.assertTrue(builder.collectAll());
     }
 
-    @Test
+@Test
     public void testLiteral_3_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
@@ -2376,7 +2376,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, vars.size());
     }
 
-    @Test
+@Test
     public void testLiteral_4_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
@@ -2389,7 +2389,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(mkref(new String[][]{{"x", "y", "[ 'z', 't' ]"}}), vars));
     }
 
-    @Test
+@Test
     public void testLiteral_5_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
@@ -2406,7 +2406,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, vars.size());
     }
 
-    @Test
+@Test
     public void testLiteral_6_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
@@ -2424,7 +2424,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(mkref(new String[][]{{"x", "y", "{ 'z' : 't' }"}}), vars));
     }
 
-    @Test
+@Test
     public void testLiteral_7_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
@@ -2446,7 +2446,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, vars.size());
     }
 
-    @Test
+@Test
     public void testLiteral_8_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
@@ -2469,7 +2469,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(mkref(new String[][]{{"x", "y", "{ 'z' : 't' }"}}), vars));
     }
 
-    @Test
+@Test
     public void testLiteral_9_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
@@ -2496,7 +2496,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, builder.collectMode());
     }
 
-    @Test
+@Test
     public void testLiteral_10_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
@@ -2524,7 +2524,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(builder.collectAll());
     }
 
-    @Test
+@Test
     public void testLiteral_11_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
@@ -2557,7 +2557,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, vars.size());
     }
 
-    @Test
+@Test
     public void testLiteral_12_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
@@ -2591,7 +2591,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(mkref(new String[][]{{"x", "y"}}), vars));
     }
 
-    @Test
+@Test
     public void testLiteral_13_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
@@ -2629,7 +2629,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, vars.size());
     }
 
-    @Test
+@Test
     public void testLiteral_14_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
@@ -2668,7 +2668,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(mkref(new String[][]{{"x", "y"}}), vars));
     }
 
-    @Test
+@Test
     public void testLiteral_15_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
@@ -2711,7 +2711,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, vars.size());
     }
 
-    @Test
+@Test
     public void testLiteral_16_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
@@ -2755,7 +2755,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(mkref(new String[][]{{"x", "y", "z"}}), vars));
     }
 
-    @Test
+@Test
     public void testLiteral_17_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
@@ -2803,7 +2803,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(1, vars.size());
     }
 
-    @Test
+@Test
     public void testLiteral_18_oe() throws Exception {
         JexlBuilder builder = new JexlBuilder().collectMode(2);
         // removed other assertion
@@ -2852,7 +2852,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertTrue(eq(mkref(new String[][]{{"x", "y", "42"}}), vars));
     }
 
-    @Test
+@Test
     public void testSyntacticVariations_1_oe() throws Exception {
         final JexlScript script = JEXL.createScript("sum(TOTAL) - partial.sum() + partial['sub'].avg() - sum(partial.sub)");
         final Set<List<String>> vars = script.getVariables();
@@ -2860,7 +2860,7 @@ public class VarTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(3, vars.size());
     }
 
-    @Test
+@Test
     public void testObjectContext_9_oe() throws Exception {
         final TheVarContext vars = new TheVarContext();
         final JexlContext jc = new ObjectContext<TheVarContext>(JEXL, vars);

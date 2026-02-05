@@ -79,12 +79,12 @@ public class PredicatedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/PredicatedSet.fullCollection.version4.obj");
 //    }
 
-    public void testGetSet_1_oe() {
+public void testGetSet_1_oe() {
         final PredicatedSet<E> set = makeTestSet();
         assertTrue("returned set should not be null", set.decorated() != null);
     }
 
-    public void testIllegalAdd_2_oe() {
+public void testIllegalAdd_2_oe() {
         final Set<E> set = makeTestSet();
         final Integer i = Integer.valueOf(3);
         try {
@@ -96,7 +96,7 @@ public class PredicatedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         assertTrue("Collection shouldn't contain illegal element",!set.contains(i));
     }
 
-    public void testIllegalAddAll_2_oe() {
+public void testIllegalAddAll_2_oe() {
         final Set<E> set = makeTestSet();
         final Set<E> elements = new HashSet<>();
         elements.add((E) "one");
@@ -112,7 +112,7 @@ public class PredicatedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         assertTrue("Set shouldn't contain illegal element",!set.contains("one"));
     }
 
-    public void testIllegalAddAll_3_oe() {
+public void testIllegalAddAll_3_oe() {
         final Set<E> set = makeTestSet();
         final Set<E> elements = new HashSet<>();
         elements.add((E) "one");
@@ -129,7 +129,7 @@ public class PredicatedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         assertTrue("Set shouldn't contain illegal element",!set.contains("two"));
     }
 
-    public void testIllegalAddAll_4_oe() {
+public void testIllegalAddAll_4_oe() {
         final Set<E> set = makeTestSet();
         final Set<E> elements = new HashSet<>();
         elements.add((E) "one");
@@ -147,7 +147,7 @@ public class PredicatedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         assertTrue("Set shouldn't contain illegal element",!set.contains(Integer.valueOf(3)));
     }
 
-    public void testIllegalAddAll_5_oe() {
+public void testIllegalAddAll_5_oe() {
         final Set<E> set = makeTestSet();
         final Set<E> elements = new HashSet<>();
         elements.add((E) "one");

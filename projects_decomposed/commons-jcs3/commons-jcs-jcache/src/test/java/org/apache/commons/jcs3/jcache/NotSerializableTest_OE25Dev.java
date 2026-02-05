@@ -42,7 +42,7 @@ public class NotSerializableTest_OE25Dev
         }
     }
 
-    @Test
+@Test
     public void run_1_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -52,7 +52,7 @@ public class NotSerializableTest_OE25Dev
         assertFalse(cache.containsKey("foo"));
     }
 
-    @Test
+@Test
     public void run_2_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -64,7 +64,7 @@ public class NotSerializableTest_OE25Dev
         assertTrue(cache.containsKey("foo"));
     }
 
-    @Test
+@Test
     public void run_3_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -77,7 +77,7 @@ public class NotSerializableTest_OE25Dev
         assertEquals("bar", cache.get("foo").name);
     }
 
-    @Test
+@Test
     public void run_4_oe()
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();

@@ -39,7 +39,7 @@ public class CacheManagerStatsUnitTest_OE25Dev
      * @throws Exception
      */
 
-    public void testSimpleGetStats_1_oe() throws Exception
+public void testSimpleGetStats_1_oe() throws Exception
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testCache1" );
 
@@ -60,7 +60,7 @@ public class CacheManagerStatsUnitTest_OE25Dev
         assertTrue( "Should have the cacheName in here.", statsString.indexOf("testCache1") != -1 );
     }
 
-    public void testSimpleGetStats_2_oe() throws Exception
+public void testSimpleGetStats_2_oe() throws Exception
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testCache1" );
 
@@ -82,7 +82,7 @@ public class CacheManagerStatsUnitTest_OE25Dev
         assertTrue( "Should have the HitCountRam in here.", statsString.indexOf("HitCountRam") != -1 );
     }
 
-    public void testSimpleGetStats_3_oe() throws Exception
+public void testSimpleGetStats_3_oe() throws Exception
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testCache1" );
 

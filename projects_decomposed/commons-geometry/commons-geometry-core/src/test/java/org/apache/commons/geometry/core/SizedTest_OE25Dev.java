@@ -35,7 +35,7 @@ class SizedTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testProperties_1_oe() {
         // arrange
         final Sized finite = new StubSized(1);
@@ -46,7 +46,7 @@ class SizedTest_OE25Dev {
         Assertions.assertTrue(finite.isFinite());
     }
 
-    @Test
+@Test
     void testProperties_2_oe() {
         // arrange
         final Sized finite = new StubSized(1);
@@ -58,7 +58,7 @@ class SizedTest_OE25Dev {
         Assertions.assertFalse(finite.isInfinite());
     }
 
-    @Test
+@Test
     void testProperties_3_oe() {
         // arrange
         final Sized finite = new StubSized(1);
@@ -72,7 +72,7 @@ class SizedTest_OE25Dev {
         Assertions.assertFalse(infinite.isFinite());
     }
 
-    @Test
+@Test
     void testProperties_4_oe() {
         // arrange
         final Sized finite = new StubSized(1);
@@ -87,7 +87,7 @@ class SizedTest_OE25Dev {
         Assertions.assertTrue(infinite.isInfinite());
     }
 
-    @Test
+@Test
     void testProperties_5_oe() {
         // arrange
         final Sized finite = new StubSized(1);
@@ -104,7 +104,7 @@ class SizedTest_OE25Dev {
         Assertions.assertFalse(nan.isFinite());
     }
 
-    @Test
+@Test
     void testProperties_6_oe() {
         // arrange
         final Sized finite = new StubSized(1);

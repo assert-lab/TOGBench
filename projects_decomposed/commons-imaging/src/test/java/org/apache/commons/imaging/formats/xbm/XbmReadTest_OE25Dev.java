@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class XbmReadTest_OE25Dev extends XbmBaseTest {
 
-    @Test
+@Test
     public void test_1_oe() throws Exception {
         Debug.debug("start");
 
@@ -43,7 +43,7 @@ public class XbmReadTest_OE25Dev extends XbmBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_2_oe() throws Exception {
         Debug.debug("start");
 
@@ -59,7 +59,7 @@ public class XbmReadTest_OE25Dev extends XbmBaseTest {
     }
     }
 
-    @Test
+@Test
     public void test_3_oe() throws Exception {
         Debug.debug("start");
 

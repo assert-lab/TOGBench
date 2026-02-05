@@ -72,7 +72,7 @@ public class TestXPathExpressionEngineInConfig_OE25Dev {
      * Tests setProperty() if the specified path partly exists.
      */
 
-    @Test
+@Test
     public void testAddPropertyComplexStructures_1_oe() {
         config.addProperty("tables/table/name", "tasks");
         config.addProperty("tables/table[last()]/@type", "system");
@@ -82,7 +82,7 @@ public class TestXPathExpressionEngineInConfig_OE25Dev {
         assertEquals("Wrong table 1", "tasks", config.getString("tables/table[1]/name"));
     }
 
-    @Test
+@Test
     public void testAddPropertyComplexStructures_2_oe() {
         config.addProperty("tables/table/name", "tasks");
         config.addProperty("tables/table[last()]/@type", "system");
@@ -93,7 +93,7 @@ public class TestXPathExpressionEngineInConfig_OE25Dev {
         assertEquals("Wrong table 2", "documents", config.getString("tables/table[2]/name"));
     }
 
-    @Test
+@Test
     public void testAddPropertyComplexStructures_3_oe() {
         config.addProperty("tables/table/name", "tasks");
         config.addProperty("tables/table[last()]/@type", "system");
@@ -105,7 +105,7 @@ public class TestXPathExpressionEngineInConfig_OE25Dev {
         assertEquals("Wrong field type", "int", config.getString("tables/table[1]/fields/field[1]/@type"));
     }
 
-    @Test
+@Test
     public void testPropertiesWithNamespace_1_oe() throws ConfigurationException {
         final String xml = "<Config>\n" + "<dsig:Transforms xmlns:dsig=\"http://www.w3.org/2000/09/xmldsig#\">\n"
             + "  <dsig:Transform Algorithm=\"http://www.w3.org/TR/1999/REC-xpath-19991116\">\n"
@@ -120,14 +120,14 @@ public class TestXPathExpressionEngineInConfig_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testSetPropertyExisting_1_oe() {
         config.addProperty(" " + KEY, "failure");
         config.setProperty(KEY, VALUE);
         assertEquals("Value not changed", VALUE, config.getString(KEY));
     }
 
-    @Test
+@Test
     public void testSetPropertyNewAttribute_1_oe() {
         final String keyAttr = KEY + "/@attr";
         config.addProperty(" " + KEY, "test");
@@ -135,13 +135,13 @@ public class TestXPathExpressionEngineInConfig_OE25Dev {
         assertEquals("Value not set", VALUE, config.getString(keyAttr));
     }
 
-    @Test
+@Test
     public void testSetPropertyNewKey_1_oe() {
         config.setProperty(KEY, VALUE);
         assertEquals("Value not set", VALUE, config.getString(KEY));
     }
 
-    @Test
+@Test
     public void testSetPropertyPartlyExisting_1_oe() {
         final String testKey = KEY + "/sub";
         config.addProperty(" " + KEY, "test");

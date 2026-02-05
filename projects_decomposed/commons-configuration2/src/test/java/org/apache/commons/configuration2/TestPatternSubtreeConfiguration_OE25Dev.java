@@ -68,7 +68,7 @@ public class TestPatternSubtreeConfiguration_OE25Dev {
         new FileHandler(config).save(new StringWriter());
     }
 
-    @Test
+@Test
     public void testMultiConfiguration_1_oe() {
         final PatternSubtreeConfigurationWrapper config = new PatternSubtreeConfigurationWrapper(this.conf, PATTERN);
         config.setExpressionEngine(new XPathExpressionEngine());
@@ -77,7 +77,7 @@ public class TestPatternSubtreeConfiguration_OE25Dev {
         assertEquals(15, config.getInt("rowsPerPage"));
     }
 
-    @Test
+@Test
     public void testMultiConfiguration_2_oe() {
         final PatternSubtreeConfigurationWrapper config = new PatternSubtreeConfigurationWrapper(this.conf, PATTERN);
         config.setExpressionEngine(new XPathExpressionEngine());
@@ -89,7 +89,7 @@ public class TestPatternSubtreeConfiguration_OE25Dev {
         assertEquals(25, config.getInt("rowsPerPage"));
     }
 
-    @Test
+@Test
     public void testMultiConfiguration_3_oe() {
         final PatternSubtreeConfigurationWrapper config = new PatternSubtreeConfigurationWrapper(this.conf, PATTERN);
         config.setExpressionEngine(new XPathExpressionEngine());

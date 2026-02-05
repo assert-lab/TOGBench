@@ -122,13 +122,13 @@ public class GrowthListTest_OE25Dev<E> extends AbstractListTest<E> {
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/GrowthList.fullCollection.version4.obj");
 //    }
 
-    public void testGrowthAdd_1_oe() {
+public void testGrowthAdd_1_oe() {
         final Integer one = Integer.valueOf(1);
         final GrowthList<Integer> grower = new GrowthList<>();
         assertEquals(0, grower.size());
     }
 
-    public void testGrowthAdd_2_oe() {
+public void testGrowthAdd_2_oe() {
         final Integer one = Integer.valueOf(1);
         final GrowthList<Integer> grower = new GrowthList<>();
         // removed other assertion
@@ -136,7 +136,7 @@ public class GrowthListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(2, grower.size());
     }
 
-    public void testGrowthAdd_3_oe() {
+public void testGrowthAdd_3_oe() {
         final Integer one = Integer.valueOf(1);
         final GrowthList<Integer> grower = new GrowthList<>();
         // removed other assertion
@@ -145,7 +145,7 @@ public class GrowthListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(null, grower.get(0));
     }
 
-    public void testGrowthAdd_4_oe() {
+public void testGrowthAdd_4_oe() {
         final Integer one = Integer.valueOf(1);
         final GrowthList<Integer> grower = new GrowthList<>();
         // removed other assertion
@@ -155,7 +155,7 @@ public class GrowthListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(one, grower.get(1));
     }
 
-    public void testGrowthAddAll_1_oe() {
+public void testGrowthAddAll_1_oe() {
         final Integer one = Integer.valueOf(1);
         final Integer two = Integer.valueOf(2);
         final Collection<Integer> coll = new ArrayList<>();
@@ -165,7 +165,7 @@ public class GrowthListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(0, grower.size());
     }
 
-    public void testGrowthAddAll_2_oe() {
+public void testGrowthAddAll_2_oe() {
         final Integer one = Integer.valueOf(1);
         final Integer two = Integer.valueOf(2);
         final Collection<Integer> coll = new ArrayList<>();
@@ -177,7 +177,7 @@ public class GrowthListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(3, grower.size());
     }
 
-    public void testGrowthAddAll_3_oe() {
+public void testGrowthAddAll_3_oe() {
         final Integer one = Integer.valueOf(1);
         final Integer two = Integer.valueOf(2);
         final Collection<Integer> coll = new ArrayList<>();
@@ -190,7 +190,7 @@ public class GrowthListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(null, grower.get(0));
     }
 
-    public void testGrowthAddAll_4_oe() {
+public void testGrowthAddAll_4_oe() {
         final Integer one = Integer.valueOf(1);
         final Integer two = Integer.valueOf(2);
         final Collection<Integer> coll = new ArrayList<>();
@@ -204,7 +204,7 @@ public class GrowthListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(one, grower.get(1));
     }
 
-    public void testGrowthAddAll_5_oe() {
+public void testGrowthAddAll_5_oe() {
         final Integer one = Integer.valueOf(1);
         final Integer two = Integer.valueOf(2);
         final Collection<Integer> coll = new ArrayList<>();
@@ -219,13 +219,13 @@ public class GrowthListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(two, grower.get(2));
     }
 
-    public void testGrowthSet1_1_oe() {
+public void testGrowthSet1_1_oe() {
         final Integer one = Integer.valueOf(1);
         final GrowthList<Integer> grower = new GrowthList<>();
         assertEquals(0, grower.size());
     }
 
-    public void testGrowthSet1_2_oe() {
+public void testGrowthSet1_2_oe() {
         final Integer one = Integer.valueOf(1);
         final GrowthList<Integer> grower = new GrowthList<>();
         // removed other assertion
@@ -233,7 +233,7 @@ public class GrowthListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(2, grower.size());
     }
 
-    public void testGrowthSet1_3_oe() {
+public void testGrowthSet1_3_oe() {
         final Integer one = Integer.valueOf(1);
         final GrowthList<Integer> grower = new GrowthList<>();
         // removed other assertion
@@ -242,7 +242,7 @@ public class GrowthListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(null, grower.get(0));
     }
 
-    public void testGrowthSet1_4_oe() {
+public void testGrowthSet1_4_oe() {
         final Integer one = Integer.valueOf(1);
         final GrowthList<Integer> grower = new GrowthList<>();
         // removed other assertion
@@ -252,13 +252,13 @@ public class GrowthListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(one, grower.get(1));
     }
 
-    public void testGrowthSet2_1_oe() {
+public void testGrowthSet2_1_oe() {
         final Integer one = Integer.valueOf(1);
         final GrowthList<Integer> grower = new GrowthList<>();
         assertEquals(0, grower.size());
     }
 
-    public void testGrowthSet2_2_oe() {
+public void testGrowthSet2_2_oe() {
         final Integer one = Integer.valueOf(1);
         final GrowthList<Integer> grower = new GrowthList<>();
         // removed other assertion
@@ -266,7 +266,7 @@ public class GrowthListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(1, grower.size());
     }
 
-    public void testGrowthSet2_3_oe() {
+public void testGrowthSet2_3_oe() {
         final Integer one = Integer.valueOf(1);
         final GrowthList<Integer> grower = new GrowthList<>();
         // removed other assertion

@@ -118,25 +118,25 @@ public class TestNullConverter_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testSingleton_1_oe() throws Exception {
+public void testSingleton_1_oe() throws Exception {
         Class cls = NullConverter.class;
         assertEquals(false,Modifier.isPublic(cls.getModifiers()));
     }
 
-    public void testSingleton_2_oe() throws Exception {
+public void testSingleton_2_oe() throws Exception {
         Class cls = NullConverter.class;
         // removed other assertion
         assertEquals(false,Modifier.isProtected(cls.getModifiers()));
     }
 
-    public void testSingleton_3_oe() throws Exception {
+public void testSingleton_3_oe() throws Exception {
         Class cls = NullConverter.class;
         // removed other assertion
         // removed other assertion
         assertEquals(false,Modifier.isPrivate(cls.getModifiers()));
     }
 
-    public void testSingleton_4_oe() throws Exception {
+public void testSingleton_4_oe() throws Exception {
         Class cls = NullConverter.class;
         // removed other assertion
         // removed other assertion
@@ -146,7 +146,7 @@ public class TestNullConverter_OE25Dev extends TestCase {
         assertEquals(1,cls.getDeclaredConstructors().length);
     }
 
-    public void testSingleton_5_oe() throws Exception {
+public void testSingleton_5_oe() throws Exception {
         Class cls = NullConverter.class;
         // removed other assertion
         // removed other assertion
@@ -157,7 +157,7 @@ public class TestNullConverter_OE25Dev extends TestCase {
         assertEquals(true,Modifier.isProtected(con.getModifiers()));
     }
 
-    public void testSingleton_6_oe() throws Exception {
+public void testSingleton_6_oe() throws Exception {
         Class cls = NullConverter.class;
         // removed other assertion
         // removed other assertion
@@ -171,7 +171,7 @@ public class TestNullConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPublic(fld.getModifiers()));
     }
 
-    public void testSingleton_7_oe() throws Exception {
+public void testSingleton_7_oe() throws Exception {
         Class cls = NullConverter.class;
         // removed other assertion
         // removed other assertion
@@ -186,7 +186,7 @@ public class TestNullConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isProtected(fld.getModifiers()));
     }
 
-    public void testSingleton_8_oe() throws Exception {
+public void testSingleton_8_oe() throws Exception {
         Class cls = NullConverter.class;
         // removed other assertion
         // removed other assertion
@@ -202,76 +202,76 @@ public class TestNullConverter_OE25Dev extends TestCase {
         assertEquals(false,Modifier.isPrivate(fld.getModifiers()));
     }
 
-    public void testSupportedType_1_oe() throws Exception {
+public void testSupportedType_1_oe() throws Exception {
         assertEquals(null,NullConverter.INSTANCE.getSupportedType());
     }
 
-    public void testGetInstantMillis_Object_Chronology_1_oe() throws Exception {
+public void testGetInstantMillis_Object_Chronology_1_oe() throws Exception {
         assertEquals(TEST_TIME_NOW,NullConverter.INSTANCE.getInstantMillis(null,JULIAN));
     }
 
-    public void testGetInstantMillis_Object_Chronology_2_oe() throws Exception {
+public void testGetInstantMillis_Object_Chronology_2_oe() throws Exception {
         // removed other assertion
         assertEquals(TEST_TIME_NOW,NullConverter.INSTANCE.getInstantMillis(null,(Chronology)null));
     }
 
-    public void testGetChronology_Object_Zone_1_oe() throws Exception {
+public void testGetChronology_Object_Zone_1_oe() throws Exception {
         assertEquals(ISO_PARIS,NullConverter.INSTANCE.getChronology(null,PARIS));
     }
 
-    public void testGetChronology_Object_Zone_2_oe() throws Exception {
+public void testGetChronology_Object_Zone_2_oe() throws Exception {
         // removed other assertion
         assertEquals(ISO,NullConverter.INSTANCE.getChronology(null,(DateTimeZone)null));
     }
 
-    public void testGetChronology_Object_Chronology_1_oe() throws Exception {
+public void testGetChronology_Object_Chronology_1_oe() throws Exception {
         assertEquals(JULIAN,NullConverter.INSTANCE.getChronology(null,JULIAN));
     }
 
-    public void testGetChronology_Object_Chronology_2_oe() throws Exception {
+public void testGetChronology_Object_Chronology_2_oe() throws Exception {
         // removed other assertion
         assertEquals(ISO,NullConverter.INSTANCE.getChronology(null,(Chronology)null));
     }
 
-    public void testGetPartialValues_1_oe() throws Exception {
+public void testGetPartialValues_1_oe() throws Exception {
         TimeOfDay tod = new TimeOfDay();
         int[] expected = new int[] {10 + 1, 20, 30, 40}; // now
         int[] actual = NullConverter.INSTANCE.getPartialValues(tod, null, ISOChronology.getInstance());
         assertEquals(true,Arrays.equals(expected,actual));
     }
 
-    public void testGetDurationMillis_Object_1_oe() throws Exception {
+public void testGetDurationMillis_Object_1_oe() throws Exception {
         assertEquals(0L,NullConverter.INSTANCE.getDurationMillis(null));
     }
 
-    public void testGetPeriodType_Object_1_oe() throws Exception {
+public void testGetPeriodType_Object_1_oe() throws Exception {
         assertEquals(PeriodType.standard(),NullConverter.INSTANCE.getPeriodType(null));
     }
 
-    public void testSetInto_Object_1_oe() throws Exception {
+public void testSetInto_Object_1_oe() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         NullConverter.INSTANCE.setInto(m, null, null);
         assertEquals(0L,m.getMillis());
     }
 
-    public void testIsReadableInterval_Object_Chronology_1_oe() throws Exception {
+public void testIsReadableInterval_Object_Chronology_1_oe() throws Exception {
         assertEquals(false,NullConverter.INSTANCE.isReadableInterval(null,null));
     }
 
-    public void testSetInto_Object_Chronology1_1_oe() throws Exception {
+public void testSetInto_Object_Chronology1_1_oe() throws Exception {
         MutableInterval m = new MutableInterval(1000L, 2000L, GJChronology.getInstance());
         NullConverter.INSTANCE.setInto(m, null, null);
         assertEquals(TEST_TIME_NOW,m.getStartMillis());
     }
 
-    public void testSetInto_Object_Chronology1_2_oe() throws Exception {
+public void testSetInto_Object_Chronology1_2_oe() throws Exception {
         MutableInterval m = new MutableInterval(1000L, 2000L, GJChronology.getInstance());
         NullConverter.INSTANCE.setInto(m, null, null);
         // removed other assertion
         assertEquals(TEST_TIME_NOW,m.getEndMillis());
     }
 
-    public void testSetInto_Object_Chronology1_3_oe() throws Exception {
+public void testSetInto_Object_Chronology1_3_oe() throws Exception {
         MutableInterval m = new MutableInterval(1000L, 2000L, GJChronology.getInstance());
         NullConverter.INSTANCE.setInto(m, null, null);
         // removed other assertion
@@ -279,20 +279,20 @@ public class TestNullConverter_OE25Dev extends TestCase {
         assertEquals(ISOChronology.getInstance(),m.getChronology());
     }
 
-    public void testSetInto_Object_Chronology2_1_oe() throws Exception {
+public void testSetInto_Object_Chronology2_1_oe() throws Exception {
         MutableInterval m = new MutableInterval(1000L, 2000L, GJChronology.getInstance());
         NullConverter.INSTANCE.setInto(m, null, CopticChronology.getInstance());
         assertEquals(TEST_TIME_NOW,m.getStartMillis());
     }
 
-    public void testSetInto_Object_Chronology2_2_oe() throws Exception {
+public void testSetInto_Object_Chronology2_2_oe() throws Exception {
         MutableInterval m = new MutableInterval(1000L, 2000L, GJChronology.getInstance());
         NullConverter.INSTANCE.setInto(m, null, CopticChronology.getInstance());
         // removed other assertion
         assertEquals(TEST_TIME_NOW,m.getEndMillis());
     }
 
-    public void testSetInto_Object_Chronology2_3_oe() throws Exception {
+public void testSetInto_Object_Chronology2_3_oe() throws Exception {
         MutableInterval m = new MutableInterval(1000L, 2000L, GJChronology.getInstance());
         NullConverter.INSTANCE.setInto(m, null, CopticChronology.getInstance());
         // removed other assertion
@@ -300,7 +300,7 @@ public class TestNullConverter_OE25Dev extends TestCase {
         assertEquals(CopticChronology.getInstance(),m.getChronology());
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         assertEquals("Converter[null]",NullConverter.INSTANCE.toString());
     }
 

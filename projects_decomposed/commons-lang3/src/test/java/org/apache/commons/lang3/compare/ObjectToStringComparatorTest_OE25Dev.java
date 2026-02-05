@@ -43,14 +43,14 @@ public class ObjectToStringComparatorTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void testNull_1_oe() {
         final List<Thing> things = Arrays.asList(null, new Thing("y"), null);
         things.sort(ObjectToStringComparator.INSTANCE);
         assertEquals("y", things.get(0).string);
     }
 
-    @Test
+@Test
     public void testNull_2_oe() {
         final List<Thing> things = Arrays.asList(null, new Thing("y"), null);
         things.sort(ObjectToStringComparator.INSTANCE);
@@ -58,7 +58,7 @@ public class ObjectToStringComparatorTest_OE25Dev {
         assertEquals(null, things.get(1));
     }
 
-    @Test
+@Test
     public void testNull_3_oe() {
         final List<Thing> things = Arrays.asList(null, new Thing("y"), null);
         things.sort(ObjectToStringComparator.INSTANCE);
@@ -67,14 +67,14 @@ public class ObjectToStringComparatorTest_OE25Dev {
         assertEquals(null, things.get(2));
     }
 
-    @Test
+@Test
     public void testNullToString_1_oe() {
         final List<Thing> things = Arrays.asList(new Thing(null), new Thing("y"), new Thing(null));
         things.sort(ObjectToStringComparator.INSTANCE);
         assertEquals("y", things.get(0).string);
     }
 
-    @Test
+@Test
     public void testNullToString_2_oe() {
         final List<Thing> things = Arrays.asList(new Thing(null), new Thing("y"), new Thing(null));
         things.sort(ObjectToStringComparator.INSTANCE);
@@ -82,7 +82,7 @@ public class ObjectToStringComparatorTest_OE25Dev {
         assertEquals(null, things.get(1).string);
     }
 
-    @Test
+@Test
     public void testNullToString_3_oe() {
         final List<Thing> things = Arrays.asList(new Thing(null), new Thing("y"), new Thing(null));
         things.sort(ObjectToStringComparator.INSTANCE);
@@ -91,14 +91,14 @@ public class ObjectToStringComparatorTest_OE25Dev {
         assertEquals(null, things.get(2).string);
     }
 
-    @Test
+@Test
     public void testSortCollection_1_oe() {
         final List<Thing> things = Arrays.asList(new Thing("z"), new Thing("y"), new Thing("x"));
         things.sort(ObjectToStringComparator.INSTANCE);
         assertEquals("x", things.get(0).string);
     }
 
-    @Test
+@Test
     public void testSortCollection_2_oe() {
         final List<Thing> things = Arrays.asList(new Thing("z"), new Thing("y"), new Thing("x"));
         things.sort(ObjectToStringComparator.INSTANCE);
@@ -106,7 +106,7 @@ public class ObjectToStringComparatorTest_OE25Dev {
         assertEquals("y", things.get(1).string);
     }
 
-    @Test
+@Test
     public void testSortCollection_3_oe() {
         final List<Thing> things = Arrays.asList(new Thing("z"), new Thing("y"), new Thing("x"));
         things.sort(ObjectToStringComparator.INSTANCE);

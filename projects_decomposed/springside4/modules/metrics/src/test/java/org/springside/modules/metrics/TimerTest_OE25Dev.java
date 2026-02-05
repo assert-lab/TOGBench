@@ -16,7 +16,7 @@ import org.springside.modules.metrics.utils.Clock.MockClock;
 
 public class TimerTest_OE25Dev {
 
-	@Test
+@Test
 	public void normal_1_oe() {
 		MockClock clock = new MockClock();
 		Timer.clock = clock;
@@ -36,7 +36,7 @@ public class TimerTest_OE25Dev {
 		assertThat(metric.counterMetric.totalCount).isEqualTo(2);
 	}
 
-	@Test
+@Test
 	public void normal_2_oe() {
 		MockClock clock = new MockClock();
 		Timer.clock = clock;
@@ -57,7 +57,7 @@ public class TimerTest_OE25Dev {
 		assertThat(metric.counterMetric.avgRate).isEqualTo(4);
 	}
 
-	@Test
+@Test
 	public void normal_3_oe() {
 		MockClock clock = new MockClock();
 		Timer.clock = clock;
@@ -79,7 +79,7 @@ public class TimerTest_OE25Dev {
 		assertThat(metric.counterMetric.latestCount).isEqualTo(2);
 	}
 
-	@Test
+@Test
 	public void normal_4_oe() {
 		MockClock clock = new MockClock();
 		Timer.clock = clock;
@@ -102,7 +102,7 @@ public class TimerTest_OE25Dev {
 		assertThat(metric.counterMetric.latestRate).isEqualTo(4);
 	}
 
-	@Test
+@Test
 	public void normal_5_oe() {
 		MockClock clock = new MockClock();
 		Timer.clock = clock;
@@ -127,7 +127,7 @@ public class TimerTest_OE25Dev {
 		assertThat(metric.histogramMetric.min).isEqualTo(200);
 	}
 
-	@Test
+@Test
 	public void normal_6_oe() {
 		MockClock clock = new MockClock();
 		Timer.clock = clock;
@@ -153,7 +153,7 @@ public class TimerTest_OE25Dev {
 		assertThat(metric.histogramMetric.avg).isEqualTo(250);
 	}
 
-	@Test
+@Test
 	public void normal_7_oe() {
 		MockClock clock = new MockClock();
 		Timer.clock = clock;

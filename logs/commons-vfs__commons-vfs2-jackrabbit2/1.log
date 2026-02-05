@@ -34,7 +34,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-vfs2-jackrabbit2 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2-jackrabbit2' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2-jackrabbit2
-[INFO] Storing buildNumber: 4e96f64c167c9f400b8bc7340bf57241aa8435a5 at timestamp: 1770255626538
+[INFO] Storing buildNumber: e4cf1dbede35d5b995b6d81363d313f167d9b312 at timestamp: 1770279499604
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-vfs2-jackrabbit2 ---
@@ -78,13 +78,13 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev
-[ERROR] Tests run: 32, Failures: 0, Errors: 32, Skipped: 0, Time elapsed: 0.204 s <<< FAILURE! - in org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev
-[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_1_oe  Time elapsed: 0.019 s  <<< ERROR!
+[ERROR] Tests run: 32, Failures: 0, Errors: 32, Skipped: 0, Time elapsed: 0.167 s <<< FAILURE! - in org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev
+[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_1_oe  Time elapsed: 0.022 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.delete(org.apache.commons.vfs2.FileSelector)" because "scratchFolder" is null
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_1_oe(Webdav4VersioningTests_OE25Dev.java:56)
 
-[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_2_oe  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_2_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.delete(org.apache.commons.vfs2.FileSelector)" because "scratchFolder" is null
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_2_oe(Webdav4VersioningTests_OE25Dev.java:68)
@@ -94,12 +94,12 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_3_oe(Webdav4VersioningTests_OE25Dev.java:81)
 
-[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_4_oe  Time elapsed: 0.005 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_4_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.delete(org.apache.commons.vfs2.FileSelector)" because "scratchFolder" is null
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_4_oe(Webdav4VersioningTests_OE25Dev.java:95)
 
-[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_5_oe  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_5_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.delete(org.apache.commons.vfs2.FileSelector)" because "scratchFolder" is null
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_5_oe(Webdav4VersioningTests_OE25Dev.java:111)
@@ -109,7 +109,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_6_oe(Webdav4VersioningTests_OE25Dev.java:128)
 
-[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_7_oe  Time elapsed: 0.011 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_7_oe  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.delete(org.apache.commons.vfs2.FileSelector)" because "scratchFolder" is null
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_7_oe(Webdav4VersioningTests_OE25Dev.java:146)
@@ -119,7 +119,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_8_oe(Webdav4VersioningTests_OE25Dev.java:165)
 
-[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_9_oe  Time elapsed: 0 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_9_oe  Time elapsed: 0.008 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.delete(org.apache.commons.vfs2.FileSelector)" because "scratchFolder" is null
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_9_oe(Webdav4VersioningTests_OE25Dev.java:185)
@@ -149,12 +149,12 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioningWithCreator_5_oe(Webdav4VersioningTests_OE25Dev.java:422)
 
-[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioningWithCreator_6_oe  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioningWithCreator_6_oe  Time elapsed: 0.007 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.delete(org.apache.commons.vfs2.FileSelector)" because "scratchFolder" is null
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioningWithCreator_6_oe(Webdav4VersioningTests_OE25Dev.java:440)
 
-[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioningWithCreator_7_oe  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioningWithCreator_7_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.delete(org.apache.commons.vfs2.FileSelector)" because "scratchFolder" is null
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioningWithCreator_7_oe(Webdav4VersioningTests_OE25Dev.java:459)
@@ -174,17 +174,17 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_10_oe(Webdav4VersioningTests_OE25Dev.java:206)
 
-[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_11_oe  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_11_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.delete(org.apache.commons.vfs2.FileSelector)" because "scratchFolder" is null
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_11_oe(Webdav4VersioningTests_OE25Dev.java:228)
 
-[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_12_oe  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_12_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.delete(org.apache.commons.vfs2.FileSelector)" because "scratchFolder" is null
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_12_oe(Webdav4VersioningTests_OE25Dev.java:251)
 
-[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_13_oe  Time elapsed: 0 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_13_oe  Time elapsed: 0.015 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.delete(org.apache.commons.vfs2.FileSelector)" because "scratchFolder" is null
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioning_13_oe(Webdav4VersioningTests_OE25Dev.java:275)
@@ -219,7 +219,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioningWithCreator_13_oe(Webdav4VersioningTests_OE25Dev.java:594)
 
-[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioningWithCreator_14_oe  Time elapsed: 0 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioningWithCreator_14_oe  Time elapsed: 0.005 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.delete(org.apache.commons.vfs2.FileSelector)" because "scratchFolder" is null
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioningWithCreator_14_oe(Webdav4VersioningTests_OE25Dev.java:622)
@@ -234,7 +234,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioningWithCreator_16_oe(Webdav4VersioningTests_OE25Dev.java:683)
 
-[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioningWithCreator_17_oe  Time elapsed: 0 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioningWithCreator_17_oe  Time elapsed: 0.008 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.delete(org.apache.commons.vfs2.FileSelector)" because "scratchFolder" is null
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.createScratchFolder(Webdav4VersioningTests_OE25Dev.java:48)
 	at org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev.testVersioningWithCreator_17_oe(Webdav4VersioningTests_OE25Dev.java:716)
@@ -281,8 +281,8 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  21.141 s
-[INFO] Finished at: 2026-02-04T19:40:42-06:00
+[INFO] Total time:  22.746 s
+[INFO] Finished at: 2026-02-05T02:18:37-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project commons-vfs2-jackrabbit2: There are test failures.
 [ERROR] 

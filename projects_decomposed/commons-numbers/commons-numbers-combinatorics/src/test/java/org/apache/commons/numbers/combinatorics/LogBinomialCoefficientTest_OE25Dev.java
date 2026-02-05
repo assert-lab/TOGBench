@@ -30,12 +30,12 @@ class LogBinomialCoefficientTest_OE25Dev {
      * JIRA: MATH-241
      */
 
-    @Test
+@Test
     void test0Choose0_1_oe() {
         Assertions.assertEquals(0d, LogBinomialCoefficient.value(0, 0));
     }
 
-    @Test
+@Test
     void testBinomialCoefficient_1_oe() {
         final long[] bcoef5 = {1, 5, 10, 10, 5, 1};
         final long[] bcoef6 = {1, 6, 15, 20, 15, 6, 1};
@@ -47,7 +47,7 @@ class LogBinomialCoefficientTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testBinomialCoefficient_2_oe() {
         final long[] bcoef5 = {1, 5, 10, 10, 5, 1};
         final long[] bcoef6 = {1, 6, 15, 20, 15, 6, 1};
@@ -66,17 +66,17 @@ class LogBinomialCoefficientTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testBinomialCoefficientFail1_1_oe() {
         Assertions.assertThrows(CombinatoricsException.class, () -> LogBinomialCoefficient.value(4, 5) );
     }
 
-    @Test
+@Test
     void testBinomialCoefficientFail2_1_oe() {
         Assertions.assertThrows(CombinatoricsException.class, () -> LogBinomialCoefficient.value(-1, -2) );
     }
 
-    @Test
+@Test
     void testBinomialCoefficientLarge_1_oe() throws Exception {
         // This tests all legal and illegal values for n <= 200.
         for (int n = 0; n <= 200; n++) {
@@ -102,7 +102,7 @@ class LogBinomialCoefficientTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     void testBinomialCoefficientLarge_2_oe() throws Exception {
         // This tests all legal and illegal values for n <= 200.
         for (int n = 0; n <= 200; n++) {

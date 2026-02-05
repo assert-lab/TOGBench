@@ -164,7 +164,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testProperties_infinite_1_oe() {
         // arrange
         final ConvexArea area = ConvexArea.full();
@@ -176,7 +176,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertTrue(ps.isFull());
     }
 
-    @Test
+@Test
     void testProperties_infinite_2_oe() {
         // arrange
         final ConvexArea area = ConvexArea.full();
@@ -189,7 +189,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(ps.isEmpty());
     }
 
-    @Test
+@Test
     void testProperties_infinite_3_oe() {
         // arrange
         final ConvexArea area = ConvexArea.full();
@@ -203,7 +203,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(ps.isFinite());
     }
 
-    @Test
+@Test
     void testProperties_infinite_4_oe() {
         // arrange
         final ConvexArea area = ConvexArea.full();
@@ -218,7 +218,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertTrue(ps.isInfinite());
     }
 
-    @Test
+@Test
     void testProperties_infinite_6_oe() {
         // arrange
         final ConvexArea area = ConvexArea.full();
@@ -237,7 +237,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertSame(XY_PLANE_Z1, ps.getPlane());
     }
 
-    @Test
+@Test
     void testProperties_infinite_7_oe() {
         // arrange
         final ConvexArea area = ConvexArea.full();
@@ -257,7 +257,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertSame(area, ps.getSubspaceRegion());
     }
 
-    @Test
+@Test
     void testProperties_infinite_8_oe() {
         // arrange
         final ConvexArea area = ConvexArea.full();
@@ -279,7 +279,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(0, ps.getVertices().size());
     }
 
-    @Test
+@Test
     void testProperties_finite_1_oe() {
         // arrange
         final ConvexArea area = ConvexArea.convexPolygonFromPath(LinePath.builder(TEST_PRECISION)
@@ -293,7 +293,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(ps.isFull());
     }
 
-    @Test
+@Test
     void testProperties_finite_2_oe() {
         // arrange
         final ConvexArea area = ConvexArea.convexPolygonFromPath(LinePath.builder(TEST_PRECISION)
@@ -308,7 +308,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(ps.isEmpty());
     }
 
-    @Test
+@Test
     void testProperties_finite_3_oe() {
         // arrange
         final ConvexArea area = ConvexArea.convexPolygonFromPath(LinePath.builder(TEST_PRECISION)
@@ -324,7 +324,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertTrue(ps.isFinite());
     }
 
-    @Test
+@Test
     void testProperties_finite_4_oe() {
         // arrange
         final ConvexArea area = ConvexArea.convexPolygonFromPath(LinePath.builder(TEST_PRECISION)
@@ -341,7 +341,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(ps.isInfinite());
     }
 
-    @Test
+@Test
     void testProperties_finite_5_oe() {
         // arrange
         final ConvexArea area = ConvexArea.convexPolygonFromPath(LinePath.builder(TEST_PRECISION)
@@ -360,7 +360,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(0.5, ps.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testProperties_finite_6_oe() {
         // arrange
         final ConvexArea area = ConvexArea.convexPolygonFromPath(LinePath.builder(TEST_PRECISION)
@@ -381,7 +381,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertSame(XY_PLANE_Z1, ps.getPlane());
     }
 
-    @Test
+@Test
     void testProperties_finite_7_oe() {
         // arrange
         final ConvexArea area = ConvexArea.convexPolygonFromPath(LinePath.builder(TEST_PRECISION)
@@ -403,7 +403,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertSame(area, ps.getSubspaceRegion());
     }
 
-    @Test
+@Test
     void testGetVertices_twoParallelLines_1_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION).getEmbedding();
@@ -419,7 +419,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(0, vertices.size());
     }
 
-    @Test
+@Test
     void testGetVertices_infiniteWithVertices_1_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1), Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
@@ -436,7 +436,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(2, vertices.size());
     }
 
-    @Test
+@Test
     void testToTriangles_finite_1_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(0, 0, 1);
@@ -456,7 +456,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(2, tris.size());
     }
 
-    @Test
+@Test
     void testGetBounds_noBounds_1_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
@@ -470,7 +470,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(full.getBounds());
     }
 
-    @Test
+@Test
     void testGetBounds_noBounds_2_oe() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
@@ -485,7 +485,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(halfPlane.getBounds());
     }
 
-    @Test
+@Test
     void testTransform_1_oe() {
         // arrange
         final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
@@ -506,7 +506,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(result.isFull());
     }
 
-    @Test
+@Test
     void testTransform_2_oe() {
         // arrange
         final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
@@ -528,7 +528,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(result.isEmpty());
     }
 
-    @Test
+@Test
     void testTransform_3_oe() {
         // arrange
         final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
@@ -551,7 +551,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertTrue(result.isFinite());
     }
 
-    @Test
+@Test
     void testTransform_4_oe() {
         // arrange
         final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
@@ -575,7 +575,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(result.isInfinite());
     }
 
-    @Test
+@Test
     void testTransform_5_oe() {
         // arrange
         final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
@@ -601,7 +601,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(8, result.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testReverse_1_oe() {
         // arrange
         final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
@@ -617,7 +617,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(result.isFull());
     }
 
-    @Test
+@Test
     void testReverse_2_oe() {
         // arrange
         final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
@@ -634,7 +634,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(result.isEmpty());
     }
 
-    @Test
+@Test
     void testReverse_3_oe() {
         // arrange
         final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
@@ -652,7 +652,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertTrue(result.isFinite());
     }
 
-    @Test
+@Test
     void testReverse_4_oe() {
         // arrange
         final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
@@ -671,7 +671,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(result.isInfinite());
     }
 
-    @Test
+@Test
     void testReverse_5_oe() {
         // arrange
         final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
@@ -692,7 +692,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(4, result.getSize(), TEST_EPS);
     }
 
-    @Test
+@Test
     void testSplit_plus_1_oe() {
         // arrange
         final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
@@ -708,7 +708,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_plus_2_oe() {
         // arrange
         final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
@@ -726,7 +726,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_plus_3_oe() {
         // arrange
         final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
@@ -745,7 +745,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertSame(ps, split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_minus_1_oe() {
         // arrange
         final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
@@ -761,7 +761,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_minus_2_oe() {
         // arrange
         final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
@@ -779,7 +779,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertSame(ps, split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_minus_3_oe() {
         // arrange
         final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
@@ -798,7 +798,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_both_1_oe() {
         // arrange
         final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
@@ -814,7 +814,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_neither_1_oe() {
         // arrange
         final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
@@ -830,7 +830,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_neither_2_oe() {
         // arrange
         final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
@@ -848,7 +848,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_neither_3_oe() {
         // arrange
         final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
@@ -867,7 +867,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_usesVertexBasedSubsetsWhenPossible_1_oe() {
         // arrange
         // create an infinite subset
@@ -888,7 +888,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertTrue(ps.isInfinite());
     }
 
-    @Test
+@Test
     void testSplit_usesVertexBasedSubsetsWhenPossible_2_oe() {
         // arrange
         // create an infinite subset
@@ -911,7 +911,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_usesVertexBasedSubsetsWhenPossible_3_oe() {
         // arrange
         // create an infinite subset
@@ -937,7 +937,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNotNull(plus);
     }
 
-    @Test
+@Test
     void testSplit_usesVertexBasedSubsetsWhenPossible_4_oe() {
         // arrange
         // create an infinite subset
@@ -964,7 +964,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertTrue(plus.isInfinite());
     }
 
-    @Test
+@Test
     void testSplit_usesVertexBasedSubsetsWhenPossible_5_oe() {
         // arrange
         // create an infinite subset
@@ -992,7 +992,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertTrue(plus instanceof EmbeddedAreaPlaneConvexSubset);
     }
 
-    @Test
+@Test
     void testSplit_usesVertexBasedSubsetsWhenPossible_6_oe() {
         // arrange
         // create an infinite subset
@@ -1023,7 +1023,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertNotNull(minus);
     }
 
-    @Test
+@Test
     void testSplit_usesVertexBasedSubsetsWhenPossible_7_oe() {
         // arrange
         // create an infinite subset
@@ -1055,7 +1055,7 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         Assertions.assertFalse(minus.isInfinite());
     }
 
-    @Test
+@Test
     void testSplit_usesVertexBasedSubsetsWhenPossible_8_oe() {
         // arrange
         // create an infinite subset

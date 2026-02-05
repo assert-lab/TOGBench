@@ -88,7 +88,7 @@ public class MultilineRecursiveToStringStyleTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     public void simpleObject_1_oe() {
         final Transaction tx = new Transaction("2014.10.15", 100);
         final String expected = getClassPrefix(tx) + "[" + BR
@@ -98,7 +98,7 @@ public class MultilineRecursiveToStringStyleTest_OE25Dev {
         assertEquals(expected, toString(tx));
     }
 
-    @Test
+@Test
     public void nestedElements_1_oe() {
         final Customer customer = new Customer("Douglas Adams");
         final Bank bank = new Bank("ASF Bank");
@@ -113,7 +113,7 @@ public class MultilineRecursiveToStringStyleTest_OE25Dev {
         assertEquals(exp, toString(customer));
     }
 
-    @Test
+@Test
     public void nestedAndArray_1_oe() {
         final Account acc = new Account();
         final Transaction tx1 = new Transaction("2014.10.14", 100);
@@ -136,7 +136,7 @@ public class MultilineRecursiveToStringStyleTest_OE25Dev {
         assertEquals(expected, toString(acc));
     }
 
-    @Test
+@Test
     public void noArray_1_oe() {
         final WithArrays wa = new WithArrays();
         final String exp = getClassPrefix(wa) + "[" + BR
@@ -150,7 +150,7 @@ public class MultilineRecursiveToStringStyleTest_OE25Dev {
         assertEquals(exp, toString(wa));
     }
 
-    @Test
+@Test
     public void boolArray_1_oe() {
         final WithArrays wa = new WithArrays();
         wa.boolArray = new boolean[] { true, false, true };
@@ -169,7 +169,7 @@ public class MultilineRecursiveToStringStyleTest_OE25Dev {
         assertEquals(exp, toString(wa));
     }
 
-    @Test
+@Test
     public void charArray_1_oe() {
         final WithArrays wa = new WithArrays();
         wa.charArray = new char[] { 'a', 'A' };
@@ -187,7 +187,7 @@ public class MultilineRecursiveToStringStyleTest_OE25Dev {
         assertEquals(exp, toString(wa));
     }
 
-    @Test
+@Test
     public void intArray_1_oe() {
         final WithArrays wa = new WithArrays();
         wa.intArray = new int[] { 1, 2 };
@@ -205,7 +205,7 @@ public class MultilineRecursiveToStringStyleTest_OE25Dev {
         assertEquals(exp, toString(wa));
     }
 
-    @Test
+@Test
     public void doubleArray_1_oe() {
         final WithArrays wa = new WithArrays();
         wa.doubleArray = new double[] { 1, 2 };
@@ -223,7 +223,7 @@ public class MultilineRecursiveToStringStyleTest_OE25Dev {
         assertEquals(exp, toString(wa));
     }
 
-    @Test
+@Test
     public void longArray_1_oe() {
         final WithArrays wa = new WithArrays();
         wa.longArray = new long[] { 1L, 2L };
@@ -241,7 +241,7 @@ public class MultilineRecursiveToStringStyleTest_OE25Dev {
         assertEquals(exp, toString(wa));
     }
 
-    @Test
+@Test
     public void stringArray_1_oe() {
         final WithArrays wa = new WithArrays();
         wa.stringArray = new String[] { "a", "A" };
@@ -259,7 +259,7 @@ public class MultilineRecursiveToStringStyleTest_OE25Dev {
         assertEquals(exp, toString(wa));
     }
 
-    @Test
+@Test
     public void testLANG1319_1_oe() {
         final String[] stringArray = {"1", "2"};
 

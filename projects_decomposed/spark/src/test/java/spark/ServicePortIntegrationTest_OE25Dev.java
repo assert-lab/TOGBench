@@ -33,7 +33,7 @@ public class ServicePortIntegrationTest_OE25Dev {
         service.stop();
     }
 
-    @Test
+@Test
     public void testGetPort_withRandomPort_1_oe() throws Exception {
         int actualPort = service.port();
 
@@ -45,7 +45,7 @@ public class ServicePortIntegrationTest_OE25Dev {
         Assert.assertEquals(200, response.status);
     }
 
-    @Test
+@Test
     public void testGetPort_withRandomPort_2_oe() throws Exception {
         int actualPort = service.port();
 

@@ -28,7 +28,7 @@ import org.junit.Test;
 
 public class StaticUserAuthenticatorTestCase_OE25Dev {
 
-    @Test
+@Test
     public void testAuthenticationRequest_1_oe() {
         final UserAuthenticator userAuthenticator = new StaticUserAuthenticator("DOMAIN", "USER", "PWD");
         UserAuthenticationData authenticationData = userAuthenticator
@@ -36,7 +36,7 @@ public class StaticUserAuthenticatorTestCase_OE25Dev {
         assertArrayEquals("DOMAIN".toCharArray(), authenticationData.getData(UserAuthenticationData.DOMAIN));
     }
 
-    @Test
+@Test
     public void testAuthenticationRequest_2_oe() {
         final UserAuthenticator userAuthenticator = new StaticUserAuthenticator("DOMAIN", "USER", "PWD");
         UserAuthenticationData authenticationData = userAuthenticator
@@ -45,7 +45,7 @@ public class StaticUserAuthenticatorTestCase_OE25Dev {
         assertNull(authenticationData.getData(UserAuthenticationData.USERNAME));
     }
 
-    @Test
+@Test
     public void testAuthenticationRequest_3_oe() {
         final UserAuthenticator userAuthenticator = new StaticUserAuthenticator("DOMAIN", "USER", "PWD");
         UserAuthenticationData authenticationData = userAuthenticator
@@ -55,7 +55,7 @@ public class StaticUserAuthenticatorTestCase_OE25Dev {
         assertNull(authenticationData.getData(UserAuthenticationData.PASSWORD));
     }
 
-    @Test
+@Test
     public void testAuthenticationRequest_4_oe() {
         final UserAuthenticator userAuthenticator = new StaticUserAuthenticator("DOMAIN", "USER", "PWD");
         UserAuthenticationData authenticationData = userAuthenticator
@@ -68,7 +68,7 @@ public class StaticUserAuthenticatorTestCase_OE25Dev {
         assertNull(authenticationData.getData(UserAuthenticationData.DOMAIN));
     }
 
-    @Test
+@Test
     public void testAuthenticationRequest_5_oe() {
         final UserAuthenticator userAuthenticator = new StaticUserAuthenticator("DOMAIN", "USER", "PWD");
         UserAuthenticationData authenticationData = userAuthenticator
@@ -82,7 +82,7 @@ public class StaticUserAuthenticatorTestCase_OE25Dev {
         assertArrayEquals("USER".toCharArray(), authenticationData.getData(UserAuthenticationData.USERNAME));
     }
 
-    @Test
+@Test
     public void testAuthenticationRequest_6_oe() {
         final UserAuthenticator userAuthenticator = new StaticUserAuthenticator("DOMAIN", "USER", "PWD");
         UserAuthenticationData authenticationData = userAuthenticator
@@ -97,20 +97,20 @@ public class StaticUserAuthenticatorTestCase_OE25Dev {
         assertArrayEquals("PWD".toCharArray(), authenticationData.getData(UserAuthenticationData.PASSWORD));
     }
 
-    @Test
+@Test
     public void testEquality_1_oe() {
         final UserAuthenticator userAuthenticator = new StaticUserAuthenticator("DOMAIN", "USER", "PWD");
         assertEquals(new StaticUserAuthenticator("DOMAIN", "USER", "PWD"), userAuthenticator);
     }
 
-    @Test
+@Test
     public void testEquality_2_oe() {
         final UserAuthenticator userAuthenticator = new StaticUserAuthenticator("DOMAIN", "USER", "PWD");
         // removed other assertion
         assertNotEquals(new StaticUserAuthenticator("DOMAIN", "USER", null), userAuthenticator);
     }
 
-    @Test
+@Test
     public void testEquality_3_oe() {
         final UserAuthenticator userAuthenticator = new StaticUserAuthenticator("DOMAIN", "USER", "PWD");
         // removed other assertion
@@ -118,7 +118,7 @@ public class StaticUserAuthenticatorTestCase_OE25Dev {
         assertNotEquals(new StaticUserAuthenticator("DOMAIN", null, "PWD"), userAuthenticator);
     }
 
-    @Test
+@Test
     public void testEquality_4_oe() {
         final UserAuthenticator userAuthenticator = new StaticUserAuthenticator("DOMAIN", "USER", "PWD");
         // removed other assertion
@@ -127,7 +127,7 @@ public class StaticUserAuthenticatorTestCase_OE25Dev {
         assertNotEquals(new StaticUserAuthenticator(null, "USER", "PWD"), userAuthenticator);
     }
 
-    @Test
+@Test
     public void testEquality_5_oe() {
         final UserAuthenticator userAuthenticator = new StaticUserAuthenticator("DOMAIN", "USER", "PWD");
         // removed other assertion

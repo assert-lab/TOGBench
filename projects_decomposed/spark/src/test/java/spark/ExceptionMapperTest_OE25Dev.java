@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ExceptionMapperTest_OE25Dev {
 
-    @Test
+@Test
     public void testGetInstance_whenDefaultInstanceIsNull_1_oe() {
         //given
         ExceptionMapper exceptionMapper = null;
@@ -18,7 +18,7 @@ public class ExceptionMapperTest_OE25Dev {
         assertEquals("Should be equals because ExceptionMapper is a singleton", Whitebox.getInternalState(ExceptionMapper.class, "servletInstance"), exceptionMapper);
     }
 
-    @Test
+@Test
     public void testGetInstance_whenDefaultInstanceIsNotNull_1_oe() {
         //given
         ExceptionMapper.getServletInstance(); //initialize Singleton

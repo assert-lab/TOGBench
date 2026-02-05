@@ -127,7 +127,7 @@ protected void tearDown() {
       return hResultValues;
    }
 
-   public void testType_1_oe() throws ValidatorException {
+public void testType_1_oe() throws ValidatorException {
       // Create bean to run test on.
       TypeBean info = new TypeBean();
       info.setByte("12");
@@ -156,7 +156,7 @@ protected void tearDown() {
       assertNotNull("Results are null.", results);
    }
 
-   public void testType_2_oe() throws ValidatorException {
+public void testType_2_oe() throws ValidatorException {
       // Create bean to run test on.
       TypeBean info = new TypeBean();
       info.setByte("12");
@@ -189,7 +189,7 @@ protected void tearDown() {
       assertTrue("Expecting byte result to be an instance of Byte.", (hResultValues.get("byte") instanceof Byte));
    }
 
-   public void testType_3_oe() throws ValidatorException {
+public void testType_3_oe() throws ValidatorException {
       // Create bean to run test on.
       TypeBean info = new TypeBean();
       info.setByte("12");
@@ -223,7 +223,7 @@ protected void tearDown() {
       assertTrue("Expecting short result to be an instance of Short.", (hResultValues.get("short") instanceof Short));
    }
 
-   public void testType_4_oe() throws ValidatorException {
+public void testType_4_oe() throws ValidatorException {
       // Create bean to run test on.
       TypeBean info = new TypeBean();
       info.setByte("12");
@@ -258,7 +258,7 @@ protected void tearDown() {
       assertTrue("Expecting integer result to be an instance of Integer.", (hResultValues.get("integer") instanceof Integer));
    }
 
-   public void testType_5_oe() throws ValidatorException {
+public void testType_5_oe() throws ValidatorException {
       // Create bean to run test on.
       TypeBean info = new TypeBean();
       info.setByte("12");
@@ -294,7 +294,7 @@ protected void tearDown() {
       assertTrue("Expecting long result to be an instance of Long.", (hResultValues.get("long") instanceof Long));
    }
 
-   public void testType_6_oe() throws ValidatorException {
+public void testType_6_oe() throws ValidatorException {
       // Create bean to run test on.
       TypeBean info = new TypeBean();
       info.setByte("12");
@@ -331,7 +331,7 @@ protected void tearDown() {
       assertTrue("Expecting float result to be an instance of Float.", (hResultValues.get("float") instanceof Float));
    }
 
-   public void testType_7_oe() throws ValidatorException {
+public void testType_7_oe() throws ValidatorException {
       // Create bean to run test on.
       TypeBean info = new TypeBean();
       info.setByte("12");
@@ -369,7 +369,7 @@ protected void tearDown() {
       assertTrue("Expecting double result to be an instance of Double.", (hResultValues.get("double") instanceof Double));
    }
 
-   public void testType_8_oe() throws ValidatorException {
+public void testType_8_oe() throws ValidatorException {
       // Create bean to run test on.
       TypeBean info = new TypeBean();
       info.setByte("12");
@@ -414,7 +414,7 @@ protected void tearDown() {
    }
    }
 
-   public void testFRLocale_1_oe() throws ValidatorException {
+public void testFRLocale_1_oe() throws ValidatorException {
       // Create bean to run test on.
       TypeBean info = new TypeBean();
       info.setByte("12");
@@ -428,7 +428,7 @@ protected void tearDown() {
       assertTrue("float value not correct", ((Float)map.get("float")).intValue() == 12);
    }
 
-   public void testFRLocale_2_oe() throws ValidatorException {
+public void testFRLocale_2_oe() throws ValidatorException {
       // Create bean to run test on.
       TypeBean info = new TypeBean();
       info.setByte("12");

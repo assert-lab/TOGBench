@@ -143,7 +143,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
      * Tests whether a URL can be set.
      */
 
-    @Test
+@Test
     public void testBeanPropertiesAccess_1_oe() throws Exception {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         BeanHelper.setProperty(params, "throwExceptionOnMissing", Boolean.TRUE);
@@ -151,7 +151,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("File name not set", "test.xml", params.getFileHandler().getFileName());
     }
 
-    @Test
+@Test
     public void testBeanPropertiesAccess_2_oe() throws Exception {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         BeanHelper.setProperty(params, "throwExceptionOnMissing", Boolean.TRUE);
@@ -161,7 +161,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("Property not stored", Boolean.TRUE, map.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testClone_1_oe() {
         final FileBased content = EasyMock.createMock(FileBased.class);
         EasyMock.replay(content);
@@ -173,7 +173,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("Wrong exception flag", Boolean.TRUE, clone.getParameters().get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testClone_2_oe() {
         final FileBased content = EasyMock.createMock(FileBased.class);
         EasyMock.replay(content);
@@ -186,7 +186,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("File name not copied", "test.xml", clone.getFileHandler().getFileName());
     }
 
-    @Test
+@Test
     public void testClone_3_oe() {
         final FileBased content = EasyMock.createMock(FileBased.class);
         EasyMock.replay(content);
@@ -200,7 +200,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertSame("Content not copied", content, clone.getFileHandler().getContent());
     }
 
-    @Test
+@Test
     public void testClone_4_oe() {
         final FileBased content = EasyMock.createMock(FileBased.class);
         EasyMock.replay(content);
@@ -215,7 +215,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertNotSame("No copy of file handler", params.getFileHandler(), clone.getFileHandler());
     }
 
-    @Test
+@Test
     public void testFromMap_1_oe() {
         final ReloadingDetectorFactory factory = EasyMock.createMock(ReloadingDetectorFactory.class);
         EasyMock.replay(factory);
@@ -232,7 +232,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("Wrong base path", basePath, params.getFileHandler().getBasePath());
     }
 
-    @Test
+@Test
     public void testFromMap_2_oe() {
         final ReloadingDetectorFactory factory = EasyMock.createMock(ReloadingDetectorFactory.class);
         EasyMock.replay(factory);
@@ -250,7 +250,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("Wrong file name", fileName, params.getFileHandler().getFileName());
     }
 
-    @Test
+@Test
     public void testFromMap_3_oe() {
         final ReloadingDetectorFactory factory = EasyMock.createMock(ReloadingDetectorFactory.class);
         EasyMock.replay(factory);
@@ -269,7 +269,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("Wrong detector factory", factory, params.getReloadingDetectorFactory());
     }
 
-    @Test
+@Test
     public void testFromMap_4_oe() {
         final ReloadingDetectorFactory factory = EasyMock.createMock(ReloadingDetectorFactory.class);
         EasyMock.replay(factory);
@@ -289,38 +289,38 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("Wrong refresh delay", refreshDelay, params.getReloadingRefreshDelay());
     }
 
-    @Test
+@Test
     public void testFromMapNull_1_oe() {
         final FileBasedBuilderParametersImpl params = FileBasedBuilderParametersImpl.fromMap(null);
         assertNull("Got refresh delay", params.getReloadingRefreshDelay());
     }
 
-    @Test
+@Test
     public void testFromMapNull_2_oe() {
         final FileBasedBuilderParametersImpl params = FileBasedBuilderParametersImpl.fromMap(null);
         // removed other assertion
         assertNull("Got a file name", params.getFileHandler().getFileName());
     }
 
-    @Test
+@Test
     public void testFromParametersDefaultInstance_1_oe() {
         final FileBasedBuilderParametersImpl params = FileBasedBuilderParametersImpl.fromParameters(new HashMap<>(), true);
         assertFalse("Got a location", params.getFileHandler().isLocationDefined());
     }
 
-    @Test
+@Test
     public void testFromParametersExtract_1_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         final Map<String, Object> map = params.getParameters();
         assertSame("Wrong parameters", params, FileBasedBuilderParametersImpl.fromParameters(map));
     }
 
-    @Test
+@Test
     public void testFromParametersNotFound_1_oe() {
         assertNull("Got an instance", FileBasedBuilderParametersImpl.fromParameters(new HashMap<>()));
     }
 
-    @Test
+@Test
     public void testGetParameters_1_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl().setReloadingRefreshDelay(1000L);
         params.setThrowExceptionOnMissing(true);
@@ -328,7 +328,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertTrue("Object not stored", map.containsValue(params));
     }
 
-    @Test
+@Test
     public void testGetParameters_2_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl().setReloadingRefreshDelay(1000L);
         params.setThrowExceptionOnMissing(true);
@@ -337,7 +337,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("Wrong exception flag", Boolean.TRUE, params.getParameters().get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testInheritFrom_1_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         params.setEncoding("ISO-8856-1");
@@ -353,7 +353,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("Encoding not set", params.getFileHandler().getEncoding(), params2.getFileHandler().getEncoding());
     }
 
-    @Test
+@Test
     public void testInheritFrom_2_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         params.setEncoding("ISO-8856-1");
@@ -370,7 +370,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("File system not set", params.getFileHandler().getFileSystem(), params2.getFileHandler().getFileSystem());
     }
 
-    @Test
+@Test
     public void testInheritFrom_3_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         params.setEncoding("ISO-8856-1");
@@ -388,7 +388,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("Location strategy not set", params.getFileHandler().getLocationStrategy(), params2.getFileHandler().getLocationStrategy());
     }
 
-    @Test
+@Test
     public void testInheritFrom_4_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         params.setEncoding("ISO-8856-1");
@@ -407,7 +407,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("Detector factory not set", params.getReloadingDetectorFactory(), params2.getReloadingDetectorFactory());
     }
 
-    @Test
+@Test
     public void testInheritFrom_5_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         params.setEncoding("ISO-8856-1");
@@ -427,7 +427,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("Refresh delay not set", params.getReloadingRefreshDelay(), params2.getReloadingRefreshDelay());
     }
 
-    @Test
+@Test
     public void testInheritFrom_6_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         params.setEncoding("ISO-8856-1");
@@ -448,7 +448,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertNull("Path was copied", params2.getFileHandler().getPath());
     }
 
-    @Test
+@Test
     public void testInheritFrom_7_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         params.setEncoding("ISO-8856-1");
@@ -470,7 +470,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("Base properties not set", Boolean.TRUE, params2.getParameters().get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testInheritFromNoParametersObject_1_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl().setReloadingRefreshDelay(20160213211429L);
 
@@ -478,7 +478,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertNotNull("Properties were overwritten", params.getReloadingRefreshDelay());
     }
 
-    @Test
+@Test
     public void testInheritFromSkipMissingProperties_1_oe() {
         final String encoding = "UTF-16";
         final ReloadingDetectorFactory factory = EasyMock.createMock(ReloadingDetectorFactory.class);
@@ -490,7 +490,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("Encoding overwritten", encoding, params.getFileHandler().getEncoding());
     }
 
-    @Test
+@Test
     public void testInheritFromSkipMissingProperties_2_oe() {
         final String encoding = "UTF-16";
         final ReloadingDetectorFactory factory = EasyMock.createMock(ReloadingDetectorFactory.class);
@@ -503,7 +503,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("Detector factory overwritten", factory, params.getReloadingDetectorFactory());
     }
 
-    @Test
+@Test
     public void testInheritFromSkipMissingProperties_3_oe() {
         final String encoding = "UTF-16";
         final ReloadingDetectorFactory factory = EasyMock.createMock(ReloadingDetectorFactory.class);
@@ -517,55 +517,55 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertEquals("Refresh delay overwritten", refreshDelay, params.getReloadingRefreshDelay());
     }
 
-    @Test
+@Test
     public void testInitDefaults_1_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         assertFalse("Got a location", params.getFileHandler().isLocationDefined());
     }
 
-    @Test
+@Test
     public void testInitDefaults_2_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         // removed other assertion
         assertNull("Got a refresh delay", params.getReloadingRefreshDelay());
     }
 
-    @Test
+@Test
     public void testInitFileHandler_1_oe() {
         final FileHandler handler = new FileHandler();
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl(handler);
         assertSame("Wrong handler", handler, params.getFileHandler());
     }
 
-    @Test
+@Test
     public void testSetBasePath_1_oe() {
         final String path = ConfigurationAssert.getTestFile("test.properties").getParentFile().getAbsolutePath();
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         assertSame("Wrong result", params, params.setBasePath(path));
     }
 
-    @Test
+@Test
     public void testSetEncoding_1_oe() {
         final String enc = "ISO-8859-1";
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         assertSame("Wrong result", params, params.setEncoding(enc));
     }
 
-    @Test
+@Test
     public void testSetFile_1_oe() {
         final File file = ConfigurationAssert.getTestFile("test.properties").getAbsoluteFile();
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         assertSame("Wrong result", params, params.setFile(file));
     }
 
-    @Test
+@Test
     public void testSetFileName_1_oe() {
         final String name = "testConfig.xml";
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         assertSame("Wrong result", params, params.setFileName(name));
     }
 
-    @Test
+@Test
     public void testSetFileSystem_1_oe() {
         final FileSystem fs = EasyMock.createMock(FileSystem.class);
         EasyMock.replay(fs);
@@ -573,7 +573,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertSame("Wrong result", params, params.setFileSystem(fs));
     }
 
-    @Test
+@Test
     public void testSetLocationStrategy_1_oe() {
         final FileLocationStrategy strat = EasyMock.createMock(FileLocationStrategy.class);
         EasyMock.replay(strat);
@@ -581,14 +581,14 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertSame("Wrong result", params, params.setLocationStrategy(strat));
     }
 
-    @Test
+@Test
     public void testSetPath_1_oe() {
         final String path = ConfigurationAssert.getTestFile("test.properties").getAbsolutePath();
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         assertSame("Wrong result", params, params.setPath(path));
     }
 
-    @Test
+@Test
     public void testSetReloadingDetectorFactory_1_oe() {
         final ReloadingDetectorFactory factory = EasyMock.createMock(ReloadingDetectorFactory.class);
         EasyMock.replay(factory);
@@ -596,7 +596,7 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertNull("Got a factory", params.getReloadingDetectorFactory());
     }
 
-    @Test
+@Test
     public void testSetReloadingDetectorFactory_2_oe() {
         final ReloadingDetectorFactory factory = EasyMock.createMock(ReloadingDetectorFactory.class);
         EasyMock.replay(factory);
@@ -605,14 +605,14 @@ public class TestFileBasedBuilderParameters_OE25Dev {
         assertSame("Wrong result", params, params.setReloadingDetectorFactory(factory));
     }
 
-    @Test
+@Test
     public void testSetReloadingRefreshDelay_1_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         final Long delay = 10000L;
         assertSame("Wrong result", params, params.setReloadingRefreshDelay(delay));
     }
 
-    @Test
+@Test
     public void testSetURL_1_oe() {
         final URL url = ConfigurationAssert.getTestURL("test.properties");
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();

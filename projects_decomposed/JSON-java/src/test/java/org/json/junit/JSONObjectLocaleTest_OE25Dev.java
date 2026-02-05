@@ -32,7 +32,7 @@ public class JSONObjectLocaleTest_OE25Dev {
      * regardless of the locale currently in effect.
      */
 
-    @Test
+@Test
     public void jsonObjectByLocaleBean_1_oe() {
 
         MyLocaleBean myLocaleBean = new MyLocaleBean();
@@ -46,7 +46,7 @@ public class JSONObjectLocaleTest_OE25Dev {
         assertEquals("expected size 2, found: " +jsonen.length(), 2, jsonen.length());
     }
 
-    @Test
+@Test
     public void jsonObjectByLocaleBean_2_oe() {
 
         MyLocaleBean myLocaleBean = new MyLocaleBean();
@@ -61,7 +61,7 @@ public class JSONObjectLocaleTest_OE25Dev {
         assertEquals("expected jsonen[i] == beanI", "beanI", jsonen.getString("i"));
     }
 
-    @Test
+@Test
     public void jsonObjectByLocaleBean_3_oe() {
 
         MyLocaleBean myLocaleBean = new MyLocaleBean();
@@ -77,7 +77,7 @@ public class JSONObjectLocaleTest_OE25Dev {
         assertEquals("expected jsonen[id] == beanId", "beanId", jsonen.getString("id"));
     }
 
-    @Test
+@Test
     public void jsonObjectByLocaleBean_4_oe() {
 
         MyLocaleBean myLocaleBean = new MyLocaleBean();
@@ -102,7 +102,7 @@ public class JSONObjectLocaleTest_OE25Dev {
         assertEquals("expected size 2, found: " +jsontr.length(), 2, jsontr.length());
     }
 
-    @Test
+@Test
     public void jsonObjectByLocaleBean_5_oe() {
 
         MyLocaleBean myLocaleBean = new MyLocaleBean();
@@ -128,7 +128,7 @@ public class JSONObjectLocaleTest_OE25Dev {
         assertEquals("expected jsontr[i] == beanI", "beanI", jsontr.getString("i"));
     }
 
-    @Test
+@Test
     public void jsonObjectByLocaleBean_6_oe() {
 
         MyLocaleBean myLocaleBean = new MyLocaleBean();

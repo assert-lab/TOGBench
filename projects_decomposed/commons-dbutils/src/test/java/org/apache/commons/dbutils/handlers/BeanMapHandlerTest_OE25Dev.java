@@ -79,7 +79,7 @@ public class BeanMapHandlerTest_OE25Dev {
         handle();
     }
 
-    @Test
+@Test
     public void testEmptyResultSet_1_oe() throws Exception {
         when(Boolean.valueOf(rs.next())).thenReturn(Boolean.FALSE);
         bmh = new BeanMapHandler<Long, TestBean>(TestBean.class);

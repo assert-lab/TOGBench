@@ -137,28 +137,28 @@ public class BeanToPropertyValueTransformerTestCase_OE25Dev extends TestCase {
      * Test transform with null in property path and ignore = true.
      */
 
-    public void testTransformWithSimpleStringProperty_1_oe() {
+public void testTransformWithSimpleStringProperty_1_oe() {
         final BeanToPropertyValueTransformer transformer =
             new BeanToPropertyValueTransformer("stringProperty");
         final TestBean testBean = new TestBean("foo");
         assertEquals("foo", transformer.transform(testBean));
     }
 
-    public void testTransformWithSimpleStringPropertyAndNullValue_1_oe() {
+public void testTransformWithSimpleStringPropertyAndNullValue_1_oe() {
         final BeanToPropertyValueTransformer transformer =
             new BeanToPropertyValueTransformer("stringProperty");
         final TestBean testBean = new TestBean((String) null);
         assertNull(transformer.transform(testBean));
     }
 
-    public void testTransformWithSimpleIntProperty_1_oe() {
+public void testTransformWithSimpleIntProperty_1_oe() {
         final BeanToPropertyValueTransformer transformer =
             new BeanToPropertyValueTransformer("intProperty");
         final TestBean testBean = new TestBean(expectedIntegerValue.intValue());
         assertEquals(expectedIntegerValue, transformer.transform(testBean));
     }
 
-    public void testTransformWithSimpleLongProperty_1_oe() {
+public void testTransformWithSimpleLongProperty_1_oe() {
         final BeanToPropertyValueTransformer transformer =
             new BeanToPropertyValueTransformer("longProperty");
         final TestBean testBean = new TestBean();
@@ -166,21 +166,21 @@ public class BeanToPropertyValueTransformerTestCase_OE25Dev extends TestCase {
         assertEquals(expectedLongValue, transformer.transform(testBean));
     }
 
-    public void testTransformWithSimpleFloatProperty_1_oe() {
+public void testTransformWithSimpleFloatProperty_1_oe() {
         final BeanToPropertyValueTransformer transformer =
             new BeanToPropertyValueTransformer("floatProperty");
         final TestBean testBean = new TestBean(expectedFloatValue.floatValue());
         assertEquals(expectedFloatValue, transformer.transform(testBean));
     }
 
-    public void testTransformWithSimpleDoubleProperty_1_oe() {
+public void testTransformWithSimpleDoubleProperty_1_oe() {
         final BeanToPropertyValueTransformer transformer =
             new BeanToPropertyValueTransformer("doubleProperty");
         final TestBean testBean = new TestBean(expectedDoubleValue.doubleValue());
         assertEquals(expectedDoubleValue, transformer.transform(testBean));
     }
 
-    public void testTransformWithSimpleByteProperty_1_oe() {
+public void testTransformWithSimpleByteProperty_1_oe() {
         final BeanToPropertyValueTransformer transformer =
             new BeanToPropertyValueTransformer("byteProperty");
         final TestBean testBean = new TestBean();
@@ -188,21 +188,21 @@ public class BeanToPropertyValueTransformerTestCase_OE25Dev extends TestCase {
         assertEquals(expectedByteValue, transformer.transform(testBean));
     }
 
-    public void testTransformWithSimpleBooleanProperty_1_oe() {
+public void testTransformWithSimpleBooleanProperty_1_oe() {
         final BeanToPropertyValueTransformer transformer =
             new BeanToPropertyValueTransformer("booleanProperty");
         final TestBean testBean = new TestBean(expectedBooleanValue.booleanValue());
         assertEquals(expectedBooleanValue, transformer.transform(testBean));
     }
 
-    public void testTransformWithReadOnlyProperty_1_oe() {
+public void testTransformWithReadOnlyProperty_1_oe() {
         final BeanToPropertyValueTransformer transformer =
             new BeanToPropertyValueTransformer("readOnlyProperty");
         final TestBean testBean = new TestBean();
         assertEquals(testBean.getReadOnlyProperty(), transformer.transform(testBean));
     }
 
-    public void testTransformWithNestedProperty_1_oe() {
+public void testTransformWithNestedProperty_1_oe() {
         final BeanToPropertyValueTransformer transformer =
             new BeanToPropertyValueTransformer("anotherNested.stringProperty");
         final TestBean testBean = new TestBean();
@@ -211,7 +211,7 @@ public class BeanToPropertyValueTransformerTestCase_OE25Dev extends TestCase {
         assertEquals("foo", transformer.transform(testBean));
     }
 
-    public void testTransformWithMappedProperty_1_oe() {
+public void testTransformWithMappedProperty_1_oe() {
         BeanToPropertyValueTransformer transformer =
             new BeanToPropertyValueTransformer("mappedProperty(test-key)");
         final TestBean testBean = new TestBean();
@@ -221,7 +221,7 @@ public class BeanToPropertyValueTransformerTestCase_OE25Dev extends TestCase {
         assertEquals("test-value", transformer.transform(testBean));
     }
 
-    public void testTransformWithMappedProperty_2_oe() {
+public void testTransformWithMappedProperty_2_oe() {
         BeanToPropertyValueTransformer transformer =
             new BeanToPropertyValueTransformer("mappedProperty(test-key)");
         final TestBean testBean = new TestBean();
@@ -235,7 +235,7 @@ public class BeanToPropertyValueTransformerTestCase_OE25Dev extends TestCase {
         assertEquals(null, transformer.transform(testBean));
     }
 
-    public void testTransformWithIndexedProperty_1_oe() {
+public void testTransformWithIndexedProperty_1_oe() {
         BeanToPropertyValueTransformer transformer =
             new BeanToPropertyValueTransformer("intIndexed[0]");
         final TestBean testBean = new TestBean();
@@ -243,7 +243,7 @@ public class BeanToPropertyValueTransformerTestCase_OE25Dev extends TestCase {
         assertEquals(expectedIntegerValue, transformer.transform(testBean));
     }
 
-    public void testTransformWithNestedIndexedProperty_1_oe() {
+public void testTransformWithNestedIndexedProperty_1_oe() {
         final BeanToPropertyValueTransformer transformer =
             new BeanToPropertyValueTransformer("anotherNested.intIndexed[0]");
         final TestBean testBean = new TestBean();
@@ -253,7 +253,7 @@ public class BeanToPropertyValueTransformerTestCase_OE25Dev extends TestCase {
         assertEquals(expectedIntegerValue, transformer.transform(testBean));
     }
 
-    public void testTransformWithNullInPathAndIgnoreTrue_1_oe() {
+public void testTransformWithNullInPathAndIgnoreTrue_1_oe() {
         final BeanToPropertyValueTransformer transformer =
             new BeanToPropertyValueTransformer("anotherNested.stringProperty",true);
         assertEquals(null, transformer.transform(new TestBean()));

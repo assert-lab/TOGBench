@@ -159,7 +159,7 @@ class LineSpanningSubsetTest_OE25Dev {
         }
     }
 
-    @Test
+@Test
     void testProperties_1_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -171,7 +171,7 @@ class LineSpanningSubsetTest_OE25Dev {
         Assertions.assertSame(line, result.getHyperplane());
     }
 
-    @Test
+@Test
     void testProperties_2_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -184,7 +184,7 @@ class LineSpanningSubsetTest_OE25Dev {
         Assertions.assertSame(line, result.getLine());
     }
 
-    @Test
+@Test
     void testProperties_3_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -199,7 +199,7 @@ class LineSpanningSubsetTest_OE25Dev {
         Assertions.assertTrue(result.isFull());
     }
 
-    @Test
+@Test
     void testProperties_4_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -215,7 +215,7 @@ class LineSpanningSubsetTest_OE25Dev {
         Assertions.assertFalse(result.isEmpty());
     }
 
-    @Test
+@Test
     void testProperties_5_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -232,7 +232,7 @@ class LineSpanningSubsetTest_OE25Dev {
         Assertions.assertTrue(result.isInfinite());
     }
 
-    @Test
+@Test
     void testProperties_6_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -250,7 +250,7 @@ class LineSpanningSubsetTest_OE25Dev {
         Assertions.assertFalse(result.isFinite());
     }
 
-    @Test
+@Test
     void testProperties_8_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -271,7 +271,7 @@ class LineSpanningSubsetTest_OE25Dev {
         Assertions.assertNull(result.getCentroid());
     }
 
-    @Test
+@Test
     void testProperties_9_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -293,7 +293,7 @@ class LineSpanningSubsetTest_OE25Dev {
         Assertions.assertNull(result.getBounds());
     }
 
-    @Test
+@Test
     void testProperties_10_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -317,7 +317,7 @@ class LineSpanningSubsetTest_OE25Dev {
         Assertions.assertNull(result.getStartPoint());
     }
 
-    @Test
+@Test
     void testProperties_12_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -343,7 +343,7 @@ class LineSpanningSubsetTest_OE25Dev {
         Assertions.assertNull(result.getEndPoint());
     }
 
-    @Test
+@Test
     void testSplit_1_oe() {
         // --- arrange
         final Vector2D pt = Vector2D.of(1, 1);
@@ -358,7 +358,7 @@ class LineSpanningSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_2_oe() {
         // --- arrange
         final Vector2D pt = Vector2D.of(1, 1);
@@ -374,7 +374,7 @@ class LineSpanningSubsetTest_OE25Dev {
         Assertions.assertSame(span, split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_3_oe() {
         // --- arrange
         final Vector2D pt = Vector2D.of(1, 1);
@@ -393,7 +393,7 @@ class LineSpanningSubsetTest_OE25Dev {
         Assertions.assertSame(span, split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_4_oe() {
         // --- arrange
         final Vector2D pt = Vector2D.of(1, 1);
@@ -413,7 +413,7 @@ class LineSpanningSubsetTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_5_oe() {
         // --- arrange
         final Vector2D pt = Vector2D.of(1, 1);
@@ -437,7 +437,7 @@ class LineSpanningSubsetTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_6_oe() {
         // --- arrange
         final Vector2D pt = Vector2D.of(1, 1);

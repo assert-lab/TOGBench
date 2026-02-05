@@ -502,14 +502,14 @@ public class XMLTest_OE25Dev {
         Util.compareActualVsExpectedJsonObjects(actualJson,expectedJson);
     }
 
-    @Test(expected=NullPointerException.class)
+@Test(expected=NullPointerException.class)
     public void shouldHandleNullXML_1_oe() {
         String xmlStr = null;
         JSONObject jsonObject = XML.toJSONObject(xmlStr);
         assertTrue("jsonObject should be empty", jsonObject.isEmpty());
     }
 
-    @Test
+@Test
     public void shouldHandleEmptyXML_1_oe() {
 
         String xmlStr = "";
@@ -517,14 +517,14 @@ public class XMLTest_OE25Dev {
         assertTrue("jsonObject should be empty", jsonObject.isEmpty());
     }
 
-    @Test
+@Test
     public void shouldHandleNonXML_1_oe() {
         String xmlStr = "{ \"this is\": \"not xml\"}";
         JSONObject jsonObject = XML.toJSONObject(xmlStr);
         assertTrue("xml string should be empty", jsonObject.isEmpty());
     }
 
-    @Test
+@Test
     public void shouldHandleInvalidSlashInTag_2_oe() {
         String xmlStr = 
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"+
@@ -543,7 +543,7 @@ public class XMLTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void shouldHandleInvalidBangInTag_2_oe() {
         String xmlStr = 
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"+
@@ -562,7 +562,7 @@ public class XMLTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void shouldHandleInvalidBangNoCloseInTag_2_oe() {
         String xmlStr = 
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"+
@@ -581,7 +581,7 @@ public class XMLTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void shouldHandleNoCloseStartTag_2_oe() {
         String xmlStr = 
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"+
@@ -600,7 +600,7 @@ public class XMLTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void shouldHandleInvalidCDATABangInTag_2_oe() {
         String xmlStr = 
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"+
@@ -619,21 +619,21 @@ public class XMLTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void shouldHandleNullJSONXML_1_oe() {
         JSONObject jsonObject= null;
         String actualXml=XML.toString(jsonObject);
         assertEquals("generated XML does not equal expected XML","\"null\"",actualXml);
     }
 
-    @Test
+@Test
     public void shouldHandleEmptyJSONXML_1_oe() {
         JSONObject jsonObject= new JSONObject();
         String xmlStr = XML.toString(jsonObject);
         assertTrue("xml string should be empty", xmlStr.isEmpty());
     }
 
-    @Test
+@Test
     public void testJsonToXmlEscape_1_oe(){
         final String jsonSrc = "{\"amount\":\"10,00 €\","
                 + "\"description\":\"Ação Válida\u0085\","
@@ -645,7 +645,7 @@ public class XMLTest_OE25Dev {
         assertFalse("Escaping \u0085 failed. Found in XML output.", xml.contains("\u0085"));
     }
 
-    @Test
+@Test
     public void testJsonToXmlEscape_2_oe(){
         final String jsonSrc = "{\"amount\":\"10,00 €\","
                 + "\"description\":\"Ação Válida\u0085\","
@@ -658,7 +658,7 @@ public class XMLTest_OE25Dev {
         assertTrue("Escaping \u0085 failed. Entity not found in XML output.", xml.contains("&#x85;"));
     }
 
-    @Test
+@Test
     public void testJsonToXmlEscape_3_oe(){
         final String jsonSrc = "{\"amount\":\"10,00 €\","
                 + "\"description\":\"Ação Válida\u0085\","
@@ -673,7 +673,7 @@ public class XMLTest_OE25Dev {
         assertTrue("Escaping € failed. Not found in XML output.", xml.contains("€"));
     }
 
-    @Test
+@Test
     public void testJsonToXmlEscape_4_oe(){
         final String jsonSrc = "{\"amount\":\"10,00 €\","
                 + "\"description\":\"Ação Válida\u0085\","
@@ -689,7 +689,7 @@ public class XMLTest_OE25Dev {
         assertTrue("Escaping ç failed. Not found in XML output.", xml.contains("ç"));
     }
 
-    @Test
+@Test
     public void testJsonToXmlEscape_5_oe(){
         final String jsonSrc = "{\"amount\":\"10,00 €\","
                 + "\"description\":\"Ação Válida\u0085\","
@@ -706,7 +706,7 @@ public class XMLTest_OE25Dev {
         assertTrue("Escaping ã failed. Not found in XML output.", xml.contains("ã"));
     }
 
-    @Test
+@Test
     public void testJsonToXmlEscape_6_oe(){
         final String jsonSrc = "{\"amount\":\"10,00 €\","
                 + "\"description\":\"Ação Válida\u0085\","
@@ -724,7 +724,7 @@ public class XMLTest_OE25Dev {
         assertTrue("Escaping á failed. Not found in XML output.", xml.contains("á"));
     }
 
-    @Test
+@Test
     public void testJsonToXmlEscape_7_oe(){
         final String jsonSrc = "{\"amount\":\"10,00 €\","
                 + "\"description\":\"Ação Válida\u0085\","
@@ -744,7 +744,7 @@ public class XMLTest_OE25Dev {
         assertTrue("Escaping \" failed. Not found in XML output.", xml.contains("&quot;"));
     }
 
-    @Test
+@Test
     public void testJsonToXmlEscape_8_oe(){
         final String jsonSrc = "{\"amount\":\"10,00 €\","
                 + "\"description\":\"Ação Válida\u0085\","
@@ -765,7 +765,7 @@ public class XMLTest_OE25Dev {
         assertTrue("Escaping ' failed. Not found in XML output.", xml.contains("&apos;"));
     }
 
-    @Test
+@Test
     public void testJsonToXmlEscape_9_oe(){
         final String jsonSrc = "{\"amount\":\"10,00 €\","
                 + "\"description\":\"Ação Válida\u0085\","
@@ -787,7 +787,7 @@ public class XMLTest_OE25Dev {
         assertTrue("Escaping & failed. Not found in XML output.", xml.contains("&amp;"));
     }
 
-    @Test
+@Test
     public void testJsonToXmlEscape_10_oe(){
         final String jsonSrc = "{\"amount\":\"10,00 €\","
                 + "\"description\":\"Ação Válida\u0085\","
@@ -810,7 +810,7 @@ public class XMLTest_OE25Dev {
         assertTrue("Escaping < failed. Not found in XML output.", xml.contains("&lt;"));
     }
 
-    @Test
+@Test
     public void testJsonToXmlEscape_11_oe(){
         final String jsonSrc = "{\"amount\":\"10,00 €\","
                 + "\"description\":\"Ação Válida\u0085\","
@@ -834,7 +834,7 @@ public class XMLTest_OE25Dev {
         assertTrue("Escaping > failed. Not found in XML output.", xml.contains("&gt;"));
     }
 
-    @Test
+@Test
     public void shouldHandleContentNoArraytoString_1_oe() {
         String expectedStr = "{\"addresses\":{\"content\":\">\"}}";
         JSONObject expectedJsonObject = new JSONObject(expectedStr);
@@ -843,7 +843,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Should handle expectedFinal: ["+expectedStr+"] final: ["+ finalStr+"]",expectedFinalStr,finalStr);
     }
 
-    @Test
+@Test
     public void shouldHandleContentArraytoString_1_oe() {
         String expectedStr = 
             "{\"addresses\":{" +
@@ -855,7 +855,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Should handle expectedFinal: ["+expectedStr+"] final: ["+ finalStr+"]",expectedFinalStr,finalStr);
     }
 
-    @Test
+@Test
     public void shouldHandleArraytoString_1_oe() {
         String expectedStr = 
             "{\"addresses\":{"+
@@ -868,7 +868,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Should handle expectedFinal: ["+expectedStr+"] final: ["+ finalStr+"]",expectedFinalStr,finalStr);
     }
 
-    @Test
+@Test
     public void shouldHandleEmptyArray_1_oe(){
         final JSONObject jo1 = new JSONObject();
         jo1.put("array",new Object[]{});
@@ -880,7 +880,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Expected an empty root tag", expected, output1);
     }
 
-    @Test
+@Test
     public void shouldHandleEmptyArray_2_oe(){
         final JSONObject jo1 = new JSONObject();
         jo1.put("array",new Object[]{});
@@ -894,7 +894,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Expected an empty root tag", expected, output2);
     }
 
-    @Test
+@Test
     public void shouldHandleEmptyMultiArray_1_oe(){
         final JSONObject jo1 = new JSONObject();
         jo1.put("arr",new Object[]{"One", new String[]{}, "Four"});
@@ -906,7 +906,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Expected a matching array", expected, output1);
     }
 
-    @Test
+@Test
     public void shouldHandleEmptyMultiArray_2_oe(){
         final JSONObject jo1 = new JSONObject();
         jo1.put("arr",new Object[]{"One", new String[]{}, "Four"});
@@ -920,7 +920,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Expected a matching array", expected, output2);
     }
 
-    @Test
+@Test
     public void shouldHandleNonEmptyArray_1_oe(){
         final JSONObject jo1 = new JSONObject();
         jo1.put("arr",new String[]{"One", "Two", "Three"});
@@ -932,7 +932,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Expected a non empty root tag", expected, output1);
     }
 
-    @Test
+@Test
     public void shouldHandleNonEmptyArray_2_oe(){
         final JSONObject jo1 = new JSONObject();
         jo1.put("arr",new String[]{"One", "Two", "Three"});
@@ -946,7 +946,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Expected a non empty root tag", expected, output2);
     }
 
-    @Test
+@Test
     public void shouldHandleMultiArray_1_oe(){
         final JSONObject jo1 = new JSONObject();
         jo1.put("arr",new Object[]{"One", new String[]{"Two", "Three"}, "Four"});
@@ -958,7 +958,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Expected a matching array", expected, output1);
     }
 
-    @Test
+@Test
     public void shouldHandleMultiArray_2_oe(){
         final JSONObject jo1 = new JSONObject();
         jo1.put("arr",new Object[]{"One", new String[]{"Two", "Three"}, "Four"});
@@ -972,7 +972,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Expected a matching array", expected, output2);
     }
 
-    @Test
+@Test
     public void shouldHandleIllegalJSONNodeNames_1_oe()
     {
         JSONObject inputJSON = new JSONObject();
@@ -992,7 +992,7 @@ public class XMLTest_OE25Dev {
         assertEquals("length",expected.length(), result.length());
     }
 
-    @Test
+@Test
     public void shouldHandleIllegalJSONNodeNames_2_oe()
     {
         JSONObject inputJSON = new JSONObject();
@@ -1013,7 +1013,7 @@ public class XMLTest_OE25Dev {
         assertTrue("123IllegalNode",result.contains("<123IllegalNode>someValue1</123IllegalNode>"));
     }
 
-    @Test
+@Test
     public void shouldHandleIllegalJSONNodeNames_3_oe()
     {
         JSONObject inputJSON = new JSONObject();
@@ -1035,7 +1035,7 @@ public class XMLTest_OE25Dev {
         assertTrue("Illegal@node",result.contains("<Illegal@node>someValue2</Illegal@node>"));
     }
 
-    @Test
+@Test
     public void shouldHandleNullNodeValue_1_oe()
     {
         JSONObject inputJSON = new JSONObject();
@@ -1051,7 +1051,7 @@ public class XMLTest_OE25Dev {
         assertEquals(actualXML, resultXML);
     }
 
-    @Test
+@Test
     public void contentOperations_1_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1062,7 +1062,7 @@ public class XMLTest_OE25Dev {
         assertTrue("1. 3 items", 3 == jsonObject.length());
     }
 
-    @Test
+@Test
     public void contentOperations_2_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1074,7 +1074,7 @@ public class XMLTest_OE25Dev {
         assertTrue("1. empty tag1", "".equals(jsonObject.get("tag1")));
     }
 
-    @Test
+@Test
     public void contentOperations_3_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1087,7 +1087,7 @@ public class XMLTest_OE25Dev {
         assertTrue("1. empty tag2", "".equals(jsonObject.get("tag2")));
     }
 
-    @Test
+@Test
     public void contentOperations_4_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1101,7 +1101,7 @@ public class XMLTest_OE25Dev {
         assertTrue("1. content found", "if (a < b && a > 0) then return".equals(jsonObject.get("content")));
     }
 
-    @Test
+@Test
     public void contentOperations_5_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1120,7 +1120,7 @@ public class XMLTest_OE25Dev {
         assertTrue("2. 3 items", 3 == jsonObject.length());
     }
 
-    @Test
+@Test
     public void contentOperations_6_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1140,7 +1140,7 @@ public class XMLTest_OE25Dev {
         assertTrue("2. empty tag1", "".equals(jsonObject.get("tag1")));
     }
 
-    @Test
+@Test
     public void contentOperations_7_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1161,7 +1161,7 @@ public class XMLTest_OE25Dev {
         assertTrue("2. empty tag2", "".equals(jsonObject.get("tag2")));
     }
 
-    @Test
+@Test
     public void contentOperations_8_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1183,7 +1183,7 @@ public class XMLTest_OE25Dev {
         assertTrue("2. content array found", jsonObject.get("content") instanceof JSONArray);
     }
 
-    @Test
+@Test
     public void contentOperations_9_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1207,7 +1207,7 @@ public class XMLTest_OE25Dev {
         assertTrue("2. array size", jsonArray.length() == 2);
     }
 
-    @Test
+@Test
     public void contentOperations_10_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1232,7 +1232,7 @@ public class XMLTest_OE25Dev {
         assertTrue("2. content array entry 0", "if (a < b && a > 0) then return".equals(jsonArray.get(0)));
     }
 
-    @Test
+@Test
     public void contentOperations_11_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1258,7 +1258,7 @@ public class XMLTest_OE25Dev {
         assertTrue("2. content array entry 1", "here is another cdata".equals(jsonArray.get(1)));
     }
 
-    @Test
+@Test
     public void contentOperations_12_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1293,7 +1293,7 @@ public class XMLTest_OE25Dev {
         assertTrue("3. 2 items", 1 == jsonObject.length());
     }
 
-    @Test
+@Test
     public void contentOperations_13_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1329,7 +1329,7 @@ public class XMLTest_OE25Dev {
         assertTrue("3. value tag1", "value 1".equals(jsonObject.get("tag1")));
     }
 
-    @Test
+@Test
     public void contentOperations_14_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1374,7 +1374,7 @@ public class XMLTest_OE25Dev {
         assertTrue("4. 1 item", 1 == jsonObject.length());
     }
 
-    @Test
+@Test
     public void contentOperations_15_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1420,7 +1420,7 @@ public class XMLTest_OE25Dev {
         assertTrue("4. content array found", jsonObject.get("tag1") instanceof JSONArray);
     }
 
-    @Test
+@Test
     public void contentOperations_16_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1468,7 +1468,7 @@ public class XMLTest_OE25Dev {
         assertTrue("4. array size", jsonArray.length() == 3);
     }
 
-    @Test
+@Test
     public void contentOperations_17_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1517,7 +1517,7 @@ public class XMLTest_OE25Dev {
         assertTrue("4. content array entry 0", "value 1".equals(jsonArray.get(0)));
     }
 
-    @Test
+@Test
     public void contentOperations_18_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1567,7 +1567,7 @@ public class XMLTest_OE25Dev {
         assertTrue("4. content array entry 1", jsonArray.getInt(1) == 2);
     }
 
-    @Test
+@Test
     public void contentOperations_19_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1618,7 +1618,7 @@ public class XMLTest_OE25Dev {
         assertTrue("4. content array entry 2", jsonArray.getBoolean(2) == true);
     }
 
-    @Test
+@Test
     public void contentOperations_20_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1678,7 +1678,7 @@ public class XMLTest_OE25Dev {
         assertTrue("5. 1 item", 1 == jsonObject.length());
     }
 
-    @Test
+@Test
     public void contentOperations_21_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1739,7 +1739,7 @@ public class XMLTest_OE25Dev {
         assertTrue("5. jsonObject found", jsonObject.get("tag1") instanceof JSONObject);
     }
 
-    @Test
+@Test
     public void contentOperations_22_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1802,7 +1802,7 @@ public class XMLTest_OE25Dev {
         assertTrue("5. 2 contained items", 2 == jsonObject.length());
     }
 
-    @Test
+@Test
     public void contentOperations_23_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1866,7 +1866,7 @@ public class XMLTest_OE25Dev {
         assertTrue("5. contained tag", "".equals(jsonObject.get("tag2")));
     }
 
-    @Test
+@Test
     public void contentOperations_24_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1931,7 +1931,7 @@ public class XMLTest_OE25Dev {
         assertTrue("5. contained content jsonArray found", jsonObject.get("content") instanceof JSONArray);
     }
 
-    @Test
+@Test
     public void contentOperations_25_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -1998,7 +1998,7 @@ public class XMLTest_OE25Dev {
         assertTrue("5. array size", jsonArray.length() == 2);
     }
 
-    @Test
+@Test
     public void contentOperations_26_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -2066,7 +2066,7 @@ public class XMLTest_OE25Dev {
         assertTrue("5. content array entry 0", "val1".equals(jsonArray.get(0)));
     }
 
-    @Test
+@Test
     public void contentOperations_27_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -2135,7 +2135,7 @@ public class XMLTest_OE25Dev {
         assertTrue("5. content array entry 1", "val2".equals(jsonArray.get(1)));
     }
 
-    @Test
+@Test
     public void contentOperations_28_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -2212,7 +2212,7 @@ public class XMLTest_OE25Dev {
         assertTrue("6. 1 item", 1 == jsonObject.length());
     }
 
-    @Test
+@Test
     public void contentOperations_29_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -2290,7 +2290,7 @@ public class XMLTest_OE25Dev {
         assertTrue("6. jsonObject found", jsonObject.get("tag1") instanceof JSONObject);
     }
 
-    @Test
+@Test
     public void contentOperations_30_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -2370,7 +2370,7 @@ public class XMLTest_OE25Dev {
         assertTrue("6. contained content found", "val1".equals(jsonObject.get("content")));
     }
 
-    @Test
+@Test
     public void contentOperations_31_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -2451,7 +2451,7 @@ public class XMLTest_OE25Dev {
         assertTrue("6. contained tag2", "".equals(jsonObject.get("tag2")));
     }
 
-    @Test
+@Test
     public void contentOperations_32_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -2541,7 +2541,7 @@ public class XMLTest_OE25Dev {
         assertTrue("7. 1 item", 1 == jsonObject.length());
     }
 
-    @Test
+@Test
     public void contentOperations_33_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -2632,7 +2632,7 @@ public class XMLTest_OE25Dev {
         assertTrue("7. jsonArray found", jsonObject.get("tag1") instanceof JSONArray);
     }
 
-    @Test
+@Test
     public void contentOperations_34_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -2725,7 +2725,7 @@ public class XMLTest_OE25Dev {
         assertTrue("array size 1", jsonArray.length() == 1);
     }
 
-    @Test
+@Test
     public void contentOperations_35_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -2819,7 +2819,7 @@ public class XMLTest_OE25Dev {
         assertTrue("7. contained array found", jsonArray.get(0) instanceof JSONArray);
     }
 
-    @Test
+@Test
     public void contentOperations_36_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -2915,7 +2915,7 @@ public class XMLTest_OE25Dev {
         assertTrue("7. inner array size 2", jsonArray.length() == 2);
     }
 
-    @Test
+@Test
     public void contentOperations_37_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -3012,7 +3012,7 @@ public class XMLTest_OE25Dev {
         assertTrue("7. inner array item 0", "val1".equals(jsonArray.get(0)));
     }
 
-    @Test
+@Test
     public void contentOperations_38_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -3110,7 +3110,7 @@ public class XMLTest_OE25Dev {
         assertTrue("7. inner array item 1", "".equals(jsonArray.get(1)));
     }
 
-    @Test
+@Test
     public void contentOperations_39_oe() {
         /*
          * When a standalone <!CDATA[...]] structure is found while parsing XML into a
@@ -3250,7 +3250,7 @@ public class XMLTest_OE25Dev {
         assertTrue("nothing to test here, see comment on created XML, above", true);
     }
 
-    @Test
+@Test
     public void testToJSONArray_reversibility_1_oe() {
         final String originalXml = "<root><id>01</id><id>1</id><id>00</id><id>0</id><item id=\"01\"/><title>True</title></root>";
         final String revertedXml = XML.toString(XML.toJSONObject(originalXml, false));
@@ -3258,7 +3258,7 @@ public class XMLTest_OE25Dev {
         assertNotEquals(revertedXml, originalXml);
     }
 
-    @Test
+@Test
     public void testToJsonXML_1_oe() {
         final String originalXml = "<root><id>01</id><id>1</id><id>00</id><id>0</id><item id=\"01\"/><title>True</title></root>";
         final JSONObject expected = new JSONObject("{\"root\":{\"item\":{\"id\":\"01\"},\"id\":[\"01\",\"1\",\"00\",\"0\"],\"title\":\"True\"}}");
@@ -3275,7 +3275,7 @@ public class XMLTest_OE25Dev {
         assertEquals("length",expectedReverseXml.length(), reverseXml.length());
     }
 
-    @Test
+@Test
     public void testToJsonXML_2_oe() {
         final String originalXml = "<root><id>01</id><id>1</id><id>00</id><id>0</id><item id=\"01\"/><title>True</title></root>";
         final JSONObject expected = new JSONObject("{\"root\":{\"item\":{\"id\":\"01\"},\"id\":[\"01\",\"1\",\"00\",\"0\"],\"title\":\"True\"}}");
@@ -3293,7 +3293,7 @@ public class XMLTest_OE25Dev {
         assertTrue("array contents", reverseXml.contains("<id>01</id><id>1</id><id>00</id><id>0</id>"));
     }
 
-    @Test
+@Test
     public void testToJsonXML_3_oe() {
         final String originalXml = "<root><id>01</id><id>1</id><id>00</id><id>0</id><item id=\"01\"/><title>True</title></root>";
         final JSONObject expected = new JSONObject("{\"root\":{\"item\":{\"id\":\"01\"},\"id\":[\"01\",\"1\",\"00\",\"0\"],\"title\":\"True\"}}");
@@ -3312,7 +3312,7 @@ public class XMLTest_OE25Dev {
         assertTrue("item contents", reverseXml.contains("<item><id>01</id></item>"));
     }
 
-    @Test
+@Test
     public void testToJsonXML_4_oe() {
         final String originalXml = "<root><id>01</id><id>1</id><id>00</id><id>0</id><item id=\"01\"/><title>True</title></root>";
         final JSONObject expected = new JSONObject("{\"root\":{\"item\":{\"id\":\"01\"},\"id\":[\"01\",\"1\",\"00\",\"0\"],\"title\":\"True\"}}");
@@ -3332,18 +3332,18 @@ public class XMLTest_OE25Dev {
         assertTrue("title contents", reverseXml.contains("<title>True</title>"));
     }
 
-    @Test
+@Test
     public void testUnescape_1_oe() {
         assertEquals("{\"xml\":\"Can cope <;\"}", XML.toJSONObject("<xml>Can cope &lt;; </xml>").toString());
     }
 
-    @Test
+@Test
     public void testUnescape_2_oe() {
         // removed other assertion
         assertEquals("Can cope <; ", XML.unescape("Can cope &lt;; "));
     }
 
-    @Test
+@Test
     public void testUnescape_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -3351,7 +3351,7 @@ public class XMLTest_OE25Dev {
         assertEquals("{\"xml\":\"Can cope & ;\"}", XML.toJSONObject("<xml>Can cope &amp; ; </xml>").toString());
     }
 
-    @Test
+@Test
     public void testUnescape_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -3360,7 +3360,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Can cope & ; ", XML.unescape("Can cope &amp; ; "));
     }
 
-    @Test
+@Test
     public void testUnescape_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -3371,7 +3371,7 @@ public class XMLTest_OE25Dev {
         assertEquals("{\"xml\":\"Can cope &;\"}", XML.toJSONObject("<xml>Can cope &amp;; </xml>").toString());
     }
 
-    @Test
+@Test
     public void testUnescape_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -3383,7 +3383,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Can cope &; ", XML.unescape("Can cope &amp;; "));
     }
 
-    @Test
+@Test
     public void testUnescape_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -3398,7 +3398,7 @@ public class XMLTest_OE25Dev {
         assertEquals("{\"xml\":\"Can cope 4;\"}", XML.toJSONObject("<xml>Can cope &#x34;; </xml>").toString());
     }
 
-    @Test
+@Test
     public void testUnescape_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -3414,7 +3414,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Can cope 4; ", XML.unescape("Can cope &#x34;; "));
     }
 
-    @Test
+@Test
     public void testUnescape_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -3433,7 +3433,7 @@ public class XMLTest_OE25Dev {
         assertEquals("{\"xml\":\"Can cope &lt;\"}", XML.toJSONObject("<xml>Can cope &amp;lt; </xml>").toString());
     }
 
-    @Test
+@Test
     public void testUnescape_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -3453,7 +3453,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Can cope &lt; ", XML.unescape("Can cope &amp;lt; "));
     }
 
-    @Test
+@Test
     public void testUnescape_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -3475,7 +3475,7 @@ public class XMLTest_OE25Dev {
         assertEquals("{\"xml\":\"Can cope &#x34;\"}", XML.toJSONObject("<xml>Can cope &amp;#x34; </xml>").toString());
     }
 
-    @Test
+@Test
     public void testUnescape_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -3498,7 +3498,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Can cope &#x34; ", XML.unescape("Can cope &amp;#x34; "));
     }
 
-    @Test
+@Test
     public void testToJsonWithNullWhenNilConversionEnabled_1_oe() {
         final String originalXml = "<root><id xsi:nil=\"true\"/></root>";
         final String expectedJsonString = "{\"root\":{\"id\":null}}";
@@ -3511,7 +3511,7 @@ public class XMLTest_OE25Dev {
         assertEquals(expectedJsonString, json.toString());
     }
 
-    @Test
+@Test
     public void testToJsonWithNullWhenNilConversionDisabled_1_oe() {
         final String originalXml = "<root><id xsi:nil=\"true\"/></root>";
         final String expectedJsonString = "{\"root\":{\"id\":{\"xsi:nil\":true}}}";
@@ -3520,7 +3520,7 @@ public class XMLTest_OE25Dev {
         assertEquals(expectedJsonString, json.toString());
     }
 
-    @Test
+@Test
     public void testIssue537CaseSensitiveHexEscapeFullFile_1_oe(){
         try {
             InputStream xmlStream = null;
@@ -3548,7 +3548,7 @@ public class XMLTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIssue537CaseSensitiveHexUnEscapeDirect_1_oe(){
         String origStr = 
             "Neutrophils.Hypersegmented &#X7C; Bld-Ser-Plas";
@@ -3559,7 +3559,7 @@ public class XMLTest_OE25Dev {
         assertEquals("Case insensitive Entity unescape",  expectedStr, actualStr);
     }
 
-    @Test
+@Test
     public void testXSITypeMapNotModifiable_1_oe() {
         Map<String, XMLXsiTypeConverter<?>> xsiTypeMap = new HashMap<String, XMLXsiTypeConverter<?>>();
         XMLParserConfiguration config = new XMLParserConfiguration().withXsiTypeMap(xsiTypeMap);

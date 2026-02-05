@@ -68,7 +68,7 @@ public class FixedSizeListTest_OE25Dev<E> extends AbstractListTest<E> {
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/FixedSizeList.fullCollection.version4.obj");
 //    }
 
-    public void testListAllowsMutationOfUnderlyingCollection_1_oe() {
+public void testListAllowsMutationOfUnderlyingCollection_1_oe() {
 
         List<String> decoratedList = new ArrayList<>();
         decoratedList.add("item 1");
@@ -81,7 +81,7 @@ public class FixedSizeListTest_OE25Dev<E> extends AbstractListTest<E> {
         Assert.assertTrue(changed);
     }
 
-    public void testListAllowsMutationOfUnderlyingCollection_2_oe() {
+public void testListAllowsMutationOfUnderlyingCollection_2_oe() {
 
         List<String> decoratedList = new ArrayList<>();
         decoratedList.add("item 1");

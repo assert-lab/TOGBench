@@ -75,25 +75,25 @@ public class Base64Test_OE25Dev {
         jaxb230Base64 = new Jaxb230Base64();
     }
 
-    @Test
+@Test
     public void allImplementationsAreAvailable_1_oe() {
         assertTrue(Java8Base64.isAvailable());
     }
 
-    @Test
+@Test
     public void allImplementationsAreAvailable_2_oe() {
         // removed other assertion
         assertTrue(CommonsCodecBase64.isAvailable());
     }
 
-    @Test
+@Test
     public void allImplementationsAreAvailable_3_oe() {
         // removed other assertion
         // removed other assertion
         assertTrue(JaxbBase64.isAvailable());
     }
 
-    @Test
+@Test
     public void allImplementationsAreAvailable_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -101,7 +101,7 @@ public class Base64Test_OE25Dev {
         assertTrue(Jaxb230Base64.isAvailable());
     }
 
-    @Test
+@Test
     public void testEncode_1_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -133,7 +133,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldEncoded, java8Base64.internalEncode(helloWorldBytes));
     }
 
-    @Test
+@Test
     public void testEncode_2_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -166,7 +166,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldTwoLinesEncoded, java8Base64.internalEncode(helloWorldTwoLinesBytes));
     }
 
-    @Test
+@Test
     public void testEncode_3_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -200,7 +200,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,java8Base64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
     }
 
-    @Test
+@Test
     public void testEncode_4_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -235,7 +235,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldDifferentCharsEncoded, java8Base64.internalEncode(helloWorldDifferentCharsBytes));
     }
 
-    @Test
+@Test
     public void testEncode_5_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -271,7 +271,7 @@ public class Base64Test_OE25Dev {
         assertEquals(str, java8Base64.internalEncode(bytes));
     }
 
-    @Test
+@Test
     public void testEncode_6_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -308,7 +308,7 @@ public class Base64Test_OE25Dev {
         assertEquals(allBytesStr, java8Base64.internalEncode(allBytes));
     }
 
-    @Test
+@Test
     public void testEncode_7_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -347,7 +347,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldEncoded, commonsCodecBase64.internalEncode(helloWorldBytes));
     }
 
-    @Test
+@Test
     public void testEncode_8_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -387,7 +387,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldTwoLinesEncoded, commonsCodecBase64.internalEncode(helloWorldTwoLinesBytes));
     }
 
-    @Test
+@Test
     public void testEncode_9_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -428,7 +428,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,commonsCodecBase64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
     }
 
-    @Test
+@Test
     public void testEncode_10_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -470,7 +470,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldDifferentCharsEncoded, commonsCodecBase64.internalEncode(helloWorldDifferentCharsBytes));
     }
 
-    @Test
+@Test
     public void testEncode_11_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -513,7 +513,7 @@ public class Base64Test_OE25Dev {
         assertEquals(str, commonsCodecBase64.internalEncode(bytes));
     }
 
-    @Test
+@Test
     public void testEncode_12_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -557,7 +557,7 @@ public class Base64Test_OE25Dev {
         assertEquals(allBytesStr, commonsCodecBase64.internalEncode(allBytes));
     }
 
-    @Test
+@Test
     public void testEncode_13_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -603,7 +603,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldEncoded, jaxbBase64.internalEncode(helloWorldBytes));
     }
 
-    @Test
+@Test
     public void testEncode_14_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -650,7 +650,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldTwoLinesEncoded, jaxbBase64.internalEncode(helloWorldTwoLinesBytes));
     }
 
-    @Test
+@Test
     public void testEncode_15_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -698,7 +698,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldTwoLinesAndNewLineEncoded, jaxbBase64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
     }
 
-    @Test
+@Test
     public void testEncode_16_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -747,7 +747,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldDifferentCharsEncoded, jaxbBase64.internalEncode(helloWorldDifferentCharsBytes));
     }
 
-    @Test
+@Test
     public void testEncode_17_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -797,7 +797,7 @@ public class Base64Test_OE25Dev {
         assertEquals(str, jaxbBase64.internalEncode(bytes));
     }
 
-    @Test
+@Test
     public void testEncode_18_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -848,7 +848,7 @@ public class Base64Test_OE25Dev {
         assertEquals(allBytesStr, jaxbBase64.internalEncode(allBytes));
     }
 
-    @Test
+@Test
     public void testEncode_19_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -901,7 +901,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldEncoded, jaxb230Base64.internalEncode(helloWorldBytes));
     }
 
-    @Test
+@Test
     public void testEncode_20_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -955,7 +955,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldTwoLinesEncoded, jaxb230Base64.internalEncode(helloWorldTwoLinesBytes));
     }
 
-    @Test
+@Test
     public void testEncode_21_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -1010,7 +1010,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxb230Base64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
     }
 
-    @Test
+@Test
     public void testEncode_22_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -1066,7 +1066,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldDifferentCharsEncoded, jaxb230Base64.internalEncode(helloWorldDifferentCharsBytes));
     }
 
-    @Test
+@Test
     public void testEncode_23_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -1123,7 +1123,7 @@ public class Base64Test_OE25Dev {
         assertEquals(str, jaxb230Base64.internalEncode(bytes));
     }
 
-    @Test
+@Test
     public void testEncode_24_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ=";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg==";
@@ -1181,7 +1181,7 @@ public class Base64Test_OE25Dev {
         assertEquals(allBytesStr, jaxb230Base64.internalEncode(allBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_1_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1213,7 +1213,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldEncoded, java8Base64.internalEncodeUrlWithoutPadding(helloWorldBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_2_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1246,7 +1246,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldTwoLinesEncoded, java8Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_3_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1280,7 +1280,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,java8Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_4_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1315,7 +1315,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldDifferentCharsEncoded,java8Base64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_5_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1351,7 +1351,7 @@ public class Base64Test_OE25Dev {
         assertEquals(str, java8Base64.internalEncodeUrlWithoutPadding(bytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_6_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1388,7 +1388,7 @@ public class Base64Test_OE25Dev {
         assertEquals(allBytesStr, java8Base64.internalEncodeUrlWithoutPadding(allBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_7_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1427,7 +1427,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldEncoded, commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_8_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1467,7 +1467,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldTwoLinesEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_9_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1508,7 +1508,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_10_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1550,7 +1550,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldDifferentCharsEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_11_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1593,7 +1593,7 @@ public class Base64Test_OE25Dev {
         assertEquals(str, commonsCodecBase64.internalEncodeUrlWithoutPadding(bytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_12_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1637,7 +1637,7 @@ public class Base64Test_OE25Dev {
         assertEquals(allBytesStr, commonsCodecBase64.internalEncodeUrlWithoutPadding(allBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_13_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1683,7 +1683,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldEncoded, jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_14_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1730,7 +1730,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldTwoLinesEncoded, jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_15_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1778,7 +1778,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_16_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1827,7 +1827,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldDifferentCharsEncoded,jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_17_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1877,7 +1877,7 @@ public class Base64Test_OE25Dev {
         assertEquals(str, jaxbBase64.internalEncodeUrlWithoutPadding(bytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_18_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1928,7 +1928,7 @@ public class Base64Test_OE25Dev {
         assertEquals(allBytesStr, jaxbBase64.internalEncodeUrlWithoutPadding(allBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_19_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -1981,7 +1981,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldEncoded, jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_20_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -2035,7 +2035,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldTwoLinesEncoded, jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_21_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -2090,7 +2090,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_22_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -2146,7 +2146,7 @@ public class Base64Test_OE25Dev {
         assertEquals(helloWorldDifferentCharsEncoded,jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_23_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";
@@ -2203,7 +2203,7 @@ public class Base64Test_OE25Dev {
         assertEquals(str, jaxb230Base64.internalEncodeUrlWithoutPadding(bytes));
     }
 
-    @Test
+@Test
     public void testEncodeUrlWithoutPadding_24_oe() {
         final String helloWorldEncoded = "SGVsbG8gV29ybGQ";
         final String helloWorldTwoLinesEncoded = "SGVsbG8gV29ybGQNCk5ldyBMaW5lMg";

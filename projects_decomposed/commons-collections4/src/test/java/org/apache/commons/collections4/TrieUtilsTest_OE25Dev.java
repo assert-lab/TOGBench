@@ -30,13 +30,13 @@ public class TrieUtilsTest_OE25Dev {
 
     //----------------------------------------------------------------------
 
-    @Test
+@Test
     public void testUnmodifiableTrie_1_oe() {
         final Trie<String, Object> trie = TrieUtils.unmodifiableTrie(new PatriciaTrie<>());
         assertTrue("Returned object should be an UnmodifiableTrie.",trie instanceof UnmodifiableTrie);
     }
 
-    @Test
+@Test
     public void testUnmodifiableTrie_3_oe() {
         final Trie<String, Object> trie = TrieUtils.unmodifiableTrie(new PatriciaTrie<>());
         // removed other assertion

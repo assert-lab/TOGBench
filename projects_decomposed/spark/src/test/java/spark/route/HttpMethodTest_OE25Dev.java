@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class HttpMethodTest_OE25Dev {
 
-    @Test
+@Test
     public void testSupportedHttpMethod_1_oe() {
         HttpMethod get = HttpMethod.get;
         HttpMethod method = HttpMethod.get(get.name());
@@ -32,7 +32,7 @@ public class HttpMethodTest_OE25Dev {
         Assert.assertEquals(get, method);
     }
 
-    @Test
+@Test
     public void testNotSupportedHttpMethod_1_oe() {
         HttpMethod method = HttpMethod.get("lock");
 

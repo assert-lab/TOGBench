@@ -149,20 +149,20 @@ public class TestFileLocator_OE25Dev {
      * Tests the string representation of a locator.
      */
 
-    @Test
+@Test
     public void testCreateFileLocatorUndefined_1_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().create();
         assertNull("Got a base path", locator.getBasePath());
     }
 
-    @Test
+@Test
     public void testCreateFileLocatorUndefined_2_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().create();
         // removed other assertion
         assertNull("Got a file name", locator.getFileName());
     }
 
-    @Test
+@Test
     public void testCreateFileLocatorUndefined_3_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().create();
         // removed other assertion
@@ -170,7 +170,7 @@ public class TestFileLocator_OE25Dev {
         assertNull("Got a URL", locator.getSourceURL());
     }
 
-    @Test
+@Test
     public void testCreateFileLocatorUndefined_4_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().create();
         // removed other assertion
@@ -179,7 +179,7 @@ public class TestFileLocator_OE25Dev {
         assertNull("Got an encoding", locator.getEncoding());
     }
 
-    @Test
+@Test
     public void testCreateFileLocatorUndefined_5_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().create();
         // removed other assertion
@@ -189,7 +189,7 @@ public class TestFileLocator_OE25Dev {
         assertNull("Got a file system", locator.getFileSystem());
     }
 
-    @Test
+@Test
     public void testCreateFileLocatorUndefined_6_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().create();
         // removed other assertion
@@ -200,19 +200,19 @@ public class TestFileLocator_OE25Dev {
         assertNull("Got a location strategy", locator.getLocationStrategy());
     }
 
-    @Test
+@Test
     public void testFileLocatorEqualsNull_1_oe() {
         final FileLocator loc = FileLocatorUtils.fileLocator().fileName(FILE_NAME).create();
         assertNotEquals("Wrong result", null, loc);
     }
 
-    @Test
+@Test
     public void testFileLocatorEqualsOtherClass_1_oe() {
         final FileLocator loc = FileLocatorUtils.fileLocator().fileName(FILE_NAME).create();
         assertNotEquals("Wrong result", loc, this);
     }
 
-    @Test
+@Test
     public void testFileLocatorToString_1_oe() {
         final FileLocator loc = FileLocatorUtils.fileLocator().basePath(BASE_PATH).fileName(FILE_NAME).encoding(ENCODING).fileSystem(fileSystem)
             .sourceURL(sourceURL).locationStrategy(locationStrategy).create();
@@ -220,7 +220,7 @@ public class TestFileLocator_OE25Dev {
         assertThat(s, containsString("fileName=" + FILE_NAME));
     }
 
-    @Test
+@Test
     public void testFileLocatorToString_2_oe() {
         final FileLocator loc = FileLocatorUtils.fileLocator().basePath(BASE_PATH).fileName(FILE_NAME).encoding(ENCODING).fileSystem(fileSystem)
             .sourceURL(sourceURL).locationStrategy(locationStrategy).create();
@@ -229,7 +229,7 @@ public class TestFileLocator_OE25Dev {
         assertThat(s, containsString("basePath=" + BASE_PATH));
     }
 
-    @Test
+@Test
     public void testFileLocatorToString_3_oe() {
         final FileLocator loc = FileLocatorUtils.fileLocator().basePath(BASE_PATH).fileName(FILE_NAME).encoding(ENCODING).fileSystem(fileSystem)
             .sourceURL(sourceURL).locationStrategy(locationStrategy).create();
@@ -239,7 +239,7 @@ public class TestFileLocator_OE25Dev {
         assertThat(s, containsString("sourceURL=" + sourceURL));
     }
 
-    @Test
+@Test
     public void testFileLocatorToString_4_oe() {
         final FileLocator loc = FileLocatorUtils.fileLocator().basePath(BASE_PATH).fileName(FILE_NAME).encoding(ENCODING).fileSystem(fileSystem)
             .sourceURL(sourceURL).locationStrategy(locationStrategy).create();
@@ -250,7 +250,7 @@ public class TestFileLocator_OE25Dev {
         assertThat(s, containsString("encoding=" + ENCODING));
     }
 
-    @Test
+@Test
     public void testFileLocatorToString_5_oe() {
         final FileLocator loc = FileLocatorUtils.fileLocator().basePath(BASE_PATH).fileName(FILE_NAME).encoding(ENCODING).fileSystem(fileSystem)
             .sourceURL(sourceURL).locationStrategy(locationStrategy).create();
@@ -262,7 +262,7 @@ public class TestFileLocator_OE25Dev {
         assertThat(s, containsString("fileSystem=" + fileSystem));
     }
 
-    @Test
+@Test
     public void testFileLocatorToString_6_oe() {
         final FileLocator loc = FileLocatorUtils.fileLocator().basePath(BASE_PATH).fileName(FILE_NAME).encoding(ENCODING).fileSystem(fileSystem)
             .sourceURL(sourceURL).locationStrategy(locationStrategy).create();

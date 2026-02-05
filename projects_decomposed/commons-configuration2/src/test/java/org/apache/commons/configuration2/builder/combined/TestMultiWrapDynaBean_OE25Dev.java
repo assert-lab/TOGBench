@@ -177,32 +177,32 @@ public class TestMultiWrapDynaBean_OE25Dev {
      * Tests whether a simple property can be set.
      */
 
-    @Test
+@Test
     public void testGetDynaClass_1_oe() {
         final DynaClass cls = createBean(false).getDynaClass();
         assertNotNull("Property not found (1)", cls.getDynaProperty("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testGetDynaClass_2_oe() {
         final DynaClass cls = createBean(false).getDynaClass();
         // removed other assertion
         assertNotNull("Property not found (2)", cls.getDynaProperty("text"));
     }
 
-    @Test
+@Test
     public void testGetDynaClassName_1_oe() {
         assertNull("Got a class name", createBean(false).getDynaClass().getName());
     }
 
-    @Test
+@Test
     public void testGetIndexedProperty_1_oe() throws Exception {
         final MultiWrapDynaBean bean = createBean(false);
         wrapBean.setIndexedProperty(3, 20121117);
         assertEquals("Wrong value", 20121117, PropertyUtils.getIndexedProperty(bean, "indexedProperty", 3));
     }
 
-    @Test
+@Test
     public void testGetMappedProperty_1_oe() throws Exception {
         final MultiWrapDynaBean bean = createBean(true);
         final String key = "testKey";
@@ -211,7 +211,7 @@ public class TestMultiWrapDynaBean_OE25Dev {
         assertEquals("Wrong value", value, PropertyUtils.getMappedProperty(bean, MAPPED_PROPERTY, key));
     }
 
-    @Test
+@Test
     public void testGetSimpleProperty_1_oe() throws Exception {
         final MultiWrapDynaBean bean = createBean(false);
         final String text = "testText";
@@ -219,7 +219,7 @@ public class TestMultiWrapDynaBean_OE25Dev {
         assertEquals("Wrong value", text, PropertyUtils.getProperty(bean, "text"));
     }
 
-    @Test
+@Test
     public void testOrderOfProperties_1_oe() throws Exception {
         final Collection<Object> beans = new ArrayList<>();
         params = new BasicBuilderParameters();
@@ -236,7 +236,7 @@ public class TestMultiWrapDynaBean_OE25Dev {
         assertEquals("Exception flag not set", Boolean.TRUE, map.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testOrderOfProperties_2_oe() throws Exception {
         final Collection<Object> beans = new ArrayList<>();
         params = new BasicBuilderParameters();
@@ -254,13 +254,13 @@ public class TestMultiWrapDynaBean_OE25Dev {
         assertEquals("List delimiter handler not set", listHandler, map.get("listDelimiterHandler"));
     }
 
-    @Test
+@Test
     public void testSetIndexedProperty_1_oe() throws Exception {
         PropertyUtils.setIndexedProperty(createBean(false), "indexedProperty", 1, 42);
         assertEquals("Property not set", 42, wrapBean.getIndexedProperty(1));
     }
 
-    @Test
+@Test
     public void testSetMappedProperty_1_oe() throws Exception {
         final MultiWrapDynaBean bean = createBean(true);
         final String key = "testKey";
@@ -269,7 +269,7 @@ public class TestMultiWrapDynaBean_OE25Dev {
         assertEquals("Property not set", text, wrapDynaBean.get(MAPPED_PROPERTY, key));
     }
 
-    @Test
+@Test
     public void testSetSimpleProperty_1_oe() throws Exception {
         PropertyUtils.setProperty(createBean(false), "throwExceptionOnMissing", Boolean.TRUE);
         assertEquals("Property not set", Boolean.TRUE, params.getParameters().get("throwExceptionOnMissing"));

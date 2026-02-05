@@ -127,7 +127,7 @@ public class TestReloadingMultiFileConfigurationBuilder_OE25Dev extends Abstract
         EasyMock.verify(controllers.toArray());
     }
 
-    @Test
+@Test
     public void testCreateManagedBuilder_1_oe() throws ConfigurationException {
         final ReloadingMultiFileConfigurationBuilder<XMLConfiguration> builder = new ReloadingMultiFileConfigurationBuilder<>(XMLConfiguration.class);
         final FileBasedConfigurationBuilder<XMLConfiguration> managedBuilder = builder.createManagedBuilder("test.xml",
@@ -135,7 +135,7 @@ public class TestReloadingMultiFileConfigurationBuilder_OE25Dev extends Abstract
         assertTrue("Not a reloading builder", managedBuilder instanceof ReloadingFileBasedConfigurationBuilder);
     }
 
-    @Test
+@Test
     public void testCreateManagedBuilder_2_oe() throws ConfigurationException {
         final ReloadingMultiFileConfigurationBuilder<XMLConfiguration> builder = new ReloadingMultiFileConfigurationBuilder<>(XMLConfiguration.class);
         final FileBasedConfigurationBuilder<XMLConfiguration> managedBuilder = builder.createManagedBuilder("test.xml",
@@ -144,7 +144,7 @@ public class TestReloadingMultiFileConfigurationBuilder_OE25Dev extends Abstract
         assertFalse("Wrong flag value", managedBuilder.isAllowFailOnInit());
     }
 
-    @Test
+@Test
     public void testCreateManagedBuilderWithAllowFailFlag_1_oe() throws ConfigurationException {
         final ReloadingMultiFileConfigurationBuilder<XMLConfiguration> builder = new ReloadingMultiFileConfigurationBuilder<>(XMLConfiguration.class, null,
             true);
@@ -153,7 +153,7 @@ public class TestReloadingMultiFileConfigurationBuilder_OE25Dev extends Abstract
         assertTrue("Wrong flag value", managedBuilder.isAllowFailOnInit());
     }
 
-    @Test
+@Test
     public void testInitWithParameters_1_oe() throws ConfigurationException {
         final ExpressionEngine engine = new XPathExpressionEngine();
         final BasicBuilderParameters params = createTestBuilderParameters(new XMLBuilderParametersImpl().setExpressionEngine(engine));
@@ -164,7 +164,7 @@ public class TestReloadingMultiFileConfigurationBuilder_OE25Dev extends Abstract
         assertSame("Expression engine not set", engine, config.getExpressionEngine());
     }
 
-    @Test
+@Test
     public void testReloadingControllerCheck_1_oe() throws ConfigurationException {
         final ReloadingMultiFileConfigurationBuilderTestImpl builder = new ReloadingMultiFileConfigurationBuilderTestImpl();
         switchToConfig(1);
@@ -175,7 +175,7 @@ public class TestReloadingMultiFileConfigurationBuilder_OE25Dev extends Abstract
         assertEquals("Wrong number of reloading controllers", 2, controllers.size());
     }
 
-    @Test
+@Test
     public void testReloadingControllerCheck_2_oe() throws ConfigurationException {
         final ReloadingMultiFileConfigurationBuilderTestImpl builder = new ReloadingMultiFileConfigurationBuilderTestImpl();
         switchToConfig(1);
@@ -192,7 +192,7 @@ public class TestReloadingMultiFileConfigurationBuilder_OE25Dev extends Abstract
         assertFalse("Wrong result", builder.getReloadingController().checkForReloading(this));
     }
 
-    @Test
+@Test
     public void testReloadingControllerCheckReloadingRequired_1_oe() throws ConfigurationException {
         final ReloadingMultiFileConfigurationBuilderTestImpl builder = new ReloadingMultiFileConfigurationBuilderTestImpl();
         for (int i = 1; i <= 3; i++) {

@@ -89,20 +89,20 @@ public class TestHomeDirectoryLocationStrategy_OE25Dev {
      * Tests a locate() operation if no file name is specified.
      */
 
-    @Test
+@Test
     public void testInitDefaults_1_oe() {
         final HomeDirectoryLocationStrategy strategy = new HomeDirectoryLocationStrategy();
         assertEquals("Wrong home directory", System.getProperty("user.home"), strategy.getHomeDirectory());
     }
 
-    @Test
+@Test
     public void testInitDefaults_2_oe() {
         final HomeDirectoryLocationStrategy strategy = new HomeDirectoryLocationStrategy();
         // removed other assertion
         assertFalse("Wrong base path flag", strategy.isEvaluateBasePath());
     }
 
-    @Test
+@Test
     public void testLocateFailedWithBasePath_1_oe() throws IOException {
         folder.newFile(FILE_NAME);
         final FileLocator locator = FileLocatorUtils.fileLocator().basePath(BASE_PATH).fileName(FILE_NAME).create();
@@ -110,7 +110,7 @@ public class TestHomeDirectoryLocationStrategy_OE25Dev {
         assertNull("Got a URL", strategy.locate(fileSystem, locator));
     }
 
-    @Test
+@Test
     public void testLocateSuccessIgnoreBasePath_1_oe() throws IOException {
         final File file = folder.newFile(FILE_NAME);
         final FileLocator locator = FileLocatorUtils.fileLocator().basePath(BASE_PATH).fileName(FILE_NAME).create();
@@ -119,14 +119,14 @@ public class TestHomeDirectoryLocationStrategy_OE25Dev {
         assertEquals("Wrong URL", file.getAbsoluteFile(), FileLocatorUtils.fileFromURL(url).getAbsoluteFile());
     }
 
-    @Test
+@Test
     public void testLocateSuccessInSubFolder_1_oe() throws IOException {
         final File sub = folder.newFolder(BASE_PATH);
         final File file = new File(sub, FILE_NAME);
         assertTrue("Could not create file", file.createNewFile());
     }
 
-    @Test
+@Test
     public void testLocateSuccessNoBasePath_1_oe() throws IOException {
         final File file = folder.newFile(FILE_NAME);
         final FileLocator locator = FileLocatorUtils.fileLocator().fileName(FILE_NAME).create();
@@ -135,7 +135,7 @@ public class TestHomeDirectoryLocationStrategy_OE25Dev {
         assertEquals("Wrong URL", file.getAbsoluteFile(), FileLocatorUtils.fileFromURL(url).getAbsoluteFile());
     }
 
-    @Test
+@Test
     public void testNoFileName_1_oe() {
         final FileLocator locator = FileLocatorUtils.fileLocator().basePath(BASE_PATH).create();
         final HomeDirectoryLocationStrategy strategy = setUpStrategy(true);

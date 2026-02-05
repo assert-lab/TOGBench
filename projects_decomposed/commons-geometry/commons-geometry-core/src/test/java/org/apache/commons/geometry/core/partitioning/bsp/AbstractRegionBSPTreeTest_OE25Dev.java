@@ -314,20 +314,20 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         return new TestRegionBSPTree(true);
     }
 
-    @Test
+@Test
     void testDefaultConstructor_1_oe() {
         // assert
         Assertions.assertNotNull(root);
     }
 
-    @Test
+@Test
     void testDefaultConstructor_2_oe() {
         // assert
         // removed other assertion
         Assertions.assertNull(root.getParent());
     }
 
-    @Test
+@Test
     void testDefaultConstructor_4_oe() {
         // assert
         // removed other assertion
@@ -337,7 +337,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(root.isPlus());
     }
 
-    @Test
+@Test
     void testDefaultConstructor_5_oe() {
         // assert
         // removed other assertion
@@ -348,7 +348,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(root.isMinus());
     }
 
-    @Test
+@Test
     void testDefaultConstructor_6_oe() {
         // assert
         // removed other assertion
@@ -361,7 +361,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertSame(tree, root.getTree());
     }
 
-    @Test
+@Test
     void testDefaultConstructor_7_oe() {
         // assert
         // removed other assertion
@@ -376,7 +376,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, root.getLocation());
     }
 
-    @Test
+@Test
     void testParameterizedConstructor_true_1_oe() {
         // act
         tree = new TestRegionBSPTree(true);
@@ -386,7 +386,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNotNull(root);
     }
 
-    @Test
+@Test
     void testParameterizedConstructor_true_2_oe() {
         // act
         tree = new TestRegionBSPTree(true);
@@ -397,7 +397,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNull(root.getParent());
     }
 
-    @Test
+@Test
     void testParameterizedConstructor_true_4_oe() {
         // act
         tree = new TestRegionBSPTree(true);
@@ -411,7 +411,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(root.isPlus());
     }
 
-    @Test
+@Test
     void testParameterizedConstructor_true_5_oe() {
         // act
         tree = new TestRegionBSPTree(true);
@@ -426,7 +426,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(root.isMinus());
     }
 
-    @Test
+@Test
     void testParameterizedConstructor_true_6_oe() {
         // act
         tree = new TestRegionBSPTree(true);
@@ -443,7 +443,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertSame(tree, root.getTree());
     }
 
-    @Test
+@Test
     void testParameterizedConstructor_true_7_oe() {
         // act
         tree = new TestRegionBSPTree(true);
@@ -462,7 +462,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, root.getLocation());
     }
 
-    @Test
+@Test
     void testParameterizedConstructor_false_1_oe() {
         // act
         tree = new TestRegionBSPTree(false);
@@ -472,7 +472,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNotNull(root);
     }
 
-    @Test
+@Test
     void testParameterizedConstructor_false_2_oe() {
         // act
         tree = new TestRegionBSPTree(false);
@@ -483,7 +483,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNull(root.getParent());
     }
 
-    @Test
+@Test
     void testParameterizedConstructor_false_4_oe() {
         // act
         tree = new TestRegionBSPTree(false);
@@ -497,7 +497,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(root.isPlus());
     }
 
-    @Test
+@Test
     void testParameterizedConstructor_false_5_oe() {
         // act
         tree = new TestRegionBSPTree(false);
@@ -512,7 +512,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(root.isMinus());
     }
 
-    @Test
+@Test
     void testParameterizedConstructor_false_6_oe() {
         // act
         tree = new TestRegionBSPTree(false);
@@ -529,7 +529,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertSame(tree, root.getTree());
     }
 
-    @Test
+@Test
     void testParameterizedConstructor_false_7_oe() {
         // act
         tree = new TestRegionBSPTree(false);
@@ -548,13 +548,13 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, root.getLocation());
     }
 
-    @Test
+@Test
     void testGetLocation_emptyRoot_1_oe() {
         // act/assert
         Assertions.assertEquals(RegionLocation.INSIDE, root.getLocation());
     }
 
-    @Test
+@Test
     void testGetLocation_singleCut_1_oe() {
         // arrange
         root.insertCut(TestLine.X_AXIS);
@@ -563,7 +563,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, root.getLocation());
     }
 
-    @Test
+@Test
     void testGetLocation_singleCut_2_oe() {
         // arrange
         root.insertCut(TestLine.X_AXIS);
@@ -573,7 +573,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(root.isInside());
     }
 
-    @Test
+@Test
     void testGetLocation_singleCut_3_oe() {
         // arrange
         root.insertCut(TestLine.X_AXIS);
@@ -584,7 +584,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(root.isOutside());
     }
 
-    @Test
+@Test
     void testGetLocation_singleCut_4_oe() {
         // arrange
         root.insertCut(TestLine.X_AXIS);
@@ -598,7 +598,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, minus.getLocation());
     }
 
-    @Test
+@Test
     void testGetLocation_singleCut_5_oe() {
         // arrange
         root.insertCut(TestLine.X_AXIS);
@@ -613,7 +613,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(minus.isInside());
     }
 
-    @Test
+@Test
     void testGetLocation_singleCut_6_oe() {
         // arrange
         root.insertCut(TestLine.X_AXIS);
@@ -629,7 +629,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(minus.isOutside());
     }
 
-    @Test
+@Test
     void testGetLocation_singleCut_7_oe() {
         // arrange
         root.insertCut(TestLine.X_AXIS);
@@ -648,7 +648,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, plus.getLocation());
     }
 
-    @Test
+@Test
     void testGetLocation_singleCut_8_oe() {
         // arrange
         root.insertCut(TestLine.X_AXIS);
@@ -668,7 +668,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(plus.isInside());
     }
 
-    @Test
+@Test
     void testGetLocation_singleCut_9_oe() {
         // arrange
         root.insertCut(TestLine.X_AXIS);
@@ -689,7 +689,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(plus.isOutside());
     }
 
-    @Test
+@Test
     void testGetLocation_multipleCuts_1_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -701,7 +701,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, root.getLocation());
     }
 
-    @Test
+@Test
     void testGetLocation_multipleCuts_2_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -716,7 +716,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, plus.getLocation());
     }
 
-    @Test
+@Test
     void testGetLocation_multipleCuts_3_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -734,7 +734,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, plusPlus.getLocation());
     }
 
-    @Test
+@Test
     void testGetLocation_multipleCuts_4_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -755,7 +755,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, plusMinus.getLocation());
     }
 
-    @Test
+@Test
     void testGetLocation_multipleCuts_5_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -779,7 +779,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, minus.getLocation());
     }
 
-    @Test
+@Test
     void testGetLocation_multipleCuts_6_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -806,7 +806,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, minusPlus.getLocation());
     }
 
-    @Test
+@Test
     void testGetLocation_multipleCuts_7_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -836,7 +836,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, minusMinus.getLocation());
     }
 
-    @Test
+@Test
     void testSetLocation_1_oe() {
         // arrange
         tree = emptyTree();
@@ -851,7 +851,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, node.getLocation());
     }
 
-    @Test
+@Test
     void testSetLocation_2_oe() {
         // arrange
         tree = emptyTree();
@@ -867,7 +867,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testSetLocation_invalidatesRegionProperties_1_oe() {
         // arrange
         tree = emptyTree();
@@ -884,7 +884,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNotSame(prevProps, tree.getRegionSizeProperties());
     }
 
-    @Test
+@Test
     void testSetLocation_noChange_doesNotInvalidateTree_1_oe() {
         // arrange
         tree = emptyTree();
@@ -901,7 +901,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertSame(prevProps, tree.getRegionSizeProperties());
     }
 
-    @Test
+@Test
     void testCondense_1_oe() {
         // arrange
         tree = emptyTree();
@@ -915,7 +915,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(result);
     }
 
-    @Test
+@Test
     void testCondense_2_oe() {
         // arrange
         tree = emptyTree();
@@ -931,7 +931,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, tree.count());
     }
 
-    @Test
+@Test
     void testCondense_3_oe() {
         // arrange
         tree = emptyTree();
@@ -948,7 +948,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.getRoot().getLocation());
     }
 
-    @Test
+@Test
     void testCondense_4_oe() {
         // arrange
         tree = emptyTree();
@@ -966,7 +966,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.getRoot().getMinus().getLocation());
     }
 
-    @Test
+@Test
     void testCondense_5_oe() {
         // arrange
         tree = emptyTree();
@@ -985,7 +985,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.getRoot().getPlus().getLocation());
     }
 
-    @Test
+@Test
     void testCondense_alreadyCondensed_1_oe() {
         // arrange
         tree = emptyTree();
@@ -998,7 +998,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(result);
     }
 
-    @Test
+@Test
     void testCondense_alreadyCondensed_2_oe() {
         // arrange
         tree = emptyTree();
@@ -1013,7 +1013,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(3, tree.count());
     }
 
-    @Test
+@Test
     void testCondense_alreadyCondensed_3_oe() {
         // arrange
         tree = emptyTree();
@@ -1029,7 +1029,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.getRoot().getLocation());
     }
 
-    @Test
+@Test
     void testCondense_alreadyCondensed_4_oe() {
         // arrange
         tree = emptyTree();
@@ -1046,7 +1046,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.getRoot().getMinus().getLocation());
     }
 
-    @Test
+@Test
     void testCondense_alreadyCondensed_5_oe() {
         // arrange
         tree = emptyTree();
@@ -1064,7 +1064,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.getRoot().getPlus().getLocation());
     }
 
-    @Test
+@Test
     void testCondense_invalidatesTreeWhenChanged_1_oe() {
         // arrange
         tree = emptyTree();
@@ -1080,7 +1080,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(result);
     }
 
-    @Test
+@Test
     void testCondense_invalidatesTreeWhenChanged_2_oe() {
         // arrange
         tree = emptyTree();
@@ -1098,7 +1098,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNotSame(prevProps, tree.getRegionSizeProperties());
     }
 
-    @Test
+@Test
     void testCondense_doesNotInvalidateTreeWhenNotChanged_1_oe() {
         // arrange
         tree = emptyTree();
@@ -1112,7 +1112,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(result);
     }
 
-    @Test
+@Test
     void testCondense_doesNotInvalidateTreeWhenNotChanged_2_oe() {
         // arrange
         tree = emptyTree();
@@ -1128,7 +1128,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertSame(prevProps, tree.getRegionSizeProperties());
     }
 
-    @Test
+@Test
     void testCut_nodeMethod_1_oe() {
         // arrange
         tree = emptyTree();
@@ -1145,7 +1145,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, node.getLocation());
     }
 
-    @Test
+@Test
     void testCut_nodeMethod_2_oe() {
         // arrange
         tree = emptyTree();
@@ -1164,7 +1164,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, node.getMinus().getLocation());
     }
 
-    @Test
+@Test
     void testCut_nodeMethod_3_oe() {
         // arrange
         tree = emptyTree();
@@ -1184,7 +1184,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, node.getPlus().getLocation());
     }
 
-    @Test
+@Test
     void testCut_nodeMethod_4_oe() {
         // arrange
         tree = emptyTree();
@@ -1207,7 +1207,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, node.getMinus().getLocation());
     }
 
-    @Test
+@Test
     void testCut_nodeMethod_5_oe() {
         // arrange
         tree = emptyTree();
@@ -1231,7 +1231,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, node.getPlus().getLocation());
     }
 
-    @Test
+@Test
     void testCut_nodeMethod_6_oe() {
         // arrange
         tree = emptyTree();
@@ -1258,7 +1258,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, node.getMinus().getLocation());
     }
 
-    @Test
+@Test
     void testCut_nodeMethod_7_oe() {
         // arrange
         tree = emptyTree();
@@ -1286,14 +1286,14 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, node.getPlus().getLocation());
     }
 
-    @Test
+@Test
     void testBoundaries_fullAndEmpty_1_oe() {
         // act/assert
         tree.setFull();
         Assertions.assertFalse(tree.boundaries().iterator().hasNext());
     }
 
-    @Test
+@Test
     void testBoundaries_fullAndEmpty_2_oe() {
         // act/assert
         tree.setFull();
@@ -1303,7 +1303,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.boundaries().iterator().hasNext());
     }
 
-    @Test
+@Test
     void testBoundaries_finite_1_oe() {
         // arrange
         insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
@@ -1318,7 +1318,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testBoundaries_finite_inverted_1_oe() {
         // arrange
         insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
@@ -1334,14 +1334,14 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testGetBoundaries_fullAndEmpty_1_oe() {
         // act/assert
         tree.setFull();
         Assertions.assertEquals(0, tree.getBoundaries().size());
     }
 
-    @Test
+@Test
     void testGetBoundaries_fullAndEmpty_2_oe() {
         // act/assert
         tree.setFull();
@@ -1351,7 +1351,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(0, tree.getBoundaries().size());
     }
 
-    @Test
+@Test
     void testGetBoundaries_finite_1_oe() {
         // arrange
         insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
@@ -1366,7 +1366,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testGetBoundaries_finite_inverted_1_oe() {
         // arrange
         insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
@@ -1382,7 +1382,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(4, segments.size());
     }
 
-    @Test
+@Test
     void testClassify_1_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1391,7 +1391,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(3, 1)));
     }
 
-    @Test
+@Test
     void testClassify_2_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1401,7 +1401,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(-3, -1)));
     }
 
-    @Test
+@Test
     void testClassify_3_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1413,7 +1413,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(new TestPoint2D(-3, 1)));
     }
 
-    @Test
+@Test
     void testClassify_4_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1426,7 +1426,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(new TestPoint2D(3, -1)));
     }
 
-    @Test
+@Test
     void testClassify_5_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1441,7 +1441,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(4, 5)));
     }
 
-    @Test
+@Test
     void testClassify_6_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1457,7 +1457,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(-4, -5)));
     }
 
-    @Test
+@Test
     void testClassify_7_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1475,7 +1475,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(new TestPoint2D(5, 0)));
     }
 
-    @Test
+@Test
     void testClassify_8_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1494,7 +1494,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(4, 0)));
     }
 
-    @Test
+@Test
     void testClassify_9_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1514,7 +1514,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(3, 0)));
     }
 
-    @Test
+@Test
     void testClassify_10_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1535,7 +1535,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(2, 0)));
     }
 
-    @Test
+@Test
     void testClassify_11_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1557,7 +1557,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(1, 0)));
     }
 
-    @Test
+@Test
     void testClassify_12_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1580,7 +1580,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(0, 0)));
     }
 
-    @Test
+@Test
     void testClassify_13_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1604,7 +1604,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(-1, 0)));
     }
 
-    @Test
+@Test
     void testClassify_14_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1629,7 +1629,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(-2, 0)));
     }
 
-    @Test
+@Test
     void testClassify_15_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1655,7 +1655,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(-3, 0)));
     }
 
-    @Test
+@Test
     void testClassify_16_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1682,7 +1682,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(-4, 0)));
     }
 
-    @Test
+@Test
     void testClassify_17_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1710,19 +1710,19 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(new TestPoint2D(-5, 0)));
     }
 
-    @Test
+@Test
     void testClassify_emptyTree_1_oe() {
         // act/assert
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(TestPoint2D.ZERO));
     }
 
-    @Test
+@Test
     void testClassify_NaN_1_oe() {
         // act/assert
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(new TestPoint2D(0, Double.NaN)));
     }
 
-    @Test
+@Test
     void testContains_1_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1731,7 +1731,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.contains(new TestPoint2D(3, 1)));
     }
 
-    @Test
+@Test
     void testContains_2_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1741,7 +1741,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.contains(new TestPoint2D(-3, -1)));
     }
 
-    @Test
+@Test
     void testContains_3_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1753,7 +1753,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.contains(new TestPoint2D(-3, 1)));
     }
 
-    @Test
+@Test
     void testContains_4_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1766,7 +1766,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.contains(new TestPoint2D(3, -1)));
     }
 
-    @Test
+@Test
     void testContains_5_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1781,7 +1781,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.contains(new TestPoint2D(4, 5)));
     }
 
-    @Test
+@Test
     void testContains_6_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1797,7 +1797,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.contains(new TestPoint2D(-4, -5)));
     }
 
-    @Test
+@Test
     void testContains_7_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1815,7 +1815,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.contains(new TestPoint2D(5, 0)));
     }
 
-    @Test
+@Test
     void testContains_8_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1835,7 +1835,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.contains(new TestPoint2D(4, 0)));
     }
 
-    @Test
+@Test
     void testContains_9_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1856,7 +1856,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.contains(new TestPoint2D(3, 0)));
     }
 
-    @Test
+@Test
     void testContains_10_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1878,7 +1878,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.contains(new TestPoint2D(2, 0)));
     }
 
-    @Test
+@Test
     void testContains_11_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1901,7 +1901,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.contains(new TestPoint2D(1, 0)));
     }
 
-    @Test
+@Test
     void testContains_12_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1925,7 +1925,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.contains(new TestPoint2D(0, 0)));
     }
 
-    @Test
+@Test
     void testContains_13_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1950,7 +1950,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.contains(new TestPoint2D(-1, 0)));
     }
 
-    @Test
+@Test
     void testContains_14_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -1976,7 +1976,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.contains(new TestPoint2D(-2, 0)));
     }
 
-    @Test
+@Test
     void testContains_15_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2003,7 +2003,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.contains(new TestPoint2D(-3, 0)));
     }
 
-    @Test
+@Test
     void testContains_16_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2031,7 +2031,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.contains(new TestPoint2D(-4, 0)));
     }
 
-    @Test
+@Test
     void testContains_17_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2061,7 +2061,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.contains(new TestPoint2D(-5, 0)));
     }
 
-    @Test
+@Test
     void testSetFull_1_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2073,7 +2073,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testSetFull_2_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2086,7 +2086,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testSetFull_3_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2101,7 +2101,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(TestPoint2D.ZERO));
     }
 
-    @Test
+@Test
     void testSetFull_4_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2117,7 +2117,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.contains(TestPoint2D.ZERO));
     }
 
-    @Test
+@Test
     void testSetEmpty_1_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2129,7 +2129,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testSetEmpty_2_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2142,7 +2142,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testSetEmpty_3_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2157,7 +2157,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(TestPoint2D.ZERO));
     }
 
-    @Test
+@Test
     void testSetEmpty_4_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2173,7 +2173,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.contains(TestPoint2D.ZERO));
     }
 
-    @Test
+@Test
     void testGetRegionSizeProperties_cachesValueBasedOnVersion_1_oe() {
         // act
         final RegionSizeProperties<TestPoint2D> first = tree.getRegionSizeProperties();
@@ -2185,7 +2185,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertSame(first, second);
     }
 
-    @Test
+@Test
     void testGetRegionSizeProperties_cachesValueBasedOnVersion_2_oe() {
         // act
         final RegionSizeProperties<TestPoint2D> first = tree.getRegionSizeProperties();
@@ -2198,7 +2198,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNotSame(second, third);
     }
 
-    @Test
+@Test
     void testGetRegionSizeProperties_cachesValueBasedOnVersion_3_oe() {
         // act
         final RegionSizeProperties<TestPoint2D> first = tree.getRegionSizeProperties();
@@ -2213,27 +2213,27 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1234, first.getSize(), PartitionTestUtils.EPS);
     }
 
-    @Test
+@Test
     void testGetSize_1_oe() {
         // act/assert
         // make sure our stub value is pulled
         Assertions.assertEquals(1234, tree.getSize(), PartitionTestUtils.EPS);
     }
 
-    @Test
+@Test
     void testGetBoundarySize_fullAndEmpty_1_oe() {
         // act/assert
         Assertions.assertEquals(0.0, fullTree().getBoundarySize(), PartitionTestUtils.EPS);
     }
 
-    @Test
+@Test
     void testGetBoundarySize_fullAndEmpty_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertEquals(0.0, emptyTree().getBoundarySize(), PartitionTestUtils.EPS);
     }
 
-    @Test
+@Test
     void testGetBoundarySize_infinite_1_oe() {
         // arrange
         final TestRegionBSPTree halfPos = new TestRegionBSPTree(true);
@@ -2246,7 +2246,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Double.POSITIVE_INFINITY, halfPos.getBoundarySize(), PartitionTestUtils.EPS);
     }
 
-    @Test
+@Test
     void testGetBoundarySize_infinite_2_oe() {
         // arrange
         final TestRegionBSPTree halfPos = new TestRegionBSPTree(true);
@@ -2260,7 +2260,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(Double.POSITIVE_INFINITY, halfPosComplement.getBoundarySize(), PartitionTestUtils.EPS);
     }
 
-    @Test
+@Test
     void testGetBoundarySize_alignedCuts_1_oe() {
         // arrange
         final TestPoint2D p0 = TestPoint2D.ZERO;
@@ -2283,7 +2283,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(6, tree.getBoundarySize(), PartitionTestUtils.EPS);
     }
 
-    @Test
+@Test
     void testGetBoundarySize_box_1_oe() {
         // arrange
         insertBox(tree, new TestPoint2D(2, 2), new TestPoint2D(4, 1));
@@ -2292,7 +2292,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(6.0, tree.getBoundarySize(), PartitionTestUtils.EPS);
     }
 
-    @Test
+@Test
     void testGetBoundarySize_boxComplement_1_oe() {
         // arrange
         insertBox(tree, new TestPoint2D(2, 2), new TestPoint2D(4, 1));
@@ -2302,7 +2302,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(6.0, tree.getBoundarySize(), PartitionTestUtils.EPS);
     }
 
-    @Test
+@Test
     void testGetBoundarySize_recomputesAfterChange_1_oe() {
         // arrange
         insertBox(tree, new TestPoint2D(2, 2), new TestPoint2D(4, 1));
@@ -2318,7 +2318,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(6.0, first, PartitionTestUtils.EPS);
     }
 
-    @Test
+@Test
     void testGetBoundarySize_recomputesAfterChange_2_oe() {
         // arrange
         insertBox(tree, new TestPoint2D(2, 2), new TestPoint2D(4, 1));
@@ -2335,7 +2335,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(4.0, second, PartitionTestUtils.EPS);
     }
 
-    @Test
+@Test
     void testGetBoundarySize_recomputesAfterChange_3_oe() {
         // arrange
         insertBox(tree, new TestPoint2D(2, 2), new TestPoint2D(4, 1));
@@ -2353,7 +2353,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(4.0, third, PartitionTestUtils.EPS);
     }
 
-    @Test
+@Test
     void testGetCutBoundary_emptyTree_1_oe() {
         // act
         final RegionCutBoundary<TestPoint2D> boundary = root.getCutBoundary();
@@ -2362,7 +2362,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNull(boundary);
     }
 
-    @Test
+@Test
     void testGetCutBoundary_singleCut_1_oe() {
         // arrange
         tree.insert(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
@@ -2374,7 +2374,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(boundary.getInsideFacing().isEmpty());
     }
 
-    @Test
+@Test
     void testGetCutBoundary_singleCut_leafNode_1_oe() {
         // arrange
         tree.insert(new TestLineSegment(new TestPoint2D(0, 0), new TestPoint2D(1, 0)));
@@ -2386,7 +2386,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNull(boundary);
     }
 
-    @Test
+@Test
     void testGetCutBoundary_singleCorner_1_oe() {
         // arrange
         tree.insert(new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)));
@@ -2398,7 +2398,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(rootBoundary.getInsideFacing().isEmpty());
     }
 
-    @Test
+@Test
     void testGetCutBoundary_singleCorner_3_oe() {
         // arrange
         tree.insert(new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)));
@@ -2414,7 +2414,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(childBoundary.getInsideFacing().isEmpty());
     }
 
-    @Test
+@Test
     void testGetCutBoundary_leafNode_1_oe() {
         // arrange
         tree.insert(new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)));
@@ -2424,7 +2424,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNull(root.getPlus().getCutBoundary());
     }
 
-    @Test
+@Test
     void testGetCutBoundary_leafNode_2_oe() {
         // arrange
         tree.insert(new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)));
@@ -2435,7 +2435,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNull(root.getMinus().getMinus().getCutHyperplane());
     }
 
-    @Test
+@Test
     void testGetCutBoundary_leafNode_3_oe() {
         // arrange
         tree.insert(new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)));
@@ -2447,20 +2447,20 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNull(root.getMinus().getPlus().getCutHyperplane());
     }
 
-    @Test
+@Test
     void testFullEmpty_fullTree_1_oe() {
         // act/assert
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testFullEmpty_fullTree_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testFullEmpty_fullTree_3_oe() {
         // act/assert
         // removed other assertion
@@ -2468,7 +2468,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.getRoot().getLocation());
     }
 
-    @Test
+@Test
     void testFullEmpty_emptyTree_1_oe() {
         // arrange
         tree.complement();
@@ -2477,7 +2477,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testFullEmpty_emptyTree_2_oe() {
         // arrange
         tree.complement();
@@ -2487,7 +2487,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testFullEmpty_emptyTree_3_oe() {
         // arrange
         tree.complement();
@@ -2498,7 +2498,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.getRoot().getLocation());
     }
 
-    @Test
+@Test
     void testTransform_noCuts_1_oe() {
         // arrange
         final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(p.getX(), p.getY() + 2));
@@ -2510,7 +2510,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testTransform_noCuts_2_oe() {
         // arrange
         final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(p.getX(), p.getY() + 2));
@@ -2523,7 +2523,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testTransform_singleCut_1_oe() {
         // arrange
         tree.getRoot().insertCut(TestLine.X_AXIS);
@@ -2537,7 +2537,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testTransform_singleCut_2_oe() {
         // arrange
         tree.getRoot().insertCut(TestLine.X_AXIS);
@@ -2552,7 +2552,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testTransform_multipleCuts_1_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2566,7 +2566,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testTransform_multipleCuts_2_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2581,7 +2581,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testTransform_xAxisReflection_1_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2595,7 +2595,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testTransform_xAxisReflection_2_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2610,7 +2610,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testTransform_yAxisReflection_1_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2624,7 +2624,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testTransform_yAxisReflection_2_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2639,7 +2639,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testTransform_xAndYAxisReflection_1_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2653,7 +2653,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testTransform_xAndYAxisReflection_2_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2668,7 +2668,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testTransform_resetsCutBoundary_1_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2689,7 +2689,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNotSame(origBoundary, resultBoundary);
     }
 
-    @Test
+@Test
     void testComplement_rootOnly_1_oe() {
         // act
         tree.complement();
@@ -2698,7 +2698,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testComplement_rootOnly_2_oe() {
         // act
         tree.complement();
@@ -2708,7 +2708,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testComplement_rootOnly_3_oe() {
         // act
         tree.complement();
@@ -2720,7 +2720,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, root.getLocation());
     }
 
-    @Test
+@Test
     void testComplement_rootOnly_4_oe() {
         // act
         tree.complement();
@@ -2733,7 +2733,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(TestPoint2D.ZERO));
     }
 
-    @Test
+@Test
     void testComplement_singleCut_1_oe() {
         // arrange
         root.insertCut(TestLine.X_AXIS);
@@ -2745,7 +2745,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testComplement_singleCut_2_oe() {
         // arrange
         root.insertCut(TestLine.X_AXIS);
@@ -2758,7 +2758,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testComplement_singleCut_3_oe() {
         // arrange
         root.insertCut(TestLine.X_AXIS);
@@ -2773,7 +2773,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, root.getMinus().getLocation());
     }
 
-    @Test
+@Test
     void testComplement_singleCut_4_oe() {
         // arrange
         root.insertCut(TestLine.X_AXIS);
@@ -2789,7 +2789,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, root.getPlus().getLocation());
     }
 
-    @Test
+@Test
     void testComplement_singleCut_5_oe() {
         // arrange
         root.insertCut(TestLine.X_AXIS);
@@ -2807,7 +2807,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(new TestPoint2D(0, 1)));
     }
 
-    @Test
+@Test
     void testComplement_singleCut_6_oe() {
         // arrange
         root.insertCut(TestLine.X_AXIS);
@@ -2826,7 +2826,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(TestPoint2D.ZERO));
     }
 
-    @Test
+@Test
     void testComplement_singleCut_7_oe() {
         // arrange
         root.insertCut(TestLine.X_AXIS);
@@ -2846,7 +2846,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(0, -1)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_1_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2858,7 +2858,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_2_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2871,7 +2871,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_3_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2886,7 +2886,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(new TestPoint2D(3, 1)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_4_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2902,7 +2902,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(new TestPoint2D(-3, -1)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_5_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2920,7 +2920,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(-3, 1)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_6_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2939,7 +2939,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(3, -1)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_7_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2960,7 +2960,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(4, 5)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_8_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -2982,7 +2982,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(-4, -5)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_9_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3006,7 +3006,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(5, 0)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_10_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3031,7 +3031,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(4, 0)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_11_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3057,7 +3057,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(3, 0)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_12_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3084,7 +3084,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(2, 0)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_13_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3112,7 +3112,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(1, 0)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_14_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3141,7 +3141,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(new TestPoint2D(0, 0)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_15_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3171,7 +3171,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(-1, 0)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_16_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3202,7 +3202,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(-2, 0)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_17_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3234,7 +3234,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(-3, 0)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_18_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3267,7 +3267,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(-4, 0)));
     }
 
-    @Test
+@Test
     void testComplement_skewedBowtie_19_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3301,7 +3301,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(-5, 0)));
     }
 
-    @Test
+@Test
     void testComplement_addCutAfterComplement_1_oe() {
         // arrange
         tree.insert(new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(1, 0)));
@@ -3314,7 +3314,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testComplement_addCutAfterComplement_2_oe() {
         // arrange
         tree.insert(new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(1, 0)));
@@ -3328,7 +3328,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testComplement_addCutAfterComplement_3_oe() {
         // arrange
         tree.insert(new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(1, 0)));
@@ -3344,7 +3344,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(TestPoint2D.ZERO));
     }
 
-    @Test
+@Test
     void testComplement_addCutAfterComplement_4_oe() {
         // arrange
         tree.insert(new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(1, 0)));
@@ -3362,7 +3362,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(new TestPoint2D(1, 1)));
     }
 
-    @Test
+@Test
     void testComplement_addCutAfterComplement_5_oe() {
         // arrange
         tree.insert(new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(1, 0)));
@@ -3381,7 +3381,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(-1, 1)));
     }
 
-    @Test
+@Test
     void testComplement_addCutAfterComplement_6_oe() {
         // arrange
         tree.insert(new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(1, 0)));
@@ -3401,7 +3401,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(1, -1)));
     }
 
-    @Test
+@Test
     void testComplement_addCutAfterComplement_7_oe() {
         // arrange
         tree.insert(new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(1, 0)));
@@ -3422,7 +3422,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(-1, -1)));
     }
 
-    @Test
+@Test
     void testComplement_clearCutAfterComplement_1_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -3438,7 +3438,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testComplement_clearCutAfterComplement_2_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -3455,7 +3455,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testComplement_clearCutAfterComplement_3_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -3474,7 +3474,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(TestPoint2D.ZERO));
     }
 
-    @Test
+@Test
     void testComplement_clearCutAfterComplement_4_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -3495,7 +3495,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(new TestPoint2D(1, 1)));
     }
 
-    @Test
+@Test
     void testComplement_clearCutAfterComplement_5_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -3517,7 +3517,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(new TestPoint2D(-1, 1)));
     }
 
-    @Test
+@Test
     void testComplement_clearCutAfterComplement_6_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -3540,7 +3540,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(1, -1)));
     }
 
-    @Test
+@Test
     void testComplement_clearCutAfterComplement_7_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -3564,7 +3564,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(-1, -1)));
     }
 
-    @Test
+@Test
     void testComplement_clearRootAfterComplement_1_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -3580,7 +3580,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testComplement_clearRootAfterComplement_2_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -3597,7 +3597,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isFull());
     }
 
-    @Test
+@Test
     void testComplement_clearRootAfterComplement_3_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -3616,7 +3616,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(TestPoint2D.ZERO));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_root_1_oe() {
         // act
         tree.complement();
@@ -3626,7 +3626,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testComplement_isReversible_root_2_oe() {
         // act
         tree.complement();
@@ -3637,7 +3637,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testComplement_isReversible_root_3_oe() {
         // act
         tree.complement();
@@ -3650,7 +3650,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, root.getLocation());
     }
 
-    @Test
+@Test
     void testComplement_isReversible_root_4_oe() {
         // act
         tree.complement();
@@ -3664,7 +3664,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(TestPoint2D.ZERO));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_1_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3677,7 +3677,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(3, 1)));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_2_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3691,7 +3691,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(-3, -1)));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_3_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3707,7 +3707,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(new TestPoint2D(-3, 1)));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_4_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3724,7 +3724,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(new TestPoint2D(3, -1)));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_5_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3743,7 +3743,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(4, 5)));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_6_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3763,7 +3763,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(-4, -5)));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_7_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3785,7 +3785,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(new TestPoint2D(5, 0)));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_8_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3808,7 +3808,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(4, 0)));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_9_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3832,7 +3832,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(3, 0)));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_10_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3857,7 +3857,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(2, 0)));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_11_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3883,7 +3883,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(1, 0)));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_12_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3910,7 +3910,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(0, 0)));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_13_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3938,7 +3938,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(-1, 0)));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_14_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3967,7 +3967,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(-2, 0)));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_15_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -3997,7 +3997,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(-3, 0)));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_16_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4028,7 +4028,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, tree.classify(new TestPoint2D(-4, 0)));
     }
 
-    @Test
+@Test
     void testComplement_isReversible_skewedBowtie_17_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4060,7 +4060,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, tree.classify(new TestPoint2D(-5, 0)));
     }
 
-    @Test
+@Test
     void testComplement_getCutBoundary_1_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -4076,7 +4076,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(xAxisBoundary.getOutsideFacing().isEmpty());
     }
 
-    @Test
+@Test
     void testComplement_getCutBoundary_2_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -4093,7 +4093,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(xAxisBoundary.getInsideFacing().isEmpty());
     }
 
-    @Test
+@Test
     void testComplement_getCutBoundary_3_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -4113,7 +4113,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, xAxisInsideFacing.size());
     }
 
-    @Test
+@Test
     void testComplement_getCutBoundary_6_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -4139,7 +4139,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(yAxisBoundary.getOutsideFacing().isEmpty());
     }
 
-    @Test
+@Test
     void testComplement_getCutBoundary_7_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -4166,7 +4166,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(yAxisBoundary.getInsideFacing().isEmpty());
     }
 
-    @Test
+@Test
     void testComplement_getCutBoundary_8_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -4196,7 +4196,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(1, yAxisInsideFacing.size());
     }
 
-    @Test
+@Test
     void testComplementOf_rootOnly_1_oe() {
         // arrange
         final TestRegionBSPTree other = fullTree();
@@ -4209,7 +4209,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(tree.isEmpty());
     }
 
-    @Test
+@Test
     void testComplementOf_rootOnly_2_oe() {
         // arrange
         final TestRegionBSPTree other = fullTree();
@@ -4223,7 +4223,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(tree.isFull());
     }
 
-    @Test
+@Test
     void testComplementOf_rootOnly_3_oe() {
         // arrange
         final TestRegionBSPTree other = fullTree();
@@ -4239,7 +4239,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, root.getLocation());
     }
 
-    @Test
+@Test
     void testComplementOf_rootOnly_4_oe() {
         // arrange
         final TestRegionBSPTree other = fullTree();
@@ -4256,7 +4256,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(TestPoint2D.ZERO));
     }
 
-    @Test
+@Test
     void testComplementOf_rootOnly_5_oe() {
         // arrange
         final TestRegionBSPTree other = fullTree();
@@ -4275,7 +4275,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertTrue(other.isEmpty());
     }
 
-    @Test
+@Test
     void testComplementOf_rootOnly_6_oe() {
         // arrange
         final TestRegionBSPTree other = fullTree();
@@ -4295,7 +4295,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(other.isFull());
     }
 
-    @Test
+@Test
     void testComplementOf_rootOnly_7_oe() {
         // arrange
         final TestRegionBSPTree other = fullTree();
@@ -4317,7 +4317,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, other.getRoot().getLocation());
     }
 
-    @Test
+@Test
     void testComplementOf_rootOnly_8_oe() {
         // arrange
         final TestRegionBSPTree other = fullTree();
@@ -4340,7 +4340,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, other.classify(TestPoint2D.ZERO));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_1_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4354,7 +4354,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(3, 1)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_2_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4369,7 +4369,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, tree.classify(new TestPoint2D(-3, -1)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_3_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4386,7 +4386,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(other.isEmpty());
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_4_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4404,7 +4404,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertFalse(other.isFull());
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_5_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4424,7 +4424,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, other.classify(new TestPoint2D(3, 1)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_6_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4445,7 +4445,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, other.classify(new TestPoint2D(-3, -1)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_7_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4468,7 +4468,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, other.classify(new TestPoint2D(-3, 1)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_8_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4492,7 +4492,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, other.classify(new TestPoint2D(3, -1)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_9_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4518,7 +4518,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, other.classify(new TestPoint2D(4, 5)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_10_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4545,7 +4545,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, other.classify(new TestPoint2D(-4, -5)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_11_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4574,7 +4574,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, other.classify(new TestPoint2D(5, 0)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_12_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4604,7 +4604,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, other.classify(new TestPoint2D(4, 0)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_13_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4635,7 +4635,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, other.classify(new TestPoint2D(3, 0)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_14_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4667,7 +4667,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, other.classify(new TestPoint2D(2, 0)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_15_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4700,7 +4700,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, other.classify(new TestPoint2D(1, 0)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_16_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4734,7 +4734,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.OUTSIDE, other.classify(new TestPoint2D(0, 0)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_17_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4769,7 +4769,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, other.classify(new TestPoint2D(-1, 0)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_18_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4805,7 +4805,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, other.classify(new TestPoint2D(-2, 0)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_19_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4842,7 +4842,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, other.classify(new TestPoint2D(-3, 0)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_20_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4880,7 +4880,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.BOUNDARY, other.classify(new TestPoint2D(-4, 0)));
     }
 
-    @Test
+@Test
     void testComplementOf_skewedBowtie_21_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4919,7 +4919,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, other.classify(new TestPoint2D(-5, 0)));
     }
 
-    @Test
+@Test
     void testCopy_1_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4932,7 +4932,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNotSame(tree, copy);
     }
 
-    @Test
+@Test
     void testCopy_2_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4946,7 +4946,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(tree.count(), copy.count());
     }
 
-    @Test
+@Test
     void testCopy_3_oe() {
         // arrange
         insertSkewedBowtie(tree);
@@ -4968,7 +4968,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(origLocations, copyLocations);
     }
 
-    @Test
+@Test
     void testProject_emptyAndFull_1_oe() {
         // arrange
         final TestRegionBSPTree full = fullTree();
@@ -4978,7 +4978,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNull(full.project(new TestPoint2D(0, 0)));
     }
 
-    @Test
+@Test
     void testProject_emptyAndFull_2_oe() {
         // arrange
         final TestRegionBSPTree full = fullTree();
@@ -4989,7 +4989,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNull(empty.project(new TestPoint2D(-1, 1)));
     }
 
-    @Test
+@Test
     void testSplit_empty_1_oe() {
         // arrange
         tree = emptyTree();
@@ -5001,7 +5001,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_empty_2_oe() {
         // arrange
         tree = emptyTree();
@@ -5015,7 +5015,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testSplit_empty_3_oe() {
         // arrange
         tree = emptyTree();
@@ -5030,7 +5030,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_full_1_oe() {
         // arrange
         tree = fullTree();
@@ -5042,7 +5042,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_halfSpace_1_oe() {
         // arrange
         tree.getRoot().insertCut(TestLine.X_AXIS);
@@ -5056,7 +5056,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_box_1_oe() {
         // arrange
         insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
@@ -5070,7 +5070,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_box_onMinusOnly_1_oe() {
         // arrange
         insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
@@ -5084,7 +5084,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_box_onMinusOnly_4_oe() {
         // arrange
         insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
@@ -5104,7 +5104,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNull(split.getPlus());
     }
 
-    @Test
+@Test
     void testSplit_box_onPlusOnly_1_oe() {
         // arrange
         insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
@@ -5118,7 +5118,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
     }
 
-    @Test
+@Test
     void testSplit_box_onPlusOnly_2_oe() {
         // arrange
         insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
@@ -5134,7 +5134,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertNull(split.getMinus());
     }
 
-    @Test
+@Test
     void testToString_1_oe() {
         // arrange
         tree.getRoot().cut(TestLine.X_AXIS);
@@ -5146,7 +5146,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals("TestRegionBSPTree[count= 3, height= 1]", str);
     }
 
-    @Test
+@Test
     void testToString_2_oe() {
         // arrange
         tree.getRoot().cut(TestLine.X_AXIS);

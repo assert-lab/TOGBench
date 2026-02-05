@@ -93,80 +93,80 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testFactoryUTC_1_oe() {
+public void testFactoryUTC_1_oe() {
         assertEquals(DateTimeZone.UTC,GregorianChronology.getInstanceUTC().getZone());
     }
 
-    public void testFactoryUTC_2_oe() {
+public void testFactoryUTC_2_oe() {
         // removed other assertion
         assertSame(GregorianChronology.class,GregorianChronology.getInstanceUTC().getClass());
     }
 
-    public void testFactory_1_oe() {
+public void testFactory_1_oe() {
         assertEquals(LONDON,GregorianChronology.getInstance().getZone());
     }
 
-    public void testFactory_2_oe() {
+public void testFactory_2_oe() {
         // removed other assertion
         assertSame(GregorianChronology.class,GregorianChronology.getInstance().getClass());
     }
 
-    public void testFactory_Zone_1_oe() {
+public void testFactory_Zone_1_oe() {
         assertEquals(TOKYO,GregorianChronology.getInstance(TOKYO).getZone());
     }
 
-    public void testFactory_Zone_2_oe() {
+public void testFactory_Zone_2_oe() {
         // removed other assertion
         assertEquals(PARIS,GregorianChronology.getInstance(PARIS).getZone());
     }
 
-    public void testFactory_Zone_3_oe() {
+public void testFactory_Zone_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(LONDON,GregorianChronology.getInstance(null).getZone());
     }
 
-    public void testFactory_Zone_4_oe() {
+public void testFactory_Zone_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertSame(GregorianChronology.class,GregorianChronology.getInstance(TOKYO).getClass());
     }
 
-    public void testFactory_Zone_int_1_oe() {
+public void testFactory_Zone_int_1_oe() {
         GregorianChronology chrono = GregorianChronology.getInstance(TOKYO, 2);
         assertEquals(TOKYO,chrono.getZone());
     }
 
-    public void testFactory_Zone_int_2_oe() {
+public void testFactory_Zone_int_2_oe() {
         GregorianChronology chrono = GregorianChronology.getInstance(TOKYO, 2);
         // removed other assertion
         assertEquals(2,chrono.getMinimumDaysInFirstWeek());
     }
 
-    public void testEquality_1_oe() {
+public void testEquality_1_oe() {
         assertSame(GregorianChronology.getInstance(TOKYO),GregorianChronology.getInstance(TOKYO));
     }
 
-    public void testEquality_2_oe() {
+public void testEquality_2_oe() {
         // removed other assertion
         assertSame(GregorianChronology.getInstance(LONDON),GregorianChronology.getInstance(LONDON));
     }
 
-    public void testEquality_3_oe() {
+public void testEquality_3_oe() {
         // removed other assertion
         // removed other assertion
         assertSame(GregorianChronology.getInstance(PARIS),GregorianChronology.getInstance(PARIS));
     }
 
-    public void testEquality_4_oe() {
+public void testEquality_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertSame(GregorianChronology.getInstanceUTC(),GregorianChronology.getInstanceUTC());
     }
 
-    public void testEquality_5_oe() {
+public void testEquality_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -174,51 +174,51 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertSame(GregorianChronology.getInstance(),GregorianChronology.getInstance(LONDON));
     }
 
-    public void testWithUTC_1_oe() {
+public void testWithUTC_1_oe() {
         assertSame(GregorianChronology.getInstanceUTC(),GregorianChronology.getInstance(LONDON).withUTC());
     }
 
-    public void testWithUTC_2_oe() {
+public void testWithUTC_2_oe() {
         // removed other assertion
         assertSame(GregorianChronology.getInstanceUTC(),GregorianChronology.getInstance(TOKYO).withUTC());
     }
 
-    public void testWithUTC_3_oe() {
+public void testWithUTC_3_oe() {
         // removed other assertion
         // removed other assertion
         assertSame(GregorianChronology.getInstanceUTC(),GregorianChronology.getInstanceUTC().withUTC());
     }
 
-    public void testWithUTC_4_oe() {
+public void testWithUTC_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertSame(GregorianChronology.getInstanceUTC(),GregorianChronology.getInstance().withUTC());
     }
 
-    public void testWithZone_1_oe() {
+public void testWithZone_1_oe() {
         assertSame(GregorianChronology.getInstance(TOKYO),GregorianChronology.getInstance(TOKYO).withZone(TOKYO));
     }
 
-    public void testWithZone_2_oe() {
+public void testWithZone_2_oe() {
         // removed other assertion
         assertSame(GregorianChronology.getInstance(LONDON),GregorianChronology.getInstance(TOKYO).withZone(LONDON));
     }
 
-    public void testWithZone_3_oe() {
+public void testWithZone_3_oe() {
         // removed other assertion
         // removed other assertion
         assertSame(GregorianChronology.getInstance(PARIS),GregorianChronology.getInstance(TOKYO).withZone(PARIS));
     }
 
-    public void testWithZone_4_oe() {
+public void testWithZone_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertSame(GregorianChronology.getInstance(LONDON),GregorianChronology.getInstance(TOKYO).withZone(null));
     }
 
-    public void testWithZone_5_oe() {
+public void testWithZone_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -226,7 +226,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertSame(GregorianChronology.getInstance(PARIS),GregorianChronology.getInstance().withZone(PARIS));
     }
 
-    public void testWithZone_6_oe() {
+public void testWithZone_6_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -235,29 +235,29 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertSame(GregorianChronology.getInstance(PARIS),GregorianChronology.getInstanceUTC().withZone(PARIS));
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         assertEquals("GregorianChronology[Europe/London]",GregorianChronology.getInstance(LONDON).toString());
     }
 
-    public void testToString_2_oe() {
+public void testToString_2_oe() {
         // removed other assertion
         assertEquals("GregorianChronology[Asia/Tokyo]",GregorianChronology.getInstance(TOKYO).toString());
     }
 
-    public void testToString_3_oe() {
+public void testToString_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("GregorianChronology[Europe/London]",GregorianChronology.getInstance().toString());
     }
 
-    public void testToString_4_oe() {
+public void testToString_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals("GregorianChronology[UTC]",GregorianChronology.getInstanceUTC().toString());
     }
 
-    public void testToString_5_oe() {
+public void testToString_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -265,25 +265,25 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("GregorianChronology[UTC,mdfw=2]",GregorianChronology.getInstance(DateTimeZone.UTC,2).toString());
     }
 
-    public void testDurationFields_1_oe() {
+public void testDurationFields_1_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         assertEquals("eras",greg.eras().getName());
     }
 
-    public void testDurationFields_2_oe() {
+public void testDurationFields_2_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         assertEquals("centuries",greg.centuries().getName());
     }
 
-    public void testDurationFields_3_oe() {
+public void testDurationFields_3_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
         assertEquals("years",greg.years().getName());
     }
 
-    public void testDurationFields_4_oe() {
+public void testDurationFields_4_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -291,7 +291,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("weekyears",greg.weekyears().getName());
     }
 
-    public void testDurationFields_5_oe() {
+public void testDurationFields_5_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -300,7 +300,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("months",greg.months().getName());
     }
 
-    public void testDurationFields_6_oe() {
+public void testDurationFields_6_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -310,7 +310,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("weeks",greg.weeks().getName());
     }
 
-    public void testDurationFields_7_oe() {
+public void testDurationFields_7_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -321,7 +321,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("days",greg.days().getName());
     }
 
-    public void testDurationFields_8_oe() {
+public void testDurationFields_8_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -333,7 +333,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("halfdays",greg.halfdays().getName());
     }
 
-    public void testDurationFields_9_oe() {
+public void testDurationFields_9_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -346,7 +346,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("hours",greg.hours().getName());
     }
 
-    public void testDurationFields_10_oe() {
+public void testDurationFields_10_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -360,7 +360,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("minutes",greg.minutes().getName());
     }
 
-    public void testDurationFields_11_oe() {
+public void testDurationFields_11_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -375,7 +375,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("seconds",greg.seconds().getName());
     }
 
-    public void testDurationFields_12_oe() {
+public void testDurationFields_12_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -391,7 +391,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("millis",greg.millis().getName());
     }
 
-    public void testDurationFields_13_oe() {
+public void testDurationFields_13_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -409,7 +409,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,greg.eras().isSupported());
     }
 
-    public void testDurationFields_14_oe() {
+public void testDurationFields_14_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -428,7 +428,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.centuries().isSupported());
     }
 
-    public void testDurationFields_15_oe() {
+public void testDurationFields_15_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -448,7 +448,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.years().isSupported());
     }
 
-    public void testDurationFields_16_oe() {
+public void testDurationFields_16_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -469,7 +469,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.weekyears().isSupported());
     }
 
-    public void testDurationFields_17_oe() {
+public void testDurationFields_17_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -491,7 +491,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.months().isSupported());
     }
 
-    public void testDurationFields_18_oe() {
+public void testDurationFields_18_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -514,7 +514,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.weeks().isSupported());
     }
 
-    public void testDurationFields_19_oe() {
+public void testDurationFields_19_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -538,7 +538,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.days().isSupported());
     }
 
-    public void testDurationFields_20_oe() {
+public void testDurationFields_20_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -563,7 +563,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.halfdays().isSupported());
     }
 
-    public void testDurationFields_21_oe() {
+public void testDurationFields_21_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -589,7 +589,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.hours().isSupported());
     }
 
-    public void testDurationFields_22_oe() {
+public void testDurationFields_22_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -616,7 +616,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.minutes().isSupported());
     }
 
-    public void testDurationFields_23_oe() {
+public void testDurationFields_23_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -644,7 +644,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.seconds().isSupported());
     }
 
-    public void testDurationFields_24_oe() {
+public void testDurationFields_24_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -673,7 +673,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.millis().isSupported());
     }
 
-    public void testDurationFields_25_oe() {
+public void testDurationFields_25_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -704,7 +704,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,greg.centuries().isPrecise());
     }
 
-    public void testDurationFields_26_oe() {
+public void testDurationFields_26_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -736,7 +736,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,greg.years().isPrecise());
     }
 
-    public void testDurationFields_27_oe() {
+public void testDurationFields_27_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -769,7 +769,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,greg.weekyears().isPrecise());
     }
 
-    public void testDurationFields_28_oe() {
+public void testDurationFields_28_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -803,7 +803,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,greg.months().isPrecise());
     }
 
-    public void testDurationFields_29_oe() {
+public void testDurationFields_29_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -838,7 +838,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,greg.weeks().isPrecise());
     }
 
-    public void testDurationFields_30_oe() {
+public void testDurationFields_30_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -874,7 +874,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,greg.days().isPrecise());
     }
 
-    public void testDurationFields_31_oe() {
+public void testDurationFields_31_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -911,7 +911,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,greg.halfdays().isPrecise());
     }
 
-    public void testDurationFields_32_oe() {
+public void testDurationFields_32_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -949,7 +949,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.hours().isPrecise());
     }
 
-    public void testDurationFields_33_oe() {
+public void testDurationFields_33_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -988,7 +988,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.minutes().isPrecise());
     }
 
-    public void testDurationFields_34_oe() {
+public void testDurationFields_34_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1028,7 +1028,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.seconds().isPrecise());
     }
 
-    public void testDurationFields_35_oe() {
+public void testDurationFields_35_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1069,7 +1069,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.millis().isPrecise());
     }
 
-    public void testDurationFields_36_oe() {
+public void testDurationFields_36_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1113,7 +1113,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,gregUTC.centuries().isPrecise());
     }
 
-    public void testDurationFields_37_oe() {
+public void testDurationFields_37_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1158,7 +1158,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,gregUTC.years().isPrecise());
     }
 
-    public void testDurationFields_38_oe() {
+public void testDurationFields_38_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1204,7 +1204,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,gregUTC.weekyears().isPrecise());
     }
 
-    public void testDurationFields_39_oe() {
+public void testDurationFields_39_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1251,7 +1251,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,gregUTC.months().isPrecise());
     }
 
-    public void testDurationFields_40_oe() {
+public void testDurationFields_40_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1299,7 +1299,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,gregUTC.weeks().isPrecise());
     }
 
-    public void testDurationFields_41_oe() {
+public void testDurationFields_41_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1348,7 +1348,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,gregUTC.days().isPrecise());
     }
 
-    public void testDurationFields_42_oe() {
+public void testDurationFields_42_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1398,7 +1398,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,gregUTC.halfdays().isPrecise());
     }
 
-    public void testDurationFields_43_oe() {
+public void testDurationFields_43_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1449,7 +1449,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,gregUTC.hours().isPrecise());
     }
 
-    public void testDurationFields_44_oe() {
+public void testDurationFields_44_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1501,7 +1501,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,gregUTC.minutes().isPrecise());
     }
 
-    public void testDurationFields_45_oe() {
+public void testDurationFields_45_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1554,7 +1554,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,gregUTC.seconds().isPrecise());
     }
 
-    public void testDurationFields_46_oe() {
+public void testDurationFields_46_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1608,7 +1608,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,gregUTC.millis().isPrecise());
     }
 
-    public void testDurationFields_47_oe() {
+public void testDurationFields_47_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1666,7 +1666,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,gregGMT.centuries().isPrecise());
     }
 
-    public void testDurationFields_48_oe() {
+public void testDurationFields_48_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1725,7 +1725,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,gregGMT.years().isPrecise());
     }
 
-    public void testDurationFields_49_oe() {
+public void testDurationFields_49_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1785,7 +1785,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,gregGMT.weekyears().isPrecise());
     }
 
-    public void testDurationFields_50_oe() {
+public void testDurationFields_50_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1846,7 +1846,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,gregGMT.months().isPrecise());
     }
 
-    public void testDurationFields_51_oe() {
+public void testDurationFields_51_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1908,7 +1908,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,gregGMT.weeks().isPrecise());
     }
 
-    public void testDurationFields_52_oe() {
+public void testDurationFields_52_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -1971,7 +1971,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,gregGMT.days().isPrecise());
     }
 
-    public void testDurationFields_53_oe() {
+public void testDurationFields_53_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2035,7 +2035,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,gregGMT.halfdays().isPrecise());
     }
 
-    public void testDurationFields_54_oe() {
+public void testDurationFields_54_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2100,7 +2100,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,gregGMT.hours().isPrecise());
     }
 
-    public void testDurationFields_55_oe() {
+public void testDurationFields_55_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2166,7 +2166,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,gregGMT.minutes().isPrecise());
     }
 
-    public void testDurationFields_56_oe() {
+public void testDurationFields_56_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2233,7 +2233,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,gregGMT.seconds().isPrecise());
     }
 
-    public void testDurationFields_57_oe() {
+public void testDurationFields_57_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2301,25 +2301,25 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,gregGMT.millis().isPrecise());
     }
 
-    public void testDateFields_1_oe() {
+public void testDateFields_1_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         assertEquals("era",greg.era().getName());
     }
 
-    public void testDateFields_2_oe() {
+public void testDateFields_2_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         assertEquals("centuryOfEra",greg.centuryOfEra().getName());
     }
 
-    public void testDateFields_3_oe() {
+public void testDateFields_3_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
         assertEquals("yearOfCentury",greg.yearOfCentury().getName());
     }
 
-    public void testDateFields_4_oe() {
+public void testDateFields_4_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2327,7 +2327,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("yearOfEra",greg.yearOfEra().getName());
     }
 
-    public void testDateFields_5_oe() {
+public void testDateFields_5_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2336,7 +2336,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("year",greg.year().getName());
     }
 
-    public void testDateFields_6_oe() {
+public void testDateFields_6_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2346,7 +2346,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("monthOfYear",greg.monthOfYear().getName());
     }
 
-    public void testDateFields_7_oe() {
+public void testDateFields_7_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2357,7 +2357,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("weekyearOfCentury",greg.weekyearOfCentury().getName());
     }
 
-    public void testDateFields_8_oe() {
+public void testDateFields_8_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2369,7 +2369,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("weekyear",greg.weekyear().getName());
     }
 
-    public void testDateFields_9_oe() {
+public void testDateFields_9_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2382,7 +2382,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("weekOfWeekyear",greg.weekOfWeekyear().getName());
     }
 
-    public void testDateFields_10_oe() {
+public void testDateFields_10_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2396,7 +2396,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("dayOfYear",greg.dayOfYear().getName());
     }
 
-    public void testDateFields_11_oe() {
+public void testDateFields_11_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2411,7 +2411,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("dayOfMonth",greg.dayOfMonth().getName());
     }
 
-    public void testDateFields_12_oe() {
+public void testDateFields_12_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2427,7 +2427,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("dayOfWeek",greg.dayOfWeek().getName());
     }
 
-    public void testDateFields_13_oe() {
+public void testDateFields_13_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2445,7 +2445,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.era().isSupported());
     }
 
-    public void testDateFields_14_oe() {
+public void testDateFields_14_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2464,7 +2464,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.centuryOfEra().isSupported());
     }
 
-    public void testDateFields_15_oe() {
+public void testDateFields_15_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2484,7 +2484,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.yearOfCentury().isSupported());
     }
 
-    public void testDateFields_16_oe() {
+public void testDateFields_16_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2505,7 +2505,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.yearOfEra().isSupported());
     }
 
-    public void testDateFields_17_oe() {
+public void testDateFields_17_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2527,7 +2527,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.year().isSupported());
     }
 
-    public void testDateFields_18_oe() {
+public void testDateFields_18_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2550,7 +2550,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.monthOfYear().isSupported());
     }
 
-    public void testDateFields_19_oe() {
+public void testDateFields_19_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2574,7 +2574,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.weekyearOfCentury().isSupported());
     }
 
-    public void testDateFields_20_oe() {
+public void testDateFields_20_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2599,7 +2599,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.weekyear().isSupported());
     }
 
-    public void testDateFields_21_oe() {
+public void testDateFields_21_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2625,7 +2625,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.weekOfWeekyear().isSupported());
     }
 
-    public void testDateFields_22_oe() {
+public void testDateFields_22_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2652,7 +2652,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.dayOfYear().isSupported());
     }
 
-    public void testDateFields_23_oe() {
+public void testDateFields_23_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2680,7 +2680,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.dayOfMonth().isSupported());
     }
 
-    public void testDateFields_24_oe() {
+public void testDateFields_24_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2709,7 +2709,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.dayOfWeek().isSupported());
     }
 
-    public void testDateFields_25_oe() {
+public void testDateFields_25_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2740,7 +2740,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.eras(),greg.era().getDurationField());
     }
 
-    public void testDateFields_26_oe() {
+public void testDateFields_26_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2772,7 +2772,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.centuries(),greg.centuryOfEra().getDurationField());
     }
 
-    public void testDateFields_27_oe() {
+public void testDateFields_27_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2805,7 +2805,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.years(),greg.yearOfCentury().getDurationField());
     }
 
-    public void testDateFields_28_oe() {
+public void testDateFields_28_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2839,7 +2839,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.years(),greg.yearOfEra().getDurationField());
     }
 
-    public void testDateFields_29_oe() {
+public void testDateFields_29_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2874,7 +2874,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.years(),greg.year().getDurationField());
     }
 
-    public void testDateFields_30_oe() {
+public void testDateFields_30_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2910,7 +2910,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.months(),greg.monthOfYear().getDurationField());
     }
 
-    public void testDateFields_31_oe() {
+public void testDateFields_31_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2947,7 +2947,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.weekyears(),greg.weekyearOfCentury().getDurationField());
     }
 
-    public void testDateFields_32_oe() {
+public void testDateFields_32_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -2985,7 +2985,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.weekyears(),greg.weekyear().getDurationField());
     }
 
-    public void testDateFields_33_oe() {
+public void testDateFields_33_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3024,7 +3024,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.weeks(),greg.weekOfWeekyear().getDurationField());
     }
 
-    public void testDateFields_34_oe() {
+public void testDateFields_34_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3064,7 +3064,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.days(),greg.dayOfYear().getDurationField());
     }
 
-    public void testDateFields_35_oe() {
+public void testDateFields_35_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3105,7 +3105,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.days(),greg.dayOfMonth().getDurationField());
     }
 
-    public void testDateFields_36_oe() {
+public void testDateFields_36_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3147,7 +3147,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.days(),greg.dayOfWeek().getDurationField());
     }
 
-    public void testDateFields_37_oe() {
+public void testDateFields_37_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3191,7 +3191,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(null,greg.era().getRangeDurationField());
     }
 
-    public void testDateFields_38_oe() {
+public void testDateFields_38_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3236,7 +3236,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.eras(),greg.centuryOfEra().getRangeDurationField());
     }
 
-    public void testDateFields_39_oe() {
+public void testDateFields_39_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3282,7 +3282,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.centuries(),greg.yearOfCentury().getRangeDurationField());
     }
 
-    public void testDateFields_40_oe() {
+public void testDateFields_40_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3329,7 +3329,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.eras(),greg.yearOfEra().getRangeDurationField());
     }
 
-    public void testDateFields_41_oe() {
+public void testDateFields_41_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3377,7 +3377,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(null,greg.year().getRangeDurationField());
     }
 
-    public void testDateFields_42_oe() {
+public void testDateFields_42_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3426,7 +3426,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.years(),greg.monthOfYear().getRangeDurationField());
     }
 
-    public void testDateFields_43_oe() {
+public void testDateFields_43_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3476,7 +3476,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.centuries(),greg.weekyearOfCentury().getRangeDurationField());
     }
 
-    public void testDateFields_44_oe() {
+public void testDateFields_44_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3527,7 +3527,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(null,greg.weekyear().getRangeDurationField());
     }
 
-    public void testDateFields_45_oe() {
+public void testDateFields_45_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3579,7 +3579,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.weekyears(),greg.weekOfWeekyear().getRangeDurationField());
     }
 
-    public void testDateFields_46_oe() {
+public void testDateFields_46_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3632,7 +3632,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.years(),greg.dayOfYear().getRangeDurationField());
     }
 
-    public void testDateFields_47_oe() {
+public void testDateFields_47_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3686,7 +3686,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.months(),greg.dayOfMonth().getRangeDurationField());
     }
 
-    public void testDateFields_48_oe() {
+public void testDateFields_48_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3741,25 +3741,25 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(greg.weeks(),greg.dayOfWeek().getRangeDurationField());
     }
 
-    public void testTimeFields_1_oe() {
+public void testTimeFields_1_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         assertEquals("halfdayOfDay",greg.halfdayOfDay().getName());
     }
 
-    public void testTimeFields_2_oe() {
+public void testTimeFields_2_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         assertEquals("clockhourOfHalfday",greg.clockhourOfHalfday().getName());
     }
 
-    public void testTimeFields_3_oe() {
+public void testTimeFields_3_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
         assertEquals("hourOfHalfday",greg.hourOfHalfday().getName());
     }
 
-    public void testTimeFields_4_oe() {
+public void testTimeFields_4_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3767,7 +3767,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("clockhourOfDay",greg.clockhourOfDay().getName());
     }
 
-    public void testTimeFields_5_oe() {
+public void testTimeFields_5_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3776,7 +3776,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("hourOfDay",greg.hourOfDay().getName());
     }
 
-    public void testTimeFields_6_oe() {
+public void testTimeFields_6_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3786,7 +3786,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("minuteOfDay",greg.minuteOfDay().getName());
     }
 
-    public void testTimeFields_7_oe() {
+public void testTimeFields_7_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3797,7 +3797,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("minuteOfHour",greg.minuteOfHour().getName());
     }
 
-    public void testTimeFields_8_oe() {
+public void testTimeFields_8_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3809,7 +3809,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("secondOfDay",greg.secondOfDay().getName());
     }
 
-    public void testTimeFields_9_oe() {
+public void testTimeFields_9_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3822,7 +3822,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("secondOfMinute",greg.secondOfMinute().getName());
     }
 
-    public void testTimeFields_10_oe() {
+public void testTimeFields_10_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3836,7 +3836,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("millisOfDay",greg.millisOfDay().getName());
     }
 
-    public void testTimeFields_11_oe() {
+public void testTimeFields_11_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3851,7 +3851,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals("millisOfSecond",greg.millisOfSecond().getName());
     }
 
-    public void testTimeFields_12_oe() {
+public void testTimeFields_12_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3868,7 +3868,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.halfdayOfDay().isSupported());
     }
 
-    public void testTimeFields_13_oe() {
+public void testTimeFields_13_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3886,7 +3886,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.clockhourOfHalfday().isSupported());
     }
 
-    public void testTimeFields_14_oe() {
+public void testTimeFields_14_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3905,7 +3905,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.hourOfHalfday().isSupported());
     }
 
-    public void testTimeFields_15_oe() {
+public void testTimeFields_15_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3925,7 +3925,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.clockhourOfDay().isSupported());
     }
 
-    public void testTimeFields_16_oe() {
+public void testTimeFields_16_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3946,7 +3946,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.hourOfDay().isSupported());
     }
 
-    public void testTimeFields_17_oe() {
+public void testTimeFields_17_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3968,7 +3968,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.minuteOfDay().isSupported());
     }
 
-    public void testTimeFields_18_oe() {
+public void testTimeFields_18_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -3991,7 +3991,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.minuteOfHour().isSupported());
     }
 
-    public void testTimeFields_19_oe() {
+public void testTimeFields_19_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4015,7 +4015,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.secondOfDay().isSupported());
     }
 
-    public void testTimeFields_20_oe() {
+public void testTimeFields_20_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4040,7 +4040,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.secondOfMinute().isSupported());
     }
 
-    public void testTimeFields_21_oe() {
+public void testTimeFields_21_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4066,7 +4066,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.millisOfDay().isSupported());
     }
 
-    public void testTimeFields_22_oe() {
+public void testTimeFields_22_oe() {
         final GregorianChronology greg = GregorianChronology.getInstance();
         // removed other assertion
         // removed other assertion
@@ -4093,14 +4093,14 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,greg.millisOfSecond().isSupported());
     }
 
-    public void testMaximumValue_1_oe() {
+public void testMaximumValue_1_oe() {
         YearMonthDay ymd1 = new YearMonthDay(1999, DateTimeConstants.FEBRUARY, 1);
         DateMidnight dm1 = new DateMidnight(1999, DateTimeConstants.FEBRUARY, 1);
         Chronology chrono = GregorianChronology.getInstance();
         assertEquals(28,chrono.dayOfMonth().getMaximumValue(ymd1));
     }
 
-    public void testMaximumValue_2_oe() {
+public void testMaximumValue_2_oe() {
         YearMonthDay ymd1 = new YearMonthDay(1999, DateTimeConstants.FEBRUARY, 1);
         DateMidnight dm1 = new DateMidnight(1999, DateTimeConstants.FEBRUARY, 1);
         Chronology chrono = GregorianChronology.getInstance();
@@ -4108,20 +4108,20 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(28,chrono.dayOfMonth().getMaximumValue(dm1.getMillis()));
     }
 
-    public void testLeap_28feb_1_oe() {
+public void testLeap_28feb_1_oe() {
         Chronology chrono = GregorianChronology.getInstance();
         DateTime dt = new DateTime(2012, 2, 28, 0, 0, chrono);
         assertEquals(true,dt.year().isLeap());
     }
 
-    public void testLeap_28feb_2_oe() {
+public void testLeap_28feb_2_oe() {
         Chronology chrono = GregorianChronology.getInstance();
         DateTime dt = new DateTime(2012, 2, 28, 0, 0, chrono);
         // removed other assertion
         assertEquals(true,dt.monthOfYear().isLeap());
     }
 
-    public void testLeap_28feb_3_oe() {
+public void testLeap_28feb_3_oe() {
         Chronology chrono = GregorianChronology.getInstance();
         DateTime dt = new DateTime(2012, 2, 28, 0, 0, chrono);
         // removed other assertion
@@ -4129,7 +4129,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,dt.dayOfMonth().isLeap());
     }
 
-    public void testLeap_28feb_4_oe() {
+public void testLeap_28feb_4_oe() {
         Chronology chrono = GregorianChronology.getInstance();
         DateTime dt = new DateTime(2012, 2, 28, 0, 0, chrono);
         // removed other assertion
@@ -4138,20 +4138,20 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(false,dt.dayOfYear().isLeap());
     }
 
-    public void testLeap_29feb_1_oe() {
+public void testLeap_29feb_1_oe() {
         Chronology chrono = GregorianChronology.getInstance();
         DateTime dt = new DateTime(2012, 2, 29, 0, 0, chrono);
         assertEquals(true,dt.year().isLeap());
     }
 
-    public void testLeap_29feb_2_oe() {
+public void testLeap_29feb_2_oe() {
         Chronology chrono = GregorianChronology.getInstance();
         DateTime dt = new DateTime(2012, 2, 29, 0, 0, chrono);
         // removed other assertion
         assertEquals(true,dt.monthOfYear().isLeap());
     }
 
-    public void testLeap_29feb_3_oe() {
+public void testLeap_29feb_3_oe() {
         Chronology chrono = GregorianChronology.getInstance();
         DateTime dt = new DateTime(2012, 2, 29, 0, 0, chrono);
         // removed other assertion
@@ -4159,7 +4159,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         assertEquals(true,dt.dayOfMonth().isLeap());
     }
 
-    public void testLeap_29feb_4_oe() {
+public void testLeap_29feb_4_oe() {
         Chronology chrono = GregorianChronology.getInstance();
         DateTime dt = new DateTime(2012, 2, 29, 0, 0, chrono);
         // removed other assertion

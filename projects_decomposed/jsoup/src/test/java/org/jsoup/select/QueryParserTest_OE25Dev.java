@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class QueryParserTest_OE25Dev {
 
-    @Test public void testConsumeSubQuery_1_oe() {
+@Test public void testConsumeSubQuery_1_oe() {
         Document doc = Jsoup.parse("<html><head>h</head><body>" +
                 "<li><strong>l1</strong></li>" +
                 "<a><li><strong>l2</strong></li></a>" +
@@ -22,7 +22,7 @@ public class QueryParserTest_OE25Dev {
         assertEquals("l1 l2 yes", doc.body().select(">p>strong,>*>li>strong").text());
         }
 
-    @Test public void testConsumeSubQuery_2_oe() {
+@Test public void testConsumeSubQuery_2_oe() {
         Document doc = Jsoup.parse("<html><head>h</head><body>" +
                 "<li><strong>l1</strong></li>" +
                 "<a><li><strong>l2</strong></li></a>" +
@@ -32,7 +32,7 @@ public class QueryParserTest_OE25Dev {
         assertEquals("l2 yes", doc.select("body>p>strong,body>*>li>strong").text());
         }
 
-    @Test public void testConsumeSubQuery_3_oe() {
+@Test public void testConsumeSubQuery_3_oe() {
         Document doc = Jsoup.parse("<html><head>h</head><body>" +
                 "<li><strong>l1</strong></li>" +
                 "<a><li><strong>l2</strong></li></a>" +
@@ -43,7 +43,7 @@ public class QueryParserTest_OE25Dev {
         assertEquals("yes", doc.select(">body>*>li>strong,>body>p>strong").text());
         }
 
-    @Test public void testConsumeSubQuery_4_oe() {
+@Test public void testConsumeSubQuery_4_oe() {
         Document doc = Jsoup.parse("<html><head>h</head><body>" +
                 "<li><strong>l1</strong></li>" +
                 "<a><li><strong>l2</strong></li></a>" +
@@ -55,14 +55,14 @@ public class QueryParserTest_OE25Dev {
         assertEquals("l2", doc.select(">body>p>strong,>body>*>li>strong").text());
         }
 
-    @Test public void testOrGetsCorrectPrecedence_1_oe() {
+@Test public void testOrGetsCorrectPrecedence_1_oe() {
         // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
         // top level or, three child ands
         Evaluator eval = QueryParser.parse("a b, c d, e f");
         assertTrue(eval instanceof CombiningEvaluator.Or);
         }
 
-    @Test public void testOrGetsCorrectPrecedence_2_oe() {
+@Test public void testOrGetsCorrectPrecedence_2_oe() {
         // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
         // top level or, three child ands
         Evaluator eval = QueryParser.parse("a b, c d, e f");
@@ -71,7 +71,7 @@ public class QueryParserTest_OE25Dev {
         assertEquals(3, or.evaluators.size());
         }
 
-    @Test public void testOrGetsCorrectPrecedence_3_oe() {
+@Test public void testOrGetsCorrectPrecedence_3_oe() {
         // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
         // top level or, three child ands
         Evaluator eval = QueryParser.parse("a b, c d, e f");
@@ -83,7 +83,7 @@ public class QueryParserTest_OE25Dev {
         }
         }
 
-    @Test public void testOrGetsCorrectPrecedence_4_oe() {
+@Test public void testOrGetsCorrectPrecedence_4_oe() {
         // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
         // top level or, three child ands
         Evaluator eval = QueryParser.parse("a b, c d, e f");
@@ -97,7 +97,7 @@ public class QueryParserTest_OE25Dev {
         }
         }
 
-    @Test public void testOrGetsCorrectPrecedence_5_oe() {
+@Test public void testOrGetsCorrectPrecedence_5_oe() {
         // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
         // top level or, three child ands
         Evaluator eval = QueryParser.parse("a b, c d, e f");
@@ -112,7 +112,7 @@ public class QueryParserTest_OE25Dev {
         }
         }
 
-    @Test public void testOrGetsCorrectPrecedence_6_oe() {
+@Test public void testOrGetsCorrectPrecedence_6_oe() {
         // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
         // top level or, three child ands
         Evaluator eval = QueryParser.parse("a b, c d, e f");
@@ -128,13 +128,13 @@ public class QueryParserTest_OE25Dev {
         }
         }
 
-    @Test public void testParsesMultiCorrectly_1_oe() {
+@Test public void testParsesMultiCorrectly_1_oe() {
         String query = ".foo > ol, ol > li + li";
         Evaluator eval = QueryParser.parse(query);
         assertTrue(eval instanceof CombiningEvaluator.Or);
         }
 
-    @Test public void testParsesMultiCorrectly_2_oe() {
+@Test public void testParsesMultiCorrectly_2_oe() {
         String query = ".foo > ol, ol > li + li";
         Evaluator eval = QueryParser.parse(query);
         // removed other assertion
@@ -142,7 +142,7 @@ public class QueryParserTest_OE25Dev {
         assertEquals(2, or.evaluators.size());
         }
 
-    @Test public void testParsesMultiCorrectly_3_oe() {
+@Test public void testParsesMultiCorrectly_3_oe() {
         String query = ".foo > ol, ol > li + li";
         Evaluator eval = QueryParser.parse(query);
         // removed other assertion
@@ -155,7 +155,7 @@ public class QueryParserTest_OE25Dev {
         assertEquals(".foo > ol", andLeft.toString());
         }
 
-    @Test public void testParsesMultiCorrectly_4_oe() {
+@Test public void testParsesMultiCorrectly_4_oe() {
         String query = ".foo > ol, ol > li + li";
         Evaluator eval = QueryParser.parse(query);
         // removed other assertion
@@ -169,7 +169,7 @@ public class QueryParserTest_OE25Dev {
         assertEquals(2, andLeft.evaluators.size());
         }
 
-    @Test public void testParsesMultiCorrectly_5_oe() {
+@Test public void testParsesMultiCorrectly_5_oe() {
         String query = ".foo > ol, ol > li + li";
         Evaluator eval = QueryParser.parse(query);
         // removed other assertion
@@ -184,7 +184,7 @@ public class QueryParserTest_OE25Dev {
         assertEquals("ol > li + li", andRight.toString());
         }
 
-    @Test public void testParsesMultiCorrectly_6_oe() {
+@Test public void testParsesMultiCorrectly_6_oe() {
         String query = ".foo > ol, ol > li + li";
         Evaluator eval = QueryParser.parse(query);
         // removed other assertion
@@ -200,7 +200,7 @@ public class QueryParserTest_OE25Dev {
         assertEquals(2, andRight.evaluators.size());
         }
 
-    @Test public void testParsesMultiCorrectly_7_oe() {
+@Test public void testParsesMultiCorrectly_7_oe() {
         String query = ".foo > ol, ol > li + li";
         Evaluator eval = QueryParser.parse(query);
         // removed other assertion
@@ -217,28 +217,28 @@ public class QueryParserTest_OE25Dev {
         assertEquals(query, eval.toString());
         }
 
-    @Test public void exceptionOnUncloseAttribute_1_oe() {
+@Test public void exceptionOnUncloseAttribute_1_oe() {
         assertThrows(Selector.SelectorParseException.class, () -> QueryParser.parse("section > a[href=\"]"));
         }
 
-    @Test public void testParsesSingleQuoteInContains_1_oe() {
+@Test public void testParsesSingleQuoteInContains_1_oe() {
         assertThrows(Selector.SelectorParseException.class, () -> QueryParser.parse("p:contains(One \" One)"));
         }
 
-    @Test public void exceptOnEmptySelector_1_oe() {
+@Test public void exceptOnEmptySelector_1_oe() {
         assertThrows(Selector.SelectorParseException.class, () -> QueryParser.parse(""));
         }
 
-    @Test public void exceptOnNullSelector_1_oe() {
+@Test public void exceptOnNullSelector_1_oe() {
         assertThrows(Selector.SelectorParseException.class, () -> QueryParser.parse(null));
         }
 
-    @Test public void okOnSpacesForeAndAft_1_oe() {
+@Test public void okOnSpacesForeAndAft_1_oe() {
         Evaluator parse = QueryParser.parse(" span div  ");
         assertEquals("span div", parse.toString());
         }
 
-    @Test public void structuralEvaluatorsToString_1_oe() {
+@Test public void structuralEvaluatorsToString_1_oe() {
         String q = "a:not(:has(span.foo)) b d > e + f ~ g";
         Evaluator parse = QueryParser.parse(q);
         assertEquals(q, parse.toString());

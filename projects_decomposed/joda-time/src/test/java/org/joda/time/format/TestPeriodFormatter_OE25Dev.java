@@ -111,37 +111,37 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testPrint_simple_1_oe() {
+public void testPrint_simple_1_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         assertEquals("P1Y2M3W4DT5H6M7.008S",f.print(p));
     }
 
-    public void testPrint_bufferMethods_1_oe() throws Exception {
+public void testPrint_bufferMethods_1_oe() throws Exception {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         StringBuffer buf = new StringBuffer();
         f.printTo(buf, p);
         assertEquals("P1Y2M3W4DT5H6M7.008S",buf.toString());
     }
 
-    public void testPrint_writerMethods_1_oe() throws Exception {
+public void testPrint_writerMethods_1_oe() throws Exception {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         CharArrayWriter out = new CharArrayWriter();
         f.printTo(out, p);
         assertEquals("P1Y2M3W4DT5H6M7.008S",out.toString());
     }
 
-    public void testWithGetLocaleMethods_1_oe() {
+public void testWithGetLocaleMethods_1_oe() {
         PeriodFormatter f2 = f.withLocale(Locale.FRENCH);
         assertEquals(Locale.FRENCH,f2.getLocale());
     }
 
-    public void testWithGetLocaleMethods_2_oe() {
+public void testWithGetLocaleMethods_2_oe() {
         PeriodFormatter f2 = f.withLocale(Locale.FRENCH);
         // removed other assertion
         assertSame(f2,f2.withLocale(Locale.FRENCH));
     }
 
-    public void testWithGetLocaleMethods_3_oe() {
+public void testWithGetLocaleMethods_3_oe() {
         PeriodFormatter f2 = f.withLocale(Locale.FRENCH);
         // removed other assertion
         // removed other assertion
@@ -150,7 +150,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertEquals(null,f2.getLocale());
     }
 
-    public void testWithGetLocaleMethods_4_oe() {
+public void testWithGetLocaleMethods_4_oe() {
         PeriodFormatter f2 = f.withLocale(Locale.FRENCH);
         // removed other assertion
         // removed other assertion
@@ -160,18 +160,18 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertSame(f2,f2.withLocale(null));
     }
 
-    public void testWithGetParseTypeMethods_1_oe() {
+public void testWithGetParseTypeMethods_1_oe() {
         PeriodFormatter f2 = f.withParseType(PeriodType.dayTime());
         assertEquals(PeriodType.dayTime(),f2.getParseType());
     }
 
-    public void testWithGetParseTypeMethods_2_oe() {
+public void testWithGetParseTypeMethods_2_oe() {
         PeriodFormatter f2 = f.withParseType(PeriodType.dayTime());
         // removed other assertion
         assertSame(f2,f2.withParseType(PeriodType.dayTime()));
     }
 
-    public void testWithGetParseTypeMethods_3_oe() {
+public void testWithGetParseTypeMethods_3_oe() {
         PeriodFormatter f2 = f.withParseType(PeriodType.dayTime());
         // removed other assertion
         // removed other assertion
@@ -180,7 +180,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertEquals(null,f2.getParseType());
     }
 
-    public void testWithGetParseTypeMethods_4_oe() {
+public void testWithGetParseTypeMethods_4_oe() {
         PeriodFormatter f2 = f.withParseType(PeriodType.dayTime());
         // removed other assertion
         // removed other assertion
@@ -190,20 +190,20 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertSame(f2,f2.withParseType(null));
     }
 
-    public void testPrinterParserMethods_1_oe() {
+public void testPrinterParserMethods_1_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
         assertEquals(f.getPrinter(),f2.getPrinter());
     }
 
-    public void testPrinterParserMethods_2_oe() {
+public void testPrinterParserMethods_2_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
         assertEquals(f.getParser(),f2.getParser());
     }
 
-    public void testPrinterParserMethods_3_oe() {
+public void testPrinterParserMethods_3_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
@@ -211,7 +211,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertEquals(true,f2.isPrinter());
     }
 
-    public void testPrinterParserMethods_4_oe() {
+public void testPrinterParserMethods_4_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
@@ -220,7 +220,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertEquals(true,f2.isParser());
     }
 
-    public void testPrinterParserMethods_5_oe() {
+public void testPrinterParserMethods_5_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
@@ -230,7 +230,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertNotNull(f2.print(p));
     }
 
-    public void testPrinterParserMethods_6_oe() {
+public void testPrinterParserMethods_6_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
@@ -241,7 +241,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertNotNull(f2.parsePeriod("P1Y2M3W4DT5H6M7.008S"));
     }
 
-    public void testPrinterParserMethods_7_oe() {
+public void testPrinterParserMethods_7_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
@@ -255,7 +255,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertEquals(f.getPrinter(),f2.getPrinter());
     }
 
-    public void testPrinterParserMethods_8_oe() {
+public void testPrinterParserMethods_8_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
@@ -270,7 +270,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertEquals(null,f2.getParser());
     }
 
-    public void testPrinterParserMethods_9_oe() {
+public void testPrinterParserMethods_9_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
@@ -286,7 +286,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertEquals(true,f2.isPrinter());
     }
 
-    public void testPrinterParserMethods_10_oe() {
+public void testPrinterParserMethods_10_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
@@ -303,7 +303,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertEquals(false,f2.isParser());
     }
 
-    public void testPrinterParserMethods_11_oe() {
+public void testPrinterParserMethods_11_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
@@ -321,7 +321,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertNotNull(f2.print(p));
     }
 
-    public void testPrinterParserMethods_14_oe() {
+public void testPrinterParserMethods_14_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
@@ -346,7 +346,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertEquals(null,f2.getPrinter());
     }
 
-    public void testPrinterParserMethods_15_oe() {
+public void testPrinterParserMethods_15_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
@@ -372,7 +372,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertEquals(f.getParser(),f2.getParser());
     }
 
-    public void testPrinterParserMethods_16_oe() {
+public void testPrinterParserMethods_16_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
@@ -399,7 +399,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertEquals(false,f2.isPrinter());
     }
 
-    public void testPrinterParserMethods_17_oe() {
+public void testPrinterParserMethods_17_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
@@ -427,7 +427,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertEquals(true,f2.isParser());
     }
 
-    public void testPrinterParserMethods_19_oe() {
+public void testPrinterParserMethods_19_oe() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
@@ -460,28 +460,28 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertNotNull(f2.parsePeriod("P1Y2M3W4DT5H6M7.008S"));
     }
 
-    public void testParsePeriod_simple_1_oe() {
+public void testParsePeriod_simple_1_oe() {
         Period expect = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         assertEquals(expect,f.parsePeriod("P1Y2M3W4DT5H6M7.008S"));
     }
 
-    public void testParsePeriod_parseType_1_oe() {
+public void testParsePeriod_parseType_1_oe() {
         Period expect = new Period(0, 0, 0, 4, 5, 6, 7, 8, PeriodType.dayTime());
         assertEquals(expect,f.withParseType(PeriodType.dayTime()).parsePeriod("P4DT5H6M7.008S"));
     }
 
-    public void testParseMutablePeriod_simple_1_oe() {
+public void testParseMutablePeriod_simple_1_oe() {
         MutablePeriod expect = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
         assertEquals(expect,f.parseMutablePeriod("P1Y2M3W4DT5H6M7.008S"));
     }
 
-    public void testParseInto_simple_1_oe() {
+public void testParseInto_simple_1_oe() {
         MutablePeriod expect = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
         MutablePeriod result = new MutablePeriod();
         assertEquals(20,f.parseInto(result,"P1Y2M3W4DT5H6M7.008S",0));
     }
 
-    public void testParseInto_simple_4_oe() {
+public void testParseInto_simple_4_oe() {
         MutablePeriod expect = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
         MutablePeriod result = new MutablePeriod();
         // removed other assertion

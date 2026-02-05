@@ -143,20 +143,20 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         }, IllegalArgumentException.class, "Cannot write infinite convex subset");
     }
 
-    @Test
+@Test
     void testPropertyDefaults_1_oe() {
         // act/assert
         Assertions.assertEquals("\n", fdWriter.getLineSeparator());
     }
 
-    @Test
+@Test
     void testPropertyDefaults_2_oe() {
         // act/assert
         // removed other assertion
         Assertions.assertNotNull(fdWriter.getDoubleFormat());
     }
 
-    @Test
+@Test
     void testPropertyDefaults_3_oe() {
         // act/assert
         // removed other assertion
@@ -164,7 +164,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals(" ", fdWriter.getVertexComponentSeparator());
     }
 
-    @Test
+@Test
     void testPropertyDefaults_4_oe() {
         // act/assert
         // removed other assertion
@@ -173,7 +173,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals("; ", fdWriter.getVertexSeparator());
     }
 
-    @Test
+@Test
     void testPropertyDefaults_5_oe() {
         // act/assert
         // removed other assertion
@@ -183,7 +183,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals(-1, fdWriter.getFacetVertexCount());
     }
 
-    @Test
+@Test
     void testPropertyDefaults_6_oe() {
         // act/assert
         // removed other assertion
@@ -194,7 +194,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals("# ", fdWriter.getCommentToken());
     }
 
-    @Test
+@Test
     void testSetFacetVertexCount_normalizesToMinusOne_1_oe() {
         // act
         fdWriter.setFacetVertexCount(-10);
@@ -203,7 +203,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals(-1, fdWriter.getFacetVertexCount());
     }
 
-    @Test
+@Test
     void testWriteComment_1_oe() {
         // arrange
         fdWriter.setCommentToken("-- ");
@@ -218,7 +218,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals("-- first line\r\n" + "-- second line \r\n" + "-- third line \r\n" + "-- fourth line\r\n",writer.toString());
     }
 
-    @Test
+@Test
     void testWriteBlankLine_1_oe() {
         // act
         fdWriter.writeBlankLine();
@@ -229,7 +229,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals("\n\r", writer.toString());
     }
 
-    @Test
+@Test
     void testWriteVertices_1_oe() {
         // arrange
         final List<Vector3D> vertices1 = Arrays.asList(
@@ -245,7 +245,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals("0.0 0.0 0.0;0.5 0.0 0.0;0.0 -0.5 0.0\n" + "0.5 0.7 1.2;10.01 -4.0 2.0;-3.3333333333333335 0.0 0.0;0.0 0.0 0.0\n",writer.toString());
     }
 
-    @Test
+@Test
     void testWriteFacetDefinition_1_oe() {
         // arrange
         final DecimalFormat fmt =
@@ -266,7 +266,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals("0.0 0.0 0.0;0.5 0.0 0.0;0.0 -0.5 0.0\n" + "0.5 0.7 1.2;10.01 -4.0 2.0;-3.333 0.0 0.0;0.0 0.0 0.0\n",writer.toString());
     }
 
-    @Test
+@Test
     void testWritePlaneConvexSubset_1_oe() {
         // arrange
         final ConvexPolygon3D poly1 = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -284,7 +284,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals("0.0 0.0 0.0;0.0 0.0 -0.5;0.0 -0.5 0.0\n" + "0.0 0.0 0.0;1.0 0.0 0.0;1.0 1.0 0.0;0.0 1.0 0.0\n",writer.toString());
     }
 
-    @Test
+@Test
     void testWritePlaneConvexSubset_convertsToTriangles_1_oe() {
         // arrange
         final ConvexPolygon3D poly = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -300,7 +300,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals("0.0 0.0 0.0;0.0 1.0 0.0;0.0 1.0 1.0\n" + "0.0 0.0 0.0;0.0 1.0 1.0;0.0 0.0 1.0\n",writer.toString());
     }
 
-    @Test
+@Test
     void testWriteBoundarySource_1_oe() {
         // arrange
         final ConvexPolygon3D poly1 = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -317,7 +317,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals("0.0 0.0 0.0;0.0 0.0 -0.5;0.0 -0.5 0.0\n" + "0.0 0.0 0.0;1.0 0.0 0.0;1.0 1.0 0.0;0.0 1.0 0.0\n",writer.toString());
     }
 
-    @Test
+@Test
     void testWriteBoundarySource_empty_1_oe() {
         // act
         fdWriter.write(BoundarySource3D.of(Collections.emptyList()));
@@ -326,7 +326,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals("", writer.toString());
     }
 
-    @Test
+@Test
     void testWriteBoundarySource_alternativeFormatting_1_oe() {
         // arrange
         final DecimalFormat fmt =
@@ -354,7 +354,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals("# Test boundary source\r\n" + "\r\n" + "0.0,0.0,0.0 | 0.0,0.0,-0.6 | 0.0,-0.5,0.0\r\n" + "0.0,0.0,0.0 | 1.0,0.0,0.0 | 1.0,1.0,0.0\r\n" + "0.0,0.0,0.0 | 1.0,1.0,0.0 | 0.0,1.0,0.0\r\n",writer.toString());
     }
 
-    @Test
+@Test
     void testCsvFormat_1_oe() {
         // arrange
         final ConvexPolygon3D poly1 = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -373,7 +373,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals("0.0,0.0,0.0,0.0,0.0,-0.5901,0.0,-0.501,0.0\n" + "0.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,0.0\n" + "0.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0\n",writer.toString());
     }
 
-    @Test
+@Test
     void testCsvFormat_properties_1_oe() {
         // act
         final TextFacetDefinitionWriter csvWriter = TextFacetDefinitionWriter.csvFormat(writer);
@@ -382,7 +382,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals(",", csvWriter.getVertexComponentSeparator());
     }
 
-    @Test
+@Test
     void testCsvFormat_properties_2_oe() {
         // act
         final TextFacetDefinitionWriter csvWriter = TextFacetDefinitionWriter.csvFormat(writer);
@@ -392,7 +392,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals(",", csvWriter.getVertexSeparator());
     }
 
-    @Test
+@Test
     void testCsvFormat_properties_3_oe() {
         // act
         final TextFacetDefinitionWriter csvWriter = TextFacetDefinitionWriter.csvFormat(writer);

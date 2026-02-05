@@ -160,22 +160,22 @@ public class BasicThreadFactoryTest_OE25Dev {
      * specified.
      */
 
-    @Test
+@Test
     public void testBuildNamingPatternNull_1_oe() {
         assertThrows(NullPointerException.class, () -> builder.namingPattern(null));
     }
 
-    @Test
+@Test
     public void testBuildWrappedFactoryNull_1_oe() {
         assertThrows(NullPointerException.class, () -> builder.wrappedFactory(null));
     }
 
-    @Test
+@Test
     public void testBuildUncaughtExceptionHandlerNull_1_oe() {
         assertThrows(NullPointerException.class, () -> builder.uncaughtExceptionHandler(null));
     }
 
-    @Test
+@Test
     public void testBuilderReset_1_oe() {
         final ThreadFactory wrappedFactory = EasyMock.createMock(ThreadFactory.class);
         final Thread.UncaughtExceptionHandler exHandler = EasyMock
@@ -190,7 +190,7 @@ public class BasicThreadFactoryTest_OE25Dev {
         assertNotSame(wrappedFactory, factory.getWrappedFactory(), "Wrapped factory not reset");
     }
 
-    @Test
+@Test
     public void testNewThreadNamingPattern_1_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r = EasyMock.createMock(Runnable.class);
@@ -207,7 +207,7 @@ public class BasicThreadFactoryTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testNewThreadNamingPattern_2_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r = EasyMock.createMock(Runnable.class);
@@ -225,7 +225,7 @@ public class BasicThreadFactoryTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testNewThreadNoNamingPattern_1_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r = EasyMock.createMock(Runnable.class);
@@ -237,7 +237,7 @@ public class BasicThreadFactoryTest_OE25Dev {
         assertSame(t, factory.newThread(r), "Wrong thread");
     }
 
-    @Test
+@Test
     public void testNewThreadNoNamingPattern_2_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r = EasyMock.createMock(Runnable.class);
@@ -250,7 +250,7 @@ public class BasicThreadFactoryTest_OE25Dev {
         assertEquals(name, t.getName(), "Name was changed");
     }
 
-    @Test
+@Test
     public void testNewThreadNoDaemonFlag_1_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r1 = EasyMock.createMock(Runnable.class);
@@ -265,7 +265,7 @@ public class BasicThreadFactoryTest_OE25Dev {
         assertSame(t1, factory.newThread(r1), "Wrong thread 1");
     }
 
-    @Test
+@Test
     public void testNewThreadNoDaemonFlag_2_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r1 = EasyMock.createMock(Runnable.class);
@@ -281,7 +281,7 @@ public class BasicThreadFactoryTest_OE25Dev {
         assertTrue(t1.isDaemon(), "No daemon thread");
     }
 
-    @Test
+@Test
     public void testNewThreadNoDaemonFlag_3_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r1 = EasyMock.createMock(Runnable.class);
@@ -298,7 +298,7 @@ public class BasicThreadFactoryTest_OE25Dev {
         assertSame(t2, factory.newThread(r2), "Wrong thread 2");
     }
 
-    @Test
+@Test
     public void testNewThreadNoDaemonFlag_4_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r1 = EasyMock.createMock(Runnable.class);
@@ -316,7 +316,7 @@ public class BasicThreadFactoryTest_OE25Dev {
         assertFalse(t2.isDaemon(), "A daemon thread");
     }
 
-    @Test
+@Test
     public void testNewThreadPriority_1_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r = EasyMock.createMock(Runnable.class);
@@ -329,7 +329,7 @@ public class BasicThreadFactoryTest_OE25Dev {
         assertSame(t, factory.newThread(r), "Wrong thread");
     }
 
-    @Test
+@Test
     public void testNewThreadPriority_2_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r = EasyMock.createMock(Runnable.class);
@@ -343,7 +343,7 @@ public class BasicThreadFactoryTest_OE25Dev {
         assertEquals(priority, t.getPriority(), "Wrong priority");
     }
 
-    @Test
+@Test
     public void testNewThreadNoPriority_1_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r = EasyMock.createMock(Runnable.class);
@@ -356,7 +356,7 @@ public class BasicThreadFactoryTest_OE25Dev {
         assertSame(t, factory.newThread(r), "Wrong thread");
     }
 
-    @Test
+@Test
     public void testNewThreadNoPriority_2_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r = EasyMock.createMock(Runnable.class);
@@ -370,7 +370,7 @@ public class BasicThreadFactoryTest_OE25Dev {
         assertEquals(orgPriority, t.getPriority(), "Wrong priority");
     }
 
-    @Test
+@Test
     public void testNewThreadExHandler_1_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r = EasyMock.createMock(Runnable.class);
@@ -384,7 +384,7 @@ public class BasicThreadFactoryTest_OE25Dev {
         assertSame(t, factory.newThread(r), "Wrong thread");
     }
 
-    @Test
+@Test
     public void testNewThreadExHandler_2_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r = EasyMock.createMock(Runnable.class);
@@ -399,7 +399,7 @@ public class BasicThreadFactoryTest_OE25Dev {
         assertEquals(handler, t.getUncaughtExceptionHandler(), "Wrong exception handler");
     }
 
-    @Test
+@Test
     public void testNewThreadNoExHandler_1_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r = EasyMock.createMock(Runnable.class);
@@ -413,7 +413,7 @@ public class BasicThreadFactoryTest_OE25Dev {
         assertSame(t, factory.newThread(r), "Wrong thread");
     }
 
-    @Test
+@Test
     public void testNewThreadNoExHandler_2_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r = EasyMock.createMock(Runnable.class);

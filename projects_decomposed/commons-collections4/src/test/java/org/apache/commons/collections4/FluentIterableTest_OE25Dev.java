@@ -112,14 +112,14 @@ public class FluentIterableTest_OE25Dev {
 
     // -----------------------------------------------------------------------
 
-    @Test
+@Test
     public void factoryMethodOf_1_oe() {
         FluentIterable<Integer> iterable = FluentIterable.of(1, 2, 3, 4, 5);
         List<Integer> result = iterable.toList();
         assertEquals(Arrays.asList(1, 2, 3, 4, 5), result);
     }
 
-    @Test
+@Test
     public void factoryMethodOf_2_oe() {
         FluentIterable<Integer> iterable = FluentIterable.of(1, 2, 3, 4, 5);
         List<Integer> result = iterable.toList();
@@ -129,7 +129,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(1, iterable.size());
     }
 
-    @Test
+@Test
     public void factoryMethodOf_3_oe() {
         FluentIterable<Integer> iterable = FluentIterable.of(1, 2, 3, 4, 5);
         List<Integer> result = iterable.toList();
@@ -140,7 +140,7 @@ public class FluentIterableTest_OE25Dev {
         assertFalse(iterable.isEmpty());
     }
 
-    @Test
+@Test
     public void factoryMethodOf_4_oe() {
         FluentIterable<Integer> iterable = FluentIterable.of(1, 2, 3, 4, 5);
         List<Integer> result = iterable.toList();
@@ -152,7 +152,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(Arrays.asList(1), iterable.toList());
     }
 
-    @Test
+@Test
     public void factoryMethodOf_5_oe() {
         FluentIterable<Integer> iterable = FluentIterable.of(1, 2, 3, 4, 5);
         List<Integer> result = iterable.toList();
@@ -167,20 +167,20 @@ public class FluentIterableTest_OE25Dev {
         assertTrue(result.isEmpty());
     }
 
-    @Test
+@Test
     public void appendElements_1_oe() {
         final FluentIterable<Integer> it = FluentIterable.of(iterableA).append(10, 20, 30);
         assertEquals(IterableUtils.size(iterableA) + 3, IterableUtils.size(it));
     }
 
-    @Test
+@Test
     public void appendElements_2_oe() {
         final FluentIterable<Integer> it = FluentIterable.of(iterableA).append(10, 20, 30);
         // removed other assertion
         assertTrue(IterableUtils.contains(it, 1));
     }
 
-    @Test
+@Test
     public void appendElements_3_oe() {
         final FluentIterable<Integer> it = FluentIterable.of(iterableA).append(10, 20, 30);
         // removed other assertion
@@ -188,7 +188,7 @@ public class FluentIterableTest_OE25Dev {
         assertTrue(IterableUtils.contains(it, 10));
     }
 
-    @Test
+@Test
     public void appendElements_4_oe() {
         final FluentIterable<Integer> it = FluentIterable.of(iterableA).append(10, 20, 30);
         // removed other assertion
@@ -197,7 +197,7 @@ public class FluentIterableTest_OE25Dev {
         assertTrue(IterableUtils.contains(it, 20));
     }
 
-    @Test
+@Test
     public void appendElements_5_oe() {
         final FluentIterable<Integer> it = FluentIterable.of(iterableA).append(10, 20, 30);
         // removed other assertion
@@ -207,7 +207,7 @@ public class FluentIterableTest_OE25Dev {
         assertTrue(IterableUtils.contains(it, 30));
     }
 
-    @Test
+@Test
     public void appendElements_6_oe() {
         final FluentIterable<Integer> it = FluentIterable.of(iterableA).append(10, 20, 30);
         // removed other assertion
@@ -218,7 +218,7 @@ public class FluentIterableTest_OE25Dev {
         assertFalse(IterableUtils.contains(it, 40));
     }
 
-    @Test
+@Test
     public void appendElements_7_oe() {
         final FluentIterable<Integer> it = FluentIterable.of(iterableA).append(10, 20, 30);
         // removed other assertion
@@ -232,14 +232,14 @@ public class FluentIterableTest_OE25Dev {
         assertTrue(IterableUtils.isEmpty(empty));
     }
 
-    @Test
+@Test
     public void appendIterable_1_oe() {
         final List<Integer> listB = Arrays.asList(10, 20, 30);
         final FluentIterable<Integer> it = FluentIterable.of(iterableA).append(listB);
         assertEquals(IterableUtils.size(iterableA) + listB.size(), IterableUtils.size(it));
     }
 
-    @Test
+@Test
     public void appendIterable_2_oe() {
         final List<Integer> listB = Arrays.asList(10, 20, 30);
         final FluentIterable<Integer> it = FluentIterable.of(iterableA).append(listB);
@@ -247,7 +247,7 @@ public class FluentIterableTest_OE25Dev {
         assertTrue(IterableUtils.contains(it, 1));
     }
 
-    @Test
+@Test
     public void appendIterable_3_oe() {
         final List<Integer> listB = Arrays.asList(10, 20, 30);
         final FluentIterable<Integer> it = FluentIterable.of(iterableA).append(listB);
@@ -256,7 +256,7 @@ public class FluentIterableTest_OE25Dev {
         assertTrue(IterableUtils.contains(it, 10));
     }
 
-    @Test
+@Test
     public void appendIterable_4_oe() {
         final List<Integer> listB = Arrays.asList(10, 20, 30);
         final FluentIterable<Integer> it = FluentIterable.of(iterableA).append(listB);
@@ -266,7 +266,7 @@ public class FluentIterableTest_OE25Dev {
         assertTrue(IterableUtils.contains(it, 20));
     }
 
-    @Test
+@Test
     public void appendIterable_5_oe() {
         final List<Integer> listB = Arrays.asList(10, 20, 30);
         final FluentIterable<Integer> it = FluentIterable.of(iterableA).append(listB);
@@ -277,7 +277,7 @@ public class FluentIterableTest_OE25Dev {
         assertTrue(IterableUtils.contains(it, 30));
     }
 
-    @Test
+@Test
     public void appendIterable_6_oe() {
         final List<Integer> listB = Arrays.asList(10, 20, 30);
         final FluentIterable<Integer> it = FluentIterable.of(iterableA).append(listB);
@@ -289,7 +289,7 @@ public class FluentIterableTest_OE25Dev {
         assertFalse(IterableUtils.contains(it, 40));
     }
 
-    @Test
+@Test
     public void collate_1_oe() {
         final List<Integer> result = FluentIterable.of(iterableOdd).collate(iterableEven).toList();
         final List<Integer> combinedList = new ArrayList<>();
@@ -299,7 +299,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(combinedList, result);
     }
 
-    @Test
+@Test
     public void collateWithComparator_1_oe() {
         List<Integer> result =
                 FluentIterable
@@ -314,7 +314,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(combinedList, result);
     }
 
-    @Test
+@Test
     public void collateWithComparator_2_oe() {
         List<Integer> result =
                 FluentIterable
@@ -333,7 +333,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(combinedList, result);
     }
 
-    @Test
+@Test
     public void filter_1_oe() {
         final Predicate<Integer> smallerThan3 = new Predicate<Integer>() {
             @Override
@@ -345,7 +345,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(3, result.size());
     }
 
-    @Test
+@Test
     public void filter_2_oe() {
         final Predicate<Integer> smallerThan3 = new Predicate<Integer>() {
             @Override
@@ -358,7 +358,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(Arrays.asList(1, 2, 2), result);
     }
 
-    @Test
+@Test
     public void filter_3_oe() {
         final Predicate<Integer> smallerThan3 = new Predicate<Integer>() {
             @Override
@@ -375,7 +375,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(0, result.size());
     }
 
-    @Test
+@Test
     public void forEach_1_oe() {
         final AtomicInteger sum = new AtomicInteger(0);
         final Closure<Integer> closure = new Closure<Integer>() {
@@ -393,20 +393,20 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(expectedSum, sum.get());
     }
 
-    @Test
+@Test
     public void limit_1_oe() {
         List<Integer> result = FluentIterable.of(iterableA).limit(3).toList();
         assertEquals(3, result.size());
     }
 
-    @Test
+@Test
     public void limit_2_oe() {
         List<Integer> result = FluentIterable.of(iterableA).limit(3).toList();
         // removed other assertion
         assertEquals(Arrays.asList(1, 2, 2), result);
     }
 
-    @Test
+@Test
     public void limit_3_oe() {
         List<Integer> result = FluentIterable.of(iterableA).limit(3).toList();
         // removed other assertion
@@ -418,7 +418,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(expected.size(), result.size());
     }
 
-    @Test
+@Test
     public void limit_4_oe() {
         List<Integer> result = FluentIterable.of(iterableA).limit(3).toList();
         // removed other assertion
@@ -431,7 +431,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(expected, result);
     }
 
-    @Test
+@Test
     public void limit_5_oe() {
         List<Integer> result = FluentIterable.of(iterableA).limit(3).toList();
         // removed other assertion
@@ -448,7 +448,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(0, result.size());
     }
 
-    @Test
+@Test
     public void limit_6_oe() {
         List<Integer> result = FluentIterable.of(iterableA).limit(3).toList();
         // removed other assertion
@@ -469,7 +469,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(0, result.size());
     }
 
-    @Test
+@Test
     public void reverse_1_oe() {
         List<Integer> result = FluentIterable.of(iterableA).reverse().toList();
         final List<Integer> expected = IterableUtils.toList(iterableA);
@@ -477,7 +477,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(expected, result);
     }
 
-    @Test
+@Test
     public void reverse_2_oe() {
         List<Integer> result = FluentIterable.of(iterableA).reverse().toList();
         final List<Integer> expected = IterableUtils.toList(iterableA);
@@ -489,20 +489,20 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(0, result.size());
     }
 
-    @Test
+@Test
     public void skip_1_oe() {
         List<Integer> result = FluentIterable.of(iterableA).skip(4).toList();
         assertEquals(6, result.size());
     }
 
-    @Test
+@Test
     public void skip_2_oe() {
         List<Integer> result = FluentIterable.of(iterableA).skip(4).toList();
         // removed other assertion
         assertEquals(Arrays.asList(3, 3, 4, 4, 4, 4), result);
     }
 
-    @Test
+@Test
     public void skip_3_oe() {
         List<Integer> result = FluentIterable.of(iterableA).skip(4).toList();
         // removed other assertion
@@ -513,7 +513,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(0, result.size());
     }
 
-    @Test
+@Test
     public void skip_4_oe() {
         List<Integer> result = FluentIterable.of(iterableA).skip(4).toList();
         // removed other assertion
@@ -529,7 +529,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(expected.size(), result.size());
     }
 
-    @Test
+@Test
     public void skip_5_oe() {
         List<Integer> result = FluentIterable.of(iterableA).skip(4).toList();
         // removed other assertion
@@ -546,7 +546,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(expected, result);
     }
 
-    @Test
+@Test
     public void skip_6_oe() {
         List<Integer> result = FluentIterable.of(iterableA).skip(4).toList();
         // removed other assertion
@@ -567,7 +567,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(0, result.size());
     }
 
-    @Test
+@Test
     public void transform_1_oe() {
         final Transformer<Integer, Integer> squared = new Transformer<Integer, Integer>() {
             @Override
@@ -579,7 +579,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(10, result.size());
     }
 
-    @Test
+@Test
     public void transform_2_oe() {
         final Transformer<Integer, Integer> squared = new Transformer<Integer, Integer>() {
             @Override
@@ -592,7 +592,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(Arrays.asList(1, 4, 4, 9, 9, 9, 16, 16, 16, 16), result);
     }
 
-    @Test
+@Test
     public void transform_3_oe() {
         final Transformer<Integer, Integer> squared = new Transformer<Integer, Integer>() {
             @Override
@@ -609,20 +609,20 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(0, result.size());
     }
 
-    @Test
+@Test
     public void unique_1_oe() {
         List<Integer> result = FluentIterable.of(iterableA).unique().toList();
         assertEquals(4, result.size());
     }
 
-    @Test
+@Test
     public void unique_2_oe() {
         List<Integer> result = FluentIterable.of(iterableA).unique().toList();
         // removed other assertion
         assertEquals(Arrays.asList(1, 2, 3, 4), result);
     }
 
-    @Test
+@Test
     public void unique_3_oe() {
         List<Integer> result = FluentIterable.of(iterableA).unique().toList();
         // removed other assertion
@@ -633,14 +633,14 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(0, result.size());
     }
 
-    @Test
+@Test
     public void unmodifiable_1_oe() {
         final FluentIterable<Integer> iterable1 = FluentIterable.of(iterableA).unmodifiable();
         final Iterator<Integer> it = iterable1.iterator();
         assertEquals(1, it.next().intValue());
     }
 
-    @Test
+@Test
     public void unmodifiable_3_oe() {
         final FluentIterable<Integer> iterable1 = FluentIterable.of(iterableA).unmodifiable();
         final Iterator<Integer> it = iterable1.iterator();
@@ -657,7 +657,7 @@ public class FluentIterableTest_OE25Dev {
         assertSame(iterable1, iterable2);
     }
 
-    @Test
+@Test
     public void zip_1_oe() {
         List<Integer> result = FluentIterable.of(iterableOdd).zip(iterableEven).toList();
         List<Integer> combinedList = new ArrayList<>();
@@ -667,7 +667,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(combinedList, result);
     }
 
-    @Test
+@Test
     public void zip_3_oe() {
         List<Integer> result = FluentIterable.of(iterableOdd).zip(iterableEven).toList();
         List<Integer> combinedList = new ArrayList<>();
@@ -691,14 +691,14 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(combinedList, result);
     }
 
-    @Test
+@Test
     public void asEnumeration_1_oe() {
         Enumeration<Long> enumeration = FluentIterable.of(iterableB).asEnumeration();
         final List<Long> result = EnumerationUtils.toList(enumeration);
         assertEquals(iterableB, result);
     }
 
-    @Test
+@Test
     public void asEnumeration_2_oe() {
         Enumeration<Long> enumeration = FluentIterable.of(iterableB).asEnumeration();
         final List<Long> result = EnumerationUtils.toList(enumeration);
@@ -708,54 +708,54 @@ public class FluentIterableTest_OE25Dev {
         assertFalse(enumeration.hasMoreElements());
     }
 
-    @Test
+@Test
     public void allMatch_1_oe() {
         assertTrue(FluentIterable.of(iterableEven).allMatch(EVEN));
     }
 
-    @Test
+@Test
     public void allMatch_2_oe() {
         // removed other assertion
         assertFalse(FluentIterable.of(iterableOdd).allMatch(EVEN));
     }
 
-    @Test
+@Test
     public void allMatch_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(FluentIterable.of(iterableA).allMatch(EVEN));
     }
 
-    @Test
+@Test
     public void anyMatch_1_oe() {
         assertTrue(FluentIterable.of(iterableEven).anyMatch(EVEN));
     }
 
-    @Test
+@Test
     public void anyMatch_2_oe() {
         // removed other assertion
         assertFalse(FluentIterable.of(iterableOdd).anyMatch(EVEN));
     }
 
-    @Test
+@Test
     public void anyMatch_3_oe() {
         // removed other assertion
         // removed other assertion
         assertTrue(FluentIterable.of(iterableA).anyMatch(EVEN));
     }
 
-    @Test
+@Test
     public void isEmpty_1_oe() {
         assertTrue(FluentIterable.of(emptyIterable).isEmpty());
     }
 
-    @Test
+@Test
     public void isEmpty_2_oe() {
         // removed other assertion
         assertFalse(FluentIterable.of(iterableOdd).isEmpty());
     }
 
-    @Test
+@Test
     public void size_2_oe() {
         try {
             FluentIterable.of((Iterable<?>) null).size();
@@ -766,7 +766,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(0, FluentIterable.of(emptyIterable).size());
     }
 
-    @Test
+@Test
     public void size_3_oe() {
         try {
             FluentIterable.of((Iterable<?>) null).size();
@@ -778,7 +778,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(IterableUtils.toList(iterableOdd).size(), FluentIterable.of(iterableOdd).size());
     }
 
-    @Test
+@Test
     public void eval_1_oe() {
         final List<Integer> listNumbers = new ArrayList<>();
         listNumbers.addAll(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
@@ -789,7 +789,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(5, materialized.size());
     }
 
-    @Test
+@Test
     public void eval_2_oe() {
         final List<Integer> listNumbers = new ArrayList<>();
         listNumbers.addAll(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
@@ -801,7 +801,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(10, iterable.size());
     }
 
-    @Test
+@Test
     public void eval_3_oe() {
         final List<Integer> listNumbers = new ArrayList<>();
         listNumbers.addAll(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
@@ -815,7 +815,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(Arrays.asList(2, 4, 6, 8, 10), materialized.toList());
     }
 
-    @Test
+@Test
     public void eval_4_oe() {
         final List<Integer> listNumbers = new ArrayList<>();
         listNumbers.addAll(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
@@ -830,25 +830,25 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(Arrays.asList(2, 4, 6, 8, 10, 12, 14, 16, 18, 20), iterable.toList());
     }
 
-    @Test
+@Test
     public void contains_1_oe() {
         assertTrue(FluentIterable.of(iterableEven).contains(2));
     }
 
-    @Test
+@Test
     public void contains_2_oe() {
         // removed other assertion
         assertFalse(FluentIterable.of(iterableEven).contains(1));
     }
 
-    @Test
+@Test
     public void contains_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(FluentIterable.of(iterableEven).contains(null));
     }
 
-    @Test
+@Test
     public void contains_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -856,7 +856,7 @@ public class FluentIterableTest_OE25Dev {
         assertTrue(FluentIterable.of(iterableEven).append((Integer) null).contains(null));
     }
 
-    @Test
+@Test
     public void copyInto_1_oe() {
         List<Integer> result = new ArrayList<>();
         FluentIterable.of(iterableA).copyInto(result);
@@ -865,7 +865,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(expected.size(), result.size());
     }
 
-    @Test
+@Test
     public void copyInto_2_oe() {
         List<Integer> result = new ArrayList<>();
         FluentIterable.of(iterableA).copyInto(result);
@@ -875,7 +875,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(expected, result);
     }
 
-    @Test
+@Test
     public void copyInto_3_oe() {
         List<Integer> result = new ArrayList<>();
         FluentIterable.of(iterableA).copyInto(result);
@@ -896,7 +896,7 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(expected.size(), result.size());
     }
 
-    @Test
+@Test
     public void copyInto_4_oe() {
         List<Integer> result = new ArrayList<>();
         FluentIterable.of(iterableA).copyInto(result);
@@ -918,13 +918,13 @@ public class FluentIterableTest_OE25Dev {
         assertEquals(expected, result);
     }
 
-    @Test
+@Test
     public void iterator_1_oe() {
         Iterator<Integer> iterator = FluentIterable.of(iterableA).iterator();
         assertTrue(iterator.hasNext());
     }
 
-    @Test
+@Test
     public void iterator_2_oe() {
         Iterator<Integer> iterator = FluentIterable.of(iterableA).iterator();
         // removed other assertion
@@ -933,19 +933,19 @@ public class FluentIterableTest_OE25Dev {
         assertFalse(iterator.hasNext());
     }
 
-    @Test
+@Test
     public void get_1_oe() {
         assertEquals(2, FluentIterable.of(iterableEven).get(0).intValue());
     }
 
-    @Test
+@Test
     public void toArray_1_oe() {
         final Long[] arr = new Long[] {1L, 2L, 3L, 4L, 5L};
         final Long[] result = FluentIterable.of(arr).toArray(Long.class);
         assertNotNull(result);
     }
 
-    @Test
+@Test
     public void toArray_2_oe() {
         final Long[] arr = new Long[] {1L, 2L, 3L, 4L, 5L};
         final Long[] result = FluentIterable.of(arr).toArray(Long.class);
@@ -953,13 +953,13 @@ public class FluentIterableTest_OE25Dev {
         assertArrayEquals(arr, result);
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         String result = FluentIterable.of(iterableA).toString();
         assertEquals(iterableA.toString(), result);
     }
 
-    @Test
+@Test
     public void testToString_2_oe() {
         String result = FluentIterable.of(iterableA).toString();
         // removed other assertion

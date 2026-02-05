@@ -89,7 +89,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
      * Test Integer Range/Min/Max
      */
 
-    public void testIntegerValidatorMethods_1_oe() {
+public void testIntegerValidatorMethods_1_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -101,7 +101,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertEquals("validate(A) default", expected, IntegerValidator.getInstance().validate(defaultVal));
     }
 
-    public void testIntegerValidatorMethods_2_oe() {
+public void testIntegerValidatorMethods_2_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -114,7 +114,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertEquals("validate(A) locale ", expected, IntegerValidator.getInstance().validate(localeVal, locale));
     }
 
-    public void testIntegerValidatorMethods_3_oe() {
+public void testIntegerValidatorMethods_3_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -128,7 +128,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertEquals("validate(A) pattern", expected, IntegerValidator.getInstance().validate(patternVal, pattern));
     }
 
-    public void testIntegerValidatorMethods_4_oe() {
+public void testIntegerValidatorMethods_4_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -143,7 +143,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertEquals("validate(A) both",    expected, IntegerValidator.getInstance().validate(germanPatternVal, pattern, Locale.GERMAN));
     }
 
-    public void testIntegerValidatorMethods_5_oe() {
+public void testIntegerValidatorMethods_5_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -160,7 +160,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isValid(A) default", IntegerValidator.getInstance().isValid(defaultVal));
     }
 
-    public void testIntegerValidatorMethods_6_oe() {
+public void testIntegerValidatorMethods_6_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -178,7 +178,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isValid(A) locale ", IntegerValidator.getInstance().isValid(localeVal, locale));
     }
 
-    public void testIntegerValidatorMethods_7_oe() {
+public void testIntegerValidatorMethods_7_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -197,7 +197,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isValid(A) pattern", IntegerValidator.getInstance().isValid(patternVal, pattern));
     }
 
-    public void testIntegerValidatorMethods_8_oe() {
+public void testIntegerValidatorMethods_8_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -217,7 +217,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isValid(A) both",    IntegerValidator.getInstance().isValid(germanPatternVal, pattern, Locale.GERMAN));
     }
 
-    public void testIntegerValidatorMethods_9_oe() {
+public void testIntegerValidatorMethods_9_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -239,7 +239,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertNull("validate(B) default", IntegerValidator.getInstance().validate(XXXX));
     }
 
-    public void testIntegerValidatorMethods_10_oe() {
+public void testIntegerValidatorMethods_10_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -262,7 +262,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertNull("validate(B) locale ", IntegerValidator.getInstance().validate(XXXX, locale));
     }
 
-    public void testIntegerValidatorMethods_11_oe() {
+public void testIntegerValidatorMethods_11_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -286,7 +286,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertNull("validate(B) pattern", IntegerValidator.getInstance().validate(XXXX, pattern));
     }
 
-    public void testIntegerValidatorMethods_12_oe() {
+public void testIntegerValidatorMethods_12_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -311,7 +311,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertNull("validate(B) both",    IntegerValidator.getInstance().validate(patternVal, pattern, Locale.GERMAN));
     }
 
-    public void testIntegerValidatorMethods_13_oe() {
+public void testIntegerValidatorMethods_13_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -338,7 +338,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isValid(B) default", IntegerValidator.getInstance().isValid(XXXX));
     }
 
-    public void testIntegerValidatorMethods_14_oe() {
+public void testIntegerValidatorMethods_14_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -366,7 +366,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isValid(B) locale ", IntegerValidator.getInstance().isValid(XXXX, locale));
     }
 
-    public void testIntegerValidatorMethods_15_oe() {
+public void testIntegerValidatorMethods_15_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -395,7 +395,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isValid(B) pattern", IntegerValidator.getInstance().isValid(XXXX, pattern));
     }
 
-    public void testIntegerValidatorMethods_16_oe() {
+public void testIntegerValidatorMethods_16_oe() {
         Locale locale     = Locale.GERMAN;
         String pattern    = "0,00,00";
         String patternVal = "1,23,45";
@@ -425,7 +425,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isValid(B) both",    IntegerValidator.getInstance().isValid(patternVal, pattern, Locale.GERMAN));
     }
 
-    public void testIntegerRangeMinMax_1_oe() {
+public void testIntegerRangeMinMax_1_oe() {
         IntegerValidator validator = (IntegerValidator)strictValidator;
         Integer number9  = validator.validate("9", "#");
         Integer number10 = validator.validate("10", "#");
@@ -438,7 +438,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isInRange() < min",   validator.isInRange(number9,  10, 20));
     }
 
-    public void testIntegerRangeMinMax_2_oe() {
+public void testIntegerRangeMinMax_2_oe() {
         IntegerValidator validator = (IntegerValidator)strictValidator;
         Integer number9  = validator.validate("9", "#");
         Integer number10 = validator.validate("10", "#");
@@ -452,7 +452,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isInRange() = min",    validator.isInRange(number10, 10, 20));
     }
 
-    public void testIntegerRangeMinMax_3_oe() {
+public void testIntegerRangeMinMax_3_oe() {
         IntegerValidator validator = (IntegerValidator)strictValidator;
         Integer number9  = validator.validate("9", "#");
         Integer number10 = validator.validate("10", "#");
@@ -467,7 +467,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isInRange() in range", validator.isInRange(number11, 10, 20));
     }
 
-    public void testIntegerRangeMinMax_4_oe() {
+public void testIntegerRangeMinMax_4_oe() {
         IntegerValidator validator = (IntegerValidator)strictValidator;
         Integer number9  = validator.validate("9", "#");
         Integer number10 = validator.validate("10", "#");
@@ -483,7 +483,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("isInRange() = max",    validator.isInRange(number20, 10, 20));
     }
 
-    public void testIntegerRangeMinMax_5_oe() {
+public void testIntegerRangeMinMax_5_oe() {
         IntegerValidator validator = (IntegerValidator)strictValidator;
         Integer number9  = validator.validate("9", "#");
         Integer number10 = validator.validate("10", "#");
@@ -500,7 +500,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("isInRange() > max",   validator.isInRange(number21, 10, 20));
     }
 
-    public void testIntegerRangeMinMax_6_oe() {
+public void testIntegerRangeMinMax_6_oe() {
         IntegerValidator validator = (IntegerValidator)strictValidator;
         Integer number9  = validator.validate("9", "#");
         Integer number10 = validator.validate("10", "#");
@@ -520,7 +520,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("minValue() < min",    validator.minValue(number9,  10));
     }
 
-    public void testIntegerRangeMinMax_7_oe() {
+public void testIntegerRangeMinMax_7_oe() {
         IntegerValidator validator = (IntegerValidator)strictValidator;
         Integer number9  = validator.validate("9", "#");
         Integer number10 = validator.validate("10", "#");
@@ -541,7 +541,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("minValue() = min",     validator.minValue(number10, 10));
     }
 
-    public void testIntegerRangeMinMax_8_oe() {
+public void testIntegerRangeMinMax_8_oe() {
         IntegerValidator validator = (IntegerValidator)strictValidator;
         Integer number9  = validator.validate("9", "#");
         Integer number10 = validator.validate("10", "#");
@@ -563,7 +563,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("minValue() > min",     validator.minValue(number11, 10));
     }
 
-    public void testIntegerRangeMinMax_9_oe() {
+public void testIntegerRangeMinMax_9_oe() {
         IntegerValidator validator = (IntegerValidator)strictValidator;
         Integer number9  = validator.validate("9", "#");
         Integer number10 = validator.validate("10", "#");
@@ -588,7 +588,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("maxValue() < max",     validator.maxValue(number19, 20));
     }
 
-    public void testIntegerRangeMinMax_10_oe() {
+public void testIntegerRangeMinMax_10_oe() {
         IntegerValidator validator = (IntegerValidator)strictValidator;
         Integer number9  = validator.validate("9", "#");
         Integer number10 = validator.validate("10", "#");
@@ -614,7 +614,7 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertTrue("maxValue() = max",     validator.maxValue(number20, 20));
     }
 
-    public void testIntegerRangeMinMax_11_oe() {
+public void testIntegerRangeMinMax_11_oe() {
         IntegerValidator validator = (IntegerValidator)strictValidator;
         Integer number9  = validator.validate("9", "#");
         Integer number10 = validator.validate("10", "#");
@@ -641,22 +641,22 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
         assertFalse("maxValue() > max",    validator.maxValue(number21, 20));
     }
 
-    public void testMinMaxValues_1_oe() {
+public void testMinMaxValues_1_oe() {
         assertTrue("2147483647 is max integer", validator.isValid("2147483647"));
     }
 
-    public void testMinMaxValues_2_oe() {
+public void testMinMaxValues_2_oe() {
         // removed other assertion
         assertFalse("2147483648 > max integer", validator.isValid("2147483648"));
     }
 
-    public void testMinMaxValues_3_oe() {
+public void testMinMaxValues_3_oe() {
         // removed other assertion
         // removed other assertion
         assertTrue("-2147483648 is min integer", validator.isValid("-2147483648"));
     }
 
-    public void testMinMaxValues_4_oe() {
+public void testMinMaxValues_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion

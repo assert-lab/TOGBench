@@ -31,7 +31,7 @@
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core
-[INFO] Storing buildNumber: 4e96f64c167c9f400b8bc7340bf57241aa8435a5 at timestamp: 1770255601939
+[INFO] Storing buildNumber: e4cf1dbede35d5b995b6d81363d313f167d9b312 at timestamp: 1770279477433
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-jcs3-core ---
@@ -59,9 +59,9 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-jcs3-core ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 231 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/target/test-classes
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/src/test/java/org/apache/commons/jcs3/auxiliary/disk/jdbc/JDBCDiskCacheRemovalUnitTest_OE25Dev.java: Some input files use or override a deprecated API.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/src/test/java/org/apache/commons/jcs3/auxiliary/disk/jdbc/JDBCDiskCacheRemovalUnitTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
+[INFO] Compiling 171 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/src/test/java/org/apache/commons/jcs3/auxiliary/disk/jdbc/JDBCDiskCacheRemovalUnitTest.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/src/test/java/org/apache/commons/jcs3/auxiliary/disk/jdbc/JDBCDiskCacheRemovalUnitTest.java: Recompile with -Xlint:deprecation for details.
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-jcs3-core ---
 [INFO] 
@@ -69,94 +69,94 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.jcs3.engine.logging.CacheEventLoggerDebugLoggerUnitTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.122 s - in org.apache.commons.jcs3.engine.logging.CacheEventLoggerDebugLoggerUnitTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.226 s - in org.apache.commons.jcs3.engine.logging.CacheEventLoggerDebugLoggerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.626 s - in org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.925 s - in org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev
-[ERROR] Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.208 s <<< FAILURE! - in org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev
-[ERROR] testPutGetThroughHub_1_oe(org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev)  Time elapsed: 0.026 s  <<< FAILURE!
+[ERROR] Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.298 s <<< FAILURE! - in org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev
+[ERROR] testPutGetThroughHub_1_oe(org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev)  Time elapsed: 0.07 s  <<< FAILURE!
 junit.framework.ComparisonFailure: expected:<myregion data 0> but was:<null>
 	at org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev.testPutGetThroughHub_1_oe(SoftReferenceMemoryCacheUnitTest_OE25Dev.java:122)
 
 [INFO] Running org.apache.commons.jcs3.engine.memory.fifo.FIFOMemoryCacheUnitTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.jcs3.engine.memory.fifo.FIFOMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.engine.memory.fifo.FIFOMemoryCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.028 s - in org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.048 s - in org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.21 s - in org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.194 s - in org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.match.KeyMatcherPatternImpllUnitTest_OE25Dev
 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.match.KeyMatcherPatternImpllUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocalUnitTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocalUnitTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocalUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s - in org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.CacheEventQueueFactoryUnitTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 s - in org.apache.commons.jcs3.engine.CacheEventQueueFactoryUnitTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s - in org.apache.commons.jcs3.engine.CacheEventQueueFactoryUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.control.CacheManagerStatsUnitTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.jcs3.engine.control.CacheManagerStatsUnitTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.jcs3.engine.control.CacheManagerStatsUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev
-[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev
-[ERROR] testRelease_2_oe(org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev
+[ERROR] testRelease_2_oe(org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
 junit.framework.AssertionFailedError: The cache was NOT disposed during release! expected:<DISPOSED> but was:<ALIVE>
 	at org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev.testRelease_2_oe(CompositeCacheManagerTest_OE25Dev.java:70)
 
 [INFO] Running org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev
-[ERROR] Tests run: 10, Failures: 5, Errors: 4, Skipped: 0, Time elapsed: 0.987 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev
-[ERROR] testSpoolNotAllowedEventOnItem_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.276 s  <<< FAILURE!
+[ERROR] Tests run: 10, Failures: 5, Errors: 4, Skipped: 0, Time elapsed: 0.996 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev
+[ERROR] testSpoolNotAllowedEventOnItem_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.211 s  <<< FAILURE!
 junit.framework.AssertionFailedError: The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [0] does not equal the number expected.
 	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testSpoolNotAllowedEventOnItem_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:282)
 
-[ERROR] testExceededIdletimeOnrequestEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.015 s  <<< FAILURE!
+[ERROR] testExceededIdletimeOnrequestEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.016 s  <<< FAILURE!
 junit.framework.AssertionFailedError: Item should not be null for key 0:key
 	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testExceededIdletimeOnrequestEvent_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:360)
 
-[ERROR] testExceededIdletimeOnrequestEvent_2_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.019 s  <<< ERROR!
+[ERROR] testExceededIdletimeOnrequestEvent_2_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.033 s  <<< ERROR!
 java.lang.IllegalArgumentException: timeout value is negative
 	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testExceededIdletimeOnrequestEvent_2_oe(SimpleEventHandlingUnitTest_OE25Dev.java:387)
 
-[ERROR] testExceededIdletimeOnrequestEvent_3_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.016 s  <<< ERROR!
+[ERROR] testExceededIdletimeOnrequestEvent_3_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.022 s  <<< ERROR!
 java.lang.IllegalArgumentException: timeout value is negative
 	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testExceededIdletimeOnrequestEvent_3_oe(SimpleEventHandlingUnitTest_OE25Dev.java:419)
 
-[ERROR] testExceededMaxlifeOnrequestEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.106 s  <<< ERROR!
+[ERROR] testExceededMaxlifeOnrequestEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.097 s  <<< ERROR!
 java.lang.IllegalArgumentException: timeout value is negative
 	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testExceededMaxlifeOnrequestEvent_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:301)
 
-[ERROR] testExceededMaxlifeOnrequestEvent_2_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.03 s  <<< ERROR!
+[ERROR] testExceededMaxlifeOnrequestEvent_2_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.019 s  <<< ERROR!
 java.lang.IllegalArgumentException: timeout value is negative
 	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testExceededMaxlifeOnrequestEvent_2_oe(SimpleEventHandlingUnitTest_OE25Dev.java:326)
 
-[ERROR] testSpoolNotAllowedEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.155 s  <<< FAILURE!
+[ERROR] testSpoolNotAllowedEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.183 s  <<< FAILURE!
 junit.framework.AssertionFailedError: The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [0] does not equal the number expected.
 	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testSpoolNotAllowedEvent_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:258)
 
-[ERROR] testSpoolNoDiskEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.193 s  <<< FAILURE!
+[ERROR] testSpoolNoDiskEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.183 s  <<< FAILURE!
 junit.framework.AssertionFailedError: The number of ELEMENT_EVENT_SPOOLED_DISK_NOT_AVAILABLE events [1990] does not equal the number expected.
 	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testSpoolNoDiskEvent_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:236)
 
-[ERROR] testSpoolEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.156 s  <<< FAILURE!
+[ERROR] testSpoolEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.211 s  <<< FAILURE!
 junit.framework.AssertionFailedError: The number of ELEMENT_EVENT_SPOOLED_DISK_AVAILABLE events [0] does not equal the number expected [2000]
 	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testSpoolEvent_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:213)
 
 [INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheUnitTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 s - in org.apache.commons.jcs3.engine.control.CompositeCacheUnitTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.apache.commons.jcs3.engine.control.CompositeCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev
 [ERROR] testParseSpoolChunkSize_Normal_1_oe(org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: Wrong chunkSize expected:<2> but was:<5>
 	at org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev.testParseSpoolChunkSize_Normal_1_oe(CompositeCacheConfiguratorUnitTest_OE25Dev.java:121)
 
 [INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev
-[ERROR] Tests run: 14, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.025 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev
-[ERROR] testUpdateConfig_1_oe(org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] Tests run: 14, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev
+[ERROR] testUpdateConfig_1_oe(org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<UPDATE> but was:<SWAP>
 	at org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev.testUpdateConfig_1_oe(CompositeCacheDiskUsageUnitTest_OE25Dev.java:337)
 
 [INFO] Running org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.serialization.SerializerUnitTest_OE25Dev
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 6.93 s <<< FAILURE! - in org.apache.commons.jcs3.utils.serialization.SerializerUnitTest_OE25Dev
-[ERROR] testReadWrite_1_oe(org.apache.commons.jcs3.utils.serialization.SerializerUnitTest_OE25Dev)  Time elapsed: 0.016 s  <<< FAILURE!
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 5.712 s <<< FAILURE! - in org.apache.commons.jcs3.utils.serialization.SerializerUnitTest_OE25Dev
+[ERROR] testReadWrite_1_oe(org.apache.commons.jcs3.utils.serialization.SerializerUnitTest_OE25Dev)  Time elapsed: 0.019 s  <<< FAILURE!
 junit.framework.AssertionFailedError: 
 [key:0] should not be null, Region Name = blockRegion1
 HitCountRam = 0
@@ -170,27 +170,75 @@ List Size = 10
 	at org.apache.commons.jcs3.utils.serialization.SerializerUnitTest_OE25Dev.testReadWrite_1_oe(SerializerUnitTest_OE25Dev.java:91)
 
 [INFO] Running org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.serialization.StandardSerializerUnitTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.serialization.StandardSerializerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.serialization.EncryptingSerializerUnitTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.apache.commons.jcs3.utils.serialization.EncryptingSerializerUnitTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.jcs3.utils.serialization.EncryptingSerializerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.233 s - in org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.173 s - in org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.net.HostNameUtilUnitTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.apache.commons.jcs3.utils.net.HostNameUtilUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.jcs3.utils.net.HostNameUtilUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.config.PropertySetterUnitTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s - in org.apache.commons.jcs3.utils.config.PropertySetterUnitTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.108 s - in org.apache.commons.jcs3.utils.config.PropertySetterUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev
-[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 12.724 s <<< FAILURE! - in org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev
-[ERROR] testSimpleLoad_1_oe(org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev)  Time elapsed: 8.27 s  <<< FAILURE!
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 15.785 s <<< FAILURE! - in org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev
+[ERROR] testSimpleLoad_1_oe(org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev)  Time elapsed: 9.649 s  <<< FAILURE!
 junit.framework.AssertionFailedError
 	at org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev.testSimpleLoad_1_oe(LRUMapPerformanceTest_OE25Dev.java:174)
 
-[ERROR] testSimpleLoad_2_oe(org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev)  Time elapsed: 4.454 s  <<< FAILURE!
+[ERROR] testSimpleLoad_2_oe(org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev)  Time elapsed: 6.113 s  <<< FAILURE!
 junit.framework.AssertionFailedError
 	at org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev.testSimpleLoad_2_oe(LRUMapPerformanceTest_OE25Dev.java:182)
 
-[INFO] Running org.apache.commons.jcs3.utils.struct.LRUMapConcurrentUnitTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   CompositeCacheConfiguratorUnitTest_OE25Dev.testParseSpoolChunkSize_Normal_1_oe:121 Wrong chunkSize expected:<2> but was:<5>
+[ERROR]   CompositeCacheDiskUsageUnitTest_OE25Dev.testUpdateConfig_1_oe:337 expected:<UPDATE> but was:<SWAP>
+[ERROR]   CompositeCacheManagerTest_OE25Dev.testRelease_2_oe:70 The cache was NOT disposed during release! expected:<DISPOSED> but was:<ALIVE>
+[ERROR]   SimpleEventHandlingUnitTest_OE25Dev.testExceededIdletimeOnrequestEvent_1_oe:360 Item should not be null for key 0:key
+[ERROR]   SimpleEventHandlingUnitTest_OE25Dev.testSpoolEvent_1_oe:213 The number of ELEMENT_EVENT_SPOOLED_DISK_AVAILABLE events [0] does not equal the number expected [2000]
+[ERROR]   SimpleEventHandlingUnitTest_OE25Dev.testSpoolNoDiskEvent_1_oe:236 The number of ELEMENT_EVENT_SPOOLED_DISK_NOT_AVAILABLE events [1990] does not equal the number expected.
+[ERROR]   SimpleEventHandlingUnitTest_OE25Dev.testSpoolNotAllowedEventOnItem_1_oe:282 The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [0] does not equal the number expected.
+[ERROR]   SimpleEventHandlingUnitTest_OE25Dev.testSpoolNotAllowedEvent_1_oe:258 The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [0] does not equal the number expected.
+[ERROR]   SoftReferenceMemoryCacheUnitTest_OE25Dev.testPutGetThroughHub_1_oe:122 expected:<myregion data 0> but was:<null>
+[ERROR]   SerializerUnitTest_OE25Dev.testReadWrite_1_oe:91 [key:0] should not be null, Region Name = blockRegion1
+HitCountRam = 0
+HitCountAux = 0
+---------------------------Memory Cache
+Put Count = 500
+Hit Count = 0
+Miss Count = 1
+Map Size = 10
+List Size = 10
+[ERROR]   LRUMapPerformanceTest_OE25Dev.testSimpleLoad_1_oe:174
+[ERROR]   LRUMapPerformanceTest_OE25Dev.testSimpleLoad_2_oe:182
+[ERROR] Errors: 
+[ERROR]   SimpleEventHandlingUnitTest_OE25Dev.testExceededIdletimeOnrequestEvent_2_oe:387 » IllegalArgument
+[ERROR]   SimpleEventHandlingUnitTest_OE25Dev.testExceededIdletimeOnrequestEvent_3_oe:419 » IllegalArgument
+[ERROR]   SimpleEventHandlingUnitTest_OE25Dev.testExceededMaxlifeOnrequestEvent_1_oe:301 » IllegalArgument
+[ERROR]   SimpleEventHandlingUnitTest_OE25Dev.testExceededMaxlifeOnrequestEvent_2_oe:326 » IllegalArgument
+[INFO] 
+[ERROR] Tests run: 168, Failures: 12, Errors: 4, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  52.779 s
+[INFO] Finished at: 2026-02-05T02:18:46-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-jcs3-core: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

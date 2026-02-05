@@ -90,16 +90,16 @@ public class UnmodifiableSortedBagTest_OE25Dev<E> extends AbstractSortedBagTest<
 //        writeExternalFormToDisk((java.io.Serializable) bag, "src/test/resources/data/test/UnmodifiableSortedBag.fullCollection.version4.obj");
 //    }
 
-    public void testUnmodifiable_1_oe() {
+public void testUnmodifiable_1_oe() {
         assertTrue(makeObject() instanceof Unmodifiable);
     }
 
-    public void testUnmodifiable_2_oe() {
+public void testUnmodifiable_2_oe() {
         // removed other assertion
         assertTrue(makeFullCollection() instanceof Unmodifiable);
     }
 
-    public void testDecorateFactory_1_oe() {
+public void testDecorateFactory_1_oe() {
         final SortedBag<E> queue = makeFullCollection();
         assertSame(queue, UnmodifiableSortedBag.unmodifiableSortedBag(queue));
     }

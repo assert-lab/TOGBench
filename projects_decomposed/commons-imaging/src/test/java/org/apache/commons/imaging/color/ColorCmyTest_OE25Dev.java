@@ -36,27 +36,27 @@ public class ColorCmyTest_OE25Dev {
         colorCopy = new ColorCmy(1.0, 2.0, 3.0);
     }
 
-    @Test
+@Test
     public void testCAssignment_1_oe() {
         assertEquals(1.0, color.C, 0.0);
     }
 
-    @Test
+@Test
     public void testMAssignment_1_oe() {
         assertEquals(2.0, color.M, 0.0);
     }
 
-    @Test
+@Test
     public void testYAssignment_1_oe() {
         assertEquals(3.0, color.Y, 0.0);
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         assertEquals("{C: 1.0, M: 2.0, Y: 3.0}", color.toString());
     }
 
-    @Test
+@Test
     public void testCreatesColorCmy_1_oe() {
         final ColorCmy colorCmy = new ColorCmy(0.0, (-1668.733868772), (-1568.733868772));
         final ColorCmy colorCmyTwo = ColorCmy.YELLOW;
@@ -64,7 +64,7 @@ public class ColorCmyTest_OE25Dev {
         assertNotEquals(colorCmy, colorCmyTwo);
     }
 
-    @Test
+@Test
     public void testCreatesColorCmy_2_oe() {
         final ColorCmy colorCmy = new ColorCmy(0.0, (-1668.733868772), (-1568.733868772));
         final ColorCmy colorCmyTwo = ColorCmy.YELLOW;
@@ -73,7 +73,7 @@ public class ColorCmyTest_OE25Dev {
         assertEquals((-1568.733868772), colorCmy.Y, 0.01);
     }
 
-    @Test
+@Test
     public void testCreatesColorCmy_3_oe() {
         final ColorCmy colorCmy = new ColorCmy(0.0, (-1668.733868772), (-1568.733868772));
         final ColorCmy colorCmyTwo = ColorCmy.YELLOW;
@@ -83,12 +83,12 @@ public class ColorCmyTest_OE25Dev {
         assertEquals((-1668.733868772), colorCmy.M, 0.01);
     }
 
-    @Test
+@Test
     public void testEquals_1_oe() {
         assertTrue(color.equals(colorCopy) && colorCopy.equals(color));
     }
 
-    @Test
+@Test
     public void testEquals_2_oe() {
         // removed other assertion
         assertThat(color.hashCode(), is(colorCopy.hashCode()));

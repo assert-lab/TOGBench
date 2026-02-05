@@ -292,7 +292,7 @@ public class TestConfigurationUtils_OE25Dev {
         ConfigurationUtils.loadClass("a non existing class!");
     }
 
-    @Test
+@Test
     public void testAppend_1_oe() {
         // create the source configuration
         final Configuration conf1 = new BaseConfiguration();
@@ -313,7 +313,7 @@ public class TestConfigurationUtils_OE25Dev {
         ListAssert.assertEquals("'key1' property", expected, conf2.getList("key1"));
     }
 
-    @Test
+@Test
     public void testAppend_2_oe() {
         // create the source configuration
         final Configuration conf1 = new BaseConfiguration();
@@ -339,13 +339,13 @@ public class TestConfigurationUtils_OE25Dev {
         ListAssert.assertEquals("'key2' property", expected, conf2.getList("key2"));
     }
 
-    @Test
+@Test
     public void testAsEventSourceSupported_1_oe() {
         final XMLConfiguration src = new XMLConfiguration();
         assertSame("Wrong result", src, ConfigurationUtils.asEventSource(src, true));
     }
 
-    @Test
+@Test
     public void testAsEventSourceUnsupportedMock_1_oe() {
         final EventListener<ConfigurationEvent> cl = EasyMock.createMock(EventListener.class);
         EasyMock.replay(cl);
@@ -354,7 +354,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertFalse("Wrong result (1)", source.removeEventListener(ConfigurationEvent.ANY, cl));
     }
 
-    @Test
+@Test
     public void testCloneConfiguration_1_oe() {
         final BaseHierarchicalConfiguration conf = new BaseHierarchicalConfiguration();
         conf.addProperty("test", "yes");
@@ -362,7 +362,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertNotSame("Same object was returned", conf, copy);
     }
 
-    @Test
+@Test
     public void testCloneConfiguration_2_oe() {
         final BaseHierarchicalConfiguration conf = new BaseHierarchicalConfiguration();
         conf.addProperty("test", "yes");
@@ -371,12 +371,12 @@ public class TestConfigurationUtils_OE25Dev {
         assertEquals("Property was not cloned", "yes", copy.getString("test"));
     }
 
-    @Test
+@Test
     public void testCloneConfigurationNull_1_oe() {
         assertNull("Wrong return value", ConfigurationUtils.cloneConfiguration(null));
     }
 
-    @Test
+@Test
     public void testCloneIfPossibleError_1_oe() {
         final XMLBuilderParametersImpl params = new XMLBuilderParametersImpl() {
             @Override
@@ -387,18 +387,18 @@ public class TestConfigurationUtils_OE25Dev {
         assertSame("Wrong result", params, ConfigurationUtils.cloneIfPossible(params));
     }
 
-    @Test
+@Test
     public void testCloneIfPossibleNotSupported_1_oe() {
         final Long value = 20130116221714L;
         assertSame("Wrong result", value, ConfigurationUtils.cloneIfPossible(value));
     }
 
-    @Test
+@Test
     public void testCloneIfPossibleNull_1_oe() {
         assertNull("Wrong result", ConfigurationUtils.cloneIfPossible(null));
     }
 
-    @Test
+@Test
     public void testCloneIfPossibleSupported_1_oe() {
         final XMLBuilderParametersImpl params = new XMLBuilderParametersImpl();
         params.setPublicID("testID");
@@ -407,7 +407,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertNotSame("No clone was created", params, clone);
     }
 
-    @Test
+@Test
     public void testCloneIfPossibleSupported_2_oe() {
         final XMLBuilderParametersImpl params = new XMLBuilderParametersImpl();
         params.setPublicID("testID");
@@ -422,21 +422,21 @@ public class TestConfigurationUtils_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testCloneSynchronizerClone_1_oe() {
         final CloneableSynchronizer sync = new CloneableSynchronizer(false);
         final CloneableSynchronizer sync2 = (CloneableSynchronizer) ConfigurationUtils.cloneSynchronizer(sync);
         assertTrue("Not cloned", sync2.isCloned());
     }
 
-    @Test
+@Test
     public void testCloneSynchronizerNewInstance_1_oe() {
         final SynchronizerTestImpl sync = new SynchronizerTestImpl();
         final SynchronizerTestImpl sync2 = (SynchronizerTestImpl) ConfigurationUtils.cloneSynchronizer(sync);
         assertNotNull("Clone is null", sync2);
     }
 
-    @Test
+@Test
     public void testCloneSynchronizerNewInstance_2_oe() {
         final SynchronizerTestImpl sync = new SynchronizerTestImpl();
         final SynchronizerTestImpl sync2 = (SynchronizerTestImpl) ConfigurationUtils.cloneSynchronizer(sync);
@@ -444,26 +444,26 @@ public class TestConfigurationUtils_OE25Dev {
         assertNotSame("Same instance", sync, sync2);
     }
 
-    @Test
+@Test
     public void testCloneSynchronizerNoOp_1_oe() {
         assertSame("Wrong result", NoOpSynchronizer.INSTANCE, ConfigurationUtils.cloneSynchronizer(NoOpSynchronizer.INSTANCE));
     }
 
-    @Test
+@Test
     public void testConvertHierarchicalToHierarchical_1_oe() {
         final Configuration conf = new BaseHierarchicalConfiguration();
         conf.addProperty("test", "yes");
         assertSame("Wrong configuration returned", conf, ConfigurationUtils.convertToHierarchical(conf));
     }
 
-    @Test
+@Test
     public void testConvertHierarchicalToHierarchicalEngine_1_oe() {
         final BaseHierarchicalConfiguration hc = new BaseHierarchicalConfiguration();
         final ExpressionEngine engine = new DefaultExpressionEngine(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS);
         assertSame("Created new configuration", hc, ConfigurationUtils.convertToHierarchical(hc, engine));
     }
 
-    @Test
+@Test
     public void testConvertHierarchicalToHierarchicalNullEngine_1_oe() {
         final BaseHierarchicalConfiguration hc = new BaseHierarchicalConfiguration();
         final ExpressionEngine engine = new DefaultExpressionEngine(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS);
@@ -471,7 +471,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertSame("Created new configuration", hc, ConfigurationUtils.convertToHierarchical(hc, null));
     }
 
-    @Test
+@Test
     public void testConvertHierarchicalToHierarchicalNullEngine_2_oe() {
         final BaseHierarchicalConfiguration hc = new BaseHierarchicalConfiguration();
         final ExpressionEngine engine = new DefaultExpressionEngine(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS);
@@ -480,12 +480,12 @@ public class TestConfigurationUtils_OE25Dev {
         assertSame("Expression engine was changed", engine, hc.getExpressionEngine());
     }
 
-    @Test
+@Test
     public void testConvertNullToHierarchical_1_oe() {
         assertNull("Wrong conversion result for null config", ConfigurationUtils.convertToHierarchical(null));
     }
 
-    @Test
+@Test
     public void testConvertToHierarchical_1_oe() {
         final Configuration conf = new BaseConfiguration();
         for (int i = 0; i < 10; i++) {
@@ -500,7 +500,7 @@ public class TestConfigurationUtils_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testConvertToHierarchicalDelimiters_1_oe() {
         final BaseConfiguration conf = new BaseConfiguration();
         conf.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
@@ -508,7 +508,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertEquals("Wrong property value", "1,2,3", conf.getString("test.key"));
     }
 
-    @Test
+@Test
     public void testConvertToHierarchicalDelimiters_2_oe() {
         final BaseConfiguration conf = new BaseConfiguration();
         conf.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
@@ -518,7 +518,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertEquals("Escaped list delimiters not correctly handled", "1,2,3", hc.getString("test.key"));
     }
 
-    @Test
+@Test
     public void testConvertToHierarchicalEngine_1_oe() {
         final Configuration conf = new BaseConfiguration();
         conf.addProperty("test(a)", Boolean.TRUE);
@@ -529,7 +529,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertTrue("Wrong value for test(a)", hc.getBoolean("test(a)"));
     }
 
-    @Test
+@Test
     public void testConvertToHierarchicalEngine_2_oe() {
         final Configuration conf = new BaseConfiguration();
         conf.addProperty("test(a)", Boolean.TRUE);
@@ -541,7 +541,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertFalse("Wrong value for test(b)", hc.getBoolean("test(b)"));
     }
 
-    @Test
+@Test
     public void testConvertToHierarchicalMultiValues_1_oe() {
         final BaseConfiguration config = new BaseConfiguration();
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
@@ -550,7 +550,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertEquals("Wrong value 1", 1, hc.getInt("test(0)"));
     }
 
-    @Test
+@Test
     public void testConvertToHierarchicalMultiValues_2_oe() {
         final BaseConfiguration config = new BaseConfiguration();
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
@@ -560,7 +560,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertEquals("Wrong value 2", 2, hc.getInt("test(1)"));
     }
 
-    @Test
+@Test
     public void testConvertToHierarchicalMultiValues_3_oe() {
         final BaseConfiguration config = new BaseConfiguration();
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
@@ -571,7 +571,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertEquals("Wrong value 3", 3, hc.getInt("test(2)"));
     }
 
-    @Test
+@Test
     public void testConvertToHierarchicalOrderOfProperties_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         config.addProperty("x.y.z", true);
@@ -583,7 +583,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertEquals("Wrong number of children of x", 1, nodeX.getChildren().size());
     }
 
-    @Test
+@Test
     public void testCopy_1_oe() {
         // create the source configuration
         final Configuration conf1 = new BaseConfiguration();
@@ -601,7 +601,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertEquals("'key1' property", "value1", conf2.getProperty("key1"));
     }
 
-    @Test
+@Test
     public void testCopy_2_oe() {
         // create the source configuration
         final Configuration conf1 = new BaseConfiguration();
@@ -620,7 +620,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertEquals("'key2' property", "value2", conf2.getProperty("key2"));
     }
 
-    @Test
+@Test
     public void testLoadClassCCLNotFound_1_oe() throws ClassNotFoundException {
         Thread.currentThread().setContextClassLoader(new ClassLoader() {
             @Override
@@ -631,24 +631,24 @@ public class TestConfigurationUtils_OE25Dev {
         assertEquals("Wrong class", CLS_NAME, ConfigurationUtils.loadClass(CLS_NAME).getName());
     }
 
-    @Test
+@Test
     public void testLoadClassCCLNull_1_oe() throws ClassNotFoundException {
         Thread.currentThread().setContextClassLoader(null);
         assertEquals("Wrong class", CLS_NAME, ConfigurationUtils.loadClass(CLS_NAME).getName());
     }
 
-    @Test
+@Test
     public void testLoadClassFromCCL_1_oe() throws ClassNotFoundException {
         Thread.currentThread().setContextClassLoader(getClass().getClassLoader());
         assertEquals("Wrong class", CLS_NAME, ConfigurationUtils.loadClass(CLS_NAME).getName());
     }
 
-    @Test
+@Test
     public void testLoadClassNoExFound_1_oe() {
         assertEquals("Wrong class", CLS_NAME, ConfigurationUtils.loadClassNoEx(CLS_NAME).getName());
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         final Configuration config = new BaseConfiguration();
         final String lineSeparator = System.lineSeparator();
@@ -656,7 +656,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertEquals("String representation of an empty configuration", "", ConfigurationUtils.toString(config));
     }
 
-    @Test
+@Test
     public void testToString_2_oe() {
         final Configuration config = new BaseConfiguration();
         final String lineSeparator = System.lineSeparator();
@@ -667,7 +667,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertEquals("String representation of a configuration", "one=1", ConfigurationUtils.toString(config));
     }
 
-    @Test
+@Test
     public void testToString_3_oe() {
         final Configuration config = new BaseConfiguration();
         final String lineSeparator = System.lineSeparator();
@@ -681,7 +681,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertEquals("String representation of a configuration", "one=1" + lineSeparator + "two=2", ConfigurationUtils.toString(config));
     }
 
-    @Test
+@Test
     public void testToString_4_oe() {
         final Configuration config = new BaseConfiguration();
         final String lineSeparator = System.lineSeparator();
@@ -698,7 +698,7 @@ public class TestConfigurationUtils_OE25Dev {
         assertEquals("String representation of a configuration", "two=2", ConfigurationUtils.toString(config));
     }
 
-    @Test
+@Test
     public void testToString_5_oe() {
         final Configuration config = new BaseConfiguration();
         final String lineSeparator = System.lineSeparator();

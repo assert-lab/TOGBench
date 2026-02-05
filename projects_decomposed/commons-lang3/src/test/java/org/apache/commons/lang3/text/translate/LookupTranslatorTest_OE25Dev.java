@@ -32,7 +32,7 @@ public class LookupTranslatorTest_OE25Dev  {
 
     // Tests: https://issues.apache.org/jira/browse/LANG-882
 
-    @Test
+@Test
     public void testBasicLookup_1_oe() throws IOException {
         final LookupTranslator lt = new LookupTranslator(new CharSequence[][] { { "one", "two" } });
         final StringWriter out = new StringWriter();
@@ -40,7 +40,7 @@ public class LookupTranslatorTest_OE25Dev  {
         assertEquals(3, result, "Incorrect codepoint consumption");
     }
 
-    @Test
+@Test
     public void testBasicLookup_2_oe() throws IOException {
         final LookupTranslator lt = new LookupTranslator(new CharSequence[][] { { "one", "two" } });
         final StringWriter out = new StringWriter();
@@ -49,7 +49,7 @@ public class LookupTranslatorTest_OE25Dev  {
         assertEquals("two", out.toString(), "Incorrect value");
     }
 
-    @Test
+@Test
     public void testLang882_1_oe() throws IOException {
         final LookupTranslator lt = new LookupTranslator(new CharSequence[][] { { new StringBuffer("one"), new StringBuffer("two") } });
         final StringWriter out = new StringWriter();
@@ -57,7 +57,7 @@ public class LookupTranslatorTest_OE25Dev  {
         assertEquals(3, result, "Incorrect codepoint consumption");
     }
 
-    @Test
+@Test
     public void testLang882_2_oe() throws IOException {
         final LookupTranslator lt = new LookupTranslator(new CharSequence[][] { { new StringBuffer("one"), new StringBuffer("two") } });
         final StringWriter out = new StringWriter();

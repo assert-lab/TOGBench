@@ -230,14 +230,14 @@ public void test_standard_1_oe() throws Exception {
 }
 }
 
-    @Test
+@Test
     public void testChildren_1_oe() throws FileSystemException {
         // Check for file
         FileObject file = getReadFolder().resolveFile("file1.txt");
         assertSame(FileType.FILE, file.getType());
     }
 
-    @Test
+@Test
     public void testChildren_2_oe() throws FileSystemException {
         // Check for file
         FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -245,7 +245,7 @@ public void test_standard_1_oe() throws Exception {
         assertTrue(file.isFile());
     }
 
-    @Test
+@Test
     public void testChildren_5_oe() throws FileSystemException {
         // Check for file
         FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -263,7 +263,7 @@ public void test_standard_1_oe() throws Exception {
         assertNotNull(file);
     }
 
-    @Test
+@Test
     public void testChildren_6_oe() throws FileSystemException {
         // Check for file
         FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -285,7 +285,7 @@ public void test_standard_1_oe() throws Exception {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testChildren_9_oe() throws FileSystemException {
         // Check for file
         FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -317,14 +317,14 @@ public void test_standard_1_oe() throws Exception {
         assertNotNull(child);
     }
 
-    @Test
+@Test
     public void testExists_1_oe() throws Exception {
         // Test a file
         FileObject file = getReadFolder().resolveFile("file1.txt");
         assertTrue("file exists", file.exists());
     }
 
-    @Test
+@Test
     public void testExists_2_oe() throws Exception {
         // Test a file
         FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -332,7 +332,7 @@ public void test_standard_1_oe() throws Exception {
         assertNotSame("file exists", file.getType(), FileType.IMAGINARY);
     }
 
-    @Test
+@Test
     public void testExists_3_oe() throws Exception {
         // Test a file
         FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -344,7 +344,7 @@ public void test_standard_1_oe() throws Exception {
         assertTrue("folder exists", file.exists());
     }
 
-    @Test
+@Test
     public void testExists_4_oe() throws Exception {
         // Test a file
         FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -357,7 +357,7 @@ public void test_standard_1_oe() throws Exception {
         assertNotSame("folder exists", file.getType(), FileType.IMAGINARY);
     }
 
-    @Test
+@Test
     public void testExists_5_oe() throws Exception {
         // Test a file
         FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -374,7 +374,7 @@ public void test_standard_1_oe() throws Exception {
         assertFalse("unknown file does not exist", file.exists());
     }
 
-    @Test
+@Test
     public void testExists_6_oe() throws Exception {
         // Test a file
         FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -392,7 +392,7 @@ public void test_standard_1_oe() throws Exception {
         assertSame("unknown file does not exist", file.getType(), FileType.IMAGINARY);
     }
 
-    @Test
+@Test
     public void testExists_7_oe() throws Exception {
         // Test a file
         FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -414,7 +414,7 @@ public void test_standard_1_oe() throws Exception {
         assertFalse("unknown file does not exist", file.exists());
     }
 
-    @Test
+@Test
     public void testExists_8_oe() throws Exception {
         // Test a file
         FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -437,14 +437,14 @@ public void test_standard_1_oe() throws Exception {
         assertSame("unknown file does not exist", file.getType(), FileType.IMAGINARY);
     }
 
-    @Test
+@Test
     public void testInputStreamMultipleCleanup_1_oe() throws Exception {
         // Get the test file
         final FileObject file = getReadFolder().resolveFile("file1.txt");
         assertEquals(FileType.FILE, file.getType());
     }
 
-    @Test
+@Test
     public void testInputStreamMultipleCleanup_2_oe() throws Exception {
         // Get the test file
         final FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -452,7 +452,7 @@ public void test_standard_1_oe() throws Exception {
         assertTrue(file.isFile());
     }
 
-    @Test
+@Test
     public void testInputStreamMultipleCleanup_3_oe() throws Exception {
         // Get the test file
         final FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -464,7 +464,7 @@ public void test_standard_1_oe() throws Exception {
         assertEquals(instr1.read(), FILE1_CONTENT.charAt(0));
     }
 
-    @Test
+@Test
     public void testInputStreamMultipleCleanup_4_oe() throws Exception {
         // Get the test file
         final FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -478,7 +478,7 @@ public void test_standard_1_oe() throws Exception {
         assertEquals(instr2.read(), FILE1_CONTENT.charAt(0));
     }
 
-    @Test
+@Test
     public void testInputStreamMultipleCleanup_5_oe() throws Exception {
         // Get the test file
         final FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -498,7 +498,7 @@ public void test_standard_1_oe() throws Exception {
         assertEquals(instr1.read(), -1);
     }
 
-    @Test
+@Test
     public void testInputStreamMultipleCleanup_6_oe() throws Exception {
         // Get the test file
         final FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -519,14 +519,14 @@ public void test_standard_1_oe() throws Exception {
         assertEquals(instr2.read(), -1);
     }
 
-    @Test
+@Test
     public void testInputStreamSingleCleanup_1_oe() throws Exception {
         // Get the test file
         final FileObject file = getReadFolder().resolveFile("file1.txt");
         assertEquals(FileType.FILE, file.getType());
     }
 
-    @Test
+@Test
     public void testInputStreamSingleCleanup_2_oe() throws Exception {
         // Get the test file
         final FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -534,7 +534,7 @@ public void test_standard_1_oe() throws Exception {
         assertTrue(file.isFile());
     }
 
-    @Test
+@Test
     public void testInputStreamSingleCleanup_3_oe() throws Exception {
         // Get the test file
         final FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -546,7 +546,7 @@ public void test_standard_1_oe() throws Exception {
         assertEquals(instr1.read(), FILE1_CONTENT.charAt(0));
     }
 
-    @Test
+@Test
     public void testInputStreamSingleCleanup_4_oe() throws Exception {
         // Get the test file
         final FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -564,7 +564,7 @@ public void test_standard_1_oe() throws Exception {
         assertEquals(instr1.read(), -1);
     }
 
-    @Test
+@Test
     public void testParent_1_oe() throws FileSystemException {
         // Test when both exist
         FileObject folder = getReadFolder().resolveFile("dir1");
@@ -572,7 +572,7 @@ public void test_standard_1_oe() throws Exception {
         assertTrue("folder exists", folder.exists());
     }
 
-    @Test
+@Test
     public void testParent_2_oe() throws FileSystemException {
         // Test when both exist
         FileObject folder = getReadFolder().resolveFile("dir1");
@@ -581,7 +581,7 @@ public void test_standard_1_oe() throws Exception {
         assertTrue("child exists", child.exists());
     }
 
-    @Test
+@Test
     public void testParent_3_oe() throws FileSystemException {
         // Test when both exist
         FileObject folder = getReadFolder().resolveFile("dir1");
@@ -591,7 +591,7 @@ public void test_standard_1_oe() throws Exception {
         assertSame(folder, child.getParent());
     }
 
-    @Test
+@Test
     public void testParent_4_oe() throws FileSystemException {
         // Test when both exist
         FileObject folder = getReadFolder().resolveFile("dir1");
@@ -605,7 +605,7 @@ public void test_standard_1_oe() throws Exception {
         assertTrue("folder exists", folder.exists());
     }
 
-    @Test
+@Test
     public void testParent_5_oe() throws FileSystemException {
         // Test when both exist
         FileObject folder = getReadFolder().resolveFile("dir1");
@@ -620,7 +620,7 @@ public void test_standard_1_oe() throws Exception {
         assertFalse("child does not exist", child.exists());
     }
 
-    @Test
+@Test
     public void testParent_6_oe() throws FileSystemException {
         // Test when both exist
         FileObject folder = getReadFolder().resolveFile("dir1");
@@ -636,7 +636,7 @@ public void test_standard_1_oe() throws Exception {
         assertSame(folder, child.getParent());
     }
 
-    @Test
+@Test
     public void testParent_7_oe() throws FileSystemException {
         // Test when both exist
         FileObject folder = getReadFolder().resolveFile("dir1");
@@ -657,7 +657,7 @@ public void test_standard_1_oe() throws Exception {
         assertFalse("folder does not exist", folder.exists());
     }
 
-    @Test
+@Test
     public void testParent_8_oe() throws FileSystemException {
         // Test when both exist
         FileObject folder = getReadFolder().resolveFile("dir1");
@@ -679,7 +679,7 @@ public void test_standard_1_oe() throws Exception {
         assertFalse("child does not exist", child.exists());
     }
 
-    @Test
+@Test
     public void testParent_9_oe() throws FileSystemException {
         // Test when both exist
         FileObject folder = getReadFolder().resolveFile("dir1");
@@ -702,7 +702,7 @@ public void test_standard_1_oe() throws Exception {
         assertSame(folder, child.getParent());
     }
 
-    @Test
+@Test
     public void testParent_10_oe() throws FileSystemException {
         // Test when both exist
         FileObject folder = getReadFolder().resolveFile("dir1");
@@ -734,7 +734,7 @@ public void test_standard_1_oe() throws Exception {
     }
     }
 
-    @Test
+@Test
     public void testParent_11_oe() throws FileSystemException {
         // Test when both exist
         FileObject folder = getReadFolder().resolveFile("dir1");
@@ -769,13 +769,13 @@ public void test_standard_1_oe() throws Exception {
     }
     }
 
-    @Test
+@Test
     public void testReadMultipleConcurrent_1_oe() throws Exception {
         final FileObject file = getReadFolder().resolveFile("file1.txt");
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testReadMultipleConcurrent_2_oe() throws Exception {
         final FileObject file = getReadFolder().resolveFile("file1.txt");
         // removed other assertion
@@ -783,26 +783,26 @@ public void test_standard_1_oe() throws Exception {
         assertTrue(emptyFile.exists());
     }
 
-    @Test
+@Test
     public void testReadSingleConcurrent_1_oe() throws Exception {
         final FileObject file = getReadFolder().resolveFile("file1.txt");
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testReadSingleSequencial_1_oe() throws Exception {
         final FileObject file = getReadFolder().resolveFile("file1.txt");
         assertTrue(file.exists());
     }
 
-    @Test
+@Test
     public void testReuse_1_oe() throws Exception {
         // Get the test file
         final FileObject file = getReadFolder().resolveFile("file1.txt");
         assertEquals(FileType.FILE, file.getType());
     }
 
-    @Test
+@Test
     public void testReuse_2_oe() throws Exception {
         // Get the test file
         final FileObject file = getReadFolder().resolveFile("file1.txt");

@@ -96,7 +96,7 @@ public class TestConfigurationDeclaration_OE25Dev {
         decl.isOptional();
     }
 
-    @Test
+@Test
     public void testConfigurationDeclarationGetAttributes_1_oe() {
         final HierarchicalConfiguration<?> config = new BaseHierarchicalConfiguration();
         config.addProperty("xml.fileName", "test.xml");
@@ -104,7 +104,7 @@ public class TestConfigurationDeclaration_OE25Dev {
         assertNull("Found an at attribute", decl.getAt());
     }
 
-    @Test
+@Test
     public void testConfigurationDeclarationGetAttributes_2_oe() {
         final HierarchicalConfiguration<?> config = new BaseHierarchicalConfiguration();
         config.addProperty("xml.fileName", "test.xml");
@@ -113,7 +113,7 @@ public class TestConfigurationDeclaration_OE25Dev {
         assertFalse("Found an optional attribute", decl.isOptional());
     }
 
-    @Test
+@Test
     public void testConfigurationDeclarationGetAttributes_3_oe() {
         final HierarchicalConfiguration<?> config = new BaseHierarchicalConfiguration();
         config.addProperty("xml.fileName", "test.xml");
@@ -125,7 +125,7 @@ public class TestConfigurationDeclaration_OE25Dev {
         assertEquals("Wrong value of at attribute", "test1", decl.getAt());
     }
 
-    @Test
+@Test
     public void testConfigurationDeclarationGetAttributes_4_oe() {
         final HierarchicalConfiguration<?> config = new BaseHierarchicalConfiguration();
         config.addProperty("xml.fileName", "test.xml");
@@ -140,7 +140,7 @@ public class TestConfigurationDeclaration_OE25Dev {
         assertEquals("Wrong value of config-at attribute", "test1", decl.getAt());
     }
 
-    @Test
+@Test
     public void testConfigurationDeclarationGetAttributes_5_oe() {
         final HierarchicalConfiguration<?> config = new BaseHierarchicalConfiguration();
         config.addProperty("xml.fileName", "test.xml");
@@ -158,7 +158,7 @@ public class TestConfigurationDeclaration_OE25Dev {
         assertEquals("Old at attribute not detected", "test2", decl.getAt());
     }
 
-    @Test
+@Test
     public void testConfigurationDeclarationGetAttributes_6_oe() {
         final HierarchicalConfiguration<?> config = new BaseHierarchicalConfiguration();
         config.addProperty("xml.fileName", "test.xml");
@@ -179,7 +179,7 @@ public class TestConfigurationDeclaration_OE25Dev {
         assertTrue("Wrong value of optional attribute", decl.isOptional());
     }
 
-    @Test
+@Test
     public void testConfigurationDeclarationGetAttributes_7_oe() {
         final HierarchicalConfiguration<?> config = new BaseHierarchicalConfiguration();
         config.addProperty("xml.fileName", "test.xml");
@@ -203,7 +203,7 @@ public class TestConfigurationDeclaration_OE25Dev {
         assertTrue("Wrong value of config-optional attribute", decl.isOptional());
     }
 
-    @Test
+@Test
     public void testConfigurationDeclarationGetAttributes_8_oe() {
         final HierarchicalConfiguration<?> config = new BaseHierarchicalConfiguration();
         config.addProperty("xml.fileName", "test.xml");
@@ -231,20 +231,20 @@ public class TestConfigurationDeclaration_OE25Dev {
         assertTrue("Old optional attribute not detected", decl.isOptional());
     }
 
-    @Test
+@Test
     public void testConfigurationDeclarationIsReserved_1_oe() {
         final ConfigurationDeclaration decl = createDeclaration(null);
         assertTrue("Attribute at not recognized", decl.isReservedAttributeName("at"));
     }
 
-    @Test
+@Test
     public void testConfigurationDeclarationIsReserved_2_oe() {
         final ConfigurationDeclaration decl = createDeclaration(null);
         // removed other assertion
         assertTrue("Attribute optional not recognized", decl.isReservedAttributeName("optional"));
     }
 
-    @Test
+@Test
     public void testConfigurationDeclarationIsReserved_3_oe() {
         final ConfigurationDeclaration decl = createDeclaration(null);
         // removed other assertion
@@ -252,7 +252,7 @@ public class TestConfigurationDeclaration_OE25Dev {
         assertTrue("Inherited attribute not recognized", decl.isReservedAttributeName("config-class"));
     }
 
-    @Test
+@Test
     public void testConfigurationDeclarationIsReserved_4_oe() {
         final ConfigurationDeclaration decl = createDeclaration(null);
         // removed other assertion

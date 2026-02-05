@@ -32,7 +32,7 @@ import org.junit.jupiter.api.Test;
  **/
 public class FieldTypeAsciiTest_OE25Dev {
 
-  @Test
+@Test
   public void testCreatesFieldTypeAsciiAndCallsWriteData_1_oe() {
       final FieldTypeAscii fieldTypeAscii = new FieldTypeAscii(0, "1");
       final byte[] byteArray = new byte[1];
@@ -42,7 +42,7 @@ public class FieldTypeAsciiTest_OE25Dev {
       Assertions.assertThrows(ImageWriteException.class, () -> fieldTypeAscii.writeData(tiffField, byteOrder));
   }
 
-  @Test
+@Test
   public void testCreatesFieldTypeAsciiAndWriteDataUsingByteArray_1_oe() throws ImageWriteException {
       final FieldTypeAscii fieldTypeAscii = new FieldTypeAscii(0, "1");
       final byte[] byteArray = new byte[1];
@@ -52,7 +52,7 @@ public class FieldTypeAsciiTest_OE25Dev {
       assertArrayEquals(new byte[] {(byte)0, (byte)0}, byteArrayTwo);
   }
 
-    @Test
+@Test
     public void testCreatesFieldTypeAsciiAndWriteDataUsingString_1_oe() throws ImageWriteException {
         final FieldTypeAscii fieldTypeAscii = new FieldTypeAscii(0, "1");
         final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;

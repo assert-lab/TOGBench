@@ -39,37 +39,37 @@ public class CharUtilsTest_OE25Dev {
     private static final Character CHARACTER_A = Character.valueOf('A');
     private static final Character CHARACTER_B = Character.valueOf('B');
 
-    @Test
+@Test
     public void testCompare_1_oe() {
         assertTrue(CharUtils.compare('a', 'b') < 0);
     }
 
-    @Test
+@Test
     public void testCompare_2_oe() {
         // removed other assertion
         assertEquals(0, CharUtils.compare('c', 'c'));
     }
 
-    @Test
+@Test
     public void testCompare_3_oe() {
         // removed other assertion
         // removed other assertion
         assertTrue(CharUtils.compare('c', 'a') > 0);
     }
 
-    @Test
+@Test
     public void testConstructor_1_oe() {
         assertNotNull(new CharUtils());
     }
 
-    @Test
+@Test
     public void testConstructor_2_oe() {
         // removed other assertion
         final Constructor<?>[] cons = CharUtils.class.getDeclaredConstructors();
         assertEquals(1, cons.length);
     }
 
-    @Test
+@Test
     public void testConstructor_3_oe() {
         // removed other assertion
         final Constructor<?>[] cons = CharUtils.class.getDeclaredConstructors();
@@ -77,7 +77,7 @@ public class CharUtilsTest_OE25Dev {
         assertTrue(Modifier.isPublic(cons[0].getModifiers()));
     }
 
-    @Test
+@Test
     public void testConstructor_4_oe() {
         // removed other assertion
         final Constructor<?>[] cons = CharUtils.class.getDeclaredConstructors();
@@ -86,7 +86,7 @@ public class CharUtilsTest_OE25Dev {
         assertTrue(Modifier.isPublic(CharUtils.class.getModifiers()));
     }
 
-    @Test
+@Test
     public void testConstructor_5_oe() {
         // removed other assertion
         final Constructor<?>[] cons = CharUtils.class.getDeclaredConstructors();
@@ -96,25 +96,25 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(Modifier.isFinal(CharUtils.class.getModifiers()));
     }
 
-    @Test
+@Test
     public void testIsAscii_char_1_oe() {
         assertTrue(CharUtils.isAscii('a'));
     }
 
-    @Test
+@Test
     public void testIsAscii_char_2_oe() {
         // removed other assertion
         assertTrue(CharUtils.isAscii('A'));
     }
 
-    @Test
+@Test
     public void testIsAscii_char_3_oe() {
         // removed other assertion
         // removed other assertion
         assertTrue(CharUtils.isAscii('3'));
     }
 
-    @Test
+@Test
     public void testIsAscii_char_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -122,7 +122,7 @@ public class CharUtilsTest_OE25Dev {
         assertTrue(CharUtils.isAscii('-'));
     }
 
-    @Test
+@Test
     public void testIsAscii_char_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -131,7 +131,7 @@ public class CharUtilsTest_OE25Dev {
         assertTrue(CharUtils.isAscii('\n'));
     }
 
-    @Test
+@Test
     public void testIsAscii_char_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -141,7 +141,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAscii(CHAR_COPY));
     }
 
-    @Test
+@Test
     public void testIsAscii_char_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -155,25 +155,25 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIsAsciiAlpha_char_1_oe() {
         assertTrue(CharUtils.isAsciiAlpha('a'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlpha_char_2_oe() {
         // removed other assertion
         assertTrue(CharUtils.isAsciiAlpha('A'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlpha_char_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(CharUtils.isAsciiAlpha('3'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlpha_char_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -181,7 +181,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiAlpha('-'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlpha_char_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -190,7 +190,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiAlpha('\n'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlpha_char_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -200,7 +200,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiAlpha(CHAR_COPY));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlpha_char_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -216,7 +216,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIsAsciiAlpha_char_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -234,25 +234,25 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphaLower_char_1_oe() {
         assertTrue(CharUtils.isAsciiAlphaLower('a'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphaLower_char_2_oe() {
         // removed other assertion
         assertFalse(CharUtils.isAsciiAlphaLower('A'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphaLower_char_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(CharUtils.isAsciiAlphaLower('3'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphaLower_char_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -260,7 +260,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiAlphaLower('-'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphaLower_char_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -269,7 +269,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiAlphaLower('\n'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphaLower_char_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -279,7 +279,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiAlphaLower(CHAR_COPY));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphaLower_char_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -295,7 +295,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphaLower_char_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -313,25 +313,25 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphanumeric_char_1_oe() {
         assertTrue(CharUtils.isAsciiAlphanumeric('a'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphanumeric_char_2_oe() {
         // removed other assertion
         assertTrue(CharUtils.isAsciiAlphanumeric('A'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphanumeric_char_3_oe() {
         // removed other assertion
         // removed other assertion
         assertTrue(CharUtils.isAsciiAlphanumeric('3'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphanumeric_char_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -339,7 +339,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiAlphanumeric('-'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphanumeric_char_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -348,7 +348,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiAlphanumeric('\n'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphanumeric_char_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -358,7 +358,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiAlphanumeric(CHAR_COPY));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphanumeric_char_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -374,7 +374,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphanumeric_char_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -392,25 +392,25 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphaUpper_char_1_oe() {
         assertFalse(CharUtils.isAsciiAlphaUpper('a'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphaUpper_char_2_oe() {
         // removed other assertion
         assertTrue(CharUtils.isAsciiAlphaUpper('A'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphaUpper_char_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(CharUtils.isAsciiAlphaUpper('3'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphaUpper_char_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -418,7 +418,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiAlphaUpper('-'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphaUpper_char_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -427,7 +427,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiAlphaUpper('\n'));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphaUpper_char_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -437,7 +437,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiAlphaUpper(CHAR_COPY));
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphaUpper_char_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -453,7 +453,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIsAsciiAlphaUpper_char_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -471,25 +471,25 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIsAsciiControl_char_1_oe() {
         assertFalse(CharUtils.isAsciiControl('a'));
     }
 
-    @Test
+@Test
     public void testIsAsciiControl_char_2_oe() {
         // removed other assertion
         assertFalse(CharUtils.isAsciiControl('A'));
     }
 
-    @Test
+@Test
     public void testIsAsciiControl_char_3_oe() {
         // removed other assertion
         // removed other assertion
         assertFalse(CharUtils.isAsciiControl('3'));
     }
 
-    @Test
+@Test
     public void testIsAsciiControl_char_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -497,7 +497,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiControl('-'));
     }
 
-    @Test
+@Test
     public void testIsAsciiControl_char_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -506,7 +506,7 @@ public class CharUtilsTest_OE25Dev {
         assertTrue(CharUtils.isAsciiControl('\n'));
     }
 
-    @Test
+@Test
     public void testIsAsciiControl_char_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -516,7 +516,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiControl(CHAR_COPY));
     }
 
-    @Test
+@Test
     public void testIsAsciiControl_char_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -532,7 +532,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIsAsciiControl_char_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -550,25 +550,25 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIsAsciiNumeric_char_1_oe() {
         assertFalse(CharUtils.isAsciiNumeric('a'));
     }
 
-    @Test
+@Test
     public void testIsAsciiNumeric_char_2_oe() {
         // removed other assertion
         assertFalse(CharUtils.isAsciiNumeric('A'));
     }
 
-    @Test
+@Test
     public void testIsAsciiNumeric_char_3_oe() {
         // removed other assertion
         // removed other assertion
         assertTrue(CharUtils.isAsciiNumeric('3'));
     }
 
-    @Test
+@Test
     public void testIsAsciiNumeric_char_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -576,7 +576,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiNumeric('-'));
     }
 
-    @Test
+@Test
     public void testIsAsciiNumeric_char_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -585,7 +585,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiNumeric('\n'));
     }
 
-    @Test
+@Test
     public void testIsAsciiNumeric_char_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -595,7 +595,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiNumeric(CHAR_COPY));
     }
 
-    @Test
+@Test
     public void testIsAsciiNumeric_char_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -611,7 +611,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIsAsciiNumeric_char_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -629,25 +629,25 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIsAsciiPrintable_char_1_oe() {
         assertTrue(CharUtils.isAsciiPrintable('a'));
     }
 
-    @Test
+@Test
     public void testIsAsciiPrintable_char_2_oe() {
         // removed other assertion
         assertTrue(CharUtils.isAsciiPrintable('A'));
     }
 
-    @Test
+@Test
     public void testIsAsciiPrintable_char_3_oe() {
         // removed other assertion
         // removed other assertion
         assertTrue(CharUtils.isAsciiPrintable('3'));
     }
 
-    @Test
+@Test
     public void testIsAsciiPrintable_char_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -655,7 +655,7 @@ public class CharUtilsTest_OE25Dev {
         assertTrue(CharUtils.isAsciiPrintable('-'));
     }
 
-    @Test
+@Test
     public void testIsAsciiPrintable_char_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -664,7 +664,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiPrintable('\n'));
     }
 
-    @Test
+@Test
     public void testIsAsciiPrintable_char_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -674,7 +674,7 @@ public class CharUtilsTest_OE25Dev {
         assertFalse(CharUtils.isAsciiPrintable(CHAR_COPY));
     }
 
-    @Test
+@Test
     public void testIsAsciiPrintable_char_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -690,7 +690,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testIsAsciiPrintable_char_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -708,61 +708,61 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToChar_Character_1_oe() {
         assertEquals('A', CharUtils.toChar(CHARACTER_A));
     }
 
-    @Test
+@Test
     public void testToChar_Character_2_oe() {
         // removed other assertion
         assertEquals('B', CharUtils.toChar(CHARACTER_B));
     }
 
-    @Test
+@Test
     public void testToChar_Character_3_oe() {
         // removed other assertion
         // removed other assertion
         assertThrows(NullPointerException.class, () -> CharUtils.toChar((Character) null));
     }
 
-    @Test
+@Test
     public void testToChar_Character_char_1_oe() {
         assertEquals('A', CharUtils.toChar(CHARACTER_A, 'X'));
     }
 
-    @Test
+@Test
     public void testToChar_Character_char_2_oe() {
         // removed other assertion
         assertEquals('B', CharUtils.toChar(CHARACTER_B, 'X'));
     }
 
-    @Test
+@Test
     public void testToChar_Character_char_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals('X', CharUtils.toChar((Character) null, 'X'));
     }
 
-    @Test
+@Test
     public void testToChar_String_1_oe() {
         assertEquals('A', CharUtils.toChar("A"));
     }
 
-    @Test
+@Test
     public void testToChar_String_2_oe() {
         // removed other assertion
         assertEquals('B', CharUtils.toChar("BA"));
     }
 
-    @Test
+@Test
     public void testToChar_String_3_oe() {
         // removed other assertion
         // removed other assertion
         assertThrows(NullPointerException.class, () -> CharUtils.toChar((String) null));
     }
 
-    @Test
+@Test
     public void testToChar_String_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -770,25 +770,25 @@ public class CharUtilsTest_OE25Dev {
         assertThrows(IllegalArgumentException.class, () -> CharUtils.toChar(""));
     }
 
-    @Test
+@Test
     public void testToChar_String_char_1_oe() {
         assertEquals('A', CharUtils.toChar("A", 'X'));
     }
 
-    @Test
+@Test
     public void testToChar_String_char_2_oe() {
         // removed other assertion
         assertEquals('B', CharUtils.toChar("BA", 'X'));
     }
 
-    @Test
+@Test
     public void testToChar_String_char_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals('X', CharUtils.toChar("", 'X'));
     }
 
-    @Test
+@Test
     public void testToChar_String_char_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -796,18 +796,18 @@ public class CharUtilsTest_OE25Dev {
         assertEquals('X', CharUtils.toChar((String) null, 'X'));
     }
 
-    @Test
+@Test
     public void testToCharacterObject_char_1_oe() {
         assertEquals(Character.valueOf('a'), CharUtils.toCharacterObject('a'));
     }
 
-    @Test
+@Test
     public void testToCharacterObject_char_2_oe() {
         // removed other assertion
         assertSame(CharUtils.toCharacterObject('a'), CharUtils.toCharacterObject('a'));
     }
 
-    @Test
+@Test
     public void testToCharacterObject_char_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -819,7 +819,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToCharacterObject_char_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -832,7 +832,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToCharacterObject_char_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -850,7 +850,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToCharacterObject_char_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -869,7 +869,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToCharacterObject_char_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -889,7 +889,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToCharacterObject_char_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -910,7 +910,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToCharacterObject_char_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -932,25 +932,25 @@ public class CharUtilsTest_OE25Dev {
         assertSame(CharUtils.toCharacterObject("a"), CharUtils.toCharacterObject('a'));
     }
 
-    @Test
+@Test
     public void testToCharacterObject_String_1_oe() {
         assertNull(CharUtils.toCharacterObject(null));
     }
 
-    @Test
+@Test
     public void testToCharacterObject_String_2_oe() {
         // removed other assertion
         assertNull(CharUtils.toCharacterObject(""));
     }
 
-    @Test
+@Test
     public void testToCharacterObject_String_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(Character.valueOf('a'), CharUtils.toCharacterObject("a"));
     }
 
-    @Test
+@Test
     public void testToCharacterObject_String_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -958,7 +958,7 @@ public class CharUtilsTest_OE25Dev {
         assertEquals(Character.valueOf('a'), CharUtils.toCharacterObject("abc"));
     }
 
-    @Test
+@Test
     public void testToCharacterObject_String_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -967,25 +967,25 @@ public class CharUtilsTest_OE25Dev {
         assertSame(CharUtils.toCharacterObject("a"), CharUtils.toCharacterObject("a"));
     }
 
-    @Test
+@Test
     public void testToIntValue_char_1_oe() {
         assertEquals(0, CharUtils.toIntValue('0'));
     }
 
-    @Test
+@Test
     public void testToIntValue_char_2_oe() {
         // removed other assertion
         assertEquals(1, CharUtils.toIntValue('1'));
     }
 
-    @Test
+@Test
     public void testToIntValue_char_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(2, CharUtils.toIntValue('2'));
     }
 
-    @Test
+@Test
     public void testToIntValue_char_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -993,7 +993,7 @@ public class CharUtilsTest_OE25Dev {
         assertEquals(3, CharUtils.toIntValue('3'));
     }
 
-    @Test
+@Test
     public void testToIntValue_char_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1002,7 +1002,7 @@ public class CharUtilsTest_OE25Dev {
         assertEquals(4, CharUtils.toIntValue('4'));
     }
 
-    @Test
+@Test
     public void testToIntValue_char_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1012,7 +1012,7 @@ public class CharUtilsTest_OE25Dev {
         assertEquals(5, CharUtils.toIntValue('5'));
     }
 
-    @Test
+@Test
     public void testToIntValue_char_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -1023,7 +1023,7 @@ public class CharUtilsTest_OE25Dev {
         assertEquals(6, CharUtils.toIntValue('6'));
     }
 
-    @Test
+@Test
     public void testToIntValue_char_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -1035,7 +1035,7 @@ public class CharUtilsTest_OE25Dev {
         assertEquals(7, CharUtils.toIntValue('7'));
     }
 
-    @Test
+@Test
     public void testToIntValue_char_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -1048,7 +1048,7 @@ public class CharUtilsTest_OE25Dev {
         assertEquals(8, CharUtils.toIntValue('8'));
     }
 
-    @Test
+@Test
     public void testToIntValue_char_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -1062,7 +1062,7 @@ public class CharUtilsTest_OE25Dev {
         assertEquals(9, CharUtils.toIntValue('9'));
     }
 
-    @Test
+@Test
     public void testToIntValue_char_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -1077,43 +1077,43 @@ public class CharUtilsTest_OE25Dev {
         assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue('a'));
     }
 
-    @Test
+@Test
     public void testToIntValue_char_int_1_oe() {
         assertEquals(0, CharUtils.toIntValue('0', -1));
     }
 
-    @Test
+@Test
     public void testToIntValue_char_int_2_oe() {
         // removed other assertion
         assertEquals(3, CharUtils.toIntValue('3', -1));
     }
 
-    @Test
+@Test
     public void testToIntValue_char_int_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(-1, CharUtils.toIntValue('a', -1));
     }
 
-    @Test
+@Test
     public void testToIntValue_Character_1_oe() {
         assertEquals(0, CharUtils.toIntValue(Character.valueOf('0')));
     }
 
-    @Test
+@Test
     public void testToIntValue_Character_2_oe() {
         // removed other assertion
         assertEquals(3, CharUtils.toIntValue(Character.valueOf('3')));
     }
 
-    @Test
+@Test
     public void testToIntValue_Character_3_oe() {
         // removed other assertion
         // removed other assertion
         assertThrows(NullPointerException.class, () -> CharUtils.toIntValue(null));
     }
 
-    @Test
+@Test
     public void testToIntValue_Character_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1121,25 +1121,25 @@ public class CharUtilsTest_OE25Dev {
         assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue(CHARACTER_A));
     }
 
-    @Test
+@Test
     public void testToIntValue_Character_int_1_oe() {
         assertEquals(0, CharUtils.toIntValue(Character.valueOf('0'), -1));
     }
 
-    @Test
+@Test
     public void testToIntValue_Character_int_2_oe() {
         // removed other assertion
         assertEquals(3, CharUtils.toIntValue(Character.valueOf('3'), -1));
     }
 
-    @Test
+@Test
     public void testToIntValue_Character_int_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(-1, CharUtils.toIntValue(Character.valueOf('A'), -1));
     }
 
-    @Test
+@Test
     public void testToIntValue_Character_int_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1147,18 +1147,18 @@ public class CharUtilsTest_OE25Dev {
         assertEquals(-1, CharUtils.toIntValue(null, -1));
     }
 
-    @Test
+@Test
     public void testToString_char_1_oe() {
         assertEquals("a", CharUtils.toString('a'));
     }
 
-    @Test
+@Test
     public void testToString_char_2_oe() {
         // removed other assertion
         assertSame(CharUtils.toString('a'), CharUtils.toString('a'));
     }
 
-    @Test
+@Test
     public void testToString_char_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -1170,7 +1170,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToString_char_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1183,7 +1183,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToString_char_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1197,7 +1197,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToString_char_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1216,7 +1216,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToString_char_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -1236,7 +1236,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToString_char_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -1257,7 +1257,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToString_char_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -1279,7 +1279,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToString_char_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -1302,7 +1302,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToString_char_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -1326,36 +1326,36 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToString_Character_1_oe() {
         assertNull(CharUtils.toString(null));
     }
 
-    @Test
+@Test
     public void testToString_Character_2_oe() {
         // removed other assertion
         assertEquals("A", CharUtils.toString(CHARACTER_A));
     }
 
-    @Test
+@Test
     public void testToString_Character_3_oe() {
         // removed other assertion
         // removed other assertion
         assertSame(CharUtils.toString(CHARACTER_A), CharUtils.toString(CHARACTER_A));
     }
 
-    @Test
+@Test
     public void testToUnicodeEscaped_char_1_oe() {
         assertEquals("\\u0041", CharUtils.unicodeEscaped('A'));
     }
 
-    @Test
+@Test
     public void testToUnicodeEscaped_char_2_oe() {
         // removed other assertion
         assertEquals("\\u004c", CharUtils.unicodeEscaped('L'));
     }
 
-    @Test
+@Test
     public void testToUnicodeEscaped_char_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -1366,7 +1366,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToUnicodeEscaped_char_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -1379,7 +1379,7 @@ public class CharUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testToUnicodeEscaped_char_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -1393,7 +1393,7 @@ public class CharUtilsTest_OE25Dev {
         assertEquals("\\u0999", CharUtils.unicodeEscaped((char) 0x999));
     }
 
-    @Test
+@Test
     public void testToUnicodeEscaped_char_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -1408,12 +1408,12 @@ public class CharUtilsTest_OE25Dev {
         assertEquals("\\u1001", CharUtils.unicodeEscaped((char) 0x1001));
     }
 
-    @Test
+@Test
     public void testToUnicodeEscaped_Character_1_oe() {
         assertNull(CharUtils.unicodeEscaped(null));
     }
 
-    @Test
+@Test
     public void testToUnicodeEscaped_Character_2_oe() {
         // removed other assertion
         assertEquals("\\u0041", CharUtils.unicodeEscaped(CHARACTER_A));

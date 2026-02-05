@@ -318,14 +318,14 @@ public class IteratorUtilsTest_OE25Dev {
      * ListIterator.
      */
 
-    @Test
+@Test
     public void testArrayIterator_1_oe() {
         final Object[] objArray = {"a", "b", "c"};
         ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
         assertTrue(iterator.next().equals("a"));
     }
 
-    @Test
+@Test
     public void testArrayIterator_2_oe() {
         final Object[] objArray = {"a", "b", "c"};
         ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
@@ -333,7 +333,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals("b"));
     }
 
-    @Test
+@Test
     public void testArrayIterator_3_oe() {
         final Object[] objArray = {"a", "b", "c"};
         ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
@@ -343,7 +343,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals("a"));
     }
 
-    @Test
+@Test
     public void testArrayIterator_6_oe() {
         final Object[] objArray = {"a", "b", "c"};
         ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
@@ -370,7 +370,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals("b"));
     }
 
-    @Test
+@Test
     public void testArrayIterator_8_oe() {
         final Object[] objArray = {"a", "b", "c"};
         ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
@@ -407,7 +407,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(!iterator.hasNext());
     }
 
-    @Test
+@Test
     public void testArrayIterator_10_oe() {
         final Object[] objArray = {"a", "b", "c"};
         ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
@@ -455,7 +455,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals("c"));
     }
 
-    @Test
+@Test
     public void testArrayIterator_14_oe() {
         final Object[] objArray = {"a", "b", "c"};
         ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
@@ -528,7 +528,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals(Integer.valueOf(0)));
     }
 
-    @Test
+@Test
     public void testArrayIterator_15_oe() {
         final Object[] objArray = {"a", "b", "c"};
         ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
@@ -602,7 +602,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals(Integer.valueOf(1)));
     }
 
-    @Test
+@Test
     public void testArrayIterator_16_oe() {
         final Object[] objArray = {"a", "b", "c"};
         ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
@@ -678,7 +678,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals(Integer.valueOf(0)));
     }
 
-    @Test
+@Test
     public void testArrayIterator_17_oe() {
         final Object[] objArray = {"a", "b", "c"};
         ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
@@ -757,7 +757,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals(Integer.valueOf(1)));
     }
 
-    @Test
+@Test
     public void testArrayIterator_19_oe() {
         final Object[] objArray = {"a", "b", "c"};
         ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
@@ -846,7 +846,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(!iterator.hasNext());
     }
 
-    @Test
+@Test
     public void testArrayIterator_21_oe() {
         final Object[] objArray = {"a", "b", "c"};
         ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
@@ -946,14 +946,14 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals(Integer.valueOf(2)));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_1_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
         assertTrue(!iterator.hasPrevious());
     }
 
-    @Test
+@Test
     public void testArrayListIterator_2_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -961,7 +961,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.previousIndex() == -1);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_3_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -970,7 +970,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.nextIndex() == 0);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_4_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -980,7 +980,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals("a"));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_5_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -991,7 +991,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.previous().equals("a"));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_6_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1003,7 +1003,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals("a"));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_7_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1016,7 +1016,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.previousIndex() == 0);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_8_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1030,7 +1030,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.nextIndex() == 1);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_9_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1045,7 +1045,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals("b"));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_10_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1061,7 +1061,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals("c"));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_11_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1078,7 +1078,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals("d"));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_12_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1096,7 +1096,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.nextIndex()== 4);// size of list assertTrue(iterator.previousIndex()== 3);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_15_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1131,7 +1131,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.previousIndex() == -1);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_16_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1167,7 +1167,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(!iterator.hasPrevious());
     }
 
-    @Test
+@Test
     public void testArrayListIterator_17_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1204,7 +1204,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.nextIndex() == 0);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_18_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1242,7 +1242,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals("b"));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_19_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1281,7 +1281,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.previousIndex() == 0);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_21_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1330,7 +1330,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.hasNext());
     }
 
-    @Test
+@Test
     public void testArrayListIterator_24_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1395,7 +1395,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals("c"));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_28_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1485,7 +1485,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.previousIndex() == -1);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_29_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1576,7 +1576,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(!iterator.hasPrevious());
     }
 
-    @Test
+@Test
     public void testArrayListIterator_30_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1668,7 +1668,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.nextIndex() == 0);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_31_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1761,7 +1761,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals(Integer.valueOf(0)));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_32_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1855,7 +1855,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.previousIndex() == 0);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_33_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1950,7 +1950,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.nextIndex() == 1);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_34_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -2046,7 +2046,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals(Integer.valueOf(1)));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_35_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -2143,7 +2143,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.previousIndex() == 1);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_36_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -2241,7 +2241,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.nextIndex() == 2);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_37_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -2340,7 +2340,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.previous().equals(Integer.valueOf(1)));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_38_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -2440,7 +2440,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals(Integer.valueOf(1)));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_39_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -2543,7 +2543,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.previousIndex() == -1);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_40_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -2647,7 +2647,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(!iterator.hasPrevious());
     }
 
-    @Test
+@Test
     public void testArrayListIterator_41_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -2752,7 +2752,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.nextIndex() == 0);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_42_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -2858,7 +2858,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals(Integer.valueOf(1)));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_43_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -2965,7 +2965,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.previous().equals(Integer.valueOf(1)));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_44_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -3073,7 +3073,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals(Integer.valueOf(1)));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_45_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -3182,7 +3182,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.previousIndex() == 0);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_46_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -3292,7 +3292,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.nextIndex() == 1);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_47_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -3403,7 +3403,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals(Integer.valueOf(2)));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_48_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -3515,7 +3515,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.previousIndex() == 1);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_49_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -3628,7 +3628,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.nextIndex() == 2);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_50_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -3742,7 +3742,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.previous().equals(Integer.valueOf(2)));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_51_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -3857,7 +3857,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.previousIndex() == 0);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_52_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -3973,7 +3973,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.nextIndex() == 1);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_54_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -4099,7 +4099,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(!iterator.hasNext());
     }
 
-    @Test
+@Test
     public void testArrayListIterator_56_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -4235,7 +4235,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(!iterator.hasPrevious());
     }
 
-    @Test
+@Test
     public void testArrayListIterator_57_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -4372,7 +4372,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.previousIndex() == -1);
     }
 
-    @Test
+@Test
     public void testArrayListIterator_58_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -4510,7 +4510,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.next().equals(Integer.valueOf(2)));
     }
 
-    @Test
+@Test
     public void testArrayListIterator_59_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -4649,7 +4649,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.hasPrevious());
     }
 
-    @Test
+@Test
     public void testArrayListIterator_60_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -4789,7 +4789,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(!iterator.hasNext());
     }
 
-    @Test
+@Test
     public void testAsIterable_1_oe() {
         final List<Integer> list = new ArrayList<>();
         list.add(Integer.valueOf(0));
@@ -4804,7 +4804,7 @@ public class IteratorUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testAsIterable_2_oe() {
         final List<Integer> list = new ArrayList<>();
         list.add(Integer.valueOf(0));
@@ -4822,7 +4822,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(expected > 0);
     }
 
-    @Test
+@Test
     public void testAsIterable_3_oe() {
         final List<Integer> list = new ArrayList<>();
         list.add(Integer.valueOf(0));
@@ -4843,7 +4843,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertFalse("should not be able to iterate twice", IteratorUtils.asIterable(iterator).iterator().hasNext());
     }
 
-    @Test
+@Test
     public void testAsMultipleIterable_1_oe() {
         final List<Integer> list = new ArrayList<>();
         list.add(Integer.valueOf(0));
@@ -4858,7 +4858,7 @@ public class IteratorUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testAsMultipleIterable_2_oe() {
         final List<Integer> list = new ArrayList<>();
         list.add(Integer.valueOf(0));
@@ -4876,7 +4876,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(expected > 0);
     }
 
-    @Test
+@Test
     public void testAsMultipleIterable_3_oe() {
         final List<Integer> list = new ArrayList<>();
         list.add(Integer.valueOf(0));
@@ -4900,7 +4900,7 @@ public class IteratorUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testAsMultipleIterable_4_oe() {
         final List<Integer> list = new ArrayList<>();
         list.add(Integer.valueOf(0));
@@ -4927,7 +4927,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(expected > 0);
     }
 
-    @Test
+@Test
     public void testCollatedIterator_3_oe() {
         try {
             IteratorUtils.collatedIterator(null, collectionOdd.iterator(), null);
@@ -4951,7 +4951,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(12, result.size());
     }
 
-    @Test
+@Test
     public void testCollatedIterator_4_oe() {
         try {
             IteratorUtils.collatedIterator(null, collectionOdd.iterator(), null);
@@ -4982,7 +4982,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(combinedList, result);
     }
 
-    @Test
+@Test
     public void testCollatedIterator_5_oe() {
         try {
             IteratorUtils.collatedIterator(null, collectionOdd.iterator(), null);
@@ -5017,7 +5017,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(collectionOdd, result);
     }
 
-    @Test
+@Test
     public void testCollatedIterator_6_oe() {
         try {
             IteratorUtils.collatedIterator(null, collectionOdd.iterator(), null);
@@ -5065,25 +5065,25 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(combinedList, result);
     }
 
-    @Test
+@Test
     public void testEmptyIterator_1_oe() {
         assertSame(EmptyIterator.INSTANCE, IteratorUtils.EMPTY_ITERATOR);
     }
 
-    @Test
+@Test
     public void testEmptyIterator_2_oe() {
         // removed other assertion
         assertSame(EmptyIterator.RESETTABLE_INSTANCE, IteratorUtils.EMPTY_ITERATOR);
     }
 
-    @Test
+@Test
     public void testEmptyIterator_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(true, IteratorUtils.EMPTY_ITERATOR instanceof Iterator);
     }
 
-    @Test
+@Test
     public void testEmptyIterator_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -5091,7 +5091,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(true, IteratorUtils.EMPTY_ITERATOR instanceof ResettableIterator);
     }
 
-    @Test
+@Test
     public void testEmptyIterator_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -5100,7 +5100,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_ITERATOR instanceof OrderedIterator);
     }
 
-    @Test
+@Test
     public void testEmptyIterator_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -5110,7 +5110,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_ITERATOR instanceof ListIterator);
     }
 
-    @Test
+@Test
     public void testEmptyIterator_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -5121,7 +5121,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_ITERATOR instanceof MapIterator);
     }
 
-    @Test
+@Test
     public void testEmptyIterator_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -5133,7 +5133,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_ITERATOR.hasNext());
     }
 
-    @Test
+@Test
     public void testEmptyIterator_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -5147,7 +5147,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertSame(IteratorUtils.EMPTY_ITERATOR, IteratorUtils.EMPTY_ITERATOR);
     }
 
-    @Test
+@Test
     public void testEmptyIterator_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -5162,25 +5162,25 @@ public class IteratorUtilsTest_OE25Dev {
         assertSame(IteratorUtils.EMPTY_ITERATOR, IteratorUtils.emptyIterator());
     }
 
-    @Test
+@Test
     public void testEmptyListIterator_1_oe() {
         assertSame(EmptyListIterator.INSTANCE, IteratorUtils.EMPTY_LIST_ITERATOR);
     }
 
-    @Test
+@Test
     public void testEmptyListIterator_2_oe() {
         // removed other assertion
         assertSame(EmptyListIterator.RESETTABLE_INSTANCE, IteratorUtils.EMPTY_LIST_ITERATOR);
     }
 
-    @Test
+@Test
     public void testEmptyListIterator_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(true, IteratorUtils.EMPTY_LIST_ITERATOR instanceof Iterator);
     }
 
-    @Test
+@Test
     public void testEmptyListIterator_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -5188,7 +5188,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(true, IteratorUtils.EMPTY_LIST_ITERATOR instanceof ListIterator);
     }
 
-    @Test
+@Test
     public void testEmptyListIterator_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -5197,7 +5197,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(true, IteratorUtils.EMPTY_LIST_ITERATOR instanceof ResettableIterator);
     }
 
-    @Test
+@Test
     public void testEmptyListIterator_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -5207,7 +5207,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(true, IteratorUtils.EMPTY_LIST_ITERATOR instanceof ResettableListIterator);
     }
 
-    @Test
+@Test
     public void testEmptyListIterator_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -5218,7 +5218,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_LIST_ITERATOR instanceof MapIterator);
     }
 
-    @Test
+@Test
     public void testEmptyListIterator_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -5230,7 +5230,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_LIST_ITERATOR.hasNext());
     }
 
-    @Test
+@Test
     public void testEmptyListIterator_9_oe() {
         // removed other assertion
         // removed other assertion
@@ -5243,7 +5243,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(0, IteratorUtils.EMPTY_LIST_ITERATOR.nextIndex());
     }
 
-    @Test
+@Test
     public void testEmptyListIterator_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -5257,7 +5257,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(-1, IteratorUtils.EMPTY_LIST_ITERATOR.previousIndex());
     }
 
-    @Test
+@Test
     public void testEmptyListIterator_11_oe() {
         // removed other assertion
         // removed other assertion
@@ -5273,7 +5273,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertSame(IteratorUtils.EMPTY_LIST_ITERATOR, IteratorUtils.EMPTY_LIST_ITERATOR);
     }
 
-    @Test
+@Test
     public void testEmptyListIterator_12_oe() {
         // removed other assertion
         // removed other assertion
@@ -5290,20 +5290,20 @@ public class IteratorUtilsTest_OE25Dev {
         assertSame(IteratorUtils.EMPTY_LIST_ITERATOR, IteratorUtils.emptyListIterator());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyMapIterator_1_oe() {
         assertSame(EmptyMapIterator.INSTANCE, IteratorUtils.EMPTY_MAP_ITERATOR);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyMapIterator_2_oe() {
         // removed other assertion
         assertEquals(true, IteratorUtils.EMPTY_MAP_ITERATOR instanceof Iterator);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyMapIterator_3_oe() {
         // removed other assertion
@@ -5311,7 +5311,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(true, IteratorUtils.EMPTY_MAP_ITERATOR instanceof MapIterator);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyMapIterator_4_oe() {
         // removed other assertion
@@ -5320,7 +5320,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(true, IteratorUtils.EMPTY_MAP_ITERATOR instanceof ResettableIterator);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyMapIterator_5_oe() {
         // removed other assertion
@@ -5330,7 +5330,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_MAP_ITERATOR instanceof ListIterator);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyMapIterator_6_oe() {
         // removed other assertion
@@ -5341,7 +5341,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_MAP_ITERATOR instanceof OrderedIterator);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyMapIterator_7_oe() {
         // removed other assertion
@@ -5353,7 +5353,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_MAP_ITERATOR instanceof OrderedMapIterator);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyMapIterator_8_oe() {
         // removed other assertion
@@ -5366,7 +5366,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_MAP_ITERATOR.hasNext());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyMapIterator_9_oe() {
         // removed other assertion
@@ -5381,7 +5381,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertSame(IteratorUtils.EMPTY_MAP_ITERATOR, IteratorUtils.EMPTY_MAP_ITERATOR);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyMapIterator_10_oe() {
         // removed other assertion
@@ -5397,20 +5397,20 @@ public class IteratorUtilsTest_OE25Dev {
         assertSame(IteratorUtils.EMPTY_MAP_ITERATOR, IteratorUtils.emptyMapIterator());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedIterator_1_oe() {
         assertSame(EmptyOrderedIterator.INSTANCE, IteratorUtils.EMPTY_ORDERED_ITERATOR);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedIterator_2_oe() {
         // removed other assertion
         assertEquals(true, IteratorUtils.EMPTY_ORDERED_ITERATOR instanceof Iterator);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedIterator_3_oe() {
         // removed other assertion
@@ -5418,7 +5418,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(true, IteratorUtils.EMPTY_ORDERED_ITERATOR instanceof OrderedIterator);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedIterator_4_oe() {
         // removed other assertion
@@ -5427,7 +5427,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(true, IteratorUtils.EMPTY_ORDERED_ITERATOR instanceof ResettableIterator);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedIterator_5_oe() {
         // removed other assertion
@@ -5437,7 +5437,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_ORDERED_ITERATOR instanceof ListIterator);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedIterator_6_oe() {
         // removed other assertion
@@ -5448,7 +5448,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_ORDERED_ITERATOR instanceof MapIterator);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedIterator_7_oe() {
         // removed other assertion
@@ -5460,7 +5460,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_ORDERED_ITERATOR.hasNext());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedIterator_8_oe() {
         // removed other assertion
@@ -5473,7 +5473,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_ORDERED_ITERATOR.hasPrevious());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedIterator_9_oe() {
         // removed other assertion
@@ -5488,7 +5488,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertSame(IteratorUtils.EMPTY_ORDERED_ITERATOR, IteratorUtils.EMPTY_ORDERED_ITERATOR);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedIterator_10_oe() {
         // removed other assertion
@@ -5504,20 +5504,20 @@ public class IteratorUtilsTest_OE25Dev {
         assertSame(IteratorUtils.EMPTY_ORDERED_ITERATOR, IteratorUtils.emptyOrderedIterator());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_1_oe() {
         assertSame(EmptyOrderedMapIterator.INSTANCE, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_2_oe() {
         // removed other assertion
         assertEquals(true, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR instanceof Iterator);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_3_oe() {
         // removed other assertion
@@ -5525,7 +5525,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(true, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR instanceof MapIterator);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_4_oe() {
         // removed other assertion
@@ -5534,7 +5534,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(true, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR instanceof OrderedMapIterator);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_5_oe() {
         // removed other assertion
@@ -5544,7 +5544,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(true, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR instanceof ResettableIterator);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_6_oe() {
         // removed other assertion
@@ -5555,7 +5555,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR instanceof ListIterator);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_7_oe() {
         // removed other assertion
@@ -5567,7 +5567,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR.hasNext());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_8_oe() {
         // removed other assertion
@@ -5580,7 +5580,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(false, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR.hasPrevious());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_9_oe() {
         // removed other assertion
@@ -5595,7 +5595,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertSame(IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_10_oe() {
         // removed other assertion
@@ -5611,14 +5611,14 @@ public class IteratorUtilsTest_OE25Dev {
         assertSame(IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR, IteratorUtils.emptyOrderedMapIterator());
     }
 
-    @Test
+@Test
     public void testFind_1_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
         Integer test = IteratorUtils.find(iterableA.iterator(), testPredicate);
         assertTrue(test.equals(4));
     }
 
-    @Test
+@Test
     public void testFind_2_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
         Integer test = IteratorUtils.find(iterableA.iterator(), testPredicate);
@@ -5628,7 +5628,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(test == null);
     }
 
-    @Test
+@Test
     public void testFind_3_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
         Integer test = IteratorUtils.find(iterableA.iterator(), testPredicate);
@@ -5639,14 +5639,14 @@ public class IteratorUtilsTest_OE25Dev {
         assertNull(IteratorUtils.find(null,testPredicate));
     }
 
-    @Test
+@Test
     public void testFirstFromIterator_1_oe() throws Exception {
         // Iterator, entry exists
         final Iterator<Integer> iterator = iterableA.iterator();
         assertEquals(1, (int) IteratorUtils.first(iterator));
     }
 
-    @Test
+@Test
     public void testForEach_1_oe() {
         final List<Integer> listA = new ArrayList<>();
         listA.add(1);
@@ -5662,7 +5662,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(listA.isEmpty() && listB.isEmpty());
     }
 
-    @Test
+@Test
     public void testForEachButLast_1_oe() {
         final List<Integer> listA = new ArrayList<>();
         listA.add(1);
@@ -5678,7 +5678,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(listA.isEmpty() && !listB.isEmpty());
     }
 
-    @Test
+@Test
     public void testForEachButLast_2_oe() {
         final List<Integer> listA = new ArrayList<>();
         listA.add(1);
@@ -5695,7 +5695,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertSame(listB, last);
     }
 
-    @Test
+@Test
     public void testForEachButLast_4_oe() {
         final List<Integer> listA = new ArrayList<>();
         listA.add(1);
@@ -5727,14 +5727,14 @@ public class IteratorUtilsTest_OE25Dev {
         assertNull(last);
     }
 
-    @Test
+@Test
     public void testGetAtIndexFromIterator_1_oe() throws Exception {
         // Iterator, entry exists
         Iterator<Integer> iterator = iterableA.iterator();
         assertEquals(1, (int) IteratorUtils.get(iterator, 0));
     }
 
-    @Test
+@Test
     public void testGetAtIndexFromIterator_2_oe() throws Exception {
         // Iterator, entry exists
         Iterator<Integer> iterator = iterableA.iterator();
@@ -5743,7 +5743,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(2, (int) IteratorUtils.get(iterator, 1));
     }
 
-    @Test
+@Test
     public void testGetAtIndexFromIterator_4_oe() throws Exception {
         // Iterator, entry exists
         Iterator<Integer> iterator = iterableA.iterator();
@@ -5761,7 +5761,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(!iterator.hasNext());
     }
 
-    @Test
+@Test
     public void testGetIterator_1_oe() {
     	final Object[] objArray = {"a", "b", "c"};
         final Map<String, String> inMap = new HashMap<>();
@@ -5771,7 +5771,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue("returns empty iterator when null passed", IteratorUtils.getIterator(null) instanceof EmptyIterator);
     }
 
-    @Test
+@Test
     public void testGetIterator_2_oe() {
     	final Object[] objArray = {"a", "b", "c"};
         final Map<String, String> inMap = new HashMap<>();
@@ -5782,7 +5782,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue("returns Iterator when Iterator directly ", IteratorUtils.getIterator(iterableA.iterator()) instanceof Iterator);
     }
 
-    @Test
+@Test
     public void testGetIterator_3_oe() {
     	final Object[] objArray = {"a", "b", "c"};
         final Map<String, String> inMap = new HashMap<>();
@@ -5794,7 +5794,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue("returns Iterator when iterable passed", IteratorUtils.getIterator(iterableA) instanceof Iterator);
     }
 
-    @Test
+@Test
     public void testGetIterator_4_oe() {
     	final Object[] objArray = {"a", "b", "c"};
         final Map<String, String> inMap = new HashMap<>();
@@ -5807,7 +5807,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue("returns ObjectArrayIterator when Object array passed", IteratorUtils.getIterator(objArray) instanceof ObjectArrayIterator);
     }
 
-    @Test
+@Test
     public void testGetIterator_5_oe() {
     	final Object[] objArray = {"a", "b", "c"};
         final Map<String, String> inMap = new HashMap<>();
@@ -5821,7 +5821,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue("returns Iterator when Map passed", IteratorUtils.getIterator(inMap) instanceof Iterator);
     }
 
-    @Test
+@Test
     public void testGetIterator_6_oe() {
     	final Object[] objArray = {"a", "b", "c"};
         final Map<String, String> inMap = new HashMap<>();
@@ -5836,7 +5836,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue("returns NodeListIterator when nodeList passed", IteratorUtils.getIterator(nodeList) instanceof NodeListIterator);
     }
 
-    @Test
+@Test
     public void testGetIterator_7_oe() {
     	final Object[] objArray = {"a", "b", "c"};
         final Map<String, String> inMap = new HashMap<>();
@@ -5852,14 +5852,14 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue("returns EnumerationIterator when Enumeration passed", IteratorUtils.getIterator(new Vector().elements()) instanceof EnumerationIterator);
     }
 
-    @Test
+@Test
     public void testIndexOf_1_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
         int index = IteratorUtils.indexOf(iterableA.iterator(), testPredicate);
         assertEquals(6, index);
     }
 
-    @Test
+@Test
     public void testIndexOf_2_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
         int index = IteratorUtils.indexOf(iterableA.iterator(), testPredicate);
@@ -5869,7 +5869,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(-1, index);
     }
 
-    @Test
+@Test
     public void testIndexOf_3_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
         int index = IteratorUtils.indexOf(iterableA.iterator(), testPredicate);
@@ -5880,7 +5880,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(-1, IteratorUtils.indexOf(null, testPredicate));
     }
 
-    @Test
+@Test
     public void testNodeIterator_1_oe() {
         final Node[] nodes = createNodes();
         final NodeList nodeList = createNodeList(nodes);
@@ -5895,7 +5895,7 @@ public class IteratorUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testNodeIterator_2_oe() {
         final Node[] nodes = createNodes();
         final NodeList nodeList = createNodeList(nodes);
@@ -5914,7 +5914,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(expectedNodeIndex > 0);
     }
 
-    @Test
+@Test
     public void testNodeIterator_3_oe() {
         final Node[] nodes = createNodes();
         final NodeList nodeList = createNodeList(nodes);
@@ -5936,7 +5936,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertFalse("should not be able to iterate twice", IteratorUtils.asIterable(iterator).iterator().hasNext());
     }
 
-    @Test
+@Test
     public void testNodeListIterator_1_oe() {
         final Node[] nodes = createNodes();
         final NodeList nodeList = createNodeList(nodes);
@@ -5948,7 +5948,7 @@ public class IteratorUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testNodeListIterator_2_oe() {
         final Node[] nodes = createNodes();
         final NodeList nodeList = createNodeList(nodes);
@@ -5964,7 +5964,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(expectedNodeIndex > 0);
     }
 
-    @Test
+@Test
     public void testNodeListIterator_3_oe() {
         final Node[] nodes = createNodes();
         final NodeList nodeList = createNodeList(nodes);
@@ -5983,7 +5983,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertFalse("should not be able to iterate twice", IteratorUtils.asIterable(iterator).iterator().hasNext());
     }
 
-    @Test
+@Test
     public void testToArray_1_oe() {
         final List<Object> list = new ArrayList<>();
         list.add(Integer.valueOf(1));
@@ -5993,7 +5993,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(list, Arrays.asList(result));
     }
 
-    @Test
+@Test
     public void testToArray2_1_oe() {
         final List<String> list = new ArrayList<>();
         list.add("One");
@@ -6003,7 +6003,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(list, Arrays.asList(result));
     }
 
-    @Test
+@Test
     public void testToList_1_oe() {
         final List<Object> list = new ArrayList<>();
         list.add(Integer.valueOf(1));
@@ -6013,7 +6013,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals(list, result);
     }
 
-    @Test
+@Test
     public void testToListIterator_1_oe() {
         final List<Integer> list = new ArrayList<>();
         list.add(Integer.valueOf(0));
@@ -6028,14 +6028,14 @@ public class IteratorUtilsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testUnmodifiableIteratorIteration_1_oe() {
         final Iterator<String> iterator = getImmutableIterator();
 
         assertTrue(iterator.hasNext());
     }
 
-    @Test
+@Test
     public void testUnmodifiableIteratorIteration_2_oe() {
         final Iterator<String> iterator = getImmutableIterator();
 
@@ -6044,7 +6044,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals("a", iterator.next());
     }
 
-    @Test
+@Test
     public void testUnmodifiableIteratorIteration_3_oe() {
         final Iterator<String> iterator = getImmutableIterator();
 
@@ -6055,7 +6055,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.hasNext());
     }
 
-    @Test
+@Test
     public void testUnmodifiableIteratorIteration_4_oe() {
         final Iterator<String> iterator = getImmutableIterator();
 
@@ -6068,7 +6068,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals("b", iterator.next());
     }
 
-    @Test
+@Test
     public void testUnmodifiableIteratorIteration_5_oe() {
         final Iterator<String> iterator = getImmutableIterator();
 
@@ -6083,7 +6083,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.hasNext());
     }
 
-    @Test
+@Test
     public void testUnmodifiableIteratorIteration_6_oe() {
         final Iterator<String> iterator = getImmutableIterator();
 
@@ -6100,7 +6100,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals("c", iterator.next());
     }
 
-    @Test
+@Test
     public void testUnmodifiableIteratorIteration_7_oe() {
         final Iterator<String> iterator = getImmutableIterator();
 
@@ -6119,7 +6119,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(iterator.hasNext());
     }
 
-    @Test
+@Test
     public void testUnmodifiableIteratorIteration_8_oe() {
         final Iterator<String> iterator = getImmutableIterator();
 
@@ -6140,7 +6140,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals("d", iterator.next());
     }
 
-    @Test
+@Test
     public void testUnmodifiableIteratorIteration_9_oe() {
         final Iterator<String> iterator = getImmutableIterator();
 
@@ -6163,14 +6163,14 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(!iterator.hasNext());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_1_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
         assertTrue(!listIterator.hasPrevious());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_2_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6178,7 +6178,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(listIterator.hasNext());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_3_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6188,7 +6188,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals("a", listIterator.next());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_4_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6200,7 +6200,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(listIterator.hasPrevious());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_5_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6213,7 +6213,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(listIterator.hasNext());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_6_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6228,7 +6228,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals("b", listIterator.next());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_7_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6245,7 +6245,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(listIterator.hasPrevious());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_8_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6263,7 +6263,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(listIterator.hasNext());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_9_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6283,7 +6283,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals("c", listIterator.next());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_10_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6305,7 +6305,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(listIterator.hasPrevious());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_11_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6328,7 +6328,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(listIterator.hasNext());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_12_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6353,7 +6353,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals("d", listIterator.next());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_13_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6380,7 +6380,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(listIterator.hasPrevious());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_14_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6408,7 +6408,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(!listIterator.hasNext());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_15_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6438,7 +6438,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals("d", listIterator.previous());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_16_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6470,7 +6470,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(listIterator.hasPrevious());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_17_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6503,7 +6503,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(listIterator.hasNext());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_18_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6538,7 +6538,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals("c", listIterator.previous());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_19_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6575,7 +6575,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(listIterator.hasPrevious());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_20_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6613,7 +6613,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(listIterator.hasNext());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_21_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6653,7 +6653,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals("b", listIterator.previous());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_22_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6695,7 +6695,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(listIterator.hasPrevious());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_23_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6738,7 +6738,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(listIterator.hasNext());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_24_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6783,7 +6783,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertEquals("a", listIterator.previous());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_25_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -6830,7 +6830,7 @@ public class IteratorUtilsTest_OE25Dev {
         assertTrue(!listIterator.hasPrevious());
     }
 
-    @Test
+@Test
     public void testUnmodifiableListIteratorIteration_26_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 

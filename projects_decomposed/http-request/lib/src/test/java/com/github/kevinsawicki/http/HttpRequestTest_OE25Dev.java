@@ -4212,26 +4212,6 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
   }
 
   @Test
-  public void postMultipart_1_oe() throws Exception {
-    final StringBuilder body = new StringBuilder();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        char[] buffer = new char[8192];
-        int read;
-        try {
-          while ((read = request.getReader().read(buffer)) != -1)
-            body.append(buffer, 0, read);
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }
-
-  @Test
   public void postMultipart_2_oe() throws Exception {
     final StringBuilder body = new StringBuilder();
     handler = new RequestHandler() {
@@ -4279,23 +4259,6 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
   }
 
   @Test
-  public void receiveAppendable_1_oe() throws Exception {
-    final StringBuilder body = new StringBuilder();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("content");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }
-
-  @Test
   public void receiveAppendable_2_oe() throws Exception {
     final StringBuilder body = new StringBuilder();
     handler = new RequestHandler() {
@@ -4311,22 +4274,6 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     assertTrue(post(url).receive(body).ok());
-  }
-
-  @Test
-  public void receiveWriter_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("content");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
   }
 
   @Test
@@ -4348,22 +4295,6 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
   }
 
   @Test
-  public void receivePrintStream_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("content");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }
-
-  @Test
   public void receivePrintStream_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4380,22 +4311,6 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     ByteArrayOutputStream output = new ByteArrayOutputStream();
     PrintStream stream = new PrintStream(output, true, CHARSET_UTF8);
     assertTrue(post(url).receive(stream).ok());
-  }
-
-  @Test
-  public void receiveFile_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("content");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
   }
 
   @Test
@@ -4494,56 +4409,6 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
   }
 
   @Test
-  public void sendErrorReadStream_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("content");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }
-
-  @Test
-  public void sendErrorReadStream_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("content");
-        } catch (IOException e) {
-          // removed other assertion
-        }
-      }
-    };
-    final IOException readCause = new IOException();
-    final IOException closeCause = new IOException();
-    InputStream stream = new InputStream() {
-
-      public int read() throws IOException {
-        throw readCause;
-      }
-
-      public void close() throws IOException {
-        throw closeCause;
-      }
-    };
-    try {
-      post(url).send(stream);
-      fail("Exception not thrown");
-    } catch (HttpRequestException e) {
-      assertEquals(readCause, e.getCause());
-    }
-  }
-
-  @Test
   public void sendErrorReadStream_3_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4574,56 +4439,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       // removed other assertion
     } catch (HttpRequestException e) {
       assertEquals(readCause, e.getCause());
-  };
   }
-
-  @Test
-  public void sendErrorCloseStream_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("content");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }
-
-  @Test
-  public void sendErrorCloseStream_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("content");
-        } catch (IOException e) {
-          // removed other assertion
-        }
-      }
-    };
-    final IOException closeCause = new IOException();
-    InputStream stream = new InputStream() {
-
-      public int read() throws IOException {
-        return -1;
-      }
-
-      public void close() throws IOException {
-        throw closeCause;
-      }
-    };
-    try {
-      post(url).ignoreCloseExceptions(false).send(stream);
-      fail("Exception not thrown");
-    } catch (HttpRequestException e) {
-      assertEquals(closeCause, e.getCause());
-    }
   }
 
   @Test
@@ -4674,22 +4490,6 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
   }
 
   @Test
-  public void getToOutputBody_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("hello world");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
-  }
-
-  @Test
   public void getToOutputBody_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4706,22 +4506,6 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     AtomicReference<String> body = new AtomicReference<String>(null);
     get(url).body(body);
     assertEquals("hello world", body.get());
-  }
-
-  @Test
-  public void getToOutputBodyWithCharset_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("hello world");
-        } catch (IOException e) {
-          fail();
-  }
-  }
-  };
   }
 
   @Test
@@ -6983,7 +6767,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       public void onUpload(long transferred, long total) {
         assertEquals(file.length(), total);
   }
-  };
+  }
   }
 
   @Test
@@ -7006,7 +6790,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
         // removed other assertion
         assertEquals(tx.incrementAndGet(), transferred);
   }
-  };
+  }
   }
 
   @Test
@@ -7028,7 +6812,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       public void onUpload(long transferred, long total) {
         assertEquals(-1, total);
   }
-  };
+  }
   }
 
   @Test
@@ -7051,7 +6835,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
         // removed other assertion
         assertEquals(tx.incrementAndGet(), transferred);
   }
-  };
+  }
   }
 
   @Test
@@ -7072,7 +6856,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       public void onUpload(long transferred, long total) {
         assertEquals(bytes.length, total);
   }
-  };
+  }
   }
 
   @Test
@@ -7094,7 +6878,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
         // removed other assertion
         assertEquals(tx.incrementAndGet(), transferred);
   }
-  };
+  }
   }
 
   @Test
@@ -7114,7 +6898,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       public void onUpload(long transferred, long total) {
         assertEquals(-1, total);
   }
-  };
+  }
   }
 
   @Test
@@ -7135,7 +6919,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
         // removed other assertion
         assertEquals(tx.incrementAndGet(), transferred);
   }
-  };
+  }
   }
 
   @Test

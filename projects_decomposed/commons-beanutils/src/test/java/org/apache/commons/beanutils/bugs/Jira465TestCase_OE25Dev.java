@@ -103,26 +103,26 @@ public class Jira465TestCase_OE25Dev extends TestCase {
         }
     }
 
-    public void testArrayProperty_1_oe() throws InvocationTargetException,
+public void testArrayProperty_1_oe() throws InvocationTargetException,
             IllegalAccessException {
         final ArrayProp bean = new ArrayProp();
         changeValue(bean);
         assertEquals("Wrong value", NEW_VALUE, bean.getFoo()[0]);
     }
 
-    public void testArrayIndexedProperty_1_oe() {
+public void testArrayIndexedProperty_1_oe() {
         final ArrayIndexedProp bean = new ArrayIndexedProp();
         changeValue(bean);
         assertEquals("Wrong value", NEW_VALUE, bean.getFoo(0));
     }
 
-    public void testListProperty_1_oe() {
+public void testListProperty_1_oe() {
         final ListProp bean = new ListProp();
         changeValue(bean);
         assertEquals("Wrong value", NEW_VALUE, bean.getFoo().get(0));
     }
 
-    public void testListIndexedProperty_1_oe() {
+public void testListIndexedProperty_1_oe() {
         final ListIndexedProp bean = new ListIndexedProp();
         changeValue(bean);
         assertEquals("Wrong value", NEW_VALUE, bean.getFoo(0));

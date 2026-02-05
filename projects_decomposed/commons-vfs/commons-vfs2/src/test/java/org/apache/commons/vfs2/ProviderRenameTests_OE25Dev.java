@@ -94,7 +94,7 @@ public class ProviderRenameTests_OE25Dev extends AbstractProviderTestCase {
      * This fails with VFS-558, but only with a CacheStrategy.ON_CALL.
      */
 
-    @Test
+@Test
     public void testRenameFile_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -103,7 +103,7 @@ public class ProviderRenameTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testRenameFileAndLeaveFolderEmpty_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileObject folder = scratchFolder.resolveFile("folder");
@@ -111,7 +111,7 @@ public class ProviderRenameTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue(folder.exists());
     }
 
-    @Test
+@Test
     public void testRenameFileAndLeaveFolderEmpty_2_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileObject folder = scratchFolder.resolveFile("folder");
@@ -121,7 +121,7 @@ public class ProviderRenameTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testRenameFileAndLeaveFolderEmpty_3_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileObject folder = scratchFolder.resolveFile("folder");
@@ -137,7 +137,7 @@ public class ProviderRenameTests_OE25Dev extends AbstractProviderTestCase {
         assertEquals(0, folder.getChildren().length);
     }
 
-    @Test
+@Test
     public void testRenameFileIntoEmptyFolder_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -146,7 +146,7 @@ public class ProviderRenameTests_OE25Dev extends AbstractProviderTestCase {
         assertFalse(file.exists());
     }
 
-    @Test
+@Test
     public void testRenameFileIntoEmptyFolder_2_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -161,7 +161,7 @@ public class ProviderRenameTests_OE25Dev extends AbstractProviderTestCase {
         assertTrue("new destination must be folder", destFolder.getType().hasChildren());
     }
 
-    @Test
+@Test
     public void testRenameFileIntoEmptyFolder_3_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 

@@ -77,7 +77,7 @@ protected void tearDown() {
     * Tests the required validation for last name.
     */
    
-   public void testRequired_1_oe() throws ValidatorException {
+public void testRequired_1_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       
@@ -100,7 +100,7 @@ protected void tearDown() {
       assertNotNull("Results are null.", results);
    }
 
-   public void testRequired_2_oe() throws ValidatorException {
+public void testRequired_2_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       
@@ -128,7 +128,7 @@ protected void tearDown() {
       assertNotNull("First Name ValidatorResult should not be null.", firstNameResult);
    }
 
-   public void testRequired_3_oe() throws ValidatorException {
+public void testRequired_3_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       
@@ -157,7 +157,7 @@ protected void tearDown() {
       assertTrue("First Name ValidatorResult should contain the '" + ACTION +"' action.", firstNameResult.containsAction(ACTION));
    }
 
-   public void testRequired_4_oe() throws ValidatorException {
+public void testRequired_4_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       
@@ -187,7 +187,7 @@ protected void tearDown() {
       assertTrue("First Name ValidatorResult for the '" + ACTION +"' action should have passed.", firstNameResult.isValid(ACTION));
    }
 
-   public void testRequired_5_oe() throws ValidatorException {
+public void testRequired_5_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       
@@ -219,7 +219,7 @@ protected void tearDown() {
       assertNotNull("Last Name ValidatorResult should not be null.", lastNameResult);
    }
 
-   public void testRequired_6_oe() throws ValidatorException {
+public void testRequired_6_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       
@@ -252,7 +252,7 @@ protected void tearDown() {
       assertTrue("Last Name ValidatorResult should contain the '" + ACTION +"' action.", lastNameResult.containsAction(ACTION));
    }
 
-   public void testRequired_7_oe() throws ValidatorException {
+public void testRequired_7_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       
@@ -286,7 +286,7 @@ protected void tearDown() {
       assertTrue("Last Name ValidatorResult for the '" + ACTION +"' action should have passed.", lastNameResult.isValid(ACTION));
    }
 
-   public void testRequiredFirstNameBlank_1_oe() throws ValidatorException {
+public void testRequiredFirstNameBlank_1_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("");
@@ -307,7 +307,7 @@ protected void tearDown() {
       assertNotNull("Results are null.", results);
    }
 
-   public void testRequiredFirstNameBlank_2_oe() throws ValidatorException {
+public void testRequiredFirstNameBlank_2_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("");
@@ -333,7 +333,7 @@ protected void tearDown() {
       assertNotNull("First Name ValidatorResult should not be null.", firstNameResult);
    }
 
-   public void testRequiredFirstNameBlank_3_oe() throws ValidatorException {
+public void testRequiredFirstNameBlank_3_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("");
@@ -360,7 +360,7 @@ protected void tearDown() {
       assertTrue("First Name ValidatorResult should contain the '" + ACTION +"' action.", firstNameResult.containsAction(ACTION));
    }
 
-   public void testRequiredFirstNameBlank_4_oe() throws ValidatorException {
+public void testRequiredFirstNameBlank_4_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("");
@@ -388,7 +388,7 @@ protected void tearDown() {
       assertTrue("First Name ValidatorResult for the '" + ACTION +"' action should have failed.", !firstNameResult.isValid(ACTION));
    }
 
-   public void testRequiredFirstNameBlank_5_oe() throws ValidatorException {
+public void testRequiredFirstNameBlank_5_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("");
@@ -418,7 +418,7 @@ protected void tearDown() {
       assertNotNull("Last Name ValidatorResult should not be null.", lastNameResult);
    }
 
-   public void testRequiredFirstNameBlank_6_oe() throws ValidatorException {
+public void testRequiredFirstNameBlank_6_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("");
@@ -449,7 +449,7 @@ protected void tearDown() {
       assertTrue("Last Name ValidatorResult should contain the '" + ACTION +"' action.", lastNameResult.containsAction(ACTION));
    }
 
-   public void testRequiredFirstNameBlank_7_oe() throws ValidatorException {
+public void testRequiredFirstNameBlank_7_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("");
@@ -481,7 +481,7 @@ protected void tearDown() {
       assertTrue("Last Name ValidatorResult for the '" + ACTION +"' action should have passed.", lastNameResult.isValid(ACTION));
    }
 
-   public void testRequiredFirstName_1_oe() throws ValidatorException {
+public void testRequiredFirstName_1_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Test");
@@ -502,7 +502,7 @@ protected void tearDown() {
       assertNotNull("Results are null.", results);
    }
 
-   public void testRequiredFirstName_2_oe() throws ValidatorException {
+public void testRequiredFirstName_2_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Test");
@@ -528,7 +528,7 @@ protected void tearDown() {
       assertNotNull("First Name ValidatorResult should not be null.", firstNameResult);
    }
 
-   public void testRequiredFirstName_3_oe() throws ValidatorException {
+public void testRequiredFirstName_3_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Test");
@@ -555,7 +555,7 @@ protected void tearDown() {
       assertTrue("First Name ValidatorResult should contain the '" + ACTION +"' action.", firstNameResult.containsAction(ACTION));
    }
 
-   public void testRequiredFirstName_4_oe() throws ValidatorException {
+public void testRequiredFirstName_4_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Test");
@@ -583,7 +583,7 @@ protected void tearDown() {
       assertTrue("First Name ValidatorResult for the '" + ACTION +"' action should have passed.", firstNameResult.isValid(ACTION));
    }
 
-   public void testRequiredFirstName_5_oe() throws ValidatorException {
+public void testRequiredFirstName_5_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Test");
@@ -613,7 +613,7 @@ protected void tearDown() {
       assertNotNull("Last Name ValidatorResult should not be null.", lastNameResult);
    }
 
-   public void testRequiredFirstName_6_oe() throws ValidatorException {
+public void testRequiredFirstName_6_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Test");
@@ -644,7 +644,7 @@ protected void tearDown() {
       assertTrue("Last Name ValidatorResult should contain the '" + ACTION +"' action.", lastNameResult.containsAction(ACTION));
    }
 
-   public void testRequiredFirstName_7_oe() throws ValidatorException {
+public void testRequiredFirstName_7_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Test");
@@ -676,7 +676,7 @@ protected void tearDown() {
       assertTrue("Last Name ValidatorResult for the '" + ACTION +"' action should have passed.", lastNameResult.isValid(ACTION));
    }
 
-   public void testRequiredLastNameBlank_1_oe() throws ValidatorException {
+public void testRequiredLastNameBlank_1_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Joe");
@@ -697,7 +697,7 @@ protected void tearDown() {
       assertNotNull("Results are null.", results);
    }
 
-   public void testRequiredLastNameBlank_2_oe() throws ValidatorException {
+public void testRequiredLastNameBlank_2_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Joe");
@@ -723,7 +723,7 @@ protected void tearDown() {
       assertNotNull("First Name ValidatorResult should not be null.", firstNameResult);
    }
 
-   public void testRequiredLastNameBlank_3_oe() throws ValidatorException {
+public void testRequiredLastNameBlank_3_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Joe");
@@ -750,7 +750,7 @@ protected void tearDown() {
       assertTrue("First Name ValidatorResult should contain the '" + ACTION +"' action.", firstNameResult.containsAction(ACTION));
    }
 
-   public void testRequiredLastNameBlank_4_oe() throws ValidatorException {
+public void testRequiredLastNameBlank_4_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Joe");
@@ -778,7 +778,7 @@ protected void tearDown() {
       assertTrue("First Name ValidatorResult for the '" + ACTION +"' action should have passed.", firstNameResult.isValid(ACTION));
    }
 
-   public void testRequiredLastNameBlank_5_oe() throws ValidatorException {
+public void testRequiredLastNameBlank_5_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Joe");
@@ -808,7 +808,7 @@ protected void tearDown() {
       assertNotNull("Last Name ValidatorResult should not be null.", lastNameResult);
    }
 
-   public void testRequiredLastNameBlank_6_oe() throws ValidatorException {
+public void testRequiredLastNameBlank_6_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Joe");
@@ -839,7 +839,7 @@ protected void tearDown() {
       assertTrue("Last Name ValidatorResult should contain the '" + ACTION +"' action.", lastNameResult.containsAction(ACTION));
    }
 
-   public void testRequiredLastNameBlank_7_oe() throws ValidatorException {
+public void testRequiredLastNameBlank_7_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Joe");
@@ -871,7 +871,7 @@ protected void tearDown() {
       assertTrue("Last Name ValidatorResult for the '" + ACTION +"' action should have failed.", !lastNameResult.isValid(ACTION));
    }
 
-   public void testRequiredLastName_1_oe() throws ValidatorException {
+public void testRequiredLastName_1_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Joe");
@@ -892,7 +892,7 @@ protected void tearDown() {
       assertNotNull("Results are null.", results);
    }
 
-   public void testRequiredLastName_2_oe() throws ValidatorException {
+public void testRequiredLastName_2_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Joe");
@@ -918,7 +918,7 @@ protected void tearDown() {
       assertNotNull("First Name ValidatorResult should not be null.", firstNameResult);
    }
 
-   public void testRequiredLastName_3_oe() throws ValidatorException {
+public void testRequiredLastName_3_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Joe");
@@ -945,7 +945,7 @@ protected void tearDown() {
       assertTrue("First Name ValidatorResult should contain the '" + ACTION +"' action.", firstNameResult.containsAction(ACTION));
    }
 
-   public void testRequiredLastName_4_oe() throws ValidatorException {
+public void testRequiredLastName_4_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Joe");
@@ -973,7 +973,7 @@ protected void tearDown() {
       assertTrue("First Name ValidatorResult for the '" + ACTION +"' action should have passed.", firstNameResult.isValid(ACTION));
    }
 
-   public void testRequiredLastName_5_oe() throws ValidatorException {
+public void testRequiredLastName_5_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Joe");
@@ -1003,7 +1003,7 @@ protected void tearDown() {
       assertNotNull("Last Name ValidatorResult should not be null.", lastNameResult);
    }
 
-   public void testRequiredLastName_6_oe() throws ValidatorException {
+public void testRequiredLastName_6_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Joe");
@@ -1034,7 +1034,7 @@ protected void tearDown() {
       assertTrue("Last Name ValidatorResult should contain the '" + ACTION +"' action.", lastNameResult.containsAction(ACTION));
    }
 
-   public void testRequiredLastName_7_oe() throws ValidatorException {
+public void testRequiredLastName_7_oe() throws ValidatorException {
       // Create bean to run test on.
       NameBean name = new NameBean();
       name.setFirstName("Joe");

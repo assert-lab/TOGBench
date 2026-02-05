@@ -55,25 +55,25 @@ public static Test suite() {
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/ArrayStack.fullCollection.version4.obj");
 //    }
 
-    public void testNewStack_1_oe() {
+public void testNewStack_1_oe() {
         final ArrayStack<E> stack = makeObject();
         assertTrue("New stack is empty", stack.empty());
     }
 
-    public void testNewStack_2_oe() {
+public void testNewStack_2_oe() {
         final ArrayStack<E> stack = makeObject();
         // removed other assertion
         assertEquals("New stack has size zero", 0, stack.size());
     }
 
-    public void testPushPeekPop_1_oe() {
+public void testPushPeekPop_1_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
         assertTrue("Stack is not empty", !stack.empty());
     }
 
-    public void testPushPeekPop_2_oe() {
+public void testPushPeekPop_2_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
@@ -81,7 +81,7 @@ public static Test suite() {
         assertEquals("Stack size is one", 1, stack.size());
     }
 
-    public void testPushPeekPop_3_oe() {
+public void testPushPeekPop_3_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
@@ -90,7 +90,7 @@ public static Test suite() {
         assertEquals("Top item is 'First Item'","First Item",(String)stack.peek());
     }
 
-    public void testPushPeekPop_4_oe() {
+public void testPushPeekPop_4_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
@@ -100,7 +100,7 @@ public static Test suite() {
         assertEquals("Stack size is one", 1, stack.size());
     }
 
-    public void testPushPeekPop_5_oe() {
+public void testPushPeekPop_5_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
@@ -113,7 +113,7 @@ public static Test suite() {
         assertEquals("Stack size is two", 2, stack.size());
     }
 
-    public void testPushPeekPop_6_oe() {
+public void testPushPeekPop_6_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
@@ -127,7 +127,7 @@ public static Test suite() {
         assertEquals("Top item is 'Second Item'","Second Item",(String)stack.peek());
     }
 
-    public void testPushPeekPop_7_oe() {
+public void testPushPeekPop_7_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
@@ -142,7 +142,7 @@ public static Test suite() {
         assertEquals("Stack size is two", 2, stack.size());
     }
 
-    public void testPushPeekPop_8_oe() {
+public void testPushPeekPop_8_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
@@ -159,7 +159,7 @@ public static Test suite() {
         assertEquals("Popped item is 'Second Item'","Second Item",(String)stack.pop());
     }
 
-    public void testPushPeekPop_9_oe() {
+public void testPushPeekPop_9_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
@@ -177,7 +177,7 @@ public static Test suite() {
         assertEquals("Top item is 'First Item'","First Item",(String)stack.peek());
     }
 
-    public void testPushPeekPop_10_oe() {
+public void testPushPeekPop_10_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
@@ -196,7 +196,7 @@ public static Test suite() {
         assertEquals("Stack size is one", 1, stack.size());
     }
 
-    public void testPushPeekPop_11_oe() {
+public void testPushPeekPop_11_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
@@ -217,7 +217,7 @@ public static Test suite() {
         assertEquals("Popped item is 'First Item'","First Item",(String)stack.pop());
     }
 
-    public void testPushPeekPop_12_oe() {
+public void testPushPeekPop_12_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
@@ -239,7 +239,7 @@ public static Test suite() {
         assertEquals("Stack size is zero", 0, stack.size());
     }
 
-    public void testSearch_1_oe() {
+public void testSearch_1_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
@@ -247,7 +247,7 @@ public static Test suite() {
         assertEquals("Top item is 'Second Item'",1,stack.search("Second Item"));
     }
 
-    public void testSearch_2_oe() {
+public void testSearch_2_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
@@ -256,7 +256,7 @@ public static Test suite() {
         assertEquals("Next Item is 'First Item'",2,stack.search("First Item"));
     }
 
-    public void testSearch_3_oe() {
+public void testSearch_3_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");

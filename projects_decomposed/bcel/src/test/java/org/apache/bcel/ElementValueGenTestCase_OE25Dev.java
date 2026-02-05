@@ -70,7 +70,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         }
     }
 
-    public void testCreateIntegerElementValue_1_oe() throws Exception
+public void testCreateIntegerElementValue_1_oe() throws Exception
     {
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
@@ -81,7 +81,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + cp.lookupInteger(555),evg.getIndex()== cp.lookupInteger(555));
     }
 
-    public void testCreateFloatElementValue_1_oe() throws Exception
+public void testCreateFloatElementValue_1_oe() throws Exception
     {
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
@@ -92,7 +92,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + cp.lookupFloat(111.222f),evg .getIndex()== cp.lookupFloat(111.222f));
     }
 
-    public void testCreateDoubleElementValue_1_oe() throws Exception
+public void testCreateDoubleElementValue_1_oe() throws Exception
     {
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
@@ -104,7 +104,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + idx,evg.getIndex()== idx);
     }
 
-    public void testCreateLongElementValue_1_oe() throws Exception
+public void testCreateLongElementValue_1_oe() throws Exception
     {
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
@@ -116,7 +116,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + idx,evg.getIndex()== idx);
     }
 
-    public void testCreateCharElementValue_1_oe() throws Exception
+public void testCreateCharElementValue_1_oe() throws Exception
     {
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
@@ -128,7 +128,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + idx,evg.getIndex()== idx);
     }
 
-    public void testCreateByteElementValue_1_oe() throws Exception
+public void testCreateByteElementValue_1_oe() throws Exception
     {
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
@@ -140,7 +140,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + idx,evg.getIndex()== idx);
     }
 
-    public void testCreateBooleanElementValue_1_oe() throws Exception
+public void testCreateBooleanElementValue_1_oe() throws Exception
     {
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
@@ -152,7 +152,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + idx,evg.getIndex()== idx);
     }
 
-    public void testCreateShortElementValue_1_oe() throws Exception
+public void testCreateShortElementValue_1_oe() throws Exception
     {
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
@@ -164,7 +164,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + idx,evg.getIndex()== idx);
     }
 
-    public void testCreateStringElementValue_1_oe() throws Exception
+public void testCreateStringElementValue_1_oe() throws Exception
     {
         // Create HelloWorld
         final ClassGen cg = createClassGen("HelloWorld");
@@ -176,7 +176,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + cp.lookupUtf8("hello"),evg .getIndex()== cp.lookupUtf8("hello"));
     }
 
-    public void testCreateEnumElementValue_1_oe() throws Exception
+public void testCreateEnumElementValue_1_oe() throws Exception
     {
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();
@@ -188,7 +188,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         assertTrue("The new ElementValue value index should match the contents of the constantpool but " + evg.getValueIndex()+ "!=" + cp.lookupUtf8("Red"),evg.getValueIndex()== cp.lookupUtf8("Red"));
     }
 
-    public void testCreateClassElementValue_1_oe() throws Exception
+public void testCreateClassElementValue_1_oe() throws Exception
     {
         final ClassGen cg = createClassGen("HelloWorld");
         final ConstantPoolGen cp = cg.getConstantPool();

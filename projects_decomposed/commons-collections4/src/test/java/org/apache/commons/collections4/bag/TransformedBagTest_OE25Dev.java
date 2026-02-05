@@ -60,14 +60,14 @@ public class TransformedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
 //        writeExternalFormToDisk((java.io.Serializable) bag, "src/test/resources/data/test/TransformedBag.fullCollection.version4.obj");
 //    }
 
-    public void testTransformedBag_1_oe() {
+public void testTransformedBag_1_oe() {
         //T had better be Object!
         final Bag<T> bag = TransformedBag.transformingBag(new HashBag<T>(),
                 (Transformer<T, T>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         assertEquals(0, bag.size());
     }
 
-    public void testTransformedBag_2_oe() {
+public void testTransformedBag_2_oe() {
         //T had better be Object!
         final Bag<T> bag = TransformedBag.transformingBag(new HashBag<T>(),
                 (Transformer<T, T>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
@@ -79,7 +79,7 @@ public class TransformedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
     }
     }
 
-    public void testTransformedBag_3_oe() {
+public void testTransformedBag_3_oe() {
         //T had better be Object!
         final Bag<T> bag = TransformedBag.transformingBag(new HashBag<T>(),
                 (Transformer<T, T>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
@@ -92,7 +92,7 @@ public class TransformedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
     }
     }
 
-    public void testTransformedBag_4_oe() {
+public void testTransformedBag_4_oe() {
         //T had better be Object!
         final Bag<T> bag = TransformedBag.transformingBag(new HashBag<T>(),
                 (Transformer<T, T>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
@@ -106,7 +106,7 @@ public class TransformedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
     }
     }
 
-    public void testTransformedBag_5_oe() {
+public void testTransformedBag_5_oe() {
         //T had better be Object!
         final Bag<T> bag = TransformedBag.transformingBag(new HashBag<T>(),
                 (Transformer<T, T>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
@@ -122,7 +122,7 @@ public class TransformedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
         assertEquals(false, bag.remove(els[0]));
     }
 
-    public void testTransformedBag_6_oe() {
+public void testTransformedBag_6_oe() {
         //T had better be Object!
         final Bag<T> bag = TransformedBag.transformingBag(new HashBag<T>(),
                 (Transformer<T, T>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
@@ -139,7 +139,7 @@ public class TransformedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
         assertEquals(true, bag.remove(Integer.valueOf((String) els[0])));
     }
 
-    public void testTransformedBag_decorateTransform_1_oe() {
+public void testTransformedBag_decorateTransform_1_oe() {
         final Bag<T> originalBag = new HashBag<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         for (final Object el : els) {
@@ -150,7 +150,7 @@ public class TransformedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
         assertEquals(els.length, bag.size());
     }
 
-    public void testTransformedBag_decorateTransform_2_oe() {
+public void testTransformedBag_decorateTransform_2_oe() {
         final Bag<T> originalBag = new HashBag<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         for (final Object el : els) {
@@ -164,7 +164,7 @@ public class TransformedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
     }
     }
 
-    public void testTransformedBag_decorateTransform_3_oe() {
+public void testTransformedBag_decorateTransform_3_oe() {
         final Bag<T> originalBag = new HashBag<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         for (final Object el : els) {
@@ -179,7 +179,7 @@ public class TransformedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
     }
     }
 
-    public void testTransformedBag_decorateTransform_4_oe() {
+public void testTransformedBag_decorateTransform_4_oe() {
         final Bag<T> originalBag = new HashBag<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         for (final Object el : els) {
@@ -196,7 +196,7 @@ public class TransformedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
         assertEquals(false, bag.remove(els[0]));
     }
 
-    public void testTransformedBag_decorateTransform_5_oe() {
+public void testTransformedBag_decorateTransform_5_oe() {
         final Bag<T> originalBag = new HashBag<>();
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         for (final Object el : els) {

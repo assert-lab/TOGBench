@@ -61,24 +61,24 @@ public class FlagsTest_OE25Dev extends TestCase {
      * Test for String toString()
      */
 
-    public void testHashCode_1_oe() {
+public void testHashCode_1_oe() {
         Flags f = new Flags(45);
         assertEquals(f.hashCode(), 45);
     }
 
-    public void testGetFlags_1_oe() {
+public void testGetFlags_1_oe() {
         Flags f = new Flags(45);
         assertEquals(f.getFlags(), 45);
     }
 
-    public void testIsOnOff_1_oe() {
+public void testIsOnOff_1_oe() {
         Flags f = new Flags();
         f.turnOn(LONG_FLAG);
         f.turnOn(INT_FLAG);
         assertTrue(f.isOn(LONG_FLAG));
     }
 
-    public void testIsOnOff_2_oe() {
+public void testIsOnOff_2_oe() {
         Flags f = new Flags();
         f.turnOn(LONG_FLAG);
         f.turnOn(INT_FLAG);
@@ -86,7 +86,7 @@ public class FlagsTest_OE25Dev extends TestCase {
         assertTrue(!f.isOff(LONG_FLAG));
     }
 
-    public void testIsOnOff_3_oe() {
+public void testIsOnOff_3_oe() {
         Flags f = new Flags();
         f.turnOn(LONG_FLAG);
         f.turnOn(INT_FLAG);
@@ -96,7 +96,7 @@ public class FlagsTest_OE25Dev extends TestCase {
         assertTrue(f.isOn(INT_FLAG));
     }
 
-    public void testIsOnOff_4_oe() {
+public void testIsOnOff_4_oe() {
         Flags f = new Flags();
         f.turnOn(LONG_FLAG);
         f.turnOn(INT_FLAG);
@@ -107,7 +107,7 @@ public class FlagsTest_OE25Dev extends TestCase {
         assertTrue(!f.isOff(INT_FLAG));
     }
 
-    public void testIsOnOff_5_oe() {
+public void testIsOnOff_5_oe() {
         Flags f = new Flags();
         f.turnOn(LONG_FLAG);
         f.turnOn(INT_FLAG);
@@ -120,45 +120,45 @@ public class FlagsTest_OE25Dev extends TestCase {
         assertTrue(f.isOff(LONG_FLAG_2));
     }
 
-    public void testTurnOffAll_1_oe() {
+public void testTurnOffAll_1_oe() {
         Flags f = new Flags(98432);
         f.turnOffAll();
         assertEquals(0, f.getFlags());
     }
 
-    public void testClear_1_oe() {
+public void testClear_1_oe() {
         Flags f = new Flags(98432);
         f.clear();
         assertEquals(0, f.getFlags());
     }
 
-    public void testTurnOnAll_1_oe() {
+public void testTurnOnAll_1_oe() {
         Flags f = new Flags();
         f.turnOnAll();
         assertEquals(~0, f.getFlags());
     }
 
-    public void testIsOn_isFalseWhenNotAllFlagsInArgumentAreOn_1_oe() {
+public void testIsOn_isFalseWhenNotAllFlagsInArgumentAreOn_1_oe() {
         Flags first = new Flags(1);
         long firstAndSecond = 3;
         
         assertFalse(first.isOn(firstAndSecond));
     }
 
-    public void testIsOn_isTrueWhenHighOrderBitIsSetAndQueried_1_oe() {
+public void testIsOn_isTrueWhenHighOrderBitIsSetAndQueried_1_oe() {
         Flags allOn = new Flags(~0);
         long highOrderBit = 0x8000000000000000L;
         
         assertTrue(allOn.isOn(highOrderBit));
     }
 
-    public void testToString_1_oe() {
+public void testToString_1_oe() {
         Flags f = new Flags();
         String s = f.toString();
         assertEquals(64, s.length());
     }
 
-    public void testToString_2_oe() {
+public void testToString_2_oe() {
         Flags f = new Flags();
         String s = f.toString();
         // removed other assertion
@@ -168,7 +168,7 @@ public class FlagsTest_OE25Dev extends TestCase {
         assertEquals(64, s.length());
     }
 
-    public void testToString_3_oe() {
+public void testToString_3_oe() {
         Flags f = new Flags();
         String s = f.toString();
         // removed other assertion

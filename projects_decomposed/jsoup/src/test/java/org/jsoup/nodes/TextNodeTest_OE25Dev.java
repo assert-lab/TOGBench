@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
  @author Jonathan Hedley, jonathan@hedley.net */
 public class TextNodeTest_OE25Dev {
 
-    @Test public void testBlank_1_oe() {
+@Test public void testBlank_1_oe() {
         TextNode one = new TextNode("");
         TextNode two = new TextNode("     ");
         TextNode three = new TextNode("  \n\n   ");
@@ -25,7 +25,7 @@ public class TextNodeTest_OE25Dev {
         assertTrue(one.isBlank());
         }
 
-    @Test public void testBlank_2_oe() {
+@Test public void testBlank_2_oe() {
         TextNode one = new TextNode("");
         TextNode two = new TextNode("     ");
         TextNode three = new TextNode("  \n\n   ");
@@ -36,7 +36,7 @@ public class TextNodeTest_OE25Dev {
         assertTrue(two.isBlank());
         }
 
-    @Test public void testBlank_3_oe() {
+@Test public void testBlank_3_oe() {
         TextNode one = new TextNode("");
         TextNode two = new TextNode("     ");
         TextNode three = new TextNode("  \n\n   ");
@@ -48,7 +48,7 @@ public class TextNodeTest_OE25Dev {
         assertTrue(three.isBlank());
         }
 
-    @Test public void testBlank_4_oe() {
+@Test public void testBlank_4_oe() {
         TextNode one = new TextNode("");
         TextNode two = new TextNode("     ");
         TextNode three = new TextNode("  \n\n   ");
@@ -61,7 +61,7 @@ public class TextNodeTest_OE25Dev {
         assertFalse(four.isBlank());
         }
 
-    @Test public void testBlank_5_oe() {
+@Test public void testBlank_5_oe() {
         TextNode one = new TextNode("");
         TextNode two = new TextNode("     ");
         TextNode three = new TextNode("  \n\n   ");
@@ -75,7 +75,7 @@ public class TextNodeTest_OE25Dev {
         assertFalse(five.isBlank());
         }
 
-    @Test public void testTextBean_1_oe() {
+@Test public void testTextBean_1_oe() {
         Document doc = Jsoup.parse("<p>One <span>two &amp;</span> three &amp;</p>");
         Element p = doc.select("p").first();
 
@@ -83,7 +83,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals("two &", span.text());
         }
 
-    @Test public void testTextBean_2_oe() {
+@Test public void testTextBean_2_oe() {
         Document doc = Jsoup.parse("<p>One <span>two &amp;</span> three &amp;</p>");
         Element p = doc.select("p").first();
 
@@ -93,7 +93,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals("two &", spanText.text());
         }
 
-    @Test public void testTextBean_3_oe() {
+@Test public void testTextBean_3_oe() {
         Document doc = Jsoup.parse("<p>One <span>two &amp;</span> three &amp;</p>");
         Element p = doc.select("p").first();
 
@@ -106,7 +106,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals(" three &", tn.text());
         }
 
-    @Test public void testTextBean_4_oe() {
+@Test public void testTextBean_4_oe() {
         Document doc = Jsoup.parse("<p>One <span>two &amp;</span> three &amp;</p>");
         Element p = doc.select("p").first();
 
@@ -122,7 +122,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals("One <span>two &amp;</span> POW!", TextUtil.stripNewlines(p.html()));
         }
 
-    @Test public void testTextBean_5_oe() {
+@Test public void testTextBean_5_oe() {
         Document doc = Jsoup.parse("<p>One <span>two &amp;</span> three &amp;</p>");
         Element p = doc.select("p").first();
 
@@ -141,7 +141,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals("kablam &", tn.text());
         }
 
-    @Test public void testTextBean_6_oe() {
+@Test public void testTextBean_6_oe() {
         Document doc = Jsoup.parse("<p>One <span>two &amp;</span> three &amp;</p>");
         Element p = doc.select("p").first();
 
@@ -161,7 +161,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals("One <span>two &amp;</span>kablam &amp;", TextUtil.stripNewlines(p.html()));
         }
 
-    @Test public void testSplitText_1_oe() {
+@Test public void testSplitText_1_oe() {
         Document doc = Jsoup.parse("<div>Hello there</div>");
         Element div = doc.select("div").first();
         TextNode tn = (TextNode) div.childNode(0);
@@ -169,7 +169,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals("Hello ", tn.getWholeText());
         }
 
-    @Test public void testSplitText_2_oe() {
+@Test public void testSplitText_2_oe() {
         Document doc = Jsoup.parse("<div>Hello there</div>");
         Element div = doc.select("div").first();
         TextNode tn = (TextNode) div.childNode(0);
@@ -178,7 +178,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals("there", tail.getWholeText());
         }
 
-    @Test public void testSplitText_3_oe() {
+@Test public void testSplitText_3_oe() {
         Document doc = Jsoup.parse("<div>Hello there</div>");
         Element div = doc.select("div").first();
         TextNode tn = (TextNode) div.childNode(0);
@@ -189,7 +189,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals("Hello there!", div.text());
         }
 
-    @Test public void testSplitText_4_oe() {
+@Test public void testSplitText_4_oe() {
         Document doc = Jsoup.parse("<div>Hello there</div>");
         Element div = doc.select("div").first();
         TextNode tn = (TextNode) div.childNode(0);
@@ -201,7 +201,7 @@ public class TextNodeTest_OE25Dev {
         assertSame(tn.parent(), tail.parent());
         }
 
-    @Test public void testSplitAnEmbolden_1_oe() {
+@Test public void testSplitAnEmbolden_1_oe() {
         Document doc = Jsoup.parse("<div>Hello there</div>");
         Element div = doc.select("div").first();
         TextNode tn = (TextNode) div.childNode(0);
@@ -211,13 +211,13 @@ public class TextNodeTest_OE25Dev {
         assertEquals("Hello <b>there</b>", TextUtil.stripNewlines(div.html())); // not great that we get \n<b>there there... must correct;
         }
 
-    @Test public void testWithSupplementaryCharacter_1_oe(){
+@Test public void testWithSupplementaryCharacter_1_oe(){
         Document doc = Jsoup.parse(new String(Character.toChars(135361)));
         TextNode t = doc.body().textNodes().get(0);
         assertEquals(new String(Character.toChars(135361)), t.outerHtml().trim());
         }
 
-    @Test public void testLeadNodesHaveNoChildren_1_oe() {
+@Test public void testLeadNodesHaveNoChildren_1_oe() {
         Document doc = Jsoup.parse("<div>Hello there</div>");
         Element div = doc.select("div").first();
         TextNode tn = (TextNode) div.childNode(0);
@@ -225,7 +225,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals(0, nodes.size());
         }
 
-    @Test public void testSpaceNormalise_1_oe() {
+@Test public void testSpaceNormalise_1_oe() {
         // https://github.com/jhy/jsoup/issues/1309
         String whole = "Two  spaces";
         String norm = "Two spaces";
@@ -233,7 +233,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals(whole, tn.getWholeText());
         }
 
-    @Test public void testSpaceNormalise_2_oe() {
+@Test public void testSpaceNormalise_2_oe() {
         // https://github.com/jhy/jsoup/issues/1309
         String whole = "Two  spaces";
         String norm = "Two spaces";
@@ -242,7 +242,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals(norm, tn.text());
         }
 
-    @Test public void testSpaceNormalise_3_oe() {
+@Test public void testSpaceNormalise_3_oe() {
         // https://github.com/jhy/jsoup/issues/1309
         String whole = "Two  spaces";
         String norm = "Two spaces";
@@ -252,7 +252,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals(norm, tn.outerHtml());
         }
 
-    @Test public void testSpaceNormalise_4_oe() {
+@Test public void testSpaceNormalise_4_oe() {
         // https://github.com/jhy/jsoup/issues/1309
         String whole = "Two  spaces";
         String norm = "Two spaces";
@@ -263,7 +263,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals(norm, tn.toString());
         }
 
-    @Test public void testSpaceNormalise_5_oe() {
+@Test public void testSpaceNormalise_5_oe() {
         // https://github.com/jhy/jsoup/issues/1309
         String whole = "Two  spaces";
         String norm = "Two spaces";
@@ -279,7 +279,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals(whole, tn.getWholeText());
         }
 
-    @Test public void testSpaceNormalise_6_oe() {
+@Test public void testSpaceNormalise_6_oe() {
         // https://github.com/jhy/jsoup/issues/1309
         String whole = "Two  spaces";
         String norm = "Two spaces";
@@ -296,7 +296,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals(norm, tn.text());
         }
 
-    @Test public void testSpaceNormalise_7_oe() {
+@Test public void testSpaceNormalise_7_oe() {
         // https://github.com/jhy/jsoup/issues/1309
         String whole = "Two  spaces";
         String norm = "Two spaces";
@@ -314,7 +314,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals(norm, tn.outerHtml());
         }
 
-    @Test public void testSpaceNormalise_8_oe() {
+@Test public void testSpaceNormalise_8_oe() {
         // https://github.com/jhy/jsoup/issues/1309
         String whole = "Two  spaces";
         String norm = "Two spaces";
@@ -333,7 +333,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals(norm, tn.toString());
         }
 
-    @Test public void testSpaceNormalise_9_oe() {
+@Test public void testSpaceNormalise_9_oe() {
         // https://github.com/jhy/jsoup/issues/1309
         String whole = "Two  spaces";
         String norm = "Two spaces";
@@ -354,7 +354,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals("<p>" + norm + "</p>", el.outerHtml());
         }
 
-    @Test public void testSpaceNormalise_10_oe() {
+@Test public void testSpaceNormalise_10_oe() {
         // https://github.com/jhy/jsoup/issues/1309
         String whole = "Two  spaces";
         String norm = "Two spaces";
@@ -376,7 +376,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals(norm, el.html());
         }
 
-    @Test public void testSpaceNormalise_11_oe() {
+@Test public void testSpaceNormalise_11_oe() {
         // https://github.com/jhy/jsoup/issues/1309
         String whole = "Two  spaces";
         String norm = "Two spaces";
@@ -399,7 +399,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals(whole, el.wholeText());
         }
 
-    @Test
+@Test
     public void testClone_1_oe() {
         // https://github.com/jhy/jsoup/issues/1176
         TextNode x = new TextNode("zzz");
@@ -408,7 +408,7 @@ public class TextNodeTest_OE25Dev {
         assertNotSame(x, y);
     }
 
-    @Test
+@Test
     public void testClone_2_oe() {
         // https://github.com/jhy/jsoup/issues/1176
         TextNode x = new TextNode("zzz");
@@ -418,7 +418,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals(x.outerHtml(), y.outerHtml());
     }
 
-    @Test
+@Test
     public void testClone_3_oe() {
         // https://github.com/jhy/jsoup/issues/1176
         TextNode x = new TextNode("zzz");
@@ -431,7 +431,7 @@ public class TextNodeTest_OE25Dev {
         assertNotEquals(x.outerHtml(), y.outerHtml());
     }
 
-    @Test
+@Test
     public void testClone_4_oe() {
         // https://github.com/jhy/jsoup/issues/1176
         TextNode x = new TextNode("zzz");
@@ -445,7 +445,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals("zzz", x.text());
     }
 
-    @Test
+@Test
     public void testClone_5_oe() {
         // https://github.com/jhy/jsoup/issues/1176
         TextNode x = new TextNode("zzz");
@@ -463,7 +463,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals("zzz", x.text());
     }
 
-    @Test
+@Test
     public void testClone_6_oe() {
         // https://github.com/jhy/jsoup/issues/1176
         TextNode x = new TextNode("zzz");
@@ -482,7 +482,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals("xxx", y.text());
     }
 
-    @Test
+@Test
     public void testCloneAfterAttributesHit_1_oe() {
         // https://github.com/jhy/jsoup/issues/1176
         TextNode x = new TextNode("zzz");
@@ -492,7 +492,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals("zzz", x.text());
     }
 
-    @Test
+@Test
     public void testCloneAfterAttributesHit_2_oe() {
         // https://github.com/jhy/jsoup/issues/1176
         TextNode x = new TextNode("zzz");
@@ -503,7 +503,7 @@ public class TextNodeTest_OE25Dev {
         assertEquals("xxx", y.text());
     }
 
-    @Test
+@Test
     public void testHasTextWhenIterating_1_oe() {
         // https://github.com/jhy/jsoup/issues/1170
         Document doc = Jsoup.parse("<div>One <p>Two <p>Three");
@@ -518,7 +518,7 @@ public class TextNodeTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testHasTextWhenIterating_2_oe() {
         // https://github.com/jhy/jsoup/issues/1170
         Document doc = Jsoup.parse("<div>One <p>Two <p>Three");
@@ -537,7 +537,7 @@ public class TextNodeTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testHasTextWhenIterating_3_oe() {
         // https://github.com/jhy/jsoup/issues/1170
         Document doc = Jsoup.parse("<div>One <p>Two <p>Three");
@@ -557,7 +557,7 @@ public class TextNodeTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testHasTextWhenIterating_4_oe() {
         // https://github.com/jhy/jsoup/issues/1170
         Document doc = Jsoup.parse("<div>One <p>Two <p>Three");

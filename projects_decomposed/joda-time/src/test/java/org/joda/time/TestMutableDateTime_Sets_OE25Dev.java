@@ -156,133 +156,133 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
-    public void testTest_1_oe() {
+public void testTest_1_oe() {
         assertEquals("2002-06-09T00:00:00.000Z",new Instant(TEST_TIME_NOW).toString());
     }
 
-    public void testTest_2_oe() {
+public void testTest_2_oe() {
         // removed other assertion
         assertEquals("2002-04-05T12:24:00.000Z",new Instant(TEST_TIME1).toString());
     }
 
-    public void testTest_3_oe() {
+public void testTest_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("2003-05-06T14:28:00.000Z",new Instant(TEST_TIME2).toString());
     }
 
-    public void testSetMillis_long1_1_oe() {
+public void testSetMillis_long1_1_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         test.setMillis(TEST_TIME2);
         assertEquals(TEST_TIME2,test.getMillis());
     }
 
-    public void testSetMillis_long1_2_oe() {
+public void testSetMillis_long1_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         test.setMillis(TEST_TIME2);
         // removed other assertion
         assertEquals(ISOChronology.getInstance(),test.getChronology());
     }
 
-    public void testSetChronology_Chronology1_1_oe() {
+public void testSetChronology_Chronology1_1_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         test.setChronology(GregorianChronology.getInstance(PARIS));
         assertEquals(TEST_TIME1,test.getMillis());
     }
 
-    public void testSetChronology_Chronology1_2_oe() {
+public void testSetChronology_Chronology1_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         test.setChronology(GregorianChronology.getInstance(PARIS));
         // removed other assertion
         assertEquals(GregorianChronology.getInstance(PARIS),test.getChronology());
     }
 
-    public void testSetChronology_Chronology2_1_oe() {
+public void testSetChronology_Chronology2_1_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         test.setChronology(null);
         assertEquals(TEST_TIME1,test.getMillis());
     }
 
-    public void testSetChronology_Chronology2_2_oe() {
+public void testSetChronology_Chronology2_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         test.setChronology(null);
         // removed other assertion
         assertEquals(ISOChronology.getInstance(),test.getChronology());
     }
 
-    public void testSetZone_DateTimeZone1_1_oe() {
+public void testSetZone_DateTimeZone1_1_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         test.setZone(PARIS);
         assertEquals(TEST_TIME1,test.getMillis());
     }
 
-    public void testSetZone_DateTimeZone1_2_oe() {
+public void testSetZone_DateTimeZone1_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         test.setZone(PARIS);
         // removed other assertion
         assertEquals(ISOChronology.getInstance(PARIS),test.getChronology());
     }
 
-    public void testSetZone_DateTimeZone2_1_oe() {
+public void testSetZone_DateTimeZone2_1_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         test.setZone(null);
         assertEquals(TEST_TIME1,test.getMillis());
     }
 
-    public void testSetZone_DateTimeZone2_2_oe() {
+public void testSetZone_DateTimeZone2_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         test.setZone(null);
         // removed other assertion
         assertEquals(ISOChronology.getInstance(),test.getChronology());
     }
 
-    public void testSetZoneRetainFields_DateTimeZone1_1_oe() {
+public void testSetZoneRetainFields_DateTimeZone1_1_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         test.setZoneRetainFields(PARIS);
         assertEquals(TEST_TIME1 - DateTimeConstants.MILLIS_PER_HOUR,test.getMillis());
     }
 
-    public void testSetZoneRetainFields_DateTimeZone1_2_oe() {
+public void testSetZoneRetainFields_DateTimeZone1_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         test.setZoneRetainFields(PARIS);
         // removed other assertion
         assertEquals(ISOChronology.getInstance(PARIS),test.getChronology());
     }
 
-    public void testSetZoneRetainFields_DateTimeZone2_1_oe() {
+public void testSetZoneRetainFields_DateTimeZone2_1_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         test.setZoneRetainFields(null);
         assertEquals(TEST_TIME1,test.getMillis());
     }
 
-    public void testSetZoneRetainFields_DateTimeZone2_2_oe() {
+public void testSetZoneRetainFields_DateTimeZone2_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         test.setZoneRetainFields(null);
         // removed other assertion
         assertEquals(ISOChronology.getInstance(),test.getChronology());
     }
 
-    public void testSetZoneRetainFields_DateTimeZone3_1_oe() {
+public void testSetZoneRetainFields_DateTimeZone3_1_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, GregorianChronology.getInstance(PARIS));
         test.setZoneRetainFields(null);
         assertEquals(TEST_TIME1 + DateTimeConstants.MILLIS_PER_HOUR,test.getMillis());
     }
 
-    public void testSetZoneRetainFields_DateTimeZone3_2_oe() {
+public void testSetZoneRetainFields_DateTimeZone3_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, GregorianChronology.getInstance(PARIS));
         test.setZoneRetainFields(null);
         // removed other assertion
         assertEquals(GregorianChronology.getInstance(),test.getChronology());
     }
 
-    public void testSetZoneRetainFields_DateTimeZone4_1_oe() {
+public void testSetZoneRetainFields_DateTimeZone4_1_oe() {
         Chronology chrono = new MockNullZoneChronology();
         MutableDateTime test = new MutableDateTime(TEST_TIME1, chrono);
         test.setZoneRetainFields(PARIS);
         assertEquals(TEST_TIME1 - DateTimeConstants.MILLIS_PER_HOUR,test.getMillis());
     }
 
-    public void testSetZoneRetainFields_DateTimeZone4_2_oe() {
+public void testSetZoneRetainFields_DateTimeZone4_2_oe() {
         Chronology chrono = new MockNullZoneChronology();
         MutableDateTime test = new MutableDateTime(TEST_TIME1, chrono);
         test.setZoneRetainFields(PARIS);
@@ -290,39 +290,39 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertSame(chrono,test.getChronology());
     }
 
-    public void testSetMillis_RI1_1_oe() {
+public void testSetMillis_RI1_1_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, BuddhistChronology.getInstance());
         test.setMillis(new Instant(TEST_TIME2));
         assertEquals(TEST_TIME2,test.getMillis());
     }
 
-    public void testSetMillis_RI1_2_oe() {
+public void testSetMillis_RI1_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, BuddhistChronology.getInstance());
         test.setMillis(new Instant(TEST_TIME2));
         // removed other assertion
         assertEquals(BuddhistChronology.getInstance(),test.getChronology());
     }
 
-    public void testSetMillis_RI2_1_oe() {
+public void testSetMillis_RI2_1_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, BuddhistChronology.getInstance());
         test.setMillis(null);
         assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
-    public void testSetMillis_RI2_2_oe() {
+public void testSetMillis_RI2_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, BuddhistChronology.getInstance());
         test.setMillis(null);
         // removed other assertion
         assertEquals(BuddhistChronology.getInstance(),test.getChronology());
     }
 
-    public void testSet_DateTimeFieldType_int1_1_oe() {
+public void testSet_DateTimeFieldType_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         test.set(DateTimeFieldType.year(), 2010);
         assertEquals(2010,test.getYear());
     }
 
-    public void testSet_DateTimeFieldType_int2_2_oe() {
+public void testSet_DateTimeFieldType_int2_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         try {
             test.set(null, 0);
@@ -331,7 +331,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(TEST_TIME1,test.getMillis());
     }
 
-    public void testSet_DateTimeFieldType_int3_2_oe() {
+public void testSet_DateTimeFieldType_int3_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         try {
             test.set(DateTimeFieldType.monthOfYear(), 13);
@@ -340,20 +340,20 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(TEST_TIME1,test.getMillis());
     }
 
-    public void testSetDate_int_int_int1_1_oe() {
+public void testSetDate_int_int_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(2010, 12, 3);
         assertEquals(2010,test.getYear());
     }
 
-    public void testSetDate_int_int_int1_2_oe() {
+public void testSetDate_int_int_int1_2_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(2010, 12, 3);
         // removed other assertion
         assertEquals(12,test.getMonthOfYear());
     }
 
-    public void testSetDate_int_int_int1_3_oe() {
+public void testSetDate_int_int_int1_3_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(2010, 12, 3);
         // removed other assertion
@@ -361,7 +361,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(3,test.getDayOfMonth());
     }
 
-    public void testSetDate_int_int_int1_4_oe() {
+public void testSetDate_int_int_int1_4_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(2010, 12, 3);
         // removed other assertion
@@ -370,7 +370,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(12,test.getHourOfDay());
     }
 
-    public void testSetDate_int_int_int1_5_oe() {
+public void testSetDate_int_int_int1_5_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(2010, 12, 3);
         // removed other assertion
@@ -380,7 +380,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(24,test.getMinuteOfHour());
     }
 
-    public void testSetDate_int_int_int1_6_oe() {
+public void testSetDate_int_int_int1_6_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(2010, 12, 3);
         // removed other assertion
@@ -391,7 +391,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(48,test.getSecondOfMinute());
     }
 
-    public void testSetDate_int_int_int1_7_oe() {
+public void testSetDate_int_int_int1_7_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(2010, 12, 3);
         // removed other assertion
@@ -403,7 +403,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(501,test.getMillisOfSecond());
     }
 
-    public void testSetDate_int_int_int2_2_oe() {
+public void testSetDate_int_int_int2_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         try {
             test.setDate(2010, 13, 3);
@@ -412,14 +412,14 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(TEST_TIME1,test.getMillis());
     }
 
-    public void testSetDate_long1_1_oe() {
+public void testSetDate_long1_1_oe() {
         long setter = new DateTime(2010, 12, 3, 5, 7, 9, 501).getMillis();
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(setter);
         assertEquals(2010,test.getYear());
     }
 
-    public void testSetDate_long1_2_oe() {
+public void testSetDate_long1_2_oe() {
         long setter = new DateTime(2010, 12, 3, 5, 7, 9, 501).getMillis();
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(setter);
@@ -427,7 +427,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(12,test.getMonthOfYear());
     }
 
-    public void testSetDate_long1_3_oe() {
+public void testSetDate_long1_3_oe() {
         long setter = new DateTime(2010, 12, 3, 5, 7, 9, 501).getMillis();
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(setter);
@@ -436,7 +436,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(3,test.getDayOfMonth());
     }
 
-    public void testSetDate_long1_4_oe() {
+public void testSetDate_long1_4_oe() {
         long setter = new DateTime(2010, 12, 3, 5, 7, 9, 501).getMillis();
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(setter);
@@ -446,7 +446,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(12,test.getHourOfDay());
     }
 
-    public void testSetDate_long1_5_oe() {
+public void testSetDate_long1_5_oe() {
         long setter = new DateTime(2010, 12, 3, 5, 7, 9, 501).getMillis();
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(setter);
@@ -457,7 +457,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(24,test.getMinuteOfHour());
     }
 
-    public void testSetDate_long1_6_oe() {
+public void testSetDate_long1_6_oe() {
         long setter = new DateTime(2010, 12, 3, 5, 7, 9, 501).getMillis();
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(setter);
@@ -469,7 +469,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(48,test.getSecondOfMinute());
     }
 
-    public void testSetDate_long1_7_oe() {
+public void testSetDate_long1_7_oe() {
         long setter = new DateTime(2010, 12, 3, 5, 7, 9, 501).getMillis();
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(setter);
@@ -482,14 +482,14 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(501,test.getMillisOfSecond());
     }
 
-    public void testSetDate_RI1_1_oe() {
+public void testSetDate_RI1_1_oe() {
         DateTime setter = new DateTime(2010, 12, 3, 5, 7, 9, 501);
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(setter);
         assertEquals(2010,test.getYear());
     }
 
-    public void testSetDate_RI1_2_oe() {
+public void testSetDate_RI1_2_oe() {
         DateTime setter = new DateTime(2010, 12, 3, 5, 7, 9, 501);
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(setter);
@@ -497,7 +497,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(12,test.getMonthOfYear());
     }
 
-    public void testSetDate_RI1_3_oe() {
+public void testSetDate_RI1_3_oe() {
         DateTime setter = new DateTime(2010, 12, 3, 5, 7, 9, 501);
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(setter);
@@ -506,7 +506,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(3,test.getDayOfMonth());
     }
 
-    public void testSetDate_RI1_4_oe() {
+public void testSetDate_RI1_4_oe() {
         DateTime setter = new DateTime(2010, 12, 3, 5, 7, 9, 501);
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(setter);
@@ -516,7 +516,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(12,test.getHourOfDay());
     }
 
-    public void testSetDate_RI1_5_oe() {
+public void testSetDate_RI1_5_oe() {
         DateTime setter = new DateTime(2010, 12, 3, 5, 7, 9, 501);
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(setter);
@@ -527,7 +527,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(24,test.getMinuteOfHour());
     }
 
-    public void testSetDate_RI1_6_oe() {
+public void testSetDate_RI1_6_oe() {
         DateTime setter = new DateTime(2010, 12, 3, 5, 7, 9, 501);
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(setter);
@@ -539,7 +539,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(48,test.getSecondOfMinute());
     }
 
-    public void testSetDate_RI1_7_oe() {
+public void testSetDate_RI1_7_oe() {
         DateTime setter = new DateTime(2010, 12, 3, 5, 7, 9, 501);
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDate(setter);
@@ -552,20 +552,20 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(501,test.getMillisOfSecond());
     }
 
-    public void testSetDate_RI2_1_oe() {
+public void testSetDate_RI2_1_oe() {
         MutableDateTime test = new MutableDateTime(2010, 7, 8, 12, 24, 48, 501);
         test.setDate(null);  // sets to TEST_TIME_NOW
         assertEquals(2002,test.getYear());
     }
 
-    public void testSetDate_RI2_2_oe() {
+public void testSetDate_RI2_2_oe() {
         MutableDateTime test = new MutableDateTime(2010, 7, 8, 12, 24, 48, 501);
         test.setDate(null);  // sets to TEST_TIME_NOW
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testSetDate_RI2_3_oe() {
+public void testSetDate_RI2_3_oe() {
         MutableDateTime test = new MutableDateTime(2010, 7, 8, 12, 24, 48, 501);
         test.setDate(null);  // sets to TEST_TIME_NOW
         // removed other assertion
@@ -573,7 +573,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testSetDate_RI2_4_oe() {
+public void testSetDate_RI2_4_oe() {
         MutableDateTime test = new MutableDateTime(2010, 7, 8, 12, 24, 48, 501);
         test.setDate(null);  // sets to TEST_TIME_NOW
         // removed other assertion
@@ -582,7 +582,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(12,test.getHourOfDay());
     }
 
-    public void testSetDate_RI2_5_oe() {
+public void testSetDate_RI2_5_oe() {
         MutableDateTime test = new MutableDateTime(2010, 7, 8, 12, 24, 48, 501);
         test.setDate(null);  // sets to TEST_TIME_NOW
         // removed other assertion
@@ -592,7 +592,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(24,test.getMinuteOfHour());
     }
 
-    public void testSetDate_RI2_6_oe() {
+public void testSetDate_RI2_6_oe() {
         MutableDateTime test = new MutableDateTime(2010, 7, 8, 12, 24, 48, 501);
         test.setDate(null);  // sets to TEST_TIME_NOW
         // removed other assertion
@@ -603,7 +603,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(48,test.getSecondOfMinute());
     }
 
-    public void testSetDate_RI2_7_oe() {
+public void testSetDate_RI2_7_oe() {
         MutableDateTime test = new MutableDateTime(2010, 7, 8, 12, 24, 48, 501);
         test.setDate(null);  // sets to TEST_TIME_NOW
         // removed other assertion
@@ -615,14 +615,14 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(501,test.getMillisOfSecond());
     }
 
-    public void testSetDate_RI_same_1_oe() {
+public void testSetDate_RI_same_1_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         test.setDate(setter);
         assertEquals(2010,test.getYear());
     }
 
-    public void testSetDate_RI_same_2_oe() {
+public void testSetDate_RI_same_2_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         test.setDate(setter);
@@ -630,7 +630,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(12,test.getMonthOfYear());
     }
 
-    public void testSetDate_RI_same_3_oe() {
+public void testSetDate_RI_same_3_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         test.setDate(setter);
@@ -639,7 +639,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(3,test.getDayOfMonth());
     }
 
-    public void testSetDate_RI_same_4_oe() {
+public void testSetDate_RI_same_4_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         test.setDate(setter);
@@ -649,7 +649,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(2,test.getHourOfDay());
     }
 
-    public void testSetDate_RI_same_5_oe() {
+public void testSetDate_RI_same_5_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         test.setDate(setter);
@@ -660,7 +660,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(24,test.getMinuteOfHour());
     }
 
-    public void testSetDate_RI_same_6_oe() {
+public void testSetDate_RI_same_6_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         test.setDate(setter);
@@ -672,7 +672,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(48,test.getSecondOfMinute());
     }
 
-    public void testSetDate_RI_same_7_oe() {
+public void testSetDate_RI_same_7_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         test.setDate(setter);
@@ -685,14 +685,14 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(501,test.getMillisOfSecond());
     }
 
-    public void testSetDate_RI_different1_1_oe() {
+public void testSetDate_RI_different1_1_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 1, 0, 0, 0, 0, DateTimeZone.forID("America/Los_Angeles"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("Europe/Moscow"));
         test.setDate(setter);
         assertEquals(2010,test.getYear());
     }
 
-    public void testSetDate_RI_different1_2_oe() {
+public void testSetDate_RI_different1_2_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 1, 0, 0, 0, 0, DateTimeZone.forID("America/Los_Angeles"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("Europe/Moscow"));
         test.setDate(setter);
@@ -700,7 +700,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(12,test.getMonthOfYear());
     }
 
-    public void testSetDate_RI_different1_3_oe() {
+public void testSetDate_RI_different1_3_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 1, 0, 0, 0, 0, DateTimeZone.forID("America/Los_Angeles"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("Europe/Moscow"));
         test.setDate(setter);
@@ -709,7 +709,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(1,test.getDayOfMonth());
     }
 
-    public void testSetDate_RI_different1_4_oe() {
+public void testSetDate_RI_different1_4_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 1, 0, 0, 0, 0, DateTimeZone.forID("America/Los_Angeles"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("Europe/Moscow"));
         test.setDate(setter);
@@ -719,7 +719,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(2,test.getHourOfDay());
     }
 
-    public void testSetDate_RI_different1_5_oe() {
+public void testSetDate_RI_different1_5_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 1, 0, 0, 0, 0, DateTimeZone.forID("America/Los_Angeles"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("Europe/Moscow"));
         test.setDate(setter);
@@ -730,7 +730,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(24,test.getMinuteOfHour());
     }
 
-    public void testSetDate_RI_different1_6_oe() {
+public void testSetDate_RI_different1_6_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 1, 0, 0, 0, 0, DateTimeZone.forID("America/Los_Angeles"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("Europe/Moscow"));
         test.setDate(setter);
@@ -742,7 +742,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(48,test.getSecondOfMinute());
     }
 
-    public void testSetDate_RI_different1_7_oe() {
+public void testSetDate_RI_different1_7_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 1, 0, 0, 0, 0, DateTimeZone.forID("America/Los_Angeles"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("Europe/Moscow"));
         test.setDate(setter);
@@ -755,14 +755,14 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(501,test.getMillisOfSecond());
     }
 
-    public void testSetDate_RI_different2_1_oe() {
+public void testSetDate_RI_different2_1_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 1, 0, 0, 0, 0, DateTimeZone.forID("Europe/Moscow"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         test.setDate(setter);
         assertEquals(2010,test.getYear());
     }
 
-    public void testSetDate_RI_different2_2_oe() {
+public void testSetDate_RI_different2_2_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 1, 0, 0, 0, 0, DateTimeZone.forID("Europe/Moscow"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         test.setDate(setter);
@@ -770,7 +770,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(12,test.getMonthOfYear());
     }
 
-    public void testSetDate_RI_different2_3_oe() {
+public void testSetDate_RI_different2_3_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 1, 0, 0, 0, 0, DateTimeZone.forID("Europe/Moscow"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         test.setDate(setter);
@@ -779,7 +779,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(1,test.getDayOfMonth());
     }
 
-    public void testSetDate_RI_different2_4_oe() {
+public void testSetDate_RI_different2_4_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 1, 0, 0, 0, 0, DateTimeZone.forID("Europe/Moscow"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         test.setDate(setter);
@@ -789,7 +789,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(2,test.getHourOfDay());
     }
 
-    public void testSetDate_RI_different2_5_oe() {
+public void testSetDate_RI_different2_5_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 1, 0, 0, 0, 0, DateTimeZone.forID("Europe/Moscow"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         test.setDate(setter);
@@ -800,7 +800,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(24,test.getMinuteOfHour());
     }
 
-    public void testSetDate_RI_different2_6_oe() {
+public void testSetDate_RI_different2_6_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 1, 0, 0, 0, 0, DateTimeZone.forID("Europe/Moscow"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         test.setDate(setter);
@@ -812,7 +812,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(48,test.getSecondOfMinute());
     }
 
-    public void testSetDate_RI_different2_7_oe() {
+public void testSetDate_RI_different2_7_oe() {
         MutableDateTime setter = new MutableDateTime(2010, 12, 1, 0, 0, 0, 0, DateTimeZone.forID("Europe/Moscow"));
         MutableDateTime test = new MutableDateTime(2010, 12, 3, 2, 24, 48, 501, DateTimeZone.forID("America/Los_Angeles"));
         test.setDate(setter);
@@ -825,20 +825,20 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(501,test.getMillisOfSecond());
     }
 
-    public void testSetTime_int_int_int_int1_1_oe() {
+public void testSetTime_int_int_int_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(5, 6, 7, 8);
         assertEquals(2002,test.getYear());
     }
 
-    public void testSetTime_int_int_int_int1_2_oe() {
+public void testSetTime_int_int_int_int1_2_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(5, 6, 7, 8);
         // removed other assertion
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testSetTime_int_int_int_int1_3_oe() {
+public void testSetTime_int_int_int_int1_3_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(5, 6, 7, 8);
         // removed other assertion
@@ -846,7 +846,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testSetTime_int_int_int_int1_4_oe() {
+public void testSetTime_int_int_int_int1_4_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(5, 6, 7, 8);
         // removed other assertion
@@ -855,7 +855,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(5,test.getHourOfDay());
     }
 
-    public void testSetTime_int_int_int_int1_5_oe() {
+public void testSetTime_int_int_int_int1_5_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(5, 6, 7, 8);
         // removed other assertion
@@ -865,7 +865,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(6,test.getMinuteOfHour());
     }
 
-    public void testSetTime_int_int_int_int1_6_oe() {
+public void testSetTime_int_int_int_int1_6_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(5, 6, 7, 8);
         // removed other assertion
@@ -876,7 +876,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(7,test.getSecondOfMinute());
     }
 
-    public void testSetTime_int_int_int_int1_7_oe() {
+public void testSetTime_int_int_int_int1_7_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(5, 6, 7, 8);
         // removed other assertion
@@ -888,7 +888,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(8,test.getMillisOfSecond());
     }
 
-    public void testSetTime_int_int_int2_2_oe() {
+public void testSetTime_int_int_int2_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         try {
             test.setTime(60, 6, 7, 8);
@@ -897,14 +897,14 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(TEST_TIME1,test.getMillis());
     }
 
-    public void testSetTime_long1_1_oe() {
+public void testSetTime_long1_1_oe() {
         long setter = new DateTime(2010, 12, 3, 5, 7, 9, 11).getMillis();
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(setter);
         assertEquals(2002,test.getYear());
     }
 
-    public void testSetTime_long1_2_oe() {
+public void testSetTime_long1_2_oe() {
         long setter = new DateTime(2010, 12, 3, 5, 7, 9, 11).getMillis();
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(setter);
@@ -912,7 +912,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testSetTime_long1_3_oe() {
+public void testSetTime_long1_3_oe() {
         long setter = new DateTime(2010, 12, 3, 5, 7, 9, 11).getMillis();
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(setter);
@@ -921,7 +921,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testSetTime_long1_4_oe() {
+public void testSetTime_long1_4_oe() {
         long setter = new DateTime(2010, 12, 3, 5, 7, 9, 11).getMillis();
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(setter);
@@ -931,7 +931,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(5,test.getHourOfDay());
     }
 
-    public void testSetTime_long1_5_oe() {
+public void testSetTime_long1_5_oe() {
         long setter = new DateTime(2010, 12, 3, 5, 7, 9, 11).getMillis();
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(setter);
@@ -942,7 +942,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(7,test.getMinuteOfHour());
     }
 
-    public void testSetTime_long1_6_oe() {
+public void testSetTime_long1_6_oe() {
         long setter = new DateTime(2010, 12, 3, 5, 7, 9, 11).getMillis();
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(setter);
@@ -954,7 +954,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(9,test.getSecondOfMinute());
     }
 
-    public void testSetTime_long1_7_oe() {
+public void testSetTime_long1_7_oe() {
         long setter = new DateTime(2010, 12, 3, 5, 7, 9, 11).getMillis();
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(setter);
@@ -967,14 +967,14 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(11,test.getMillisOfSecond());
     }
 
-    public void testSetTime_RI1_1_oe() {
+public void testSetTime_RI1_1_oe() {
         DateTime setter = new DateTime(2010, 12, 3, 5, 7, 9, 11);
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(setter);
         assertEquals(2002,test.getYear());
     }
 
-    public void testSetTime_RI1_2_oe() {
+public void testSetTime_RI1_2_oe() {
         DateTime setter = new DateTime(2010, 12, 3, 5, 7, 9, 11);
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(setter);
@@ -982,7 +982,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testSetTime_RI1_3_oe() {
+public void testSetTime_RI1_3_oe() {
         DateTime setter = new DateTime(2010, 12, 3, 5, 7, 9, 11);
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(setter);
@@ -991,7 +991,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testSetTime_RI1_4_oe() {
+public void testSetTime_RI1_4_oe() {
         DateTime setter = new DateTime(2010, 12, 3, 5, 7, 9, 11);
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(setter);
@@ -1001,7 +1001,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(5,test.getHourOfDay());
     }
 
-    public void testSetTime_RI1_5_oe() {
+public void testSetTime_RI1_5_oe() {
         DateTime setter = new DateTime(2010, 12, 3, 5, 7, 9, 11);
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(setter);
@@ -1012,7 +1012,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(7,test.getMinuteOfHour());
     }
 
-    public void testSetTime_RI1_6_oe() {
+public void testSetTime_RI1_6_oe() {
         DateTime setter = new DateTime(2010, 12, 3, 5, 7, 9, 11);
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(setter);
@@ -1024,7 +1024,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(9,test.getSecondOfMinute());
     }
 
-    public void testSetTime_RI1_7_oe() {
+public void testSetTime_RI1_7_oe() {
         DateTime setter = new DateTime(2010, 12, 3, 5, 7, 9, 11);
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setTime(setter);
@@ -1037,20 +1037,20 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(11,test.getMillisOfSecond());
     }
 
-    public void testSetTime_RI2_1_oe() {
+public void testSetTime_RI2_1_oe() {
         MutableDateTime test = new MutableDateTime(2010, 7, 8, 12, 24, 48, 501);
         test.setTime(null);  // sets to TEST_TIME_NOW, which has no time part
         assertEquals(2010,test.getYear());
     }
 
-    public void testSetTime_RI2_2_oe() {
+public void testSetTime_RI2_2_oe() {
         MutableDateTime test = new MutableDateTime(2010, 7, 8, 12, 24, 48, 501);
         test.setTime(null);  // sets to TEST_TIME_NOW, which has no time part
         // removed other assertion
         assertEquals(7,test.getMonthOfYear());
     }
 
-    public void testSetTime_RI2_3_oe() {
+public void testSetTime_RI2_3_oe() {
         MutableDateTime test = new MutableDateTime(2010, 7, 8, 12, 24, 48, 501);
         test.setTime(null);  // sets to TEST_TIME_NOW, which has no time part
         // removed other assertion
@@ -1058,7 +1058,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(8,test.getDayOfMonth());
     }
 
-    public void testSetTime_RI2_4_oe() {
+public void testSetTime_RI2_4_oe() {
         MutableDateTime test = new MutableDateTime(2010, 7, 8, 12, 24, 48, 501);
         test.setTime(null);  // sets to TEST_TIME_NOW, which has no time part
         // removed other assertion
@@ -1067,7 +1067,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(new DateTime(TEST_TIME_NOW).getHourOfDay(),test.getHourOfDay());
     }
 
-    public void testSetTime_RI2_5_oe() {
+public void testSetTime_RI2_5_oe() {
         MutableDateTime test = new MutableDateTime(2010, 7, 8, 12, 24, 48, 501);
         test.setTime(null);  // sets to TEST_TIME_NOW, which has no time part
         // removed other assertion
@@ -1077,7 +1077,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(new DateTime(TEST_TIME_NOW).getMinuteOfHour(),test.getMinuteOfHour());
     }
 
-    public void testSetTime_RI2_6_oe() {
+public void testSetTime_RI2_6_oe() {
         MutableDateTime test = new MutableDateTime(2010, 7, 8, 12, 24, 48, 501);
         test.setTime(null);  // sets to TEST_TIME_NOW, which has no time part
         // removed other assertion
@@ -1088,7 +1088,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(new DateTime(TEST_TIME_NOW).getSecondOfMinute(),test.getSecondOfMinute());
     }
 
-    public void testSetTime_RI2_7_oe() {
+public void testSetTime_RI2_7_oe() {
         MutableDateTime test = new MutableDateTime(2010, 7, 8, 12, 24, 48, 501);
         test.setTime(null);  // sets to TEST_TIME_NOW, which has no time part
         // removed other assertion
@@ -1100,7 +1100,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(new DateTime(TEST_TIME_NOW).getMillisOfSecond(),test.getMillisOfSecond());
     }
 
-    public void testSetTime_Object3_1_oe() {
+public void testSetTime_Object3_1_oe() {
         DateTime temp = new DateTime(2010, 12, 3, 5, 7, 9, 11);
         DateTime setter = new DateTime(temp.getMillis(), new MockNullZoneChronology());
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
@@ -1108,7 +1108,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(2002,test.getYear());
     }
 
-    public void testSetTime_Object3_2_oe() {
+public void testSetTime_Object3_2_oe() {
         DateTime temp = new DateTime(2010, 12, 3, 5, 7, 9, 11);
         DateTime setter = new DateTime(temp.getMillis(), new MockNullZoneChronology());
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
@@ -1117,7 +1117,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(6,test.getMonthOfYear());
     }
 
-    public void testSetTime_Object3_3_oe() {
+public void testSetTime_Object3_3_oe() {
         DateTime temp = new DateTime(2010, 12, 3, 5, 7, 9, 11);
         DateTime setter = new DateTime(temp.getMillis(), new MockNullZoneChronology());
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
@@ -1127,7 +1127,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(9,test.getDayOfMonth());
     }
 
-    public void testSetTime_Object3_4_oe() {
+public void testSetTime_Object3_4_oe() {
         DateTime temp = new DateTime(2010, 12, 3, 5, 7, 9, 11);
         DateTime setter = new DateTime(temp.getMillis(), new MockNullZoneChronology());
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
@@ -1138,7 +1138,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(5,test.getHourOfDay());
     }
 
-    public void testSetTime_Object3_5_oe() {
+public void testSetTime_Object3_5_oe() {
         DateTime temp = new DateTime(2010, 12, 3, 5, 7, 9, 11);
         DateTime setter = new DateTime(temp.getMillis(), new MockNullZoneChronology());
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
@@ -1150,7 +1150,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(7,test.getMinuteOfHour());
     }
 
-    public void testSetTime_Object3_6_oe() {
+public void testSetTime_Object3_6_oe() {
         DateTime temp = new DateTime(2010, 12, 3, 5, 7, 9, 11);
         DateTime setter = new DateTime(temp.getMillis(), new MockNullZoneChronology());
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
@@ -1163,7 +1163,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(9,test.getSecondOfMinute());
     }
 
-    public void testSetTime_Object3_7_oe() {
+public void testSetTime_Object3_7_oe() {
         DateTime temp = new DateTime(2010, 12, 3, 5, 7, 9, 11);
         DateTime setter = new DateTime(temp.getMillis(), new MockNullZoneChronology());
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
@@ -1177,20 +1177,20 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(11,test.getMillisOfSecond());
     }
 
-    public void testSetDateTime_int_int_int_int_int_int_int1_1_oe() {
+public void testSetDateTime_int_int_int_int_int_int_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDateTime(2010, 12, 3, 5, 6, 7, 8);
         assertEquals(2010,test.getYear());
     }
 
-    public void testSetDateTime_int_int_int_int_int_int_int1_2_oe() {
+public void testSetDateTime_int_int_int_int_int_int_int1_2_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDateTime(2010, 12, 3, 5, 6, 7, 8);
         // removed other assertion
         assertEquals(12,test.getMonthOfYear());
     }
 
-    public void testSetDateTime_int_int_int_int_int_int_int1_3_oe() {
+public void testSetDateTime_int_int_int_int_int_int_int1_3_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDateTime(2010, 12, 3, 5, 6, 7, 8);
         // removed other assertion
@@ -1198,7 +1198,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(3,test.getDayOfMonth());
     }
 
-    public void testSetDateTime_int_int_int_int_int_int_int1_4_oe() {
+public void testSetDateTime_int_int_int_int_int_int_int1_4_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDateTime(2010, 12, 3, 5, 6, 7, 8);
         // removed other assertion
@@ -1207,7 +1207,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(5,test.getHourOfDay());
     }
 
-    public void testSetDateTime_int_int_int_int_int_int_int1_5_oe() {
+public void testSetDateTime_int_int_int_int_int_int_int1_5_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDateTime(2010, 12, 3, 5, 6, 7, 8);
         // removed other assertion
@@ -1217,7 +1217,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(6,test.getMinuteOfHour());
     }
 
-    public void testSetDateTime_int_int_int_int_int_int_int1_6_oe() {
+public void testSetDateTime_int_int_int_int_int_int_int1_6_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDateTime(2010, 12, 3, 5, 6, 7, 8);
         // removed other assertion
@@ -1228,7 +1228,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(7,test.getSecondOfMinute());
     }
 
-    public void testSetDateTime_int_int_int_int_int_int_int1_7_oe() {
+public void testSetDateTime_int_int_int_int_int_int_int1_7_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 12, 24, 48, 501);
         test.setDateTime(2010, 12, 3, 5, 6, 7, 8);
         // removed other assertion
@@ -1240,7 +1240,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(8,test.getMillisOfSecond());
     }
 
-    public void testSetDateTime_int_int_int_int_int_int_int2_2_oe() {
+public void testSetDateTime_int_int_int_int_int_int_int2_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         try {
             test.setDateTime(2010, 13, 3, 5, 6, 7, 8);
@@ -1250,37 +1250,37 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals(TEST_TIME1,test.getMillis());
     }
 
-    public void testSetYear_int1_1_oe() {
+public void testSetYear_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         test.setYear(2010);
         assertEquals("2010-06-09T05:06:07.008+01:00",test.toString());
     }
 
-    public void testSetMonthOfYear_int1_1_oe() {
+public void testSetMonthOfYear_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         test.setMonthOfYear(12);
         assertEquals("2002-12-09T05:06:07.008Z",test.toString());
     }
 
-    public void testSetMonthOfYear_int_dstOverlapSummer_addZero_1_oe() {
+public void testSetMonthOfYear_int_dstOverlapSummer_addZero_1_oe() {
         MutableDateTime test = new MutableDateTime(2011, 10, 30, 2, 30, 0, 0, DateTimeZone.forID("Europe/Berlin"));
         assertEquals("2011-10-30T02:30:00.000+02:00",test.toString());
     }
 
-    public void testSetMonthOfYear_int_dstOverlapSummer_addZero_2_oe() {
+public void testSetMonthOfYear_int_dstOverlapSummer_addZero_2_oe() {
         MutableDateTime test = new MutableDateTime(2011, 10, 30, 2, 30, 0, 0, DateTimeZone.forID("Europe/Berlin"));
         // removed other assertion
         test.setMonthOfYear(10);
         assertEquals("2011-10-30T02:30:00.000+02:00",test.toString());
     }
 
-    public void testSetMonthOfYear_int_dstOverlapWinter_addZero_1_oe() {
+public void testSetMonthOfYear_int_dstOverlapWinter_addZero_1_oe() {
         MutableDateTime test = new MutableDateTime(2011, 10, 30, 2, 30, 0, 0, DateTimeZone.forID("Europe/Berlin"));
         test.addHours(1);
         assertEquals("2011-10-30T02:30:00.000+01:00",test.toString());
     }
 
-    public void testSetMonthOfYear_int_dstOverlapWinter_addZero_2_oe() {
+public void testSetMonthOfYear_int_dstOverlapWinter_addZero_2_oe() {
         MutableDateTime test = new MutableDateTime(2011, 10, 30, 2, 30, 0, 0, DateTimeZone.forID("Europe/Berlin"));
         test.addHours(1);
         // removed other assertion
@@ -1288,7 +1288,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals("2011-10-30T02:30:00.000+01:00",test.toString());
     }
 
-    public void testSetMonthOfYear_int2_2_oe() {
+public void testSetMonthOfYear_int2_2_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         try {
             test.setMonthOfYear(13);
@@ -1297,13 +1297,13 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals("2002-06-09T05:06:07.008+01:00",test.toString());
     }
 
-    public void testSetDayOfMonth_int1_1_oe() {
+public void testSetDayOfMonth_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         test.setDayOfMonth(17);
         assertEquals("2002-06-17T05:06:07.008+01:00",test.toString());
     }
 
-    public void testSetDayOfMonth_int2_2_oe() {
+public void testSetDayOfMonth_int2_2_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         try {
             test.setDayOfMonth(31);
@@ -1312,25 +1312,25 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals("2002-06-09T05:06:07.008+01:00",test.toString());
     }
 
-    public void testSetDayOfMonth_int_dstOverlapSummer_addZero_1_oe() {
+public void testSetDayOfMonth_int_dstOverlapSummer_addZero_1_oe() {
         MutableDateTime test = new MutableDateTime(2011, 10, 30, 2, 30, 0, 0, DateTimeZone.forID("Europe/Berlin"));
         assertEquals("2011-10-30T02:30:00.000+02:00",test.toString());
     }
 
-    public void testSetDayOfMonth_int_dstOverlapSummer_addZero_2_oe() {
+public void testSetDayOfMonth_int_dstOverlapSummer_addZero_2_oe() {
         MutableDateTime test = new MutableDateTime(2011, 10, 30, 2, 30, 0, 0, DateTimeZone.forID("Europe/Berlin"));
         // removed other assertion
         test.setDayOfMonth(30);
         assertEquals("2011-10-30T02:30:00.000+02:00",test.toString());
     }
 
-    public void testSetDayOfMonth_int_dstOverlapWinter_addZero_1_oe() {
+public void testSetDayOfMonth_int_dstOverlapWinter_addZero_1_oe() {
         MutableDateTime test = new MutableDateTime(2011, 10, 30, 2, 30, 0, 0, DateTimeZone.forID("Europe/Berlin"));
         test.addHours(1);
         assertEquals("2011-10-30T02:30:00.000+01:00",test.toString());
     }
 
-    public void testSetDayOfMonth_int_dstOverlapWinter_addZero_2_oe() {
+public void testSetDayOfMonth_int_dstOverlapWinter_addZero_2_oe() {
         MutableDateTime test = new MutableDateTime(2011, 10, 30, 2, 30, 0, 0, DateTimeZone.forID("Europe/Berlin"));
         test.addHours(1);
         // removed other assertion
@@ -1338,31 +1338,31 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals("2011-10-30T02:30:00.000+01:00",test.toString());
     }
 
-    public void testSetDayOfYear_int1_1_oe() {
+public void testSetDayOfYear_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         test.setDayOfYear(3);
         assertEquals("2002-01-03T05:06:07.008Z",test.toString());
     }
 
-    public void testSetDayOfYear_int_dstOverlapSummer_addZero_1_oe() {
+public void testSetDayOfYear_int_dstOverlapSummer_addZero_1_oe() {
         MutableDateTime test = new MutableDateTime(2011, 10, 30, 2, 30, 0, 0, DateTimeZone.forID("Europe/Berlin"));
         assertEquals("2011-10-30T02:30:00.000+02:00",test.toString());
     }
 
-    public void testSetDayOfYear_int_dstOverlapSummer_addZero_2_oe() {
+public void testSetDayOfYear_int_dstOverlapSummer_addZero_2_oe() {
         MutableDateTime test = new MutableDateTime(2011, 10, 30, 2, 30, 0, 0, DateTimeZone.forID("Europe/Berlin"));
         // removed other assertion
         test.setDayOfYear(303);
         assertEquals("2011-10-30T02:30:00.000+02:00",test.toString());
     }
 
-    public void testSetDayOfYear_int_dstOverlapWinter_addZero_1_oe() {
+public void testSetDayOfYear_int_dstOverlapWinter_addZero_1_oe() {
         MutableDateTime test = new MutableDateTime(2011, 10, 30, 2, 30, 0, 0, DateTimeZone.forID("Europe/Berlin"));
         test.addHours(1);
         assertEquals("2011-10-30T02:30:00.000+01:00",test.toString());
     }
 
-    public void testSetDayOfYear_int_dstOverlapWinter_addZero_2_oe() {
+public void testSetDayOfYear_int_dstOverlapWinter_addZero_2_oe() {
         MutableDateTime test = new MutableDateTime(2011, 10, 30, 2, 30, 0, 0, DateTimeZone.forID("Europe/Berlin"));
         test.addHours(1);
         // removed other assertion
@@ -1370,7 +1370,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals("2011-10-30T02:30:00.000+01:00",test.toString());
     }
 
-    public void testSetDayOfYear_int2_2_oe() {
+public void testSetDayOfYear_int2_2_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         try {
             test.setDayOfYear(366);
@@ -1379,19 +1379,19 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals("2002-06-09T05:06:07.008+01:00",test.toString());
     }
 
-    public void testSetWeekyear_int1_1_oe() {
+public void testSetWeekyear_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         test.setWeekyear(2001);
         assertEquals("2001-06-10T05:06:07.008+01:00",test.toString());
     }
 
-    public void testSetWeekOfWeekyear_int1_1_oe() {
+public void testSetWeekOfWeekyear_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         test.setWeekOfWeekyear(2);
         assertEquals("2002-01-13T05:06:07.008Z",test.toString());
     }
 
-    public void testSetWeekOfWeekyear_int2_2_oe() {
+public void testSetWeekOfWeekyear_int2_2_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         try {
             test.setWeekOfWeekyear(53);
@@ -1400,13 +1400,13 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals("2002-06-09T05:06:07.008+01:00",test.toString());
     }
 
-    public void testSetDayOfWeek_int1_1_oe() {
+public void testSetDayOfWeek_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         test.setDayOfWeek(5);
         assertEquals("2002-06-07T05:06:07.008+01:00",test.toString());
     }
 
-    public void testSetDayOfWeek_int2_2_oe() {
+public void testSetDayOfWeek_int2_2_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         try {
             test.setDayOfWeek(8);
@@ -1415,13 +1415,13 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals("2002-06-09T05:06:07.008+01:00",test.toString());
     }
 
-    public void testSetHourOfDay_int1_1_oe() {
+public void testSetHourOfDay_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         test.setHourOfDay(13);
         assertEquals("2002-06-09T13:06:07.008+01:00",test.toString());
     }
 
-    public void testSetHourOfDay_int2_2_oe() {
+public void testSetHourOfDay_int2_2_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         try {
             test.setHourOfDay(24);
@@ -1430,13 +1430,13 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals("2002-06-09T05:06:07.008+01:00",test.toString());
     }
 
-    public void testSetMinuteOfHour_int1_1_oe() {
+public void testSetMinuteOfHour_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         test.setMinuteOfHour(13);
         assertEquals("2002-06-09T05:13:07.008+01:00",test.toString());
     }
 
-    public void testSetMinuteOfHour_int2_2_oe() {
+public void testSetMinuteOfHour_int2_2_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         try {
             test.setMinuteOfHour(60);
@@ -1445,13 +1445,13 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals("2002-06-09T05:06:07.008+01:00",test.toString());
     }
 
-    public void testSetMinuteOfDay_int1_1_oe() {
+public void testSetMinuteOfDay_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         test.setMinuteOfDay(13);
         assertEquals("2002-06-09T00:13:07.008+01:00",test.toString());
     }
 
-    public void testSetMinuteOfDay_int2_2_oe() {
+public void testSetMinuteOfDay_int2_2_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         try {
             test.setMinuteOfDay(24 * 60);
@@ -1460,13 +1460,13 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals("2002-06-09T05:06:07.008+01:00",test.toString());
     }
 
-    public void testSetSecondOfMinute_int1_1_oe() {
+public void testSetSecondOfMinute_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         test.setSecondOfMinute(13);
         assertEquals("2002-06-09T05:06:13.008+01:00",test.toString());
     }
 
-    public void testSetSecondOfMinute_int2_2_oe() {
+public void testSetSecondOfMinute_int2_2_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         try {
             test.setSecondOfMinute(60);
@@ -1475,13 +1475,13 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals("2002-06-09T05:06:07.008+01:00",test.toString());
     }
 
-    public void testSetSecondOfDay_int1_1_oe() {
+public void testSetSecondOfDay_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         test.setSecondOfDay(13);
         assertEquals("2002-06-09T00:00:13.008+01:00",test.toString());
     }
 
-    public void testSetSecondOfDay_int2_2_oe() {
+public void testSetSecondOfDay_int2_2_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         try {
             test.setSecondOfDay(24 * 60 * 60);
@@ -1490,13 +1490,13 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals("2002-06-09T05:06:07.008+01:00",test.toString());
     }
 
-    public void testSetMilliOfSecond_int1_1_oe() {
+public void testSetMilliOfSecond_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         test.setMillisOfSecond(13);
         assertEquals("2002-06-09T05:06:07.013+01:00",test.toString());
     }
 
-    public void testSetMilliOfSecond_int2_2_oe() {
+public void testSetMilliOfSecond_int2_2_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         try {
             test.setMillisOfSecond(1000);
@@ -1505,13 +1505,13 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         assertEquals("2002-06-09T05:06:07.008+01:00",test.toString());
     }
 
-    public void testSetMilliOfDay_int1_1_oe() {
+public void testSetMilliOfDay_int1_1_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         test.setMillisOfDay(13);
         assertEquals("2002-06-09T00:00:00.013+01:00",test.toString());
     }
 
-    public void testSetMilliOfDay_int2_2_oe() {
+public void testSetMilliOfDay_int2_2_oe() {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 5, 6, 7, 8);
         try {
             test.setMillisOfDay(24 * 60 * 60 * 1000);

@@ -27,7 +27,7 @@ public class ColorConversionsTest_OE25Dev {
             0xffff0000, 0xff00ff00, 0xff0000ff, 0xffff00ff, 0xfff0ff00,
             0xff00ffff, 0x00000000, 0xff7f7f7f, };
 
-    @Test
+@Test
     public void testRGBtoCMYK_1_oe() {
         for (final int rgb : SAMPLE_RGBS) {
             final ColorCmy cmy = ColorConversions.convertRGBtoCMY(rgb);
@@ -44,7 +44,7 @@ public class ColorConversionsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testRGBtoHSL_1_oe() {
         for (final int rgb : SAMPLE_RGBS) {
             final ColorHsl hsl = ColorConversions.convertRGBtoHSL(rgb);
@@ -57,7 +57,7 @@ public class ColorConversionsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testRGBtoHSV_1_oe() {
         for (final int rgb : SAMPLE_RGBS) {
             final ColorHsv hsv = ColorConversions.convertRGBtoHSV(rgb);
@@ -70,7 +70,7 @@ public class ColorConversionsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testXYZ_1_oe() {
         for (final int rgb : SAMPLE_RGBS) {
             final ColorXyz xyz = ColorConversions.convertRGBtoXYZ(rgb);
@@ -85,7 +85,7 @@ public class ColorConversionsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testXYZ_2_oe() {
         for (final int rgb : SAMPLE_RGBS) {
             final ColorXyz xyz = ColorConversions.convertRGBtoXYZ(rgb);
@@ -110,7 +110,7 @@ public class ColorConversionsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testXYZ_3_oe() {
         for (final int rgb : SAMPLE_RGBS) {
             final ColorXyz xyz = ColorConversions.convertRGBtoXYZ(rgb);
@@ -146,7 +146,7 @@ public class ColorConversionsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testRGBtoDin99b_1_oe() {
         for (final int rgb : SAMPLE_RGBS) {
 
@@ -162,7 +162,7 @@ public class ColorConversionsTest_OE25Dev {
     }
     }
 
-    @Test
+@Test
     public void testRGBtoDin99o_1_oe() {
         for (final int rgb : SAMPLE_RGBS) {
 

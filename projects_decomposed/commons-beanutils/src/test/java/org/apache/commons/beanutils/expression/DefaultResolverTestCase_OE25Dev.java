@@ -112,7 +112,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
         return "Expression[" + i + "]=\"" + expression + "\"";
     }
 
-    public void testGetIndex_2_oe() {
+public void testGetIndex_2_oe() {
         String label = null;
 
         // Simple Properties (expect -1)
@@ -126,7 +126,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetIndex_4_oe() {
+public void testGetIndex_4_oe() {
         String label = null;
 
         // Simple Properties (expect -1)
@@ -150,7 +150,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetIndex_6_oe() {
+public void testGetIndex_6_oe() {
         String label = null;
 
         // Simple Properties (expect -1)
@@ -184,7 +184,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetIndex_8_oe() {
+public void testGetIndex_8_oe() {
         String label = null;
 
         // Simple Properties (expect -1)
@@ -227,7 +227,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetIndex_9_oe() {
+public void testGetIndex_9_oe() {
         String label = null;
 
         // Simple Properties (expect -1)
@@ -272,7 +272,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetIndex_11_oe() {
+public void testGetIndex_11_oe() {
         String label = null;
 
         // Simple Properties (expect -1)
@@ -326,7 +326,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetIndex_12_oe() {
+public void testGetIndex_12_oe() {
         String label = null;
 
         // Simple Properties (expect -1)
@@ -382,7 +382,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetIndex_14_oe() {
+public void testGetIndex_14_oe() {
         String label = null;
 
         // Simple Properties (expect -1)
@@ -447,7 +447,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetIndex_15_oe() {
+public void testGetIndex_15_oe() {
         String label = null;
 
         // Simple Properties (expect -1)
@@ -514,7 +514,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetMapKey_2_oe() {
+public void testGetMapKey_2_oe() {
         String label = null;
 
         // Simple Properties (expect null)
@@ -528,7 +528,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetMapKey_4_oe() {
+public void testGetMapKey_4_oe() {
         String label = null;
 
         // Simple Properties (expect null)
@@ -552,7 +552,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetMapKey_6_oe() {
+public void testGetMapKey_6_oe() {
         String label = null;
 
         // Simple Properties (expect null)
@@ -586,7 +586,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetMapKey_8_oe() {
+public void testGetMapKey_8_oe() {
         String label = null;
 
         // Simple Properties (expect null)
@@ -629,7 +629,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetMapKey_9_oe() {
+public void testGetMapKey_9_oe() {
         String label = null;
 
         // Simple Properties (expect null)
@@ -674,7 +674,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIsIndexed_2_oe() {
+public void testIsIndexed_2_oe() {
         String label = null;
 
         // Simple Properties (expect -1)
@@ -688,7 +688,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIsIndexed_4_oe() {
+public void testIsIndexed_4_oe() {
         String label = null;
 
         // Simple Properties (expect -1)
@@ -712,7 +712,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIsIndexed_6_oe() {
+public void testIsIndexed_6_oe() {
         String label = null;
 
         // Simple Properties (expect -1)
@@ -746,7 +746,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIsMapped_2_oe() {
+public void testIsMapped_2_oe() {
         String label = null;
 
         // Simple Properties (expect null)
@@ -760,7 +760,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIsMapped_4_oe() {
+public void testIsMapped_4_oe() {
         String label = null;
 
         // Simple Properties (expect null)
@@ -784,7 +784,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testIsMapped_6_oe() {
+public void testIsMapped_6_oe() {
         String label = null;
 
         // Simple Properties (expect null)
@@ -818,7 +818,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetName_2_oe() {
+public void testGetName_2_oe() {
         String label = null;
 
         // Simple Properties
@@ -832,7 +832,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetName_4_oe() {
+public void testGetName_4_oe() {
         String label = null;
 
         // Simple Properties
@@ -856,7 +856,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetName_6_oe() {
+public void testGetName_6_oe() {
         String label = null;
 
         // Simple Properties
@@ -890,7 +890,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testNext_2_oe() {
+public void testNext_2_oe() {
         String label = null;
         for (int i = 0; i < nextExpressions.length; i++) {
             try {
@@ -902,7 +902,7 @@ public class DefaultResolverTestCase_OE25Dev extends TestCase {
     }
     }
 
-    public void testRemove_2_oe() {
+public void testRemove_2_oe() {
         String label = null;
         for (int i = 0; i < nextExpressions.length; i++) {
             try {

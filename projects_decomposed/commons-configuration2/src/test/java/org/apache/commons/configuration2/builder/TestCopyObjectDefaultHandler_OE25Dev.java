@@ -65,7 +65,7 @@ public class TestCopyObjectDefaultHandler_OE25Dev {
         new CopyObjectDefaultHandler(null);
     }
 
-    @Test
+@Test
     public void testInitializeDefaultsBaseType_1_oe() {
         final Long refresh = 50000L;
         final XMLBuilderParametersImpl paramsXml = new XMLBuilderParametersImpl();
@@ -76,7 +76,7 @@ public class TestCopyObjectDefaultHandler_OE25Dev {
         assertEquals("Wrong refresh", refresh, paramsFb.getReloadingRefreshDelay());
     }
 
-    @Test
+@Test
     public void testInitializeDefaultsSameType_1_oe() {
         final Long refresh = 50000L;
         final FileBasedBuilderParametersImpl source = new FileBasedBuilderParametersImpl();
@@ -88,7 +88,7 @@ public class TestCopyObjectDefaultHandler_OE25Dev {
         assertEquals("Wrong exception flag", Boolean.TRUE, map.get("throwExceptionOnMissing"));
     }
 
-    @Test
+@Test
     public void testInitializeDefaultsSameType_2_oe() {
         final Long refresh = 50000L;
         final FileBasedBuilderParametersImpl source = new FileBasedBuilderParametersImpl();

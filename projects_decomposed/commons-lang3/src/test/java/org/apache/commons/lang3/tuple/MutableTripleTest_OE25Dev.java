@@ -28,20 +28,20 @@ import org.junit.jupiter.api.Test;
  */
 public class MutableTripleTest_OE25Dev {
 
-    @Test
+@Test
     public void testBasic_1_oe() {
         final MutableTriple<Integer, String, Boolean> triple = new MutableTriple<>(0, "foo", Boolean.FALSE);
         assertEquals(0, triple.getLeft().intValue());
     }
 
-    @Test
+@Test
     public void testBasic_2_oe() {
         final MutableTriple<Integer, String, Boolean> triple = new MutableTriple<>(0, "foo", Boolean.FALSE);
         // removed other assertion
         assertEquals("foo", triple.getMiddle());
     }
 
-    @Test
+@Test
     public void testBasic_3_oe() {
         final MutableTriple<Integer, String, Boolean> triple = new MutableTriple<>(0, "foo", Boolean.FALSE);
         // removed other assertion
@@ -49,7 +49,7 @@ public class MutableTripleTest_OE25Dev {
         assertEquals(Boolean.FALSE, triple.getRight());
     }
 
-    @Test
+@Test
     public void testBasic_4_oe() {
         final MutableTriple<Integer, String, Boolean> triple = new MutableTriple<>(0, "foo", Boolean.FALSE);
         // removed other assertion
@@ -59,7 +59,7 @@ public class MutableTripleTest_OE25Dev {
         assertNull(triple2.getLeft());
     }
 
-    @Test
+@Test
     public void testBasic_5_oe() {
         final MutableTriple<Integer, String, Boolean> triple = new MutableTriple<>(0, "foo", Boolean.FALSE);
         // removed other assertion
@@ -70,7 +70,7 @@ public class MutableTripleTest_OE25Dev {
         assertEquals("bar", triple2.getMiddle());
     }
 
-    @Test
+@Test
     public void testBasic_6_oe() {
         final MutableTriple<Integer, String, Boolean> triple = new MutableTriple<>(0, "foo", Boolean.FALSE);
         // removed other assertion
@@ -82,20 +82,20 @@ public class MutableTripleTest_OE25Dev {
         assertEquals("hello", triple2.getRight());
     }
 
-    @Test
+@Test
     public void testDefault_1_oe() {
         final MutableTriple<Integer, String, Boolean> triple = new MutableTriple<>();
         assertNull(triple.getLeft());
     }
 
-    @Test
+@Test
     public void testDefault_2_oe() {
         final MutableTriple<Integer, String, Boolean> triple = new MutableTriple<>();
         // removed other assertion
         assertNull(triple.getMiddle());
     }
 
-    @Test
+@Test
     public void testDefault_3_oe() {
         final MutableTriple<Integer, String, Boolean> triple = new MutableTriple<>();
         // removed other assertion
@@ -103,38 +103,38 @@ public class MutableTripleTest_OE25Dev {
         assertNull(triple.getRight());
     }
 
-    @Test
+@Test
     public void testEmptyArrayGenerics_1_oe() {
         final MutableTriple<Integer, String, Boolean>[] empty = MutableTriple.emptyArray();
         assertEquals(0, empty.length);
     }
 
-    @Test
+@Test
     public void testEmptyArrayLength_1_oe() {
         @SuppressWarnings("unchecked")
         final MutableTriple<Integer, String, Boolean>[] empty = (MutableTriple<Integer, String, Boolean>[]) MutableTriple.EMPTY_ARRAY;
         assertEquals(0, empty.length);
     }
 
-    @Test
+@Test
     public void testEquals_1_oe() {
         assertEquals(MutableTriple.of(null, "foo", "baz"), MutableTriple.of(null, "foo", "baz"));
     }
 
-    @Test
+@Test
     public void testEquals_2_oe() {
         // removed other assertion
         assertNotEquals(MutableTriple.of("foo", 0, Boolean.TRUE), MutableTriple.of("foo", null, Boolean.TRUE));
     }
 
-    @Test
+@Test
     public void testEquals_3_oe() {
         // removed other assertion
         // removed other assertion
         assertNotEquals(MutableTriple.of("foo", "bar", "baz"), MutableTriple.of("xyz", "bar", "baz"));
     }
 
-    @Test
+@Test
     public void testEquals_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -142,7 +142,7 @@ public class MutableTripleTest_OE25Dev {
         assertNotEquals(MutableTriple.of("foo", "bar", "baz"), MutableTriple.of("foo", "bar", "blo"));
     }
 
-    @Test
+@Test
     public void testEquals_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -153,7 +153,7 @@ public class MutableTripleTest_OE25Dev {
         assertEquals(p, p);
     }
 
-    @Test
+@Test
     public void testEquals_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -165,12 +165,12 @@ public class MutableTripleTest_OE25Dev {
         assertNotEquals(p, new Object());
     }
 
-    @Test
+@Test
     public void testHashCode_1_oe() {
         assertEquals(MutableTriple.of(null, "foo", "baz").hashCode(), MutableTriple.of(null, "foo", "baz").hashCode());
     }
 
-    @Test
+@Test
     public void testMutate_1_oe() {
         final MutableTriple<Integer, String, Boolean> triple = new MutableTriple<>(0, "foo", Boolean.TRUE);
         triple.setLeft(42);
@@ -179,7 +179,7 @@ public class MutableTripleTest_OE25Dev {
         assertEquals(42, triple.getLeft().intValue());
     }
 
-    @Test
+@Test
     public void testMutate_2_oe() {
         final MutableTriple<Integer, String, Boolean> triple = new MutableTriple<>(0, "foo", Boolean.TRUE);
         triple.setLeft(42);
@@ -189,7 +189,7 @@ public class MutableTripleTest_OE25Dev {
         assertEquals("bar", triple.getMiddle());
     }
 
-    @Test
+@Test
     public void testMutate_3_oe() {
         final MutableTriple<Integer, String, Boolean> triple = new MutableTriple<>(0, "foo", Boolean.TRUE);
         triple.setLeft(42);
@@ -200,7 +200,7 @@ public class MutableTripleTest_OE25Dev {
         assertEquals(Boolean.FALSE, triple.getRight());
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSerialization_1_oe() throws Exception {
         final MutableTriple<Integer, String, Boolean> origTriple = MutableTriple.of(0, "foo", Boolean.TRUE);
@@ -208,7 +208,7 @@ public class MutableTripleTest_OE25Dev {
         assertEquals(origTriple, deserializedTriple);
     }
 
-    @Test
+@Test
     @SuppressWarnings("unchecked")
     public void testSerialization_2_oe() throws Exception {
         final MutableTriple<Integer, String, Boolean> origTriple = MutableTriple.of(0, "foo", Boolean.TRUE);
@@ -217,25 +217,25 @@ public class MutableTripleTest_OE25Dev {
         assertEquals(origTriple.hashCode(), deserializedTriple.hashCode());
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         assertEquals("(null,null,null)", MutableTriple.of(null, null, null).toString());
     }
 
-    @Test
+@Test
     public void testToString_2_oe() {
         // removed other assertion
         assertEquals("(null,two,null)", MutableTriple.of(null, "two", null).toString());
     }
 
-    @Test
+@Test
     public void testToString_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals("(one,null,null)", MutableTriple.of("one", null, null).toString());
     }
 
-    @Test
+@Test
     public void testToString_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -243,7 +243,7 @@ public class MutableTripleTest_OE25Dev {
         assertEquals("(one,two,null)", MutableTriple.of("one", "two", null).toString());
     }
 
-    @Test
+@Test
     public void testToString_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -252,7 +252,7 @@ public class MutableTripleTest_OE25Dev {
         assertEquals("(null,two,three)", MutableTriple.of(null, "two", "three").toString());
     }
 
-    @Test
+@Test
     public void testToString_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -262,7 +262,7 @@ public class MutableTripleTest_OE25Dev {
         assertEquals("(one,null,three)", MutableTriple.of("one", null, "three").toString());
     }
 
-    @Test
+@Test
     public void testToString_7_oe() {
         // removed other assertion
         // removed other assertion
@@ -273,20 +273,20 @@ public class MutableTripleTest_OE25Dev {
         assertEquals("(one,two,three)", MutableTriple.of("one", "two", "three").toString());
     }
 
-    @Test
+@Test
     public void testTripleOf_1_oe() {
         final MutableTriple<Integer, String, Boolean> triple = MutableTriple.of(0, "foo", Boolean.TRUE);
         assertEquals(0, triple.getLeft().intValue());
     }
 
-    @Test
+@Test
     public void testTripleOf_2_oe() {
         final MutableTriple<Integer, String, Boolean> triple = MutableTriple.of(0, "foo", Boolean.TRUE);
         // removed other assertion
         assertEquals("foo", triple.getMiddle());
     }
 
-    @Test
+@Test
     public void testTripleOf_3_oe() {
         final MutableTriple<Integer, String, Boolean> triple = MutableTriple.of(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -294,7 +294,7 @@ public class MutableTripleTest_OE25Dev {
         assertEquals(Boolean.TRUE, triple.getRight());
     }
 
-    @Test
+@Test
     public void testTripleOf_4_oe() {
         final MutableTriple<Integer, String, Boolean> triple = MutableTriple.of(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -304,7 +304,7 @@ public class MutableTripleTest_OE25Dev {
         assertNull(triple2.getLeft());
     }
 
-    @Test
+@Test
     public void testTripleOf_5_oe() {
         final MutableTriple<Integer, String, Boolean> triple = MutableTriple.of(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -315,7 +315,7 @@ public class MutableTripleTest_OE25Dev {
         assertEquals("bar", triple2.getMiddle());
     }
 
-    @Test
+@Test
     public void testTripleOf_6_oe() {
         final MutableTriple<Integer, String, Boolean> triple = MutableTriple.of(0, "foo", Boolean.TRUE);
         // removed other assertion

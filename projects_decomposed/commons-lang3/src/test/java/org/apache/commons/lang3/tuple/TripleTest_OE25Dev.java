@@ -30,14 +30,14 @@ import org.junit.jupiter.api.Test;
  */
 public class TripleTest_OE25Dev {
 
-    @Test
+@Test
     public void testComparable1_1_oe() {
         final Triple<String, String, String> triple1 = Triple.of("A", "D", "A");
         final Triple<String, String, String> triple2 = Triple.of("B", "C", "A");
         assertEquals(0, triple1.compareTo(triple1));
     }
 
-    @Test
+@Test
     public void testComparable1_2_oe() {
         final Triple<String, String, String> triple1 = Triple.of("A", "D", "A");
         final Triple<String, String, String> triple2 = Triple.of("B", "C", "A");
@@ -45,7 +45,7 @@ public class TripleTest_OE25Dev {
         assertTrue(triple1.compareTo(triple2) < 0);
     }
 
-    @Test
+@Test
     public void testComparable1_3_oe() {
         final Triple<String, String, String> triple1 = Triple.of("A", "D", "A");
         final Triple<String, String, String> triple2 = Triple.of("B", "C", "A");
@@ -54,7 +54,7 @@ public class TripleTest_OE25Dev {
         assertEquals(0, triple2.compareTo(triple2));
     }
 
-    @Test
+@Test
     public void testComparable1_4_oe() {
         final Triple<String, String, String> triple1 = Triple.of("A", "D", "A");
         final Triple<String, String, String> triple2 = Triple.of("B", "C", "A");
@@ -64,14 +64,14 @@ public class TripleTest_OE25Dev {
         assertTrue(triple2.compareTo(triple1) > 0);
     }
 
-    @Test
+@Test
     public void testComparable2_1_oe() {
         final Triple<String, String, String> triple1 = Triple.of("A", "C", "B");
         final Triple<String, String, String> triple2 = Triple.of("A", "D", "B");
         assertEquals(0, triple1.compareTo(triple1));
     }
 
-    @Test
+@Test
     public void testComparable2_2_oe() {
         final Triple<String, String, String> triple1 = Triple.of("A", "C", "B");
         final Triple<String, String, String> triple2 = Triple.of("A", "D", "B");
@@ -79,7 +79,7 @@ public class TripleTest_OE25Dev {
         assertTrue(triple1.compareTo(triple2) < 0);
     }
 
-    @Test
+@Test
     public void testComparable2_3_oe() {
         final Triple<String, String, String> triple1 = Triple.of("A", "C", "B");
         final Triple<String, String, String> triple2 = Triple.of("A", "D", "B");
@@ -88,7 +88,7 @@ public class TripleTest_OE25Dev {
         assertEquals(0, triple2.compareTo(triple2));
     }
 
-    @Test
+@Test
     public void testComparable2_4_oe() {
         final Triple<String, String, String> triple1 = Triple.of("A", "C", "B");
         final Triple<String, String, String> triple2 = Triple.of("A", "D", "B");
@@ -98,14 +98,14 @@ public class TripleTest_OE25Dev {
         assertTrue(triple2.compareTo(triple1) > 0);
     }
 
-    @Test
+@Test
     public void testComparable3_1_oe() {
         final Triple<String, String, String> triple1 = Triple.of("A", "A", "D");
         final Triple<String, String, String> triple2 = Triple.of("A", "B", "C");
         assertEquals(0, triple1.compareTo(triple1));
     }
 
-    @Test
+@Test
     public void testComparable3_2_oe() {
         final Triple<String, String, String> triple1 = Triple.of("A", "A", "D");
         final Triple<String, String, String> triple2 = Triple.of("A", "B", "C");
@@ -113,7 +113,7 @@ public class TripleTest_OE25Dev {
         assertTrue(triple1.compareTo(triple2) < 0);
     }
 
-    @Test
+@Test
     public void testComparable3_3_oe() {
         final Triple<String, String, String> triple1 = Triple.of("A", "A", "D");
         final Triple<String, String, String> triple2 = Triple.of("A", "B", "C");
@@ -122,7 +122,7 @@ public class TripleTest_OE25Dev {
         assertEquals(0, triple2.compareTo(triple2));
     }
 
-    @Test
+@Test
     public void testComparable3_4_oe() {
         final Triple<String, String, String> triple1 = Triple.of("A", "A", "D");
         final Triple<String, String, String> triple2 = Triple.of("A", "B", "C");
@@ -132,14 +132,14 @@ public class TripleTest_OE25Dev {
         assertTrue(triple2.compareTo(triple1) > 0);
     }
 
-    @Test
+@Test
     public void testComparable4_1_oe() {
         final Triple<String, String, String> triple1 = Triple.of("B", "A", "C");
         final Triple<String, String, String> triple2 = Triple.of("B", "A", "D");
         assertEquals(0, triple1.compareTo(triple1));
     }
 
-    @Test
+@Test
     public void testComparable4_2_oe() {
         final Triple<String, String, String> triple1 = Triple.of("B", "A", "C");
         final Triple<String, String, String> triple2 = Triple.of("B", "A", "D");
@@ -147,7 +147,7 @@ public class TripleTest_OE25Dev {
         assertTrue(triple1.compareTo(triple2) < 0);
     }
 
-    @Test
+@Test
     public void testComparable4_3_oe() {
         final Triple<String, String, String> triple1 = Triple.of("B", "A", "C");
         final Triple<String, String, String> triple2 = Triple.of("B", "A", "D");
@@ -156,7 +156,7 @@ public class TripleTest_OE25Dev {
         assertEquals(0, triple2.compareTo(triple2));
     }
 
-    @Test
+@Test
     public void testComparable4_4_oe() {
         final Triple<String, String, String> triple1 = Triple.of("B", "A", "C");
         final Triple<String, String, String> triple2 = Triple.of("B", "A", "D");
@@ -166,14 +166,14 @@ public class TripleTest_OE25Dev {
         assertTrue(triple2.compareTo(triple1) > 0);
     }
 
-    @Test
+@Test
     public void testCompatibilityBetweenTriples_1_oe() {
         final Triple<Integer, String, Boolean> triple = ImmutableTriple.of(0, "foo", Boolean.TRUE);
         final Triple<Integer, String, Boolean> triple2 = MutableTriple.of(0, "foo", Boolean.TRUE);
         assertEquals(triple, triple2);
     }
 
-    @Test
+@Test
     public void testCompatibilityBetweenTriples_2_oe() {
         final Triple<Integer, String, Boolean> triple = ImmutableTriple.of(0, "foo", Boolean.TRUE);
         final Triple<Integer, String, Boolean> triple2 = MutableTriple.of(0, "foo", Boolean.TRUE);
@@ -181,7 +181,7 @@ public class TripleTest_OE25Dev {
         assertEquals(triple.hashCode(), triple2.hashCode());
     }
 
-    @Test
+@Test
     public void testCompatibilityBetweenTriples_3_oe() {
         final Triple<Integer, String, Boolean> triple = ImmutableTriple.of(0, "foo", Boolean.TRUE);
         final Triple<Integer, String, Boolean> triple2 = MutableTriple.of(0, "foo", Boolean.TRUE);
@@ -192,38 +192,38 @@ public class TripleTest_OE25Dev {
         assertTrue(set.contains(triple2));
     }
 
-    @Test
+@Test
     public void testEmptyArrayGenerics_1_oe() {
         final Triple<Integer, String, Boolean>[] empty = Triple.emptyArray();
         assertEquals(0, empty.length);
     }
 
-    @Test
+@Test
     public void testEmptyArrayLength_1_oe() {
         @SuppressWarnings("unchecked")
         final Triple<Integer, String, Boolean>[] empty = (Triple<Integer, String, Boolean>[]) Triple.EMPTY_ARRAY;
         assertEquals(0, empty.length);
     }
 
-    @Test
+@Test
     public void testFormattable_padded_1_oe() {
         final Triple<String, String, String> triple = Triple.of("Key", "Something", "Value");
         assertEquals("         (Key,Something,Value)", String.format("%1$30s", triple));
     }
 
-    @Test
+@Test
     public void testFormattable_simple_1_oe() {
         final Triple<String, String, String> triple = Triple.of("Key", "Something", "Value");
         assertEquals("(Key,Something,Value)", String.format("%1$s", triple));
     }
 
-    @Test
+@Test
     public void testToString_1_oe() {
         final Triple<String, String, String> triple = Triple.of("Key", "Something", "Value");
         assertEquals("(Key,Something,Value)", triple.toString());
     }
 
-    @Test
+@Test
     public void testToStringCustom_1_oe() {
         final Calendar date = Calendar.getInstance();
         date.set(2011, Calendar.APRIL, 25);
@@ -231,20 +231,20 @@ public class TripleTest_OE25Dev {
         assertEquals("Test created on " + "04-25-2011", triple.toString("Test created on %3$tm-%3$td-%3$tY"));
     }
 
-    @Test
+@Test
     public void testTripleOf_1_oe() {
         final Triple<Integer, String, Boolean> triple = Triple.of(0, "foo", Boolean.TRUE);
         assertTrue(triple instanceof ImmutableTriple<?, ?, ?>);
     }
 
-    @Test
+@Test
     public void testTripleOf_2_oe() {
         final Triple<Integer, String, Boolean> triple = Triple.of(0, "foo", Boolean.TRUE);
         // removed other assertion
         assertEquals(0, ((ImmutableTriple<Integer, String, Boolean>) triple).left.intValue());
     }
 
-    @Test
+@Test
     public void testTripleOf_3_oe() {
         final Triple<Integer, String, Boolean> triple = Triple.of(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -252,7 +252,7 @@ public class TripleTest_OE25Dev {
         assertEquals("foo", ((ImmutableTriple<Integer, String, Boolean>) triple).middle);
     }
 
-    @Test
+@Test
     public void testTripleOf_4_oe() {
         final Triple<Integer, String, Boolean> triple = Triple.of(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -261,7 +261,7 @@ public class TripleTest_OE25Dev {
         assertEquals(Boolean.TRUE, ((ImmutableTriple<Integer, String, Boolean>) triple).right);
     }
 
-    @Test
+@Test
     public void testTripleOf_5_oe() {
         final Triple<Integer, String, Boolean> triple = Triple.of(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -272,7 +272,7 @@ public class TripleTest_OE25Dev {
         assertTrue(triple2 instanceof ImmutableTriple<?, ?, ?>);
     }
 
-    @Test
+@Test
     public void testTripleOf_6_oe() {
         final Triple<Integer, String, Boolean> triple = Triple.of(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -284,7 +284,7 @@ public class TripleTest_OE25Dev {
         assertNull(((ImmutableTriple<Object, String, Long>) triple2).left);
     }
 
-    @Test
+@Test
     public void testTripleOf_7_oe() {
         final Triple<Integer, String, Boolean> triple = Triple.of(0, "foo", Boolean.TRUE);
         // removed other assertion
@@ -297,7 +297,7 @@ public class TripleTest_OE25Dev {
         assertEquals("bar", ((ImmutableTriple<Object, String, Long>) triple2).middle);
     }
 
-    @Test
+@Test
     public void testTripleOf_8_oe() {
         final Triple<Integer, String, Boolean> triple = Triple.of(0, "foo", Boolean.TRUE);
         // removed other assertion

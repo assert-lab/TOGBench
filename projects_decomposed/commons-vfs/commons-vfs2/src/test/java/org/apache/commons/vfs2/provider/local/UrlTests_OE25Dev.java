@@ -38,7 +38,7 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
      * Tests resolution of an absolute file name.
      */
 
-    @Test
+@Test
     public void testHashFindFiles_1_oe() throws Exception {
         final FileSystemManager fsManager = VFS.getManager();
 
@@ -54,7 +54,7 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testHashFindFiles_2_oe() throws Exception {
         final FileSystemManager fsManager = VFS.getManager();
 
@@ -74,7 +74,7 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
     }
     }
 
-    @Test
+@Test
     public void testHashURL_1_oe() throws Exception {
         final FileObject file = getReadFolder().resolveFile("test-hash-#test.txt");
 
