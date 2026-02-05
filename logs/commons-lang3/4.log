@@ -1,0 +1,343 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.commons:commons-lang3 >------------------
+[INFO] Building Apache Commons Lang 3.12.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-lang3 ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-lang3 ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-lang3 ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-lang3 ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-lang3 ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3
+[INFO] Storing buildNumber: 4e96f64c167c9f400b8bc7340bf57241aa8435a5 at timestamp: 1770255682164
+[INFO] Storing buildScmBranch: jan-22-projects
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-lang3 ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-lang3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 215 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/java/org/apache/commons/lang3/function/FailableDoublePredicate.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/java/org/apache/commons/lang3/function/FailableDoublePredicate.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-lang3 ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-lang3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 326 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/DiffBuilderTest.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/DiffBuilderTest.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/SerializationUtilsTest.java:[369,1] duplicate class: org.apache.commons.lang3.ClassNotFoundSerialization
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/SerializationUtilsTest_OE25Dev.java:[349,21] incompatible types: void cannot be converted to org.apache.commons.lang3.SerializationException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/SerializationUtilsTest_OE25Dev.java:[543,21] incompatible types: void cannot be converted to org.apache.commons.lang3.SerializationException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[549,9] cannot find symbol
+  symbol:   method testReflectionHierarchyEquals(boolean)
+  location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[550,9] cannot find symbol
+  symbol:   method testReflectionHierarchyEquals(boolean)
+  location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[557,9] cannot find symbol
+  symbol:   method testReflectionHierarchyEquals(boolean)
+  location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[558,9] cannot find symbol
+  symbol:   method testReflectionHierarchyEquals(boolean)
+  location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[566,9] cannot find symbol
+  symbol:   method testReflectionHierarchyEquals(boolean)
+  location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[567,9] cannot find symbol
+  symbol:   method testReflectionHierarchyEquals(boolean)
+  location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[576,9] cannot find symbol
+  symbol:   method testReflectionHierarchyEquals(boolean)
+  location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[577,9] cannot find symbol
+  symbol:   method testReflectionHierarchyEquals(boolean)
+  location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[587,9] cannot find symbol
+  symbol:   method testReflectionHierarchyEquals(boolean)
+  location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[588,9] cannot find symbol
+  symbol:   method testReflectionHierarchyEquals(boolean)
+  location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/CharRangeTest_OE25Dev.java:[5883,31] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.CharRangeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/StreamsTest_OE25Dev.java:[185,50] cannot find symbol
+  symbol:   variable thrown
+  location: class org.apache.commons.lang3.StreamsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/MultiBackgroundInitializerTest_OE25Dev.java:[365,32] cannot find symbol
+  symbol:   variable ex
+  location: class org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[298,21] incompatible types: void cannot be converted to java.lang.AssertionError
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[335,27] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.concurrent.ConcurrentUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[350,21] incompatible types: void cannot be converted to java.lang.RuntimeException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[371,27] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.concurrent.ConcurrentUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[386,21] incompatible types: void cannot be converted to java.lang.RuntimeException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[401,21] incompatible types: void cannot be converted to org.apache.commons.lang3.concurrent.ConcurrentException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[414,27] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.concurrent.ConcurrentUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[429,21] incompatible types: void cannot be converted to java.lang.RuntimeException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[444,21] incompatible types: void cannot be converted to org.apache.commons.lang3.concurrent.ConcurrentRuntimeException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[510,19] incompatible types: void cannot be converted to org.apache.commons.lang3.concurrent.ConcurrentRuntimeException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[824,21] incompatible types: void cannot be converted to org.apache.commons.lang3.concurrent.ConcurrentRuntimeException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[4982,21] incompatible types: void cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5030,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5079,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5130,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5183,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5237,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5292,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5348,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5405,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5466,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5528,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5591,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5656,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5723,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5792,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5863,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5935,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6008,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6082,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6157,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6236,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6316,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6397,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6480,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6565,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6652,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6740,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6829,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6919,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7010,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7105,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7201,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7298,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7397,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7498,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7601,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7705,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7810,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7916,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8023,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8134,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8246,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8359,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8474,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8591,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8710,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8830,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8951,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[9073,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[9196,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[9323,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[9451,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[9580,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[9711,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[9844,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[9979,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[10115,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[10252,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[10390,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[10529,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[10672,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[10816,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[10961,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[11108,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[11257,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[11408,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[11560,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[11713,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[11867,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[12022,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[12181,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[12341,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[12502,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  20.400 s
+[INFO] Finished at: 2026-02-04T19:41:40-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-lang3: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/SerializationUtilsTest.java:[369,1] duplicate class: org.apache.commons.lang3.ClassNotFoundSerialization
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/SerializationUtilsTest_OE25Dev.java:[349,21] incompatible types: void cannot be converted to org.apache.commons.lang3.SerializationException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/SerializationUtilsTest_OE25Dev.java:[543,21] incompatible types: void cannot be converted to org.apache.commons.lang3.SerializationException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[549,9] cannot find symbol
+[ERROR]   symbol:   method testReflectionHierarchyEquals(boolean)
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[550,9] cannot find symbol
+[ERROR]   symbol:   method testReflectionHierarchyEquals(boolean)
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[557,9] cannot find symbol
+[ERROR]   symbol:   method testReflectionHierarchyEquals(boolean)
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[558,9] cannot find symbol
+[ERROR]   symbol:   method testReflectionHierarchyEquals(boolean)
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[566,9] cannot find symbol
+[ERROR]   symbol:   method testReflectionHierarchyEquals(boolean)
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[567,9] cannot find symbol
+[ERROR]   symbol:   method testReflectionHierarchyEquals(boolean)
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[576,9] cannot find symbol
+[ERROR]   symbol:   method testReflectionHierarchyEquals(boolean)
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[577,9] cannot find symbol
+[ERROR]   symbol:   method testReflectionHierarchyEquals(boolean)
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[587,9] cannot find symbol
+[ERROR]   symbol:   method testReflectionHierarchyEquals(boolean)
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest_OE25Dev.java:[588,9] cannot find symbol
+[ERROR]   symbol:   method testReflectionHierarchyEquals(boolean)
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/CharRangeTest_OE25Dev.java:[5883,31] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.CharRangeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/StreamsTest_OE25Dev.java:[185,50] cannot find symbol
+[ERROR]   symbol:   variable thrown
+[ERROR]   location: class org.apache.commons.lang3.StreamsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/MultiBackgroundInitializerTest_OE25Dev.java:[365,32] cannot find symbol
+[ERROR]   symbol:   variable ex
+[ERROR]   location: class org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[298,21] incompatible types: void cannot be converted to java.lang.AssertionError
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[335,27] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.concurrent.ConcurrentUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[350,21] incompatible types: void cannot be converted to java.lang.RuntimeException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[371,27] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.concurrent.ConcurrentUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[386,21] incompatible types: void cannot be converted to java.lang.RuntimeException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[401,21] incompatible types: void cannot be converted to org.apache.commons.lang3.concurrent.ConcurrentException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[414,27] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.concurrent.ConcurrentUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[429,21] incompatible types: void cannot be converted to java.lang.RuntimeException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[444,21] incompatible types: void cannot be converted to org.apache.commons.lang3.concurrent.ConcurrentRuntimeException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[510,19] incompatible types: void cannot be converted to org.apache.commons.lang3.concurrent.ConcurrentRuntimeException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest_OE25Dev.java:[824,21] incompatible types: void cannot be converted to org.apache.commons.lang3.concurrent.ConcurrentRuntimeException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[4982,21] incompatible types: void cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5030,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5079,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5130,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5183,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5237,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5292,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5348,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5405,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5466,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5528,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5591,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5656,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5723,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5792,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5863,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[5935,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6008,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6082,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6157,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6236,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6316,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6397,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6480,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6565,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6652,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6740,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6829,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[6919,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7010,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7105,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7201,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7298,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7397,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7498,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7601,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7705,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7810,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[7916,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8023,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8134,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8246,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8359,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8474,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8591,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8710,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8830,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[8951,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[9073,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[9196,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[9323,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[9451,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[9580,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[9711,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[9844,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[9979,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[10115,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[10252,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[10390,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[10529,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[10672,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[10816,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[10961,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[11108,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[11257,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[11408,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[11560,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[11713,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[11867,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[12022,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[12181,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[12341,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ArrayUtilsAddTest_OE25Dev.java:[12502,22] incompatible types: boolean[] cannot be converted to java.lang.IndexOutOfBoundsException
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

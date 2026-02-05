@@ -20,7 +20,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-dbutils ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils
-[INFO] Storing buildNumber: 4a1f1c4f1560b9aec5cc8215abfe118f0fdac836 at timestamp: 1770147696873
+[INFO] Storing buildNumber: 4e96f64c167c9f400b8bc7340bf57241aa8435a5 at timestamp: 1770255631757
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-dbutils ---
@@ -48,20 +48,44 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ commons-dbutils ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 50 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/target/test-classes
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/MockResultSet.java: Some input files use or override a deprecated API that is marked for removal.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/MockResultSet.java: Recompile with -Xlint:removal for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java uses unchecked or unsafe operations.
+[INFO] Compiling 89 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/ColumnListHandlerTest_OE25Dev.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/ColumnListHandlerTest_OE25Dev.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: Some input files use unchecked or unsafe operations.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-dbutils ---
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/SQLXMLColumnHandlerTest_OE25Dev.java:[30,8] org.apache.commons.dbutils.handlers.columns.SQLXMLColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/ShortColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.ShortColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/FloatColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.FloatColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/ByteColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.ByteColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/DoubleColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.DoubleColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/LongColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.LongColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/TimestampColumnHandlerTest_OE25Dev.java:[30,8] org.apache.commons.dbutils.handlers.columns.TimestampColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/IntegerColumnHandlerTest_OE25Dev.java:[28,8] org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/StringColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.StringColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/BooleanColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.BooleanColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[INFO] 10 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  13.835 s
-[INFO] Finished at: 2026-02-03T13:41:47-06:00
+[INFO] Total time:  14.657 s
+[INFO] Finished at: 2026-02-04T19:40:42-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-dbutils: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.5.1:testCompile (default-testCompile) on project commons-dbutils: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/SQLXMLColumnHandlerTest_OE25Dev.java:[30,8] org.apache.commons.dbutils.handlers.columns.SQLXMLColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/ShortColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.ShortColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/FloatColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.FloatColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/ByteColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.ByteColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/DoubleColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.DoubleColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/LongColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.LongColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/TimestampColumnHandlerTest_OE25Dev.java:[30,8] org.apache.commons.dbutils.handlers.columns.TimestampColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/IntegerColumnHandlerTest_OE25Dev.java:[28,8] org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/StringColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.StringColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/BooleanColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.BooleanColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

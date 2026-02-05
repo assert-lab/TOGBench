@@ -19,16 +19,60 @@
 [INFO] Copying 5 resources from src/test/resources to target/test-classes
 [INFO] 
 [INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ json ---
-[INFO] Compiling 41 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/test-classes
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ json ---
+[INFO] Compiling 57 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[510,38] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[521,42] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[535,36] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[549,38] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[577,40] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[606,47] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[630,46] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[649,53] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[673,45] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[697,43] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[721,45] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[745,51] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[769,47] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[777,50] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[784,51] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[792,51] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[803,51] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[811,51] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[822,51] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[834,45] error: ';' expected
+[INFO] 20 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  10.808 s
-[INFO] Finished at: 2026-02-03T13:41:55-06:00
+[INFO] Total time:  4.753 s
+[INFO] Finished at: 2026-02-04T19:41:02-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project json: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:2.3.2:testCompile (default-testCompile) on project json: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[510,38] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[521,42] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[535,36] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[549,38] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[577,40] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[606,47] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[630,46] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[649,53] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[673,45] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[697,43] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[721,45] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[745,51] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[769,47] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[777,50] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[784,51] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[792,51] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[803,51] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[811,51] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[822,51] error: ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[834,45] error: ';' expected
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

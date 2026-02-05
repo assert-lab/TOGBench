@@ -25,7 +25,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-collections4 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4
-[INFO] Storing buildNumber: 4a1f1c4f1560b9aec5cc8215abfe118f0fdac836 at timestamp: 1770147744136
+[INFO] Storing buildNumber: 4e96f64c167c9f400b8bc7340bf57241aa8435a5 at timestamp: 1770255705684
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-collections4 ---
@@ -51,39 +51,27 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ commons-collections4 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 220 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/test-classes
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/MultiValueMapTest.java: Some input files use or override a deprecated API.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/MultiValueMapTest.java: Recompile with -Xlint:deprecation for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/collection/AbstractCollectionTest.java: Some input files use or override a deprecated API that is marked for removal.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/collection/AbstractCollectionTest.java: Recompile with -Xlint:removal for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/functors/AbstractCompositePredicateTest.java: Some input files use unchecked or unsafe operations.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/functors/AbstractCompositePredicateTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] Compiling 382 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/test-classes
 [INFO] -------------------------------------------------------------
 [ERROR] COMPILATION ERROR : 
 [INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest_OE25Dev.java:[184,24] variable keys is already defined in method testConstructorPlusAdd_1_oe_1_oe()
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest_OE25Dev.java:[224,24] variable keys is already defined in method testArrayConstructor_1_oe_1_oe()
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest_OE25Dev.java:[267,24] variable keys is already defined in method testArrayConstructor_2_oe_1_oe()
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest_OE25Dev.java:[307,24] variable keys is already defined in method testListConstructor_1_oe_1_oe()
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest_OE25Dev.java:[350,24] variable keys is already defined in method testListConstructor_2_oe_1_oe()
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest_OE25Dev.java:[407,24] variable keys is already defined in method testUnknownObjectBehavior_5_oe_1_oe()
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest_OE25Dev.java:[474,24] variable keys is already defined in method testUnknownObjectBehavior_9_oe_1_oe()
-[INFO] 7 errors 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[5858,6] ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[6070,6] ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[6282,6] ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[6493,6] ';' expected
+[INFO] 4 errors 
 [INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.144 s
-[INFO] Finished at: 2026-02-03T13:42:32-06:00
+[INFO] Total time:  9.603 s
+[INFO] Finished at: 2026-02-04T19:41:53-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:testCompile (default-testCompile) on project commons-collections4: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest_OE25Dev.java:[184,24] variable keys is already defined in method testConstructorPlusAdd_1_oe_1_oe()
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest_OE25Dev.java:[224,24] variable keys is already defined in method testArrayConstructor_1_oe_1_oe()
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest_OE25Dev.java:[267,24] variable keys is already defined in method testArrayConstructor_2_oe_1_oe()
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest_OE25Dev.java:[307,24] variable keys is already defined in method testListConstructor_1_oe_1_oe()
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest_OE25Dev.java:[350,24] variable keys is already defined in method testListConstructor_2_oe_1_oe()
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest_OE25Dev.java:[407,24] variable keys is already defined in method testUnknownObjectBehavior_5_oe_1_oe()
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest_OE25Dev.java:[474,24] variable keys is already defined in method testUnknownObjectBehavior_9_oe_1_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[5858,6] ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[6070,6] ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[6282,6] ';' expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[6493,6] ';' expected
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.

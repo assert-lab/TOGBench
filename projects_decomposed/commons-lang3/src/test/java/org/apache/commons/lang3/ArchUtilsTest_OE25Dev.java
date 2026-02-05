@@ -64,339 +64,335 @@ public class ArchUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArchLabels() {
-        for (final Arch arch : Arch.values()) {
-            // Only test label presence.
-            assertFalse(arch.getLabel().isEmpty());
-        }
+    public void testArch_1_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        assertEqualsTypeNotNull(Processor.Type.X86, processor);
     }
 
     @Test
-    public void testGetProcessor() {
+    public void testArch_2_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        assertTrue(processor.isX86());
+    }
+
+    @Test
+    public void testArch_4_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(processor.isPPC());
+    }
+
+    @Test
+    public void testArch_5_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86_64);
+        assertEqualsTypeNotNull(Processor.Type.X86, processor);
+    }
+
+    @Test
+    public void testArch_6_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        assertTrue(processor.isX86());
+    }
+
+    @Test
+    public void testArch_7_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        assertEqualsTypeNotNull(Processor.Type.IA_64, processor);
+    }
+
+    @Test
+    public void testArch_8_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        // removed other assertion
+        assertTrue(processor.isIA64());
+    }
+
+    @Test
+    public void testArch_9_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64);
+        assertEqualsTypeNotNull(Processor.Type.IA_64, processor);
+    }
+
+    @Test
+    public void testArch_10_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64);
+        // removed other assertion
+        assertTrue(processor.isIA64());
+    }
+
+    @Test
+    public void testArch_12_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(processor.isX86());
+    }
+
+    @Test
+    public void testArch_13_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC);
+        assertEqualsTypeNotNull(Processor.Type.PPC, processor);
+    }
+
+    @Test
+    public void testArch_14_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC);
+        // removed other assertion
+        assertTrue(processor.isPPC());
+    }
+
+    @Test
+    public void testArch_16_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(processor.isIA64());
+    }
+
+    @Test
+    public void testArch_17_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC64);
+        assertEqualsTypeNotNull(Processor.Type.PPC, processor);
+    }
+
+    @Test
+    public void testArch_18_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC64);
+        // removed other assertion
+        assertTrue(processor.isPPC());
+    }
+
+    @Test
+    public void testArchLabels_1_oe() {
+        for (final Arch arch : Arch.values()) {
+            // Only test label presence.
+            assertFalse(arch.getLabel().isEmpty());
+    }
+    }
+
+    @Test
+    public void testGetProcessor_1_oe() {
         assertNotNull(ArchUtils.getProcessor(X86));
+    }
+
+    @Test
+    public void testGetProcessor_2_oe() {
+        // removed other assertion
         assertNull(ArchUtils.getProcessor("NA"));
     }
 
     @Test
-    public void testArch_3_oe_1_oe() {
+    public void testIs32BitJVM_2_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
-        // removed other assertion
-                final Processor.Type type = Processor.Type.PPC;
-        final Processor processor1 = processor;
-        assertNotNull(type);
+        assertTrue(processor.is32Bit());
     }
 
     @Test
-    public void testArch_3_oe_2_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-                final Processor.Type type = Processor.Type.PPC;
-        final Processor processor1 = processor;
-        // removed other assertion
-                assertNotNull(processor1);
-    }
-
-    @Test
-    public void testArch_3_oe_3_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-                final Processor.Type type = Processor.Type.PPC;
-        final Processor processor1 = processor;
-        // removed other assertion
-                // removed other assertion
-                assertNotEquals(type, processor1.getType());
-    }
-
-    @Test
-    public void testArch_11_oe_1_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64);
-        // removed other assertion
-        // removed other assertion
-                final Processor.Type type = Processor.Type.X86;
-        final Processor processor1 = processor;
-        assertNotNull(type);
-    }
-
-    @Test
-    public void testArch_11_oe_2_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64);
-        // removed other assertion
-        // removed other assertion
-                final Processor.Type type = Processor.Type.X86;
-        final Processor processor1 = processor;
-        // removed other assertion
-                assertNotNull(processor1);
-    }
-
-    @Test
-    public void testArch_11_oe_3_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64);
-        // removed other assertion
-        // removed other assertion
-                final Processor.Type type = Processor.Type.X86;
-        final Processor processor1 = processor;
-        // removed other assertion
-                // removed other assertion
-                assertNotEquals(type, processor1.getType());
-    }
-
-    @Test
-    public void testArch_15_oe_1_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC);
-        // removed other assertion
-        // removed other assertion
-                final Processor.Type type = Processor.Type.IA_64;
-        final Processor processor1 = processor;
-        assertNotNull(type);
-    }
-
-    @Test
-    public void testArch_15_oe_2_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC);
-        // removed other assertion
-        // removed other assertion
-                final Processor.Type type = Processor.Type.IA_64;
-        final Processor processor1 = processor;
-        // removed other assertion
-                assertNotNull(processor1);
-    }
-
-    @Test
-    public void testArch_15_oe_3_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC);
-        // removed other assertion
-        // removed other assertion
-                final Processor.Type type = Processor.Type.IA_64;
-        final Processor processor1 = processor;
-        // removed other assertion
-                // removed other assertion
-                assertNotEquals(type, processor1.getType());
-    }
-
-    @Test
-    public void testIs32BitJVM_1_oe_1_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        assertNotNull(arch);
-    }
-
-    @Test
-    public void testIs32BitJVM_1_oe_2_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        // removed other assertion
-                assertNotNull(processor1);
-    }
-
-    @Test
-    public void testIs32BitJVM_1_oe_3_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        // removed other assertion
-                // removed other assertion
-                assertEquals(arch, processor1.getArch());
-    }
-
-    @Test
-    public void testIs32BitJVM_3_oe_1_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        assertNotNull(arch);
-    }
-
-    @Test
-    public void testIs32BitJVM_3_oe_2_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        // removed other assertion
-                assertNotNull(processor1);
-    }
-
-    @Test
-    public void testIs32BitJVM_3_oe_3_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        // removed other assertion
-                // removed other assertion
-                assertEquals(arch, processor1.getArch());
-    }
-
-    @Test
-    public void testIs32BitJVM_5_oe_1_oe() {
+    public void testIs32BitJVM_4_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
         // removed other assertion
 
         processor = ArchUtils.getProcessor(IA64_32);
         // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        assertNotNull(arch);
+        assertTrue(processor.is32Bit());
     }
 
     @Test
-    public void testIs32BitJVM_5_oe_2_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        // removed other assertion
-                assertNotNull(processor1);
-    }
-
-    @Test
-    public void testIs32BitJVM_5_oe_3_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        // removed other assertion
-                // removed other assertion
-                assertEquals(arch, processor1.getArch());
-    }
-
-    @Test
-    public void testIs32BitJVM_6_oe_1_oe() {
+    public void testIs32BitJVM_7_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
         // removed other assertion
@@ -410,56 +406,12 @@ public class ArchUtilsTest_OE25Dev {
         processor.is32Bit();
 
         processor = ArchUtils.getProcessor(X86_64);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        assertNotNull(arch);
+        // removed other assertion
+        assertFalse(processor.is32Bit());
     }
 
     @Test
-    public void testIs32BitJVM_6_oe_2_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC);
-        // removed other assertion
-        processor.is32Bit();
-
-        processor = ArchUtils.getProcessor(X86_64);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        // removed other assertion
-                assertNotNull(processor1);
-    }
-
-    @Test
-    public void testIs32BitJVM_6_oe_3_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC);
-        // removed other assertion
-        processor.is32Bit();
-
-        processor = ArchUtils.getProcessor(X86_64);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        // removed other assertion
-                // removed other assertion
-                assertNotEquals(arch, processor1.getArch());
-    }
-
-    @Test
-    public void testIs32BitJVM_8_oe_1_oe() {
+    public void testIs32BitJVM_9_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
         // removed other assertion
@@ -477,64 +429,12 @@ public class ArchUtilsTest_OE25Dev {
         // removed other assertion
 
         processor = ArchUtils.getProcessor(PPC64);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        assertNotNull(arch);
+        // removed other assertion
+        assertFalse(processor.is32Bit());
     }
 
     @Test
-    public void testIs32BitJVM_8_oe_2_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC);
-        // removed other assertion
-        processor.is32Bit();
-
-        processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC64);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        // removed other assertion
-                assertNotNull(processor1);
-    }
-
-    @Test
-    public void testIs32BitJVM_8_oe_3_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC);
-        // removed other assertion
-        processor.is32Bit();
-
-        processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC64);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        // removed other assertion
-                // removed other assertion
-                assertNotEquals(arch, processor1.getArch());
-    }
-
-    @Test
-    public void testIs32BitJVM_10_oe_1_oe() {
+    public void testIs32BitJVM_11_oe() {
         Processor processor = ArchUtils.getProcessor(X86);
         // removed other assertion
         // removed other assertion
@@ -556,138 +456,30 @@ public class ArchUtilsTest_OE25Dev {
         // removed other assertion
 
         processor = ArchUtils.getProcessor(IA64);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        assertNotNull(arch);
+        // removed other assertion
+        assertFalse(processor.is32Bit());
     }
 
     @Test
-    public void testIs32BitJVM_10_oe_2_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC);
-        // removed other assertion
-        processor.is32Bit();
-
-        processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        // removed other assertion
-                assertNotNull(processor1);
-    }
-
-    @Test
-    public void testIs32BitJVM_10_oe_3_oe() {
-        Processor processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC);
-        // removed other assertion
-        processor.is32Bit();
-
-        processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64);
-                final Processor.Arch arch = Processor.Arch.BIT_32;
-        final Processor processor1 = processor;
-        // removed other assertion
-                // removed other assertion
-                assertNotEquals(arch, processor1.getArch());
-    }
-
-    @Test
-    public void testIs64BitJVM_1_oe_1_oe() {
+    public void testIs64BitJVM_2_oe() {
         Processor processor = ArchUtils.getProcessor(X86_64);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        assertNotNull(arch);
-    }
-
-    @Test
-    public void testIs64BitJVM_1_oe_2_oe() {
-        Processor processor = ArchUtils.getProcessor(X86_64);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
         // removed other assertion
-                assertNotNull(processor1);
+        assertTrue(processor.is64Bit());
     }
 
     @Test
-    public void testIs64BitJVM_1_oe_3_oe() {
-        Processor processor = ArchUtils.getProcessor(X86_64);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        // removed other assertion
-                // removed other assertion
-                assertEquals(arch, processor1.getArch());
-    }
-
-    @Test
-    public void testIs64BitJVM_3_oe_1_oe() {
+    public void testIs64BitJVM_4_oe() {
         Processor processor = ArchUtils.getProcessor(X86_64);
         // removed other assertion
         // removed other assertion
 
         processor = ArchUtils.getProcessor(PPC64);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        assertNotNull(arch);
+        // removed other assertion
+        assertTrue(processor.is64Bit());
     }
 
     @Test
-    public void testIs64BitJVM_3_oe_2_oe() {
-        Processor processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC64);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        // removed other assertion
-                assertNotNull(processor1);
-    }
-
-    @Test
-    public void testIs64BitJVM_3_oe_3_oe() {
-        Processor processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC64);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        // removed other assertion
-                // removed other assertion
-                assertEquals(arch, processor1.getArch());
-    }
-
-    @Test
-    public void testIs64BitJVM_5_oe_1_oe() {
+    public void testIs64BitJVM_6_oe() {
         Processor processor = ArchUtils.getProcessor(X86_64);
         // removed other assertion
         // removed other assertion
@@ -697,48 +489,12 @@ public class ArchUtilsTest_OE25Dev {
         // removed other assertion
 
         processor = ArchUtils.getProcessor(IA64);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        assertNotNull(arch);
+        // removed other assertion
+        assertTrue(processor.is64Bit());
     }
 
     @Test
-    public void testIs64BitJVM_5_oe_2_oe() {
-        Processor processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        // removed other assertion
-                assertNotNull(processor1);
-    }
-
-    @Test
-    public void testIs64BitJVM_5_oe_3_oe() {
-        Processor processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        // removed other assertion
-                // removed other assertion
-                assertEquals(arch, processor1.getArch());
-    }
-
-    @Test
-    public void testIs64BitJVM_7_oe_1_oe() {
+    public void testIs64BitJVM_8_oe() {
         Processor processor = ArchUtils.getProcessor(X86_64);
         // removed other assertion
         // removed other assertion
@@ -752,56 +508,12 @@ public class ArchUtilsTest_OE25Dev {
         // removed other assertion
 
         processor = ArchUtils.getProcessor(X86);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        assertNotNull(arch);
+        // removed other assertion
+        assertFalse(processor.is64Bit());
     }
 
     @Test
-    public void testIs64BitJVM_7_oe_2_oe() {
-        Processor processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(X86);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        // removed other assertion
-                assertNotNull(processor1);
-    }
-
-    @Test
-    public void testIs64BitJVM_7_oe_3_oe() {
-        Processor processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(X86);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        // removed other assertion
-                // removed other assertion
-                assertNotEquals(arch, processor1.getArch());
-    }
-
-    @Test
-    public void testIs64BitJVM_9_oe_1_oe() {
+    public void testIs64BitJVM_10_oe() {
         Processor processor = ArchUtils.getProcessor(X86_64);
         // removed other assertion
         // removed other assertion
@@ -819,64 +531,12 @@ public class ArchUtilsTest_OE25Dev {
         // removed other assertion
 
         processor = ArchUtils.getProcessor(PPC);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        assertNotNull(arch);
+        // removed other assertion
+        assertFalse(processor.is64Bit());
     }
 
     @Test
-    public void testIs64BitJVM_9_oe_2_oe() {
-        Processor processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        // removed other assertion
-                assertNotNull(processor1);
-    }
-
-    @Test
-    public void testIs64BitJVM_9_oe_3_oe() {
-        Processor processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        // removed other assertion
-                // removed other assertion
-                assertNotEquals(arch, processor1.getArch());
-    }
-
-    @Test
-    public void testIs64BitJVM_11_oe_1_oe() {
+    public void testIs64BitJVM_12_oe() {
         Processor processor = ArchUtils.getProcessor(X86_64);
         // removed other assertion
         // removed other assertion
@@ -898,68 +558,8 @@ public class ArchUtilsTest_OE25Dev {
         // removed other assertion
 
         processor = ArchUtils.getProcessor(IA64_32);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        assertNotNull(arch);
-    }
-
-    @Test
-    public void testIs64BitJVM_11_oe_2_oe() {
-        Processor processor = ArchUtils.getProcessor(X86_64);
         // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        // removed other assertion
-                assertNotNull(processor1);
-    }
-
-    @Test
-    public void testIs64BitJVM_11_oe_3_oe() {
-        Processor processor = ArchUtils.getProcessor(X86_64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(X86);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(PPC);
-        // removed other assertion
-        // removed other assertion
-
-        processor = ArchUtils.getProcessor(IA64_32);
-                final Processor.Arch arch = Processor.Arch.BIT_64;
-        final Processor processor1 = processor;
-        // removed other assertion
-                // removed other assertion
-                assertNotEquals(arch, processor1.getArch());
+        assertFalse(processor.is64Bit());
     }
 
 }

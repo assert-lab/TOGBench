@@ -122,6 +122,7 @@ rng_76_2,commons-rng,ProvidersCommonParametricTest,testStateSettable_2_oe,common
 rng_76_3,commons-rng,ProvidersCommonParametricTest,testStateSettable_3_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest.java,,,,assert,unknown,standard,assertNotSame
 rng_76_4,commons-rng,ProvidersCommonParametricTest,testStateSettable_4_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest.java,,,,assert,unknown,standard,assertEquals
 rng_77_1,commons-rng,ProvidersCommonParametricTest,testStateWrongSize_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest.java,,,,assert,unknown,standard,assertThrows
+rng_78_1,commons-rng,ProvidersCommonParametricTest,testRestoreForeignState_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest.java,,,,assert,unknown,standard,assertThrows
 rng_79_1,commons-rng,RandomProviderDefaultStateTest,testConsistency_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/RandomProviderDefaultStateTest.java,,,,assert,unknown,standard,assertArrayEquals
 rng_80_1,commons-rng,Well1024aTest,testReferenceCode_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/source32/Well1024aTest.java,,,,assert,unknown,standard,assertEquals
 rng_83_1,commons-rng,XoRoShiRo64StarStarTest,testReferenceCode_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/source32/XoRoShiRo64StarStarTest.java,,,,assert,unknown,standard,assertEquals
@@ -148,7 +149,6 @@ rng_135_1,commons-rng,Well44497aTest,testReferenceCode_1_oe,commons-rng-core/src
 rng_138_1,commons-rng,PcgMcgXshRs32Test,testReferenceCode_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/source32/PcgMcgXshRs32Test.java,,,,assert,unknown,standard,assertEquals
 rng_139_1,commons-rng,JDKRandomTest,testReferenceCode_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/source32/JDKRandomTest.java,,,,assert,unknown,standard,assertEquals
 rng_140_1,commons-rng,JDKRandomTest,testRestoreToNewInstance_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/source32/JDKRandomTest.java,,,,assert,unknown,standard,assertNotEquals
-rng_141_1,commons-rng,JDKRandomTest,testRestoreWithInvalidClass_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/source32/JDKRandomTest.java,,,,assert,unknown,standard,assertThrows
 rng_142_1,commons-rng,MultiplyWithCarry256Test,testMarsaglia_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/source32/MultiplyWithCarry256Test.java,,,,assert,unknown,standard,assertEquals
 rng_145_1,commons-rng,MersenneTwisterTest,testMakotoNishimura_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/source32/MersenneTwisterTest.java,,,,assert,unknown,standard,assertEquals
 rng_146_1,commons-rng,MersenneTwisterTest,testConstructorWithEmptySeed_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/source32/MersenneTwisterTest.java,,,,assert,unknown,standard,assertNotEquals

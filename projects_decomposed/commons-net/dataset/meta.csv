@@ -577,9 +577,6 @@ net_203_6,commons-net,TelnetClientTest,testDeleteOptionHandler_6_oe,src/test/jav
 net_204_1,commons-net,TelnetClientTest,testAYT_1_oe,src/test/java/org/apache/commons/net/telnet/TelnetClientTest.java,,,,assert,unknown,standard,assertNotNull
 net_204_2,commons-net,TelnetClientTest,testAYT_2_oe,src/test/java/org/apache/commons/net/telnet/TelnetClientTest.java,,,,assert,unknown,standard,assertTrue
 net_204_3,commons-net,TelnetClientTest,testAYT_3_oe,src/test/java/org/apache/commons/net/telnet/TelnetClientTest.java,,,,assert,unknown,standard,assertTrue
-net_205_1,commons-net,TelnetClientTest,testSpy_1_oe,src/test/java/org/apache/commons/net/telnet/TelnetClientTest.java,,,,assert,unknown,standard,assertTrue
-net_205_2,commons-net,TelnetClientTest,testSpy_2_oe,src/test/java/org/apache/commons/net/telnet/TelnetClientTest.java,,,,assert,unknown,standard,assertTrue
-net_205_3,commons-net,TelnetClientTest,testSpy_3_oe,src/test/java/org/apache/commons/net/telnet/TelnetClientTest.java,,,,assert,unknown,standard,assertTrue
 net_206_1,commons-net,TelnetClientTest,testSetReaderThread_1_oe,src/test/java/org/apache/commons/net/telnet/TelnetClientTest.java,,,,assert,unknown,standard,assertTrue
 net_206_2,commons-net,TelnetClientTest,testSetReaderThread_2_oe,src/test/java/org/apache/commons/net/telnet/TelnetClientTest.java,,,,assert,unknown,standard,assertTrue
 net_206_3,commons-net,TelnetClientTest,testSetReaderThread_3_oe,src/test/java/org/apache/commons/net/telnet/TelnetClientTest.java,,,,assert,unknown,standard,assertTrue
@@ -615,7 +612,6 @@ net_215_1,commons-net,TelnetOptionTest,testGetOption_1_oe,src/test/java/org/apac
 net_215_2,commons-net,TelnetOptionTest,testGetOption_2_oe,src/test/java/org/apache/commons/net/telnet/TelnetOptionTest.java,,,,assert,unknown,standard,assertEquals
 net_215_3,commons-net,TelnetOptionTest,testGetOption_3_oe,src/test/java/org/apache/commons/net/telnet/TelnetOptionTest.java,,,,assert,unknown,standard,assertEquals
 net_216_1,commons-net,WindowSizeOptionHandlerTest,testConstructors_1_oe,src/test/java/org/apache/commons/net/telnet/WindowSizeOptionHandlerTest.java,,,,assert,unknown,standard,assertEquals
-net_220_1,commons-net,TelnetClientFunctionalTest,testFunctionalTest_1_oe,src/test/java/org/apache/commons/net/telnet/TelnetClientFunctionalTest.java,,,,assert,unknown,standard,assertTrue
 net_221_1,commons-net,InvalidTelnetOptionExceptionTest,testConstructors_1_oe,src/test/java/org/apache/commons/net/telnet/InvalidTelnetOptionExceptionTest.java,,,,assert,unknown,standard,assertTrue
 net_221_2,commons-net,InvalidTelnetOptionExceptionTest,testConstructors_2_oe,src/test/java/org/apache/commons/net/telnet/InvalidTelnetOptionExceptionTest.java,,,,assert,unknown,standard,assertTrue
 net_222_1,commons-net,TelnetOptionHandlerTestAbstract,testConstructors_1_oe,src/test/java/org/apache/commons/net/telnet/TelnetOptionHandlerTestAbstract.java,,,,assert,unknown,standard,assertTrue
@@ -640,13 +636,8 @@ net_225_1,commons-net,SimpleOptionHandlerTest,testConstructors_1_oe,src/test/jav
 net_225_2,commons-net,SimpleOptionHandlerTest,testConstructors_2_oe,src/test/java/org/apache/commons/net/telnet/SimpleOptionHandlerTest.java,,,,assert,unknown,standard,assertEquals
 net_225_3,commons-net,SimpleOptionHandlerTest,testConstructors_3_oe,src/test/java/org/apache/commons/net/telnet/SimpleOptionHandlerTest.java,,,,assert,unknown,standard,assertEquals
 net_228_1,commons-net,TFTPServerPathTest,testReadOnly_1_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,assert,unknown,standard,assertTrue
-net_228_2,commons-net,TFTPServerPathTest,testReadOnly_2_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,assert,unknown,standard,assertTrue
-net_228_3,commons-net,TFTPServerPathTest,testReadOnly_3_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,assert,unknown,standard,fail
 net_229_1,commons-net,TFTPServerPathTest,testWriteOnly_1_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,assert,unknown,standard,assertTrue
-net_229_2,commons-net,TFTPServerPathTest,testWriteOnly_2_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,assert,unknown,standard,fail
-net_229_3,commons-net,TFTPServerPathTest,testWriteOnly_3_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,assert,unknown,standard,assertTrue
 net_230_1,commons-net,TFTPServerPathTest,testWriteOutsideHome_1_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,assert,unknown,standard,assertFalse
-net_230_2,commons-net,TFTPServerPathTest,testWriteOutsideHome_2_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,assert,unknown,standard,fail
 net_230_3,commons-net,TFTPServerPathTest,testWriteOutsideHome_3_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,assert,unknown,standard,assertFalse
 net_231_1,commons-net,TFTPTest,testASCIIDownloads_1_oe,src/test/java/org/apache/commons/net/tftp/TFTPTest.java,,,,assert,unknown,standard,fail
 net_233_1,commons-net,TestNtpPacket,testCreate_1_oe,src/test/java/org/apache/commons/net/ntp/TestNtpPacket.java,,,,assert,unknown,standard,assertEquals

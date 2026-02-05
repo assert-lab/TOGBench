@@ -672,16 +672,6 @@ conf_216_2,commons-configuration2,TestPropertiesConfiguration,testIsCommentLine_
 conf_216_3,commons-configuration2,TestPropertiesConfiguration,testIsCommentLine_3_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown,standard,assertTrue
 conf_216_4,commons-configuration2,TestPropertiesConfiguration,testIsCommentLine_4_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown,standard,assertTrue
 conf_216_5,commons-configuration2,TestPropertiesConfiguration,testIsCommentLine_5_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown,standard,assertFalse
-conf_217_1,commons-configuration2,TestPropertiesConfiguration,testJupRead_1_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown,standard,assertEquals
-conf_217_2,commons-configuration2,TestPropertiesConfiguration,testJupRead_2_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown,standard,assertEquals
-conf_218_1,commons-configuration2,TestPropertiesConfiguration,testJupWrite_1_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown,standard,assertTrue
-conf_218_2,commons-configuration2,TestPropertiesConfiguration,testJupWrite_2_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown,standard,assertEquals
-conf_218_3,commons-configuration2,TestPropertiesConfiguration,testJupWrite_3_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown,standard,assertEquals
-conf_219_1,commons-configuration2,TestPropertiesConfiguration,testJupWriteUtf8WithoutUnicodeEscapes_1_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown,standard,assertTrue
-conf_219_2,commons-configuration2,TestPropertiesConfiguration,testJupWriteUtf8WithoutUnicodeEscapes_2_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown,standard,assertEquals
-conf_219_3,commons-configuration2,TestPropertiesConfiguration,testJupWriteUtf8WithoutUnicodeEscapes_3_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown,standard,assertEquals
-conf_219_4,commons-configuration2,TestPropertiesConfiguration,testJupWriteUtf8WithoutUnicodeEscapes_4_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown,standard,fail
-conf_220_1,commons-configuration2,TestPropertiesConfiguration,testKeepSeparators_1_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown,standard,assertEquals
 conf_221_1,commons-configuration2,TestPropertiesConfiguration,testKeyValueSeparators_1_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown,standard,assertEquals
 conf_221_2,commons-configuration2,TestPropertiesConfiguration,testKeyValueSeparators_2_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown,standard,assertEquals
 conf_221_3,commons-configuration2,TestPropertiesConfiguration,testKeyValueSeparators_3_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown,standard,assertEquals
@@ -2231,9 +2221,7 @@ conf_964_1,commons-configuration2,TestFileHandler,testLoadFromFileNameLocation_1
 conf_965_2,commons-configuration2,TestFileHandler,testLoadFromFileNoContent_2_oe,src/test/java/org/apache/commons/configuration2/io/TestFileHandler.java,,,,assert,unknown,standard,assertEquals
 conf_966_1,commons-configuration2,TestFileHandler,testLoadFromFilePath_1_oe,src/test/java/org/apache/commons/configuration2/io/TestFileHandler.java,,,,assert,unknown,standard,assertEquals
 conf_967_1,commons-configuration2,TestFileHandler,testLoadFromFilePathWithURLDefined_1_oe,src/test/java/org/apache/commons/configuration2/io/TestFileHandler.java,,,,assert,unknown,standard,assertEquals
-conf_968_1,commons-configuration2,TestFileHandler,testLoadFromReader_1_oe,src/test/java/org/apache/commons/configuration2/io/TestFileHandler.java,,,,assert,unknown,standard,assertEquals
 conf_969_2,commons-configuration2,TestFileHandler,testLoadFromReaderIOException_2_oe,src/test/java/org/apache/commons/configuration2/io/TestFileHandler.java,,,,assert,unknown,standard,assertEquals
-conf_970_1,commons-configuration2,TestFileHandler,testLoadFromStream_1_oe,src/test/java/org/apache/commons/configuration2/io/TestFileHandler.java,,,,assert,unknown,standard,assertEquals
 conf_971_1,commons-configuration2,TestFileHandler,testLoadFromURL_1_oe,src/test/java/org/apache/commons/configuration2/io/TestFileHandler.java,,,,assert,unknown,standard,assertEquals
 conf_972_1,commons-configuration2,TestFileHandler,testLoadFromURLLocation_1_oe,src/test/java/org/apache/commons/configuration2/io/TestFileHandler.java,,,,assert,unknown,standard,assertEquals
 conf_973_1,commons-configuration2,TestFileHandler,testLoadInputStreamSupport_1_oe,src/test/java/org/apache/commons/configuration2/io/TestFileHandler.java,,,,assert,unknown,standard,assertEquals
@@ -2254,7 +2242,6 @@ conf_983_1,commons-configuration2,TestFileHandler,testSaveToFile_1_oe,src/test/j
 conf_984_1,commons-configuration2,TestFileHandler,testSaveToFileName_1_oe,src/test/java/org/apache/commons/configuration2/io/TestFileHandler.java,,,,assert,unknown,standard,assertEquals
 conf_985_1,commons-configuration2,TestFileHandler,testSaveToFileNameLocation_1_oe,src/test/java/org/apache/commons/configuration2/io/TestFileHandler.java,,,,assert,unknown,standard,assertEquals
 conf_986_2,commons-configuration2,TestFileHandler,testSaveToFileNameURLException_2_oe,src/test/java/org/apache/commons/configuration2/io/TestFileHandler.java,,,,assert,unknown,standard,assertEquals
-conf_988_1,commons-configuration2,TestFileHandler,testSaveToStream_1_oe,src/test/java/org/apache/commons/configuration2/io/TestFileHandler.java,,,,assert,unknown,standard,assertEquals
 conf_989_1,commons-configuration2,TestFileHandler,testSaveToURL_1_oe,src/test/java/org/apache/commons/configuration2/io/TestFileHandler.java,,,,assert,unknown,standard,assertEquals
 conf_990_1,commons-configuration2,TestFileHandler,testSaveToURLLocation_1_oe,src/test/java/org/apache/commons/configuration2/io/TestFileHandler.java,,,,assert,unknown,standard,assertEquals
 conf_991_1,commons-configuration2,TestFileHandler,testSaveToWriter_1_oe,src/test/java/org/apache/commons/configuration2/io/TestFileHandler.java,,,,assert,unknown,standard,assertEquals
@@ -2465,8 +2452,6 @@ conf_1121_1,commons-configuration2,TestFileBasedConfigurationBuilder,testCreateC
 conf_1122_1,commons-configuration2,TestFileBasedConfigurationBuilder,testGetConfigurationLoadFromFile_1_oe,src/test/java/org/apache/commons/configuration2/builder/TestFileBasedConfigurationBuilder.java,,,,assert,unknown,standard,assertEquals
 conf_1122_2,commons-configuration2,TestFileBasedConfigurationBuilder,testGetConfigurationLoadFromFile_2_oe,src/test/java/org/apache/commons/configuration2/builder/TestFileBasedConfigurationBuilder.java,,,,assert,unknown,standard,assertSame
 conf_1123_1,commons-configuration2,TestFileBasedConfigurationBuilder,testGetConfigurationLoadFromJarFile_1_oe,src/test/java/org/apache/commons/configuration2/builder/TestFileBasedConfigurationBuilder.java,,,,assert,unknown,standard,assertNotNull
-conf_1123_2,commons-configuration2,TestFileBasedConfigurationBuilder,testGetConfigurationLoadFromJarFile_2_oe,src/test/java/org/apache/commons/configuration2/builder/TestFileBasedConfigurationBuilder.java,,,,assert,unknown,standard,assertEquals
-conf_1123_3,commons-configuration2,TestFileBasedConfigurationBuilder,testGetConfigurationLoadFromJarFile_3_oe,src/test/java/org/apache/commons/configuration2/builder/TestFileBasedConfigurationBuilder.java,,,,assert,unknown,standard,assertSame
 conf_1124_1,commons-configuration2,TestFileBasedConfigurationBuilder,testGetConfigurationNoLocation_1_oe,src/test/java/org/apache/commons/configuration2/builder/TestFileBasedConfigurationBuilder.java,,,,assert,unknown,standard,assertTrue
 conf_1124_2,commons-configuration2,TestFileBasedConfigurationBuilder,testGetConfigurationNoLocation_2_oe,src/test/java/org/apache/commons/configuration2/builder/TestFileBasedConfigurationBuilder.java,,,,assert,unknown,standard,assertTrue
 conf_1125_1,commons-configuration2,TestFileBasedConfigurationBuilder,testGetDefaultEncodingInterface_1_oe,src/test/java/org/apache/commons/configuration2/builder/TestFileBasedConfigurationBuilder.java,,,,assert,unknown,standard,assertEquals

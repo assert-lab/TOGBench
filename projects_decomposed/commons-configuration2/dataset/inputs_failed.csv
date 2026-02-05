@@ -14056,6 +14056,317 @@ conf_213_1,"    @Test
     }
     }
 ",TestPropertiesConfiguration::testIncludeLoadCyclicalReferenceFail_1_oe
+conf_217_1,"    @Test
+    public void testJupRead_1_oe() throws IOException, ConfigurationException {
+        conf.clear();
+        conf.setIOFactory(new PropertiesConfiguration.JupIOFactory());
+
+        final String testFilePath = ConfigurationAssert.getTestFile(""jup-test.properties"").getAbsolutePath();
+
+        load(conf, testFilePath);
+
+        final Properties jup = new Properties();
+        try (InputStream in = Files.newInputStream(Paths.get(testFilePath))) {
+            jup.load(in);
+        }
+
+        @SuppressWarnings(""unchecked"")
+        final Set<Object> pcKeys = new HashSet<>(IteratorUtils.toList(conf.getKeys()));
+        assertEquals(jup.keySet(), pcKeys);
+    }
+",TestPropertiesConfiguration::testJupRead_1_oe
+conf_217_2,"    @Test
+    public void testJupRead_2_oe() throws IOException, ConfigurationException {
+        conf.clear();
+        conf.setIOFactory(new PropertiesConfiguration.JupIOFactory());
+
+        final String testFilePath = ConfigurationAssert.getTestFile(""jup-test.properties"").getAbsolutePath();
+
+        load(conf, testFilePath);
+
+        final Properties jup = new Properties();
+        try (InputStream in = Files.newInputStream(Paths.get(testFilePath))) {
+            jup.load(in);
+        }
+
+        @SuppressWarnings(""unchecked"")
+        final Set<Object> pcKeys = new HashSet<>(IteratorUtils.toList(conf.getKeys()));
+        // removed other assertion
+
+        for (final Object key : jup.keySet()) {
+            final String keyString = key.toString();
+            // System.out.println(keyString);
+            assertEquals(""Wrong property value for '"" + keyString + ""'"", jup.getProperty(keyString), conf.getProperty(keyString));
+    }
+    }
+",TestPropertiesConfiguration::testJupRead_2_oe
+conf_218_1,"    @Test
+    public void testJupWrite_1_oe() throws IOException, ConfigurationException {
+        conf.clear();
+        conf.setIOFactory(new PropertiesConfiguration.JupIOFactory());
+
+        final String testFilePath = ConfigurationAssert.getTestFile(""jup-test.properties"").getAbsolutePath();
+
+        // read the test properties and set them on the PropertiesConfiguration
+        final Properties origProps = new Properties();
+        try (InputStream in = Files.newInputStream(Paths.get(testFilePath))) {
+            origProps.load(in);
+        }
+        for (final Object key : origProps.keySet()) {
+            final String keyString = key.toString();
+            conf.setProperty(keyString, origProps.getProperty(keyString));
+        }
+
+        // save the configuration
+        saveTestConfig();
+        assertTrue(""The saved file doesn't exist"", testSavePropertiesFile.exists());
+    }
+",TestPropertiesConfiguration::testJupWrite_1_oe
+conf_218_2,"    @Test
+    public void testJupWrite_2_oe() throws IOException, ConfigurationException {
+        conf.clear();
+        conf.setIOFactory(new PropertiesConfiguration.JupIOFactory());
+
+        final String testFilePath = ConfigurationAssert.getTestFile(""jup-test.properties"").getAbsolutePath();
+
+        // read the test properties and set them on the PropertiesConfiguration
+        final Properties origProps = new Properties();
+        try (InputStream in = Files.newInputStream(Paths.get(testFilePath))) {
+            origProps.load(in);
+        }
+        for (final Object key : origProps.keySet()) {
+            final String keyString = key.toString();
+            conf.setProperty(keyString, origProps.getProperty(keyString));
+        }
+
+        // save the configuration
+        saveTestConfig();
+        // removed other assertion
+
+        // load the saved file...
+        final Properties testProps = new Properties();
+        try (InputStream in = Files.newInputStream(testSavePropertiesFile.toPath())) {
+            testProps.load(in);
+        }
+
+        // ... and compare the properties to the originals
+        @SuppressWarnings(""unchecked"")
+        final Set<Object> pcKeys = new HashSet<>(IteratorUtils.toList(conf.getKeys()));
+        assertEquals(testProps.keySet(), pcKeys);
+    }
+",TestPropertiesConfiguration::testJupWrite_2_oe
+conf_218_3,"    @Test
+    public void testJupWrite_3_oe() throws IOException, ConfigurationException {
+        conf.clear();
+        conf.setIOFactory(new PropertiesConfiguration.JupIOFactory());
+
+        final String testFilePath = ConfigurationAssert.getTestFile(""jup-test.properties"").getAbsolutePath();
+
+        // read the test properties and set them on the PropertiesConfiguration
+        final Properties origProps = new Properties();
+        try (InputStream in = Files.newInputStream(Paths.get(testFilePath))) {
+            origProps.load(in);
+        }
+        for (final Object key : origProps.keySet()) {
+            final String keyString = key.toString();
+            conf.setProperty(keyString, origProps.getProperty(keyString));
+        }
+
+        // save the configuration
+        saveTestConfig();
+        // removed other assertion
+
+        // load the saved file...
+        final Properties testProps = new Properties();
+        try (InputStream in = Files.newInputStream(testSavePropertiesFile.toPath())) {
+            testProps.load(in);
+        }
+
+        // ... and compare the properties to the originals
+        @SuppressWarnings(""unchecked"")
+        final Set<Object> pcKeys = new HashSet<>(IteratorUtils.toList(conf.getKeys()));
+        // removed other assertion
+
+        for (final Object key : testProps.keySet()) {
+            final String keyString = key.toString();
+            assertEquals(""Wrong property value for '"" + keyString + ""'"", testProps.getProperty(keyString), conf.getProperty(keyString));
+    }
+    }
+",TestPropertiesConfiguration::testJupWrite_3_oe
+conf_219_1,"    @Test
+    public void testJupWriteUtf8WithoutUnicodeEscapes_1_oe() throws IOException, ConfigurationException {
+        conf.clear();
+        conf.setIOFactory(new PropertiesConfiguration.JupIOFactory(false));
+
+        final String testFilePath = ConfigurationAssert.getTestFile(""jup-test.properties"").getAbsolutePath();
+
+        // read the test properties and set them on the PropertiesConfiguration
+        final Properties origProps = new Properties();
+        try (InputStream in = Files.newInputStream(Paths.get(testFilePath))) {
+            origProps.load(in);
+        }
+        for (final Object key : origProps.keySet()) {
+            final String keyString = key.toString();
+            conf.setProperty(keyString, origProps.getProperty(keyString));
+        }
+
+        // save the configuration as UTF-8
+        final FileHandler handler = new FileHandler(conf);
+        handler.setEncoding(StandardCharsets.UTF_8.name());
+        handler.save(testSavePropertiesFile);
+        assertTrue(""The saved file doesn't exist"", testSavePropertiesFile.exists());
+    }
+",TestPropertiesConfiguration::testJupWriteUtf8WithoutUnicodeEscapes_1_oe
+conf_219_2,"    @Test
+    public void testJupWriteUtf8WithoutUnicodeEscapes_2_oe() throws IOException, ConfigurationException {
+        conf.clear();
+        conf.setIOFactory(new PropertiesConfiguration.JupIOFactory(false));
+
+        final String testFilePath = ConfigurationAssert.getTestFile(""jup-test.properties"").getAbsolutePath();
+
+        // read the test properties and set them on the PropertiesConfiguration
+        final Properties origProps = new Properties();
+        try (InputStream in = Files.newInputStream(Paths.get(testFilePath))) {
+            origProps.load(in);
+        }
+        for (final Object key : origProps.keySet()) {
+            final String keyString = key.toString();
+            conf.setProperty(keyString, origProps.getProperty(keyString));
+        }
+
+        // save the configuration as UTF-8
+        final FileHandler handler = new FileHandler(conf);
+        handler.setEncoding(StandardCharsets.UTF_8.name());
+        handler.save(testSavePropertiesFile);
+        // removed other assertion
+
+        // load the saved file...
+        final Properties testProps = new Properties();
+        try (BufferedReader in = Files.newBufferedReader(testSavePropertiesFile.toPath(), StandardCharsets.UTF_8)) {
+            testProps.load(in);
+        }
+
+        // ... and compare the properties to the originals
+        @SuppressWarnings(""unchecked"")
+        final Set<Object> pcKeys = new HashSet<>(IteratorUtils.toList(conf.getKeys()));
+        assertEquals(testProps.keySet(), pcKeys);
+    }
+",TestPropertiesConfiguration::testJupWriteUtf8WithoutUnicodeEscapes_2_oe
+conf_219_3,"    @Test
+    public void testJupWriteUtf8WithoutUnicodeEscapes_3_oe() throws IOException, ConfigurationException {
+        conf.clear();
+        conf.setIOFactory(new PropertiesConfiguration.JupIOFactory(false));
+
+        final String testFilePath = ConfigurationAssert.getTestFile(""jup-test.properties"").getAbsolutePath();
+
+        // read the test properties and set them on the PropertiesConfiguration
+        final Properties origProps = new Properties();
+        try (InputStream in = Files.newInputStream(Paths.get(testFilePath))) {
+            origProps.load(in);
+        }
+        for (final Object key : origProps.keySet()) {
+            final String keyString = key.toString();
+            conf.setProperty(keyString, origProps.getProperty(keyString));
+        }
+
+        // save the configuration as UTF-8
+        final FileHandler handler = new FileHandler(conf);
+        handler.setEncoding(StandardCharsets.UTF_8.name());
+        handler.save(testSavePropertiesFile);
+        // removed other assertion
+
+        // load the saved file...
+        final Properties testProps = new Properties();
+        try (BufferedReader in = Files.newBufferedReader(testSavePropertiesFile.toPath(), StandardCharsets.UTF_8)) {
+            testProps.load(in);
+        }
+
+        // ... and compare the properties to the originals
+        @SuppressWarnings(""unchecked"")
+        final Set<Object> pcKeys = new HashSet<>(IteratorUtils.toList(conf.getKeys()));
+        // removed other assertion
+
+        for (final Object key : testProps.keySet()) {
+            final String keyString = key.toString();
+            assertEquals(""Wrong property value for '"" + keyString + ""'"", testProps.getProperty(keyString), conf.getProperty(keyString));
+    }
+    }
+",TestPropertiesConfiguration::testJupWriteUtf8WithoutUnicodeEscapes_3_oe
+conf_219_4,"    @Test
+    public void testJupWriteUtf8WithoutUnicodeEscapes_4_oe() throws IOException, ConfigurationException {
+        conf.clear();
+        conf.setIOFactory(new PropertiesConfiguration.JupIOFactory(false));
+
+        final String testFilePath = ConfigurationAssert.getTestFile(""jup-test.properties"").getAbsolutePath();
+
+        // read the test properties and set them on the PropertiesConfiguration
+        final Properties origProps = new Properties();
+        try (InputStream in = Files.newInputStream(Paths.get(testFilePath))) {
+            origProps.load(in);
+        }
+        for (final Object key : origProps.keySet()) {
+            final String keyString = key.toString();
+            conf.setProperty(keyString, origProps.getProperty(keyString));
+        }
+
+        // save the configuration as UTF-8
+        final FileHandler handler = new FileHandler(conf);
+        handler.setEncoding(StandardCharsets.UTF_8.name());
+        handler.save(testSavePropertiesFile);
+        // removed other assertion
+
+        // load the saved file...
+        final Properties testProps = new Properties();
+        try (BufferedReader in = Files.newBufferedReader(testSavePropertiesFile.toPath(), StandardCharsets.UTF_8)) {
+            testProps.load(in);
+        }
+
+        // ... and compare the properties to the originals
+        @SuppressWarnings(""unchecked"")
+        final Set<Object> pcKeys = new HashSet<>(IteratorUtils.toList(conf.getKeys()));
+        // removed other assertion
+
+        for (final Object key : testProps.keySet()) {
+            final String keyString = key.toString();
+            // removed other assertion
+        }
+
+        // ensure that the written properties file contains no Unicode escapes
+        for (final String line : Files.readAllLines(testSavePropertiesFile.toPath())) {
+            if (line.contains(""\\u"")) {
+                fail(""Unicode escape found in line: "" + line);
+    }
+    }
+    }
+",TestPropertiesConfiguration::testJupWriteUtf8WithoutUnicodeEscapes_4_oe
+conf_220_1,"    @Test
+    public void testKeepSeparators_1_oe() throws ConfigurationException, IOException {
+        saveTestConfig();
+        final String[] separatorTests = {""test.separator.equal = foo"", ""test.separator.colon : foo"", ""test.separator.tab\tfoo"", ""test.separator.whitespace foo"",
+            ""test.separator.no.space=foo""};
+        final Set<String> foundLines = new HashSet<>();
+        try (BufferedReader in = new BufferedReader(new FileReader(testSavePropertiesFile))) {
+            String s;
+            while ((s = in.readLine()) != null) {
+                for (final String separatorTest : separatorTests) {
+                    if (separatorTest.equals(s)) {
+                        foundLines.add(s);
+                    }
+                }
+            }
+        }
+        assertEquals(""No all separators were found: "" + foundLines, separatorTests.length, foundLines.size());
+    }
+",TestPropertiesConfiguration::testKeepSeparators_1_oe
+conf_241_1,"    @Test
+    public void testReadCalledDirectly_1_oe() throws IOException {
+        conf = new PropertiesConfiguration();
+        try (Reader in = new FileReader(ConfigurationAssert.getTestFile(""test.properties""))) {
+            conf.read(in);
+            fail(""No exception thrown!"");
+    }
+    }
+",TestPropertiesConfiguration::testReadCalledDirectly_1_oe
 conf_247_1,"    @Test
     public void testSaveToHTTPServerFail_1_oe() throws Exception {
         final MockHttpURLStreamHandler handler = new MockHttpURLStreamHandler(HttpURLConnection.HTTP_BAD_REQUEST, testSavePropertiesFile);
@@ -14341,6 +14652,17 @@ conf_965_1,"    @Test
     }
     }
 ",TestFileHandler::testLoadFromFileNoContent_1_oe
+conf_968_1,"    @Test
+    public void testLoadFromReader_1_oe() throws Exception {
+        final File file = createTestFile();
+        final FileBasedTestImpl content = new FileBasedTestImpl();
+        final FileHandler handler = new FileHandler(content);
+        try (Reader in = new FileReader(file)) {
+            handler.load(in);
+        }
+        assertEquals(""Wrong content"", CONTENT, content.getContent());
+    }
+",TestFileHandler::testLoadFromReader_1_oe
 conf_969_1,"    @Test
     public void testLoadFromReaderIOException_1_oe() throws IOException, ConfigurationException {
         final FileBased content = EasyMock.createMock(FileBased.class);
@@ -14356,6 +14678,17 @@ conf_969_1,"    @Test
     }
     }
 ",TestFileHandler::testLoadFromReaderIOException_1_oe
+conf_970_1,"    @Test
+    public void testLoadFromStream_1_oe() throws Exception {
+        final File file = createTestFile();
+        final FileBasedTestImpl content = new FileBasedTestImpl();
+        final FileHandler handler = new FileHandler(content);
+        try (FileInputStream in = new FileInputStream(file)) {
+            handler.load(in);
+        }
+        assertEquals(""Wrong content"", CONTENT, content.getContent());
+    }
+",TestFileHandler::testLoadFromStream_1_oe
 conf_974_1,"    @Test
     public void testLoadInputStreamSupportIOException_1_oe() throws ConfigurationException, IOException {
         final FileBasedInputStreamSupportTestImpl content = EasyMock.createMock(FileBasedInputStreamSupportTestImpl.class);
@@ -14402,6 +14735,16 @@ conf_987_1,"    @Test
     }
     }
 ",TestFileHandler::testSaveToFileNameURLNotResolved_1_oe
+conf_988_1,"    @Test
+    public void testSaveToStream_1_oe() throws ConfigurationException, IOException {
+        final File file = folder.newFile();
+        try (FileOutputStream out = new FileOutputStream(file)) {
+            final FileHandler handler = new FileHandler(new FileBasedTestImpl());
+            handler.save(out);
+        }
+        assertEquals(""Wrong content"", CONTENT, readFile(file));
+    }
+",TestFileHandler::testSaveToStream_1_oe
 conf_992_1,"    @Test
     public void testSaveToWriterIOException_1_oe() throws ConfigurationException, IOException {
         final FileBased content = EasyMock.createMock(FileBased.class);
@@ -14437,6 +14780,103 @@ conf_1061_1,"    @Test
     }
     }
 ",TestAppletConfiguration::testClearProperty_1_oe
+conf_1123_2,"    @Test
+    public void testGetConfigurationLoadFromJarFile_2_oe() throws ConfigurationException, IOException {
+        final URL jarResourceUrl = getClass().getClassLoader().getResource(""org/apache/commons/configuration2/test.jar"");
+        // removed other assertion
+        final Path testJar = Paths.get(folder.getRoot().getAbsolutePath(), ""test.jar"");
+        try (final InputStream inputStream = jarResourceUrl.openStream()) {
+            Files.copy(inputStream, testJar);
+        }
+        final URL url = new URL(""jar:"" + testJar.toUri() + ""!/configuration.properties"");
+
+        //@formatter:off
+        final FileBasedConfigurationBuilder<PropertiesConfiguration> builder =
+            new FileBasedConfigurationBuilder<>(PropertiesConfiguration.class)
+                .configure(new FileBasedBuilderParametersImpl()
+                .setURL(url, new URLConnectionOptions().setUseCaches(false)));
+        //@formatter:off
+
+// CONFIGURATION-794
+// the next line causes:
+//        java.lang.AssertionError: Unable to clean up temporary folder C:\Users\ggregory\AppData\Local\Temp\junit7789840233804508643
+//        at org.junit.Assert.fail(Assert.java:89)
+//        at org.junit.rules.TemporaryFolder.delete(TemporaryFolder.java:274)
+//        at org.junit.rules.TemporaryFolder.after(TemporaryFolder.java:138)
+//        at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:59)
+//        at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+//        at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+//        at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+//        at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+//        at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+//        at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+//        at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+//        at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+//        at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+//        at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+//        at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+//        at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+//        at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+//        at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+//        at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+//        at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+//        at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+//        at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+
+        // builder contains the current FileHandler which loads the file.
+        final PropertiesConfiguration config = builder.getConfiguration();
+        assertEquals(""Not read from file"", 1, config.getInt(PROP));
+    }
+",TestFileBasedConfigurationBuilder::testGetConfigurationLoadFromJarFile_2_oe
+conf_1123_3,"    @Test
+    public void testGetConfigurationLoadFromJarFile_3_oe() throws ConfigurationException, IOException {
+        final URL jarResourceUrl = getClass().getClassLoader().getResource(""org/apache/commons/configuration2/test.jar"");
+        // removed other assertion
+        final Path testJar = Paths.get(folder.getRoot().getAbsolutePath(), ""test.jar"");
+        try (final InputStream inputStream = jarResourceUrl.openStream()) {
+            Files.copy(inputStream, testJar);
+        }
+        final URL url = new URL(""jar:"" + testJar.toUri() + ""!/configuration.properties"");
+
+        //@formatter:off
+        final FileBasedConfigurationBuilder<PropertiesConfiguration> builder =
+            new FileBasedConfigurationBuilder<>(PropertiesConfiguration.class)
+                .configure(new FileBasedBuilderParametersImpl()
+                .setURL(url, new URLConnectionOptions().setUseCaches(false)));
+        //@formatter:off
+
+// CONFIGURATION-794
+// the next line causes:
+//        java.lang.AssertionError: Unable to clean up temporary folder C:\Users\ggregory\AppData\Local\Temp\junit7789840233804508643
+//        at org.junit.Assert.fail(Assert.java:89)
+//        at org.junit.rules.TemporaryFolder.delete(TemporaryFolder.java:274)
+//        at org.junit.rules.TemporaryFolder.after(TemporaryFolder.java:138)
+//        at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:59)
+//        at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+//        at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+//        at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+//        at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+//        at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+//        at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+//        at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+//        at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+//        at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+//        at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+//        at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+//        at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+//        at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+//        at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+//        at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+//        at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+//        at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+//        at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+
+        // builder contains the current FileHandler which loads the file.
+        final PropertiesConfiguration config = builder.getConfiguration();
+        // removed other assertion
+        assertSame(""FileHandler not initialized"", config, builder.getFileHandler().getContent());
+    }
+",TestFileBasedConfigurationBuilder::testGetConfigurationLoadFromJarFile_3_oe
 conf_1321_1,"    @Test
     public void testMultiTenentConfigurationReloading_1_oe() throws ConfigurationException, InterruptedException {
         final CombinedConfiguration config = createMultiFileConfig(""testCCMultiTenentReloading.xml"");
@@ -15187,6 +15627,17 @@ conf_1695_1,"    @Test
     }
     }
 ",TestPropertyListConfiguration::testLoadWithError_1_oe
+conf_1729_1,"    @Test
+    public void testWriteCalledDirectly_1_oe() throws IOException {
+        config = new XMLPropertyListConfiguration();
+        config.addProperty(""foo"", ""bar"");
+
+        try (Writer out = new FileWriter(folder.newFile())) {
+            config.write(out);
+            fail(""No exception thrown!"");
+    }
+    }
+",TestXMLPropertyListConfiguration::testWriteCalledDirectly_1_oe
 conf_1770_1,"    @Test
     public void testFindMatchingConstructorNoMatch_1_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();

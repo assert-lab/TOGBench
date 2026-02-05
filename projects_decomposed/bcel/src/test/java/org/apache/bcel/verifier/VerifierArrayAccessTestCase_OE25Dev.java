@@ -26,39 +26,33 @@ import org.apache.bcel.verifier.tests.TestArrayAccess04Creator;
 
 public class VerifierArrayAccessTestCase_OE25Dev extends AbstractVerifierTestCase {
 
-
-    public void testInvalidArrayAccess_1_oe_1_oe() throws IOException {
+    public void testInvalidArrayAccess() throws IOException {
         new TestArrayAccess03Creator().create();
-                final String classname = "TestArrayAccess03";
-        final String message = "Verification of an arraystore instruction on an object must fail.";
-        final String testClassname = TEST_PACKAGE + classname;
-                assertFalse(message, doAllPasses(testClassname));
-    }
-
-    public void testInvalidArrayAccess_2_oe_1_oe() throws IOException {
-        new TestArrayAccess03Creator().create();
-        // removed other assertion
+        assertVerifyRejected("TestArrayAccess03", "Verification of an arraystore instruction on an object must fail.");
         new TestArrayAccess04Creator().create();
-                final String classname = "TestArrayAccess04";
-        final String message = "Verification of an arraystore instruction of an int on an array of references must fail.";
-        final String testClassname = TEST_PACKAGE + classname;
-                assertFalse(message, doAllPasses(testClassname));
+        assertVerifyRejected("TestArrayAccess04",
+                "Verification of an arraystore instruction of an int on an array of references must fail.");
     }
 
-    public void testValidArrayAccess_1_oe_1_oe() throws IOException {
-                final String classname = "TestArrayAccess01";
+
+        public void testValidArrayAccess_2_oe_1_oe() throws IOException {
+        final String classname = "TestArrayAccess01";
         final String message = "Verification of an arraystore instruction on an array that is not compatible with the stored element must pass.";
         final String testClassname = TEST_PACKAGE + classname;
-                assertTrue(message, doAllPasses(testClassname));
-    }
+         assertTrue(message, doAllPasses(testClassname));
+        }
 
-    public void testValidArrayAccess_2_oe_1_oe() throws IOException {
-        // removed other assertion
+        public void testValidArrayAccess_2_oe_2_oe() throws IOException {
+        final String classname = "TestArrayAccess01";
+        final String message = "Verification of an arraystore instruction on an array that is not compatible with the stored element must pass.";
+        final String testClassname = TEST_PACKAGE + classname;
+         // removed other assertion
+
         new TestArrayAccess02Creator().create();
-                final String classname = "TestArrayAccess02";
-        final String message = "Verification of an arraystore instruction on an array that is not compatible with the stored element must pass.";
-        final String testClassname = TEST_PACKAGE + classname;
-                assertTrue(message, doAllPasses(testClassname));
-    }
+        final String classname1 = "TestArrayAccess02";
+        final String message1 = "Verification of an arraystore instruction on an array that is not compatible with the stored element must pass.";
+        final String testClassname1 = TEST_PACKAGE + classname1;
+                assertTrue(message1, doAllPasses(testClassname1));
+        }
 
 }

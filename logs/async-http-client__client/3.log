@@ -1,0 +1,105 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< org.asynchttpclient:async-http-client >----------------
+[INFO] Building Asynchronous Http Client 2.12.3
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ async-http-client ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ async-http-client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.6.1:compile (default-compile) @ async-http-client ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 192 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/main/java/org/asynchttpclient/netty/channel/ChannelManager.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/main/java/org/asynchttpclient/netty/channel/ChannelManager.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ async-http-client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 14 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.6.1:testCompile (default-testCompile) @ async-http-client ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 130 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/test/TestUtils.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/test/TestUtils.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/RC1KTest.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/RC1KTest.java uses or overrides a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/RC1KTest.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/reactivestreams/ReactiveStreamsTest.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/reactivestreams/ReactiveStreamsTest.java uses unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/reactivestreams/ReactiveStreamsTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ async-http-client ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running TestSuite
+Tests run: 175, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 60.599 sec <<< FAILURE! - in TestSuite
+testGetCompleteServicePrincipalName_2_oe(org.asynchttpclient.spnego.SpnegoEngineTest_OE25Dev)  Time elapsed: 0.004 sec  <<< FAILURE!
+java.lang.AssertionError: did not expect [HTTP@localhost] but found [HTTP@localhost]
+	at org.asynchttpclient.spnego.SpnegoEngineTest_OE25Dev.testGetCompleteServicePrincipalName_2_oe(SpnegoEngineTest_OE25Dev.java:199)
+
+testGetWithRequestBuilderAndQuery_3_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_3_oe(OAuthSignatureCalculatorTest_OE25Dev.java:433)
+
+testGetWithRequestBuilderAndQuery_4_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_4_oe(OAuthSignatureCalculatorTest_OE25Dev.java:467)
+
+testGetWithRequestBuilderAndQuery_5_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_5_oe(OAuthSignatureCalculatorTest_OE25Dev.java:502)
+
+testGetWithRequestBuilder_3_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilder_3_oe(OAuthSignatureCalculatorTest_OE25Dev.java:315)
+
+testGetWithRequestBuilder_4_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilder_4_oe(OAuthSignatureCalculatorTest_OE25Dev.java:351)
+
+testPostCalculateSignature_2_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testPostCalculateSignature_2_oe(OAuthSignatureCalculatorTest_OE25Dev.java:228)
+
+onFailureTest_1_oe(org.asynchttpclient.ws.TextMessageTest_OE25Dev)  Time elapsed: 0.031 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Expected exception of any of types [class java.net.UnknownHostException, class java.net.ConnectException] but got java.lang.AssertionError: expected [true] but found [false]
+	at org.asynchttpclient.ws.TextMessageTest_OE25Dev.onFailureTest_1_oe(TextMessageTest_OE25Dev.java:355)
+
+
+Results :
+
+Failed tests: 
+  OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_3_oe:433 » IllegalState
+  OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_4_oe:467 » IllegalState
+  OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_5_oe:502 » IllegalState
+  OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilder_3_oe:315 » IllegalState
+  OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilder_4_oe:351 » IllegalState
+  OAuthSignatureCalculatorTest_OE25Dev.testPostCalculateSignature_2_oe:228 » IllegalState
+  SpnegoEngineTest_OE25Dev.testGetCompleteServicePrincipalName_2_oe:199 did not expect [HTTP@localhost] but found [HTTP@localhost]
+  TextMessageTest_OE25Dev.onFailureTest_1_oe » Test 
+Expected exception of any o...
+
+Tests run: 175, Failures: 8, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:12 min
+[INFO] Finished at: 2026-02-04T19:42:05-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

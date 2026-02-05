@@ -32,7 +32,7 @@
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-validator ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator
-[INFO] Storing buildNumber: 4a1f1c4f1560b9aec5cc8215abfe118f0fdac836 at timestamp: 1770147696427
+[INFO] Storing buildNumber: 4e96f64c167c9f400b8bc7340bf57241aa8435a5 at timestamp: 1770255630811
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-validator ---
@@ -58,102 +58,27 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-validator ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 85 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/target/test-classes
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-validator ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.validator.ParameterTest_OE25Dev
-[ERROR] Tests run: 14, Failures: 0, Errors: 14, Skipped: 0, Time elapsed: 0.593 s <<< FAILURE! - in org.apache.commons.validator.ParameterTest_OE25Dev
-[ERROR] testAllValid_5_oe_1_oe(org.apache.commons.validator.ParameterTest_OE25Dev)  Time elapsed: 0.236 s  <<< ERROR!
-java.lang.IllegalArgumentException: Stream[0] is null
-	at org.apache.commons.validator.ParameterTest_OE25Dev.setUp(ParameterTest_OE25Dev.java:53)
-
-[ERROR] testAllValid_5_oe_2_oe(org.apache.commons.validator.ParameterTest_OE25Dev)  Time elapsed: 0.035 s  <<< ERROR!
-java.lang.IllegalArgumentException: Stream[0] is null
-	at org.apache.commons.validator.ParameterTest_OE25Dev.setUp(ParameterTest_OE25Dev.java:53)
-
-[ERROR] testAllValid_7_oe_1_oe(org.apache.commons.validator.ParameterTest_OE25Dev)  Time elapsed: 0.022 s  <<< ERROR!
-java.lang.IllegalArgumentException: Stream[0] is null
-	at org.apache.commons.validator.ParameterTest_OE25Dev.setUp(ParameterTest_OE25Dev.java:53)
-
-[ERROR] testAllValid_7_oe_2_oe(org.apache.commons.validator.ParameterTest_OE25Dev)  Time elapsed: 0.032 s  <<< ERROR!
-java.lang.IllegalArgumentException: Stream[0] is null
-	at org.apache.commons.validator.ParameterTest_OE25Dev.setUp(ParameterTest_OE25Dev.java:53)
-
-[ERROR] testAllValid_2_oe_1_oe(org.apache.commons.validator.ParameterTest_OE25Dev)  Time elapsed: 0.011 s  <<< ERROR!
-java.lang.IllegalArgumentException: Stream[0] is null
-	at org.apache.commons.validator.ParameterTest_OE25Dev.setUp(ParameterTest_OE25Dev.java:53)
-
-[ERROR] testAllValid_2_oe_2_oe(org.apache.commons.validator.ParameterTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
-java.lang.IllegalArgumentException: Stream[0] is null
-	at org.apache.commons.validator.ParameterTest_OE25Dev.setUp(ParameterTest_OE25Dev.java:53)
-
-[ERROR] testAllValid_4_oe_1_oe(org.apache.commons.validator.ParameterTest_OE25Dev)  Time elapsed: 0.017 s  <<< ERROR!
-java.lang.IllegalArgumentException: Stream[0] is null
-	at org.apache.commons.validator.ParameterTest_OE25Dev.setUp(ParameterTest_OE25Dev.java:53)
-
-[ERROR] testAllValid_4_oe_2_oe(org.apache.commons.validator.ParameterTest_OE25Dev)  Time elapsed: 0.022 s  <<< ERROR!
-java.lang.IllegalArgumentException: Stream[0] is null
-	at org.apache.commons.validator.ParameterTest_OE25Dev.setUp(ParameterTest_OE25Dev.java:53)
-
-[ERROR] testAllValid_6_oe_1_oe(org.apache.commons.validator.ParameterTest_OE25Dev)  Time elapsed: 0.015 s  <<< ERROR!
-java.lang.IllegalArgumentException: Stream[0] is null
-	at org.apache.commons.validator.ParameterTest_OE25Dev.setUp(ParameterTest_OE25Dev.java:53)
-
-[ERROR] testAllValid_6_oe_2_oe(org.apache.commons.validator.ParameterTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
-java.lang.IllegalArgumentException: Stream[0] is null
-	at org.apache.commons.validator.ParameterTest_OE25Dev.setUp(ParameterTest_OE25Dev.java:53)
-
-[ERROR] testAllValid_8_oe_1_oe(org.apache.commons.validator.ParameterTest_OE25Dev)  Time elapsed: 0.022 s  <<< ERROR!
-java.lang.IllegalArgumentException: Stream[0] is null
-	at org.apache.commons.validator.ParameterTest_OE25Dev.setUp(ParameterTest_OE25Dev.java:53)
-
-[ERROR] testAllValid_8_oe_2_oe(org.apache.commons.validator.ParameterTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.lang.IllegalArgumentException: Stream[0] is null
-	at org.apache.commons.validator.ParameterTest_OE25Dev.setUp(ParameterTest_OE25Dev.java:53)
-
-[ERROR] testAllValid_3_oe_1_oe(org.apache.commons.validator.ParameterTest_OE25Dev)  Time elapsed: 0.029 s  <<< ERROR!
-java.lang.IllegalArgumentException: Stream[0] is null
-	at org.apache.commons.validator.ParameterTest_OE25Dev.setUp(ParameterTest_OE25Dev.java:53)
-
-[ERROR] testAllValid_3_oe_2_oe(org.apache.commons.validator.ParameterTest_OE25Dev)  Time elapsed: 0.015 s  <<< ERROR!
-java.lang.IllegalArgumentException: Stream[0] is null
-	at org.apache.commons.validator.ParameterTest_OE25Dev.setUp(ParameterTest_OE25Dev.java:53)
-
-[INFO] 
-[INFO] Results:
-[INFO] 
-[ERROR] Errors: 
-[ERROR]   ParameterTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
-[ERROR]   ParameterTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
-[ERROR]   ParameterTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
-[ERROR]   ParameterTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
-[ERROR]   ParameterTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
-[ERROR]   ParameterTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
-[ERROR]   ParameterTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
-[ERROR]   ParameterTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
-[ERROR]   ParameterTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
-[ERROR]   ParameterTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
-[ERROR]   ParameterTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
-[ERROR]   ParameterTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
-[ERROR]   ParameterTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
-[ERROR]   ParameterTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
-[INFO] 
-[ERROR] Tests run: 14, Failures: 0, Errors: 14, Skipped: 0
-[INFO] 
+[INFO] Compiling 137 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/UrlTest_OE25Dev.java:[242,5] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/UrlTest_OE25Dev.java:[243,4] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/routines/UrlValidatorTest_OE25Dev.java:[289,5] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/routines/UrlValidatorTest_OE25Dev.java:[290,4] illegal start of expression
+[INFO] 4 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  18.938 s
-[INFO] Finished at: 2026-02-03T13:41:51-06:00
+[INFO] Total time:  15.315 s
+[INFO] Finished at: 2026-02-04T19:40:41-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-validator: There are test failures.
-[ERROR] 
-[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/target/surefire-reports for the individual test results.
-[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-validator: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/UrlTest_OE25Dev.java:[242,5] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/UrlTest_OE25Dev.java:[243,4] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/routines/UrlValidatorTest_OE25Dev.java:[289,5] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/routines/UrlValidatorTest_OE25Dev.java:[290,4] illegal start of expression
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.

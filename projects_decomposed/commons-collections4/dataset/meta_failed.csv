@@ -626,10 +626,6 @@ coll_1094_5,commons-collections4,LRUMapTest,testCtors_5_oe,src/test/java/org/apa
 coll_1094_6,commons-collections4,LRUMapTest,testCtors_6_oe,src/test/java/org/apache/commons/collections4/map/LRUMapTest.java,,,,assert,unknown,standard,fail
 coll_1105_4,commons-collections4,LRUMapTest,testInternalState_getEntry_int_4_oe,src/test/java/org/apache/commons/collections4/map/LRUMapTest.java,,,,assert,unknown,standard,fail
 coll_1105_5,commons-collections4,LRUMapTest,testInternalState_getEntry_int_5_oe,src/test/java/org/apache/commons/collections4/map/LRUMapTest.java,,,,assert,unknown,standard,fail
-coll_1106_1,commons-collections4,LRUMapTest,testSynchronizedRemoveFromMapIterator_1_oe,src/test/java/org/apache/commons/collections4/map/LRUMapTest.java,,,,assert,unknown,standard,fail
-coll_1107_1,commons-collections4,LRUMapTest,testSynchronizedRemoveFromEntrySet_1_oe,src/test/java/org/apache/commons/collections4/map/LRUMapTest.java,,,,assert,unknown,standard,fail
-coll_1108_1,commons-collections4,LRUMapTest,testSynchronizedRemoveFromKeySet_1_oe,src/test/java/org/apache/commons/collections4/map/LRUMapTest.java,,,,assert,unknown,standard,fail
-coll_1109_1,commons-collections4,LRUMapTest,testSynchronizedRemoveFromValues_1_oe,src/test/java/org/apache/commons/collections4/map/LRUMapTest.java,,,,assert,unknown,standard,fail
 coll_1158_1,commons-collections4,AbstractMapTest,testMapClear_1_oe,src/test/java/org/apache/commons/collections4/map/AbstractMapTest.java,,,,assert,unknown,standard,fail
 coll_1167_8,commons-collections4,AbstractMapTest,testMapPut_8_oe,src/test/java/org/apache/commons/collections4/map/AbstractMapTest.java,,,,assert,unknown,standard,fail
 coll_1167_9,commons-collections4,AbstractMapTest,testMapPut_9_oe,src/test/java/org/apache/commons/collections4/map/AbstractMapTest.java,,,,assert,unknown,standard,fail
@@ -657,6 +653,8 @@ coll_1214_3,commons-collections4,LazySortedMapTest,testTransformerDecorate_3_oe,
 coll_1215_8,commons-collections4,ReferenceMapTest,testNullHandling_8_oe,src/test/java/org/apache/commons/collections4/map/ReferenceMapTest.java,,,,assert,unknown,standard,fail
 coll_1215_9,commons-collections4,ReferenceMapTest,testNullHandling_9_oe,src/test/java/org/apache/commons/collections4/map/ReferenceMapTest.java,,,,assert,unknown,standard,fail
 coll_1215_10,commons-collections4,ReferenceMapTest,testNullHandling_10_oe,src/test/java/org/apache/commons/collections4/map/ReferenceMapTest.java,,,,assert,unknown,standard,fail
+coll_1218_1,commons-collections4,ReferenceMapTest,testDataSizeAfterSerialization_1_oe,src/test/java/org/apache/commons/collections4/map/ReferenceMapTest.java,,,,assert,unknown,standard,assertEquals
+coll_1218_2,commons-collections4,ReferenceMapTest,testDataSizeAfterSerialization_2_oe,src/test/java/org/apache/commons/collections4/map/ReferenceMapTest.java,,,,assert,unknown,standard,assertEquals
 coll_1244_2,commons-collections4,MultiValueMapTest,testUnsafeDeSerialization_2_oe,src/test/java/org/apache/commons/collections4/map/MultiValueMapTest.java,,,,assert,unknown,standard,fail
 coll_1248_1,commons-collections4,PredicatedMapTest,testPut_1_oe,src/test/java/org/apache/commons/collections4/map/PredicatedMapTest.java,,,,assert,unknown,standard,fail
 coll_1248_2,commons-collections4,PredicatedMapTest,testPut_2_oe,src/test/java/org/apache/commons/collections4/map/PredicatedMapTest.java,,,,assert,unknown,standard,fail

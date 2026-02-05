@@ -26,7 +26,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core
-[INFO] Storing buildNumber: 4a1f1c4f1560b9aec5cc8215abfe118f0fdac836 at timestamp: 2026-02-03 13:41:52-0600
+[INFO] Storing buildNumber: 4e96f64c167c9f400b8bc7340bf57241aa8435a5 at timestamp: 2026-02-04 19:41:04-0600
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-rng-core ---
@@ -47,68 +47,21 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-rng-core ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 56 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/test-classes
-[INFO] -------------------------------------------------------------
-[WARNING] COMPILATION WARNING : 
-[INFO] -------------------------------------------------------------
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[43,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[44,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[51,41] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[52,41] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[59,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[60,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[61,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[62,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[63,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[64,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[65,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[66,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[43,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[44,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[51,41] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[52,41] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[59,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[60,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[61,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[62,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[63,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[64,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[65,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[66,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[INFO] 24 warnings 
-[INFO] -------------------------------------------------------------
+[INFO] Compiling 103 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/test-classes
 [INFO] -------------------------------------------------------------
 [ERROR] COMPILATION ERROR : 
 [INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[332,54] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[342,54] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[354,54] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[365,54] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[378,92] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[390,92] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[401,61] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[411,61] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[422,61] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[432,61] incompatible types: possible lossy conversion from double to float
-[INFO] 10 errors 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[722,101] '(' or '[' expected
+[INFO] 1 error
 [INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.650 s
-[INFO] Finished at: 2026-02-03T13:42:01-06:00
+[INFO] Total time:  6.693 s
+[INFO] Finished at: 2026-02-04T19:41:08-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-rng-core: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[332,54] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[342,54] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[354,54] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[365,54] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[378,92] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[390,92] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[401,61] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[411,61] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[422,61] incompatible types: possible lossy conversion from double to float
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[432,61] incompatible types: possible lossy conversion from double to float
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-rng-core: Compilation failure
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[722,101] '(' or '[' expected
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.

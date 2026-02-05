@@ -39,34 +39,32 @@ public class JunctionTests_OE25Dev extends AbstractProviderTestCase {
     /**
      * Checks ancestors are created when a junction is created.
      */
-    @Test
-    public void testAncestors() throws Exception {
-        final FileSystem fs = getManager().createVirtualFileSystem("vfs://").getFileSystem();
-        final FileObject baseDir = getBaseDir();
-
-        // Make sure the file at the junction point and its ancestors do not exist
-        FileObject file = fs.resolveFile("/a/b");
-        assertFalse(file.exists());
-        file = file.getParent();
-        assertFalse(file.exists());
-        file = file.getParent();
-        assertFalse(file.exists());
-
-        // Add the junction
-        fs.addJunction("/a/b", baseDir);
-
-        // Make sure the file at the junction point and its ancestors exist
-        file = fs.resolveFile("/a/b");
-        assertTrue("Does not exist", file.exists());
-        file = file.getParent();
-        assertTrue("Does not exist", file.exists());
-        file = file.getParent();
-        assertTrue("Does not exist", file.exists());
-    }
 
     /**
      * Checks nested junctions are not supported.
      */
+    @Test
+    public void testNestedJunction() throws Exception {
+        final FileSystem fs = getManager().createVirtualFileSystem("vfs:").getFileSystem();
+        final FileObject baseDir = getBaseDir();
+        fs.addJunction("/a", baseDir);
+
+        // Nested
+        try {
+            fs.addJunction("/a/b", baseDir);
+            fail();
+        } catch (final Exception e) {
+            assertSameMessage("vfs.impl/nested-junction.error", "vfs:/a/b", e);
+        }
+
+        // At same point
+        try {
+            fs.addJunction("/a", baseDir);
+            fail();
+        } catch (final Exception e) {
+            assertSameMessage("vfs.impl/nested-junction.error", "vfs:/a", e);
+        }
+    }
 
     // Check that file @ junction point exists only when backing file exists
     // Add 2 junctions with common parent
@@ -75,47 +73,108 @@ public class JunctionTests_OE25Dev extends AbstractProviderTestCase {
     // Remove junctions
 
     @Test
-    public void testNestedJunction_2_oe_1_oe() throws Exception {
-        final FileSystem fs = getManager().createVirtualFileSystem("vfs:").getFileSystem();
+    public void testAncestors_1_oe() throws Exception {
+        final FileSystem fs = getManager().createVirtualFileSystem("vfs://").getFileSystem();
         final FileObject baseDir = getBaseDir();
-        fs.addJunction("/a", baseDir);
 
-        // Nested
-        try {
-            fs.addJunction("/a/b", baseDir);
-            // removed other assertion
-        } catch (final Exception e) {
-                        final String code = "vfs.impl/nested-junction.error";
-            final Object param = "vfs:/a/b";
-            final Throwable throwable = e;
-            assertSameMessage(code, new Object[] { param }, throwable);
-    }
+        // Make sure the file at the junction point and its ancestors do not exist
+        FileObject file = fs.resolveFile("/a/b");
+        assertFalse(file.exists());
     }
 
     @Test
-    public void testNestedJunction_4_oe_1_oe() throws Exception {
-        final FileSystem fs = getManager().createVirtualFileSystem("vfs:").getFileSystem();
+    public void testAncestors_2_oe() throws Exception {
+        final FileSystem fs = getManager().createVirtualFileSystem("vfs://").getFileSystem();
         final FileObject baseDir = getBaseDir();
-        fs.addJunction("/a", baseDir);
 
-        // Nested
-        try {
-            fs.addJunction("/a/b", baseDir);
-            // removed other assertion
-        } catch (final Exception e) {
-            // removed other assertion
-        }
-
-        // At same point
-        try {
-            fs.addJunction("/a", baseDir);
-            // removed other assertion
-        } catch (final Exception e) {
-                        final String code = "vfs.impl/nested-junction.error";
-            final Object param = "vfs:/a";
-            final Throwable throwable = e;
-            assertSameMessage(code, new Object[] { param }, throwable);
+        // Make sure the file at the junction point and its ancestors do not exist
+        FileObject file = fs.resolveFile("/a/b");
+        // removed other assertion
+        file = file.getParent();
+        assertFalse(file.exists());
     }
+
+    @Test
+    public void testAncestors_3_oe() throws Exception {
+        final FileSystem fs = getManager().createVirtualFileSystem("vfs://").getFileSystem();
+        final FileObject baseDir = getBaseDir();
+
+        // Make sure the file at the junction point and its ancestors do not exist
+        FileObject file = fs.resolveFile("/a/b");
+        // removed other assertion
+        file = file.getParent();
+        // removed other assertion
+        file = file.getParent();
+        assertFalse(file.exists());
+    }
+
+    @Test
+    public void testAncestors_4_oe() throws Exception {
+        final FileSystem fs = getManager().createVirtualFileSystem("vfs://").getFileSystem();
+        final FileObject baseDir = getBaseDir();
+
+        // Make sure the file at the junction point and its ancestors do not exist
+        FileObject file = fs.resolveFile("/a/b");
+        // removed other assertion
+        file = file.getParent();
+        // removed other assertion
+        file = file.getParent();
+        // removed other assertion
+
+        // Add the junction
+        fs.addJunction("/a/b", baseDir);
+
+        // Make sure the file at the junction point and its ancestors exist
+        file = fs.resolveFile("/a/b");
+        assertTrue("Does not exist", file.exists());
+    }
+
+    @Test
+    public void testAncestors_5_oe() throws Exception {
+        final FileSystem fs = getManager().createVirtualFileSystem("vfs://").getFileSystem();
+        final FileObject baseDir = getBaseDir();
+
+        // Make sure the file at the junction point and its ancestors do not exist
+        FileObject file = fs.resolveFile("/a/b");
+        // removed other assertion
+        file = file.getParent();
+        // removed other assertion
+        file = file.getParent();
+        // removed other assertion
+
+        // Add the junction
+        fs.addJunction("/a/b", baseDir);
+
+        // Make sure the file at the junction point and its ancestors exist
+        file = fs.resolveFile("/a/b");
+        // removed other assertion
+        file = file.getParent();
+        assertTrue("Does not exist", file.exists());
+    }
+
+    @Test
+    public void testAncestors_6_oe() throws Exception {
+        final FileSystem fs = getManager().createVirtualFileSystem("vfs://").getFileSystem();
+        final FileObject baseDir = getBaseDir();
+
+        // Make sure the file at the junction point and its ancestors do not exist
+        FileObject file = fs.resolveFile("/a/b");
+        // removed other assertion
+        file = file.getParent();
+        // removed other assertion
+        file = file.getParent();
+        // removed other assertion
+
+        // Add the junction
+        fs.addJunction("/a/b", baseDir);
+
+        // Make sure the file at the junction point and its ancestors exist
+        file = fs.resolveFile("/a/b");
+        // removed other assertion
+        file = file.getParent();
+        // removed other assertion
+        file = file.getParent();
+        assertTrue("Does not exist", file.exists());
     }
 
 }

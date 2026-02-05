@@ -25,7 +25,7 @@ main:
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils
 [WARNING] Cannot get the revision information from the scm repository, proceeding with revision of ?????? : 
 Exception while executing SCM command.
-[INFO] Storing buildNumber: ?????? at timestamp: 1770147718125
+[INFO] Storing buildNumber: ?????? at timestamp: 1770255678951
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils' && 'svn' '--non-interactive' 'info'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils
 [WARNING] Cannot get the branch information from the scm repository, proceeding with UNKNOWN_BRANCH : 
@@ -59,29 +59,185 @@ Exception while executing SCM command.
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ commons-beanutils ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 154 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/target/test-classes
+[INFO] Compiling 235 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/converters/BooleanConverterTestCase.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/converters/BooleanConverterTestCase.java: Recompile with -Xlint:deprecation for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/converters/IntegerLocaleConverterTestCase.java: Some input files use or override a deprecated API that is marked for removal.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/converters/IntegerLocaleConverterTestCase.java: Recompile with -Xlint:removal for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanMapTestCase.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanMapTestCase.java uses unchecked or unsafe operations.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanMapTestCase.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-beanutils ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 s - in org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/converters/FloatLocaleConverterTestCase_OE25Dev.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/converters/FloatLocaleConverterTestCase_OE25Dev.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[231,86] cannot find symbol
+  symbol:   variable loader
+  location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[232,28] cannot find symbol
+  symbol:   variable loader
+  location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[239,86] cannot find symbol
+  symbol:   variable loader
+  location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[240,28] cannot find symbol
+  symbol:   variable loader
+  location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[245,9] cannot find symbol
+  symbol:   variable loader
+  location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[999,9] cannot find symbol
+  symbol:   method testGetDescriptorArguments()
+  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1008,9] cannot find symbol
+  symbol:   method testGetDescriptors()
+  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1009,9] cannot find symbol
+  symbol:   method testGetIndexedArguments()
+  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1010,9] cannot find symbol
+  symbol:   method testGetIndexedValues()
+  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1011,9] cannot find symbol
+  symbol:   method testGetMappedArguments()
+  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1012,9] cannot find symbol
+  symbol:   method testGetMappedValues()
+  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1013,9] cannot find symbol
+  symbol:   method testGetSimpleArguments()
+  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1014,9] cannot find symbol
+  symbol:   method testGetSimpleBoolean()
+  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1015,9] cannot find symbol
+  symbol:   method testGetSimpleDouble()
+  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1016,9] cannot find symbol
+  symbol:   method testGetSimpleFloat()
+  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1017,9] cannot find symbol
+  symbol:   method testGetSimpleInt()
+  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1018,9] cannot find symbol
+  symbol:   method testGetSimpleLong()
+  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1019,9] cannot find symbol
+  symbol:   method testGetSimpleShort()
+  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1020,9] cannot find symbol
+  symbol:   method testGetSimpleString()
+  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1021,9] cannot find symbol
+  symbol:   method testMappedContains()
+  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1022,9] cannot find symbol
+  symbol:   method testMappedRemove()
+  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[186,86] cannot find symbol
+  symbol:   variable loader
+  location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[188,28] cannot find symbol
+  symbol:   variable loader
+  location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[195,86] cannot find symbol
+  symbol:   variable loader
+  location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[197,28] cannot find symbol
+  symbol:   variable loader
+  location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[202,9] cannot find symbol
+  symbol:   variable loader
+  location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
+[INFO] 26 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  20.070 s
-[INFO] Finished at: 2026-02-03T13:42:14-06:00
+[INFO] Total time:  9.633 s
+[INFO] Finished at: 2026-02-04T19:41:26-06:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.7.0:testCompile (default-testCompile) on project commons-beanutils: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[231,86] cannot find symbol
+[ERROR]   symbol:   variable loader
+[ERROR]   location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[232,28] cannot find symbol
+[ERROR]   symbol:   variable loader
+[ERROR]   location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[239,86] cannot find symbol
+[ERROR]   symbol:   variable loader
+[ERROR]   location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[240,28] cannot find symbol
+[ERROR]   symbol:   variable loader
+[ERROR]   location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[245,9] cannot find symbol
+[ERROR]   symbol:   variable loader
+[ERROR]   location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[999,9] cannot find symbol
+[ERROR]   symbol:   method testGetDescriptorArguments()
+[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1008,9] cannot find symbol
+[ERROR]   symbol:   method testGetDescriptors()
+[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1009,9] cannot find symbol
+[ERROR]   symbol:   method testGetIndexedArguments()
+[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1010,9] cannot find symbol
+[ERROR]   symbol:   method testGetIndexedValues()
+[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1011,9] cannot find symbol
+[ERROR]   symbol:   method testGetMappedArguments()
+[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1012,9] cannot find symbol
+[ERROR]   symbol:   method testGetMappedValues()
+[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1013,9] cannot find symbol
+[ERROR]   symbol:   method testGetSimpleArguments()
+[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1014,9] cannot find symbol
+[ERROR]   symbol:   method testGetSimpleBoolean()
+[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1015,9] cannot find symbol
+[ERROR]   symbol:   method testGetSimpleDouble()
+[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1016,9] cannot find symbol
+[ERROR]   symbol:   method testGetSimpleFloat()
+[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1017,9] cannot find symbol
+[ERROR]   symbol:   method testGetSimpleInt()
+[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1018,9] cannot find symbol
+[ERROR]   symbol:   method testGetSimpleLong()
+[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1019,9] cannot find symbol
+[ERROR]   symbol:   method testGetSimpleShort()
+[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1020,9] cannot find symbol
+[ERROR]   symbol:   method testGetSimpleString()
+[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1021,9] cannot find symbol
+[ERROR]   symbol:   method testMappedContains()
+[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1022,9] cannot find symbol
+[ERROR]   symbol:   method testMappedRemove()
+[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[186,86] cannot find symbol
+[ERROR]   symbol:   variable loader
+[ERROR]   location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[188,28] cannot find symbol
+[ERROR]   symbol:   variable loader
+[ERROR]   location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[195,86] cannot find symbol
+[ERROR]   symbol:   variable loader
+[ERROR]   location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[197,28] cannot find symbol
+[ERROR]   symbol:   variable loader
+[ERROR]   location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[202,9] cannot find symbol
+[ERROR]   symbol:   variable loader
+[ERROR]   location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

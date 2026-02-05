@@ -26,7 +26,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-gamma ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma
-[INFO] Storing buildNumber: 4a1f1c4f1560b9aec5cc8215abfe118f0fdac836 at timestamp: 1770147722421
+[INFO] Storing buildNumber: 4e96f64c167c9f400b8bc7340bf57241aa8435a5 at timestamp: 1770255679164
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-gamma ---
@@ -50,19 +50,86 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-numbers-gamma ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 16 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/target/test-classes
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-gamma ---
-[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/target/jacoco.exec
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-numbers-gamma ---
+[INFO] Compiling 32 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[180,9] cannot find symbol
+  symbol:   method testLogGamma(double,double)
+  location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[185,9] cannot find symbol
+  symbol:   method testLogGamma(double,double)
+  location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[190,9] cannot find symbol
+  symbol:   method testLogGamma(double,double)
+  location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[195,9] cannot find symbol
+  symbol:   method testLogGamma(double,double)
+  location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[538,9] cannot find symbol
+  symbol:   method testLogBeta(double,double,int)
+  location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[543,9] cannot find symbol
+  symbol:   method testLogBeta(double,int,double)
+  location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[548,9] cannot find symbol
+  symbol:   method testLogBeta(double,int,int)
+  location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[553,9] cannot find symbol
+  symbol:   method testLogBeta(double,int,int)
+  location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[558,9] cannot find symbol
+  symbol:   method testLogBeta(double,int,int)
+  location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[563,9] cannot find symbol
+  symbol:   method testLogBeta(double,int,int)
+  location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[568,9] cannot find symbol
+  symbol:   method testLogBeta(double,int,int)
+  location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[INFO] 11 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.956 s
-[INFO] Finished at: 2026-02-03T13:42:10-06:00
+[INFO] Total time:  5.523 s
+[INFO] Finished at: 2026-02-04T19:41:22-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-numbers-gamma: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-numbers-gamma: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[180,9] cannot find symbol
+[ERROR]   symbol:   method testLogGamma(double,double)
+[ERROR]   location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[185,9] cannot find symbol
+[ERROR]   symbol:   method testLogGamma(double,double)
+[ERROR]   location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[190,9] cannot find symbol
+[ERROR]   symbol:   method testLogGamma(double,double)
+[ERROR]   location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[195,9] cannot find symbol
+[ERROR]   symbol:   method testLogGamma(double,double)
+[ERROR]   location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[538,9] cannot find symbol
+[ERROR]   symbol:   method testLogBeta(double,double,int)
+[ERROR]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[543,9] cannot find symbol
+[ERROR]   symbol:   method testLogBeta(double,int,double)
+[ERROR]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[548,9] cannot find symbol
+[ERROR]   symbol:   method testLogBeta(double,int,int)
+[ERROR]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[553,9] cannot find symbol
+[ERROR]   symbol:   method testLogBeta(double,int,int)
+[ERROR]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[558,9] cannot find symbol
+[ERROR]   symbol:   method testLogBeta(double,int,int)
+[ERROR]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[563,9] cannot find symbol
+[ERROR]   symbol:   method testLogBeta(double,int,int)
+[ERROR]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[568,9] cannot find symbol
+[ERROR]   symbol:   method testLogBeta(double,int,int)
+[ERROR]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

@@ -39,6 +39,15 @@ net_133_1,commons-net,DefaultFTPFileEntryParserFactoryTest,testDefaultParserFact
 net_167_1,commons-net,TimeTCPClientTest,testCompareTimes_1_oe,src/test/java/org/apache/commons/net/time/TimeTCPClientTest.java,,,,assert,unknown,standard,fail
 net_187_3,commons-net,Base64Test,testEncodeBase64ByteArrayBooleanBooleanInt_3_oe,src/test/java/org/apache/commons/net/util/Base64Test.java,,,,assert,unknown,standard,fail
 net_187_8,commons-net,Base64Test,testEncodeBase64ByteArrayBooleanBooleanInt_8_oe,src/test/java/org/apache/commons/net/util/Base64Test.java,,,,assert,unknown,standard,fail
+net_205_1,commons-net,TelnetClientTest,testSpy_1_oe,src/test/java/org/apache/commons/net/telnet/TelnetClientTest.java,,,,assert,unknown,standard,assertTrue
+net_205_2,commons-net,TelnetClientTest,testSpy_2_oe,src/test/java/org/apache/commons/net/telnet/TelnetClientTest.java,,,,assert,unknown,standard,assertTrue
+net_205_3,commons-net,TelnetClientTest,testSpy_3_oe,src/test/java/org/apache/commons/net/telnet/TelnetClientTest.java,,,,assert,unknown,standard,assertTrue
+net_220_1,commons-net,TelnetClientFunctionalTest,testFunctionalTest_1_oe,src/test/java/org/apache/commons/net/telnet/TelnetClientFunctionalTest.java,,,,assert,unknown,standard,assertTrue
+net_228_2,commons-net,TFTPServerPathTest,testReadOnly_2_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,assert,unknown,standard,assertTrue
+net_228_3,commons-net,TFTPServerPathTest,testReadOnly_3_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,assert,unknown,standard,fail
+net_229_2,commons-net,TFTPServerPathTest,testWriteOnly_2_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,assert,unknown,standard,fail
+net_229_3,commons-net,TFTPServerPathTest,testWriteOnly_3_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,assert,unknown,standard,assertTrue
+net_230_2,commons-net,TFTPServerPathTest,testWriteOutsideHome_2_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,assert,unknown,standard,fail
 net_232_1,commons-net,TestNtpClient,testGetTime_1_oe,src/test/java/org/apache/commons/net/ntp/TestNtpClient.java,,,,assert,unknown,standard,assertNotNull
 net_232_2,commons-net,TestNtpClient,testGetTime_2_oe,src/test/java/org/apache/commons/net/ntp/TestNtpClient.java,,,,assert,unknown,standard,assertTrue
 net_232_3,commons-net,TestNtpClient,testGetTime_3_oe,src/test/java/org/apache/commons/net/ntp/TestNtpClient.java,,,,assert,unknown,standard,assertNotNull

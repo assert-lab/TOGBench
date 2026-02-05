@@ -1,93 +1,27 @@
 id,test_prefix,test_name
-jsoup_278_1,"    @Test public void testUnclosedNoscriptInHead() {
-        // Was getting ""EOF"" in html output, because the #anythingElse handler was calling an undefined toString, so used object.toString.
-        String[] strings = {""<noscript>"", ""<noscript>One""};
-        for_1_oe (String html : strings) {
-            Document doc = Jsoup.parse(html);
-            assertEquals(html + ""</noscript>"", TextUtil.stripNewlines(doc.head().html()));
+jsoup_900_2,"    @Test public void headers_2_oe() {
+        Connection con = HttpConnection.connect(""http://example.com"");
+        Map<String, String> headers = new HashMap<>();
+        headers.put(""content-type"", ""text/html"");
+        headers.put(""Connection"", ""keep-alive"");
+        headers.put(""Host"", ""http://example.com"");
+        con.headers(headers);
+        // removed other assertion
+        assertEquals(""keep-alive"", con.request().header(""Connection""));
         }
+",HttpConnectionTest::headers_2_oe
+jsoup_900_3,"    @Test public void headers_3_oe() {
+        Connection con = HttpConnection.connect(""http://example.com"");
+        Map<String, String> headers = new HashMap<>();
+        headers.put(""content-type"", ""text/html"");
+        headers.put(""Connection"", ""keep-alive"");
+        headers.put(""Host"", ""http://example.com"");
+        con.headers(headers);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""http://example.com"", con.request().header(""Host""));
         }
-",HtmlParserTest::for_1_oe
-jsoup_368_1,"    @Test public void tagsMustStartWithAscii() {
-        // https://github.com/jhy/jsoup/issues/1006
-        String[] valid = {""a一"", ""a会员挂单金额5"", ""table(╯°□°)╯""};
-        String[] invalid = {""一"", ""会员挂单金额5"", ""(╯°□°)╯""};
-
-        for_1_oe (String tag : valid) {
-            Document doc = Jsoup.parse(""<"" + tag + "">Text</"" + tag + "">"");
-            Elements els = doc.getElementsByTag(tag);
-            assertEquals(1, els.size());
-        }
-        }
-",HtmlParserTest::for_1_oe
-jsoup_368_2,"    @Test public void tagsMustStartWithAscii() {
-        // https://github.com/jhy/jsoup/issues/1006
-        String[] valid = {""a一"", ""a会员挂单金额5"", ""table(╯°□°)╯""};
-        String[] invalid = {""一"", ""会员挂单金额5"", ""(╯°□°)╯""};
-
-        for_2_oe (String tag : valid) {
-            Document doc = Jsoup.parse(""<"" + tag + "">Text</"" + tag + "">"");
-            Elements els = doc.getElementsByTag(tag);
-            // removed other assertion
-            assertEquals(tag, els.get(0).tagName());
-        }
-        }
-",HtmlParserTest::for_2_oe
-jsoup_368_3,"    @Test public void tagsMustStartWithAscii() {
-        // https://github.com/jhy/jsoup/issues/1006
-        String[] valid = {""a一"", ""a会员挂单金额5"", ""table(╯°□°)╯""};
-        String[] invalid = {""一"", ""会员挂单金额5"", ""(╯°□°)╯""};
-
-        for_3_oe (String tag : valid) {
-            Document doc = Jsoup.parse(""<"" + tag + "">Text</"" + tag + "">"");
-            Elements els = doc.getElementsByTag(tag);
-            // removed other assertion
-            // removed other assertion
-            assertEquals(""Text"", els.get(0).text());
-        }
-        }
-",HtmlParserTest::for_3_oe
-jsoup_368_4,"    @Test public void tagsMustStartWithAscii() {
-        // https://github.com/jhy/jsoup/issues/1006
-        String[] valid = {""a一"", ""a会员挂单金额5"", ""table(╯°□°)╯""};
-        String[] invalid = {""一"", ""会员挂单金额5"", ""(╯°□°)╯""};
-
-        for_4_oe (String tag : valid) {
-            Document doc = Jsoup.parse(""<"" + tag + "">Text</"" + tag + "">"");
-            Elements els = doc.getElementsByTag(tag);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        for (String tag : invalid) {
-            Document doc = Jsoup.parse(""<"" + tag + "">Text</"" + tag + "">"");
-            Elements els = doc.getElementsByTag(tag);
-            assertEquals(0, els.size());
-        }
-        }
-",HtmlParserTest::for_4_oe
-jsoup_368_5,"    @Test public void tagsMustStartWithAscii() {
-        // https://github.com/jhy/jsoup/issues/1006
-        String[] valid = {""a一"", ""a会员挂单金额5"", ""table(╯°□°)╯""};
-        String[] invalid = {""一"", ""会员挂单金额5"", ""(╯°□°)╯""};
-
-        for_5_oe (String tag : valid) {
-            Document doc = Jsoup.parse(""<"" + tag + "">Text</"" + tag + "">"");
-            Elements els = doc.getElementsByTag(tag);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        for (String tag : invalid) {
-            Document doc = Jsoup.parse(""<"" + tag + "">Text</"" + tag + "">"");
-            Elements els = doc.getElementsByTag(tag);
-            // removed other assertion
-            assertEquals(""&lt;"" + tag + ""&gt;Text<!--/"" + tag + ""-->"", doc.body().html());
-        }
-        }
-",HtmlParserTest::for_5_oe
+",HttpConnectionTest::headers_3_oe
 jsoup_389_1,"    @Test
     public void chompBalancedThrowIllegalArgumentException_1_oe() {
         try {
@@ -104,58 +38,12 @@ jsoup_433_1,"    @Test
     }
     }
 ",HtmlTreeBuilderTest::nonnull_1_oe
-jsoup_444_1,"    @Test public void cp1252SubstitutionTable() {
-        for_1_oe (int i = 0; i < Tokeniser.win1252Extensions.length; i++) {
-            String s = new String(new byte[]{ (byte) (i + Tokeniser.win1252ExtensionsStart) }, Charset.forName(""Windows-1252""));
-            assertEquals(1, s.length());
-        }
-        }
-",TokeniserTest::for_1_oe
-jsoup_444_2,"    @Test public void cp1252SubstitutionTable() {
-        for_2_oe (int i = 0; i < Tokeniser.win1252Extensions.length; i++) {
-            String s = new String(new byte[]{ (byte) (i + Tokeniser.win1252ExtensionsStart) }, Charset.forName(""Windows-1252""));
-            // removed other assertion
-
-            // some of these characters are illegal
-            if (s.charAt(0) == '\ufffd') { continue; }
-
-            assertEquals(s.charAt(0), Tokeniser.win1252Extensions[i], ""At: "" + i);
-        }
-        }
-",TokeniserTest::for_2_oe
 jsoup_482_1,"    @Test
     public void bailsIfRemovingProtocolThatsNotSet_1_oe() {
         assertThrows(IllegalArgumentException.class, () -> { // a case that came up on the email list Safelist w = Safelist.none(); // note no add tag, and removing protocol without adding first w.addAttributes(""a"", ""href""); w.removeProtocols(""a"", ""href"", ""javascript""); // with no protocols enforced, this was a noop. Now validates. });
     }
     }
 ",CleanerTest::bailsIfRemovingProtocolThatsNotSet_1_oe
-jsoup_546_1,"    @Test public void handlesAbsOnUnknownProtocols() {
-        // https://github.com/jhy/jsoup/issues/1610
-        // URL would throw on unknown protocol tel: as no stream handler is registered
-
-        String[] urls = {""mailto:example@example.com"", ""tel:867-5309""}; // mail has a handler, tel doesn't
-        for_1_oe (String url : urls) {
-            Attributes attr = new Attributes().put(""href"", url);
-            Element noBase = new Element(Tag.valueOf(""a""), null, attr);
-            assertEquals(url, noBase.absUrl(""href""));
-        }
-        }
-",NodeTest::for_1_oe
-jsoup_546_2,"    @Test public void handlesAbsOnUnknownProtocols() {
-        // https://github.com/jhy/jsoup/issues/1610
-        // URL would throw on unknown protocol tel: as no stream handler is registered
-
-        String[] urls = {""mailto:example@example.com"", ""tel:867-5309""}; // mail has a handler, tel doesn't
-        for_2_oe (String url : urls) {
-            Attributes attr = new Attributes().put(""href"", url);
-            Element noBase = new Element(Tag.valueOf(""a""), null, attr);
-            // removed other assertion
-
-            Element withBase = new Element(Tag.valueOf(""a""), ""http://example.com/"", attr);
-            assertEquals(url, withBase.absUrl(""href""));
-        }
-        }
-",NodeTest::for_2_oe
 jsoup_648_3,"    @Test
     public void testChildThrowsIndexOutOfBoundsOnMissing_3_oe() {
         Document doc = Jsoup.parse(""<div><p>One</p><p>Two</p></div>"");
@@ -20061,3 +19949,263 @@ jsoup_838_1,"    @Test
     }
     }
 ",SessionIT::multiThreadWithoutNewRequestBlowsUp_1_oe
+jsoup_864_1,"    @Test
+    public void remainingAfterFirstRead_1_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+        int capSize = 100 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
+            .execute().bodyStream()) {
+
+            assertTrue(inputStream instanceof ConstrainableInputStream);
+    }
+    }
+",ConnectIT::remainingAfterFirstRead_1_oe
+jsoup_864_2,"    @Test
+    public void remainingAfterFirstRead_2_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+        int capSize = 100 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
+            .execute().bodyStream()) {
+
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            assertTrue(firstText.startsWith(""<html><head><title>Large""));
+    }
+    }
+",ConnectIT::remainingAfterFirstRead_2_oe
+jsoup_864_3,"    @Test
+    public void remainingAfterFirstRead_3_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+        int capSize = 100 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
+            .execute().bodyStream()) {
+
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            assertEquals(bufferSize, array.length);
+    }
+    }
+",ConnectIT::remainingAfterFirstRead_3_oe
+jsoup_864_4,"    @Test
+    public void remainingAfterFirstRead_4_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+        int capSize = 100 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
+            .execute().bodyStream()) {
+
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            // removed other assertion
+
+            boolean fullyRead = stream.read() == -1;
+            assertFalse(fullyRead);
+    }
+    }
+",ConnectIT::remainingAfterFirstRead_4_oe
+jsoup_864_5,"    @Test
+    public void remainingAfterFirstRead_5_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+        int capSize = 100 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
+            .execute().bodyStream()) {
+
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            // removed other assertion
+
+            boolean fullyRead = stream.read() == -1;
+            // removed other assertion
+
+            // reset and read again
+            stream.reset();
+            ByteBuffer fullRead = stream.readToByteBuffer(0);
+            byte[] fullArray = fullRead.array();
+            assertEquals(capSize, fullArray.length);
+    }
+    }
+",ConnectIT::remainingAfterFirstRead_5_oe
+jsoup_864_6,"    @Test
+    public void remainingAfterFirstRead_6_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+        int capSize = 100 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
+            .execute().bodyStream()) {
+
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            // removed other assertion
+
+            boolean fullyRead = stream.read() == -1;
+            // removed other assertion
+
+            // reset and read again
+            stream.reset();
+            ByteBuffer fullRead = stream.readToByteBuffer(0);
+            byte[] fullArray = fullRead.array();
+            // removed other assertion
+            String fullText = new String(fullArray, StandardCharsets.UTF_8);
+            assertTrue(fullText.startsWith(firstText));
+    }
+    }
+",ConnectIT::remainingAfterFirstRead_6_oe
+jsoup_865_1,"    @Test
+    public void noLimitAfterFirstRead_1_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).execute().bodyStream()) {
+            assertTrue(inputStream instanceof ConstrainableInputStream);
+    }
+    }
+",ConnectIT::noLimitAfterFirstRead_1_oe
+jsoup_865_2,"    @Test
+    public void noLimitAfterFirstRead_2_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).execute().bodyStream()) {
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            assertTrue(firstText.startsWith(""<html><head><title>Large""));
+    }
+    }
+",ConnectIT::noLimitAfterFirstRead_2_oe
+jsoup_865_3,"    @Test
+    public void noLimitAfterFirstRead_3_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).execute().bodyStream()) {
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            assertEquals(bufferSize, array.length);
+    }
+    }
+",ConnectIT::noLimitAfterFirstRead_3_oe
+jsoup_865_4,"    @Test
+    public void noLimitAfterFirstRead_4_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).execute().bodyStream()) {
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            // removed other assertion
+
+            // reset and read fully
+            stream.reset();
+            ByteBuffer fullRead = stream.readToByteBuffer(0);
+            byte[] fullArray = fullRead.array();
+            assertEquals(280735, fullArray.length);
+    }
+    }
+",ConnectIT::noLimitAfterFirstRead_4_oe
+jsoup_865_5,"    @Test
+    public void noLimitAfterFirstRead_5_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).execute().bodyStream()) {
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            // removed other assertion
+
+            // reset and read fully
+            stream.reset();
+            ByteBuffer fullRead = stream.readToByteBuffer(0);
+            byte[] fullArray = fullRead.array();
+            // removed other assertion
+            String fullText = new String(fullArray, StandardCharsets.UTF_8);
+            assertTrue(fullText.startsWith(firstText));
+    }
+    }
+",ConnectIT::noLimitAfterFirstRead_5_oe

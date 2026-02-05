@@ -9,6 +9,33 @@ imag_75_1,"    @Test
     }
     }
 ",RgbBufferedImageFactoryTest::testGetColorBufferedImageThrowsIllegalArgumentException_1_oe
+imag_83_1,"    @Test
+    public void testReadFromStream_1_oe() throws IOException, ImageReadException {
+
+        final String imagePath = FilenameUtils.separatorsToSystem(ICO_IMAGE_FILE);
+        final File imageFile = new File(ImagingTestConstants.TEST_IMAGE_FOLDER, imagePath);
+        try(BufferedInputStream imageStream = new BufferedInputStream(new FileInputStream(imageFile))) {
+            // ByteSourceInputStream is created inside of following method
+            final BufferedImage bufferedImage = Imaging.getBufferedImage(imageStream, ICO_IMAGE_FILE);
+
+            assertEquals(bufferedImage.getWidth(), ICO_IMAGE_WIDTH);
+    }
+    }
+",ByteSourceInputStreamTest::testReadFromStream_1_oe
+imag_83_2,"    @Test
+    public void testReadFromStream_2_oe() throws IOException, ImageReadException {
+
+        final String imagePath = FilenameUtils.separatorsToSystem(ICO_IMAGE_FILE);
+        final File imageFile = new File(ImagingTestConstants.TEST_IMAGE_FOLDER, imagePath);
+        try(BufferedInputStream imageStream = new BufferedInputStream(new FileInputStream(imageFile))) {
+            // ByteSourceInputStream is created inside of following method
+            final BufferedImage bufferedImage = Imaging.getBufferedImage(imageStream, ICO_IMAGE_FILE);
+
+            // removed other assertion
+            assertEquals(bufferedImage.getHeight(), ICO_IMAGE_HEIGHT);
+    }
+    }
+",ByteSourceInputStreamTest::testReadFromStream_2_oe
 imag_86_1,"    @Test
     public void testReadWithNonNull_1_oe() {
         final RleReader rleReader = new RleReader(false);
@@ -98,6 +125,412 @@ imag_107_1,"    @ParameterizedTest
     }
     }
 ",WriteExifMetadataExampleTest::testOddOffsets_1_oe
+imag_109_1,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testAddIptcData_1_oe(final File imageFile) throws Exception {
+        final ByteSource byteSource = new ByteSourceFile(imageFile);
+
+        final JpegImagingParameters params = new JpegImagingParameters();
+
+        final JpegPhotoshopMetadata metadata = new JpegImageParser().getPhotoshopMetadata(byteSource, params);
+        if (metadata == null) {
+            // FIXME select only files with meta for this test
+            return;
+        }
+
+        final List<IptcBlock> newBlocks = new ArrayList<>(metadata.photoshopApp13Data.getNonIptcBlocks());
+        final List<IptcRecord> oldRecords = metadata.photoshopApp13Data.getRecords();
+
+        final List<IptcRecord> newRecords = new ArrayList<>();
+        for (final IptcRecord record : oldRecords) {
+            if (record.iptcType != IptcTypes.CITY
+                    && record.iptcType != IptcTypes.CREDIT) {
+                newRecords.add(record);
+            }
+        }
+
+        newRecords.add(new IptcRecord(IptcTypes.CITY, ""Albany, NY""));
+        newRecords.add(new IptcRecord(IptcTypes.CREDIT, ""William Sorensen""));
+
+        final PhotoshopApp13Data newData = new PhotoshopApp13Data(newRecords, newBlocks);
+
+        final File updated = File.createTempFile(imageFile.getName() + "".iptc.add."", "".jpg"");
+        try (FileOutputStream fos = new FileOutputStream(updated);
+                OutputStream os = new BufferedOutputStream(fos)) {
+            new JpegIptcRewriter().writeIPTC(byteSource, os, newData);
+        }
+
+        final ByteSource updateByteSource = new ByteSourceFile(updated);
+        final JpegPhotoshopMetadata outMetadata = new JpegImageParser().getPhotoshopMetadata(
+                updateByteSource, params);
+
+        assertNotNull(outMetadata);
+    }
+",IptcAddTest::testAddIptcData_1_oe
+imag_109_2,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testAddIptcData_2_oe(final File imageFile) throws Exception {
+        final ByteSource byteSource = new ByteSourceFile(imageFile);
+
+        final JpegImagingParameters params = new JpegImagingParameters();
+
+        final JpegPhotoshopMetadata metadata = new JpegImageParser().getPhotoshopMetadata(byteSource, params);
+        if (metadata == null) {
+            // FIXME select only files with meta for this test
+            return;
+        }
+
+        final List<IptcBlock> newBlocks = new ArrayList<>(metadata.photoshopApp13Data.getNonIptcBlocks());
+        final List<IptcRecord> oldRecords = metadata.photoshopApp13Data.getRecords();
+
+        final List<IptcRecord> newRecords = new ArrayList<>();
+        for (final IptcRecord record : oldRecords) {
+            if (record.iptcType != IptcTypes.CITY
+                    && record.iptcType != IptcTypes.CREDIT) {
+                newRecords.add(record);
+            }
+        }
+
+        newRecords.add(new IptcRecord(IptcTypes.CITY, ""Albany, NY""));
+        newRecords.add(new IptcRecord(IptcTypes.CREDIT, ""William Sorensen""));
+
+        final PhotoshopApp13Data newData = new PhotoshopApp13Data(newRecords, newBlocks);
+
+        final File updated = File.createTempFile(imageFile.getName() + "".iptc.add."", "".jpg"");
+        try (FileOutputStream fos = new FileOutputStream(updated);
+                OutputStream os = new BufferedOutputStream(fos)) {
+            new JpegIptcRewriter().writeIPTC(byteSource, os, newData);
+        }
+
+        final ByteSource updateByteSource = new ByteSourceFile(updated);
+        final JpegPhotoshopMetadata outMetadata = new JpegImageParser().getPhotoshopMetadata(
+                updateByteSource, params);
+
+        // removed other assertion
+        assertEquals(outMetadata.getItems().size(), newRecords.size());
+    }
+",IptcAddTest::testAddIptcData_2_oe
+imag_117_2,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testInsert_2_oe(final File imageFile) throws Exception {
+        final ByteSource byteSource = new ByteSourceFile(imageFile);
+
+        final JpegImagingParameters params = new JpegImagingParameters();
+
+        final JpegPhotoshopMetadata metadata = new JpegImageParser().getPhotoshopMetadata(
+                byteSource, params);
+        // removed other assertion
+
+        final File noIptcFile = removeIptc(byteSource, imageFile);
+
+        final List<IptcBlock> newBlocks = new ArrayList<>();
+        final List<IptcRecord> newRecords = new ArrayList<>();
+
+        newRecords.add(new IptcRecord(IptcTypes.CITY, ""Albany, NY""));
+        newRecords.add(new IptcRecord(IptcTypes.CREDIT,
+                ""William Sorensen""));
+
+        final PhotoshopApp13Data newData = new PhotoshopApp13Data(newRecords,
+                newBlocks);
+
+        final File updated = File.createTempFile(imageFile.getName()
+                + "".iptc.insert."", "".jpg"");
+        try (FileOutputStream fos = new FileOutputStream(updated);
+                OutputStream os = new BufferedOutputStream(fos)) {
+            new JpegIptcRewriter().writeIPTC(new ByteSourceFile(
+                    noIptcFile), os, newData);
+        }
+
+        final ByteSource updateByteSource = new ByteSourceFile(updated);
+        final JpegPhotoshopMetadata outMetadata = new JpegImageParser().getPhotoshopMetadata(
+                updateByteSource, params);
+
+        assertNotNull(outMetadata);
+    }
+",IptcUpdateTest::testInsert_2_oe
+imag_117_3,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testInsert_3_oe(final File imageFile) throws Exception {
+        final ByteSource byteSource = new ByteSourceFile(imageFile);
+
+        final JpegImagingParameters params = new JpegImagingParameters();
+
+        final JpegPhotoshopMetadata metadata = new JpegImageParser().getPhotoshopMetadata(
+                byteSource, params);
+        // removed other assertion
+
+        final File noIptcFile = removeIptc(byteSource, imageFile);
+
+        final List<IptcBlock> newBlocks = new ArrayList<>();
+        final List<IptcRecord> newRecords = new ArrayList<>();
+
+        newRecords.add(new IptcRecord(IptcTypes.CITY, ""Albany, NY""));
+        newRecords.add(new IptcRecord(IptcTypes.CREDIT,
+                ""William Sorensen""));
+
+        final PhotoshopApp13Data newData = new PhotoshopApp13Data(newRecords,
+                newBlocks);
+
+        final File updated = File.createTempFile(imageFile.getName()
+                + "".iptc.insert."", "".jpg"");
+        try (FileOutputStream fos = new FileOutputStream(updated);
+                OutputStream os = new BufferedOutputStream(fos)) {
+            new JpegIptcRewriter().writeIPTC(new ByteSourceFile(
+                    noIptcFile), os, newData);
+        }
+
+        final ByteSource updateByteSource = new ByteSourceFile(updated);
+        final JpegPhotoshopMetadata outMetadata = new JpegImageParser().getPhotoshopMetadata(
+                updateByteSource, params);
+
+        // removed other assertion
+        assertEquals(2, outMetadata.getItems().size());
+    }
+",IptcUpdateTest::testInsert_3_oe
+imag_121_2,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testRemoveInsertUpdate_2_oe(final File imageFile) throws Exception {
+        final ByteSource byteSource = new ByteSourceFile(imageFile);
+        final JpegImagingParameters params = new JpegImagingParameters();
+        final String xmpXml = new JpegImageParser().getXmpXml(byteSource, params);
+        // removed other assertion
+
+        final File noXmpFile = File.createTempFile(imageFile.getName() + ""."", "".jpg"");
+        {
+            // test remove
+
+            try (FileOutputStream fos = new FileOutputStream(noXmpFile);
+                    OutputStream os = new BufferedOutputStream(fos)) {
+                new JpegXmpRewriter().removeXmpXml(byteSource, os);
+            }
+
+            // Debug.debug(""Source Segments:"");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(noXmpFile));
+
+            final String outXmp = new JpegImageParser().getXmpXml(
+                    new ByteSourceFile(noXmpFile), params);
+            Assertions.assertNull(outXmp);
+    }
+    }
+",JpegXmpRewriteTest::testRemoveInsertUpdate_2_oe
+imag_121_3,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testRemoveInsertUpdate_3_oe(final File imageFile) throws Exception {
+        final ByteSource byteSource = new ByteSourceFile(imageFile);
+        final JpegImagingParameters params = new JpegImagingParameters();
+        final String xmpXml = new JpegImageParser().getXmpXml(byteSource, params);
+        // removed other assertion
+
+        final File noXmpFile = File.createTempFile(imageFile.getName() + ""."", "".jpg"");
+        {
+            // test remove
+
+            try (FileOutputStream fos = new FileOutputStream(noXmpFile);
+                    OutputStream os = new BufferedOutputStream(fos)) {
+                new JpegXmpRewriter().removeXmpXml(byteSource, os);
+            }
+
+            // Debug.debug(""Source Segments:"");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(noXmpFile));
+
+            final String outXmp = new JpegImageParser().getXmpXml(
+                    new ByteSourceFile(noXmpFile), params);
+            // removed other assertion
+        }
+
+        {
+            // test update
+
+            final String newXmpXml = ""test"";
+            final File updated = File.createTempFile(imageFile.getName() + ""."", "".jpg"");
+            try (FileOutputStream fos = new FileOutputStream(updated);
+                    OutputStream os = new BufferedOutputStream(fos)) {
+                new JpegXmpRewriter().updateXmpXml(byteSource, os, newXmpXml);
+            }
+
+            // Debug.debug(""Source Segments:"");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(updated));
+
+            final String outXmp = new JpegImageParser().getXmpXml(
+                    new ByteSourceFile(updated), params);
+            assertNotNull(outXmp);
+    }
+    }
+",JpegXmpRewriteTest::testRemoveInsertUpdate_3_oe
+imag_121_4,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testRemoveInsertUpdate_4_oe(final File imageFile) throws Exception {
+        final ByteSource byteSource = new ByteSourceFile(imageFile);
+        final JpegImagingParameters params = new JpegImagingParameters();
+        final String xmpXml = new JpegImageParser().getXmpXml(byteSource, params);
+        // removed other assertion
+
+        final File noXmpFile = File.createTempFile(imageFile.getName() + ""."", "".jpg"");
+        {
+            // test remove
+
+            try (FileOutputStream fos = new FileOutputStream(noXmpFile);
+                    OutputStream os = new BufferedOutputStream(fos)) {
+                new JpegXmpRewriter().removeXmpXml(byteSource, os);
+            }
+
+            // Debug.debug(""Source Segments:"");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(noXmpFile));
+
+            final String outXmp = new JpegImageParser().getXmpXml(
+                    new ByteSourceFile(noXmpFile), params);
+            // removed other assertion
+        }
+
+        {
+            // test update
+
+            final String newXmpXml = ""test"";
+            final File updated = File.createTempFile(imageFile.getName() + ""."", "".jpg"");
+            try (FileOutputStream fos = new FileOutputStream(updated);
+                    OutputStream os = new BufferedOutputStream(fos)) {
+                new JpegXmpRewriter().updateXmpXml(byteSource, os, newXmpXml);
+            }
+
+            // Debug.debug(""Source Segments:"");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(updated));
+
+            final String outXmp = new JpegImageParser().getXmpXml(
+                    new ByteSourceFile(updated), params);
+            // removed other assertion
+            assertEquals(outXmp, newXmpXml);
+    }
+    }
+",JpegXmpRewriteTest::testRemoveInsertUpdate_4_oe
+imag_121_5,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testRemoveInsertUpdate_5_oe(final File imageFile) throws Exception {
+        final ByteSource byteSource = new ByteSourceFile(imageFile);
+        final JpegImagingParameters params = new JpegImagingParameters();
+        final String xmpXml = new JpegImageParser().getXmpXml(byteSource, params);
+        // removed other assertion
+
+        final File noXmpFile = File.createTempFile(imageFile.getName() + ""."", "".jpg"");
+        {
+            // test remove
+
+            try (FileOutputStream fos = new FileOutputStream(noXmpFile);
+                    OutputStream os = new BufferedOutputStream(fos)) {
+                new JpegXmpRewriter().removeXmpXml(byteSource, os);
+            }
+
+            // Debug.debug(""Source Segments:"");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(noXmpFile));
+
+            final String outXmp = new JpegImageParser().getXmpXml(
+                    new ByteSourceFile(noXmpFile), params);
+            // removed other assertion
+        }
+
+        {
+            // test update
+
+            final String newXmpXml = ""test"";
+            final File updated = File.createTempFile(imageFile.getName() + ""."", "".jpg"");
+            try (FileOutputStream fos = new FileOutputStream(updated);
+                    OutputStream os = new BufferedOutputStream(fos)) {
+                new JpegXmpRewriter().updateXmpXml(byteSource, os, newXmpXml);
+            }
+
+            // Debug.debug(""Source Segments:"");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(updated));
+
+            final String outXmp = new JpegImageParser().getXmpXml(
+                    new ByteSourceFile(updated), params);
+            // removed other assertion
+            // removed other assertion
+        }
+
+        {
+            // test insert
+
+            final String newXmpXml = ""test"";
+            final File updated = File.createTempFile(imageFile.getName() + ""."", "".jpg"");
+            try (FileOutputStream fos = new FileOutputStream(updated);
+                    OutputStream os = new BufferedOutputStream(fos)) {
+                new JpegXmpRewriter().updateXmpXml(new ByteSourceFile(
+                        noXmpFile), os, newXmpXml);
+            }
+
+            // Debug.debug(""Source Segments:"");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(updated));
+
+            final String outXmp = new JpegImageParser().getXmpXml(
+                    new ByteSourceFile(updated), params);
+            assertNotNull(outXmp);
+    }
+    }
+",JpegXmpRewriteTest::testRemoveInsertUpdate_5_oe
+imag_121_6,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testRemoveInsertUpdate_6_oe(final File imageFile) throws Exception {
+        final ByteSource byteSource = new ByteSourceFile(imageFile);
+        final JpegImagingParameters params = new JpegImagingParameters();
+        final String xmpXml = new JpegImageParser().getXmpXml(byteSource, params);
+        // removed other assertion
+
+        final File noXmpFile = File.createTempFile(imageFile.getName() + ""."", "".jpg"");
+        {
+            // test remove
+
+            try (FileOutputStream fos = new FileOutputStream(noXmpFile);
+                    OutputStream os = new BufferedOutputStream(fos)) {
+                new JpegXmpRewriter().removeXmpXml(byteSource, os);
+            }
+
+            // Debug.debug(""Source Segments:"");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(noXmpFile));
+
+            final String outXmp = new JpegImageParser().getXmpXml(
+                    new ByteSourceFile(noXmpFile), params);
+            // removed other assertion
+        }
+
+        {
+            // test update
+
+            final String newXmpXml = ""test"";
+            final File updated = File.createTempFile(imageFile.getName() + ""."", "".jpg"");
+            try (FileOutputStream fos = new FileOutputStream(updated);
+                    OutputStream os = new BufferedOutputStream(fos)) {
+                new JpegXmpRewriter().updateXmpXml(byteSource, os, newXmpXml);
+            }
+
+            // Debug.debug(""Source Segments:"");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(updated));
+
+            final String outXmp = new JpegImageParser().getXmpXml(
+                    new ByteSourceFile(updated), params);
+            // removed other assertion
+            // removed other assertion
+        }
+
+        {
+            // test insert
+
+            final String newXmpXml = ""test"";
+            final File updated = File.createTempFile(imageFile.getName() + ""."", "".jpg"");
+            try (FileOutputStream fos = new FileOutputStream(updated);
+                    OutputStream os = new BufferedOutputStream(fos)) {
+                new JpegXmpRewriter().updateXmpXml(new ByteSourceFile(
+                        noXmpFile), os, newXmpXml);
+            }
+
+            // Debug.debug(""Source Segments:"");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(updated));
+
+            final String outXmp = new JpegImageParser().getXmpXml(
+                    new ByteSourceFile(updated), params);
+            // removed other assertion
+            assertEquals(outXmp, newXmpXml);
+    }
+    }
+",JpegXmpRewriteTest::testRemoveInsertUpdate_6_oe
 imag_122_1,"    @Test
     public void testCreatesJpegXmpParserAndCallsParseXmpJpegSegment_1_oe() {
         final JpegXmpParser jpegXmpParser = new JpegXmpParser();
@@ -122,6 +555,58 @@ imag_125_1,"  @Test
   }
   }
 ",PbmFileInfoTest::testGetRGBThrowsIOException_1_oe
+imag_137_1,"    @Test
+    public void test32BPPHalfMaskedIcon_1_oe() throws Exception {
+        final int foreground = 0xff000000;
+        final int background = 0xff0000ff;
+        try (final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                final BinaryOutputStream bos = new BinaryOutputStream(baos, ByteOrder.BIG_ENDIAN)) {
+            bos.write4Bytes(IcnsImageParser.ICNS_MAGIC);
+            bos.write4Bytes(4 + 4 + 4 + 4 + 4 * 16 * 16 + 4 + 4 + 16 * 16 / 8);
+            bos.write4Bytes(IcnsType.ICNS_16x16_32BIT_IMAGE.getType());
+            bos.write4Bytes(4 + 4 + 4 * 16 * 16);
+            for (int y = 0; y < 16; y++) {
+                for (int x = 0; x < 16; x++) {
+                    // argb, a ignored
+                    bos.write(0);
+                    final int pixel;
+                    if (IMAGE[y][x] != 0) {
+                        pixel = foreground;
+                    } else {
+                        pixel = background;
+                    }
+                    bos.write(0xff & (pixel >> 16));
+                    bos.write(0xff & (pixel >> 8));
+                    bos.write(0xff & pixel);
+                }
+            }
+            bos.write4Bytes(IcnsType.ICNS_16x16_1BIT_IMAGE_AND_MASK.getType());
+            bos.write4Bytes(4 + 4 + 16 * 16 / 8);
+            // 1 bit image
+            for (int y = 0; y < 16; y++) {
+                for (int x = 0; x < 16; x += 8) {
+                    int eightBits = 0;
+                    for (int pos = 0; pos < 8; pos++) {
+                        if (IMAGE[y][x + pos] != 0) {
+                            eightBits |= (1 << (7 - pos));
+                        }
+                    }
+                    bos.write(eightBits);
+                }
+            }
+            // Missing 1 bit mask!!!
+            bos.flush();
+
+            boolean threw = false;
+            try {
+                writeAndReadImageData(""32bpp-half-masked-CORRUPT"", baos.toByteArray(), foreground, background);
+            } catch (final ImageReadException imageReadException) {
+                threw = true;
+            }
+            assertTrue(threw);
+    }
+    }
+",IcnsRoundTripTest::test32BPPHalfMaskedIcon_1_oe
 imag_145_1,"    @Test
     public void test_1_oe() {
         // These TIFF sample data includes files that contain known
@@ -410,6 +895,123 @@ imag_145_6,"    @Test
     }
     }
 ",TiffFloatingPointReadTest::test_6_oe
+imag_170_4,"    @Test
+    public void test_4_oe() throws Exception {
+        final List<File> images = getTiffImages();
+        for (final File imageFile : images) {
+
+            Debug.debug(""imageFile"", imageFile);
+
+            final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            // removed other assertion
+
+            final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+            // removed other assertion
+
+            final BufferedImage image = Imaging.getBufferedImage(imageFile);
+            // removed other assertion
+
+            final int[] compressions = new int[]{
+                    TiffConstants.TIFF_COMPRESSION_UNCOMPRESSED,
+                    TiffConstants.TIFF_COMPRESSION_LZW,
+                    TiffConstants.TIFF_COMPRESSION_PACKBITS,
+                    TiffConstants.TIFF_COMPRESSION_DEFLATE_ADOBE
+            };
+            final TiffImageParser tiffImageParser = new TiffImageParser();
+            for (final int compression : compressions) {
+                final File tempFile = File.createTempFile(imageFile.getName() + ""-"" + compression + ""."", "".tif"");
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(compression);
+                try (FileOutputStream fos = new FileOutputStream(tempFile)) {
+                    tiffImageParser.writeImage(image, fos, params);
+                }
+                final BufferedImage image2 = Imaging.getBufferedImage(tempFile);
+                assertNotNull(image2);
+    }
+    }
+    }
+",TiffRoundtripTest::test_4_oe
+imag_173_1,"    @Test
+    void testExtraSamples_1_oe() throws Exception{
+
+        final int bytesPerSample = 4;
+        final int width = 10;
+        final int height = 10;
+        final int nBytesPerStrip = bytesPerSample * height * width;
+        final ByteOrder byteOrder = ByteOrder.nativeOrder();
+
+        int[] samples = new int[width * height];
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                int index = i * width + j;
+                samples[index] = j > i ? 0xffff0000 : 0x88ff0000;
+            }
+        }
+
+        for (int iExtra = 0; iExtra < 3; iExtra++) {
+            final TiffOutputSet outputSet = new TiffOutputSet(byteOrder);
+            final TiffOutputDirectory outDir = outputSet.addRootDirectory();
+            outDir.add(TiffTagConstants.TIFF_TAG_IMAGE_WIDTH, width);
+            outDir.add(TiffTagConstants.TIFF_TAG_IMAGE_LENGTH, height);
+            outDir.add(TiffTagConstants.TIFF_TAG_SAMPLES_PER_PIXEL, (short) 4);
+            outDir.add(TiffTagConstants.TIFF_TAG_BITS_PER_SAMPLE, new short[]{8, 8, 8, 8});
+            outDir.add(TiffTagConstants.TIFF_TAG_PHOTOMETRIC_INTERPRETATION,
+                    (short) TiffTagConstants.PHOTOMETRIC_INTERPRETATION_VALUE_RGB);
+            outDir.add(TiffTagConstants.TIFF_TAG_COMPRESSION,
+                    (short) TiffTagConstants.COMPRESSION_VALUE_UNCOMPRESSED);
+            outDir.add(TiffTagConstants.TIFF_TAG_PLANAR_CONFIGURATION,
+                    (short) TiffTagConstants.PLANAR_CONFIGURATION_VALUE_CHUNKY);
+            outDir.add(TiffTagConstants.TIFF_TAG_ROWS_PER_STRIP, height);
+            outDir.add(TiffTagConstants.TIFF_TAG_STRIP_BYTE_COUNTS, nBytesPerStrip);
+
+            outDir.add(TiffTagConstants.TIFF_TAG_EXTRA_SAMPLES, (short) iExtra);
+
+            final byte[] b = new byte[nBytesPerStrip];
+            int k = 0;
+            for (int sample : samples) {
+                b[k++] = (byte) ((sample >> 16) & 0xff);  // R
+                b[k++] = (byte) ((sample >> 8) & 0xff);   // G
+                b[k++] = (byte) (sample & 0xff);          // B
+                b[k++] = (byte) ((sample >> 24) & 0xff);  // A
+            }
+
+            final TiffElement.DataElement[] imageData = new TiffElement.DataElement[1];
+            imageData[0] = new TiffImageData.Data(0, b.length, b);
+
+            TiffImageData tiffImageData
+                = new TiffImageData.Strips(imageData, height);
+
+            outDir.setTiffImageData(tiffImageData);
+
+            final File outputFile = new File(tempDir.toFile(), ""TestExtraSamples"" + iExtra + "".tiff"");
+            try (FileOutputStream fos = new FileOutputStream(outputFile);
+                    BufferedOutputStream bos = new BufferedOutputStream(fos)) {
+                final TiffImageWriterLossy writer = new TiffImageWriterLossy(byteOrder);
+                writer.write(bos, outputSet);
+                bos.flush();
+            }
+
+            BufferedImage result = Imaging.getBufferedImage(outputFile);
+            int []argb = new int[samples.length];
+            result.getRGB(0, 0, width, height, argb, 0, width);
+            int index = 3*width+1;
+            int iSample = samples[index];
+            int iArgb   = argb[index];
+            if (iExtra == 0) {
+                // when extra samples is zero, the alpha channel is ignored.
+                // We expect ARGB to start with 0xff.  So we OR in 0xff for
+                // the alpha value of the sample
+                iSample |= 0xff000000;
+            } else if (iExtra==1) {
+                // The pre-multiply alpha case
+                iSample = 0x89de0000;
+            }
+            String p = String.format(""%08x"", iSample);
+            String q = String.format(""%08x"", iArgb);
+            assertEquals(p, q, ""Failure on ExtraSamples=""+iExtra);
+    }
+    }
+",TiffAlphaRoundTripTest::testExtraSamples_1_oe
 imag_174_1,"    @Test
     public void test_1_oe() {
         for (final String name : names) {
@@ -465,6 +1067,39 @@ imag_187_2,"    @Test
     }
     }
 ",TiffRasterDataIntTest::testBadCoordinates_2_oe
+imag_188_1,"    @Test
+    public void testSubImage_1_oe() throws ImageReadException, ImageWriteException, IOException {
+        final TiffImageParser tiffImageParser = new TiffImageParser();
+        final BufferedImage src = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB);
+        final TiffImagingParameters params = new TiffImagingParameters();
+        final byte[] imageBytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            tiffImageParser.writeImage(src, baos, params);
+            imageBytes = baos.toByteArray();
+        }
+
+        params.setSubImage(0, 0, 2, 3);
+        final BufferedImage image = tiffImageParser.getBufferedImage(imageBytes, params);
+        assertEquals(image.getWidth(), 2);
+    }
+",TiffSubImageTest::testSubImage_1_oe
+imag_188_2,"    @Test
+    public void testSubImage_2_oe() throws ImageReadException, ImageWriteException, IOException {
+        final TiffImageParser tiffImageParser = new TiffImageParser();
+        final BufferedImage src = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB);
+        final TiffImagingParameters params = new TiffImagingParameters();
+        final byte[] imageBytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            tiffImageParser.writeImage(src, baos, params);
+            imageBytes = baos.toByteArray();
+        }
+
+        params.setSubImage(0, 0, 2, 3);
+        final BufferedImage image = tiffImageParser.getBufferedImage(imageBytes, params);
+        // removed other assertion
+        assertEquals(image.getHeight(), 3);
+    }
+",TiffSubImageTest::testSubImage_2_oe
 imag_191_1,"    @Test
     public void testAll5x2Compressions_1_oe() {
         final byte[] uncompressed = new byte[2];
@@ -520,38 +1155,6 @@ imag_191_2,"    @Test
     }
     }
 ",TiffCcittTest::testAll5x2Compressions_2_oe
-imag_191_3,"    @Test
-    public void testAll5x2Compressions_3_oe() {
-        final byte[] uncompressed = new byte[2];
-        final int[] combinations = new int[10];
-        do {
-            for (int x = 0; x < 5; x++) {
-                if (combinations[x] != 0) {
-                    uncompressed[0] |= (0x80 >>> x);
-                }
-            }
-            for (int x = 0; x < 5; x++) {
-                if (combinations[5 + x] != 0) {
-                    uncompressed[1] |= (0x80 >>> x);
-                }
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressModifiedHuffman(
-                        uncompressed, 5, 2);
-                final byte[] result = T4AndT6Compression.decompressModifiedHuffman(
-                        compressed, 5, 2);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                fail();
-    }
-    }
-    }
-",TiffCcittTest::testAll5x2Compressions_3_oe
 imag_191_4,"    @Test
     public void testAll5x2Compressions_4_oe() {
         final byte[] uncompressed = new byte[2];
@@ -635,52 +1238,6 @@ imag_191_5,"    @Test
     }
     }
 ",TiffCcittTest::testAll5x2Compressions_5_oe
-imag_191_6,"    @Test
-    public void testAll5x2Compressions_6_oe() {
-        final byte[] uncompressed = new byte[2];
-        final int[] combinations = new int[10];
-        do {
-            for (int x = 0; x < 5; x++) {
-                if (combinations[x] != 0) {
-                    uncompressed[0] |= (0x80 >>> x);
-                }
-            }
-            for (int x = 0; x < 5; x++) {
-                if (combinations[5 + x] != 0) {
-                    uncompressed[1] |= (0x80 >>> x);
-                }
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressModifiedHuffman(
-                        uncompressed, 5, 2);
-                final byte[] result = T4AndT6Compression.decompressModifiedHuffman(
-                        compressed, 5, 2);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressT4_1D(
-                        uncompressed, 5, 2, true);
-                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
-                        5, 2, true);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                fail();
-    }
-    }
-    }
-",TiffCcittTest::testAll5x2Compressions_6_oe
 imag_191_7,"    @Test
     public void testAll5x2Compressions_7_oe() {
         final byte[] uncompressed = new byte[2];
@@ -792,66 +1349,6 @@ imag_191_8,"    @Test
     }
     }
 ",TiffCcittTest::testAll5x2Compressions_8_oe
-imag_191_9,"    @Test
-    public void testAll5x2Compressions_9_oe() {
-        final byte[] uncompressed = new byte[2];
-        final int[] combinations = new int[10];
-        do {
-            for (int x = 0; x < 5; x++) {
-                if (combinations[x] != 0) {
-                    uncompressed[0] |= (0x80 >>> x);
-                }
-            }
-            for (int x = 0; x < 5; x++) {
-                if (combinations[5 + x] != 0) {
-                    uncompressed[1] |= (0x80 >>> x);
-                }
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressModifiedHuffman(
-                        uncompressed, 5, 2);
-                final byte[] result = T4AndT6Compression.decompressModifiedHuffman(
-                        compressed, 5, 2);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressT4_1D(
-                        uncompressed, 5, 2, true);
-                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
-                        5, 2, true);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressT4_1D(
-                        uncompressed, 5, 2, false);
-                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
-                        5, 2, false);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                fail();
-    }
-    }
-    }
-",TiffCcittTest::testAll5x2Compressions_9_oe
 imag_191_10,"    @Test
     public void testAll5x2Compressions_10_oe() {
         final byte[] uncompressed = new byte[2];
@@ -991,80 +1488,6 @@ imag_191_11,"    @Test
     }
     }
 ",TiffCcittTest::testAll5x2Compressions_11_oe
-imag_191_12,"    @Test
-    public void testAll5x2Compressions_12_oe() {
-        final byte[] uncompressed = new byte[2];
-        final int[] combinations = new int[10];
-        do {
-            for (int x = 0; x < 5; x++) {
-                if (combinations[x] != 0) {
-                    uncompressed[0] |= (0x80 >>> x);
-                }
-            }
-            for (int x = 0; x < 5; x++) {
-                if (combinations[5 + x] != 0) {
-                    uncompressed[1] |= (0x80 >>> x);
-                }
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressModifiedHuffman(
-                        uncompressed, 5, 2);
-                final byte[] result = T4AndT6Compression.decompressModifiedHuffman(
-                        compressed, 5, 2);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressT4_1D(
-                        uncompressed, 5, 2, true);
-                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
-                        5, 2, true);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressT4_1D(
-                        uncompressed, 5, 2, false);
-                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
-                        5, 2, false);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressT4_2D(
-                        uncompressed, 5, 2, true, 2);
-                final byte[] result = T4AndT6Compression.decompressT4_2D(compressed,
-                        5, 2, true);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                fail();
-    }
-    }
-    }
-",TiffCcittTest::testAll5x2Compressions_12_oe
 imag_191_13,"    @Test
     public void testAll5x2Compressions_13_oe() {
         final byte[] uncompressed = new byte[2];
@@ -1232,94 +1655,6 @@ imag_191_14,"    @Test
     }
     }
 ",TiffCcittTest::testAll5x2Compressions_14_oe
-imag_191_15,"    @Test
-    public void testAll5x2Compressions_15_oe() {
-        final byte[] uncompressed = new byte[2];
-        final int[] combinations = new int[10];
-        do {
-            for (int x = 0; x < 5; x++) {
-                if (combinations[x] != 0) {
-                    uncompressed[0] |= (0x80 >>> x);
-                }
-            }
-            for (int x = 0; x < 5; x++) {
-                if (combinations[5 + x] != 0) {
-                    uncompressed[1] |= (0x80 >>> x);
-                }
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressModifiedHuffman(
-                        uncompressed, 5, 2);
-                final byte[] result = T4AndT6Compression.decompressModifiedHuffman(
-                        compressed, 5, 2);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressT4_1D(
-                        uncompressed, 5, 2, true);
-                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
-                        5, 2, true);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressT4_1D(
-                        uncompressed, 5, 2, false);
-                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
-                        5, 2, false);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressT4_2D(
-                        uncompressed, 5, 2, true, 2);
-                final byte[] result = T4AndT6Compression.decompressT4_2D(compressed,
-                        5, 2, true);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressT4_2D(
-                        uncompressed, 5, 2, false, 2);
-                final byte[] result = T4AndT6Compression.decompressT4_2D(compressed,
-                        5, 2, false);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                fail();
-    }
-    }
-    }
-",TiffCcittTest::testAll5x2Compressions_15_oe
 imag_191_16,"    @Test
     public void testAll5x2Compressions_16_oe() {
         final byte[] uncompressed = new byte[2];
@@ -1515,591 +1850,6 @@ imag_191_17,"    @Test
     }
     }
 ",TiffCcittTest::testAll5x2Compressions_17_oe
-imag_191_18,"    @Test
-    public void testAll5x2Compressions_18_oe() {
-        final byte[] uncompressed = new byte[2];
-        final int[] combinations = new int[10];
-        do {
-            for (int x = 0; x < 5; x++) {
-                if (combinations[x] != 0) {
-                    uncompressed[0] |= (0x80 >>> x);
-                }
-            }
-            for (int x = 0; x < 5; x++) {
-                if (combinations[5 + x] != 0) {
-                    uncompressed[1] |= (0x80 >>> x);
-                }
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressModifiedHuffman(
-                        uncompressed, 5, 2);
-                final byte[] result = T4AndT6Compression.decompressModifiedHuffman(
-                        compressed, 5, 2);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressT4_1D(
-                        uncompressed, 5, 2, true);
-                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
-                        5, 2, true);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressT4_1D(
-                        uncompressed, 5, 2, false);
-                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
-                        5, 2, false);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressT4_2D(
-                        uncompressed, 5, 2, true, 2);
-                final byte[] result = T4AndT6Compression.decompressT4_2D(compressed,
-                        5, 2, true);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressT4_2D(
-                        uncompressed, 5, 2, false, 2);
-                final byte[] result = T4AndT6Compression.decompressT4_2D(compressed,
-                        5, 2, false);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final byte[] compressed = T4AndT6Compression.compressT6(uncompressed,
-                        5, 2);
-                final byte[] result = T4AndT6Compression.decompressT6(compressed, 5,
-                        2);
-                // removed other assertion
-                for (int i = 0; i < uncompressed.length; i++) {
-                    // removed other assertion
-                }
-            } catch (final ImageWriteException | ImageReadException ex) {
-                Debug.debug(ex);
-                fail();
-    }
-    }
-    }
-",TiffCcittTest::testAll5x2Compressions_18_oe
-imag_192_1,"    @Test
-    public void testAll5x2Images_1_oe() {
-        final int[] combinations = new int[10];
-        final BufferedImage image = new BufferedImage(5, 2,
-                BufferedImage.TYPE_INT_RGB);
-        do {
-            for (int x = 0; x < 5; x++) {
-                if (combinations[x] == 0) {
-                    image.setRGB(x, 0, 0xFFFFFF);
-                } else {
-                    image.setRGB(x, 0, 0);
-                }
-            }
-            for (int x = 0; x < 5; x++) {
-                if (combinations[5 + x] == 0) {
-                    image.setRGB(x, 1, 0xFFFFFF);
-                } else {
-                    image.setRGB(x, 1, 0);
-                }
-            }
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_1D);
-                final TiffImageParser tiffImageParser = new TiffImageParser();
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                fail();
-    }
-    }
-    }
-",TiffCcittTest::testAll5x2Images_1_oe
-imag_192_2,"    @Test
-    public void testAll5x2Images_2_oe() {
-        final int[] combinations = new int[10];
-        final BufferedImage image = new BufferedImage(5, 2,
-                BufferedImage.TYPE_INT_RGB);
-        do {
-            for (int x = 0; x < 5; x++) {
-                if (combinations[x] == 0) {
-                    image.setRGB(x, 0, 0xFFFFFF);
-                } else {
-                    image.setRGB(x, 0, 0);
-                }
-            }
-            for (int x = 0; x < 5; x++) {
-                if (combinations[5 + x] == 0) {
-                    image.setRGB(x, 1, 0xFFFFFF);
-                } else {
-                    image.setRGB(x, 1, 0);
-                }
-            }
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_1D);
-                final TiffImageParser tiffImageParser = new TiffImageParser();
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            final TiffImageParser tiffImageParser = new TiffImageParser();
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
-                params.setT4Options(0);
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                fail();
-    }
-    }
-    }
-",TiffCcittTest::testAll5x2Images_2_oe
-imag_192_3,"    @Test
-    public void testAll5x2Images_3_oe() {
-        final int[] combinations = new int[10];
-        final BufferedImage image = new BufferedImage(5, 2,
-                BufferedImage.TYPE_INT_RGB);
-        do {
-            for (int x = 0; x < 5; x++) {
-                if (combinations[x] == 0) {
-                    image.setRGB(x, 0, 0xFFFFFF);
-                } else {
-                    image.setRGB(x, 0, 0);
-                }
-            }
-            for (int x = 0; x < 5; x++) {
-                if (combinations[5 + x] == 0) {
-                    image.setRGB(x, 1, 0xFFFFFF);
-                } else {
-                    image.setRGB(x, 1, 0);
-                }
-            }
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_1D);
-                final TiffImageParser tiffImageParser = new TiffImageParser();
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            final TiffImageParser tiffImageParser = new TiffImageParser();
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
-                params.setT4Options(0);
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
-                params.setT4Options(4);
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                fail();
-    }
-    }
-    }
-",TiffCcittTest::testAll5x2Images_3_oe
-imag_192_4,"    @Test
-    public void testAll5x2Images_4_oe() {
-        final int[] combinations = new int[10];
-        final BufferedImage image = new BufferedImage(5, 2,
-                BufferedImage.TYPE_INT_RGB);
-        do {
-            for (int x = 0; x < 5; x++) {
-                if (combinations[x] == 0) {
-                    image.setRGB(x, 0, 0xFFFFFF);
-                } else {
-                    image.setRGB(x, 0, 0);
-                }
-            }
-            for (int x = 0; x < 5; x++) {
-                if (combinations[5 + x] == 0) {
-                    image.setRGB(x, 1, 0xFFFFFF);
-                } else {
-                    image.setRGB(x, 1, 0);
-                }
-            }
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_1D);
-                final TiffImageParser tiffImageParser = new TiffImageParser();
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            final TiffImageParser tiffImageParser = new TiffImageParser();
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
-                params.setT4Options(0);
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
-                params.setT4Options(4);
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
-                params.setT4Options(1);
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                fail();
-    }
-    }
-    }
-",TiffCcittTest::testAll5x2Images_4_oe
-imag_192_5,"    @Test
-    public void testAll5x2Images_5_oe() {
-        final int[] combinations = new int[10];
-        final BufferedImage image = new BufferedImage(5, 2,
-                BufferedImage.TYPE_INT_RGB);
-        do {
-            for (int x = 0; x < 5; x++) {
-                if (combinations[x] == 0) {
-                    image.setRGB(x, 0, 0xFFFFFF);
-                } else {
-                    image.setRGB(x, 0, 0);
-                }
-            }
-            for (int x = 0; x < 5; x++) {
-                if (combinations[5 + x] == 0) {
-                    image.setRGB(x, 1, 0xFFFFFF);
-                } else {
-                    image.setRGB(x, 1, 0);
-                }
-            }
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_1D);
-                final TiffImageParser tiffImageParser = new TiffImageParser();
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            final TiffImageParser tiffImageParser = new TiffImageParser();
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
-                params.setT4Options(0);
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
-                params.setT4Options(4);
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
-                params.setT4Options(1);
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
-                params.setT4Options(5);
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                fail();
-    }
-    }
-    }
-",TiffCcittTest::testAll5x2Images_5_oe
-imag_192_6,"    @Test
-    public void testAll5x2Images_6_oe() {
-        final int[] combinations = new int[10];
-        final BufferedImage image = new BufferedImage(5, 2,
-                BufferedImage.TYPE_INT_RGB);
-        do {
-            for (int x = 0; x < 5; x++) {
-                if (combinations[x] == 0) {
-                    image.setRGB(x, 0, 0xFFFFFF);
-                } else {
-                    image.setRGB(x, 0, 0);
-                }
-            }
-            for (int x = 0; x < 5; x++) {
-                if (combinations[5 + x] == 0) {
-                    image.setRGB(x, 1, 0xFFFFFF);
-                } else {
-                    image.setRGB(x, 1, 0);
-                }
-            }
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_1D);
-                final TiffImageParser tiffImageParser = new TiffImageParser();
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            final TiffImageParser tiffImageParser = new TiffImageParser();
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
-                params.setT4Options(0);
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
-                params.setT4Options(4);
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
-                params.setT4Options(1);
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_3);
-                params.setT4Options(5);
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                // removed other assertion
-            }
-
-            try {
-                final TiffImagingParameters params = new TiffImagingParameters();
-                params.setCompression(TiffConstants.TIFF_COMPRESSION_CCITT_GROUP_4);
-                final byte[] compressed;
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    tiffImageParser.writeImage(image, baos, params);
-                    compressed = baos.toByteArray();
-                }
-                final BufferedImage result = Imaging.getBufferedImage(compressed);
-                compareImages(image, result);
-            } catch (final ImageWriteException | ImageReadException | IOException ex) {
-                Debug.debug(ex);
-                fail();
-    }
-    }
-    }
-",TiffCcittTest::testAll5x2Images_6_oe
 imag_203_1,"  @Test
   public void testEncodeValue_1_oe() {
       final TiffDirectoryType tiffDirectoryType = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
@@ -2316,6 +2066,97 @@ imag_242_1,"    @Test
     }
     }
 ",PaletteEntryForValueTest::testFaultyConstructors_1_oe
+imag_246_1,"    @Test
+    public void test_1_oe() throws Exception {
+        final List<File> images = getTestImages();
+        for (final File imageFile : images) {
+
+            if (imageFile.getName().toLowerCase().endsWith("".png"")
+                    && isInvalidPNGTestFile(imageFile)) {
+                continue;
+            }
+
+            Debug.debug(""imageFile"", imageFile);
+            Debug.debug();
+
+            final ImageFormat imageFormat = Imaging.guessFormat(imageFile);
+            if (!imageFormat.equals(ImageFormats.PNG) || !imageFormat.equals(ImageFormats.TIFF) || !imageFormat.equals(ImageFormats.GIF)) {
+                continue;
+            }
+
+            String xmpXml = Imaging.getXmpXml(imageFile);
+            if (null == xmpXml
+                    && imageFormat.equals(ImageFormats.GIF)) {
+                xmpXml = ""temporary test until I can locate a GIF with XMP in the wild."";
+            }
+            if (null == xmpXml) {
+                continue;
+            }
+
+            final File tempFile = File.createTempFile(imageFile.getName() + ""."", ""."" + imageFormat.getDefaultExtension());
+            final BufferedImage image = Imaging.getBufferedImage(imageFile);
+
+            // ----
+
+            ImageParser parser = Util.getImageParser(""."" + imageFormat.getDefaultExtension());
+            ImagingParameters params = parser.getDefaultParameters();
+            ((XmpImagingParameters) params).setXmpXml(xmpXml);
+            try (FileOutputStream fos = new FileOutputStream(tempFile)) {
+                parser.writeImage(image, fos, params);
+            }
+
+            final String xmpXmlOut = Imaging.getXmpXml(tempFile);
+
+            assertNotNull(xmpXmlOut);
+    }
+    }
+",XmpUpdateTest::test_1_oe
+imag_246_2,"    @Test
+    public void test_2_oe() throws Exception {
+        final List<File> images = getTestImages();
+        for (final File imageFile : images) {
+
+            if (imageFile.getName().toLowerCase().endsWith("".png"")
+                    && isInvalidPNGTestFile(imageFile)) {
+                continue;
+            }
+
+            Debug.debug(""imageFile"", imageFile);
+            Debug.debug();
+
+            final ImageFormat imageFormat = Imaging.guessFormat(imageFile);
+            if (!imageFormat.equals(ImageFormats.PNG) || !imageFormat.equals(ImageFormats.TIFF) || !imageFormat.equals(ImageFormats.GIF)) {
+                continue;
+            }
+
+            String xmpXml = Imaging.getXmpXml(imageFile);
+            if (null == xmpXml
+                    && imageFormat.equals(ImageFormats.GIF)) {
+                xmpXml = ""temporary test until I can locate a GIF with XMP in the wild."";
+            }
+            if (null == xmpXml) {
+                continue;
+            }
+
+            final File tempFile = File.createTempFile(imageFile.getName() + ""."", ""."" + imageFormat.getDefaultExtension());
+            final BufferedImage image = Imaging.getBufferedImage(imageFile);
+
+            // ----
+
+            ImageParser parser = Util.getImageParser(""."" + imageFormat.getDefaultExtension());
+            ImagingParameters params = parser.getDefaultParameters();
+            ((XmpImagingParameters) params).setXmpXml(xmpXml);
+            try (FileOutputStream fos = new FileOutputStream(tempFile)) {
+                parser.writeImage(image, fos, params);
+            }
+
+            final String xmpXmlOut = Imaging.getXmpXml(tempFile);
+
+            // removed other assertion
+            assertEquals(xmpXmlOut, xmpXml);
+    }
+    }
+",XmpUpdateTest::test_2_oe
 imag_248_3,"  @Test
   void testWriteWithPredictor_3_oe() {
     int[] argb = populateARGB();
@@ -2461,6 +2302,473 @@ imag_249_2,"    @Test
     }
     }
 ",PngWriteForceTrueColorText::test_2_oe
+imag_256_1,"    @Test
+    public void test_1_oe() throws Exception {
+        final int width = 1;
+        final int height = 1;
+        final BufferedImage srcImage = new BufferedImage(width, height,
+                BufferedImage.TYPE_INT_ARGB);
+        srcImage.setRGB(0, 0, Color.red.getRGB());
+
+        final PngImagingParameters writeParams = new PngImagingParameters();
+
+        final List<PngText> writeTexts = new ArrayList<>();
+        {
+            final String keyword = ""a"";
+            final String text = ""b"";
+            writeTexts.add(new PngText.Text(keyword, text));
+        }
+        {
+            final String keyword = ""c"";
+            final String text = ""d"";
+            writeTexts.add(new PngText.Ztxt(keyword, text));
+        }
+        {
+            final String keyword = ""e"";
+            final String text = ""f"";
+            final String languageTag = ""g"";
+            final String translatedKeyword = ""h"";
+            writeTexts.add(new PngText.Itxt(keyword, text, languageTag,
+                    translatedKeyword));
+        }
+
+        writeParams.setTextChunks(writeTexts);
+
+        final PngImageParser pngImageParser = new PngImageParser();
+        final byte[] bytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            pngImageParser.writeImage(srcImage, baos, writeParams);
+            bytes = baos.toByteArray();
+        }
+
+        final File tempFile = File.createTempFile(""temp"", "".png"");
+        FileUtils.writeByteArrayToFile(tempFile, bytes);
+
+        final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(bytes);
+        assertNotNull(imageInfo);
+    }
+",PngTextTest::test_1_oe
+imag_256_2,"    @Test
+    public void test_2_oe() throws Exception {
+        final int width = 1;
+        final int height = 1;
+        final BufferedImage srcImage = new BufferedImage(width, height,
+                BufferedImage.TYPE_INT_ARGB);
+        srcImage.setRGB(0, 0, Color.red.getRGB());
+
+        final PngImagingParameters writeParams = new PngImagingParameters();
+
+        final List<PngText> writeTexts = new ArrayList<>();
+        {
+            final String keyword = ""a"";
+            final String text = ""b"";
+            writeTexts.add(new PngText.Text(keyword, text));
+        }
+        {
+            final String keyword = ""c"";
+            final String text = ""d"";
+            writeTexts.add(new PngText.Ztxt(keyword, text));
+        }
+        {
+            final String keyword = ""e"";
+            final String text = ""f"";
+            final String languageTag = ""g"";
+            final String translatedKeyword = ""h"";
+            writeTexts.add(new PngText.Itxt(keyword, text, languageTag,
+                    translatedKeyword));
+        }
+
+        writeParams.setTextChunks(writeTexts);
+
+        final PngImageParser pngImageParser = new PngImageParser();
+        final byte[] bytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            pngImageParser.writeImage(srcImage, baos, writeParams);
+            bytes = baos.toByteArray();
+        }
+
+        final File tempFile = File.createTempFile(""temp"", "".png"");
+        FileUtils.writeByteArrayToFile(tempFile, bytes);
+
+        final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(bytes);
+        // removed other assertion
+
+        final List<PngText> readTexts = imageInfo.getTextChunks();
+        assertEquals(readTexts.size(), 3);
+    }
+",PngTextTest::test_2_oe
+imag_256_3,"    @Test
+    public void test_3_oe() throws Exception {
+        final int width = 1;
+        final int height = 1;
+        final BufferedImage srcImage = new BufferedImage(width, height,
+                BufferedImage.TYPE_INT_ARGB);
+        srcImage.setRGB(0, 0, Color.red.getRGB());
+
+        final PngImagingParameters writeParams = new PngImagingParameters();
+
+        final List<PngText> writeTexts = new ArrayList<>();
+        {
+            final String keyword = ""a"";
+            final String text = ""b"";
+            writeTexts.add(new PngText.Text(keyword, text));
+        }
+        {
+            final String keyword = ""c"";
+            final String text = ""d"";
+            writeTexts.add(new PngText.Ztxt(keyword, text));
+        }
+        {
+            final String keyword = ""e"";
+            final String text = ""f"";
+            final String languageTag = ""g"";
+            final String translatedKeyword = ""h"";
+            writeTexts.add(new PngText.Itxt(keyword, text, languageTag,
+                    translatedKeyword));
+        }
+
+        writeParams.setTextChunks(writeTexts);
+
+        final PngImageParser pngImageParser = new PngImageParser();
+        final byte[] bytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            pngImageParser.writeImage(srcImage, baos, writeParams);
+            bytes = baos.toByteArray();
+        }
+
+        final File tempFile = File.createTempFile(""temp"", "".png"");
+        FileUtils.writeByteArrayToFile(tempFile, bytes);
+
+        final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(bytes);
+        // removed other assertion
+
+        final List<PngText> readTexts = imageInfo.getTextChunks();
+        // removed other assertion
+        for (final PngText text : readTexts) {
+            if (text.keyword.equals(""a"")) {
+                assertEquals(text.text, ""b"");
+    }
+    }
+    }
+",PngTextTest::test_3_oe
+imag_256_4,"    @Test
+    public void test_4_oe() throws Exception {
+        final int width = 1;
+        final int height = 1;
+        final BufferedImage srcImage = new BufferedImage(width, height,
+                BufferedImage.TYPE_INT_ARGB);
+        srcImage.setRGB(0, 0, Color.red.getRGB());
+
+        final PngImagingParameters writeParams = new PngImagingParameters();
+
+        final List<PngText> writeTexts = new ArrayList<>();
+        {
+            final String keyword = ""a"";
+            final String text = ""b"";
+            writeTexts.add(new PngText.Text(keyword, text));
+        }
+        {
+            final String keyword = ""c"";
+            final String text = ""d"";
+            writeTexts.add(new PngText.Ztxt(keyword, text));
+        }
+        {
+            final String keyword = ""e"";
+            final String text = ""f"";
+            final String languageTag = ""g"";
+            final String translatedKeyword = ""h"";
+            writeTexts.add(new PngText.Itxt(keyword, text, languageTag,
+                    translatedKeyword));
+        }
+
+        writeParams.setTextChunks(writeTexts);
+
+        final PngImageParser pngImageParser = new PngImageParser();
+        final byte[] bytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            pngImageParser.writeImage(srcImage, baos, writeParams);
+            bytes = baos.toByteArray();
+        }
+
+        final File tempFile = File.createTempFile(""temp"", "".png"");
+        FileUtils.writeByteArrayToFile(tempFile, bytes);
+
+        final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(bytes);
+        // removed other assertion
+
+        final List<PngText> readTexts = imageInfo.getTextChunks();
+        // removed other assertion
+        for (final PngText text : readTexts) {
+            if (text.keyword.equals(""a"")) {
+                // removed other assertion
+            } else if (text.keyword.equals(""c"")) {
+                assertEquals(text.text, ""d"");
+    }
+    }
+    }
+",PngTextTest::test_4_oe
+imag_256_5,"    @Test
+    public void test_5_oe() throws Exception {
+        final int width = 1;
+        final int height = 1;
+        final BufferedImage srcImage = new BufferedImage(width, height,
+                BufferedImage.TYPE_INT_ARGB);
+        srcImage.setRGB(0, 0, Color.red.getRGB());
+
+        final PngImagingParameters writeParams = new PngImagingParameters();
+
+        final List<PngText> writeTexts = new ArrayList<>();
+        {
+            final String keyword = ""a"";
+            final String text = ""b"";
+            writeTexts.add(new PngText.Text(keyword, text));
+        }
+        {
+            final String keyword = ""c"";
+            final String text = ""d"";
+            writeTexts.add(new PngText.Ztxt(keyword, text));
+        }
+        {
+            final String keyword = ""e"";
+            final String text = ""f"";
+            final String languageTag = ""g"";
+            final String translatedKeyword = ""h"";
+            writeTexts.add(new PngText.Itxt(keyword, text, languageTag,
+                    translatedKeyword));
+        }
+
+        writeParams.setTextChunks(writeTexts);
+
+        final PngImageParser pngImageParser = new PngImageParser();
+        final byte[] bytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            pngImageParser.writeImage(srcImage, baos, writeParams);
+            bytes = baos.toByteArray();
+        }
+
+        final File tempFile = File.createTempFile(""temp"", "".png"");
+        FileUtils.writeByteArrayToFile(tempFile, bytes);
+
+        final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(bytes);
+        // removed other assertion
+
+        final List<PngText> readTexts = imageInfo.getTextChunks();
+        // removed other assertion
+        for (final PngText text : readTexts) {
+            if (text.keyword.equals(""a"")) {
+                // removed other assertion
+            } else if (text.keyword.equals(""c"")) {
+                // removed other assertion
+            } else if (text.keyword.equals(""e"")) {
+                assertEquals(text.text, ""f"");
+    }
+    }
+    }
+",PngTextTest::test_5_oe
+imag_256_6,"    @Test
+    public void test_6_oe() throws Exception {
+        final int width = 1;
+        final int height = 1;
+        final BufferedImage srcImage = new BufferedImage(width, height,
+                BufferedImage.TYPE_INT_ARGB);
+        srcImage.setRGB(0, 0, Color.red.getRGB());
+
+        final PngImagingParameters writeParams = new PngImagingParameters();
+
+        final List<PngText> writeTexts = new ArrayList<>();
+        {
+            final String keyword = ""a"";
+            final String text = ""b"";
+            writeTexts.add(new PngText.Text(keyword, text));
+        }
+        {
+            final String keyword = ""c"";
+            final String text = ""d"";
+            writeTexts.add(new PngText.Ztxt(keyword, text));
+        }
+        {
+            final String keyword = ""e"";
+            final String text = ""f"";
+            final String languageTag = ""g"";
+            final String translatedKeyword = ""h"";
+            writeTexts.add(new PngText.Itxt(keyword, text, languageTag,
+                    translatedKeyword));
+        }
+
+        writeParams.setTextChunks(writeTexts);
+
+        final PngImageParser pngImageParser = new PngImageParser();
+        final byte[] bytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            pngImageParser.writeImage(srcImage, baos, writeParams);
+            bytes = baos.toByteArray();
+        }
+
+        final File tempFile = File.createTempFile(""temp"", "".png"");
+        FileUtils.writeByteArrayToFile(tempFile, bytes);
+
+        final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(bytes);
+        // removed other assertion
+
+        final List<PngText> readTexts = imageInfo.getTextChunks();
+        // removed other assertion
+        for (final PngText text : readTexts) {
+            if (text.keyword.equals(""a"")) {
+                // removed other assertion
+            } else if (text.keyword.equals(""c"")) {
+                // removed other assertion
+            } else if (text.keyword.equals(""e"")) {
+                // removed other assertion
+            } else {
+                fail(""unknown text chunk."");
+    }
+    }
+    }
+",PngTextTest::test_6_oe
+imag_258_1,"    @Test
+    public void testPhysicalScaleMeters_1_oe() throws Exception {
+        final PngImageParser pngImageParser = new PngImageParser();
+        final PngImagingParameters optionalParams = new PngImagingParameters();
+        optionalParams.setPhysicalScale(PhysicalScale.createFromMeters(0.01, 0.02));
+
+        final int[][] smallAscendingPixels = getAscendingRawData(256, 256);
+        final byte[] pngBytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            pngImageParser.writeImage(imageDataToBufferedImage(smallAscendingPixels), baos, optionalParams);
+            pngBytes = baos.toByteArray();
+        }
+        final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(pngBytes);
+        final PhysicalScale physicalScale = imageInfo.getPhysicalScale();
+        assertTrue(physicalScale.isInMeters());
+    }
+",PngWriteReadTest::testPhysicalScaleMeters_1_oe
+imag_258_2,"    @Test
+    public void testPhysicalScaleMeters_2_oe() throws Exception {
+        final PngImageParser pngImageParser = new PngImageParser();
+        final PngImagingParameters optionalParams = new PngImagingParameters();
+        optionalParams.setPhysicalScale(PhysicalScale.createFromMeters(0.01, 0.02));
+
+        final int[][] smallAscendingPixels = getAscendingRawData(256, 256);
+        final byte[] pngBytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            pngImageParser.writeImage(imageDataToBufferedImage(smallAscendingPixels), baos, optionalParams);
+            pngBytes = baos.toByteArray();
+        }
+        final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(pngBytes);
+        final PhysicalScale physicalScale = imageInfo.getPhysicalScale();
+        // removed other assertion
+        assertEquals(0.01, physicalScale.getHorizontalUnitsPerPixel(), 0.001);
+    }
+",PngWriteReadTest::testPhysicalScaleMeters_2_oe
+imag_258_3,"    @Test
+    public void testPhysicalScaleMeters_3_oe() throws Exception {
+        final PngImageParser pngImageParser = new PngImageParser();
+        final PngImagingParameters optionalParams = new PngImagingParameters();
+        optionalParams.setPhysicalScale(PhysicalScale.createFromMeters(0.01, 0.02));
+
+        final int[][] smallAscendingPixels = getAscendingRawData(256, 256);
+        final byte[] pngBytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            pngImageParser.writeImage(imageDataToBufferedImage(smallAscendingPixels), baos, optionalParams);
+            pngBytes = baos.toByteArray();
+        }
+        final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(pngBytes);
+        final PhysicalScale physicalScale = imageInfo.getPhysicalScale();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0.02, physicalScale.getVerticalUnitsPerPixel(), 0.001);
+    }
+",PngWriteReadTest::testPhysicalScaleMeters_3_oe
+imag_259_1,"    @Test
+    public void testPhysicalScaleRadians_1_oe() throws Exception {
+        final PngImageParser pngImageParser = new PngImageParser();
+        final PngImagingParameters optionalParams = new PngImagingParameters();
+        optionalParams.setPhysicalScale(PhysicalScale.createFromRadians(0.01, 0.02));
+
+        final int[][] smallAscendingPixels = getAscendingRawData(256, 256);
+        final byte[] pngBytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            pngImageParser.writeImage(imageDataToBufferedImage(smallAscendingPixels), baos, optionalParams);
+            pngBytes = baos.toByteArray();
+        }
+        final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(pngBytes);
+        final PhysicalScale physicalScale = imageInfo.getPhysicalScale();
+        assertTrue(physicalScale.isInRadians());
+    }
+",PngWriteReadTest::testPhysicalScaleRadians_1_oe
+imag_259_2,"    @Test
+    public void testPhysicalScaleRadians_2_oe() throws Exception {
+        final PngImageParser pngImageParser = new PngImageParser();
+        final PngImagingParameters optionalParams = new PngImagingParameters();
+        optionalParams.setPhysicalScale(PhysicalScale.createFromRadians(0.01, 0.02));
+
+        final int[][] smallAscendingPixels = getAscendingRawData(256, 256);
+        final byte[] pngBytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            pngImageParser.writeImage(imageDataToBufferedImage(smallAscendingPixels), baos, optionalParams);
+            pngBytes = baos.toByteArray();
+        }
+        final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(pngBytes);
+        final PhysicalScale physicalScale = imageInfo.getPhysicalScale();
+        // removed other assertion
+        assertEquals(0.01, physicalScale.getHorizontalUnitsPerPixel(), 0.001);
+    }
+",PngWriteReadTest::testPhysicalScaleRadians_2_oe
+imag_259_3,"    @Test
+    public void testPhysicalScaleRadians_3_oe() throws Exception {
+        final PngImageParser pngImageParser = new PngImageParser();
+        final PngImagingParameters optionalParams = new PngImagingParameters();
+        optionalParams.setPhysicalScale(PhysicalScale.createFromRadians(0.01, 0.02));
+
+        final int[][] smallAscendingPixels = getAscendingRawData(256, 256);
+        final byte[] pngBytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            pngImageParser.writeImage(imageDataToBufferedImage(smallAscendingPixels), baos, optionalParams);
+            pngBytes = baos.toByteArray();
+        }
+        final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(pngBytes);
+        final PhysicalScale physicalScale = imageInfo.getPhysicalScale();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0.02, physicalScale.getVerticalUnitsPerPixel(), 0.001);
+    }
+",PngWriteReadTest::testPhysicalScaleRadians_3_oe
+imag_272_1,"    @Test
+    public void testParsingIccpChunk_1_oe() throws ImageReadException, IOException {
+        final List<Byte> bytes = new ArrayList<>();
+        final String profileName = ""my-profile-01"";
+        for (final byte b : profileName.getBytes(StandardCharsets.ISO_8859_1)) {
+            bytes.add(b);
+        }
+        bytes.add((byte) 0); // null
+        bytes.add((byte) 0); // 0=deflate compression method
+
+        // generate some 100 bytes of dummy data
+        final byte[] uncompressedData = new byte[100];
+        IntStream.range(0, 100).forEach(i -> {
+            uncompressedData[i] = (byte) (i + 1); // dummy data
+        });
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream(100)) {
+            // compress the dummy data with deflate
+            final Deflater def = new Deflater();
+            try (DeflaterOutputStream ios = new DeflaterOutputStream(baos, def)) {
+                ios.write(uncompressedData);
+            }
+            baos.flush();
+            final byte[] compressedData = baos.toByteArray();
+            final byte[] data = new byte[bytes.size() + compressedData.length];
+            // gather everything, except for the compressed data
+            for (int i = 0; i < bytes.size(); ++i) {
+                data[i] = bytes.get(i).byteValue();
+            }
+            // gather the compressed data
+            IntStream.range(0, compressedData.length).forEach(i -> data[bytes.size() + i] = compressedData[i]);
+            // create the chunk
+            final PngChunkIccp chunk = new PngChunkIccp(data.length, chunkType, 0, data);
+            assertArrayEquals(uncompressedData, chunk.getUncompressedProfile());
+    }
+    }
+",PngChunkIccpTest::testParsingIccpChunk_1_oe
 imag_273_1,"    @Test
     public void testCreatesPngChunkText_1_oe() {
         final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;

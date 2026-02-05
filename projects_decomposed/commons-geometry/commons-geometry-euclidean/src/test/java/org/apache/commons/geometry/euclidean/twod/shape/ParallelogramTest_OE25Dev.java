@@ -36,26 +36,46 @@ class ParallelogramTest_OE25Dev {
     private static final Precision.DoubleEquivalence TEST_PRECISION =
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
+    private static void assertSegment(final LineConvexSubset segment, final Vector2D start, final Vector2D end) {
+        EuclideanTestUtils.assertCoordinatesEqual(start, segment.getStartPoint(), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(end, segment.getEndPoint(), TEST_EPS);
+    }
+
     @Test
-    void testUnitSquare() {
+    void testUnitSquare_1_oe() {
         // act
         final Parallelogram box = Parallelogram.unitSquare(TEST_PRECISION);
 
         // assert
         Assertions.assertEquals(1, box.getSize(), TEST_EPS);
-        Assertions.assertEquals(4, box.getBoundarySize(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.ZERO, box.getCentroid(), TEST_EPS);
-
-        final List<Vector2D> vertices = box.getVertices();
-        Assertions.assertEquals(4, vertices.size());
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-0.5, -0.5), vertices.get(0), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0.5, -0.5), vertices.get(1), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0.5, 0.5), vertices.get(2), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-0.5, 0.5), vertices.get(3), TEST_EPS);
     }
 
     @Test
-    void testFromTransformedUnitSquare() {
+    void testUnitSquare_2_oe() {
+        // act
+        final Parallelogram box = Parallelogram.unitSquare(TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(4, box.getBoundarySize(), TEST_EPS);
+    }
+
+    @Test
+    void testUnitSquare_4_oe() {
+        // act
+        final Parallelogram box = Parallelogram.unitSquare(TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<Vector2D> vertices = box.getVertices();
+        Assertions.assertEquals(4, vertices.size());
+    }
+
+    @Test
+    void testFromTransformedUnitSquare_1_oe() {
         // arrange
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.of(1, 0))
                 .rotate(Math.PI * 0.25)
@@ -69,19 +89,50 @@ class ParallelogramTest_OE25Dev {
         final double invSqrt2 = 1 / sqrt2;
 
         Assertions.assertEquals(2, p.getSize(), TEST_EPS);
-        Assertions.assertEquals(4 * Math.sqrt(2.5), p.getBoundarySize(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(2 * invSqrt2, invSqrt2), p.getCentroid(), TEST_EPS);
-
-        final List<Vector2D> vertices = p.getVertices();
-        Assertions.assertEquals(4, vertices.size());
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0, invSqrt2), vertices.get(0), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(2 * invSqrt2, 0), vertices.get(1), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(2 * sqrt2, invSqrt2), vertices.get(2), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(2 * invSqrt2, sqrt2), vertices.get(3), TEST_EPS);
     }
 
     @Test
-    void testFromTransformedUnitSquare_transformDoesNotPreserveOrientation() {
+    void testFromTransformedUnitSquare_2_oe() {
+        // arrange
+        final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.of(1, 0))
+                .rotate(Math.PI * 0.25)
+                .scale(Vector2D.of(2, 1));
+
+        // act
+        final Parallelogram p = Parallelogram.fromTransformedUnitSquare(t, TEST_PRECISION);
+
+        // assert
+        final double sqrt2 = Math.sqrt(2);
+        final double invSqrt2 = 1 / sqrt2;
+
+        // removed other assertion
+        Assertions.assertEquals(4 * Math.sqrt(2.5), p.getBoundarySize(), TEST_EPS);
+    }
+
+    @Test
+    void testFromTransformedUnitSquare_4_oe() {
+        // arrange
+        final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.of(1, 0))
+                .rotate(Math.PI * 0.25)
+                .scale(Vector2D.of(2, 1));
+
+        // act
+        final Parallelogram p = Parallelogram.fromTransformedUnitSquare(t, TEST_PRECISION);
+
+        // assert
+        final double sqrt2 = Math.sqrt(2);
+        final double invSqrt2 = 1 / sqrt2;
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<Vector2D> vertices = p.getVertices();
+        Assertions.assertEquals(4, vertices.size());
+    }
+
+    @Test
+    void testFromTransformedUnitSquare_transformDoesNotPreserveOrientation_1_oe() {
         // arrange
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.of(1, 0))
                 .rotate(Math.PI * 0.25)
@@ -95,38 +146,132 @@ class ParallelogramTest_OE25Dev {
         final double invSqrt2 = 1 / sqrt2;
 
         Assertions.assertEquals(2, p.getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testFromTransformedUnitSquare_transformDoesNotPreserveOrientation_2_oe() {
+        // arrange
+        final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.of(1, 0))
+                .rotate(Math.PI * 0.25)
+                .scale(Vector2D.of(-2, 1));
+
+        // act
+        final Parallelogram p = Parallelogram.fromTransformedUnitSquare(t, TEST_PRECISION);
+
+        // assert
+        final double sqrt2 = Math.sqrt(2);
+        final double invSqrt2 = 1 / sqrt2;
+
+        // removed other assertion
         Assertions.assertEquals(4 * Math.sqrt(2.5), p.getBoundarySize(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-2 * invSqrt2, invSqrt2), p.getCentroid(), TEST_EPS);
+    }
+
+    @Test
+    void testFromTransformedUnitSquare_transformDoesNotPreserveOrientation_4_oe() {
+        // arrange
+        final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.of(1, 0))
+                .rotate(Math.PI * 0.25)
+                .scale(Vector2D.of(-2, 1));
+
+        // act
+        final Parallelogram p = Parallelogram.fromTransformedUnitSquare(t, TEST_PRECISION);
+
+        // assert
+        final double sqrt2 = Math.sqrt(2);
+        final double invSqrt2 = 1 / sqrt2;
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<Vector2D> vertices = p.getVertices();
         Assertions.assertEquals(4, vertices.size());
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-2 * sqrt2, invSqrt2), vertices.get(0), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-2 * invSqrt2, 0), vertices.get(1), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0, invSqrt2), vertices.get(2), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-2 * invSqrt2, sqrt2), vertices.get(3), TEST_EPS);
     }
 
     @Test
-    void testFromTransformedUnitSquare_zeroSizeRegion() {
+    void testFromTransformedUnitSquare_zeroSizeRegion_1_oe() {
         // act/assert
-        Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.fromTransformedUnitSquare(AffineTransformMatrix2D.createScale(Vector2D.of(1e-16, 1)),
-                TEST_PRECISION));
-
-        Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.fromTransformedUnitSquare(AffineTransformMatrix2D.createScale(Vector2D.of(1, 1e-16)),
-                TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.fromTransformedUnitSquare(AffineTransformMatrix2D.createScale(Vector2D.of(1e-16, 1)), TEST_PRECISION));
     }
 
     @Test
-    void testAxisAligned_illegalArgs() {
+    void testFromTransformedUnitSquare_zeroSizeRegion_2_oe() {
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.fromTransformedUnitSquare(AffineTransformMatrix2D.createScale(Vector2D.of(1, 1e-16)), TEST_PRECISION));
+    }
+
+    @Test
+    void testAxisAligned_minFirst_1_oe() {
+        // act
+        final Parallelogram box = Parallelogram.axisAligned(Vector2D.of(1, 2), Vector2D.of(3, 4), TEST_PRECISION);
+
+        // assert
+        Assertions.assertEquals(1, box.getBoundaryPaths().size());
+    }
+
+    @Test
+    void testAxisAligned_minFirst_2_oe() {
+        // act
+        final Parallelogram box = Parallelogram.axisAligned(Vector2D.of(1, 2), Vector2D.of(3, 4), TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        final LinePath path = box.getBoundaryPaths().get(0);
+
+        final List<LineConvexSubset> segments = path.getElements();
+        Assertions.assertEquals(4, segments.size());
+    }
+
+    @Test
+    void testAxisAligned_maxFirst_1_oe() {
+        // act
+        final Parallelogram box = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(-1, -2), TEST_PRECISION);
+
+        // assert
+        Assertions.assertEquals(1, box.getBoundaryPaths().size());
+    }
+
+    @Test
+    void testAxisAligned_maxFirst_2_oe() {
+        // act
+        final Parallelogram box = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(-1, -2), TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        final LinePath path = box.getBoundaryPaths().get(0);
+
+        final List<LineConvexSubset> segments = path.getElements();
+        Assertions.assertEquals(4, segments.size());
+    }
+
+    @Test
+    void testAxisAligned_illegalArgs_1_oe() {
         // act/assert
 
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(1, 3), TEST_PRECISION));
+    }
+
+    @Test
+    void testAxisAligned_illegalArgs_2_oe() {
+        // act/assert
+
+        // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(3, 1), TEST_PRECISION));
+    }
+
+    @Test
+    void testAxisAligned_illegalArgs_3_oe() {
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
         Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.axisAligned(Vector2D.of(2, 3), Vector2D.of(2, 3), TEST_PRECISION));
     }
 
     @Test
-    void testBuilder_defaultValues() {
+    void testBuilder_defaultValues_1_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
 
@@ -135,19 +280,40 @@ class ParallelogramTest_OE25Dev {
 
         // assert
         Assertions.assertEquals(1, p.getSize(), TEST_EPS);
-        Assertions.assertEquals(4, p.getBoundarySize(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.ZERO, p.getCentroid(), TEST_EPS);
-
-        final List<Vector2D> vertices = p.getVertices();
-        Assertions.assertEquals(4, vertices.size());
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-0.5, -0.5), vertices.get(0), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0.5, -0.5), vertices.get(1), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0.5, 0.5), vertices.get(2), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-0.5, 0.5), vertices.get(3), TEST_EPS);
     }
 
     @Test
-    void testBuilder_rotatedRect_withXDirection() {
+    void testBuilder_defaultValues_2_oe() {
+        // arrange
+        final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
+
+        // act
+        final Parallelogram p = builder.build();
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(4, p.getBoundarySize(), TEST_EPS);
+    }
+
+    @Test
+    void testBuilder_defaultValues_4_oe() {
+        // arrange
+        final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
+
+        // act
+        final Parallelogram p = builder.build();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<Vector2D> vertices = p.getVertices();
+        Assertions.assertEquals(4, vertices.size());
+    }
+
+    @Test
+    void testBuilder_rotatedRect_withXDirection_1_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
 
@@ -160,19 +326,48 @@ class ParallelogramTest_OE25Dev {
 
         // assert
         Assertions.assertEquals(2, p.getSize(), TEST_EPS);
-        Assertions.assertEquals(6, p.getBoundarySize(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), p.getCentroid(), TEST_EPS);
-
-        final List<Vector2D> vertices = p.getVertices();
-        Assertions.assertEquals(4, vertices.size());
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0, 1.5), vertices.get(0), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(2, 1.5), vertices.get(1), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(2, 2.5), vertices.get(2), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0, 2.5), vertices.get(3), TEST_EPS);
     }
 
     @Test
-    void testBuilder_rotatedRect_withYDirection() {
+    void testBuilder_rotatedRect_withXDirection_2_oe() {
+        // arrange
+        final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
+
+        // act
+        final Parallelogram p = builder
+                .setScale(1, 2)
+                .setXDirection(Vector2D.Unit.PLUS_Y)
+                .setPosition(Vector2D.of(1, 2))
+                .build();
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(6, p.getBoundarySize(), TEST_EPS);
+    }
+
+    @Test
+    void testBuilder_rotatedRect_withXDirection_4_oe() {
+        // arrange
+        final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
+
+        // act
+        final Parallelogram p = builder
+                .setScale(1, 2)
+                .setXDirection(Vector2D.Unit.PLUS_Y)
+                .setPosition(Vector2D.of(1, 2))
+                .build();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<Vector2D> vertices = p.getVertices();
+        Assertions.assertEquals(4, vertices.size());
+    }
+
+    @Test
+    void testBuilder_rotatedRect_withYDirection_1_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
 
@@ -185,19 +380,48 @@ class ParallelogramTest_OE25Dev {
 
         // assert
         Assertions.assertEquals(2, p.getSize(), TEST_EPS);
-        Assertions.assertEquals(6, p.getBoundarySize(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), p.getCentroid(), TEST_EPS);
-
-        final List<Vector2D> vertices = p.getVertices();
-        Assertions.assertEquals(4, vertices.size());
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0.5, 1), vertices.get(0), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1.5, 1), vertices.get(1), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1.5, 3), vertices.get(2), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0.5, 3), vertices.get(3), TEST_EPS);
     }
 
     @Test
-    void testBuilder_rotatedRect_withRotation() {
+    void testBuilder_rotatedRect_withYDirection_2_oe() {
+        // arrange
+        final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
+
+        // act
+        final Parallelogram p = builder
+                .setScale(Vector2D.of(2, 1))
+                .setYDirection(Vector2D.Unit.MINUS_X)
+                .setPosition(Vector2D.of(1, 2))
+                .build();
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(6, p.getBoundarySize(), TEST_EPS);
+    }
+
+    @Test
+    void testBuilder_rotatedRect_withYDirection_4_oe() {
+        // arrange
+        final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
+
+        // act
+        final Parallelogram p = builder
+                .setScale(Vector2D.of(2, 1))
+                .setYDirection(Vector2D.Unit.MINUS_X)
+                .setPosition(Vector2D.of(1, 2))
+                .build();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<Vector2D> vertices = p.getVertices();
+        Assertions.assertEquals(4, vertices.size());
+    }
+
+    @Test
+    void testBuilder_rotatedRect_withRotation_1_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
 
@@ -210,356 +434,78 @@ class ParallelogramTest_OE25Dev {
 
         // assert
         Assertions.assertEquals(4, p.getSize(), TEST_EPS);
-        Assertions.assertEquals(8, p.getBoundarySize(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), p.getCentroid(), TEST_EPS);
-
-        final List<Vector2D> vertices = p.getVertices();
-        Assertions.assertEquals(4, vertices.size());
-
-        final double sqrt2 = Math.sqrt(2);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1 - sqrt2, 2), vertices.get(0), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2 - sqrt2), vertices.get(1), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1 + sqrt2, 2), vertices.get(2), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2 + sqrt2), vertices.get(3), TEST_EPS);
     }
 
     @Test
-    void testToTree() {
+    void testBuilder_rotatedRect_withRotation_2_oe() {
+        // arrange
+        final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
+
+        // act
+        final Parallelogram p = builder
+                .setScale(2)
+                .setRotation(Rotation2D.of(0.25 * Math.PI))
+                .setPosition(Vector2D.of(1, 2))
+                .build();
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(8, p.getBoundarySize(), TEST_EPS);
+    }
+
+    @Test
+    void testBuilder_rotatedRect_withRotation_4_oe() {
+        // arrange
+        final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
+
+        // act
+        final Parallelogram p = builder
+                .setScale(2)
+                .setRotation(Rotation2D.of(0.25 * Math.PI))
+                .setPosition(Vector2D.of(1, 2))
+                .build();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<Vector2D> vertices = p.getVertices();
+        Assertions.assertEquals(4, vertices.size());
+    }
+
+    @Test
+    void testToTree_1_oe() {
         // act
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(1, 4), TEST_PRECISION)
                 .toTree();
 
         // assert
         Assertions.assertFalse(tree.isFull());
+    }
+
+    @Test
+    void testToTree_2_oe() {
+        // act
+        final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(1, 4), TEST_PRECISION)
+                .toTree();
+
+        // assert
+        // removed other assertion
         Assertions.assertFalse(tree.isEmpty());
+    }
+
+    @Test
+    void testToTree_3_oe() {
+        // act
+        final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(1, 4), TEST_PRECISION)
+                .toTree();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(4, tree.getSize(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0.5, 2), tree.getCentroid(), TEST_EPS);
-    }
-
-    private static void assertSegment(final LineConvexSubset segment, final Vector2D start, final Vector2D end) {
-        EuclideanTestUtils.assertCoordinatesEqual(start, segment.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(end, segment.getEndPoint(), TEST_EPS);
-    }
-
-    @Test
-    void testAxisAligned_minFirst_3_oe_1_oe() {
-        // act
-        final Parallelogram box = Parallelogram.axisAligned(Vector2D.of(1, 2), Vector2D.of(3, 4), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        final LinePath path = box.getBoundaryPaths().get(0);
-
-        final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-
-                final LineConvexSubset segment = segments.get(0);
-        final Vector2D start = Vector2D.of(1, 2);
-        final Vector2D end = Vector2D.of(3, 2);
-        EuclideanTestUtils.assertCoordinatesEqual(start, segment.getStartPoint(), TEST_EPS);
-    }
-
-    @Test
-    void testAxisAligned_minFirst_3_oe_2_oe() {
-        // act
-        final Parallelogram box = Parallelogram.axisAligned(Vector2D.of(1, 2), Vector2D.of(3, 4), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        final LinePath path = box.getBoundaryPaths().get(0);
-
-        final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-
-                final LineConvexSubset segment = segments.get(0);
-        final Vector2D start = Vector2D.of(1, 2);
-        final Vector2D end = Vector2D.of(3, 2);
-        // removed other assertion
-                EuclideanTestUtils.assertCoordinatesEqual(end, segment.getEndPoint(), TEST_EPS);
-    }
-
-    @Test
-    void testAxisAligned_minFirst_4_oe_1_oe() {
-        // act
-        final Parallelogram box = Parallelogram.axisAligned(Vector2D.of(1, 2), Vector2D.of(3, 4), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        final LinePath path = box.getBoundaryPaths().get(0);
-
-        final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-
-        // removed other assertion
-                final LineConvexSubset segment = segments.get(1);
-        final Vector2D start = Vector2D.of(3, 2);
-        final Vector2D end = Vector2D.of(3, 4);
-        EuclideanTestUtils.assertCoordinatesEqual(start, segment.getStartPoint(), TEST_EPS);
-    }
-
-    @Test
-    void testAxisAligned_minFirst_4_oe_2_oe() {
-        // act
-        final Parallelogram box = Parallelogram.axisAligned(Vector2D.of(1, 2), Vector2D.of(3, 4), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        final LinePath path = box.getBoundaryPaths().get(0);
-
-        final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-
-        // removed other assertion
-                final LineConvexSubset segment = segments.get(1);
-        final Vector2D start = Vector2D.of(3, 2);
-        final Vector2D end = Vector2D.of(3, 4);
-        // removed other assertion
-                EuclideanTestUtils.assertCoordinatesEqual(end, segment.getEndPoint(), TEST_EPS);
-    }
-
-    @Test
-    void testAxisAligned_minFirst_5_oe_1_oe() {
-        // act
-        final Parallelogram box = Parallelogram.axisAligned(Vector2D.of(1, 2), Vector2D.of(3, 4), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        final LinePath path = box.getBoundaryPaths().get(0);
-
-        final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-                final LineConvexSubset segment = segments.get(2);
-        final Vector2D start = Vector2D.of(3, 4);
-        final Vector2D end = Vector2D.of(1, 4);
-        EuclideanTestUtils.assertCoordinatesEqual(start, segment.getStartPoint(), TEST_EPS);
-    }
-
-    @Test
-    void testAxisAligned_minFirst_5_oe_2_oe() {
-        // act
-        final Parallelogram box = Parallelogram.axisAligned(Vector2D.of(1, 2), Vector2D.of(3, 4), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        final LinePath path = box.getBoundaryPaths().get(0);
-
-        final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-                final LineConvexSubset segment = segments.get(2);
-        final Vector2D start = Vector2D.of(3, 4);
-        final Vector2D end = Vector2D.of(1, 4);
-        // removed other assertion
-                EuclideanTestUtils.assertCoordinatesEqual(end, segment.getEndPoint(), TEST_EPS);
-    }
-
-    @Test
-    void testAxisAligned_minFirst_6_oe_1_oe() {
-        // act
-        final Parallelogram box = Parallelogram.axisAligned(Vector2D.of(1, 2), Vector2D.of(3, 4), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        final LinePath path = box.getBoundaryPaths().get(0);
-
-        final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final LineConvexSubset segment = segments.get(3);
-        final Vector2D start = Vector2D.of(1, 4);
-        final Vector2D end = Vector2D.of(1, 2);
-        EuclideanTestUtils.assertCoordinatesEqual(start, segment.getStartPoint(), TEST_EPS);
-    }
-
-    @Test
-    void testAxisAligned_minFirst_6_oe_2_oe() {
-        // act
-        final Parallelogram box = Parallelogram.axisAligned(Vector2D.of(1, 2), Vector2D.of(3, 4), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        final LinePath path = box.getBoundaryPaths().get(0);
-
-        final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final LineConvexSubset segment = segments.get(3);
-        final Vector2D start = Vector2D.of(1, 4);
-        final Vector2D end = Vector2D.of(1, 2);
-        // removed other assertion
-                EuclideanTestUtils.assertCoordinatesEqual(end, segment.getEndPoint(), TEST_EPS);
-    }
-
-    @Test
-    void testAxisAligned_maxFirst_3_oe_1_oe() {
-        // act
-        final Parallelogram box = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(-1, -2), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        final LinePath path = box.getBoundaryPaths().get(0);
-
-        final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-
-                final LineConvexSubset segment = segments.get(0);
-        final Vector2D start = Vector2D.of(-1, -2);
-        final Vector2D end = Vector2D.of(0, -2);
-        EuclideanTestUtils.assertCoordinatesEqual(start, segment.getStartPoint(), TEST_EPS);
-    }
-
-    @Test
-    void testAxisAligned_maxFirst_3_oe_2_oe() {
-        // act
-        final Parallelogram box = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(-1, -2), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        final LinePath path = box.getBoundaryPaths().get(0);
-
-        final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-
-                final LineConvexSubset segment = segments.get(0);
-        final Vector2D start = Vector2D.of(-1, -2);
-        final Vector2D end = Vector2D.of(0, -2);
-        // removed other assertion
-                EuclideanTestUtils.assertCoordinatesEqual(end, segment.getEndPoint(), TEST_EPS);
-    }
-
-    @Test
-    void testAxisAligned_maxFirst_4_oe_1_oe() {
-        // act
-        final Parallelogram box = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(-1, -2), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        final LinePath path = box.getBoundaryPaths().get(0);
-
-        final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-
-        // removed other assertion
-                final LineConvexSubset segment = segments.get(1);
-        final Vector2D start = Vector2D.of(0, -2);
-        final Vector2D end = Vector2D.ZERO;
-        EuclideanTestUtils.assertCoordinatesEqual(start, segment.getStartPoint(), TEST_EPS);
-    }
-
-    @Test
-    void testAxisAligned_maxFirst_4_oe_2_oe() {
-        // act
-        final Parallelogram box = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(-1, -2), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        final LinePath path = box.getBoundaryPaths().get(0);
-
-        final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-
-        // removed other assertion
-                final LineConvexSubset segment = segments.get(1);
-        final Vector2D start = Vector2D.of(0, -2);
-        final Vector2D end = Vector2D.ZERO;
-        // removed other assertion
-                EuclideanTestUtils.assertCoordinatesEqual(end, segment.getEndPoint(), TEST_EPS);
-    }
-
-    @Test
-    void testAxisAligned_maxFirst_5_oe_1_oe() {
-        // act
-        final Parallelogram box = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(-1, -2), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        final LinePath path = box.getBoundaryPaths().get(0);
-
-        final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-                final LineConvexSubset segment = segments.get(2);
-        final Vector2D start = Vector2D.ZERO;
-        final Vector2D end = Vector2D.of(-1, 0);
-        EuclideanTestUtils.assertCoordinatesEqual(start, segment.getStartPoint(), TEST_EPS);
-    }
-
-    @Test
-    void testAxisAligned_maxFirst_5_oe_2_oe() {
-        // act
-        final Parallelogram box = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(-1, -2), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        final LinePath path = box.getBoundaryPaths().get(0);
-
-        final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-                final LineConvexSubset segment = segments.get(2);
-        final Vector2D start = Vector2D.ZERO;
-        final Vector2D end = Vector2D.of(-1, 0);
-        // removed other assertion
-                EuclideanTestUtils.assertCoordinatesEqual(end, segment.getEndPoint(), TEST_EPS);
-    }
-
-    @Test
-    void testAxisAligned_maxFirst_6_oe_1_oe() {
-        // act
-        final Parallelogram box = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(-1, -2), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        final LinePath path = box.getBoundaryPaths().get(0);
-
-        final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final LineConvexSubset segment = segments.get(3);
-        final Vector2D start = Vector2D.of(-1, 0);
-        final Vector2D end = Vector2D.of(-1, -2);
-        EuclideanTestUtils.assertCoordinatesEqual(start, segment.getStartPoint(), TEST_EPS);
-    }
-
-    @Test
-    void testAxisAligned_maxFirst_6_oe_2_oe() {
-        // act
-        final Parallelogram box = Parallelogram.axisAligned(Vector2D.ZERO, Vector2D.of(-1, -2), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        final LinePath path = box.getBoundaryPaths().get(0);
-
-        final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final LineConvexSubset segment = segments.get(3);
-        final Vector2D start = Vector2D.of(-1, 0);
-        final Vector2D end = Vector2D.of(-1, -2);
-        // removed other assertion
-                EuclideanTestUtils.assertCoordinatesEqual(end, segment.getEndPoint(), TEST_EPS);
     }
 
 }

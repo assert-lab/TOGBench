@@ -220,7 +220,7 @@ public class VMSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework
         assertTrue("World should not have execute permission.",(permMask & octalPerm)!= 0 == dir.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.EXECUTE_PERMISSION));
     }
 
-    public void testWholeListParse_2_oe_1_oe() throws IOException
+    public void testWholeListParse_1_oe() throws IOException
     {
         final VMSFTPEntryParser parser = new VMSFTPEntryParser();
         parser.configure(null);
@@ -228,84 +228,10 @@ public class VMSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework
         engine.readServerList(
                 new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
         final FTPFile[] files = engine.getFiles();
-        // removed other assertion
-                final FTPFile[] listing = files;
-        final String name = "2-JUN.LIS";
-        for (final FTPFile element : listing)
-                {
-                    if (name.equals(element.getName())) {
-                        return;
-                    }
-                }
-                fail("File " + name + " not found in supplied listing");
+        assertEquals(6, files.length);
     }
 
-    public void testWholeListParse_3_oe_1_oe() throws IOException
-    {
-        final VMSFTPEntryParser parser = new VMSFTPEntryParser();
-        parser.configure(null);
-        final FTPListParseEngine engine = new FTPListParseEngine(parser);
-        engine.readServerList(
-                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
-        final FTPFile[] files = engine.getFiles();
-        // removed other assertion
-        // removed other assertion
-                final FTPFile[] listing = files;
-        final String name = "3-JUN.LIS";
-        for (final FTPFile element : listing)
-                {
-                    if (name.equals(element.getName())) {
-                        return;
-                    }
-                }
-                fail("File " + name + " not found in supplied listing");
-    }
-
-    public void testWholeListParse_4_oe_1_oe() throws IOException
-    {
-        final VMSFTPEntryParser parser = new VMSFTPEntryParser();
-        parser.configure(null);
-        final FTPListParseEngine engine = new FTPListParseEngine(parser);
-        engine.readServerList(
-                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
-        final FTPFile[] files = engine.getFiles();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final FTPFile[] listing = files;
-        final String name = "1-JUN.LIS";
-        for (final FTPFile element : listing)
-                {
-                    if (name.equals(element.getName())) {
-                        return;
-                    }
-                }
-                fail("File " + name + " not found in supplied listing");
-    }
-
-    public void testWholeListParse_5_oe_1_oe() throws IOException
-    {
-        final VMSFTPEntryParser parser = new VMSFTPEntryParser();
-        parser.configure(null);
-        final FTPListParseEngine engine = new FTPListParseEngine(parser);
-        engine.readServerList(
-                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
-        final FTPFile[] files = engine.getFiles();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final FTPFile[] listing = files;
-        final String name = "1-JUN.LIS;1";
-        for (final FTPFile element : listing)
-                {
-                    if (name.equals(element.getName())) {
-                        fail("Unexpected File " + name + " found in supplied listing");
-    }
-    }
-    }
-
-    public void testWholeListParseWithVersioning_2_oe_1_oe() throws IOException
+    public void testWholeListParseWithVersioning_1_oe() throws IOException
     {
 
         final VMSFTPEntryParser parser = new VMSVersioningFTPEntryParser();
@@ -314,108 +240,7 @@ public class VMSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework
         engine.readServerList(
                 new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
         final FTPFile[] files = engine.getFiles();
-        // removed other assertion
-                final FTPFile[] listing = files;
-        final String name = "1-JUN.LIS;1";
-        for (final FTPFile element : listing)
-                {
-                    if (name.equals(element.getName())) {
-                        return;
-                    }
-                }
-                fail("File " + name + " not found in supplied listing");
-    }
-
-    public void testWholeListParseWithVersioning_3_oe_1_oe() throws IOException
-    {
-
-        final VMSFTPEntryParser parser = new VMSVersioningFTPEntryParser();
-        parser.configure(null);
-        final FTPListParseEngine engine = new FTPListParseEngine(parser);
-        engine.readServerList(
-                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
-        final FTPFile[] files = engine.getFiles();
-        // removed other assertion
-        // removed other assertion
-                final FTPFile[] listing = files;
-        final String name = "2-JUN.LIS;1";
-        for (final FTPFile element : listing)
-                {
-                    if (name.equals(element.getName())) {
-                        return;
-                    }
-                }
-                fail("File " + name + " not found in supplied listing");
-    }
-
-    public void testWholeListParseWithVersioning_4_oe_1_oe() throws IOException
-    {
-
-        final VMSFTPEntryParser parser = new VMSVersioningFTPEntryParser();
-        parser.configure(null);
-        final FTPListParseEngine engine = new FTPListParseEngine(parser);
-        engine.readServerList(
-                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
-        final FTPFile[] files = engine.getFiles();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final FTPFile[] listing = files;
-        final String name = "3-JUN.LIS;4";
-        for (final FTPFile element : listing)
-                {
-                    if (name.equals(element.getName())) {
-                        return;
-                    }
-                }
-                fail("File " + name + " not found in supplied listing");
-    }
-
-    public void testWholeListParseWithVersioning_5_oe_1_oe() throws IOException
-    {
-
-        final VMSFTPEntryParser parser = new VMSVersioningFTPEntryParser();
-        parser.configure(null);
-        final FTPListParseEngine engine = new FTPListParseEngine(parser);
-        engine.readServerList(
-                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
-        final FTPFile[] files = engine.getFiles();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final FTPFile[] listing = files;
-        final String name = "3-JUN.LIS;1";
-        for (final FTPFile element : listing)
-                {
-                    if (name.equals(element.getName())) {
-                        fail("Unexpected File " + name + " found in supplied listing");
-    }
-    }
-    }
-
-    public void testWholeListParseWithVersioning_6_oe_1_oe() throws IOException
-    {
-
-        final VMSFTPEntryParser parser = new VMSVersioningFTPEntryParser();
-        parser.configure(null);
-        final FTPListParseEngine engine = new FTPListParseEngine(parser);
-        engine.readServerList(
-                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
-        final FTPFile[] files = engine.getFiles();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final FTPFile[] listing = files;
-        final String name = "3-JUN.LIS";
-        for (final FTPFile element : listing)
-                {
-                    if (name.equals(element.getName())) {
-                        fail("Unexpected File " + name + " found in supplied listing");
-    }
-    }
+        assertEquals(3, files.length);
     }
 
 }

@@ -1,0 +1,27 @@
+bcel_62_1,"    public void testPerformance_1_oe() {
+        final File javaLib = new File(System.getProperty(""java.home""), ""lib"");
+        javaLib.listFiles((FileFilter) file -> {
+            if(file.getName().endsWith("".jar"")) {
+                try {
+                    test(file);
+                } catch (final IOException e) {
+                    Assert.fail(e.getMessage());
+    }
+    }
+    }
+    }
+
+change to:
+
+bcel_62_1,"    public void testPerformance_1_oe() {
+        final File javaLib = new File(System.getProperty(""java.home""), ""lib"");
+        javaLib.listFiles((FileFilter) file -> {
+            if(file.getName().endsWith("".jar"")) {
+                try {
+                    test(file);
+                } catch (final IOException e) {
+                    Assert.fail(e.getMessage());
+    }
+    }
+    });
+    }

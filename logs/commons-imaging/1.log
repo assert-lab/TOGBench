@@ -26,7 +26,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-imaging ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging
-[INFO] Storing buildNumber: 4a1f1c4f1560b9aec5cc8215abfe118f0fdac836 at timestamp: 1770147741586
+[INFO] Storing buildNumber: 4e96f64c167c9f400b8bc7340bf57241aa8435a5 at timestamp: 1770255704732
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-imaging ---
@@ -47,24 +47,68 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-imaging ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 190 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/target/test-classes
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/roundtrip/RoundtripBase.java: Some input files use unchecked or unsafe operations.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/roundtrip/RoundtripBase.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- animal-sniffer-maven-plugin:1.21:check (checkAPIcompatibility) @ commons-imaging ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-imaging ---
-[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/target/jacoco.exec -Xmx512m
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ commons-imaging ---
+[INFO] Compiling 320 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[112,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[113,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[158,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[159,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[218,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[219,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[292,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[293,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[380,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[381,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[482,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[483,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[521,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[522,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[578,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[579,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[651,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[652,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[740,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[741,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[845,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[846,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[965,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[966,5] illegal start of expression
+[INFO] 24 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  13.181 s
-[INFO] Finished at: 2026-02-03T13:42:31-06:00
+[INFO] Total time:  10.010 s
+[INFO] Finished at: 2026-02-04T19:41:52-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project commons-imaging: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-imaging: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[112,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[113,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[158,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[159,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[218,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[219,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[292,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[293,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[380,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[381,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[482,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[483,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[521,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[522,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[578,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[579,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[651,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[652,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[740,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[741,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[845,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[846,5] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[965,6] while expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/tiff/TiffCcittTest_OE25Dev.java:[966,5] illegal start of expression
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.
