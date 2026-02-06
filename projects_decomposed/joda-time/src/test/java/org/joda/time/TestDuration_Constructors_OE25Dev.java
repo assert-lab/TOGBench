@@ -67,7 +67,7 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestDuration_Constructors_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestDuration_Constructors_OE25Dev.class);
     }
 
     public TestDuration_Constructors_OE25Dev(String name) {

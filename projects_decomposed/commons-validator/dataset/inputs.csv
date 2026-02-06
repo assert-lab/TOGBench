@@ -8677,30 +8677,6 @@ vali_60_2,"   public void testIsValid_2_oe(Object[] testObjects, int options) {
       assertTrue(urlVal.isValid(""http://www.google.com/""));
    }
 ",UrlTest::testIsValid_2_oe
-vali_60_3,"   public void testIsValid_3_oe(Object[] testObjects, int options) {
-      UrlValidator urlVal = new UrlValidator(null, options);
-      // removed other assertion
-      // removed other assertion
-      int statusPerLine = 60;
-      int printed = 0;
-      if (printIndex)  {
-         statusPerLine = 6;
-      }
-      do {
-          StringBuilder testBuffer = new StringBuilder();
-         boolean expected = true;
-         for (int testPartsIndexIndex = 0; testPartsIndexIndex < testPartsIndex.length; ++testPartsIndexIndex) {
-            int index = testPartsIndex[testPartsIndexIndex];
-            ResultPair[] part = (ResultPair[]) testObjects[testPartsIndexIndex];
-            testBuffer.append(part[index].item);
-            expected &= part[index].valid;
-         }
-         String url = testBuffer.toString();
-         boolean result = urlVal.isValid(url);
-         assertEquals(url, expected, result);
-   }
-   }
-",UrlTest::testIsValid_3_oe
 vali_61_1,"   public void testValidator204_1_oe() {
        String[] schemes = {""http"",""https""};
        UrlValidator urlValidator = new UrlValidator(schemes);
@@ -9341,30 +9317,6 @@ vali_67_2,"   public void testIsValid_2_oe(Object[] testObjects, long options) {
       assertTrue(urlVal.isValid(""http://www.google.com/""));
    }
 ",UrlValidatorTest::testIsValid_2_oe
-vali_67_3,"   public void testIsValid_3_oe(Object[] testObjects, long options) {
-      UrlValidator urlVal = new UrlValidator(null, null, options);
-      // removed other assertion
-      // removed other assertion
-      int statusPerLine = 60;
-      int printed = 0;
-      if (printIndex)  {
-         statusPerLine = 6;
-      }
-      do {
-          StringBuilder testBuffer = new StringBuilder();
-         boolean expected = true;
-         for (int testPartsIndexIndex = 0; testPartsIndexIndex < testPartsIndex.length; ++testPartsIndexIndex) {
-            int index = testPartsIndex[testPartsIndexIndex];
-            ResultPair[] part = (ResultPair[]) testObjects[testPartsIndexIndex];
-            testBuffer.append(part[index].item);
-            expected &= part[index].valid;
-         }
-         String url = testBuffer.toString();
-         boolean result = urlVal.isValid(url);
-         assertEquals(url, expected, result);
-   }
-   }
-",UrlValidatorTest::testIsValid_3_oe
 vali_68_1,"   @Test
    public void testValidator202_1_oe() {
        String[] schemes = {""http"",""https""};

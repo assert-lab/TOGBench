@@ -14,7 +14,6 @@ vfs_11_1,commons-vfs,ProviderRandomSetLengthTests,testRandomSetLength_1_oe,commo
 vfs_11_2,commons-vfs,ProviderRandomSetLengthTests,testRandomSetLength_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderRandomSetLengthTests.java,,,,assert,unknown,standard,assertEquals
 vfs_11_3,commons-vfs,ProviderRandomSetLengthTests,testRandomSetLength_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderRandomSetLengthTests.java,,,,assert,unknown,standard,assertEquals
 vfs_11_4,commons-vfs,ProviderRandomSetLengthTests,testRandomSetLength_4_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderRandomSetLengthTests.java,,,,assert,unknown,standard,fail
-vfs_11_5,commons-vfs,ProviderRandomSetLengthTests,testRandomSetLength_5_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderRandomSetLengthTests.java,,,,assert,unknown,standard,assertEquals
 vfs_14_3,commons-vfs,ProviderReadTests,testDotJarFolderNameLayer_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests.java,,,,assert,unknown,standard,fail
 vfs_16_1,commons-vfs,ProviderReadTests,testFolderContent_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests.java,,,,assert,unknown,standard,fail
 vfs_22_2,commons-vfs,ProviderReadTests,testReadEmptyMultipleEOF_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests.java,,,,assert,unknown,standard,assertEquals
@@ -71,7 +70,6 @@ vfs_76_3,commons-vfs,ProviderWriteTests,testOverwriteSameFileSystem_3_oe,commons
 vfs_76_5,commons-vfs,ProviderWriteTests,testOverwriteSameFileSystem_5_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests.java,,,,assert,unknown,standard,assertTrue
 vfs_76_7,commons-vfs,ProviderWriteTests,testOverwriteSameFileSystem_7_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests.java,,,,assert,unknown,standard,assertTrue
 vfs_76_9,commons-vfs,ProviderWriteTests,testOverwriteSameFileSystem_9_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests.java,,,,assert,unknown,standard,assertTrue
-vfs_76_11,commons-vfs,ProviderWriteTests,testOverwriteSameFileSystem_11_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests.java,,,,assert,unknown,standard,assertTrue
 vfs_77_3,commons-vfs,ProviderWriteTests,testWriteSameFileSystem_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests.java,,,,assert,unknown,standard,assertFalse
 vfs_78_1,commons-vfs,UrlTests,testReservedCharacter_Space_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/UrlTests.java,,,,assert,unknown,standard,assertTrue
 vfs_78_2,commons-vfs,UrlTests,testReservedCharacter_Space_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/UrlTests.java,,,,assert,unknown,standard,assertTrue
@@ -203,3 +201,5 @@ vfs_370_20,commons-vfs,Webdav4VersioningTests,testVersioningWithCreator_20_oe,co
 vfs_370_21,commons-vfs,Webdav4VersioningTests,testVersioningWithCreator_21_oe,commons-vfs2-jackrabbit2/src/test/java/org/apache/commons/vfs2/provider/webdav4/test/Webdav4VersioningTests.java,,,,assert,unknown,standard,assertTrue
 vfs_370_22,commons-vfs,Webdav4VersioningTests,testVersioningWithCreator_22_oe,commons-vfs2-jackrabbit2/src/test/java/org/apache/commons/vfs2/provider/webdav4/test/Webdav4VersioningTests.java,,,,assert,unknown,standard,assertEquals
 vfs_370_23,commons-vfs,Webdav4VersioningTests,testVersioningWithCreator_23_oe,commons-vfs2-jackrabbit2/src/test/java/org/apache/commons/vfs2/provider/webdav4/test/Webdav4VersioningTests.java,,,,assert,unknown,standard,assertTrue
+vfs_11_5,commons-vfs,ProviderRandomSetLengthTests,testRandomSetLength_5_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderRandomSetLengthTests.java,,,,assert,unknown,standard,assertEquals
+vfs_76_11,commons-vfs,ProviderWriteTests,testOverwriteSameFileSystem_11_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests.java,,,,assert,unknown,standard,assertTrue

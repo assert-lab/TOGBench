@@ -55,7 +55,7 @@ public class TestJulianChronology_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestJulianChronology_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestJulianChronology_OE25Dev.class);
     }
 
     public TestJulianChronology_OE25Dev(String name) {

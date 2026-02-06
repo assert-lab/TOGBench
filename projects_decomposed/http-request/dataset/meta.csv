@@ -207,7 +207,6 @@ http_76_3,http-request,HttpRequestTest,singleVerifier_3_oe,lib/src/test/java/com
 http_77_1,http-request,HttpRequestTest,singleSslSocketFactory_1_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertNotNull
 http_77_2,http-request,HttpRequestTest,singleSslSocketFactory_2_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertNotNull
 http_77_3,http-request,HttpRequestTest,singleSslSocketFactory_3_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_78_3,http-request,HttpRequestTest,sendErrorReadStream_3_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_79_3,http-request,HttpRequestTest,sendErrorCloseStream_3_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_80_1,http-request,HttpRequestTest,getToOutputCode_1_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_81_2,http-request,HttpRequestTest,getToOutputBody_2_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
@@ -355,14 +354,6 @@ http_151_1,http-request,HttpRequestTest,nullConnectionFactory_1_oe,lib/src/test/
 http_152_1,http-request,HttpRequestTest,streamOfEmptyOkResponse_1_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_153_1,http-request,HttpRequestTest,bodyOfEmptyErrorResponse_1_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_154_1,http-request,HttpRequestTest,bodyOfNonEmptyErrorResponse_1_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_155_1,http-request,HttpRequestTest,uploadProgressSend_1_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_155_2,http-request,HttpRequestTest,uploadProgressSend_2_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_156_1,http-request,HttpRequestTest,uploadProgressSendInputStream_1_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_156_2,http-request,HttpRequestTest,uploadProgressSendInputStream_2_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_157_1,http-request,HttpRequestTest,uploadProgressSendByteArray_1_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_157_2,http-request,HttpRequestTest,uploadProgressSendByteArray_2_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_158_1,http-request,HttpRequestTest,uploadProgressSendReader_1_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_158_2,http-request,HttpRequestTest,uploadProgressSendReader_2_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_159_1,http-request,HttpRequestTest,nullUploadProgress_1_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_159_2,http-request,HttpRequestTest,nullUploadProgress_2_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_160_1,http-request,EncodeTest,encode_1_oe,src/test/java/com/github/kevinsawicki/http/EncodeTest.java,,,,assert,unknown,standard,assertEquals
@@ -570,7 +561,6 @@ http_234_3,http-request,HttpRequestTest,singleVerifier_3_oe,src/test/java/com/gi
 http_235_1,http-request,HttpRequestTest,singleSslSocketFactory_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertNotNull
 http_235_2,http-request,HttpRequestTest,singleSslSocketFactory_2_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertNotNull
 http_235_3,http-request,HttpRequestTest,singleSslSocketFactory_3_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_236_3,http-request,HttpRequestTest,sendErrorReadStream_3_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_237_3,http-request,HttpRequestTest,sendErrorCloseStream_3_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_238_1,http-request,HttpRequestTest,getToOutputCode_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_239_2,http-request,HttpRequestTest,getToOutputBody_2_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
@@ -695,13 +685,5 @@ http_305_1,http-request,HttpRequestTest,nullConnectionFactory_1_oe,src/test/java
 http_306_1,http-request,HttpRequestTest,streamOfEmptyOkResponse_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_307_1,http-request,HttpRequestTest,bodyOfEmptyErrorResponse_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_308_1,http-request,HttpRequestTest,bodyOfNonEmptyErrorResponse_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_309_1,http-request,HttpRequestTest,uploadProgressSend_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_309_2,http-request,HttpRequestTest,uploadProgressSend_2_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_310_1,http-request,HttpRequestTest,uploadProgressSendInputStream_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_310_2,http-request,HttpRequestTest,uploadProgressSendInputStream_2_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_311_1,http-request,HttpRequestTest,uploadProgressSendByteArray_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_311_2,http-request,HttpRequestTest,uploadProgressSendByteArray_2_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_312_1,http-request,HttpRequestTest,uploadProgressSendReader_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
-http_312_2,http-request,HttpRequestTest,uploadProgressSendReader_2_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_313_1,http-request,HttpRequestTest,nullUploadProgress_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_313_2,http-request,HttpRequestTest,nullUploadProgress_2_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals

@@ -509,35 +509,6 @@ pool_15_3,"    @Test
     }
     }
 ",PoolTest::testPool_3_oe
-pool_15_4,"    @Test
-    public void testPool_4_oe() throws Exception {
-        final GenericObjectPoolConfig<Foo> poolConfig = new GenericObjectPoolConfig<>();
-        poolConfig.setTestWhileIdle(true /* testWhileIdle */);
-        final PooledFooFactory pooledFooFactory = new PooledFooFactory();
-        try (GenericObjectPool<Foo> pool = new GenericObjectPool<>(pooledFooFactory, poolConfig)) {
-            pool.setTimeBetweenEvictionRunsMillis(EVICTION_PERIOD_IN_MILLIS);
-            // removed other assertion
-            // removed other assertion
-            pool.setTimeBetweenEvictionRuns(Duration.ofMillis(EVICTION_PERIOD_IN_MILLIS));
-            // removed other assertion
-            pool.addObject();
-            try {
-                Thread.sleep(EVICTION_PERIOD_IN_MILLIS);
-            } catch (final InterruptedException e) {
-                Thread.interrupted();
-            }
-        }
-        final Thread[] threads = new Thread[Thread.activeCount()];
-        Thread.enumerate(threads);
-        for (final Thread thread : threads) {
-            if (thread == null) {
-                continue;
-            }
-            final String name = thread.getName();
-            assertFalse( name.contains(COMMONS_POOL_EVICTIONS_TIMER_THREAD_NAME),name);
-    }
-    }
-",PoolTest::testPool_4_oe
 pool_17_2,"    @Test
     public void testCheckMinIdleKeyedObjectPool_2_oe() throws Exception {
         // removed other assertion
@@ -747,21 +718,6 @@ pool_19_1,"    @Test
     }
     }
 ",TestPoolUtils::testCheckMinIdleKeyedObjectPoolKeysNulls_1_oe
-pool_19_2,"    @Test
-    public void testCheckMinIdleKeyedObjectPoolKeysNulls_2_oe() {
-        try (@SuppressWarnings(""unchecked"")
-        final KeyedObjectPool<Object, Object> pool = createProxy(KeyedObjectPool.class, (List<String>) null)) {
-            // removed other assertion
-        }
-
-        try (@SuppressWarnings(""unchecked"")
-        final KeyedObjectPool<Object, Object> pool = createProxy(KeyedObjectPool.class, (List<String>) null)) {
-            PoolUtils.checkMinIdle(pool, (Collection<?>) Collections.emptyList(), 1, 1);
-        } catch (final IllegalArgumentException iae) {
-            fail(""PoolUtils.checkMinIdle(KeyedObjectPool,Collection,int,long) must accept empty lists."");
-    }
-    }
-",TestPoolUtils::testCheckMinIdleKeyedObjectPoolKeysNulls_2_oe
 pool_20_2,"    @Test
     public void testCheckMinIdleObjectPool_2_oe() throws Exception {
         // removed other assertion
@@ -4101,83 +4057,6 @@ pool_111_4,"    @Test
     }
     }
 ",TestGenericObjectPool::testErrorFactoryDoesNotBlockThreads_4_oe
-pool_114_1,"    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionInvalid_1_oe() throws Exception {
-
-        try (final GenericObjectPool<Object> invalidFactoryPool = new GenericObjectPool<>(new InvalidFactory())) {
-
-            invalidFactoryPool.setMaxIdle(1);
-            invalidFactoryPool.setMaxTotal(1);
-            invalidFactoryPool.setTestOnBorrow(false);
-            invalidFactoryPool.setTestOnReturn(false);
-            invalidFactoryPool.setTestWhileIdle(true);
-            invalidFactoryPool.setMinEvictableIdleTime(Duration.ofSeconds(100));
-            invalidFactoryPool.setNumTestsPerEvictionRun(1);
-
-            final Object p = invalidFactoryPool.borrowObject();
-            invalidFactoryPool.returnObject(p);
-
-            // Run eviction in a separate thread
-            final Thread t = new EvictionThread<>(invalidFactoryPool);
-            t.start();
-
-            // Sleep to make sure evictor has started
-            Thread.sleep(300);
-
-            try {
-                invalidFactoryPool.borrowObject(1);
-            } catch (final NoSuchElementException nsee) {
-                // Ignore
-            }
-
-            // Make sure evictor has finished
-            Thread.sleep(1000);
-
-            // Should have an empty pool
-            assertEquals( 0, invalidFactoryPool.getNumIdle(),""Idle count different than expected."");
-    }
-    }
-",TestGenericObjectPool::testEvictionInvalid_1_oe
-pool_114_2,"    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionInvalid_2_oe() throws Exception {
-
-        try (final GenericObjectPool<Object> invalidFactoryPool = new GenericObjectPool<>(new InvalidFactory())) {
-
-            invalidFactoryPool.setMaxIdle(1);
-            invalidFactoryPool.setMaxTotal(1);
-            invalidFactoryPool.setTestOnBorrow(false);
-            invalidFactoryPool.setTestOnReturn(false);
-            invalidFactoryPool.setTestWhileIdle(true);
-            invalidFactoryPool.setMinEvictableIdleTime(Duration.ofSeconds(100));
-            invalidFactoryPool.setNumTestsPerEvictionRun(1);
-
-            final Object p = invalidFactoryPool.borrowObject();
-            invalidFactoryPool.returnObject(p);
-
-            // Run eviction in a separate thread
-            final Thread t = new EvictionThread<>(invalidFactoryPool);
-            t.start();
-
-            // Sleep to make sure evictor has started
-            Thread.sleep(300);
-
-            try {
-                invalidFactoryPool.borrowObject(1);
-            } catch (final NoSuchElementException nsee) {
-                // Ignore
-            }
-
-            // Make sure evictor has finished
-            Thread.sleep(1000);
-
-            // Should have an empty pool
-            // removed other assertion
-            assertEquals( 0, invalidFactoryPool.getNumActive(),""Total count different than expected."");
-    }
-    }
-",TestGenericObjectPool::testEvictionInvalid_2_oe
 pool_116_1,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testEvictionSoftMinIdle_1_oe() throws Exception {
@@ -4633,45 +4512,6 @@ pool_145_3,"    @Test
     }
     }
 ",TestGenericObjectPool::testMultipleReturn_3_oe
-pool_145_4,"    @Test
-    public void testMultipleReturn_4_oe() throws Exception {
-        final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
-        try (final GenericObjectPool<Waiter> pool = new GenericObjectPool<>(factory)) {
-            pool.setTestOnReturn(true);
-            final Waiter waiter = pool.borrowObject();
-            pool.returnObject(waiter);
-            // removed other assertion
-            // removed other assertion
-            try {
-                pool.returnObject(waiter);
-                // removed other assertion
-            } catch (final IllegalStateException ex) {
-                // Exception is expected, now check no repeat validation/passivation
-                assertEquals(1, waiter.getValidationCount());
-    }
-    }
-    }
-",TestGenericObjectPool::testMultipleReturn_4_oe
-pool_145_5,"    @Test
-    public void testMultipleReturn_5_oe() throws Exception {
-        final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
-        try (final GenericObjectPool<Waiter> pool = new GenericObjectPool<>(factory)) {
-            pool.setTestOnReturn(true);
-            final Waiter waiter = pool.borrowObject();
-            pool.returnObject(waiter);
-            // removed other assertion
-            // removed other assertion
-            try {
-                pool.returnObject(waiter);
-                // removed other assertion
-            } catch (final IllegalStateException ex) {
-                // Exception is expected, now check no repeat validation/passivation
-                // removed other assertion
-                assertEquals(1, waiter.getPassivationCount());
-    }
-    }
-    }
-",TestGenericObjectPool::testMultipleReturn_5_oe
 pool_146_1,"    @Test
     public void testMultipleReturnOfSameObject_1_oe() throws Exception {
         try (final GenericObjectPool<String> pool = new GenericObjectPool<>(simpleFactory, new GenericObjectPoolConfig<>())) {
@@ -6999,103 +6839,6 @@ pool_259_1,"    @Test
     }
     }
 ",TestGenericKeyedObjectPool::testInvalidateFreesCapacity_1_oe
-pool_260_1,"    @Test
-    public void testInvalidateWaiting_1_oe()
-            throws Exception {
-
-        final GenericKeyedObjectPoolConfig<Object> config = new GenericKeyedObjectPoolConfig<>();
-        config.setMaxTotal(2);
-        config.setBlockWhenExhausted(true);
-        config.setMinIdlePerKey(0);
-        config.setMaxWait(Duration.ofMillis(-1));
-        config.setNumTestsPerEvictionRun(Integer.MAX_VALUE); // always test all idle objects
-        config.setTestOnBorrow(true);
-        config.setTestOnReturn(false);
-        config.setTestWhileIdle(true);
-        config.setTimeBetweenEvictionRuns(Duration.ofMillis(-1));
-
-        try (final GenericKeyedObjectPool<Integer, Object> pool = new GenericKeyedObjectPool<>(new ObjectFactory(),
-                config)) {
-
-            // Allocate both objects with this thread
-            pool.borrowObject(Integer.valueOf(1)); // object1
-            final Object object2 = pool.borrowObject(Integer.valueOf(1));
-
-            // Cause a thread to block waiting for an object
-            final ExecutorService executorService = Executors.newSingleThreadExecutor(new DaemonThreadFactory());
-            final Semaphore signal = new Semaphore(0);
-            final Future<Exception> result = executorService.submit(() -> {
-                try {
-                    signal.release();
-                    final Object object3 = pool.borrowObject(Integer.valueOf(1));
-                    pool.returnObject(Integer.valueOf(1), object3);
-                    signal.release();
-                } catch (final Exception e1) {
-                    return e1;
-                } catch (final Throwable e2) {
-                    return new Exception(e2);
-                }
-
-                return null;
-            });
-
-            // Wait for the thread to start
-            assertTrue(signal.tryAcquire(5, TimeUnit.SECONDS));
-    }
-    }
-",TestGenericKeyedObjectPool::testInvalidateWaiting_1_oe
-pool_260_2,"    @Test
-    public void testInvalidateWaiting_2_oe()
-            throws Exception {
-
-        final GenericKeyedObjectPoolConfig<Object> config = new GenericKeyedObjectPoolConfig<>();
-        config.setMaxTotal(2);
-        config.setBlockWhenExhausted(true);
-        config.setMinIdlePerKey(0);
-        config.setMaxWait(Duration.ofMillis(-1));
-        config.setNumTestsPerEvictionRun(Integer.MAX_VALUE); // always test all idle objects
-        config.setTestOnBorrow(true);
-        config.setTestOnReturn(false);
-        config.setTestWhileIdle(true);
-        config.setTimeBetweenEvictionRuns(Duration.ofMillis(-1));
-
-        try (final GenericKeyedObjectPool<Integer, Object> pool = new GenericKeyedObjectPool<>(new ObjectFactory(),
-                config)) {
-
-            // Allocate both objects with this thread
-            pool.borrowObject(Integer.valueOf(1)); // object1
-            final Object object2 = pool.borrowObject(Integer.valueOf(1));
-
-            // Cause a thread to block waiting for an object
-            final ExecutorService executorService = Executors.newSingleThreadExecutor(new DaemonThreadFactory());
-            final Semaphore signal = new Semaphore(0);
-            final Future<Exception> result = executorService.submit(() -> {
-                try {
-                    signal.release();
-                    final Object object3 = pool.borrowObject(Integer.valueOf(1));
-                    pool.returnObject(Integer.valueOf(1), object3);
-                    signal.release();
-                } catch (final Exception e1) {
-                    return e1;
-                } catch (final Throwable e2) {
-                    return new Exception(e2);
-                }
-
-                return null;
-            });
-
-            // Wait for the thread to start
-            // removed other assertion
-
-            // Attempt to ensure that test thread is blocked waiting for an object
-            Thread.sleep(500);
-
-            pool.invalidateObject(Integer.valueOf(1), object2);
-
-            assertTrue(signal.tryAcquire(2, TimeUnit.SECONDS),""Call to invalidateObject did not unblock pool waiters."");
-    }
-    }
-",TestGenericKeyedObjectPool::testInvalidateWaiting_2_oe
 pool_263_1,"    @Test
     public void testMakeObjectException_1_oe() throws Exception {
         final SimpleFactory<String> factory = new SimpleFactory<>();
@@ -7146,45 +6889,6 @@ pool_275_3,"    @Test
     }
     }
 ",TestGenericKeyedObjectPool::testMultipleReturn_3_oe
-pool_275_4,"    @Test
-    public void testMultipleReturn_4_oe() throws Exception {
-        final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
-        try (final GenericKeyedObjectPool<String, Waiter> pool = new GenericKeyedObjectPool<>(factory)) {
-            pool.setTestOnReturn(true);
-            final Waiter waiter = pool.borrowObject(""a"");
-            pool.returnObject(""a"", waiter);
-            // removed other assertion
-            // removed other assertion
-            try {
-                pool.returnObject(""a"", waiter);
-                // removed other assertion
-            } catch (final IllegalStateException ex) {
-                // Exception is expected, now check no repeat validation/passivation
-                assertEquals(1, waiter.getValidationCount());
-    }
-    }
-    }
-",TestGenericKeyedObjectPool::testMultipleReturn_4_oe
-pool_275_5,"    @Test
-    public void testMultipleReturn_5_oe() throws Exception {
-        final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
-        try (final GenericKeyedObjectPool<String, Waiter> pool = new GenericKeyedObjectPool<>(factory)) {
-            pool.setTestOnReturn(true);
-            final Waiter waiter = pool.borrowObject(""a"");
-            pool.returnObject(""a"", waiter);
-            // removed other assertion
-            // removed other assertion
-            try {
-                pool.returnObject(""a"", waiter);
-                // removed other assertion
-            } catch (final IllegalStateException ex) {
-                // Exception is expected, now check no repeat validation/passivation
-                // removed other assertion
-                assertEquals(1, waiter.getPassivationCount());
-    }
-    }
-    }
-",TestGenericKeyedObjectPool::testMultipleReturn_5_oe
 pool_278_1,"    @Test
     public void testReturnObjectThrowsIllegalStateException_1_oe() {
         try (final GenericKeyedObjectPool<String, String> pool = new GenericKeyedObjectPool<>(new SimpleFactory<>())) {
@@ -7289,50 +6993,6 @@ pool_294_3,"    @Test
     }
     }
 ",TestSoftRefOutOfMemory::testOutOfMemoryError_3_oe
-pool_300_1,"    @Test
-    @Timeout(value = 10_000, unit = TimeUnit.MILLISECONDS)
-    public void testBorrowObjectStuck_1_oe() {
-        final SingleObjectFactory factory = new SingleObjectFactory();
-        final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
-        config.setMaxIdle(1);
-        config.setMaxTotal(1);
-        config.setBlockWhenExhausted(true);
-        config.setMinIdle(0);
-        config.setTestOnBorrow(true);
-        config.setTestOnReturn(true);
-        config.setTestWhileIdle(false);
-        config.setTimeBetweenEvictionRuns(NEG_ONE_DURATION);
-        config.setMinEvictableIdleTime(NEG_ONE_DURATION);
-        config.setSoftMinEvictableIdleTime(NEG_ONE_DURATION);
-
-        config.setMaxWait(NEG_ONE_DURATION);
-        try (GenericObjectPool<Object> pool = new GenericObjectPool<>(factory, config)) {
-
-            final AtomicBoolean failed = new AtomicBoolean();
-            final CountDownLatch barrier = new CountDownLatch(1);
-            final Thread thread1 = new Thread(new WinnerRunnable(pool, barrier, failed));
-            thread1.start();
-
-            // wait for object to be created
-            while (!factory.created.get()) {
-                Waiter.sleepQuietly((long) 5);
-            }
-
-            // now borrow
-            barrier.countDown();
-            try {
-                println(""try borrow in main thread"");
-
-                final Object o = pool.borrowObject();
-                println(""Success borrow in main thread "" + o);
-            } catch (final Exception e) {
-                e.printStackTrace();
-            }
-
-            assertFalse(failed.get());
-    }
-    }
-",TestGenericObjectPoolFactoryCreateFailure::testBorrowObjectStuck_1_oe
 pool_301_1,"    @Test
     public void testContextClassLoader_1_oe() throws Exception {
 
@@ -8431,3 +8091,343 @@ pool_314_10,"    @Test
     }
     }
 ",TestDefaultPooledObjectInfo::testTiming_10_oe
+pool_15_4,"    @Test
+    public void testPool_4_oe() throws Exception {
+        final GenericObjectPoolConfig<Foo> poolConfig = new GenericObjectPoolConfig<>();
+        poolConfig.setTestWhileIdle(true /* testWhileIdle */);
+        final PooledFooFactory pooledFooFactory = new PooledFooFactory();
+        try (GenericObjectPool<Foo> pool = new GenericObjectPool<>(pooledFooFactory, poolConfig)) {
+            pool.setTimeBetweenEvictionRunsMillis(EVICTION_PERIOD_IN_MILLIS);
+            // removed other assertion
+            // removed other assertion
+            pool.setTimeBetweenEvictionRuns(Duration.ofMillis(EVICTION_PERIOD_IN_MILLIS));
+            // removed other assertion
+            pool.addObject();
+            try {
+                Thread.sleep(EVICTION_PERIOD_IN_MILLIS);
+            } catch (final InterruptedException e) {
+                Thread.interrupted();
+            }
+        }
+        final Thread[] threads = new Thread[Thread.activeCount()];
+        Thread.enumerate(threads);
+        for (final Thread thread : threads) {
+            if (thread == null) {
+                continue;
+            }
+            final String name = thread.getName();
+            assertFalse( name.contains(COMMONS_POOL_EVICTIONS_TIMER_THREAD_NAME),name);
+    }
+    }
+",PoolTest::testPool_4_oe
+pool_19_2,"    @Test
+    public void testCheckMinIdleKeyedObjectPoolKeysNulls_2_oe() {
+        try (@SuppressWarnings(""unchecked"")
+        final KeyedObjectPool<Object, Object> pool = createProxy(KeyedObjectPool.class, (List<String>) null)) {
+            // removed other assertion
+        }
+
+        try (@SuppressWarnings(""unchecked"")
+        final KeyedObjectPool<Object, Object> pool = createProxy(KeyedObjectPool.class, (List<String>) null)) {
+            PoolUtils.checkMinIdle(pool, (Collection<?>) Collections.emptyList(), 1, 1);
+        } catch (final IllegalArgumentException iae) {
+            fail(""PoolUtils.checkMinIdle(KeyedObjectPool,Collection,int,long) must accept empty lists."");
+    }
+    }
+",TestPoolUtils::testCheckMinIdleKeyedObjectPoolKeysNulls_2_oe
+pool_114_1,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEvictionInvalid_1_oe() throws Exception {
+
+        try (final GenericObjectPool<Object> invalidFactoryPool = new GenericObjectPool<>(new InvalidFactory())) {
+
+            invalidFactoryPool.setMaxIdle(1);
+            invalidFactoryPool.setMaxTotal(1);
+            invalidFactoryPool.setTestOnBorrow(false);
+            invalidFactoryPool.setTestOnReturn(false);
+            invalidFactoryPool.setTestWhileIdle(true);
+            invalidFactoryPool.setMinEvictableIdleTime(Duration.ofSeconds(100));
+            invalidFactoryPool.setNumTestsPerEvictionRun(1);
+
+            final Object p = invalidFactoryPool.borrowObject();
+            invalidFactoryPool.returnObject(p);
+
+            // Run eviction in a separate thread
+            final Thread t = new EvictionThread<>(invalidFactoryPool);
+            t.start();
+
+            // Sleep to make sure evictor has started
+            Thread.sleep(300);
+
+            try {
+                invalidFactoryPool.borrowObject(1);
+            } catch (final NoSuchElementException nsee) {
+                // Ignore
+            }
+
+            // Make sure evictor has finished
+            Thread.sleep(1000);
+
+            // Should have an empty pool
+            assertEquals( 0, invalidFactoryPool.getNumIdle(),""Idle count different than expected."");
+    }
+    }
+",TestGenericObjectPool::testEvictionInvalid_1_oe
+pool_114_2,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEvictionInvalid_2_oe() throws Exception {
+
+        try (final GenericObjectPool<Object> invalidFactoryPool = new GenericObjectPool<>(new InvalidFactory())) {
+
+            invalidFactoryPool.setMaxIdle(1);
+            invalidFactoryPool.setMaxTotal(1);
+            invalidFactoryPool.setTestOnBorrow(false);
+            invalidFactoryPool.setTestOnReturn(false);
+            invalidFactoryPool.setTestWhileIdle(true);
+            invalidFactoryPool.setMinEvictableIdleTime(Duration.ofSeconds(100));
+            invalidFactoryPool.setNumTestsPerEvictionRun(1);
+
+            final Object p = invalidFactoryPool.borrowObject();
+            invalidFactoryPool.returnObject(p);
+
+            // Run eviction in a separate thread
+            final Thread t = new EvictionThread<>(invalidFactoryPool);
+            t.start();
+
+            // Sleep to make sure evictor has started
+            Thread.sleep(300);
+
+            try {
+                invalidFactoryPool.borrowObject(1);
+            } catch (final NoSuchElementException nsee) {
+                // Ignore
+            }
+
+            // Make sure evictor has finished
+            Thread.sleep(1000);
+
+            // Should have an empty pool
+            // removed other assertion
+            assertEquals( 0, invalidFactoryPool.getNumActive(),""Total count different than expected."");
+    }
+    }
+",TestGenericObjectPool::testEvictionInvalid_2_oe
+pool_145_4,"    @Test
+    public void testMultipleReturn_4_oe() throws Exception {
+        final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
+        try (final GenericObjectPool<Waiter> pool = new GenericObjectPool<>(factory)) {
+            pool.setTestOnReturn(true);
+            final Waiter waiter = pool.borrowObject();
+            pool.returnObject(waiter);
+            // removed other assertion
+            // removed other assertion
+            try {
+                pool.returnObject(waiter);
+                // removed other assertion
+            } catch (final IllegalStateException ex) {
+                // Exception is expected, now check no repeat validation/passivation
+                assertEquals(1, waiter.getValidationCount());
+    }
+    }
+    }
+",TestGenericObjectPool::testMultipleReturn_4_oe
+pool_145_5,"    @Test
+    public void testMultipleReturn_5_oe() throws Exception {
+        final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
+        try (final GenericObjectPool<Waiter> pool = new GenericObjectPool<>(factory)) {
+            pool.setTestOnReturn(true);
+            final Waiter waiter = pool.borrowObject();
+            pool.returnObject(waiter);
+            // removed other assertion
+            // removed other assertion
+            try {
+                pool.returnObject(waiter);
+                // removed other assertion
+            } catch (final IllegalStateException ex) {
+                // Exception is expected, now check no repeat validation/passivation
+                // removed other assertion
+                assertEquals(1, waiter.getPassivationCount());
+    }
+    }
+    }
+",TestGenericObjectPool::testMultipleReturn_5_oe
+pool_260_1,"    @Test
+    public void testInvalidateWaiting_1_oe()
+            throws Exception {
+
+        final GenericKeyedObjectPoolConfig<Object> config = new GenericKeyedObjectPoolConfig<>();
+        config.setMaxTotal(2);
+        config.setBlockWhenExhausted(true);
+        config.setMinIdlePerKey(0);
+        config.setMaxWait(Duration.ofMillis(-1));
+        config.setNumTestsPerEvictionRun(Integer.MAX_VALUE); // always test all idle objects
+        config.setTestOnBorrow(true);
+        config.setTestOnReturn(false);
+        config.setTestWhileIdle(true);
+        config.setTimeBetweenEvictionRuns(Duration.ofMillis(-1));
+
+        try (final GenericKeyedObjectPool<Integer, Object> pool = new GenericKeyedObjectPool<>(new ObjectFactory(),
+                config)) {
+
+            // Allocate both objects with this thread
+            pool.borrowObject(Integer.valueOf(1)); // object1
+            final Object object2 = pool.borrowObject(Integer.valueOf(1));
+
+            // Cause a thread to block waiting for an object
+            final ExecutorService executorService = Executors.newSingleThreadExecutor(new DaemonThreadFactory());
+            final Semaphore signal = new Semaphore(0);
+            final Future<Exception> result = executorService.submit(() -> {
+                try {
+                    signal.release();
+                    final Object object3 = pool.borrowObject(Integer.valueOf(1));
+                    pool.returnObject(Integer.valueOf(1), object3);
+                    signal.release();
+                } catch (final Exception e1) {
+                    return e1;
+                } catch (final Throwable e2) {
+                    return new Exception(e2);
+                }
+
+                return null;
+            });
+
+            // Wait for the thread to start
+            assertTrue(signal.tryAcquire(5, TimeUnit.SECONDS));
+    }
+    }
+",TestGenericKeyedObjectPool::testInvalidateWaiting_1_oe
+pool_260_2,"    @Test
+    public void testInvalidateWaiting_2_oe()
+            throws Exception {
+
+        final GenericKeyedObjectPoolConfig<Object> config = new GenericKeyedObjectPoolConfig<>();
+        config.setMaxTotal(2);
+        config.setBlockWhenExhausted(true);
+        config.setMinIdlePerKey(0);
+        config.setMaxWait(Duration.ofMillis(-1));
+        config.setNumTestsPerEvictionRun(Integer.MAX_VALUE); // always test all idle objects
+        config.setTestOnBorrow(true);
+        config.setTestOnReturn(false);
+        config.setTestWhileIdle(true);
+        config.setTimeBetweenEvictionRuns(Duration.ofMillis(-1));
+
+        try (final GenericKeyedObjectPool<Integer, Object> pool = new GenericKeyedObjectPool<>(new ObjectFactory(),
+                config)) {
+
+            // Allocate both objects with this thread
+            pool.borrowObject(Integer.valueOf(1)); // object1
+            final Object object2 = pool.borrowObject(Integer.valueOf(1));
+
+            // Cause a thread to block waiting for an object
+            final ExecutorService executorService = Executors.newSingleThreadExecutor(new DaemonThreadFactory());
+            final Semaphore signal = new Semaphore(0);
+            final Future<Exception> result = executorService.submit(() -> {
+                try {
+                    signal.release();
+                    final Object object3 = pool.borrowObject(Integer.valueOf(1));
+                    pool.returnObject(Integer.valueOf(1), object3);
+                    signal.release();
+                } catch (final Exception e1) {
+                    return e1;
+                } catch (final Throwable e2) {
+                    return new Exception(e2);
+                }
+
+                return null;
+            });
+
+            // Wait for the thread to start
+            // removed other assertion
+
+            // Attempt to ensure that test thread is blocked waiting for an object
+            Thread.sleep(500);
+
+            pool.invalidateObject(Integer.valueOf(1), object2);
+
+            assertTrue(signal.tryAcquire(2, TimeUnit.SECONDS),""Call to invalidateObject did not unblock pool waiters."");
+    }
+    }
+",TestGenericKeyedObjectPool::testInvalidateWaiting_2_oe
+pool_275_4,"    @Test
+    public void testMultipleReturn_4_oe() throws Exception {
+        final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
+        try (final GenericKeyedObjectPool<String, Waiter> pool = new GenericKeyedObjectPool<>(factory)) {
+            pool.setTestOnReturn(true);
+            final Waiter waiter = pool.borrowObject(""a"");
+            pool.returnObject(""a"", waiter);
+            // removed other assertion
+            // removed other assertion
+            try {
+                pool.returnObject(""a"", waiter);
+                // removed other assertion
+            } catch (final IllegalStateException ex) {
+                // Exception is expected, now check no repeat validation/passivation
+                assertEquals(1, waiter.getValidationCount());
+    }
+    }
+    }
+",TestGenericKeyedObjectPool::testMultipleReturn_4_oe
+pool_275_5,"    @Test
+    public void testMultipleReturn_5_oe() throws Exception {
+        final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
+        try (final GenericKeyedObjectPool<String, Waiter> pool = new GenericKeyedObjectPool<>(factory)) {
+            pool.setTestOnReturn(true);
+            final Waiter waiter = pool.borrowObject(""a"");
+            pool.returnObject(""a"", waiter);
+            // removed other assertion
+            // removed other assertion
+            try {
+                pool.returnObject(""a"", waiter);
+                // removed other assertion
+            } catch (final IllegalStateException ex) {
+                // Exception is expected, now check no repeat validation/passivation
+                // removed other assertion
+                assertEquals(1, waiter.getPassivationCount());
+    }
+    }
+    }
+",TestGenericKeyedObjectPool::testMultipleReturn_5_oe
+pool_300_1,"    @Test
+    @Timeout(value = 10_000, unit = TimeUnit.MILLISECONDS)
+    public void testBorrowObjectStuck_1_oe() {
+        final SingleObjectFactory factory = new SingleObjectFactory();
+        final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
+        config.setMaxIdle(1);
+        config.setMaxTotal(1);
+        config.setBlockWhenExhausted(true);
+        config.setMinIdle(0);
+        config.setTestOnBorrow(true);
+        config.setTestOnReturn(true);
+        config.setTestWhileIdle(false);
+        config.setTimeBetweenEvictionRuns(NEG_ONE_DURATION);
+        config.setMinEvictableIdleTime(NEG_ONE_DURATION);
+        config.setSoftMinEvictableIdleTime(NEG_ONE_DURATION);
+
+        config.setMaxWait(NEG_ONE_DURATION);
+        try (GenericObjectPool<Object> pool = new GenericObjectPool<>(factory, config)) {
+
+            final AtomicBoolean failed = new AtomicBoolean();
+            final CountDownLatch barrier = new CountDownLatch(1);
+            final Thread thread1 = new Thread(new WinnerRunnable(pool, barrier, failed));
+            thread1.start();
+
+            // wait for object to be created
+            while (!factory.created.get()) {
+                Waiter.sleepQuietly((long) 5);
+            }
+
+            // now borrow
+            barrier.countDown();
+            try {
+                println(""try borrow in main thread"");
+
+                final Object o = pool.borrowObject();
+                println(""Success borrow in main thread "" + o);
+            } catch (final Exception e) {
+                e.printStackTrace();
+            }
+
+            assertFalse(failed.get());
+    }
+    }
+",TestGenericObjectPoolFactoryCreateFailure::testBorrowObjectStuck_1_oe

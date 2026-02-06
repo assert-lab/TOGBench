@@ -265,30 +265,6 @@ public class UrlValidatorTest_OE25Dev {
       assertTrue(urlVal.isValid("http://www.google.com/"));
    }
 
-   public void testIsValid_3_oe(Object[] testObjects, long options) {
-      UrlValidator urlVal = new UrlValidator(null, null, options);
-      // removed other assertion
-      // removed other assertion
-      int statusPerLine = 60;
-      int printed = 0;
-      if (printIndex)  {
-         statusPerLine = 6;
-      }
-      do {
-          StringBuilder testBuffer = new StringBuilder();
-         boolean expected = true;
-         for (int testPartsIndexIndex = 0; testPartsIndexIndex < testPartsIndex.length; ++testPartsIndexIndex) {
-            int index = testPartsIndex[testPartsIndexIndex];
-            ResultPair[] part = (ResultPair[]) testObjects[testPartsIndexIndex];
-            testBuffer.append(part[index].item);
-            expected &= part[index].valid;
-         }
-         String url = testBuffer.toString();
-         boolean result = urlVal.isValid(url);
-         assertEquals(url, expected, result);
-   }
-   }
-
    @Test
    public void testValidator202_1_oe() {
        String[] schemes = {"http","https"};

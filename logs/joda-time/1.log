@@ -33,618 +33,510 @@ Writing ZoneInfoMap
 [INFO] Changes detected - recompiling the module!
 [INFO] Compiling 285 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/target/test-classes
 [WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestEthiopicChronology_OE25Dev.java:[70,29] error: cannot find symbol
-  symbol:   class TestEthiopicChronology_OE25Dev_OE25Dev
-  location: class TestEthiopicChronology_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestPeriod_Basics_OE25Dev.java:[80,29] error: cannot find symbol
-  symbol:   class TestPeriod_Basics_OE25Dev_OE25Dev
-  location: class TestPeriod_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutablePeriod_Updates_OE25Dev.java:[72,29] error: cannot find symbol
-  symbol:   class TestMutablePeriod_Updates_OE25Dev_OE25Dev
-  location: class TestMutablePeriod_Updates_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMinMaxLong_OE25Dev.java:[44,29] error: cannot find symbol
-  symbol:   class TestMinMaxLong_OE25Dev_OE25Dev
-  location: class TestMinMaxLong_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutableDateTime_Basics_OE25Dev.java:[86,29] error: cannot find symbol
-  symbol:   class TestMutableDateTime_Basics_OE25Dev_OE25Dev
-  location: class TestMutableDateTime_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestReadableInstantConverter_OE25Dev.java:[56,29] error: cannot find symbol
-  symbol:   class TestReadableInstantConverter_OE25Dev_OE25Dev
-  location: class TestReadableInstantConverter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestDateTimeFormatter_OE25Dev.java:[76,29] error: cannot find symbol
-  symbol:   class TestDateTimeFormatter_OE25Dev_OE25Dev
-  location: class TestDateTimeFormatter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/tz/TestCachedDateTimeZone_OE25Dev.java:[40,29] error: cannot find symbol
-  symbol:   class TestCachedDateTimeZone_OE25Dev_OE25Dev
-  location: class TestCachedDateTimeZone_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestBaseDateTimeField_OE25Dev.java:[45,29] error: cannot find symbol
-  symbol:   class TestBaseDateTimeField_OE25Dev_OE25Dev
-  location: class TestBaseDateTimeField_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/tz/TestCompiler_OE25Dev.java:[45,29] error: cannot find symbol
-  symbol:   class TestCompiler_OE25Dev_OE25Dev
-  location: class TestCompiler_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestPartial_Match_OE25Dev.java:[75,29] error: cannot find symbol
-  symbol:   class TestPartial_Match_OE25Dev_OE25Dev
-  location: class TestPartial_Match_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestISODateTimeFormat_OE25Dev.java:[60,29] error: cannot find symbol
-  symbol:   class TestISODateTimeFormat_OE25Dev_OE25Dev
-  location: class TestISODateTimeFormat_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDuration_Constructors_OE25Dev.java:[70,29] error: cannot find symbol
-  symbol:   class TestDuration_Constructors_OE25Dev_OE25Dev
-  location: class TestDuration_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestGregorianChronology_OE25Dev.java:[61,29] error: cannot find symbol
-  symbol:   class TestGregorianChronology_OE25Dev_OE25Dev
-  location: class TestGregorianChronology_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestPreciseDateTimeField_OE25Dev.java:[42,29] error: cannot find symbol
-  symbol:   class TestPreciseDateTimeField_OE25Dev_OE25Dev
-  location: class TestPreciseDateTimeField_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateMidnight_Constructors_OE25Dev.java:[92,29] error: cannot find symbol
-  symbol:   class TestDateMidnight_Constructors_OE25Dev_OE25Dev
-  location: class TestDateMidnight_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestDateTimeFormatStyle_OE25Dev.java:[64,29] error: cannot find symbol
-  symbol:   class TestDateTimeFormatStyle_OE25Dev_OE25Dev
-  location: class TestDateTimeFormatStyle_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMonthDay_Properties_OE25Dev.java:[56,29] error: cannot find symbol
-  symbol:   class TestMonthDay_Properties_OE25Dev_OE25Dev
-  location: class TestMonthDay_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestGJDate_OE25Dev.java:[35,29] error: cannot find symbol
-  symbol:   class TestGJDate_OE25Dev_OE25Dev
-  location: class TestGJDate_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestYears_OE25Dev.java:[41,29] error: cannot find symbol
-  symbol:   class TestYears_OE25Dev_OE25Dev
-  location: class TestYears_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTimeComparator_OE25Dev.java:[49,29] error: cannot find symbol
-  symbol:   class TestDateTimeComparator_OE25Dev_OE25Dev
-  location: class TestDateTimeComparator_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutableInterval_Updates_OE25Dev.java:[73,29] error: cannot find symbol
-  symbol:   class TestMutableInterval_Updates_OE25Dev_OE25Dev
-  location: class TestMutableInterval_Updates_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestPeriodFormatterBuilder_OE25Dev.java:[69,29] error: cannot find symbol
-  symbol:   class TestPeriodFormatterBuilder_OE25Dev_OE25Dev
-  location: class TestPeriodFormatterBuilder_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestPreciseDurationDateTimeField_OE25Dev.java:[42,29] error: cannot find symbol
-  symbol:   class TestPreciseDurationDateTimeField_OE25Dev_OE25Dev
-  location: class TestPreciseDurationDateTimeField_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestYearMonthDay_Basics_OE25Dev.java:[64,29] error: cannot find symbol
-  symbol:   class TestYearMonthDay_Basics_OE25Dev_OE25Dev
-  location: class TestYearMonthDay_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTimeUtils_OE25Dev.java:[130,29] error: cannot find symbol
-  symbol:   class TestDateTimeUtils_OE25Dev_OE25Dev
-  location: class TestDateTimeUtils_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestReadableDurationConverter_OE25Dev.java:[55,29] error: cannot find symbol
-  symbol:   class TestReadableDurationConverter_OE25Dev_OE25Dev
-  location: class TestReadableDurationConverter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutablePeriod_Basics_OE25Dev.java:[76,29] error: cannot find symbol
-  symbol:   class TestMutablePeriod_Basics_OE25Dev_OE25Dev
-  location: class TestMutablePeriod_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestDateTimeFormat_OE25Dev.java:[65,29] error: cannot find symbol
-  symbol:   class TestDateTimeFormat_OE25Dev_OE25Dev
-  location: class TestDateTimeFormat_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalTime_Constructors_OE25Dev.java:[77,29] error: cannot find symbol
-  symbol:   class TestLocalTime_Constructors_OE25Dev_OE25Dev
-  location: class TestLocalTime_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutableDateTime_Properties_OE25Dev.java:[69,29] error: cannot find symbol
-  symbol:   class TestMutableDateTime_Properties_OE25Dev_OE25Dev
-  location: class TestMutableDateTime_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalDate_Basics_OE25Dev.java:[97,29] error: cannot find symbol
-  symbol:   class TestLocalDate_Basics_OE25Dev_OE25Dev
-  location: class TestLocalDate_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/tz/TestUTCProvider_OE25Dev.java:[41,29] error: cannot find symbol
-  symbol:   class TestUTCProvider_OE25Dev_OE25Dev
-  location: class TestUTCProvider_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestYearMonth_Basics_OE25Dev.java:[68,29] error: cannot find symbol
-  symbol:   class TestYearMonth_Basics_OE25Dev_OE25Dev
-  location: class TestYearMonth_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestDateTimeParserBucket_OE25Dev.java:[51,29] error: cannot find symbol
-  symbol:   class TestDateTimeParserBucket_OE25Dev_OE25Dev
-  location: class TestDateTimeParserBucket_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalDateTime_Properties_OE25Dev.java:[64,29] error: cannot find symbol
-  symbol:   class TestLocalDateTime_Properties_OE25Dev_OE25Dev
-  location: class TestLocalDateTime_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestDateTimeFormatterBuilder_OE25Dev.java:[54,29] error: cannot find symbol
-  symbol:   class TestDateTimeFormatterBuilder_OE25Dev_OE25Dev
-  location: class TestDateTimeFormatterBuilder_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestPeriodFormatParsing_OE25Dev.java:[64,29] error: cannot find symbol
-  symbol:   class TestPeriodFormatParsing_OE25Dev_OE25Dev
-  location: class TestPeriodFormatParsing_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestPartial_Properties_OE25Dev.java:[67,29] error: cannot find symbol
-  symbol:   class TestPartial_Properties_OE25Dev_OE25Dev
-  location: class TestPartial_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestPartial_Constructors_OE25Dev.java:[52,29] error: cannot find symbol
-  symbol:   class TestPartial_Constructors_OE25Dev_OE25Dev
-  location: class TestPartial_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestYearMonth_Properties_OE25Dev.java:[59,29] error: cannot find symbol
-  symbol:   class TestYearMonth_Properties_OE25Dev_OE25Dev
-  location: class TestYearMonth_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalDateTime_Constructors_OE25Dev.java:[74,29] error: cannot find symbol
-  symbol:   class TestLocalDateTime_Constructors_OE25Dev_OE25Dev
-  location: class TestLocalDateTime_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutableDateTime_Constructors_OE25Dev.java:[76,29] error: cannot find symbol
-  symbol:   class TestMutableDateTime_Constructors_OE25Dev_OE25Dev
-  location: class TestMutableDateTime_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTimeConstants_OE25Dev.java:[40,29] error: cannot find symbol
-  symbol:   class TestDateTimeConstants_OE25Dev_OE25Dev
-  location: class TestDateTimeConstants_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestLenientChronology_OE25Dev.java:[37,29] error: cannot find symbol
-  symbol:   class TestLenientChronology_OE25Dev_OE25Dev
-  location: class TestLenientChronology_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestSerialization_OE25Dev.java:[93,29] error: cannot find symbol
-  symbol:   class TestSerialization_OE25Dev_OE25Dev
-  location: class TestSerialization_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestTextFields_OE25Dev.java:[67,29] error: cannot find symbol
-  symbol:   class TestTextFields_OE25Dev_OE25Dev
-  location: class TestTextFields_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestWeeks_OE25Dev.java:[41,29] error: cannot find symbol
-  symbol:   class TestWeeks_OE25Dev_OE25Dev
-  location: class TestWeeks_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestReadableIntervalConverter_OE25Dev.java:[58,29] error: cannot find symbol
-  symbol:   class TestReadableIntervalConverter_OE25Dev_OE25Dev
-  location: class TestReadableIntervalConverter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestCopticChronology_OE25Dev.java:[70,29] error: cannot find symbol
-  symbol:   class TestCopticChronology_OE25Dev_OE25Dev
-  location: class TestCopticChronology_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutableDateTime_Sets_OE25Dev.java:[74,29] error: cannot find symbol
-  symbol:   class TestMutableDateTime_Sets_OE25Dev_OE25Dev
-  location: class TestMutableDateTime_Sets_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTime_Properties_OE25Dev.java:[76,29] error: cannot find symbol
-  symbol:   class TestDateTime_Properties_OE25Dev_OE25Dev
-  location: class TestDateTime_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDurationField_OE25Dev.java:[35,29] error: cannot find symbol
-  symbol:   class TestDurationField_OE25Dev_OE25Dev
-  location: class TestDurationField_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestGJChronology_OE25Dev.java:[67,29] error: cannot find symbol
-  symbol:   class TestGJChronology_OE25Dev_OE25Dev
-  location: class TestGJChronology_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestReadablePeriodConverter_OE25Dev.java:[54,29] error: cannot find symbol
-  symbol:   class TestReadablePeriodConverter_OE25Dev_OE25Dev
-  location: class TestReadablePeriodConverter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestPeriod_Constructors_OE25Dev.java:[61,29] error: cannot find symbol
-  symbol:   class TestPeriod_Constructors_OE25Dev_OE25Dev
-  location: class TestPeriod_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestPartial_Basics_OE25Dev.java:[71,29] error: cannot find symbol
-  symbol:   class TestPartial_Basics_OE25Dev_OE25Dev
-  location: class TestPartial_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestFieldUtils_OE25Dev.java:[34,29] error: cannot find symbol
-  symbol:   class TestFieldUtils_OE25Dev_OE25Dev
-  location: class TestFieldUtils_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestAbstractPartial_OE25Dev.java:[55,29] error: cannot find symbol
-  symbol:   class TestAbstractPartial_OE25Dev_OE25Dev
-  location: class TestAbstractPartial_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMonthDay_Constructors_OE25Dev.java:[61,29] error: cannot find symbol
-  symbol:   class TestMonthDay_Constructors_OE25Dev_OE25Dev
-  location: class TestMonthDay_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestOffsetDateTimeField_OE25Dev.java:[42,29] error: cannot find symbol
-  symbol:   class TestOffsetDateTimeField_OE25Dev_OE25Dev
-  location: class TestOffsetDateTimeField_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutableInterval_Basics_OE25Dev.java:[80,29] error: cannot find symbol
-  symbol:   class TestMutableInterval_Basics_OE25Dev_OE25Dev
-  location: class TestMutableInterval_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestCalendarConverter_OE25Dev.java:[56,29] error: cannot find symbol
-  symbol:   class TestCalendarConverter_OE25Dev_OE25Dev
-  location: class TestCalendarConverter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestStringConvert_OE25Dev.java:[38,29] error: cannot find symbol
-  symbol:   class TestStringConvert_OE25Dev_OE25Dev
-  location: class TestStringConvert_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalTime_Properties_OE25Dev.java:[58,29] error: cannot find symbol
-  symbol:   class TestLocalTime_Properties_OE25Dev_OE25Dev
-  location: class TestLocalTime_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestReadablePartialConverter_OE25Dev.java:[58,29] error: cannot find symbol
-  symbol:   class TestReadablePartialConverter_OE25Dev_OE25Dev
-  location: class TestReadablePartialConverter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMinutes_OE25Dev.java:[41,29] error: cannot find symbol
-  symbol:   class TestMinutes_OE25Dev_OE25Dev
-  location: class TestMinutes_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMonthDay_Basics_OE25Dev.java:[66,29] error: cannot find symbol
-  symbol:   class TestMonthDay_Basics_OE25Dev_OE25Dev
-  location: class TestMonthDay_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestTimeOfDay_Basics_OE25Dev.java:[75,29] error: cannot find symbol
-  symbol:   class TestTimeOfDay_Basics_OE25Dev_OE25Dev
-  location: class TestTimeOfDay_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestUnsupportedDateTimeField_OE25Dev.java:[44,29] error: cannot find symbol
-  symbol:   class TestUnsupportedDateTimeField_OE25Dev_OE25Dev
-  location: class TestUnsupportedDateTimeField_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTimeFieldType_OE25Dev.java:[41,29] error: cannot find symbol
-  symbol:   class TestDateTimeFieldType_OE25Dev_OE25Dev
-  location: class TestDateTimeFieldType_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestSeconds_OE25Dev.java:[41,29] error: cannot find symbol
-  symbol:   class TestSeconds_OE25Dev_OE25Dev
-  location: class TestSeconds_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMonths_OE25Dev.java:[41,29] error: cannot find symbol
-  symbol:   class TestMonths_OE25Dev_OE25Dev
-  location: class TestMonths_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalTime_Basics_OE25Dev.java:[76,29] error: cannot find symbol
-  symbol:   class TestLocalTime_Basics_OE25Dev_OE25Dev
-  location: class TestLocalTime_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutablePeriod_Constructors_OE25Dev.java:[73,29] error: cannot find symbol
-  symbol:   class TestMutablePeriod_Constructors_OE25Dev_OE25Dev
-  location: class TestMutablePeriod_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestPeriodFormat_OE25Dev.java:[52,29] error: cannot find symbol
-  symbol:   class TestPeriodFormat_OE25Dev_OE25Dev
-  location: class TestPeriodFormat_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestInterval_Basics_OE25Dev.java:[85,29] error: cannot find symbol
-  symbol:   class TestInterval_Basics_OE25Dev_OE25Dev
-  location: class TestInterval_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateMidnight_Properties_OE25Dev.java:[77,29] error: cannot find symbol
-  symbol:   class TestDateMidnight_Properties_OE25Dev_OE25Dev
-  location: class TestDateMidnight_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTime_Constructors_OE25Dev.java:[76,29] error: cannot find symbol
-  symbol:   class TestDateTime_Constructors_OE25Dev_OE25Dev
-  location: class TestDateTime_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestDateConverter_OE25Dev.java:[52,29] error: cannot find symbol
-  symbol:   class TestDateConverter_OE25Dev_OE25Dev
-  location: class TestDateConverter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestYearMonthDay_Constructors_OE25Dev.java:[62,29] error: cannot find symbol
-  symbol:   class TestYearMonthDay_Constructors_OE25Dev_OE25Dev
-  location: class TestYearMonthDay_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestChronology_OE25Dev.java:[83,29] error: cannot find symbol
-  symbol:   class TestChronology_OE25Dev_OE25Dev
-  location: class TestChronology_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestInstant_Constructors_OE25Dev.java:[64,29] error: cannot find symbol
-  symbol:   class TestInstant_Constructors_OE25Dev_OE25Dev
-  location: class TestInstant_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/tz/TestFixedDateTimeZone_OE25Dev.java:[38,29] error: cannot find symbol
-  symbol:   class TestFixedDateTimeZone_OE25Dev_OE25Dev
-  location: class TestFixedDateTimeZone_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestIllegalFieldValueException_OE25Dev.java:[38,29] error: cannot find symbol
-  symbol:   class TestIllegalFieldValueException_OE25Dev_OE25Dev
-  location: class TestIllegalFieldValueException_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalDateTime_Basics_OE25Dev.java:[92,29] error: cannot find symbol
-  symbol:   class TestLocalDateTime_Basics_OE25Dev_OE25Dev
-  location: class TestLocalDateTime_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutableInterval_Constructors_OE25Dev.java:[76,29] error: cannot find symbol
-  symbol:   class TestMutableInterval_Constructors_OE25Dev_OE25Dev
-  location: class TestMutableInterval_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalDate_Constructors_OE25Dev.java:[66,29] error: cannot find symbol
-  symbol:   class TestLocalDate_Constructors_OE25Dev_OE25Dev
-  location: class TestLocalDate_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestBuddhistChronology_OE25Dev.java:[67,29] error: cannot find symbol
-  symbol:   class TestBuddhistChronology_OE25Dev_OE25Dev
-  location: class TestBuddhistChronology_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestHours_OE25Dev.java:[41,29] error: cannot find symbol
-  symbol:   class TestHours_OE25Dev_OE25Dev
-  location: class TestHours_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestTimeOfDay_Properties_OE25Dev.java:[59,29] error: cannot find symbol
-  symbol:   class TestTimeOfDay_Properties_OE25Dev_OE25Dev
-  location: class TestTimeOfDay_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestBasePartial_OE25Dev.java:[52,29] error: cannot find symbol
-  symbol:   class TestBasePartial_OE25Dev_OE25Dev
-  location: class TestBasePartial_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestISODateTimeFormatParsing_OE25Dev.java:[43,29] error: cannot find symbol
-  symbol:   class TestISODateTimeFormatParsing_OE25Dev_OE25Dev
-  location: class TestISODateTimeFormatParsing_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestISOChronology_OE25Dev.java:[67,29] error: cannot find symbol
-  symbol:   class TestISOChronology_OE25Dev_OE25Dev
-  location: class TestISOChronology_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateMidnight_Basics_OE25Dev.java:[117,29] error: cannot find symbol
-  symbol:   class TestDateMidnight_Basics_OE25Dev_OE25Dev
-  location: class TestDateMidnight_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDays_OE25Dev.java:[41,29] error: cannot find symbol
-  symbol:   class TestDays_OE25Dev_OE25Dev
-  location: class TestDays_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestConverterManager_OE25Dev.java:[115,29] error: cannot find symbol
-  symbol:   class TestConverterManager_OE25Dev_OE25Dev
-  location: class TestConverterManager_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestInstant_Basics_OE25Dev.java:[80,29] error: cannot find symbol
-  symbol:   class TestInstant_Basics_OE25Dev_OE25Dev
-  location: class TestInstant_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestNullConverter_OE25Dev.java:[71,29] error: cannot find symbol
-  symbol:   class TestNullConverter_OE25Dev_OE25Dev
-  location: class TestNullConverter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDurationFieldType_OE25Dev.java:[41,29] error: cannot find symbol
-  symbol:   class TestDurationFieldType_OE25Dev_OE25Dev
-  location: class TestDurationFieldType_OE25Dev
-[INFO] 100 errors 
-[INFO] -------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.21.0:test (default-test) @ joda-time ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.joda.time.TestDateTimeUtils_OE25Dev
+[INFO] Tests run: 72, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.16 s - in org.joda.time.TestDateTimeUtils_OE25Dev
+[INFO] Running org.joda.time.TestMutableInterval_Basics_OE25Dev
+[INFO] Tests run: 162, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s - in org.joda.time.TestMutableInterval_Basics_OE25Dev
+[INFO] Running org.joda.time.TestDateTimeZone_OE25Dev
+[ERROR] Tests run: 257, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.442 s <<< FAILURE! - in org.joda.time.TestDateTimeZone_OE25Dev
+[ERROR] testGetName_berlin_english_2_oe(org.joda.time.TestDateTimeZone_OE25Dev)  Time elapsed: 0.006 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<Central European []Time> but was:<Central European [Standard ]Time>
+	at org.joda.time.TestDateTimeZone_OE25Dev.testGetName_berlin_english_2_oe(TestDateTimeZone_OE25Dev.java:1709)
+
+[ERROR] testGetName_berlin_german_3_oe(org.joda.time.TestDateTimeZone_OE25Dev)  Time elapsed: 0.009 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<Mitteleuropäische [Z]eit> but was:<Mitteleuropäische [Normalz]eit>
+	at org.joda.time.TestDateTimeZone_OE25Dev.testGetName_berlin_german_3_oe(TestDateTimeZone_OE25Dev.java:1744)
+
+[INFO] Running org.joda.time.TestDays_OE25Dev
+[INFO] Tests run: 116, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.joda.time.TestDays_OE25Dev
+[INFO] Running org.joda.time.TestYearMonthDay_Constructors_OE25Dev
+[INFO] Tests run: 102, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.joda.time.TestYearMonthDay_Constructors_OE25Dev
+[INFO] Running org.joda.time.TestStringConvert_OE25Dev
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in org.joda.time.TestStringConvert_OE25Dev
+[INFO] Running org.joda.time.TestPartial_Properties_OE25Dev
+[INFO] Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.joda.time.TestPartial_Properties_OE25Dev
+[INFO] Running org.joda.time.TestBaseSingleFieldPeriod_OE25Dev
+[INFO] Tests run: 71, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.joda.time.TestBaseSingleFieldPeriod_OE25Dev
+[INFO] Running org.joda.time.TestSerialization_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestSerialization_OE25Dev
+[INFO] Running org.joda.time.chrono.TestBuddhistChronology_OE25Dev
+[INFO] Tests run: 180, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.joda.time.chrono.TestBuddhistChronology_OE25Dev
+[INFO] Running org.joda.time.chrono.TestLenientChronology_OE25Dev
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.joda.time.chrono.TestLenientChronology_OE25Dev
+[INFO] Running org.joda.time.chrono.TestIslamicChronology_OE25Dev
+[INFO] Tests run: 417, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.joda.time.chrono.TestIslamicChronology_OE25Dev
+[INFO] Running org.joda.time.chrono.TestCopticChronology_OE25Dev
+[INFO] Tests run: 288, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.joda.time.chrono.TestCopticChronology_OE25Dev
+[INFO] Running org.joda.time.chrono.TestISOChronology_OE25Dev
+[INFO] Tests run: 198, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s - in org.joda.time.chrono.TestISOChronology_OE25Dev
+[INFO] Running org.joda.time.chrono.TestJulianChronology_OE25Dev
+[INFO] Tests run: 165, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.joda.time.chrono.TestJulianChronology_OE25Dev
+[INFO] Running org.joda.time.chrono.TestGJChronology_OE25Dev
+[INFO] Tests run: 192, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 s - in org.joda.time.chrono.TestGJChronology_OE25Dev
+[INFO] Running org.joda.time.chrono.TestGregorianChronology_OE25Dev
+[INFO] Tests run: 167, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.joda.time.chrono.TestGregorianChronology_OE25Dev
+[INFO] Running org.joda.time.chrono.TestEthiopicChronology_OE25Dev
+[INFO] Tests run: 288, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.joda.time.chrono.TestEthiopicChronology_OE25Dev
+[INFO] Running org.joda.time.chrono.TestGJDate_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.chrono.TestGJDate_OE25Dev
+[INFO] Running org.joda.time.TestMutableDateTime_Adds_OE25Dev
+[INFO] Tests run: 62, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.joda.time.TestMutableDateTime_Adds_OE25Dev
+[INFO] Running org.joda.time.TestDurationField_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.joda.time.TestDurationField_OE25Dev
+[INFO] Running org.joda.time.TestDuration_Basics_OE25Dev
+[INFO] Tests run: 172, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.joda.time.TestDuration_Basics_OE25Dev
+[INFO] Running org.joda.time.TestMinutes_OE25Dev
+[INFO] Tests run: 96, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.joda.time.TestMinutes_OE25Dev
+[INFO] Running org.joda.time.TestDateMidnight_Constructors_OE25Dev
+[INFO] Tests run: 90, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.joda.time.TestDateMidnight_Constructors_OE25Dev
+[INFO] Running org.joda.time.TestMonths_OE25Dev
+[INFO] Tests run: 119, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.joda.time.TestMonths_OE25Dev
+[INFO] Running org.joda.time.TestLocalDateTime_Properties_OE25Dev
+[INFO] Tests run: 192, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.joda.time.TestLocalDateTime_Properties_OE25Dev
+[INFO] Running org.joda.time.TestDateTime_Properties_OE25Dev
+[ERROR] Tests run: 579, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.056 s <<< FAILURE! - in org.joda.time.TestDateTime_Properties_OE25Dev
+[ERROR] testPropertyGetMonthOfYear_18_oe(org.joda.time.TestDateTime_Properties_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<3> but was:<4>
+	at org.joda.time.TestDateTime_Properties_OE25Dev.testPropertyGetMonthOfYear_18_oe(TestDateTime_Properties_OE25Dev.java:1899)
+
+[INFO] Running org.joda.time.TestDurationFieldType_OE25Dev
+[INFO] Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestDurationFieldType_OE25Dev
+[INFO] Running org.joda.time.TestLocalTime_Properties_OE25Dev
+[INFO] Tests run: 96, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.TestLocalTime_Properties_OE25Dev
+[INFO] Running org.joda.time.TestLocalTime_Basics_OE25Dev
+[INFO] Tests run: 200, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.joda.time.TestLocalTime_Basics_OE25Dev
+[INFO] Running org.joda.time.TestDateMidnight_Properties_OE25Dev
+[ERROR] Tests run: 251, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in org.joda.time.TestDateMidnight_Properties_OE25Dev
+[ERROR] testPropertyGetMonthOfYear_14_oe(org.joda.time.TestDateMidnight_Properties_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<3> but was:<4>
+	at org.joda.time.TestDateMidnight_Properties_OE25Dev.testPropertyGetMonthOfYear_14_oe(TestDateMidnight_Properties_OE25Dev.java:1273)
+
+[INFO] Running org.joda.time.TestInterval_Constructors_OE25Dev
+[INFO] Tests run: 138, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.joda.time.TestInterval_Constructors_OE25Dev
+[INFO] Running org.joda.time.TestPartial_Match_OE25Dev
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.joda.time.TestPartial_Match_OE25Dev
+[INFO] Running org.joda.time.convert.TestLongConverter_OE25Dev
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.convert.TestLongConverter_OE25Dev
+[INFO] Running org.joda.time.convert.TestReadableDurationConverter_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.joda.time.convert.TestReadableDurationConverter_OE25Dev
+[INFO] Running org.joda.time.convert.TestDateConverter_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.convert.TestDateConverter_OE25Dev
+[INFO] Running org.joda.time.convert.TestReadablePartialConverter_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.convert.TestReadablePartialConverter_OE25Dev
+[INFO] Running org.joda.time.convert.TestNullConverter_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.convert.TestNullConverter_OE25Dev
+[INFO] Running org.joda.time.convert.TestStringConverter_OE25Dev
+[INFO] Tests run: 171, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.joda.time.convert.TestStringConverter_OE25Dev
+[INFO] Running org.joda.time.convert.TestConverterManager_OE25Dev
+[INFO] Tests run: 104, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.joda.time.convert.TestConverterManager_OE25Dev
+[INFO] Running org.joda.time.convert.TestReadableInstantConverter_OE25Dev
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.joda.time.convert.TestReadableInstantConverter_OE25Dev
+[INFO] Running org.joda.time.convert.TestReadableIntervalConverter_OE25Dev
+[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.convert.TestReadableIntervalConverter_OE25Dev
+[INFO] Running org.joda.time.convert.TestReadablePeriodConverter_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.convert.TestReadablePeriodConverter_OE25Dev
+[INFO] Running org.joda.time.convert.TestCalendarConverter_OE25Dev
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.joda.time.convert.TestCalendarConverter_OE25Dev
+[INFO] Running org.joda.time.convert.TestConverterSet_OE25Dev
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.convert.TestConverterSet_OE25Dev
+[INFO] Running org.joda.time.TestLocalDate_Constructors_OE25Dev
+[INFO] Tests run: 168, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.joda.time.TestLocalDate_Constructors_OE25Dev
+[INFO] Running org.joda.time.TestMonthDay_Constructors_OE25Dev
+[INFO] Tests run: 77, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMonthDay_Constructors_OE25Dev
+[INFO] Running org.joda.time.TestMonthDay_Properties_OE25Dev
+[ERROR] Tests run: 80, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in org.joda.time.TestMonthDay_Properties_OE25Dev
+[ERROR] testPropertyGetMonthOfYear_10_oe(org.joda.time.TestMonthDay_Properties_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<Sep[]> but was:<Sep[t]>
+	at org.joda.time.TestMonthDay_Properties_OE25Dev.testPropertyGetMonthOfYear_10_oe(TestMonthDay_Properties_OE25Dev.java:291)
+
+[ERROR] testPropertyGetMonthOfYear_14_oe(org.joda.time.TestMonthDay_Properties_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<3> but was:<4>
+	at org.joda.time.TestMonthDay_Properties_OE25Dev.testPropertyGetMonthOfYear_14_oe(TestMonthDay_Properties_OE25Dev.java:359)
+
+[INFO] Running org.joda.time.TestMutableDateTime_Properties_OE25Dev
+[ERROR] Tests run: 334, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.019 s <<< FAILURE! - in org.joda.time.TestMutableDateTime_Properties_OE25Dev
+[ERROR] testPropertyGetMonthOfYear_12_oe(org.joda.time.TestMutableDateTime_Properties_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<3> but was:<4>
+	at org.joda.time.TestMutableDateTime_Properties_OE25Dev.testPropertyGetMonthOfYear_12_oe(TestMutableDateTime_Properties_OE25Dev.java:1179)
+
+[INFO] Running org.joda.time.TestYearMonth_Constructors_OE25Dev
+[INFO] Tests run: 75, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.joda.time.TestYearMonth_Constructors_OE25Dev
+[INFO] Running org.joda.time.TestBasePartial_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.TestBasePartial_OE25Dev
+[INFO] Running org.joda.time.TestPeriod_Constructors_OE25Dev
+[INFO] Tests run: 688, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s - in org.joda.time.TestPeriod_Constructors_OE25Dev
+[INFO] Running org.joda.time.TestMutableDateTime_Sets_OE25Dev
+[INFO] Tests run: 160, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.TestMutableDateTime_Sets_OE25Dev
+[INFO] Running org.joda.time.TestMutablePeriod_Constructors_OE25Dev
+[INFO] Tests run: 484, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.joda.time.TestMutablePeriod_Constructors_OE25Dev
+[INFO] Running org.joda.time.TestDateTimeZoneCutover_OE25Dev
+[INFO] Tests run: 280, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.joda.time.TestDateTimeZoneCutover_OE25Dev
+[INFO] Running org.joda.time.TestPartial_Basics_OE25Dev
+[ERROR] Tests run: 192, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.085 s <<< FAILURE! - in org.joda.time.TestPartial_Basics_OE25Dev
+[ERROR] testToString4_2_oe(org.joda.time.TestPartial_Basics_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<[dayOfMonth=13,[]dayOfWeek=5]> but was:<[dayOfMonth=13,[ ]dayOfWeek=5]>
+	at org.joda.time.TestPartial_Basics_OE25Dev.testToString4_2_oe(TestPartial_Basics_OE25Dev.java:2161)
+
+[ERROR] testToString5_2_oe(org.joda.time.TestPartial_Basics_OE25Dev)  Time elapsed: 0.008 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<[era=1,[]halfdayOfDay=0]> but was:<[era=1,[ ]halfdayOfDay=0]>
+	at org.joda.time.TestPartial_Basics_OE25Dev.testToString5_2_oe(TestPartial_Basics_OE25Dev.java:2174)
+
+[INFO] Running org.joda.time.TestTimeOfDay_Basics_OE25Dev
+[INFO] Tests run: 156, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.joda.time.TestTimeOfDay_Basics_OE25Dev
+[INFO] Running org.joda.time.TestYearMonthDay_Basics_OE25Dev
+[INFO] Tests run: 147, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.joda.time.TestYearMonthDay_Basics_OE25Dev
+[INFO] Running org.joda.time.TestPartial_Constructors_OE25Dev
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestPartial_Constructors_OE25Dev
+[INFO] Running org.joda.time.TestMinMaxLong_OE25Dev
+[INFO] Tests run: 113, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.joda.time.TestMinMaxLong_OE25Dev
+[INFO] Running org.joda.time.TestMutablePeriod_Updates_OE25Dev
+[INFO] Tests run: 509, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.joda.time.TestMutablePeriod_Updates_OE25Dev
+[INFO] Running org.joda.time.TestTimeOfDay_Properties_OE25Dev
+[INFO] Tests run: 100, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.TestTimeOfDay_Properties_OE25Dev
+[INFO] Running org.joda.time.TestSeconds_OE25Dev
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestSeconds_OE25Dev
+[INFO] Running org.joda.time.TestMutablePeriod_Basics_OE25Dev
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.joda.time.TestMutablePeriod_Basics_OE25Dev
+[INFO] Running org.joda.time.TestMutableInterval_Updates_OE25Dev
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.joda.time.TestMutableInterval_Updates_OE25Dev
+[INFO] Running org.joda.time.TestDateTimeComparator_OE25Dev
+[INFO] Tests run: 173, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in org.joda.time.TestDateTimeComparator_OE25Dev
+[INFO] Running org.joda.time.TestInstant_Basics_OE25Dev
+[INFO] Tests run: 189, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.joda.time.TestInstant_Basics_OE25Dev
+[INFO] Running org.joda.time.TestMutableInterval_Constructors_OE25Dev
+[INFO] Tests run: 96, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.joda.time.TestMutableInterval_Constructors_OE25Dev
+[INFO] Running org.joda.time.TestLocalDateTime_Constructors_OE25Dev
+[INFO] Tests run: 321, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.joda.time.TestLocalDateTime_Constructors_OE25Dev
+[INFO] Running org.joda.time.TestMutableDateTime_Basics_OE25Dev
+[INFO] Tests run: 273, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.joda.time.TestMutableDateTime_Basics_OE25Dev
+[INFO] Running org.joda.time.TestLocalDate_Basics_OE25Dev
+[INFO] Tests run: 217, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.joda.time.TestLocalDate_Basics_OE25Dev
+[INFO] Running org.joda.time.format.TestDateTimeParserBucket_OE25Dev
+[INFO] Tests run: 89, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.joda.time.format.TestDateTimeParserBucket_OE25Dev
+[INFO] Running org.joda.time.format.TestDateTimeFormat_OE25Dev
+[INFO] Tests run: 183, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in org.joda.time.format.TestDateTimeFormat_OE25Dev
+[INFO] Running org.joda.time.format.TestTextFields_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.format.TestTextFields_OE25Dev
+[INFO] Running org.joda.time.format.TestDateTimeFormatterBuilder_OE25Dev
+[INFO] Tests run: 139, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.joda.time.format.TestDateTimeFormatterBuilder_OE25Dev
+[INFO] Running org.joda.time.format.TestPeriodFormatter_OE25Dev
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.joda.time.format.TestPeriodFormatter_OE25Dev
+[INFO] Running org.joda.time.format.TestPeriodFormatParsing_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.joda.time.format.TestPeriodFormatParsing_OE25Dev
+[INFO] Running org.joda.time.format.TestISOPeriodFormatParsing_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.format.TestISOPeriodFormatParsing_OE25Dev
+[INFO] Running org.joda.time.format.TestISODateTimeFormat_Fields_OE25Dev
+[INFO] Tests run: 256, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.joda.time.format.TestISODateTimeFormat_Fields_OE25Dev
+[INFO] Running org.joda.time.format.TestISODateTimeFormat_OE25Dev
+[INFO] Tests run: 130, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.joda.time.format.TestISODateTimeFormat_OE25Dev
+[INFO] Running org.joda.time.format.TestISODateTimeFormatParsing_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.format.TestISODateTimeFormatParsing_OE25Dev
+[INFO] Running org.joda.time.format.TestDateTimeFormatter_OE25Dev
+[INFO] Tests run: 214, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.joda.time.format.TestDateTimeFormatter_OE25Dev
+[INFO] Running org.joda.time.format.TestDateTimeFormatStyle_OE25Dev
+[INFO] Tests run: 70, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.139 s - in org.joda.time.format.TestDateTimeFormatStyle_OE25Dev
+[INFO] Running org.joda.time.format.TestPeriodFormat_OE25Dev
+[ERROR] Tests run: 417, Failures: 19, Errors: 0, Skipped: 0, Time elapsed: 0.1 s <<< FAILURE! - in org.joda.time.format.TestPeriodFormat_OE25Dev
+[ERROR] test_wordBased_de_formatStandard_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 Tag,[5 Stunden,6 Minuten,]7 Sekunden und 8 Mil...> but was:<1 Tag,[ 5 Stunden, 6 Minuten, ]7 Sekunden und 8 Mil...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_de_formatStandard_1_oe(TestPeriodFormat_OE25Dev.java:376)
+
+[ERROR] test_wordBased_pt_formatStandard_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 dia,[5 horas,6 minutos,]7 segundos e 8 milis...> but was:<1 dia,[ 5 horas, 6 minutos, ]7 segundos e 8 milis...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_pt_formatStandard_1_oe(TestPeriodFormat_OE25Dev.java:318)
+
+[ERROR] test_wordBased_bg_formatStandard_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 ден,[5 часа,6 минути,]7 секунди и 8 милисе...> but was:<1 ден,[ 5 часа, 6 минути, ]7 секунди и 8 милисе...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_bg_formatStandard_1_oe(TestPeriodFormat_OE25Dev.java:11446)
+
+[ERROR] test_wordBased_da_formatMultiple_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<2 år,[3 måneder,4 uger,2 dage,5 timer,6 minutter,]7 sekunder og 8 mill...> but was:<2 år,[ 3 måneder, 4 uger, 2 dage, 5 timer, 6 minutter, ]7 sekunder og 8 mill...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_da_formatMultiple_1_oe(TestPeriodFormat_OE25Dev.java:434)
+
+[ERROR] test_wordBased_en_from_pl_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 day,[5 hours,6 minutes,]7 seconds and 8 mill...> but was:<1 day,[ 5 hours, 6 minutes, ]7 seconds and 8 mill...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_en_from_pl_1_oe(TestPeriodFormat_OE25Dev.java:31487)
+
+[ERROR] test_wordBased_ru_formatStandard_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 год,[2 месяца,3 недели,4 дня,5 часов,6 минут,]7 секунд и 8 миллисе...> but was:<1 год,[ 2 месяца, 3 недели, 4 дня, 5 часов, 6 минут, ]7 секунд и 8 миллисе...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_ru_formatStandard_1_oe(TestPeriodFormat_OE25Dev.java:11456)
+
+[ERROR] test_wordBased_cs_formatStandard_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 den,[5 hodin,6 minut,]7 sekund a 8 milisek...> but was:<1 den,[ 5 hodin, 6 minut, ]7 sekund a 8 milisek...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_cs_formatStandard_1_oe(TestPeriodFormat_OE25Dev.java:11451)
+
+[ERROR] test_wordBased_pl_from_fr_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 dzień,[5 godzin,6 minut,]7 sekund i 8 milisek...> but was:<1 dzień,[ 5 godzin, 6 minut, ]7 sekund i 8 milisek...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_pl_from_fr_1_oe(TestPeriodFormat_OE25Dev.java:31493)
+
+[ERROR] test_wordBased_es_formatStandard_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 día,[5 horas,6 minutos,]7 segundos y 8 milis...> but was:<1 día,[ 5 horas, 6 minutos, ]7 segundos y 8 milis...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_es_formatStandard_1_oe(TestPeriodFormat_OE25Dev.java:347)
+
+[ERROR] test_wordBased_default_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 Tag,[5 Stunden,6 Minuten,]7 Sekunden und 8 Mil...> but was:<1 Tag,[ 5 Stunden, 6 Minuten, ]7 Sekunden und 8 Mil...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_default_1_oe(TestPeriodFormat_OE25Dev.java:284)
+
+[ERROR] test_wordBased_da_formatSinglular_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0.007 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 år,[1 måned,1 uge,1 dag,1 time,1 minut,]1 sekund og 1 millis...> but was:<1 år,[ 1 måned, 1 uge, 1 dag, 1 time, 1 minut, ]1 sekund og 1 millis...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_da_formatSinglular_1_oe(TestPeriodFormat_OE25Dev.java:439)
+
+[ERROR] test_getDefault_formatStandard_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 day,[5 hours,6 minutes,]7 seconds and 8 mill...> but was:<1 day,[ 5 hours, 6 minutes, ]7 seconds and 8 mill...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_getDefault_formatStandard_1_oe(TestPeriodFormat_OE25Dev.java:246)
+
+[ERROR] test_wordBased_fr_from_de_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 jour,[5 heures,6 minutes,]7 secondes et 8 mill...> but was:<1 jour,[ 5 heures, 6 minutes, ]7 secondes et 8 mill...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_fr_from_de_1_oe(TestPeriodFormat_OE25Dev.java:31463)
+
+[ERROR] test_wordBased_fr_from_nl_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 jour,[5 heures,6 minutes,]7 secondes et 8 mill...> but was:<1 jour,[ 5 heures, 6 minutes, ]7 secondes et 8 mill...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_fr_from_nl_1_oe(TestPeriodFormat_OE25Dev.java:31469)
+
+[ERROR] test_wordBased_en_from_de_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 day,[5 hours,6 minutes,]7 seconds and 8 mill...> but was:<1 day,[ 5 hours, 6 minutes, ]7 seconds and 8 mill...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_en_from_de_1_oe(TestPeriodFormat_OE25Dev.java:31475)
+
+[ERROR] test_wordBased_nl_formatStandard_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 dag,[5 uur,6 minuten,]7 seconden en 8 mill...> but was:<1 dag,[ 5 uur, 6 minuten, ]7 seconden en 8 mill...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_nl_formatStandard_1_oe(TestPeriodFormat_OE25Dev.java:405)
+
+[ERROR] test_wordBased_pl_formatStandard_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 dzień,[5 godzin,6 minut,]7 sekund i 8 milisek...> but was:<1 dzień,[ 5 godzin, 6 minut, ]7 sekund i 8 milisek...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_pl_formatStandard_1_oe(TestPeriodFormat_OE25Dev.java:482)
+
+[ERROR] test_wordBased_fr_formatStandard_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 jour,[5 heures,6 minutes,]7 secondes et 8 mill...> but was:<1 jour,[ 5 heures, 6 minutes, ]7 secondes et 8 mill...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_fr_formatStandard_1_oe(TestPeriodFormat_OE25Dev.java:289)
+
+[ERROR] test_wordBased_en_from_nl_1_oe(org.joda.time.format.TestPeriodFormat_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 day,[5 hours,6 minutes,]7 seconds and 8 mill...> but was:<1 day,[ 5 hours, 6 minutes, ]7 seconds and 8 mill...>
+	at org.joda.time.format.TestPeriodFormat_OE25Dev.test_wordBased_en_from_nl_1_oe(TestPeriodFormat_OE25Dev.java:31481)
+
+[INFO] Running org.joda.time.format.TestPeriodFormatterBuilder_OE25Dev
+[ERROR] Tests run: 394, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.035 s <<< FAILURE! - in org.joda.time.format.TestPeriodFormatterBuilder_OE25Dev
+[ERROR] testFormatSeparatorComplex_1_oe(org.joda.time.format.TestPeriodFormatterBuilder_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1,[]5 and 6> but was:<1,[ ]5 and 6>
+	at org.joda.time.format.TestPeriodFormatterBuilder_OE25Dev.testFormatSeparatorComplex_1_oe(TestPeriodFormatterBuilder_OE25Dev.java:3652)
+
+[INFO] Running org.joda.time.format.TestISOPeriodFormat_OE25Dev
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.joda.time.format.TestISOPeriodFormat_OE25Dev
+[INFO] Running org.joda.time.TestYearMonthDay_Properties_OE25Dev
+[INFO] Tests run: 113, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.TestYearMonthDay_Properties_OE25Dev
+[INFO] Running org.joda.time.TestDateTime_Basics_OE25Dev
+[INFO] Tests run: 376, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.joda.time.TestDateTime_Basics_OE25Dev
+[INFO] Running org.joda.time.TestAbstractPartial_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestAbstractPartial_OE25Dev
+[INFO] Running org.joda.time.field.TestMillisDurationField_OE25Dev
+[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.joda.time.field.TestMillisDurationField_OE25Dev
+[INFO] Running org.joda.time.field.TestOffsetDateTimeField_OE25Dev
+[INFO] Tests run: 119, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.joda.time.field.TestOffsetDateTimeField_OE25Dev
+[INFO] Running org.joda.time.field.TestScaledDurationField_OE25Dev
+[INFO] Tests run: 64, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.joda.time.field.TestScaledDurationField_OE25Dev
+[INFO] Running org.joda.time.field.TestPreciseDurationDateTimeField_OE25Dev
+[INFO] Tests run: 119, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.joda.time.field.TestPreciseDurationDateTimeField_OE25Dev
+[INFO] Running org.joda.time.field.TestPreciseDateTimeField_OE25Dev
+[INFO] Tests run: 115, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.joda.time.field.TestPreciseDateTimeField_OE25Dev
+[INFO] Running org.joda.time.field.TestFieldUtils_OE25Dev
+[INFO] Tests run: 79, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.joda.time.field.TestFieldUtils_OE25Dev
+[INFO] Running org.joda.time.field.TestUnsupportedDateTimeField_OE25Dev
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.joda.time.field.TestUnsupportedDateTimeField_OE25Dev
+[INFO] Running org.joda.time.field.TestPreciseDurationField_OE25Dev
+[INFO] Tests run: 63, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.joda.time.field.TestPreciseDurationField_OE25Dev
+[INFO] Running org.joda.time.field.TestBaseDateTimeField_OE25Dev
+[INFO] Tests run: 108, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.joda.time.field.TestBaseDateTimeField_OE25Dev
+[INFO] Running org.joda.time.TestPeriod_Basics_OE25Dev
+[ERROR] Tests run: 342, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in org.joda.time.TestPeriod_Basics_OE25Dev
+[ERROR] testToString_PeriodFormatter_1_oe(org.joda.time.TestPeriod_Basics_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<1 year,[2 months,3 weeks,4 days,5 hours,6 minutes,]7 seconds and 8 mill...> but was:<1 year,[ 2 months, 3 weeks, 4 days, 5 hours, 6 minutes, ]7 seconds and 8 mill...>
+	at org.joda.time.TestPeriod_Basics_OE25Dev.testToString_PeriodFormatter_1_oe(TestPeriod_Basics_OE25Dev.java:1195)
+
+[INFO] Running org.joda.time.TestLocalDateTime_Basics_OE25Dev
+[INFO] Tests run: 252, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.joda.time.TestLocalDateTime_Basics_OE25Dev
+[INFO] Running org.joda.time.TestYearMonth_Properties_OE25Dev
+[INFO] Tests run: 81, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestYearMonth_Properties_OE25Dev
+[INFO] Running org.joda.time.TestLocalDate_Properties_OE25Dev
+[INFO] Tests run: 110, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.joda.time.TestLocalDate_Properties_OE25Dev
+[INFO] Running org.joda.time.TestIllegalFieldValueException_OE25Dev
+[INFO] Tests run: 160, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.joda.time.TestIllegalFieldValueException_OE25Dev
+[INFO] Running org.joda.time.TestYears_OE25Dev
+[INFO] Tests run: 81, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.joda.time.TestYears_OE25Dev
+[INFO] Running org.joda.time.TestDateMidnight_Basics_OE25Dev
+[INFO] Tests run: 291, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in org.joda.time.TestDateMidnight_Basics_OE25Dev
+[INFO] Running org.joda.time.TestInstant_Constructors_OE25Dev
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestInstant_Constructors_OE25Dev
+[INFO] Running org.joda.time.TestDuration_Constructors_OE25Dev
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.joda.time.TestDuration_Constructors_OE25Dev
+[INFO] Running org.joda.time.TestYearMonth_Basics_OE25Dev
+[INFO] Tests run: 124, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.joda.time.TestYearMonth_Basics_OE25Dev
+[INFO] Running org.joda.time.TestMonthDay_Basics_OE25Dev
+[INFO] Tests run: 148, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.joda.time.TestMonthDay_Basics_OE25Dev
+[INFO] Running org.joda.time.TestMutableDateTime_Constructors_OE25Dev
+[INFO] Tests run: 69, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMutableDateTime_Constructors_OE25Dev
+[INFO] Running org.joda.time.TestTimeOfDay_Constructors_OE25Dev
+[INFO] Tests run: 197, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.TestTimeOfDay_Constructors_OE25Dev
+[INFO] Running org.joda.time.TestPeriodType_OE25Dev
+[INFO] Tests run: 421, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.TestPeriodType_OE25Dev
+[INFO] Running org.joda.time.tz.TestZoneInfoCompiler_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.tz.TestZoneInfoCompiler_OE25Dev
+[INFO] Running org.joda.time.tz.TestCompiler_OE25Dev
+Writing zoneinfo files
+Writing ZoneInfoMap
+Writing zoneinfo files
+Writing ZoneInfoMap
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s - in org.joda.time.tz.TestCompiler_OE25Dev
+[INFO] Running org.joda.time.tz.TestCachedDateTimeZone_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.tz.TestCachedDateTimeZone_OE25Dev
+[INFO] Running org.joda.time.tz.TestFixedDateTimeZone_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.tz.TestFixedDateTimeZone_OE25Dev
+[INFO] Running org.joda.time.tz.TestUTCProvider_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.tz.TestUTCProvider_OE25Dev
+[INFO] Running org.joda.time.tz.TestBuilder_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.joda.time.tz.TestBuilder_OE25Dev
+[INFO] Running org.joda.time.TestChronology_OE25Dev
+[ERROR] Tests run: 48, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in org.joda.time.TestChronology_OE25Dev
+[ERROR] testToString_11_oe(org.joda.time.TestChronology_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<...ology[Europe/Paris],[NoLimit,]NoLimit]> but was:<...ology[Europe/Paris],[ NoLimit, ]NoLimit]>
+	at org.joda.time.TestChronology_OE25Dev.testToString_11_oe(TestChronology_OE25Dev.java:823)
+
+[ERROR] testToString_12_oe(org.joda.time.TestChronology_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<...[ISOChronology[UTC],[]Europe/Paris]> but was:<...[ISOChronology[UTC],[ ]Europe/Paris]>
+	at org.joda.time.TestChronology_OE25Dev.testToString_12_oe(TestChronology_OE25Dev.java:842)
+
+[INFO] Running org.joda.time.TestHours_OE25Dev
+[INFO] Tests run: 106, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.joda.time.TestHours_OE25Dev
+[INFO] Running org.joda.time.TestDateTimeConstants_OE25Dev
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.TestDateTimeConstants_OE25Dev
+[INFO] Running org.joda.time.TestDateTimeFieldType_OE25Dev
+[INFO] Tests run: 145, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.joda.time.TestDateTimeFieldType_OE25Dev
+[INFO] Running org.joda.time.TestLocalTime_Constructors_OE25Dev
+[INFO] Tests run: 238, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.joda.time.TestLocalTime_Constructors_OE25Dev
+[INFO] Running org.joda.time.TestWeeks_OE25Dev
+[INFO] Tests run: 95, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.joda.time.TestWeeks_OE25Dev
+[INFO] Running org.joda.time.TestInterval_Basics_OE25Dev
+[ERROR] Tests run: 438, Failures: 13, Errors: 0, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in org.joda.time.TestInterval_Basics_OE25Dev
+[ERROR] testOverlaps_RInterval_null_3_oe(org.joda.time.TestInterval_Basics_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<true> but was:<false>
+	at org.joda.time.TestInterval_Basics_OE25Dev.testOverlaps_RInterval_null_3_oe(TestInterval_Basics_OE25Dev.java:7696)
+
+[ERROR] testGap_RInterval_null_6_oe(org.joda.time.TestInterval_Basics_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<1970-01-01T01:00:00.007+01:00/1970-01-01T01:00:00.008+01:00> but was:<null>
+	at org.joda.time.TestInterval_Basics_OE25Dev.testGap_RInterval_null_6_oe(TestInterval_Basics_OE25Dev.java:8132)
+
+[ERROR] testContainsNow_2_oe(org.joda.time.TestInterval_Basics_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<true> but was:<false>
+	at org.joda.time.TestInterval_Basics_OE25Dev.testContainsNow_2_oe(TestInterval_Basics_OE25Dev.java:6687)
+
+[ERROR] testAbuts_RInterval_null_2_oe(org.joda.time.TestInterval_Basics_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<true> but was:<false>
+	at org.joda.time.TestInterval_Basics_OE25Dev.testAbuts_RInterval_null_2_oe(TestInterval_Basics_OE25Dev.java:8265)
+
+[ERROR] testAbuts_RInterval_null_5_oe(org.joda.time.TestInterval_Basics_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<true> but was:<false>
+	at org.joda.time.TestInterval_Basics_OE25Dev.testAbuts_RInterval_null_5_oe(TestInterval_Basics_OE25Dev.java:8292)
+
+[ERROR] testContains_RI_null_2_oe(org.joda.time.TestInterval_Basics_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<true> but was:<false>
+	at org.joda.time.TestInterval_Basics_OE25Dev.testContains_RI_null_2_oe(TestInterval_Basics_OE25Dev.java:6825)
+
+[ERROR] testContains_RInterval_null_2_oe(org.joda.time.TestInterval_Basics_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<true> but was:<false>
+	at org.joda.time.TestInterval_Basics_OE25Dev.testContains_RInterval_null_2_oe(TestInterval_Basics_OE25Dev.java:7251)
+
+[ERROR] test_useCase_ContainsOverlapAbutGap_zeroDuration_15_oe(org.joda.time.TestInterval_Basics_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<false> but was:<true>
+	at org.joda.time.TestInterval_Basics_OE25Dev.test_useCase_ContainsOverlapAbutGap_zeroDuration_15_oe(TestInterval_Basics_OE25Dev.java:5519)
+
+[ERROR] test_useCase_ContainsOverlapAbutGap_zeroDuration_16_oe(org.joda.time.TestInterval_Basics_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<true> but was:<false>
+	at org.joda.time.TestInterval_Basics_OE25Dev.test_useCase_ContainsOverlapAbutGap_zeroDuration_16_oe(TestInterval_Basics_OE25Dev.java:5550)
+
+[ERROR] test_useCase_ContainsOverlapAbutGap_zeroDuration_18_oe(org.joda.time.TestInterval_Basics_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<false> but was:<true>
+	at org.joda.time.TestInterval_Basics_OE25Dev.test_useCase_ContainsOverlapAbutGap_zeroDuration_18_oe(TestInterval_Basics_OE25Dev.java:5615)
+
+[ERROR] test_useCase_ContainsOverlapAbutGap_zeroDuration_19_oe(org.joda.time.TestInterval_Basics_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<true> but was:<false>
+	at org.joda.time.TestInterval_Basics_OE25Dev.test_useCase_ContainsOverlapAbutGap_zeroDuration_19_oe(TestInterval_Basics_OE25Dev.java:5649)
+
+[ERROR] test_useCase_ContainsOverlapAbutGap_zeroDuration_24_oe(org.joda.time.TestInterval_Basics_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<false> but was:<true>
+	at org.joda.time.TestInterval_Basics_OE25Dev.test_useCase_ContainsOverlapAbutGap_zeroDuration_24_oe(TestInterval_Basics_OE25Dev.java:5834)
+
+[ERROR] testOverlap_RInterval_null_3_oe(org.joda.time.TestInterval_Basics_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<1970-01-01T01:00:00.004+01:00/1970-01-01T01:00:00.004+01:00> but was:<null>
+	at org.joda.time.TestInterval_Basics_OE25Dev.testOverlap_RInterval_null_3_oe(TestInterval_Basics_OE25Dev.java:7940)
+
+[INFO] Running org.joda.time.TestDateTime_Constructors_OE25Dev
+[INFO] Tests run: 144, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.joda.time.TestDateTime_Constructors_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   TestChronology_OE25Dev.testToString_11_oe:823 expected:<...ology[Europe/Paris],[NoLimit,]NoLimit]> but was:<...ology[Europe/Paris],[ NoLimit, ]NoLimit]>
+[ERROR]   TestChronology_OE25Dev.testToString_12_oe:842 expected:<...[ISOChronology[UTC],[]Europe/Paris]> but was:<...[ISOChronology[UTC],[ ]Europe/Paris]>
+[ERROR]   TestDateMidnight_Properties_OE25Dev.testPropertyGetMonthOfYear_14_oe:1273 expected:<3> but was:<4>
+[ERROR]   TestDateTimeZone_OE25Dev.testGetName_berlin_english_2_oe:1709 expected:<Central European []Time> but was:<Central European [Standard ]Time>
+[ERROR]   TestDateTimeZone_OE25Dev.testGetName_berlin_german_3_oe:1744 expected:<Mitteleuropäische [Z]eit> but was:<Mitteleuropäische [Normalz]eit>
+[ERROR]   TestDateTime_Properties_OE25Dev.testPropertyGetMonthOfYear_18_oe:1899 expected:<3> but was:<4>
+[ERROR]   TestInterval_Basics_OE25Dev.testAbuts_RInterval_null_2_oe:8265 expected:<true> but was:<false>
+[ERROR]   TestInterval_Basics_OE25Dev.testAbuts_RInterval_null_5_oe:8292 expected:<true> but was:<false>
+[ERROR]   TestInterval_Basics_OE25Dev.testContainsNow_2_oe:6687 expected:<true> but was:<false>
+[ERROR]   TestInterval_Basics_OE25Dev.testContains_RI_null_2_oe:6825 expected:<true> but was:<false>
+[ERROR]   TestInterval_Basics_OE25Dev.testContains_RInterval_null_2_oe:7251 expected:<true> but was:<false>
+[ERROR]   TestInterval_Basics_OE25Dev.testGap_RInterval_null_6_oe:8132 expected:<1970-01-01T01:00:00.007+01:00/1970-01-01T01:00:00.008+01:00> but was:<null>
+[ERROR]   TestInterval_Basics_OE25Dev.testOverlap_RInterval_null_3_oe:7940 expected:<1970-01-01T01:00:00.004+01:00/1970-01-01T01:00:00.004+01:00> but was:<null>
+[ERROR]   TestInterval_Basics_OE25Dev.testOverlaps_RInterval_null_3_oe:7696 expected:<true> but was:<false>
+[ERROR]   TestInterval_Basics_OE25Dev.test_useCase_ContainsOverlapAbutGap_zeroDuration_15_oe:5519 expected:<false> but was:<true>
+[ERROR]   TestInterval_Basics_OE25Dev.test_useCase_ContainsOverlapAbutGap_zeroDuration_16_oe:5550 expected:<true> but was:<false>
+[ERROR]   TestInterval_Basics_OE25Dev.test_useCase_ContainsOverlapAbutGap_zeroDuration_18_oe:5615 expected:<false> but was:<true>
+[ERROR]   TestInterval_Basics_OE25Dev.test_useCase_ContainsOverlapAbutGap_zeroDuration_19_oe:5649 expected:<true> but was:<false>
+[ERROR]   TestInterval_Basics_OE25Dev.test_useCase_ContainsOverlapAbutGap_zeroDuration_24_oe:5834 expected:<false> but was:<true>
+[ERROR]   TestMonthDay_Properties_OE25Dev.testPropertyGetMonthOfYear_10_oe:291 expected:<Sep[]> but was:<Sep[t]>
+[ERROR]   TestMonthDay_Properties_OE25Dev.testPropertyGetMonthOfYear_14_oe:359 expected:<3> but was:<4>
+[ERROR]   TestMutableDateTime_Properties_OE25Dev.testPropertyGetMonthOfYear_12_oe:1179 expected:<3> but was:<4>
+[ERROR]   TestPartial_Basics_OE25Dev.testToString4_2_oe:2161 expected:<[dayOfMonth=13,[]dayOfWeek=5]> but was:<[dayOfMonth=13,[ ]dayOfWeek=5]>
+[ERROR]   TestPartial_Basics_OE25Dev.testToString5_2_oe:2174 expected:<[era=1,[]halfdayOfDay=0]> but was:<[era=1,[ ]halfdayOfDay=0]>
+[ERROR]   TestPeriod_Basics_OE25Dev.testToString_PeriodFormatter_1_oe:1195 expected:<1 year,[2 months,3 weeks,4 days,5 hours,6 minutes,]7 seconds and 8 mill...> but was:<1 year,[ 2 months, 3 weeks, 4 days, 5 hours, 6 minutes, ]7 seconds and 8 mill...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_getDefault_formatStandard_1_oe:246 expected:<1 day,[5 hours,6 minutes,]7 seconds and 8 mill...> but was:<1 day,[ 5 hours, 6 minutes, ]7 seconds and 8 mill...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_bg_formatStandard_1_oe:11446 expected:<1 ден,[5 часа,6 минути,]7 секунди и 8 милисе...> but was:<1 ден,[ 5 часа, 6 минути, ]7 секунди и 8 милисе...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_cs_formatStandard_1_oe:11451 expected:<1 den,[5 hodin,6 minut,]7 sekund a 8 milisek...> but was:<1 den,[ 5 hodin, 6 minut, ]7 sekund a 8 milisek...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_da_formatMultiple_1_oe:434 expected:<2 år,[3 måneder,4 uger,2 dage,5 timer,6 minutter,]7 sekunder og 8 mill...> but was:<2 år,[ 3 måneder, 4 uger, 2 dage, 5 timer, 6 minutter, ]7 sekunder og 8 mill...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_da_formatSinglular_1_oe:439 expected:<1 år,[1 måned,1 uge,1 dag,1 time,1 minut,]1 sekund og 1 millis...> but was:<1 år,[ 1 måned, 1 uge, 1 dag, 1 time, 1 minut, ]1 sekund og 1 millis...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_de_formatStandard_1_oe:376 expected:<1 Tag,[5 Stunden,6 Minuten,]7 Sekunden und 8 Mil...> but was:<1 Tag,[ 5 Stunden, 6 Minuten, ]7 Sekunden und 8 Mil...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_default_1_oe:284 expected:<1 Tag,[5 Stunden,6 Minuten,]7 Sekunden und 8 Mil...> but was:<1 Tag,[ 5 Stunden, 6 Minuten, ]7 Sekunden und 8 Mil...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_en_from_de_1_oe:31475 expected:<1 day,[5 hours,6 minutes,]7 seconds and 8 mill...> but was:<1 day,[ 5 hours, 6 minutes, ]7 seconds and 8 mill...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_en_from_nl_1_oe:31481 expected:<1 day,[5 hours,6 minutes,]7 seconds and 8 mill...> but was:<1 day,[ 5 hours, 6 minutes, ]7 seconds and 8 mill...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_en_from_pl_1_oe:31487 expected:<1 day,[5 hours,6 minutes,]7 seconds and 8 mill...> but was:<1 day,[ 5 hours, 6 minutes, ]7 seconds and 8 mill...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_es_formatStandard_1_oe:347 expected:<1 día,[5 horas,6 minutos,]7 segundos y 8 milis...> but was:<1 día,[ 5 horas, 6 minutos, ]7 segundos y 8 milis...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_fr_formatStandard_1_oe:289 expected:<1 jour,[5 heures,6 minutes,]7 secondes et 8 mill...> but was:<1 jour,[ 5 heures, 6 minutes, ]7 secondes et 8 mill...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_fr_from_de_1_oe:31463 expected:<1 jour,[5 heures,6 minutes,]7 secondes et 8 mill...> but was:<1 jour,[ 5 heures, 6 minutes, ]7 secondes et 8 mill...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_fr_from_nl_1_oe:31469 expected:<1 jour,[5 heures,6 minutes,]7 secondes et 8 mill...> but was:<1 jour,[ 5 heures, 6 minutes, ]7 secondes et 8 mill...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_nl_formatStandard_1_oe:405 expected:<1 dag,[5 uur,6 minuten,]7 seconden en 8 mill...> but was:<1 dag,[ 5 uur, 6 minuten, ]7 seconden en 8 mill...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_pl_formatStandard_1_oe:482 expected:<1 dzień,[5 godzin,6 minut,]7 sekund i 8 milisek...> but was:<1 dzień,[ 5 godzin, 6 minut, ]7 sekund i 8 milisek...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_pl_from_fr_1_oe:31493 expected:<1 dzień,[5 godzin,6 minut,]7 sekund i 8 milisek...> but was:<1 dzień,[ 5 godzin, 6 minut, ]7 sekund i 8 milisek...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_pt_formatStandard_1_oe:318 expected:<1 dia,[5 horas,6 minutos,]7 segundos e 8 milis...> but was:<1 dia,[ 5 horas, 6 minutos, ]7 segundos e 8 milis...>
+[ERROR]   TestPeriodFormat_OE25Dev.test_wordBased_ru_formatStandard_1_oe:11456 expected:<1 год,[2 месяца,3 недели,4 дня,5 часов,6 минут,]7 секунд и 8 миллисе...> but was:<1 год,[ 2 месяца, 3 недели, 4 дня, 5 часов, 6 минут, ]7 секунд и 8 миллисе...>
+[ERROR]   TestPeriodFormatterBuilder_OE25Dev.testFormatSeparatorComplex_1_oe:3652 expected:<1,[]5 and 6> but was:<1,[ ]5 and 6>
+[INFO] 
+[ERROR] Tests run: 17387, Failures: 45, Errors: 0, Skipped: 0
+[INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  16.940 s
-[INFO] Finished at: 2026-02-06T08:42:21-06:00
+[INFO] Total time:  18.823 s
+[INFO] Finished at: 2026-02-06T11:43:17-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project joda-time: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestEthiopicChronology_OE25Dev.java:[70,29] error: cannot find symbol
-[ERROR]   symbol:   class TestEthiopicChronology_OE25Dev_OE25Dev
-[ERROR]   location: class TestEthiopicChronology_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestPeriod_Basics_OE25Dev.java:[80,29] error: cannot find symbol
-[ERROR]   symbol:   class TestPeriod_Basics_OE25Dev_OE25Dev
-[ERROR]   location: class TestPeriod_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutablePeriod_Updates_OE25Dev.java:[72,29] error: cannot find symbol
-[ERROR]   symbol:   class TestMutablePeriod_Updates_OE25Dev_OE25Dev
-[ERROR]   location: class TestMutablePeriod_Updates_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMinMaxLong_OE25Dev.java:[44,29] error: cannot find symbol
-[ERROR]   symbol:   class TestMinMaxLong_OE25Dev_OE25Dev
-[ERROR]   location: class TestMinMaxLong_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutableDateTime_Basics_OE25Dev.java:[86,29] error: cannot find symbol
-[ERROR]   symbol:   class TestMutableDateTime_Basics_OE25Dev_OE25Dev
-[ERROR]   location: class TestMutableDateTime_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestReadableInstantConverter_OE25Dev.java:[56,29] error: cannot find symbol
-[ERROR]   symbol:   class TestReadableInstantConverter_OE25Dev_OE25Dev
-[ERROR]   location: class TestReadableInstantConverter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestDateTimeFormatter_OE25Dev.java:[76,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDateTimeFormatter_OE25Dev_OE25Dev
-[ERROR]   location: class TestDateTimeFormatter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/tz/TestCachedDateTimeZone_OE25Dev.java:[40,29] error: cannot find symbol
-[ERROR]   symbol:   class TestCachedDateTimeZone_OE25Dev_OE25Dev
-[ERROR]   location: class TestCachedDateTimeZone_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestBaseDateTimeField_OE25Dev.java:[45,29] error: cannot find symbol
-[ERROR]   symbol:   class TestBaseDateTimeField_OE25Dev_OE25Dev
-[ERROR]   location: class TestBaseDateTimeField_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/tz/TestCompiler_OE25Dev.java:[45,29] error: cannot find symbol
-[ERROR]   symbol:   class TestCompiler_OE25Dev_OE25Dev
-[ERROR]   location: class TestCompiler_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestPartial_Match_OE25Dev.java:[75,29] error: cannot find symbol
-[ERROR]   symbol:   class TestPartial_Match_OE25Dev_OE25Dev
-[ERROR]   location: class TestPartial_Match_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestISODateTimeFormat_OE25Dev.java:[60,29] error: cannot find symbol
-[ERROR]   symbol:   class TestISODateTimeFormat_OE25Dev_OE25Dev
-[ERROR]   location: class TestISODateTimeFormat_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDuration_Constructors_OE25Dev.java:[70,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDuration_Constructors_OE25Dev_OE25Dev
-[ERROR]   location: class TestDuration_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestGregorianChronology_OE25Dev.java:[61,29] error: cannot find symbol
-[ERROR]   symbol:   class TestGregorianChronology_OE25Dev_OE25Dev
-[ERROR]   location: class TestGregorianChronology_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestPreciseDateTimeField_OE25Dev.java:[42,29] error: cannot find symbol
-[ERROR]   symbol:   class TestPreciseDateTimeField_OE25Dev_OE25Dev
-[ERROR]   location: class TestPreciseDateTimeField_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateMidnight_Constructors_OE25Dev.java:[92,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDateMidnight_Constructors_OE25Dev_OE25Dev
-[ERROR]   location: class TestDateMidnight_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestDateTimeFormatStyle_OE25Dev.java:[64,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDateTimeFormatStyle_OE25Dev_OE25Dev
-[ERROR]   location: class TestDateTimeFormatStyle_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMonthDay_Properties_OE25Dev.java:[56,29] error: cannot find symbol
-[ERROR]   symbol:   class TestMonthDay_Properties_OE25Dev_OE25Dev
-[ERROR]   location: class TestMonthDay_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestGJDate_OE25Dev.java:[35,29] error: cannot find symbol
-[ERROR]   symbol:   class TestGJDate_OE25Dev_OE25Dev
-[ERROR]   location: class TestGJDate_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestYears_OE25Dev.java:[41,29] error: cannot find symbol
-[ERROR]   symbol:   class TestYears_OE25Dev_OE25Dev
-[ERROR]   location: class TestYears_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTimeComparator_OE25Dev.java:[49,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDateTimeComparator_OE25Dev_OE25Dev
-[ERROR]   location: class TestDateTimeComparator_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutableInterval_Updates_OE25Dev.java:[73,29] error: cannot find symbol
-[ERROR]   symbol:   class TestMutableInterval_Updates_OE25Dev_OE25Dev
-[ERROR]   location: class TestMutableInterval_Updates_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestPeriodFormatterBuilder_OE25Dev.java:[69,29] error: cannot find symbol
-[ERROR]   symbol:   class TestPeriodFormatterBuilder_OE25Dev_OE25Dev
-[ERROR]   location: class TestPeriodFormatterBuilder_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestPreciseDurationDateTimeField_OE25Dev.java:[42,29] error: cannot find symbol
-[ERROR]   symbol:   class TestPreciseDurationDateTimeField_OE25Dev_OE25Dev
-[ERROR]   location: class TestPreciseDurationDateTimeField_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestYearMonthDay_Basics_OE25Dev.java:[64,29] error: cannot find symbol
-[ERROR]   symbol:   class TestYearMonthDay_Basics_OE25Dev_OE25Dev
-[ERROR]   location: class TestYearMonthDay_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTimeUtils_OE25Dev.java:[130,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDateTimeUtils_OE25Dev_OE25Dev
-[ERROR]   location: class TestDateTimeUtils_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestReadableDurationConverter_OE25Dev.java:[55,29] error: cannot find symbol
-[ERROR]   symbol:   class TestReadableDurationConverter_OE25Dev_OE25Dev
-[ERROR]   location: class TestReadableDurationConverter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutablePeriod_Basics_OE25Dev.java:[76,29] error: cannot find symbol
-[ERROR]   symbol:   class TestMutablePeriod_Basics_OE25Dev_OE25Dev
-[ERROR]   location: class TestMutablePeriod_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestDateTimeFormat_OE25Dev.java:[65,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDateTimeFormat_OE25Dev_OE25Dev
-[ERROR]   location: class TestDateTimeFormat_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalTime_Constructors_OE25Dev.java:[77,29] error: cannot find symbol
-[ERROR]   symbol:   class TestLocalTime_Constructors_OE25Dev_OE25Dev
-[ERROR]   location: class TestLocalTime_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutableDateTime_Properties_OE25Dev.java:[69,29] error: cannot find symbol
-[ERROR]   symbol:   class TestMutableDateTime_Properties_OE25Dev_OE25Dev
-[ERROR]   location: class TestMutableDateTime_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalDate_Basics_OE25Dev.java:[97,29] error: cannot find symbol
-[ERROR]   symbol:   class TestLocalDate_Basics_OE25Dev_OE25Dev
-[ERROR]   location: class TestLocalDate_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/tz/TestUTCProvider_OE25Dev.java:[41,29] error: cannot find symbol
-[ERROR]   symbol:   class TestUTCProvider_OE25Dev_OE25Dev
-[ERROR]   location: class TestUTCProvider_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestYearMonth_Basics_OE25Dev.java:[68,29] error: cannot find symbol
-[ERROR]   symbol:   class TestYearMonth_Basics_OE25Dev_OE25Dev
-[ERROR]   location: class TestYearMonth_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestDateTimeParserBucket_OE25Dev.java:[51,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDateTimeParserBucket_OE25Dev_OE25Dev
-[ERROR]   location: class TestDateTimeParserBucket_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalDateTime_Properties_OE25Dev.java:[64,29] error: cannot find symbol
-[ERROR]   symbol:   class TestLocalDateTime_Properties_OE25Dev_OE25Dev
-[ERROR]   location: class TestLocalDateTime_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestDateTimeFormatterBuilder_OE25Dev.java:[54,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDateTimeFormatterBuilder_OE25Dev_OE25Dev
-[ERROR]   location: class TestDateTimeFormatterBuilder_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestPeriodFormatParsing_OE25Dev.java:[64,29] error: cannot find symbol
-[ERROR]   symbol:   class TestPeriodFormatParsing_OE25Dev_OE25Dev
-[ERROR]   location: class TestPeriodFormatParsing_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestPartial_Properties_OE25Dev.java:[67,29] error: cannot find symbol
-[ERROR]   symbol:   class TestPartial_Properties_OE25Dev_OE25Dev
-[ERROR]   location: class TestPartial_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestPartial_Constructors_OE25Dev.java:[52,29] error: cannot find symbol
-[ERROR]   symbol:   class TestPartial_Constructors_OE25Dev_OE25Dev
-[ERROR]   location: class TestPartial_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestYearMonth_Properties_OE25Dev.java:[59,29] error: cannot find symbol
-[ERROR]   symbol:   class TestYearMonth_Properties_OE25Dev_OE25Dev
-[ERROR]   location: class TestYearMonth_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalDateTime_Constructors_OE25Dev.java:[74,29] error: cannot find symbol
-[ERROR]   symbol:   class TestLocalDateTime_Constructors_OE25Dev_OE25Dev
-[ERROR]   location: class TestLocalDateTime_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutableDateTime_Constructors_OE25Dev.java:[76,29] error: cannot find symbol
-[ERROR]   symbol:   class TestMutableDateTime_Constructors_OE25Dev_OE25Dev
-[ERROR]   location: class TestMutableDateTime_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTimeConstants_OE25Dev.java:[40,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDateTimeConstants_OE25Dev_OE25Dev
-[ERROR]   location: class TestDateTimeConstants_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestLenientChronology_OE25Dev.java:[37,29] error: cannot find symbol
-[ERROR]   symbol:   class TestLenientChronology_OE25Dev_OE25Dev
-[ERROR]   location: class TestLenientChronology_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestSerialization_OE25Dev.java:[93,29] error: cannot find symbol
-[ERROR]   symbol:   class TestSerialization_OE25Dev_OE25Dev
-[ERROR]   location: class TestSerialization_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestTextFields_OE25Dev.java:[67,29] error: cannot find symbol
-[ERROR]   symbol:   class TestTextFields_OE25Dev_OE25Dev
-[ERROR]   location: class TestTextFields_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestWeeks_OE25Dev.java:[41,29] error: cannot find symbol
-[ERROR]   symbol:   class TestWeeks_OE25Dev_OE25Dev
-[ERROR]   location: class TestWeeks_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestReadableIntervalConverter_OE25Dev.java:[58,29] error: cannot find symbol
-[ERROR]   symbol:   class TestReadableIntervalConverter_OE25Dev_OE25Dev
-[ERROR]   location: class TestReadableIntervalConverter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestCopticChronology_OE25Dev.java:[70,29] error: cannot find symbol
-[ERROR]   symbol:   class TestCopticChronology_OE25Dev_OE25Dev
-[ERROR]   location: class TestCopticChronology_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutableDateTime_Sets_OE25Dev.java:[74,29] error: cannot find symbol
-[ERROR]   symbol:   class TestMutableDateTime_Sets_OE25Dev_OE25Dev
-[ERROR]   location: class TestMutableDateTime_Sets_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTime_Properties_OE25Dev.java:[76,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDateTime_Properties_OE25Dev_OE25Dev
-[ERROR]   location: class TestDateTime_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDurationField_OE25Dev.java:[35,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDurationField_OE25Dev_OE25Dev
-[ERROR]   location: class TestDurationField_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestGJChronology_OE25Dev.java:[67,29] error: cannot find symbol
-[ERROR]   symbol:   class TestGJChronology_OE25Dev_OE25Dev
-[ERROR]   location: class TestGJChronology_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestReadablePeriodConverter_OE25Dev.java:[54,29] error: cannot find symbol
-[ERROR]   symbol:   class TestReadablePeriodConverter_OE25Dev_OE25Dev
-[ERROR]   location: class TestReadablePeriodConverter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestPeriod_Constructors_OE25Dev.java:[61,29] error: cannot find symbol
-[ERROR]   symbol:   class TestPeriod_Constructors_OE25Dev_OE25Dev
-[ERROR]   location: class TestPeriod_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestPartial_Basics_OE25Dev.java:[71,29] error: cannot find symbol
-[ERROR]   symbol:   class TestPartial_Basics_OE25Dev_OE25Dev
-[ERROR]   location: class TestPartial_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestFieldUtils_OE25Dev.java:[34,29] error: cannot find symbol
-[ERROR]   symbol:   class TestFieldUtils_OE25Dev_OE25Dev
-[ERROR]   location: class TestFieldUtils_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestAbstractPartial_OE25Dev.java:[55,29] error: cannot find symbol
-[ERROR]   symbol:   class TestAbstractPartial_OE25Dev_OE25Dev
-[ERROR]   location: class TestAbstractPartial_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMonthDay_Constructors_OE25Dev.java:[61,29] error: cannot find symbol
-[ERROR]   symbol:   class TestMonthDay_Constructors_OE25Dev_OE25Dev
-[ERROR]   location: class TestMonthDay_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestOffsetDateTimeField_OE25Dev.java:[42,29] error: cannot find symbol
-[ERROR]   symbol:   class TestOffsetDateTimeField_OE25Dev_OE25Dev
-[ERROR]   location: class TestOffsetDateTimeField_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutableInterval_Basics_OE25Dev.java:[80,29] error: cannot find symbol
-[ERROR]   symbol:   class TestMutableInterval_Basics_OE25Dev_OE25Dev
-[ERROR]   location: class TestMutableInterval_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestCalendarConverter_OE25Dev.java:[56,29] error: cannot find symbol
-[ERROR]   symbol:   class TestCalendarConverter_OE25Dev_OE25Dev
-[ERROR]   location: class TestCalendarConverter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestStringConvert_OE25Dev.java:[38,29] error: cannot find symbol
-[ERROR]   symbol:   class TestStringConvert_OE25Dev_OE25Dev
-[ERROR]   location: class TestStringConvert_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalTime_Properties_OE25Dev.java:[58,29] error: cannot find symbol
-[ERROR]   symbol:   class TestLocalTime_Properties_OE25Dev_OE25Dev
-[ERROR]   location: class TestLocalTime_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestReadablePartialConverter_OE25Dev.java:[58,29] error: cannot find symbol
-[ERROR]   symbol:   class TestReadablePartialConverter_OE25Dev_OE25Dev
-[ERROR]   location: class TestReadablePartialConverter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMinutes_OE25Dev.java:[41,29] error: cannot find symbol
-[ERROR]   symbol:   class TestMinutes_OE25Dev_OE25Dev
-[ERROR]   location: class TestMinutes_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMonthDay_Basics_OE25Dev.java:[66,29] error: cannot find symbol
-[ERROR]   symbol:   class TestMonthDay_Basics_OE25Dev_OE25Dev
-[ERROR]   location: class TestMonthDay_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestTimeOfDay_Basics_OE25Dev.java:[75,29] error: cannot find symbol
-[ERROR]   symbol:   class TestTimeOfDay_Basics_OE25Dev_OE25Dev
-[ERROR]   location: class TestTimeOfDay_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestUnsupportedDateTimeField_OE25Dev.java:[44,29] error: cannot find symbol
-[ERROR]   symbol:   class TestUnsupportedDateTimeField_OE25Dev_OE25Dev
-[ERROR]   location: class TestUnsupportedDateTimeField_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTimeFieldType_OE25Dev.java:[41,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDateTimeFieldType_OE25Dev_OE25Dev
-[ERROR]   location: class TestDateTimeFieldType_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestSeconds_OE25Dev.java:[41,29] error: cannot find symbol
-[ERROR]   symbol:   class TestSeconds_OE25Dev_OE25Dev
-[ERROR]   location: class TestSeconds_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMonths_OE25Dev.java:[41,29] error: cannot find symbol
-[ERROR]   symbol:   class TestMonths_OE25Dev_OE25Dev
-[ERROR]   location: class TestMonths_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalTime_Basics_OE25Dev.java:[76,29] error: cannot find symbol
-[ERROR]   symbol:   class TestLocalTime_Basics_OE25Dev_OE25Dev
-[ERROR]   location: class TestLocalTime_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutablePeriod_Constructors_OE25Dev.java:[73,29] error: cannot find symbol
-[ERROR]   symbol:   class TestMutablePeriod_Constructors_OE25Dev_OE25Dev
-[ERROR]   location: class TestMutablePeriod_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestPeriodFormat_OE25Dev.java:[52,29] error: cannot find symbol
-[ERROR]   symbol:   class TestPeriodFormat_OE25Dev_OE25Dev
-[ERROR]   location: class TestPeriodFormat_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestInterval_Basics_OE25Dev.java:[85,29] error: cannot find symbol
-[ERROR]   symbol:   class TestInterval_Basics_OE25Dev_OE25Dev
-[ERROR]   location: class TestInterval_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateMidnight_Properties_OE25Dev.java:[77,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDateMidnight_Properties_OE25Dev_OE25Dev
-[ERROR]   location: class TestDateMidnight_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTime_Constructors_OE25Dev.java:[76,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDateTime_Constructors_OE25Dev_OE25Dev
-[ERROR]   location: class TestDateTime_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestDateConverter_OE25Dev.java:[52,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDateConverter_OE25Dev_OE25Dev
-[ERROR]   location: class TestDateConverter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestYearMonthDay_Constructors_OE25Dev.java:[62,29] error: cannot find symbol
-[ERROR]   symbol:   class TestYearMonthDay_Constructors_OE25Dev_OE25Dev
-[ERROR]   location: class TestYearMonthDay_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestChronology_OE25Dev.java:[83,29] error: cannot find symbol
-[ERROR]   symbol:   class TestChronology_OE25Dev_OE25Dev
-[ERROR]   location: class TestChronology_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestInstant_Constructors_OE25Dev.java:[64,29] error: cannot find symbol
-[ERROR]   symbol:   class TestInstant_Constructors_OE25Dev_OE25Dev
-[ERROR]   location: class TestInstant_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/tz/TestFixedDateTimeZone_OE25Dev.java:[38,29] error: cannot find symbol
-[ERROR]   symbol:   class TestFixedDateTimeZone_OE25Dev_OE25Dev
-[ERROR]   location: class TestFixedDateTimeZone_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestIllegalFieldValueException_OE25Dev.java:[38,29] error: cannot find symbol
-[ERROR]   symbol:   class TestIllegalFieldValueException_OE25Dev_OE25Dev
-[ERROR]   location: class TestIllegalFieldValueException_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalDateTime_Basics_OE25Dev.java:[92,29] error: cannot find symbol
-[ERROR]   symbol:   class TestLocalDateTime_Basics_OE25Dev_OE25Dev
-[ERROR]   location: class TestLocalDateTime_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutableInterval_Constructors_OE25Dev.java:[76,29] error: cannot find symbol
-[ERROR]   symbol:   class TestMutableInterval_Constructors_OE25Dev_OE25Dev
-[ERROR]   location: class TestMutableInterval_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalDate_Constructors_OE25Dev.java:[66,29] error: cannot find symbol
-[ERROR]   symbol:   class TestLocalDate_Constructors_OE25Dev_OE25Dev
-[ERROR]   location: class TestLocalDate_Constructors_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestBuddhistChronology_OE25Dev.java:[67,29] error: cannot find symbol
-[ERROR]   symbol:   class TestBuddhistChronology_OE25Dev_OE25Dev
-[ERROR]   location: class TestBuddhistChronology_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestHours_OE25Dev.java:[41,29] error: cannot find symbol
-[ERROR]   symbol:   class TestHours_OE25Dev_OE25Dev
-[ERROR]   location: class TestHours_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestTimeOfDay_Properties_OE25Dev.java:[59,29] error: cannot find symbol
-[ERROR]   symbol:   class TestTimeOfDay_Properties_OE25Dev_OE25Dev
-[ERROR]   location: class TestTimeOfDay_Properties_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestBasePartial_OE25Dev.java:[52,29] error: cannot find symbol
-[ERROR]   symbol:   class TestBasePartial_OE25Dev_OE25Dev
-[ERROR]   location: class TestBasePartial_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestISODateTimeFormatParsing_OE25Dev.java:[43,29] error: cannot find symbol
-[ERROR]   symbol:   class TestISODateTimeFormatParsing_OE25Dev_OE25Dev
-[ERROR]   location: class TestISODateTimeFormatParsing_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestISOChronology_OE25Dev.java:[67,29] error: cannot find symbol
-[ERROR]   symbol:   class TestISOChronology_OE25Dev_OE25Dev
-[ERROR]   location: class TestISOChronology_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateMidnight_Basics_OE25Dev.java:[117,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDateMidnight_Basics_OE25Dev_OE25Dev
-[ERROR]   location: class TestDateMidnight_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDays_OE25Dev.java:[41,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDays_OE25Dev_OE25Dev
-[ERROR]   location: class TestDays_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestConverterManager_OE25Dev.java:[115,29] error: cannot find symbol
-[ERROR]   symbol:   class TestConverterManager_OE25Dev_OE25Dev
-[ERROR]   location: class TestConverterManager_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestInstant_Basics_OE25Dev.java:[80,29] error: cannot find symbol
-[ERROR]   symbol:   class TestInstant_Basics_OE25Dev_OE25Dev
-[ERROR]   location: class TestInstant_Basics_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestNullConverter_OE25Dev.java:[71,29] error: cannot find symbol
-[ERROR]   symbol:   class TestNullConverter_OE25Dev_OE25Dev
-[ERROR]   location: class TestNullConverter_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDurationFieldType_OE25Dev.java:[41,29] error: cannot find symbol
-[ERROR]   symbol:   class TestDurationFieldType_OE25Dev_OE25Dev
-[ERROR]   location: class TestDurationFieldType_OE25Dev
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.21.0:test (default-test) on project joda-time: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.

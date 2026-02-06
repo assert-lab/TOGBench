@@ -34,7 +34,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-complex ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex
-[INFO] Storing buildNumber: 504c4e02269b05d34548a85b1573338184bb5848 at timestamp: 1770388952201
+[INFO] Storing buildNumber: 81e83cc892f7970d0aa3c638bf29a38d05c4eb42 at timestamp: 1770399802131
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -74,11 +74,11 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.complex.ComplexTest_OE25Dev
-[INFO] Tests run: 418, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.441 s - in org.apache.commons.numbers.complex.ComplexTest_OE25Dev
+[INFO] Tests run: 418, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.357 s - in org.apache.commons.numbers.complex.ComplexTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.complex.CStandardTest_OE25Dev
 [INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.complex.CStandardTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -87,6 +87,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  10.873 s
-[INFO] Finished at: 2026-02-06T08:42:40-06:00
+[INFO] Total time:  10.829 s
+[INFO] Finished at: 2026-02-06T11:43:30-06:00
 [INFO] ------------------------------------------------------------------------

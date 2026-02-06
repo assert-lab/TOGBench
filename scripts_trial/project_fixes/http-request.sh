@@ -124,9 +124,9 @@ DELETE_METHODS = {
     "uploadProgressSendInputStream_3_oe",
     "uploadProgressSendByteArray_3_oe",
     "uploadProgressSendReader_3_oe",
-}
+# }
 
-SEMICOLON_FIX_METHODS = {
+# SEMICOLON_FIX_METHODS = {
     "receiveAppendable_1_oe",
     "postMultipart_1_oe",
     "receiveWriter_1_oe",
@@ -298,11 +298,11 @@ def process_dataset(dataset_dir: Path):
         elif mname == "sendErrorCloseStream_2_oe":
             row["test_prefix"] = REPL_SEND_ERROR_CLOSE_STREAM_2
             replaced += 1
-        elif mname in SEMICOLON_FIX_METHODS:
-            newp = add_semicolon_second_last_nonempty_line(prefix)
-            if newp != prefix:
-                row["test_prefix"] = newp
-                semicolon_fixed += 1
+        # elif mname in SEMICOLON_FIX_METHODS:
+        #     newp = add_semicolon_second_last_nonempty_line(prefix)
+        #     if newp != prefix:
+        #         row["test_prefix"] = newp
+        #         semicolon_fixed += 1
 
         kept_inputs.append(row)
         mr = meta_by_id.get(tid)

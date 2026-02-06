@@ -55,7 +55,7 @@ public class TestLocalTime_Properties_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestLocalTime_Properties_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestLocalTime_Properties_OE25Dev.class);
     }
 
     public TestLocalTime_Properties_OE25Dev(String name) {

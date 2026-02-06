@@ -34,7 +34,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-io-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core
-[INFO] Storing buildNumber: 504c4e02269b05d34548a85b1573338184bb5848 at timestamp: 1770388870896
+[INFO] Storing buildNumber: 81e83cc892f7970d0aa3c638bf29a38d05c4eb42 at timestamp: 1770399717185
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -81,8 +81,8 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.479 s
-[INFO] Finished at: 2026-02-06T08:41:19-06:00
+[INFO] Total time:  13.857 s
+[INFO] Finished at: 2026-02-06T11:42:07-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-io-core: Compilation failure: Compilation failure: 
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/GeometryIOUtilsTest_OE25Dev.java:[620,61] cannot find symbol

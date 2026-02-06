@@ -286,6 +286,30 @@ vali_53_9,"   public void testManualObject_9_oe() {
    }
    }
 ",ValidatorTest::testManualObject_9_oe
+vali_60_3,"   public void testIsValid_3_oe(Object[] testObjects, int options) {
+      UrlValidator urlVal = new UrlValidator(null, options);
+      // removed other assertion
+      // removed other assertion
+      int statusPerLine = 60;
+      int printed = 0;
+      if (printIndex)  {
+         statusPerLine = 6;
+      }
+      do {
+          StringBuilder testBuffer = new StringBuilder();
+         boolean expected = true;
+         for (int testPartsIndexIndex = 0; testPartsIndexIndex < testPartsIndex.length; ++testPartsIndexIndex) {
+            int index = testPartsIndex[testPartsIndexIndex];
+            ResultPair[] part = (ResultPair[]) testObjects[testPartsIndexIndex];
+            testBuffer.append(part[index].item);
+            expected &= part[index].valid;
+         }
+         String url = testBuffer.toString();
+         boolean result = urlVal.isValid(url);
+         assertEquals(url, expected, result);
+   }
+   }
+",UrlTest::testIsValid_3_oe
 vali_65_1,"    public void testNullInputStream_1_oe() throws Exception {
 
         try {
@@ -294,6 +318,30 @@ vali_65_1,"    public void testNullInputStream_1_oe() throws Exception {
     }
     }
 ",ValidatorResourcesTest::testNullInputStream_1_oe
+vali_67_3,"   public void testIsValid_3_oe(Object[] testObjects, long options) {
+      UrlValidator urlVal = new UrlValidator(null, null, options);
+      // removed other assertion
+      // removed other assertion
+      int statusPerLine = 60;
+      int printed = 0;
+      if (printIndex)  {
+         statusPerLine = 6;
+      }
+      do {
+          StringBuilder testBuffer = new StringBuilder();
+         boolean expected = true;
+         for (int testPartsIndexIndex = 0; testPartsIndexIndex < testPartsIndex.length; ++testPartsIndexIndex) {
+            int index = testPartsIndex[testPartsIndexIndex];
+            ResultPair[] part = (ResultPair[]) testObjects[testPartsIndexIndex];
+            testBuffer.append(part[index].item);
+            expected &= part[index].valid;
+         }
+         String url = testBuffer.toString();
+         boolean result = urlVal.isValid(url);
+         assertEquals(url, expected, result);
+   }
+   }
+",UrlValidatorTest::testIsValid_3_oe
 vali_97_36,"    public void testCompare_36_oe() {
         int sameTime = 124522;
         int testDate = 20050823;

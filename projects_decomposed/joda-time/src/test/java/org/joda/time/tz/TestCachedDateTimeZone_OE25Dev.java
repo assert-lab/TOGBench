@@ -37,7 +37,7 @@ public class TestCachedDateTimeZone_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestCachedDateTimeZone_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestCachedDateTimeZone_OE25Dev.class);
     }
 
     private DateTimeZone originalDateTimeZone = null;

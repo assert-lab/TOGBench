@@ -61,7 +61,7 @@ public class TestISOPeriodFormatParsing_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestISOPeriodFormatParsing_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestISOPeriodFormatParsing_OE25Dev.class);
     }
 
     public TestISOPeriodFormatParsing_OE25Dev(String name) {

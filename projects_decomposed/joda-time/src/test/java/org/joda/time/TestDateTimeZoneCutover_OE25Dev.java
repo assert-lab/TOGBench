@@ -33,7 +33,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestDateTimeZoneCutover_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestDateTimeZoneCutover_OE25Dev.class);
     }
 
     public TestDateTimeZoneCutover_OE25Dev(String name) {

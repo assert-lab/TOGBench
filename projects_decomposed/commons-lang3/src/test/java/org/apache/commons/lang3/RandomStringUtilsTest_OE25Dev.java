@@ -1886,23 +1886,6 @@ public class RandomStringUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testLANG807_2_oe() {
-        final IllegalArgumentException ex =
-                // removed other assertion
-        final String msg = ex.getMessage();
-        assertTrue(msg.contains("start"), "Message (" + msg + ") must contain 'start'");
-    }
-
-    @Test
-    public void testLANG807_3_oe() {
-        final IllegalArgumentException ex =
-                // removed other assertion
-        final String msg = ex.getMessage();
-        // removed other assertion
-        assertTrue(msg.contains("end"), "Message (" + msg + ") must contain 'end'");
-    }
-
-    @Test
     public void testExceptions_1_oe() {
         final char[] DUMMY = new char[]{'a'}; // valid char array
         assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(-1));

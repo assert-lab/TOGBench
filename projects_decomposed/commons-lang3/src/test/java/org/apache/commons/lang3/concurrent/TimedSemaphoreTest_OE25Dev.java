@@ -471,21 +471,6 @@ public class TimedSemaphoreTest_OE25Dev {
     }
 
     @Test
-    public void testStartTimer_2_oe() throws InterruptedException {
-        final TimedSemaphoreTestImpl semaphore = new TimedSemaphoreTestImpl(PERIOD,
-                UNIT, LIMIT);
-        final ScheduledFuture<?> future = semaphore.startTimer();
-        // removed other assertion
-        Thread.sleep(PERIOD);
-        final int trials = 10;
-        int count = 0;
-        do {
-            Thread.sleep(PERIOD);
-            assertFalse(count++ > trials, "endOfPeriod() not called!");
-    }
-    }
-
-    @Test
     public void testShutdownOwnExecutor_1_oe() {
         final TimedSemaphore semaphore = new TimedSemaphore(PERIOD, UNIT, LIMIT);
         semaphore.shutdown();

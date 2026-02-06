@@ -34,7 +34,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-combinatorics ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-combinatorics' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-combinatorics
-[INFO] Storing buildNumber: 504c4e02269b05d34548a85b1573338184bb5848 at timestamp: 1770388944739
+[INFO] Storing buildNumber: 81e83cc892f7970d0aa3c638bf29a38d05c4eb42 at timestamp: 1770399801663
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -74,19 +74,19 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.combinatorics.LogFactorialTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 s - in org.apache.commons.numbers.combinatorics.LogFactorialTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s - in org.apache.commons.numbers.combinatorics.LogFactorialTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.combinatorics.LogBinomialCoefficientTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.687 s - in org.apache.commons.numbers.combinatorics.LogBinomialCoefficientTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.643 s - in org.apache.commons.numbers.combinatorics.LogBinomialCoefficientTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.combinatorics.FactorialTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.numbers.combinatorics.FactorialTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.combinatorics.FactorialTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.combinatorics.CombinationsTest_OE25Dev
-[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.numbers.combinatorics.CombinationsTest_OE25Dev
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.numbers.combinatorics.CombinationsTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.combinatorics.BinomialCoefficientDoubleTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.565 s - in org.apache.commons.numbers.combinatorics.BinomialCoefficientDoubleTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.547 s - in org.apache.commons.numbers.combinatorics.BinomialCoefficientDoubleTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.combinatorics.BinomialCoefficientTest_OE25Dev
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.829 s - in org.apache.commons.numbers.combinatorics.BinomialCoefficientTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.8 s - in org.apache.commons.numbers.combinatorics.BinomialCoefficientTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.combinatorics.FactorialDoubleTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.numbers.combinatorics.FactorialDoubleTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.numbers.combinatorics.FactorialDoubleTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -95,6 +95,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.886 s
-[INFO] Finished at: 2026-02-06T08:42:34-06:00
+[INFO] Total time:  11.849 s
+[INFO] Finished at: 2026-02-06T11:43:30-06:00
 [INFO] ------------------------------------------------------------------------

@@ -89,7 +89,7 @@ public class TestLocalDateTime_Basics_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestLocalDateTime_Basics_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestLocalDateTime_Basics_OE25Dev.class);
     }
 
     public TestLocalDateTime_Basics_OE25Dev(String name) {

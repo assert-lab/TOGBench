@@ -25,7 +25,7 @@ main:
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils
 [WARNING] Cannot get the revision information from the scm repository, proceeding with revision of ?????? : 
 Exception while executing SCM command.
-[INFO] Storing buildNumber: ?????? at timestamp: 1770388943148
+[INFO] Storing buildNumber: ?????? at timestamp: 1770399798734
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils' && 'svn' '--non-interactive' 'info'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils
 [WARNING] Cannot get the branch information from the scm repository, proceeding with UNKNOWN_BRANCH : 
@@ -59,181 +59,263 @@ Exception while executing SCM command.
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ commons-beanutils ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 235 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/target/test-classes
+[INFO] Compiling 233 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/converters/BooleanConverterTestCase.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/converters/BooleanConverterTestCase.java: Recompile with -Xlint:deprecation for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/converters/FloatLocaleConverterTestCase_OE25Dev.java: Some input files use or override a deprecated API that is marked for removal.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/converters/FloatLocaleConverterTestCase_OE25Dev.java: Recompile with -Xlint:removal for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev.java: Some input files use unchecked or unsafe operations.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev.java: Recompile with -Xlint:unchecked for details.
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[231,86] cannot find symbol
-  symbol:   variable loader
-  location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[232,28] cannot find symbol
-  symbol:   variable loader
-  location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[239,86] cannot find symbol
-  symbol:   variable loader
-  location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[240,28] cannot find symbol
-  symbol:   variable loader
-  location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[245,9] cannot find symbol
-  symbol:   variable loader
-  location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[999,9] cannot find symbol
-  symbol:   method testGetDescriptorArguments()
-  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1008,9] cannot find symbol
-  symbol:   method testGetDescriptors()
-  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1009,9] cannot find symbol
-  symbol:   method testGetIndexedArguments()
-  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1010,9] cannot find symbol
-  symbol:   method testGetIndexedValues()
-  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1011,9] cannot find symbol
-  symbol:   method testGetMappedArguments()
-  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1012,9] cannot find symbol
-  symbol:   method testGetMappedValues()
-  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1013,9] cannot find symbol
-  symbol:   method testGetSimpleArguments()
-  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1014,9] cannot find symbol
-  symbol:   method testGetSimpleBoolean()
-  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1015,9] cannot find symbol
-  symbol:   method testGetSimpleDouble()
-  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1016,9] cannot find symbol
-  symbol:   method testGetSimpleFloat()
-  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1017,9] cannot find symbol
-  symbol:   method testGetSimpleInt()
-  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1018,9] cannot find symbol
-  symbol:   method testGetSimpleLong()
-  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1019,9] cannot find symbol
-  symbol:   method testGetSimpleShort()
-  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1020,9] cannot find symbol
-  symbol:   method testGetSimpleString()
-  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1021,9] cannot find symbol
-  symbol:   method testMappedContains()
-  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1022,9] cannot find symbol
-  symbol:   method testMappedRemove()
-  location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[186,86] cannot find symbol
-  symbol:   variable loader
-  location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[188,28] cannot find symbol
-  symbol:   variable loader
-  location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[195,86] cannot find symbol
-  symbol:   variable loader
-  location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[197,28] cannot find symbol
-  symbol:   variable loader
-  location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[202,9] cannot find symbol
-  symbol:   variable loader
-  location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
-[INFO] 26 errors 
-[INFO] -------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-beanutils ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.beanutils.BeanUtils2TestCase_OE25Dev
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.124 s - in org.apache.commons.beanutils.BeanUtils2TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.BeanPropertyValueChangeClosureTestCase_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.BeanPropertyValueChangeClosureTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.SuppressPropertiesBeanIntrospectorTestCase_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.SuppressPropertiesBeanIntrospectorTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.FluentPropertyBeanIntrospectorTestCase_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.beanutils.FluentPropertyBeanIntrospectorTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.IndexedPropertyTestCase_OE25Dev
+[WARNING] Tests run: 43, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.054 s - in org.apache.commons.beanutils.IndexedPropertyTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.LazyDynaClassTestCase_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.LazyDynaClassTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
+[ERROR] Tests run: 28, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 1.391 s <<< FAILURE! - in org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
+[ERROR] testMemoryLeak_5_oe(org.apache.commons.beanutils.BeanificationTestCase_OE25Dev)  Time elapsed: 0.645 s  <<< FAILURE!
+junit.framework.AssertionFailedError: Max iterations reached before resource released.
+	at org.apache.commons.beanutils.BeanificationTestCase_OE25Dev.testMemoryLeak_5_oe(BeanificationTestCase_OE25Dev.java:597)
+
+[ERROR] testMemoryLeak2_4_oe(org.apache.commons.beanutils.BeanificationTestCase_OE25Dev)  Time elapsed: 0.664 s  <<< FAILURE!
+junit.framework.AssertionFailedError: Max iterations reached before resource released.
+	at org.apache.commons.beanutils.BeanificationTestCase_OE25Dev.testMemoryLeak2_4_oe(BeanificationTestCase_OE25Dev.java:318)
+
+[INFO] Running org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev
+[INFO] Tests run: 95, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.LazyDynaMapTestCase_OE25Dev
+[INFO] Tests run: 99, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.beanutils.LazyDynaMapTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.WrapDynaBeanTestCase_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.apache.commons.beanutils.WrapDynaBeanTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira61TestCase_OE25Dev
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.beanutils.bugs.Jira61TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira465TestCase_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.beanutils.bugs.Jira465TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira520TestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira520TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira157TestCase_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.beanutils.bugs.Jira157TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira422bTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira422bTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira18TestCase_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira18TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira422TestCase_OE25Dev
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira422TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira454TestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira454TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira87TestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira87TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira381TestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.bugs.Jira381TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira345TestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira345TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira492TestCase_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.beanutils.bugs.Jira492TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira368TestCase_OE25Dev
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.beanutils.bugs.Jira368TestCase_OE25Dev
+[ERROR] testBeanUtilsSetProperty_NullBean_1_oe(org.apache.commons.beanutils.bugs.Jira368TestCase_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalArgumentException: No bean specified
+	at org.apache.commons.beanutils.bugs.Jira368TestCase_OE25Dev.testBeanUtilsSetProperty_NullBean_1_oe(Jira368TestCase_OE25Dev.java:84)
+
+[INFO] Running org.apache.commons.beanutils.bugs.Jira456TestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira456TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira298TestCase_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.bugs.Jira298TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira347TestCase_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.723 s - in org.apache.commons.beanutils.bugs.Jira347TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira349TestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.beanutils.bugs.Jira349TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira493TestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira493TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira339TestCase_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira339TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira359TestCase_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira359TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira369TestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira369TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.bugs.Jira273TestCase_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira273TestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.BeanPredicateTestCase_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.BeanPredicateTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.ConstructorUtilsTestCase_OE25Dev
+[INFO] Tests run: 57, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.beanutils.ConstructorUtilsTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev
+[INFO] Tests run: 46, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.1 s - in org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev
+[ERROR] Tests run: 23, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev
+[ERROR] testPut_3_oe(org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: dynaBean get expected:<ABC> but was:<somevalue>
+	at org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev.testPut_3_oe(DynaBeanMapDecoratorTestCase_OE25Dev.java:412)
+
+[ERROR] testPut_4_oe(org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: modifiableMap get expected:<ABC> but was:<somevalue>
+	at org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev.testPut_4_oe(DynaBeanMapDecoratorTestCase_OE25Dev.java:430)
+
+[ERROR] testValues_2_oe(org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: values(0) expected:<somevalue> but was:<null>
+	at org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev.testValues_2_oe(DynaBeanMapDecoratorTestCase_OE25Dev.java:501)
+
+[INFO] Running org.apache.commons.beanutils.converters.ByteConverterTestCase_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.converters.ByteConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.CharacterConverterTestCase_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.CharacterConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.StringArrayConverterTestCase_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.StringArrayConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.ClassConverterTestCase_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.ClassConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.BooleanConverterTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.BooleanConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.FileConverterTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.FileConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.BigDecimalConverterTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.converters.BigDecimalConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.StringConverterTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.StringConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.ClassReloaderTestCase_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.beanutils.converters.ClassReloaderTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.DoubleConverterTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.DoubleConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.IntegerConverterTestCase_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.beanutils.converters.IntegerConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.FloatConverterTestCase_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.beanutils.converters.FloatConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.SqlDateConverterTestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.SqlDateConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.ShortConverterTestCase_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.beanutils.converters.ShortConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.URLConverterTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.11 s - in org.apache.commons.beanutils.converters.URLConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.BooleanArrayConverterTestCase_OE25Dev
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.beanutils.converters.BooleanArrayConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.LongConverterTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.LongConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.converters.BigIntegerConverterTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.BigIntegerConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev
+[INFO] Tests run: 139, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.DefaultIntrospectionContextTestCase_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.beanutils.DefaultIntrospectionContextTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.MappedPropertyTestCase_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.beanutils.MappedPropertyTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev
+[ERROR] Tests run: 20, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.043 s <<< FAILURE! - in org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev
+[ERROR] testToArrayDynaBeans_2_oe(org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+junit.framework.AssertionFailedError: Wrong element expected same:<org.apache.commons.beanutils.LazyDynaBean@1fa268de> was not:<null>
+	at org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev.testToArrayDynaBeans_2_oe(LazyDynaListTestCase_OE25Dev.java:987)
+
+[ERROR] testToArrayOtherType_2_oe(org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: Wrong element expected:<org.apache.commons.beanutils.TestBean@4f6ee6e4> but was:<null>
+	at org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev.testToArrayOtherType_2_oe(LazyDynaListTestCase_OE25Dev.java:1021)
+
+[ERROR] testToArrayMapType_2_oe(org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+junit.framework.AssertionFailedError: Wrong element expected:<{}> but was:<null>
+	at org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev.testToArrayMapType_2_oe(LazyDynaListTestCase_OE25Dev.java:1004)
+
+[INFO] Running org.apache.commons.beanutils.BeanToPropertyValueTransformerTestCase_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.beanutils.BeanToPropertyValueTransformerTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.expression.DefaultResolverTestCase_OE25Dev
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.beanutils.expression.DefaultResolverTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.DynaPropertyTestCase_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.DynaPropertyTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.locale.LocaleBeanUtilsTestCase_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.beanutils.locale.LocaleBeanUtilsTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.locale.converters.FloatLocaleConverterTestCase_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.beanutils.locale.converters.FloatLocaleConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.locale.converters.IntegerLocaleConverterTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.beanutils.locale.converters.IntegerLocaleConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.locale.converters.DateLocaleConverterTestCase_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in org.apache.commons.beanutils.locale.converters.DateLocaleConverterTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s - in org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
+[ERROR] Tests run: 26, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 1.865 s <<< FAILURE! - in org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
+[ERROR] testMemoryLeak_4_oe(org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev)  Time elapsed: 0.956 s  <<< FAILURE!
+junit.framework.AssertionFailedError: Max iterations reached before resource released.
+	at org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev.testMemoryLeak_4_oe(LocaleBeanificationTestCase_OE25Dev.java:564)
+
+[ERROR] testMemoryLeak2_4_oe(org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev)  Time elapsed: 0.834 s  <<< FAILURE!
+junit.framework.AssertionFailedError: Max iterations reached before resource released.
+	at org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev.testMemoryLeak2_4_oe(LocaleBeanificationTestCase_OE25Dev.java:360)
+
+[INFO] Running org.apache.commons.beanutils.BeanComparatorTestCase_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.BeanComparatorTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.DynaResultSetTestCase_OE25Dev
+[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.beanutils.DynaResultSetTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.DynaBeanUtilsTestCase_OE25Dev
+[INFO] Tests run: 157, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s - in org.apache.commons.beanutils.DynaBeanUtilsTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.BeanIntrospectionDataTestCase_OE25Dev
+[ERROR] Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.beanutils.BeanIntrospectionDataTestCase_OE25Dev
+[ERROR] testGetWriteMethodUndefined_2_oe(org.apache.commons.beanutils.BeanIntrospectionDataTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: Method not set in descriptor expected:<public org.apache.commons.beanutils.FluentIntrospectionTestBean org.apache.commons.beanutils.FluentIntrospectionTestBean.setFluentGetProperty(java.lang.String)> but was:<null>
+	at org.apache.commons.beanutils.BeanIntrospectionDataTestCase_OE25Dev.testGetWriteMethodUndefined_2_oe(BeanIntrospectionDataTestCase_OE25Dev.java:114)
+
+[INFO] Running org.apache.commons.beanutils.BeanPropertyValueEqualsPredicateTestCase_OE25Dev
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.BeanPropertyValueEqualsPredicateTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev
+[ERROR] Tests run: 48, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev
+[ERROR] testSetCacheMethods_2_oe(org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<0> but was:<1>
+	at org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev.testSetCacheMethods_2_oe(MethodUtilsTestCase_OE25Dev.java:941)
+
+[ERROR] testClearCache_2_oe(org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<0> but was:<1>
+	at org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev.testClearCache_2_oe(MethodUtilsTestCase_OE25Dev.java:922)
+
+[INFO] Running org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev
+[INFO] Tests run: 63, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 337.827 s - in org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.BeanMapTestCase_OE25Dev
+[INFO] Tests run: 128, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 s - in org.apache.commons.beanutils.BeanMapTestCase_OE25Dev
+[INFO] Running org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev
+[INFO] Tests run: 228, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s - in org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   BeanIntrospectionDataTestCase_OE25Dev.testGetWriteMethodUndefined_2_oe:114 Method not set in descriptor expected:<public org.apache.commons.beanutils.FluentIntrospectionTestBean org.apache.commons.beanutils.FluentIntrospectionTestBean.setFluentGetProperty(java.lang.String)> but was:<null>
+[ERROR]   BeanificationTestCase_OE25Dev.testMemoryLeak2_4_oe:318 Max iterations reached before resource released.
+[ERROR]   BeanificationTestCase_OE25Dev.testMemoryLeak_5_oe:597 Max iterations reached before resource released.
+[ERROR]   DynaBeanMapDecoratorTestCase_OE25Dev.testPut_3_oe:412 dynaBean get expected:<ABC> but was:<somevalue>
+[ERROR]   DynaBeanMapDecoratorTestCase_OE25Dev.testPut_4_oe:430 modifiableMap get expected:<ABC> but was:<somevalue>
+[ERROR]   DynaBeanMapDecoratorTestCase_OE25Dev.testValues_2_oe:501 values(0) expected:<somevalue> but was:<null>
+[ERROR]   LazyDynaListTestCase_OE25Dev.testToArrayDynaBeans_2_oe:987 Wrong element expected same:<org.apache.commons.beanutils.LazyDynaBean@1fa268de> was not:<null>
+[ERROR]   LazyDynaListTestCase_OE25Dev.testToArrayMapType_2_oe:1004 Wrong element expected:<{}> but was:<null>
+[ERROR]   LazyDynaListTestCase_OE25Dev.testToArrayOtherType_2_oe:1021 Wrong element expected:<org.apache.commons.beanutils.TestBean@4f6ee6e4> but was:<null>
+[ERROR]   MethodUtilsTestCase_OE25Dev.testClearCache_2_oe:922 expected:<0> but was:<1>
+[ERROR]   MethodUtilsTestCase_OE25Dev.testSetCacheMethods_2_oe:941 expected:<0> but was:<1>
+[ERROR]   LocaleBeanificationTestCase_OE25Dev.testMemoryLeak2_4_oe:360 Max iterations reached before resource released.
+[ERROR]   LocaleBeanificationTestCase_OE25Dev.testMemoryLeak_4_oe:564 Max iterations reached before resource released.
+[ERROR] Errors: 
+[ERROR]   Jira368TestCase_OE25Dev.testBeanUtilsSetProperty_NullBean_1_oe:84 » IllegalArgument
+[INFO] 
+[ERROR] Tests run: 1893, Failures: 13, Errors: 1, Skipped: 3
+[INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  10.646 s
-[INFO] Finished at: 2026-02-06T08:42:31-06:00
+[INFO] Total time:  06:31 min
+[INFO] Finished at: 2026-02-06T11:49:47-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.7.0:testCompile (default-testCompile) on project commons-beanutils: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[231,86] cannot find symbol
-[ERROR]   symbol:   variable loader
-[ERROR]   location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[232,28] cannot find symbol
-[ERROR]   symbol:   variable loader
-[ERROR]   location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[239,86] cannot find symbol
-[ERROR]   symbol:   variable loader
-[ERROR]   location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[240,28] cannot find symbol
-[ERROR]   symbol:   variable loader
-[ERROR]   location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[245,9] cannot find symbol
-[ERROR]   symbol:   variable loader
-[ERROR]   location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[999,9] cannot find symbol
-[ERROR]   symbol:   method testGetDescriptorArguments()
-[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1008,9] cannot find symbol
-[ERROR]   symbol:   method testGetDescriptors()
-[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1009,9] cannot find symbol
-[ERROR]   symbol:   method testGetIndexedArguments()
-[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1010,9] cannot find symbol
-[ERROR]   symbol:   method testGetIndexedValues()
-[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1011,9] cannot find symbol
-[ERROR]   symbol:   method testGetMappedArguments()
-[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1012,9] cannot find symbol
-[ERROR]   symbol:   method testGetMappedValues()
-[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1013,9] cannot find symbol
-[ERROR]   symbol:   method testGetSimpleArguments()
-[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1014,9] cannot find symbol
-[ERROR]   symbol:   method testGetSimpleBoolean()
-[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1015,9] cannot find symbol
-[ERROR]   symbol:   method testGetSimpleDouble()
-[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1016,9] cannot find symbol
-[ERROR]   symbol:   method testGetSimpleFloat()
-[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1017,9] cannot find symbol
-[ERROR]   symbol:   method testGetSimpleInt()
-[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1018,9] cannot find symbol
-[ERROR]   symbol:   method testGetSimpleLong()
-[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1019,9] cannot find symbol
-[ERROR]   symbol:   method testGetSimpleShort()
-[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1020,9] cannot find symbol
-[ERROR]   symbol:   method testGetSimpleString()
-[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1021,9] cannot find symbol
-[ERROR]   symbol:   method testMappedContains()
-[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BasicDynaBeanTestCase_OE25Dev.java:[1022,9] cannot find symbol
-[ERROR]   symbol:   method testMappedRemove()
-[ERROR]   location: class org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[186,86] cannot find symbol
-[ERROR]   symbol:   variable loader
-[ERROR]   location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[188,28] cannot find symbol
-[ERROR]   symbol:   variable loader
-[ERROR]   location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[195,86] cannot find symbol
-[ERROR]   symbol:   variable loader
-[ERROR]   location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[197,28] cannot find symbol
-[ERROR]   symbol:   variable loader
-[ERROR]   location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[202,9] cannot find symbol
-[ERROR]   symbol:   variable loader
-[ERROR]   location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-beanutils: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.

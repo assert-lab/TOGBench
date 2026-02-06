@@ -90,7 +90,7 @@ public class TestSerialization_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestSerialization_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestSerialization_OE25Dev.class);
     }
 
     public TestSerialization_OE25Dev(String name) {

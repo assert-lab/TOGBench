@@ -32,7 +32,7 @@
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-validator ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator
-[INFO] Storing buildNumber: 504c4e02269b05d34548a85b1573338184bb5848 at timestamp: 1770388899364
+[INFO] Storing buildNumber: 81e83cc892f7970d0aa3c638bf29a38d05c4eb42 at timestamp: 1770399747896
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -67,23 +67,27 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] -------------------------------------------------------------
 [ERROR] COMPILATION ERROR : 
 [INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/UrlTest_OE25Dev.java:[242,5] while expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/UrlTest_OE25Dev.java:[243,4] illegal start of expression
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/routines/UrlValidatorTest_OE25Dev.java:[289,5] while expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/routines/UrlValidatorTest_OE25Dev.java:[290,4] illegal start of expression
-[INFO] 4 errors 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/UrlTest_OE25Dev.java:[102,10] cannot find symbol
+  symbol:   method testIsValid()
+  location: variable fct of type org.apache.commons.validator.UrlTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/UrlTest_OE25Dev.java:[103,10] cannot find symbol
+  symbol:   method testIsValidScheme()
+  location: variable fct of type org.apache.commons.validator.UrlTest_OE25Dev
+[INFO] 2 errors 
 [INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  15.297 s
-[INFO] Finished at: 2026-02-06T08:41:50-06:00
+[INFO] Total time:  18.845 s
+[INFO] Finished at: 2026-02-06T11:42:42-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-validator: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/UrlTest_OE25Dev.java:[242,5] while expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/UrlTest_OE25Dev.java:[243,4] illegal start of expression
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/routines/UrlValidatorTest_OE25Dev.java:[289,5] while expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/routines/UrlValidatorTest_OE25Dev.java:[290,4] illegal start of expression
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/UrlTest_OE25Dev.java:[102,10] cannot find symbol
+[ERROR]   symbol:   method testIsValid()
+[ERROR]   location: variable fct of type org.apache.commons.validator.UrlTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/UrlTest_OE25Dev.java:[103,10] cannot find symbol
+[ERROR]   symbol:   method testIsValidScheme()
+[ERROR]   location: variable fct of type org.apache.commons.validator.UrlTest_OE25Dev
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.

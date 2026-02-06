@@ -127,7 +127,7 @@ public class TestDateTimeUtils_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestDateTimeUtils_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestDateTimeUtils_OE25Dev.class);
     }
 
     public TestDateTimeUtils_OE25Dev(String name) {

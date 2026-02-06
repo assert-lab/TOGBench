@@ -64,7 +64,7 @@ public class TestGJChronology_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestGJChronology_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestGJChronology_OE25Dev.class);
     }
 
     public TestGJChronology_OE25Dev(String name) {

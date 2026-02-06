@@ -38,7 +38,7 @@ public class TestDurationFieldType_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestDurationFieldType_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestDurationFieldType_OE25Dev.class);
     }
 
     public TestDurationFieldType_OE25Dev(String name) {

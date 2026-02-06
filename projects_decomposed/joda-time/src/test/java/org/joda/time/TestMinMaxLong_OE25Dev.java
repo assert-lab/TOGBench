@@ -41,7 +41,7 @@ public class TestMinMaxLong_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestMinMaxLong_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestMinMaxLong_OE25Dev.class);
     }
 
     public TestMinMaxLong_OE25Dev(String name) {

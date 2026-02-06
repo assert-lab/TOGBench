@@ -38,7 +38,7 @@ public class TestMonths_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestMonths_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestMonths_OE25Dev.class);
     }
 
     public TestMonths_OE25Dev(String name) {

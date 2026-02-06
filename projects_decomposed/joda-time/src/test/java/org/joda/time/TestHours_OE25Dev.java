@@ -38,7 +38,7 @@ public class TestHours_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestHours_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestHours_OE25Dev.class);
     }
 
     public TestHours_OE25Dev(String name) {

@@ -30,24 +30,24 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.jsoup.select.SelectorTest_OE25Dev
-[INFO] Tests run: 320, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.527 s - in org.jsoup.select.SelectorTest_OE25Dev
+[INFO] Tests run: 320, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.367 s - in org.jsoup.select.SelectorTest_OE25Dev
 [INFO] Running org.jsoup.select.CssTest_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.jsoup.select.CssTest_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.jsoup.select.CssTest_OE25Dev
 [INFO] Running org.jsoup.select.QueryParserTest_OE25Dev
-[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.jsoup.select.QueryParserTest_OE25Dev
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.jsoup.select.QueryParserTest_OE25Dev
 [INFO] Running org.jsoup.select.ElementsTest_OE25Dev
-[INFO] Tests run: 131, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 s - in org.jsoup.select.ElementsTest_OE25Dev
+[INFO] Tests run: 131, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in org.jsoup.select.ElementsTest_OE25Dev
 [INFO] Running org.jsoup.select.XpathTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s - in org.jsoup.select.XpathTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s - in org.jsoup.select.XpathTest_OE25Dev
 [INFO] Running org.jsoup.select.TraversorTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.jsoup.select.TraversorTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.jsoup.select.TraversorTest_OE25Dev
 [INFO] Running org.jsoup.parser.ParserTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.jsoup.parser.ParserTest_OE25Dev
 [INFO] Running org.jsoup.parser.TokeniserStateTest_OE25Dev
-[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.jsoup.parser.TokeniserStateTest_OE25Dev
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.jsoup.parser.TokeniserStateTest_OE25Dev
 [INFO] Running org.jsoup.parser.HtmlTreeBuilderStateTest_OE25Dev
-[ERROR] Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in org.jsoup.parser.HtmlTreeBuilderStateTest_OE25Dev
-[ERROR] org.jsoup.parser.HtmlTreeBuilderStateTest_OE25Dev.nestedAnchorElements01_1_oe  Time elapsed: 0.007 s  <<< FAILURE!
+[ERROR] Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in org.jsoup.parser.HtmlTreeBuilderStateTest_OE25Dev
+[ERROR] org.jsoup.parser.HtmlTreeBuilderStateTest_OE25Dev.nestedAnchorElements01_1_oe  Time elapsed: 0.006 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: <<html>
  <head></head>
@@ -75,7 +75,7 @@ expected: <<html>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.HtmlTreeBuilderStateTest_OE25Dev.nestedAnchorElements02_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.HtmlTreeBuilderStateTest_OE25Dev.nestedAnchorElements02_1_oe  Time elapsed: 0.004 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: <<html>
  <head></head>
@@ -110,11 +110,11 @@ expected: <<html>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
 [INFO] Running org.jsoup.parser.TagTest_OE25Dev
-[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.jsoup.parser.TagTest_OE25Dev
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.jsoup.parser.TagTest_OE25Dev
 [INFO] Running org.jsoup.parser.ParserIT_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.384 s - in org.jsoup.parser.ParserIT_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.318 s - in org.jsoup.parser.ParserIT_OE25Dev
 [INFO] Running org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] Tests run: 37, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.065 s <<< FAILURE! - in org.jsoup.parser.TokeniserTest_OE25Dev
+[ERROR] Tests run: 37, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.043 s <<< FAILURE! - in org.jsoup.parser.TokeniserTest_OE25Dev
 [ERROR] org.jsoup.parser.TokeniserTest_OE25Dev.cp1252EntitiesProduceError_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
@@ -129,10 +129,10 @@ org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
 [INFO] Running org.jsoup.parser.HtmlTreeBuilderTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.jsoup.parser.HtmlTreeBuilderTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.jsoup.parser.HtmlTreeBuilderTest_OE25Dev
 [INFO] Running org.jsoup.parser.CharacterReaderTest_OE25Dev
-[ERROR] Tests run: 221, Failures: 72, Errors: 16, Skipped: 0, Time elapsed: 0.137 s <<< FAILURE! - in org.jsoup.parser.CharacterReaderTest_OE25Dev
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_2_oe  Time elapsed: 0.004 s  <<< FAILURE!
+[ERROR] Tests run: 221, Failures: 72, Errors: 16, Skipped: 0, Time elapsed: 0.106 s <<< FAILURE! - in org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_2_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <n> but was: <o>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -145,7 +145,7 @@ org.opentest4j.AssertionFailedError: expected: <n> but was: <o>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_3_oe  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_3_oe  Time elapsed: 0.002 s  <<< ERROR!
 org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unconsume.
 	at org.jsoup.parser.CharacterReader.unconsume(CharacterReader.java:262)
 	at org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_3_oe(CharacterReaderTest_OE25Dev.java:168)
@@ -195,7 +195,7 @@ org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unco
 Caused by: java.io.IOException: WTF: No buffer left to unconsume.
 	... 5 more
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_8_oe  Time elapsed: 0 s  <<< ERROR!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_8_oe  Time elapsed: 0.001 s  <<< ERROR!
 org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unconsume.
 	at org.jsoup.parser.CharacterReader.unconsume(CharacterReader.java:262)
 	at org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_8_oe(CharacterReaderTest_OE25Dev.java:222)
@@ -205,7 +205,7 @@ org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unco
 Caused by: java.io.IOException: WTF: No buffer left to unconsume.
 	... 5 more
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_9_oe  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_9_oe  Time elapsed: 0 s  <<< ERROR!
 org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unconsume.
 	at org.jsoup.parser.CharacterReader.unconsume(CharacterReader.java:262)
 	at org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_9_oe(CharacterReaderTest_OE25Dev.java:237)
@@ -215,7 +215,7 @@ org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unco
 Caused by: java.io.IOException: WTF: No buffer left to unconsume.
 	... 5 more
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.notEmptyAtBufferSplitPoint_3_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.notEmptyAtBufferSplitPoint_3_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: < > but was: <H>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -241,7 +241,7 @@ org.opentest4j.AssertionFailedError: expected: <4> but was: <0>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.notEmptyAtBufferSplitPoint_6_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.notEmptyAtBufferSplitPoint_6_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <a> but was: <H>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -280,7 +280,7 @@ org.opentest4j.AssertionFailedError: expected: <b> but was: <H>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.notEmptyAtBufferSplitPoint_9_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.notEmptyAtBufferSplitPoint_9_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <o> but was: <H>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -319,7 +319,7 @@ org.opentest4j.AssertionFailedError: expected: <wo > but was: <One >
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeToString_4_oe  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeToString_4_oe  Time elapsed: 0.004 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <T> but was: <O>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -332,7 +332,7 @@ org.opentest4j.AssertionFailedError: expected: <T> but was: <O>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeToString_5_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeToString_5_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <wo Four> but was: <One Two Two Four>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -345,7 +345,7 @@ org.opentest4j.AssertionFailedError: expected: <wo Four> but was: <One Two Two F
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.bufferUp_1_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.bufferUp_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <HelloThere> but was: <>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -358,7 +358,7 @@ org.opentest4j.AssertionFailedError: expected: <HelloThere> but was: <>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.matches_6_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.matches_6_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -371,7 +371,7 @@ org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.matches_7_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.matches_7_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -384,7 +384,7 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.matches_9_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.matches_9_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <ne Two Three> but was: <One Two Three>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -462,7 +462,7 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeToNonexistentEndWhenAtAnd_3_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeToNonexistentEndWhenAtAnd_3_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <> but was: <<!>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -514,7 +514,7 @@ org.opentest4j.AssertionFailedError: expected: <T> but was: <O>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeToChar_5_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeToChar_5_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <hree> but was: <One >
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -527,7 +527,7 @@ org.opentest4j.AssertionFailedError: expected: <hree> but was: <One >
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.empty_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.empty_2_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -540,7 +540,7 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.mark_3_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.mark_3_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <e> but was: <n>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -553,7 +553,7 @@ org.opentest4j.AssertionFailedError: expected: <e> but was: <n>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.mark_4_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.mark_4_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -579,7 +579,7 @@ org.opentest4j.AssertionFailedError: expected: <2> but was: <1>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consume_10_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consume_10_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <￿> but was: <o>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -605,7 +605,7 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consume_12_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consume_12_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <￿> but was: <o>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -618,7 +618,7 @@ org.opentest4j.AssertionFailedError: expected: <￿> but was: <o>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consume_4_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consume_4_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -683,7 +683,7 @@ org.opentest4j.AssertionFailedError: expected: <e> but was: <o>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consume_9_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consume_9_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -716,7 +716,7 @@ org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unco
 Caused by: java.io.IOException: WTF: No buffer left to unconsume.
 	... 5 more
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_12_oe  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_12_oe  Time elapsed: 0.001 s  <<< ERROR!
 org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unconsume.
 	at org.jsoup.parser.CharacterReader.unconsume(CharacterReader.java:262)
 	at org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_12_oe(CharacterReaderTest_OE25Dev.java:288)
@@ -726,7 +726,7 @@ org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unco
 Caused by: java.io.IOException: WTF: No buffer left to unconsume.
 	... 5 more
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_13_oe  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_13_oe  Time elapsed: 0 s  <<< ERROR!
 org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unconsume.
 	at org.jsoup.parser.CharacterReader.unconsume(CharacterReader.java:262)
 	at org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_13_oe(CharacterReaderTest_OE25Dev.java:308)
@@ -736,7 +736,7 @@ org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unco
 Caused by: java.io.IOException: WTF: No buffer left to unconsume.
 	... 5 more
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_14_oe  Time elapsed: 0.006 s  <<< ERROR!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_14_oe  Time elapsed: 0.001 s  <<< ERROR!
 org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unconsume.
 	at org.jsoup.parser.CharacterReader.unconsume(CharacterReader.java:262)
 	at org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_14_oe(CharacterReaderTest_OE25Dev.java:330)
@@ -746,7 +746,7 @@ org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unco
 Caused by: java.io.IOException: WTF: No buffer left to unconsume.
 	... 5 more
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_15_oe  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_15_oe  Time elapsed: 0 s  <<< ERROR!
 org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unconsume.
 	at org.jsoup.parser.CharacterReader.unconsume(CharacterReader.java:262)
 	at org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_15_oe(CharacterReaderTest_OE25Dev.java:354)
@@ -766,7 +766,7 @@ org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unco
 Caused by: java.io.IOException: WTF: No buffer left to unconsume.
 	... 5 more
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_17_oe  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_17_oe  Time elapsed: 0 s  <<< ERROR!
 org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unconsume.
 	at org.jsoup.parser.CharacterReader.unconsume(CharacterReader.java:262)
 	at org.jsoup.parser.CharacterReaderTest_OE25Dev.unconsume_17_oe(CharacterReaderTest_OE25Dev.java:407)
@@ -786,7 +786,7 @@ org.jsoup.UncheckedIOException: java.io.IOException: WTF: No buffer left to unco
 Caused by: java.io.IOException: WTF: No buffer left to unconsume.
 	... 5 more
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.containsIgnoreCaseBuffer_13_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.containsIgnoreCaseBuffer_13_oe  Time elapsed: 0.002 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -799,7 +799,7 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.containsIgnoreCaseBuffer_14_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.containsIgnoreCaseBuffer_14_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -825,7 +825,7 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeLetterThenDigitSequence_2_oe  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeLetterThenDigitSequence_2_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: < > but was: <O>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -838,7 +838,7 @@ org.opentest4j.AssertionFailedError: expected: < > but was: <O>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeLetterThenDigitSequence_3_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeLetterThenDigitSequence_3_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <Two> but was: <One12>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -864,7 +864,7 @@ org.opentest4j.AssertionFailedError: expected: < &bar; qux> but was: <One12 Two 
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.notEmptyAtBufferSplitPoint_10_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.notEmptyAtBufferSplitPoint_10_oe  Time elapsed: 0.002 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <u> but was: <H>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -890,7 +890,7 @@ org.opentest4j.AssertionFailedError: expected: <t> but was: <H>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.notEmptyAtBufferSplitPoint_12_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.notEmptyAtBufferSplitPoint_12_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: < > but was: <H>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -903,7 +903,7 @@ org.opentest4j.AssertionFailedError: expected: < > but was: <H>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.notEmptyAtBufferSplitPoint_13_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.notEmptyAtBufferSplitPoint_13_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <n> but was: <H>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -916,7 +916,7 @@ org.opentest4j.AssertionFailedError: expected: <n> but was: <H>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.notEmptyAtBufferSplitPoint_14_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.notEmptyAtBufferSplitPoint_14_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <o> but was: <H>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -942,7 +942,7 @@ org.opentest4j.AssertionFailedError: expected: <w> but was: <H>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.notEmptyAtBufferSplitPoint_16_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.notEmptyAtBufferSplitPoint_16_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -955,7 +955,7 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.matchesAny_3_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.matchesAny_3_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -983,7 +983,7 @@ expected: <
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeLetterSequence_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeLetterSequence_2_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: < &> but was: <One &>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -1009,7 +1009,7 @@ org.opentest4j.AssertionFailedError: expected: <bar> but was: <One>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeLetterSequence_4_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeLetterSequence_4_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <; qux> but was: <One &bar; qux>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -1103,7 +1103,7 @@ org.opentest4j.AssertionFailedError: expected: <<qux>> but was: <<bar>>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.canTrackNewlines_30_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.canTrackNewlines_30_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <3:6> but was: <2:1>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -1194,7 +1194,7 @@ org.opentest4j.AssertionFailedError: expected: <&> but was: <O>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeToAny_5_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeToAny_5_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <bar> but was: <One >
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -1207,7 +1207,7 @@ org.opentest4j.AssertionFailedError: expected: <bar> but was: <One >
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeToAny_6_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.CharacterReaderTest_OE25Dev.consumeToAny_6_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <;> but was: <O>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -1234,10 +1234,10 @@ org.opentest4j.AssertionFailedError: expected: < qux> but was: <One >
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
 [INFO] Running org.jsoup.parser.TokenQueueTest_OE25Dev
-[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.jsoup.parser.TokenQueueTest_OE25Dev
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.jsoup.parser.TokenQueueTest_OE25Dev
 [INFO] Running org.jsoup.parser.HtmlParserTest_OE25Dev
-[ERROR] Tests run: 350, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.15 s <<< FAILURE! - in org.jsoup.parser.HtmlParserTest_OE25Dev
-[ERROR] org.jsoup.parser.HtmlParserTest_OE25Dev.handlesXmlDeclAndCommentsBeforeDoctype_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] Tests run: 350, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.201 s <<< FAILURE! - in org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] org.jsoup.parser.HtmlParserTest_OE25Dev.handlesXmlDeclAndCommentsBeforeDoctype_1_oe  Time elapsed: 0.014 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <<!--?xml version="1.0" encoding="utf-8"?--><!-- so --> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- what --> <html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><!-- now --> <head><!-- then --> <meta http-equiv="Content-type" content="text/html;charset=utf-8"> <title>A Certain Kind of Test</title> </head> <body> <h1>Hello</h1>h1&gt;(There is a UTF8 hidden BOM at the top of this file.)</body> </html>> but was: <<!--?xml version="1.0" encoding="utf-8"?--><!-- so --> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- what --> <html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><!-- now --> <head><!-- then --> <meta http-equiv="Content-type" content="text/html; charset=utf-8"> <title>A Certain Kind of Test</title> </head> <body> <h1>Hello</h1>h1&gt; (There is a UTF8 hidden BOM at the top of this file.) </body> </html>>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -1250,7 +1250,7 @@ org.opentest4j.AssertionFailedError: expected: <<!--?xml version="1.0" encoding=
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.HtmlParserTest_OE25Dev.preservesTabs_4_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.HtmlParserTest_OE25Dev.preservesTabs_4_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <<pre>One	Two</pre><span>	Three	Four</span>> but was: <<pre>One	Two</pre><span> Three Four</span>>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -1263,7 +1263,7 @@ org.opentest4j.AssertionFailedError: expected: <<pre>One	Two</pre><span>	Three	F
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.parser.HtmlParserTest_OE25Dev.handlesQuotesInCommentsInScripts_1_oe  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] org.jsoup.parser.HtmlParserTest_OE25Dev.handlesQuotesInCommentsInScripts_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: <<script>
  <!--
@@ -1286,8 +1286,8 @@ expected: <<script>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
 [INFO] Running org.jsoup.parser.XmlTreeBuilderTest_OE25Dev
-[ERROR] Tests run: 62, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.954 s <<< FAILURE! - in org.jsoup.parser.XmlTreeBuilderTest_OE25Dev
-[ERROR] org.jsoup.parser.XmlTreeBuilderTest_OE25Dev.testSupplyParserToConnection_3_oe  Time elapsed: 0.141 s  <<< FAILURE!
+[ERROR] Tests run: 62, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.923 s <<< FAILURE! - in org.jsoup.parser.XmlTreeBuilderTest_OE25Dev
+[ERROR] org.jsoup.parser.XmlTreeBuilderTest_OE25Dev.testSupplyParserToConnection_3_oe  Time elapsed: 0.14 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: org.jsoup.nodes.Document@4fb392c4<<doc><val>One<val>Two</val>Three</val></doc>
 > but was: org.jsoup.nodes.Document@194d329e<<doc><val>One<val>Two</val>Three</val></doc>
@@ -1304,14 +1304,14 @@ expected: org.jsoup.nodes.Document@4fb392c4<<doc><val>One<val>Two</val>Three</va
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
 [INFO] Running org.jsoup.parser.AttributeParseTest_OE25Dev
-[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.jsoup.parser.AttributeParseTest_OE25Dev
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.jsoup.parser.AttributeParseTest_OE25Dev
 [INFO] Running org.jsoup.safety.CleanerTest_OE25Dev
-[INFO] Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in org.jsoup.safety.CleanerTest_OE25Dev
+[INFO] Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.jsoup.safety.CleanerTest_OE25Dev
 [INFO] Running org.jsoup.safety.SafelistTest_OE25Dev
 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.jsoup.safety.SafelistTest_OE25Dev
 [INFO] Running org.jsoup.internal.StringUtilTest_OE25Dev
-[ERROR] Tests run: 89, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.023 s <<< FAILURE! - in org.jsoup.internal.StringUtilTest_OE25Dev
-[ERROR] org.jsoup.internal.StringUtilTest_OE25Dev.padding_5_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 89, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in org.jsoup.internal.StringUtilTest_OE25Dev
+[ERROR] org.jsoup.internal.StringUtilTest_OE25Dev.padding_5_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: < > but was: <                              >
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -1325,14 +1325,14 @@ org.opentest4j.AssertionFailedError: expected: < > but was: <                   
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
 [INFO] Running org.jsoup.nodes.PositionTest_OE25Dev
-[INFO] Tests run: 62, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.245 s - in org.jsoup.nodes.PositionTest_OE25Dev
+[INFO] Tests run: 62, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.205 s - in org.jsoup.nodes.PositionTest_OE25Dev
 [INFO] Running org.jsoup.nodes.LeafNodeTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.jsoup.nodes.LeafNodeTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.jsoup.nodes.LeafNodeTest_OE25Dev
 [INFO] Running org.jsoup.nodes.TextNodeTest_OE25Dev
-[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.jsoup.nodes.TextNodeTest_OE25Dev
+[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.jsoup.nodes.TextNodeTest_OE25Dev
 [INFO] Running org.jsoup.nodes.ElementTest_OE25Dev
-[ERROR] Tests run: 559, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.16 s <<< FAILURE! - in org.jsoup.nodes.ElementTest_OE25Dev
-[ERROR] org.jsoup.nodes.ElementTest_OE25Dev.testIndentLevel_2_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 559, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.173 s <<< FAILURE! - in org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] org.jsoup.nodes.ElementTest_OE25Dev.testIndentLevel_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -1371,7 +1371,7 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.nodes.ElementTest_OE25Dev.testBasicFormats_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.jsoup.nodes.ElementTest_OE25Dev.testBasicFormats_1_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: <<span>0</span>.
 <div>
@@ -1413,9 +1413,9 @@ org.opentest4j.AssertionFailedError: expected: <<div><p>One</p><p><span>Two</spa
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
 [INFO] Running org.jsoup.nodes.CommentTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.jsoup.nodes.CommentTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.jsoup.nodes.CommentTest_OE25Dev
 [INFO] Running org.jsoup.nodes.EntitiesTest_OE25Dev
-[ERROR] Tests run: 48, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] Tests run: 48, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in org.jsoup.nodes.EntitiesTest_OE25Dev
 [ERROR] org.jsoup.nodes.EntitiesTest_OE25Dev.caseSensitive_1_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <&Uuml;&uuml;&amp;&amp;> but was: <&Uuml; &uuml; &amp; &amp;>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
@@ -1430,8 +1430,8 @@ org.opentest4j.AssertionFailedError: expected: <&Uuml;&uuml;&amp;&amp;> but was:
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
 [INFO] Running org.jsoup.nodes.AttributesTest_OE25Dev
-[ERROR] Tests run: 82, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.jsoup.nodes.AttributesTest_OE25Dev
-[ERROR] org.jsoup.nodes.AttributesTest_OE25Dev.testIteratorSkipsInternal_4_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 82, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in org.jsoup.nodes.AttributesTest_OE25Dev
+[ERROR] org.jsoup.nodes.AttributesTest_OE25Dev.testIteratorSkipsInternal_4_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <Two> but was: <One>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -1457,7 +1457,7 @@ org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.nodes.AttributesTest_OE25Dev.testIterator_2_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.jsoup.nodes.AttributesTest_OE25Dev.testIterator_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <Tot> but was: <Hello>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -1484,8 +1484,8 @@ org.opentest4j.AssertionFailedError: expected: <raul> but was: <pismuth>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
 [INFO] Running org.jsoup.nodes.DocumentTest_OE25Dev
-[ERROR] Tests run: 103, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.534 s <<< FAILURE! - in org.jsoup.nodes.DocumentTest_OE25Dev
-[ERROR] org.jsoup.nodes.DocumentTest_OE25Dev.framesetSupportsBodyMethod_9_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 103, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.516 s <<< FAILURE! - in org.jsoup.nodes.DocumentTest_OE25Dev
+[ERROR] org.jsoup.nodes.DocumentTest_OE25Dev.framesetSupportsBodyMethod_9_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: <<html>
  <head>
@@ -1513,7 +1513,7 @@ expected: <<html>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.nodes.DocumentTest_OE25Dev.testHtmlAndXmlSyntax_1_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.jsoup.nodes.DocumentTest_OE25Dev.testHtmlAndXmlSyntax_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: <<!doctype html>
 <html>
@@ -1566,10 +1566,10 @@ expected: <<!DOCTYPE html>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
 [INFO] Running org.jsoup.nodes.AttributeTest_OE25Dev
-[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.jsoup.nodes.AttributeTest_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.jsoup.nodes.AttributeTest_OE25Dev
 [INFO] Running org.jsoup.nodes.ElementIT_OE25Dev
-[ERROR] Tests run: 15, Failures: 0, Errors: 10, Skipped: 0, Time elapsed: 1.447 s <<< FAILURE! - in org.jsoup.nodes.ElementIT_OE25Dev
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_4_oe  Time elapsed: 0.09 s  <<< ERROR!
+[ERROR] Tests run: 15, Failures: 0, Errors: 10, Skipped: 0, Time elapsed: 1.221 s <<< FAILURE! - in org.jsoup.nodes.ElementIT_OE25Dev
+[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_4_oe  Time elapsed: 0.084 s  <<< ERROR!
 java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
 	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
@@ -1581,7 +1581,7 @@ java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_5_oe  Time elapsed: 0.115 s  <<< ERROR!
+[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_5_oe  Time elapsed: 0.085 s  <<< ERROR!
 java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
 	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
@@ -1593,7 +1593,7 @@ java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_6_oe  Time elapsed: 0.102 s  <<< ERROR!
+[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_6_oe  Time elapsed: 0.08 s  <<< ERROR!
 java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
 	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
@@ -1605,7 +1605,7 @@ java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_7_oe  Time elapsed: 0.117 s  <<< ERROR!
+[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_7_oe  Time elapsed: 0.087 s  <<< ERROR!
 java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
 	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
@@ -1617,7 +1617,7 @@ java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_8_oe  Time elapsed: 0.098 s  <<< ERROR!
+[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_8_oe  Time elapsed: 0.083 s  <<< ERROR!
 java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
 	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
@@ -1629,7 +1629,7 @@ java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_9_oe  Time elapsed: 0.091 s  <<< ERROR!
+[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_9_oe  Time elapsed: 0.08 s  <<< ERROR!
 java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
 	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
@@ -1641,7 +1641,7 @@ java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparent_3_oe  Time elapsed: 0.081 s  <<< ERROR!
+[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparent_3_oe  Time elapsed: 0.067 s  <<< ERROR!
 java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
 	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
@@ -1653,7 +1653,7 @@ java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparent_4_oe  Time elapsed: 0.088 s  <<< ERROR!
+[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparent_4_oe  Time elapsed: 0.073 s  <<< ERROR!
 java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
 	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
@@ -1665,7 +1665,7 @@ java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparent_5_oe  Time elapsed: 0.087 s  <<< ERROR!
+[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparent_5_oe  Time elapsed: 0.069 s  <<< ERROR!
 java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
 	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
@@ -1677,7 +1677,7 @@ java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparent_6_oe  Time elapsed: 0.089 s  <<< ERROR!
+[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparent_6_oe  Time elapsed: 0.068 s  <<< ERROR!
 java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
 	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
@@ -1690,14 +1690,14 @@ java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
 [INFO] Running org.jsoup.nodes.NodeTest_OE25Dev
-[INFO] Tests run: 103, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.jsoup.nodes.NodeTest_OE25Dev
+[INFO] Tests run: 103, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.jsoup.nodes.NodeTest_OE25Dev
 [INFO] Running org.jsoup.nodes.DocumentTypeTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.jsoup.nodes.DocumentTypeTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.jsoup.nodes.DocumentTypeTest_OE25Dev
 [INFO] Running org.jsoup.nodes.FormElementTest_OE25Dev
-[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in org.jsoup.nodes.FormElementTest_OE25Dev
+[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.jsoup.nodes.FormElementTest_OE25Dev
 [INFO] Running org.jsoup.integration.SessionIT_OE25Dev
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 22.284 s <<< FAILURE! - in org.jsoup.integration.SessionIT_OE25Dev
-[ERROR] org.jsoup.integration.SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_2_oe  Time elapsed: 11.005 s  <<< FAILURE!
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 22.386 s <<< FAILURE! - in org.jsoup.integration.SessionIT_OE25Dev
+[ERROR] org.jsoup.integration.SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_3_oe  Time elapsed: 11.005 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <19> but was: <18>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -1705,7 +1705,7 @@ org.opentest4j.AssertionFailedError: expected: <19> but was: <18>
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
-	at org.jsoup.integration.SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_2_oe(SessionIT_OE25Dev.java:120)
+	at org.jsoup.integration.SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_3_oe(SessionIT_OE25Dev.java:155)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
@@ -1713,7 +1713,7 @@ org.opentest4j.AssertionFailedError: expected: <19> but was: <18>
 [INFO] Running org.jsoup.integration.SafelistExtensionTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.jsoup.integration.SafelistExtensionTest_OE25Dev
 [INFO] Running org.jsoup.integration.ParseTest_OE25Dev
-[ERROR] Tests run: 43, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.092 s <<< FAILURE! - in org.jsoup.integration.ParseTest_OE25Dev
+[ERROR] Tests run: 43, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.18 s <<< FAILURE! - in org.jsoup.integration.ParseTest_OE25Dev
 [ERROR] org.jsoup.integration.ParseTest_OE25Dev.testBaidu_6_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <<title>&#x767e;&#x5ea6;&#x4e00;&#x4e0b;&#xff0c;&#x4f60;&#x5c31;&#x77e5;&#x9053;</title>> but was: <<title>&#x767e;&#x5ea6;&#x4e00;&#x4e0b;&#xff0c;&#x4f60;&#x5c31;&#x77e5;&#x9053;      </title>>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
@@ -1728,27 +1728,27 @@ org.opentest4j.AssertionFailedError: expected: <<title>&#x767e;&#x5ea6;&#x4e00;&
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
 [INFO] Running org.jsoup.integration.FuzzFixesTest_OE25Dev
-[WARNING] Tests run: 66, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.72 s - in org.jsoup.integration.FuzzFixesTest_OE25Dev
+[WARNING] Tests run: 66, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 1.146 s - in org.jsoup.integration.FuzzFixesTest_OE25Dev
 [INFO] Running org.jsoup.integration.SessionTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.jsoup.integration.SessionTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.jsoup.integration.SessionTest_OE25Dev
 [INFO] Running org.jsoup.integration.FuzzFixesIT_OE25Dev
-[INFO] Tests run: 124, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 48.453 s - in org.jsoup.integration.FuzzFixesIT_OE25Dev
+[INFO] Tests run: 124, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 48.489 s - in org.jsoup.integration.FuzzFixesIT_OE25Dev
 [INFO] Running org.jsoup.integration.ConnectIT_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 34.027 s - in org.jsoup.integration.ConnectIT_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.034 s - in org.jsoup.integration.ConnectIT_OE25Dev
 [INFO] Running org.jsoup.helper.W3CDomTest_OE25Dev
-[INFO] Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.171 s - in org.jsoup.helper.W3CDomTest_OE25Dev
+[INFO] Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.276 s - in org.jsoup.helper.W3CDomTest_OE25Dev
 [INFO] Running org.jsoup.helper.HttpConnectionTest_OE25Dev
-[INFO] Tests run: 63, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s - in org.jsoup.helper.HttpConnectionTest_OE25Dev
+[INFO] Tests run: 63, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 s - in org.jsoup.helper.HttpConnectionTest_OE25Dev
 [INFO] Running org.jsoup.helper.DataUtilTest_OE25Dev
-[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s - in org.jsoup.helper.DataUtilTest_OE25Dev
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in org.jsoup.helper.DataUtilTest_OE25Dev
 [INFO] Running org.jsoup.helper.ValidateTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.jsoup.helper.ValidateTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.jsoup.helper.ValidateTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
 [ERROR] Failures: 
 [ERROR]   ParseTest_OE25Dev.testBaidu_6_oe:295 expected: <<title>&#x767e;&#x5ea6;&#x4e00;&#x4e0b;&#xff0c;&#x4f60;&#x5c31;&#x77e5;&#x9053;</title>> but was: <<title>&#x767e;&#x5ea6;&#x4e00;&#x4e0b;&#xff0c;&#x4f60;&#x5c31;&#x77e5;&#x9053;      </title>>
-[ERROR]   SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_2_oe:120 expected: <19> but was: <18>
+[ERROR]   SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_3_oe:155 expected: <19> but was: <18>
 [ERROR]   StringUtilTest_OE25Dev.padding_5_oe:60 expected: < > but was: <                              >
 [ERROR]   AttributesTest_OE25Dev.testIteratorSkipsInternal_4_oe:637 expected: <Two> but was: <One>
 [ERROR]   AttributesTest_OE25Dev.testIteratorSkipsInternal_5_oe:653 expected: <false> but was: <true>
@@ -1974,8 +1974,8 @@ org.opentest4j.AssertionFailedError: expected: <<title>&#x767e;&#x5ea6;&#x4e00;&
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  02:01 min
-[INFO] Finished at: 2026-02-06T08:45:05-06:00
+[INFO] Total time:  02:04 min
+[INFO] Finished at: 2026-02-06T11:46:03-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project jsoup: There are test failures.
 [ERROR] 

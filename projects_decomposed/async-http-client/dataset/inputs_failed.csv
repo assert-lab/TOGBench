@@ -497,36 +497,6 @@ async_24_1,"  public void testPromiseAdapter_1_oe() throws IOException {
   }
   }
 ",AsyncHttpTest::testPromiseAdapter_1_oe
-async_24_2,"  public void testPromiseAdapter_2_oe() throws IOException {
-    final CountDownLatch latch = new CountDownLatch(1);
-    final AtomicInteger successCount = new AtomicInteger();
-    final AtomicInteger progressCount = new AtomicInteger();
-
-    try (AsyncHttpClient client = asyncHttpClient()) {
-      Promise<Response, Throwable, HttpProgress> p1 = AsyncHttpDeferredObject.promise(client.prepareGet(""http://gatling.io""));
-      p1.done(new DoneCallback<Response>() {
-        @Override
-        public void onDone(Response response) {
-          try {
-            // removed other assertion
-            successCount.incrementAndGet();
-          } finally {
-            latch.countDown();
-          }
-        }
-      }).progress(new ProgressCallback<HttpProgress>() {
-
-        @Override
-        public void onProgress(HttpProgress progress) {
-          progressCount.incrementAndGet();
-        }
-      });
-
-      latch.await();
-      assertTrue(progressCount.get() > 0);
-  }
-  }
-",AsyncHttpTest::testPromiseAdapter_2_oe
 async_25_1,"  public void testMultiplePromiseAdapter_1_oe() throws IOException {
     final CountDownLatch latch = new CountDownLatch(1);
     final AtomicInteger successCount = new AtomicInteger();
@@ -6029,26 +5999,6 @@ async_121_2,"  @Test
   }
   }
 ",PerRequestTimeoutTest::testGlobalIdleTimeout_2_oe
-async_122_1,"  @Test
-  public void testListenableFuture_1_oe() throws Exception {
-    final AtomicInteger statusCode = new AtomicInteger(500);
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      final CountDownLatch latch = new CountDownLatch(1);
-      final ListenableFuture<Response> future = ahc.prepareGet(getTargetUrl()).execute();
-      future.addListener(() -> {
-        try {
-          statusCode.set(future.get().getStatusCode());
-          latch.countDown();
-        } catch (InterruptedException | ExecutionException e) {
-          e.printStackTrace();
-        }
-      }, Executors.newFixedThreadPool(1));
-
-      latch.await(10, TimeUnit.SECONDS);
-      assertEquals(statusCode.get(), 200);
-  }
-  }
-",ListenableFutureTest::testListenableFuture_1_oe
 async_123_1,"  @Test
   public void testThreadName_1_oe() throws Exception {
     String threadPoolName = ""ahc-"" + (new Random().nextLong() & 0x7fffffffffffffffL);
@@ -8022,235 +7972,6 @@ async_158_5,"  @Test
   }
   }
 ",MultipleHeaderTest::testMultipleOtherHeaders_5_oe
-async_158_6,"  @Test
-  public void testMultipleOtherHeaders_6_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
-    final String[] xffHeaders = new String[]{null, null};
-
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      Request req = get(""http://localhost:"" + port1 + ""/MultiOther"").build();
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(req, new AsyncHandler<Void>() {
-        public void onThrowable(Throwable t) {
-          t.printStackTrace(System.out);
-        }
-
-        public State onBodyPartReceived(HttpResponseBodyPart objectHttpResponseBodyPart) {
-          return State.CONTINUE;
-        }
-
-        public State onStatusReceived(HttpResponseStatus objectHttpResponseStatus) {
-          return State.CONTINUE;
-        }
-
-        public State onHeadersReceived(HttpHeaders response) {
-          int i = 0;
-          for (String header : response.getAll(""X-Forwarded-For"")) {
-            xffHeaders[i++] = header;
-          }
-          latch.countDown();
-          return State.CONTINUE;
-        }
-
-        public Void onCompleted() {
-          return null;
-        }
-      }).get(3, TimeUnit.SECONDS);
-
-      if (!latch.await(2, TimeUnit.SECONDS)) {
-        // removed other assertion
-      }
-      // removed other assertion
-      // removed other assertion
-      try {
-        // removed other assertion
-        // removed other assertion
-      } catch (AssertionError ex) {
-        assertEquals(xffHeaders[1], ""abc"");
-  }
-  }
-  }
-",MultipleHeaderTest::testMultipleOtherHeaders_6_oe
-async_158_7,"  @Test
-  public void testMultipleOtherHeaders_7_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
-    final String[] xffHeaders = new String[]{null, null};
-
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      Request req = get(""http://localhost:"" + port1 + ""/MultiOther"").build();
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(req, new AsyncHandler<Void>() {
-        public void onThrowable(Throwable t) {
-          t.printStackTrace(System.out);
-        }
-
-        public State onBodyPartReceived(HttpResponseBodyPart objectHttpResponseBodyPart) {
-          return State.CONTINUE;
-        }
-
-        public State onStatusReceived(HttpResponseStatus objectHttpResponseStatus) {
-          return State.CONTINUE;
-        }
-
-        public State onHeadersReceived(HttpHeaders response) {
-          int i = 0;
-          for (String header : response.getAll(""X-Forwarded-For"")) {
-            xffHeaders[i++] = header;
-          }
-          latch.countDown();
-          return State.CONTINUE;
-        }
-
-        public Void onCompleted() {
-          return null;
-        }
-      }).get(3, TimeUnit.SECONDS);
-
-      if (!latch.await(2, TimeUnit.SECONDS)) {
-        // removed other assertion
-      }
-      // removed other assertion
-      // removed other assertion
-      try {
-        // removed other assertion
-        // removed other assertion
-      } catch (AssertionError ex) {
-        // removed other assertion
-        assertEquals(xffHeaders[0], ""def"");
-  }
-  }
-  }
-",MultipleHeaderTest::testMultipleOtherHeaders_7_oe
-async_159_1,"  @Test
-  public void testMultipleEntityHeaders_1_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
-    final String[] clHeaders = new String[]{null, null};
-
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      Request req = get(""http://localhost:"" + port1 + ""/MultiEnt"").build();
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(req, new AsyncHandler<Void>() {
-        public void onThrowable(Throwable t) {
-          t.printStackTrace(System.out);
-        }
-
-        public State onBodyPartReceived(HttpResponseBodyPart objectHttpResponseBodyPart) {
-          return State.CONTINUE;
-        }
-
-        public State onStatusReceived(HttpResponseStatus objectHttpResponseStatus) {
-          return State.CONTINUE;
-        }
-
-        public State onHeadersReceived(HttpHeaders response) {
-          try {
-            int i = 0;
-            for (String header : response.getAll(""X-Duplicated-Header"")) {
-              clHeaders[i++] = header;
-            }
-          } finally {
-            latch.countDown();
-          }
-          return State.CONTINUE;
-        }
-
-        public Void onCompleted() {
-          return null;
-        }
-      }).get(3, TimeUnit.SECONDS);
-
-      if (!latch.await(2, TimeUnit.SECONDS)) {
-        fail(""Time out"");
-  }
-  }
-  }
-",MultipleHeaderTest::testMultipleEntityHeaders_1_oe
-async_159_2,"  @Test
-  public void testMultipleEntityHeaders_2_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
-    final String[] clHeaders = new String[]{null, null};
-
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      Request req = get(""http://localhost:"" + port1 + ""/MultiEnt"").build();
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(req, new AsyncHandler<Void>() {
-        public void onThrowable(Throwable t) {
-          t.printStackTrace(System.out);
-        }
-
-        public State onBodyPartReceived(HttpResponseBodyPart objectHttpResponseBodyPart) {
-          return State.CONTINUE;
-        }
-
-        public State onStatusReceived(HttpResponseStatus objectHttpResponseStatus) {
-          return State.CONTINUE;
-        }
-
-        public State onHeadersReceived(HttpHeaders response) {
-          try {
-            int i = 0;
-            for (String header : response.getAll(""X-Duplicated-Header"")) {
-              clHeaders[i++] = header;
-            }
-          } finally {
-            latch.countDown();
-          }
-          return State.CONTINUE;
-        }
-
-        public Void onCompleted() {
-          return null;
-        }
-      }).get(3, TimeUnit.SECONDS);
-
-      if (!latch.await(2, TimeUnit.SECONDS)) {
-        // removed other assertion
-      }
-      assertNotNull(clHeaders[0]);
-  }
-  }
-",MultipleHeaderTest::testMultipleEntityHeaders_2_oe
-async_159_3,"  @Test
-  public void testMultipleEntityHeaders_3_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
-    final String[] clHeaders = new String[]{null, null};
-
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      Request req = get(""http://localhost:"" + port1 + ""/MultiEnt"").build();
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(req, new AsyncHandler<Void>() {
-        public void onThrowable(Throwable t) {
-          t.printStackTrace(System.out);
-        }
-
-        public State onBodyPartReceived(HttpResponseBodyPart objectHttpResponseBodyPart) {
-          return State.CONTINUE;
-        }
-
-        public State onStatusReceived(HttpResponseStatus objectHttpResponseStatus) {
-          return State.CONTINUE;
-        }
-
-        public State onHeadersReceived(HttpHeaders response) {
-          try {
-            int i = 0;
-            for (String header : response.getAll(""X-Duplicated-Header"")) {
-              clHeaders[i++] = header;
-            }
-          } finally {
-            latch.countDown();
-          }
-          return State.CONTINUE;
-        }
-
-        public Void onCompleted() {
-          return null;
-        }
-      }).get(3, TimeUnit.SECONDS);
-
-      if (!latch.await(2, TimeUnit.SECONDS)) {
-        // removed other assertion
-      }
-      // removed other assertion
-      assertNotNull(clHeaders[1]);
-  }
-  }
-",MultipleHeaderTest::testMultipleEntityHeaders_3_oe
 async_159_4,"  @Test
   public void testMultipleEntityHeaders_4_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     final String[] clHeaders = new String[]{null, null};
@@ -8352,113 +8073,6 @@ async_159_5,"  @Test
   }
   }
 ",MultipleHeaderTest::testMultipleEntityHeaders_5_oe
-async_159_6,"  @Test
-  public void testMultipleEntityHeaders_6_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
-    final String[] clHeaders = new String[]{null, null};
-
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      Request req = get(""http://localhost:"" + port1 + ""/MultiEnt"").build();
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(req, new AsyncHandler<Void>() {
-        public void onThrowable(Throwable t) {
-          t.printStackTrace(System.out);
-        }
-
-        public State onBodyPartReceived(HttpResponseBodyPart objectHttpResponseBodyPart) {
-          return State.CONTINUE;
-        }
-
-        public State onStatusReceived(HttpResponseStatus objectHttpResponseStatus) {
-          return State.CONTINUE;
-        }
-
-        public State onHeadersReceived(HttpHeaders response) {
-          try {
-            int i = 0;
-            for (String header : response.getAll(""X-Duplicated-Header"")) {
-              clHeaders[i++] = header;
-            }
-          } finally {
-            latch.countDown();
-          }
-          return State.CONTINUE;
-        }
-
-        public Void onCompleted() {
-          return null;
-        }
-      }).get(3, TimeUnit.SECONDS);
-
-      if (!latch.await(2, TimeUnit.SECONDS)) {
-        // removed other assertion
-      }
-      // removed other assertion
-      // removed other assertion
-
-      // We can predict the order
-      try {
-        // removed other assertion
-        // removed other assertion
-      } catch (Throwable ex) {
-        assertEquals(clHeaders[0], ""1"");
-  }
-  }
-  }
-",MultipleHeaderTest::testMultipleEntityHeaders_6_oe
-async_159_7,"  @Test
-  public void testMultipleEntityHeaders_7_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
-    final String[] clHeaders = new String[]{null, null};
-
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      Request req = get(""http://localhost:"" + port1 + ""/MultiEnt"").build();
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(req, new AsyncHandler<Void>() {
-        public void onThrowable(Throwable t) {
-          t.printStackTrace(System.out);
-        }
-
-        public State onBodyPartReceived(HttpResponseBodyPart objectHttpResponseBodyPart) {
-          return State.CONTINUE;
-        }
-
-        public State onStatusReceived(HttpResponseStatus objectHttpResponseStatus) {
-          return State.CONTINUE;
-        }
-
-        public State onHeadersReceived(HttpHeaders response) {
-          try {
-            int i = 0;
-            for (String header : response.getAll(""X-Duplicated-Header"")) {
-              clHeaders[i++] = header;
-            }
-          } finally {
-            latch.countDown();
-          }
-          return State.CONTINUE;
-        }
-
-        public Void onCompleted() {
-          return null;
-        }
-      }).get(3, TimeUnit.SECONDS);
-
-      if (!latch.await(2, TimeUnit.SECONDS)) {
-        // removed other assertion
-      }
-      // removed other assertion
-      // removed other assertion
-
-      // We can predict the order
-      try {
-        // removed other assertion
-        // removed other assertion
-      } catch (Throwable ex) {
-        // removed other assertion
-        assertEquals(clHeaders[1], ""2"");
-  }
-  }
-  }
-",MultipleHeaderTest::testMultipleEntityHeaders_7_oe
 async_160_1,"  @Test
   public void digestAuthTest_1_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
@@ -12629,271 +12243,6 @@ async_247_2,"  @Test
   }
   }
 ",EmptyBodyTest::testEmptyBody_2_oe
-async_247_3,"  @Test
-  public void testEmptyBody_3_oe() throws IOException {
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      final AtomicBoolean err = new AtomicBoolean(false);
-      final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
-      final AtomicBoolean status = new AtomicBoolean(false);
-      final AtomicInteger headers = new AtomicInteger(0);
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
-        public void onThrowable(Throwable t) {
-          // removed other assertion
-          err.set(true);
-        }
-
-        public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
-          byte[] bytes = e.getBodyPartBytes();
-
-          if (bytes.length != 0) {
-            String s = new String(bytes);
-            logger.info(""got part: {}"", s);
-            logger.warn(""Sampling stacktrace."", new Throwable(""trace that, we should not get called for empty body.""));
-            queue.put(s);
-          }
-          return State.CONTINUE;
-        }
-
-        public State onStatusReceived(HttpResponseStatus e) {
-          status.set(true);
-          return AsyncHandler.State.CONTINUE;
-        }
-
-        public State onHeadersReceived(HttpHeaders e) throws Exception {
-          if (headers.incrementAndGet() == 2) {
-            throw new Exception(""Analyze this."");
-          }
-          return State.CONTINUE;
-        }
-
-        public Object onCompleted() {
-          latch.countDown();
-          return null;
-        }
-      });
-      try {
-        // removed other assertion
-      } catch (InterruptedException e) {
-        fail(""Interrupted."", e);
-  }
-  }
-  }
-",EmptyBodyTest::testEmptyBody_3_oe
-async_247_4,"  @Test
-  public void testEmptyBody_4_oe() throws IOException {
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      final AtomicBoolean err = new AtomicBoolean(false);
-      final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
-      final AtomicBoolean status = new AtomicBoolean(false);
-      final AtomicInteger headers = new AtomicInteger(0);
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
-        public void onThrowable(Throwable t) {
-          // removed other assertion
-          err.set(true);
-        }
-
-        public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
-          byte[] bytes = e.getBodyPartBytes();
-
-          if (bytes.length != 0) {
-            String s = new String(bytes);
-            logger.info(""got part: {}"", s);
-            logger.warn(""Sampling stacktrace."", new Throwable(""trace that, we should not get called for empty body.""));
-            queue.put(s);
-          }
-          return State.CONTINUE;
-        }
-
-        public State onStatusReceived(HttpResponseStatus e) {
-          status.set(true);
-          return AsyncHandler.State.CONTINUE;
-        }
-
-        public State onHeadersReceived(HttpHeaders e) throws Exception {
-          if (headers.incrementAndGet() == 2) {
-            throw new Exception(""Analyze this."");
-          }
-          return State.CONTINUE;
-        }
-
-        public Object onCompleted() {
-          latch.countDown();
-          return null;
-        }
-      });
-      try {
-        // removed other assertion
-      } catch (InterruptedException e) {
-        // removed other assertion
-      }
-      assertFalse(err.get());
-  }
-  }
-",EmptyBodyTest::testEmptyBody_4_oe
-async_247_5,"  @Test
-  public void testEmptyBody_5_oe() throws IOException {
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      final AtomicBoolean err = new AtomicBoolean(false);
-      final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
-      final AtomicBoolean status = new AtomicBoolean(false);
-      final AtomicInteger headers = new AtomicInteger(0);
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
-        public void onThrowable(Throwable t) {
-          // removed other assertion
-          err.set(true);
-        }
-
-        public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
-          byte[] bytes = e.getBodyPartBytes();
-
-          if (bytes.length != 0) {
-            String s = new String(bytes);
-            logger.info(""got part: {}"", s);
-            logger.warn(""Sampling stacktrace."", new Throwable(""trace that, we should not get called for empty body.""));
-            queue.put(s);
-          }
-          return State.CONTINUE;
-        }
-
-        public State onStatusReceived(HttpResponseStatus e) {
-          status.set(true);
-          return AsyncHandler.State.CONTINUE;
-        }
-
-        public State onHeadersReceived(HttpHeaders e) throws Exception {
-          if (headers.incrementAndGet() == 2) {
-            throw new Exception(""Analyze this."");
-          }
-          return State.CONTINUE;
-        }
-
-        public Object onCompleted() {
-          latch.countDown();
-          return null;
-        }
-      });
-      try {
-        // removed other assertion
-      } catch (InterruptedException e) {
-        // removed other assertion
-      }
-      // removed other assertion
-      assertEquals(queue.size(), 0);
-  }
-  }
-",EmptyBodyTest::testEmptyBody_5_oe
-async_247_6,"  @Test
-  public void testEmptyBody_6_oe() throws IOException {
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      final AtomicBoolean err = new AtomicBoolean(false);
-      final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
-      final AtomicBoolean status = new AtomicBoolean(false);
-      final AtomicInteger headers = new AtomicInteger(0);
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
-        public void onThrowable(Throwable t) {
-          // removed other assertion
-          err.set(true);
-        }
-
-        public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
-          byte[] bytes = e.getBodyPartBytes();
-
-          if (bytes.length != 0) {
-            String s = new String(bytes);
-            logger.info(""got part: {}"", s);
-            logger.warn(""Sampling stacktrace."", new Throwable(""trace that, we should not get called for empty body.""));
-            queue.put(s);
-          }
-          return State.CONTINUE;
-        }
-
-        public State onStatusReceived(HttpResponseStatus e) {
-          status.set(true);
-          return AsyncHandler.State.CONTINUE;
-        }
-
-        public State onHeadersReceived(HttpHeaders e) throws Exception {
-          if (headers.incrementAndGet() == 2) {
-            throw new Exception(""Analyze this."");
-          }
-          return State.CONTINUE;
-        }
-
-        public Object onCompleted() {
-          latch.countDown();
-          return null;
-        }
-      });
-      try {
-        // removed other assertion
-      } catch (InterruptedException e) {
-        // removed other assertion
-      }
-      // removed other assertion
-      // removed other assertion
-      assertTrue(status.get());
-  }
-  }
-",EmptyBodyTest::testEmptyBody_6_oe
-async_247_7,"  @Test
-  public void testEmptyBody_7_oe() throws IOException {
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      final AtomicBoolean err = new AtomicBoolean(false);
-      final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
-      final AtomicBoolean status = new AtomicBoolean(false);
-      final AtomicInteger headers = new AtomicInteger(0);
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
-        public void onThrowable(Throwable t) {
-          // removed other assertion
-          err.set(true);
-        }
-
-        public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
-          byte[] bytes = e.getBodyPartBytes();
-
-          if (bytes.length != 0) {
-            String s = new String(bytes);
-            logger.info(""got part: {}"", s);
-            logger.warn(""Sampling stacktrace."", new Throwable(""trace that, we should not get called for empty body.""));
-            queue.put(s);
-          }
-          return State.CONTINUE;
-        }
-
-        public State onStatusReceived(HttpResponseStatus e) {
-          status.set(true);
-          return AsyncHandler.State.CONTINUE;
-        }
-
-        public State onHeadersReceived(HttpHeaders e) throws Exception {
-          if (headers.incrementAndGet() == 2) {
-            throw new Exception(""Analyze this."");
-          }
-          return State.CONTINUE;
-        }
-
-        public Object onCompleted() {
-          latch.countDown();
-          return null;
-        }
-      });
-      try {
-        // removed other assertion
-      } catch (InterruptedException e) {
-        // removed other assertion
-      }
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      assertEquals(headers.get(), 1);
-  }
-  }
-",EmptyBodyTest::testEmptyBody_7_oe
 async_248_1,"  @Test
   public void testPutEmptyBody_1_oe() throws Exception {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
@@ -14021,152 +13370,6 @@ async_300_2,"  @Test
   }
   }
 ",EventPipelineTest::asyncPipelineTest_2_oe
-async_300_3,"  @Test
-  public void asyncPipelineTest_3_oe() throws Exception {
-
-    Consumer<Channel> httpAdditionalPipelineInitializer = channel -> channel.pipeline().addBefore(""inflater"",
-            ""copyEncodingHeader"", new CopyEncodingHandler());
-
-    try (AsyncHttpClient p = asyncHttpClient(
-            config().setHttpAdditionalChannelInitializer(httpAdditionalPipelineInitializer))) {
-      final CountDownLatch l = new CountDownLatch(1);
-      p.executeRequest(get(getTargetUrl()), new AsyncCompletionHandlerAdapter() {
-        @Override
-        public Response onCompleted(Response response) {
-          try {
-            // removed other assertion
-            // removed other assertion
-          } finally {
-            l.countDown();
-          }
-          return response;
-        }
-      }).get();
-      if (!l.await(TIMEOUT, TimeUnit.SECONDS)) {
-        fail(""Timeout out"");
-  }
-  }
-  }
-",EventPipelineTest::asyncPipelineTest_3_oe
-async_301_1,"  @Test
-  public void testRequestTimeout_1_oe() throws IOException {
-    final Semaphore requestThrottle = new Semaphore(1);
-
-    int samples = 10;
-
-    try (AsyncHttpClient client = asyncHttpClient(config().setMaxConnections(1))) {
-      final CountDownLatch latch = new CountDownLatch(samples);
-      final List<Exception> tooManyConnections = Collections.synchronizedList(new ArrayList<>(2));
-
-      for (int i = 0; i < samples; i++) {
-        new Thread(() -> {
-          try {
-            requestThrottle.acquire();
-            Future<Response> responseFuture = null;
-            try {
-              responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(SLEEPTIME_MS / 2)
-                      .execute(new AsyncCompletionHandler<Response>() {
-
-                        @Override
-                        public Response onCompleted(Response response) {
-                          return response;
-                        }
-
-                        @Override
-                        public void onThrowable(Throwable t) {
-                          logger.error(""onThrowable got an error"", t);
-                          try {
-                            Thread.sleep(100);
-                          } catch (InterruptedException e) {
-                            //
-                          }
-                          requestThrottle.release();
-                        }
-                      });
-            } catch (Exception e) {
-              tooManyConnections.add(e);
-            }
-
-            if (responseFuture != null)
-              responseFuture.get();
-          } catch (Exception e) {
-            //
-          } finally {
-            latch.countDown();
-          }
-        }).start();
-      }
-
-      try {
-        latch.await(30, TimeUnit.SECONDS);
-      } catch (Exception e) {
-        fail(""failed to wait for requests to complete"");
-  }
-  }
-  }
-",NettyRequestThrottleTimeoutTest::testRequestTimeout_1_oe
-async_301_2,"  @Test
-  public void testRequestTimeout_2_oe() throws IOException {
-    final Semaphore requestThrottle = new Semaphore(1);
-
-    int samples = 10;
-
-    try (AsyncHttpClient client = asyncHttpClient(config().setMaxConnections(1))) {
-      final CountDownLatch latch = new CountDownLatch(samples);
-      final List<Exception> tooManyConnections = Collections.synchronizedList(new ArrayList<>(2));
-
-      for (int i = 0; i < samples; i++) {
-        new Thread(() -> {
-          try {
-            requestThrottle.acquire();
-            Future<Response> responseFuture = null;
-            try {
-              responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(SLEEPTIME_MS / 2)
-                      .execute(new AsyncCompletionHandler<Response>() {
-
-                        @Override
-                        public Response onCompleted(Response response) {
-                          return response;
-                        }
-
-                        @Override
-                        public void onThrowable(Throwable t) {
-                          logger.error(""onThrowable got an error"", t);
-                          try {
-                            Thread.sleep(100);
-                          } catch (InterruptedException e) {
-                            //
-                          }
-                          requestThrottle.release();
-                        }
-                      });
-            } catch (Exception e) {
-              tooManyConnections.add(e);
-            }
-
-            if (responseFuture != null)
-              responseFuture.get();
-          } catch (Exception e) {
-            //
-          } finally {
-            latch.countDown();
-          }
-        }).start();
-      }
-
-      try {
-        latch.await(30, TimeUnit.SECONDS);
-      } catch (Exception e) {
-        // removed other assertion
-      }
-
-      for (Exception e : tooManyConnections)
-        logger.error(""Exception while calling execute"", e);
-
-      assertTrue(tooManyConnections.isEmpty(), ""Should not have any connection errors where too many connections have been attempted"");
-  }
-  }
-",NettyRequestThrottleTimeoutTest::testRequestTimeout_2_oe
 async_309_1,"  @Test
   public void basicTest_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().addRequestFilter(new ThrottleRequestFilter(100)))) {
@@ -14695,31 +13898,6 @@ async_329_1,"  @Test(timeOut = 60000)
   }
   }
 ",TextMessageTest::onOpen_1_oe
-async_330_1,"  @Test(timeOut = 60000)
-  public void onEmptyListenerTest_1_oe() throws Exception {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      WebSocket websocket = null;
-      try {
-        websocket = c.prepareGet(getTargetUrl()).execute(new WebSocketUpgradeHandler.Builder().build()).get();
-      } catch (Throwable t) {
-        fail();
-  }
-  }
-  }
-",TextMessageTest::onEmptyListenerTest_1_oe
-async_330_2,"  @Test(timeOut = 60000)
-  public void onEmptyListenerTest_2_oe() throws Exception {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      WebSocket websocket = null;
-      try {
-        websocket = c.prepareGet(getTargetUrl()).execute(new WebSocketUpgradeHandler.Builder().build()).get();
-      } catch (Throwable t) {
-        // removed other assertion
-      }
-      assertTrue(websocket != null);
-  }
-  }
-",TextMessageTest::onEmptyListenerTest_2_oe
 async_332_1,"  @Test(timeOut = 60000)
   public void onTimeoutCloseTest_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
@@ -15168,34 +14346,6 @@ async_359_4,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimpleWithFailure_4_oe
-async_359_5,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
-  public void deferredSimpleWithFailure_5_oe() throws Throwable {
-    try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
-      BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
-
-      CountingOutputStream cos = new CountingOutputStream();
-      BodyDeferringAsyncHandler bdah = new BodyDeferringAsyncHandler(cos);
-      Future<Response> f = r.execute(bdah);
-      Response resp = bdah.getResponse();
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // we got headers only, it's probably not all yet here (we have BIG file
-      // downloading)
-      // removed other assertion
-
-      // now be polite and wait for body arrival too (otherwise we would be
-      // dropping the ""line"" on server)
-      try {
-        f.get();
-      } catch (ExecutionException e) {
-        // good
-        // it's incomplete, there was an error
-        assertNotEquals(cos.getByteCount(), CONTENT_LENGTH_VALUE);
-  }
-  }
-  }
-",BodyDeferringAsyncHandlerTest::deferredSimpleWithFailure_5_oe
 async_360_1,"  @Test
   public void deferredInputStreamTrick_1_oe() throws IOException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
@@ -15253,39 +14403,6 @@ async_360_3,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrick_3_oe
-async_360_4,"  @Test
-  public void deferredInputStreamTrick_4_oe() throws IOException, InterruptedException {
-    try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
-      BoundRequestBuilder r = client.prepareGet(getTargetUrl());
-
-      PipedOutputStream pos = new PipedOutputStream();
-      PipedInputStream pis = new PipedInputStream(pos);
-      BodyDeferringAsyncHandler bdah = new BodyDeferringAsyncHandler(pos);
-
-      Future<Response> f = r.execute(bdah);
-
-      BodyDeferringInputStream is = new BodyDeferringInputStream(f, bdah, pis);
-
-      Response resp = is.getAsapResponse();
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // ""consume"" the body, but our code needs input stream
-      CountingOutputStream cos = new CountingOutputStream();
-      try {
-        copy(is, cos);
-      } finally {
-        is.close();
-        cos.close();
-      }
-
-      // now we don't need to be polite, since consuming and closing
-      // BodyDeferringInputStream does all.
-      // it all should be here now
-      assertEquals(cos.getByteCount(), CONTENT_LENGTH_VALUE);
-  }
-  }
-",BodyDeferringAsyncHandlerTest::deferredInputStreamTrick_4_oe
 async_361_1,"  @Test(expectedExceptions = RemotelyClosedException.class)
   public void deferredInputStreamTrickWithFailure_1_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
@@ -15530,6 +14647,1118 @@ async_377_2,"  @Test
   }
   }
 ",MaxConnectionsInThreads::testMaxConnectionsWithinThreads_2_oe
+async_380_1,"  @Test(invocationCount = 100)
+  public void asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_1_oe() throws Exception {
+
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      // Use a l in case the assert fail
+      final CountDownLatch l = new CountDownLatch(2);
+
+      final Map<String, Boolean> remoteAddresses = new ConcurrentHashMap<>();
+
+      AsyncCompletionHandler<Response> handler = new AsyncCompletionHandlerAdapter() {
+
+        @Override
+        public Response onCompleted(Response response) {
+          logger.debug(""ON COMPLETED INVOKED "" + response.getHeader(""X-KEEP-ALIVE""));
+          try {
+            assertEquals(response.getStatusCode(), 200);
+  }
+  }
+  }
+  }
+  }
+",ConnectionPoolTest::asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_1_oe
+async_381_1,"  @Test(expectedExceptions = TooManyConnectionsException.class)
+  public void multipleMaxConnectionOpenTest_1_oe() throws Throwable {
+    try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
+      String body = ""hello there"";
+
+      // once
+      Response response = c.preparePost(getTargetUrl()).setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
+
+      assertEquals(response.getResponseBody(), body);
+  }
+  }
+",ConnectionPoolTest::multipleMaxConnectionOpenTest_1_oe
+async_381_2,"  @Test(expectedExceptions = TooManyConnectionsException.class)
+  public void multipleMaxConnectionOpenTest_2_oe() throws Throwable {
+    try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
+      String body = ""hello there"";
+
+      // once
+      Response response = c.preparePost(getTargetUrl()).setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
+
+      // removed other assertion
+
+      // twice
+      Exception exception = null;
+      try {
+        c.preparePost(String.format(""http://localhost:%d/foo/test"", port2)).setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
+        fail(""Should throw exception. Too many connections issued."");
+  }
+  }
+  }
+",ConnectionPoolTest::multipleMaxConnectionOpenTest_2_oe
+async_382_1,"  @Test
+  public void multipleMaxConnectionOpenTestWithQuery_1_oe() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
+      String body = ""hello there"";
+
+      // once
+      Response response = c.preparePost(getTargetUrl() + ""?foo=bar"").setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
+
+      assertEquals(response.getResponseBody(), ""foo_"" + body);
+  }
+  }
+",ConnectionPoolTest::multipleMaxConnectionOpenTestWithQuery_1_oe
+async_383_1,"  @Test
+  public void win7DisconnectTest_1_oe() throws Exception {
+    final AtomicInteger count = new AtomicInteger(0);
+
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      AsyncCompletionHandler<Response> handler = new AsyncCompletionHandlerAdapter() {
+
+        @Override
+        public Response onCompleted(Response response) throws Exception {
+
+          count.incrementAndGet();
+          StackTraceElement e = new StackTraceElement(""sun.nio.ch.SocketDispatcher"", ""read0"", null, -1);
+          IOException t = new IOException();
+          t.setStackTrace(new StackTraceElement[]{e});
+          throw t;
+        }
+      };
+
+      try {
+        client.prepareGet(getTargetUrl()).execute(handler).get();
+        fail(""Must have received an exception"");
+  }
+  }
+  }
+",ConnectionPoolTest::win7DisconnectTest_1_oe
+async_384_1,"  @Test
+  public void asyncHandlerOnThrowableTest_1_oe() throws Exception {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      final AtomicInteger count = new AtomicInteger();
+      final String THIS_IS_NOT_FOR_YOU = ""This is not for you"";
+      final CountDownLatch latch = new CountDownLatch(16);
+      for (int i = 0; i < 16; i++) {
+        client.prepareGet(getTargetUrl()).execute(new AsyncCompletionHandlerBase() {
+          @Override
+          public Response onCompleted(Response response) throws Exception {
+            throw new Exception(THIS_IS_NOT_FOR_YOU);
+          }
+        });
+
+        client.prepareGet(getTargetUrl()).execute(new AsyncCompletionHandlerBase() {
+          @Override
+          public void onThrowable(Throwable t) {
+            if (t.getMessage() != null && t.getMessage().equalsIgnoreCase(THIS_IS_NOT_FOR_YOU)) {
+              count.incrementAndGet();
+            }
+          }
+
+          @Override
+          public Response onCompleted(Response response) {
+            latch.countDown();
+            return response;
+          }
+        });
+      }
+      latch.await(TIMEOUT, TimeUnit.SECONDS);
+      assertEquals(count.get(), 0);
+  }
+  }
+",ConnectionPoolTest::asyncHandlerOnThrowableTest_1_oe
+async_385_1,"  @Test
+  public void testPooledEventsFired_1_oe() throws Exception {
+    RequestBuilder request = get(""http://localhost:"" + port1 + ""/Test"");
+
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      EventCollectingHandler firstHandler = new EventCollectingHandler();
+      client.executeRequest(request, firstHandler).get(3, TimeUnit.SECONDS);
+      firstHandler.waitForCompletion(3, TimeUnit.SECONDS);
+
+      EventCollectingHandler secondHandler = new EventCollectingHandler();
+      client.executeRequest(request, secondHandler).get(3, TimeUnit.SECONDS);
+      secondHandler.waitForCompletion(3, TimeUnit.SECONDS);
+
+      Object[] expectedEvents = new Object[]{CONNECTION_POOL_EVENT, CONNECTION_POOLED_EVENT, REQUEST_SEND_EVENT, HEADERS_WRITTEN_EVENT, STATUS_RECEIVED_EVENT,
+              HEADERS_RECEIVED_EVENT, CONNECTION_OFFER_EVENT, COMPLETED_EVENT};
+
+      assertEquals(secondHandler.firedEvents.toArray(), expectedEvents, ""Got "" + Arrays.toString(secondHandler.firedEvents.toArray()));
+  }
+  }
+",ConnectionPoolTest::testPooledEventsFired_1_oe
+async_387_1,"  @Test(groups = ""online"")
+  public void testMaxTotalConnections_1_oe() throws Exception {
+    String[] urls = new String[]{""https://www.google.com"", ""https://www.youtube.com""};
+
+    final CountDownLatch latch = new CountDownLatch(2);
+    final AtomicReference<Throwable> ex = new AtomicReference<>();
+    final AtomicReference<String> failedUrl = new AtomicReference<>();
+
+    AsyncHttpClientConfig config = config()
+            .setConnectTimeout(1000)
+            .setRequestTimeout(5000)
+            .setKeepAlive(false)
+            .setMaxConnections(2)
+            .setMaxConnectionsPerHost(1)
+            .build();
+
+    try (AsyncHttpClient client = asyncHttpClient(config)) {
+      for (String url : urls) {
+        final String thisUrl = url;
+        client.prepareGet(url).execute(new AsyncCompletionHandlerBase() {
+          @Override
+          public Response onCompleted(Response response) throws Exception {
+            Response r = super.onCompleted(response);
+            latch.countDown();
+            return r;
+          }
+
+          @Override
+          public void onThrowable(Throwable t) {
+            super.onThrowable(t);
+            ex.set(t);
+            failedUrl.set(thisUrl);
+            latch.countDown();
+          }
+        });
+      }
+
+      latch.await();
+      assertNull(ex.get());
+  }
+  }
+",MaxTotalConnectionTest::testMaxTotalConnections_1_oe
+async_387_2,"  @Test(groups = ""online"")
+  public void testMaxTotalConnections_2_oe() throws Exception {
+    String[] urls = new String[]{""https://www.google.com"", ""https://www.youtube.com""};
+
+    final CountDownLatch latch = new CountDownLatch(2);
+    final AtomicReference<Throwable> ex = new AtomicReference<>();
+    final AtomicReference<String> failedUrl = new AtomicReference<>();
+
+    AsyncHttpClientConfig config = config()
+            .setConnectTimeout(1000)
+            .setRequestTimeout(5000)
+            .setKeepAlive(false)
+            .setMaxConnections(2)
+            .setMaxConnectionsPerHost(1)
+            .build();
+
+    try (AsyncHttpClient client = asyncHttpClient(config)) {
+      for (String url : urls) {
+        final String thisUrl = url;
+        client.prepareGet(url).execute(new AsyncCompletionHandlerBase() {
+          @Override
+          public Response onCompleted(Response response) throws Exception {
+            Response r = super.onCompleted(response);
+            latch.countDown();
+            return r;
+          }
+
+          @Override
+          public void onThrowable(Throwable t) {
+            super.onThrowable(t);
+            ex.set(t);
+            failedUrl.set(thisUrl);
+            latch.countDown();
+          }
+        });
+      }
+
+      latch.await();
+      // removed other assertion
+      assertNull(failedUrl.get());
+  }
+  }
+",MaxTotalConnectionTest::testMaxTotalConnections_2_oe
+async_24_2,"  public void testPromiseAdapter_2_oe() throws IOException {
+    final CountDownLatch latch = new CountDownLatch(1);
+    final AtomicInteger successCount = new AtomicInteger();
+    final AtomicInteger progressCount = new AtomicInteger();
+
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Promise<Response, Throwable, HttpProgress> p1 = AsyncHttpDeferredObject.promise(client.prepareGet(""http://gatling.io""));
+      p1.done(new DoneCallback<Response>() {
+        @Override
+        public void onDone(Response response) {
+          try {
+            // removed other assertion
+            successCount.incrementAndGet();
+          } finally {
+            latch.countDown();
+          }
+        }
+      }).progress(new ProgressCallback<HttpProgress>() {
+
+        @Override
+        public void onProgress(HttpProgress progress) {
+          progressCount.incrementAndGet();
+        }
+      });
+
+      latch.await();
+      assertTrue(progressCount.get() > 0);
+  }
+  }
+",AsyncHttpTest::testPromiseAdapter_2_oe
+async_122_1,"  @Test
+  public void testListenableFuture_1_oe() throws Exception {
+    final AtomicInteger statusCode = new AtomicInteger(500);
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      final CountDownLatch latch = new CountDownLatch(1);
+      final ListenableFuture<Response> future = ahc.prepareGet(getTargetUrl()).execute();
+      future.addListener(() -> {
+        try {
+          statusCode.set(future.get().getStatusCode());
+          latch.countDown();
+        } catch (InterruptedException | ExecutionException e) {
+          e.printStackTrace();
+        }
+      }, Executors.newFixedThreadPool(1));
+
+      latch.await(10, TimeUnit.SECONDS);
+      assertEquals(statusCode.get(), 200);
+  }
+  }
+",ListenableFutureTest::testListenableFuture_1_oe
+async_158_6,"  @Test
+  public void testMultipleOtherHeaders_6_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    final String[] xffHeaders = new String[]{null, null};
+
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      Request req = get(""http://localhost:"" + port1 + ""/MultiOther"").build();
+      final CountDownLatch latch = new CountDownLatch(1);
+      ahc.executeRequest(req, new AsyncHandler<Void>() {
+        public void onThrowable(Throwable t) {
+          t.printStackTrace(System.out);
+        }
+
+        public State onBodyPartReceived(HttpResponseBodyPart objectHttpResponseBodyPart) {
+          return State.CONTINUE;
+        }
+
+        public State onStatusReceived(HttpResponseStatus objectHttpResponseStatus) {
+          return State.CONTINUE;
+        }
+
+        public State onHeadersReceived(HttpHeaders response) {
+          int i = 0;
+          for (String header : response.getAll(""X-Forwarded-For"")) {
+            xffHeaders[i++] = header;
+          }
+          latch.countDown();
+          return State.CONTINUE;
+        }
+
+        public Void onCompleted() {
+          return null;
+        }
+      }).get(3, TimeUnit.SECONDS);
+
+      if (!latch.await(2, TimeUnit.SECONDS)) {
+        // removed other assertion
+      }
+      // removed other assertion
+      // removed other assertion
+      try {
+        // removed other assertion
+        // removed other assertion
+      } catch (AssertionError ex) {
+        assertEquals(xffHeaders[1], ""abc"");
+  }
+  }
+  }
+",MultipleHeaderTest::testMultipleOtherHeaders_6_oe
+async_158_7,"  @Test
+  public void testMultipleOtherHeaders_7_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    final String[] xffHeaders = new String[]{null, null};
+
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      Request req = get(""http://localhost:"" + port1 + ""/MultiOther"").build();
+      final CountDownLatch latch = new CountDownLatch(1);
+      ahc.executeRequest(req, new AsyncHandler<Void>() {
+        public void onThrowable(Throwable t) {
+          t.printStackTrace(System.out);
+        }
+
+        public State onBodyPartReceived(HttpResponseBodyPart objectHttpResponseBodyPart) {
+          return State.CONTINUE;
+        }
+
+        public State onStatusReceived(HttpResponseStatus objectHttpResponseStatus) {
+          return State.CONTINUE;
+        }
+
+        public State onHeadersReceived(HttpHeaders response) {
+          int i = 0;
+          for (String header : response.getAll(""X-Forwarded-For"")) {
+            xffHeaders[i++] = header;
+          }
+          latch.countDown();
+          return State.CONTINUE;
+        }
+
+        public Void onCompleted() {
+          return null;
+        }
+      }).get(3, TimeUnit.SECONDS);
+
+      if (!latch.await(2, TimeUnit.SECONDS)) {
+        // removed other assertion
+      }
+      // removed other assertion
+      // removed other assertion
+      try {
+        // removed other assertion
+        // removed other assertion
+      } catch (AssertionError ex) {
+        // removed other assertion
+        assertEquals(xffHeaders[0], ""def"");
+  }
+  }
+  }
+",MultipleHeaderTest::testMultipleOtherHeaders_7_oe
+async_159_1,"  @Test
+  public void testMultipleEntityHeaders_1_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    final String[] clHeaders = new String[]{null, null};
+
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      Request req = get(""http://localhost:"" + port1 + ""/MultiEnt"").build();
+      final CountDownLatch latch = new CountDownLatch(1);
+      ahc.executeRequest(req, new AsyncHandler<Void>() {
+        public void onThrowable(Throwable t) {
+          t.printStackTrace(System.out);
+        }
+
+        public State onBodyPartReceived(HttpResponseBodyPart objectHttpResponseBodyPart) {
+          return State.CONTINUE;
+        }
+
+        public State onStatusReceived(HttpResponseStatus objectHttpResponseStatus) {
+          return State.CONTINUE;
+        }
+
+        public State onHeadersReceived(HttpHeaders response) {
+          try {
+            int i = 0;
+            for (String header : response.getAll(""X-Duplicated-Header"")) {
+              clHeaders[i++] = header;
+            }
+          } finally {
+            latch.countDown();
+          }
+          return State.CONTINUE;
+        }
+
+        public Void onCompleted() {
+          return null;
+        }
+      }).get(3, TimeUnit.SECONDS);
+
+      if (!latch.await(2, TimeUnit.SECONDS)) {
+        fail(""Time out"");
+  }
+  }
+  }
+",MultipleHeaderTest::testMultipleEntityHeaders_1_oe
+async_159_2,"  @Test
+  public void testMultipleEntityHeaders_2_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    final String[] clHeaders = new String[]{null, null};
+
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      Request req = get(""http://localhost:"" + port1 + ""/MultiEnt"").build();
+      final CountDownLatch latch = new CountDownLatch(1);
+      ahc.executeRequest(req, new AsyncHandler<Void>() {
+        public void onThrowable(Throwable t) {
+          t.printStackTrace(System.out);
+        }
+
+        public State onBodyPartReceived(HttpResponseBodyPart objectHttpResponseBodyPart) {
+          return State.CONTINUE;
+        }
+
+        public State onStatusReceived(HttpResponseStatus objectHttpResponseStatus) {
+          return State.CONTINUE;
+        }
+
+        public State onHeadersReceived(HttpHeaders response) {
+          try {
+            int i = 0;
+            for (String header : response.getAll(""X-Duplicated-Header"")) {
+              clHeaders[i++] = header;
+            }
+          } finally {
+            latch.countDown();
+          }
+          return State.CONTINUE;
+        }
+
+        public Void onCompleted() {
+          return null;
+        }
+      }).get(3, TimeUnit.SECONDS);
+
+      if (!latch.await(2, TimeUnit.SECONDS)) {
+        // removed other assertion
+      }
+      assertNotNull(clHeaders[0]);
+  }
+  }
+",MultipleHeaderTest::testMultipleEntityHeaders_2_oe
+async_159_3,"  @Test
+  public void testMultipleEntityHeaders_3_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    final String[] clHeaders = new String[]{null, null};
+
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      Request req = get(""http://localhost:"" + port1 + ""/MultiEnt"").build();
+      final CountDownLatch latch = new CountDownLatch(1);
+      ahc.executeRequest(req, new AsyncHandler<Void>() {
+        public void onThrowable(Throwable t) {
+          t.printStackTrace(System.out);
+        }
+
+        public State onBodyPartReceived(HttpResponseBodyPart objectHttpResponseBodyPart) {
+          return State.CONTINUE;
+        }
+
+        public State onStatusReceived(HttpResponseStatus objectHttpResponseStatus) {
+          return State.CONTINUE;
+        }
+
+        public State onHeadersReceived(HttpHeaders response) {
+          try {
+            int i = 0;
+            for (String header : response.getAll(""X-Duplicated-Header"")) {
+              clHeaders[i++] = header;
+            }
+          } finally {
+            latch.countDown();
+          }
+          return State.CONTINUE;
+        }
+
+        public Void onCompleted() {
+          return null;
+        }
+      }).get(3, TimeUnit.SECONDS);
+
+      if (!latch.await(2, TimeUnit.SECONDS)) {
+        // removed other assertion
+      }
+      // removed other assertion
+      assertNotNull(clHeaders[1]);
+  }
+  }
+",MultipleHeaderTest::testMultipleEntityHeaders_3_oe
+async_159_6,"  @Test
+  public void testMultipleEntityHeaders_6_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    final String[] clHeaders = new String[]{null, null};
+
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      Request req = get(""http://localhost:"" + port1 + ""/MultiEnt"").build();
+      final CountDownLatch latch = new CountDownLatch(1);
+      ahc.executeRequest(req, new AsyncHandler<Void>() {
+        public void onThrowable(Throwable t) {
+          t.printStackTrace(System.out);
+        }
+
+        public State onBodyPartReceived(HttpResponseBodyPart objectHttpResponseBodyPart) {
+          return State.CONTINUE;
+        }
+
+        public State onStatusReceived(HttpResponseStatus objectHttpResponseStatus) {
+          return State.CONTINUE;
+        }
+
+        public State onHeadersReceived(HttpHeaders response) {
+          try {
+            int i = 0;
+            for (String header : response.getAll(""X-Duplicated-Header"")) {
+              clHeaders[i++] = header;
+            }
+          } finally {
+            latch.countDown();
+          }
+          return State.CONTINUE;
+        }
+
+        public Void onCompleted() {
+          return null;
+        }
+      }).get(3, TimeUnit.SECONDS);
+
+      if (!latch.await(2, TimeUnit.SECONDS)) {
+        // removed other assertion
+      }
+      // removed other assertion
+      // removed other assertion
+
+      // We can predict the order
+      try {
+        // removed other assertion
+        // removed other assertion
+      } catch (Throwable ex) {
+        assertEquals(clHeaders[0], ""1"");
+  }
+  }
+  }
+",MultipleHeaderTest::testMultipleEntityHeaders_6_oe
+async_159_7,"  @Test
+  public void testMultipleEntityHeaders_7_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    final String[] clHeaders = new String[]{null, null};
+
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      Request req = get(""http://localhost:"" + port1 + ""/MultiEnt"").build();
+      final CountDownLatch latch = new CountDownLatch(1);
+      ahc.executeRequest(req, new AsyncHandler<Void>() {
+        public void onThrowable(Throwable t) {
+          t.printStackTrace(System.out);
+        }
+
+        public State onBodyPartReceived(HttpResponseBodyPart objectHttpResponseBodyPart) {
+          return State.CONTINUE;
+        }
+
+        public State onStatusReceived(HttpResponseStatus objectHttpResponseStatus) {
+          return State.CONTINUE;
+        }
+
+        public State onHeadersReceived(HttpHeaders response) {
+          try {
+            int i = 0;
+            for (String header : response.getAll(""X-Duplicated-Header"")) {
+              clHeaders[i++] = header;
+            }
+          } finally {
+            latch.countDown();
+          }
+          return State.CONTINUE;
+        }
+
+        public Void onCompleted() {
+          return null;
+        }
+      }).get(3, TimeUnit.SECONDS);
+
+      if (!latch.await(2, TimeUnit.SECONDS)) {
+        // removed other assertion
+      }
+      // removed other assertion
+      // removed other assertion
+
+      // We can predict the order
+      try {
+        // removed other assertion
+        // removed other assertion
+      } catch (Throwable ex) {
+        // removed other assertion
+        assertEquals(clHeaders[1], ""2"");
+  }
+  }
+  }
+",MultipleHeaderTest::testMultipleEntityHeaders_7_oe
+async_247_3,"  @Test
+  public void testEmptyBody_3_oe() throws IOException {
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      final AtomicBoolean err = new AtomicBoolean(false);
+      final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
+      final AtomicBoolean status = new AtomicBoolean(false);
+      final AtomicInteger headers = new AtomicInteger(0);
+      final CountDownLatch latch = new CountDownLatch(1);
+      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
+        public void onThrowable(Throwable t) {
+          // removed other assertion
+          err.set(true);
+        }
+
+        public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
+          byte[] bytes = e.getBodyPartBytes();
+
+          if (bytes.length != 0) {
+            String s = new String(bytes);
+            logger.info(""got part: {}"", s);
+            logger.warn(""Sampling stacktrace."", new Throwable(""trace that, we should not get called for empty body.""));
+            queue.put(s);
+          }
+          return State.CONTINUE;
+        }
+
+        public State onStatusReceived(HttpResponseStatus e) {
+          status.set(true);
+          return AsyncHandler.State.CONTINUE;
+        }
+
+        public State onHeadersReceived(HttpHeaders e) throws Exception {
+          if (headers.incrementAndGet() == 2) {
+            throw new Exception(""Analyze this."");
+          }
+          return State.CONTINUE;
+        }
+
+        public Object onCompleted() {
+          latch.countDown();
+          return null;
+        }
+      });
+      try {
+        // removed other assertion
+      } catch (InterruptedException e) {
+        fail(""Interrupted."", e);
+  }
+  }
+  }
+",EmptyBodyTest::testEmptyBody_3_oe
+async_247_4,"  @Test
+  public void testEmptyBody_4_oe() throws IOException {
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      final AtomicBoolean err = new AtomicBoolean(false);
+      final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
+      final AtomicBoolean status = new AtomicBoolean(false);
+      final AtomicInteger headers = new AtomicInteger(0);
+      final CountDownLatch latch = new CountDownLatch(1);
+      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
+        public void onThrowable(Throwable t) {
+          // removed other assertion
+          err.set(true);
+        }
+
+        public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
+          byte[] bytes = e.getBodyPartBytes();
+
+          if (bytes.length != 0) {
+            String s = new String(bytes);
+            logger.info(""got part: {}"", s);
+            logger.warn(""Sampling stacktrace."", new Throwable(""trace that, we should not get called for empty body.""));
+            queue.put(s);
+          }
+          return State.CONTINUE;
+        }
+
+        public State onStatusReceived(HttpResponseStatus e) {
+          status.set(true);
+          return AsyncHandler.State.CONTINUE;
+        }
+
+        public State onHeadersReceived(HttpHeaders e) throws Exception {
+          if (headers.incrementAndGet() == 2) {
+            throw new Exception(""Analyze this."");
+          }
+          return State.CONTINUE;
+        }
+
+        public Object onCompleted() {
+          latch.countDown();
+          return null;
+        }
+      });
+      try {
+        // removed other assertion
+      } catch (InterruptedException e) {
+        // removed other assertion
+      }
+      assertFalse(err.get());
+  }
+  }
+",EmptyBodyTest::testEmptyBody_4_oe
+async_247_5,"  @Test
+  public void testEmptyBody_5_oe() throws IOException {
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      final AtomicBoolean err = new AtomicBoolean(false);
+      final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
+      final AtomicBoolean status = new AtomicBoolean(false);
+      final AtomicInteger headers = new AtomicInteger(0);
+      final CountDownLatch latch = new CountDownLatch(1);
+      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
+        public void onThrowable(Throwable t) {
+          // removed other assertion
+          err.set(true);
+        }
+
+        public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
+          byte[] bytes = e.getBodyPartBytes();
+
+          if (bytes.length != 0) {
+            String s = new String(bytes);
+            logger.info(""got part: {}"", s);
+            logger.warn(""Sampling stacktrace."", new Throwable(""trace that, we should not get called for empty body.""));
+            queue.put(s);
+          }
+          return State.CONTINUE;
+        }
+
+        public State onStatusReceived(HttpResponseStatus e) {
+          status.set(true);
+          return AsyncHandler.State.CONTINUE;
+        }
+
+        public State onHeadersReceived(HttpHeaders e) throws Exception {
+          if (headers.incrementAndGet() == 2) {
+            throw new Exception(""Analyze this."");
+          }
+          return State.CONTINUE;
+        }
+
+        public Object onCompleted() {
+          latch.countDown();
+          return null;
+        }
+      });
+      try {
+        // removed other assertion
+      } catch (InterruptedException e) {
+        // removed other assertion
+      }
+      // removed other assertion
+      assertEquals(queue.size(), 0);
+  }
+  }
+",EmptyBodyTest::testEmptyBody_5_oe
+async_247_6,"  @Test
+  public void testEmptyBody_6_oe() throws IOException {
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      final AtomicBoolean err = new AtomicBoolean(false);
+      final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
+      final AtomicBoolean status = new AtomicBoolean(false);
+      final AtomicInteger headers = new AtomicInteger(0);
+      final CountDownLatch latch = new CountDownLatch(1);
+      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
+        public void onThrowable(Throwable t) {
+          // removed other assertion
+          err.set(true);
+        }
+
+        public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
+          byte[] bytes = e.getBodyPartBytes();
+
+          if (bytes.length != 0) {
+            String s = new String(bytes);
+            logger.info(""got part: {}"", s);
+            logger.warn(""Sampling stacktrace."", new Throwable(""trace that, we should not get called for empty body.""));
+            queue.put(s);
+          }
+          return State.CONTINUE;
+        }
+
+        public State onStatusReceived(HttpResponseStatus e) {
+          status.set(true);
+          return AsyncHandler.State.CONTINUE;
+        }
+
+        public State onHeadersReceived(HttpHeaders e) throws Exception {
+          if (headers.incrementAndGet() == 2) {
+            throw new Exception(""Analyze this."");
+          }
+          return State.CONTINUE;
+        }
+
+        public Object onCompleted() {
+          latch.countDown();
+          return null;
+        }
+      });
+      try {
+        // removed other assertion
+      } catch (InterruptedException e) {
+        // removed other assertion
+      }
+      // removed other assertion
+      // removed other assertion
+      assertTrue(status.get());
+  }
+  }
+",EmptyBodyTest::testEmptyBody_6_oe
+async_247_7,"  @Test
+  public void testEmptyBody_7_oe() throws IOException {
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      final AtomicBoolean err = new AtomicBoolean(false);
+      final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
+      final AtomicBoolean status = new AtomicBoolean(false);
+      final AtomicInteger headers = new AtomicInteger(0);
+      final CountDownLatch latch = new CountDownLatch(1);
+      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
+        public void onThrowable(Throwable t) {
+          // removed other assertion
+          err.set(true);
+        }
+
+        public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
+          byte[] bytes = e.getBodyPartBytes();
+
+          if (bytes.length != 0) {
+            String s = new String(bytes);
+            logger.info(""got part: {}"", s);
+            logger.warn(""Sampling stacktrace."", new Throwable(""trace that, we should not get called for empty body.""));
+            queue.put(s);
+          }
+          return State.CONTINUE;
+        }
+
+        public State onStatusReceived(HttpResponseStatus e) {
+          status.set(true);
+          return AsyncHandler.State.CONTINUE;
+        }
+
+        public State onHeadersReceived(HttpHeaders e) throws Exception {
+          if (headers.incrementAndGet() == 2) {
+            throw new Exception(""Analyze this."");
+          }
+          return State.CONTINUE;
+        }
+
+        public Object onCompleted() {
+          latch.countDown();
+          return null;
+        }
+      });
+      try {
+        // removed other assertion
+      } catch (InterruptedException e) {
+        // removed other assertion
+      }
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      assertEquals(headers.get(), 1);
+  }
+  }
+",EmptyBodyTest::testEmptyBody_7_oe
+async_300_3,"  @Test
+  public void asyncPipelineTest_3_oe() throws Exception {
+
+    Consumer<Channel> httpAdditionalPipelineInitializer = channel -> channel.pipeline().addBefore(""inflater"",
+            ""copyEncodingHeader"", new CopyEncodingHandler());
+
+    try (AsyncHttpClient p = asyncHttpClient(
+            config().setHttpAdditionalChannelInitializer(httpAdditionalPipelineInitializer))) {
+      final CountDownLatch l = new CountDownLatch(1);
+      p.executeRequest(get(getTargetUrl()), new AsyncCompletionHandlerAdapter() {
+        @Override
+        public Response onCompleted(Response response) {
+          try {
+            // removed other assertion
+            // removed other assertion
+          } finally {
+            l.countDown();
+          }
+          return response;
+        }
+      }).get();
+      if (!l.await(TIMEOUT, TimeUnit.SECONDS)) {
+        fail(""Timeout out"");
+  }
+  }
+  }
+",EventPipelineTest::asyncPipelineTest_3_oe
+async_301_1,"  @Test
+  public void testRequestTimeout_1_oe() throws IOException {
+    final Semaphore requestThrottle = new Semaphore(1);
+
+    int samples = 10;
+
+    try (AsyncHttpClient client = asyncHttpClient(config().setMaxConnections(1))) {
+      final CountDownLatch latch = new CountDownLatch(samples);
+      final List<Exception> tooManyConnections = Collections.synchronizedList(new ArrayList<>(2));
+
+      for (int i = 0; i < samples; i++) {
+        new Thread(() -> {
+          try {
+            requestThrottle.acquire();
+            Future<Response> responseFuture = null;
+            try {
+              responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(SLEEPTIME_MS / 2)
+                      .execute(new AsyncCompletionHandler<Response>() {
+
+                        @Override
+                        public Response onCompleted(Response response) {
+                          return response;
+                        }
+
+                        @Override
+                        public void onThrowable(Throwable t) {
+                          logger.error(""onThrowable got an error"", t);
+                          try {
+                            Thread.sleep(100);
+                          } catch (InterruptedException e) {
+                            //
+                          }
+                          requestThrottle.release();
+                        }
+                      });
+            } catch (Exception e) {
+              tooManyConnections.add(e);
+            }
+
+            if (responseFuture != null)
+              responseFuture.get();
+          } catch (Exception e) {
+            //
+          } finally {
+            latch.countDown();
+          }
+        }).start();
+      }
+
+      try {
+        latch.await(30, TimeUnit.SECONDS);
+      } catch (Exception e) {
+        fail(""failed to wait for requests to complete"");
+  }
+  }
+  }
+",NettyRequestThrottleTimeoutTest::testRequestTimeout_1_oe
+async_301_2,"  @Test
+  public void testRequestTimeout_2_oe() throws IOException {
+    final Semaphore requestThrottle = new Semaphore(1);
+
+    int samples = 10;
+
+    try (AsyncHttpClient client = asyncHttpClient(config().setMaxConnections(1))) {
+      final CountDownLatch latch = new CountDownLatch(samples);
+      final List<Exception> tooManyConnections = Collections.synchronizedList(new ArrayList<>(2));
+
+      for (int i = 0; i < samples; i++) {
+        new Thread(() -> {
+          try {
+            requestThrottle.acquire();
+            Future<Response> responseFuture = null;
+            try {
+              responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(SLEEPTIME_MS / 2)
+                      .execute(new AsyncCompletionHandler<Response>() {
+
+                        @Override
+                        public Response onCompleted(Response response) {
+                          return response;
+                        }
+
+                        @Override
+                        public void onThrowable(Throwable t) {
+                          logger.error(""onThrowable got an error"", t);
+                          try {
+                            Thread.sleep(100);
+                          } catch (InterruptedException e) {
+                            //
+                          }
+                          requestThrottle.release();
+                        }
+                      });
+            } catch (Exception e) {
+              tooManyConnections.add(e);
+            }
+
+            if (responseFuture != null)
+              responseFuture.get();
+          } catch (Exception e) {
+            //
+          } finally {
+            latch.countDown();
+          }
+        }).start();
+      }
+
+      try {
+        latch.await(30, TimeUnit.SECONDS);
+      } catch (Exception e) {
+        // removed other assertion
+      }
+
+      for (Exception e : tooManyConnections)
+        logger.error(""Exception while calling execute"", e);
+
+      assertTrue(tooManyConnections.isEmpty(), ""Should not have any connection errors where too many connections have been attempted"");
+  }
+  }
+",NettyRequestThrottleTimeoutTest::testRequestTimeout_2_oe
+async_330_1,"  @Test(timeOut = 60000)
+  public void onEmptyListenerTest_1_oe() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      WebSocket websocket = null;
+      try {
+        websocket = c.prepareGet(getTargetUrl()).execute(new WebSocketUpgradeHandler.Builder().build()).get();
+      } catch (Throwable t) {
+        fail();
+  }
+  }
+  }
+",TextMessageTest::onEmptyListenerTest_1_oe
+async_330_2,"  @Test(timeOut = 60000)
+  public void onEmptyListenerTest_2_oe() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      WebSocket websocket = null;
+      try {
+        websocket = c.prepareGet(getTargetUrl()).execute(new WebSocketUpgradeHandler.Builder().build()).get();
+      } catch (Throwable t) {
+        // removed other assertion
+      }
+      assertTrue(websocket != null);
+  }
+  }
+",TextMessageTest::onEmptyListenerTest_2_oe
+async_359_5,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
+  public void deferredSimpleWithFailure_5_oe() throws Throwable {
+    try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
+      BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
+
+      CountingOutputStream cos = new CountingOutputStream();
+      BodyDeferringAsyncHandler bdah = new BodyDeferringAsyncHandler(cos);
+      Future<Response> f = r.execute(bdah);
+      Response resp = bdah.getResponse();
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // we got headers only, it's probably not all yet here (we have BIG file
+      // downloading)
+      // removed other assertion
+
+      // now be polite and wait for body arrival too (otherwise we would be
+      // dropping the ""line"" on server)
+      try {
+        f.get();
+      } catch (ExecutionException e) {
+        // good
+        // it's incomplete, there was an error
+        assertNotEquals(cos.getByteCount(), CONTENT_LENGTH_VALUE);
+  }
+  }
+  }
+",BodyDeferringAsyncHandlerTest::deferredSimpleWithFailure_5_oe
+async_360_4,"  @Test
+  public void deferredInputStreamTrick_4_oe() throws IOException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
+      BoundRequestBuilder r = client.prepareGet(getTargetUrl());
+
+      PipedOutputStream pos = new PipedOutputStream();
+      PipedInputStream pis = new PipedInputStream(pos);
+      BodyDeferringAsyncHandler bdah = new BodyDeferringAsyncHandler(pos);
+
+      Future<Response> f = r.execute(bdah);
+
+      BodyDeferringInputStream is = new BodyDeferringInputStream(f, bdah, pis);
+
+      Response resp = is.getAsapResponse();
+      // removed other assertion
+      // removed other assertion
+      // removed other assertion
+      // ""consume"" the body, but our code needs input stream
+      CountingOutputStream cos = new CountingOutputStream();
+      try {
+        copy(is, cos);
+      } finally {
+        is.close();
+        cos.close();
+      }
+
+      // now we don't need to be polite, since consuming and closing
+      // BodyDeferringInputStream does all.
+      // it all should be here now
+      assertEquals(cos.getByteCount(), CONTENT_LENGTH_VALUE);
+  }
+  }
+",BodyDeferringAsyncHandlerTest::deferredInputStreamTrick_4_oe
 async_378_1,"  @Test
   public void testMaxTotalConnections_1_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient(config().setKeepAlive(true).setMaxConnections(1))) {
@@ -15574,28 +15803,6 @@ async_379_1,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   }
   }
 ",ConnectionPoolTest::testMaxTotalConnectionsException_1_oe
-async_380_1,"  @Test(invocationCount = 100)
-  public void asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_1_oe() throws Exception {
-
-    try (AsyncHttpClient client = asyncHttpClient()) {
-      // Use a l in case the assert fail
-      final CountDownLatch l = new CountDownLatch(2);
-
-      final Map<String, Boolean> remoteAddresses = new ConcurrentHashMap<>();
-
-      AsyncCompletionHandler<Response> handler = new AsyncCompletionHandlerAdapter() {
-
-        @Override
-        public Response onCompleted(Response response) {
-          logger.debug(""ON COMPLETED INVOKED "" + response.getHeader(""X-KEEP-ALIVE""));
-          try {
-            assertEquals(response.getStatusCode(), 200);
-  }
-  }
-  }
-  }
-  }
-",ConnectionPoolTest::asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_1_oe
 async_380_2,"  @Test(invocationCount = 100)
   public void asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_2_oe() throws Exception {
 
@@ -15704,37 +15911,6 @@ async_380_3,"  @Test(invocationCount = 100)
   }
   }
 ",ConnectionPoolTest::asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_3_oe
-async_381_1,"  @Test(expectedExceptions = TooManyConnectionsException.class)
-  public void multipleMaxConnectionOpenTest_1_oe() throws Throwable {
-    try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
-      String body = ""hello there"";
-
-      // once
-      Response response = c.preparePost(getTargetUrl()).setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
-
-      assertEquals(response.getResponseBody(), body);
-  }
-  }
-",ConnectionPoolTest::multipleMaxConnectionOpenTest_1_oe
-async_381_2,"  @Test(expectedExceptions = TooManyConnectionsException.class)
-  public void multipleMaxConnectionOpenTest_2_oe() throws Throwable {
-    try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
-      String body = ""hello there"";
-
-      // once
-      Response response = c.preparePost(getTargetUrl()).setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
-
-      // removed other assertion
-
-      // twice
-      Exception exception = null;
-      try {
-        c.preparePost(String.format(""http://localhost:%d/foo/test"", port2)).setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
-        fail(""Should throw exception. Too many connections issued."");
-  }
-  }
-  }
-",ConnectionPoolTest::multipleMaxConnectionOpenTest_2_oe
 async_381_3,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   public void multipleMaxConnectionOpenTest_3_oe() throws Throwable {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
@@ -15758,18 +15934,6 @@ async_381_3,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   }
   }
 ",ConnectionPoolTest::multipleMaxConnectionOpenTest_3_oe
-async_382_1,"  @Test
-  public void multipleMaxConnectionOpenTestWithQuery_1_oe() throws Exception {
-    try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
-      String body = ""hello there"";
-
-      // once
-      Response response = c.preparePost(getTargetUrl() + ""?foo=bar"").setBody(body).execute().get(TIMEOUT, TimeUnit.SECONDS);
-
-      assertEquals(response.getResponseBody(), ""foo_"" + body);
-  }
-  }
-",ConnectionPoolTest::multipleMaxConnectionOpenTestWithQuery_1_oe
 async_382_2,"  @Test
   public void multipleMaxConnectionOpenTestWithQuery_2_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
@@ -15839,31 +16003,6 @@ async_382_4,"  @Test
   }
   }
 ",ConnectionPoolTest::multipleMaxConnectionOpenTestWithQuery_4_oe
-async_383_1,"  @Test
-  public void win7DisconnectTest_1_oe() throws Exception {
-    final AtomicInteger count = new AtomicInteger(0);
-
-    try (AsyncHttpClient client = asyncHttpClient()) {
-      AsyncCompletionHandler<Response> handler = new AsyncCompletionHandlerAdapter() {
-
-        @Override
-        public Response onCompleted(Response response) throws Exception {
-
-          count.incrementAndGet();
-          StackTraceElement e = new StackTraceElement(""sun.nio.ch.SocketDispatcher"", ""read0"", null, -1);
-          IOException t = new IOException();
-          t.setStackTrace(new StackTraceElement[]{e});
-          throw t;
-        }
-      };
-
-      try {
-        client.prepareGet(getTargetUrl()).execute(handler).get();
-        fail(""Must have received an exception"");
-  }
-  }
-  }
-",ConnectionPoolTest::win7DisconnectTest_1_oe
 async_383_2,"  @Test
   public void win7DisconnectTest_2_oe() throws Exception {
     final AtomicInteger count = new AtomicInteger(0);
@@ -15978,60 +16117,6 @@ async_383_5,"  @Test
   }
   }
 ",ConnectionPoolTest::win7DisconnectTest_5_oe
-async_384_1,"  @Test
-  public void asyncHandlerOnThrowableTest_1_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient()) {
-      final AtomicInteger count = new AtomicInteger();
-      final String THIS_IS_NOT_FOR_YOU = ""This is not for you"";
-      final CountDownLatch latch = new CountDownLatch(16);
-      for (int i = 0; i < 16; i++) {
-        client.prepareGet(getTargetUrl()).execute(new AsyncCompletionHandlerBase() {
-          @Override
-          public Response onCompleted(Response response) throws Exception {
-            throw new Exception(THIS_IS_NOT_FOR_YOU);
-          }
-        });
-
-        client.prepareGet(getTargetUrl()).execute(new AsyncCompletionHandlerBase() {
-          @Override
-          public void onThrowable(Throwable t) {
-            if (t.getMessage() != null && t.getMessage().equalsIgnoreCase(THIS_IS_NOT_FOR_YOU)) {
-              count.incrementAndGet();
-            }
-          }
-
-          @Override
-          public Response onCompleted(Response response) {
-            latch.countDown();
-            return response;
-          }
-        });
-      }
-      latch.await(TIMEOUT, TimeUnit.SECONDS);
-      assertEquals(count.get(), 0);
-  }
-  }
-",ConnectionPoolTest::asyncHandlerOnThrowableTest_1_oe
-async_385_1,"  @Test
-  public void testPooledEventsFired_1_oe() throws Exception {
-    RequestBuilder request = get(""http://localhost:"" + port1 + ""/Test"");
-
-    try (AsyncHttpClient client = asyncHttpClient()) {
-      EventCollectingHandler firstHandler = new EventCollectingHandler();
-      client.executeRequest(request, firstHandler).get(3, TimeUnit.SECONDS);
-      firstHandler.waitForCompletion(3, TimeUnit.SECONDS);
-
-      EventCollectingHandler secondHandler = new EventCollectingHandler();
-      client.executeRequest(request, secondHandler).get(3, TimeUnit.SECONDS);
-      secondHandler.waitForCompletion(3, TimeUnit.SECONDS);
-
-      Object[] expectedEvents = new Object[]{CONNECTION_POOL_EVENT, CONNECTION_POOLED_EVENT, REQUEST_SEND_EVENT, HEADERS_WRITTEN_EVENT, STATUS_RECEIVED_EVENT,
-              HEADERS_RECEIVED_EVENT, CONNECTION_OFFER_EVENT, COMPLETED_EVENT};
-
-      assertEquals(secondHandler.firedEvents.toArray(), expectedEvents, ""Got "" + Arrays.toString(secondHandler.firedEvents.toArray()));
-  }
-  }
-",ConnectionPoolTest::testPooledEventsFired_1_oe
 async_386_1,"  @Test(groups = ""online"")
   public void testMaxTotalConnectionsExceedingException_1_oe() throws IOException {
     String[] urls = new String[]{""https://google.com"", ""https://github.com""};
@@ -16103,88 +16188,3 @@ async_386_2,"  @Test(groups = ""online"")
   }
   }
 ",MaxTotalConnectionTest::testMaxTotalConnectionsExceedingException_2_oe
-async_387_1,"  @Test(groups = ""online"")
-  public void testMaxTotalConnections_1_oe() throws Exception {
-    String[] urls = new String[]{""https://www.google.com"", ""https://www.youtube.com""};
-
-    final CountDownLatch latch = new CountDownLatch(2);
-    final AtomicReference<Throwable> ex = new AtomicReference<>();
-    final AtomicReference<String> failedUrl = new AtomicReference<>();
-
-    AsyncHttpClientConfig config = config()
-            .setConnectTimeout(1000)
-            .setRequestTimeout(5000)
-            .setKeepAlive(false)
-            .setMaxConnections(2)
-            .setMaxConnectionsPerHost(1)
-            .build();
-
-    try (AsyncHttpClient client = asyncHttpClient(config)) {
-      for (String url : urls) {
-        final String thisUrl = url;
-        client.prepareGet(url).execute(new AsyncCompletionHandlerBase() {
-          @Override
-          public Response onCompleted(Response response) throws Exception {
-            Response r = super.onCompleted(response);
-            latch.countDown();
-            return r;
-          }
-
-          @Override
-          public void onThrowable(Throwable t) {
-            super.onThrowable(t);
-            ex.set(t);
-            failedUrl.set(thisUrl);
-            latch.countDown();
-          }
-        });
-      }
-
-      latch.await();
-      assertNull(ex.get());
-  }
-  }
-",MaxTotalConnectionTest::testMaxTotalConnections_1_oe
-async_387_2,"  @Test(groups = ""online"")
-  public void testMaxTotalConnections_2_oe() throws Exception {
-    String[] urls = new String[]{""https://www.google.com"", ""https://www.youtube.com""};
-
-    final CountDownLatch latch = new CountDownLatch(2);
-    final AtomicReference<Throwable> ex = new AtomicReference<>();
-    final AtomicReference<String> failedUrl = new AtomicReference<>();
-
-    AsyncHttpClientConfig config = config()
-            .setConnectTimeout(1000)
-            .setRequestTimeout(5000)
-            .setKeepAlive(false)
-            .setMaxConnections(2)
-            .setMaxConnectionsPerHost(1)
-            .build();
-
-    try (AsyncHttpClient client = asyncHttpClient(config)) {
-      for (String url : urls) {
-        final String thisUrl = url;
-        client.prepareGet(url).execute(new AsyncCompletionHandlerBase() {
-          @Override
-          public Response onCompleted(Response response) throws Exception {
-            Response r = super.onCompleted(response);
-            latch.countDown();
-            return r;
-          }
-
-          @Override
-          public void onThrowable(Throwable t) {
-            super.onThrowable(t);
-            ex.set(t);
-            failedUrl.set(thisUrl);
-            latch.countDown();
-          }
-        });
-      }
-
-      latch.await();
-      // removed other assertion
-      assertNull(failedUrl.get());
-  }
-  }
-",MaxTotalConnectionTest::testMaxTotalConnections_2_oe

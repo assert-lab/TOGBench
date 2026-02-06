@@ -20,7 +20,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-dbutils ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils
-[INFO] Storing buildNumber: 504c4e02269b05d34548a85b1573338184bb5848 at timestamp: 1770388916515
+[INFO] Storing buildNumber: 81e83cc892f7970d0aa3c638bf29a38d05c4eb42 at timestamp: 1770399765252
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -65,50 +65,50 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.dbutils.OutParameterTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.274 s - in org.apache.commons.dbutils.OutParameterTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.356 s - in org.apache.commons.dbutils.OutParameterTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetTest_OE25Dev
-[INFO] Tests run: 286, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.306 s - in org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetTest_OE25Dev
+[INFO] Tests run: 286, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.288 s - in org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.GenerousBeanProcessorTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 s - in org.apache.commons.dbutils.GenerousBeanProcessorTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.247 s - in org.apache.commons.dbutils.GenerousBeanProcessorTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.BeanListHandlerTest_OE25Dev
-[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s - in org.apache.commons.dbutils.handlers.BeanListHandlerTest_OE25Dev
+[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 s - in org.apache.commons.dbutils.handlers.BeanListHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.KeyedHandlerTest_OE25Dev
-[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.dbutils.handlers.KeyedHandlerTest_OE25Dev
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.dbutils.handlers.KeyedHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.MapListHandlerTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.MapListHandlerTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.dbutils.handlers.MapListHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.BeanMapHandlerTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.dbutils.handlers.BeanMapHandlerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.apache.commons.dbutils.handlers.BeanMapHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.ArrayListHandlerTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.dbutils.handlers.ArrayListHandlerTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.dbutils.handlers.ArrayListHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.MapHandlerTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.MapHandlerTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.dbutils.handlers.MapHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.properties.PropertyHandlerTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.properties.PropertyHandlerTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.dbutils.handlers.properties.PropertyHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandlerTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandlerTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.properties.DatePropertyHandlerTest_OE25Dev
 [INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.properties.DatePropertyHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.ArrayHandlerTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.dbutils.handlers.ArrayHandlerTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.dbutils.handlers.ArrayHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.BeanHandlerTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.dbutils.handlers.BeanHandlerTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.dbutils.handlers.BeanHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.ColumnListHandlerTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.dbutils.handlers.ColumnListHandlerTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.dbutils.handlers.ColumnListHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.ScalarHandlerTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.ScalarHandlerTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.dbutils.handlers.ScalarHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.ProxyFactoryTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in org.apache.commons.dbutils.ProxyFactoryTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.141 s - in org.apache.commons.dbutils.ProxyFactoryTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.ResultSetIteratorTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.dbutils.ResultSetIteratorTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.apache.commons.dbutils.ResultSetIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.DbUtilsTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.dbutils.DbUtilsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.DbUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.BaseTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.dbutils.BaseTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.BaseTestCase_OE25Dev
 [INFO] Running org.apache.commons.dbutils.BeanProcessorTest_OE25Dev
-[ERROR] Tests run: 16, Failures: 0, Errors: 12, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.dbutils.BeanProcessorTest_OE25Dev
-[ERROR] testProcessWithToBean_2_oe(org.apache.commons.dbutils.BeanProcessorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] Tests run: 16, Failures: 0, Errors: 12, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in org.apache.commons.dbutils.BeanProcessorTest_OE25Dev
+[ERROR] testProcessWithToBean_2_oe(org.apache.commons.dbutils.BeanProcessorTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BeanProcessorTest_OE25Dev.testProcessWithToBean_2_oe(BeanProcessorTest_OE25Dev.java:80)
 
@@ -120,7 +120,7 @@ java.lang.NullPointerException: Cannot load from object array because "this.curr
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BeanProcessorTest_OE25Dev.testProcessWithToBean_4_oe(BeanProcessorTest_OE25Dev.java:95)
 
-[ERROR] testProcessWithToBean_5_oe(org.apache.commons.dbutils.BeanProcessorTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testProcessWithToBean_5_oe(org.apache.commons.dbutils.BeanProcessorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BeanProcessorTest_OE25Dev.testProcessWithToBean_5_oe(BeanProcessorTest_OE25Dev.java:105)
 
@@ -157,20 +157,20 @@ java.lang.NullPointerException: Cannot load from object array because "this.curr
 	at org.apache.commons.dbutils.BeanProcessorTest_OE25Dev.testProcessWithPopulateBean_7_oe(BeanProcessorTest_OE25Dev.java:207)
 
 [INFO] Running org.apache.commons.dbutils.QueryLoaderTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.QueryLoaderTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.dbutils.QueryLoaderTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.BaseResultSetHandlerTest_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.BaseResultSetHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.StatementConfigurationTest_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.dbutils.StatementConfigurationTest_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.dbutils.StatementConfigurationTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.ServiceLoaderTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.dbutils.ServiceLoaderTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.dbutils.ServiceLoaderTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev
-[ERROR] Tests run: 68, Failures: 0, Errors: 47, Skipped: 0, Time elapsed: 0.121 s <<< FAILURE! - in org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev
+[ERROR] Tests run: 68, Failures: 0, Errors: 47, Skipped: 0, Time elapsed: 0.227 s <<< FAILURE! - in org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev
 [ERROR] testToMap_2_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev.testToMap_2_oe(BasicRowProcessorTest_OE25Dev.java:821)
 
-[ERROR] testToMap_3_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testToMap_3_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev.testToMap_3_oe(BasicRowProcessorTest_OE25Dev.java:828)
 
@@ -178,11 +178,11 @@ java.lang.NullPointerException: Cannot load from object array because "this.curr
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev.testToMap_4_oe(BasicRowProcessorTest_OE25Dev.java:836)
 
-[ERROR] testToMap_5_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testToMap_5_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev.testToMap_5_oe(BasicRowProcessorTest_OE25Dev.java:845)
 
-[ERROR] testToMap_6_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testToMap_6_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev.testToMap_6_oe(BasicRowProcessorTest_OE25Dev.java:855)
 
@@ -218,7 +218,7 @@ java.lang.NullPointerException: Cannot load from object array because "this.curr
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev.testToMapOrdering_2_oe(BasicRowProcessorTest_OE25Dev.java:938)
 
-[ERROR] testToMapOrdering_3_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testToMapOrdering_3_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev.testToMapOrdering_3_oe(BasicRowProcessorTest_OE25Dev.java:947)
 
@@ -254,11 +254,11 @@ java.lang.NullPointerException: Cannot load from object array because "this.curr
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev.testToBean_3_oe(BasicRowProcessorTest_OE25Dev.java:207)
 
-[ERROR] testToBean_4_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testToBean_4_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev.testToBean_4_oe(BasicRowProcessorTest_OE25Dev.java:216)
 
-[ERROR] testToBean_5_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testToBean_5_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev.testToBean_5_oe(BasicRowProcessorTest_OE25Dev.java:226)
 
@@ -318,7 +318,7 @@ java.lang.NullPointerException: Cannot load from object array because "this.curr
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev.testToArray_11_oe(BasicRowProcessorTest_OE25Dev.java:172)
 
-[ERROR] testToBean_10_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testToBean_10_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev.testToBean_10_oe(BasicRowProcessorTest_OE25Dev.java:301)
 
@@ -338,7 +338,7 @@ java.lang.NullPointerException: Cannot load from object array because "this.curr
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev.testToBean_14_oe(BasicRowProcessorTest_OE25Dev.java:383)
 
-[ERROR] testToBean_15_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testToBean_15_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
 	at org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev.testToBean_15_oe(BasicRowProcessorTest_OE25Dev.java:406)
 
@@ -355,7 +355,7 @@ java.lang.NullPointerException: Cannot load from object array because "this.curr
 	at org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev.testToBean_18_oe(BasicRowProcessorTest_OE25Dev.java:484)
 
 [INFO] Running org.apache.commons.dbutils.QueryRunnerTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 s - in org.apache.commons.dbutils.QueryRunnerTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.311 s - in org.apache.commons.dbutils.QueryRunnerTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -425,8 +425,8 @@ java.lang.NullPointerException: Cannot load from object array because "this.curr
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.848 s
-[INFO] Finished at: 2026-02-06T08:42:05-06:00
+[INFO] Total time:  12.944 s
+[INFO] Finished at: 2026-02-06T11:42:55-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-dbutils: There are test failures.
 [ERROR] 

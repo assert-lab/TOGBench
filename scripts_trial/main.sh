@@ -27,7 +27,7 @@ python3 scripts_trial/inline_custom.py
 
 python3 scripts_trial/dataset_post_process.py
 
-python3 scripts_trial/2_filter_compilable_tests.py. # also do same for custom assertion inlined decomposition - just rename inputs.csv and meta.csv
+python3 scripts_trial/2_filter_compilable_tests.py # also do same for custom assertion inlined decomposition - just rename inputs.csv and meta.csv
 
 python3 scripts_trial/try_catch_filter.py
 
@@ -41,22 +41,26 @@ python3 scripts_trial/try_catch_filter.py
 ./scripts_trial/project_fixes/http-request.sh
 ./scripts_trial/project_fixes/commons-beanutils.sh
 
+./scripts_trial/project_fixes/commons-dbutils.sh
+
 # first run to keep all logs - error and running
 python3 scripts_trial/3_rebuild_tests.py
 
 # run each projects' fix.sh before running mvn test
 ./scripts_trial/project_fixes.sh
 
-# ./scripts_trial/clean_loop.sh > compile_error_test_files.log
+./scripts_trial/clean_loop.sh > compile_error_test_files.log
 
 # python3 scripts_trial/filter_running_tests.py
 
 # # second run with all passed tests
 # find projects_decomposed -type f -name "*_OE25Dev.java" -delete
 # python3 scripts_trial/3_rebuild_tests.py
+
+
 # ./scripts_trial/clean_loop.sh
 
-# python3 scripts_trial/test_count.py
+python3 scripts_trial/test_count.py
 
 # python3 scripts_trial/filter_by_logs.py
 

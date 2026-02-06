@@ -41,7 +41,7 @@ public class TestUnsupportedDateTimeField_OE25Dev extends TestCase {
     private ReadablePartial localTime;
 
     public static TestSuite suite() {
-        return new TestSuite(TestUnsupportedDateTimeField_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestUnsupportedDateTimeField_OE25Dev.class);
     }
 
     @Override

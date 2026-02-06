@@ -1,0 +1,119 @@
+cd "$PWD/projects_decomposed/commons-lang3"
+
+python3 - << 'PY'
+from pathlib import Path
+import csv
+
+dataset = Path("dataset")
+meta_path = dataset / "meta.csv"
+inputs_path = dataset / "inputs.csv"
+
+fail_list = [
+"ValidateTest.shouldThrowExceptionWithDoubleInsertedIntoTemplateMessageForFalseExpression_1_oe",
+"ValidateTest.shouldThrowExceptionWithDoubleInsertedIntoTemplateMessageForFalseExpression_2_oe",
+"ValidateTest.shouldReturnTheSameInstance_1_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageForEmptyArray_1_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageForEmptyArray_2_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageForEmptyString_1_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageForEmptyString_2_oe",
+"ValidateTest.shouldReturnNonBlankValue_1_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithGivenMessageForEmptyString_1_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithGivenMessageForEmptyString_2_oe",
+"ValidateTest.shouldThrowNullPointerExceptionWithDefaultMessageForNullArray_1_oe",
+"ValidateTest.shouldThrowNullPointerExceptionWithDefaultMessageForNullArray_2_oe",
+"ValidateTest.shouldReturnSameInstance_1_oe",
+"ValidateTest.shouldThrowNullPointerExceptionWithDefaultMessageForNullCollection_1_oe",
+"ValidateTest.shouldThrowNullPointerExceptionWithDefaultMessageForNullCollection_2_oe",
+"ValidateTest.shouldThrowIndexOutOfBoundsExceptionWithDefaultMessageForNegativeIndex_1_oe",
+"ValidateTest.shouldThrowIndexOutOfBoundsExceptionWithDefaultMessageForNegativeIndex_2_oe",
+"ValidateTest.shouldThrowIndexOutOfBoundsExceptionWithDefaultMessageForIndexOutOfBounds_1_oe",
+"ValidateTest.shouldThrowIndexOutOfBoundsExceptionWithDefaultMessageForIndexOutOfBounds_2_oe",
+"ValidateTest.shouldThrowIndexOutOfBoundsExceptionWithGivenMessageForNegativeIndex_1_oe",
+"ValidateTest.shouldThrowIndexOutOfBoundsExceptionWithGivenMessageForNegativeIndex_2_oe",
+"ValidateTest.shouldThrowIndexOutOfBoundsExceptionWithGivenMessageForIndexOutOfBounds_1_oe",
+"ValidateTest.shouldThrowIndexOutOfBoundsExceptionWithGivenMessageForIndexOutOfBounds_2_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageForNaN_1_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageForNaN_2_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageForPositiveInfinity_1_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageForPositiveInfinity_2_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageForNegativeInfinity_1_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageForNegativeInfinity_2_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsBelowLowerBound_1_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsBelowLowerBound_2_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_2_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsBelowLowerBound_1_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsBelowLowerBound_2_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsAboveUpperBound_1_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsAboveUpperBound_2_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsLowerBound_1_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsLowerBound_2_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsUpperBound_1_oe",
+"ValidateTest.shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsUpperBound_2_oe",
+"ComparableUtilsTest.betweenExclusive_returns_false_1_oe",
+"ComparableUtilsTest.between_returns_true_1_oe",
+"ComparableUtilsTest.greaterThanOrEqualTo_returns_true_1_oe",
+"ComparableUtilsTest.lessThan_returns_false_1_oe",
+"ComparableUtilsTest.betweenExclusive_returns_true_1_oe",
+"ComparableUtilsTest.between_returns_false_1_oe",
+"ComparableUtilsTest.equalTo_returns_false_1_oe",
+"ComparableUtilsTest.greaterThan_returns_false_1_oe",
+"ComparableUtilsTest.lessThanOrEqualTo_returns_true_1_oe",
+
+]
+
+patterns = []
+for full in fail_list:
+    cls, name = full.split(".", 1)
+    if name.endswith("*"):
+        name = name[:-1]  # strip '*'
+    patterns.append((cls, name))
+
+bad_ids = set()
+meta_rows = []
+removed_meta = 0
+
+with meta_path.open(newline="", encoding="utf-8") as f:
+    r = csv.DictReader(f)
+    fieldnames = r.fieldnames
+    for row in r:
+        test_class = row["test_class"]
+        test_name = row["test_name"]
+        matched = False
+        for cls_pattern, name_prefix in patterns:
+            if test_class == cls_pattern and test_name.startswith(name_prefix):
+                matched = True
+                break
+        if matched:
+            bad_ids.add(row["id"])
+            removed_meta += 1
+        else:
+            meta_rows.append(row)
+
+print("removed from meta:", removed_meta)
+print("bad_ids:", len(bad_ids))
+
+with meta_path.open("w", newline="", encoding="utf-8") as f:
+    w = csv.DictWriter(f, fieldnames=fieldnames)
+    w.writeheader()
+    w.writerows(meta_rows)
+
+inputs_rows = []
+removed_inputs = 0
+
+with inputs_path.open(newline="", encoding="utf-8") as f:
+    r = csv.DictReader(f)
+    in_fields = r.fieldnames
+    for row in r:
+        if row["id"] in bad_ids:
+            removed_inputs += 1
+            continue
+        inputs_rows.append(row)
+
+print("removed from inputs:", removed_inputs)
+
+with inputs_path.open("w", newline="", encoding="utf-8") as f:
+    w = csv.DictWriter(f, fieldnames=in_fields)
+    w.writeheader()
+    w.writerows(inputs_rows)
+PY

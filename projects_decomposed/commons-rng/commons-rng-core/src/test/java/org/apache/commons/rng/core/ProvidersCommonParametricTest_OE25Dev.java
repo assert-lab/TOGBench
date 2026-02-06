@@ -123,6 +123,12 @@ class ProvidersCommonParametricTest_OE25Dev {
 
     // State save and restore tests.
 
+    @ParameterizedTest
+    @MethodSource("getList")
+    void testRestoreForeignState(RestorableUniformRandomProvider generator) {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.restoreState(new RandomProviderState() {}));
+    }
+
     ///// Support methods below.
 
     /**
@@ -714,12 +720,6 @@ class ProvidersCommonParametricTest_OE25Dev {
         final RandomProviderState state = new DummyGenerator().saveState();
         // Try to restore with an invalid state (wrong size).
         Assertions.assertThrows(IllegalStateException.class, () -> generator.restoreState(state));
-    }
-
-    @ParameterizedTest
-    @MethodSource("getList")
-    void testRestoreForeignState_1_oe(RestorableUniformRandomProvider generator) {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.restoreState(new Ran));
     }
 
 }

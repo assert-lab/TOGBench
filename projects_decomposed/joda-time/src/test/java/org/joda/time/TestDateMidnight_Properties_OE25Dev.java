@@ -74,7 +74,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestDateMidnight_Properties_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestDateMidnight_Properties_OE25Dev.class);
     }
 
     public TestDateMidnight_Properties_OE25Dev(String name) {

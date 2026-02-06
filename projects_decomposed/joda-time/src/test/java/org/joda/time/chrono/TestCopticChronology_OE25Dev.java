@@ -67,7 +67,7 @@ public class TestCopticChronology_OE25Dev extends TestCase {
 
     public static TestSuite suite() {
         SKIP = 1 * MILLIS_PER_DAY;
-        return new TestSuite(TestCopticChronology_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestCopticChronology_OE25Dev.class);
     }
 
     public TestCopticChronology_OE25Dev(String name) {

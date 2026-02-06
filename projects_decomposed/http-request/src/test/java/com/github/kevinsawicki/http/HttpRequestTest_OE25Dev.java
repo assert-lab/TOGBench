@@ -595,6 +595,39 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
    *
    * @throws Exception
    */
+  @Test
+  public void sendErrorReadStream() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print("content");
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    final IOException readCause = new IOException();
+    final IOException closeCause = new IOException();
+    InputStream stream = new InputStream() {
+
+      public int read() throws IOException {
+        throw readCause;
+      }
+
+      public void close() throws IOException {
+        throw closeCause;
+      }
+    };
+    try {
+      post(url).send(stream);
+      fail("Exception not thrown");
+    } catch (HttpRequestException e) {
+      assertEquals(readCause, e.getCause());
+    }
+  }
 
   /**
    * Send a stream that throws an exception when read from
@@ -1036,24 +1069,119 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
    *
    * @throws Exception
    */
+  @Test
+  public void uploadProgressSend() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    final File file = File.createTempFile("post", ".txt");
+    new FileWriter(file).append("hello").close();
+
+    final AtomicLong tx = new AtomicLong(0);
+    UploadProgress progress = new UploadProgress() {
+      public void onUpload(long transferred, long total) {
+        assertEquals(file.length(), total);
+        assertEquals(tx.incrementAndGet(), transferred);
+      }
+    };
+    post(url).bufferSize(1).progress(progress).send(file).code();
+    assertEquals(file.length(), tx.get());
+  }
 
   /**
    * Verify progress callback when sending from an InputStream
    *
    * @throws Exception
    */
+  @Test
+  public void uploadProgressSendInputStream() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    File file = File.createTempFile("post", ".txt");
+    new FileWriter(file).append("hello").close();
+    InputStream input = new FileInputStream(file);
+    final AtomicLong tx = new AtomicLong(0);
+    UploadProgress progress = new UploadProgress() {
+      public void onUpload(long transferred, long total) {
+        assertEquals(-1, total);
+        assertEquals(tx.incrementAndGet(), transferred);
+      }
+    };
+    post(url).bufferSize(1).progress(progress).send(input).code();
+    assertEquals(file.length(), tx.get());
+  }
 
   /**
    * Verify progress callback when sending from a byte array
    *
    * @throws Exception
    */
+  @Test
+  public void uploadProgressSendByteArray() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    final byte[] bytes = "hello".getBytes(CHARSET_UTF8);
+    final AtomicLong tx = new AtomicLong(0);
+    UploadProgress progress = new UploadProgress() {
+      public void onUpload(long transferred, long total) {
+        assertEquals(bytes.length, total);
+        assertEquals(tx.incrementAndGet(), transferred);
+      }
+    };
+    post(url).bufferSize(1).progress(progress).send(bytes).code();
+    assertEquals(bytes.length, tx.get());
+  }
 
   /**
    * Verify progress callback when sending from a Reader
    *
    * @throws Exception
    */
+  @Test
+  public void uploadProgressSendReader() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    final AtomicLong tx = new AtomicLong(0);
+    UploadProgress progress = new UploadProgress() {
+      public void onUpload(long transferred, long total) {
+        assertEquals(-1, total);
+        assertEquals(tx.incrementAndGet(), transferred);
+      }
+    };
+    File file = File.createTempFile("post", ".txt");
+    new FileWriter(file).append("hello").close();
+    post(url).progress(progress).bufferSize(1).send(new FileReader(file)).code();
+    assertEquals(file.length(), tx.get());
+  }
 
   /**
    * Verify progress callback doesn't cause an exception when it's null
@@ -4348,40 +4476,6 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
   }
 
   @Test
-  public void sendErrorReadStream_3_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("content");
-        } catch (IOException e) {
-          // removed other assertion
-        }
-      }
-    };
-    final IOException readCause = new IOException();
-    final IOException closeCause = new IOException();
-    InputStream stream = new InputStream() {
-
-      public int read() throws IOException {
-        throw readCause;
-      }
-
-      public void close() throws IOException {
-        throw closeCause;
-      }
-    };
-    try {
-      post(url).send(stream);
-      // removed other assertion
-    } catch (HttpRequestException e) {
-      assertEquals(readCause, e.getCause());
-  }
-  }
-
-  @Test
   public void sendErrorCloseStream_3_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -6190,180 +6284,6 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
       }
     };
     assertEquals("error", get(url).body());
-  }
-
-  @Test
-  public void uploadProgressSend_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    final File file = File.createTempFile("post", ".txt");
-    new FileWriter(file).append("hello").close();
-
-    final AtomicLong tx = new AtomicLong(0);
-    UploadProgress progress = new UploadProgress() {
-      public void onUpload(long transferred, long total) {
-        assertEquals(file.length(), total);
-  }
-  }
-  }
-
-  @Test
-  public void uploadProgressSend_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    final File file = File.createTempFile("post", ".txt");
-    new FileWriter(file).append("hello").close();
-
-    final AtomicLong tx = new AtomicLong(0);
-    UploadProgress progress = new UploadProgress() {
-      public void onUpload(long transferred, long total) {
-        // removed other assertion
-        assertEquals(tx.incrementAndGet(), transferred);
-  }
-  }
-  }
-
-  @Test
-  public void uploadProgressSendInputStream_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    File file = File.createTempFile("post", ".txt");
-    new FileWriter(file).append("hello").close();
-    InputStream input = new FileInputStream(file);
-    final AtomicLong tx = new AtomicLong(0);
-    UploadProgress progress = new UploadProgress() {
-      public void onUpload(long transferred, long total) {
-        assertEquals(-1, total);
-  }
-  }
-  }
-
-  @Test
-  public void uploadProgressSendInputStream_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    File file = File.createTempFile("post", ".txt");
-    new FileWriter(file).append("hello").close();
-    InputStream input = new FileInputStream(file);
-    final AtomicLong tx = new AtomicLong(0);
-    UploadProgress progress = new UploadProgress() {
-      public void onUpload(long transferred, long total) {
-        // removed other assertion
-        assertEquals(tx.incrementAndGet(), transferred);
-  }
-  }
-  }
-
-  @Test
-  public void uploadProgressSendByteArray_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-
-    final byte[] bytes = "hello".getBytes(CHARSET_UTF8);
-    final AtomicLong tx = new AtomicLong(0);
-    UploadProgress progress = new UploadProgress() {
-      public void onUpload(long transferred, long total) {
-        assertEquals(bytes.length, total);
-  }
-  }
-  }
-
-  @Test
-  public void uploadProgressSendByteArray_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-
-    final byte[] bytes = "hello".getBytes(CHARSET_UTF8);
-    final AtomicLong tx = new AtomicLong(0);
-    UploadProgress progress = new UploadProgress() {
-      public void onUpload(long transferred, long total) {
-        // removed other assertion
-        assertEquals(tx.incrementAndGet(), transferred);
-  }
-  }
-  }
-
-  @Test
-  public void uploadProgressSendReader_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-
-    final AtomicLong tx = new AtomicLong(0);
-    UploadProgress progress = new UploadProgress() {
-      public void onUpload(long transferred, long total) {
-        assertEquals(-1, total);
-  }
-  }
-  }
-
-  @Test
-  public void uploadProgressSendReader_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-
-    final AtomicLong tx = new AtomicLong(0);
-    UploadProgress progress = new UploadProgress() {
-      public void onUpload(long transferred, long total) {
-        // removed other assertion
-        assertEquals(tx.incrementAndGet(), transferred);
-  }
-  }
   }
 
   @Test

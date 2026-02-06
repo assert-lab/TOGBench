@@ -662,64 +662,6 @@ public class StrSubstitutorTest_OE25Dev {
     }
 
     @Test
-    public void testResolveVariable_1_oe() {
-        final StrBuilder builder = new StrBuilder("Hi ${name}!");
-        final Map<String, String> map = new HashMap<>();
-        map.put("name", "commons");
-        final StrSubstitutor sub = new StrSubstitutor(map) {
-            @Override
-            protected String resolveVariable(final String variableName, final StrBuilder buf, final int startPos, final int endPos) {
-                assertEquals("name", variableName);
-    }
-    }
-    }
-
-    @Test
-    public void testResolveVariable_2_oe() {
-        final StrBuilder builder = new StrBuilder("Hi ${name}!");
-        final Map<String, String> map = new HashMap<>();
-        map.put("name", "commons");
-        final StrSubstitutor sub = new StrSubstitutor(map) {
-            @Override
-            protected String resolveVariable(final String variableName, final StrBuilder buf, final int startPos, final int endPos) {
-                // removed other assertion
-                assertSame(builder, buf);
-    }
-    }
-    }
-
-    @Test
-    public void testResolveVariable_3_oe() {
-        final StrBuilder builder = new StrBuilder("Hi ${name}!");
-        final Map<String, String> map = new HashMap<>();
-        map.put("name", "commons");
-        final StrSubstitutor sub = new StrSubstitutor(map) {
-            @Override
-            protected String resolveVariable(final String variableName, final StrBuilder buf, final int startPos, final int endPos) {
-                // removed other assertion
-                // removed other assertion
-                assertEquals(3, startPos);
-    }
-    }
-    }
-
-    @Test
-    public void testResolveVariable_4_oe() {
-        final StrBuilder builder = new StrBuilder("Hi ${name}!");
-        final Map<String, String> map = new HashMap<>();
-        map.put("name", "commons");
-        final StrSubstitutor sub = new StrSubstitutor(map) {
-            @Override
-            protected String resolveVariable(final String variableName, final StrBuilder buf, final int startPos, final int endPos) {
-                // removed other assertion
-                // removed other assertion
-                // removed other assertion
-                assertEquals(10, endPos);
-    }
-    }
-    }
-
-    @Test
     public void testResolveVariable_5_oe() {
         final StrBuilder builder = new StrBuilder("Hi ${name}!");
         final Map<String, String> map = new HashMap<>();

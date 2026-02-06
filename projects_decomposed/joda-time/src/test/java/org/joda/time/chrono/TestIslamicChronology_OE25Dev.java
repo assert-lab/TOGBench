@@ -64,7 +64,7 @@ public class TestIslamicChronology_OE25Dev extends TestCase {
 
     public static TestSuite suite() {
         SKIP = 1 * DateTimeConstants.MILLIS_PER_DAY;
-        return new TestSuite(TestIslamicChronology_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestIslamicChronology_OE25Dev.class);
     }
 
     public TestIslamicChronology_OE25Dev(String name) {

@@ -67,7 +67,7 @@ public class TestEthiopicChronology_OE25Dev extends TestCase {
 
     public static TestSuite suite() {
         SKIP = 1 * MILLIS_PER_DAY;
-        return new TestSuite(TestEthiopicChronology_OE25Dev_OE25Dev.class);
+        return new TestSuite(TestEthiopicChronology_OE25Dev.class);
     }
 
     public TestEthiopicChronology_OE25Dev(String name) {

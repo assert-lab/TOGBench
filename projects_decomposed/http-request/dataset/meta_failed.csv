@@ -11,6 +11,14 @@ http_79_1,http-request,HttpRequestTest,sendErrorCloseStream_1_oe,lib/src/test/ja
 http_79_2,http-request,HttpRequestTest,sendErrorCloseStream_2_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,fail
 http_81_1,http-request,HttpRequestTest,getToOutputBody_1_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,fail
 http_82_1,http-request,HttpRequestTest,getToOutputBodyWithCharset_1_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,fail
+http_155_1,http-request,HttpRequestTest,uploadProgressSend_1_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_155_2,http-request,HttpRequestTest,uploadProgressSend_2_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_156_1,http-request,HttpRequestTest,uploadProgressSendInputStream_1_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_156_2,http-request,HttpRequestTest,uploadProgressSendInputStream_2_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_157_1,http-request,HttpRequestTest,uploadProgressSendByteArray_1_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_157_2,http-request,HttpRequestTest,uploadProgressSendByteArray_2_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_158_1,http-request,HttpRequestTest,uploadProgressSendReader_1_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_158_2,http-request,HttpRequestTest,uploadProgressSendReader_2_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_161_1,http-request,HttpRequestTest,malformedStringUrlCause_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,fail
 http_226_1,http-request,HttpRequestTest,postMultipart_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,fail
 http_228_1,http-request,HttpRequestTest,receiveAppendable_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,fail
@@ -23,6 +31,14 @@ http_237_1,http-request,HttpRequestTest,sendErrorCloseStream_1_oe,src/test/java/
 http_237_2,http-request,HttpRequestTest,sendErrorCloseStream_2_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,fail
 http_239_1,http-request,HttpRequestTest,getToOutputBody_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,fail
 http_240_1,http-request,HttpRequestTest,getToOutputBodyWithCharset_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,fail
+http_309_1,http-request,HttpRequestTest,uploadProgressSend_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_309_2,http-request,HttpRequestTest,uploadProgressSend_2_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_310_1,http-request,HttpRequestTest,uploadProgressSendInputStream_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_310_2,http-request,HttpRequestTest,uploadProgressSendInputStream_2_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_311_1,http-request,HttpRequestTest,uploadProgressSendByteArray_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_311_2,http-request,HttpRequestTest,uploadProgressSendByteArray_2_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_312_1,http-request,HttpRequestTest,uploadProgressSendReader_1_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_312_2,http-request,HttpRequestTest,uploadProgressSendReader_2_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_6_2,http-request,HttpRequestTest,getUrlEncodedWithSpace_2_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_7_2,http-request,HttpRequestTest,getUrlEncodedWithUnicode_2_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_9_4,http-request,HttpRequestTest,deleteEmpty_4_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
@@ -67,6 +83,7 @@ http_69_3,http-request,HttpRequestTest,receiveAppendable_3_oe,lib/src/test/java/
 http_70_3,http-request,HttpRequestTest,receiveWriter_3_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_71_3,http-request,HttpRequestTest,receivePrintStream_3_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_72_3,http-request,HttpRequestTest,receiveFile_3_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_78_3,http-request,HttpRequestTest,sendErrorReadStream_3_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_104_2,http-request,HttpRequestTest,postWithMappedQueryParams_2_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_104_3,http-request,HttpRequestTest,postWithMappedQueryParams_3_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_104_4,http-request,HttpRequestTest,postWithMappedQueryParams_4_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
@@ -162,6 +179,7 @@ http_228_3,http-request,HttpRequestTest,receiveAppendable_3_oe,src/test/java/com
 http_229_3,http-request,HttpRequestTest,receiveWriter_3_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_230_3,http-request,HttpRequestTest,receivePrintStream_3_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_231_3,http-request,HttpRequestTest,receiveFile_3_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_236_3,http-request,HttpRequestTest,sendErrorReadStream_3_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_262_2,http-request,HttpRequestTest,postWithMappedQueryParams_2_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_262_3,http-request,HttpRequestTest,postWithMappedQueryParams_3_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_262_4,http-request,HttpRequestTest,postWithMappedQueryParams_4_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
@@ -257,6 +275,7 @@ http_69_3,http-request,HttpRequestTest,receiveAppendable_3_oe,lib/src/test/java/
 http_70_3,http-request,HttpRequestTest,receiveWriter_3_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_71_3,http-request,HttpRequestTest,receivePrintStream_3_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_72_3,http-request,HttpRequestTest,receiveFile_3_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_78_3,http-request,HttpRequestTest,sendErrorReadStream_3_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_104_2,http-request,HttpRequestTest,postWithMappedQueryParams_2_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_104_3,http-request,HttpRequestTest,postWithMappedQueryParams_3_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_104_4,http-request,HttpRequestTest,postWithMappedQueryParams_4_oe,lib/src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
@@ -352,6 +371,7 @@ http_228_3,http-request,HttpRequestTest,receiveAppendable_3_oe,src/test/java/com
 http_229_3,http-request,HttpRequestTest,receiveWriter_3_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_230_3,http-request,HttpRequestTest,receivePrintStream_3_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_231_3,http-request,HttpRequestTest,receiveFile_3_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
+http_236_3,http-request,HttpRequestTest,sendErrorReadStream_3_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_262_2,http-request,HttpRequestTest,postWithMappedQueryParams_2_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_262_3,http-request,HttpRequestTest,postWithMappedQueryParams_3_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals
 http_262_4,http-request,HttpRequestTest,postWithMappedQueryParams_4_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,assert,unknown,standard,assertEquals

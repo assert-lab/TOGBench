@@ -122,7 +122,6 @@ rng_76_2,commons-rng,ProvidersCommonParametricTest,testStateSettable_2_oe,common
 rng_76_3,commons-rng,ProvidersCommonParametricTest,testStateSettable_3_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest.java,,,,assert,unknown,standard,assertNotSame
 rng_76_4,commons-rng,ProvidersCommonParametricTest,testStateSettable_4_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest.java,,,,assert,unknown,standard,assertEquals
 rng_77_1,commons-rng,ProvidersCommonParametricTest,testStateWrongSize_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest.java,,,,assert,unknown,standard,assertThrows
-rng_78_1,commons-rng,ProvidersCommonParametricTest,testRestoreForeignState_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest.java,,,,assert,unknown,standard,assertThrows
 rng_79_1,commons-rng,RandomProviderDefaultStateTest,testConsistency_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/RandomProviderDefaultStateTest.java,,,,assert,unknown,standard,assertArrayEquals
 rng_80_1,commons-rng,Well1024aTest,testReferenceCode_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/source32/Well1024aTest.java,,,,assert,unknown,standard,assertEquals
 rng_83_1,commons-rng,XoRoShiRo64StarStarTest,testReferenceCode_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/source32/XoRoShiRo64StarStarTest.java,,,,assert,unknown,standard,assertEquals
