@@ -72,7 +72,6 @@ bcel_59_1,bcel,CounterVisitorTestCase,testSyntheticCount_1_oe,src/test/java/org/
 bcel_60_1,bcel,CounterVisitorTestCase,testUnknownCount_1_oe,src/test/java/org/apache/bcel/CounterVisitorTestCase.java,,,,assert,unknown,standard,assertEquals
 bcel_61_1,bcel,AnnotationAccessFlagTestCase,testAnnotationClassSaysItIs_1_oe,src/test/java/org/apache/bcel/AnnotationAccessFlagTestCase.java,,,,assert,unknown,standard,assertTrue
 bcel_61_2,bcel,AnnotationAccessFlagTestCase,testAnnotationClassSaysItIs_2_oe,src/test/java/org/apache/bcel/AnnotationAccessFlagTestCase.java,,,,assert,unknown,standard,assertTrue
-bcel_62_1,bcel,PerformanceTest,testPerformance_1_oe,src/test/java/org/apache/bcel/PerformanceTest.java,,,,assert,unknown,standard,fail
 bcel_63_1,bcel,InstructionFinderTestCase,testSearchAll_1_oe,src/test/java/org/apache/bcel/InstructionFinderTestCase.java,,,,assert,unknown,standard,assertEquals
 bcel_64_1,bcel,TypeTestCase,testBCEL243_1_oe,src/test/java/org/apache/bcel/generic/TypeTestCase.java,,,,assert,unknown,standard,assertEquals
 bcel_65_1,bcel,InstructionHandleTestCase,testsetInstructionNull_1_oe,src/test/java/org/apache/bcel/generic/InstructionHandleTestCase.java,,,,assert,unknown,standard,assertNotNull
@@ -171,7 +170,6 @@ bcel_99_6,bcel,MethodGenTestCase,testRemoveLocalVariables_6_oe,src/test/java/org
 bcel_99_7,bcel,MethodGenTestCase,testRemoveLocalVariables_7_oe,src/test/java/org/apache/bcel/generic/MethodGenTestCase.java,,,,assert,unknown,standard,assertFalse
 bcel_99_8,bcel,MethodGenTestCase,testRemoveLocalVariables_8_oe,src/test/java/org/apache/bcel/generic/MethodGenTestCase.java,,,,assert,unknown,standard,assertNull
 bcel_99_9,bcel,MethodGenTestCase,testRemoveLocalVariables_9_oe,src/test/java/org/apache/bcel/generic/MethodGenTestCase.java,,,,assert,unknown,standard,assertNull
-bcel_100_1,bcel,JdkGenericDumpTestCase,testJreModules_1_oe,src/test/java/org/apache/bcel/generic/JdkGenericDumpTestCase.java,,,,assert,unknown,standard,assertFalse
 bcel_101_1,bcel,ConstantPoolTestCase,testConstantToString_1_oe,src/test/java/org/apache/bcel/classfile/ConstantPoolTestCase.java,,,,assert,unknown,standard,assertNotNull
 bcel_102_1,bcel,UtilityTestCase,testSignatureToStringWithGenerics_1_oe,src/test/java/org/apache/bcel/classfile/UtilityTestCase.java,,,,assert,unknown,standard,assertEquals
 bcel_102_2,bcel,UtilityTestCase,testSignatureToStringWithGenerics_2_oe,src/test/java/org/apache/bcel/classfile/UtilityTestCase.java,,,,assert,unknown,standard,assertEquals
@@ -190,7 +188,6 @@ bcel_103_1,bcel,BCELifierTestCase,testStart_1_oe,src/test/java/org/apache/bcel/u
 bcel_104_1,bcel,Class2HTMLTestCase,testConvertJavaUtil_1_oe,src/test/java/org/apache/bcel/util/Class2HTMLTestCase.java,,,,assert,unknown,standard,assertTrue
 bcel_105_1,bcel,ClassPathTestCase,testGetClassFile_1_oe,src/test/java/org/apache/bcel/util/ClassPathTestCase.java,,,,assert,unknown,standard,assertNotNull
 bcel_106_1,bcel,ClassPathTestCase,testGetResource_1_oe,src/test/java/org/apache/bcel/util/ClassPathTestCase.java,,,,assert,unknown,standard,assertNotNull
-bcel_107_1,bcel,ClassPathTestCase,testGetResourceAsStream_1_oe,src/test/java/org/apache/bcel/util/ClassPathTestCase.java,,,,assert,unknown,standard,assertNotNull
 bcel_108_1,bcel,ModularRuntimeImageTestCase,testListJreModules_1_oe,src/test/java/org/apache/bcel/util/ModularRuntimeImageTestCase.java,,,,assert,unknown,standard,assertFalse
 bcel_108_2,bcel,ModularRuntimeImageTestCase,testListJreModules_2_oe,src/test/java/org/apache/bcel/util/ModularRuntimeImageTestCase.java,,,,assert,unknown,standard,assertTrue
 bcel_109_1,bcel,ModularRuntimeImageTestCase,testListJreModule_1_oe,src/test/java/org/apache/bcel/util/ModularRuntimeImageTestCase.java,,,,assert,unknown,standard,assertFalse
@@ -199,17 +196,6 @@ bcel_110_1,bcel,ModularRuntimeImageTestCase,testListJreModulePackageDir_1_oe,src
 bcel_110_2,bcel,ModularRuntimeImageTestCase,testListJreModulePackageDir_2_oe,src/test/java/org/apache/bcel/util/ModularRuntimeImageTestCase.java,,,,assert,unknown,standard,assertTrue
 bcel_111_1,bcel,ModularRuntimeImageTestCase,testListJrePackages_1_oe,src/test/java/org/apache/bcel/util/ModularRuntimeImageTestCase.java,,,,assert,unknown,standard,assertFalse
 bcel_111_2,bcel,ModularRuntimeImageTestCase,testListJrePackages_2_oe,src/test/java/org/apache/bcel/util/ModularRuntimeImageTestCase.java,,,,assert,unknown,standard,assertTrue
-bcel_112_1,bcel,LruCacheClassPathRepositoryTestCase,testCacheEviction_1_oe,src/test/java/org/apache/bcel/util/LruCacheClassPathRepositoryTestCase.java,,,,assert,unknown,standard,assertNotNull
-bcel_112_2,bcel,LruCacheClassPathRepositoryTestCase,testCacheEviction_2_oe,src/test/java/org/apache/bcel/util/LruCacheClassPathRepositoryTestCase.java,,,,assert,unknown,standard,assertNotNull
-bcel_112_3,bcel,LruCacheClassPathRepositoryTestCase,testCacheEviction_3_oe,src/test/java/org/apache/bcel/util/LruCacheClassPathRepositoryTestCase.java,,,,assert,unknown,standard,assertNotNull
-bcel_112_4,bcel,LruCacheClassPathRepositoryTestCase,testCacheEviction_4_oe,src/test/java/org/apache/bcel/util/LruCacheClassPathRepositoryTestCase.java,,,,assert,unknown,standard,assertNull
-bcel_112_5,bcel,LruCacheClassPathRepositoryTestCase,testCacheEviction_5_oe,src/test/java/org/apache/bcel/util/LruCacheClassPathRepositoryTestCase.java,,,,assert,unknown,standard,assertEquals
-bcel_113_1,bcel,LruCacheClassPathRepositoryTestCase,testLeastRecentlyUsedEviction_1_oe,src/test/java/org/apache/bcel/util/LruCacheClassPathRepositoryTestCase.java,,,,assert,unknown,standard,assertNotNull
-bcel_113_2,bcel,LruCacheClassPathRepositoryTestCase,testLeastRecentlyUsedEviction_2_oe,src/test/java/org/apache/bcel/util/LruCacheClassPathRepositoryTestCase.java,,,,assert,unknown,standard,assertNotNull
-bcel_113_3,bcel,LruCacheClassPathRepositoryTestCase,testLeastRecentlyUsedEviction_3_oe,src/test/java/org/apache/bcel/util/LruCacheClassPathRepositoryTestCase.java,,,,assert,unknown,standard,assertNotNull
-bcel_113_4,bcel,LruCacheClassPathRepositoryTestCase,testLeastRecentlyUsedEviction_4_oe,src/test/java/org/apache/bcel/util/LruCacheClassPathRepositoryTestCase.java,,,,assert,unknown,standard,assertNull
-bcel_113_5,bcel,LruCacheClassPathRepositoryTestCase,testLeastRecentlyUsedEviction_5_oe,src/test/java/org/apache/bcel/util/LruCacheClassPathRepositoryTestCase.java,,,,assert,unknown,standard,assertEquals
-bcel_114_1,bcel,ClassPathRepositoryTestCase,testClassPath_1_oe,src/test/java/org/apache/bcel/util/ClassPathRepositoryTestCase.java,,,,assert,unknown,standard,assertEquals
 bcel_115_1,bcel,InstructionFinderTest,testSearch_1_oe,src/test/java/org/apache/bcel/util/InstructionFinderTest.java,,,,assert,unknown,standard,assertEquals
 bcel_115_2,bcel,InstructionFinderTest,testSearch_2_oe,src/test/java/org/apache/bcel/util/InstructionFinderTest.java,,,,assert,unknown,standard,assertEquals
 bcel_115_3,bcel,InstructionFinderTest,testSearch_3_oe,src/test/java/org/apache/bcel/util/InstructionFinderTest.java,,,,assert,unknown,standard,assertEquals

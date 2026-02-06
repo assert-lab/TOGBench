@@ -30651,29 +30651,6 @@ numb_460_8,"    @Test
         Assertions.assertEquals(0, product.getZ(), EPS);
     }
 ",QuaternionTest::testInverse_8_oe
-numb_460_9,"    @Test
-    final void testInverse_9_oe() {
-        final Quaternion q = Quaternion.of(1.5, 4, 2, -2.5);
-
-        final Quaternion inverseQ = q.inverse();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        final Quaternion product = Quaternion.multiply(inverseQ, q);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        final Quaternion qNul = Quaternion.of(0, 0, 0, 0);
-        try {
-            final Quaternion inverseQNul = qNul.inverse();
-            Assertions.fail(""expecting ZeroException but got : "" + inverseQNul);
-    }
-    }
-",QuaternionTest::testInverse_9_oe
 numb_461_1,"    @Test
     void testInverse_zeroNorm_1_oe() {
         Quaternion q = Quaternion.of(0, 0, 0, 0);
@@ -32125,18 +32102,6 @@ numb_481_4,"    @Test
         Assertions.assertEquals(Math.PI, result, DEFAULT_ABSOLUTE_ACCURACY);
     }
 ",BrentSolverTest::testRootEndpoints_4_oe
-numb_482_1,"    @Test
-    void testBadEndpoints_1_oe() {
-        final DoubleUnaryOperator f = new Sin();
-        final BrentSolver solver = new BrentSolver(DEFAULT_ABSOLUTE_ACCURACY,
-                                                   DEFAULT_RELATIVE_ACCURACY,
-                                                   DEFAULT_FUNCTION_ACCURACY);
-        try {  // Bad interval.
-            solver.findRoot(f, 1, -1);
-            Assertions.fail(""Expecting bad interval condition"");
-    }
-    }
-",BrentSolverTest::testBadEndpoints_1_oe
 numb_482_2,"    @Test
     void testBadEndpoints_2_oe() {
         final DoubleUnaryOperator f = new Sin();
@@ -32152,25 +32117,6 @@ numb_482_2,"    @Test
     }
     }
 ",BrentSolverTest::testBadEndpoints_2_oe
-numb_482_3,"    @Test
-    void testBadEndpoints_3_oe() {
-        final DoubleUnaryOperator f = new Sin();
-        final BrentSolver solver = new BrentSolver(DEFAULT_ABSOLUTE_ACCURACY,
-                                                   DEFAULT_RELATIVE_ACCURACY,
-                                                   DEFAULT_FUNCTION_ACCURACY);
-        try {  // Bad interval.
-            solver.findRoot(f, 1, -1);
-            // removed other assertion
-        } catch (SolverException ex) {
-            // Ensure expected error condition.
-            // removed other assertion
-        }
-        try {  // No bracketing.
-            solver.findRoot(f, 1, 1.5);
-            Assertions.fail(""Expecting non-bracketing condition"");
-    }
-    }
-",BrentSolverTest::testBadEndpoints_3_oe
 numb_482_4,"    @Test
     void testBadEndpoints_4_oe() {
         final DoubleUnaryOperator f = new Sin();
@@ -32193,32 +32139,6 @@ numb_482_4,"    @Test
     }
     }
 ",BrentSolverTest::testBadEndpoints_4_oe
-numb_482_5,"    @Test
-    void testBadEndpoints_5_oe() {
-        final DoubleUnaryOperator f = new Sin();
-        final BrentSolver solver = new BrentSolver(DEFAULT_ABSOLUTE_ACCURACY,
-                                                   DEFAULT_RELATIVE_ACCURACY,
-                                                   DEFAULT_FUNCTION_ACCURACY);
-        try {  // Bad interval.
-            solver.findRoot(f, 1, -1);
-            // removed other assertion
-        } catch (SolverException ex) {
-            // Ensure expected error condition.
-            // removed other assertion
-        }
-        try {  // No bracketing.
-            solver.findRoot(f, 1, 1.5);
-            // removed other assertion
-        } catch (SolverException ex) {
-            // Ensure expected error condition.
-            // removed other assertion
-        }
-        try {  // No bracketing.
-            solver.findRoot(f, 1, 1.2, 1.5);
-            Assertions.fail(""Expecting non-bracketing condition"");
-    }
-    }
-",BrentSolverTest::testBadEndpoints_5_oe
 numb_482_6,"    @Test
     void testBadEndpoints_6_oe() {
         final DoubleUnaryOperator f = new Sin();
@@ -32248,20 +32168,6 @@ numb_482_6,"    @Test
     }
     }
 ",BrentSolverTest::testBadEndpoints_6_oe
-numb_483_1,"    @Test
-    void testBadInitialGuess_1_oe() {
-        final DoubleUnaryOperator func = new QuinticFunction();
-        final BrentSolver solver = new BrentSolver(DEFAULT_ABSOLUTE_ACCURACY,
-                                                   DEFAULT_RELATIVE_ACCURACY,
-                                                   DEFAULT_FUNCTION_ACCURACY);
-
-        try {
-            // Invalid guess (it *is* a root, but outside of the range).
-            double result = solver.findRoot(func, 0.0, 7.0, 0.6);
-            Assertions.fail(""an out of range condition was expected"");
-    }
-    }
-",BrentSolverTest::testBadInitialGuess_1_oe
 numb_483_2,"    @Test
     void testBadInitialGuess_2_oe() {
         final DoubleUnaryOperator func = new QuinticFunction();
@@ -37505,90 +37411,6 @@ numb_538_61,"    @Test
         Assertions.assertEquals(1.23, Precision.round(1.23, 2, RoundingMode.UNNECESSARY));
     }
 ",PrecisionTest::testRoundDouble_61_oe
-numb_538_62,"    @Test
-    void testRoundDouble_62_oe() {
-        double x = 1.234567890;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // JIRA MATH-151
-        // removed other assertion
-        // removed other assertion
-        double xx = 39.0;
-        xx += 245d / 1000d;
-        // removed other assertion
-
-        // BZ 35904
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        try {
-            Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
-            Assertions.fail();
-    }
-    }
-",PrecisionTest::testRoundDouble_62_oe
 numb_538_63,"    @Test
     void testRoundDouble_63_oe() {
         double x = 1.234567890;
@@ -42386,132 +42208,6 @@ numb_577_17,"    @Test
         Assertions.assertEquals(1 << 30, ArithmeticUtils.gcd(1 << 30, -Integer.MIN_VALUE));
     }
 ",ArithmeticUtilsTest::testGcd_17_oe
-numb_577_18,"    @Test
-    void testGcd_18_oe() {
-        int a = 30;
-        int b = 50;
-        int c = 77;
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        try {
-            // gcd(Integer.MIN_VALUE, 0) > Integer.MAX_VALUE
-            ArithmeticUtils.gcd(Integer.MIN_VALUE, 0);
-            Assertions.fail(""expecting ArithmeticException"");
-    }
-    }
-",ArithmeticUtilsTest::testGcd_18_oe
-numb_577_19,"    @Test
-    void testGcd_19_oe() {
-        int a = 30;
-        int b = 50;
-        int c = 77;
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        try {
-            // gcd(Integer.MIN_VALUE, 0) > Integer.MAX_VALUE
-            ArithmeticUtils.gcd(Integer.MIN_VALUE, 0);
-            // removed other assertion
-        } catch (ArithmeticException expected) {
-            // expected
-        }
-        try {
-            // gcd(0, Integer.MIN_VALUE) > Integer.MAX_VALUE
-            ArithmeticUtils.gcd(0, Integer.MIN_VALUE);
-            Assertions.fail(""expecting ArithmeticException"");
-    }
-    }
-",ArithmeticUtilsTest::testGcd_19_oe
-numb_577_20,"    @Test
-    void testGcd_20_oe() {
-        int a = 30;
-        int b = 50;
-        int c = 77;
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        try {
-            // gcd(Integer.MIN_VALUE, 0) > Integer.MAX_VALUE
-            ArithmeticUtils.gcd(Integer.MIN_VALUE, 0);
-            // removed other assertion
-        } catch (ArithmeticException expected) {
-            // expected
-        }
-        try {
-            // gcd(0, Integer.MIN_VALUE) > Integer.MAX_VALUE
-            ArithmeticUtils.gcd(0, Integer.MIN_VALUE);
-            // removed other assertion
-        } catch (ArithmeticException expected) {
-            // expected
-        }
-        try {
-            // gcd(Integer.MIN_VALUE, Integer.MIN_VALUE) > Integer.MAX_VALUE
-            ArithmeticUtils.gcd(Integer.MIN_VALUE, Integer.MIN_VALUE);
-            Assertions.fail(""expecting ArithmeticException"");
-    }
-    }
-",ArithmeticUtilsTest::testGcd_20_oe
 numb_578_1,"    @Test
     void testGcdConsistency_1_oe() {
         // Use Integer to prevent varargs vs array issue with Arrays.asList
@@ -42917,138 +42613,6 @@ numb_579_18,"    @Test
         Assertions.assertEquals(1, ArithmeticUtils.gcd(60247241209L, 153092023L));
     }
 ",ArithmeticUtilsTest::testGcdLong_18_oe
-numb_579_19,"    @Test
-    void  testGcdLong_19_oe() {
-        long a = 30;
-        long b = 50;
-        long c = 77;
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        try {
-            // gcd(Long.MIN_VALUE, 0) > Long.MAX_VALUE
-            ArithmeticUtils.gcd(Long.MIN_VALUE, 0);
-            Assertions.fail(""expecting ArithmeticException"");
-    }
-    }
-",ArithmeticUtilsTest::testGcdLong_19_oe
-numb_579_20,"    @Test
-    void  testGcdLong_20_oe() {
-        long a = 30;
-        long b = 50;
-        long c = 77;
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        try {
-            // gcd(Long.MIN_VALUE, 0) > Long.MAX_VALUE
-            ArithmeticUtils.gcd(Long.MIN_VALUE, 0);
-            // removed other assertion
-        } catch (ArithmeticException expected) {
-            // expected
-        }
-        try {
-            // gcd(0, Long.MIN_VALUE) > Long.MAX_VALUE
-            ArithmeticUtils.gcd(0, Long.MIN_VALUE);
-            Assertions.fail(""expecting ArithmeticException"");
-    }
-    }
-",ArithmeticUtilsTest::testGcdLong_20_oe
-numb_579_21,"    @Test
-    void  testGcdLong_21_oe() {
-        long a = 30;
-        long b = 50;
-        long c = 77;
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        try {
-            // gcd(Long.MIN_VALUE, 0) > Long.MAX_VALUE
-            ArithmeticUtils.gcd(Long.MIN_VALUE, 0);
-            // removed other assertion
-        } catch (ArithmeticException expected) {
-            // expected
-        }
-        try {
-            // gcd(0, Long.MIN_VALUE) > Long.MAX_VALUE
-            ArithmeticUtils.gcd(0, Long.MIN_VALUE);
-            // removed other assertion
-        } catch (ArithmeticException expected) {
-            // expected
-        }
-        try {
-            // gcd(Long.MIN_VALUE, Long.MIN_VALUE) > Long.MAX_VALUE
-            ArithmeticUtils.gcd(Long.MIN_VALUE, Long.MIN_VALUE);
-            Assertions.fail(""expecting ArithmeticException"");
-    }
-    }
-",ArithmeticUtilsTest::testGcdLong_21_oe
 numb_580_1,"    @Test
     void testLcm_1_oe() {
         int a = 30;
@@ -43211,119 +42775,6 @@ numb_580_11,"    @Test
         Assertions.assertEquals(0, ArithmeticUtils.lcm(0, 0));
     }
 ",ArithmeticUtilsTest::testLcm_11_oe
-numb_580_12,"    @Test
-    void testLcm_12_oe() {
-        int a = 30;
-        int b = 50;
-        int c = 77;
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Assert that no intermediate value overflows:
-        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
-        // removed other assertion
-
-        // Special case
-        // removed other assertion
-
-        try {
-            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
-            ArithmeticUtils.lcm(Integer.MIN_VALUE, 1);
-            Assertions.fail(""Expecting ArithmeticException"");
-    }
-    }
-",ArithmeticUtilsTest::testLcm_12_oe
-numb_580_13,"    @Test
-    void testLcm_13_oe() {
-        int a = 30;
-        int b = 50;
-        int c = 77;
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Assert that no intermediate value overflows:
-        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
-        // removed other assertion
-
-        // Special case
-        // removed other assertion
-
-        try {
-            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
-            ArithmeticUtils.lcm(Integer.MIN_VALUE, 1);
-            // removed other assertion
-        } catch (ArithmeticException expected) {
-            // expected
-        }
-
-        try {
-            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
-            ArithmeticUtils.lcm(Integer.MIN_VALUE, 1 << 20);
-            Assertions.fail(""Expecting ArithmeticException"");
-    }
-    }
-",ArithmeticUtilsTest::testLcm_13_oe
-numb_580_14,"    @Test
-    void testLcm_14_oe() {
-        int a = 30;
-        int b = 50;
-        int c = 77;
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Assert that no intermediate value overflows:
-        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
-        // removed other assertion
-
-        // Special case
-        // removed other assertion
-
-        try {
-            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
-            ArithmeticUtils.lcm(Integer.MIN_VALUE, 1);
-            // removed other assertion
-        } catch (ArithmeticException expected) {
-            // expected
-        }
-
-        try {
-            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
-            ArithmeticUtils.lcm(Integer.MIN_VALUE, 1 << 20);
-            // removed other assertion
-        } catch (ArithmeticException expected) {
-            // expected
-        }
-
-        try {
-            ArithmeticUtils.lcm(Integer.MAX_VALUE, Integer.MAX_VALUE - 1);
-            Assertions.fail(""Expecting ArithmeticException"");
-    }
-    }
-",ArithmeticUtilsTest::testLcm_14_oe
 numb_581_1,"    @Test
     void testLcmLong_1_oe() {
         long a = 30;
@@ -43509,78 +42960,6 @@ numb_581_12,"    @Test
         Assertions.assertEquals(0L, ArithmeticUtils.lcm(0L, 0L));
     }
 ",ArithmeticUtilsTest::testLcmLong_12_oe
-numb_581_13,"    @Test
-    void testLcmLong_13_oe() {
-        long a = 30;
-        long b = 50;
-        long c = 77;
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // Assert that no intermediate value overflows:
-        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
-        // removed other assertion
-
-        // Special case
-        // removed other assertion
-
-        try {
-            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
-            ArithmeticUtils.lcm(Long.MIN_VALUE, 1);
-            Assertions.fail(""Expecting ArithmeticException"");
-    }
-    }
-",ArithmeticUtilsTest::testLcmLong_13_oe
-numb_581_14,"    @Test
-    void testLcmLong_14_oe() {
-        long a = 30;
-        long b = 50;
-        long c = 77;
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // Assert that no intermediate value overflows:
-        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
-        // removed other assertion
-
-        // Special case
-        // removed other assertion
-
-        try {
-            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
-            ArithmeticUtils.lcm(Long.MIN_VALUE, 1);
-            // removed other assertion
-        } catch (ArithmeticException expected) {
-            // expected
-        }
-
-        try {
-            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
-            ArithmeticUtils.lcm(Long.MIN_VALUE, 1 << 20);
-            Assertions.fail(""Expecting ArithmeticException"");
-    }
-    }
-",ArithmeticUtilsTest::testLcmLong_14_oe
 numb_581_15,"    @Test
     void testLcmLong_15_oe() {
         long a = 30;
@@ -43625,54 +43004,6 @@ numb_581_15,"    @Test
         Assertions.assertEquals((long)Integer.MAX_VALUE *(Integer.MAX_VALUE - 1),ArithmeticUtils.lcm((long)Integer.MAX_VALUE,Integer.MAX_VALUE - 1));
     }
 ",ArithmeticUtilsTest::testLcmLong_15_oe
-numb_581_16,"    @Test
-    void testLcmLong_16_oe() {
-        long a = 30;
-        long b = 50;
-        long c = 77;
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // Assert that no intermediate value overflows:
-        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
-        // removed other assertion
-
-        // Special case
-        // removed other assertion
-
-        try {
-            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
-            ArithmeticUtils.lcm(Long.MIN_VALUE, 1);
-            // removed other assertion
-        } catch (ArithmeticException expected) {
-            // expected
-        }
-
-        try {
-            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
-            ArithmeticUtils.lcm(Long.MIN_VALUE, 1 << 20);
-            // removed other assertion
-        } catch (ArithmeticException expected) {
-            // expected
-        }
-
-        // removed other assertion
-        try {
-            ArithmeticUtils.lcm(Long.MAX_VALUE, Long.MAX_VALUE - 1);
-            Assertions.fail(""Expecting ArithmeticException"");
-    }
-    }
-",ArithmeticUtilsTest::testLcmLong_16_oe
 numb_582_1,"    @Test
     void testPow_1_oe() {
 
@@ -43686,17 +43017,6 @@ numb_582_2,"    @Test
         Assertions.assertEquals(1, ArithmeticUtils.pow(21, 0));
     }
 ",ArithmeticUtilsTest::testPow_2_oe
-numb_582_3,"    @Test
-    void testPow_3_oe() {
-
-        // removed other assertion
-        // removed other assertion
-        try {
-            ArithmeticUtils.pow(21, -7);
-            Assertions.fail(""Expecting IllegalArgumentException"");
-    }
-    }
-",ArithmeticUtilsTest::testPow_3_oe
 numb_582_4,"    @Test
     void testPow_4_oe() {
 
@@ -43728,26 +43048,6 @@ numb_582_5,"    @Test
         Assertions.assertEquals(1, ArithmeticUtils.pow(21, 0));
     }
 ",ArithmeticUtilsTest::testPow_5_oe
-numb_582_6,"    @Test
-    void testPow_6_oe() {
-
-        // removed other assertion
-        // removed other assertion
-        try {
-            ArithmeticUtils.pow(21, -7);
-            // removed other assertion
-        } catch (IllegalArgumentException e) {
-            // expected behavior
-        }
-
-        // removed other assertion
-        // removed other assertion
-        try {
-            ArithmeticUtils.pow(21, -7);
-            Assertions.fail(""Expecting IllegalArgumentException"");
-    }
-    }
-",ArithmeticUtilsTest::testPow_6_oe
 numb_582_7,"    @Test
     void testPow_7_oe() {
 
@@ -43797,35 +43097,6 @@ numb_582_8,"    @Test
         Assertions.assertEquals(1L, ArithmeticUtils.pow(21L, 0));
     }
 ",ArithmeticUtilsTest::testPow_8_oe
-numb_582_9,"    @Test
-    void testPow_9_oe() {
-
-        // removed other assertion
-        // removed other assertion
-        try {
-            ArithmeticUtils.pow(21, -7);
-            // removed other assertion
-        } catch (IllegalArgumentException e) {
-            // expected behavior
-        }
-
-        // removed other assertion
-        // removed other assertion
-        try {
-            ArithmeticUtils.pow(21, -7);
-            // removed other assertion
-        } catch (IllegalArgumentException e) {
-            // expected behavior
-        }
-
-        // removed other assertion
-        // removed other assertion
-        try {
-            ArithmeticUtils.pow(21L, -7);
-            Assertions.fail(""Expecting IllegalArgumentException"");
-    }
-    }
-",ArithmeticUtilsTest::testPow_9_oe
 numb_582_10,"    @Test
     void testPow_10_oe() {
 
@@ -43895,45 +43166,6 @@ numb_582_11,"    @Test
         Assertions.assertEquals(BigInteger.ONE, ArithmeticUtils.pow(twentyOne, 0));
     }
 ",ArithmeticUtilsTest::testPow_11_oe
-numb_582_12,"    @Test
-    void testPow_12_oe() {
-
-        // removed other assertion
-        // removed other assertion
-        try {
-            ArithmeticUtils.pow(21, -7);
-            // removed other assertion
-        } catch (IllegalArgumentException e) {
-            // expected behavior
-        }
-
-        // removed other assertion
-        // removed other assertion
-        try {
-            ArithmeticUtils.pow(21, -7);
-            // removed other assertion
-        } catch (IllegalArgumentException e) {
-            // expected behavior
-        }
-
-        // removed other assertion
-        // removed other assertion
-        try {
-            ArithmeticUtils.pow(21L, -7);
-            // removed other assertion
-        } catch (IllegalArgumentException e) {
-            // expected behavior
-        }
-
-        BigInteger twentyOne = BigInteger.valueOf(21L);
-        // removed other assertion
-        // removed other assertion
-        try {
-            ArithmeticUtils.pow(twentyOne, -7);
-            Assertions.fail(""Expecting IllegalArgumentException"");
-    }
-    }
-",ArithmeticUtilsTest::testPow_12_oe
 numb_582_13,"    @Test
     void testPow_13_oe() {
 
@@ -44021,54 +43253,6 @@ numb_582_14,"    @Test
         Assertions.assertEquals(BigInteger.ONE, ArithmeticUtils.pow(twentyOne, 0L));
     }
 ",ArithmeticUtilsTest::testPow_14_oe
-numb_582_15,"    @Test
-    void testPow_15_oe() {
-
-        // removed other assertion
-        // removed other assertion
-        try {
-            ArithmeticUtils.pow(21, -7);
-            // removed other assertion
-        } catch (IllegalArgumentException e) {
-            // expected behavior
-        }
-
-        // removed other assertion
-        // removed other assertion
-        try {
-            ArithmeticUtils.pow(21, -7);
-            // removed other assertion
-        } catch (IllegalArgumentException e) {
-            // expected behavior
-        }
-
-        // removed other assertion
-        // removed other assertion
-        try {
-            ArithmeticUtils.pow(21L, -7);
-            // removed other assertion
-        } catch (IllegalArgumentException e) {
-            // expected behavior
-        }
-
-        BigInteger twentyOne = BigInteger.valueOf(21L);
-        // removed other assertion
-        // removed other assertion
-        try {
-            ArithmeticUtils.pow(twentyOne, -7);
-            // removed other assertion
-        } catch (IllegalArgumentException e) {
-            // expected behavior
-        }
-
-        // removed other assertion
-        // removed other assertion
-        try {
-            ArithmeticUtils.pow(twentyOne, -7L);
-            Assertions.fail(""Expecting IllegalArgumentException"");
-    }
-    }
-",ArithmeticUtilsTest::testPow_15_oe
 numb_582_16,"    @Test
     void testPow_16_oe() {
 
@@ -44662,21 +43846,6 @@ numb_599_1,"    @Test
         Assertions.assertEquals(48L, ArithmeticUtils.remainderUnsigned(-2147479015L, 63L));
     }
 ",ArithmeticUtilsTest::testRemainderUnsignedLong_1_oe
-numb_600_1,"    @Test
-    void testRemainderUnsignedLongSpecialCases_1_oe() {
-        long[] longs = getLongSpecialCases();
-        for (long dividend : longs) {
-            for (long divisor : longs) {
-                if (divisor == 0L) {
-                    try {
-                        ArithmeticUtils.remainderUnsigned(dividend, divisor);
-                        Assertions.fail(""Should have failed with ArithmeticException: division by zero"");
-    }
-    }
-    }
-    }
-    }
-",ArithmeticUtilsTest::testRemainderUnsignedLongSpecialCases_1_oe
 numb_600_2,"    @Test
     void testRemainderUnsignedLongSpecialCases_2_oe() {
         long[] longs = getLongSpecialCases();

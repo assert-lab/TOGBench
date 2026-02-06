@@ -1,0 +1,208 @@
+id,test_prefix,test_name,custom_assert_name,custom_assert_method,custom_assert_file
+net_151_2,"    public void testWholeListParse_2_oe() throws IOException
+    {
+        final VMSFTPEntryParser parser = new VMSFTPEntryParser();
+        parser.configure(null);
+        final FTPListParseEngine engine = new FTPListParseEngine(parser);
+        engine.readServerList(
+                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
+        final FTPFile[] files = engine.getFiles();
+        // removed other assertion
+        assertFileInListing(files, ""2-JUN.LIS"");
+    }
+",VMSFTPEntryParserTest::testWholeListParse_2_oe,assertFileInListing,"    public void assertFileInListing(final FTPFile[] listing, final String name) {
+        for (final FTPFile element : listing)
+        {
+            if (name.equals(element.getName())) {
+                return;
+            }
+        }
+        fail(""File "" + name + "" not found in supplied listing"");
+    }
+",src/test/java/org/apache/commons/net/ftp/parser/VMSFTPEntryParserTest.java
+net_151_3,"    public void testWholeListParse_3_oe() throws IOException
+    {
+        final VMSFTPEntryParser parser = new VMSFTPEntryParser();
+        parser.configure(null);
+        final FTPListParseEngine engine = new FTPListParseEngine(parser);
+        engine.readServerList(
+                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
+        final FTPFile[] files = engine.getFiles();
+        // removed other assertion
+        // removed other assertion
+        assertFileInListing(files, ""3-JUN.LIS"");
+    }
+",VMSFTPEntryParserTest::testWholeListParse_3_oe,assertFileInListing,"    public void assertFileInListing(final FTPFile[] listing, final String name) {
+        for (final FTPFile element : listing)
+        {
+            if (name.equals(element.getName())) {
+                return;
+            }
+        }
+        fail(""File "" + name + "" not found in supplied listing"");
+    }
+",src/test/java/org/apache/commons/net/ftp/parser/VMSFTPEntryParserTest.java
+net_151_4,"    public void testWholeListParse_4_oe() throws IOException
+    {
+        final VMSFTPEntryParser parser = new VMSFTPEntryParser();
+        parser.configure(null);
+        final FTPListParseEngine engine = new FTPListParseEngine(parser);
+        engine.readServerList(
+                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
+        final FTPFile[] files = engine.getFiles();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFileInListing(files, ""1-JUN.LIS"");
+    }
+",VMSFTPEntryParserTest::testWholeListParse_4_oe,assertFileInListing,"    public void assertFileInListing(final FTPFile[] listing, final String name) {
+        for (final FTPFile element : listing)
+        {
+            if (name.equals(element.getName())) {
+                return;
+            }
+        }
+        fail(""File "" + name + "" not found in supplied listing"");
+    }
+",src/test/java/org/apache/commons/net/ftp/parser/VMSFTPEntryParserTest.java
+net_151_5,"    public void testWholeListParse_5_oe() throws IOException
+    {
+        final VMSFTPEntryParser parser = new VMSFTPEntryParser();
+        parser.configure(null);
+        final FTPListParseEngine engine = new FTPListParseEngine(parser);
+        engine.readServerList(
+                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
+        final FTPFile[] files = engine.getFiles();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFileNotInListing(files, ""1-JUN.LIS;1"");
+    }
+",VMSFTPEntryParserTest::testWholeListParse_5_oe,assertFileNotInListing,"    public void assertFileNotInListing(final FTPFile[] listing, final String name) {
+        for (final FTPFile element : listing)
+        {
+            if (name.equals(element.getName())) {
+                fail(""Unexpected File "" + name + "" found in supplied listing"");
+            }
+        }
+    }
+",src/test/java/org/apache/commons/net/ftp/parser/VMSFTPEntryParserTest.java
+net_152_2,"    public void testWholeListParseWithVersioning_2_oe() throws IOException
+    {
+
+        final VMSFTPEntryParser parser = new VMSVersioningFTPEntryParser();
+        parser.configure(null);
+        final FTPListParseEngine engine = new FTPListParseEngine(parser);
+        engine.readServerList(
+                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
+        final FTPFile[] files = engine.getFiles();
+        // removed other assertion
+        assertFileInListing(files, ""1-JUN.LIS;1"");
+    }
+",VMSFTPEntryParserTest::testWholeListParseWithVersioning_2_oe,assertFileInListing,"    public void assertFileInListing(final FTPFile[] listing, final String name) {
+        for (final FTPFile element : listing)
+        {
+            if (name.equals(element.getName())) {
+                return;
+            }
+        }
+        fail(""File "" + name + "" not found in supplied listing"");
+    }
+",src/test/java/org/apache/commons/net/ftp/parser/VMSFTPEntryParserTest.java
+net_152_3,"    public void testWholeListParseWithVersioning_3_oe() throws IOException
+    {
+
+        final VMSFTPEntryParser parser = new VMSVersioningFTPEntryParser();
+        parser.configure(null);
+        final FTPListParseEngine engine = new FTPListParseEngine(parser);
+        engine.readServerList(
+                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
+        final FTPFile[] files = engine.getFiles();
+        // removed other assertion
+        // removed other assertion
+        assertFileInListing(files, ""2-JUN.LIS;1"");
+    }
+",VMSFTPEntryParserTest::testWholeListParseWithVersioning_3_oe,assertFileInListing,"    public void assertFileInListing(final FTPFile[] listing, final String name) {
+        for (final FTPFile element : listing)
+        {
+            if (name.equals(element.getName())) {
+                return;
+            }
+        }
+        fail(""File "" + name + "" not found in supplied listing"");
+    }
+",src/test/java/org/apache/commons/net/ftp/parser/VMSFTPEntryParserTest.java
+net_152_4,"    public void testWholeListParseWithVersioning_4_oe() throws IOException
+    {
+
+        final VMSFTPEntryParser parser = new VMSVersioningFTPEntryParser();
+        parser.configure(null);
+        final FTPListParseEngine engine = new FTPListParseEngine(parser);
+        engine.readServerList(
+                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
+        final FTPFile[] files = engine.getFiles();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFileInListing(files, ""3-JUN.LIS;4"");
+    }
+",VMSFTPEntryParserTest::testWholeListParseWithVersioning_4_oe,assertFileInListing,"    public void assertFileInListing(final FTPFile[] listing, final String name) {
+        for (final FTPFile element : listing)
+        {
+            if (name.equals(element.getName())) {
+                return;
+            }
+        }
+        fail(""File "" + name + "" not found in supplied listing"");
+    }
+",src/test/java/org/apache/commons/net/ftp/parser/VMSFTPEntryParserTest.java
+net_152_5,"    public void testWholeListParseWithVersioning_5_oe() throws IOException
+    {
+
+        final VMSFTPEntryParser parser = new VMSVersioningFTPEntryParser();
+        parser.configure(null);
+        final FTPListParseEngine engine = new FTPListParseEngine(parser);
+        engine.readServerList(
+                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
+        final FTPFile[] files = engine.getFiles();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFileNotInListing(files, ""3-JUN.LIS;1"");
+    }
+",VMSFTPEntryParserTest::testWholeListParseWithVersioning_5_oe,assertFileNotInListing,"    public void assertFileNotInListing(final FTPFile[] listing, final String name) {
+        for (final FTPFile element : listing)
+        {
+            if (name.equals(element.getName())) {
+                fail(""Unexpected File "" + name + "" found in supplied listing"");
+            }
+        }
+    }
+",src/test/java/org/apache/commons/net/ftp/parser/VMSFTPEntryParserTest.java
+net_152_6,"    public void testWholeListParseWithVersioning_6_oe() throws IOException
+    {
+
+        final VMSFTPEntryParser parser = new VMSVersioningFTPEntryParser();
+        parser.configure(null);
+        final FTPListParseEngine engine = new FTPListParseEngine(parser);
+        engine.readServerList(
+                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
+        final FTPFile[] files = engine.getFiles();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFileNotInListing(files, ""3-JUN.LIS"");
+    }
+",VMSFTPEntryParserTest::testWholeListParseWithVersioning_6_oe,assertFileNotInListing,"    public void assertFileNotInListing(final FTPFile[] listing, final String name) {
+        for (final FTPFile element : listing)
+        {
+            if (name.equals(element.getName())) {
+                fail(""Unexpected File "" + name + "" found in supplied listing"");
+            }
+        }
+    }
+",src/test/java/org/apache/commons/net/ftp/parser/VMSFTPEntryParserTest.java

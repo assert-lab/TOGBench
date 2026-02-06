@@ -1,0 +1,87 @@
+id,test_prefix,test_name,custom_assert_name,custom_assert_method,custom_assert_file,inlined
+weav_10_1,"    @Test
+    public void testParseTypes_1_oe() {
+        assertContainsInOrder(Utils.parseTypes("" java.lang.Number "", getClass().getClassLoader()), Number.class);
+    }
+",UtilsTest::testParseTypes_1_oe,assertContainsInOrder,"    <E> void assertContainsInOrder(Iterable<E> iterable, E... expectedElements) {
+        final Iterator<E> iterator = iterable.iterator();
+        for (E e : expectedElements) {
+            assertTrue(iterator.hasNext());
+            assertEquals(e, iterator.next());
+        }
+        assertFalse(iterator.hasNext());
+    }
+",modules/normalizer/src/test/java/org/apache/commons/weaver/normalizer/UtilsTest.java,"    @Test
+    public void testParseTypes_1_oe() {
+                final Iterable<E> iterable = Utils.parseTypes("" java.lang.Number "", getClass().getClassLoader());
+        final E... expectedElements = Number.class;
+        final Iterator<E> iterator = iterable.iterator();
+                for (E e : expectedElements) {
+                    assertTrue(iterator.hasNext());
+                    assertEquals(e, iterator.next());
+                }
+                assertFalse(iterator.hasNext());
+    }
+"
+weav_10_2,"    @Test
+    public void testParseTypes_2_oe() {
+        // removed other assertion
+        assertContainsInOrder( Utils.parseTypes(""java.lang.Number,java.lang.String,java.util.Map"", getClass().getClassLoader()), Number.class, String.class, Map.class);
+    }
+",UtilsTest::testParseTypes_2_oe,assertContainsInOrder,"    <E> void assertContainsInOrder(Iterable<E> iterable, E... expectedElements) {
+        final Iterator<E> iterator = iterable.iterator();
+        for (E e : expectedElements) {
+            assertTrue(iterator.hasNext());
+            assertEquals(e, iterator.next());
+        }
+        assertFalse(iterator.hasNext());
+    }
+",modules/normalizer/src/test/java/org/apache/commons/weaver/normalizer/UtilsTest.java,
+weav_10_3,"    @Test
+    public void testParseTypes_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertContainsInOrder( Utils.parseTypes(""java.lang.Number, java.lang.String, java.util.Map"", getClass().getClassLoader()), Number.class, String.class, Map.class);
+    }
+",UtilsTest::testParseTypes_3_oe,assertContainsInOrder,"    <E> void assertContainsInOrder(Iterable<E> iterable, E... expectedElements) {
+        final Iterator<E> iterator = iterable.iterator();
+        for (E e : expectedElements) {
+            assertTrue(iterator.hasNext());
+            assertEquals(e, iterator.next());
+        }
+        assertFalse(iterator.hasNext());
+    }
+",modules/normalizer/src/test/java/org/apache/commons/weaver/normalizer/UtilsTest.java,
+weav_10_4,"    @Test
+    public void testParseTypes_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertContainsInOrder( Utils.parseTypes(""java/lang/Number, java/lang/String, java/util/Map"", getClass().getClassLoader()), Number.class, String.class, Map.class);
+    }
+",UtilsTest::testParseTypes_4_oe,assertContainsInOrder,"    <E> void assertContainsInOrder(Iterable<E> iterable, E... expectedElements) {
+        final Iterator<E> iterator = iterable.iterator();
+        for (E e : expectedElements) {
+            assertTrue(iterator.hasNext());
+            assertEquals(e, iterator.next());
+        }
+        assertFalse(iterator.hasNext());
+    }
+",modules/normalizer/src/test/java/org/apache/commons/weaver/normalizer/UtilsTest.java,
+weav_10_5,"    @Test
+    public void testParseTypes_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertContainsInOrder( Utils.parseTypes(""java.lang.Number,\njava.lang.String,\njava.util.Map"", getClass().getClassLoader()), Number.class, String.class, Map.class);
+    }
+",UtilsTest::testParseTypes_5_oe,assertContainsInOrder,"    <E> void assertContainsInOrder(Iterable<E> iterable, E... expectedElements) {
+        final Iterator<E> iterator = iterable.iterator();
+        for (E e : expectedElements) {
+            assertTrue(iterator.hasNext());
+            assertEquals(e, iterator.next());
+        }
+        assertFalse(iterator.hasNext());
+    }
+",modules/normalizer/src/test/java/org/apache/commons/weaver/normalizer/UtilsTest.java,

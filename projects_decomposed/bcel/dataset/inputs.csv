@@ -562,19 +562,6 @@ bcel_61_2,"    public void testAnnotationClassSaysItIs_2_oe() throws ClassNotFou
         assertTrue(""Expected SimpleClass class to say it was not an annotation - but it didn't !"",!clazz.isAnnotation());
     }
 ",AnnotationAccessFlagTestCase::testAnnotationClassSaysItIs_2_oe
-bcel_62_1,"    public void testPerformance_1_oe() {
-        final File javaLib = new File(System.getProperty(""java.home""), ""lib"");
-        javaLib.listFiles((FileFilter) file -> {
-            if(file.getName().endsWith("".jar"")) {
-                try {
-                    test(file);
-                } catch (final IOException e) {
-                    Assert.fail(e.getMessage());
-    }
-    }
-    }
-    }
-",PerformanceTest::testPerformance_1_oe
 bcel_63_1,"    public void testSearchAll_1_oe() throws Exception
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".util.InstructionFinder"");
@@ -2474,15 +2461,6 @@ bcel_99_9,"    @Test
         Assert.assertNull(""scope end"", lv.getEnd());
     }
 ",MethodGenTestCase::testRemoveLocalVariables_9_oe
-bcel_100_1,"    @Test
-    public void testJreModules_1_oe() throws Exception {
-        Assume.assumeTrue(SystemUtils.isJavaVersionAtLeast(JavaVersion.JAVA_9));
-        try (final ModularRuntimeImage mri = new ModularRuntimeImage(javaHome)) {
-            final List<Path> modules = mri.modules();
-            Assert.assertFalse(modules.isEmpty());
-    }
-    }
-",JdkGenericDumpTestCase::testJreModules_1_oe
 bcel_101_1,"    @Test
     public void testConstantToString_1_oe() throws ClassNotFoundException {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME + "".data.SimpleClassWithDefaultConstructor"");
@@ -2699,13 +2677,6 @@ bcel_106_1,"    public void testGetResource_1_oe() {
         Assert.assertNotNull(ClassPath.SYSTEM_CLASS_PATH.getResource(""java/lang/String.class""));
     }
 ",ClassPathTestCase::testGetResource_1_oe
-bcel_107_1,"    public void testGetResourceAsStream_1_oe() throws IOException {
-        try (final InputStream inputStream = ClassPath.SYSTEM_CLASS_PATH
-                .getResourceAsStream(""java/lang/String.class"")) {
-            Assert.assertNotNull(inputStream);
-    }
-    }
-",ClassPathTestCase::testGetResourceAsStream_1_oe
 bcel_108_1,"    @Test
     public void testListJreModules_1_oe() throws IOException {
         final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.MODULES_PATH);
@@ -2760,147 +2731,6 @@ bcel_111_2,"    @Test
         Assert.assertTrue(listEntries.toString().indexOf(""java.lang"") > -1);
     }
 ",ModularRuntimeImageTestCase::testListJrePackages_2_oe
-bcel_112_1,"    @Test
-    public void testCacheEviction_1_oe() throws ClassNotFoundException, IOException {
-        try (final ClassPath classPath = new ClassPath("""")) {
-            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
-            final JavaClass class1 = repository.loadClass(""java.lang.String"");
-            Assert.assertNotNull(class1);
-    }
-    }
-",LruCacheClassPathRepositoryTestCase::testCacheEviction_1_oe
-bcel_112_2,"    @Test
-    public void testCacheEviction_2_oe() throws ClassNotFoundException, IOException {
-        try (final ClassPath classPath = new ClassPath("""")) {
-            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
-            final JavaClass class1 = repository.loadClass(""java.lang.String"");
-            // removed other assertion
-            final JavaClass class2 = repository.loadClass(""java.lang.Long"");
-            Assert.assertNotNull(class2);
-    }
-    }
-",LruCacheClassPathRepositoryTestCase::testCacheEviction_2_oe
-bcel_112_3,"    @Test
-    public void testCacheEviction_3_oe() throws ClassNotFoundException, IOException {
-        try (final ClassPath classPath = new ClassPath("""")) {
-            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
-            final JavaClass class1 = repository.loadClass(""java.lang.String"");
-            // removed other assertion
-            final JavaClass class2 = repository.loadClass(""java.lang.Long"");
-            // removed other assertion
-            final JavaClass class3 = repository.loadClass(""java.lang.Integer""); // Evicts class1
-            Assert.assertNotNull(class3);
-    }
-    }
-",LruCacheClassPathRepositoryTestCase::testCacheEviction_3_oe
-bcel_112_4,"    @Test
-    public void testCacheEviction_4_oe() throws ClassNotFoundException, IOException {
-        try (final ClassPath classPath = new ClassPath("""")) {
-            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
-            final JavaClass class1 = repository.loadClass(""java.lang.String"");
-            // removed other assertion
-            final JavaClass class2 = repository.loadClass(""java.lang.Long"");
-            // removed other assertion
-            final JavaClass class3 = repository.loadClass(""java.lang.Integer""); // Evicts class1
-            // removed other assertion
-
-            assertNull(repository.findClass(""java.lang.String""));
-    }
-    }
-",LruCacheClassPathRepositoryTestCase::testCacheEviction_4_oe
-bcel_112_5,"    @Test
-    public void testCacheEviction_5_oe() throws ClassNotFoundException, IOException {
-        try (final ClassPath classPath = new ClassPath("""")) {
-            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
-            final JavaClass class1 = repository.loadClass(""java.lang.String"");
-            // removed other assertion
-            final JavaClass class2 = repository.loadClass(""java.lang.Long"");
-            // removed other assertion
-            final JavaClass class3 = repository.loadClass(""java.lang.Integer""); // Evicts class1
-            // removed other assertion
-
-            // removed other assertion
-            final JavaClass cachedClass2 = repository.findClass(""java.lang.Long"");
-            assertEquals(class2, cachedClass2);
-    }
-    }
-",LruCacheClassPathRepositoryTestCase::testCacheEviction_5_oe
-bcel_113_1,"    @Test
-    public void testLeastRecentlyUsedEviction_1_oe() throws ClassNotFoundException, IOException {
-        try (final ClassPath classPath = new ClassPath("""")) {
-            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
-            final JavaClass class1 = repository.loadClass(""java.lang.String"");
-            Assert.assertNotNull(class1);
-    }
-    }
-",LruCacheClassPathRepositoryTestCase::testLeastRecentlyUsedEviction_1_oe
-bcel_113_2,"    @Test
-    public void testLeastRecentlyUsedEviction_2_oe() throws ClassNotFoundException, IOException {
-        try (final ClassPath classPath = new ClassPath("""")) {
-            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
-            final JavaClass class1 = repository.loadClass(""java.lang.String"");
-            // removed other assertion
-            final JavaClass class2 = repository.loadClass(""java.lang.Long"");
-            Assert.assertNotNull(class2);
-    }
-    }
-",LruCacheClassPathRepositoryTestCase::testLeastRecentlyUsedEviction_2_oe
-bcel_113_3,"    @Test
-    public void testLeastRecentlyUsedEviction_3_oe() throws ClassNotFoundException, IOException {
-        try (final ClassPath classPath = new ClassPath("""")) {
-            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
-            final JavaClass class1 = repository.loadClass(""java.lang.String"");
-            // removed other assertion
-            final JavaClass class2 = repository.loadClass(""java.lang.Long"");
-            // removed other assertion
-            repository.findClass(""java.lang.String""); // Uses class1
-            final JavaClass class3 = repository.loadClass(""java.lang.Integer""); // Evicts class2
-            Assert.assertNotNull(class3);
-    }
-    }
-",LruCacheClassPathRepositoryTestCase::testLeastRecentlyUsedEviction_3_oe
-bcel_113_4,"    @Test
-    public void testLeastRecentlyUsedEviction_4_oe() throws ClassNotFoundException, IOException {
-        try (final ClassPath classPath = new ClassPath("""")) {
-            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
-            final JavaClass class1 = repository.loadClass(""java.lang.String"");
-            // removed other assertion
-            final JavaClass class2 = repository.loadClass(""java.lang.Long"");
-            // removed other assertion
-            repository.findClass(""java.lang.String""); // Uses class1
-            final JavaClass class3 = repository.loadClass(""java.lang.Integer""); // Evicts class2
-            // removed other assertion
-
-            assertNull(repository.findClass(""java.lang.Long""));
-    }
-    }
-",LruCacheClassPathRepositoryTestCase::testLeastRecentlyUsedEviction_4_oe
-bcel_113_5,"    @Test
-    public void testLeastRecentlyUsedEviction_5_oe() throws ClassNotFoundException, IOException {
-        try (final ClassPath classPath = new ClassPath("""")) {
-            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
-            final JavaClass class1 = repository.loadClass(""java.lang.String"");
-            // removed other assertion
-            final JavaClass class2 = repository.loadClass(""java.lang.Long"");
-            // removed other assertion
-            repository.findClass(""java.lang.String""); // Uses class1
-            final JavaClass class3 = repository.loadClass(""java.lang.Integer""); // Evicts class2
-            // removed other assertion
-
-            // removed other assertion
-            final JavaClass cachedClass1 = repository.findClass(""java.lang.String"");
-            assertEquals(class1, cachedClass1);
-    }
-    }
-",LruCacheClassPathRepositoryTestCase::testLeastRecentlyUsedEviction_5_oe
-bcel_114_1,"    @Test
-    public void testClassPath_1_oe() throws IOException {
-        try (final ClassPath classPath = new ClassPath("""")) {
-            final ClassPathRepository repository = new ClassPathRepository(classPath);
-            Assert.assertEquals(classPath, repository.getClassPath());
-    }
-    }
-",ClassPathRepositoryTestCase::testClassPath_1_oe
 bcel_115_1,"    public void testSearch_1_oe() {
         final InstructionList il = new InstructionList();
         il.append(new ILOAD(1));

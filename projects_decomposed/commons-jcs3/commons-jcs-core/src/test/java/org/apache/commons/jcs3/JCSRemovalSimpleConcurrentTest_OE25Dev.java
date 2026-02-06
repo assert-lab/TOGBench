@@ -1,0 +1,267 @@
+package org.apache.commons.jcs3;
+
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+import org.apache.commons.jcs3.access.CacheAccess;
+
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+import junit.framework.TestCase;
+
+/**
+ * Verify that basic removal functionality works.
+ */
+public class JCSRemovalSimpleConcurrentTest_OE25Dev
+    extends TestCase
+{
+    private CacheAccess<String, String> jcs;
+
+    /**
+     * Test setup
+     * <p>
+     * @throws Exception
+     */
+    @Override
+    public void setUp()
+        throws Exception
+    {
+        JCS.setConfigFilename( "/TestRemoval.ccf" );
+        jcs = JCS.getInstance( "testCache1" );
+    }
+
+    /**
+     * Verify that 2 level deep hierchical removal works.
+     * <p>
+     * @throws Exception
+     */
+
+    /**
+     * Verify that 1 level deep hierchical removal works.
+     *
+     * @throws Exception
+     */
+
+    /**
+     * Verify that clear removes everyting as it should.
+     * <p>
+     * @throws Exception
+     */
+
+    /**
+     * Verify that we can clear repeatedly without error.
+     *
+     * @throws Exception
+     */
+
+    public void testTwoDeepRemoval_1_oe()
+        throws Exception
+    {
+        final int count = 500;
+
+        for ( int i = 0; i <= count; i++ )
+        {
+            jcs.put( "key:" + i + ":anotherpart", "data" + i );
+        }
+
+        for ( int i = count; i >= 0; i-- )
+        {
+            final String res = jcs.get( "key:" + i + ":anotherpart" );
+            assertNotNull( "[key:" + i + ":anotherpart] should not be null, " + jcs.getStats(), res );
+    }
+    }
+
+    public void testTwoDeepRemoval_2_oe()
+        throws Exception
+    {
+        final int count = 500;
+
+        for ( int i = 0; i <= count; i++ )
+        {
+            jcs.put( "key:" + i + ":anotherpart", "data" + i );
+        }
+
+        for ( int i = count; i >= 0; i-- )
+        {
+            final String res = jcs.get( "key:" + i + ":anotherpart" );
+            // removed other assertion
+        }
+
+        for ( int i = 0; i <= count; i++ )
+        {
+            jcs.remove( "key:" + i + ":" );
+            assertNull( jcs.getStats(), jcs.get( "key:" + i + ":anotherpart" ) );
+    }
+    }
+
+    public void testSingleDepthRemoval_1_oe()
+        throws Exception
+    {
+
+        final int count = 500;
+
+        for ( int i = 0; i <= count; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+
+        for ( int i = count; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + ":key" );
+            assertNotNull( "[" + i + ":key] should not be null", res );
+    }
+    }
+
+    public void testSingleDepthRemoval_2_oe()
+        throws Exception
+    {
+
+        final int count = 500;
+
+        for ( int i = 0; i <= count; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+
+        for ( int i = count; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + ":key" );
+            // removed other assertion
+        }
+
+        for ( int i = 0; i <= count; i++ )
+        {
+            jcs.remove( i + ":" );
+            assertNull( jcs.get( i + ":key" ) );
+    }
+    }
+
+    public void testClear_1_oe()
+        throws Exception
+    {
+
+        final int count = 500;
+
+        for ( int i = 0; i <= count; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+
+        for ( int i = count; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + ":key" );
+            assertNotNull( "[" + i + ":key] should not be null", res );
+    }
+    }
+
+    public void testClear_2_oe()
+        throws Exception
+    {
+
+        final int count = 500;
+
+        for ( int i = 0; i <= count; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+
+        for ( int i = count; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + ":key" );
+            // removed other assertion
+        }
+        jcs.clear();
+
+        for ( int i = count; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + ":key" );
+            if ( res != null )
+            {
+                assertNull( "[" + i + ":key] should be null after remvoeall" + jcs.getStats(), res );
+    }
+    }
+    }
+
+    public void testClearRepeatedlyWithoutError_1_oe()
+        throws Exception
+    {
+        final int count = 500;
+
+        jcs.clear();
+
+        for ( int i = 0; i <= count; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+
+        for ( int i = count; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + ":key" );
+            assertNotNull( "[" + i + ":key] should not be null", res );
+    }
+    }
+
+    public void testClearRepeatedlyWithoutError_2_oe()
+        throws Exception
+    {
+        final int count = 500;
+
+        jcs.clear();
+
+        for ( int i = 0; i <= count; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+
+        for ( int i = count; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + ":key" );
+            // removed other assertion
+        }
+
+        for ( int i = count; i >= 0; i-- )
+        {
+            jcs.put( i + ":key", "data" + i );
+            jcs.clear();
+            final String res = jcs.get( i + ":key" );
+            if ( res != null )
+            {
+                assertNull( "[" + i + ":key] should be null after remvoeall" + jcs.getStats(), res );
+    }
+    }
+    }
+
+}

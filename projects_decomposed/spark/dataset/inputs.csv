@@ -743,23 +743,6 @@ spark_55_1,"    @Test
         assertEquals(""The underlying request protocol should be returned"",protocol,request.protocol());
     }
 ",RequestTest::testProtocol_1_oe
-spark_56_1,"    @Test
-    public void testMultipleFilters_1_oe() {
-        try {
-            SparkTestUtil.UrlResponse response = http.get(""/user"");
-            Assert.assertEquals(200, response.status);
-    }
-    }
-",MultipleFiltersTest::testMultipleFilters_1_oe
-spark_56_2,"    @Test
-    public void testMultipleFilters_2_oe() {
-        try {
-            SparkTestUtil.UrlResponse response = http.get(""/user"");
-            // removed other assertion
-            Assert.assertEquals(""Kevin"", response.body);
-    }
-    }
-",MultipleFiltersTest::testMultipleFilters_2_oe
 spark_57_1,"    @Test
     public void testExceptionMapping404_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/filethatdoesntexist.html"", null);
@@ -1115,16 +1098,6 @@ spark_84_1,"    @Test
         assertFalse(service.initialized);
     }
 ",ServiceTest::awaitStopBlocksUntilExtinguished_1_oe
-spark_85_1,"    @Test
-    public void testSession_whenHttpSessionIsNull_thenThrowException_1_oe() {
-
-        try {
-
-            new Session(null, request);
-            fail(""Session instantiation with a null HttpSession should throw an IllegalArgumentException"");
-    }
-    }
-",SessionTest::testSession_whenHttpSessionIsNull_thenThrowException_1_oe
 spark_85_2,"    @Test
     public void testSession_whenHttpSessionIsNull_thenThrowException_2_oe() {
 
@@ -1139,16 +1112,6 @@ spark_85_2,"    @Test
     }
     }
 ",SessionTest::testSession_whenHttpSessionIsNull_thenThrowException_2_oe
-spark_86_1,"    @Test
-    public void testSession_whenRequestIsNull_thenThrowException_1_oe() {
-
-        try {
-
-            new Session(httpSession, null);
-            fail(""Session instantiation with a null Request should throw an IllegalArgumentException"");
-    }
-    }
-",SessionTest::testSession_whenRequestIsNull_thenThrowException_1_oe
 spark_86_2,"    @Test
     public void testSession_whenRequestIsNull_thenThrowException_2_oe() {
 
@@ -2086,74 +2049,6 @@ spark_126_2,"    @Test
         assertEquals(""Content of css file"", body);
     }
 ",StaticFilesFromArchiveTest::testCss_2_oe
-spark_127_1,"    @Test
-    public void testHELLO_1_oe() {
-        try {
-            SparkTestUtil.UrlResponse response = http.get(HELLO);
-            assertEquals(200, response.status);
-    }
-    }
-",ResponseBodyTest::testHELLO_1_oe
-spark_127_2,"    @Test
-    public void testHELLO_2_oe() {
-        try {
-            SparkTestUtil.UrlResponse response = http.get(HELLO);
-            // removed other assertion
-            assertEquals(HELLO_WORLD, response.body);
-    }
-    }
-",ResponseBodyTest::testHELLO_2_oe
-spark_128_1,"    @Test
-    public void testSPECIAL_1_oe() {
-        try {
-            SparkTestUtil.UrlResponse response = http.get(SPECIAL);
-            assertEquals(200, response.status);
-    }
-    }
-",ResponseBodyTest::testSPECIAL_1_oe
-spark_128_2,"    @Test
-    public void testSPECIAL_2_oe() {
-        try {
-            SparkTestUtil.UrlResponse response = http.get(SPECIAL);
-            // removed other assertion
-            assertEquals(XIDXUS, response.body);
-    }
-    }
-",ResponseBodyTest::testSPECIAL_2_oe
-spark_129_1,"    @Test
-    public void testPORAKATIKAOKAO_1_oe() {
-        try {
-            SparkTestUtil.UrlResponse response = http.get(PORAKATIKAOKAO);
-            assertEquals(200, response.status);
-    }
-    }
-",ResponseBodyTest::testPORAKATIKAOKAO_1_oe
-spark_129_2,"    @Test
-    public void testPORAKATIKAOKAO_2_oe() {
-        try {
-            SparkTestUtil.UrlResponse response = http.get(PORAKATIKAOKAO);
-            // removed other assertion
-            assertEquals(GALLUS_SCANDALUM, response.body);
-    }
-    }
-",ResponseBodyTest::testPORAKATIKAOKAO_2_oe
-spark_130_1,"    @Test
-    public void testMAXIME_1_oe() {
-        try {
-            SparkTestUtil.UrlResponse response = http.get(MAXIME);
-            assertEquals(200, response.status);
-    }
-    }
-",ResponseBodyTest::testMAXIME_1_oe
-spark_130_2,"    @Test
-    public void testMAXIME_2_oe() {
-        try {
-            SparkTestUtil.UrlResponse response = http.get(MAXIME);
-            // removed other assertion
-            assertEquals($11AB, response.body);
-    }
-    }
-",ResponseBodyTest::testMAXIME_2_oe
 spark_131_1,"    @Test
     public void constructorWithParametersMap_1_oe() {
         Map<String,String[]> params = new HashMap<>();
@@ -3054,15 +2949,6 @@ spark_179_1,"    @Test
         assertTrue(requestLogFile.exists());
     }
 ",EmbeddedServersTest::testAdd_whenConfigureRoutes_createsCustomServer_1_oe
-spark_180_1,"    @Test
-    public void testCreateSocketConnector_whenServerIsNull_thenThrowException_1_oe() {
-
-        try {
-            SocketConnectorFactory.createSocketConnector(null, ""host"", 80);
-            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
-    }
-    }
-",SocketConnectorFactoryTest::testCreateSocketConnector_whenServerIsNull_thenThrowException_1_oe
 spark_180_2,"    @Test
     public void testCreateSocketConnector_whenServerIsNull_thenThrowException_2_oe() {
 
@@ -3074,17 +2960,6 @@ spark_180_2,"    @Test
     }
     }
 ",SocketConnectorFactoryTest::testCreateSocketConnector_whenServerIsNull_thenThrowException_2_oe
-spark_181_1,"    @Test
-    public void testCreateSocketConnector_whenHostIsNull_thenThrowException_1_oe() {
-
-        Server server = new Server();
-
-        try {
-            SocketConnectorFactory.createSocketConnector(server, null, 80);
-            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
-    }
-    }
-",SocketConnectorFactoryTest::testCreateSocketConnector_whenHostIsNull_thenThrowException_1_oe
 spark_181_2,"    @Test
     public void testCreateSocketConnector_whenHostIsNull_thenThrowException_2_oe() {
 
@@ -3149,15 +3024,6 @@ spark_182_3,"    @Test
         assertEquals(""Server Connector Server should be set to the specified server"", internalServerConnector, server);
     }
 ",SocketConnectorFactoryTest::testCreateSocketConnector_3_oe
-spark_183_1,"    @Test
-    public void testCreateSecureSocketConnector_whenServerIsNull_1_oe() {
-
-        try {
-            SocketConnectorFactory.createSecureSocketConnector(null, ""localhost"", 80, null);
-            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
-    }
-    }
-",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenServerIsNull_1_oe
 spark_183_2,"    @Test
     public void testCreateSecureSocketConnector_whenServerIsNull_2_oe() {
 
@@ -3169,17 +3035,6 @@ spark_183_2,"    @Test
     }
     }
 ",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenServerIsNull_2_oe
-spark_184_1,"    @Test
-    public void testCreateSecureSocketConnector_whenHostIsNull_1_oe() {
-
-        Server server = new Server();
-
-        try {
-            SocketConnectorFactory.createSecureSocketConnector(server, null, 80, null);
-            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
-    }
-    }
-",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenHostIsNull_1_oe
 spark_184_2,"    @Test
     public void testCreateSecureSocketConnector_whenHostIsNull_2_oe() {
 
@@ -3193,17 +3048,6 @@ spark_184_2,"    @Test
     }
     }
 ",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenHostIsNull_2_oe
-spark_185_1,"    @Test
-    public void testCreateSecureSocketConnector_whenSslStoresIsNull_1_oe() {
-
-        Server server = new Server();
-
-        try {
-            SocketConnectorFactory.createSecureSocketConnector(server, ""localhost"", 80, null);
-            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
-    }
-    }
-",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenSslStoresIsNull_1_oe
 spark_185_2,"    @Test
     public void testCreateSecureSocketConnector_whenSslStoresIsNull_2_oe() {
 
@@ -3475,14 +3319,6 @@ spark_190_3,"    @Test
         assertEquals(""Server thread pool default idleTimeout should be 60000"", 60000, idleTimeout);
     }
 ",JettyServerTest::testCreateServer_whenNonDefaultMaxThreadsOnly_thenUseDefaultMinThreadsAndTimeout_3_oe
-spark_191_1,"    @Test
-    public void testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_1_oe() {
-        try {
-            new JettyServer().create(2, 0, 0);
-            fail(""expected IllegalArgumentException"");
-    }
-    }
-",JettyServerTest::testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_1_oe
 spark_191_2,"    @Test
     public void testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_2_oe() {
         try {
@@ -3534,14 +3370,6 @@ spark_192_4,"    @Test
         assertTrue(SparkWebSocketCreator.class.cast(listener).getHandler() instanceof ListenerHandler);
     }
 ",WebSocketCreatorFactoryTest::testCreateWebSocketHandler_4_oe
-spark_193_1,"    @Test
-    public void testCannotCreateInvalidHandlers_1_oe() {
-        try {
-            WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(InvalidHandler.class));
-            fail(""Handler creation should have thrown an IllegalArgumentException"");
-    }
-    }
-",WebSocketCreatorFactoryTest::testCannotCreateInvalidHandlers_1_oe
 spark_193_2,"    @Test
     public void testCannotCreateInvalidHandlers_2_oe() {
         try {
@@ -3552,14 +3380,6 @@ spark_193_2,"    @Test
     }
     }
 ",WebSocketCreatorFactoryTest::testCannotCreateInvalidHandlers_2_oe
-spark_194_1,"    @Test
-    public void testCreate_whenInstantiationException_1_oe() throws Exception {
-        try {
-            WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(FailingHandler.class));
-            fail(""Handler creation should have thrown a RunTimeException"");
-    }
-    }
-",WebSocketCreatorFactoryTest::testCreate_whenInstantiationException_1_oe
 spark_194_2,"    @Test
     public void testCreate_whenInstantiationException_2_oe() throws Exception {
         try {

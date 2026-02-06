@@ -555,14 +555,6 @@ public abstract class AbstractMapTest<K, V> extends AbstractObjectTest {
         verify();
     }
 
-    /**
-     * Tests {@link Map#clear()}.  If the map {@link #isRemoveSupported()}
-     * can add and remove elements}, then {@link Map#size()} and
-     * {@link Map#isEmpty()} are used to ensure that map has no elements after
-     * a call to clear.  If the map does not support adding and removing
-     * elements, this method checks to ensure clear throws an
-     * UnsupportedOperationException.
-     */
     public void testMapClear() {
         if (!isRemoveSupported()) {
             try {

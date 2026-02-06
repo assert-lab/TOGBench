@@ -1,0 +1,40 @@
+package org.springside.modules.utils.concurrent;
+
+import static org.assertj.core.api.Assertions.*;
+
+import org.junit.Test;
+import org.springside.modules.utils.base.ObjectUtil;
+public class ThreadUtilTest_OE25Dev {
+	
+	private void hello(){
+		assertThat(ThreadUtil.getCallerClass()).isEqualTo("org.springside.modules.utils.concurrent.ThreadUtilTest_OE25Dev");
+		assertThat(ThreadUtil.getCallerMethod()).isEqualTo("org.springside.modules.utils.concurrent.ThreadUtilTest_OE25Dev.testCaller()");
+		StackTraceElement[] stacktrace = Thread.currentThread().getStackTrace();
+		System.out.println(ObjectUtil.toPrettyString(stacktrace));
+	}
+
+	public static class MyClass{
+		public void hello(){
+			assertThat(ThreadUtil.getCallerClass()).isEqualTo("org.springside.modules.utils.concurrent.ThreadUtilTest_OE25Dev");
+			assertThat(ThreadUtil.getCallerMethod()).isEqualTo("org.springside.modules.utils.concurrent.ThreadUtilTest_OE25Dev.testCaller()");
+			StackTraceElement[] stacktrace = Thread.currentThread().getStackTrace();
+			System.out.println(ObjectUtil.toPrettyString(stacktrace));
+		}
+	}
+
+	@Test
+	public void testCaller_1_oe(){
+		hello();
+		new MyClass().hello();
+		assertThat(ThreadUtil.getCurrentClass()).isEqualTo("org.springside.modules.utils.concurrent.ThreadUtilTest");
+	}
+
+	@Test
+	public void testCaller_2_oe(){
+		hello();
+		new MyClass().hello();
+		// removed other assertion
+		assertThat(ThreadUtil.getCurrentMethod()).isEqualTo("org.springside.modules.utils.concurrent.ThreadUtilTest.testCaller()");
+	}
+
+}

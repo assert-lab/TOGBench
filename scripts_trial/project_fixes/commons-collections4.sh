@@ -216,7 +216,20 @@ meta_path = dataset / "meta.csv"
 inputs_path = dataset / "inputs.csv"
 
 fail_list = [
-".",
+"LRUMapTest.testSynchronizedRemoveFromMapIterator_1_oe",
+"LRUMapTest.testSynchronizedRemoveFromEntrySet_1_oe",
+"LRUMapTest.testSynchronizedRemoveFromKeySet_1_oe",
+"LRUMapTest.testSynchronizedRemoveFromValues_1_oe",
+
+
+
+
+
+"UnmodifiableMapEntryTest.testConstructors*",
+"DefaultMapEntryTest.*",
+"AbstractBidiMapTest.*",
+"AbstractMapTest.*"
+
 ]
 
 patterns = []

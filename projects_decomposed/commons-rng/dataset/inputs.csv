@@ -1750,7 +1750,7 @@ rng_77_1,"    @ParameterizedTest
 rng_78_1,"    @ParameterizedTest
     @MethodSource(""getList"")
     void testRestoreForeignState_1_oe(RestorableUniformRandomProvider generator) {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.restoreState(new RandomProviderState() {}));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.restoreState(new Ran));
     }
 ",ProvidersCommonParametricTest::testRestoreForeignState_1_oe
 rng_79_1,"    @Test
@@ -2898,28 +2898,6 @@ rng_140_1,"    @Test
     }
     }
 ",JDKRandomTest::testRestoreToNewInstance_1_oe
-rng_141_1,"    @Test
-    void testRestoreWithInvalidClass_1_oe() throws IOException  {
-        // Serialize something
-        final ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        try (ObjectOutputStream oos = new ObjectOutputStream(bos)) {
-            oos.writeObject(new SerializableTestObject());
-        }
-
-        // Compose the size with the state.
-        // This is what is expected by the JDKRandom class.
-        final byte[] state = bos.toByteArray();
-        final int stateSize = state.length;
-        final byte[] sizeAndState = new byte[4 + stateSize];
-        System.arraycopy(NumberFactory.makeByteArray(stateSize), 0, sizeAndState, 0, 4);
-        System.arraycopy(state, 0, sizeAndState, 4, stateSize);
-
-        final RandomProviderDefaultState dummyState = new RandomProviderDefaultState(sizeAndState);
-
-        final JDKRandom rng = new JDKRandom(13L);
-        Assertions.assertThrows(IllegalStateException.class, () -> rng.restoreState(dummyState));
-    }
-",JDKRandomTest::testRestoreWithInvalidClass_1_oe
 rng_142_1,"    @Test
     void testMarsaglia_1_oe() {
         final int[] seed = {
