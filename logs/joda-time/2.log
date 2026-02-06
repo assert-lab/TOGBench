@@ -1,0 +1,204 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< joda-time:joda-time >-------------------------
+[INFO] Building Joda-Time 2.11.2
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.1.0:enforce (enforce-maven) @ joda-time ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.0:resources (default-resources) @ joda-time ---
+[INFO] Copying 2 resources to META-INF
+[INFO] Copying 18 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:compile (default-compile) @ joda-time ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 166 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/target/classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[INFO] 
+[INFO] --- exec-maven-plugin:3.1.0:java (compile-tzdb) @ joda-time ---
+Writing zoneinfo files
+Fixed negative save values for rule 'Morocco'
+Fixed negative save values for rule 'Morocco'
+Fixed negative save values for rule 'Morocco'
+Fixed negative save values for rule 'Morocco'
+Fixed negative save values for rule 'Morocco'
+Fixed negative save values for rule 'Namibia'
+Fixed negative save values for rule 'Eire'
+Writing ZoneInfoMap
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.0:testResources (default-testResources) @ joda-time ---
+[INFO] Copying 35 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ joda-time ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 185 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/target/test-classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestPreciseDurationField_OE25Dev.java:[48,29] error: cannot find symbol
+  symbol:   class TestPreciseDurationField_OE25Dev_OE25Dev
+  location: class TestPreciseDurationField_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestScaledDurationField_OE25Dev.java:[48,29] error: cannot find symbol
+  symbol:   class TestScaledDurationField_OE25Dev_OE25Dev
+  location: class TestScaledDurationField_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestYearMonthDay_Properties_OE25Dev.java:[60,29] error: cannot find symbol
+  symbol:   class TestYearMonthDay_Properties_OE25Dev_OE25Dev
+  location: class TestYearMonthDay_Properties_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestISOPeriodFormatParsing_OE25Dev.java:[64,29] error: cannot find symbol
+  symbol:   class TestISOPeriodFormatParsing_OE25Dev_OE25Dev
+  location: class TestISOPeriodFormatParsing_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestISOPeriodFormat_OE25Dev.java:[65,29] error: cannot find symbol
+  symbol:   class TestISOPeriodFormat_OE25Dev_OE25Dev
+  location: class TestISOPeriodFormat_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestInterval_Constructors_OE25Dev.java:[78,29] error: cannot find symbol
+  symbol:   class TestInterval_Constructors_OE25Dev_OE25Dev
+  location: class TestInterval_Constructors_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestConverterSet_OE25Dev.java:[65,29] error: cannot find symbol
+  symbol:   class TestConverterSet_OE25Dev_OE25Dev
+  location: class TestConverterSet_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestPeriodFormatter_OE25Dev.java:[69,29] error: cannot find symbol
+  symbol:   class TestPeriodFormatter_OE25Dev_OE25Dev
+  location: class TestPeriodFormatter_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestStringConverter_OE25Dev.java:[66,29] error: cannot find symbol
+  symbol:   class TestStringConverter_OE25Dev_OE25Dev
+  location: class TestStringConverter_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalDate_Properties_OE25Dev.java:[59,29] error: cannot find symbol
+  symbol:   class TestLocalDate_Properties_OE25Dev_OE25Dev
+  location: class TestLocalDate_Properties_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestYearMonth_Constructors_OE25Dev.java:[63,29] error: cannot find symbol
+  symbol:   class TestYearMonth_Constructors_OE25Dev_OE25Dev
+  location: class TestYearMonth_Constructors_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestJulianChronology_OE25Dev.java:[58,29] error: cannot find symbol
+  symbol:   class TestJulianChronology_OE25Dev_OE25Dev
+  location: class TestJulianChronology_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestIslamicChronology_OE25Dev.java:[67,29] error: cannot find symbol
+  symbol:   class TestIslamicChronology_OE25Dev_OE25Dev
+  location: class TestIslamicChronology_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTimeZoneCutover_OE25Dev.java:[36,29] error: cannot find symbol
+  symbol:   class TestDateTimeZoneCutover_OE25Dev_OE25Dev
+  location: class TestDateTimeZoneCutover_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTimeZone_OE25Dev.java:[148,29] error: cannot find symbol
+  symbol:   class TestDateTimeZone_OE25Dev_OE25Dev
+  location: class TestDateTimeZone_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestTimeOfDay_Constructors_OE25Dev.java:[69,29] error: cannot find symbol
+  symbol:   class TestTimeOfDay_Constructors_OE25Dev_OE25Dev
+  location: class TestTimeOfDay_Constructors_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestBaseSingleFieldPeriod_OE25Dev.java:[38,29] error: cannot find symbol
+  symbol:   class TestBaseSingleFieldPeriod_OE25Dev_OE25Dev
+  location: class TestBaseSingleFieldPeriod_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTime_Basics_OE25Dev.java:[102,29] error: cannot find symbol
+  symbol:   class TestDateTime_Basics_OE25Dev_OE25Dev
+  location: class TestDateTime_Basics_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestMillisDurationField_OE25Dev.java:[42,29] error: cannot find symbol
+  symbol:   class TestMillisDurationField_OE25Dev_OE25Dev
+  location: class TestMillisDurationField_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestPeriodType_OE25Dev.java:[74,29] error: cannot find symbol
+  symbol:   class TestPeriodType_OE25Dev_OE25Dev
+  location: class TestPeriodType_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDuration_Basics_OE25Dev.java:[78,29] error: cannot find symbol
+  symbol:   class TestDuration_Basics_OE25Dev_OE25Dev
+  location: class TestDuration_Basics_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestISODateTimeFormat_Fields_OE25Dev.java:[42,29] error: cannot find symbol
+  symbol:   class TestISODateTimeFormat_Fields_OE25Dev_OE25Dev
+  location: class TestISODateTimeFormat_Fields_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/tz/TestBuilder_OE25Dev.java:[41,29] error: cannot find symbol
+  symbol:   class TestBuilder_OE25Dev_OE25Dev
+  location: class TestBuilder_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestLongConverter_OE25Dev.java:[52,29] error: cannot find symbol
+  symbol:   class TestLongConverter_OE25Dev_OE25Dev
+  location: class TestLongConverter_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutableDateTime_Adds_OE25Dev.java:[71,29] error: cannot find symbol
+  symbol:   class TestMutableDateTime_Adds_OE25Dev_OE25Dev
+  location: class TestMutableDateTime_Adds_OE25Dev
+[INFO] 25 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.354 s
+[INFO] Finished at: 2026-02-06T08:42:34-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project joda-time: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestPreciseDurationField_OE25Dev.java:[48,29] error: cannot find symbol
+[ERROR]   symbol:   class TestPreciseDurationField_OE25Dev_OE25Dev
+[ERROR]   location: class TestPreciseDurationField_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestScaledDurationField_OE25Dev.java:[48,29] error: cannot find symbol
+[ERROR]   symbol:   class TestScaledDurationField_OE25Dev_OE25Dev
+[ERROR]   location: class TestScaledDurationField_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestYearMonthDay_Properties_OE25Dev.java:[60,29] error: cannot find symbol
+[ERROR]   symbol:   class TestYearMonthDay_Properties_OE25Dev_OE25Dev
+[ERROR]   location: class TestYearMonthDay_Properties_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestISOPeriodFormatParsing_OE25Dev.java:[64,29] error: cannot find symbol
+[ERROR]   symbol:   class TestISOPeriodFormatParsing_OE25Dev_OE25Dev
+[ERROR]   location: class TestISOPeriodFormatParsing_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestISOPeriodFormat_OE25Dev.java:[65,29] error: cannot find symbol
+[ERROR]   symbol:   class TestISOPeriodFormat_OE25Dev_OE25Dev
+[ERROR]   location: class TestISOPeriodFormat_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestInterval_Constructors_OE25Dev.java:[78,29] error: cannot find symbol
+[ERROR]   symbol:   class TestInterval_Constructors_OE25Dev_OE25Dev
+[ERROR]   location: class TestInterval_Constructors_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestConverterSet_OE25Dev.java:[65,29] error: cannot find symbol
+[ERROR]   symbol:   class TestConverterSet_OE25Dev_OE25Dev
+[ERROR]   location: class TestConverterSet_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestPeriodFormatter_OE25Dev.java:[69,29] error: cannot find symbol
+[ERROR]   symbol:   class TestPeriodFormatter_OE25Dev_OE25Dev
+[ERROR]   location: class TestPeriodFormatter_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestStringConverter_OE25Dev.java:[66,29] error: cannot find symbol
+[ERROR]   symbol:   class TestStringConverter_OE25Dev_OE25Dev
+[ERROR]   location: class TestStringConverter_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestLocalDate_Properties_OE25Dev.java:[59,29] error: cannot find symbol
+[ERROR]   symbol:   class TestLocalDate_Properties_OE25Dev_OE25Dev
+[ERROR]   location: class TestLocalDate_Properties_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestYearMonth_Constructors_OE25Dev.java:[63,29] error: cannot find symbol
+[ERROR]   symbol:   class TestYearMonth_Constructors_OE25Dev_OE25Dev
+[ERROR]   location: class TestYearMonth_Constructors_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestJulianChronology_OE25Dev.java:[58,29] error: cannot find symbol
+[ERROR]   symbol:   class TestJulianChronology_OE25Dev_OE25Dev
+[ERROR]   location: class TestJulianChronology_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/chrono/TestIslamicChronology_OE25Dev.java:[67,29] error: cannot find symbol
+[ERROR]   symbol:   class TestIslamicChronology_OE25Dev_OE25Dev
+[ERROR]   location: class TestIslamicChronology_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTimeZoneCutover_OE25Dev.java:[36,29] error: cannot find symbol
+[ERROR]   symbol:   class TestDateTimeZoneCutover_OE25Dev_OE25Dev
+[ERROR]   location: class TestDateTimeZoneCutover_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTimeZone_OE25Dev.java:[148,29] error: cannot find symbol
+[ERROR]   symbol:   class TestDateTimeZone_OE25Dev_OE25Dev
+[ERROR]   location: class TestDateTimeZone_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestTimeOfDay_Constructors_OE25Dev.java:[69,29] error: cannot find symbol
+[ERROR]   symbol:   class TestTimeOfDay_Constructors_OE25Dev_OE25Dev
+[ERROR]   location: class TestTimeOfDay_Constructors_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestBaseSingleFieldPeriod_OE25Dev.java:[38,29] error: cannot find symbol
+[ERROR]   symbol:   class TestBaseSingleFieldPeriod_OE25Dev_OE25Dev
+[ERROR]   location: class TestBaseSingleFieldPeriod_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDateTime_Basics_OE25Dev.java:[102,29] error: cannot find symbol
+[ERROR]   symbol:   class TestDateTime_Basics_OE25Dev_OE25Dev
+[ERROR]   location: class TestDateTime_Basics_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/field/TestMillisDurationField_OE25Dev.java:[42,29] error: cannot find symbol
+[ERROR]   symbol:   class TestMillisDurationField_OE25Dev_OE25Dev
+[ERROR]   location: class TestMillisDurationField_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestPeriodType_OE25Dev.java:[74,29] error: cannot find symbol
+[ERROR]   symbol:   class TestPeriodType_OE25Dev_OE25Dev
+[ERROR]   location: class TestPeriodType_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestDuration_Basics_OE25Dev.java:[78,29] error: cannot find symbol
+[ERROR]   symbol:   class TestDuration_Basics_OE25Dev_OE25Dev
+[ERROR]   location: class TestDuration_Basics_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/format/TestISODateTimeFormat_Fields_OE25Dev.java:[42,29] error: cannot find symbol
+[ERROR]   symbol:   class TestISODateTimeFormat_Fields_OE25Dev_OE25Dev
+[ERROR]   location: class TestISODateTimeFormat_Fields_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/tz/TestBuilder_OE25Dev.java:[41,29] error: cannot find symbol
+[ERROR]   symbol:   class TestBuilder_OE25Dev_OE25Dev
+[ERROR]   location: class TestBuilder_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/convert/TestLongConverter_OE25Dev.java:[52,29] error: cannot find symbol
+[ERROR]   symbol:   class TestLongConverter_OE25Dev_OE25Dev
+[ERROR]   location: class TestLongConverter_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/src/test/java/org/joda/time/TestMutableDateTime_Adds_OE25Dev.java:[71,29] error: cannot find symbol
+[ERROR]   symbol:   class TestMutableDateTime_Adds_OE25Dev_OE25Dev
+[ERROR]   location: class TestMutableDateTime_Adds_OE25Dev
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

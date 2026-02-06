@@ -26,8 +26,13 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-simple ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple
-[INFO] Storing buildNumber: e4cf1dbede35d5b995b6d81363d313f167d9b312 at timestamp: 2026-02-05 02:18:45-0600
-[INFO] Storing buildScmBranch: jan-22-projects
+[INFO] Storing buildNumber: 504c4e02269b05d34548a85b1573338184bb5848 at timestamp: 2026-02-06 08:42:10-0600
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
+
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple
+[INFO] Storing buildScmBranch: UNKNOWN
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-rng-simple ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -62,9 +67,9 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.rng.simple.JDKRandomWrapperTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 s - in org.apache.commons.rng.simple.JDKRandomWrapperTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in org.apache.commons.rng.simple.JDKRandomWrapperTest_OE25Dev
 [INFO] Running org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
-[WARNING] Tests run: 855, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 2.042 s - in org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[WARNING] Tests run: 855, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 1.372 s - in org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
 [INFO] Running org.apache.commons.rng.simple.internal.SeedConverterComposerTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.simple.internal.SeedConverterComposerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.simple.internal.NativeSeedTypeTest_OE25Dev
@@ -72,25 +77,25 @@ main:
 [INFO] Running org.apache.commons.rng.simple.internal.ByteArray2LongArrayTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.simple.internal.ByteArray2LongArrayTest_OE25Dev
 [INFO] Running org.apache.commons.rng.simple.internal.NoOpConverterTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.simple.internal.NoOpConverterTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.simple.internal.NoOpConverterTest_OE25Dev
 [INFO] Running org.apache.commons.rng.simple.internal.RandomSourceInternalParametricTest_OE25Dev
-[INFO] Tests run: 705, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.316 s - in org.apache.commons.rng.simple.internal.RandomSourceInternalParametricTest_OE25Dev
+[INFO] Tests run: 705, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.252 s - in org.apache.commons.rng.simple.internal.RandomSourceInternalParametricTest_OE25Dev
 [INFO] Running org.apache.commons.rng.simple.internal.SeedFactoryTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.simple.internal.SeedFactoryTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.simple.internal.SeedFactoryTest_OE25Dev
 [INFO] Running org.apache.commons.rng.simple.internal.NativeSeedTypeParametricTest_OE25Dev
-[INFO] Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.apache.commons.rng.simple.internal.NativeSeedTypeParametricTest_OE25Dev
+[INFO] Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.simple.internal.NativeSeedTypeParametricTest_OE25Dev
 [INFO] Running org.apache.commons.rng.simple.internal.SeedUtilsTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.149 s - in org.apache.commons.rng.simple.internal.SeedUtilsTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 s - in org.apache.commons.rng.simple.internal.SeedUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.rng.simple.internal.IntArray2LongArrayTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.simple.internal.IntArray2LongArrayTest_OE25Dev
 [INFO] Running org.apache.commons.rng.simple.internal.Long2LongArrayTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.simple.internal.Long2LongArrayTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.simple.internal.Long2LongArrayTest_OE25Dev
 [INFO] Running org.apache.commons.rng.simple.internal.ByteArray2IntArrayTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.simple.internal.ByteArray2IntArrayTest_OE25Dev
 [INFO] Running org.apache.commons.rng.simple.ThreadLocalRandomSourceTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.apache.commons.rng.simple.ThreadLocalRandomSourceTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.rng.simple.ThreadLocalRandomSourceTest_OE25Dev
 [INFO] Running org.apache.commons.rng.simple.RandomSourceTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.rng.simple.RandomSourceTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.simple.RandomSourceTest_OE25Dev
 [INFO] Running org.apache.commons.rng.simple.JDKRandomBridgeTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.simple.JDKRandomBridgeTest_OE25Dev
 [INFO] 
@@ -101,6 +106,6 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  17.189 s
-[INFO] Finished at: 2026-02-05T02:18:58-06:00
+[INFO] Total time:  13.672 s
+[INFO] Finished at: 2026-02-06T08:42:20-06:00
 [INFO] ------------------------------------------------------------------------

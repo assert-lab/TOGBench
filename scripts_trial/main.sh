@@ -31,7 +31,7 @@ python3 scripts_trial/2_filter_compilable_tests.py. # also do same for custom as
 
 python3 scripts_trial/try_catch_filter.py
 
-# run project_fixes scripts_trial for each projects
+
 
 ./scripts_trial/project_fixes/joda-time.sh
 ./scripts_trial/project_fixes/commons-collections4.sh
@@ -39,6 +39,7 @@ python3 scripts_trial/try_catch_filter.py
 ./scripts_trial/project_fixes/commons-net.sh
 ./scripts_trial/project_fixes/commons-configuration2.sh
 ./scripts_trial/project_fixes/http-request.sh
+./scripts_trial/project_fixes/commons-beanutils.sh
 
 # first run to keep all logs - error and running
 python3 scripts_trial/3_rebuild_tests.py
@@ -46,14 +47,14 @@ python3 scripts_trial/3_rebuild_tests.py
 # run each projects' fix.sh before running mvn test
 ./scripts_trial/project_fixes.sh
 
-./scripts_trial/clean_loop.sh > compile_error_test_files.log
+# ./scripts_trial/clean_loop.sh > compile_error_test_files.log
 
-python3 scripts_trial/filter_running_tests.py
+# python3 scripts_trial/filter_running_tests.py
 
-# second run with all passed tests
-find projects_decomposed -type f -name "*_OE25Dev.java" -delete
-python3 scripts_trial/3_rebuild_tests.py
-./scripts_trial/clean_loop.sh
+# # second run with all passed tests
+# find projects_decomposed -type f -name "*_OE25Dev.java" -delete
+# python3 scripts_trial/3_rebuild_tests.py
+# ./scripts_trial/clean_loop.sh
 
 # python3 scripts_trial/test_count.py
 

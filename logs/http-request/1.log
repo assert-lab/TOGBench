@@ -45,8 +45,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  5.904 s
-[INFO] Finished at: 2026-02-05T02:17:59-06:00
+[INFO] Total time:  5.647 s
+[INFO] Finished at: 2026-02-06T08:41:12-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:2.3.2:testCompile (default-testCompile) on project http-request: Compilation failure: Compilation failure: 
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/java/com/github/kevinsawicki/http/HttpRequestTest_OE25Dev.java:[6214,3] error: ';' expected

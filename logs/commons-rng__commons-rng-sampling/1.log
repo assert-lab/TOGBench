@@ -26,8 +26,13 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-sampling ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling
-[INFO] Storing buildNumber: e4cf1dbede35d5b995b6d81363d313f167d9b312 at timestamp: 2026-02-05 02:18:52-0600
-[INFO] Storing buildScmBranch: jan-22-projects
+[INFO] Storing buildNumber: 504c4e02269b05d34548a85b1573338184bb5848 at timestamp: 2026-02-06 08:42:22-0600
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
+
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling
+[INFO] Storing buildScmBranch: UNKNOWN
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-rng-sampling ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -58,26 +63,59 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-rng-sampling ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 52 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/target/test-classes
+[INFO] Compiling 94 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/target/test-classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerLogNormalSamplerTest_OE25Dev.java:[42,75] org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSampler in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerLogNormalSamplerTest_OE25Dev.java:[51,75] org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSampler in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerGaussianSamplerTest_OE25Dev.java:[38,75] org.apache.commons.rng.sampling.distribution.BoxMullerGaussianSampler in org.apache.commons.rng.sampling.distribution has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ContinuousSamplersList.java:[51,21] org.apache.commons.rng.sampling.distribution.BoxMullerGaussianSampler in org.apache.commons.rng.sampling.distribution has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ContinuousSamplersList.java:[160,21] org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSampler in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerCacheTest_OE25Dev.java:[712,41] createPoissonSampler(org.apache.commons.rng.UniformRandomProvider,double) in org.apache.commons.rng.sampling.distribution.PoissonSamplerCache has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[508,56] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[525,71] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest.java:[41,19] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest.java:[544,56] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
-[INFO] 
-[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-rng-sampling ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-rng-sampling ---
-[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/target/jacoco.exec
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-rng-sampling ---
+[INFO] 10 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/CoordinatesTest_OE25Dev.java:[69,39] cannot find symbol
+  symbol:   variable ex
+  location: class org.apache.commons.rng.sampling.shape.CoordinatesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/CoordinatesTest_OE25Dev.java:[100,35] cannot find symbol
+  symbol:   variable ex
+  location: class org.apache.commons.rng.sampling.shape.CoordinatesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/CoordinatesTest_OE25Dev.java:[112,13] cannot find symbol
+  symbol:   variable ex
+  location: class org.apache.commons.rng.sampling.shape.CoordinatesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/CoordinatesTest_OE25Dev.java:[125,35] cannot find symbol
+  symbol:   variable ex
+  location: class org.apache.commons.rng.sampling.shape.CoordinatesTest_OE25Dev
+[INFO] 4 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  13.631 s
-[INFO] Finished at: 2026-02-05T02:19:02-06:00
+[INFO] Total time:  8.955 s
+[INFO] Finished at: 2026-02-06T08:42:29-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-rng-sampling: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-rng-sampling: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/CoordinatesTest_OE25Dev.java:[69,39] cannot find symbol
+[ERROR]   symbol:   variable ex
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.CoordinatesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/CoordinatesTest_OE25Dev.java:[100,35] cannot find symbol
+[ERROR]   symbol:   variable ex
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.CoordinatesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/CoordinatesTest_OE25Dev.java:[112,13] cannot find symbol
+[ERROR]   symbol:   variable ex
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.CoordinatesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/CoordinatesTest_OE25Dev.java:[125,35] cannot find symbol
+[ERROR]   symbol:   variable ex
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.CoordinatesTest_OE25Dev
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

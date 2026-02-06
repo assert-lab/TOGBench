@@ -1,36 +1,632 @@
 id,test_prefix,test_name
-scribejava_12_1,"@Test
+scribejava_1_1,"    @Test
+    public void shouldReleaseLatchOnSuccess_1_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+
+        final com.ning.http.client.Response response
+                = new MockResponse(200, ""ok"", new FluentCaseInsensitiveStringsMap(), new byte[0]);
+        handler.onCompleted(response);
+        assertNotNull(callback.getResponse());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_1_oe
+scribejava_1_2,"    @Test
+    public void shouldReleaseLatchOnSuccess_2_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+
+        final com.ning.http.client.Response response
+                = new MockResponse(200, ""ok"", new FluentCaseInsensitiveStringsMap(), new byte[0]);
+        handler.onCompleted(response);
+        // removed other assertion
+        assertNull(callback.getThrowable());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_2_oe
+scribejava_1_3,"    @Test
+    public void shouldReleaseLatchOnSuccess_3_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+
+        final com.ning.http.client.Response response
+                = new MockResponse(200, ""ok"", new FluentCaseInsensitiveStringsMap(), new byte[0]);
+        handler.onCompleted(response);
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertEquals(""All good"", callback.getResponse());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_3_oe
+scribejava_2_1,"    @Test
+    public void shouldReportOAuthException_1_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+
+        final com.ning.http.client.Response response
+                = new MockResponse(200, ""ok"", new FluentCaseInsensitiveStringsMap(), new byte[0]);
+        handler.onCompleted(response);
+        assertNull(callback.getResponse());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_1_oe
+scribejava_2_2,"    @Test
+    public void shouldReportOAuthException_2_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+
+        final com.ning.http.client.Response response
+                = new MockResponse(200, ""ok"", new FluentCaseInsensitiveStringsMap(), new byte[0]);
+        handler.onCompleted(response);
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_2_oe
+scribejava_2_3,"    @Test
+    public void shouldReportOAuthException_3_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+
+        final com.ning.http.client.Response response
+                = new MockResponse(200, ""ok"", new FluentCaseInsensitiveStringsMap(), new byte[0]);
+        handler.onCompleted(response);
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof OAuthException);
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_3_oe
+scribejava_3_1,"    @Test
+    public void shouldSendGetRequest_1_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendGetRequest"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.GET, baseUrl.toString());
+
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            assertEquals(expectedResponseBody, response.getBody());
+    }
+    }
+",AbstractClientTest::shouldSendGetRequest_1_oe
+scribejava_3_2,"    @Test
+    public void shouldSendGetRequest_2_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendGetRequest"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.GET, baseUrl.toString());
+
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            // removed other assertion
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(""GET"", recordedRequest.getMethod());
+    }
+",AbstractClientTest::shouldSendGetRequest_2_oe
+scribejava_4_1,"    @Test
+    public void shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_1_oe() throws Exception {
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse());
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        oAuthService.execute(request, null).get(30, TimeUnit.SECONDS).close();
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(""POST"", recordedRequest.getMethod());
+    }
+",AbstractClientTest::shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_1_oe
+scribejava_4_2,"    @Test
+    public void shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_2_oe() throws Exception {
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse());
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        oAuthService.execute(request, null).get(30, TimeUnit.SECONDS).close();
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        // removed other assertion
+        assertEquals(HttpClient.DEFAULT_CONTENT_TYPE, recordedRequest.getHeader(HttpClient.CONTENT_TYPE));
+    }
+",AbstractClientTest::shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_2_oe
+scribejava_5_1,"    @Test
+    public void shouldSendPostRequestWithEmptyBody_1_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBody = """";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            assertEquals(expectedResponseBody, response.getBody());
+    }
+    }
+",AbstractClientTest::shouldSendPostRequestWithEmptyBody_1_oe
+scribejava_5_2,"    @Test
+    public void shouldSendPostRequestWithEmptyBody_2_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBody = """";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            // removed other assertion
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(""POST"", recordedRequest.getMethod());
+    }
+",AbstractClientTest::shouldSendPostRequestWithEmptyBody_2_oe
+scribejava_5_3,"    @Test
+    public void shouldSendPostRequestWithEmptyBody_3_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBody = """";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            // removed other assertion
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        // removed other assertion
+        assertEquals(expectedRequestBody, recordedRequest.getBody().readUtf8());
+    }
+",AbstractClientTest::shouldSendPostRequestWithEmptyBody_3_oe
+scribejava_5_4,"    @Test
+    public void shouldSendPostRequestWithEmptyBody_4_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBody = """";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            // removed other assertion
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(HttpClient.DEFAULT_CONTENT_TYPE, recordedRequest.getHeader(HttpClient.CONTENT_TYPE));
+    }
+",AbstractClientTest::shouldSendPostRequestWithEmptyBody_4_oe
+scribejava_6_1,"    @Test
+    public void shouldSendPostRequestWithStringBody_1_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBody = ""request body"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        request.setPayload(expectedRequestBody);
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            assertEquals(expectedResponseBody, response.getBody());
+    }
+    }
+",AbstractClientTest::shouldSendPostRequestWithStringBody_1_oe
+scribejava_6_2,"    @Test
+    public void shouldSendPostRequestWithStringBody_2_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBody = ""request body"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        request.setPayload(expectedRequestBody);
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            // removed other assertion
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(""POST"", recordedRequest.getMethod());
+    }
+",AbstractClientTest::shouldSendPostRequestWithStringBody_2_oe
+scribejava_6_3,"    @Test
+    public void shouldSendPostRequestWithStringBody_3_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBody = ""request body"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        request.setPayload(expectedRequestBody);
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            // removed other assertion
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        // removed other assertion
+        assertEquals(expectedRequestBody, recordedRequest.getBody().readUtf8());
+    }
+",AbstractClientTest::shouldSendPostRequestWithStringBody_3_oe
+scribejava_6_4,"    @Test
+    public void shouldSendPostRequestWithStringBody_4_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBody = ""request body"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        request.setPayload(expectedRequestBody);
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            // removed other assertion
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        // removed other assertion
+        // removed other assertion
+        final String contentTypeHeader = recordedRequest.getHeader(HttpClient.CONTENT_TYPE);
+        assertNotNull(contentTypeHeader);
+    }
+",AbstractClientTest::shouldSendPostRequestWithStringBody_4_oe
+scribejava_6_5,"    @Test
+    public void shouldSendPostRequestWithStringBody_5_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBody = ""request body"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        request.setPayload(expectedRequestBody);
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            // removed other assertion
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        // removed other assertion
+        // removed other assertion
+        final String contentTypeHeader = recordedRequest.getHeader(HttpClient.CONTENT_TYPE);
+        // removed other assertion
+        assertTrue(contentTypeHeader.startsWith(HttpClient.DEFAULT_CONTENT_TYPE));
+    }
+",AbstractClientTest::shouldSendPostRequestWithStringBody_5_oe
+scribejava_7_1,"    @Test
+    public void shouldSendPostRequestWithByteBodyBody_1_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBody = ""request body"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        request.setPayload(expectedRequestBody.getBytes());
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            assertEquals(expectedResponseBody, response.getBody());
+    }
+    }
+",AbstractClientTest::shouldSendPostRequestWithByteBodyBody_1_oe
+scribejava_7_2,"    @Test
+    public void shouldSendPostRequestWithByteBodyBody_2_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBody = ""request body"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        request.setPayload(expectedRequestBody.getBytes());
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            // removed other assertion
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(""POST"", recordedRequest.getMethod());
+    }
+",AbstractClientTest::shouldSendPostRequestWithByteBodyBody_2_oe
+scribejava_7_3,"    @Test
+    public void shouldSendPostRequestWithByteBodyBody_3_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBody = ""request body"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        request.setPayload(expectedRequestBody.getBytes());
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            // removed other assertion
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        // removed other assertion
+        assertEquals(expectedRequestBody, recordedRequest.getBody().readUtf8());
+    }
+",AbstractClientTest::shouldSendPostRequestWithByteBodyBody_3_oe
+scribejava_7_4,"    @Test
+    public void shouldSendPostRequestWithByteBodyBody_4_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBody = ""request body"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        request.setPayload(expectedRequestBody.getBytes());
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            // removed other assertion
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(HttpClient.DEFAULT_CONTENT_TYPE, recordedRequest.getHeader(HttpClient.CONTENT_TYPE));
+    }
+",AbstractClientTest::shouldSendPostRequestWithByteBodyBody_4_oe
+scribejava_8_1,"    @Test
+    public void shouldSendPostRequestWithBodyParamsBody_1_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBodyParamName = ""request_body_param_name"";
+        final String expectedRequestBodyParamValue = ""request_body_param_value"";
+        final String expectedRequestBody = expectedRequestBodyParamName + '=' + expectedRequestBodyParamValue;
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        request.addBodyParameter(expectedRequestBodyParamName, expectedRequestBodyParamValue);
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            assertEquals(expectedResponseBody, response.getBody());
+    }
+    }
+",AbstractClientTest::shouldSendPostRequestWithBodyParamsBody_1_oe
+scribejava_8_2,"    @Test
+    public void shouldSendPostRequestWithBodyParamsBody_2_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBodyParamName = ""request_body_param_name"";
+        final String expectedRequestBodyParamValue = ""request_body_param_value"";
+        final String expectedRequestBody = expectedRequestBodyParamName + '=' + expectedRequestBodyParamValue;
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        request.addBodyParameter(expectedRequestBodyParamName, expectedRequestBodyParamValue);
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            // removed other assertion
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(""POST"", recordedRequest.getMethod());
+    }
+",AbstractClientTest::shouldSendPostRequestWithBodyParamsBody_2_oe
+scribejava_8_3,"    @Test
+    public void shouldSendPostRequestWithBodyParamsBody_3_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBodyParamName = ""request_body_param_name"";
+        final String expectedRequestBodyParamValue = ""request_body_param_value"";
+        final String expectedRequestBody = expectedRequestBodyParamName + '=' + expectedRequestBodyParamValue;
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        request.addBodyParameter(expectedRequestBodyParamName, expectedRequestBodyParamValue);
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            // removed other assertion
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        // removed other assertion
+        assertEquals(expectedRequestBody, recordedRequest.getBody().readUtf8());
+    }
+",AbstractClientTest::shouldSendPostRequestWithBodyParamsBody_3_oe
+scribejava_8_4,"    @Test
+    public void shouldSendPostRequestWithBodyParamsBody_4_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBodyParamName = ""request_body_param_name"";
+        final String expectedRequestBodyParamValue = ""request_body_param_value"";
+        final String expectedRequestBody = expectedRequestBodyParamName + '=' + expectedRequestBodyParamValue;
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        request.addBodyParameter(expectedRequestBodyParamName, expectedRequestBodyParamValue);
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            // removed other assertion
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(HttpClient.DEFAULT_CONTENT_TYPE, recordedRequest.getHeader(HttpClient.CONTENT_TYPE));
+    }
+",AbstractClientTest::shouldSendPostRequestWithBodyParamsBody_4_oe
+scribejava_9_1,"    @Test
+    public void shouldReadResponseStream_1_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldReadResponseStream"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.GET, baseUrl.toString());
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            assertEquals(expectedResponseBody, StreamUtils.getStreamContents(response.getStream()));
+    }
+    }
+",AbstractClientTest::shouldReadResponseStream_1_oe
+scribejava_9_2,"    @Test
+    public void shouldReadResponseStream_2_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldReadResponseStream"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.GET, baseUrl.toString());
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            // removed other assertion
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(""GET"", recordedRequest.getMethod());
+    }
+",AbstractClientTest::shouldReadResponseStream_2_oe
+scribejava_10_1,"    @Test
+    public void shouldCallCallback_1_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldCallCallback"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.GET, baseUrl.toString());
+
+        final TestCallback callback = new TestCallback();
+        oAuthService.execute(request, callback).get();
+
+        assertEquals(expectedResponseBody, callback.getResponse().getBody());
+    }
+",AbstractClientTest::shouldCallCallback_1_oe
+scribejava_11_1,"    @Test
+    public void shouldPassErrors_1_oe() throws Exception {
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setResponseCode(500));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.GET, baseUrl.toString());
+
+        final TestCallback callback = new TestCallback();
+        try (Response response = oAuthService.execute(request, callback).get()) {
+
+            assertEquals(500, response.getCode());
+    }
+    }
+",AbstractClientTest::shouldPassErrors_1_oe
+scribejava_11_2,"    @Test
+    public void shouldPassErrors_2_oe() throws Exception {
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setResponseCode(500));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.GET, baseUrl.toString());
+
+        final TestCallback callback = new TestCallback();
+        try (Response response = oAuthService.execute(request, callback).get()) {
+
+            // removed other assertion
+            assertEquals(500, callback.getResponse().getCode());
+    }
+    }
+",AbstractClientTest::shouldPassErrors_2_oe
+scribejava_12_1,"    @Test
     public void shouldPercentEncodeString_1_oe() {
         final String plain = ""this is a test &^"";
         final String encoded = ""this%20is%20a%20test%20%26%5E"";
         assertEquals(encoded, OAuthEncoder.encode(plain));
-    }",OAuthEncoderTest::shouldPercentEncodeString_1_oe
-scribejava_13_1,"@Test
+    }
+",OAuthEncoderTest::shouldPercentEncodeString_1_oe
+scribejava_13_1,"    @Test
     public void shouldFormURLDecodeString_1_oe() {
         final String encoded = ""this+is+a+test+%26%5E"";
         final String plain = ""this is a test &^"";
         assertEquals(plain, OAuthEncoder.decode(encoded));
-    }",OAuthEncoderTest::shouldFormURLDecodeString_1_oe
-scribejava_14_1,"@Test
+    }
+",OAuthEncoderTest::shouldFormURLDecodeString_1_oe
+scribejava_14_1,"    @Test
     public void shouldPercentEncodeAllSpecialCharacters_1_oe() {
         final String plain = ""!*'();:@&=+$,/?#[]"";
         final String encoded = ""%21%2A%27%28%29%3B%3A%40%26%3D%2B%24%2C%2F%3F%23%5B%5D"";
         assertEquals(encoded, OAuthEncoder.encode(plain));
-    }",OAuthEncoderTest::shouldPercentEncodeAllSpecialCharacters_1_oe
-scribejava_14_2,"@Test
+    }
+",OAuthEncoderTest::shouldPercentEncodeAllSpecialCharacters_1_oe
+scribejava_14_2,"    @Test
     public void shouldPercentEncodeAllSpecialCharacters_2_oe() {
         final String plain = ""!*'();:@&=+$,/?#[]"";
         final String encoded = ""%21%2A%27%28%29%3B%3A%40%26%3D%2B%24%2C%2F%3F%23%5B%5D"";
         // removed other assertion
         assertEquals(plain, OAuthEncoder.decode(encoded));
-    }",OAuthEncoderTest::shouldPercentEncodeAllSpecialCharacters_2_oe
-scribejava_15_1,"@Test
+    }
+",OAuthEncoderTest::shouldPercentEncodeAllSpecialCharacters_2_oe
+scribejava_15_1,"    @Test
     public void shouldNotPercentEncodeReservedCharacters_1_oe() {
         final String plain = ""abcde123456-._~"";
         final String encoded = plain;
         assertEquals(encoded, OAuthEncoder.encode(plain));
-    }",OAuthEncoderTest::shouldNotPercentEncodeReservedCharacters_1_oe
-scribejava_16_1,"@Test
+    }
+",OAuthEncoderTest::shouldNotPercentEncodeReservedCharacters_1_oe
+scribejava_16_1,"    @Test
     public void shouldPercentEncodeCorrectlyTwitterCodingExamples_1_oe() {
         // These tests are part of the Twitter dev examples here
         // -> https://dev.twitter.com/docs/auth/percent-encoding-parameters
@@ -41,92 +637,104 @@ scribejava_16_1,"@Test
         for (int i = 0; i < sources.length; i++) {
             assertEquals(encoded[i], OAuthEncoder.encode(sources[i]));
     }
-    }",OAuthEncoderTest::shouldPercentEncodeCorrectlyTwitterCodingExamples_1_oe
-scribejava_17_1,"@Test
+    }
+",OAuthEncoderTest::shouldPercentEncodeCorrectlyTwitterCodingExamples_1_oe
+scribejava_17_1,"    @Test
     public void shouldCorrectlyDecodeAStream_1_oe() throws IOException {
         final String value = ""expected"";
         final InputStream is = new ByteArrayInputStream(value.getBytes());
         final String decoded = StreamUtils.getStreamContents(is);
         assertEquals(""expected"", decoded);
-    }",StreamUtilsTest::shouldCorrectlyDecodeAStream_1_oe
-scribejava_18_1,"@Test
+    }
+",StreamUtilsTest::shouldCorrectlyDecodeAStream_1_oe
+scribejava_18_1,"    @Test
     public void testGeneratingPKCE_1_oe() {
         final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
 
         assertEquals(PKCECodeChallengeMethod.S256, pkce.getCodeChallengeMethod());
-    }",PKCECodeChallengeMethodTest::testGeneratingPKCE_1_oe
-scribejava_18_2,"@Test
+    }
+",PKCECodeChallengeMethodTest::testGeneratingPKCE_1_oe
+scribejava_18_2,"    @Test
     public void testGeneratingPKCE_2_oe() {
         final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
 
         // removed other assertion
         assertEquals(""dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk"", pkce.getCodeVerifier());
-    }",PKCECodeChallengeMethodTest::testGeneratingPKCE_2_oe
-scribejava_18_3,"@Test
+    }
+",PKCECodeChallengeMethodTest::testGeneratingPKCE_2_oe
+scribejava_18_3,"    @Test
     public void testGeneratingPKCE_3_oe() {
         final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
 
         // removed other assertion
         // removed other assertion
         assertEquals(""E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM"", pkce.getCodeChallenge());
-    }",PKCECodeChallengeMethodTest::testGeneratingPKCE_3_oe
-scribejava_19_1,"@Test
+    }
+",PKCECodeChallengeMethodTest::testGeneratingPKCE_3_oe
+scribejava_19_1,"    @Test
     public void shouldExtractBaseStringFromOAuthRequest_1_oe() {
         final String expected = ""GET&http%3A%2F%2Fexample.com&oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback""
                 + ""%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature%3DOAuth-Signature""
                 + ""%26oauth_timestamp%3D123456"";
         final String baseString = extractor.extract(request);
         assertEquals(expected, baseString);
-    }",BaseStringExtractorTest::shouldExtractBaseStringFromOAuthRequest_1_oe
-scribejava_20_1,"@Test
+    }
+",BaseStringExtractorTest::shouldExtractBaseStringFromOAuthRequest_1_oe
+scribejava_20_1,"    @Test
     public void shouldExcludePort80_1_oe() {
         final String expected = ""GET&http%3A%2F%2Fexample.com&oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback""
                 + ""%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature%3DOAuth-Signature""
                 + ""%26oauth_timestamp%3D123456"";
         final String baseString = extractor.extract(requestPort80);
         assertEquals(expected, baseString);
-    }",BaseStringExtractorTest::shouldExcludePort80_1_oe
-scribejava_21_1,"@Test
+    }
+",BaseStringExtractorTest::shouldExcludePort80_1_oe
+scribejava_21_1,"    @Test
     public void shouldExcludePort80v2_1_oe() {
         final String expected = ""GET&http%3A%2F%2Fexample.com%2Ftest&oauth_callback%3Dhttp%253A%252F%252Fexample""
                 + ""%252Fcallback%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature""
                 + ""%3DOAuth-Signature%26oauth_timestamp%3D123456"";
         final String baseString = extractor.extract(requestPort80v2);
         assertEquals(expected, baseString);
-    }",BaseStringExtractorTest::shouldExcludePort80v2_1_oe
-scribejava_22_1,"@Test
+    }
+",BaseStringExtractorTest::shouldExcludePort80v2_1_oe
+scribejava_22_1,"    @Test
     public void shouldIncludePort8080_1_oe() {
         final String expected = ""GET&http%3A%2F%2Fexample.com%3A8080&oauth_callback%3Dhttp%253A%252F%252Fexample""
                 + ""%252Fcallback%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature""
                 + ""%3DOAuth-Signature%26oauth_timestamp%3D123456"";
         final String baseString = extractor.extract(requestPort8080);
         assertEquals(expected, baseString);
-    }",BaseStringExtractorTest::shouldIncludePort8080_1_oe
-scribejava_23_1,"@Test
+    }
+",BaseStringExtractorTest::shouldIncludePort8080_1_oe
+scribejava_23_1,"    @Test
     public void shouldExcludePort443_1_oe() {
         final String expected = ""GET&https%3A%2F%2Fexample.com&oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback""
                 + ""%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature%3DOAuth-Signature""
                 + ""%26oauth_timestamp%3D123456"";
         final String baseString = extractor.extract(requestPort443);
         assertEquals(expected, baseString);
-    }",BaseStringExtractorTest::shouldExcludePort443_1_oe
-scribejava_24_1,"@Test
+    }
+",BaseStringExtractorTest::shouldExcludePort443_1_oe
+scribejava_24_1,"    @Test
     public void shouldExcludePort443v2_1_oe() {
         final String expected = ""GET&https%3A%2F%2Fexample.com%2Ftest&oauth_callback%3Dhttp%253A%252F%252Fexample""
                 + ""%252Fcallback%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature""
                 + ""%3DOAuth-Signature%26oauth_timestamp%3D123456"";
         final String baseString = extractor.extract(requestPort443v2);
         assertEquals(expected, baseString);
-    }",BaseStringExtractorTest::shouldExcludePort443v2_1_oe
-scribejava_25_1,"@Test
+    }
+",BaseStringExtractorTest::shouldExcludePort443v2_1_oe
+scribejava_25_1,"    @Test
     public void shouldProperlyEncodeSpaces_1_oe() {
         final String expected = ""GET&http%3A%2F%2Fexample.com&body%3Dthis%2520param%2520has%2520whitespace""
                 + ""%26oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback%26oauth_consumer_key""
                 + ""%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature%3DOAuth-Signature%26oauth_timestamp%3D123456"";
         request.addBodyParameter(""body"", ""this param has whitespace"");
         assertEquals(expected, extractor.extract(request));
-    }",BaseStringExtractorTest::shouldProperlyEncodeSpaces_1_oe
-scribejava_26_1,"@Test
+    }
+",BaseStringExtractorTest::shouldProperlyEncodeSpaces_1_oe
+scribejava_26_1,"    @Test
     public void shouldExtractStandardHeader_1_oe() {
         final String header = extractor.extract(request);
         final String oauth = ""OAuth "";
@@ -136,8 +744,9 @@ scribejava_26_1,"@Test
         final String timestamp = ""oauth_timestamp=\""123456\"""";
 
         assertTrue(header.startsWith(oauth));
-    }",HeaderExtractorTest::shouldExtractStandardHeader_1_oe
-scribejava_26_2,"@Test
+    }
+",HeaderExtractorTest::shouldExtractStandardHeader_1_oe
+scribejava_26_2,"    @Test
     public void shouldExtractStandardHeader_2_oe() {
         final String header = extractor.extract(request);
         final String oauth = ""OAuth "";
@@ -148,8 +757,9 @@ scribejava_26_2,"@Test
 
         // removed other assertion
         assertTrue(header.contains(callback));
-    }",HeaderExtractorTest::shouldExtractStandardHeader_2_oe
-scribejava_26_3,"@Test
+    }
+",HeaderExtractorTest::shouldExtractStandardHeader_2_oe
+scribejava_26_3,"    @Test
     public void shouldExtractStandardHeader_3_oe() {
         final String header = extractor.extract(request);
         final String oauth = ""OAuth "";
@@ -161,8 +771,9 @@ scribejava_26_3,"@Test
         // removed other assertion
         // removed other assertion
         assertTrue(header.contains(signature));
-    }",HeaderExtractorTest::shouldExtractStandardHeader_3_oe
-scribejava_26_4,"@Test
+    }
+",HeaderExtractorTest::shouldExtractStandardHeader_3_oe
+scribejava_26_4,"    @Test
     public void shouldExtractStandardHeader_4_oe() {
         final String header = extractor.extract(request);
         final String oauth = ""OAuth "";
@@ -175,8 +786,9 @@ scribejava_26_4,"@Test
         // removed other assertion
         // removed other assertion
         assertTrue(header.contains(key));
-    }",HeaderExtractorTest::shouldExtractStandardHeader_4_oe
-scribejava_26_5,"@Test
+    }
+",HeaderExtractorTest::shouldExtractStandardHeader_4_oe
+scribejava_26_5,"    @Test
     public void shouldExtractStandardHeader_5_oe() {
         final String header = extractor.extract(request);
         final String oauth = ""OAuth "";
@@ -190,8 +802,9 @@ scribejava_26_5,"@Test
         // removed other assertion
         // removed other assertion
         assertTrue(header.contains(timestamp));
-    }",HeaderExtractorTest::shouldExtractStandardHeader_5_oe
-scribejava_26_6,"@Test
+    }
+",HeaderExtractorTest::shouldExtractStandardHeader_5_oe
+scribejava_26_6,"    @Test
     public void shouldExtractStandardHeader_6_oe() {
         final String header = extractor.extract(request);
         final String oauth = ""OAuth "";
@@ -207,8 +820,419 @@ scribejava_26_6,"@Test
         // removed other assertion
         // Assert that header only contains the checked elements above and nothing else
         assertEquals("",,,"",header.replaceFirst(oauth,"""").replaceFirst(callback,"""").replaceFirst(signature,"""").replaceFirst(key,"""").replaceFirst(timestamp,""""));
-    }",HeaderExtractorTest::shouldExtractStandardHeader_6_oe
-scribejava_39_1,"@Test
+    }
+",HeaderExtractorTest::shouldExtractStandardHeader_6_oe
+scribejava_27_1,"    @Test
+    public void shouldExtractTokenFromOAuthStandardResponse_1_oe() throws IOException {
+        final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
+                + ""|RsXNdKrpxg8L6QNLWcs2TVTmcaE"";
+        final OAuth2AccessToken extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        assertEquals(""166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE"",extracted.getAccessToken());
+    }
+",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromOAuthStandardResponse_1_oe
+scribejava_28_1,"    @Test
+    public void shouldExtractTokenFromResponseWithExpiresParam_1_oe() throws IOException {
+        final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
+                + ""|RsXNdKrpxg8L6QNLWcs2TVTmcaE&expires_in=5108"";
+        final OAuth2AccessToken extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        assertEquals(""166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE"",extracted.getAccessToken());
+    }
+",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresParam_1_oe
+scribejava_28_2,"    @Test
+    public void shouldExtractTokenFromResponseWithExpiresParam_2_oe() throws IOException {
+        final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
+                + ""|RsXNdKrpxg8L6QNLWcs2TVTmcaE&expires_in=5108"";
+        final OAuth2AccessToken extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        // removed other assertion
+        assertEquals(Integer.valueOf(5108), extracted.getExpiresIn());
+    }
+",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresParam_2_oe
+scribejava_29_1,"    @Test
+    public void shouldExtractTokenFromResponseWithExpiresAndRefreshParam_1_oe() throws IOException {
+        final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
+                + ""|RsXNdKrpxg8L6QNLWcs2TVTmcaE&expires_in=5108&token_type=bearer&refresh_token=166942940015970"";
+        final OAuth2AccessToken extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        assertEquals(""166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE"",extracted.getAccessToken());
+    }
+",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresAndRefreshParam_1_oe
+scribejava_29_2,"    @Test
+    public void shouldExtractTokenFromResponseWithExpiresAndRefreshParam_2_oe() throws IOException {
+        final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
+                + ""|RsXNdKrpxg8L6QNLWcs2TVTmcaE&expires_in=5108&token_type=bearer&refresh_token=166942940015970"";
+        final OAuth2AccessToken extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        // removed other assertion
+        assertEquals(Integer.valueOf(5108), extracted.getExpiresIn());
+    }
+",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresAndRefreshParam_2_oe
+scribejava_29_3,"    @Test
+    public void shouldExtractTokenFromResponseWithExpiresAndRefreshParam_3_oe() throws IOException {
+        final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
+                + ""|RsXNdKrpxg8L6QNLWcs2TVTmcaE&expires_in=5108&token_type=bearer&refresh_token=166942940015970"";
+        final OAuth2AccessToken extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""bearer"", extracted.getTokenType());
+    }
+",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresAndRefreshParam_3_oe
+scribejava_29_4,"    @Test
+    public void shouldExtractTokenFromResponseWithExpiresAndRefreshParam_4_oe() throws IOException {
+        final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
+                + ""|RsXNdKrpxg8L6QNLWcs2TVTmcaE&expires_in=5108&token_type=bearer&refresh_token=166942940015970"";
+        final OAuth2AccessToken extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""166942940015970"", extracted.getRefreshToken());
+    }
+",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresAndRefreshParam_4_oe
+scribejava_30_1,"    @Test
+    public void shouldExtractTokenFromResponseWithManyParameters_1_oe() throws IOException {
+        final String responseBody = ""access_token=foo1234&other_stuff=yeah_we_have_this_too&number=42"";
+        final OAuth2AccessToken extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        assertEquals(""foo1234"", extracted.getAccessToken());
+    }
+",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithManyParameters_1_oe
+scribejava_31_1,"    @Test
+    public void shouldExtractTokenFromOAuthStandardResponse_1_oe() throws IOException {
+        final String responseBody = ""oauth_token=hh5s93j4hdidpola&oauth_token_secret=hdhd0244k9j7ao03"";
+        final OAuth1Token extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        assertEquals(""hh5s93j4hdidpola"", extracted.getToken());
+    }
+",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromOAuthStandardResponse_1_oe
+scribejava_31_2,"    @Test
+    public void shouldExtractTokenFromOAuthStandardResponse_2_oe() throws IOException {
+        final String responseBody = ""oauth_token=hh5s93j4hdidpola&oauth_token_secret=hdhd0244k9j7ao03"";
+        final OAuth1Token extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        // removed other assertion
+        assertEquals(""hdhd0244k9j7ao03"", extracted.getTokenSecret());
+    }
+",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromOAuthStandardResponse_2_oe
+scribejava_32_1,"    @Test
+    public void shouldExtractTokenFromInvertedOAuthStandardResponse_1_oe() throws IOException {
+        final String responseBody = ""oauth_token_secret=hh5s93j4hdidpola&oauth_token=hdhd0244k9j7ao03"";
+        final OAuth1Token extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        assertEquals(""hh5s93j4hdidpola"", extracted.getTokenSecret());
+    }
+",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromInvertedOAuthStandardResponse_1_oe
+scribejava_32_2,"    @Test
+    public void shouldExtractTokenFromInvertedOAuthStandardResponse_2_oe() throws IOException {
+        final String responseBody = ""oauth_token_secret=hh5s93j4hdidpola&oauth_token=hdhd0244k9j7ao03"";
+        final OAuth1Token extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        // removed other assertion
+        assertEquals(""hdhd0244k9j7ao03"", extracted.getToken());
+    }
+",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromInvertedOAuthStandardResponse_2_oe
+scribejava_33_1,"    @Test
+    public void shouldExtractTokenFromResponseWithCallbackConfirmed_1_oe() throws IOException {
+        final String responseBody = ""oauth_token=hh5s93j4hdidpola&oauth_token_secret=hdhd0244k9j7ao03""
+                + ""&callback_confirmed=true"";
+        final OAuth1Token extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        assertEquals(""hh5s93j4hdidpola"", extracted.getToken());
+    }
+",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromResponseWithCallbackConfirmed_1_oe
+scribejava_33_2,"    @Test
+    public void shouldExtractTokenFromResponseWithCallbackConfirmed_2_oe() throws IOException {
+        final String responseBody = ""oauth_token=hh5s93j4hdidpola&oauth_token_secret=hdhd0244k9j7ao03""
+                + ""&callback_confirmed=true"";
+        final OAuth1Token extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        // removed other assertion
+        assertEquals(""hdhd0244k9j7ao03"", extracted.getTokenSecret());
+    }
+",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromResponseWithCallbackConfirmed_2_oe
+scribejava_34_1,"    @Test
+    public void shouldExtractTokenWithEmptySecret_1_oe() throws IOException {
+        final String responseBody = ""oauth_token=hh5s93j4hdidpola&oauth_token_secret="";
+        final OAuth1Token extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        assertEquals(""hh5s93j4hdidpola"", extracted.getToken());
+    }
+",OAuth1AccessTokenExtractorTest::shouldExtractTokenWithEmptySecret_1_oe
+scribejava_34_2,"    @Test
+    public void shouldExtractTokenWithEmptySecret_2_oe() throws IOException {
+        final String responseBody = ""oauth_token=hh5s93j4hdidpola&oauth_token_secret="";
+        final OAuth1Token extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        // removed other assertion
+        assertEquals("""", extracted.getTokenSecret());
+    }
+",OAuth1AccessTokenExtractorTest::shouldExtractTokenWithEmptySecret_2_oe
+scribejava_35_1,"    @Test
+    public void shouldParseResponse_1_oe() throws IOException {
+        final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T3X\"", ""
+                + ""\""token_type\"":\""example\""}"";
+        final OAuth2AccessToken token;
+        try (Response response = ok(responseBody)) {
+            token = extractor.extract(response);
+        }
+        assertEquals(""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T3X"", token.getAccessToken());
+    }
+",OAuth2AccessTokenJsonExtractorTest::shouldParseResponse_1_oe
+scribejava_36_1,"    @Test
+    public void shouldParseScopeFromResponse_1_oe() throws IOException {
+        final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s1\""}"";
+        final OAuth2AccessToken token;
+        try (Response response = ok(responseBody)) {
+            token = extractor.extract(response);
+        }
+        assertEquals(""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X"", token.getAccessToken());
+    }
+",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_1_oe
+scribejava_36_2,"    @Test
+    public void shouldParseScopeFromResponse_2_oe() throws IOException {
+        final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s1\""}"";
+        final OAuth2AccessToken token;
+        try (Response response = ok(responseBody)) {
+            token = extractor.extract(response);
+        }
+        // removed other assertion
+        assertEquals(""s1"", token.getScope());
+    }
+",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_2_oe
+scribejava_36_3,"    @Test
+    public void shouldParseScopeFromResponse_3_oe() throws IOException {
+        final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s1\""}"";
+        final OAuth2AccessToken token;
+        try (Response response = ok(responseBody)) {
+            token = extractor.extract(response);
+        }
+        // removed other assertion
+        // removed other assertion
+
+        final String responseBody2 = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T5X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s1 s2\""}"";
+        final OAuth2AccessToken token2;
+        try (Response response = ok(responseBody2)) {
+            token2 = extractor.extract(response);
+        }
+        assertEquals(""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T5X"", token2.getAccessToken());
+    }
+",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_3_oe
+scribejava_36_4,"    @Test
+    public void shouldParseScopeFromResponse_4_oe() throws IOException {
+        final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s1\""}"";
+        final OAuth2AccessToken token;
+        try (Response response = ok(responseBody)) {
+            token = extractor.extract(response);
+        }
+        // removed other assertion
+        // removed other assertion
+
+        final String responseBody2 = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T5X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s1 s2\""}"";
+        final OAuth2AccessToken token2;
+        try (Response response = ok(responseBody2)) {
+            token2 = extractor.extract(response);
+        }
+        // removed other assertion
+        assertEquals(""s1 s2"", token2.getScope());
+    }
+",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_4_oe
+scribejava_36_5,"    @Test
+    public void shouldParseScopeFromResponse_5_oe() throws IOException {
+        final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s1\""}"";
+        final OAuth2AccessToken token;
+        try (Response response = ok(responseBody)) {
+            token = extractor.extract(response);
+        }
+        // removed other assertion
+        // removed other assertion
+
+        final String responseBody2 = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T5X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s1 s2\""}"";
+        final OAuth2AccessToken token2;
+        try (Response response = ok(responseBody2)) {
+            token2 = extractor.extract(response);
+        }
+        // removed other assertion
+        // removed other assertion
+
+        final String responseBody3 = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T6X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s3 s4\"", ""
+                + ""\""refresh_token\"":\""refresh_token1\""}"";
+        final OAuth2AccessToken token3;
+        try (Response response = ok(responseBody3)) {
+            token3 = extractor.extract(response);
+        }
+        assertEquals(""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T6X"", token3.getAccessToken());
+    }
+",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_5_oe
+scribejava_36_6,"    @Test
+    public void shouldParseScopeFromResponse_6_oe() throws IOException {
+        final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s1\""}"";
+        final OAuth2AccessToken token;
+        try (Response response = ok(responseBody)) {
+            token = extractor.extract(response);
+        }
+        // removed other assertion
+        // removed other assertion
+
+        final String responseBody2 = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T5X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s1 s2\""}"";
+        final OAuth2AccessToken token2;
+        try (Response response = ok(responseBody2)) {
+            token2 = extractor.extract(response);
+        }
+        // removed other assertion
+        // removed other assertion
+
+        final String responseBody3 = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T6X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s3 s4\"", ""
+                + ""\""refresh_token\"":\""refresh_token1\""}"";
+        final OAuth2AccessToken token3;
+        try (Response response = ok(responseBody3)) {
+            token3 = extractor.extract(response);
+        }
+        // removed other assertion
+        assertEquals(""s3 s4"", token3.getScope());
+    }
+",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_6_oe
+scribejava_36_7,"    @Test
+    public void shouldParseScopeFromResponse_7_oe() throws IOException {
+        final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s1\""}"";
+        final OAuth2AccessToken token;
+        try (Response response = ok(responseBody)) {
+            token = extractor.extract(response);
+        }
+        // removed other assertion
+        // removed other assertion
+
+        final String responseBody2 = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T5X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s1 s2\""}"";
+        final OAuth2AccessToken token2;
+        try (Response response = ok(responseBody2)) {
+            token2 = extractor.extract(response);
+        }
+        // removed other assertion
+        // removed other assertion
+
+        final String responseBody3 = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T6X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s3 s4\"", ""
+                + ""\""refresh_token\"":\""refresh_token1\""}"";
+        final OAuth2AccessToken token3;
+        try (Response response = ok(responseBody3)) {
+            token3 = extractor.extract(response);
+        }
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""refresh_token1"", token3.getRefreshToken());
+    }
+",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_7_oe
+scribejava_37_1,"    @Test
+    public void shouldThrowExceptionIfResponseIsError_1_oe() throws IOException {
+        final String responseBody = ""{""
+                + ""\""error_description\"":\""unknown, invalid, or expired refresh token\"",""
+                + ""\""error\"":\""invalid_grant\""""
+                + ""}"";
+        try (Response response = error(responseBody)) {
+            final OAuth2AccessTokenErrorResponse oaer = assertThrows(OAuth2AccessTokenErrorResponse.class, new ThrowingRunnable() { @Override public void run() throws Throwable { extractor.extract(response); } });
+    }
+    }
+",OAuth2AccessTokenJsonExtractorTest::shouldThrowExceptionIfResponseIsError_1_oe
+scribejava_37_2,"    @Test
+    public void shouldThrowExceptionIfResponseIsError_2_oe() throws IOException {
+        final String responseBody = ""{""
+                + ""\""error_description\"":\""unknown, invalid, or expired refresh token\"",""
+                + ""\""error\"":\""invalid_grant\""""
+                + ""}"";
+        try (Response response = error(responseBody)) {
+            // removed other assertion
+            assertEquals(OAuth2Error.INVALID_GRANT, oaer.getError());
+    }
+    }
+",OAuth2AccessTokenJsonExtractorTest::shouldThrowExceptionIfResponseIsError_2_oe
+scribejava_37_3,"    @Test
+    public void shouldThrowExceptionIfResponseIsError_3_oe() throws IOException {
+        final String responseBody = ""{""
+                + ""\""error_description\"":\""unknown, invalid, or expired refresh token\"",""
+                + ""\""error\"":\""invalid_grant\""""
+                + ""}"";
+        try (Response response = error(responseBody)) {
+            // removed other assertion
+            // removed other assertion
+            assertEquals(""unknown, invalid, or expired refresh token"", oaer.getErrorDescription());
+    }
+    }
+",OAuth2AccessTokenJsonExtractorTest::shouldThrowExceptionIfResponseIsError_3_oe
+scribejava_38_1,"    @Test
+    public void testEscapedJsonInResponse_1_oe() throws IOException {
+        final String responseBody = ""{ \""access_token\"":\""I0122HKLEM2\\/MV3ABKFTDT3T5X\"",""
+                + ""\""token_type\"":\""example\""}"";
+        final OAuth2AccessToken token;
+        try (Response response = ok(responseBody)) {
+            token = extractor.extract(response);
+        }
+        assertEquals(""I0122HKLEM2/MV3ABKFTDT3T5X"", token.getAccessToken());
+    }
+",OAuth2AccessTokenJsonExtractorTest::testEscapedJsonInResponse_1_oe
+scribejava_39_1,"    @Test
     public void testEmptyMultipartPayload_1_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload();
 
@@ -221,8 +1245,9 @@ scribejava_39_1,"@Test
         }
 
         assertEquals(""Content-Type: multipart/form-data;boundary=\"""" + mP.getBoundary()+ ""\""\r\n"",headersString.toString());
-    }",MultipartUtilsTest::testEmptyMultipartPayload_1_oe
-scribejava_39_2,"@Test
+    }
+",MultipartUtilsTest::testEmptyMultipartPayload_1_oe
+scribejava_39_2,"    @Test
     public void testEmptyMultipartPayload_2_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload();
 
@@ -237,8 +1262,9 @@ scribejava_39_2,"@Test
         // removed other assertion
 
         assertEquals("""", MultipartUtils.getPayload(mP).toString());
-    }",MultipartUtilsTest::testEmptyMultipartPayload_2_oe
-scribejava_40_1,"@Test
+    }
+",MultipartUtilsTest::testEmptyMultipartPayload_2_oe
+scribejava_40_1,"    @Test
     public void testSimpleMultipartPayload_1_oe() throws IOException {
         final Map<String, String> headers = new LinkedHashMap<>();
         headers.put(""X-Header"", ""X-Value"");
@@ -268,8 +1294,9 @@ scribejava_40_1,"@Test
         }
 
         assertEquals(""X-Header: X-Value\r\n"" + ""Content-Disposition: Content-Disposition-Value\r\n"" + ""Content-Type: multipart/mixed;boundary=\""simple boundary\""\r\n"",headersString.toString());
-    }",MultipartUtilsTest::testSimpleMultipartPayload_1_oe
-scribejava_40_2,"@Test
+    }
+",MultipartUtilsTest::testSimpleMultipartPayload_1_oe
+scribejava_40_2,"    @Test
     public void testSimpleMultipartPayload_2_oe() throws IOException {
         final Map<String, String> headers = new LinkedHashMap<>();
         headers.put(""X-Header"", ""X-Value"");
@@ -301,8 +1328,9 @@ scribejava_40_2,"@Test
         // removed other assertion
 
         assertEquals(""This is the preamble. It is to be ignored,though it\n"" + ""is a handy place for composition agents to include an\n"" + ""explanatory note to non-MIME conformant readers."" + ""\r\n--simple boundary\r\n"" + ""\r\n"" + ""This is implicitly typed plain US-ASCII text.\n"" + ""It does NOT end with a linebreak."" + ""\r\n--simple boundary\r\n"" + ""Content-Type: text/plain;charset=us-ascii\r\n"" + ""\r\n"" + ""This is explicitly typed plain US-ASCII text.\n"" + ""It DOES end with a linebreak.\n"" + ""\r\n--simple boundary--"" + ""\r\nThis is the epilogue. It is also to be ignored."",MultipartUtils.getPayload(mP).toString());
-    }",MultipartUtilsTest::testSimpleMultipartPayload_2_oe
-scribejava_41_1,"@Test
+    }
+",MultipartUtilsTest::testSimpleMultipartPayload_2_oe
+scribejava_41_1,"    @Test
     public void testCRLFMultipartPayload_1_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload(""simple-boundary"");
         mP.addBodyPart(new ByteArrayBodyPartPayload(""It does NOT end with a linebreak."".getBytes()));
@@ -320,8 +1348,9 @@ scribejava_41_1,"@Test
         }
 
         assertEquals(""Content-Type: multipart/form-data; boundary=\""simple-boundary\""\r\n"", headersString.toString());
-    }",MultipartUtilsTest::testCRLFMultipartPayload_1_oe
-scribejava_41_2,"@Test
+    }
+",MultipartUtilsTest::testCRLFMultipartPayload_1_oe
+scribejava_41_2,"    @Test
     public void testCRLFMultipartPayload_2_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload(""simple-boundary"");
         mP.addBodyPart(new ByteArrayBodyPartPayload(""It does NOT end with a linebreak."".getBytes()));
@@ -341,8 +1370,9 @@ scribejava_41_2,"@Test
         // removed other assertion
 
         assertEquals(""--simple-boundary\r\n"" + ""\r\n"" + ""It does NOT end with a linebreak."" + ""\r\n--simple-boundary\r\n"" + ""\r\n"" + ""It does end with a \\r linebreak.\r"" + ""\r\n--simple-boundary\r\n"" + ""\r\n"" + ""It does end with a \\n linebreak.\n"" + ""\r\n--simple-boundary\r\n"" + ""\r\n"" + ""It does end with a \\r\\n linebreak.\r\n"" + ""\r\n--simple-boundary\r\n"" + ""\r\n"" + ""the last one"" + ""\r\n--simple-boundary--"",MultipartUtils.getPayload(mP).toString());
-    }",MultipartUtilsTest::testCRLFMultipartPayload_2_oe
-scribejava_42_1,"@Test
+    }
+",MultipartUtilsTest::testCRLFMultipartPayload_2_oe
+scribejava_42_1,"    @Test
     public void testFileByteArrayBodyPartPayloadMultipartPayload_1_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload(""testFileByteArrayBodyPartPayloadMultipartPayload boundary"");
         mP.addBodyPart(new FileByteArrayBodyPartPayload(""fileContent"".getBytes(), ""name"", ""filename.ext""));
@@ -356,8 +1386,9 @@ scribejava_42_1,"@Test
         }
 
         assertEquals(""Content-Type: multipart/form-data;"" + ""boundary=\""testFileByteArrayBodyPartPayloadMultipartPayload boundary\""\r\n"",headersString.toString());
-    }",MultipartUtilsTest::testFileByteArrayBodyPartPayloadMultipartPayload_1_oe
-scribejava_42_2,"@Test
+    }
+",MultipartUtilsTest::testFileByteArrayBodyPartPayloadMultipartPayload_1_oe
+scribejava_42_2,"    @Test
     public void testFileByteArrayBodyPartPayloadMultipartPayload_2_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload(""testFileByteArrayBodyPartPayloadMultipartPayload boundary"");
         mP.addBodyPart(new FileByteArrayBodyPartPayload(""fileContent"".getBytes(), ""name"", ""filename.ext""));
@@ -373,8 +1404,9 @@ scribejava_42_2,"@Test
         // removed other assertion
 
         assertEquals(""--testFileByteArrayBodyPartPayloadMultipartPayload boundary\r\n"" + ""Content-Disposition: form-data;name=\""name\"";filename=\""filename.ext\""\r\n"" + ""\r\n"" + ""fileContent"" + ""\r\n--testFileByteArrayBodyPartPayloadMultipartPayload boundary--"",MultipartUtils.getPayload(mP).toString());
-    }",MultipartUtilsTest::testFileByteArrayBodyPartPayloadMultipartPayload_2_oe
-scribejava_43_1,"@Test
+    }
+",MultipartUtilsTest::testFileByteArrayBodyPartPayloadMultipartPayload_2_oe
+scribejava_43_1,"    @Test
     public void testComplexMultipartPayload_1_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload(""mixed"", ""unique-boundary-1"");
 
@@ -429,8 +1461,9 @@ scribejava_43_1,"@Test
                     .append(""\r\n"");
         }
         assertEquals(""Content-Type: multipart/mixed; boundary=\""unique-boundary-1\""\r\n"", headersString.toString());
-    }",MultipartUtilsTest::testComplexMultipartPayload_1_oe
-scribejava_43_2,"@Test
+    }
+",MultipartUtilsTest::testComplexMultipartPayload_1_oe
+scribejava_43_2,"    @Test
     public void testComplexMultipartPayload_2_oe() throws IOException {
         final MultipartPayload mP = new MultipartPayload(""mixed"", ""unique-boundary-1"");
 
@@ -487,26 +1520,30 @@ scribejava_43_2,"@Test
         // removed other assertion
 
         assertEquals(""This is the preamble area of a multipart message.\n"" + ""Mail readers that understand multipart format\n"" + ""should ignore this preamble.\n"" + ""\n"" + ""If you are reading this text,you might want to\n"" + ""consider changing to a mail reader that understands\n"" + ""how to properly display multipart messages.\n"" + ""\r\n--unique-boundary-1\r\n"" + ""\r\n"" + ""... Some text appears here ..."" + ""\r\n--unique-boundary-1\r\n"" + ""Content-Type: text/plain;charset=US-ASCII\r\n"" + ""\r\n"" + ""This could have been part of the previous part,but\n"" + ""illustrates explicit versus implicit typing of body\n"" + ""parts.\n"" + ""\r\n--unique-boundary-1\r\n"" + ""Content-Type: multipart/parallel;boundary=\""unique-boundary-2\""\r\n"" + ""\r\n--unique-boundary-2\r\n"" + ""Content-Type: audio/basic\r\n"" + ""Content-Transfer-Encoding: base64\r\n"" + ""\r\n"" + ""... base64-encoded 8000 Hz single-channel\n"" + "" mu-law-format audio data goes here ..."" + ""\r\n--unique-boundary-2\r\n"" + ""Content-Type: image/jpeg\r\n"" + ""Content-Transfer-Encoding: base64\r\n"" + ""\r\n"" + ""... base64-encoded image data goes here ..."" + ""\r\n--unique-boundary-2--"" + ""\r\n--unique-boundary-1\r\n"" + ""Content-Type: text/enriched\r\n"" + ""\r\n"" + ""This is <bold><italic>enriched.</italic></bold>\n"" + ""<smaller>as defined in RFC 1896</smaller>\n"" + ""\n"" + ""Isn't it\n"" + ""<bigger><bigger>cool?</bigger></bigger>\n"" + ""\r\n--unique-boundary-1\r\n"" + ""Content-Type: message/rfc822\r\n"" + ""\r\n"" + ""From:(mailbox in US-ASCII)\n"" + ""To:(address in US-ASCII)\n"" + ""Subject:(subject in US-ASCII)\n"" + ""Content-Type: Text/plain;charset=ISO-8859-1\n"" + ""Content-Transfer-Encoding: Quoted-printable\n"" + ""\n"" + ""... Additional text in ISO-8859-1 goes here ...\n"" + ""\r\n--unique-boundary-1--"",MultipartUtils.getPayload(mP).toString());
-    }",MultipartUtilsTest::testComplexMultipartPayload_2_oe
-scribejava_44_1,"@Test
+    }
+",MultipartUtilsTest::testComplexMultipartPayload_2_oe
+scribejava_44_1,"    @Test
     public void testParseBoundaryFromHeader_1_oe() {
         assertNull(MultipartUtils.parseBoundaryFromHeader(null));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_1_oe
-scribejava_44_2,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_1_oe
+scribejava_44_2,"    @Test
     public void testParseBoundaryFromHeader_2_oe() {
         // removed other assertion
 
         assertEquals(""0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=\""0aA'()+_,-./:=?\""""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_2_oe
-scribejava_44_3,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_2_oe
+scribejava_44_3,"    @Test
     public void testParseBoundaryFromHeader_3_oe() {
         // removed other assertion
 
         // removed other assertion
 
         assertEquals(""0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=\""0aA'()+_,-./:=?\""""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_3_oe
-scribejava_44_4,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_3_oe
+scribejava_44_4,"    @Test
     public void testParseBoundaryFromHeader_4_oe() {
         // removed other assertion
 
@@ -515,8 +1552,9 @@ scribejava_44_4,"@Test
         // removed other assertion
 
         assertEquals(""0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=\""0aA'()+_,-./:=? \""""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_4_oe
-scribejava_44_5,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_4_oe
+scribejava_44_5,"    @Test
     public void testParseBoundaryFromHeader_5_oe() {
         // removed other assertion
 
@@ -527,8 +1565,9 @@ scribejava_44_5,"@Test
         // removed other assertion
 
         assertEquals(""0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=0aA'()+_,-./:=?""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_5_oe
-scribejava_44_6,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_5_oe
+scribejava_44_6,"    @Test
     public void testParseBoundaryFromHeader_6_oe() {
         // removed other assertion
 
@@ -541,8 +1580,9 @@ scribejava_44_6,"@Test
         // removed other assertion
 
         assertEquals(""0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=0aA'()+_,-./:=?""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_6_oe
-scribejava_44_7,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_6_oe
+scribejava_44_7,"    @Test
     public void testParseBoundaryFromHeader_7_oe() {
         // removed other assertion
 
@@ -557,8 +1597,9 @@ scribejava_44_7,"@Test
         // removed other assertion
 
         assertEquals(""0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=0aA'()+_,-./:=? ""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_7_oe
-scribejava_44_8,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_7_oe
+scribejava_44_8,"    @Test
     public void testParseBoundaryFromHeader_8_oe() {
         // removed other assertion
 
@@ -575,8 +1616,9 @@ scribejava_44_8,"@Test
         // removed other assertion
 
         assertEquals("" 0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary= 0aA'()+_,-./:=?""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_8_oe
-scribejava_44_9,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_8_oe
+scribejava_44_9,"    @Test
     public void testParseBoundaryFromHeader_9_oe() {
         // removed other assertion
 
@@ -595,8 +1637,9 @@ scribejava_44_9,"@Test
         // removed other assertion
 
         assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundar=0aA'()+_, -./:=? ""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_9_oe
-scribejava_44_10,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_9_oe
+scribejava_44_10,"    @Test
     public void testParseBoundaryFromHeader_10_oe() {
         // removed other assertion
 
@@ -616,8 +1659,9 @@ scribejava_44_10,"@Test
 
         // removed other assertion
         assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; ""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_10_oe
-scribejava_44_11,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_10_oe
+scribejava_44_11,"    @Test
     public void testParseBoundaryFromHeader_11_oe() {
         // removed other assertion
 
@@ -638,8 +1682,9 @@ scribejava_44_11,"@Test
         // removed other assertion
         // removed other assertion
         assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_11_oe
-scribejava_44_12,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_11_oe
+scribejava_44_12,"    @Test
     public void testParseBoundaryFromHeader_12_oe() {
         // removed other assertion
 
@@ -661,8 +1706,9 @@ scribejava_44_12,"@Test
         // removed other assertion
         // removed other assertion
         assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_12_oe
-scribejava_44_13,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_12_oe
+scribejava_44_13,"    @Test
     public void testParseBoundaryFromHeader_13_oe() {
         // removed other assertion
 
@@ -685,8 +1731,9 @@ scribejava_44_13,"@Test
         // removed other assertion
         // removed other assertion
         assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundary=""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_13_oe
-scribejava_44_14,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_13_oe
+scribejava_44_14,"    @Test
     public void testParseBoundaryFromHeader_14_oe() {
         // removed other assertion
 
@@ -711,8 +1758,9 @@ scribejava_44_14,"@Test
         // removed other assertion
 
         assertEquals(""0aA'()+_,"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=0aA'()+_,;-./:=? ""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_14_oe
-scribejava_44_15,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_14_oe
+scribejava_44_15,"    @Test
     public void testParseBoundaryFromHeader_15_oe() {
         // removed other assertion
 
@@ -739,8 +1787,9 @@ scribejava_44_15,"@Test
         // removed other assertion
 
         assertEquals(""0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=\""0aA'()+_,-./:=?""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_15_oe
-scribejava_44_16,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_15_oe
+scribejava_44_16,"    @Test
     public void testParseBoundaryFromHeader_16_oe() {
         // removed other assertion
 
@@ -769,8 +1818,9 @@ scribejava_44_16,"@Test
         // removed other assertion
 
         assertEquals(""0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=0aA'()+_,-./:=?\""""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_16_oe
-scribejava_44_17,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_16_oe
+scribejava_44_17,"    @Test
     public void testParseBoundaryFromHeader_17_oe() {
         // removed other assertion
 
@@ -801,8 +1851,9 @@ scribejava_44_17,"@Test
         // removed other assertion
 
         assertEquals(""1234567890123456789012345678901234567890123456789012345678901234567890"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;"" + ""boundary=1234567890123456789012345678901234567890123456789012345678901234567890""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_17_oe
-scribejava_44_18,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_17_oe
+scribejava_44_18,"    @Test
     public void testParseBoundaryFromHeader_18_oe() {
         // removed other assertion
 
@@ -835,8 +1886,9 @@ scribejava_44_18,"@Test
         // removed other assertion
 
         assertEquals(""1234567890123456789012345678901234567890123456789012345678901234567890"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;"" + ""boundary=12345678901234567890123456789012345678901234567890123456789012345678901""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_18_oe
-scribejava_44_19,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_18_oe
+scribejava_44_19,"    @Test
     public void testParseBoundaryFromHeader_19_oe() {
         // removed other assertion
 
@@ -871,8 +1923,9 @@ scribejava_44_19,"@Test
         // removed other assertion
 
         assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundary=""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_19_oe
-scribejava_44_20,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_19_oe
+scribejava_44_20,"    @Test
     public void testParseBoundaryFromHeader_20_oe() {
         // removed other assertion
 
@@ -908,8 +1961,9 @@ scribejava_44_20,"@Test
 
         // removed other assertion
         assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundary=\""\""""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_20_oe
-scribejava_44_21,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_20_oe
+scribejava_44_21,"    @Test
     public void testParseBoundaryFromHeader_21_oe() {
         // removed other assertion
 
@@ -946,8 +2000,9 @@ scribejava_44_21,"@Test
         // removed other assertion
         // removed other assertion
         assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundary=;123""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_21_oe
-scribejava_44_22,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_21_oe
+scribejava_44_22,"    @Test
     public void testParseBoundaryFromHeader_22_oe() {
         // removed other assertion
 
@@ -985,8 +2040,9 @@ scribejava_44_22,"@Test
         // removed other assertion
         // removed other assertion
         assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundary=\""\""123""));
-    }",MultipartUtilsTest::testParseBoundaryFromHeader_22_oe
-scribejava_45_1,"@Test
+    }
+",MultipartUtilsTest::testParseBoundaryFromHeader_22_oe
+scribejava_45_1,"    @Test
     public void shouldProduceCorrectRequestSync_1_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -994,8 +2050,9 @@ scribejava_45_1,"@Test
 
         final OAuth2AccessToken token = service.getAccessTokenPasswordGrant(""user1"", ""password1"");
         assertNotNull(token);
-    }",OAuth20ServiceTest::shouldProduceCorrectRequestSync_1_oe
-scribejava_45_2,"@Test
+    }
+",OAuth20ServiceTest::shouldProduceCorrectRequestSync_1_oe
+scribejava_45_2,"    @Test
     public void shouldProduceCorrectRequestSync_2_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1007,8 +2064,9 @@ scribejava_45_2,"@Test
         final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
 
         assertEquals(OAuth20ServiceUnit.TOKEN, response.get(OAuthConstants.ACCESS_TOKEN).asText());
-    }",OAuth20ServiceTest::shouldProduceCorrectRequestSync_2_oe
-scribejava_45_3,"@Test
+    }
+",OAuth20ServiceTest::shouldProduceCorrectRequestSync_2_oe
+scribejava_45_3,"    @Test
     public void shouldProduceCorrectRequestSync_3_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1021,8 +2079,9 @@ scribejava_45_3,"@Test
 
         // removed other assertion
         assertEquals(OAuth20ServiceUnit.EXPIRES, response.get(""expires_in"").asInt());
-    }",OAuth20ServiceTest::shouldProduceCorrectRequestSync_3_oe
-scribejava_45_4,"@Test
+    }
+",OAuth20ServiceTest::shouldProduceCorrectRequestSync_3_oe
+scribejava_45_4,"    @Test
     public void shouldProduceCorrectRequestSync_4_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1040,8 +2099,9 @@ scribejava_45_4,"@Test
                 String.format(""%s:%s"", service.getApiKey(), service.getApiSecret()).getBytes(Charset.forName(""UTF-8"")));
 
         assertEquals(OAuthConstants.BASIC + ' ' + authorize, response.get(OAuthConstants.HEADER).asText());
-    }",OAuth20ServiceTest::shouldProduceCorrectRequestSync_4_oe
-scribejava_45_5,"@Test
+    }
+",OAuth20ServiceTest::shouldProduceCorrectRequestSync_4_oe
+scribejava_45_5,"    @Test
     public void shouldProduceCorrectRequestSync_5_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1061,8 +2121,9 @@ scribejava_45_5,"@Test
         // removed other assertion
 
         assertEquals(""user1"", response.get(""query-username"").asText());
-    }",OAuth20ServiceTest::shouldProduceCorrectRequestSync_5_oe
-scribejava_45_6,"@Test
+    }
+",OAuth20ServiceTest::shouldProduceCorrectRequestSync_5_oe
+scribejava_45_6,"    @Test
     public void shouldProduceCorrectRequestSync_6_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1083,8 +2144,9 @@ scribejava_45_6,"@Test
 
         // removed other assertion
         assertEquals(""password1"", response.get(""query-password"").asText());
-    }",OAuth20ServiceTest::shouldProduceCorrectRequestSync_6_oe
-scribejava_45_7,"@Test
+    }
+",OAuth20ServiceTest::shouldProduceCorrectRequestSync_6_oe
+scribejava_45_7,"    @Test
     public void shouldProduceCorrectRequestSync_7_oe() throws IOException, InterruptedException, ExecutionException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1106,8 +2168,9 @@ scribejava_45_7,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(""password"", response.get(""query-grant_type"").asText());
-    }",OAuth20ServiceTest::shouldProduceCorrectRequestSync_7_oe
-scribejava_46_1,"@Test
+    }
+",OAuth20ServiceTest::shouldProduceCorrectRequestSync_7_oe
+scribejava_46_1,"    @Test
     public void shouldProduceCorrectRequestAsync_1_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1116,8 +2179,9 @@ scribejava_46_1,"@Test
         final OAuth2AccessToken token = service.getAccessTokenPasswordGrantAsync(""user1"", ""password1"").get();
 
         assertNotNull(token);
-    }",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_1_oe
-scribejava_46_2,"@Test
+    }
+",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_1_oe
+scribejava_46_2,"    @Test
     public void shouldProduceCorrectRequestAsync_2_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1130,8 +2194,9 @@ scribejava_46_2,"@Test
         final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
 
         assertEquals(OAuth20ServiceUnit.TOKEN, response.get(OAuthConstants.ACCESS_TOKEN).asText());
-    }",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_2_oe
-scribejava_46_3,"@Test
+    }
+",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_2_oe
+scribejava_46_3,"    @Test
     public void shouldProduceCorrectRequestAsync_3_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1145,8 +2210,9 @@ scribejava_46_3,"@Test
 
         // removed other assertion
         assertEquals(OAuth20ServiceUnit.EXPIRES, response.get(""expires_in"").asInt());
-    }",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_3_oe
-scribejava_46_4,"@Test
+    }
+",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_3_oe
+scribejava_46_4,"    @Test
     public void shouldProduceCorrectRequestAsync_4_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1165,8 +2231,9 @@ scribejava_46_4,"@Test
                 String.format(""%s:%s"", service.getApiKey(), service.getApiSecret()).getBytes(Charset.forName(""UTF-8"")));
 
         assertEquals(OAuthConstants.BASIC + ' ' + authorize, response.get(OAuthConstants.HEADER).asText());
-    }",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_4_oe
-scribejava_46_5,"@Test
+    }
+",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_4_oe
+scribejava_46_5,"    @Test
     public void shouldProduceCorrectRequestAsync_5_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1187,8 +2254,9 @@ scribejava_46_5,"@Test
         // removed other assertion
 
         assertEquals(""user1"", response.get(""query-username"").asText());
-    }",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_5_oe
-scribejava_46_6,"@Test
+    }
+",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_5_oe
+scribejava_46_6,"    @Test
     public void shouldProduceCorrectRequestAsync_6_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1210,8 +2278,9 @@ scribejava_46_6,"@Test
 
         // removed other assertion
         assertEquals(""password1"", response.get(""query-password"").asText());
-    }",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_6_oe
-scribejava_46_7,"@Test
+    }
+",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_6_oe
+scribejava_46_7,"    @Test
     public void shouldProduceCorrectRequestAsync_7_oe() throws ExecutionException, InterruptedException, IOException {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1234,8 +2303,9 @@ scribejava_46_7,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(""password"", response.get(""query-grant_type"").asText());
-    }",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_7_oe
-scribejava_47_1,"@Test
+    }
+",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_7_oe
+scribejava_47_1,"    @Test
     public void testOAuthExtractAuthorization_1_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1243,8 +2313,9 @@ scribejava_47_1,"@Test
 
         OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
         assertEquals(""SplxlOB"", authorization.getCode());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_1_oe
-scribejava_47_2,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_1_oe
+scribejava_47_2,"    @Test
     public void testOAuthExtractAuthorization_2_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1253,8 +2324,9 @@ scribejava_47_2,"@Test
         OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
         // removed other assertion
         assertEquals(""xyz"", authorization.getState());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_2_oe
-scribejava_47_3,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_2_oe
+scribejava_47_3,"    @Test
     public void testOAuthExtractAuthorization_3_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1266,8 +2338,9 @@ scribejava_47_3,"@Test
 
         authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
         assertEquals(""SplxlOB"", authorization.getCode());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_3_oe
-scribejava_47_4,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_3_oe
+scribejava_47_4,"    @Test
     public void testOAuthExtractAuthorization_4_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1280,8 +2353,9 @@ scribejava_47_4,"@Test
         authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
         // removed other assertion
         assertEquals(""xyz"", authorization.getState());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_4_oe
-scribejava_47_5,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_4_oe
+scribejava_47_5,"    @Test
     public void testOAuthExtractAuthorization_5_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1297,8 +2371,9 @@ scribejava_47_5,"@Test
 
         authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
         assertEquals(""SplxlOB"", authorization.getCode());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_5_oe
-scribejava_47_6,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_5_oe
+scribejava_47_6,"    @Test
     public void testOAuthExtractAuthorization_6_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1315,8 +2390,9 @@ scribejava_47_6,"@Test
         authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
         // removed other assertion
         assertEquals(""xyz"", authorization.getState());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_6_oe
-scribejava_47_7,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_6_oe
+scribejava_47_7,"    @Test
     public void testOAuthExtractAuthorization_7_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1336,8 +2412,9 @@ scribejava_47_7,"@Test
 
         authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
         assertEquals(""SplxlOB"", authorization.getCode());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_7_oe
-scribejava_47_8,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_7_oe
+scribejava_47_8,"    @Test
     public void testOAuthExtractAuthorization_8_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1358,8 +2435,9 @@ scribejava_47_8,"@Test
         authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
         // removed other assertion
         assertEquals(""xyz"", authorization.getState());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_8_oe
-scribejava_47_9,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_8_oe
+scribejava_47_9,"    @Test
     public void testOAuthExtractAuthorization_9_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1383,8 +2461,9 @@ scribejava_47_9,"@Test
 
         authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state="");
         assertEquals(""SplxlOB"", authorization.getCode());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_9_oe
-scribejava_47_10,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_9_oe
+scribejava_47_10,"    @Test
     public void testOAuthExtractAuthorization_10_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1409,8 +2488,9 @@ scribejava_47_10,"@Test
         authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state="");
         // removed other assertion
         assertEquals(null, authorization.getState());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_10_oe
-scribejava_47_11,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_10_oe
+scribejava_47_11,"    @Test
     public void testOAuthExtractAuthorization_11_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1438,8 +2518,9 @@ scribejava_47_11,"@Test
 
         authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB"");
         assertEquals(""SplxlOB"", authorization.getCode());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_11_oe
-scribejava_47_12,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_11_oe
+scribejava_47_12,"    @Test
     public void testOAuthExtractAuthorization_12_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1468,8 +2549,9 @@ scribejava_47_12,"@Test
         authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB"");
         // removed other assertion
         assertEquals(null, authorization.getState());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_12_oe
-scribejava_47_13,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_12_oe
+scribejava_47_13,"    @Test
     public void testOAuthExtractAuthorization_13_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1501,8 +2583,9 @@ scribejava_47_13,"@Test
 
         authorization = service.extractAuthorization(""https://cl.ex.com/cb?code="");
         assertEquals(null, authorization.getCode());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_13_oe
-scribejava_47_14,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_13_oe
+scribejava_47_14,"    @Test
     public void testOAuthExtractAuthorization_14_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1535,8 +2618,9 @@ scribejava_47_14,"@Test
         authorization = service.extractAuthorization(""https://cl.ex.com/cb?code="");
         // removed other assertion
         assertEquals(null, authorization.getState());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_14_oe
-scribejava_47_15,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_14_oe
+scribejava_47_15,"    @Test
     public void testOAuthExtractAuthorization_15_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1572,8 +2656,9 @@ scribejava_47_15,"@Test
 
         authorization = service.extractAuthorization(""https://cl.ex.com/cb?code"");
         assertEquals(null, authorization.getCode());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_15_oe
-scribejava_47_16,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_15_oe
+scribejava_47_16,"    @Test
     public void testOAuthExtractAuthorization_16_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1610,8 +2695,9 @@ scribejava_47_16,"@Test
         authorization = service.extractAuthorization(""https://cl.ex.com/cb?code"");
         // removed other assertion
         assertEquals(null, authorization.getState());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_16_oe
-scribejava_47_17,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_16_oe
+scribejava_47_17,"    @Test
     public void testOAuthExtractAuthorization_17_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1651,8 +2737,9 @@ scribejava_47_17,"@Test
 
         authorization = service.extractAuthorization(""https://cl.ex.com/cb?"");
         assertEquals(null, authorization.getCode());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_17_oe
-scribejava_47_18,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_17_oe
+scribejava_47_18,"    @Test
     public void testOAuthExtractAuthorization_18_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1693,8 +2780,9 @@ scribejava_47_18,"@Test
         authorization = service.extractAuthorization(""https://cl.ex.com/cb?"");
         // removed other assertion
         assertEquals(null, authorization.getState());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_18_oe
-scribejava_47_19,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_18_oe
+scribejava_47_19,"    @Test
     public void testOAuthExtractAuthorization_19_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1738,8 +2826,9 @@ scribejava_47_19,"@Test
 
         authorization = service.extractAuthorization(""https://cl.ex.com/cb"");
         assertEquals(null, authorization.getCode());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_19_oe
-scribejava_47_20,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_19_oe
+scribejava_47_20,"    @Test
     public void testOAuthExtractAuthorization_20_oe() {
         final OAuth20Service service = new ServiceBuilder(""your_api_key"")
                 .apiSecret(""your_api_secret"")
@@ -1784,8 +2873,9 @@ scribejava_47_20,"@Test
         authorization = service.extractAuthorization(""https://cl.ex.com/cb"");
         // removed other assertion
         assertEquals(null, authorization.getState());
-    }",OAuth20ServiceTest::testOAuthExtractAuthorization_20_oe
-scribejava_48_1,"@Test
+    }
+",OAuth20ServiceTest::testOAuthExtractAuthorization_20_oe
+scribejava_48_1,"    @Test
     public void shouldGetQueryStringParameters_1_oe() {
         final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
         postRequest.addBodyParameter(""param"", ""value"");
@@ -1795,8 +2885,9 @@ scribejava_48_1,"@Test
                 = new OAuthRequest(Verb.GET, ""http://example.com?qsparam=value&other+param=value+with+spaces"");
 
         assertEquals(2, getRequest.getQueryStringParams().size());
-    }",RequestTest::shouldGetQueryStringParameters_1_oe
-scribejava_48_2,"@Test
+    }
+",RequestTest::shouldGetQueryStringParameters_1_oe
+scribejava_48_2,"    @Test
     public void shouldGetQueryStringParameters_2_oe() {
         final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
         postRequest.addBodyParameter(""param"", ""value"");
@@ -1807,8 +2898,9 @@ scribejava_48_2,"@Test
 
         // removed other assertion
         assertEquals(0, postRequest.getQueryStringParams().size());
-    }",RequestTest::shouldGetQueryStringParameters_2_oe
-scribejava_48_3,"@Test
+    }
+",RequestTest::shouldGetQueryStringParameters_2_oe
+scribejava_48_3,"    @Test
     public void shouldGetQueryStringParameters_3_oe() {
         final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
         postRequest.addBodyParameter(""param"", ""value"");
@@ -1820,16 +2912,18 @@ scribejava_48_3,"@Test
         // removed other assertion
         // removed other assertion
         assertTrue(getRequest.getQueryStringParams().contains(new Parameter(""qsparam"", ""value"")));
-    }",RequestTest::shouldGetQueryStringParameters_3_oe
-scribejava_49_1,"@Test
+    }
+",RequestTest::shouldGetQueryStringParameters_3_oe
+scribejava_49_1,"    @Test
     public void shouldSetBodyParamsAndAddContentLength_1_oe() {
         final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
         postRequest.addBodyParameter(""param"", ""value"");
         postRequest.addBodyParameter(""param with spaces"", ""value with spaces"");
 
         assertEquals(""param=value&param%20with%20spaces=value%20with%20spaces"",new String(postRequest.getByteArrayPayload()));
-    }",RequestTest::shouldSetBodyParamsAndAddContentLength_1_oe
-scribejava_50_1,"@Test
+    }
+",RequestTest::shouldSetBodyParamsAndAddContentLength_1_oe
+scribejava_50_1,"    @Test
     public void shouldSetPayloadAndHeaders_1_oe() {
         final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
         postRequest.addBodyParameter(""param"", ""value"");
@@ -1837,29 +2931,33 @@ scribejava_50_1,"@Test
         postRequest.setPayload(""PAYLOAD"");
 
         assertEquals(""PAYLOAD"", postRequest.getStringPayload());
-    }",RequestTest::shouldSetPayloadAndHeaders_1_oe
-scribejava_51_1,"@Test
+    }
+",RequestTest::shouldSetPayloadAndHeaders_1_oe
+scribejava_51_1,"    @Test
     public void shouldAllowAddingQuerystringParametersAfterCreation_1_oe() {
         final OAuthRequest request = new OAuthRequest(Verb.GET, ""http://example.com?one=val"");
         request.addQuerystringParameter(""two"", ""other val"");
         request.addQuerystringParameter(""more"", ""params"");
         assertEquals(3, request.getQueryStringParams().size());
-    }",RequestTest::shouldAllowAddingQuerystringParametersAfterCreation_1_oe
-scribejava_52_1,"@Test
+    }
+",RequestTest::shouldAllowAddingQuerystringParametersAfterCreation_1_oe
+scribejava_52_1,"    @Test
     public void shouldReturnTheCompleteUrl_1_oe() {
         final OAuthRequest request = new OAuthRequest(Verb.GET, ""http://example.com?one=val"");
         request.addQuerystringParameter(""two"", ""other val"");
         request.addQuerystringParameter(""more"", ""params"");
         assertEquals(""http://example.com?one=val&two=other%20val&more=params"", request.getCompleteUrl());
-    }",RequestTest::shouldReturnTheCompleteUrl_1_oe
-scribejava_53_1,"@Test
+    }
+",RequestTest::shouldReturnTheCompleteUrl_1_oe
+scribejava_53_1,"    @Test
     public void shouldHandleQueryStringSpaceEncodingProperly_1_oe() {
         final OAuthRequest getRequest
                 = new OAuthRequest(Verb.GET, ""http://example.com?qsparam=value&other+param=value+with+spaces"");
 
         assertTrue(getRequest.getQueryStringParams().contains(new Parameter(""other param"", ""value with spaces"")));
-    }",RequestTest::shouldHandleQueryStringSpaceEncodingProperly_1_oe
-scribejava_54_1,"@Test
+    }
+",RequestTest::shouldHandleQueryStringSpaceEncodingProperly_1_oe
+scribejava_54_1,"    @Test
     public void shouldNotEncodeInStringPayload_1_oe() throws Exception {
         final String requestBody = ""~/!@#$%^&*( )_+//\r\n%2F&amp;"";
 
@@ -1867,8 +2965,9 @@ scribejava_54_1,"@Test
         postRequest.setPayload(requestBody);
 
         assertEquals(requestBody, postRequest.getStringPayload());
-    }",RequestTest::shouldNotEncodeInStringPayload_1_oe
-scribejava_55_1,"@Test
+    }
+",RequestTest::shouldNotEncodeInStringPayload_1_oe
+scribejava_55_1,"    @Test
     public void shouldNotEncodeInByteBodyPayload_1_oe() throws Exception {
         final byte[] requestBody = ""~/!@#$%^&*( )_+//\r\n%2F&amp;"".getBytes();
 
@@ -1876,8 +2975,9 @@ scribejava_55_1,"@Test
         postRequest.setPayload(requestBody);
 
         assertArrayEquals(requestBody, postRequest.getByteArrayPayload());
-    }",RequestTest::shouldNotEncodeInByteBodyPayload_1_oe
-scribejava_56_1,"@Test
+    }
+",RequestTest::shouldNotEncodeInByteBodyPayload_1_oe
+scribejava_56_1,"    @Test
     public void shouldEncodeInBodyParamsPayload_1_oe() throws Exception {
         final String expectedRequestBodyParamName = ""~/!@#$%^&*( )_+//\r\n%2F&amp;name"";
         final String expectedRequestBodyParamValue = ""~/!@#$%^&*( )_+//\r\n%2F&amp;value"";
@@ -1887,8 +2987,9 @@ scribejava_56_1,"@Test
         final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
         postRequest.addBodyParameter(expectedRequestBodyParamName, expectedRequestBodyParamValue);
         assertArrayEquals(expectedRequestBody.getBytes(), postRequest.getByteArrayPayload());
-    }",RequestTest::shouldEncodeInBodyParamsPayload_1_oe
-scribejava_57_1,"@Test
+    }
+",RequestTest::shouldEncodeInBodyParamsPayload_1_oe
+scribejava_57_1,"    @Test
     public void shouldAddOAuthParamters_1_oe() {
         request.addOAuthParameter(OAuthConstants.TOKEN, ""token"");
         request.addOAuthParameter(OAuthConstants.NONCE, ""nonce"");
@@ -1897,12 +2998,14 @@ scribejava_57_1,"@Test
         request.addOAuthParameter(OAuthConstants.REALM, ""some-realm"");
 
         assertEquals(5, request.getOauthParameters().size());
-    }",OAuthRequestTest::shouldAddOAuthParamters_1_oe
-scribejava_58_1,"@Test
+    }
+",OAuthRequestTest::shouldAddOAuthParamters_1_oe
+scribejava_58_1,"    @Test
     public void shouldNotSentHeaderTwice_1_oe() {
         assertTrue(request.getHeaders().isEmpty());
-    }",OAuthRequestTest::shouldNotSentHeaderTwice_1_oe
-scribejava_58_2,"@Test
+    }
+",OAuthRequestTest::shouldNotSentHeaderTwice_1_oe
+scribejava_58_2,"    @Test
     public void shouldNotSentHeaderTwice_2_oe() {
         // removed other assertion
         request.addHeader(""HEADER-NAME"", ""first"");
@@ -1910,8 +3013,9 @@ scribejava_58_2,"@Test
         request.addHeader(""Header-Name"", ""last"");
 
         assertEquals(1, request.getHeaders().size());
-    }",OAuthRequestTest::shouldNotSentHeaderTwice_2_oe
-scribejava_58_3,"@Test
+    }
+",OAuthRequestTest::shouldNotSentHeaderTwice_2_oe
+scribejava_58_3,"    @Test
     public void shouldNotSentHeaderTwice_3_oe() {
         // removed other assertion
         request.addHeader(""HEADER-NAME"", ""first"");
@@ -1921,8 +3025,9 @@ scribejava_58_3,"@Test
         // removed other assertion
 
         assertTrue(request.getHeaders().containsKey(""HEADER-NAME""));
-    }",OAuthRequestTest::shouldNotSentHeaderTwice_3_oe
-scribejava_58_4,"@Test
+    }
+",OAuthRequestTest::shouldNotSentHeaderTwice_3_oe
+scribejava_58_4,"    @Test
     public void shouldNotSentHeaderTwice_4_oe() {
         // removed other assertion
         request.addHeader(""HEADER-NAME"", ""first"");
@@ -1933,8 +3038,9 @@ scribejava_58_4,"@Test
 
         // removed other assertion
         assertTrue(request.getHeaders().containsKey(""header-name""));
-    }",OAuthRequestTest::shouldNotSentHeaderTwice_4_oe
-scribejava_58_5,"@Test
+    }
+",OAuthRequestTest::shouldNotSentHeaderTwice_4_oe
+scribejava_58_5,"    @Test
     public void shouldNotSentHeaderTwice_5_oe() {
         // removed other assertion
         request.addHeader(""HEADER-NAME"", ""first"");
@@ -1946,8 +3052,9 @@ scribejava_58_5,"@Test
         // removed other assertion
         // removed other assertion
         assertTrue(request.getHeaders().containsKey(""Header-Name""));
-    }",OAuthRequestTest::shouldNotSentHeaderTwice_5_oe
-scribejava_58_6,"@Test
+    }
+",OAuthRequestTest::shouldNotSentHeaderTwice_5_oe
+scribejava_58_6,"    @Test
     public void shouldNotSentHeaderTwice_6_oe() {
         // removed other assertion
         request.addHeader(""HEADER-NAME"", ""first"");
@@ -1961,8 +3068,9 @@ scribejava_58_6,"@Test
         // removed other assertion
 
         assertEquals(""last"", request.getHeaders().get(""HEADER-NAME""));
-    }",OAuthRequestTest::shouldNotSentHeaderTwice_6_oe
-scribejava_58_7,"@Test
+    }
+",OAuthRequestTest::shouldNotSentHeaderTwice_6_oe
+scribejava_58_7,"    @Test
     public void shouldNotSentHeaderTwice_7_oe() {
         // removed other assertion
         request.addHeader(""HEADER-NAME"", ""first"");
@@ -1977,8 +3085,9 @@ scribejava_58_7,"@Test
 
         // removed other assertion
         assertEquals(""last"", request.getHeaders().get(""header-name""));
-    }",OAuthRequestTest::shouldNotSentHeaderTwice_7_oe
-scribejava_58_8,"@Test
+    }
+",OAuthRequestTest::shouldNotSentHeaderTwice_7_oe
+scribejava_58_8,"    @Test
     public void shouldNotSentHeaderTwice_8_oe() {
         // removed other assertion
         request.addHeader(""HEADER-NAME"", ""first"");
@@ -1994,13 +3103,15 @@ scribejava_58_8,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(""last"", request.getHeaders().get(""Header-Name""));
-    }",OAuthRequestTest::shouldNotSentHeaderTwice_8_oe
-scribejava_59_1,"@Test
+    }
+",OAuthRequestTest::shouldNotSentHeaderTwice_8_oe
+scribejava_59_1,"    @Test
     public void shouldAppendNothingToQuerystringIfGivenEmptyMap_1_oe() {
         final String url = ""http://www.example.com"";
         Assert.assertEquals(url, params.appendTo(url));
-    }",ParameterListTest::shouldAppendNothingToQuerystringIfGivenEmptyMap_1_oe
-scribejava_60_1,"@Test
+    }
+",ParameterListTest::shouldAppendNothingToQuerystringIfGivenEmptyMap_1_oe
+scribejava_60_1,"    @Test
     public void shouldAppendParametersToSimpleUrl_1_oe() {
         String url = ""http://www.example.com"";
         final String expectedUrl = ""http://www.example.com?param1=value1&param2=value%20with%20spaces"";
@@ -2010,8 +3121,9 @@ scribejava_60_1,"@Test
 
         url = params.appendTo(url);
         Assert.assertEquals(expectedUrl, url);
-    }",ParameterListTest::shouldAppendParametersToSimpleUrl_1_oe
-scribejava_61_1,"@Test
+    }
+",ParameterListTest::shouldAppendParametersToSimpleUrl_1_oe
+scribejava_61_1,"    @Test
     public void shouldAppendParametersToUrlWithQuerystring_1_oe() {
         String url = ""http://www.example.com?already=present"";
         final String expectedUrl = ""http://www.example.com?already=present&param1=value1&param2=value%20with%20spaces"";
@@ -2021,94 +3133,107 @@ scribejava_61_1,"@Test
 
         url = params.appendTo(url);
         Assert.assertEquals(expectedUrl, url);
-    }",ParameterListTest::shouldAppendParametersToUrlWithQuerystring_1_oe
-scribejava_62_1,"@Test
+    }
+",ParameterListTest::shouldAppendParametersToUrlWithQuerystring_1_oe
+scribejava_62_1,"    @Test
     public void shouldProperlySortParameters_1_oe() {
         params.add(""param1"", ""v1"");
         params.add(""param6"", ""v2"");
         params.add(""a_param"", ""v3"");
         params.add(""param2"", ""v4"");
         Assert.assertEquals(""a_param=v3&param1=v1&param2=v4&param6=v2"", params.sort().asFormUrlEncodedString());
-    }",ParameterListTest::shouldProperlySortParameters_1_oe
-scribejava_63_1,"@Test
+    }
+",ParameterListTest::shouldProperlySortParameters_1_oe
+scribejava_63_1,"    @Test
     public void shouldProperlySortParametersWithTheSameName_1_oe() {
         params.add(""param1"", ""v1"");
         params.add(""param6"", ""v2"");
         params.add(""a_param"", ""v3"");
         params.add(""param1"", ""v4"");
         Assert.assertEquals(""a_param=v3&param1=v1&param1=v4&param6=v2"", params.sort().asFormUrlEncodedString());
-    }",ParameterListTest::shouldProperlySortParametersWithTheSameName_1_oe
-scribejava_64_1,"@Test
+    }
+",ParameterListTest::shouldProperlySortParametersWithTheSameName_1_oe
+scribejava_64_1,"    @Test
     public void shouldNotModifyTheOriginalParameterList_1_oe() {
         params.add(""param1"", ""v1"");
         params.add(""param6"", ""v2"");
 
         assertNotSame(params, params.sort());
-    }",ParameterListTest::shouldNotModifyTheOriginalParameterList_1_oe
-scribejava_65_1,"@Test
+    }
+",ParameterListTest::shouldNotModifyTheOriginalParameterList_1_oe
+scribejava_65_1,"    @Test
     public void shouldTestEqualityBasedOnTokenAndSecret_1_oe() {
         final Token expected = new OAuth1AccessToken(""access"", ""secret"");
         final Token actual = new OAuth1AccessToken(""access"", ""secret"");
 
         assertEquals(expected, actual);
-    }",TokenTest::shouldTestEqualityBasedOnTokenAndSecret_1_oe
-scribejava_65_2,"@Test
+    }
+",TokenTest::shouldTestEqualityBasedOnTokenAndSecret_1_oe
+scribejava_65_2,"    @Test
     public void shouldTestEqualityBasedOnTokenAndSecret_2_oe() {
         final Token expected = new OAuth1AccessToken(""access"", ""secret"");
         final Token actual = new OAuth1AccessToken(""access"", ""secret"");
 
         // removed other assertion
         assertEquals(actual, actual);
-    }",TokenTest::shouldTestEqualityBasedOnTokenAndSecret_2_oe
-scribejava_66_1,"@Test
+    }
+",TokenTest::shouldTestEqualityBasedOnTokenAndSecret_2_oe
+scribejava_66_1,"    @Test
     public void shouldNotDependOnRawString_1_oe() {
         final Token expected = new OAuth1AccessToken(""access"", ""secret"", ""raw_string"");
         final Token actual = new OAuth1AccessToken(""access"", ""secret"", ""different_raw_string"");
 
         assertEquals(expected, actual);
-    }",TokenTest::shouldNotDependOnRawString_1_oe
-scribejava_67_1,"@Test
+    }
+",TokenTest::shouldNotDependOnRawString_1_oe
+scribejava_67_1,"    @Test
     public void shouldReturnSameHashCodeForEqualObjects_1_oe() {
         final Token expected = new OAuth1AccessToken(""access"", ""secret"");
         final Token actual = new OAuth1AccessToken(""access"", ""secret"");
 
         assertEquals(expected.hashCode(), actual.hashCode());
-    }",TokenTest::shouldReturnSameHashCodeForEqualObjects_1_oe
-scribejava_68_1,"@Test
+    }
+",TokenTest::shouldReturnSameHashCodeForEqualObjects_1_oe
+scribejava_68_1,"    @Test
     public void shouldNotBeEqualToNullOrOtherObjects_1_oe() {
         final Token expected = new OAuth1AccessToken(""access"", ""secret"", ""response"");
 
         assertNotSame(expected, null);
-    }",TokenTest::shouldNotBeEqualToNullOrOtherObjects_1_oe
-scribejava_68_2,"@Test
+    }
+",TokenTest::shouldNotBeEqualToNullOrOtherObjects_1_oe
+scribejava_68_2,"    @Test
     public void shouldNotBeEqualToNullOrOtherObjects_2_oe() {
         final Token expected = new OAuth1AccessToken(""access"", ""secret"", ""response"");
 
         // removed other assertion
         assertNotSame(expected, new Object());
-    }",TokenTest::shouldNotBeEqualToNullOrOtherObjects_2_oe
-scribejava_69_1,"@Test
+    }
+",TokenTest::shouldNotBeEqualToNullOrOtherObjects_2_oe
+scribejava_69_1,"    @Test
     public void shouldReturnUrlParam_1_oe() {
         final Token actual = new OAuth1AccessToken(""acccess"", ""secret"",
                 ""user_id=3107154759&screen_name=someuser&empty=&="");
         assertEquals(""someuser"", actual.getParameter(""screen_name""));
-    }",TokenTest::shouldReturnUrlParam_1_oe
-scribejava_69_2,"@Test
+    }
+",TokenTest::shouldReturnUrlParam_1_oe
+scribejava_69_2,"    @Test
     public void shouldReturnUrlParam_2_oe() {
         final Token actual = new OAuth1AccessToken(""acccess"", ""secret"",
                 ""user_id=3107154759&screen_name=someuser&empty=&="");
         // removed other assertion
         assertEquals(""3107154759"", actual.getParameter(""user_id""));
-    }",TokenTest::shouldReturnUrlParam_2_oe
-scribejava_69_3,"@Test
+    }
+",TokenTest::shouldReturnUrlParam_2_oe
+scribejava_69_3,"    @Test
     public void shouldReturnUrlParam_3_oe() {
         final Token actual = new OAuth1AccessToken(""acccess"", ""secret"",
                 ""user_id=3107154759&screen_name=someuser&empty=&="");
         // removed other assertion
         // removed other assertion
         assertEquals(null, actual.getParameter(""empty""));
-    }",TokenTest::shouldReturnUrlParam_3_oe
-scribejava_69_4,"@Test
+    }
+",TokenTest::shouldReturnUrlParam_3_oe
+scribejava_69_4,"    @Test
     public void shouldReturnUrlParam_4_oe() {
         final Token actual = new OAuth1AccessToken(""acccess"", ""secret"",
                 ""user_id=3107154759&screen_name=someuser&empty=&="");
@@ -2116,30 +3241,35 @@ scribejava_69_4,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(null, actual.getParameter(null));
-    }",TokenTest::shouldReturnUrlParam_4_oe
-scribejava_70_1,"@Test
+    }
+",TokenTest::shouldReturnUrlParam_4_oe
+scribejava_70_1,"    @Test
     public void allImplementationsAreAvailable_1_oe() {
         assertTrue(Java8Base64.isAvailable());
-    }",Base64Test::allImplementationsAreAvailable_1_oe
-scribejava_70_2,"@Test
+    }
+",Base64Test::allImplementationsAreAvailable_1_oe
+scribejava_70_2,"    @Test
     public void allImplementationsAreAvailable_2_oe() {
         // removed other assertion
         assertTrue(CommonsCodecBase64.isAvailable());
-    }",Base64Test::allImplementationsAreAvailable_2_oe
-scribejava_70_3,"@Test
+    }
+",Base64Test::allImplementationsAreAvailable_2_oe
+scribejava_70_3,"    @Test
     public void allImplementationsAreAvailable_3_oe() {
         // removed other assertion
         // removed other assertion
         assertTrue(JaxbBase64.isAvailable());
-    }",Base64Test::allImplementationsAreAvailable_3_oe
-scribejava_70_4,"@Test
+    }
+",Base64Test::allImplementationsAreAvailable_3_oe
+scribejava_70_4,"    @Test
     public void allImplementationsAreAvailable_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertTrue(Jaxb230Base64.isAvailable());
-    }",Base64Test::allImplementationsAreAvailable_4_oe
-scribejava_71_1,"@Test
+    }
+",Base64Test::allImplementationsAreAvailable_4_oe
+scribejava_71_1,"    @Test
     public void testEncode_1_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2169,8 +3299,9 @@ scribejava_71_1,"@Test
                 + ""UVVZXWFlaW1xdXl9gYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXp7fH1+fw=="";
 
         assertEquals(helloWorldEncoded, java8Base64.internalEncode(helloWorldBytes));
-    }",Base64Test::testEncode_1_oe
-scribejava_71_2,"@Test
+    }
+",Base64Test::testEncode_1_oe
+scribejava_71_2,"    @Test
     public void testEncode_2_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2201,8 +3332,9 @@ scribejava_71_2,"@Test
 
         // removed other assertion
         assertEquals(helloWorldTwoLinesEncoded, java8Base64.internalEncode(helloWorldTwoLinesBytes));
-    }",Base64Test::testEncode_2_oe
-scribejava_71_3,"@Test
+    }
+",Base64Test::testEncode_2_oe
+scribejava_71_3,"    @Test
     public void testEncode_3_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2234,8 +3366,9 @@ scribejava_71_3,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,java8Base64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
-    }",Base64Test::testEncode_3_oe
-scribejava_71_4,"@Test
+    }
+",Base64Test::testEncode_3_oe
+scribejava_71_4,"    @Test
     public void testEncode_4_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2268,8 +3401,9 @@ scribejava_71_4,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(helloWorldDifferentCharsEncoded, java8Base64.internalEncode(helloWorldDifferentCharsBytes));
-    }",Base64Test::testEncode_4_oe
-scribejava_71_5,"@Test
+    }
+",Base64Test::testEncode_4_oe
+scribejava_71_5,"    @Test
     public void testEncode_5_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2303,8 +3437,9 @@ scribejava_71_5,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(str, java8Base64.internalEncode(bytes));
-    }",Base64Test::testEncode_5_oe
-scribejava_71_6,"@Test
+    }
+",Base64Test::testEncode_5_oe
+scribejava_71_6,"    @Test
     public void testEncode_6_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2339,8 +3474,9 @@ scribejava_71_6,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(allBytesStr, java8Base64.internalEncode(allBytes));
-    }",Base64Test::testEncode_6_oe
-scribejava_71_7,"@Test
+    }
+",Base64Test::testEncode_6_oe
+scribejava_71_7,"    @Test
     public void testEncode_7_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2377,8 +3513,9 @@ scribejava_71_7,"@Test
         // removed other assertion
 
         assertEquals(helloWorldEncoded, commonsCodecBase64.internalEncode(helloWorldBytes));
-    }",Base64Test::testEncode_7_oe
-scribejava_71_8,"@Test
+    }
+",Base64Test::testEncode_7_oe
+scribejava_71_8,"    @Test
     public void testEncode_8_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2416,8 +3553,9 @@ scribejava_71_8,"@Test
 
         // removed other assertion
         assertEquals(helloWorldTwoLinesEncoded, commonsCodecBase64.internalEncode(helloWorldTwoLinesBytes));
-    }",Base64Test::testEncode_8_oe
-scribejava_71_9,"@Test
+    }
+",Base64Test::testEncode_8_oe
+scribejava_71_9,"    @Test
     public void testEncode_9_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2456,8 +3594,9 @@ scribejava_71_9,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,commonsCodecBase64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
-    }",Base64Test::testEncode_9_oe
-scribejava_71_10,"@Test
+    }
+",Base64Test::testEncode_9_oe
+scribejava_71_10,"    @Test
     public void testEncode_10_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2497,8 +3636,9 @@ scribejava_71_10,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(helloWorldDifferentCharsEncoded, commonsCodecBase64.internalEncode(helloWorldDifferentCharsBytes));
-    }",Base64Test::testEncode_10_oe
-scribejava_71_11,"@Test
+    }
+",Base64Test::testEncode_10_oe
+scribejava_71_11,"    @Test
     public void testEncode_11_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2539,8 +3679,9 @@ scribejava_71_11,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(str, commonsCodecBase64.internalEncode(bytes));
-    }",Base64Test::testEncode_11_oe
-scribejava_71_12,"@Test
+    }
+",Base64Test::testEncode_11_oe
+scribejava_71_12,"    @Test
     public void testEncode_12_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2582,8 +3723,9 @@ scribejava_71_12,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(allBytesStr, commonsCodecBase64.internalEncode(allBytes));
-    }",Base64Test::testEncode_12_oe
-scribejava_71_13,"@Test
+    }
+",Base64Test::testEncode_12_oe
+scribejava_71_13,"    @Test
     public void testEncode_13_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2627,8 +3769,9 @@ scribejava_71_13,"@Test
         // removed other assertion
 
         assertEquals(helloWorldEncoded, jaxbBase64.internalEncode(helloWorldBytes));
-    }",Base64Test::testEncode_13_oe
-scribejava_71_14,"@Test
+    }
+",Base64Test::testEncode_13_oe
+scribejava_71_14,"    @Test
     public void testEncode_14_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2673,8 +3816,9 @@ scribejava_71_14,"@Test
 
         // removed other assertion
         assertEquals(helloWorldTwoLinesEncoded, jaxbBase64.internalEncode(helloWorldTwoLinesBytes));
-    }",Base64Test::testEncode_14_oe
-scribejava_71_15,"@Test
+    }
+",Base64Test::testEncode_14_oe
+scribejava_71_15,"    @Test
     public void testEncode_15_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2720,8 +3864,9 @@ scribejava_71_15,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(helloWorldTwoLinesAndNewLineEncoded, jaxbBase64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
-    }",Base64Test::testEncode_15_oe
-scribejava_71_16,"@Test
+    }
+",Base64Test::testEncode_15_oe
+scribejava_71_16,"    @Test
     public void testEncode_16_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2768,8 +3913,9 @@ scribejava_71_16,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(helloWorldDifferentCharsEncoded, jaxbBase64.internalEncode(helloWorldDifferentCharsBytes));
-    }",Base64Test::testEncode_16_oe
-scribejava_71_17,"@Test
+    }
+",Base64Test::testEncode_16_oe
+scribejava_71_17,"    @Test
     public void testEncode_17_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2817,8 +3963,9 @@ scribejava_71_17,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(str, jaxbBase64.internalEncode(bytes));
-    }",Base64Test::testEncode_17_oe
-scribejava_71_18,"@Test
+    }
+",Base64Test::testEncode_17_oe
+scribejava_71_18,"    @Test
     public void testEncode_18_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2867,8 +4014,9 @@ scribejava_71_18,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(allBytesStr, jaxbBase64.internalEncode(allBytes));
-    }",Base64Test::testEncode_18_oe
-scribejava_71_19,"@Test
+    }
+",Base64Test::testEncode_18_oe
+scribejava_71_19,"    @Test
     public void testEncode_19_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2919,8 +4067,9 @@ scribejava_71_19,"@Test
         // removed other assertion
 
         assertEquals(helloWorldEncoded, jaxb230Base64.internalEncode(helloWorldBytes));
-    }",Base64Test::testEncode_19_oe
-scribejava_71_20,"@Test
+    }
+",Base64Test::testEncode_19_oe
+scribejava_71_20,"    @Test
     public void testEncode_20_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -2972,8 +4121,9 @@ scribejava_71_20,"@Test
 
         // removed other assertion
         assertEquals(helloWorldTwoLinesEncoded, jaxb230Base64.internalEncode(helloWorldTwoLinesBytes));
-    }",Base64Test::testEncode_20_oe
-scribejava_71_21,"@Test
+    }
+",Base64Test::testEncode_20_oe
+scribejava_71_21,"    @Test
     public void testEncode_21_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -3026,8 +4176,9 @@ scribejava_71_21,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxb230Base64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
-    }",Base64Test::testEncode_21_oe
-scribejava_71_22,"@Test
+    }
+",Base64Test::testEncode_21_oe
+scribejava_71_22,"    @Test
     public void testEncode_22_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -3081,8 +4232,9 @@ scribejava_71_22,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(helloWorldDifferentCharsEncoded, jaxb230Base64.internalEncode(helloWorldDifferentCharsBytes));
-    }",Base64Test::testEncode_22_oe
-scribejava_71_23,"@Test
+    }
+",Base64Test::testEncode_22_oe
+scribejava_71_23,"    @Test
     public void testEncode_23_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -3137,8 +4289,9 @@ scribejava_71_23,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(str, jaxb230Base64.internalEncode(bytes));
-    }",Base64Test::testEncode_23_oe
-scribejava_71_24,"@Test
+    }
+",Base64Test::testEncode_23_oe
+scribejava_71_24,"    @Test
     public void testEncode_24_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
@@ -3194,8 +4347,9 @@ scribejava_71_24,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(allBytesStr, jaxb230Base64.internalEncode(allBytes));
-    }",Base64Test::testEncode_24_oe
-scribejava_72_1,"@Test
+    }
+",Base64Test::testEncode_24_oe
+scribejava_72_1,"    @Test
     public void testEncodeUrlWithoutPadding_1_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3225,8 +4379,9 @@ scribejava_72_1,"@Test
                 + ""UVVZXWFlaW1xdXl9gYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXp7fH1-fw"";
 
         assertEquals(helloWorldEncoded, java8Base64.internalEncodeUrlWithoutPadding(helloWorldBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_1_oe
-scribejava_72_2,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_1_oe
+scribejava_72_2,"    @Test
     public void testEncodeUrlWithoutPadding_2_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3257,8 +4412,9 @@ scribejava_72_2,"@Test
 
         // removed other assertion
         assertEquals(helloWorldTwoLinesEncoded, java8Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_2_oe
-scribejava_72_3,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_2_oe
+scribejava_72_3,"    @Test
     public void testEncodeUrlWithoutPadding_3_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3290,8 +4446,9 @@ scribejava_72_3,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,java8Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_3_oe
-scribejava_72_4,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_3_oe
+scribejava_72_4,"    @Test
     public void testEncodeUrlWithoutPadding_4_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3324,8 +4481,9 @@ scribejava_72_4,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(helloWorldDifferentCharsEncoded,java8Base64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_4_oe
-scribejava_72_5,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_4_oe
+scribejava_72_5,"    @Test
     public void testEncodeUrlWithoutPadding_5_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3359,8 +4517,9 @@ scribejava_72_5,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(str, java8Base64.internalEncodeUrlWithoutPadding(bytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_5_oe
-scribejava_72_6,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_5_oe
+scribejava_72_6,"    @Test
     public void testEncodeUrlWithoutPadding_6_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3395,8 +4554,9 @@ scribejava_72_6,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(allBytesStr, java8Base64.internalEncodeUrlWithoutPadding(allBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_6_oe
-scribejava_72_7,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_6_oe
+scribejava_72_7,"    @Test
     public void testEncodeUrlWithoutPadding_7_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3433,8 +4593,9 @@ scribejava_72_7,"@Test
         // removed other assertion
 
         assertEquals(helloWorldEncoded, commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_7_oe
-scribejava_72_8,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_7_oe
+scribejava_72_8,"    @Test
     public void testEncodeUrlWithoutPadding_8_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3472,8 +4633,9 @@ scribejava_72_8,"@Test
 
         // removed other assertion
         assertEquals(helloWorldTwoLinesEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_8_oe
-scribejava_72_9,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_8_oe
+scribejava_72_9,"    @Test
     public void testEncodeUrlWithoutPadding_9_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3512,8 +4674,9 @@ scribejava_72_9,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_9_oe
-scribejava_72_10,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_9_oe
+scribejava_72_10,"    @Test
     public void testEncodeUrlWithoutPadding_10_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3553,8 +4716,9 @@ scribejava_72_10,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(helloWorldDifferentCharsEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_10_oe
-scribejava_72_11,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_10_oe
+scribejava_72_11,"    @Test
     public void testEncodeUrlWithoutPadding_11_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3595,8 +4759,9 @@ scribejava_72_11,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(str, commonsCodecBase64.internalEncodeUrlWithoutPadding(bytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_11_oe
-scribejava_72_12,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_11_oe
+scribejava_72_12,"    @Test
     public void testEncodeUrlWithoutPadding_12_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3638,8 +4803,9 @@ scribejava_72_12,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(allBytesStr, commonsCodecBase64.internalEncodeUrlWithoutPadding(allBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_12_oe
-scribejava_72_13,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_12_oe
+scribejava_72_13,"    @Test
     public void testEncodeUrlWithoutPadding_13_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3683,8 +4849,9 @@ scribejava_72_13,"@Test
         // removed other assertion
 
         assertEquals(helloWorldEncoded, jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_13_oe
-scribejava_72_14,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_13_oe
+scribejava_72_14,"    @Test
     public void testEncodeUrlWithoutPadding_14_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3729,8 +4896,9 @@ scribejava_72_14,"@Test
 
         // removed other assertion
         assertEquals(helloWorldTwoLinesEncoded, jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_14_oe
-scribejava_72_15,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_14_oe
+scribejava_72_15,"    @Test
     public void testEncodeUrlWithoutPadding_15_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3776,8 +4944,9 @@ scribejava_72_15,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_15_oe
-scribejava_72_16,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_15_oe
+scribejava_72_16,"    @Test
     public void testEncodeUrlWithoutPadding_16_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3824,8 +4993,9 @@ scribejava_72_16,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(helloWorldDifferentCharsEncoded,jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_16_oe
-scribejava_72_17,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_16_oe
+scribejava_72_17,"    @Test
     public void testEncodeUrlWithoutPadding_17_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3873,8 +5043,9 @@ scribejava_72_17,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(str, jaxbBase64.internalEncodeUrlWithoutPadding(bytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_17_oe
-scribejava_72_18,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_17_oe
+scribejava_72_18,"    @Test
     public void testEncodeUrlWithoutPadding_18_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3923,8 +5094,9 @@ scribejava_72_18,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(allBytesStr, jaxbBase64.internalEncodeUrlWithoutPadding(allBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_18_oe
-scribejava_72_19,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_18_oe
+scribejava_72_19,"    @Test
     public void testEncodeUrlWithoutPadding_19_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -3975,8 +5147,9 @@ scribejava_72_19,"@Test
         // removed other assertion
 
         assertEquals(helloWorldEncoded, jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_19_oe
-scribejava_72_20,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_19_oe
+scribejava_72_20,"    @Test
     public void testEncodeUrlWithoutPadding_20_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -4028,8 +5201,9 @@ scribejava_72_20,"@Test
 
         // removed other assertion
         assertEquals(helloWorldTwoLinesEncoded, jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_20_oe
-scribejava_72_21,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_20_oe
+scribejava_72_21,"    @Test
     public void testEncodeUrlWithoutPadding_21_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -4082,8 +5256,9 @@ scribejava_72_21,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_21_oe
-scribejava_72_22,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_21_oe
+scribejava_72_22,"    @Test
     public void testEncodeUrlWithoutPadding_22_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -4137,8 +5312,9 @@ scribejava_72_22,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(helloWorldDifferentCharsEncoded,jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_22_oe
-scribejava_72_23,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_22_oe
+scribejava_72_23,"    @Test
     public void testEncodeUrlWithoutPadding_23_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -4193,8 +5369,9 @@ scribejava_72_23,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(str, jaxb230Base64.internalEncodeUrlWithoutPadding(bytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_23_oe
-scribejava_72_24,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_23_oe
+scribejava_72_24,"    @Test
     public void testEncodeUrlWithoutPadding_24_oe() {
         final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
         final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
@@ -4250,36 +5427,42 @@ scribejava_72_24,"@Test
         // removed other assertion
         // removed other assertion
         assertEquals(allBytesStr, jaxb230Base64.internalEncodeUrlWithoutPadding(allBytes));
-    }",Base64Test::testEncodeUrlWithoutPadding_24_oe
-scribejava_73_1,"@Test
+    }
+",Base64Test::testEncodeUrlWithoutPadding_24_oe
+scribejava_73_1,"    @Test
     public void shouldReturnTimestampInSeconds_1_oe() {
         final String expected = ""1000"";
         assertEquals(expected, service.getTimestampInSeconds());
-    }",TimestampServiceTest::shouldReturnTimestampInSeconds_1_oe
-scribejava_74_1,"@Test
+    }
+",TimestampServiceTest::shouldReturnTimestampInSeconds_1_oe
+scribejava_74_1,"    @Test
     public void shouldReturnNonce_1_oe() {
         final String expected = ""1042"";
         assertEquals(expected, service.getNonce());
-    }",TimestampServiceTest::shouldReturnNonce_1_oe
-scribejava_75_1,"@Test
+    }
+",TimestampServiceTest::shouldReturnNonce_1_oe
+scribejava_75_1,"    @Test
     public void shouldReturnSignatureMethodString_1_oe() {
         final String expected = ""HMAC-SHA1"";
         assertEquals(expected, service.getSignatureMethod());
-    }",HMACSha1SignatureServiceTest::shouldReturnSignatureMethodString_1_oe
-scribejava_76_1,"@Test
+    }
+",HMACSha1SignatureServiceTest::shouldReturnSignatureMethodString_1_oe
+scribejava_76_1,"    @Test
     public void shouldReturnSignature_1_oe() {
         final String apiSecret = ""api secret"";
         final String tokenSecret = ""token secret"";
         final String baseString = ""base string"";
         final String signature = ""uGymw2KHOTWI699YEaoi5xyLT50="";
         assertEquals(signature, service.getSignature(baseString, apiSecret, tokenSecret));
-    }",HMACSha1SignatureServiceTest::shouldReturnSignature_1_oe
-scribejava_77_1,"@Test
+    }
+",HMACSha1SignatureServiceTest::shouldReturnSignature_1_oe
+scribejava_77_1,"    @Test
     public void shouldReturnSignatureMethodString_1_oe() {
         final String expected = ""RSA-SHA1"";
         assertEquals(expected, service.getSignatureMethod());
-    }",RSASha1SignatureServiceTest::shouldReturnSignatureMethodString_1_oe
-scribejava_78_1,"@Test
+    }
+",RSASha1SignatureServiceTest::shouldReturnSignatureMethodString_1_oe
+scribejava_78_1,"    @Test
     public void shouldReturnSignature_1_oe() {
         final String apiSecret = ""api secret"";
         final String tokenSecret = ""token secret"";
@@ -4287,4 +5470,686 @@ scribejava_78_1,"@Test
         final String signature = ""LUNRzQAlpdNyM9mLXm96Va6g/qVNnEAb7p7K1KM0g8IopOFQJPoOO7cvppgt7w3QyhijWJnCmvqXaaIAGrqvd""
                 + ""yr3fIzBULh8D/iZQUNLMi08GCOA34P81XBvsc7A5uJjPDsGhJg2MzoVJ8nWJhU/lMMk4c92S1WGskeoDofRwpo="";
         assertEquals(signature, service.getSignature(baseString, apiSecret, tokenSecret));
-    }",RSASha1SignatureServiceTest::shouldReturnSignature_1_oe
+    }
+",RSASha1SignatureServiceTest::shouldReturnSignature_1_oe
+scribejava_79_1,"    @Test
+    public void shouldReleaseLatchOnSuccess_1_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        assertNotNull(callback.getResponse());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_1_oe
+scribejava_79_2,"    @Test
+    public void shouldReleaseLatchOnSuccess_2_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        assertNull(callback.getThrowable());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_2_oe
+scribejava_79_3,"    @Test
+    public void shouldReleaseLatchOnSuccess_3_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertEquals(""All good"", future.get());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_3_oe
+scribejava_80_1,"    @Test
+    public void shouldReleaseLatchOnIOException_1_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        assertNull(callback.getResponse());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_1_oe
+scribejava_80_2,"    @Test
+    public void shouldReleaseLatchOnIOException_2_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_2_oe
+scribejava_80_3,"    @Test
+    public void shouldReleaseLatchOnIOException_3_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof IOException);
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_3_oe
+scribejava_80_4,"    @Test
+    public void shouldReleaseLatchOnIOException_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } });
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_4_oe
+scribejava_81_1,"    @Test
+    public void shouldReportOAuthException_1_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        assertNull(callback.getResponse());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_1_oe
+scribejava_81_2,"    @Test
+    public void shouldReportOAuthException_2_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_2_oe
+scribejava_81_3,"    @Test
+    public void shouldReportOAuthException_3_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof OAuthException);
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_3_oe
+scribejava_81_4,"    @Test
+    public void shouldReportOAuthException_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } });
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_4_oe
+scribejava_82_1,"    @Test
+    public void shouldReleaseLatchOnCancel_1_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        future.cancel(true);
+        assertNull(callback.getResponse());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_1_oe
+scribejava_82_2,"    @Test
+    public void shouldReleaseLatchOnCancel_2_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        future.cancel(true);
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_2_oe
+scribejava_82_3,"    @Test
+    public void shouldReleaseLatchOnCancel_3_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        future.cancel(true);
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof IOException);
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_3_oe
+scribejava_82_4,"    @Test
+    public void shouldReleaseLatchOnCancel_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        future.cancel(true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } });
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_4_oe
+scribejava_83_1,"    @Test
+    public void shouldReleaseLatchOnFailure_1_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        handler.onFailure(call, new IOException());
+        assertNull(callback.getResponse());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_1_oe
+scribejava_83_2,"    @Test
+    public void shouldReleaseLatchOnFailure_2_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        handler.onFailure(call, new IOException());
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_2_oe
+scribejava_83_3,"    @Test
+    public void shouldReleaseLatchOnFailure_3_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        handler.onFailure(call, new IOException());
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof IOException);
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_3_oe
+scribejava_83_4,"    @Test
+    public void shouldReleaseLatchOnFailure_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        handler.onFailure(call, new IOException());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } });
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_4_oe
+scribejava_84_1,"    @Test
+    public void shouldReleaseLatchOnSuccess_1_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        assertNotNull(callback.getResponse());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_1_oe
+scribejava_84_2,"    @Test
+    public void shouldReleaseLatchOnSuccess_2_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        assertNull(callback.getThrowable());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_2_oe
+scribejava_84_3,"    @Test
+    public void shouldReleaseLatchOnSuccess_3_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertEquals(""All good"", handler.getResult());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_3_oe
+scribejava_85_1,"    @Test
+    public void shouldReleaseLatchOnIOException_1_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        assertNull(callback.getResponse());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_1_oe
+scribejava_85_2,"    @Test
+    public void shouldReleaseLatchOnIOException_2_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_2_oe
+scribejava_85_3,"    @Test
+    public void shouldReleaseLatchOnIOException_3_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof IOException);
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_3_oe
+scribejava_85_4,"    @Test
+    public void shouldReleaseLatchOnIOException_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } });
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_4_oe
+scribejava_86_1,"    @Test
+    public void shouldReportOAuthException_1_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        assertNull(callback.getResponse());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_1_oe
+scribejava_86_2,"    @Test
+    public void shouldReportOAuthException_2_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_2_oe
+scribejava_86_3,"    @Test
+    public void shouldReportOAuthException_3_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof OAuthException);
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_3_oe
+scribejava_86_4,"    @Test
+    public void shouldReportOAuthException_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } });
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_4_oe
+scribejava_87_1,"    @Test
+    public void shouldReleaseLatchOnCancel_1_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.cancelled();
+        assertNull(callback.getResponse());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_1_oe
+scribejava_87_2,"    @Test
+    public void shouldReleaseLatchOnCancel_2_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.cancelled();
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_2_oe
+scribejava_87_3,"    @Test
+    public void shouldReleaseLatchOnCancel_3_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.cancelled();
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof CancellationException);
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_3_oe
+scribejava_87_4,"    @Test
+    public void shouldReleaseLatchOnCancel_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.cancelled();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } });
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_4_oe
+scribejava_88_1,"    @Test
+    public void shouldReleaseLatchOnFailure_1_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.failed(new RuntimeException());
+        assertNull(callback.getResponse());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_1_oe
+scribejava_88_2,"    @Test
+    public void shouldReleaseLatchOnFailure_2_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.failed(new RuntimeException());
+        // removed other assertion
+        assertNotNull(callback.getThrowable());
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_2_oe
+scribejava_88_3,"    @Test
+    public void shouldReleaseLatchOnFailure_3_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.failed(new RuntimeException());
+        // removed other assertion
+        // removed other assertion
+        assertTrue(callback.getThrowable() instanceof RuntimeException);
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_3_oe
+scribejava_88_4,"    @Test
+    public void shouldReleaseLatchOnFailure_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.failed(new RuntimeException());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } });
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_4_oe
+scribejava_89_1,"    @Test
+    public void shouldThrowExceptionIfResponseIsError_1_oe() throws IOException {
+        final String body = ""{\""error\"":""
+                + ""{\""message\"":\""This authorization code has been used.\"",""
+                + ""\""type\"":\""OAuthException\"",""
+                + ""\""code\"":100,""
+                + ""\""fbtrace_id\"":\""DtxvtGRaxbB\""}}"";
+        try (Response response = error(body)) {
+
+            final FacebookAccessTokenErrorResponse fateR = assertThrows(FacebookAccessTokenErrorResponse.class, new ThrowingRunnable() { @Override public void run() throws Throwable { extractor.extract(response); } });
+    }
+    }
+",FacebookAccessTokenJsonExtractorTest::shouldThrowExceptionIfResponseIsError_1_oe
+scribejava_89_2,"    @Test
+    public void shouldThrowExceptionIfResponseIsError_2_oe() throws IOException {
+        final String body = ""{\""error\"":""
+                + ""{\""message\"":\""This authorization code has been used.\"",""
+                + ""\""type\"":\""OAuthException\"",""
+                + ""\""code\"":100,""
+                + ""\""fbtrace_id\"":\""DtxvtGRaxbB\""}}"";
+        try (Response response = error(body)) {
+
+            // removed other assertion
+
+            assertEquals(""This authorization code has been used."", fateR.getErrorMessage());
+    }
+    }
+",FacebookAccessTokenJsonExtractorTest::shouldThrowExceptionIfResponseIsError_2_oe
+scribejava_89_3,"    @Test
+    public void shouldThrowExceptionIfResponseIsError_3_oe() throws IOException {
+        final String body = ""{\""error\"":""
+                + ""{\""message\"":\""This authorization code has been used.\"",""
+                + ""\""type\"":\""OAuthException\"",""
+                + ""\""code\"":100,""
+                + ""\""fbtrace_id\"":\""DtxvtGRaxbB\""}}"";
+        try (Response response = error(body)) {
+
+            // removed other assertion
+
+            // removed other assertion
+            assertEquals(""OAuthException"", fateR.getType());
+    }
+    }
+",FacebookAccessTokenJsonExtractorTest::shouldThrowExceptionIfResponseIsError_3_oe
+scribejava_89_4,"    @Test
+    public void shouldThrowExceptionIfResponseIsError_4_oe() throws IOException {
+        final String body = ""{\""error\"":""
+                + ""{\""message\"":\""This authorization code has been used.\"",""
+                + ""\""type\"":\""OAuthException\"",""
+                + ""\""code\"":100,""
+                + ""\""fbtrace_id\"":\""DtxvtGRaxbB\""}}"";
+        try (Response response = error(body)) {
+
+            // removed other assertion
+
+            // removed other assertion
+            // removed other assertion
+            assertEquals(100, fateR.getCodeInt());
+    }
+    }
+",FacebookAccessTokenJsonExtractorTest::shouldThrowExceptionIfResponseIsError_4_oe
+scribejava_89_5,"    @Test
+    public void shouldThrowExceptionIfResponseIsError_5_oe() throws IOException {
+        final String body = ""{\""error\"":""
+                + ""{\""message\"":\""This authorization code has been used.\"",""
+                + ""\""type\"":\""OAuthException\"",""
+                + ""\""code\"":100,""
+                + ""\""fbtrace_id\"":\""DtxvtGRaxbB\""}}"";
+        try (Response response = error(body)) {
+
+            // removed other assertion
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            assertEquals(""DtxvtGRaxbB"", fateR.getFbtraceId());
+    }
+    }
+",FacebookAccessTokenJsonExtractorTest::shouldThrowExceptionIfResponseIsError_5_oe
+scribejava_89_6,"    @Test
+    public void shouldThrowExceptionIfResponseIsError_6_oe() throws IOException {
+        final String body = ""{\""error\"":""
+                + ""{\""message\"":\""This authorization code has been used.\"",""
+                + ""\""type\"":\""OAuthException\"",""
+                + ""\""code\"":100,""
+                + ""\""fbtrace_id\"":\""DtxvtGRaxbB\""}}"";
+        try (Response response = error(body)) {
+
+            // removed other assertion
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            assertEquals(body, fateR.getResponse().getBody());
+    }
+    }
+",FacebookAccessTokenJsonExtractorTest::shouldThrowExceptionIfResponseIsError_6_oe
+scribejava_90_1,"    @Test
+    public void testSigGeneration_1_oe() {
+        final OAuth2AccessToken accessToken = new OAuth2AccessToken(""d3iwa.403gvrs194740652m1k4w2a503k3c"");
+        final OAuthRequest request = new OAuthRequest(Verb.GET, URL);
+        service.signRequest(accessToken, request);
+        assertEquals(""96127f5ca29a8351399e94bbd284ab16"", findParam(request.getQueryStringParams(), ""sig""));
+    }
+",OdnoklassnikiServiceTest::testSigGeneration_1_oe
+scribejava_91_1,"    @Test
+    public void testErrorExtraction_1_oe() throws IOException {
+
+        final FitBitJsonTokenExtractor extractor = new FitBitJsonTokenExtractor();
+        final OAuth2AccessTokenErrorResponse thrown = assertThrows(OAuth2AccessTokenErrorResponse.class, new ThrowingRunnable() { @Override public void run() throws Throwable { extractor.generateError(new Response(403, null, null, ERROR_JSON)); } });
+    }
+",FitBitJsonTokenExtractorTest::testErrorExtraction_1_oe
+scribejava_91_2,"    @Test
+    public void testErrorExtraction_2_oe() throws IOException {
+
+        final FitBitJsonTokenExtractor extractor = new FitBitJsonTokenExtractor();
+        // removed other assertion
+        assertSame(OAuth2Error.INVALID_GRANT, thrown.getError());
+    }
+",FitBitJsonTokenExtractorTest::testErrorExtraction_2_oe
+scribejava_91_3,"    @Test
+    public void testErrorExtraction_3_oe() throws IOException {
+
+        final FitBitJsonTokenExtractor extractor = new FitBitJsonTokenExtractor();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(ERROR_DESCRIPTION, thrown.getErrorDescription());
+    }
+",FitBitJsonTokenExtractorTest::testErrorExtraction_3_oe

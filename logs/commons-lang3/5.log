@@ -1,0 +1,684 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.commons:commons-lang3 >------------------
+[INFO] Building Apache Commons Lang 3.12.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-lang3 ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-lang3 ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-lang3 ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-lang3 ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-lang3 ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3
+[INFO] Storing buildNumber: 504c4e02269b05d34548a85b1573338184bb5848 at timestamp: 1770388978920
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
+
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3
+[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-lang3 ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-lang3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 215 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/java/org/apache/commons/lang3/function/FailableDoublePredicate.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/java/org/apache/commons/lang3/function/FailableDoublePredicate.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-lang3 ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-lang3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 318 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/DiffBuilderTest.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/DiffBuilderTest.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[562,25] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[573,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[585,27] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[601,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[618,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[636,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[653,25] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[665,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[678,27] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[695,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[713,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[732,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[749,25] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[771,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[785,27] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[819,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[839,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[860,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[882,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[905,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[927,25] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[949,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[963,27] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[997,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1017,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1038,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1060,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1083,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1105,25] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1127,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1141,27] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1175,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1195,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1216,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1238,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1261,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1283,25] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1316,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1331,27] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1385,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1407,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1430,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1454,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1479,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1505,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1535,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1559,25] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1592,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1607,27] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1661,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1683,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1706,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1730,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1755,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1781,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1811,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1835,25] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1868,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1883,27] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1937,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1959,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1982,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2006,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2031,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2057,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2087,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2111,25] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2122,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2134,27] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2149,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2165,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2182,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2200,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2221,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2242,25] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2254,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2267,27] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2284,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2302,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2321,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2341,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2365,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2389,33] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2399,33] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2410,33] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2422,33] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2449,25] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2462,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2476,27] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2494,9] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2513,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2533,29] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2550,33] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2559,33] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2569,33] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2589,33] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2599,33] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2610,33] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2622,33] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2651,25] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  19.531 s
+[INFO] Finished at: 2026-02-06T08:43:15-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-lang3: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[562,25] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[573,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[585,27] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[601,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[618,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[636,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[653,25] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[665,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[678,27] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[695,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[713,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[732,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[749,25] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[771,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[785,27] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[819,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[839,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[860,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[882,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[905,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[927,25] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[949,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[963,27] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[997,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1017,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1038,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1060,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1083,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1105,25] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1127,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1141,27] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1175,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1195,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1216,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1238,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1261,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1283,25] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1316,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1331,27] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1385,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1407,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1430,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1454,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1479,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1505,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1535,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1559,25] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1592,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1607,27] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1661,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1683,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1706,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1730,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1755,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1781,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1811,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1835,25] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1868,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1883,27] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1937,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1959,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[1982,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2006,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2031,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2057,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2087,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2111,25] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2122,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2134,27] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2149,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2165,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2182,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2200,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2221,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2242,25] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2254,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2267,27] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2284,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2302,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2321,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2341,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2365,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2389,33] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2399,33] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2410,33] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2422,33] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2449,25] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2462,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2476,27] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2494,9] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2513,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2533,29] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2550,33] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2559,33] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2569,33] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2589,33] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2599,33] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2610,33] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2622,33] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev.java:[2651,25] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -26,8 +26,13 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core
-[INFO] Storing buildNumber: e4cf1dbede35d5b995b6d81363d313f167d9b312 at timestamp: 2026-02-05 02:19:00-0600
-[INFO] Storing buildScmBranch: jan-22-projects
+[INFO] Storing buildNumber: 504c4e02269b05d34548a85b1573338184bb5848 at timestamp: 2026-02-06 08:42:19-0600
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
+
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core
+[INFO] Storing buildScmBranch: UNKNOWN
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-rng-core ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -47,7 +52,7 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-rng-core ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 54 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/test-classes
+[INFO] Compiling 102 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/test-classes
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[43,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[44,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[51,41] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
@@ -60,6 +65,18 @@ main:
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[64,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[65,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[66,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[81,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[82,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[89,41] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[90,41] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[97,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[104,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[112,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[121,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[131,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[142,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[154,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[167,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
 [INFO] 
 [INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-rng-core ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
@@ -68,13 +85,154 @@ main:
 [INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/jacoco.exec
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-rng-core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.rng.core.BaseProviderTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s - in org.apache.commons.rng.core.BaseProviderTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.JDKRandomTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.rng.core.source32.JDKRandomTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.XoRoShiRo64StarStarTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.XoRoShiRo64StarStarTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.MiddleSquareWeylSequenceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.rng.core.source32.MiddleSquareWeylSequenceTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.KISSRandomTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.KISSRandomTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.ISAACRandomTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.rng.core.source32.ISAACRandomTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.Well19937cTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.Well19937cTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.PcgXshRr32Test_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.PcgXshRr32Test_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.Well19937aTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.source32.Well19937aTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.MultiplyWithCarry256Test_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.rng.core.source32.MultiplyWithCarry256Test_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.PcgMcgXshRr32Test_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.PcgMcgXshRr32Test_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.Well1024aTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.Well1024aTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.PcgXshRs32Test_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.source32.PcgXshRs32Test_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.Well44497aTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.rng.core.source32.Well44497aTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.Well44497bTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.rng.core.source32.Well44497bTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.Well512aTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.rng.core.source32.Well512aTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.DotyHumphreySmallFastCounting32Test_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.rng.core.source32.DotyHumphreySmallFastCounting32Test_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.JenkinsSmallFast32Test_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.rng.core.source32.JenkinsSmallFast32Test_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.IntProviderTest_OE25Dev
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.039 s <<< FAILURE! - in org.apache.commons.rng.core.source32.IntProviderTest_OE25Dev
+[ERROR] testNextBoolean_2_oe  Time elapsed: 0.036 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Pass 2, bit 0 ==> expected: <false> but was: <true>
+	at org.apache.commons.rng.core.source32.IntProviderTest_OE25Dev.testNextBoolean_2_oe(IntProviderTest_OE25Dev.java:90)
+
+[INFO] Running org.apache.commons.rng.core.source32.PcgMcgXshRs32Test_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.PcgMcgXshRs32Test_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.XoRoShiRo64StarTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.rng.core.source32.XoRoShiRo64StarTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.MersenneTwisterTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.rng.core.source32.MersenneTwisterTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.XoShiRo128StarStarTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.rng.core.source32.XoShiRo128StarStarTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.XoShiRo128PlusPlusTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.XoShiRo128PlusPlusTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source32.XoShiRo128PlusTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.rng.core.source32.XoShiRo128PlusTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.XoShiRo256PlusPlusTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoShiRo256PlusPlusTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.PcgRxsMXs64Test_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.rng.core.source64.PcgRxsMXs64Test_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.XoShiRo256StarStarTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.rng.core.source64.XoShiRo256StarStarTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.DotyHumphreySmallFastCounting64Test_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.rng.core.source64.DotyHumphreySmallFastCounting64Test_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.XoShiRo512StarStarTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.rng.core.source64.XoShiRo512StarStarTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo1024PlusPlusTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.rng.core.source64.XoRoShiRo1024PlusPlusTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo128PlusPlusTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.rng.core.source64.XoRoShiRo128PlusPlusTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo1024StarTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.rng.core.source64.XoRoShiRo1024StarTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.JenkinsSmallFast64Test_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.source64.JenkinsSmallFast64Test_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.MersenneTwister64Test_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.rng.core.source64.MersenneTwister64Test_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.XoShiRo512PlusTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.source64.XoShiRo512PlusTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.XorShift1024StarTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.rng.core.source64.XorShift1024StarTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.XoShiRo512PlusPlusTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.rng.core.source64.XoShiRo512PlusPlusTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo128StarStarTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.source64.XoRoShiRo128StarStarTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.TwoCmresTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.119 s - in org.apache.commons.rng.core.source64.TwoCmresTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.XoShiRo256PlusTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.rng.core.source64.XoShiRo256PlusTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo1024StarStarTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoRoShiRo1024StarStarTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.SplitMix64Test_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.SplitMix64Test_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.LongProviderTest_OE25Dev
+[ERROR] Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.apache.commons.rng.core.source64.LongProviderTest_OE25Dev
+[ERROR] testNextBoolean_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Pass 2, bit 0 ==> expected: <false> but was: <true>
+	at org.apache.commons.rng.core.source64.LongProviderTest_OE25Dev.testNextBoolean_2_oe(LongProviderTest_OE25Dev.java:174)
+
+[ERROR] testNextInt_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 2nd call not the lower 32-bits ==> expected: <1> but was: <0>
+	at org.apache.commons.rng.core.source64.LongProviderTest_OE25Dev.testNextInt_2_oe(LongProviderTest_OE25Dev.java:107)
+
+[ERROR] testNextInt_4_oe  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 4th call not the lower 32-bits ==> expected: <1> but was: <0>
+	at org.apache.commons.rng.core.source64.LongProviderTest_OE25Dev.testNextInt_4_oe(LongProviderTest_OE25Dev.java:138)
+
+[INFO] Running org.apache.commons.rng.core.source64.XorShift1024StarPhiTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.rng.core.source64.XorShift1024StarPhiTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo128PlusTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.source64.XoRoShiRo128PlusTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.RandomProviderDefaultStateTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.rng.core.RandomProviderDefaultStateTest_OE25Dev
+[INFO] Running org.apache.commons.rng.core.util.NumberFactoryTest_OE25Dev
+[ERROR] Tests run: 37, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.071 s <<< FAILURE! - in org.apache.commons.rng.core.util.NumberFactoryTest_OE25Dev
+[ERROR] testIntToByteArraySignificanceOrder_1_oe  Time elapsed: 0.007 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.apache.commons.rng.core.util.NumberFactoryTest_OE25Dev.testIntToByteArraySignificanceOrder_1_oe(NumberFactoryTest_OE25Dev.java:236)
+
+[ERROR] testLongToByteArraySignificanceOrder_1_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.apache.commons.rng.core.util.NumberFactoryTest_OE25Dev.testLongToByteArraySignificanceOrder_1_oe(NumberFactoryTest_OE25Dev.java:199)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   IntProviderTest_OE25Dev.testNextBoolean_2_oe:90 Pass 2, bit 0 ==> expected: <false> but was: <true>
+[ERROR]   LongProviderTest_OE25Dev.testNextBoolean_2_oe:174 Pass 2, bit 0 ==> expected: <false> but was: <true>
+[ERROR]   LongProviderTest_OE25Dev.testNextInt_2_oe:107 2nd call not the lower 32-bits ==> expected: <1> but was: <0>
+[ERROR]   LongProviderTest_OE25Dev.testNextInt_4_oe:138 4th call not the lower 32-bits ==> expected: <1> but was: <0>
+[ERROR]   NumberFactoryTest_OE25Dev.testIntToByteArraySignificanceOrder_1_oe:236 expected: <true> but was: <false>
+[ERROR]   NumberFactoryTest_OE25Dev.testLongToByteArraySignificanceOrder_1_oe:199 expected: <true> but was: <false>
+[INFO] 
+[ERROR] Tests run: 113, Failures: 6, Errors: 0, Skipped: 0
+[INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.058 s
-[INFO] Finished at: 2026-02-05T02:19:08-06:00
+[INFO] Total time:  10.941 s
+[INFO] Finished at: 2026-02-06T08:42:28-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-rng-core: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-rng-core: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

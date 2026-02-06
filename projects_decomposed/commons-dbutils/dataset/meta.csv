@@ -1,6 +1,7 @@
 id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
 dbut_1_1,commons-dbutils,QueryLoaderTest,testLoad_1_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown,standard,assertTrue
 dbut_1_2,commons-dbutils,QueryLoaderTest,testLoad_2_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown,standard,assertTrue
+dbut_2_1,commons-dbutils,QueryLoaderTest,testLoadThrowsIllegalArgumentException_1_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown,standard,fail
 dbut_2_2,commons-dbutils,QueryLoaderTest,testLoadThrowsIllegalArgumentException_2_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown,standard,assertEquals
 dbut_2_3,commons-dbutils,QueryLoaderTest,testLoadThrowsIllegalArgumentException_3_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown,standard,assertEquals
 dbut_3_1,commons-dbutils,BeanProcessorTest,testProcessWithToBean_1_oe,src/test/java/org/apache/commons/dbutils/BeanProcessorTest.java,,,,assert,unknown,standard,assertTrue
@@ -50,6 +51,8 @@ dbut_14_1,commons-dbutils,ServiceLoaderTest,testFindsLocalColumnHandler_1_oe,src
 dbut_15_1,commons-dbutils,ServiceLoaderTest,testFindsLocalPropertyHandler_1_oe,src/test/java/org/apache/commons/dbutils/ServiceLoaderTest.java,,,,assert,unknown,standard,assertTrue
 dbut_16_1,commons-dbutils,ServiceLoaderTest,testFindMoreThanLocalColumns_1_oe,src/test/java/org/apache/commons/dbutils/ServiceLoaderTest.java,,,,assert,unknown,standard,assertTrue
 dbut_17_1,commons-dbutils,ServiceLoaderTest,testFindMoreThanLocalProperties_1_oe,src/test/java/org/apache/commons/dbutils/ServiceLoaderTest.java,,,,assert,unknown,standard,assertTrue
+dbut_18_1,commons-dbutils,DbUtilsTest,commitAndCloseWithException_1_oe,src/test/java/org/apache/commons/dbutils/DbUtilsTest.java,,,,assert,unknown,standard,fail
+dbut_19_1,commons-dbutils,DbUtilsTest,rollbackAndCloseWithException_1_oe,src/test/java/org/apache/commons/dbutils/DbUtilsTest.java,,,,assert,unknown,standard,fail
 dbut_20_1,commons-dbutils,DbUtilsTest,testLoadDriverReturnsFalse_1_oe,src/test/java/org/apache/commons/dbutils/DbUtilsTest.java,,,,assert,unknown,standard,assertFalse
 dbut_21_1,commons-dbutils,OutParameterTest,testSetValue_1_oe,src/test/java/org/apache/commons/dbutils/OutParameterTest.java,,,,assert,unknown,standard,assertEquals
 dbut_22_1,commons-dbutils,BaseTestCase,testCheckDataSizes_1_oe,src/test/java/org/apache/commons/dbutils/BaseTestCase.java,,,,assert,unknown,standard,assertEquals
@@ -84,6 +87,7 @@ dbut_32_8,commons-dbutils,ResultSetIteratorTest,testNext_8_oe,src/test/java/org/
 dbut_32_9,commons-dbutils,ResultSetIteratorTest,testNext_9_oe,src/test/java/org/apache/commons/dbutils/ResultSetIteratorTest.java,,,,assert,unknown,standard,assertEquals
 dbut_32_10,commons-dbutils,ResultSetIteratorTest,testNext_10_oe,src/test/java/org/apache/commons/dbutils/ResultSetIteratorTest.java,,,,assert,unknown,standard,assertEquals
 dbut_32_11,commons-dbutils,ResultSetIteratorTest,testNext_11_oe,src/test/java/org/apache/commons/dbutils/ResultSetIteratorTest.java,,,,assert,unknown,standard,assertFalse
+dbut_33_1,commons-dbutils,ResultSetIteratorTest,testRethrowThrowsRuntimeException_1_oe,src/test/java/org/apache/commons/dbutils/ResultSetIteratorTest.java,,,,assert,unknown,standard,fail
 dbut_33_2,commons-dbutils,ResultSetIteratorTest,testRethrowThrowsRuntimeException_2_oe,src/test/java/org/apache/commons/dbutils/ResultSetIteratorTest.java,,,,assert,unknown,standard,assertEquals
 dbut_34_1,commons-dbutils,BasicRowProcessorTest,testToArray_1_oe,src/test/java/org/apache/commons/dbutils/BasicRowProcessorTest.java,,,,assert,unknown,standard,assertTrue
 dbut_34_2,commons-dbutils,BasicRowProcessorTest,testToArray_2_oe,src/test/java/org/apache/commons/dbutils/BasicRowProcessorTest.java,,,,assert,unknown,standard,assertEquals
@@ -626,3 +630,16 @@ dbut_121_1,commons-dbutils,DatePropertyHandlerTest,testApplyTypeOfTimestamp_1_oe
 dbut_122_1,commons-dbutils,StringEnumPropertyHandlerTest,testMatch_1_oe,src/test/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandlerTest.java,,,,assert,unknown,standard,assertTrue
 dbut_123_1,commons-dbutils,StringEnumPropertyHandlerTest,testMatchNegative_1_oe,src/test/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandlerTest.java,,,,assert,unknown,standard,assertFalse
 dbut_123_2,commons-dbutils,StringEnumPropertyHandlerTest,testMatchNegative_2_oe,src/test/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandlerTest.java,,,,assert,unknown,standard,assertFalse
+dbut_124_1,commons-dbutils,DoubleColumnHandlerTest,testApplyType_1_oe,src/test/java/org/apache/commons/dbutils/handlers/columns/DoubleColumnHandlerTest.java,,,,assert,unknown,standard,assertEquals
+dbut_125_1,commons-dbutils,BooleanColumnHandlerTest,testApplyType_1_oe,src/test/java/org/apache/commons/dbutils/handlers/columns/BooleanColumnHandlerTest.java,,,,assert,unknown,standard,assertEquals
+dbut_126_1,commons-dbutils,FloatColumnHandlerTest,testApplyType_1_oe,src/test/java/org/apache/commons/dbutils/handlers/columns/FloatColumnHandlerTest.java,,,,assert,unknown,standard,assertEquals
+dbut_127_1,commons-dbutils,ByteColumnHandlerTest,testApplyType_1_oe,src/test/java/org/apache/commons/dbutils/handlers/columns/ByteColumnHandlerTest.java,,,,assert,unknown,standard,assertEquals
+dbut_128_1,commons-dbutils,IntegerColumnHandlerTest,testMatchNegative_1_oe,src/test/java/org/apache/commons/dbutils/handlers/columns/IntegerColumnHandlerTest.java,,,,assert,unknown,standard,assertFalse
+dbut_129_1,commons-dbutils,IntegerColumnHandlerTest,testApplyType_1_oe,src/test/java/org/apache/commons/dbutils/handlers/columns/IntegerColumnHandlerTest.java,,,,assert,unknown,standard,assertEquals
+dbut_130_1,commons-dbutils,StringColumnHandlerTest,testApplyType_1_oe,src/test/java/org/apache/commons/dbutils/handlers/columns/StringColumnHandlerTest.java,,,,assert,unknown,standard,assertEquals
+dbut_131_1,commons-dbutils,SQLXMLColumnHandlerTest,testApplyType_1_oe,src/test/java/org/apache/commons/dbutils/handlers/columns/SQLXMLColumnHandlerTest.java,,,,assert,unknown,standard,assertTrue
+dbut_132_1,commons-dbutils,TimestampColumnHandlerTest,testApplyType_1_oe,src/test/java/org/apache/commons/dbutils/handlers/columns/TimestampColumnHandlerTest.java,,,,assert,unknown,standard,assertEquals
+dbut_133_1,commons-dbutils,ColumnHandlerTestBase,testMatch_1_oe,src/test/java/org/apache/commons/dbutils/handlers/columns/ColumnHandlerTestBase.java,,,,assert,unknown,standard,assertTrue
+dbut_134_1,commons-dbutils,ColumnHandlerTestBase,testMatchNegative_1_oe,src/test/java/org/apache/commons/dbutils/handlers/columns/ColumnHandlerTestBase.java,,,,assert,unknown,standard,assertFalse
+dbut_135_1,commons-dbutils,ShortColumnHandlerTest,testApplyType_1_oe,src/test/java/org/apache/commons/dbutils/handlers/columns/ShortColumnHandlerTest.java,,,,assert,unknown,standard,assertEquals
+dbut_136_1,commons-dbutils,LongColumnHandlerTest,testApplyType_1_oe,src/test/java/org/apache/commons/dbutils/handlers/columns/LongColumnHandlerTest.java,,,,assert,unknown,standard,assertEquals
