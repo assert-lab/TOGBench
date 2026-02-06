@@ -34,8 +34,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  13.080 s
-[INFO] Finished at: 2026-02-06T11:43:56-06:00
+[INFO] Total time:  11.968 s
+[INFO] Finished at: 2026-02-06T14:02:04-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project jsoup: Compilation failure: Compilation failure: 
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[304,50] unreported exception java.io.IOException; must be caught or declared to be thrown

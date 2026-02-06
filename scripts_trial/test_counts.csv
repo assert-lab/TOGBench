@@ -11,8 +11,8 @@ async-http-client__netty-utils,0,0,0,0,0
 bcel,196,182,14,0,0
 commons-beanutils,1893,1876,13,1,3
 commons-collections4,4778,3791,693,294,0
-commons-configuration2,3783,3773,9,0,1
-commons-dbutils,616,557,0,59,0
+commons-configuration2,3783,3774,8,0,1
+commons-dbutils,614,555,0,59,0
 commons-geometry__commons-geometry-core,870,870,0,0,0
 commons-geometry__commons-geometry-euclidean,3934,3930,4,0,0
 commons-geometry__commons-geometry-io-core,194,183,11,0,0
@@ -23,9 +23,9 @@ commons-jcs3__commons-jcs-core,2,0,2,0,0
 commons-jcs3__commons-jcs-jcache,24,5,0,19,0
 commons-jcs3__commons-jcs-jcache-extras,21,19,2,0,0
 commons-jcs3__commons-jcs-jcache-openjpa,10,4,0,6,0
-commons-jexl3,1500,1412,78,10,0
-commons-lang3,348,348,0,0,0
-commons-net,1,0,0,1,0
+commons-jexl3,1516,1426,79,11,0
+commons-lang3,242,242,0,0,0
+commons-net,697,559,4,115,19
 commons-numbers__commons-numbers-angle,72,72,0,0,0
 commons-numbers__commons-numbers-arrays,34,34,0,0,0
 commons-numbers__commons-numbers-combinatorics,85,85,0,0,0
@@ -38,7 +38,7 @@ commons-numbers__commons-numbers-primes,41,41,0,0,0
 commons-numbers__commons-numbers-quaternion,153,153,0,0,0
 commons-numbers__commons-numbers-rootfinder,0,0,0,0,0
 commons-pool2,309,221,86,2,0
-commons-rng__commons-rng-core,912,906,6,0,0
+commons-rng__commons-rng-core,912,904,8,0,0
 commons-rng__commons-rng-examples__examples-sampling,0,0,0,0,0
 commons-rng__commons-rng-examples__examples-stress,2,2,0,0,0
 commons-rng__commons-rng-sampling,478,475,3,0,0
@@ -50,9 +50,9 @@ commons-weaver__modules__normalizer,12,12,0,0,0
 commons-weaver__processor,188,26,2,160,0
 http-request,331,331,0,0,0
 joda-time,17387,17342,45,0,0
-jsoup,2996,2874,95,26,1
+jsoup,2996,2873,96,26,1
 scribejava__scribejava-core,183,164,19,0,0
 spark,326,265,0,61,0
 springside4__modules__metrics,55,55,0,0,0
 springside4__modules__utils,6,6,0,0,0
-TOTAL,52392,50031,1365,983,13
+TOTAL,52996,50494,1372,1098,32

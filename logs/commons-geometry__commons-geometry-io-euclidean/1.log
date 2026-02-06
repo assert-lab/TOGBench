@@ -34,7 +34,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-io-euclidean ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean
-[INFO] Storing buildNumber: 81e83cc892f7970d0aa3c638bf29a38d05c4eb42 at timestamp: 1770399717837
+[INFO] Storing buildNumber: f446ed1303a240821309b125a7f330fb69105734 at timestamp: 1770408013447
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -79,10 +79,10 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.geometry.io.euclidean.DocumentationExamplesTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.974 s - in org.apache.commons.geometry.io.euclidean.DocumentationExamplesTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.086 s - in org.apache.commons.geometry.io.euclidean.DocumentationExamplesTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryReadHandler3DTest_OE25Dev
-[ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.115 s <<< FAILURE! - in org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryReadHandler3DTest_OE25Dev
-[ERROR] org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryReadHandler3DTest_OE25Dev.testRead_closesInputOnReaderCreationFailure_2_oe  Time elapsed: 0.006 s  <<< FAILURE!
+[ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.125 s <<< FAILURE! - in org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryReadHandler3DTest_OE25Dev
+[ERROR] org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryReadHandler3DTest_OE25Dev.testRead_closesInputOnReaderCreationFailure_2_oe  Time elapsed: 0.01 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -162,15 +162,15 @@ org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryWriteHandler3DTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryWriteHandler3DTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryWriteHandler3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.TextStlFacetDefinitionReaderTest_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s - in org.apache.commons.geometry.io.euclidean.threed.stl.TextStlFacetDefinitionReaderTest_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 s - in org.apache.commons.geometry.io.euclidean.threed.stl.TextStlFacetDefinitionReaderTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.BoundaryIOManager3DTest_OE25Dev
-[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.124 s - in org.apache.commons.geometry.io.euclidean.threed.BoundaryIOManager3DTest_OE25Dev
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.126 s - in org.apache.commons.geometry.io.euclidean.threed.BoundaryIOManager3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.FacetDefinitionsTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.apache.commons.geometry.io.euclidean.threed.FacetDefinitionsTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 s - in org.apache.commons.geometry.io.euclidean.threed.FacetDefinitionsTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3DTest_OE25Dev
-[ERROR] Tests run: 13, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.046 s <<< FAILURE! - in org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3DTest_OE25Dev
+[ERROR] Tests run: 13, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.059 s <<< FAILURE! - in org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3DTest_OE25Dev
 [ERROR] org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3DTest_OE25Dev.testFacetIterator_4_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <SimpleFacetDefinition[vertices= [(0.0, 0.0, 0.0), (0.0, 1.0, 0.0), (-1.0, 1.0, 0.0), (-1.0, 0.0, 0.0)], normal= null]> but was: <SimpleFacetDefinition[vertices= [(0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 1.0, 0.0), (0.0, 1.0, 0.0)], normal= null]>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
@@ -250,7 +250,7 @@ org.opentest4j.AssertionFailedError: expected: <SimpleFacetDefinition[vertices= 
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3DTest_OE25Dev.testFacetIterator_5_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3DTest_OE25Dev.testFacetIterator_5_oe  Time elapsed: 0.005 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:40)
@@ -328,7 +328,7 @@ org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3DTest_OE25Dev.testFacetIterator_6_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3DTest_OE25Dev.testFacetIterator_6_oe  Time elapsed: 0.004 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Expected java.util.NoSuchElementException to be thrown, but nothing was thrown.
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:71)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
@@ -406,16 +406,16 @@ org.opentest4j.AssertionFailedError: Expected java.util.NoSuchElementException t
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.SimpleFacetDefinitionTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.geometry.io.euclidean.threed.SimpleFacetDefinitionTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.geometry.io.euclidean.threed.SimpleFacetDefinitionTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryReadHandler3DTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryReadHandler3DTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryReadHandler3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjFacetDefinitionReaderTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjFacetDefinitionReaderTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjFacetDefinitionReaderTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjTriangleMeshReaderTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjTriangleMeshReaderTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjTriangleMeshReaderTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev
-[ERROR] Tests run: 49, Failures: 12, Errors: 3, Skipped: 0, Time elapsed: 0.083 s <<< FAILURE! - in org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev
-[ERROR] org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev.testParse_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] Tests run: 49, Failures: 12, Errors: 3, Skipped: 0, Time elapsed: 0.191 s <<< FAILURE! - in org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev
+[ERROR] org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev.testParse_2_oe  Time elapsed: 0.011 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <test> but was: <# test content>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -494,7 +494,7 @@ org.opentest4j.AssertionFailedError: expected: <test> but was: <# test content>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev.testParse_4_oe  Time elapsed: 0.012 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev.testParse_4_oe  Time elapsed: 0.008 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <test> but was: <# test content>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -652,7 +652,7 @@ org.opentest4j.AssertionFailedError: expected: <test> but was: <# test content>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev.testParse_8_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev.testParse_8_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <mylib.mtl> but was: <# test content>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -810,7 +810,7 @@ org.opentest4j.AssertionFailedError: expected: <mymaterial> but was: <# test con
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev.testParse_20_oe  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev.testParse_20_oe  Time elapsed: 0.019 s  <<< ERROR!
 java.lang.IllegalStateException: Parsing failed at line 1, column 1: expected double but found [#]
 	at org.apache.commons.geometry.io.core.internal.GeometryIOUtils.parseError(GeometryIOUtils.java:226)
 	at org.apache.commons.geometry.io.core.internal.SimpleTextParser.parseError(SimpleTextParser.java:952)
@@ -896,7 +896,7 @@ Caused by: java.lang.NumberFormatException: For input string: "#"
 	at org.apache.commons.geometry.io.core.internal.SimpleTextParser.getCurrentTokenAsDouble(SimpleTextParser.java:218)
 	... 73 more
 
-[ERROR] org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev.testParse_22_oe  Time elapsed: 0 s  <<< ERROR!
+[ERROR] org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev.testParse_22_oe  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.IllegalStateException: Parsing failed at line 1, column 1: expected double but found [#]
 	at org.apache.commons.geometry.io.core.internal.GeometryIOUtils.parseError(GeometryIOUtils.java:226)
 	at org.apache.commons.geometry.io.core.internal.SimpleTextParser.parseError(SimpleTextParser.java:952)
@@ -982,7 +982,7 @@ Caused by: java.lang.NumberFormatException: For input string: "#"
 	at org.apache.commons.geometry.io.core.internal.SimpleTextParser.getCurrentTokenAsDouble(SimpleTextParser.java:218)
 	... 73 more
 
-[ERROR] org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev.testParse_24_oe  Time elapsed: 0 s  <<< ERROR!
+[ERROR] org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev.testParse_24_oe  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalStateException: Parsing failed at line 1, column 1: expected double but found [#]
 	at org.apache.commons.geometry.io.core.internal.GeometryIOUtils.parseError(GeometryIOUtils.java:226)
 	at org.apache.commons.geometry.io.core.internal.SimpleTextParser.parseError(SimpleTextParser.java:952)
@@ -1226,7 +1226,7 @@ org.opentest4j.AssertionFailedError: expected: <3> but was: <0>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev.testParse_33_oe  Time elapsed: 0.004 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev.testParse_33_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -1305,7 +1305,7 @@ org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev.testReadDoubles_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev.testReadDoubles_2_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: array lengths differ, expected: <0> but was: <5>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
 	at org.junit.jupiter.api.AssertArrayEquals.assertArraysHaveSameLength(AssertArrayEquals.java:423)
@@ -1623,12 +1623,12 @@ org.opentest4j.AssertionFailedError: expected: <null> but was: <  line	>
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryWriteHandler3DTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryWriteHandler3DTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryWriteHandler3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryReadHandler3DTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryReadHandler3DTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryReadHandler3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryWriteHandler3DTest_OE25Dev
-[ERROR] Tests run: 17, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.06 s <<< FAILURE! - in org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryWriteHandler3DTest_OE25Dev
-[ERROR] org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryWriteHandler3DTest_OE25Dev.testWriteFacets_2_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 17, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.161 s <<< FAILURE! - in org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryWriteHandler3DTest_OE25Dev
+[ERROR] org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryWriteHandler3DTest_OE25Dev.testWriteFacets_2_oe  Time elapsed: 0.002 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: <0.0 0.0 0.0;0.3333333333333333 0.0 0.0;1.0 1.0 0.0
 > but was: <0.0 0.0 0.0; 0.3333333333333333 0.0 0.0; 1.0 1.0 0.0
@@ -1792,7 +1792,7 @@ expected: <0.0 0.0 0.0;0.3333333333333333 0.0 0.0;1.0 1.0 0.0
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryWriteHandler3DTest_OE25Dev.testWriteBoundarySource_2_oe  Time elapsed: 0.004 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryWriteHandler3DTest_OE25Dev.testWriteBoundarySource_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: <0.0 0.0 0.0;0.3333333333333333 0.0 0.0;1.0 1.0 0.0;0.0 1.0 0.0
 > but was: <0.0 0.0 0.0; 0.3333333333333333 0.0 0.0; 1.0 1.0 0.0; 0.0 1.0 0.0
@@ -1875,7 +1875,7 @@ expected: <0.0 0.0 0.0;0.3333333333333333 0.0 0.0;1.0 1.0 0.0;0.0 1.0 0.0
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev
-[ERROR] Tests run: 20, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.065 s <<< FAILURE! - in org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev
+[ERROR] Tests run: 20, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.097 s <<< FAILURE! - in org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev
 [ERROR] org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev.testWritePlaneConvexSubset_convertsToTriangles_1_oe  Time elapsed: 0.002 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: <0.0 0.0 0.0;0.0 1.0 0.0;0.0 1.0 1.0
@@ -2044,7 +2044,7 @@ expected: <0.0 0.0 0.0;0.0 0.0 -0.5;0.0 -0.5 0.0
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev.testWriteComment_1_oe  Time elapsed: 0.009 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev.testWriteComment_1_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: <-- first line
 -- second line 
@@ -2132,7 +2132,7 @@ expected: <-- first line
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev.testWriteFacetDefinition_1_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev.testWriteFacetDefinition_1_oe  Time elapsed: 0.002 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: <0.0 0.0 0.0;0.5 0.0 0.0;0.0 -0.5 0.0
 0.5 0.7 1.2;10.01 -4.0 2.0;-3.333 0.0 0.0;0.0 0.0 0.0
@@ -2216,7 +2216,7 @@ expected: <0.0 0.0 0.0;0.5 0.0 0.0;0.0 -0.5 0.0
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev.testWriteVertices_1_oe  Time elapsed: 0.006 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev.testWriteVertices_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: <0.0 0.0 0.0;0.5 0.0 0.0;0.0 -0.5 0.0
 0.5 0.7 1.2;10.01 -4.0 2.0;-3.3333333333333335 0.0 0.0;0.0 0.0 0.0
@@ -2385,7 +2385,7 @@ expected: <0.0 0.0 0.0;0.0 0.0 -0.5;0.0 -0.5 0.0
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionReaderTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionReaderTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionReaderTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -2459,8 +2459,8 @@ expected: <0.0 0.0 0.0;0.0 0.0 -0.5;0.0 -0.5 0.0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  24.287 s
-[INFO] Finished at: 2026-02-06T11:42:17-06:00
+[INFO] Total time:  24.220 s
+[INFO] Finished at: 2026-02-06T14:00:33-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project commons-geometry-io-euclidean: There are test failures.
 [ERROR] 

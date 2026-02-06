@@ -28,13 +28,13 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.springside.modules.metrics.HistogramTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.235 s - in org.springside.modules.metrics.HistogramTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 s - in org.springside.modules.metrics.HistogramTest_OE25Dev
 [INFO] Running org.springside.modules.metrics.TimerTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.metrics.TimerTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.metrics.TimerTest_OE25Dev
 [INFO] Running org.springside.modules.metrics.CounterTest_OE25Dev
 [INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.metrics.CounterTest_OE25Dev
 [INFO] Running org.springside.modules.metrics.MetricRegistryTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.metrics.MetricRegistryTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.springside.modules.metrics.MetricRegistryTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -43,6 +43,6 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.140 s
-[INFO] Finished at: 2026-02-06T11:42:01-06:00
+[INFO] Total time:  7.285 s
+[INFO] Finished at: 2026-02-06T14:00:16-06:00
 [INFO] ------------------------------------------------------------------------

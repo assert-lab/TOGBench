@@ -34,7 +34,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-io-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core
-[INFO] Storing buildNumber: 81e83cc892f7970d0aa3c638bf29a38d05c4eb42 at timestamp: 1770399734146
+[INFO] Storing buildNumber: f446ed1303a240821309b125a7f330fb69105734 at timestamp: 1770408030737
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -75,12 +75,12 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.geometry.io.core.output.StreamGeometryOutputTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.206 s - in org.apache.commons.geometry.io.core.output.StreamGeometryOutputTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.313 s - in org.apache.commons.geometry.io.core.output.StreamGeometryOutputTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.output.FileGeometryOutputTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.152 s - in org.apache.commons.geometry.io.core.output.FileGeometryOutputTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.178 s - in org.apache.commons.geometry.io.core.output.FileGeometryOutputTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev
-[ERROR] Tests run: 52, Failures: 11, Errors: 0, Skipped: 0, Time elapsed: 0.27 s <<< FAILURE! - in org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev
-[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_4_oe  Time elapsed: 0.011 s  <<< FAILURE!
+[ERROR] Tests run: 52, Failures: 11, Errors: 0, Skipped: 0, Time elapsed: 0.315 s <<< FAILURE! - in org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev
+[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_4_oe  Time elapsed: 0.005 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -238,7 +238,7 @@ org.opentest4j.AssertionFailedError: expected: <f> but was: <a>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_8_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_8_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <g> but was: <a>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -396,7 +396,7 @@ org.opentest4j.AssertionFailedError: expected: <1> but was: <7>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_10_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_10_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:54)
@@ -475,7 +475,7 @@ org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_11_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_11_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <0> but was: <7>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -554,7 +554,7 @@ org.opentest4j.AssertionFailedError: expected: <0> but was: <7>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_12_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_12_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:54)
@@ -791,7 +791,7 @@ org.opentest4j.AssertionFailedError: expected: <defgh> but was: <abcdefgh>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testReadPeek_string_7_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testReadPeek_string_7_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -870,7 +870,7 @@ org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testReadPeek_string_8_oe  Time elapsed: 0.01 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testReadPeek_string_8_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -950,13 +950,13 @@ org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
 [INFO] Running org.apache.commons.geometry.io.core.input.FileGeometryInputTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.apache.commons.geometry.io.core.input.FileGeometryInputTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.115 s - in org.apache.commons.geometry.io.core.input.FileGeometryInputTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.input.UrlGeometryInputTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in org.apache.commons.geometry.io.core.input.UrlGeometryInputTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.123 s - in org.apache.commons.geometry.io.core.input.UrlGeometryInputTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.input.StreamGeometryInputTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.geometry.io.core.input.StreamGeometryInputTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.geometry.io.core.input.StreamGeometryInputTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.BoundaryIOManagerTest_OE25Dev
-[INFO] Tests run: 101, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.389 s - in org.apache.commons.geometry.io.core.BoundaryIOManagerTest_OE25Dev
+[INFO] Tests run: 101, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.305 s - in org.apache.commons.geometry.io.core.BoundaryIOManagerTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -978,8 +978,8 @@ org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  17.249 s
-[INFO] Finished at: 2026-02-06T11:42:27-06:00
+[INFO] Total time:  18.841 s
+[INFO] Finished at: 2026-02-06T14:00:45-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project commons-geometry-io-core: There are test failures.
 [ERROR] 

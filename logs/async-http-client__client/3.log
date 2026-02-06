@@ -36,24 +36,24 @@
  T E S T S
 -------------------------------------------------------
 Running TestSuite
-Tests run: 175, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 61.94 sec <<< FAILURE! - in TestSuite
-testGetCompleteServicePrincipalName_2_oe(org.asynchttpclient.spnego.SpnegoEngineTest_OE25Dev)  Time elapsed: 0.004 sec  <<< FAILURE!
+Tests run: 175, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 59.941 sec <<< FAILURE! - in TestSuite
+testGetCompleteServicePrincipalName_2_oe(org.asynchttpclient.spnego.SpnegoEngineTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
 java.lang.AssertionError: did not expect [HTTP@localhost] but found [HTTP@localhost]
 	at org.asynchttpclient.spnego.SpnegoEngineTest_OE25Dev.testGetCompleteServicePrincipalName_2_oe(SpnegoEngineTest_OE25Dev.java:199)
 
-testGetWithRequestBuilderAndQuery_3_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+testGetWithRequestBuilderAndQuery_3_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.IllegalStateException: No match found
 	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_3_oe(OAuthSignatureCalculatorTest_OE25Dev.java:433)
 
-testGetWithRequestBuilderAndQuery_4_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+testGetWithRequestBuilderAndQuery_4_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.IllegalStateException: No match found
 	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_4_oe(OAuthSignatureCalculatorTest_OE25Dev.java:467)
 
-testGetWithRequestBuilderAndQuery_5_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+testGetWithRequestBuilderAndQuery_5_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.IllegalStateException: No match found
 	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_5_oe(OAuthSignatureCalculatorTest_OE25Dev.java:502)
 
-testGetWithRequestBuilder_3_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+testGetWithRequestBuilder_3_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.IllegalStateException: No match found
 	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilder_3_oe(OAuthSignatureCalculatorTest_OE25Dev.java:315)
 
@@ -65,7 +65,7 @@ testPostCalculateSignature_2_oe(org.asynchttpclient.oauth.OAuthSignatureCalculat
 java.lang.IllegalStateException: No match found
 	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testPostCalculateSignature_2_oe(OAuthSignatureCalculatorTest_OE25Dev.java:228)
 
-onFailureTest_1_oe(org.asynchttpclient.ws.TextMessageTest_OE25Dev)  Time elapsed: 0.017 sec  <<< FAILURE!
+onFailureTest_1_oe(org.asynchttpclient.ws.TextMessageTest_OE25Dev)  Time elapsed: 0.02 sec  <<< FAILURE!
 org.testng.TestException: 
 
 Expected exception of any of types [class java.net.UnknownHostException, class java.net.ConnectException] but got java.lang.AssertionError: expected [true] but found [false]
@@ -90,8 +90,8 @@ Tests run: 175, Failures: 8, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  01:15 min
-[INFO] Finished at: 2026-02-06T11:44:06-06:00
+[INFO] Total time:  01:12 min
+[INFO] Finished at: 2026-02-06T14:02:19-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client: There are test failures.
 [ERROR] 

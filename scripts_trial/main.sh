@@ -21,7 +21,7 @@ python3 scripts_trial/inline_custom.py
 
 # seperate still existing custom assertions - dont if handlesin dataset preprocessing/filtering scripts
 
-./scripts_trial/concat_custom_to_standard.sh
+# fix - ./scripts_trial/concat_custom_to_standard.sh
 
 # ======== CUSTOM ASSERTION HANDLING ENDS =============
 
@@ -39,9 +39,12 @@ python3 scripts_trial/try_catch_filter.py
 ./scripts_trial/project_fixes/commons-net.sh
 ./scripts_trial/project_fixes/commons-configuration2.sh
 ./scripts_trial/project_fixes/http-request.sh
-./scripts_trial/project_fixes/commons-lang3.sh
-./scripts_trial/project_fixes/commons-jexl3.sh
 ./scripts_trial/project_fixes/commons-beanutils.sh
+./scripts_trial/project_fixes/commons-lang3.sh
+./scripts_trial/project_fixes/commons-validator.sh
+
+./scripts_trial/project_fixes/jsoup.sh
+./scripts_trial/project_fixes/commons-jexl3.sh
 ./scripts_trial/project_fixes/commons-dbutils.sh
 
 # first run to keep all logs - error and running
@@ -59,9 +62,9 @@ python3 scripts_trial/3_rebuild_tests.py
 # python3 scripts_trial/3_rebuild_tests.py
 
 
-# ./scripts_trial/clean_loop.sh
+./scripts_trial/clean_loop.sh
 
-# python3 scripts_trial/test_count.py
+python3 scripts_trial/test_count.py
 
 # python3 scripts_trial/filter_by_logs.py
 

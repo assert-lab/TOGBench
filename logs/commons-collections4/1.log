@@ -25,7 +25,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-collections4 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4
-[INFO] Storing buildNumber: 81e83cc892f7970d0aa3c638bf29a38d05c4eb42 at timestamp: 1770399826689
+[INFO] Storing buildNumber: f446ed1303a240821309b125a7f330fb69105734 at timestamp: 1770408115755
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -73,18 +73,18 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.collections4.ComparatorUtilsTest_OE25Dev
-[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.apache.commons.collections4.ComparatorUtilsTest_OE25Dev
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s - in org.apache.commons.collections4.ComparatorUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.EnumerationUtilsTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.collections4.EnumerationUtilsTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.EnumerationUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.MultiMapUtilsTest_OE25Dev
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.collections4.MultiMapUtilsTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.apache.commons.collections4.MultiMapUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev
-[ERROR] Tests run: 21, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.032 s <<< FAILURE! - in org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev
-[ERROR] testWritableMap_5_oe(org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev)  Time elapsed: 0.005 s  <<< FAILURE!
+[ERROR] Tests run: 21, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.035 s <<< FAILURE! - in org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev
+[ERROR] testWritableMap_5_oe(org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev)  Time elapsed: 0.007 s  <<< FAILURE!
 java.lang.AssertionError: expected:<13> but was:<14>
 	at org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev.testWritableMap_5_oe(SplitMapUtilsTest_OE25Dev.java:911)
 
-[ERROR] testReadableMap_10_oe(org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] testReadableMap_10_oe(org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 java.lang.AssertionError: expected:<9> but was:<10>
 	at org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev.testReadableMap_10_oe(SplitMapUtilsTest_OE25Dev.java:427)
 
@@ -93,16 +93,16 @@ java.lang.AssertionError
 	at org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev.testReadableMap_11_oe(SplitMapUtilsTest_OE25Dev.java:492)
 
 [INFO] Running org.apache.commons.collections4.FactoryUtilsTest_OE25Dev
-[ERROR] Tests run: 28, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.049 s <<< FAILURE! - in org.apache.commons.collections4.FactoryUtilsTest_OE25Dev
-[ERROR] instantiateFactorySimple_3_oe(org.apache.commons.collections4.FactoryUtilsTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] Tests run: 28, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.08 s <<< FAILURE! - in org.apache.commons.collections4.FactoryUtilsTest_OE25Dev
+[ERROR] instantiateFactorySimple_3_oe(org.apache.commons.collections4.FactoryUtilsTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
 java.lang.AssertionError: expected:<1> but was:<2>
 	at org.apache.commons.collections4.FactoryUtilsTest_OE25Dev.instantiateFactorySimple_3_oe(FactoryUtilsTest_OE25Dev.java:370)
 
 [INFO] Running org.apache.commons.collections4.MultiSetUtilsTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.MultiSetUtilsTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.collections4.MultiSetUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev
-[ERROR] Tests run: 56, Failures: 34, Errors: 5, Skipped: 0, Time elapsed: 0.029 s <<< FAILURE! - in org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev
-[ERROR] testIterateFibEvenOdd_10_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] Tests run: 56, Failures: 34, Errors: 5, Skipped: 0, Time elapsed: 0.07 s <<< FAILURE! - in org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev
+[ERROR] testIterateFibEvenOdd_10_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<5> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_10_oe(CollatingIteratorTest_OE25Dev.java:431)
 
@@ -110,15 +110,15 @@ junit.framework.AssertionFailedError: expected:<5> but was:<0>
 junit.framework.AssertionFailedError: expected:<5> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_11_oe(CollatingIteratorTest_OE25Dev.java:450)
 
-[ERROR] testIterateFibEvenOdd_12_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testIterateFibEvenOdd_12_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0.008 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<6> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_12_oe(CollatingIteratorTest_OE25Dev.java:470)
 
-[ERROR] testIterateFibEvenOdd_13_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testIterateFibEvenOdd_13_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<7> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_13_oe(CollatingIteratorTest_OE25Dev.java:491)
 
-[ERROR] testIterateFibEvenOdd_14_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testIterateFibEvenOdd_14_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<8> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_14_oe(CollatingIteratorTest_OE25Dev.java:513)
 
@@ -134,7 +134,7 @@ junit.framework.AssertionFailedError: expected:<9> but was:<0>
 junit.framework.AssertionFailedError: expected:<10> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_17_oe(CollatingIteratorTest_OE25Dev.java:585)
 
-[ERROR] testIterateFibEvenOdd_18_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testIterateFibEvenOdd_18_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<11> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_18_oe(CollatingIteratorTest_OE25Dev.java:611)
 
@@ -142,7 +142,7 @@ junit.framework.AssertionFailedError: expected:<11> but was:<0>
 junit.framework.AssertionFailedError: expected:<12> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_19_oe(CollatingIteratorTest_OE25Dev.java:638)
 
-[ERROR] testIterateFibEvenOdd_20_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testIterateFibEvenOdd_20_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<13> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_20_oe(CollatingIteratorTest_OE25Dev.java:666)
 
@@ -150,7 +150,7 @@ junit.framework.AssertionFailedError: expected:<13> but was:<0>
 junit.framework.AssertionFailedError: expected:<13> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_21_oe(CollatingIteratorTest_OE25Dev.java:695)
 
-[ERROR] testIterateFibEvenOdd_22_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testIterateFibEvenOdd_22_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<14> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_22_oe(CollatingIteratorTest_OE25Dev.java:725)
 
@@ -174,11 +174,11 @@ junit.framework.AssertionFailedError: expected:<18> but was:<0>
 junit.framework.AssertionFailedError: expected:<19> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_27_oe(CollatingIteratorTest_OE25Dev.java:890)
 
-[ERROR] testIterateFibEvenOdd_28_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testIterateFibEvenOdd_28_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<21> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_28_oe(CollatingIteratorTest_OE25Dev.java:926)
 
-[ERROR] testIterateFibEvenOdd_29_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testIterateFibEvenOdd_29_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0.005 s  <<< FAILURE!
 junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_29_oe(CollatingIteratorTest_OE25Dev.java:964)
 
@@ -186,7 +186,7 @@ junit.framework.AssertionFailedError
 java.lang.IllegalStateException: No value has been returned yet
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateEven_3_oe(CollatingIteratorTest_OE25Dev.java:132)
 
-[ERROR] testIterateEven_4_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testIterateEven_4_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
 junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateEven_4_oe(CollatingIteratorTest_OE25Dev.java:144)
 
@@ -198,7 +198,7 @@ junit.framework.AssertionFailedError: expected:<1> but was:<0>
 junit.framework.AssertionFailedError: expected:<1> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_3_oe(CollatingIteratorTest_OE25Dev.java:326)
 
-[ERROR] testIterateFibEvenOdd_4_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testIterateFibEvenOdd_4_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<1> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_4_oe(CollatingIteratorTest_OE25Dev.java:338)
 
@@ -210,7 +210,7 @@ junit.framework.AssertionFailedError: expected:<2> but was:<0>
 junit.framework.AssertionFailedError: expected:<2> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_6_oe(CollatingIteratorTest_OE25Dev.java:365)
 
-[ERROR] testIterateFibEvenOdd_7_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testIterateFibEvenOdd_7_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<3> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_7_oe(CollatingIteratorTest_OE25Dev.java:380)
 
@@ -226,7 +226,7 @@ junit.framework.AssertionFailedError: expected:<4> but was:<0>
 junit.framework.AssertionFailedError: expected:<2> but was:<0>
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateEvenEven_2_oe(CollatingIteratorTest_OE25Dev.java:230)
 
-[ERROR] testIterateEvenEven_3_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testIterateEvenEven_3_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException: No value has been returned yet
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateEvenEven_3_oe(CollatingIteratorTest_OE25Dev.java:241)
 
@@ -238,7 +238,7 @@ junit.framework.AssertionFailedError: expected:<2> but was:<0>
 java.lang.IllegalStateException: No value has been returned yet
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateEvenEven_6_oe(CollatingIteratorTest_OE25Dev.java:280)
 
-[ERROR] testIterateEvenEven_7_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testIterateEvenEven_7_oe(org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateEvenEven_7_oe(CollatingIteratorTest_OE25Dev.java:296)
 
@@ -259,12 +259,12 @@ junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev.testIterateOddEven_4_oe(CollatingIteratorTest_OE25Dev.java:212)
 
 [INFO] Running org.apache.commons.collections4.iterators.SingletonIteratorTest_OE25Dev
-[ERROR] Tests run: 14, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in org.apache.commons.collections4.iterators.SingletonIteratorTest_OE25Dev
+[ERROR] Tests run: 14, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.apache.commons.collections4.iterators.SingletonIteratorTest_OE25Dev
 [ERROR] testSingletonIteratorRemove_3_oe(org.apache.commons.collections4.iterators.SingletonIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.SingletonIteratorTest_OE25Dev.testSingletonIteratorRemove_3_oe(SingletonIteratorTest_OE25Dev.java:120)
 
-[ERROR] testReset_3_oe(org.apache.commons.collections4.iterators.SingletonIteratorTest_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] testReset_3_oe(org.apache.commons.collections4.iterators.SingletonIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<false> but was:<true>
 	at org.apache.commons.collections4.iterators.SingletonIteratorTest_OE25Dev.testReset_3_oe(SingletonIteratorTest_OE25Dev.java:143)
 
@@ -273,7 +273,7 @@ junit.framework.AssertionFailedError: expected:<false> but was:<true>
 	at org.apache.commons.collections4.iterators.SingletonIteratorTest_OE25Dev.testReset_6_oe(SingletonIteratorTest_OE25Dev.java:182)
 
 [INFO] Running org.apache.commons.collections4.iterators.SingletonIterator2Test_OE25Dev
-[ERROR] Tests run: 11, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.collections4.iterators.SingletonIterator2Test_OE25Dev
+[ERROR] Tests run: 11, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.apache.commons.collections4.iterators.SingletonIterator2Test_OE25Dev
 [ERROR] testReset_3_oe(org.apache.commons.collections4.iterators.SingletonIterator2Test_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<false> but was:<true>
 	at org.apache.commons.collections4.iterators.SingletonIterator2Test_OE25Dev.testReset_3_oe(SingletonIterator2Test_OE25Dev.java:123)
@@ -283,12 +283,12 @@ junit.framework.AssertionFailedError: expected:<false> but was:<true>
 	at org.apache.commons.collections4.iterators.SingletonIterator2Test_OE25Dev.testReset_6_oe(SingletonIterator2Test_OE25Dev.java:162)
 
 [INFO] Running org.apache.commons.collections4.iterators.IteratorChainTest_OE25Dev
-[ERROR] Tests run: 17, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in org.apache.commons.collections4.iterators.IteratorChainTest_OE25Dev
-[ERROR] testFirstIteratorIsEmptyBug_4_oe(org.apache.commons.collections4.iterators.IteratorChainTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
+[ERROR] Tests run: 17, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.collections4.iterators.IteratorChainTest_OE25Dev
+[ERROR] testFirstIteratorIsEmptyBug_4_oe(org.apache.commons.collections4.iterators.IteratorChainTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.ComparisonFailure: expected:<[B]> but was:<[A]>
 	at org.apache.commons.collections4.iterators.IteratorChainTest_OE25Dev.testFirstIteratorIsEmptyBug_4_oe(IteratorChainTest_OE25Dev.java:308)
 
-[ERROR] testFirstIteratorIsEmptyBug_6_oe(org.apache.commons.collections4.iterators.IteratorChainTest_OE25Dev)  Time elapsed: 0.005 s  <<< FAILURE!
+[ERROR] testFirstIteratorIsEmptyBug_6_oe(org.apache.commons.collections4.iterators.IteratorChainTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.ComparisonFailure: expected:<[C]> but was:<[A]>
 	at org.apache.commons.collections4.iterators.IteratorChainTest_OE25Dev.testFirstIteratorIsEmptyBug_6_oe(IteratorChainTest_OE25Dev.java:341)
 
@@ -299,8 +299,8 @@ junit.framework.AssertionFailedError: should not have next
 [INFO] Running org.apache.commons.collections4.iterators.UniqueFilterIteratorTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.UniqueFilterIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev
-[ERROR] Tests run: 80, Failures: 26, Errors: 16, Skipped: 0, Time elapsed: 0.031 s <<< FAILURE! - in org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev
-[ERROR] testRemoveLast_10_oe(org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] Tests run: 80, Failures: 26, Errors: 16, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev
+[ERROR] testRemoveLast_10_oe(org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<f> but was:<b>
 	at org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev.testRemoveLast_10_oe(BoundedIteratorTest_OE25Dev.java:1179)
 
@@ -344,7 +344,7 @@ junit.framework.AssertionFailedError: expected:<e> but was:<b>
 java.lang.IllegalStateException: remove() can not be called before calling next()
 	at org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev.testRemoveFirst_3_oe(BoundedIteratorTest_OE25Dev.java:710)
 
-[ERROR] testRemoveFirst_4_oe(org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemoveFirst_4_oe(org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalStateException: remove() can not be called before calling next()
 	at org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev.testRemoveFirst_4_oe(BoundedIteratorTest_OE25Dev.java:722)
 
@@ -364,7 +364,7 @@ java.lang.IllegalStateException: remove() can not be called before calling next(
 java.lang.IllegalStateException: remove() can not be called before calling next()
 	at org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev.testRemoveFirst_8_oe(BoundedIteratorTest_OE25Dev.java:784)
 
-[ERROR] testRemoveFirst_9_oe(org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testRemoveFirst_9_oe(org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException: remove() can not be called before calling next()
 	at org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev.testRemoveFirst_9_oe(BoundedIteratorTest_OE25Dev.java:802)
 
@@ -376,7 +376,7 @@ junit.framework.AssertionFailedError: expected:<c> but was:<b>
 junit.framework.AssertionFailedError: expected:<d> but was:<b>
 	at org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev.testMaxGreaterThanSize_6_oe(BoundedIteratorTest_OE25Dev.java:552)
 
-[ERROR] testMaxGreaterThanSize_8_oe(org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testMaxGreaterThanSize_8_oe(org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<e> but was:<b>
 	at org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev.testMaxGreaterThanSize_8_oe(BoundedIteratorTest_OE25Dev.java:579)
 
@@ -408,7 +408,7 @@ java.lang.IllegalStateException: remove() can not be called before calling next(
 java.lang.IllegalStateException: remove() can not be called before calling next()
 	at org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev.testRemoveMiddle_8_oe(BoundedIteratorTest_OE25Dev.java:968)
 
-[ERROR] testRemoveMiddle_9_oe(org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemoveMiddle_9_oe(org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
 java.lang.IllegalStateException: remove() can not be called before calling next()
 	at org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev.testRemoveMiddle_9_oe(BoundedIteratorTest_OE25Dev.java:986)
 
@@ -416,7 +416,7 @@ java.lang.IllegalStateException: remove() can not be called before calling next(
 junit.framework.AssertionFailedError: expected:<f> but was:<b>
 	at org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev.testMaxGreaterThanSize_10_oe(BoundedIteratorTest_OE25Dev.java:610)
 
-[ERROR] testMaxGreaterThanSize_12_oe(org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testMaxGreaterThanSize_12_oe(org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<g> but was:<b>
 	at org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev.testMaxGreaterThanSize_12_oe(BoundedIteratorTest_OE25Dev.java:645)
 
@@ -440,7 +440,7 @@ junit.framework.AssertionFailedError: expected:<f> but was:<c>
 junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev.testBounded_9_oe(BoundedIteratorTest_OE25Dev.java:257)
 
-[ERROR] testRemoveMiddle_10_oe(org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testRemoveMiddle_10_oe(org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException: remove() can not be called before calling next()
 	at org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev.testRemoveMiddle_10_oe(BoundedIteratorTest_OE25Dev.java:1005)
 
@@ -469,14 +469,14 @@ junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev.testSameAsDecorated_15_oe(BoundedIteratorTest_OE25Dev.java:483)
 
 [INFO] Running org.apache.commons.collections4.iterators.PermutationIteratorTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.PermutationIteratorTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.collections4.iterators.PermutationIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev
 [ERROR] Tests run: 39, Failures: 19, Errors: 4, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev
 [ERROR] testWalkForwardAndBack_3_oe(org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: 2 expected:<0> but was:<-1>
 	at org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev.testWalkForwardAndBack_3_oe(ReverseListIteratorTest_OE25Dev.java:122)
 
-[ERROR] testWalkForwardAndBack_4_oe(org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testWalkForwardAndBack_4_oe(org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<true> but was:<false>
 	at org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev.testWalkForwardAndBack_4_oe(ReverseListIteratorTest_OE25Dev.java:152)
 
@@ -520,7 +520,7 @@ junit.framework.AssertionFailedError: expected:<1> but was:<4>
 junit.framework.AssertionFailedError: expected:<One> but was:<Four>
 	at org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev.testReverse_20_oe(ReverseListIteratorTest_OE25Dev.java:472)
 
-[ERROR] testReverse_21_oe(org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
+[ERROR] testReverse_21_oe(org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<false> but was:<true>
 	at org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev.testReverse_21_oe(ReverseListIteratorTest_OE25Dev.java:497)
 
@@ -528,7 +528,7 @@ junit.framework.AssertionFailedError: expected:<false> but was:<true>
 junit.framework.AssertionFailedError: expected:<-1> but was:<3>
 	at org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev.testReverse_22_oe(ReverseListIteratorTest_OE25Dev.java:523)
 
-[ERROR] testReverse_23_oe(org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testReverse_23_oe(org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<true> but was:<false>
 	at org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev.testReverse_23_oe(ReverseListIteratorTest_OE25Dev.java:550)
 
@@ -552,7 +552,7 @@ java.util.NoSuchElementException
 java.util.NoSuchElementException
 	at org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev.testReverse_28_oe(ReverseListIteratorTest_OE25Dev.java:700)
 
-[ERROR] testReverse_6_oe(org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testReverse_6_oe(org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<2> but was:<3>
 	at org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev.testReverse_6_oe(ReverseListIteratorTest_OE25Dev.java:227)
 
@@ -565,10 +565,10 @@ junit.framework.AssertionFailedError: expected:<true> but was:<false>
 	at org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev.testReverse_9_oe(ReverseListIteratorTest_OE25Dev.java:263)
 
 [INFO] Running org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIteratorTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIteratorTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev
-[ERROR] Tests run: 40, Failures: 4, Errors: 23, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev
-[ERROR] testRemove_7_oe(org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
+[ERROR] Tests run: 40, Failures: 4, Errors: 23, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev
+[ERROR] testRemove_7_oe(org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<0> but was:<-1>
 	at org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev.testRemove_7_oe(ListIteratorWrapper2Test_OE25Dev.java:292)
 
@@ -592,7 +592,7 @@ java.lang.IllegalStateException
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev.testRemove_13_oe(ListIteratorWrapper2Test_OE25Dev.java:442)
 
-[ERROR] testRemove_14_oe(org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemove_14_oe(org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev.testRemove_14_oe(ListIteratorWrapper2Test_OE25Dev.java:484)
 
@@ -612,15 +612,15 @@ java.lang.IllegalStateException
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev.testRemove_18_oe(ListIteratorWrapper2Test_OE25Dev.java:668)
 
-[ERROR] testRemove_19_oe(org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemove_19_oe(org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev.testRemove_19_oe(ListIteratorWrapper2Test_OE25Dev.java:718)
 
-[ERROR] testRemove_20_oe(org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemove_20_oe(org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev.testRemove_20_oe(ListIteratorWrapper2Test_OE25Dev.java:769)
 
-[ERROR] testRemove_21_oe(org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemove_21_oe(org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev.testRemove_21_oe(ListIteratorWrapper2Test_OE25Dev.java:821)
 
@@ -668,7 +668,7 @@ java.lang.IllegalStateException
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev.testRemove_32_oe(ListIteratorWrapper2Test_OE25Dev.java:1521)
 
-[ERROR] testReset_3_oe(org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testReset_3_oe(org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
 junit.framework.AssertionFailedError: Second elment should be the same expected:<Two> but was:<One>
 	at org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev.testReset_3_oe(ListIteratorWrapper2Test_OE25Dev.java:1606)
 
@@ -677,7 +677,7 @@ junit.framework.AssertionFailedError: Iteration value is correct expected:<Three
 	at org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev.testReset_4_oe(ListIteratorWrapper2Test_OE25Dev.java:1628)
 
 [INFO] Running org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev
-[ERROR] Tests run: 50, Failures: 20, Errors: 20, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev
+[ERROR] Tests run: 50, Failures: 20, Errors: 20, Skipped: 0, Time elapsed: 0.028 s <<< FAILURE! - in org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev
 [ERROR] testManual_2_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: expected:<3> but was:<0>
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_2_oe(FilterListIteratorTest_OE25Dev.java:375)
@@ -690,7 +690,7 @@ java.lang.AssertionError: expected:<6> but was:<0>
 java.lang.AssertionError: expected:<9> but was:<0>
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_4_oe(FilterListIteratorTest_OE25Dev.java:396)
 
-[ERROR] testManual_5_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testManual_5_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 java.lang.AssertionError: expected:<12> but was:<0>
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_5_oe(FilterListIteratorTest_OE25Dev.java:408)
 
@@ -698,7 +698,7 @@ java.lang.AssertionError: expected:<12> but was:<0>
 java.lang.AssertionError: expected:<15> but was:<0>
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_6_oe(FilterListIteratorTest_OE25Dev.java:421)
 
-[ERROR] testManual_7_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testManual_7_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
 java.lang.AssertionError: expected:<18> but was:<0>
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_7_oe(FilterListIteratorTest_OE25Dev.java:435)
 
@@ -706,7 +706,7 @@ java.lang.AssertionError: expected:<18> but was:<0>
 java.util.NoSuchElementException
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_8_oe(FilterListIteratorTest_OE25Dev.java:451)
 
-[ERROR] testManual_9_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testManual_9_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.util.NoSuchElementException
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_9_oe(FilterListIteratorTest_OE25Dev.java:468)
 
@@ -714,7 +714,7 @@ java.util.NoSuchElementException
 java.util.NoSuchElementException
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_10_oe(FilterListIteratorTest_OE25Dev.java:486)
 
-[ERROR] testManual_11_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testManual_11_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
 java.util.NoSuchElementException
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_11_oe(FilterListIteratorTest_OE25Dev.java:505)
 
@@ -722,19 +722,19 @@ java.util.NoSuchElementException
 java.util.NoSuchElementException
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_12_oe(FilterListIteratorTest_OE25Dev.java:525)
 
-[ERROR] testManual_13_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testManual_13_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.util.NoSuchElementException
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_13_oe(FilterListIteratorTest_OE25Dev.java:546)
 
-[ERROR] testManual_14_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testManual_14_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
 java.util.NoSuchElementException
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_14_oe(FilterListIteratorTest_OE25Dev.java:568)
 
-[ERROR] testManual_17_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testManual_17_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 java.lang.AssertionError: expected:<3> but was:<0>
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_17_oe(FilterListIteratorTest_OE25Dev.java:645)
 
-[ERROR] testManual_18_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testManual_18_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0.007 s  <<< FAILURE!
 java.lang.AssertionError: expected:<6> but was:<0>
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_18_oe(FilterListIteratorTest_OE25Dev.java:673)
 
@@ -750,7 +750,7 @@ java.lang.AssertionError: expected:<12> but was:<0>
 java.lang.AssertionError: expected:<15> but was:<0>
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_21_oe(FilterListIteratorTest_OE25Dev.java:763)
 
-[ERROR] testManual_22_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testManual_22_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: expected:<18> but was:<0>
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_22_oe(FilterListIteratorTest_OE25Dev.java:795)
 
@@ -786,7 +786,7 @@ java.util.NoSuchElementException
 java.util.NoSuchElementException
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_30_oe(FilterListIteratorTest_OE25Dev.java:1102)
 
-[ERROR] testManual_32_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testManual_32_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.util.NoSuchElementException
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_32_oe(FilterListIteratorTest_OE25Dev.java:1191)
 
@@ -794,7 +794,7 @@ java.util.NoSuchElementException
 java.lang.AssertionError: expected:<3> but was:<0>
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_34_oe(FilterListIteratorTest_OE25Dev.java:1285)
 
-[ERROR] testManual_35_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] testManual_35_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: expected:<6> but was:<0>
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_35_oe(FilterListIteratorTest_OE25Dev.java:1334)
 
@@ -814,11 +814,11 @@ java.lang.AssertionError: expected:<3> but was:<0>
 java.lang.AssertionError: expected:<6> but was:<0>
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_39_oe(FilterListIteratorTest_OE25Dev.java:1540)
 
-[ERROR] testManual_40_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testManual_40_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: expected:<9> but was:<0>
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_40_oe(FilterListIteratorTest_OE25Dev.java:1595)
 
-[ERROR] testManual_41_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] testManual_41_oe(org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: expected:<12> but was:<0>
 	at org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev.testManual_41_oe(FilterListIteratorTest_OE25Dev.java:1651)
 
@@ -844,11 +844,11 @@ java.util.NoSuchElementException
 junit.framework.AssertionFailedError: expected:<0> but was:<-1>
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_7_oe(ListIteratorWrapperTest_OE25Dev.java:293)
 
-[ERROR] testRemove_8_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testRemove_8_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<1> but was:<0>
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_8_oe(ListIteratorWrapperTest_OE25Dev.java:319)
 
-[ERROR] testRemove_9_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemove_9_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_9_oe(ListIteratorWrapperTest_OE25Dev.java:348)
 
@@ -864,7 +864,7 @@ java.lang.IllegalStateException: Cannot remove element at index -1.
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_13_oe(ListIteratorWrapperTest_OE25Dev.java:443)
 
-[ERROR] testRemove_14_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemove_14_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_14_oe(ListIteratorWrapperTest_OE25Dev.java:485)
 
@@ -880,15 +880,15 @@ java.lang.IllegalStateException: Cannot remove element at index -1.
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_17_oe(ListIteratorWrapperTest_OE25Dev.java:621)
 
-[ERROR] testRemove_18_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testRemove_18_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_18_oe(ListIteratorWrapperTest_OE25Dev.java:669)
 
-[ERROR] testRemove_19_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemove_19_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_19_oe(ListIteratorWrapperTest_OE25Dev.java:719)
 
-[ERROR] testRemove_20_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemove_20_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_20_oe(ListIteratorWrapperTest_OE25Dev.java:770)
 
@@ -900,7 +900,7 @@ java.lang.IllegalStateException: Cannot remove element at index -1.
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_22_oe(ListIteratorWrapperTest_OE25Dev.java:877)
 
-[ERROR] testRemove_23_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemove_23_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_23_oe(ListIteratorWrapperTest_OE25Dev.java:933)
 
@@ -908,7 +908,7 @@ java.lang.IllegalStateException: Cannot remove element at index -1.
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_24_oe(ListIteratorWrapperTest_OE25Dev.java:990)
 
-[ERROR] testRemove_25_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testRemove_25_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_25_oe(ListIteratorWrapperTest_OE25Dev.java:1051)
 
@@ -920,7 +920,7 @@ java.lang.IllegalStateException: Cannot remove element at index -1.
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_27_oe(ListIteratorWrapperTest_OE25Dev.java:1176)
 
-[ERROR] testRemove_28_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemove_28_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_28_oe(ListIteratorWrapperTest_OE25Dev.java:1242)
 
@@ -932,7 +932,7 @@ java.lang.IllegalStateException: Cannot remove element at index -1.
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_31_oe(ListIteratorWrapperTest_OE25Dev.java:1377)
 
-[ERROR] testRemove_32_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemove_32_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_32_oe(ListIteratorWrapperTest_OE25Dev.java:1454)
 
@@ -940,7 +940,7 @@ java.lang.IllegalStateException: Cannot remove element at index -1.
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_33_oe(ListIteratorWrapperTest_OE25Dev.java:1532)
 
-[ERROR] testRemove_34_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemove_34_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_34_oe(ListIteratorWrapperTest_OE25Dev.java:1613)
 
@@ -960,7 +960,7 @@ java.lang.IllegalStateException: Cannot remove element at index -1.
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_38_oe(ListIteratorWrapperTest_OE25Dev.java:1949)
 
-[ERROR] testRemove_39_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemove_39_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_39_oe(ListIteratorWrapperTest_OE25Dev.java:2036)
 
@@ -972,19 +972,19 @@ java.lang.IllegalStateException: Cannot remove element at index -1.
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_41_oe(ListIteratorWrapperTest_OE25Dev.java:2219)
 
-[ERROR] testRemove_42_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemove_42_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_42_oe(ListIteratorWrapperTest_OE25Dev.java:2312)
 
-[ERROR] testRemove_43_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testRemove_43_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_43_oe(ListIteratorWrapperTest_OE25Dev.java:2407)
 
-[ERROR] testRemove_44_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0.01 s  <<< ERROR!
+[ERROR] testRemove_44_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException: Cannot remove element at index -1.
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testRemove_44_oe(ListIteratorWrapperTest_OE25Dev.java:2503)
 
-[ERROR] testReset_3_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testReset_3_oe(org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError: Second elment should be the same expected:<Two> but was:<One>
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testReset_3_oe(ListIteratorWrapperTest_OE25Dev.java:2611)
 
@@ -993,10 +993,10 @@ junit.framework.AssertionFailedError: Iteration value is correct expected:<Three
 	at org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev.testReset_4_oe(ListIteratorWrapperTest_OE25Dev.java:2633)
 
 [INFO] Running org.apache.commons.collections4.iterators.ArrayIteratorTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.ArrayIteratorTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ArrayIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev
-[ERROR] Tests run: 81, Failures: 31, Errors: 5, Skipped: 0, Time elapsed: 0.017 s <<< FAILURE! - in org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev
-[ERROR] testJoggingOverBoundary_2_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 81, Failures: 31, Errors: 5, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev
+[ERROR] testJoggingOverBoundary_2_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[b]> but was:<[a]>
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testJoggingOverBoundary_2_oe(LoopingListIteratorTest_OE25Dev.java:364)
 
@@ -1016,7 +1016,7 @@ java.lang.AssertionError: expected:<0> but was:<2>
 org.junit.ComparisonFailure: expected:<[a]> but was:<[c]>
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_5_oe(LoopingListIteratorTest_OE25Dev.java:988)
 
-[ERROR] testNextAndPreviousIndex_8_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testNextAndPreviousIndex_8_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 java.lang.AssertionError: expected:<1> but was:<2>
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_8_oe(LoopingListIteratorTest_OE25Dev.java:1038)
 
@@ -1032,15 +1032,15 @@ org.junit.ComparisonFailure: expected:<[b]> but was:<[c]>
 org.junit.ComparisonFailure: expected:<[a]> but was:<[c]>
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testReset_12_oe(LoopingListIteratorTest_OE25Dev.java:793)
 
-[ERROR] testAdd_4_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testAdd_4_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[b]> but was:<[a]>
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testAdd_4_oe(LoopingListIteratorTest_OE25Dev.java:844)
 
-[ERROR] testAdd_5_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testAdd_5_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[c]> but was:<[a]>
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testAdd_5_oe(LoopingListIteratorTest_OE25Dev.java:860)
 
-[ERROR] testAdd_6_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testAdd_6_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[d]> but was:<[a]>
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testAdd_6_oe(LoopingListIteratorTest_OE25Dev.java:877)
 
@@ -1068,7 +1068,7 @@ org.junit.ComparisonFailure: expected:<[a]> but was:<[b]>
 org.junit.ComparisonFailure: expected:<[b]> but was:<[a]>
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testJoggingNotOverBoundary_4_oe(LoopingListIteratorTest_OE25Dev.java:310)
 
-[ERROR] testJoggingNotOverBoundary_6_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testJoggingNotOverBoundary_6_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[b]> but was:<[a]>
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testJoggingNotOverBoundary_6_oe(LoopingListIteratorTest_OE25Dev.java:343)
 
@@ -1076,7 +1076,7 @@ org.junit.ComparisonFailure: expected:<[b]> but was:<[a]>
 org.junit.ComparisonFailure: expected:<[b]> but was:<[a]>
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testLooping2_3_oe(LoopingListIteratorTest_OE25Dev.java:209)
 
-[ERROR] testLooping2_6_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testLooping2_6_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[a]> but was:<[b]>
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testLooping2_6_oe(LoopingListIteratorTest_OE25Dev.java:245)
 
@@ -1104,7 +1104,7 @@ org.junit.ComparisonFailure: expected:<[a]> but was:<[c]>
 java.lang.AssertionError
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingBackwards_7_oe(LoopingListIteratorTest_OE25Dev.java:593)
 
-[ERROR] testReset_2_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] testReset_2_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[b]> but was:<[a]>
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testReset_2_oe(LoopingListIteratorTest_OE25Dev.java:610)
 
@@ -1116,7 +1116,7 @@ org.junit.ComparisonFailure: expected:<[b]> but was:<[a]>
 org.junit.ComparisonFailure: expected:<[c]> but was:<[a]>
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testReset_6_oe(LoopingListIteratorTest_OE25Dev.java:663)
 
-[ERROR] testReset_8_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] testReset_8_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[b]> but was:<[c]>
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testReset_8_oe(LoopingListIteratorTest_OE25Dev.java:700)
 
@@ -1132,21 +1132,21 @@ java.lang.IllegalStateException
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testSet_4_oe(LoopingListIteratorTest_OE25Dev.java:1170)
 
-[ERROR] testSet_5_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testSet_5_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testSet_5_oe(LoopingListIteratorTest_OE25Dev.java:1189)
 
-[ERROR] testSet_6_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testSet_6_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testSet_6_oe(LoopingListIteratorTest_OE25Dev.java:1209)
 
 [INFO] Running org.apache.commons.collections4.iterators.UnmodifiableIteratorTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.UnmodifiableIteratorTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.UnmodifiableIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.UnmodifiableListIteratorTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.UnmodifiableListIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev
 [ERROR] Tests run: 49, Failures: 16, Errors: 4, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev
-[ERROR] testIteration_Transformed2_10_oe(org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev)  Time elapsed: 0.006 s  <<< FAILURE!
+[ERROR] testIteration_Transformed2_10_oe(org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@40faff12> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@734fbae3>
 	at org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed2_10_oe(ObjectGraphIteratorTest_OE25Dev.java:771)
 
@@ -1210,7 +1210,7 @@ junit.framework.AssertionFailedError: expected:<false> but was:<true>
 java.lang.IllegalStateException: Iterator remove() cannot be called at this time
 	at org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev.testIteratorConstructorRemove_2_oe(ObjectGraphIteratorTest_OE25Dev.java:319)
 
-[ERROR] testIteratorConstructorRemove_3_oe(org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testIteratorConstructorRemove_3_oe(org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalStateException: Iterator remove() cannot be called at this time
 	at org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev.testIteratorConstructorRemove_3_oe(ObjectGraphIteratorTest_OE25Dev.java:333)
 
@@ -1227,7 +1227,7 @@ junit.framework.AssertionFailedError: expected:<false> but was:<true>
 	at org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev.testIteration_IteratorOfIteratorsWithEmptyIterators_3_oe(ObjectGraphIteratorTest_OE25Dev.java:459)
 
 [INFO] Running org.apache.commons.collections4.iterators.LazyIteratorChainTest_OE25Dev
-[ERROR] Tests run: 17, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in org.apache.commons.collections4.iterators.LazyIteratorChainTest_OE25Dev
+[ERROR] Tests run: 17, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.collections4.iterators.LazyIteratorChainTest_OE25Dev
 [ERROR] testFirstIteratorIsEmptyBug_4_oe(org.apache.commons.collections4.iterators.LazyIteratorChainTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.ComparisonFailure: expected:<[B]> but was:<[A]>
 	at org.apache.commons.collections4.iterators.LazyIteratorChainTest_OE25Dev.testFirstIteratorIsEmptyBug_4_oe(LazyIteratorChainTest_OE25Dev.java:358)
@@ -1241,7 +1241,7 @@ junit.framework.AssertionFailedError: should not have next
 	at org.apache.commons.collections4.iterators.LazyIteratorChainTest_OE25Dev.testFirstIteratorIsEmptyBug_7_oe(LazyIteratorChainTest_OE25Dev.java:436)
 
 [INFO] Running org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev
-[ERROR] Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev
+[ERROR] Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev
 [ERROR] testEnumeration_4_oe(org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[b]> but was:<[a]>
 	at org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev.testEnumeration_4_oe(IteratorEnumerationTest_OE25Dev.java:71)
@@ -1250,12 +1250,12 @@ org.junit.ComparisonFailure: expected:<[b]> but was:<[a]>
 org.junit.ComparisonFailure: expected:<[c]> but was:<[a]>
 	at org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev.testEnumeration_5_oe(IteratorEnumerationTest_OE25Dev.java:84)
 
-[ERROR] testEnumeration_6_oe(org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testEnumeration_6_oe(org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 java.lang.AssertionError
 	at org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev.testEnumeration_6_oe(IteratorEnumerationTest_OE25Dev.java:98)
 
 [INFO] Running org.apache.commons.collections4.iterators.PeekingIteratorTest_OE25Dev
-[ERROR] Tests run: 19, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in org.apache.commons.collections4.iterators.PeekingIteratorTest_OE25Dev
+[ERROR] Tests run: 19, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.collections4.iterators.PeekingIteratorTest_OE25Dev
 [ERROR] testMultiplePeek_10_oe(org.apache.commons.collections4.iterators.PeekingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<c> but was:<a>
 	at org.apache.commons.collections4.iterators.PeekingIteratorTest_OE25Dev.testMultiplePeek_10_oe(PeekingIteratorTest_OE25Dev.java:201)
@@ -1285,9 +1285,9 @@ junit.framework.AssertionFailedError: expected:<c> but was:<a>
 	at org.apache.commons.collections4.iterators.PeekingIteratorTest_OE25Dev.testMultiplePeek_9_oe(PeekingIteratorTest_OE25Dev.java:186)
 
 [INFO] Running org.apache.commons.collections4.iterators.ObjectArrayListIteratorTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.iterators.ObjectArrayListIteratorTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.ObjectArrayListIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev
-[ERROR] Tests run: 13, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev
+[ERROR] Tests run: 13, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev
 [ERROR] testDelayedPushback_3_oe(org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<b> but was:<x>
 	at org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev.testDelayedPushback_3_oe(PushbackIteratorTest_OE25Dev.java:147)
@@ -1317,7 +1317,7 @@ junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev.testNormalIteration_4_oe(PushbackIteratorTest_OE25Dev.java:104)
 
 [INFO] Running org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev
-[ERROR] Tests run: 18, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev
+[ERROR] Tests run: 18, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev
 [ERROR] testIterateEven_3_oe(org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev.testIterateEven_3_oe(ZippingIteratorTest_OE25Dev.java:104)
@@ -1334,7 +1334,7 @@ junit.framework.AssertionFailedError: expected:<2> but was:<0>
 junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev.testIterateEvenEven_5_oe(ZippingIteratorTest_OE25Dev.java:219)
 
-[ERROR] testIterateEvenOdd_3_oe(org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] testIterateEvenOdd_3_oe(org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev.testIterateEvenOdd_3_oe(ZippingIteratorTest_OE25Dev.java:128)
 
@@ -1349,13 +1349,13 @@ junit.framework.AssertionFailedError: expected:<0> but was:<2>
 [INFO] Running org.apache.commons.collections4.iterators.IteratorIterableTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.IteratorIterableTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.ObjectArrayIteratorTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.iterators.ObjectArrayIteratorTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.ObjectArrayIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.FilterIteratorTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.collections4.iterators.FilterIteratorTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.FilterIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.ArrayIterator2Test_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.ArrayIterator2Test_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.ArrayIterator2Test_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.SingletonListIteratorTest_OE25Dev
-[ERROR] Tests run: 32, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in org.apache.commons.collections4.iterators.SingletonListIteratorTest_OE25Dev
+[ERROR] Tests run: 32, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in org.apache.commons.collections4.iterators.SingletonListIteratorTest_OE25Dev
 [ERROR] testReset_10_oe(org.apache.commons.collections4.iterators.SingletonListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<true> but was:<false>
 	at org.apache.commons.collections4.iterators.SingletonListIteratorTest_OE25Dev.testReset_10_oe(SingletonListIteratorTest_OE25Dev.java:622)
@@ -1373,7 +1373,7 @@ junit.framework.AssertionFailedError: expected:<false> but was:<true>
 	at org.apache.commons.collections4.iterators.SingletonListIteratorTest_OE25Dev.testReset_9_oe(SingletonListIteratorTest_OE25Dev.java:604)
 
 [INFO] Running org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev
-[ERROR] Tests run: 56, Failures: 16, Errors: 14, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev
+[ERROR] Tests run: 56, Failures: 16, Errors: 14, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev
 [ERROR] testSkipping_4_oe(org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<d> but was:<c>
 	at org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev.testSkipping_4_oe(SkippingIteratorTest_OE25Dev.java:165)
@@ -1402,7 +1402,7 @@ junit.framework.AssertionFailedError
 junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev.testRemoveLast_8_oe(SkippingIteratorTest_OE25Dev.java:852)
 
-[ERROR] testRemoveFirst_3_oe(org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testRemoveFirst_3_oe(org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException: remove() can not be called before calling next()
 	at org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev.testRemoveFirst_3_oe(SkippingIteratorTest_OE25Dev.java:526)
 
@@ -1422,7 +1422,7 @@ java.lang.IllegalStateException: remove() can not be called before calling next(
 java.lang.IllegalStateException: remove() can not be called before calling next()
 	at org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev.testRemoveFirst_7_oe(SkippingIteratorTest_OE25Dev.java:583)
 
-[ERROR] testRemoveFirst_8_oe(org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testRemoveFirst_8_oe(org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException: remove() can not be called before calling next()
 	at org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev.testRemoveFirst_8_oe(SkippingIteratorTest_OE25Dev.java:600)
 
@@ -1470,7 +1470,7 @@ java.lang.IllegalStateException: remove() can not be called before calling next(
 java.lang.IllegalStateException: remove() can not be called before calling next()
 	at org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev.testRemoveMiddle_10_oe(SkippingIteratorTest_OE25Dev.java:747)
 
-[ERROR] testSameAsDecorated_10_oe(org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testSameAsDecorated_10_oe(org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<e> but was:<a>
 	at org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev.testSameAsDecorated_10_oe(SkippingIteratorTest_OE25Dev.java:379)
 
@@ -1495,11 +1495,11 @@ junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev.testSkipping_11_oe(SkippingIteratorTest_OE25Dev.java:264)
 
 [INFO] Running org.apache.commons.collections4.iterators.ArrayListIteratorTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ArrayListIteratorTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.ArrayListIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.UnmodifiableMapIteratorTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.iterators.UnmodifiableMapIteratorTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.UnmodifiableMapIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev
-[ERROR] Tests run: 45, Failures: 8, Errors: 8, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev
+[ERROR] Tests run: 45, Failures: 8, Errors: 8, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev
 [ERROR] testRemoving1_4_oe(org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev.testRemoving1_4_oe(LoopingIteratorTest_OE25Dev.java:364)
@@ -1508,7 +1508,7 @@ java.lang.IllegalStateException
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev.testRemoving1_5_oe(LoopingIteratorTest_OE25Dev.java:376)
 
-[ERROR] testRemoving1_6_oe(org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRemoving1_6_oe(org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev.testRemoving1_6_oe(LoopingIteratorTest_OE25Dev.java:390)
 
@@ -1520,11 +1520,11 @@ java.lang.IllegalStateException
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev.testRemoving1_8_oe(LoopingIteratorTest_OE25Dev.java:422)
 
-[ERROR] testRemoving1_9_oe(org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testRemoving1_9_oe(org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev.testRemoving1_9_oe(LoopingIteratorTest_OE25Dev.java:441)
 
-[ERROR] testLooping2_4_oe(org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testLooping2_4_oe(org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[b]> but was:<[a]>
 	at org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev.testLooping2_4_oe(LoopingIteratorTest_OE25Dev.java:194)
 
@@ -1544,7 +1544,7 @@ java.lang.IllegalStateException
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev.testRemoving1_11_oe(LoopingIteratorTest_OE25Dev.java:483)
 
-[ERROR] testReset_2_oe(org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] testReset_2_oe(org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[b]> but was:<[a]>
 	at org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev.testReset_2_oe(LoopingIteratorTest_OE25Dev.java:513)
 
@@ -1567,38 +1567,38 @@ org.junit.ComparisonFailure: expected:<[c]> but was:<[a]>
 [INFO] Running org.apache.commons.collections4.QueueUtilsTest_OE25Dev
 [INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.QueueUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.functors.NullPredicateTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.functors.NullPredicateTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.functors.NullPredicateTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.functors.EqualPredicateTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.functors.EqualPredicateTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.functors.EqualPredicateTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.functors.CatchAndRethrowClosureTest_OE25Dev
-[ERROR] Tests run: 6, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.collections4.functors.CatchAndRethrowClosureTest_OE25Dev
+[ERROR] Tests run: 6, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.collections4.functors.CatchAndRethrowClosureTest_OE25Dev
 [ERROR] testThrowingClosure_7_oe(org.apache.commons.collections4.functors.CatchAndRethrowClosureTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException
 	at org.apache.commons.collections4.functors.CatchAndRethrowClosureTest_OE25Dev.testThrowingClosure_7_oe(CatchAndRethrowClosureTest_OE25Dev.java:149)
 
 [INFO] Running org.apache.commons.collections4.functors.AllPredicateTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s - in org.apache.commons.collections4.functors.AllPredicateTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.apache.commons.collections4.functors.AllPredicateTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.functors.ComparatorPredicateTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.functors.ComparatorPredicateTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.functors.ComparatorPredicateTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.collection.TransformedCollectionTest_OE25Dev
 [INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.collection.TransformedCollectionTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.collection.IndexedCollectionTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.collection.IndexedCollectionTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.collection.IndexedCollectionTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.collection.PredicatedCollectionTest_OE25Dev
 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.collection.PredicatedCollectionTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.collection.UnmodifiableBoundedCollectionTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.collection.UnmodifiableBoundedCollectionTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.collection.UnmodifiableBoundedCollectionTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.collection.UnmodifiableCollectionTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.collection.UnmodifiableCollectionTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.collection.UnmodifiableCollectionTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.collection.CompositeCollectionTest_OE25Dev
-[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.collections4.collection.CompositeCollectionTest_OE25Dev
+[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.collections4.collection.CompositeCollectionTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.collection.PredicatedCollectionBuilderTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.collection.PredicatedCollectionBuilderTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.collection.PredicatedCollectionBuilderTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.MapUtilsTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.959 s - in org.apache.commons.collections4.MapUtilsTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.744 s - in org.apache.commons.collections4.MapUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.ListUtilsTest_OE25Dev
-[ERROR] Tests run: 71, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in org.apache.commons.collections4.ListUtilsTest_OE25Dev
-[ERROR] testLazyFactoryList_2_oe(org.apache.commons.collections4.ListUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 71, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in org.apache.commons.collections4.ListUtilsTest_OE25Dev
+[ERROR] testLazyFactoryList_2_oe(org.apache.commons.collections4.ListUtilsTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 java.lang.AssertionError: expected:<6> but was:<0>
 	at org.apache.commons.collections4.ListUtilsTest_OE25Dev.testLazyFactoryList_2_oe(ListUtilsTest_OE25Dev.java:201)
 
@@ -1615,10 +1615,10 @@ java.lang.AssertionError: expected:<6> but was:<0>
 	at org.apache.commons.collections4.ListUtilsTest_OE25Dev.testLazyTransformerList_4_oe(ListUtilsTest_OE25Dev.java:316)
 
 [INFO] Running org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
-[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.multimap.HashSetValuedHashMapTest_OE25Dev
 [ERROR] Tests run: 26, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in org.apache.commons.collections4.multimap.HashSetValuedHashMapTest_OE25Dev
-[ERROR] testSetValuedMapAdd_4_oe(org.apache.commons.collections4.multimap.HashSetValuedHashMapTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] testSetValuedMapAdd_4_oe(org.apache.commons.collections4.multimap.HashSetValuedHashMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.multimap.HashSetValuedHashMapTest_OE25Dev.testSetValuedMapAdd_4_oe(HashSetValuedHashMapTest_OE25Dev.java:92)
 
@@ -1651,7 +1651,7 @@ junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.multimap.HashSetValuedHashMapTest_OE25Dev.testSetValuedMapRemove_8_oe(HashSetValuedHashMapTest_OE25Dev.java:199)
 
 [INFO] Running org.apache.commons.collections4.multimap.ArrayListValuedHashMapTest_OE25Dev
-[ERROR] Tests run: 28, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.collections4.multimap.ArrayListValuedHashMapTest_OE25Dev
+[ERROR] Tests run: 28, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.collections4.multimap.ArrayListValuedHashMapTest_OE25Dev
 [ERROR] testListValuedMapRemove_3_oe(org.apache.commons.collections4.multimap.ArrayListValuedHashMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<2> but was:<3>
 	at org.apache.commons.collections4.multimap.ArrayListValuedHashMapTest_OE25Dev.testListValuedMapRemove_3_oe(ArrayListValuedHashMapTest_OE25Dev.java:147)
@@ -1679,11 +1679,11 @@ junit.framework.AssertionFailedError
 [INFO] Running org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.TrieUtilsTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.TrieUtilsTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.TrieUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.trie.UnmodifiableTrieTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.trie.UnmodifiableTrieTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.trie.UnmodifiableTrieTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev
-[ERROR] Tests run: 139, Failures: 32, Errors: 10, Skipped: 0, Time elapsed: 0.036 s <<< FAILURE! - in org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev
+[ERROR] Tests run: 139, Failures: 32, Errors: 10, Skipped: 0, Time elapsed: 0.024 s <<< FAILURE! - in org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev
 [ERROR] testPrefixMapRemoval_3_oe(org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<Al[bert]> but was:<Al[abama]>
 	at org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev.testPrefixMapRemoval_3_oe(PatriciaTrieTest_OE25Dev.java:7223)
@@ -1724,11 +1724,11 @@ org.junit.ComparisonFailure: expected:<Al[berto]> but was:<Al[abama]>
 org.junit.ComparisonFailure: expected:<Al[bertoo]> but was:<Al[abama]>
 	at org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev.testPrefixMap_12_oe(PatriciaTrieTest_OE25Dev.java:436)
 
-[ERROR] testPrefixMap_13_oe(org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
+[ERROR] testPrefixMap_13_oe(org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<Al[berts]> but was:<Al[abama]>
 	at org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev.testPrefixMap_13_oe(PatriciaTrieTest_OE25Dev.java:473)
 
-[ERROR] testPrefixMap_14_oe(org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testPrefixMap_14_oe(org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<Al[ien]> but was:<Al[abama]>
 	at org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev.testPrefixMap_14_oe(PatriciaTrieTest_OE25Dev.java:511)
 
@@ -1748,7 +1748,7 @@ java.lang.AssertionError
 org.junit.ComparisonFailure: expected:<Albert[o]> but was:<Albert[]>
 	at org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev.testPrefixMap_19_oe(PatriciaTrieTest_OE25Dev.java:722)
 
-[ERROR] testPrefixMap_20_oe(org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testPrefixMap_20_oe(org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<Albert[oo]> but was:<Albert[]>
 	at org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev.testPrefixMap_20_oe(PatriciaTrieTest_OE25Dev.java:769)
 
@@ -1764,7 +1764,7 @@ java.lang.AssertionError
 org.junit.ComparisonFailure: expected:<Albert[o]> but was:<Albert[]>
 	at org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev.testPrefixMap_31_oe(PatriciaTrieTest_OE25Dev.java:1359)
 
-[ERROR] testPrefixMap_32_oe(org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testPrefixMap_32_oe(org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<Albert[oo]> but was:<Albert[]>
 	at org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev.testPrefixMap_32_oe(PatriciaTrieTest_OE25Dev.java:1420)
 
@@ -1792,7 +1792,7 @@ java.lang.AssertionError: expected:<2> but was:<3>
 java.lang.AssertionError
 	at org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev.testPrefixMap_63_oe(PatriciaTrieTest_OE25Dev.java:4021)
 
-[ERROR] testPrefixMap_70_oe(org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testPrefixMap_70_oe(org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<X[yZ]> but was:<X[avier]>
 	at org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev.testPrefixMap_70_oe(PatriciaTrieTest_OE25Dev.java:4804)
 
@@ -1816,7 +1816,7 @@ org.junit.ComparisonFailure: expected:<Am[ma]> but was:<Am[ber]>
 org.junit.ComparisonFailure: expected:<Am[mun]> but was:<Am[ber]>
 	at org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev.testPrefixMap_86_oe(PatriciaTrieTest_OE25Dev.java:6877)
 
-[ERROR] testPrefixMap_87_oe(org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testPrefixMap_87_oe(org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError
 	at org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev.testPrefixMap_87_oe(PatriciaTrieTest_OE25Dev.java:7019)
 
@@ -1836,7 +1836,7 @@ java.lang.IllegalStateException
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev.testPrefixMapRemoval_13_oe(PatriciaTrieTest_OE25Dev.java:7490)
 
-[ERROR] testPrefixMapRemoval_14_oe(org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testPrefixMapRemoval_14_oe(org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev.testPrefixMapRemoval_14_oe(PatriciaTrieTest_OE25Dev.java:7525)
 
@@ -1859,9 +1859,9 @@ junit.framework.AssertionFailedError: Expected: <null> but was: one
 	at org.apache.commons.collections4.queue.PredicatedQueueTest_OE25Dev.testRemove_2_oe(PredicatedQueueTest_OE25Dev.java:126)
 
 [INFO] Running org.apache.commons.collections4.queue.TransformedQueueTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.queue.TransformedQueueTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.queue.TransformedQueueTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
-[ERROR] Tests run: 53, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] Tests run: 53, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
 [ERROR] testCircularFifoQueueCircular_10_oe(org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<C> but was:<B>
 	at org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev.testCircularFifoQueueCircular_10_oe(CircularFifoQueueTest_OE25Dev.java:320)
@@ -1871,14 +1871,14 @@ junit.framework.AssertionFailedError: expected:<D> but was:<B>
 	at org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev.testCircularFifoQueueCircular_11_oe(CircularFifoQueueTest_OE25Dev.java:344)
 
 [INFO] Running org.apache.commons.collections4.queue.UnmodifiableQueueTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.queue.UnmodifiableQueueTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.queue.UnmodifiableQueueTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.CollectionUtilsTest_OE25Dev
-[ERROR] Tests run: 465, Failures: 17, Errors: 0, Skipped: 0, Time elapsed: 0.081 s <<< FAILURE! - in org.apache.commons.collections4.CollectionUtilsTest_OE25Dev
+[ERROR] Tests run: 465, Failures: 17, Errors: 0, Skipped: 0, Time elapsed: 0.058 s <<< FAILURE! - in org.apache.commons.collections4.CollectionUtilsTest_OE25Dev
 [ERROR] getIterator_4_oe(org.apache.commons.collections4.CollectionUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError
 	at org.apache.commons.collections4.CollectionUtilsTest_OE25Dev.getIterator_4_oe(CollectionUtilsTest_OE25Dev.java:7410)
 
-[ERROR] filterInverse_2_oe(org.apache.commons.collections4.CollectionUtilsTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] filterInverse_2_oe(org.apache.commons.collections4.CollectionUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: expected:<3> but was:<4>
 	at org.apache.commons.collections4.CollectionUtilsTest_OE25Dev.filterInverse_2_oe(CollectionUtilsTest_OE25Dev.java:5350)
 
@@ -1890,11 +1890,11 @@ java.lang.AssertionError: expected:<3> but was:<2>
 java.lang.AssertionError
 	at org.apache.commons.collections4.CollectionUtilsTest_OE25Dev.addAllForIterable_3_oe(CollectionUtilsTest_OE25Dev.java:7311)
 
-[ERROR] addAllForIterable_4_oe(org.apache.commons.collections4.CollectionUtilsTest_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] addAllForIterable_4_oe(org.apache.commons.collections4.CollectionUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError
 	at org.apache.commons.collections4.CollectionUtilsTest_OE25Dev.addAllForIterable_4_oe(CollectionUtilsTest_OE25Dev.java:7346)
 
-[ERROR] filter_2_oe(org.apache.commons.collections4.CollectionUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] filter_2_oe(org.apache.commons.collections4.CollectionUtilsTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 java.lang.AssertionError: expected:<1> but was:<4>
 	at org.apache.commons.collections4.CollectionUtilsTest_OE25Dev.filter_2_oe(CollectionUtilsTest_OE25Dev.java:5263)
 
@@ -1916,13 +1916,13 @@ java.lang.AssertionError: expected:<4> but was:<3>
 java.lang.AssertionError: expected:<true> but was:<false>
 	at org.apache.commons.collections4.CollectionUtilsTest_OE25Dev.addIgnoreNull_7_oe(CollectionUtilsTest_OE25Dev.java:6235)
 
-[ERROR] getFromList_1_oe(org.apache.commons.collections4.CollectionUtilsTest_OE25Dev)  Time elapsed: 0.006 s  <<< FAILURE!
+[ERROR] getFromList_1_oe(org.apache.commons.collections4.CollectionUtilsTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
 java.lang.AssertionError: Expected exception: java.lang.IndexOutOfBoundsException
 
-[ERROR] getFromList_2_oe(org.apache.commons.collections4.CollectionUtilsTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] getFromList_2_oe(org.apache.commons.collections4.CollectionUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: Expected exception: java.lang.IndexOutOfBoundsException
 
-[ERROR] getFromIterable_1_oe(org.apache.commons.collections4.CollectionUtilsTest_OE25Dev)  Time elapsed: 0.011 s  <<< FAILURE!
+[ERROR] getFromIterable_1_oe(org.apache.commons.collections4.CollectionUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: Expected exception: java.lang.IndexOutOfBoundsException
 
 [ERROR] getFromObjectArray_1_oe(org.apache.commons.collections4.CollectionUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
@@ -1936,7 +1936,7 @@ java.lang.AssertionError
 	at org.apache.commons.collections4.CollectionUtilsTest_OE25Dev.getEnumeration_4_oe(CollectionUtilsTest_OE25Dev.java:7444)
 
 [INFO] Running org.apache.commons.collections4.splitmap.TransformedSplitMapTest_OE25Dev
-[ERROR] Tests run: 26, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in org.apache.commons.collections4.splitmap.TransformedSplitMapTest_OE25Dev
+[ERROR] Tests run: 26, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in org.apache.commons.collections4.splitmap.TransformedSplitMapTest_OE25Dev
 [ERROR] testTransformedMap_11_oe(org.apache.commons.collections4.splitmap.TransformedSplitMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<6> but was:<7>
 	at org.apache.commons.collections4.splitmap.TransformedSplitMapTest_OE25Dev.testTransformedMap_11_oe(TransformedSplitMapTest_OE25Dev.java:298)
@@ -1946,41 +1946,41 @@ junit.framework.AssertionFailedError: expected:<5> but was:<6>
 	at org.apache.commons.collections4.splitmap.TransformedSplitMapTest_OE25Dev.testTransformedMap_19_oe(TransformedSplitMapTest_OE25Dev.java:591)
 
 [INFO] Running org.apache.commons.collections4.BagUtilsTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.collections4.BagUtilsTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.collections4.BagUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.FluentIterableTest_OE25Dev
-[INFO] Tests run: 80, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.collections4.FluentIterableTest_OE25Dev
+[INFO] Tests run: 80, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.collections4.FluentIterableTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.TransformedSortedBagTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.collections4.bag.TransformedSortedBagTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bag.TransformedSortedBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.UnmodifiableSortedBagTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.bag.UnmodifiableSortedBagTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bag.UnmodifiableSortedBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.CollectionBagTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.bag.CollectionBagTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.bag.CollectionBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.TransformedBagTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bag.TransformedBagTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.collections4.bag.TransformedBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.PredicatedSortedBagTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bag.PredicatedSortedBagTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.bag.PredicatedSortedBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.UnmodifiableBagTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bag.UnmodifiableBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev
-[ERROR] Tests run: 7, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev
+[ERROR] Tests run: 7, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev
 [ERROR] testlegalAddRemove_6_oe(org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: Unique set now does not contain the first element
 	at org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev.testlegalAddRemove_6_oe(PredicatedBagTest_OE25Dev.java:171)
 
 [INFO] Running org.apache.commons.collections4.bag.CollectionSortedBagTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.collections4.bag.CollectionSortedBagTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.bag.CollectionSortedBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.TreeBagTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bag.TreeBagTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bag.TreeBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.properties.PropertiesFactoryTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.properties.PropertiesFactoryTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.properties.SortedPropertiesTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.properties.SortedPropertiesTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.properties.SortedPropertiesTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.properties.SortedPropertiesFactoryTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.properties.SortedPropertiesFactoryTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.IterableUtilsTest_OE25Dev
-[INFO] Tests run: 85, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.collections4.IterableUtilsTest_OE25Dev
+[INFO] Tests run: 85, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.collections4.IterableUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.IteratorUtilsTest_OE25Dev
-[ERROR] Tests run: 191, Failures: 45, Errors: 8, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in org.apache.commons.collections4.IteratorUtilsTest_OE25Dev
+[ERROR] Tests run: 191, Failures: 45, Errors: 8, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in org.apache.commons.collections4.IteratorUtilsTest_OE25Dev
 [ERROR] testArrayIterator_15_oe(org.apache.commons.collections4.IteratorUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError
 	at org.apache.commons.collections4.IteratorUtilsTest_OE25Dev.testArrayIterator_15_oe(IteratorUtilsTest_OE25Dev.java:602)
@@ -2021,7 +2021,7 @@ org.junit.ComparisonFailure: expected:<[b]> but was:<[a]>
 java.lang.AssertionError
 	at org.apache.commons.collections4.IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_7_oe(IteratorUtilsTest_OE25Dev.java:6245)
 
-[ERROR] testUnmodifiableListIteratorIteration_9_oe(org.apache.commons.collections4.IteratorUtilsTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testUnmodifiableListIteratorIteration_9_oe(org.apache.commons.collections4.IteratorUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[c]> but was:<[a]>
 	at org.apache.commons.collections4.IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_9_oe(IteratorUtilsTest_OE25Dev.java:6283)
 
@@ -2081,7 +2081,7 @@ java.lang.AssertionError
 java.lang.AssertionError
 	at org.apache.commons.collections4.IteratorUtilsTest_OE25Dev.testArrayListIterator_46_oe(IteratorUtilsTest_OE25Dev.java:3292)
 
-[ERROR] testArrayListIterator_47_oe(org.apache.commons.collections4.IteratorUtilsTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testArrayListIterator_47_oe(org.apache.commons.collections4.IteratorUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError
 	at org.apache.commons.collections4.IteratorUtilsTest_OE25Dev.testArrayListIterator_47_oe(IteratorUtilsTest_OE25Dev.java:3403)
 
@@ -2137,7 +2137,7 @@ org.junit.ComparisonFailure: expected:<[b]> but was:<[a]>
 org.junit.ComparisonFailure: expected:<[c]> but was:<[a]>
 	at org.apache.commons.collections4.IteratorUtilsTest_OE25Dev.testUnmodifiableIteratorIteration_6_oe(IteratorUtilsTest_OE25Dev.java:6100)
 
-[ERROR] testUnmodifiableIteratorIteration_8_oe(org.apache.commons.collections4.IteratorUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testUnmodifiableIteratorIteration_8_oe(org.apache.commons.collections4.IteratorUtilsTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[d]> but was:<[a]>
 	at org.apache.commons.collections4.IteratorUtilsTest_OE25Dev.testUnmodifiableIteratorIteration_8_oe(IteratorUtilsTest_OE25Dev.java:6140)
 
@@ -2169,7 +2169,7 @@ java.lang.AssertionError
 java.util.NoSuchElementException
 	at org.apache.commons.collections4.IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_15_oe(IteratorUtilsTest_OE25Dev.java:6438)
 
-[ERROR] testUnmodifiableListIteratorIteration_16_oe(org.apache.commons.collections4.IteratorUtilsTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testUnmodifiableListIteratorIteration_16_oe(org.apache.commons.collections4.IteratorUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError
 	at org.apache.commons.collections4.IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_16_oe(IteratorUtilsTest_OE25Dev.java:6470)
 
@@ -2194,31 +2194,31 @@ java.util.NoSuchElementException
 	at org.apache.commons.collections4.IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_24_oe(IteratorUtilsTest_OE25Dev.java:6783)
 
 [INFO] Running org.apache.commons.collections4.bidimap.UnmodifiableOrderedBidiMapTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.collections4.bidimap.UnmodifiableOrderedBidiMapTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.collections4.bidimap.UnmodifiableOrderedBidiMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bidimap.UnmodifiableSortedBidiMapTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.bidimap.UnmodifiableSortedBidiMapTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.bidimap.UnmodifiableSortedBidiMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bidimap.UnmodifiableBidiMapTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bidimap.UnmodifiableBidiMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bidimap.DualTreeBidiMap2Test_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.collections4.bidimap.DualTreeBidiMap2Test_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.collections4.bidimap.DualTreeBidiMap2Test_OE25Dev
 [INFO] Running org.apache.commons.collections4.multiset.UnmodifiableMultiSetTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.multiset.UnmodifiableMultiSetTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.multiset.UnmodifiableMultiSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.multiset.PredicatedMultiSetTest_OE25Dev
 [INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.multiset.PredicatedMultiSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.comparators.ReverseComparatorTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.comparators.ReverseComparatorTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.comparators.ReverseComparatorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.comparators.TransformingComparatorTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.comparators.TransformingComparatorTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.comparators.TransformingComparatorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.comparators.FixedOrderComparatorTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.comparators.FixedOrderComparatorTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.comparators.FixedOrderComparatorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.comparators.ComparatorChainTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.comparators.ComparatorChainTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.comparators.ComparatorChainTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.comparators.BooleanComparatorTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.comparators.BooleanComparatorTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.comparators.BooleanComparatorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.keyvalue.DefaultKeyValueTest_OE25Dev
-[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.keyvalue.DefaultKeyValueTest_OE25Dev
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.keyvalue.DefaultKeyValueTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.keyvalue.MultiKeyTest_OE25Dev
-[INFO] Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.collections4.keyvalue.MultiKeyTest_OE25Dev
+[INFO] Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.keyvalue.MultiKeyTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.keyvalue.TiedMapEntryTest_OE25Dev
@@ -2236,12 +2236,12 @@ java.lang.AssertionError: expected same:<x> was not:<a>
 	at org.apache.commons.collections4.keyvalue.TiedMapEntryTest_OE25Dev.testSetValue_5_oe(TiedMapEntryTest_OE25Dev.java:114)
 
 [INFO] Running org.apache.commons.collections4.ArrayStackTest_OE25Dev
-[ERROR] Tests run: 17, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.collections4.ArrayStackTest_OE25Dev
+[ERROR] Tests run: 17, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.collections4.ArrayStackTest_OE25Dev
 [ERROR] testPushPeekPop_9_oe(org.apache.commons.collections4.ArrayStackTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.ComparisonFailure: Top item is 'First Item' expected:<[First] Item> but was:<[Second] Item>
 	at org.apache.commons.collections4.ArrayStackTest_OE25Dev.testPushPeekPop_9_oe(ArrayStackTest_OE25Dev.java:177)
 
-[ERROR] testPushPeekPop_10_oe(org.apache.commons.collections4.ArrayStackTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testPushPeekPop_10_oe(org.apache.commons.collections4.ArrayStackTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError: Stack size is one expected:<1> but was:<2>
 	at org.apache.commons.collections4.ArrayStackTest_OE25Dev.testPushPeekPop_10_oe(ArrayStackTest_OE25Dev.java:196)
 
@@ -2254,7 +2254,7 @@ junit.framework.AssertionFailedError: Stack size is zero expected:<0> but was:<2
 	at org.apache.commons.collections4.ArrayStackTest_OE25Dev.testPushPeekPop_12_oe(ArrayStackTest_OE25Dev.java:239)
 
 [INFO] Running org.apache.commons.collections4.list.TreeListTest_OE25Dev
-[ERROR] Tests run: 59, Failures: 24, Errors: 6, Skipped: 0, Time elapsed: 0.059 s <<< FAILURE! - in org.apache.commons.collections4.list.TreeListTest_OE25Dev
+[ERROR] Tests run: 59, Failures: 24, Errors: 6, Skipped: 0, Time elapsed: 0.049 s <<< FAILURE! - in org.apache.commons.collections4.list.TreeListTest_OE25Dev
 [ERROR] testIterationOrderAfterAddAll_2_oe(org.apache.commons.collections4.list.TreeListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<-1> but was:<999>
 	at org.apache.commons.collections4.list.TreeListTest_OE25Dev.testIterationOrderAfterAddAll_2_oe(TreeListTest_OE25Dev.java:1359)
@@ -2311,7 +2311,7 @@ junit.framework.AssertionFailedError: expected:<harald> but was:<hugo>
 junit.framework.AssertionFailedError: expected:<daniel> but was:<hugo>
 	at org.apache.commons.collections4.list.TreeListTest_OE25Dev.testRemove_13_oe(TreeListTest_OE25Dev.java:463)
 
-[ERROR] testRemove_14_oe(org.apache.commons.collections4.list.TreeListTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testRemove_14_oe(org.apache.commons.collections4.list.TreeListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<andres> but was:<hugo>
 	at org.apache.commons.collections4.list.TreeListTest_OE25Dev.testRemove_14_oe(TreeListTest_OE25Dev.java:494)
 
@@ -2376,11 +2376,11 @@ junit.framework.AssertionFailedError: expected:<-1> but was:<0>
 	at org.apache.commons.collections4.list.TreeListTest_OE25Dev.testIterationOrder_2_oe(TreeListTest_OE25Dev.java:1294)
 
 [INFO] Running org.apache.commons.collections4.list.GrowthListTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.GrowthListTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.list.GrowthListTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.list.TransformedListTest_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.list.TransformedListTest_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.list.TransformedListTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev
-[ERROR] Tests run: 111, Failures: 15, Errors: 0, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev
+[ERROR] Tests run: 111, Failures: 15, Errors: 0, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev
 [ERROR] testSetUpwardsInList_8_oe(org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<2> but was:<3>
 	at org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev.testSetUpwardsInList_8_oe(SetUniqueListTest_OE25Dev.java:2310)
@@ -2389,11 +2389,11 @@ junit.framework.AssertionFailedError: expected:<2> but was:<3>
 junit.framework.AssertionFailedError: expected:<2> but was:<3>
 	at org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev.testSetUpwardsInList_9_oe(SetUniqueListTest_OE25Dev.java:2340)
 
-[ERROR] testSetDownwardsInList_6_oe(org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testSetDownwardsInList_6_oe(org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<1> but was:<2>
 	at org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev.testSetDownwardsInList_6_oe(SetUniqueListTest_OE25Dev.java:1613)
 
-[ERROR] testSetDownwardsInList_7_oe(org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testSetDownwardsInList_7_oe(org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<1> but was:<2>
 	at org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev.testSetDownwardsInList_7_oe(SetUniqueListTest_OE25Dev.java:1638)
 
@@ -2409,7 +2409,7 @@ junit.framework.AssertionFailedError: expected:<5> but was:<10>
 junit.framework.AssertionFailedError: expected:<C> but was:<B>
 	at org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev.testSetUpwardsInList_11_oe(SetUniqueListTest_OE25Dev.java:2403)
 
-[ERROR] testSetUpwardsInList_13_oe(org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] testSetUpwardsInList_13_oe(org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev.testSetUpwardsInList_13_oe(SetUniqueListTest_OE25Dev.java:2470)
 
@@ -2442,11 +2442,11 @@ junit.framework.AssertionFailedError: expected:<2> but was:<3>
 	at org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev.testSetInBiggerList_9_oe(SetUniqueListTest_OE25Dev.java:1947)
 
 [INFO] Running org.apache.commons.collections4.list.LazyListTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.list.LazyListTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.list.LazyListTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.list.UnmodifiableListTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.UnmodifiableListTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev
-[ERROR] Tests run: 595, Failures: 168, Errors: 135, Skipped: 0, Time elapsed: 0.114 s <<< FAILURE! - in org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev
+[ERROR] Tests run: 595, Failures: 168, Errors: 135, Skipped: 0, Time elapsed: 0.122 s <<< FAILURE! - in org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev
 [ERROR] testCursorNextIndexFirst_4_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<1> but was:<0>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testCursorNextIndexFirst_4_oe(CursorableLinkedListTest_OE25Dev.java:3662)
@@ -2459,7 +2459,7 @@ junit.framework.AssertionFailedError: expected:<3> but was:<2>
 junit.framework.AssertionFailedError: expected:<2> but was:<1>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testCursorConcurrentModification_2_oe(CursorableLinkedListTest_OE25Dev.java:2988)
 
-[ERROR] testCursorConcurrentModification_3_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testCursorConcurrentModification_3_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testCursorConcurrentModification_3_oe(CursorableLinkedListTest_OE25Dev.java:3009)
 
@@ -2483,7 +2483,7 @@ java.lang.IllegalStateException
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testCursorConcurrentModification_8_oe(CursorableLinkedListTest_OE25Dev.java:3133)
 
-[ERROR] testCursorConcurrentModification_9_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testCursorConcurrentModification_9_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testCursorConcurrentModification_9_oe(CursorableLinkedListTest_OE25Dev.java:3165)
 
@@ -2619,7 +2619,7 @@ junit.framework.AssertionFailedError
 junit.framework.AssertionFailedError: expected:<4> but was:<1>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testCursorNavigation_24_oe(CursorableLinkedListTest_OE25Dev.java:1400)
 
-[ERROR] testCursorNavigation_26_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testCursorNavigation_26_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
 junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testCursorNavigation_26_oe(CursorableLinkedListTest_OE25Dev.java:1469)
 
@@ -2655,7 +2655,7 @@ junit.framework.AssertionFailedError
 java.util.NoSuchElementException: Already at start of list.
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testCursorNavigation_36_oe(CursorableLinkedListTest_OE25Dev.java:1874)
 
-[ERROR] testCursorNavigation_38_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testCursorNavigation_38_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testCursorNavigation_38_oe(CursorableLinkedListTest_OE25Dev.java:1967)
 
@@ -2703,11 +2703,11 @@ java.lang.IllegalStateException
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testListIteratorRemove_5_oe(CursorableLinkedListTest_OE25Dev.java:11631)
 
-[ERROR] testListIteratorRemove_6_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testListIteratorRemove_6_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testListIteratorRemove_6_oe(CursorableLinkedListTest_OE25Dev.java:11652)
 
-[ERROR] testListIteratorRemove_7_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testListIteratorRemove_7_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testListIteratorRemove_7_oe(CursorableLinkedListTest_OE25Dev.java:11674)
 
@@ -2735,7 +2735,7 @@ java.lang.IllegalStateException
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testCursorSet_4_oe(CursorableLinkedListTest_OE25Dev.java:2321)
 
-[ERROR] testCursorSet_5_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testCursorSet_5_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testCursorSet_5_oe(CursorableLinkedListTest_OE25Dev.java:2337)
 
@@ -2767,7 +2767,7 @@ junit.framework.AssertionFailedError: expected:<C> but was:<A>
 junit.framework.ComparisonFailure: expected:<[[A, B, Z], C]> but was:<[[Z, A, B], C]>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testInternalState_CursorNextNextAddByIterator_8_oe(CursorableLinkedListTest_OE25Dev.java:5324)
 
-[ERROR] testCursorConcurrentModification_10_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testCursorConcurrentModification_10_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testCursorConcurrentModification_10_oe(CursorableLinkedListTest_OE25Dev.java:3198)
 
@@ -2799,7 +2799,7 @@ java.lang.IllegalStateException
 junit.framework.AssertionFailedError: expected:<5> but was:<1>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testIterator_10_oe(CursorableLinkedListTest_OE25Dev.java:7416)
 
-[ERROR] testIterator_11_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testIterator_11_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testIterator_11_oe(CursorableLinkedListTest_OE25Dev.java:7436)
 
@@ -2839,7 +2839,7 @@ java.lang.IllegalStateException
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testIterator_22_oe(CursorableLinkedListTest_OE25Dev.java:7751)
 
-[ERROR] testIterator_23_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testIterator_23_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testIterator_23_oe(CursorableLinkedListTest_OE25Dev.java:7787)
 
@@ -2855,7 +2855,7 @@ java.lang.IllegalStateException
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testIterator_26_oe(CursorableLinkedListTest_OE25Dev.java:7904)
 
-[ERROR] testIterator_27_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] testIterator_27_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testIterator_27_oe(CursorableLinkedListTest_OE25Dev.java:7946)
 
@@ -3003,7 +3003,7 @@ java.lang.IllegalStateException
 junit.framework.ComparisonFailure: expected:<[[1]]> but was:<[[]]>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testAdd_3_oe(CursorableLinkedListTest_OE25Dev.java:122)
 
-[ERROR] testAdd_5_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testAdd_5_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.ComparisonFailure: expected:<[[1, 2]]> but was:<[[]]>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testAdd_5_oe(CursorableLinkedListTest_OE25Dev.java:137)
 
@@ -3175,7 +3175,7 @@ junit.framework.ComparisonFailure: expected:<[[4]]> but was:<[[1, 1, 2, 3, 4, 5,
 junit.framework.ComparisonFailure: expected:<[[]]> but was:<[[1, 1, 2, 3, 4, 5, 2, 3, 4, 5]]>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testRemove_23_oe(CursorableLinkedListTest_OE25Dev.java:12851)
 
-[ERROR] testListIteratorNavigation_10_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testListIteratorNavigation_10_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.util.NoSuchElementException: Already at start of list.
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testListIteratorNavigation_10_oe(CursorableLinkedListTest_OE25Dev.java:8109)
 
@@ -3223,7 +3223,7 @@ junit.framework.AssertionFailedError: expected:<0> but was:<-1>
 junit.framework.AssertionFailedError: expected:<1> but was:<0>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testListIteratorNavigation_29_oe(CursorableLinkedListTest_OE25Dev.java:8660)
 
-[ERROR] testListIteratorNavigation_30_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
+[ERROR] testListIteratorNavigation_30_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<2> but was:<1>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testListIteratorNavigation_30_oe(CursorableLinkedListTest_OE25Dev.java:8699)
 
@@ -3263,7 +3263,7 @@ junit.framework.AssertionFailedError: expected:<4> but was:<1>
 junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testListIteratorNavigation_42_oe(CursorableLinkedListTest_OE25Dev.java:9245)
 
-[ERROR] testListIteratorNavigation_43_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testListIteratorNavigation_43_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<3> but was:<-1>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testListIteratorNavigation_43_oe(CursorableLinkedListTest_OE25Dev.java:9297)
 
@@ -3343,7 +3343,7 @@ junit.framework.AssertionFailedError: expected:<2> but was:<0>
 java.util.NoSuchElementException: Already at start of list.
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testListIteratorNavigation_65_oe(CursorableLinkedListTest_OE25Dev.java:10694)
 
-[ERROR] testListIteratorNavigation_67_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testListIteratorNavigation_67_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.006 s  <<< FAILURE!
 junit.framework.AssertionFailedError
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testListIteratorNavigation_67_oe(CursorableLinkedListTest_OE25Dev.java:10845)
 
@@ -3359,7 +3359,7 @@ junit.framework.AssertionFailedError: expected:<1> but was:<0>
 java.util.NoSuchElementException: Already at start of list.
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testListIteratorNavigation_70_oe(CursorableLinkedListTest_OE25Dev.java:11079)
 
-[ERROR] testInternalState_CursorNextNextPreviousRemoveIndex1ByList_2_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] testInternalState_CursorNextNextPreviousRemoveIndex1ByList_2_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<B> but was:<A>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testInternalState_CursorNextNextPreviousRemoveIndex1ByList_2_oe(CursorableLinkedListTest_OE25Dev.java:3887)
 
@@ -3431,7 +3431,7 @@ java.lang.IllegalStateException
 junit.framework.ComparisonFailure: expected:<[[0, 1, 2, 3, 4]]> but was:<[[]]>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testAdd_11_oe(CursorableLinkedListTest_OE25Dev.java:206)
 
-[ERROR] testAdd_12_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testAdd_12_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.ComparisonFailure: expected:<[-2[, 0, 1, 2, 3, 4]]> but was:<[-2[]]>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testAdd_12_oe(CursorableLinkedListTest_OE25Dev.java:222)
 
@@ -3483,7 +3483,7 @@ junit.framework.AssertionFailedError: expected:<D> but was:<A>
 junit.framework.ComparisonFailure: expected:<[A, []C, D]> but was:<[A, [B, ]C, D]>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testInternalState_CursorNextNextNextRemoveIndex1ByList_9_oe(CursorableLinkedListTest_OE25Dev.java:4466)
 
-[ERROR] testIterator_4_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testIterator_4_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<2> but was:<1>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testIterator_4_oe(CursorableLinkedListTest_OE25Dev.java:7317)
 
@@ -3527,7 +3527,7 @@ junit.framework.AssertionFailedError: expected:<2> but was:<1>
 junit.framework.ComparisonFailure: expected:<[[]]> but was:<[[1, 2, 3, 4, 5]]>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testRemoveByIndex_11_oe(CursorableLinkedListTest_OE25Dev.java:12276)
 
-[ERROR] testInternalState_CursorNextNextPreviousRemoveIndex1ByList_10_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testInternalState_CursorNextNextPreviousRemoveIndex1ByList_10_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.ComparisonFailure: expected:<[A, []C]> but was:<[A, [B, ]C]>
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testInternalState_CursorNextNextPreviousRemoveIndex1ByList_10_oe(CursorableLinkedListTest_OE25Dev.java:4017)
 
@@ -3583,7 +3583,7 @@ java.lang.IllegalStateException
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testCursorRemove_12_oe(CursorableLinkedListTest_OE25Dev.java:2651)
 
-[ERROR] testCursorRemove_13_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testCursorRemove_13_oe(org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalStateException
 	at org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev.testCursorRemove_13_oe(CursorableLinkedListTest_OE25Dev.java:2681)
 
@@ -3666,26 +3666,26 @@ junit.framework.ComparisonFailure: expected:<5> but was:<null>
 [INFO] Running org.apache.commons.collections4.list.Collections701Test_OE25Dev
 [INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.Collections701Test_OE25Dev
 [INFO] Running org.apache.commons.collections4.TransformerUtilsTest_OE25Dev
-[ERROR] Tests run: 84, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.collections4.TransformerUtilsTest_OE25Dev
+[ERROR] Tests run: 84, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.collections4.TransformerUtilsTest_OE25Dev
 [ERROR] testCloneTransformer_5_oe(org.apache.commons.collections4.TransformerUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError
 	at org.apache.commons.collections4.TransformerUtilsTest_OE25Dev.testCloneTransformer_5_oe(TransformerUtilsTest_OE25Dev.java:327)
 
 [INFO] Running org.apache.commons.collections4.sequence.SequencesComparatorTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.217 s - in org.apache.commons.collections4.sequence.SequencesComparatorTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.174 s - in org.apache.commons.collections4.sequence.SequencesComparatorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.SetUtilsTest_OE25Dev
-[INFO] Tests run: 70, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.SetUtilsTest_OE25Dev
+[INFO] Tests run: 70, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.SetUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.ClosureUtilsTest_OE25Dev
-[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.ClosureUtilsTest_OE25Dev
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.ClosureUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.TransformedNavigableSetTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.set.TransformedNavigableSetTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.set.TransformedNavigableSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.PredicatedSortedSetTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.set.PredicatedSortedSetTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.PredicatedSortedSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.TransformedSortedSetTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.TransformedSortedSetTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.TransformedSortedSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev
-[ERROR] Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev
-[ERROR] testOrdering_3_oe(org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev
+[ERROR] testOrdering_3_oe(org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: Sequence is wrong after remove  expected:<1> but was:<0>
 	at org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev.testOrdering_3_oe(MapBackedSet2Test_OE25Dev.java:94)
 
@@ -3693,14 +3693,14 @@ junit.framework.AssertionFailedError: Sequence is wrong after remove  expected:<
 junit.framework.AssertionFailedError: Sequence is wrong expected:<1> but was:<0>
 	at org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev.testOrdering_5_oe(MapBackedSet2Test_OE25Dev.java:147)
 
-[ERROR] testOrdering_6_oe(org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testOrdering_6_oe(org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError: Sequence is wrong expected:<2> but was:<1>
 	at org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev.testOrdering_6_oe(MapBackedSet2Test_OE25Dev.java:179)
 
 [INFO] Running org.apache.commons.collections4.set.PredicatedSetTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.PredicatedSetTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.PredicatedSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.ListOrderedSet2Test_OE25Dev
-[ERROR] Tests run: 40, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.collections4.set.ListOrderedSet2Test_OE25Dev
+[ERROR] Tests run: 40, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.collections4.set.ListOrderedSet2Test_OE25Dev
 [ERROR] testOrdering_3_oe(org.apache.commons.collections4.set.ListOrderedSet2Test_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: Sequence is wrong after remove  expected:<1> but was:<0>
 	at org.apache.commons.collections4.set.ListOrderedSet2Test_OE25Dev.testOrdering_3_oe(ListOrderedSet2Test_OE25Dev.java:103)
@@ -3714,15 +3714,15 @@ junit.framework.AssertionFailedError: Sequence is wrong expected:<2> but was:<1>
 	at org.apache.commons.collections4.set.ListOrderedSet2Test_OE25Dev.testOrdering_6_oe(ListOrderedSet2Test_OE25Dev.java:188)
 
 [INFO] Running org.apache.commons.collections4.set.PredicatedNavigableSetTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.set.PredicatedNavigableSetTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.PredicatedNavigableSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.UnmodifiableNavigableSetTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.collections4.set.UnmodifiableNavigableSetTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.UnmodifiableNavigableSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
 [INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.TransformedSetTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.set.TransformedSetTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.TransformedSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
-[ERROR] Tests run: 58, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
+[ERROR] Tests run: 58, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
 [ERROR] testRetainAll_2_oe(org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<5> but was:<10>
 	at org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev.testRetainAll_2_oe(ListOrderedSetTest_OE25Dev.java:1069)
@@ -3764,7 +3764,7 @@ junit.framework.AssertionFailedError: Sequence is wrong expected:<2> but was:<1>
 [INFO] Running org.apache.commons.collections4.set.UnmodifiableSetTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.UnmodifiableSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
-[ERROR] Tests run: 125, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
+[ERROR] Tests run: 125, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
 [ERROR] testUniquePredicate_5_oe(org.apache.commons.collections4.PredicateUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: expected:<false> but was:<true>
 	at org.apache.commons.collections4.PredicateUtilsTest_OE25Dev.testUniquePredicate_5_oe(PredicateUtilsTest_OE25Dev.java:1733)
@@ -3777,8 +3777,8 @@ java.lang.AssertionError: expected:<false> but was:<true>
 java.lang.AssertionError: Expected exception: org.apache.commons.collections4.FunctorException
 
 [INFO] Running org.apache.commons.collections4.map.ListOrderedMap2Test_OE25Dev
-[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in org.apache.commons.collections4.map.ListOrderedMap2Test_OE25Dev
-[ERROR] testRemoveByIndex_1_oe(org.apache.commons.collections4.map.ListOrderedMap2Test_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.collections4.map.ListOrderedMap2Test_OE25Dev
+[ERROR] testRemoveByIndex_1_oe(org.apache.commons.collections4.map.ListOrderedMap2Test_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<foov> but was:<barv>
 	at org.apache.commons.collections4.map.ListOrderedMap2Test_OE25Dev.testRemoveByIndex_1_oe(ListOrderedMap2Test_OE25Dev.java:228)
 
@@ -3787,8 +3787,8 @@ junit.framework.AssertionFailedError: expected:<false> but was:<true>
 	at org.apache.commons.collections4.map.ListOrderedMap2Test_OE25Dev.testRemoveByIndex_2_oe(ListOrderedMap2Test_OE25Dev.java:260)
 
 [INFO] Running org.apache.commons.collections4.map.ListOrderedMapTest_OE25Dev
-[ERROR] Tests run: 68, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in org.apache.commons.collections4.map.ListOrderedMapTest_OE25Dev
-[ERROR] testSetValueByIndex_2_oe(org.apache.commons.collections4.map.ListOrderedMapTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] Tests run: 68, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in org.apache.commons.collections4.map.ListOrderedMapTest_OE25Dev
+[ERROR] testSetValueByIndex_2_oe(org.apache.commons.collections4.map.ListOrderedMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<0> but was:<blahv>
 	at org.apache.commons.collections4.map.ListOrderedMapTest_OE25Dev.testSetValueByIndex_2_oe(ListOrderedMapTest_OE25Dev.java:302)
 
@@ -3809,30 +3809,30 @@ junit.framework.AssertionFailedError: expected:<0> but was:<blahv>
 	at org.apache.commons.collections4.map.ListOrderedMapTest_OE25Dev.testValueList_setByIndex_3_oe(ListOrderedMapTest_OE25Dev.java:3577)
 
 [INFO] Running org.apache.commons.collections4.map.PredicatedSortedMapTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.map.PredicatedSortedMapTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.PredicatedSortedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.DefaultedMapTest_OE25Dev
-[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.DefaultedMapTest_OE25Dev
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.map.DefaultedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.UnmodifiableMapTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.UnmodifiableMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.HashedMapTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.HashedMapTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.HashedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.TransformedMapTest_OE25Dev
-[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.map.TransformedMapTest_OE25Dev
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.map.TransformedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.Flat3MapTest_OE25Dev
-[INFO] Tests run: 174, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.collections4.map.Flat3MapTest_OE25Dev
+[INFO] Tests run: 174, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.collections4.map.Flat3MapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev
-[ERROR] Tests run: 10, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 2.625 s <<< FAILURE! - in org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev
-[ERROR] testCustomPurge_1_oe(org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev)  Time elapsed: 1.347 s  <<< FAILURE!
+[ERROR] Tests run: 10, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 2.218 s <<< FAILURE! - in org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev
+[ERROR] testCustomPurge_1_oe(org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev)  Time elapsed: 1.165 s  <<< FAILURE!
 junit.framework.AssertionFailedError: Max iterations reached before resource released.
 	at org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev.testCustomPurge_1_oe(ReferenceMapTest_OE25Dev.java:363)
 
-[ERROR] testPurgeValues_1_oe(org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev)  Time elapsed: 1.254 s  <<< FAILURE!
+[ERROR] testPurgeValues_1_oe(org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev)  Time elapsed: 1.012 s  <<< FAILURE!
 junit.framework.AssertionFailedError: Max iterations reached before resource released.
 	at org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev.testPurgeValues_1_oe(ReferenceMapTest_OE25Dev.java:338)
 
 [INFO] Running org.apache.commons.collections4.map.LRUMapTest_OE25Dev
-[ERROR] Tests run: 169, Failures: 31, Errors: 0, Skipped: 0, Time elapsed: 8.059 s <<< FAILURE! - in org.apache.commons.collections4.map.LRUMapTest_OE25Dev
-[ERROR] testAccessOrder_10_oe(org.apache.commons.collections4.map.LRUMapTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] Tests run: 169, Failures: 31, Errors: 0, Skipped: 0, Time elapsed: 8.057 s <<< FAILURE! - in org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] testAccessOrder_10_oe(org.apache.commons.collections4.map.LRUMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected same:<all> was not:<again>
 	at org.apache.commons.collections4.map.LRUMapTest_OE25Dev.testAccessOrder_10_oe(LRUMapTest_OE25Dev.java:1807)
 
@@ -3856,7 +3856,7 @@ junit.framework.AssertionFailedError: expected same:<all> was not:<again>
 junit.framework.AssertionFailedError: expected same:<barv> was not:<bazv>
 	at org.apache.commons.collections4.map.LRUMapTest_OE25Dev.testAccessOrder_20_oe(LRUMapTest_OE25Dev.java:2278)
 
-[ERROR] testAccessOrder_22_oe(org.apache.commons.collections4.map.LRUMapTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testAccessOrder_22_oe(org.apache.commons.collections4.map.LRUMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected same:<again> was not:<all>
 	at org.apache.commons.collections4.map.LRUMapTest_OE25Dev.testAccessOrder_22_oe(LRUMapTest_OE25Dev.java:2401)
 
@@ -3872,7 +3872,7 @@ junit.framework.AssertionFailedError: expected same:<again> was not:<all>
 junit.framework.AssertionFailedError: expected same:<bazv> was not:<barv>
 	at org.apache.commons.collections4.map.LRUMapTest_OE25Dev.testAccessOrder_28_oe(LRUMapTest_OE25Dev.java:2818)
 
-[ERROR] testLRU_11_oe(org.apache.commons.collections4.map.LRUMapTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testLRU_11_oe(org.apache.commons.collections4.map.LRUMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected same:<all> was not:<again>
 	at org.apache.commons.collections4.map.LRUMapTest_OE25Dev.testLRU_11_oe(LRUMapTest_OE25Dev.java:431)
 
@@ -3912,7 +3912,7 @@ junit.framework.AssertionFailedError: expected same:<all> was not:<again>
 junit.framework.AssertionFailedError: expected same:<foov> was not:<blahv>
 	at org.apache.commons.collections4.map.LRUMapTest_OE25Dev.testAccessOrder2_4_oe(LRUMapTest_OE25Dev.java:2898)
 
-[ERROR] testAccessOrder2_6_oe(org.apache.commons.collections4.map.LRUMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testAccessOrder2_6_oe(org.apache.commons.collections4.map.LRUMapTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected same:<all> was not:<again>
 	at org.apache.commons.collections4.map.LRUMapTest_OE25Dev.testAccessOrder2_6_oe(LRUMapTest_OE25Dev.java:2953)
 
@@ -3924,7 +3924,7 @@ junit.framework.AssertionFailedError: expected same:<foov> was not:<blahv>
 junit.framework.AssertionFailedError: expected same:<all> was not:<again>
 	at org.apache.commons.collections4.map.LRUMapTest_OE25Dev.testAccessOrder2_10_oe(LRUMapTest_OE25Dev.java:3087)
 
-[ERROR] testAccessOrder2_12_oe(org.apache.commons.collections4.map.LRUMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testAccessOrder2_12_oe(org.apache.commons.collections4.map.LRUMapTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected same:<foov> was not:<blahv>
 	at org.apache.commons.collections4.map.LRUMapTest_OE25Dev.testAccessOrder2_12_oe(LRUMapTest_OE25Dev.java:3166)
 
@@ -3957,16 +3957,16 @@ junit.framework.AssertionFailedError: expected same:<all> was not:<again>
 	at org.apache.commons.collections4.map.LRUMapTest_OE25Dev.testReset_2_oe(LRUMapTest_OE25Dev.java:1543)
 
 [INFO] Running org.apache.commons.collections4.map.PredicatedMapTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.PredicatedMapTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.PredicatedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.ReferenceIdentityMapTest_OE25Dev
-[ERROR] Tests run: 33, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.418 s <<< FAILURE! - in org.apache.commons.collections4.map.ReferenceIdentityMapTest_OE25Dev
-[ERROR] testPurgeValues_1_oe(org.apache.commons.collections4.map.ReferenceIdentityMapTest_OE25Dev)  Time elapsed: 1.414 s  <<< FAILURE!
+[ERROR] Tests run: 33, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.271 s <<< FAILURE! - in org.apache.commons.collections4.map.ReferenceIdentityMapTest_OE25Dev
+[ERROR] testPurgeValues_1_oe(org.apache.commons.collections4.map.ReferenceIdentityMapTest_OE25Dev)  Time elapsed: 1.268 s  <<< FAILURE!
 junit.framework.AssertionFailedError: Max iterations reached before resource released.
 	at org.apache.commons.collections4.map.ReferenceIdentityMapTest_OE25Dev.testPurgeValues_1_oe(ReferenceIdentityMapTest_OE25Dev.java:772)
 
 [INFO] Running org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev
-[ERROR] Tests run: 128, Failures: 26, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev
-[ERROR] testPutWithSet_3_oe(org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 128, Failures: 26, Errors: 0, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev
+[ERROR] testPutWithSet_3_oe(org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<null> but was:<a>
 	at org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev.testPutWithSet_3_oe(MultiValueMapTest_OE25Dev.java:886)
 
@@ -3994,7 +3994,7 @@ junit.framework.AssertionFailedError: expected:<2> but was:<0>
 junit.framework.AssertionFailedError: expected:<2> but was:<0>
 	at org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev.testPutWithList_5_oe(MultiValueMapTest_OE25Dev.java:865)
 
-[ERROR] testPutAll_KeyCollection_2_oe(org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testPutAll_KeyCollection_2_oe(org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<3> but was:<0>
 	at org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev.testPutAll_KeyCollection_2_oe(MultiValueMapTest_OE25Dev.java:1216)
 
@@ -4071,9 +4071,9 @@ junit.framework.AssertionFailedError: expected:<{}> but was:<{A=[AA, AB, AC]}>
 	at org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev.testRemove_KeyItem_6_oe(MultiValueMapTest_OE25Dev.java:1660)
 
 [INFO] Running org.apache.commons.collections4.map.CaseInsensitiveMapTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.CaseInsensitiveMapTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.CaseInsensitiveMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev
-[ERROR] Tests run: 158, Failures: 44, Errors: 0, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev
+[ERROR] Tests run: 158, Failures: 44, Errors: 0, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev
 [ERROR] testMultiKeyPut_11_oe(org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<1> but was:<0>
 	at org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev.testMultiKeyPut_11_oe(MultiKeyMapTest_OE25Dev.java:2328)
@@ -4110,7 +4110,7 @@ junit.framework.AssertionFailedError: expected:<1> but was:<0>
 junit.framework.AssertionFailedError: expected:<4G> but was:<null>
 	at org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev.testMultiKeyPut_21_oe(MultiKeyMapTest_OE25Dev.java:2679)
 
-[ERROR] testMultiKeyPut_22_oe(org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testMultiKeyPut_22_oe(org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<true> but was:<false>
 	at org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev.testMultiKeyPut_22_oe(MultiKeyMapTest_OE25Dev.java:2721)
 
@@ -4118,7 +4118,7 @@ junit.framework.AssertionFailedError: expected:<true> but was:<false>
 junit.framework.AssertionFailedError: expected:<true> but was:<false>
 	at org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev.testMultiKeyPut_23_oe(MultiKeyMapTest_OE25Dev.java:2764)
 
-[ERROR] testMultiKeyPut_24_oe(org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testMultiKeyPut_24_oe(org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<4G> but was:<null>
 	at org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev.testMultiKeyPut_24_oe(MultiKeyMapTest_OE25Dev.java:2808)
 
@@ -4134,7 +4134,7 @@ junit.framework.AssertionFailedError: expected:<true> but was:<false>
 junit.framework.AssertionFailedError: expected:<1> but was:<0>
 	at org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev.testMultiKeyPut_29_oe(MultiKeyMapTest_OE25Dev.java:3047)
 
-[ERROR] testMultiKeyPut_30_oe(org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testMultiKeyPut_30_oe(org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<5J> but was:<null>
 	at org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev.testMultiKeyPut_30_oe(MultiKeyMapTest_OE25Dev.java:3099)
 
@@ -4198,7 +4198,7 @@ junit.framework.AssertionFailedError: expected:<11> but was:<12>
 junit.framework.AssertionFailedError: expected:<null> but was:<2A>
 	at org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev.testMultiKeyRemove_5_oe(MultiKeyMapTest_OE25Dev.java:3656)
 
-[ERROR] testMultiKeyRemove_6_oe(org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testMultiKeyRemove_6_oe(org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<false> but was:<true>
 	at org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev.testMultiKeyRemove_6_oe(MultiKeyMapTest_OE25Dev.java:3680)
 
@@ -4253,14 +4253,14 @@ junit.framework.AssertionFailedError: expected:<false> but was:<true>
 [INFO] Running org.apache.commons.collections4.map.UnmodifiableSortedMapTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.UnmodifiableSortedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.PassiveExpiringMapTest_OE25Dev
-[INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.PassiveExpiringMapTest_OE25Dev
+[INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.map.PassiveExpiringMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.LinkedMapTest_OE25Dev
-[ERROR] Tests run: 28, Failures: 11, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.collections4.map.LinkedMapTest_OE25Dev
+[ERROR] Tests run: 28, Failures: 11, Errors: 0, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in org.apache.commons.collections4.map.LinkedMapTest_OE25Dev
 [ERROR] testInsertionOrder_10_oe(org.apache.commons.collections4.map.LinkedMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected same:<all> was not:<again>
 	at org.apache.commons.collections4.map.LinkedMapTest_OE25Dev.testInsertionOrder_10_oe(LinkedMapTest_OE25Dev.java:421)
 
-[ERROR] testInsertionOrder_12_oe(org.apache.commons.collections4.map.LinkedMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testInsertionOrder_12_oe(org.apache.commons.collections4.map.LinkedMapTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected same:<barv> was not:<blahv>
 	at org.apache.commons.collections4.map.LinkedMapTest_OE25Dev.testInsertionOrder_12_oe(LinkedMapTest_OE25Dev.java:496)
 
@@ -4288,11 +4288,11 @@ junit.framework.AssertionFailedError: expected same:<all> was not:<again>
 junit.framework.AssertionFailedError: expected same:<foov> was not:<blahv>
 	at org.apache.commons.collections4.map.LinkedMapTest_OE25Dev.testInsertionOrder_8_oe(LinkedMapTest_OE25Dev.java:352)
 
-[ERROR] testRemoveByIndex_1_oe(org.apache.commons.collections4.map.LinkedMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testRemoveByIndex_1_oe(org.apache.commons.collections4.map.LinkedMapTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<foov> but was:<barv>
 	at org.apache.commons.collections4.map.LinkedMapTest_OE25Dev.testRemoveByIndex_1_oe(LinkedMapTest_OE25Dev.java:778)
 
-[ERROR] testRemoveByIndex_2_oe(org.apache.commons.collections4.map.LinkedMapTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testRemoveByIndex_2_oe(org.apache.commons.collections4.map.LinkedMapTest_OE25Dev)  Time elapsed: 0.008 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<false> but was:<true>
 	at org.apache.commons.collections4.map.LinkedMapTest_OE25Dev.testRemoveByIndex_2_oe(LinkedMapTest_OE25Dev.java:810)
 
@@ -4301,19 +4301,19 @@ junit.framework.AssertionFailedError: expected same:<all> was not:<again>
 	at org.apache.commons.collections4.map.LinkedMapTest_OE25Dev.testReset_2_oe(LinkedMapTest_OE25Dev.java:157)
 
 [INFO] Running org.apache.commons.collections4.map.UnmodifiableOrderedMapTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.UnmodifiableOrderedMapTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.UnmodifiableOrderedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.LazySortedMapTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.LazySortedMapTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.LazySortedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.TransformedSortedMapTest_OE25Dev
-[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.map.TransformedSortedMapTest_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.TransformedSortedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.SingletonMapTest_OE25Dev
 [INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.SingletonMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.LazyMapTest_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.LazyMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.StaticBucketMapTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.map.StaticBucketMapTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.map.StaticBucketMapTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -5312,8 +5312,8 @@ junit.framework.AssertionFailedError: expected same:<all> was not:<again>
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  37.398 s
-[INFO] Finished at: 2026-02-06T11:44:21-06:00
+[INFO] Total time:  35.232 s
+[INFO] Finished at: 2026-02-06T14:02:28-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.1:test (default-test) on project commons-collections4: There are test failures.
 [ERROR] 

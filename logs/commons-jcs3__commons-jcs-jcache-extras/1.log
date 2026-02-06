@@ -31,7 +31,7 @@
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-jcache-extras ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-extras' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-extras
-[INFO] Storing buildNumber: 81e83cc892f7970d0aa3c638bf29a38d05c4eb42 at timestamp: 1770399718093
+[INFO] Storing buildNumber: f446ed1303a240821309b125a7f330fb69105734 at timestamp: 1770408013162
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -78,23 +78,23 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.625 s - in org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.387 s - in org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.jcache.extras.loader.CompositeCacheLoaderTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 s - in org.apache.commons.jcs3.jcache.extras.loader.CompositeCacheLoaderTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s - in org.apache.commons.jcs3.jcache.extras.loader.CompositeCacheLoaderTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev
-[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 8.561 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev
-[ERROR] checkLoadAll_3_oe(org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev)  Time elapsed: 2.229 s  <<< FAILURE!
+[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 8.511 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev
+[ERROR] checkLoadAll_3_oe(org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev)  Time elapsed: 2.118 s  <<< FAILURE!
 java.lang.AssertionError: expected:<2> but was:<1>
 	at org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev.checkLoadAll_3_oe(CacheLoaderAdapterTest_OE25Dev.java:86)
 
-[ERROR] checkLoadAll_6_oe(org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev)  Time elapsed: 2.071 s  <<< FAILURE!
+[ERROR] checkLoadAll_6_oe(org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev)  Time elapsed: 2.116 s  <<< FAILURE!
 java.lang.AssertionError: expected:<2> but was:<1>
 	at org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev.checkLoadAll_6_oe(CacheLoaderAdapterTest_OE25Dev.java:161)
 
 [INFO] Running org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapterTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 s - in org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapterTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.113 s - in org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapterTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriterTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.104 s - in org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriterTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s - in org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriterTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -107,8 +107,8 @@ java.lang.AssertionError: expected:<2> but was:<1>
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  26.347 s
-[INFO] Finished at: 2026-02-06T11:42:19-06:00
+[INFO] Total time:  26.780 s
+[INFO] Finished at: 2026-02-06T14:00:35-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project commons-jcs3-jcache-extras: There are test failures.
 [ERROR] 

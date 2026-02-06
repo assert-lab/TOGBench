@@ -25,7 +25,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ bcel ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel
-[INFO] Storing buildNumber: 81e83cc892f7970d0aa3c638bf29a38d05c4eb42 at timestamp: 1770399755670
+[INFO] Storing buildNumber: f446ed1303a240821309b125a7f330fb69105734 at timestamp: 1770408052890
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -69,17 +69,17 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
-[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.235 s <<< FAILURE! - in org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
-[ERROR] testsetInstructionnotI_1_oe(org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev)  Time elapsed: 0.082 s  <<< FAILURE!
+[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.232 s <<< FAILURE! - in org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
+[ERROR] testsetInstructionnotI_1_oe(org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev)  Time elapsed: 0.131 s  <<< FAILURE!
 java.lang.AssertionError: Expected exception: org.apache.bcel.generic.ClassGenException
 
 [ERROR] testsetInstructionNull_1_oe(org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: Expected exception: org.apache.bcel.generic.ClassGenException
 
 [INFO] Running org.apache.bcel.generic.TypeTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 s - in org.apache.bcel.generic.TypeTestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.bcel.generic.TypeTestCase_OE25Dev
 [INFO] Running org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
-[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
+[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
 [ERROR] testsetInstructionNull_1_oe(org.apache.bcel.generic.BranchHandleTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: Expected exception: org.apache.bcel.generic.ClassGenException
 
@@ -87,28 +87,28 @@ java.lang.AssertionError: Expected exception: org.apache.bcel.generic.ClassGenEx
 java.lang.AssertionError: Expected exception: org.apache.bcel.generic.ClassGenException
 
 [INFO] Running org.apache.bcel.generic.AnnotationGenTestCase_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.166 s - in org.apache.bcel.generic.AnnotationGenTestCase_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.apache.bcel.generic.AnnotationGenTestCase_OE25Dev
 [INFO] Running org.apache.bcel.generic.GeneratingAnnotatedClassesTestCase_OE25Dev
-[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.539 s - in org.apache.bcel.generic.GeneratingAnnotatedClassesTestCase_OE25Dev
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.367 s - in org.apache.bcel.generic.GeneratingAnnotatedClassesTestCase_OE25Dev
 [INFO] Running org.apache.bcel.generic.MethodGenTestCase_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.bcel.generic.MethodGenTestCase_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.bcel.generic.MethodGenTestCase_OE25Dev
 [INFO] Running org.apache.bcel.generic.FieldAnnotationsTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.generic.FieldAnnotationsTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.bcel.generic.FieldAnnotationsTestCase_OE25Dev
 [INFO] Running org.apache.bcel.EnclosingMethodAttributeTestCase_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.EnclosingMethodAttributeTestCase_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.bcel.EnclosingMethodAttributeTestCase_OE25Dev
 [INFO] Running org.apache.bcel.AnonymousClassTestCase_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.bcel.AnonymousClassTestCase_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.AnonymousClassTestCase_OE25Dev
 [INFO] Running org.apache.bcel.AnnotationAccessFlagTestCase_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.AnnotationAccessFlagTestCase_OE25Dev
 [INFO] Running org.apache.bcel.PLSETestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.bcel.PLSETestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.bcel.PLSETestCase_OE25Dev
 [INFO] Running org.apache.bcel.ElementValueGenTestCase_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.bcel.ElementValueGenTestCase_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.bcel.ElementValueGenTestCase_OE25Dev
 [INFO] Running org.apache.bcel.EnumAccessFlagTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.bcel.EnumAccessFlagTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.EnumAccessFlagTestCase_OE25Dev
 [INFO] Running org.apache.bcel.classfile.UtilityTestCase_OE25Dev
-[ERROR] Tests run: 13, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! - in org.apache.bcel.classfile.UtilityTestCase_OE25Dev
-[ERROR] testSignatureToStringWithGenerics_10_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0.008 s  <<< FAILURE!
+[ERROR] Tests run: 13, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.apache.bcel.classfile.UtilityTestCase_OE25Dev
+[ERROR] testSignatureToStringWithGenerics_10_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.ComparisonFailure: type parameters signature expected:<<K1 extends K,[V1 extends V>()com.google.common.cache.Weigher<K1,]V1>> but was:<<K1 extends K,[ V1 extends V>()com.google.common.cache.Weigher<K1, ]V1>>
 	at org.apache.bcel.classfile.UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_10_oe(UtilityTestCase_OE25Dev.java:138)
 
@@ -116,11 +116,11 @@ junit.framework.ComparisonFailure: type parameters signature expected:<<K1 exten
 junit.framework.ComparisonFailure: type parameters signature expected:<<K1 extends K,[V1 extends V>(com.google.common.cache.Weigher<? super K1,? super V1>)com.google.common.cache.CacheBuilder<K1,]V1>> but was:<<K1 extends K,[ V1 extends V>(com.google.common.cache.Weigher<? super K1, ? super V1>)com.google.common.cache.CacheBuilder<K1, ]V1>>
 	at org.apache.bcel.classfile.UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_11_oe(UtilityTestCase_OE25Dev.java:157)
 
-[ERROR] testSignatureToStringWithGenerics_12_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testSignatureToStringWithGenerics_12_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.ComparisonFailure: class signature expected:<...ds java.lang.Object,[E extends java.lang.Object> extends java.lang.Object implements com.google.common.graph.Network<N,]E>> but was:<...ds java.lang.Object,[ E extends java.lang.Object> extends java.lang.Object implements com.google.common.graph.Network<N, ]E>>
 	at org.apache.bcel.classfile.UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_12_oe(UtilityTestCase_OE25Dev.java:177)
 
-[ERROR] testSignatureToStringWithGenerics_13_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testSignatureToStringWithGenerics_13_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0.007 s  <<< FAILURE!
 junit.framework.ComparisonFailure: class signature expected:<<K extends Object,[]V extends Object> ex...> but was:<<K extends Object,[ ]V extends Object> ex...>
 	at org.apache.bcel.classfile.UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_13_oe(UtilityTestCase_OE25Dev.java:198)
 
@@ -128,7 +128,7 @@ junit.framework.ComparisonFailure: class signature expected:<<K extends Object,[
 junit.framework.ComparisonFailure: generic signature expected:<java.util.Map<X,[]java.util.List<Y>>> but was:<java.util.Map<X,[ ]java.util.List<Y>>>
 	at org.apache.bcel.classfile.UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_1_oe(UtilityTestCase_OE25Dev.java:26)
 
-[ERROR] testSignatureToStringWithGenerics_4_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0.006 s  <<< FAILURE!
+[ERROR] testSignatureToStringWithGenerics_4_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.ComparisonFailure: generic signature expected:<...truct.image.GrayU8>,[]boofcv.struct.image....> but was:<...truct.image.GrayU8>,[ ]boofcv.struct.image....>
 	at org.apache.bcel.classfile.UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_4_oe(UtilityTestCase_OE25Dev.java:49)
 
@@ -145,28 +145,28 @@ junit.framework.ComparisonFailure: type parameters signature expected:<...io.Byt
 	at org.apache.bcel.classfile.UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_8_oe(UtilityTestCase_OE25Dev.java:103)
 
 [INFO] Running org.apache.bcel.classfile.ConstantPoolTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.bcel.classfile.ConstantPoolTestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.classfile.ConstantPoolTestCase_OE25Dev
 [INFO] Running org.apache.bcel.util.BCELifierTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.bcel.util.BCELifierTestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.bcel.util.BCELifierTestCase_OE25Dev
 [INFO] Running org.apache.bcel.util.Class2HTMLTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.bcel.util.Class2HTMLTestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.util.Class2HTMLTestCase_OE25Dev
 [INFO] Running org.apache.bcel.util.InstructionFinderTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.bcel.util.InstructionFinderTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in org.apache.bcel.util.InstructionFinderTest_OE25Dev
 [INFO] Running org.apache.bcel.util.ClassPathTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.util.ClassPathTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.bcel.util.ClassPathTestCase_OE25Dev
 [INFO] Running org.apache.bcel.util.ModularRuntimeImageTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in org.apache.bcel.util.ModularRuntimeImageTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in org.apache.bcel.util.ModularRuntimeImageTestCase_OE25Dev
 [INFO] Running org.apache.bcel.CounterVisitorTestCase_OE25Dev
-[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.bcel.CounterVisitorTestCase_OE25Dev
+[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.apache.bcel.CounterVisitorTestCase_OE25Dev
 [INFO] Running org.apache.bcel.AnnotationDefaultAttributeTestCase_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.AnnotationDefaultAttributeTestCase_OE25Dev
 [INFO] Running org.apache.bcel.InstructionFinderTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.bcel.InstructionFinderTestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.InstructionFinderTestCase_OE25Dev
 [INFO] Running org.apache.bcel.verifier.VerifierTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s - in org.apache.bcel.verifier.VerifierTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.bcel.verifier.VerifierTestCase_OE25Dev
 [INFO] Running org.apache.bcel.verifier.VerifierArrayAccessTestCase_OE25Dev
-[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.129 s <<< FAILURE! - in org.apache.bcel.verifier.VerifierArrayAccessTestCase_OE25Dev
-[ERROR] testValidArrayAccess_2_oe_2_oe(org.apache.bcel.verifier.VerifierArrayAccessTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.086 s <<< FAILURE! - in org.apache.bcel.verifier.VerifierArrayAccessTestCase_OE25Dev
+[ERROR] testValidArrayAccess_2_oe_2_oe(org.apache.bcel.verifier.VerifierArrayAccessTestCase_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
 junit.framework.AssertionFailedError: Verification of an arraystore instruction on an array that is not compatible with the stored element must pass.
 	at org.apache.bcel.verifier.VerifierArrayAccessTestCase_OE25Dev.testValidArrayAccess_2_oe_2_oe(VerifierArrayAccessTestCase_OE25Dev.java:55)
 
@@ -194,8 +194,8 @@ junit.framework.AssertionFailedError: Verification of an arraystore instruction 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  21.020 s
-[INFO] Finished at: 2026-02-06T11:42:51-06:00
+[INFO] Total time:  19.699 s
+[INFO] Finished at: 2026-02-06T14:01:08-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project bcel: There are test failures.
 [ERROR] 

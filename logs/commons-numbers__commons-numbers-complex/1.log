@@ -34,7 +34,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-complex ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex
-[INFO] Storing buildNumber: 81e83cc892f7970d0aa3c638bf29a38d05c4eb42 at timestamp: 1770399802131
+[INFO] Storing buildNumber: f446ed1303a240821309b125a7f330fb69105734 at timestamp: 1770408090951
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -74,7 +74,7 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.complex.ComplexTest_OE25Dev
-[INFO] Tests run: 418, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.357 s - in org.apache.commons.numbers.complex.ComplexTest_OE25Dev
+[INFO] Tests run: 418, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.51 s - in org.apache.commons.numbers.complex.ComplexTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.complex.CStandardTest_OE25Dev
 [INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.complex.CStandardTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
@@ -87,6 +87,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  10.829 s
-[INFO] Finished at: 2026-02-06T11:43:30-06:00
+[INFO] Total time:  10.456 s
+[INFO] Finished at: 2026-02-06T14:01:39-06:00
 [INFO] ------------------------------------------------------------------------

@@ -26,7 +26,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-fraction ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction
-[INFO] Storing buildNumber: 81e83cc892f7970d0aa3c638bf29a38d05c4eb42 at timestamp: 1770399811052
+[INFO] Storing buildNumber: f446ed1303a240821309b125a7f330fb69105734 at timestamp: 1770408099759
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -66,21 +66,21 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.fraction.FractionTest_OE25Dev
-[ERROR] Tests run: 129, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.323 s <<< FAILURE! - in org.apache.commons.numbers.fraction.FractionTest_OE25Dev
-[ERROR] testParse_1_oe  Time elapsed: 0.03 s  <<< FAILURE!
+[ERROR] Tests run: 129, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.306 s <<< FAILURE! - in org.apache.commons.numbers.fraction.FractionTest_OE25Dev
+[ERROR] testParse_1_oe  Time elapsed: 0.023 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <-1 / 2> but was: <1 / 2>
 	at org.apache.commons.numbers.fraction.FractionTest_OE25Dev.testParse_1_oe(FractionTest_OE25Dev.java:2308)
 
 [INFO] Running org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
-[ERROR] Tests run: 139, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.669 s <<< FAILURE! - in org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
-[ERROR] testParse_1_oe  Time elapsed: 0.006 s  <<< FAILURE!
+[ERROR] Tests run: 139, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.603 s <<< FAILURE! - in org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
+[ERROR] testParse_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <-1 / 2> but was: <1 / 2>
 	at org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev.testParse_1_oe(BigFractionTest_OE25Dev.java:2172)
 
 [INFO] Running org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
-[INFO] Tests run: 251, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.166 s - in org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
+[INFO] Tests run: 251, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.207 s - in org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -93,8 +93,8 @@ org.opentest4j.AssertionFailedError: expected: <-1 / 2> but was: <1 / 2>
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.438 s
-[INFO] Finished at: 2026-02-06T11:43:41-06:00
+[INFO] Total time:  11.790 s
+[INFO] Finished at: 2026-02-06T14:01:49-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-numbers-fraction: There are test failures.
 [ERROR] 

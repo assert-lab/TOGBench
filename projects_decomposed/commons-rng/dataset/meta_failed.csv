@@ -1,3 +1,0 @@
-id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
-rng_78_1,commons-rng,ProvidersCommonParametricTest,testRestoreForeignState_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest.java,,,,assert,unknown,standard,assertThrows
-rng_141_1,commons-rng,JDKRandomTest,testRestoreWithInvalidClass_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/source32/JDKRandomTest.java,,,,assert,unknown,standard,assertThrows
