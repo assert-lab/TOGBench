@@ -39,8 +39,9 @@ python3 scripts_trial/try_catch_filter.py
 ./scripts_trial/project_fixes/commons-net.sh
 ./scripts_trial/project_fixes/commons-configuration2.sh
 ./scripts_trial/project_fixes/http-request.sh
+./scripts_trial/project_fixes/commons-lang3.sh
+./scripts_trial/project_fixes/commons-jexl3.sh
 ./scripts_trial/project_fixes/commons-beanutils.sh
-
 ./scripts_trial/project_fixes/commons-dbutils.sh
 
 # first run to keep all logs - error and running
@@ -49,7 +50,7 @@ python3 scripts_trial/3_rebuild_tests.py
 # run each projects' fix.sh before running mvn test
 ./scripts_trial/project_fixes.sh
 
-./scripts_trial/clean_loop.sh > compile_error_test_files.log
+# ./scripts_trial/clean_loop.sh > compile_error_test_files.log
 
 # python3 scripts_trial/filter_running_tests.py
 
@@ -60,7 +61,7 @@ python3 scripts_trial/3_rebuild_tests.py
 
 # ./scripts_trial/clean_loop.sh
 
-python3 scripts_trial/test_count.py
+# python3 scripts_trial/test_count.py
 
 # python3 scripts_trial/filter_by_logs.py
 

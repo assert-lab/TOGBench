@@ -9,6 +9,8 @@ meta_path = dataset / "meta.csv"
 inputs_path = dataset / "inputs.csv"
 
 fail_list = [
+
+
 "ValidateTest.shouldThrowExceptionWithDoubleInsertedIntoTemplateMessageForFalseExpression_1_oe",
 "ValidateTest.shouldThrowExceptionWithDoubleInsertedIntoTemplateMessageForFalseExpression_2_oe",
 "ValidateTest.shouldReturnTheSameInstance_1_oe",
@@ -59,6 +61,47 @@ fail_list = [
 "ComparableUtilsTest.equalTo_returns_false_1_oe",
 "ComparableUtilsTest.greaterThan_returns_false_1_oe",
 "ComparableUtilsTest.lessThanOrEqualTo_returns_true_1_oe",
+
+"FailableFunctionsTest.*",
+
+"SerializationUtilsTest.testSerializeIOException_2_oe",
+"SerializationUtilsTest.testDeserializeStreamClassNotFound_2_oe",
+
+"EqualsBuilderTest.testReflectionHierarchyEquals*",
+"CharRangeTest.testContainsNullArg_2_oe",
+"StreamsTest.testSimpleStreamMapFailing_2_oe",
+
+"MultiBackgroundInitializerTest.testInitializeRuntimeEx_2_oe",
+"ConcurrentUtilsTest.testExtractCauseError_2_oe",
+"ConcurrentUtilsTest.testExtractCauseUncheckedError_2_oe",
+"ConcurrentUtilsTest.testExtractCauseUncheckedUncheckedException_2_oe",
+"ConcurrentUtilsTest.testHandleCauseError_2_oe",
+"ConcurrentUtilsTest.testHandleCauseUncheckedException_2_oe",
+"ConcurrentUtilsTest.testHandleCauseUncheckedChecked_2_oe",
+"ConcurrentUtilsTest.testHandleCauseChecked_2_oe",
+"ConcurrentUtilsTest.testHandleCauseUncheckedError_2_oe",
+"ConcurrentUtilsTest.testHandleCauseUncheckedUncheckedException_2_oe",
+"ConcurrentUtilsTest.testInitializeUncheckedEx_2_oe",
+"ConcurrentUtilsTest.testCreateIfAbsentUncheckedException_2_oe",
+"BackgroundInitializerTest.testGetRuntimeException_2_oe",
+"BackgroundInitializerTest.testGetCheckedException_2_oe",
+"ArrayUtilsTest.testIndirectEmptyArrayCreation_1_oe",
+
+"ObjectUtilsTest.testCloneOfUncloneable_2_oe",
+"ObjectUtilsTest.testPossibleCloneOfUncloneable_2_oe",
+"ExceptionUtilsTest.testCatchTechniques*",
+"ExceptionUtilsTest.testThrow_2_oe",
+"ExceptionUtilsTest.testWrapAndUnwrapCheckedException_2_oe",
+"ExceptionUtilsTest.testWrapAndUnwrapError_2_oe",
+"ExceptionUtilsTest.testWrapAndUnwrapRuntimeException_2_oe",
+"ExceptionUtilsTest.testWrapAndUnwrapThrowable_2_oe",
+"EventUtilsTest.testAddEventListenerWithNoAddMethod_2_oe",
+"EventUtilsTest.testAddEventListenerWithPrivateAddMethod_2_oe",
+
+"StreamsTest.testSimpleStreamMapFailing_2_oe",
+
+"ArrayUtilsAddTest.*",
+"FunctionsTest.*"
 
 ]
 
